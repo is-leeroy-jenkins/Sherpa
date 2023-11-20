@@ -67,12 +67,12 @@ namespace BudgetExecution
         public void InitializeComponent( )
         {
             components = new System.ComponentModel.Container( );
-            var config1 = new Syncfusion.Windows.Forms.Edit.Implementation.Config.Config( );
-            var dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle( );
-            var dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle( );
-            var dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle( );
-            var dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle( );
-            var dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle( );
+            var config2 = new Syncfusion.Windows.Forms.Edit.Implementation.Config.Config( );
+            var dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle( );
+            var dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle( );
+            var dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle( );
+            var dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle( );
+            var dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle( );
             var resources = new System.ComponentModel.ComponentResourceManager( typeof( SqlDataForm ) );
             HeaderTable = new System.Windows.Forms.TableLayoutPanel( );
             PictureBox = new Picture( );
@@ -132,7 +132,7 @@ namespace BudgetExecution
             ToolStrip = new ToolStrip( );
             CloseButton = new ToolStripButton( );
             Separator1 = new ToolSeparator( );
-            NavigationLabel = new ToolStripLabel( );
+            StatusLabel = new ToolStripLabel( );
             Separator2 = new ToolSeparator( );
             FirstButton = new ToolStripButton( );
             Separator3 = new ToolSeparator( );
@@ -170,17 +170,17 @@ namespace BudgetExecution
             Separator10 = new ToolSeparator( );
             Timer = new System.Windows.Forms.Timer( components );
             HeaderTable.SuspendLayout( );
-            ( (System.ComponentModel.ISupportInitialize) PictureBox  ).BeginInit( );
-            ( (System.ComponentModel.ISupportInitialize) TabControl  ).BeginInit( );
+            ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
+            ( (System.ComponentModel.ISupportInitialize)TabControl ).BeginInit( );
             TabControl.SuspendLayout( );
             SqlTab.SuspendLayout( );
             EditorTable.SuspendLayout( );
             EditorPanel.SuspendLayout( );
-            ( (System.ComponentModel.ISupportInitialize) Editor  ).BeginInit( );
+            ( (System.ComponentModel.ISupportInitialize)Editor ).BeginInit( );
             DataTab.SuspendLayout( );
             DataGridTable.SuspendLayout( );
             DataGridPanel.SuspendLayout( );
-            ( (System.ComponentModel.ISupportInitialize) DataGrid  ).BeginInit( );
+            ( (System.ComponentModel.ISupportInitialize)DataGrid ).BeginInit( );
             LookupTab.SuspendLayout( );
             ColumnTable.SuspendLayout( );
             ColumnPanel.SuspendLayout( );
@@ -200,7 +200,7 @@ namespace BudgetExecution
             CommandPanel.SuspendLayout( );
             SqlStatementTable.SuspendLayout( );
             TextPanel.SuspendLayout( );
-            ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
+            ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
             ToolStrip.SuspendLayout( );
             SuspendLayout( );
             // 
@@ -262,7 +262,7 @@ namespace BudgetExecution
             // ToolTip
             // 
             ToolTip.AutoPopDelay = 5000;
-            ToolTip.BackColor = System.Drawing.Color.FromArgb(   5  ,   5  ,   5   );
+            ToolTip.BackColor = System.Drawing.Color.FromArgb( 5, 5, 5 );
             ToolTip.BindingSource = null;
             ToolTip.BorderColor = System.Drawing.SystemColors.Highlight;
             ToolTip.ForeColor = System.Drawing.Color.White;
@@ -281,48 +281,48 @@ namespace BudgetExecution
             // 
             // TabControl
             // 
-            TabControl.ActiveTabColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            TabControl.ActiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.ActiveTabFont = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            TabControl.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            TabControl.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.BeforeTouchSize = new System.Drawing.Size( 951, 587 );
             TabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             TabControl.BorderWidth = 1;
             TabControl.CanOverrideStyle = true;
-            TabControl.CloseButtonBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            TabControl.CloseButtonBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.Controls.Add( SqlTab );
             TabControl.Controls.Add( DataTab );
             TabControl.Controls.Add( LookupTab );
             TabControl.Controls.Add( SchemaTab );
             TabControl.FixedSingleBorderColor = System.Drawing.Color.Transparent;
             TabControl.FocusOnTabClick = false;
-            TabControl.InactiveCloseButtonForeColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            TabControl.InactiveTabColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            TabControl.InactiveCloseButtonForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.InactiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.ItemSize = new System.Drawing.Size( 158, 20 );
             TabControl.Location = new System.Drawing.Point( 0, 32 );
             TabControl.Margin = new System.Windows.Forms.Padding( 1 );
             TabControl.Name = "TabControl";
             TabControl.Size = new System.Drawing.Size( 951, 587 );
             TabControl.TabIndex = 13;
-            TabControl.TabPanelBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            TabControl.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.TabStyle = typeof( Syncfusion.Windows.Forms.Tools.TabRendererMetro );
             TabControl.ThemeName = "TabRendererMetro";
-            TabControl.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            TabControl.ThemeStyle.DisabledBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            TabControl.ThemeStyle.DisabledTabPanelBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            TabControl.ThemeStyle.EditableTabStyle.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            TabControl.ThemeStyle.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.ThemeStyle.DisabledBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.ThemeStyle.DisabledTabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.ThemeStyle.EditableTabStyle.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.ThemeStyle.EditableTabStyle.ForeColor = System.Drawing.Color.LightSteelBlue;
             TabControl.ThemeStyle.PrimitiveButtonStyle.DisabledNextPageImage = null;
-            TabControl.ThemeStyle.TabPanelBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            TabControl.ThemeStyle.TabStyle.ActiveBackColor = System.Drawing.Color.FromArgb(   22  ,   39  ,   70   );
-            TabControl.ThemeStyle.TabStyle.ActiveBorderColor = System.Drawing.Color.FromArgb(   22  ,   39  ,   70   );
-            TabControl.ThemeStyle.TabStyle.ActiveCloseButtonBackColor = System.Drawing.Color.FromArgb(   22  ,   39  ,   70   );
-            TabControl.ThemeStyle.TabStyle.ActiveCloseButtonForeColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            TabControl.ThemeStyle.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.ThemeStyle.TabStyle.ActiveBackColor = System.Drawing.Color.FromArgb( 22, 39, 70 );
+            TabControl.ThemeStyle.TabStyle.ActiveBorderColor = System.Drawing.Color.FromArgb( 22, 39, 70 );
+            TabControl.ThemeStyle.TabStyle.ActiveCloseButtonBackColor = System.Drawing.Color.FromArgb( 22, 39, 70 );
+            TabControl.ThemeStyle.TabStyle.ActiveCloseButtonForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.ThemeStyle.TabStyle.ActiveForeColor = System.Drawing.Color.White;
-            TabControl.ThemeStyle.TabStyle.InactiveBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            TabControl.ThemeStyle.TabStyle.InactiveBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             // 
             // SqlTab
             // 
-            SqlTab.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            SqlTab.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             SqlTab.Controls.Add( EditorTable );
             SqlTab.Image = null;
             SqlTab.ImageSize = new System.Drawing.Size( 16, 16 );
@@ -332,14 +332,14 @@ namespace BudgetExecution
             SqlTab.Padding = new System.Windows.Forms.Padding( 1 );
             SqlTab.ShowCloseButton = true;
             SqlTab.Size = new System.Drawing.Size( 951, 568 );
-            SqlTab.TabBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            SqlTab.TabForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            SqlTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            SqlTab.TabForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             SqlTab.TabIndex = 8;
             SqlTab.ThemesEnabled = false;
             // 
             // EditorTable
             // 
-            EditorTable.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            EditorTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             EditorTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             EditorTable.CaptionText = "SQL Editor";
             EditorTable.ColumnCount = 1;
@@ -357,11 +357,11 @@ namespace BudgetExecution
             // 
             // EditorPanel
             // 
-            EditorPanel.Anchor =     System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right  ;
+            EditorPanel.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             EditorPanel.BackColor = System.Drawing.Color.Transparent;
-            EditorPanel.BackgroundColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            EditorPanel.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             EditorPanel.BindingSource = null;
-            EditorPanel.BorderColor = System.Drawing.Color.FromArgb(   65  ,   65  ,   65   );
+            EditorPanel.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
             EditorPanel.BorderThickness = 1;
             EditorPanel.Children = null;
             EditorPanel.Controls.Add( Editor );
@@ -385,29 +385,29 @@ namespace BudgetExecution
             // 
             Editor.AllowZoom = false;
             Editor.AlwaysShowScrollers = true;
-            Editor.Anchor =     System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right  ;
+            Editor.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             Editor.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             Editor.BackColor = System.Drawing.SystemColors.ControlLight;
-            Editor.BookmarkTooltipBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            Editor.BookmarkTooltipBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             Editor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             Editor.CanOverrideStyle = true;
-            Editor.ChangedLinesMarkingLineColor = System.Drawing.Color.FromArgb(   255  ,   238  ,   98   );
+            Editor.ChangedLinesMarkingLineColor = System.Drawing.Color.FromArgb( 255, 238, 98 );
             Editor.CodeSnipptSize = new System.Drawing.Size( 100, 100 );
             Editor.ColumnGuidesMeasuringFont = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            Editor.Configurator = config1;
+            Editor.Configurator = config2;
             Editor.ContextChoiceBackColor = System.Drawing.SystemColors.ControlLight;
-            Editor.ContextChoiceBorderColor = System.Drawing.Color.FromArgb(   233  ,   166  ,   50   );
-            Editor.ContextPromptBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            Editor.ContextTooltipBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            Editor.CurrentLineHighlightColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            Editor.ContextChoiceBorderColor = System.Drawing.Color.FromArgb( 233, 166, 50 );
+            Editor.ContextPromptBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            Editor.ContextTooltipBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            Editor.CurrentLineHighlightColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             Editor.EndOfLineBackColor = System.Drawing.SystemColors.ControlLight;
             Editor.EndOfLineForeColor = System.Drawing.SystemColors.ControlLight;
             Editor.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             Editor.ForeColor = System.Drawing.Color.Black;
             Editor.HighlightCurrentLine = true;
-            Editor.IndentationBlockBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            Editor.IndentationBlockBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             Editor.IndentBlockHighlightingColor = System.Drawing.SystemColors.ActiveCaption;
-            Editor.IndentLineColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            Editor.IndentLineColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             Editor.IndicatorMarginBackColor = System.Drawing.SystemColors.ControlLight;
             Editor.LineNumbersColor = System.Drawing.Color.Black;
             Editor.LineNumbersFont = new System.Drawing.Font( "Hack", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point );
@@ -459,7 +459,7 @@ namespace BudgetExecution
             // 
             // DataGridTable
             // 
-            DataGridTable.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            DataGridTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataGridTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             DataGridTable.CaptionText = "Data Grid";
             DataGridTable.ColumnCount = 1;
@@ -478,9 +478,9 @@ namespace BudgetExecution
             // DataGridPanel
             // 
             DataGridPanel.BackColor = System.Drawing.Color.Transparent;
-            DataGridPanel.BackgroundColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            DataGridPanel.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataGridPanel.BindingSource = null;
-            DataGridPanel.BorderColor = System.Drawing.Color.FromArgb(   65  ,   65  ,   65   );
+            DataGridPanel.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
             DataGridPanel.BorderThickness = 1;
             DataGridPanel.Children = null;
             DataGridPanel.Controls.Add( DataGrid );
@@ -504,60 +504,60 @@ namespace BudgetExecution
             // DataGrid
             // 
             DataGrid.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(   50  ,   50  ,   50   );
-            dataGridViewCellStyle1.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(   26  ,   79  ,   125   );
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            DataGrid.Anchor =     System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right  ;
-            DataGrid.BackgroundColor = System.Drawing.Color.FromArgb(   45  ,   45  ,   45   );
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb( 50, 50, 50 );
+            dataGridViewCellStyle6.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb( 26, 79, 125 );
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            DataGrid.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            DataGrid.BackgroundColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             DataGrid.BindingSource = null;
             DataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             DataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             DataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(   26  ,   79  ,   125   );
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb( 26, 79, 125 );
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DataGrid.DataFilter = null;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(   45  ,   45  ,   45   );
-            dataGridViewCellStyle3.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(   26  ,   79  ,   125   );
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            DataGrid.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            dataGridViewCellStyle8.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb( 26, 79, 125 );
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            DataGrid.DefaultCellStyle = dataGridViewCellStyle8;
             DataGrid.EnableHeadersVisualStyles = false;
             DataGrid.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            DataGrid.GridColor = System.Drawing.Color.FromArgb(   141  ,   139  ,   138   );
+            DataGrid.GridColor = System.Drawing.Color.FromArgb( 141, 139, 138 );
             DataGrid.HoverText = null;
             DataGrid.Location = new System.Drawing.Point( 22, 19 );
             DataGrid.MultiSelect = false;
             DataGrid.Name = "DataGrid";
             DataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(   50  ,   50  ,   50   );
-            dataGridViewCellStyle4.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            DataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb( 50, 50, 50 );
+            dataGridViewCellStyle9.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            DataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             DataGrid.RowHeadersWidth = 20;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(   45  ,   45  ,   45   );
-            dataGridViewCellStyle5.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(   26  ,   79  ,   125   );
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            DataGrid.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            dataGridViewCellStyle10.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb( 26, 79, 125 );
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
+            DataGrid.RowsDefaultCellStyle = dataGridViewCellStyle10;
             DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             DataGrid.Size = new System.Drawing.Size( 856, 492 );
             DataGrid.TabIndex = 0;
@@ -579,7 +579,7 @@ namespace BudgetExecution
             // 
             // ColumnTable
             // 
-            ColumnTable.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            ColumnTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             ColumnTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             ColumnTable.CaptionText = "Columns";
             ColumnTable.ColumnCount = 1;
@@ -597,11 +597,11 @@ namespace BudgetExecution
             // 
             // ColumnPanel
             // 
-            ColumnPanel.Anchor =     System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right  ;
+            ColumnPanel.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             ColumnPanel.BackColor = System.Drawing.Color.Transparent;
-            ColumnPanel.BackgroundColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            ColumnPanel.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             ColumnPanel.BindingSource = null;
-            ColumnPanel.BorderColor = System.Drawing.Color.FromArgb(   65  ,   65  ,   65   );
+            ColumnPanel.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
             ColumnPanel.BorderThickness = 1;
             ColumnPanel.Children = null;
             ColumnPanel.Controls.Add( ColumnListBox );
@@ -623,15 +623,15 @@ namespace BudgetExecution
             // 
             // ColumnListBox
             // 
-            ColumnListBox.Anchor =     System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right  ;
-            ColumnListBox.BackColor = System.Drawing.Color.FromArgb(   30  ,   30  ,   30   );
+            ColumnListBox.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            ColumnListBox.BackColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
             ColumnListBox.BindingSource = null;
-            ColumnListBox.BorderColor = System.Drawing.Color.FromArgb(   64  ,   64  ,   64   );
+            ColumnListBox.BorderColor = System.Drawing.Color.FromArgb( 64, 64, 64 );
             ColumnListBox.DataFilter = null;
-            ColumnListBox.DisabledBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            ColumnListBox.DisabledForeColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            ColumnListBox.DisabledBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            ColumnListBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             ColumnListBox.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            ColumnListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
+            ColumnListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
             ColumnListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
             ColumnListBox.HoverText = null;
             ColumnListBox.IsDerivedStyle = true;
@@ -643,7 +643,7 @@ namespace BudgetExecution
             ColumnListBox.Padding = new System.Windows.Forms.Padding( 1 );
             ColumnListBox.SelectedIndex = -1;
             ColumnListBox.SelectedItem = null;
-            ColumnListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            ColumnListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             ColumnListBox.SelectedItemColor = System.Drawing.Color.White;
             ColumnListBox.SelectedText = null;
             ColumnListBox.SelectedValue = null;
@@ -660,7 +660,7 @@ namespace BudgetExecution
             // 
             // ValueTable
             // 
-            ValueTable.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            ValueTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             ValueTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             ValueTable.CaptionText = "Values ";
             ValueTable.ColumnCount = 1;
@@ -679,9 +679,9 @@ namespace BudgetExecution
             // ValuePanel
             // 
             ValuePanel.BackColor = System.Drawing.Color.Transparent;
-            ValuePanel.BackgroundColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            ValuePanel.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             ValuePanel.BindingSource = null;
-            ValuePanel.BorderColor = System.Drawing.Color.FromArgb(   65  ,   65  ,   65   );
+            ValuePanel.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
             ValuePanel.BorderThickness = 1;
             ValuePanel.Children = null;
             ValuePanel.Controls.Add( ValueListBox );
@@ -704,14 +704,14 @@ namespace BudgetExecution
             // 
             // ValueListBox
             // 
-            ValueListBox.BackColor = System.Drawing.Color.FromArgb(   30  ,   30  ,   30   );
+            ValueListBox.BackColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
             ValueListBox.BindingSource = null;
-            ValueListBox.BorderColor = System.Drawing.Color.FromArgb(   64  ,   64  ,   64   );
+            ValueListBox.BorderColor = System.Drawing.Color.FromArgb( 64, 64, 64 );
             ValueListBox.DataFilter = null;
-            ValueListBox.DisabledBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            ValueListBox.DisabledForeColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            ValueListBox.DisabledBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            ValueListBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             ValueListBox.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            ValueListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
+            ValueListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
             ValueListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
             ValueListBox.HoverText = null;
             ValueListBox.IsDerivedStyle = true;
@@ -723,7 +723,7 @@ namespace BudgetExecution
             ValueListBox.Padding = new System.Windows.Forms.Padding( 1 );
             ValueListBox.SelectedIndex = -1;
             ValueListBox.SelectedItem = null;
-            ValueListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            ValueListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             ValueListBox.SelectedItemColor = System.Drawing.Color.White;
             ValueListBox.SelectedText = null;
             ValueListBox.SelectedValue = null;
@@ -740,7 +740,7 @@ namespace BudgetExecution
             // 
             // SourceTable
             // 
-            SourceTable.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            SourceTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             SourceTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             SourceTable.CaptionText = "Tables";
             SourceTable.ColumnCount = 1;
@@ -759,9 +759,9 @@ namespace BudgetExecution
             // TablePanel
             // 
             TablePanel.BackColor = System.Drawing.Color.Transparent;
-            TablePanel.BackgroundColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            TablePanel.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TablePanel.BindingSource = null;
-            TablePanel.BorderColor = System.Drawing.Color.FromArgb(   65  ,   65  ,   65   );
+            TablePanel.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
             TablePanel.BorderThickness = 1;
             TablePanel.Children = null;
             TablePanel.Controls.Add( TableListBox );
@@ -784,14 +784,14 @@ namespace BudgetExecution
             // 
             // TableListBox
             // 
-            TableListBox.BackColor = System.Drawing.Color.FromArgb(   30  ,   30  ,   30   );
+            TableListBox.BackColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
             TableListBox.BindingSource = null;
-            TableListBox.BorderColor = System.Drawing.Color.FromArgb(   64  ,   64  ,   64   );
+            TableListBox.BorderColor = System.Drawing.Color.FromArgb( 64, 64, 64 );
             TableListBox.DataFilter = null;
-            TableListBox.DisabledBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            TableListBox.DisabledForeColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            TableListBox.DisabledBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TableListBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TableListBox.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            TableListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
+            TableListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
             TableListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
             TableListBox.HoverText = null;
             TableListBox.IsDerivedStyle = true;
@@ -803,7 +803,7 @@ namespace BudgetExecution
             TableListBox.Padding = new System.Windows.Forms.Padding( 1 );
             TableListBox.SelectedIndex = -1;
             TableListBox.SelectedItem = null;
-            TableListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            TableListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             TableListBox.SelectedItemColor = System.Drawing.Color.White;
             TableListBox.SelectedText = null;
             TableListBox.SelectedValue = null;
@@ -833,7 +833,7 @@ namespace BudgetExecution
             // 
             // SchemaTable
             // 
-            SchemaTable.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            SchemaTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             SchemaTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             SchemaTable.CaptionText = "Column";
             SchemaTable.ColumnCount = 1;
@@ -852,9 +852,9 @@ namespace BudgetExecution
             // SchemaPanel
             // 
             SchemaPanel.BackColor = System.Drawing.Color.Transparent;
-            SchemaPanel.BackgroundColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            SchemaPanel.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             SchemaPanel.BindingSource = null;
-            SchemaPanel.BorderColor = System.Drawing.Color.FromArgb(   64  ,   64  ,   64   );
+            SchemaPanel.BorderColor = System.Drawing.Color.FromArgb( 64, 64, 64 );
             SchemaPanel.BorderThickness = 1;
             SchemaPanel.Children = null;
             SchemaPanel.Controls.Add( DeleteColumnButton );
@@ -889,9 +889,9 @@ namespace BudgetExecution
             DeleteColumnButton.DisabledBorderColor = System.Drawing.Color.Transparent;
             DeleteColumnButton.DisabledForeColor = System.Drawing.Color.Transparent;
             DeleteColumnButton.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            DeleteColumnButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            DeleteColumnButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
-            DeleteColumnButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+            DeleteColumnButton.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            DeleteColumnButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            DeleteColumnButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             DeleteColumnButton.HoverText = "Delete Data Column";
             DeleteColumnButton.HoverTextColor = System.Drawing.Color.White;
             DeleteColumnButton.IsDerivedStyle = true;
@@ -899,11 +899,11 @@ namespace BudgetExecution
             DeleteColumnButton.Margin = new System.Windows.Forms.Padding( 0 );
             DeleteColumnButton.Name = "DeleteColumnButton";
             DeleteColumnButton.NormalBorderColor = System.Drawing.Color.Transparent;
-            DeleteColumnButton.NormalColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
-            DeleteColumnButton.NormalTextColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            DeleteColumnButton.NormalColor = System.Drawing.Color.FromArgb( 27, 27, 27 );
+            DeleteColumnButton.NormalTextColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             DeleteColumnButton.Padding = new System.Windows.Forms.Padding( 1 );
-            DeleteColumnButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            DeleteColumnButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            DeleteColumnButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            DeleteColumnButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             DeleteColumnButton.PressTextColor = System.Drawing.Color.White;
             DeleteColumnButton.Size = new System.Drawing.Size( 78, 26 );
             DeleteColumnButton.Style = MetroSet_UI.Enums.Style.Custom;
@@ -923,9 +923,9 @@ namespace BudgetExecution
             AddColumnButton.DisabledBorderColor = System.Drawing.Color.Transparent;
             AddColumnButton.DisabledForeColor = System.Drawing.Color.Transparent;
             AddColumnButton.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            AddColumnButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            AddColumnButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
-            AddColumnButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+            AddColumnButton.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            AddColumnButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            AddColumnButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             AddColumnButton.HoverText = "Add Data Column";
             AddColumnButton.HoverTextColor = System.Drawing.Color.White;
             AddColumnButton.IsDerivedStyle = true;
@@ -933,11 +933,11 @@ namespace BudgetExecution
             AddColumnButton.Margin = new System.Windows.Forms.Padding( 0 );
             AddColumnButton.Name = "AddColumnButton";
             AddColumnButton.NormalBorderColor = System.Drawing.Color.Transparent;
-            AddColumnButton.NormalColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
-            AddColumnButton.NormalTextColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            AddColumnButton.NormalColor = System.Drawing.Color.FromArgb( 27, 27, 27 );
+            AddColumnButton.NormalTextColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             AddColumnButton.Padding = new System.Windows.Forms.Padding( 1 );
-            AddColumnButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            AddColumnButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            AddColumnButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            AddColumnButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             AddColumnButton.PressTextColor = System.Drawing.Color.White;
             AddColumnButton.Size = new System.Drawing.Size( 78, 26 );
             AddColumnButton.Style = MetroSet_UI.Enums.Style.Custom;
@@ -1000,13 +1000,13 @@ namespace BudgetExecution
             AddColumnTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             AddColumnTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             AddColumnTextBox.BindingSource = null;
-            AddColumnTextBox.BorderColor = System.Drawing.Color.FromArgb(   64  ,   64  ,   64   );
+            AddColumnTextBox.BorderColor = System.Drawing.Color.FromArgb( 64, 64, 64 );
             AddColumnTextBox.DataFilter = null;
             AddColumnTextBox.DisabledBackColor = System.Drawing.Color.Transparent;
             AddColumnTextBox.DisabledBorderColor = System.Drawing.Color.Transparent;
             AddColumnTextBox.DisabledForeColor = System.Drawing.Color.Transparent;
             AddColumnTextBox.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            AddColumnTextBox.HoverColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
+            AddColumnTextBox.HoverColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
             AddColumnTextBox.HoverText = "Enter Column Name";
             AddColumnTextBox.Image = null;
             AddColumnTextBox.IsDerivedStyle = true;
@@ -1031,11 +1031,11 @@ namespace BudgetExecution
             // DataTypeComboBox
             // 
             DataTypeComboBox.AllowDrop = true;
-            DataTypeComboBox.ArrowColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            DataTypeComboBox.ArrowColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             DataTypeComboBox.BackColor = System.Drawing.Color.Transparent;
-            DataTypeComboBox.BackgroundColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            DataTypeComboBox.BackgroundColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             DataTypeComboBox.BindingSource = null;
-            DataTypeComboBox.BorderColor = System.Drawing.Color.FromArgb(   64  ,   64  ,   64   );
+            DataTypeComboBox.BorderColor = System.Drawing.Color.FromArgb( 64, 64, 64 );
             DataTypeComboBox.CausesValidation = false;
             DataTypeComboBox.DataFilter = null;
             DataTypeComboBox.DisabledBackColor = System.Drawing.Color.Transparent;
@@ -1053,7 +1053,7 @@ namespace BudgetExecution
             DataTypeComboBox.ItemHeight = 24;
             DataTypeComboBox.Location = new System.Drawing.Point( 26, 37 );
             DataTypeComboBox.Name = "DataTypeComboBox";
-            DataTypeComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            DataTypeComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             DataTypeComboBox.SelectedItemForeColor = System.Drawing.Color.White;
             DataTypeComboBox.Size = new System.Drawing.Size( 232, 30 );
             DataTypeComboBox.Style = MetroSet_UI.Enums.Style.Custom;
@@ -1065,7 +1065,7 @@ namespace BudgetExecution
             // 
             // headerPanel1
             // 
-            headerPanel1.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            headerPanel1.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             headerPanel1.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             headerPanel1.CaptionText = "Table";
             headerPanel1.ColumnCount = 1;
@@ -1084,9 +1084,9 @@ namespace BudgetExecution
             // layout1
             // 
             layout1.BackColor = System.Drawing.Color.Transparent;
-            layout1.BackgroundColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            layout1.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             layout1.BindingSource = null;
-            layout1.BorderColor = System.Drawing.Color.FromArgb(   64  ,   64  ,   64   );
+            layout1.BorderColor = System.Drawing.Color.FromArgb( 64, 64, 64 );
             layout1.BorderThickness = 1;
             layout1.Children = null;
             layout1.Controls.Add( AddTableLabel );
@@ -1137,7 +1137,7 @@ namespace BudgetExecution
             // 
             // DeleteTableButton
             // 
-            DeleteTableButton.Anchor =     System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right  ;
+            DeleteTableButton.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             DeleteTableButton.BackColor = System.Drawing.Color.Transparent;
             DeleteTableButton.BindingSource = null;
             DeleteTableButton.DataFilter = null;
@@ -1145,9 +1145,9 @@ namespace BudgetExecution
             DeleteTableButton.DisabledBorderColor = System.Drawing.Color.Transparent;
             DeleteTableButton.DisabledForeColor = System.Drawing.Color.Transparent;
             DeleteTableButton.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            DeleteTableButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            DeleteTableButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
-            DeleteTableButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+            DeleteTableButton.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            DeleteTableButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            DeleteTableButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             DeleteTableButton.HoverText = "Delete Data Table";
             DeleteTableButton.HoverTextColor = System.Drawing.Color.White;
             DeleteTableButton.IsDerivedStyle = true;
@@ -1156,10 +1156,10 @@ namespace BudgetExecution
             DeleteTableButton.Name = "DeleteTableButton";
             DeleteTableButton.NormalBorderColor = System.Drawing.Color.Transparent;
             DeleteTableButton.NormalColor = System.Drawing.Color.Transparent;
-            DeleteTableButton.NormalTextColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            DeleteTableButton.NormalTextColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             DeleteTableButton.Padding = new System.Windows.Forms.Padding( 1 );
-            DeleteTableButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            DeleteTableButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            DeleteTableButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            DeleteTableButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             DeleteTableButton.PressTextColor = System.Drawing.Color.White;
             DeleteTableButton.Size = new System.Drawing.Size( 0, 0 );
             DeleteTableButton.Style = MetroSet_UI.Enums.Style.Custom;
@@ -1179,9 +1179,9 @@ namespace BudgetExecution
             AddTableButton.DisabledBorderColor = System.Drawing.Color.Transparent;
             AddTableButton.DisabledForeColor = System.Drawing.Color.Transparent;
             AddTableButton.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            AddTableButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            AddTableButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
-            AddTableButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+            AddTableButton.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            AddTableButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            AddTableButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             AddTableButton.HoverText = "Add Data Table";
             AddTableButton.HoverTextColor = System.Drawing.Color.White;
             AddTableButton.IsDerivedStyle = true;
@@ -1189,11 +1189,11 @@ namespace BudgetExecution
             AddTableButton.Margin = new System.Windows.Forms.Padding( 0 );
             AddTableButton.Name = "AddTableButton";
             AddTableButton.NormalBorderColor = System.Drawing.Color.Transparent;
-            AddTableButton.NormalColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
-            AddTableButton.NormalTextColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            AddTableButton.NormalColor = System.Drawing.Color.FromArgb( 27, 27, 27 );
+            AddTableButton.NormalTextColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             AddTableButton.Padding = new System.Windows.Forms.Padding( 1 );
-            AddTableButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            AddTableButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            AddTableButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            AddTableButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             AddTableButton.PressTextColor = System.Drawing.Color.White;
             AddTableButton.Size = new System.Drawing.Size( 96, 26 );
             AddTableButton.Style = MetroSet_UI.Enums.Style.Custom;
@@ -1230,11 +1230,11 @@ namespace BudgetExecution
             // TableNameComboBox
             // 
             TableNameComboBox.AllowDrop = true;
-            TableNameComboBox.ArrowColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            TableNameComboBox.ArrowColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             TableNameComboBox.BackColor = System.Drawing.Color.Transparent;
-            TableNameComboBox.BackgroundColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            TableNameComboBox.BackgroundColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             TableNameComboBox.BindingSource = null;
-            TableNameComboBox.BorderColor = System.Drawing.Color.FromArgb(   64  ,   64  ,   64   );
+            TableNameComboBox.BorderColor = System.Drawing.Color.FromArgb( 64, 64, 64 );
             TableNameComboBox.CausesValidation = false;
             TableNameComboBox.DataFilter = null;
             TableNameComboBox.DisabledBackColor = System.Drawing.Color.Transparent;
@@ -1252,7 +1252,7 @@ namespace BudgetExecution
             TableNameComboBox.ItemHeight = 24;
             TableNameComboBox.Location = new System.Drawing.Point( 26, 37 );
             TableNameComboBox.Name = "TableNameComboBox";
-            TableNameComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            TableNameComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             TableNameComboBox.SelectedItemForeColor = System.Drawing.Color.White;
             TableNameComboBox.Size = new System.Drawing.Size( 232, 30 );
             TableNameComboBox.Style = MetroSet_UI.Enums.Style.Custom;
@@ -1268,13 +1268,13 @@ namespace BudgetExecution
             AddTableTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             AddTableTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             AddTableTextBox.BindingSource = null;
-            AddTableTextBox.BorderColor = System.Drawing.Color.FromArgb(   64  ,   64  ,   64   );
+            AddTableTextBox.BorderColor = System.Drawing.Color.FromArgb( 64, 64, 64 );
             AddTableTextBox.DataFilter = null;
             AddTableTextBox.DisabledBackColor = System.Drawing.Color.Transparent;
             AddTableTextBox.DisabledBorderColor = System.Drawing.Color.Transparent;
             AddTableTextBox.DisabledForeColor = System.Drawing.Color.Transparent;
             AddTableTextBox.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            AddTableTextBox.HoverColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
+            AddTableTextBox.HoverColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
             AddTableTextBox.HoverText = "New Column Name";
             AddTableTextBox.Image = null;
             AddTableTextBox.IsDerivedStyle = true;
@@ -1316,7 +1316,7 @@ namespace BudgetExecution
             // 
             // ProviderTable
             // 
-            ProviderTable.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            ProviderTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             ProviderTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             ProviderTable.CaptionText = "Databases";
             ProviderTable.ColumnCount = 1;
@@ -1336,9 +1336,9 @@ namespace BudgetExecution
             // SecondPanel
             // 
             SecondPanel.BackColor = System.Drawing.Color.Transparent;
-            SecondPanel.BackgroundColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            SecondPanel.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             SecondPanel.BindingSource = null;
-            SecondPanel.BorderColor = System.Drawing.Color.FromArgb(   65  ,   65  ,   65   );
+            SecondPanel.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
             SecondPanel.BorderThickness = 1;
             SecondPanel.Children = null;
             SecondPanel.Controls.Add( SqlServerRadioButton );
@@ -1364,12 +1364,12 @@ namespace BudgetExecution
             // 
             // SqlServerRadioButton
             // 
-            SqlServerRadioButton.BackgroundColor = System.Drawing.Color.FromArgb(   30  ,   30  ,   30   );
-            SqlServerRadioButton.BorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            SqlServerRadioButton.BackgroundColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
+            SqlServerRadioButton.BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             SqlServerRadioButton.Checked = false;
             SqlServerRadioButton.CheckSignColor = System.Drawing.Color.LimeGreen;
             SqlServerRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
-            SqlServerRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            SqlServerRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             SqlServerRadioButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             SqlServerRadioButton.Group = 0;
             SqlServerRadioButton.HoverText = null;
@@ -1390,12 +1390,12 @@ namespace BudgetExecution
             // 
             // AccessRadioButton
             // 
-            AccessRadioButton.BackgroundColor = System.Drawing.Color.FromArgb(   30  ,   30  ,   30   );
-            AccessRadioButton.BorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            AccessRadioButton.BackgroundColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
+            AccessRadioButton.BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             AccessRadioButton.Checked = false;
             AccessRadioButton.CheckSignColor = System.Drawing.Color.LimeGreen;
             AccessRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
-            AccessRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            AccessRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             AccessRadioButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             AccessRadioButton.Group = 0;
             AccessRadioButton.HoverText = null;
@@ -1416,12 +1416,12 @@ namespace BudgetExecution
             // 
             // SQLiteRadioButton
             // 
-            SQLiteRadioButton.BackgroundColor = System.Drawing.Color.FromArgb(   30  ,   30  ,   30   );
-            SQLiteRadioButton.BorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            SQLiteRadioButton.BackgroundColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
+            SQLiteRadioButton.BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             SQLiteRadioButton.Checked = false;
             SQLiteRadioButton.CheckSignColor = System.Drawing.Color.LimeGreen;
             SQLiteRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
-            SQLiteRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            SQLiteRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             SQLiteRadioButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             SQLiteRadioButton.Group = 0;
             SQLiteRadioButton.HoverText = null;
@@ -1442,12 +1442,12 @@ namespace BudgetExecution
             // 
             // SqlCeRadioButton
             // 
-            SqlCeRadioButton.BackgroundColor = System.Drawing.Color.FromArgb(   30  ,   30  ,   30   );
-            SqlCeRadioButton.BorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            SqlCeRadioButton.BackgroundColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
+            SqlCeRadioButton.BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             SqlCeRadioButton.Checked = false;
             SqlCeRadioButton.CheckSignColor = System.Drawing.Color.LimeGreen;
             SqlCeRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
-            SqlCeRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            SqlCeRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             SqlCeRadioButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             SqlCeRadioButton.Group = 0;
             SqlCeRadioButton.HoverText = null;
@@ -1468,7 +1468,7 @@ namespace BudgetExecution
             // 
             // CommandTable
             // 
-            CommandTable.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            CommandTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CommandTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             CommandTable.CaptionText = "Commands";
             CommandTable.ColumnCount = 1;
@@ -1488,9 +1488,9 @@ namespace BudgetExecution
             // CommandPanel
             // 
             CommandPanel.BackColor = System.Drawing.Color.Transparent;
-            CommandPanel.BackgroundColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            CommandPanel.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CommandPanel.BindingSource = null;
-            CommandPanel.BorderColor = System.Drawing.Color.FromArgb(   65  ,   65  ,   65   );
+            CommandPanel.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
             CommandPanel.BorderThickness = 1;
             CommandPanel.Children = null;
             CommandPanel.Controls.Add( CommandComboBox );
@@ -1514,12 +1514,12 @@ namespace BudgetExecution
             // CommandComboBox
             // 
             CommandComboBox.AllowDrop = true;
-            CommandComboBox.Anchor =     System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right  ;
-            CommandComboBox.ArrowColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            CommandComboBox.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            CommandComboBox.ArrowColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             CommandComboBox.BackColor = System.Drawing.Color.Transparent;
-            CommandComboBox.BackgroundColor = System.Drawing.Color.FromArgb(   30  ,   30  ,   30   );
+            CommandComboBox.BackgroundColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
             CommandComboBox.BindingSource = null;
-            CommandComboBox.BorderColor = System.Drawing.Color.FromArgb(   64  ,   64  ,   64   );
+            CommandComboBox.BorderColor = System.Drawing.Color.FromArgb( 64, 64, 64 );
             CommandComboBox.CausesValidation = false;
             CommandComboBox.DataFilter = null;
             CommandComboBox.DisabledBackColor = System.Drawing.Color.Transparent;
@@ -1535,7 +1535,7 @@ namespace BudgetExecution
             CommandComboBox.ItemHeight = 24;
             CommandComboBox.Location = new System.Drawing.Point( 32, 28 );
             CommandComboBox.Name = "CommandComboBox";
-            CommandComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            CommandComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             CommandComboBox.SelectedItemForeColor = System.Drawing.Color.White;
             CommandComboBox.Size = new System.Drawing.Size( 290, 30 );
             CommandComboBox.Style = MetroSet_UI.Enums.Style.Custom;
@@ -1547,7 +1547,7 @@ namespace BudgetExecution
             // 
             // SqlStatementTable
             // 
-            SqlStatementTable.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            SqlStatementTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             SqlStatementTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             SqlStatementTable.CaptionText = "SQL Statements";
             SqlStatementTable.ColumnCount = 1;
@@ -1567,9 +1567,9 @@ namespace BudgetExecution
             // TextPanel
             // 
             TextPanel.BackColor = System.Drawing.Color.Transparent;
-            TextPanel.BackgroundColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            TextPanel.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TextPanel.BindingSource = null;
-            TextPanel.BorderColor = System.Drawing.Color.FromArgb(   65  ,   65  ,   65   );
+            TextPanel.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
             TextPanel.BorderThickness = 1;
             TextPanel.Children = null;
             TextPanel.Controls.Add( QueryListBox );
@@ -1592,15 +1592,15 @@ namespace BudgetExecution
             // 
             // QueryListBox
             // 
-            QueryListBox.Anchor =     System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right  ;
-            QueryListBox.BackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            QueryListBox.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            QueryListBox.BackColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             QueryListBox.BindingSource = null;
-            QueryListBox.BorderColor = System.Drawing.Color.FromArgb(   55  ,   55  ,   55   );
+            QueryListBox.BorderColor = System.Drawing.Color.FromArgb( 55, 55, 55 );
             QueryListBox.DataFilter = null;
-            QueryListBox.DisabledBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            QueryListBox.DisabledForeColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            QueryListBox.DisabledBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            QueryListBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             QueryListBox.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            QueryListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
+            QueryListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
             QueryListBox.HoveredItemColor = System.Drawing.Color.White;
             QueryListBox.HoverText = null;
             QueryListBox.IsDerivedStyle = true;
@@ -1612,7 +1612,7 @@ namespace BudgetExecution
             QueryListBox.Padding = new System.Windows.Forms.Padding( 1 );
             QueryListBox.SelectedIndex = -1;
             QueryListBox.SelectedItem = null;
-            QueryListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            QueryListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             QueryListBox.SelectedItemColor = System.Drawing.Color.White;
             QueryListBox.SelectedText = null;
             QueryListBox.SelectedValue = null;
@@ -1629,7 +1629,7 @@ namespace BudgetExecution
             // ContextMenu
             // 
             ContextMenu.AutoSize = false;
-            ContextMenu.BackColor = System.Drawing.Color.FromArgb(   30  ,   30  ,   30   );
+            ContextMenu.BackColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
             ContextMenu.ForeColor = System.Drawing.Color.White;
             ContextMenu.IsDerivedStyle = false;
             ContextMenu.Name = "ContextMenu";
@@ -1676,7 +1676,7 @@ namespace BudgetExecution
             ToolStrip.Image = null;
             ToolStrip.ImageDirectory = null;
             ToolStrip.ImageSize = new System.Drawing.Size( 0, 0 );
-            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { CloseButton, Separator1, NavigationLabel, Separator2, FirstButton, Separator3, PreviousButton, Separator4, NextButton, Separator5, LastButton, Separator6, DataLabel, Separator7, GoButton, Separator8, RefreshButton, Separator9, EditSqlButton, Separator11, EditDataButton, Separator12, TableButton, TableSeparator, LookupButton, Separator13, SaveButton, Separator14, FileSystemLabel, Separator15, ClientButton, ClientSeparator, BrowserButton, Separator16, HomeButton, Separator17 } );
+            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { CloseButton, Separator1, StatusLabel, Separator2, FirstButton, Separator3, PreviousButton, Separator4, NextButton, Separator5, LastButton, Separator6, DataLabel, Separator7, GoButton, Separator8, RefreshButton, Separator9, EditSqlButton, Separator11, EditDataButton, Separator12, TableButton, TableSeparator, LookupButton, Separator13, SaveButton, Separator14, FileSystemLabel, Separator15, ClientButton, ClientSeparator, BrowserButton, Separator16, HomeButton, Separator17 } );
             ToolStrip.Label = null;
             ToolStrip.LastButton = null;
             ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
@@ -1700,15 +1700,15 @@ namespace BudgetExecution
             ToolStrip.TabIndex = 14;
             ToolStrip.TextBox = null;
             ToolStrip.ThemeName = "Office2016DarkGray";
-            ToolStrip.ThemeStyle.ArrowColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            ToolStrip.ThemeStyle.ArrowColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             ToolStrip.ThemeStyle.BackColor = System.Drawing.Color.Transparent;
             ToolStrip.ThemeStyle.BottomToolStripBackColor = System.Drawing.Color.Transparent;
-            ToolStrip.ThemeStyle.CaptionBackColor = System.Drawing.Color.FromArgb(   28  ,   28  ,   28   );
+            ToolStrip.ThemeStyle.CaptionBackColor = System.Drawing.Color.FromArgb( 28, 28, 28 );
             ToolStrip.ThemeStyle.CaptionForeColor = System.Drawing.Color.Black;
-            ToolStrip.ThemeStyle.ComboBoxStyle.BorderColor = System.Drawing.Color.FromArgb(   65  ,   65  ,   65   );
-            ToolStrip.ThemeStyle.ComboBoxStyle.HoverBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            ToolStrip.ThemeStyle.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
-            ToolStrip.ThemeStyle.HoverItemBackColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            ToolStrip.ThemeStyle.ComboBoxStyle.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
+            ToolStrip.ThemeStyle.ComboBoxStyle.HoverBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            ToolStrip.ThemeStyle.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
+            ToolStrip.ThemeStyle.HoverItemBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             ToolStrip.ThemeStyle.HoverItemForeColor = System.Drawing.Color.White;
             ToolStrip.VisualStyle = Syncfusion.Windows.Forms.Tools.ToolStripExStyle.Office2016DarkGray;
             // 
@@ -1742,22 +1742,22 @@ namespace BudgetExecution
             Separator1.Padding = new System.Windows.Forms.Padding( 1 );
             Separator1.Size = new System.Drawing.Size( 6, 28 );
             // 
-            // NavigationLabel
+            // StatusLabel
             // 
-            NavigationLabel.BackColor = System.Drawing.Color.FromArgb(   45  ,   45  ,   45   );
-            NavigationLabel.BindingSource = null;
-            NavigationLabel.DataFilter = null;
-            NavigationLabel.Field = Field.AccountCode;
-            NavigationLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            NavigationLabel.ForeColor = System.Drawing.Color.Black;
-            NavigationLabel.HoverText = null;
-            NavigationLabel.Margin = new System.Windows.Forms.Padding( 1 );
-            NavigationLabel.Name = "NavigationLabel";
-            NavigationLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            NavigationLabel.Size = new System.Drawing.Size( 83, 28 );
-            NavigationLabel.Tag = "";
-            NavigationLabel.Text = "                 Navigation";
-            NavigationLabel.ToolTip = null;
+            StatusLabel.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            StatusLabel.BindingSource = null;
+            StatusLabel.DataFilter = null;
+            StatusLabel.Field = Field.AccountCode;
+            StatusLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            StatusLabel.ForeColor = System.Drawing.Color.Black;
+            StatusLabel.HoverText = null;
+            StatusLabel.Margin = new System.Windows.Forms.Padding( 1 );
+            StatusLabel.Name = "StatusLabel";
+            StatusLabel.Padding = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            StatusLabel.Size = new System.Drawing.Size( 91, 28 );
+            StatusLabel.Tag = "";
+            StatusLabel.Text = "                 Navigation";
+            StatusLabel.ToolTip = null;
             // 
             // Separator2
             // 
@@ -1782,8 +1782,8 @@ namespace BudgetExecution
             FirstButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             FirstButton.Margin = new System.Windows.Forms.Padding( 3 );
             FirstButton.Name = "FirstButton";
-            FirstButton.Padding = new System.Windows.Forms.Padding( 1 );
-            FirstButton.Size = new System.Drawing.Size( 23, 24 );
+            FirstButton.Padding = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            FirstButton.Size = new System.Drawing.Size( 30, 24 );
             FirstButton.Text = "toolStripButton1";
             FirstButton.ToolTip = ToolTip;
             FirstButton.ToolType = ToolType.FirstButton;
@@ -1811,8 +1811,8 @@ namespace BudgetExecution
             PreviousButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             PreviousButton.Margin = new System.Windows.Forms.Padding( 3 );
             PreviousButton.Name = "PreviousButton";
-            PreviousButton.Padding = new System.Windows.Forms.Padding( 1 );
-            PreviousButton.Size = new System.Drawing.Size( 23, 24 );
+            PreviousButton.Padding = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            PreviousButton.Size = new System.Drawing.Size( 30, 24 );
             PreviousButton.Text = "toolStripButton1";
             PreviousButton.ToolTip = ToolTip;
             PreviousButton.ToolType = ToolType.PreviousButton;
@@ -1840,8 +1840,8 @@ namespace BudgetExecution
             NextButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             NextButton.Margin = new System.Windows.Forms.Padding( 3 );
             NextButton.Name = "NextButton";
-            NextButton.Padding = new System.Windows.Forms.Padding( 1 );
-            NextButton.Size = new System.Drawing.Size( 23, 24 );
+            NextButton.Padding = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            NextButton.Size = new System.Drawing.Size( 30, 24 );
             NextButton.Text = "toolStripButton1";
             NextButton.ToolTip = ToolTip;
             NextButton.ToolType = ToolType.NextButton;
@@ -1869,8 +1869,8 @@ namespace BudgetExecution
             LastButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             LastButton.Margin = new System.Windows.Forms.Padding( 3 );
             LastButton.Name = "LastButton";
-            LastButton.Padding = new System.Windows.Forms.Padding( 1 );
-            LastButton.Size = new System.Drawing.Size( 23, 24 );
+            LastButton.Padding = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            LastButton.Size = new System.Drawing.Size( 30, 24 );
             LastButton.Text = "toolStripButton1";
             LastButton.ToolTip = null;
             LastButton.ToolType = ToolType.LastButton;
@@ -1885,7 +1885,7 @@ namespace BudgetExecution
             // 
             // DataLabel
             // 
-            DataLabel.BackColor = System.Drawing.Color.FromArgb(   45  ,   45  ,   45   );
+            DataLabel.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             DataLabel.BindingSource = null;
             DataLabel.DataFilter = null;
             DataLabel.Field = Field.AccountCode;
@@ -1923,8 +1923,8 @@ namespace BudgetExecution
             GoButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             GoButton.Margin = new System.Windows.Forms.Padding( 3 );
             GoButton.Name = "GoButton";
-            GoButton.Padding = new System.Windows.Forms.Padding( 1 );
-            GoButton.Size = new System.Drawing.Size( 23, 24 );
+            GoButton.Padding = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            GoButton.Size = new System.Drawing.Size( 30, 24 );
             GoButton.Text = "toolStripButton1";
             GoButton.ToolTip = ToolTip;
             GoButton.ToolType = ToolType.GoButton;
@@ -1952,8 +1952,8 @@ namespace BudgetExecution
             RefreshButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             RefreshButton.Margin = new System.Windows.Forms.Padding( 3 );
             RefreshButton.Name = "RefreshButton";
-            RefreshButton.Padding = new System.Windows.Forms.Padding( 1 );
-            RefreshButton.Size = new System.Drawing.Size( 23, 24 );
+            RefreshButton.Padding = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            RefreshButton.Size = new System.Drawing.Size( 30, 24 );
             RefreshButton.Text = "toolStripButton1";
             RefreshButton.ToolTip = ToolTip;
             RefreshButton.ToolType = ToolType.RefreshButton;
@@ -1981,8 +1981,8 @@ namespace BudgetExecution
             EditSqlButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             EditSqlButton.Margin = new System.Windows.Forms.Padding( 3 );
             EditSqlButton.Name = "EditSqlButton";
-            EditSqlButton.Padding = new System.Windows.Forms.Padding( 1 );
-            EditSqlButton.Size = new System.Drawing.Size( 23, 24 );
+            EditSqlButton.Padding = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            EditSqlButton.Size = new System.Drawing.Size( 30, 24 );
             EditSqlButton.Text = "toolStripButton1";
             EditSqlButton.ToolTip = ToolTip;
             EditSqlButton.ToolType = ToolType.Ns;
@@ -2010,8 +2010,8 @@ namespace BudgetExecution
             EditDataButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             EditDataButton.Margin = new System.Windows.Forms.Padding( 3 );
             EditDataButton.Name = "EditDataButton";
-            EditDataButton.Padding = new System.Windows.Forms.Padding( 1 );
-            EditDataButton.Size = new System.Drawing.Size( 23, 24 );
+            EditDataButton.Padding = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            EditDataButton.Size = new System.Drawing.Size( 30, 24 );
             EditDataButton.Text = "toolStripButton1";
             EditDataButton.ToolTip = ToolTip;
             EditDataButton.ToolType = ToolType.TableButton;
@@ -2039,8 +2039,8 @@ namespace BudgetExecution
             TableButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             TableButton.Margin = new System.Windows.Forms.Padding( 3 );
             TableButton.Name = "TableButton";
-            TableButton.Padding = new System.Windows.Forms.Padding( 1 );
-            TableButton.Size = new System.Drawing.Size( 23, 24 );
+            TableButton.Padding = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            TableButton.Size = new System.Drawing.Size( 30, 24 );
             TableButton.Text = "toolStripButton1";
             TableButton.ToolTip = ToolTip;
             TableButton.ToolType = ToolType.Ns;
@@ -2068,8 +2068,8 @@ namespace BudgetExecution
             LookupButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             LookupButton.Margin = new System.Windows.Forms.Padding( 3 );
             LookupButton.Name = "LookupButton";
-            LookupButton.Padding = new System.Windows.Forms.Padding( 1 );
-            LookupButton.Size = new System.Drawing.Size( 23, 24 );
+            LookupButton.Padding = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            LookupButton.Size = new System.Drawing.Size( 30, 24 );
             LookupButton.Text = "toolStripButton1";
             LookupButton.ToolTip = ToolTip;
             LookupButton.ToolType = ToolType.LookupButton;
@@ -2097,8 +2097,8 @@ namespace BudgetExecution
             SaveButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             SaveButton.Margin = new System.Windows.Forms.Padding( 3 );
             SaveButton.Name = "SaveButton";
-            SaveButton.Padding = new System.Windows.Forms.Padding( 1 );
-            SaveButton.Size = new System.Drawing.Size( 23, 24 );
+            SaveButton.Padding = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            SaveButton.Size = new System.Drawing.Size( 30, 24 );
             SaveButton.Text = "toolStripButton1";
             SaveButton.ToolTip = ToolTip;
             SaveButton.ToolType = ToolType.SaveButton;
@@ -2113,7 +2113,7 @@ namespace BudgetExecution
             // 
             // FileSystemLabel
             // 
-            FileSystemLabel.BackColor = System.Drawing.Color.FromArgb(   45  ,   45  ,   45   );
+            FileSystemLabel.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             FileSystemLabel.BindingSource = null;
             FileSystemLabel.DataFilter = null;
             FileSystemLabel.Field = Field.AccountCode;
@@ -2122,8 +2122,8 @@ namespace BudgetExecution
             FileSystemLabel.HoverText = null;
             FileSystemLabel.Margin = new System.Windows.Forms.Padding( 1 );
             FileSystemLabel.Name = "FileSystemLabel";
-            FileSystemLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            FileSystemLabel.Size = new System.Drawing.Size( 75, 28 );
+            FileSystemLabel.Padding = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            FileSystemLabel.Size = new System.Drawing.Size( 83, 28 );
             FileSystemLabel.Tag = "";
             FileSystemLabel.Text = "                   System";
             FileSystemLabel.ToolTip = null;
@@ -2151,8 +2151,8 @@ namespace BudgetExecution
             ClientButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             ClientButton.Margin = new System.Windows.Forms.Padding( 3 );
             ClientButton.Name = "ClientButton";
-            ClientButton.Padding = new System.Windows.Forms.Padding( 1 );
-            ClientButton.Size = new System.Drawing.Size( 23, 24 );
+            ClientButton.Padding = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            ClientButton.Size = new System.Drawing.Size( 30, 24 );
             ClientButton.Text = "toolStripButton1";
             ClientButton.ToolTip = ToolTip;
             ClientButton.ToolType = ToolType.Ns;
@@ -2180,8 +2180,8 @@ namespace BudgetExecution
             BrowserButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             BrowserButton.Margin = new System.Windows.Forms.Padding( 3 );
             BrowserButton.Name = "BrowserButton";
-            BrowserButton.Padding = new System.Windows.Forms.Padding( 1 );
-            BrowserButton.Size = new System.Drawing.Size( 23, 24 );
+            BrowserButton.Padding = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            BrowserButton.Size = new System.Drawing.Size( 30, 24 );
             BrowserButton.Text = "toolStripButton1";
             BrowserButton.ToolTip = ToolTip;
             BrowserButton.ToolType = ToolType.BrowseButton;
@@ -2209,8 +2209,8 @@ namespace BudgetExecution
             HomeButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             HomeButton.Margin = new System.Windows.Forms.Padding( 3 );
             HomeButton.Name = "HomeButton";
-            HomeButton.Padding = new System.Windows.Forms.Padding( 1 );
-            HomeButton.Size = new System.Drawing.Size( 23, 24 );
+            HomeButton.Padding = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            HomeButton.Size = new System.Drawing.Size( 30, 24 );
             HomeButton.Text = "toolStripButton1";
             HomeButton.ToolTip = ToolTip;
             HomeButton.ToolType = ToolType.HomeButton;
@@ -2252,17 +2252,22 @@ namespace BudgetExecution
             Separator10.Padding = new System.Windows.Forms.Padding( 1 );
             Separator10.Size = new System.Drawing.Size( 6, 28 );
             // 
+            // Timer
+            // 
+            Timer.Enabled = true;
+            Timer.Interval = 500;
+            // 
             // SqlDataForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            BorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            CaptionBarColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            CaptionBarColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionBarHeight = 5;
-            CaptionButtonHoverColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionFont = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            CaptionForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            CaptionForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             ClientSize = new System.Drawing.Size( 1338, 739 );
             ContextMenuStrip = ContextMenu;
             ControlBox = false;
@@ -2273,10 +2278,10 @@ namespace BudgetExecution
             Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             ForeColor = System.Drawing.Color.LightGray;
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            Icon = (System.Drawing.Icon) resources.GetObject( "$this.Icon" ) ;
+            Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
             MaximizeBox = false;
             MaximumSize = new System.Drawing.Size( 1350, 750 );
-            MetroColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             MinimizeBox = false;
             MinimumSize = new System.Drawing.Size( 1350, 750 );
             Name = "SqlDataForm";
@@ -2287,17 +2292,17 @@ namespace BudgetExecution
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "SqlEditor";
             HeaderTable.ResumeLayout( false );
-            ( (System.ComponentModel.ISupportInitialize) PictureBox  ).EndInit( );
-            ( (System.ComponentModel.ISupportInitialize) TabControl  ).EndInit( );
+            ( (System.ComponentModel.ISupportInitialize)PictureBox ).EndInit( );
+            ( (System.ComponentModel.ISupportInitialize)TabControl ).EndInit( );
             TabControl.ResumeLayout( false );
             SqlTab.ResumeLayout( false );
             EditorTable.ResumeLayout( false );
             EditorPanel.ResumeLayout( false );
-            ( (System.ComponentModel.ISupportInitialize) Editor  ).EndInit( );
+            ( (System.ComponentModel.ISupportInitialize)Editor ).EndInit( );
             DataTab.ResumeLayout( false );
             DataGridTable.ResumeLayout( false );
             DataGridPanel.ResumeLayout( false );
-            ( (System.ComponentModel.ISupportInitialize) DataGrid  ).EndInit( );
+            ( (System.ComponentModel.ISupportInitialize)DataGrid ).EndInit( );
             LookupTab.ResumeLayout( false );
             ColumnTable.ResumeLayout( false );
             ColumnPanel.ResumeLayout( false );
@@ -2317,7 +2322,7 @@ namespace BudgetExecution
             CommandPanel.ResumeLayout( false );
             SqlStatementTable.ResumeLayout( false );
             TextPanel.ResumeLayout( false );
-            ( (System.ComponentModel.ISupportInitialize) BindingSource  ).EndInit( );
+            ( (System.ComponentModel.ISupportInitialize)BindingSource ).EndInit( );
             ToolStrip.ResumeLayout( false );
             ToolStrip.PerformLayout( );
             ResumeLayout( false );
@@ -2367,7 +2372,7 @@ namespace BudgetExecution
         public ToolStripButton HomeButton;
         public ToolStripButton CloseButton;
         public ToolSeparator Separator1;
-        public ToolStripLabel NavigationLabel;
+        public ToolStripLabel StatusLabel;
         public ToolSeparator Separator2;
         public ToolSeparator Separator3;
         public ToolSeparator Separator4;

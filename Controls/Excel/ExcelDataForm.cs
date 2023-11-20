@@ -242,9 +242,9 @@ namespace BudgetExecution
             InitializeCallbacks( );
 
             // Form Properties
-            Size = new Size( 1350, 750 );
-            MaximumSize = new Size( 1350, 750 );
-            MinimumSize = new Size( 1350, 750 );
+            Size = new Size( 1350, 800 );
+            MaximumSize = new Size( 1350, 800 );
+            MinimumSize = new Size( 1350, 800 );
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             BorderColor = Color.FromArgb( 0, 120, 212 );
@@ -327,8 +327,187 @@ namespace BudgetExecution
             Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
             Header.Text = $"{DataTable.TableName.SplitPascal( )} ";
         }
+        
+        /// <summary>
+        /// Initializes the delegates.
+        /// </summary>
+        private void InitializeDelegates( )
+        {
+            try
+            {
+                _statusUpdate += UpdateStatusLabel;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
 
-        /// <summary> Displays the control to the user. </summary>
+        /// <summary>
+        /// Initializes the callbacks.
+        /// </summary>
+        private void InitializeCallbacks( )
+        {
+            // Event Wiring
+            try
+            {
+                Spreadsheet.WorkbookLoaded += OnWorkBookLoaded;
+                Header.MouseClick += OnRightClick;
+                FiltersButton.Click += OnRemoveFilterButtonClick;
+                LookupButton.Click += OnLookupButtonClicked;
+                CloseButton.Click += OnCloseButtonClick;
+                BrowseButton.Click += OnBrowserButtonClick;
+                MenuButton.Click += OnMainMenuButtonClicked;
+                Timer.Tick += OnTimerTick;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the tool strip.
+        /// </summary>
+        private void InitializeToolStrip( )
+        {
+            try
+            {
+                ToolStrip.Visible = true;
+                ToolStrip.Text = string.Empty;
+                ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
+                ToolStrip.Office12Mode = true;
+                ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Black;
+                ToolStrip.LauncherStyle = LauncherStyle.Office12;
+                ToolStrip.ImageSize = new Size( 16, 16 );
+                ToolStrip.ImageScalingSize = new Size( 16, 16 );
+                ToolStripTextBox.Size = new Size( 190, 28 );
+                ToolStripTextBox.Font = new Font( "Roboto", 8 );
+                ToolStripTextBox.ForeColor = Color.White;
+                ToolStripTextBox.TextBoxTextAlign = HorizontalAlignment.Center;
+                ToolStripTextBox.Text = DateTime.Today.ToShortDateString( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the icon.
+        /// </summary>
+        private void InitializeIcon( )
+        {
+            try
+            {
+                PictureBox.Size = new Size( 24, 18 );
+                PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the timers.
+        /// </summary>
+        private void InitializeTimers( )
+        {
+            try
+            {
+                Timer.Enabled = true;
+                Timer.Interval = 500;
+                Timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the labels.
+        /// </summary>
+        private void InitializeLabels( )
+        {
+            try
+            {
+                Header.ForeColor = Color.FromArgb( 106, 189, 252 );
+                Header.Font = new Font( "Roboto", 11 );
+                Header.TextAlign = ContentAlignment.TopLeft;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the table.
+        /// </summary>
+        private void InitializeTable( )
+        {
+            try
+            {
+                Spreadsheet?.SetActiveSheet( "Sheet1" );
+                Spreadsheet?.RenameSheet( "Sheet1", "Data" );
+                Spreadsheet?.SetZoomFactor( "Data", 100 );
+                Spreadsheet?.SetGridLinesVisibility( false );
+                var _activeSheet = Spreadsheet?.Workbook?.ActiveSheet;
+                ToolStripTextBox.Text = $"  Rows: {_activeSheet.Rows.Length} "
+                    + $"Columns: {_activeSheet.Columns.Length}";
+
+                Spreadsheet?.ActiveGrid?.InvalidateCells( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the table.
+        /// </summary>
+        /// <param name="table">The table.</param>
+        private void InitializeTable( DataTable table )
+        {
+            if( table?.Rows?.Count > 0 )
+            {
+                try
+                {
+                    Spreadsheet?.SetActiveSheet( "Sheet1" );
+                    Spreadsheet?.RenameSheet( "Sheet1", "Data" );
+                    Spreadsheet?.SetZoomFactor( "Data", 100 );
+                    Spreadsheet?.ActiveSheet?.ImportDataTable( table, true, 1, 1 );
+                    Spreadsheet?.SetGridLinesVisibility( false );
+                    var _activeSheet = Spreadsheet?.Workbook?.ActiveSheet;
+                    var _usedRange = _activeSheet?.UsedRange;
+                    var _table = _activeSheet?.ListObjects?.Create( table.TableName, _usedRange );
+                    _usedRange.CellStyle.Font.FontName = "Roboto";
+                    _usedRange.CellStyle.Font.Size = 9;
+                    _usedRange.CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
+                    _usedRange.CellStyle.VerticalAlignment = ExcelVAlign.VAlignBottom;
+                    var _topRow = _activeSheet?.Range[ 1, 1, 1, 60 ];
+                    RowCount = DataTable.Rows.Count;
+                    ColCount = DataTable.Columns.Count;
+                    ToolStripTextBox.Text = $"  Rows: {RowCount}  Columns: {ColCount}";
+                    _topRow?.FreezePanes( );
+                    _table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium16;
+                    var _title = table?.TableName.SplitPascal( );
+                    Spreadsheet?.ActiveGrid?.InvalidateCells( );
+                    Header.Text = $"{_title} Data Table";
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Displays the control to the user.
+        /// </summary>
         public new void Show( )
         {
             try
@@ -450,176 +629,6 @@ namespace BudgetExecution
             {
                 Fail( _ex );
                 return default( IEnumerable<Control> );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the delegates.
-        /// </summary>
-        private void InitializeDelegates( )
-        {
-            try
-            {
-                _statusUpdate += UpdateStatusLabel;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the callbacks.
-        /// </summary>
-        private void InitializeCallbacks( )
-        {
-            // Event Wiring
-            try
-            {
-                Spreadsheet.WorkbookLoaded += OnWorkBookLoaded;
-                Header.MouseClick += OnRightClick;
-                FiltersButton.Click += OnRemoveFilterButtonClick;
-                LookupButton.Click += OnLookupButtonClicked;
-                CloseButton.Click += OnCloseButtonClick;
-                UploadButton.Click += OnUploadButtonClick;
-                MenuButton.Click += OnMainMenuButtonClicked;
-                Timer.Tick += OnTimerTick;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the tool strip.
-        /// </summary>
-        private void InitializeToolStrip( )
-        {
-            try
-            {
-                ToolStrip.Visible = true;
-                ToolStrip.Text = string.Empty;
-                ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
-                ToolStrip.Office12Mode = true;
-                ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Black;
-                ToolStrip.LauncherStyle = LauncherStyle.Office12;
-                ToolStrip.ImageSize = new Size( 16, 16 );
-                ToolStrip.ImageScalingSize = new Size( 16, 16 );
-                ToolStrip.ShowCaption = false;
-                ToolStripTextBox.Size = new Size( 190, 28 );
-                ToolStripTextBox.Font = new Font( "Roboto", 8 );
-                ToolStripTextBox.ForeColor = Color.White;
-                ToolStripTextBox.TextBoxTextAlign = HorizontalAlignment.Center;
-                ToolStripTextBox.Text = DateTime.Today.ToShortDateString( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Initializes the icon. </summary>
-        private void InitializeIcon( )
-        {
-            try
-            {
-                PictureBox.Size = new Size( 40, 18 );
-                PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the timers.
-        /// </summary>
-        private void InitializeTimers( )
-        {
-            try
-            {
-                Timer.Enabled = true;
-                Timer.Interval = 500;
-                Timer.Start( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Initializes the title. </summary>
-        private void InitializeLabels( )
-        {
-            try
-            {
-                Header.ForeColor = Color.FromArgb( 106, 189, 252 );
-                Header.Font = new Font( "Roboto", 11 );
-                Header.TextAlign = ContentAlignment.TopLeft;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Sets the table properties. </summary>
-        private void InitializeTable( )
-        {
-            try
-            {
-                Spreadsheet?.SetActiveSheet( "Sheet1" );
-                Spreadsheet?.RenameSheet( "Sheet1", "Data" );
-                Spreadsheet?.SetZoomFactor( "Data", 100 );
-                Spreadsheet?.SetGridLinesVisibility( false );
-                var _activeSheet = Spreadsheet?.Workbook?.ActiveSheet;
-                ToolStripTextBox.Text = $"  Rows: {_activeSheet.Rows.Length} "
-                    + $"Columns: {_activeSheet.Columns.Length}";
-
-                Spreadsheet?.ActiveGrid?.InvalidateCells( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Sets the table properties. </summary>
-        /// <param name="table"> The table. </param>
-        private void InitializeTable( DataTable table )
-        {
-            if( table?.Rows?.Count > 0 )
-            {
-                try
-                {
-                    Spreadsheet?.SetActiveSheet( "Sheet1" );
-                    Spreadsheet?.RenameSheet( "Sheet1", "Data" );
-                    Spreadsheet?.SetZoomFactor( "Data", 100 );
-                    Spreadsheet?.ActiveSheet?.ImportDataTable( table, true, 1, 1 );
-                    Spreadsheet?.SetGridLinesVisibility( false );
-                    var _activeSheet = Spreadsheet?.Workbook?.ActiveSheet;
-                    var _usedRange = _activeSheet?.UsedRange;
-                    var _table = _activeSheet?.ListObjects?.Create( table.TableName, _usedRange );
-                    _usedRange.CellStyle.Font.FontName = "Roboto";
-                    _usedRange.CellStyle.Font.Size = 10;
-                    _usedRange.CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
-                    _usedRange.CellStyle.VerticalAlignment = ExcelVAlign.VAlignBottom;
-                    var _topRow = _activeSheet?.Range[ 1, 1, 1, 60 ];
-                    RowCount = DataTable.Rows.Count;
-                    ColCount = DataTable.Columns.Count;
-                    ToolStripTextBox.Text = $"  Rows: {RowCount}  Columns: {ColCount}";
-                    _topRow?.FreezePanes( );
-                    _table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium16;
-                    var _title = table?.TableName.SplitPascal( );
-                    Spreadsheet?.ActiveGrid?.InvalidateCells( );
-                    Header.Text = $"{_title} Data Table";
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
             }
         }
 
@@ -1184,15 +1193,15 @@ namespace BudgetExecution
         /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        public void OnUploadButtonClick( object sender, EventArgs e )
+        public void OnBrowserButtonClick( object sender, EventArgs e )
         {
             try
             {
                 if( sender is ToolStripButton _button
-                   && ( _button.ToolType == ToolType.UploadButton ) )
+                   && ( _button.ToolType == ToolType.BrowseButton ) )
                 {
-                    var _dialog = new LoadingForm( Status.Waiting );
-                    _dialog.ShowDialog( this );
+                    var _dialog = new FileBrowser( );
+                    _dialog.ShowDialog( );
                 }
             }
             catch( Exception _ex )
@@ -1270,6 +1279,7 @@ namespace BudgetExecution
         {
             try
             {
+                FadeOut( );
                 Application.Exit( );
             }
             catch( Exception _ex )

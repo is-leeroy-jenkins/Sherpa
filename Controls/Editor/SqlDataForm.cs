@@ -140,6 +140,8 @@ namespace BudgetExecution
         public SqlDataForm( )
         {
             InitializeComponent( );
+            InitializeCallbacks( );
+            InitializeDelegates( );
 
             // Form Properties
             Size = new Size( 1350, 750 );
@@ -157,7 +159,7 @@ namespace BudgetExecution
             MetroColor = Color.FromArgb( 20, 20, 20 );
             CaptionBarHeight = 5;
             CaptionAlign = HorizontalAlignment.Center;
-            CaptionFont = new Font( "Roboto", 12, FontStyle.Regular );
+            CaptionFont = new Font( "Roboto", 10, FontStyle.Regular );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionForeColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
@@ -404,6 +406,22 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Initializes the delegates.
+        /// </summary>
+        private void InitializeDelegates( )
+        {
+            try
+            {
+                _statusUpdate += UpdateStatusLabel;
+            }
+            catch( Exception e )
+            {
+                Console.WriteLine( e );
+                throw;
+            }
+        }
+
+        /// <summary>
         /// Initializes the callbacks.
         /// </summary>
         private void InitializeCallbacks( )
@@ -429,6 +447,7 @@ namespace BudgetExecution
                 ClientButton.Click += OnClientButtonClick;
                 TableListBox.SelectedIndexChanged += OnTableListBoxSelectionChanged;
                 ColumnListBox.SelectedIndexChanged += OnColumnListBoxSelectionChanged;
+                Timer.Tick += OnTimerTick;
             }
             catch( Exception _ex )
             {
@@ -500,6 +519,8 @@ namespace BudgetExecution
         {
             try
             {
+                Title.Font = new Font( "Roboto", 10 );
+                Title.ForeColor = Color.FromArgb( 106, 189, 252 );
             }
             catch( Exception _ex )
             {
@@ -517,6 +538,24 @@ namespace BudgetExecution
                 Timer.Enabled = true;
                 Timer.Interval = 500;
                 Timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Updates the status.
+        /// </summary>
+        private void UpdateStatusLabel( )
+        {
+            try
+            {
+                var _dateTime = DateTime.Now;
+                var _dateString = _dateTime.ToLongDateString( );
+                var _timeString = _dateTime.ToLongTimeString( );
+                StatusLabel.Text = _dateString + "  " + _timeString;
             }
             catch( Exception _ex )
             {
@@ -1038,8 +1077,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the query text. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the query text.
+        /// </summary>
+        /// <returns>
+        /// </returns>
         private string GetQueryText( )
         {
             try
@@ -1053,8 +1095,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the tab pages. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the tab pages.
+        /// </summary>
+        /// <returns>
+        /// IDictionary<string, TabPageAdv>
+        /// </returns>
         private IDictionary<string, TabPageAdv> GetTabPages( )
         {
             if( TabControl.TabPages?.Count > 0 )
@@ -1084,8 +1130,12 @@ namespace BudgetExecution
             return default( IDictionary<string, TabPageAdv> );
         }
 
-        /// <summary> Gets the radio buttons. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the radio buttons.
+        /// </summary>
+        /// <returns>
+        /// IDictionary<string, ListBox>
+        /// </returns>
         private IDictionary<string, RadioButton> GetRadioButtons( )
         {
             try
@@ -1110,8 +1160,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the combo boxes. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the combo boxes.
+        /// </summary>
+        /// <returns>
+        /// IDictionary<string, ComboBox>
+        /// </returns>
         private IDictionary<string, ComboBox> GetComboBoxes( )
         {
             try
@@ -1136,8 +1190,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the panels. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the panels.
+        /// </summary>
+        /// <returns>
+        /// IDictionary<string, Layout>
+        /// </returns>
         private IDictionary<string, Layout> GetPanels( )
         {
             try
@@ -1162,8 +1220,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the list boxes. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the list boxes.
+        /// </summary>
+        /// <returns>
+        /// IDictionary<string, ListBox>
+        /// </returns>
         private IDictionary<string, ListBox> GetListBoxes( )
         {
             try
@@ -1188,22 +1250,17 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Opens the main form. </summary>
+        /// <summary>
+        /// Opens the main form.
+        /// </summary>
         private void OpenMainForm( )
         {
             try
             {
-                if( Owner?.Visible == false )
-                {
-                    var _form = (MainForm)Program.Windows[ "MainForm" ];
-                    _form.Refresh( );
-                    _form.Visible = true;
-                }
-                else
-                {
-                    var _mainForm = new MainForm( );
-                    _mainForm.Show( );
-                }
+                var _form = (MainForm)Program.Windows[ "MainForm" ];
+                _form.StartPosition = FormStartPosition.CenterScreen;
+                _form.TopMost = true;
+                _form.Visible = true;
             }
             catch( Exception _ex )
             {
@@ -1321,7 +1378,6 @@ namespace BudgetExecution
                 InitializeToolStrip( );
                 InitializeButtons( );
                 SetFormIcon( );
-                InitializeCallbacks( );
                 InitializeLabels( );
                 InitializeTimers( );
                 TabPages = GetTabPages( );
@@ -1330,7 +1386,6 @@ namespace BudgetExecution
                 ListBoxes = GetListBoxes( );
                 TabControl.SelectedIndex = 0;
                 SetActiveTab( );
-                Title.ForeColor = Color.FromArgb( 106, 189, 252 );
                 FadeIn( );
             }
             catch( Exception _ex )
@@ -1508,36 +1563,6 @@ namespace BudgetExecution
                 {
                     Fail( _ex );
                 }
-            }
-        }
-
-        /// <summary> Called when [closing]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        private void OnClosing( object sender, EventArgs e )
-        {
-            try
-            {
-                ClearSelections( );
-                ClearCollections( );
-                PictureBox.Image?.Dispose( );
-                if( DataModel != null )
-                {
-                    DataModel = null;
-                }
-
-                if( DataModel != null )
-                {
-                    DataTable = null;
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
             }
         }
 
@@ -1801,6 +1826,46 @@ namespace BudgetExecution
                 if( ValueListBox.Items?.Count > 0 )
                 {
                     ValueTable.CaptionText = $"Values: {ValueListBox.Items.Count}";
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [timer tick].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnTimerTick( object sender, EventArgs e )
+        {
+            InvokeIf( _statusUpdate );
+        }
+
+        /// <summary>
+        /// Raises the Close event.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        public void OnClosing( object sender, EventArgs e )
+        {
+            try
+            {
+                ClearSelections( );
+                ClearCollections( );
+                PictureBox.Image?.Dispose( );
+                if( DataModel != null )
+                {
+                    DataModel = null;
+                }
+
+                if( DataModel != null )
+                {
+                    DataTable = null;
                 }
             }
             catch( Exception _ex )

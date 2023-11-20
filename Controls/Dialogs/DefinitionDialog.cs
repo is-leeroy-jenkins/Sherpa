@@ -41,18 +41,16 @@
 //  </summary>
 //  ******************************************************************************************
 
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Diagnostics.CodeAnalysis;
-using System.Drawing;
-using System.Linq;
-using System.Windows.Forms;
-using Syncfusion.Windows.Forms.Tools;
-
 namespace BudgetExecution
 {
     using System;
+    using System.Collections.Generic;
+    using System.Data;
+    using System.Diagnostics.CodeAnalysis;
+    using System.Drawing;
+    using System.Linq;
+    using System.Windows.Forms;
+    using Syncfusion.Windows.Forms.Tools;
 
     /// <inheritdoc/>
     /// <summary> </summary>
@@ -83,6 +81,7 @@ namespace BudgetExecution
         public DefinitionDialog( )
         {
             InitializeComponent( );
+            InitializeCallbacks( );
 
             // Basic Properties
             Size = new Size( 1340, 674 );
@@ -111,11 +110,6 @@ namespace BudgetExecution
 
             // Wire Events
             Load += OnLoad;
-            AccessRadioButton.CheckedChanged += OnProviderButtonChecked;
-            SqlServerRadioButton.CheckedChanged += OnProviderButtonChecked;
-            SqliteRadioButton.CheckedChanged += OnProviderButtonChecked;
-            CloseButton.Click += OnCloseButtonClicked;
-            TabPage.MouseClick += OnRightClick;
         }
 
         /// <inheritdoc/>
@@ -149,7 +143,9 @@ namespace BudgetExecution
             Columns = DataTable.GetColumnNames( );
         }
 
-        /// <summary> Initializes the tab control. </summary>
+        /// <summary>
+        /// Initializes the tab control.
+        /// </summary>
         private void InitializeTabControl( )
         {
             try
@@ -164,7 +160,45 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Populates the table ComboBox items. </summary>
+        /// <summary>
+        /// Initializes the labels.
+        /// </summary>
+        private void InitializeLabels( )
+        {
+            try
+            {
+                TabPage.TabFont = new Font( "Roboto", 8, FontStyle.Regular );
+                TabPage.TabForeColor = Color.FromArgb( 106, 189, 252 );
+                TabControl.TabPanelBackColor = Color.FromArgb( 20, 20, 20 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the callbacks.
+        /// </summary>
+        private void InitializeCallbacks( )
+        {
+            try
+            {
+                AccessRadioButton.CheckedChanged += OnProviderButtonChecked;
+                SqlServerRadioButton.CheckedChanged += OnProviderButtonChecked;
+                SqliteRadioButton.CheckedChanged += OnProviderButtonChecked;
+                CloseButton.Click += OnCloseButtonClicked;
+                TabPage.MouseClick += OnRightClick;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Populates the table ComboBox items.
+        /// </summary>
         private void PopulateTableComboBoxItems( )
         {
             try
@@ -173,7 +207,8 @@ namespace BudgetExecution
                 TableNameComboBox.SelectedItem = string.Empty;
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data?.Where( dr => dr.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                var _names = _data
+                    ?.Where( dr => dr.Field<string>( "Model" ).Equals( "EXECUTION" ) )
                     ?.Select( dr => dr.Field<string>( "TableName" ) )
                     ?.ToList( );
 
@@ -214,7 +249,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the active tab. </summary>
+        /// <summary>
+        /// Sets the active tab.
+        /// </summary>
         private void SetActiveTab( )
         {
             if( Enum.IsDefined( typeof( ToolType ), Tool ) )

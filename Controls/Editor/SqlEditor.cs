@@ -67,6 +67,11 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public partial class SqlEditor : EditBase
     {
+        /// <summary>
+        /// The status update
+        /// </summary>
+        private System.Action _statusUpdate;
+
         /// <summary> Gets or sets the time. </summary>
         /// <value> The time. </value>
         public int Time { get; set; }
@@ -132,6 +137,8 @@ namespace BudgetExecution
         public SqlEditor( )
         {
             InitializeComponent( );
+            InitializeDelegates( );
+            InitializeCallbacks( );
 
             // Form Properties
             Size = new Size( 1350, 750 );
@@ -169,7 +176,7 @@ namespace BudgetExecution
 
             // Default Provider
             Provider = Provider.Access;
-            InitCallbacks( );
+            InitializeCallbacks( );
 
             //Default Provider
             Provider = Provider.Access;
@@ -194,7 +201,9 @@ namespace BudgetExecution
             Provider = provider;
         }
 
-        /// <summary> Displays the control to the user. </summary>
+        /// <summary>
+        /// Displays the control to the user.
+        /// </summary>
         public new void Show( )
         {
             try
@@ -253,7 +262,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Populates the data type ComboBox items. </summary>
+        /// <summary>
+        /// Populates the data type ComboBox items.
+        /// </summary>
         public void PopulateDataTypeComboBoxItems( )
         {
             if( DataTypes?.Any( ) == true )
@@ -287,7 +298,9 @@ namespace BudgetExecution
                 TableNameComboBox.SelectedItem = string.Empty;
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data?.Select( dr => dr.Field<string>( "TableName" ) )?.Distinct( )
+                var _names = _data
+                    ?.Select( dr => dr.Field<string>( "TableName" ) )
+                    ?.Distinct( )
                     ?.ToList( );
 
                 for( var _i = 0; _i < _names?.Count - 1; _i++ )
@@ -377,11 +390,11 @@ namespace BudgetExecution
         }
 
         /// <summary> Initializes the Title. </summary>
-        private void InitLabels( )
+        private void InitializeLabels( )
         {
             try
             {
-                Title.Font = new Font( "Roboto", 11 );
+                Title.Font = new Font( "Roboto", 10 );
                 Title.ForeColor = Color.FromArgb( 106, 189, 252 );
             }
             catch( Exception _ex )
@@ -391,7 +404,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Initializes the PictureBox. </summary>
-        private void InitPictureBox( )
+        private void InitializeIcon( )
         {
             try
             {
@@ -405,7 +418,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the tool strip properties. </summary>
-        private void InitToolStrip( )
+        private void InitializeToolStrip( )
         {
             try
             {
@@ -474,7 +487,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the callbacks.
         /// </summary>
-        private void InitCallbacks( )
+        private void InitializeCallbacks( )
         {
             // Control Event Wiring
             try
@@ -494,6 +507,73 @@ namespace BudgetExecution
                 TableListBox.SelectedIndexChanged += OnTableListBoxSelectionChanged;
                 ColumnListBox.SelectedIndexChanged += OnColumnListBoxSelectionChanged;
                 CommandComboBox.SelectedIndexChanged += OnCommandComboBoxItemSelected;
+                Timer.Tick += OnTimerTick;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the delegates.
+        /// </summary>
+        private void InitializeDelegates( )
+        {
+            try
+            {
+                _statusUpdate += UpdateStatusLabel;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the timers.
+        /// </summary>
+        private void InitializeTimers( )
+        {
+            try
+            {
+                Timer.Enabled = true;
+                Timer.Interval = 500;
+                Timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Invokes if needed.
+        /// </summary>
+        /// <param name="action">The action.</param>
+        public void InvokeIf( System.Action action )
+        {
+            if( InvokeRequired )
+            {
+                BeginInvoke( action );
+            }
+            else
+            {
+                action.Invoke( );
+            }
+        }
+
+        /// <summary>
+        /// Updates the status.
+        /// </summary>
+        private void UpdateStatusLabel( )
+        {
+            try
+            {
+                var _dateTime = DateTime.Now;
+                var _dateString = _dateTime.ToLongDateString( );
+                var _timeString = _dateTime.ToLongTimeString( );
+                StatusLabel.Text = _dateString + "  " + _timeString;
             }
             catch( Exception _ex )
             {
@@ -949,9 +1029,14 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Creates the query list. </summary>
-        /// <param name="provider"> The provider. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Creates the query list.
+        /// </summary>
+        /// <param name="provider">
+        /// The provider.
+        /// </param>
+        /// <returns>
+        /// </returns>
         private IList<string> CreateQueryList( Provider provider )
         {
             try
@@ -986,8 +1071,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the query text. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the query text.
+        /// </summary>
+        /// <returns>
+        /// </returns>
         private string GetQueryText( )
         {
             try
@@ -1001,8 +1089,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the tab pages. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the tab pages.
+        /// </summary>
+        /// <returns>
+        /// </returns>
         private IDictionary<string, TabPageAdv> GetTabPages( )
         {
             if( TabControl.TabPages?.Count > 0 )
@@ -1032,8 +1123,11 @@ namespace BudgetExecution
             return default( IDictionary<string, TabPageAdv> );
         }
 
-        /// <summary> Gets the radio buttons. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the radio buttons.
+        /// </summary>
+        /// <returns>
+        /// </returns>
         private IDictionary<string, RadioButton> GetRadioButtons( )
         {
             try
@@ -1058,8 +1152,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the combo boxes. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the combo boxes.
+        /// </summary>
+        /// <returns>
+        /// </returns>
         private IDictionary<string, ComboBox> GetComboBoxes( )
         {
             try
@@ -1084,8 +1181,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the panels. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the panels.
+        /// </summary>
+        /// <returns>
+        /// </returns>
         private IDictionary<string, Layout> GetPanels( )
         {
             try
@@ -1110,8 +1210,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the list boxes. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the list boxes.
+        /// </summary>
+        /// <returns>
+        /// </returns>
         private IDictionary<string, ListBox> GetListBoxes( )
         {
             try
@@ -1136,22 +1239,17 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Opens the main form. </summary>
+        /// <summary>
+        /// Opens the main form.
+        /// </summary>
         private void OpenMainForm( )
         {
             try
             {
-                if( Owner?.Visible == false )
-                {
-                    var _form = (MainForm)Program.Windows[ "MainForm" ];
-                    _form.Refresh( );
-                    _form.Visible = true;
-                }
-                else
-                {
-                    var _mainForm = new MainForm( );
-                    _mainForm.Show( );
-                }
+                var _form = (MainForm)Program.Windows[ "MainForm" ];
+                _form.StartPosition = FormStartPosition.CenterScreen;
+                _form.TopMost = true;
+                _form.Visible = true;
             }
             catch( Exception _ex )
             {
@@ -1268,10 +1366,10 @@ namespace BudgetExecution
             try
             {
                 InitializeEditor( );
-                InitToolStrip( );
+                InitializeToolStrip( );
                 InitializeButtons( );
-                InitLabels( );
-                InitPictureBox( );
+                InitializeLabels( );
+                InitializeIcon( );
                 SetImage( );
                 TabPages = GetTabPages( );
                 Panels = GetPanels( );
@@ -1456,34 +1554,6 @@ namespace BudgetExecution
                 {
                     Fail( _ex );
                 }
-            }
-        }
-
-        /// <summary> Called when [closing]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        private void OnClosing( object sender, EventArgs e )
-        {
-            try
-            {
-                PictureBox.Image?.Dispose( );
-                if( DataModel != null )
-                {
-                    DataModel = null;
-                }
-
-                if( DataModel != null )
-                {
-                    DataTable = null;
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
             }
         }
 
@@ -1746,6 +1816,46 @@ namespace BudgetExecution
         private void OnClientButtonClick( object sender, EventArgs e )
         {
             RunClientApplication( );
+        }
+
+        /// <summary>
+        /// Called when [timer tick].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnTimerTick( object sender, EventArgs e )
+        {
+            InvokeIf( _statusUpdate );
+        }
+
+        /// <summary>
+        /// Raises the Close event.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        public void OnClosing( object sender, EventArgs e )
+        {
+            try
+            {
+                ClearSelections( );
+                ClearCollections( );
+                PictureBox.Image?.Dispose( );
+                if( DataModel != null )
+                {
+                    DataModel = null;
+                }
+
+                if( DataModel != null )
+                {
+                    DataTable = null;
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
     }
 }
