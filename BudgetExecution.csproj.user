@@ -224,13 +224,13 @@
     <Compile Update="Controls\RichTextBox\RichTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="Controls\Splash\SplashForm.cs">
+    <Compile Update="Controls\SplashMessage\SplashForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\Splash\SplashMessage.cs">
+    <Compile Update="Controls\SplashMessage\SplashMessage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\Splash\SplashPanel.cs">
+    <Compile Update="Controls\SplashMessage\SplashPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\TabControl\TabControl.cs">

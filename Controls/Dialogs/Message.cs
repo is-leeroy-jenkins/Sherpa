@@ -113,7 +113,9 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.Message"/>
         /// class.
         /// </summary>
-        /// <param name="text"> The text displayed by the control. </param>
+        /// <param name="text">
+        /// The text displayed by the control.
+        /// </param>
         public Message( string text )
             : this( )
         {
@@ -136,7 +138,9 @@ namespace BudgetExecution
             CloseButton.Focus( );
         }
 
-        /// <summary> Displays the control to the user. </summary>
+        /// <summary>
+        /// Displays the control to the user.
+        /// </summary>
         public new void Show( )
         {
             try
@@ -164,7 +168,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fades the in. </summary>
+        /// <summary>
+        /// Fades the in.
+        /// </summary>
         private void FadeIn( )
         {
             try
@@ -189,7 +195,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fades the out and close. </summary>
+        /// <summary>
+        /// Fades the out.
+        /// </summary>
         private void FadeOut( )
         {
             try
@@ -214,9 +222,15 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [load]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e"> instance containing the event data. </param>
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
+        /// <param name="e">
+        /// instance containing the event data.
+        /// </param>
         private protected virtual void OnLoad( object sender, EventArgs e )
         {
             try
@@ -253,14 +267,15 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
         }
-
     }
 }

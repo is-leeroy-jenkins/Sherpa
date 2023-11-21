@@ -56,7 +56,7 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
-    [SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
@@ -201,7 +201,6 @@ namespace BudgetExecution
 
             // Wire Events
             Load += OnLoad;
-            CloseButton.Click += OnCloseButtonClick;
         }
 
         /// <summary>
@@ -362,6 +361,7 @@ namespace BudgetExecution
         {
             try
             {
+                CloseButton.Click += OnCloseButtonClick;
             }
             catch( Exception _ex )
             {

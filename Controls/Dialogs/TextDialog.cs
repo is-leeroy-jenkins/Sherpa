@@ -46,7 +46,6 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms;
@@ -59,11 +58,26 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public partial class TextDialog : MetroForm
     {
+        /// <summary>
+        /// The status update
+        /// </summary>
+        private Action _statusUpdate;
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.TextDialog" /> class.
+        /// </summary>
         public TextDialog( )
         {
             InitializeComponent( );
+            InitializeDelegates( );
+            InitializeCallbacks( );
+
+            // General Properties
             Size = new Size( 650, 250 );
             MinimumSize = new Size( 650, 250 );
             MaximumSize = new Size( 650, 250 );
@@ -83,45 +97,134 @@ namespace BudgetExecution
 
             // Wire Events
             Load += OnLoad;
-            CloseButton.Click += OnCloseButtonClick;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="TextDialog"/>
+        /// <see cref="T:BudgetExecution.TextDialog" />
         /// class.
         /// </summary>
-        /// <param name="text"> The text displayed by the control. </param>
+        /// <param name="text">
+        /// The text displayed by the control.
+        /// </param>
         public TextDialog( string text )
             : this( )
         {
             Editor.Text = text;
         }
 
-        /// <summary> Called when [close button clicked]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        public virtual void OnCloseButtonClick( object sender, EventArgs e )
+        /// <summary>
+        /// Initializes the labels.
+        /// </summary>
+        private void InitializeLabels( )
         {
-            if( sender is Button _button
-               && !string.IsNullOrEmpty( _button?.Name ) )
+            try
             {
-                try
-                {
-                    Close( );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                Title.Font = new Font( "Roboto", 9, FontStyle.Bold );
+                Title.ForeColor = Color.FromArgb( 106, 189, 252 );
+                Title.TextAlign = ContentAlignment.TopLeft;
+                Title.Text = "Text Editor";
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
-        /// <summary> Sets the editor configuration. </summary>
+        /// <summary>
+        /// Initializes the delegates.
+        /// </summary>
+        private void InitializeDelegates( )
+        {
+            try
+            {
+                _statusUpdate += UpdateStatusLabel;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the callback.
+        /// </summary>
+        private void InitializeCallbacks( )
+        {
+            try
+            {
+                CloseButton.Click += OnCloseButtonClick;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the timers.
+        /// </summary>
+        private void InitializeTimers( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the buttons.
+        /// </summary>
+        private void InitializeButtons( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the tool strip.
+        /// </summary>
+        private void InitializeToolStrip( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Invokes if needed.
+        /// </summary>
+        /// <param name="action">
+        /// The action.
+        /// </param>
+        public void InvokeIf( Action action )
+        {
+            if( InvokeRequired )
+            {
+                BeginInvoke( action );
+            }
+            else
+            {
+                action.Invoke( );
+            }
+        }
+
+        /// <summary>
+        /// Sets the editor configuration.
+        /// </summary>
         private void SetEditorConfiguration( )
         {
             try
@@ -133,7 +236,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the editor configuration. </summary>
+        /// <summary>
+        /// Initializes the editor.
+        /// </summary>
         private void InitializeEditor( )
         {
             try
@@ -189,15 +294,17 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the title properties. </summary>
-        private void SetTitleProperties( )
+        /// <summary>
+        /// Updates the status.
+        /// </summary>
+        private void UpdateStatusLabel( )
         {
             try
             {
-                Title.Font = new Font( "Roboto", 9, FontStyle.Bold );
-                Title.ForeColor = Color.FromArgb( 106, 189, 252 );
-                Title.TextAlign = ContentAlignment.TopLeft;
-                Title.Text = "Text Editor";
+                var _dateTime = DateTime.Now;
+                var _dateString = _dateTime.ToLongDateString( );
+                var _timeString = _dateTime.ToLongTimeString( );
+                //StatusLabel.Text = _dateString + "  " + _timeString;
             }
             catch( Exception _ex )
             {
@@ -217,6 +324,7 @@ namespace BudgetExecution
             try
             {
                 InitializeEditor( );
+                InitializeLabels( );
             }
             catch( Exception _ex )
             {
@@ -224,8 +332,33 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary> Called when [close button clicked]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public virtual void OnCloseButtonClick( object sender, EventArgs e )
+        {
+            if( sender is Button _button
+               && !string.IsNullOrEmpty( _button?.Name ) )
+            {
+                try
+                {
+                    Close( );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

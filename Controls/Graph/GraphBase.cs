@@ -62,23 +62,41 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public abstract class GraphBase : ChartControl
     {
-        /// <summary> Gets or sets the binding source. </summary>
-        /// <value> The binding source. </value>
+        /// <summary>
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
         public virtual BindingSource BindingSource { get; set; }
 
-        /// <summary> Gets or sets the tool tip. </summary>
-        /// <value> The tool tip. </value>
+        /// <summary>
+        /// Gets or sets the tool tip.
+        /// </summary>
+        /// <value>
+        /// The tool tip.
+        /// </value>
         public virtual ToolTip ToolTip { get; set; }
 
-        /// <summary> Gets or sets the hover text. </summary>
-        /// <value> The hover text. </value>
+        /// <summary>
+        /// Gets or sets the hover text.
+        /// </summary>
+        /// <value>
+        /// The hover text.
+        /// </value>
         public virtual string HoverText { get; set; }
 
-        /// <summary> Gets or sets the data filter. </summary>
-        /// <value> The data filter. </value>
+        /// <summary>
+        /// Gets or sets the data filter.
+        /// </summary>
+        /// <value>
+        /// The data filter.
+        /// </value>
         public virtual IDictionary<string, object> DataFilter { get; set; }
 
-        /// <summary> Sets the area properties. </summary>
+        /// <summary>
+        /// Sets the area properties.
+        /// </summary>
         private protected void SetAreaProperties( )
         {
             try
@@ -108,7 +126,7 @@ namespace BudgetExecution
             {
                 Titles[ 0 ].Font = new Font( "Roboto", 10, FontStyle.Bold );
                 Titles[ 0 ].BackColor = Color.FromArgb( 20, 20, 20 );
-                Titles[ 0 ].ForeColor = Color.FromArgb( 0, 120, 212 );
+                Titles[ 0 ].ForeColor = Color.FromArgb( 106, 189, 252 );
             }
             catch( Exception _ex )
             {

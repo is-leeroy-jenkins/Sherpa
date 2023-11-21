@@ -68,6 +68,11 @@ namespace BudgetExecution
     public partial class SqlDialog : EditBase
     {
         /// <summary>
+        /// The status update
+        /// </summary>
+        private Action _statusUpdate;
+
+        /// <summary>
         /// Gets or sets the current.
         /// </summary>
         /// <value>
@@ -124,12 +129,15 @@ namespace BudgetExecution
         public IDictionary<string, object> Statements { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SqlDialog"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="SqlDialog"/> class.
         /// </summary>
         /// <inheritdoc />
         public SqlDialog( )
         {
             InitializeComponent( );
+            InitializeCallbacks( );
+            InitializeDelegates( );
 
             // Basic Properties
             Size = new Size( 1340, 674 );
@@ -144,18 +152,16 @@ namespace BudgetExecution
             MinimizeBox = false;
             MaximizeBox = false;
             TabPage.TabForeColor = Color.FromArgb( 106, 189, 252 );
-            FirstButton.Text = "Save";
-            ThirdButton.Text = "Exit";
 
             // Event Wiring
-            ThirdButton.Click += OnCloseButtonClicked;
             Load += OnLoad;
             MouseClick += OnRightClick;
         }
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.SqlDialog" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.SqlDialog" /> class.
         /// </summary>
         /// <param name="bindingSource">The binding source.</param>
         /// <param name="provider">The provider.</param>
@@ -176,7 +182,8 @@ namespace BudgetExecution
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.SqlDialog" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.SqlDialog" /> class.
         /// </summary>
         /// <param name="tool">The tool.</param>
         /// <param name="bindingSource">The binding source.</param>
@@ -197,7 +204,8 @@ namespace BudgetExecution
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.SqlDialog" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.SqlDialog" /> class.
         /// </summary>
         /// <param name="tool">The tool.</param>
         /// <param name="source">The source.</param>
@@ -286,12 +294,28 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Initializes the delegates.
+        /// </summary>
+        private void InitializeDelegates( )
+        {
+            try
+            {
+                _statusUpdate += UpdateStatusLabel;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Initializes the callback.
         /// </summary>
         private void InitializeCallbacks( )
         {
             try
             {
+                ThirdButton.Click += OnCloseButtonClicked;
             }
             catch( Exception _ex )
             {
@@ -320,6 +344,8 @@ namespace BudgetExecution
         {
             try
             {
+                FirstButton.Text = "Save";
+                ThirdButton.Text = "Exit";
             }
             catch( Exception _ex )
             {
@@ -338,6 +364,24 @@ namespace BudgetExecution
             catch( Exception _ex )
             {
                 Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Invokes if needed.
+        /// </summary>
+        /// <param name="action">
+        /// The action.
+        /// </param>
+        public void InvokeIf( Action action )
+        {
+            if( InvokeRequired )
+            {
+                BeginInvoke( action );
+            }
+            else
+            {
+                action.Invoke( );
             }
         }
 
@@ -482,37 +526,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [load].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnLoad( object sender, EventArgs e )
-        {
-            try
-            {
-                Fields = new List<string>( );
-                Columns = new List<string>( );
-                Dates = new List<DateTime>( );
-                DataArgs = new DataArgs( );
-                AccessRadioButton.Checked = true;
-                Commands = new List<string>( );
-                Statements = new Dictionary<string, object>( );
-                AccessRadioButton.Click += OnRadioButtonChecked;
-                SQLiteRadioButton.Click += OnRadioButtonChecked;
-                SqlCeRadioButton.Click += OnRadioButtonChecked;
-                SqlServerRadioButton.Click += OnRadioButtonChecked;
-                SqlComboBox.SelectedValueChanged += OnComboBoxItemSelected;
-                SqlListBox.SelectedValueChanged += OnListBoxItemSelected;
-                SecondButton.Click += OnClearButtonClick;
-                InitializeEditor( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Creates the command list.
         /// </summary>
         /// <param name="provider">The provider.</param>
@@ -608,10 +621,61 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Updates the status.
+        /// </summary>
+        private void UpdateStatusLabel( )
+        {
+            try
+            {
+                var _dateTime = DateTime.Now;
+                var _dateString = _dateTime.ToLongDateString( );
+                var _timeString = _dateTime.ToLongTimeString( );
+                //StatusLabel.Text = _dateString + "  " + _timeString;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnLoad( object sender, EventArgs e )
+        {
+            try
+            {
+                Fields = new List<string>( );
+                Columns = new List<string>( );
+                Dates = new List<DateTime>( );
+                DataArgs = new DataArgs( );
+                AccessRadioButton.Checked = true;
+                Commands = new List<string>( );
+                Statements = new Dictionary<string, object>( );
+                AccessRadioButton.Click += OnRadioButtonChecked;
+                SQLiteRadioButton.Click += OnRadioButtonChecked;
+                SqlCeRadioButton.Click += OnRadioButtonChecked;
+                SqlServerRadioButton.Click += OnRadioButtonChecked;
+                SqlComboBox.SelectedValueChanged += OnComboBoxItemSelected;
+                SqlListBox.SelectedValueChanged += OnListBoxItemSelected;
+                SecondButton.Click += OnClearButtonClick;
+                InitializeEditor( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Called when [RadioButton checked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnRadioButtonChecked( object sender, EventArgs e )
         {
             if( sender is RadioButton _button )
@@ -635,7 +699,8 @@ namespace BudgetExecution
         /// Called when [ComboBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnComboBoxItemSelected( object sender, EventArgs e )
         {
             if( sender is ComboBox _comboBox )
@@ -736,7 +801,8 @@ namespace BudgetExecution
         /// Called when [clear button click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnClearButtonClick( object sender, EventArgs e )
         {
             try
@@ -753,7 +819,8 @@ namespace BudgetExecution
         /// Called when [right click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/>
+        /// instance containing the event data.</param>
         private void OnRightClick( object sender, MouseEventArgs e )
         {
             if( e.Button == MouseButtons.Right )
@@ -773,7 +840,8 @@ namespace BudgetExecution
         /// Called when [close button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private protected void OnCloseButtonClicked( object sender, EventArgs e )
         {
             try

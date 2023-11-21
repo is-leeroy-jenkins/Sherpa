@@ -56,12 +56,20 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public partial class Frame : UserControl
     {
-        /// <summary> Gets or sets the index. </summary>
-        /// <value> The index. </value>
+        /// <summary>
+        /// Gets or sets the index.
+        /// </summary>
+        /// <value>
+        /// The index.
+        /// </value>
         public int Index { get; set; }
 
-        /// <summary> Gets or sets the binding source. </summary>
-        /// <value> The binding source. </value>
+        /// <summary>
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
         public BindingSource BindingSource { get; set; }
 
         /// <inheritdoc/>
@@ -89,8 +97,10 @@ namespace BudgetExecution
             TextBox.Size = new Size( 118, 26 );
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

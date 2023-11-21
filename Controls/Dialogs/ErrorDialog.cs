@@ -50,20 +50,30 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
 
-    /// <summary> </summary>
+    /// <summary>
+    /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public partial class ErrorDialog : MetroForm
     {
-        /// <summary> Gets or sets the exception. </summary>
-        /// <value> The exception. </value>
+        /// <summary>
+        /// Gets or sets the exception.
+        /// </summary>
+        /// <value>
+        /// The exception.
+        /// </value>
         public virtual Exception Exception { get; set; }
 
-        /// <summary> Gets or sets the icon path. </summary>
-        /// <value> The icon path. </value>
+        /// <summary>
+        /// Gets or sets the icon path.
+        /// </summary>
+        /// <value>
+        /// The icon path.
+        /// </value>
         public virtual string IconPath { get; set; }
 
         /// <inheritdoc/>
@@ -78,7 +88,7 @@ namespace BudgetExecution
 
             // Form Property Values
             BackColor = Color.FromArgb( 20, 20, 20 );
-            BorderThickness = 2;
+            BorderThickness = 1;
             BorderColor = Color.Red;
             Size = new Size( 700, 450 );
             MaximumSize = new Size( 700, 450 );
@@ -141,6 +151,48 @@ namespace BudgetExecution
             TextBox.Text = message;
         }
 
+        /// <summary>
+        /// Sets the text.
+        /// </summary>
+        public void SetText( )
+        {
+            try
+            {
+                var _logString = Exception.ToLogString( "" );
+                TextBox.Text = _logString;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the text.
+        /// </summary>
+        /// <param name="exc">The exc.</param>
+        public void SetText( Exception exc )
+        {
+            try
+            {
+                var _logString = exc?.ToLogString( "" );
+                TextBox.Text = _logString;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the text.
+        /// </summary>
+        /// <param name="msg">The MSG.</param>
+        public void SetText( string msg = "" )
+        {
+            TextBox.Text = msg;
+        }
+
         /// <summary> Called when [load]. </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
@@ -164,42 +216,6 @@ namespace BudgetExecution
             {
                 Fail( _ex );
             }
-        }
-
-        /// <summary> Sets the text. </summary>
-        public void SetText( )
-        {
-            try
-            {
-                var _logString = Exception.ToLogString( "" );
-                TextBox.Text = _logString;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Sets the text. </summary>
-        /// <param name="exc"> The exc. </param>
-        public void SetText( Exception exc )
-        {
-            try
-            {
-                var _logString = exc?.ToLogString( "" );
-                TextBox.Text = _logString;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Sets the text. </summary>
-        /// <param name="msg"> The MSG. </param>
-        public void SetText( string msg = "" )
-        {
-            TextBox.Text = msg;
         }
 
         /// <summary> Called when [close button click]. </summary>

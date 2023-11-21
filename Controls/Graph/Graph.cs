@@ -86,7 +86,7 @@ namespace BudgetExecution
             PrintColorMode = ChartPrintColorMode.CheckPrinter;
             BackInterior = new BrushInfo( Color.FromArgb( 20, 20, 20 ) );
             BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.LightGray;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             CalcRegions = true;
             ChartInterior = new BrushInfo( GradientStyle.PathRectangle, Color.LightSteelBlue,
                 Color.FromArgb( 20, 20, 20 ) );
@@ -151,7 +151,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the labels.
         /// </summary>
-        private void InitLabels( )
+        private void InitializeLabels( )
         {
             try
             {
@@ -165,7 +165,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the callback.
         /// </summary>
-        private void InitCallbacks( )
+        private void InitializeCallbacks( )
         {
             try
             {
@@ -179,7 +179,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the timers.
         /// </summary>
-        private void InitTimers( )
+        private void InitializeTimers( )
         {
             try
             {
@@ -193,7 +193,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the buttons.
         /// </summary>
-        private void InitButtons( )
+        private void InitializeButtons( )
         {
             try
             {
@@ -207,7 +207,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the tool strip.
         /// </summary>
-        private void InitToolStrip( )
+        private void InitializeToolStrip( )
         {
             try
             {
@@ -218,9 +218,15 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the size. </summary>
-        /// <param name="width"> The width. </param>
-        /// <param name="height"> The height. </param>
+        /// <summary>
+        /// Sets the size.
+        /// </summary>
+        /// <param name="width">
+        /// The width.
+        /// </param>
+        /// <param name="height">
+        /// The height.
+        /// </param>
         public void SetSize( int width = 600, int height = 400 )
         {
             if( ( width > 0 )
@@ -237,10 +243,17 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the primary axis titleInfo. </summary>
-        /// <param name="text"> The titleInfo. </param>
-        /// <param name="font"> </param>
-        /// <param name="color"> The color. </param>
+        /// <summary>
+        /// Sets the primary axis titleInfo.
+        /// </summary>
+        /// <param name="text">
+        /// The titleInfo.
+        /// </param>
+        /// <param name="font">
+        /// </param>
+        /// <param name="color">
+        /// The color.
+        /// </param>
         public void SetPrimaryAxisTitle( string text, Font font, Color color )
         {
             try
@@ -255,10 +268,16 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the main titleInfo. </summary>
-        /// <param name="text"> The t. </param>
-        /// <param name="font"> </param>
-        /// <param name="color"> </param>
+        /// <summary>
+        /// Sets the main titleInfo.
+        /// </summary>
+        /// <param name="text">
+        /// The text.
+        /// </param>
+        /// <param name="font">
+        /// </param>
+        /// <param name="color">
+        /// </param>
         public void SetMainTitle( string text, Font font, Color color )
         {
             try

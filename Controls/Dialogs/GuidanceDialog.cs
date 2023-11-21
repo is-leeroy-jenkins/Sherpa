@@ -244,8 +244,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Initializes the title. </summary>
-        private void InitLabels( )
+        /// <summary>
+        /// Initializes the labels.
+        /// </summary>
+        private void InitializeLabels( )
         {
             try
             {
@@ -266,8 +268,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Initializes the buttons. </summary>
-        private void InitFileDialog( )
+        /// <summary>
+        /// Initializes the dialog.
+        /// </summary>
+        private void InitializeDialog( )
         {
             try
             {
@@ -281,8 +285,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Initializes the buttons. </summary>
-        private void InitPictureBox( )
+        /// <summary>
+        /// Initializes the icon.
+        /// </summary>
+        private void InitializeIcon( )
         {
             try
             {
@@ -295,8 +301,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Initializes the ListBox. </summary>
-        private void InitListBox( )
+        /// <summary>
+        /// Initializes the list boxes.
+        /// </summary>
+        private void InitializeListBoxes( )
         {
             try
             {
@@ -310,7 +318,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fades the in. </summary>
+        /// <summary>
+        /// Fades the in.
+        /// </summary>
         private void FadeIn( )
         {
             try
@@ -335,7 +345,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fades the out and close. </summary>
+        /// <summary>
+        /// Fades the out.
+        /// </summary>
         private void FadeOut( )
         {
             try
@@ -360,7 +372,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Notifies this instance. </summary>
+        /// <summary>
+        /// Notifies this instance.
+        /// </summary>
         private void Notify( )
         {
             try
@@ -375,7 +389,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Populates the ListBox. </summary>
+        /// <summary>
+        /// Populates the ListBox.
+        /// </summary>
         private void PopulateListBox( )
         {
             try
@@ -385,7 +401,8 @@ namespace BudgetExecution
                 DataTable = DataModel.DataTable;
                 BindingSource.DataSource = DataModel.DataTable;
                 var _data = DataTable.AsEnumerable( );
-                var _names = _data?.Where( r => r.Field<string>( "Type" ).Equals( "DOCUMENT" ) )
+                var _names = _data
+                    ?.Where( r => r.Field<string>( "Type" ).Equals( "DOCUMENT" ) )
                     ?.Select( r => r.Field<string>( "Caption" ) )
                     ?.ToList( );
 
@@ -400,7 +417,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Updates the header text. </summary>
+        /// <summary>
+        /// Updates the title text.
+        /// </summary>
         private void UpdateTitleText( )
         {
             try
@@ -413,22 +432,17 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Opens the main form. </summary>
+        /// <summary>
+        /// Opens the main form.
+        /// </summary>
         private void OpenMainForm( )
         {
             try
             {
-                if( Owner?.Visible == false )
-                {
-                    var _form = (MainForm) Program.Windows[ "MainForm" ];
-                    _form.Refresh( );
-                    _form.Visible = true;
-                }
-                else
-                {
-                    var _mainForm = new MainForm( );
-                    _mainForm.Show( );
-                }
+                var _form = (MainForm)Program.Windows[ "MainForm" ];
+                _form.StartPosition = FormStartPosition.CenterScreen;
+                _form.TopMost = true;
+                _form.Visible = true;
             }
             catch( Exception _ex )
             {
@@ -436,7 +450,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Clears the selections. </summary>
+        /// <summary>
+        /// Clears the selections.
+        /// </summary>
         private void ClearSelections( )
         {
             try
@@ -461,11 +477,11 @@ namespace BudgetExecution
         {
             try
             {
-                InitLabels( );
-                InitListBox( );
+                InitializeLabels( );
+                InitializeListBoxes( );
                 PopulateListBox( );
-                InitFileDialog( );
-                InitPictureBox( );
+                InitializeDialog( );
+                InitializeIcon( );
                 FadeIn( );
             }
             catch( Exception _ex )
@@ -572,8 +588,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

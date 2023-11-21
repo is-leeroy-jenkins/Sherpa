@@ -49,7 +49,6 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Text;
-    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Timer = System.Windows.Forms.Timer;
@@ -64,53 +63,114 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public partial class ProgramProjectDialog : MetroForm
     {
-        /// <summary> Gets or sets the time. </summary>
-        /// <value> The time. </value>
+        /// <summary>
+        /// The status update
+        /// </summary>
+        private System.Action _statusUpdate;
+
+        /// <summary>
+        /// Gets or sets the time.
+        /// </summary>
+        /// <value>
+        /// The time.
+        /// </value>
         public int Time { get; set; }
 
-        /// <summary> Gets or sets the seconds. </summary>
-        /// <value> The seconds. </value>
+        /// <summary>
+        /// Gets or sets the seconds.
+        /// </summary>
+        /// <value>
+        /// The seconds.
+        /// </value>
         public int Seconds { get; set; }
 
-        /// <summary> Gets or sets the source. </summary>
-        /// <value> The source. </value>
+        /// <summary>
+        /// Gets or sets the source.
+        /// </summary>
+        /// <value>
+        /// The source.
+        /// </value>
         public Source Source { get; set; }
 
-        /// <summary> Gets or sets the provider. </summary>
-        /// <value> The provider. </value>
+        /// <summary>
+        /// Gets or sets the provider.
+        /// </summary>
+        /// <value>
+        /// The provider.
+        /// </value>
         public Provider Provider { get; set; }
 
-        /// <summary> Gets or sets the data model. </summary>
-        /// <value> The data model. </value>
+        /// <summary>
+        /// Gets or sets the data model.
+        /// </summary>
+        /// <value>
+        /// The data model.
+        /// </value>
         public DataBuilder DataModel { get; set; }
 
-        /// <summary> Gets or sets the data table. </summary>
-        /// <value> The data table. </value>
+        /// <summary>
+        /// Gets or sets the data table.
+        /// </summary>
+        /// <value>
+        /// The data table.
+        /// </value>
         public DataTable DataTable { get; set; }
 
-        /// <summary> Gets or sets the form filter. </summary>
-        /// <value> The form filter. </value>
+        /// <summary>
+        /// Gets or sets the form filter.
+        /// </summary>
+        /// <value>
+        /// The form filter.
+        /// </value>
         public IDictionary<string, object> FormFilter { get; set; }
 
-        /// <summary> Gets or sets the selected value. </summary>
-        /// <value> The selected value. </value>
+        /// <summary>
+        /// Gets or sets the selected value.
+        /// </summary>
+        /// <value>
+        /// The selected value.
+        /// </value>
         public string SelectedValue { get; set; }
 
-        /// <summary> Gets or sets the SQL query. </summary>
-        /// <value> The SQL query. </value>
+        /// <summary>
+        /// Gets or sets the SQL query.
+        /// </summary>
+        /// <value>
+        /// The SQL query.
+        /// </value>
         public string SqlQuery { get; set; }
 
-        /// <summary> Gets or sets the selected program. </summary>
-        /// <value> The selected program. </value>
+        /// <summary>
+        /// Gets or sets the selected program.
+        /// </summary>
+        /// <value>
+        /// The selected program.
+        /// </value>
         public string SelectedProgram { get; set; }
 
-        /// <summary> Gets or sets the current. </summary>
-        /// <value> The current. </value>
+        /// <summary>
+        /// Gets or sets the current.
+        /// </summary>
+        /// <value>
+        /// The current.
+        /// </value>
         public DataRow Current { get; set; }
 
-        /// <summary> Gets or sets the program codes. </summary>
-        /// <value> The program codes. </value>
+        /// <summary>
+        /// Gets or sets the program codes.
+        /// </summary>
+        /// <value>
+        /// The program codes.
+        /// </value>
         public IEnumerable<string> ProgramCodes { get; set; }
+
+        /// <summary>
+        /// Gets or sets the data arguments.
+        /// </summary>
+        /// <value>
+        /// The data arguments.
+        /// </value>
+        public DataArgs DataArgs { get; set; }
 
         /// <inheritdoc/>
         /// <summary>
@@ -121,6 +181,8 @@ namespace BudgetExecution
         public ProgramProjectDialog( )
         {
             InitializeComponent( );
+            InitializeCallbacks( );
+            InitializeDelegates( );
 
             // Basic Properties
             Size = new Size( 1066, 614 );
@@ -137,7 +199,7 @@ namespace BudgetExecution
             ShowInTaskbar = true;
             MetroColor = Color.FromArgb( 20, 20, 20 );
             CaptionAlign = HorizontalAlignment.Center;
-            CaptionFont = new Font( "Roboto", 12, FontStyle.Bold );
+            CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionForeColor = Color.FromArgb( 106, 189, 252 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
@@ -156,10 +218,6 @@ namespace BudgetExecution
             Seconds = 5;
 
             // Event Wiring
-            CloseButton.Click += OnCloseButtonClicked;
-            SearchButton.Click += OnSearchButtonClicked;
-            ComboBox.SelectedValueChanged += OnComboBoxSelectionChanged;
-            MenuButton.Click += OnMenuButtonClick;
             Load += OnLoad;
             MouseClick += OnRightClick;
         }
@@ -177,7 +235,123 @@ namespace BudgetExecution
             SelectedProgram = code;
         }
 
-        /// <summary> Displays the control to the user. </summary>
+        /// <summary>
+        /// Initializes the labels.
+        /// </summary>
+        private void InitializeLabels( )
+        {
+            try
+            {
+                Header.ForeColor = Color.FromArgb( 106, 189, 252 );
+                Header.Font = new Font( "Roboto", 10 );
+                ProgramAreaTable.CaptionText = "Program Area - ";
+                ProgramAreaTable.Font = new Font( "Roboto", 10 );
+                ProgramProjectTable.CaptionText = "Program Project - ";
+                ProgramProjectTable.Font = new Font( "Roboto", 10 );
+                StatuteTable.Font = new Font( "Roboto", 10 );
+                StatutoryAuthorityTextBox.Font = new Font( "Roboto", 10 );
+                StatutoryAuthorityTextBox.ForeColor = Color.FromArgb( 106, 189, 252 );
+                ProgramAreaNameTextBox.Font = new Font( "Roboto", 10 );
+                ProgramAreaNameTextBox.ForeColor = Color.FromArgb( 106, 189, 252 );
+                ProgramProjectNameTextBox.Font = new Font( "Roboto", 10 );
+                ProgramProjectNameTextBox.ForeColor = Color.FromArgb( 106, 189, 252 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the delegates.
+        /// </summary>
+        private void InitializeDelegates( )
+        {
+            try
+            {
+                _statusUpdate += UpdateStatusLabel;
+            }
+            catch( Exception e )
+            {
+                Console.WriteLine( e );
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Initializes the buttons.
+        /// </summary>
+        private void InitializeButtons( )
+        {
+            try
+            {
+                SearchButton.ForeColor = Color.FromArgb( 106, 189, 252 );
+                MenuButton.ForeColor = Color.FromArgb( 106, 189, 252 );
+                CloseButton.ForeColor = Color.FromArgb( 106, 189, 252 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the callbacks.
+        /// </summary>
+        private void InitializeCallbacks( )
+        {
+            try
+            {
+                CloseButton.Click += OnCloseButtonClicked;
+                SearchButton.Click += OnSearchButtonClicked;
+                ComboBox.SelectedValueChanged += OnComboBoxSelectionChanged;
+                MenuButton.Click += OnMenuButtonClick;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Invokes if needed.
+        /// </summary>
+        /// <param name="action">
+        /// The action.
+        /// </param>
+        public void InvokeIf( Action action )
+        {
+            if( InvokeRequired )
+            {
+                BeginInvoke( action );
+            }
+            else
+            {
+                action.Invoke( );
+            }
+        }
+
+        /// <summary>
+        /// Captures the state.
+        /// </summary>
+        private void CaptureState( )
+        {
+            try
+            {
+                DataArgs.Provider = Provider;
+                DataArgs.Source = Source;
+                DataArgs.DataFilter = FormFilter;
+                DataArgs.SqlQuery = SqlQuery;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Displays the control to the user.
+        /// </summary>
         public new void Show( )
         {
             try
@@ -205,7 +379,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fades the in. </summary>
+        /// <summary>
+        /// Fades the in.
+        /// </summary>
         private void FadeIn( )
         {
             try
@@ -230,7 +406,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fades the out and close. </summary>
+        /// <summary>
+        /// Fades the out.
+        /// </summary>
         private void FadeOut( )
         {
             try
@@ -255,6 +433,113 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Clears the header text.
+        /// </summary>
+        private void ClearHeaderText( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Clears the program text. </summary>
+        private void ClearProgramText( )
+        {
+            try
+            {
+                DescriptionTable.CaptionText = "Program Description";
+                StatutoryAuthorityTextBox.Text = string.Empty;
+                ProgramAreaNameTextBox.Text = string.Empty;
+                ProgramProjectNameTextBox.Text = string.Empty;
+                ProgramDescriptionTextBox.Text = string.Empty;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Populates the ComboBox items. </summary>
+        private void PopulateComboBoxItems( )
+        {
+            try
+            {
+                ComboBox.Items?.Clear( );
+                DataModel = new DataBuilder( Source, Provider );
+                var _codes = DataModel.DataElements[ "ProgramTitle" ];
+                foreach( var _item in _codes )
+                {
+                    ComboBox.Items.Add( _item );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Opens the main form.
+        /// </summary>
+        private void OpenMainForm( )
+        {
+            try
+            {
+                var _form = (MainForm)Program.Windows[ "MainForm" ];
+                _form.StartPosition = FormStartPosition.CenterScreen;
+                _form.TopMost = true;
+                _form.Visible = true;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Binds the data.
+        /// </summary>
+        private void BindData( )
+        {
+            try
+            {
+                Header.Text = Current[ "ProgramTitle" ].ToString( );
+                ProgramAreaTable.CaptionText = "Program Area - " + Current[ "ProgramAreaCode" ];
+                ProgramProjectTable.CaptionText = "Program Project - " + Current[ "Code" ];
+                StatutoryAuthorityTextBox.Text = Current[ "Laws" ].ToString( );
+                ProgramAreaNameTextBox.Text = Current[ "ProgramAreaName" ].ToString( );
+                ProgramProjectNameTextBox.Text = Current[ "Name" ].ToString( );
+                ProgramDescriptionTextBox.Text = Current[ "Description" ].ToString( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Updates the status.
+        /// </summary>
+        private void UpdateStatusLabel( )
+        {
+            try
+            {
+                var _dateTime = DateTime.Now;
+                var _dateString = _dateTime.ToLongDateString( );
+                var _timeString = _dateTime.ToLongTimeString( );
+                //StatusLabel.Text = _dateString + "  " + _timeString;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
         /// <summary> Called when [load]. </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
@@ -266,7 +551,10 @@ namespace BudgetExecution
         {
             try
             {
+                InitializeLabels( );
+                InitializeButtons( );
                 FormFilter = new Dictionary<string, object>( );
+                DataArgs = new DataArgs( );
                 if( !string.IsNullOrEmpty( SelectedProgram ) )
                 {
                     FormFilter.Add( "Code", SelectedProgram );
@@ -311,96 +599,9 @@ namespace BudgetExecution
         /// </param>
         public void OnCloseButtonClicked( object sender, EventArgs e )
         {
-            Close( );
-        }
-
-        /// <summary> Clears the header text. </summary>
-        private void ClearHeaderText( )
-        {
             try
             {
-                Header.Text = "Program Project Descriptions";
-                ProgramAreaTable.CaptionText = "Program Area - ";
-                ProgramProjectTable.CaptionText = "Program Project - ";
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Clears the program text. </summary>
-        private void ClearProgramText( )
-        {
-            try
-            {
-                DescriptionTable.CaptionText = "Program Description";
-                StatutoryAuthorityTextBox.Text = string.Empty;
-                ProgramAreaNameTextBox.Text = string.Empty;
-                ProgramProjectNameTextBox.Text = string.Empty;
-                ProgramDescriptionTextBox.Text = string.Empty;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Populates the ComboBox items. </summary>
-        private void PopulateComboBoxItems( )
-        {
-            try
-            {
-                ComboBox.Items?.Clear( );
-                DataModel = new DataBuilder( Source, Provider );
-                var _codes = DataModel.DataElements[ "ProgramTitle" ];
-                foreach( var _item in _codes )
-                {
-                    ComboBox.Items.Add( _item );
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Opens the main form. </summary>
-        private void OpenMainForm( )
-        {
-            try
-            {
-                if( ( Owner?.Visible == false )
-                   && ( Owner.GetType( ) == typeof( MainForm ) ) )
-                {
-                    var _form = (MainForm) Program.Windows[ nameof( MainForm ) ];
-                    _form.Refresh( );
-                    _form.Visible = true;
-                }
-                else
-                {
-                    var _mainForm = new MainForm( );
-                    _mainForm.Show( );
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Binds the data. </summary>
-        private void BindData( )
-        {
-            try
-            {
-                Header.Text = Current[ "ProgramTitle" ].ToString( );
-                ProgramAreaTable.CaptionText = "Program Area - " + Current[ "ProgramAreaCode" ];
-                ProgramProjectTable.CaptionText = "Program Project - " + Current[ "Code" ];
-                StatutoryAuthorityTextBox.Text = Current[ "Laws" ].ToString( );
-                ProgramAreaNameTextBox.Text = Current[ "ProgramAreaName" ].ToString( );
-                ProgramProjectNameTextBox.Text = Current[ "Name" ].ToString( );
-                ProgramDescriptionTextBox.Text = Current[ "Description" ].ToString( );
+                Close( );
             }
             catch( Exception _ex )
             {
@@ -417,9 +618,16 @@ namespace BudgetExecution
         /// </param>
         private void OnMenuButtonClick( object sender, EventArgs e )
         {
-            FadeOut( );
-            Close( );
-            OpenMainForm( );
+            try
+            {
+                FadeOut( );
+                Close( );
+                OpenMainForm( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary> Called when [search button clicked]. </summary>
@@ -471,7 +679,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    if( FormFilter.Count > 0 )
+                    if( FormFilter?.Count > 0 )
                     {
                         FormFilter.Clear( );
                     }
@@ -525,8 +733,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
