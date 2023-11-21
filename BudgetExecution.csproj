@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
@@ -77,7 +77,7 @@
     <PackageReference Include="WinFormsMapControl" Version="1.1.0" />
     <PackageReference Include="Zeroit.Framework.BasicCharts" Version="1.0.0" />
     <PackageReference Include="Zeroit.Framework.Metro" Version="1.0.0" />
-</ItemGroup>
+  </ItemGroup>
   <ItemGroup>
     <Reference Include="C1.Win.4.8">
       <HintPath>Libraries\C1.Win.4.8.dll</HintPath>
@@ -361,9 +361,6 @@
     </Reference>
     <Reference Include="Syncfusion.XlsIO.Base">
       <HintPath>Libraries\Syncfusion.XlsIO.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.XlsIO.Portable">
-      <HintPath>Libraries\Syncfusion.XlsIO.Portable.dll</HintPath>
     </Reference>
     <Reference Include="System.Data">
       <HintPath>Libraries\System.Data.dll</HintPath>

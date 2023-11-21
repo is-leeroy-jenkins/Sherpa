@@ -50,6 +50,7 @@ namespace BudgetExecution
     using System.Threading;
     using System.Windows.Forms;
 
+    /// <inheritdoc />
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public class ListView : ListViewBase 

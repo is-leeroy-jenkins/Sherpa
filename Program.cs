@@ -53,11 +53,17 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public static class Program
     {
-        /// <summary> Gets or sets the windows. </summary>
-        /// <value> The windows. </value>
+        /// <summary>
+        /// Gets or sets the windows.
+        /// </summary>
+        /// <value>
+        /// The windows.
+        /// </value>
         public static IDictionary<string, Form> Windows { get; set; }
 
-        /// <summary> The main entry point for the application. </summary>
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
         [ STAThread ]
         public static void Main( )
         {

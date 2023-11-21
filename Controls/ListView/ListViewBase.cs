@@ -55,8 +55,13 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     public abstract class ListViewBase : SfListView
     {
-        /// <summary> Gets or sets the binding source. </summary>
-        /// <value> The binding source. </value>
+
+        /// <summary>
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
         public virtual BindingSource BindingSource { get; set; }
 
         /// <summary> Gets or sets the tool tip. </summary>

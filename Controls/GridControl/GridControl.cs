@@ -48,7 +48,6 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Threading;
     using System.Windows.Forms;
-    using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Grid;
 
@@ -84,13 +83,14 @@ namespace BudgetExecution
             DefaultGridBorderStyle = GridBorderStyle.Dotted;
             GridLineColor = Color.FromArgb( 120, 120, 120 );
             ColorStyles = ColorStyles.Office2016DarkGray;
-            ForeColor = Color.White;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             BackColor = Color.FromArgb( 20, 20, 20 );
             Office2016ScrollBars = true;
             SizeGripStyle = SizeGripStyle.Hide;
             GridStyle.BackColor = Color.FromArgb( 60, 60, 60 );
-            GridStyle.Interior = new BrushInfo( GradientStyle.None, ForeColor,
-                Color.FromArgb( 60, 60, 60 ) );
+            GridStyle.Interior 
+                = new Syncfusion.Drawing.BrushInfo( Syncfusion.Drawing.GradientStyle.None, ForeColor,
+                    Color.FromArgb( 60, 60, 60 ) );
 
             RangeStyles[ 0 ].StyleInfo = GridStyle;
             BaseStylesMap[ "Row Header" ].StyleInfo.HorizontalAlignment =

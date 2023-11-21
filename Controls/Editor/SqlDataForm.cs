@@ -41,6 +41,8 @@
 //  </summary>
 //  ******************************************************************************************
 
+using Syncfusion.Drawing;
+
 namespace BudgetExecution
 {
     using System;
@@ -51,7 +53,6 @@ namespace BudgetExecution
     using System.IO;
     using System.Linq;
     using System.Windows.Forms;
-    using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Edit;
     using Syncfusion.Windows.Forms.Tools;

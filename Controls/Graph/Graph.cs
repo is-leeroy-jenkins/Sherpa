@@ -41,6 +41,8 @@
 //  </summary>
 //  ******************************************************************************************
 
+using Syncfusion.Drawing;
+
 namespace BudgetExecution
 {
     using System;
@@ -49,7 +51,6 @@ namespace BudgetExecution
     using System.Drawing.Drawing2D;
     using System.Threading;
     using System.Windows.Forms;
-    using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms.Chart;
 
     /// <inheritdoc />

@@ -45,9 +45,9 @@ namespace BudgetExecution
 {
     using System;
     using System.Drawing;
+    using Syncfusion.Drawing;
     using System.Threading;
     using System.Diagnostics.CodeAnalysis;
-    using Syncfusion.Drawing;
 
     /// <inheritdoc />
     /// <summary>
@@ -58,10 +58,12 @@ namespace BudgetExecution
     {
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.SplashPanel" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.SplashPanel" /> class.
         /// </summary>
         /// <remarks>
-        /// The default value for the <see cref="P:Syncfusion.Windows.Forms.Tools.SplashPanel.TimerInterval" /> is set to
+        /// The default value for the
+        /// <see cref="P:Syncfusion.Windows.Forms.Tools.SplashPanel.TimerInterval" /> is set to
         /// 5000 milliseconds.
         /// The splash panel has animation turned and by default will appear in the
         /// middle of the screen.
@@ -69,12 +71,12 @@ namespace BudgetExecution
         public SplashPanel( )
         {
             // Control Properties
-            Size = new Size( 200, 100 );
-            Font = new Font( "Roboto", 9 );
-            BackgroundColor = new BrushInfo( GradientStyle.PathEllipse,
-                Color.FromArgb( 20, 20, 20 ), Color.FromArgb( 70, 70, 70 ) );
+            Size = new System.Drawing.Size( 200, 100 );
+            Font = new System.Drawing.Font( "Roboto", 9 );
+            BackgroundColor = new BrushInfo( Syncfusion.Drawing.GradientStyle.PathEllipse,
+                System.Drawing.Color.FromArgb( 20, 20, 20 ), System.Drawing.Color.FromArgb( 70, 70, 70 ) );
 
-            ForeColor = Color.FromArgb( 106, 189, 252 );
+            ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         }
     }
 }
