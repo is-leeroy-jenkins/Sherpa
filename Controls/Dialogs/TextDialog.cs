@@ -122,7 +122,7 @@ namespace BudgetExecution
             try
             {
                 Title.Font = new Font( "Roboto", 9, FontStyle.Bold );
-                Title.ForeColor = Color.FromArgb( 106, 189, 252 );
+                Title.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
                 Title.TextAlign = ContentAlignment.TopLeft;
                 Title.Text = "Text Editor";
             }

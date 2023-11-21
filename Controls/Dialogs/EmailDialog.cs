@@ -41,6 +41,8 @@
 //  </summary>
 //  ******************************************************************************************
 
+using C1.Util.Win;
+
 namespace BudgetExecution
 {
     using System;
@@ -48,8 +50,8 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Threading;
     using System.Windows.Forms;
-    using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms;
+    using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms.Edit;
     using Timer = System.Windows.Forms.Timer;
 
@@ -82,25 +84,25 @@ namespace BudgetExecution
 
             // Basic Properties
             Size = new Size( 981, 742 );
-            MaximumSize = new Size( 981, 742 );
+            MaximumSize = new System.Drawing.Size( 981, 742 );
             MinimumSize = new Size( 981, 742 );
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             BorderColor = Color.FromArgb( 0, 120, 212 );
             BorderThickness = 1;
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.FromArgb( 106, 189, 252 );
-            Font = new Font( "Roboto", 9 );
+            BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            Font = new System.Drawing.Font( "Roboto", 9 );
             ShowIcon = false;
             ShowInTaskbar = true;
-            MetroColor = Color.FromArgb( 20, 20, 20 );
+            MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionBarHeight = 5;
             CaptionAlign = HorizontalAlignment.Center;
-            CaptionFont = new Font( "Roboto", 12, FontStyle.Regular );
-            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionForeColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
+            CaptionFont = new System.Drawing.Font( "Roboto", 12, FontStyle.Regular );
+            CaptionBarColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            CaptionForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            CaptionButtonColor = CSystem.Drawing.Color.FromArgb( 20, 20, 20 );
+            CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             SizeGripStyle = SizeGripStyle.Hide;
             AutoScaleMode = AutoScaleMode.Font;
             DoubleBuffered = true;
