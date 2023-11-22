@@ -224,6 +224,9 @@
     <Compile Update="Controls\PivotGrid\PivotGridBase.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="Controls\ProgressBar\ProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Update="Controls\RadioButton\RadioButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -307,6 +310,9 @@
     </Compile>
     <Compile Update="Data\Adapter\AdapterFactory.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="GeographicForm.cs">
+      <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>

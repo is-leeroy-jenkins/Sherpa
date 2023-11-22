@@ -67,12 +67,12 @@ namespace BudgetExecution
         public void InitializeComponent( )
         {
             components = new System.ComponentModel.Container( );
-            var config2 = new Syncfusion.Windows.Forms.Edit.Implementation.Config.Config( );
-            var dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle( );
-            var dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle( );
-            var dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle( );
-            var dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle( );
-            var dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle( );
+            var config1 = new Syncfusion.Windows.Forms.Edit.Implementation.Config.Config( );
+            var dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle( );
+            var dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle( );
+            var dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle( );
+            var dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle( );
+            var dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle( );
             var resources = new System.ComponentModel.ComponentResourceManager( typeof( SqlDataForm ) );
             HeaderTable = new System.Windows.Forms.TableLayoutPanel( );
             PictureBox = new Picture( );
@@ -169,6 +169,9 @@ namespace BudgetExecution
             SqlEditorButton = new ToolStripButton( );
             Separator10 = new ToolSeparator( );
             Timer = new System.Windows.Forms.Timer( components );
+            Separator33 = new ToolSeparator( );
+            ProgressBar = new System.Windows.Forms.ToolStripProgressBar( );
+            FirstSeparator = new ToolSeparator( );
             HeaderTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
             ( (System.ComponentModel.ISupportInitialize)TabControl ).BeginInit( );
@@ -394,7 +397,7 @@ namespace BudgetExecution
             Editor.ChangedLinesMarkingLineColor = System.Drawing.Color.FromArgb( 255, 238, 98 );
             Editor.CodeSnipptSize = new System.Drawing.Size( 100, 100 );
             Editor.ColumnGuidesMeasuringFont = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            Editor.Configurator = config2;
+            Editor.Configurator = config1;
             Editor.ContextChoiceBackColor = System.Drawing.SystemColors.ControlLight;
             Editor.ContextChoiceBorderColor = System.Drawing.Color.FromArgb( 233, 166, 50 );
             Editor.ContextPromptBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
@@ -504,36 +507,36 @@ namespace BudgetExecution
             // DataGrid
             // 
             DataGrid.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb( 50, 50, 50 );
-            dataGridViewCellStyle6.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb( 26, 79, 125 );
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb( 50, 50, 50 );
+            dataGridViewCellStyle1.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb( 26, 79, 125 );
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             DataGrid.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             DataGrid.BackgroundColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             DataGrid.BindingSource = null;
             DataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             DataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             DataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb( 26, 79, 125 );
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb( 26, 79, 125 );
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DataGrid.DataFilter = null;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            dataGridViewCellStyle8.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb( 26, 79, 125 );
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            DataGrid.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            dataGridViewCellStyle3.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb( 26, 79, 125 );
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            DataGrid.DefaultCellStyle = dataGridViewCellStyle3;
             DataGrid.EnableHeadersVisualStyles = false;
             DataGrid.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             DataGrid.GridColor = System.Drawing.Color.FromArgb( 141, 139, 138 );
@@ -542,22 +545,22 @@ namespace BudgetExecution
             DataGrid.MultiSelect = false;
             DataGrid.Name = "DataGrid";
             DataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb( 50, 50, 50 );
-            dataGridViewCellStyle9.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            DataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb( 50, 50, 50 );
+            dataGridViewCellStyle4.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            DataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             DataGrid.RowHeadersWidth = 20;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            dataGridViewCellStyle10.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb( 26, 79, 125 );
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
-            DataGrid.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            dataGridViewCellStyle5.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb( 26, 79, 125 );
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            DataGrid.RowsDefaultCellStyle = dataGridViewCellStyle5;
             DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             DataGrid.Size = new System.Drawing.Size( 856, 492 );
             DataGrid.TabIndex = 0;
@@ -1676,15 +1679,14 @@ namespace BudgetExecution
             ToolStrip.Image = null;
             ToolStrip.ImageDirectory = null;
             ToolStrip.ImageSize = new System.Drawing.Size( 0, 0 );
-            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { CloseButton, Separator1, StatusLabel, Separator2, FirstButton, Separator3, PreviousButton, Separator4, NextButton, Separator5, LastButton, Separator6, DataLabel, Separator7, GoButton, Separator8, RefreshButton, Separator9, EditSqlButton, Separator11, EditDataButton, Separator12, TableButton, TableSeparator, LookupButton, Separator13, SaveButton, Separator14, FileSystemLabel, Separator15, ClientButton, ClientSeparator, BrowserButton, Separator16, HomeButton, Separator17 } );
+            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { CloseButton, FirstSeparator, ProgressBar, Separator1, StatusLabel, Separator2, FirstButton, Separator3, PreviousButton, Separator4, NextButton, Separator5, LastButton, Separator6, DataLabel, Separator7, GoButton, Separator8, RefreshButton, Separator9, EditSqlButton, Separator11, EditDataButton, Separator12, TableButton, TableSeparator, LookupButton, Separator13, SaveButton, Separator14, FileSystemLabel, Separator15, ClientButton, ClientSeparator, BrowserButton, Separator16, HomeButton, Separator17, Separator33 } );
             ToolStrip.Label = null;
             ToolStrip.LastButton = null;
             ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
-            ToolStrip.Location = new System.Drawing.Point( 0, 693 );
+            ToolStrip.Location = new System.Drawing.Point( 0, 689 );
             ToolStrip.Margin = new System.Windows.Forms.Padding( 1 );
             ToolStrip.Name = "ToolStrip";
             ToolStrip.NextButton = null;
-            ToolStrip.Office12Mode = false;
             ToolStrip.OfficeColorScheme = Syncfusion.Windows.Forms.Tools.ToolStripEx.ColorScheme.Black;
             ToolStrip.Padding = new System.Windows.Forms.Padding( 1 );
             ToolStrip.PreviousButton = null;
@@ -1696,7 +1698,7 @@ namespace BudgetExecution
             ToolStrip.Separators = null;
             ToolStrip.ShowCaption = true;
             ToolStrip.ShowLauncher = true;
-            ToolStrip.Size = new System.Drawing.Size( 1338, 46 );
+            ToolStrip.Size = new System.Drawing.Size( 1338, 50 );
             ToolStrip.TabIndex = 14;
             ToolStrip.TextBox = null;
             ToolStrip.ThemeName = "Office2016DarkGray";
@@ -1729,7 +1731,7 @@ namespace BudgetExecution
             CloseButton.Margin = new System.Windows.Forms.Padding( 3 );
             CloseButton.Name = "CloseButton";
             CloseButton.Padding = new System.Windows.Forms.Padding( 1 );
-            CloseButton.Size = new System.Drawing.Size( 23, 24 );
+            CloseButton.Size = new System.Drawing.Size( 23, 26 );
             CloseButton.Text = "toolStripButton1";
             CloseButton.ToolTip = ToolTip;
             CloseButton.ToolType = ToolType.ExitButton;
@@ -1737,10 +1739,10 @@ namespace BudgetExecution
             // Separator1
             // 
             Separator1.ForeColor = System.Drawing.Color.Black;
-            Separator1.Margin = new System.Windows.Forms.Padding( 1 );
+            Separator1.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             Separator1.Name = "Separator1";
             Separator1.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator1.Size = new System.Drawing.Size( 6, 28 );
+            Separator1.Size = new System.Drawing.Size( 6, 30 );
             // 
             // StatusLabel
             // 
@@ -1754,7 +1756,7 @@ namespace BudgetExecution
             StatusLabel.Margin = new System.Windows.Forms.Padding( 1 );
             StatusLabel.Name = "StatusLabel";
             StatusLabel.Padding = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
-            StatusLabel.Size = new System.Drawing.Size( 91, 28 );
+            StatusLabel.Size = new System.Drawing.Size( 91, 30 );
             StatusLabel.Tag = "";
             StatusLabel.Text = "                 Navigation";
             StatusLabel.ToolTip = null;
@@ -1765,7 +1767,7 @@ namespace BudgetExecution
             Separator2.Margin = new System.Windows.Forms.Padding( 1 );
             Separator2.Name = "Separator2";
             Separator2.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator2.Size = new System.Drawing.Size( 6, 28 );
+            Separator2.Size = new System.Drawing.Size( 6, 30 );
             // 
             // FirstButton
             // 
@@ -1783,7 +1785,7 @@ namespace BudgetExecution
             FirstButton.Margin = new System.Windows.Forms.Padding( 3 );
             FirstButton.Name = "FirstButton";
             FirstButton.Padding = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
-            FirstButton.Size = new System.Drawing.Size( 30, 24 );
+            FirstButton.Size = new System.Drawing.Size( 30, 26 );
             FirstButton.Text = "toolStripButton1";
             FirstButton.ToolTip = ToolTip;
             FirstButton.ToolType = ToolType.FirstButton;
@@ -1794,7 +1796,7 @@ namespace BudgetExecution
             Separator3.Margin = new System.Windows.Forms.Padding( 1 );
             Separator3.Name = "Separator3";
             Separator3.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator3.Size = new System.Drawing.Size( 6, 28 );
+            Separator3.Size = new System.Drawing.Size( 6, 30 );
             // 
             // PreviousButton
             // 
@@ -1812,7 +1814,7 @@ namespace BudgetExecution
             PreviousButton.Margin = new System.Windows.Forms.Padding( 3 );
             PreviousButton.Name = "PreviousButton";
             PreviousButton.Padding = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
-            PreviousButton.Size = new System.Drawing.Size( 30, 24 );
+            PreviousButton.Size = new System.Drawing.Size( 30, 26 );
             PreviousButton.Text = "toolStripButton1";
             PreviousButton.ToolTip = ToolTip;
             PreviousButton.ToolType = ToolType.PreviousButton;
@@ -1823,7 +1825,7 @@ namespace BudgetExecution
             Separator4.Margin = new System.Windows.Forms.Padding( 1 );
             Separator4.Name = "Separator4";
             Separator4.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator4.Size = new System.Drawing.Size( 6, 28 );
+            Separator4.Size = new System.Drawing.Size( 6, 30 );
             // 
             // NextButton
             // 
@@ -1841,7 +1843,7 @@ namespace BudgetExecution
             NextButton.Margin = new System.Windows.Forms.Padding( 3 );
             NextButton.Name = "NextButton";
             NextButton.Padding = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
-            NextButton.Size = new System.Drawing.Size( 30, 24 );
+            NextButton.Size = new System.Drawing.Size( 30, 26 );
             NextButton.Text = "toolStripButton1";
             NextButton.ToolTip = ToolTip;
             NextButton.ToolType = ToolType.NextButton;
@@ -1852,7 +1854,7 @@ namespace BudgetExecution
             Separator5.Margin = new System.Windows.Forms.Padding( 1 );
             Separator5.Name = "Separator5";
             Separator5.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator5.Size = new System.Drawing.Size( 6, 28 );
+            Separator5.Size = new System.Drawing.Size( 6, 30 );
             // 
             // LastButton
             // 
@@ -1870,7 +1872,7 @@ namespace BudgetExecution
             LastButton.Margin = new System.Windows.Forms.Padding( 3 );
             LastButton.Name = "LastButton";
             LastButton.Padding = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
-            LastButton.Size = new System.Drawing.Size( 30, 24 );
+            LastButton.Size = new System.Drawing.Size( 30, 26 );
             LastButton.Text = "toolStripButton1";
             LastButton.ToolTip = null;
             LastButton.ToolType = ToolType.LastButton;
@@ -1881,7 +1883,7 @@ namespace BudgetExecution
             Separator6.Margin = new System.Windows.Forms.Padding( 1 );
             Separator6.Name = "Separator6";
             Separator6.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator6.Size = new System.Drawing.Size( 6, 28 );
+            Separator6.Size = new System.Drawing.Size( 6, 30 );
             // 
             // DataLabel
             // 
@@ -1895,7 +1897,7 @@ namespace BudgetExecution
             DataLabel.Margin = new System.Windows.Forms.Padding( 1 );
             DataLabel.Name = "DataLabel";
             DataLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            DataLabel.Size = new System.Drawing.Size( 76, 28 );
+            DataLabel.Size = new System.Drawing.Size( 76, 30 );
             DataLabel.Tag = "";
             DataLabel.Text = "                        Data ";
             DataLabel.ToolTip = null;
@@ -1906,7 +1908,7 @@ namespace BudgetExecution
             Separator7.Margin = new System.Windows.Forms.Padding( 1 );
             Separator7.Name = "Separator7";
             Separator7.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator7.Size = new System.Drawing.Size( 6, 28 );
+            Separator7.Size = new System.Drawing.Size( 6, 30 );
             // 
             // GoButton
             // 
@@ -1924,7 +1926,7 @@ namespace BudgetExecution
             GoButton.Margin = new System.Windows.Forms.Padding( 3 );
             GoButton.Name = "GoButton";
             GoButton.Padding = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
-            GoButton.Size = new System.Drawing.Size( 30, 24 );
+            GoButton.Size = new System.Drawing.Size( 30, 26 );
             GoButton.Text = "toolStripButton1";
             GoButton.ToolTip = ToolTip;
             GoButton.ToolType = ToolType.GoButton;
@@ -1935,7 +1937,7 @@ namespace BudgetExecution
             Separator8.Margin = new System.Windows.Forms.Padding( 1 );
             Separator8.Name = "Separator8";
             Separator8.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator8.Size = new System.Drawing.Size( 6, 28 );
+            Separator8.Size = new System.Drawing.Size( 6, 30 );
             // 
             // RefreshButton
             // 
@@ -1953,7 +1955,7 @@ namespace BudgetExecution
             RefreshButton.Margin = new System.Windows.Forms.Padding( 3 );
             RefreshButton.Name = "RefreshButton";
             RefreshButton.Padding = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
-            RefreshButton.Size = new System.Drawing.Size( 30, 24 );
+            RefreshButton.Size = new System.Drawing.Size( 30, 26 );
             RefreshButton.Text = "toolStripButton1";
             RefreshButton.ToolTip = ToolTip;
             RefreshButton.ToolType = ToolType.RefreshButton;
@@ -1964,7 +1966,7 @@ namespace BudgetExecution
             Separator9.Margin = new System.Windows.Forms.Padding( 1 );
             Separator9.Name = "Separator9";
             Separator9.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator9.Size = new System.Drawing.Size( 6, 28 );
+            Separator9.Size = new System.Drawing.Size( 6, 30 );
             // 
             // EditSqlButton
             // 
@@ -1982,7 +1984,7 @@ namespace BudgetExecution
             EditSqlButton.Margin = new System.Windows.Forms.Padding( 3 );
             EditSqlButton.Name = "EditSqlButton";
             EditSqlButton.Padding = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
-            EditSqlButton.Size = new System.Drawing.Size( 30, 24 );
+            EditSqlButton.Size = new System.Drawing.Size( 30, 26 );
             EditSqlButton.Text = "toolStripButton1";
             EditSqlButton.ToolTip = ToolTip;
             EditSqlButton.ToolType = ToolType.Ns;
@@ -1993,7 +1995,7 @@ namespace BudgetExecution
             Separator11.Margin = new System.Windows.Forms.Padding( 1 );
             Separator11.Name = "Separator11";
             Separator11.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator11.Size = new System.Drawing.Size( 6, 28 );
+            Separator11.Size = new System.Drawing.Size( 6, 30 );
             // 
             // EditDataButton
             // 
@@ -2011,7 +2013,7 @@ namespace BudgetExecution
             EditDataButton.Margin = new System.Windows.Forms.Padding( 3 );
             EditDataButton.Name = "EditDataButton";
             EditDataButton.Padding = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
-            EditDataButton.Size = new System.Drawing.Size( 30, 24 );
+            EditDataButton.Size = new System.Drawing.Size( 30, 26 );
             EditDataButton.Text = "toolStripButton1";
             EditDataButton.ToolTip = ToolTip;
             EditDataButton.ToolType = ToolType.TableButton;
@@ -2022,7 +2024,7 @@ namespace BudgetExecution
             Separator12.Margin = new System.Windows.Forms.Padding( 1 );
             Separator12.Name = "Separator12";
             Separator12.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator12.Size = new System.Drawing.Size( 6, 28 );
+            Separator12.Size = new System.Drawing.Size( 6, 30 );
             // 
             // TableButton
             // 
@@ -2040,7 +2042,7 @@ namespace BudgetExecution
             TableButton.Margin = new System.Windows.Forms.Padding( 3 );
             TableButton.Name = "TableButton";
             TableButton.Padding = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
-            TableButton.Size = new System.Drawing.Size( 30, 24 );
+            TableButton.Size = new System.Drawing.Size( 30, 26 );
             TableButton.Text = "toolStripButton1";
             TableButton.ToolTip = ToolTip;
             TableButton.ToolType = ToolType.Ns;
@@ -2051,7 +2053,7 @@ namespace BudgetExecution
             TableSeparator.Margin = new System.Windows.Forms.Padding( 1 );
             TableSeparator.Name = "TableSeparator";
             TableSeparator.Padding = new System.Windows.Forms.Padding( 1 );
-            TableSeparator.Size = new System.Drawing.Size( 6, 28 );
+            TableSeparator.Size = new System.Drawing.Size( 6, 30 );
             // 
             // LookupButton
             // 
@@ -2069,7 +2071,7 @@ namespace BudgetExecution
             LookupButton.Margin = new System.Windows.Forms.Padding( 3 );
             LookupButton.Name = "LookupButton";
             LookupButton.Padding = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
-            LookupButton.Size = new System.Drawing.Size( 30, 24 );
+            LookupButton.Size = new System.Drawing.Size( 30, 26 );
             LookupButton.Text = "toolStripButton1";
             LookupButton.ToolTip = ToolTip;
             LookupButton.ToolType = ToolType.LookupButton;
@@ -2080,7 +2082,7 @@ namespace BudgetExecution
             Separator13.Margin = new System.Windows.Forms.Padding( 1 );
             Separator13.Name = "Separator13";
             Separator13.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator13.Size = new System.Drawing.Size( 6, 28 );
+            Separator13.Size = new System.Drawing.Size( 6, 30 );
             // 
             // SaveButton
             // 
@@ -2098,7 +2100,7 @@ namespace BudgetExecution
             SaveButton.Margin = new System.Windows.Forms.Padding( 3 );
             SaveButton.Name = "SaveButton";
             SaveButton.Padding = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
-            SaveButton.Size = new System.Drawing.Size( 30, 24 );
+            SaveButton.Size = new System.Drawing.Size( 30, 26 );
             SaveButton.Text = "toolStripButton1";
             SaveButton.ToolTip = ToolTip;
             SaveButton.ToolType = ToolType.SaveButton;
@@ -2109,7 +2111,7 @@ namespace BudgetExecution
             Separator14.Margin = new System.Windows.Forms.Padding( 1 );
             Separator14.Name = "Separator14";
             Separator14.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator14.Size = new System.Drawing.Size( 6, 28 );
+            Separator14.Size = new System.Drawing.Size( 6, 30 );
             // 
             // FileSystemLabel
             // 
@@ -2123,7 +2125,7 @@ namespace BudgetExecution
             FileSystemLabel.Margin = new System.Windows.Forms.Padding( 1 );
             FileSystemLabel.Name = "FileSystemLabel";
             FileSystemLabel.Padding = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
-            FileSystemLabel.Size = new System.Drawing.Size( 83, 28 );
+            FileSystemLabel.Size = new System.Drawing.Size( 83, 30 );
             FileSystemLabel.Tag = "";
             FileSystemLabel.Text = "                   System";
             FileSystemLabel.ToolTip = null;
@@ -2134,7 +2136,7 @@ namespace BudgetExecution
             Separator15.Margin = new System.Windows.Forms.Padding( 1 );
             Separator15.Name = "Separator15";
             Separator15.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator15.Size = new System.Drawing.Size( 6, 28 );
+            Separator15.Size = new System.Drawing.Size( 6, 30 );
             // 
             // ClientButton
             // 
@@ -2152,7 +2154,7 @@ namespace BudgetExecution
             ClientButton.Margin = new System.Windows.Forms.Padding( 3 );
             ClientButton.Name = "ClientButton";
             ClientButton.Padding = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
-            ClientButton.Size = new System.Drawing.Size( 30, 24 );
+            ClientButton.Size = new System.Drawing.Size( 30, 26 );
             ClientButton.Text = "toolStripButton1";
             ClientButton.ToolTip = ToolTip;
             ClientButton.ToolType = ToolType.Ns;
@@ -2163,7 +2165,7 @@ namespace BudgetExecution
             ClientSeparator.Margin = new System.Windows.Forms.Padding( 1 );
             ClientSeparator.Name = "ClientSeparator";
             ClientSeparator.Padding = new System.Windows.Forms.Padding( 1 );
-            ClientSeparator.Size = new System.Drawing.Size( 6, 28 );
+            ClientSeparator.Size = new System.Drawing.Size( 6, 30 );
             // 
             // BrowserButton
             // 
@@ -2181,7 +2183,7 @@ namespace BudgetExecution
             BrowserButton.Margin = new System.Windows.Forms.Padding( 3 );
             BrowserButton.Name = "BrowserButton";
             BrowserButton.Padding = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
-            BrowserButton.Size = new System.Drawing.Size( 30, 24 );
+            BrowserButton.Size = new System.Drawing.Size( 30, 26 );
             BrowserButton.Text = "toolStripButton1";
             BrowserButton.ToolTip = ToolTip;
             BrowserButton.ToolType = ToolType.BrowseButton;
@@ -2192,7 +2194,7 @@ namespace BudgetExecution
             Separator16.Margin = new System.Windows.Forms.Padding( 1 );
             Separator16.Name = "Separator16";
             Separator16.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator16.Size = new System.Drawing.Size( 6, 28 );
+            Separator16.Size = new System.Drawing.Size( 6, 30 );
             // 
             // HomeButton
             // 
@@ -2210,7 +2212,7 @@ namespace BudgetExecution
             HomeButton.Margin = new System.Windows.Forms.Padding( 3 );
             HomeButton.Name = "HomeButton";
             HomeButton.Padding = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
-            HomeButton.Size = new System.Drawing.Size( 30, 24 );
+            HomeButton.Size = new System.Drawing.Size( 30, 26 );
             HomeButton.Text = "toolStripButton1";
             HomeButton.ToolTip = ToolTip;
             HomeButton.ToolType = ToolType.HomeButton;
@@ -2221,7 +2223,7 @@ namespace BudgetExecution
             Separator17.Margin = new System.Windows.Forms.Padding( 1 );
             Separator17.Name = "Separator17";
             Separator17.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator17.Size = new System.Drawing.Size( 6, 28 );
+            Separator17.Size = new System.Drawing.Size( 6, 30 );
             // 
             // SqlEditorButton
             // 
@@ -2256,6 +2258,29 @@ namespace BudgetExecution
             // 
             Timer.Enabled = true;
             Timer.Interval = 500;
+            // 
+            // Separator33
+            // 
+            Separator33.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            Separator33.ForeColor = System.Drawing.Color.Black;
+            Separator33.Margin = new System.Windows.Forms.Padding( 1 );
+            Separator33.Name = "Separator33";
+            Separator33.Padding = new System.Windows.Forms.Padding( 1 );
+            Separator33.Size = new System.Drawing.Size( 6, 30 );
+            // 
+            // ProgressBar
+            // 
+            ProgressBar.Name = "ProgressBar";
+            ProgressBar.Size = new System.Drawing.Size( 200, 29 );
+            ProgressBar.Value = 50;
+            // 
+            // FirstSeparator
+            // 
+            FirstSeparator.ForeColor = System.Drawing.Color.Black;
+            FirstSeparator.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            FirstSeparator.Name = "FirstSeparator";
+            FirstSeparator.Padding = new System.Windows.Forms.Padding( 1 );
+            FirstSeparator.Size = new System.Drawing.Size( 6, 30 );
             // 
             // SqlDataForm
             // 
@@ -2429,5 +2454,8 @@ namespace BudgetExecution
         public ToolStripButton ClientButton;
         public ToolSeparator ClientSeparator;
         public System.Windows.Forms.Timer Timer;
+        public ToolSeparator FirstSeparator;
+        public System.Windows.Forms.ToolStripProgressBar ProgressBar;
+        public ToolSeparator Separator33;
     }
 }

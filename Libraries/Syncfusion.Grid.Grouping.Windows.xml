@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <doc>
     <assembly>
         <name>Syncfusion.Grid.Grouping.Windows</name>
@@ -20563,7 +20563,7 @@
              </remarks>
              <example>
              <code lang="C#">
-                     public Form1()
+                     public GeographicForm()
                  {
                      //
                      // Required for Windows Form Designer support
@@ -20658,7 +20658,7 @@
              </code>
              <code lang="VB">
             
-             Public Class Form1
+             Public Class GeographicForm
                  Inherits System.Windows.Forms.Form
             
                  Public Sub New()

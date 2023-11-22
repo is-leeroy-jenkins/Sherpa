@@ -55,11 +55,11 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "ReplaceAutoPropertyWithComputedProperty" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "ReplaceAutoPropertyWithComputedProperty" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
     public partial class Notification : MetroForm
     {
         /// <summary> Gets or sets the time. </summary>
@@ -116,12 +116,13 @@ namespace BudgetExecution
             Padding = new Padding( 0 );
             Panel.BackColor = Color.FromArgb( 0, 73, 112 );
             Panel.BorderColor = Color.FromArgb( 0, 73, 112 );
-            Title.ForeColor = Color.FromArgb( 106, 189, 252 );
+            Title.ForeColor = Color.FromArgb( 0, 73, 112 );
             BorderColor = Color.FromArgb( 0, 73, 112 );
             BackColor = Color.FromArgb( 0, 73, 112 );
             CaptionBarColor = Color.FromArgb( 0, 73, 112 );
+            Message.Font = new Font( "Roboto", 9, FontStyle.Bold );
             Message.BackColor = Color.FromArgb( 0, 73, 112 );
-            Message.ForeColor = Color.FromArgb( 106, 189, 252 );
+            Message.ForeColor = Color.White;
 
             // Event Wiring
             Resize += OnResized;

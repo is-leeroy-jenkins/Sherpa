@@ -43,9 +43,12 @@ namespace BudgetExecution
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Diagnostics.CodeAnalysis;
     using System.Threading;
 
     /// <summary> </summary>
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public static class OptionExtensions
     {
         /// <summary> Firsts the or none. </summary>
@@ -63,7 +66,7 @@ namespace BudgetExecution
         /// <param name="predicate"> The predicate. </param>
         /// <returns> </returns>
         public static Option<T> FirstOrNone<T>( this IEnumerable<T> enumerable,
-                                                Func<T, bool> predicate )
+            Func<T, bool> predicate )
         {
             return enumerable.Where( predicate ).FirstOrNone( );
         }
@@ -77,7 +80,7 @@ namespace BudgetExecution
         public static IEnumerable<TResult> SelectOptional<T, TResult>(
             this IEnumerable<T> enumerable, Func<T, Option<TResult>> map )
         {
-            return (IEnumerable<TResult>) enumerable.Select( map )
+            return (IEnumerable<TResult>)enumerable.Select( map )
                 .OfType<Some<TResult>>( )
                 .Select( s => s.IsSome );
         }

@@ -73,6 +73,9 @@
     <PackageReference Include="MSChartExtension" Version="3.10.2" />
     <PackageReference Include="Ookii.Dialogs.WinForms" Version="4.0.0" />
     <PackageReference Include="ScottPlot.WinForms" Version="5.0.9-beta" />
+    <PackageReference Include="Syncfusion.Grid.Windows" Version="23.1.36" />
+    <PackageReference Include="Syncfusion.Shared.Base" Version="23.1.36" />
+    <PackageReference Include="Syncfusion.Tools.Windows" Version="23.1.36" />
     <PackageReference Include="WinForms.DataVisualization" Version="1.9.1" />
     <PackageReference Include="WinFormsMapControl" Version="1.1.0" />
     <PackageReference Include="Zeroit.Framework.BasicCharts" Version="1.0.0" />
@@ -203,9 +206,6 @@
     <Reference Include="Syncfusion.Grid.Grouping.Windows">
       <HintPath>Libraries\Syncfusion.Grid.Grouping.Windows.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.Grid.Windows">
-      <HintPath>Libraries\Syncfusion.Grid.Windows.dll</HintPath>
-    </Reference>
     <Reference Include="Syncfusion.GridCommon.WinForms">
       <HintPath>Libraries\Syncfusion.GridCommon.WinForms.dll</HintPath>
     </Reference>
@@ -329,9 +329,6 @@
     <Reference Include="Syncfusion.SfSmithChart.WinForms">
       <HintPath>Libraries\Syncfusion.SfSmithChart.WinForms.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.Shared.Base">
-      <HintPath>Libraries\Syncfusion.Shared.Base.dll</HintPath>
-    </Reference>
     <Reference Include="Syncfusion.Shared.Windows">
       <HintPath>Libraries\Syncfusion.Shared.Windows.dll</HintPath>
     </Reference>
@@ -352,9 +349,6 @@
     </Reference>
     <Reference Include="Syncfusion.Tools.Base">
       <HintPath>Libraries\Syncfusion.Tools.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Tools.Windows">
-      <HintPath>Libraries\Syncfusion.Tools.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.TreeMap.Windows">
       <HintPath>Libraries\Syncfusion.TreeMap.Windows.dll</HintPath>
