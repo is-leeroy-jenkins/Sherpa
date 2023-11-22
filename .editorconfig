@@ -38,6 +38,7 @@ resharper_extra_spaces = remove_all
 resharper_indent_braces_inside_statement_conditions = false
 resharper_indent_method_decl_pars = inside
 resharper_keep_existing_declaration_parens_arrangement = true
+resharper_keep_existing_embedded_block_arrangement = false
 resharper_max_blank_lines_between_tags = 0
 resharper_modifiers_order = public private internal protected static readonly override abstract new sealed extern unsafe volatile async virtual
 resharper_parentheses_redundancy_style = remove_if_not_clarifies_precedence
@@ -55,7 +56,7 @@ resharper_space_within_nameof_parentheses = true
 resharper_space_within_new_parentheses = true
 resharper_space_within_sizeof_parentheses = true
 resharper_space_within_typeof_parentheses = true
-resharper_use_continuous_indent_inside_parens = false
+resharper_use_continuous_indent_inside_parens = true
 resharper_wrap_parameters_style = wrap_if_long
 resharper_xmldoc_attribute_style = on_single_line
 resharper_xmldoc_keep_user_linebreaks = true
@@ -79,7 +80,9 @@ resharper_xml_pi_attribute_style = on_single_line
 resharper_xml_use_indent_from_vs = true
 
 # Microsoft .NET properties
+csharp_new_line_before_members_in_object_initializers = false
 csharp_preferred_modifier_order = public, private, internal, protected, static, readonly, override, abstract, new, sealed, extern, unsafe, volatile, async, virtual:warning
+csharp_preserve_single_line_blocks = true
 csharp_space_between_empty_square_brackets = true
 csharp_space_between_method_call_empty_parameter_list_parentheses = true
 csharp_space_between_method_call_parameter_list_parentheses = true

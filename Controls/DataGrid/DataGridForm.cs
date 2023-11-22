@@ -929,9 +929,9 @@ namespace BudgetExecution
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
                 var _names = _data
-                    ?.Where( r => r.Field<string>( "Model" ).Equals( "REFERENCE" ) )
-                    ?.OrderBy( r => r.Field<string>( "Title" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
+                             ?.Where( r => r.Field<string>( "Model" ).Equals( "REFERENCE" ) )
+                             ?.OrderBy( r => r.Field<string>( "Title" ) )
+                             ?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
 
                 if( _names?.Any( ) == true )
                 {
@@ -957,7 +957,8 @@ namespace BudgetExecution
                 TableListBox.Items?.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "MAINTENANCE" ) )
+                var _names = _data
+                    ?.Where( r => r.Field<string>( "Model" ).Equals( "MAINTENANCE" ) )
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
                     ?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
 
