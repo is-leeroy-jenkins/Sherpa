@@ -1,45 +1,42 @@
-﻿//  ******************************************************************************************
-//      Assembly:                Budget Execution
-//      Filename:                ProgramProjectDialog.cs
-//      Author:                  Terry D. Eppler
-//      Created:                 05-31-2023
+﻿// ******************************************************************************************
+//     Assembly:             BudgetExecution
+//     Author:                  Terry D. Eppler
+//     Created:                 06-19-2023
 // 
-//      Last Modified By:        Terry D. Eppler
-//      Last Modified On:        06-01-2023
-//  ******************************************************************************************
-//  <copyright file="ProgramProjectDialog.cs" company="Terry D. Eppler">
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        11-22-2023
+// ******************************************************************************************
+// <copyright file="Terry Eppler.cs" company="Terry D. Eppler">
+//    BudgetExecution is a Federal Budget, Finance, and Accounting application for the
+//    US Environmental Protection Agency (US EPA).
+//    Copyright ©  2023  Terry Eppler
 // 
-//     This is a Federal Budget, Finance, and Accounting application for the
-//     US Environmental Protection Agency (US EPA).
-//     Copyright ©  2023  Terry Eppler
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
 // 
-//     Permission is hereby granted, free of charge, to any person obtaining a copy
-//     of this software and associated documentation files (the “Software”),
-//     to deal in the Software without restriction,
-//     including without limitation the rights to use,
-//     copy, modify, merge, publish, distribute, sublicense,
-//     and/or sell copies of the Software,
-//     and to permit persons to whom the Software is furnished to do so,
-//     subject to the following conditions:
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
 // 
-//     The above copyright notice and this permission notice shall be included in all
-//     copies or substantial portions of the Software.
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
 // 
-//     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//     FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//     DEALINGS IN THE SOFTWARE.
-// 
-//     You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
-// 
-//  </copyright>
-//  <summary>
-//    ProgramProjectDialog.cs
-//  </summary>
-//  ******************************************************************************************
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
+// </copyright>
+// <summary>
+//   ProgramProjectDialog.cs.cs
+// </summary>
+// ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -66,7 +63,7 @@ namespace BudgetExecution
         /// <summary>
         /// The status update
         /// </summary>
-        private System.Action _statusUpdate;
+        private Action _statusUpdate;
 
         /// <summary>
         /// Gets or sets the time.
@@ -181,7 +178,6 @@ namespace BudgetExecution
         public ProgramProjectDialog( )
         {
             InitializeComponent( );
-            InitializeCallbacks( );
             InitializeDelegates( );
 
             // Basic Properties
@@ -314,6 +310,24 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Initializes the timers.
+        /// </summary>
+        private void InitializeTimers( )
+        {
+            try
+            {
+                // Timer Properties
+                Timer.Enabled = true;
+                Timer.Interval = 500;
+                Timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Invokes if needed.
         /// </summary>
         /// <param name="action">
@@ -360,7 +374,7 @@ namespace BudgetExecution
                 if( Seconds != 0 )
                 {
                     Timer = new Timer( );
-                    Timer.Interval = 1000;
+                    Timer.Interval = 10;
                     Timer.Tick += ( sender, args ) =>
                     {
                         Time++;
@@ -464,7 +478,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Populates the ComboBox items. </summary>
+        /// <summary>
+        /// Populates the ComboBox items.
+        /// </summary>
         private void PopulateComboBoxItems( )
         {
             try
@@ -551,17 +567,19 @@ namespace BudgetExecution
         {
             try
             {
+                InitializeTimers( );
+                InitializeCallbacks( );
                 InitializeLabels( );
                 InitializeButtons( );
                 FormFilter = new Dictionary<string, object>( );
                 DataArgs = new DataArgs( );
+                FadeIn( );
                 if( !string.IsNullOrEmpty( SelectedProgram ) )
                 {
                     FormFilter.Add( "Code", SelectedProgram );
                     DataModel = new DataBuilder( Source, Provider, FormFilter );
                     DataTable = DataModel.DataTable;
                     BindingSource.DataSource = DataTable;
-                    Header.ForeColor = Color.FromArgb( 106, 189, 252 );
                     BindingSource.Filter = FormFilter.ToCriteria( );
                     Current = BindingSource.GetCurrentDataRow( );
                     DescriptionTable.CaptionText = "Program Description";
@@ -570,10 +588,6 @@ namespace BudgetExecution
                 }
                 else
                 {
-                    DataModel = new DataBuilder( Source, Provider );
-                    DataTable = DataModel.DataTable;
-                    BindingSource.DataSource = DataTable;
-                    Header.ForeColor = Color.FromArgb( 106, 189, 252 );
                     Header.Text = "Program Title";
                     DescriptionTable.CaptionText = "Program Description";
                     PopulateComboBoxItems( );
@@ -581,8 +595,6 @@ namespace BudgetExecution
                     ClearProgramText( );
                     ComboBox.Visible = true;
                 }
-
-                FadeIn( );
             }
             catch( Exception _ex )
             {

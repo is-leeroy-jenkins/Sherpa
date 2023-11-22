@@ -49,7 +49,6 @@ namespace BudgetExecution
     using System.Data.SQLite;
     using System.Data.SqlServerCe;
     using System.Diagnostics.CodeAnalysis;
-    using System.Threading;
 
     /// <inheritdoc/>
     /// <summary> </summary>
@@ -239,8 +238,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the OLE database adapter. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the OLE database adapter.
+        /// </summary>
+        /// <returns>
+        /// </returns>
         private protected OleDbDataAdapter GetOleDbAdapter( )
         {
             try
@@ -310,7 +312,9 @@ namespace BudgetExecution
         /// <summary>
         /// Fails the specified ex.
         /// </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <param name="ex">
+        /// The ex.
+        /// </param>
         private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

@@ -205,7 +205,7 @@ namespace BudgetExecution
                 ThrowIf.Null( grid, nameof( grid ) );
                 ThrowIf.Null( font, nameof( font ) );
                 using var _range = grid.Range;
-                _range.Style.Font.SetFromFont( font );
+                _range.Style.Font.SetFromFont( font.Name, font.Size );
             }
             catch( Exception _ex )
             {

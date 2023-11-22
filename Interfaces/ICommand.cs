@@ -42,14 +42,19 @@ namespace BudgetExecution
 {
     using System;
     using System.Data.Common;
-    using System.Threading;
+    using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
     /// <summary> </summary>
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public interface ICommand : ISource, IProvider
     {
-        /// <summary> Sets the command. </summary>
-        /// <param name="sqlStatement"> The SQL statement. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Sets the command.
+        /// </summary>
+        /// <returns>
+        /// DbCommand
+        /// </returns>
         DbCommand GetCommand( );
     }
 }

@@ -383,6 +383,7 @@ namespace BudgetExecution
                 ToolStrip.ImageScalingSize = new Size( 16, 16 );
                 ToolStripTextBox.Size = new Size( 190, 28 );
                 ToolStripTextBox.Font = new Font( "Roboto", 8 );
+                ToolStripTextBox.BackColor = Color.FromArgb( 20, 20, 20 );
                 ToolStripTextBox.ForeColor = Color.White;
                 ToolStripTextBox.TextBoxTextAlign = HorizontalAlignment.Center;
                 ToolStripTextBox.Text = DateTime.Today.ToShortDateString( );

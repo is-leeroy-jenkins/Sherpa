@@ -69,6 +69,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public partial class SqlDataForm : EditBase
     {
         /// <summary>
@@ -76,60 +77,116 @@ namespace BudgetExecution
         /// </summary>
         private System.Action _statusUpdate;
 
-        /// <summary> Gets or sets the time. </summary>
-        /// <value> The time. </value>
+        /// <summary>
+        /// Gets or sets the time.
+        /// </summary>
+        /// <value>
+        /// The time.
+        /// </value>
         public int Time { get; set; }
 
-        /// <summary> Gets or sets the seconds. </summary>
-        /// <value> The seconds. </value>
+        /// <summary>
+        /// Gets or sets the seconds.
+        /// </summary>
+        /// <value>
+        /// The seconds.
+        /// </value>
         public int Seconds { get; set; }
 
-        /// <summary> Gets or sets the first category. </summary>
-        /// <value> The first category. </value>
+        /// <summary>
+        /// Gets or sets the first category.
+        /// </summary>
+        /// <value>
+        /// The first category.
+        /// </value>
         public string FirstCategory { get; set; }
 
-        /// <summary> Gets or sets the first value. </summary>
-        /// <value> The first value. </value>
+        /// <summary>
+        /// Gets or sets the first value.
+        /// </summary>
+        /// <value>
+        /// The first value.
+        /// </value>
         public string FirstValue { get; set; }
 
-        /// <summary> Gets or sets the second category. </summary>
-        /// <value> The second category. </value>
+        /// <summary>
+        /// Gets or sets the second category.
+        /// </summary>
+        /// <value>
+        /// The second category.
+        /// </value>
         public string SecondCategory { get; set; }
 
-        /// <summary> Gets or sets the second value. </summary>
-        /// <value> The second value. </value>
+        /// <summary>
+        /// Gets or sets the second value.
+        /// </summary>
+        /// <value>
+        /// The second value.
+        /// </value>
         public string SecondValue { get; set; }
 
-        /// <summary> Gets or sets the third category. </summary>
-        /// <value> The third category. </value>
+        /// <summary>
+        /// Gets or sets the third category.
+        /// </summary>
+        /// <value>
+        /// The third category.
+        /// </value>
         public string ThirdCategory { get; set; }
 
-        /// <summary> Gets or sets the third value. </summary>
-        /// <value> The third value. </value>
+        /// <summary>
+        /// Gets or sets the third value.
+        /// </summary>
+        /// <value>
+        /// The third value.
+        /// </value>
         public string ThirdValue { get; set; }
 
-        /// <summary> Gets or sets the SQL query. </summary>
-        /// <value> The SQL query. </value>
+        /// <summary>
+        /// Gets or sets the SQL query.
+        /// </summary>
+        /// <value>
+        /// The SQL query.
+        /// </value>
         public string SqlQuery { get; set; }
 
-        /// <summary> Gets or sets the current. </summary>
-        /// <value> The current. </value>
+        /// <summary>
+        /// Gets or sets the current.
+        /// </summary>
+        /// <value>
+        /// The current.
+        /// </value>
         public DataRow Current { get; set; }
 
-        /// <summary> Gets or sets the selected command. </summary>
-        /// <value> The selected command. </value>
+        /// <summary>
+        /// Gets or sets the selected command.
+        /// </summary>
+        /// <value>
+        /// The selected command.
+        /// </value>
         public string SelectedCommand { get; set; }
 
-        /// <summary> Gets or sets the selected query. </summary>
-        /// <value> The selected query. </value>
+        /// <summary>
+        /// Gets or sets the selected query.
+        /// </summary>
+        /// <value>
+        /// The selected query.
+        /// </value>
         public string SelectedQuery { get; set; }
 
-        /// <summary> Gets or sets the commands. </summary>
-        /// <value> The commands. </value>
+        /// <summary>
+        /// Gets or sets the commands.
+        /// </summary>
+        /// <value>
+        /// The commands.
+        /// </value>
         public IList<string> Commands { get; set; }
 
-        /// <summary> Gets or sets the statements. </summary>
-        /// <value> The statements. </value>
+        /// <summary>
+        /// Gets or sets the statements.
+        /// </summary>
+        /// <value>
+        /// The statements.
+        /// </value>
         public IDictionary<string, object> Statements { get; set; }
 
         /// <summary>
@@ -228,7 +285,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Populates the table ListBox items. </summary>
+        /// <summary>
+        /// Populates the table ListBox items.
+        /// </summary>
         public void PopulateTableListBoxItems( )
         {
             try
@@ -259,7 +318,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Populates the data type ComboBox items. </summary>
+        /// <summary>
+        /// Populates the data type ComboBox items.
+        /// </summary>
         public void PopulateDataTypeComboBoxItems( )
         {
             if( DataTypes?.Any( ) == true )
@@ -284,7 +345,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Populates the table ComboBox items. </summary>
+        /// <summary>
+        /// Populates the table ComboBox items.
+        /// </summary>
         public void PopulateTableComboBoxItems( )
         {
             try
@@ -310,7 +373,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Clears the data. </summary>
+        /// <summary>
+        /// Clears the data.
+        /// </summary>
         public void ClearData( )
         {
             try
@@ -330,7 +395,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Initializes the editor. </summary>
+        /// <summary>
+        /// Initializes the editor.
+        /// </summary>
         private void InitializeEditor( )
         {
             try
@@ -384,7 +451,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Initializes the tool strip. </summary>
+        /// <summary>
+        /// Initializes the tool strip.
+        /// </summary>
         private void InitializeToolStrip( )
         {
             try
@@ -415,9 +484,9 @@ namespace BudgetExecution
             {
                 _statusUpdate += UpdateStatusLabel;
             }
-            catch( Exception e )
+            catch( Exception _ex )
             {
-                Console.WriteLine( e );
+                Console.WriteLine( _ex );
                 throw;
             }
         }
@@ -1100,7 +1169,7 @@ namespace BudgetExecution
         /// Gets the tab pages.
         /// </summary>
         /// <returns>
-        /// IDictionary<string, TabPageAdv>
+        /// IDictionary
         /// </returns>
         private IDictionary<string, TabPageAdv> GetTabPages( )
         {
@@ -1135,7 +1204,7 @@ namespace BudgetExecution
         /// Gets the radio buttons.
         /// </summary>
         /// <returns>
-        /// IDictionary<string, ListBox>
+        /// IDictionary
         /// </returns>
         private IDictionary<string, RadioButton> GetRadioButtons( )
         {
@@ -1165,7 +1234,7 @@ namespace BudgetExecution
         /// Gets the combo boxes.
         /// </summary>
         /// <returns>
-        /// IDictionary<string, ComboBox>
+        /// IDictionary
         /// </returns>
         private IDictionary<string, ComboBox> GetComboBoxes( )
         {
@@ -1195,7 +1264,7 @@ namespace BudgetExecution
         /// Gets the panels.
         /// </summary>
         /// <returns>
-        /// IDictionary<string, Layout>
+        /// IDictionary
         /// </returns>
         private IDictionary<string, Layout> GetPanels( )
         {
@@ -1225,7 +1294,7 @@ namespace BudgetExecution
         /// Gets the list boxes.
         /// </summary>
         /// <returns>
-        /// IDictionary<string, ListBox>
+        /// IDictionary
         /// </returns>
         private IDictionary<string, ListBox> GetListBoxes( )
         {
@@ -1269,8 +1338,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Populates the SQL ComboBox. </summary>
-        /// <param name="list"> The list. </param>
+        /// <summary>
+        /// Populates the SQL ComboBox.
+        /// </summary>
+        /// <param name="list">
+        /// The list.
+        /// </param>
         private void PopulateSqlComboBox( IList<string> list )
         {
             try
@@ -1334,7 +1407,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Runs the client application. </summary>
+        /// <summary>
+        /// Runs the client application.
+        /// </summary>
         private void RunClientApplication( )
         {
             try
@@ -1364,7 +1439,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [load]. </summary>
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
         /// The
@@ -1395,8 +1472,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [RadioButton checked]. </summary>
-        /// <param name="sender"> The sender. </param>
+        /// <summary>
+        /// Called when [RadioButton checked].
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
         private void OnRadioButtonChecked( object sender )
         {
             if( sender is RadioButton _button )
@@ -1427,7 +1508,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [command ComboBox item selected]. </summary>
+        /// <summary>
+        /// Called when [command ComboBox item selected].
+        /// </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
         /// The
@@ -1480,8 +1563,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [ListBox item selected]. </summary>
-        /// <param name="sender"> The sender. </param>
+        /// <summary>
+        /// Called when [ListBox item selected].
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
         private void OnListBoxItemSelected( object sender )
         {
             if( sender is ListBox _listBox
@@ -1567,8 +1654,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [close button click]. </summary>
-        /// <param name="sender"> The sender. </param>
+        /// <summary>
+        /// Called when [close button click].
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
         /// <param name="e">
         /// The
         /// <see cref="EventArgs"/>
@@ -1587,7 +1678,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [form closed]. </summary>
+        /// <summary>
+        /// Called when [form closed].
+        /// </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
         /// The
@@ -1609,7 +1702,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [edit SQL button click]. </summary>
+        /// <summary>
+        /// Called when [edit SQL button click].
+        /// </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
         /// The
@@ -1628,7 +1723,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [edit data button click]. </summary>
+        /// <summary>
+        /// Called when [edit data button click].
+        /// </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
         /// The
@@ -1647,7 +1744,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [lookup button click]. </summary>
+        /// <summary>
+        /// Called when [lookup button click].
+        /// </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
         /// The
@@ -1666,7 +1765,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [go button click]. </summary>
+        /// <summary>
+        /// Called when [go button click].
+        /// </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
         /// The
@@ -1685,7 +1786,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [table button click]. </summary>
+        /// <summary>
+        /// Called when [table button click].
+        /// </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
         /// The
@@ -1704,7 +1807,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [active tab changed]. </summary>
+        /// <summary>
+        /// Called when [active tab changed].
+        /// </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
         /// The
@@ -1723,7 +1828,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [save button click]. </summary>
+        /// <summary>
+        /// Called when [save button click].
+        /// </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
         /// The
@@ -1735,7 +1842,9 @@ namespace BudgetExecution
             Notify( );
         }
 
-        /// <summary> Called when [main menu button clicked]. </summary>
+        /// <summary>
+        /// Called when [main menu button clicked].
+        /// </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
         /// The
@@ -1756,7 +1865,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [client button click]. </summary>
+        /// <summary>
+        /// Called when [client button click].
+        /// </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
         /// The
@@ -1768,8 +1879,12 @@ namespace BudgetExecution
             RunClientApplication( );
         }
 
-        /// <summary> Called when [table ListBox selection changed]. </summary>
-        /// <param name="sender"> The sender. </param>
+        /// <summary>
+        /// Called when [table ListBox selection changed].
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
         public void OnTableListBoxSelectionChanged( object sender )
         {
             try
@@ -1806,7 +1921,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [column ListBox selection changed]. </summary>
+        /// <summary>
+        /// Called when [column ListBox selection changed].
+        /// </summary>
         /// <param name="sender"> The sender. </param>
         public void OnColumnListBoxSelectionChanged( object sender )
         {

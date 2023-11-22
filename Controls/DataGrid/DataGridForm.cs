@@ -1231,7 +1231,9 @@ namespace BudgetExecution
                     var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
                     var _criteria = where.ToCriteria( );
                     var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_columns} FROM {Source} " + $"WHERE {_criteria} "
+                    return $"SELECT {_columns} " 
+                        + "FROM {Source} " 
+                        + $"WHERE {_criteria} "
                         + $"GROUP BY {_groups};";
                 }
                 catch( Exception _ex )
@@ -1258,7 +1260,10 @@ namespace BudgetExecution
                     if( _files?.Any( ) == true )
                     {
                         var _extension = Provider.ToString( );
-                        var _file = _files?.Where( f => f.Contains( _extension ) )?.First( );
+                        var _file = _files
+                            ?.Where( f => f.Contains( _extension ) )
+                            ?.First( );
+
                         if( !string.IsNullOrEmpty( _file )
                            && File.Exists( _file ) )
                         {
@@ -1300,7 +1305,10 @@ namespace BudgetExecution
                             case ToolType.EditSqlButton:
                             {
                                 var _tool = type.ToString( );
-                                var _file = _files?.Where( f => f.Contains( _tool ) )?.First( );
+                                var _file = _files
+                                    ?.Where( f => f.Contains( _tool ) )
+                                    ?.First( );
+
                                 if( !string.IsNullOrEmpty( _file )
                                    && File.Exists( _file ) )
                                 {

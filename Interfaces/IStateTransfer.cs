@@ -46,33 +46,61 @@ namespace BudgetExecution
     using System;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
-    using System.Threading;
 
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:BudgetExecution.ISource" />
+    /// <seealso cref="T:BudgetExecution.IProvider" />
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public interface IStateTransfer : ISource, IProvider
     {
-        /// <summary> Gets or sets the selected table. </summary>
-        /// <value> The selected table. </value>
+        /// <summary>
+        /// Gets or sets the selected table.
+        /// </summary>
+        /// <value>
+        /// The selected table.
+        /// </value>
         string SelectedTable { get; set; }
 
-        /// <summary> Gets or sets the selected fields. </summary>
-        /// <value> The selected fields. </value>
+        /// <summary>
+        /// Gets or sets the selected fields.
+        /// </summary>
+        /// <value>
+        /// The selected fields.
+        /// </value>
         IList<string> SelectedFields { get; set; }
 
-        /// <summary> Gets or sets the selected numerics. </summary>
-        /// <value> The selected numerics. </value>
+        /// <summary>
+        /// Gets or sets the selected numerics.
+        /// </summary>
+        /// <value>
+        /// The selected numerics.
+        /// </value>
         IList<string> SelectedNumerics { get; set; }
 
-        /// <summary> Gets or sets the selected dates. </summary>
-        /// <value> The selected dates. </value>
+        /// <summary>
+        /// Gets or sets the selected dates.
+        /// </summary>
+        /// <value>
+        /// The selected dates.
+        /// </value>
         IList<DateTime> SelectedDates { get; set; }
 
-        /// <summary> Gets or sets the SQL query. </summary>
-        /// <value> The SQL query. </value>
+        /// <summary>
+        /// Gets or sets the SQL query.
+        /// </summary>
+        /// <value>
+        /// The SQL query.
+        /// </value>
         string SqlQuery { get; set; }
 
-        /// <summary> Gets or sets the data filter. </summary>
-        /// <value> The data filter. </value>
+        /// <summary>
+        /// Gets or sets the data filter.
+        /// </summary>
+        /// <value>
+        /// The data filter.
+        /// </value>
         IDictionary<string, object> DataFilter { get; set; }
     }
 }

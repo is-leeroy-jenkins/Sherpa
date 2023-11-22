@@ -12,6 +12,8 @@
     using System.Threading.Tasks;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
+    using Syncfusion.Windows.Forms.Tools;
+    using Action = System.Action;
 
     /// <summary>
     /// 
@@ -19,12 +21,15 @@
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     public partial class PivotChartForm : MetroForm
     {
         /// <summary>
         /// The status update
         /// </summary>
-        private System.Action _statusUpdate;
+        private Action _statusUpdate;
 
         /// <summary>
         /// Gets or sets the time.
@@ -233,141 +238,6 @@
         }
 
         /// <summary>
-        /// Gets the controls.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        private IEnumerable<Control> GetControls( )
-        {
-            var _list = new List<Control>( );
-            var _queue = new Queue( );
-            try
-            {
-                _queue.Enqueue( Controls );
-                while( _queue.Count > 0 )
-                {
-                    var _collection = (Control.ControlCollection)_queue.Dequeue( );
-                    if( _collection?.Count > 0 )
-                    {
-                        foreach( Control _control in _collection )
-                        {
-                            _list.Add( _control );
-                            _queue.Enqueue( _control.Controls );
-                        }
-                    }
-                }
-
-                return _list?.Any( ) == true
-                    ? _list.ToArray( )
-                    : default( Control[ ] );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( Control[ ] );
-            }
-        }
-
-        /// <summary>
-        /// Displays the control to the user.
-        /// </summary>
-        public new void Show( )
-        {
-            try
-            {
-                Opacity = 0;
-                if( Seconds != 0 )
-                {
-                    Timer = new Timer( );
-                    Timer.Interval = 1000;
-                    Timer.Tick += ( sender, args ) =>
-                    {
-                        Time++;
-                        if( Time == Seconds )
-                        {
-                            Timer.Stop( );
-                        }
-                    };
-                }
-
-                base.Show( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Fades the in. </summary>
-        private protected virtual void FadeIn( )
-        {
-            try
-            {
-                var _timer = new Timer( );
-                _timer.Interval = 10;
-                _timer.Tick += ( sender, args ) =>
-                {
-                    if( Opacity == 1d )
-                    {
-                        _timer.Stop( );
-                    }
-
-                    Opacity += 0.02d;
-                };
-
-                _timer.Start( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Fades the out and close. </summary>
-        private protected virtual void FadeOut( )
-        {
-            try
-            {
-                var _timer = new Timer( );
-                _timer.Interval = 10;
-                _timer.Tick += ( sender, args ) =>
-                {
-                    if( Opacity == 0d )
-                    {
-                        _timer.Stop( );
-                        Close( );
-                    }
-
-                    Opacity -= 0.02d;
-                };
-
-                _timer.Start( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Invokes if needed.
-        /// </summary>
-        /// <param name="action">
-        /// The action.
-        /// </param>
-        public void InvokeIf( System.Action action )
-        {
-            if( InvokeRequired )
-            {
-                BeginInvoke( action );
-            }
-            else
-            {
-                action.Invoke( );
-            }
-        }
-
-        /// <summary>
         /// Initializes the labels.
         /// </summary>
         private void InitializeLabels( )
@@ -451,10 +321,157 @@
         {
             try
             {
+                ToolStrip.Visible = true;
+                ToolStrip.Text = string.Empty;
+                ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
+                ToolStrip.Office12Mode = true;
+                ToolStrip.LauncherStyle = LauncherStyle.Office12;
+                ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Black;
+                ToolStrip.ImageSize = new Size( 16, 16 );
+                ToolStrip.ImageScalingSize = new Size( 16, 16 );
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Gets the controls.
+        /// </summary>
+        /// <returns>
+        /// </returns>
+        private IEnumerable<Control> GetControls( )
+        {
+            var _list = new List<Control>( );
+            var _queue = new Queue( );
+            try
+            {
+                _queue.Enqueue( Controls );
+                while( _queue.Count > 0 )
+                {
+                    var _collection = (Control.ControlCollection)_queue.Dequeue( );
+                    if( _collection?.Count > 0 )
+                    {
+                        foreach( Control _control in _collection )
+                        {
+                            _list.Add( _control );
+                            _queue.Enqueue( _control.Controls );
+                        }
+                    }
+                }
+
+                return _list?.Any( ) == true
+                    ? _list.ToArray( )
+                    : default( Control[ ] );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( Control[ ] );
+            }
+        }
+
+        /// <summary>
+        /// Displays the control to the user.
+        /// </summary>
+        public new void Show( )
+        {
+            try
+            {
+                Opacity = 0;
+                if( Seconds != 0 )
+                {
+                    Timer = new Timer( );
+                    Timer.Interval = 1000;
+                    Timer.Tick += ( sender, args ) =>
+                    {
+                        Time++;
+                        if( Time == Seconds )
+                        {
+                            Timer.Stop( );
+                        }
+                    };
+                }
+
+                base.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the in.
+        /// </summary>
+        private protected virtual void FadeIn( )
+        {
+            try
+            {
+                var _timer = new Timer( );
+                _timer.Interval = 10;
+                _timer.Tick += ( sender, args ) =>
+                {
+                    if( Opacity == 1d )
+                    {
+                        _timer.Stop( );
+                    }
+
+                    Opacity += 0.02d;
+                };
+
+                _timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the out and close.
+        /// </summary>
+        private protected virtual void FadeOut( )
+        {
+            try
+            {
+                var _timer = new Timer( );
+                _timer.Interval = 10;
+                _timer.Tick += ( sender, args ) =>
+                {
+                    if( Opacity == 0d )
+                    {
+                        _timer.Stop( );
+                        Close( );
+                    }
+
+                    Opacity -= 0.02d;
+                };
+
+                _timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Invokes if needed.
+        /// </summary>
+        /// <param name="action">
+        /// The action.
+        /// </param>
+        public void InvokeIf( Action action )
+        {
+            if( InvokeRequired )
+            {
+                BeginInvoke( action );
+            }
+            else
+            {
+                action.Invoke( );
             }
         }
 
@@ -472,6 +489,120 @@
                 DataArgs.SelectedFields = SelectedFields;
                 DataArgs.SelectedNumerics = SelectedNumerics;
                 DataArgs.SqlQuery = SqlQuery;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the collections.
+        /// </summary>
+        private void ClearCollections( )
+        {
+            try
+            {
+                if( FormFilter?.Any( ) == true )
+                {
+                    FormFilter.Clear( );
+                }
+
+                if( SelectedColumns?.Any( ) == true )
+                {
+                    SelectedColumns.Clear( );
+                }
+
+                if( SelectedFields?.Any( ) == true )
+                {
+                    SelectedFields.Clear( );
+                }
+
+                if( SelectedNumerics?.Any( ) == true )
+                {
+                    SelectedNumerics.Clear( );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the selections.
+        /// </summary>
+        private void ClearSelections( )
+        {
+            try
+            {
+                if( FormFilter.Keys.Count > 0 )
+                {
+                    FormFilter.Clear( );
+                }
+
+                ThirdCategory = string.Empty;
+                ThirdValue = string.Empty;
+                SecondCategory = string.Empty;
+                SecondValue = string.Empty;
+                FirstCategory = string.Empty;
+                FirstValue = string.Empty;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Updates the status.
+        /// </summary>
+        private void UpdateStatus( )
+        {
+            try
+            {
+                var _dateTime = DateTime.Now;
+                var _dateString = _dateTime.ToLongDateString( );
+                var _timeString = _dateTime.ToLongTimeString( );
+                //StatusLabel.Text = _dateString + "  " + _timeString;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Opens the main form.
+        /// </summary>
+        private void OpenMainForm( )
+        {
+            try
+            {
+                var _form = (MainForm)Program.Windows[ "MainForm" ];
+                _form.StartPosition = FormStartPosition.CenterScreen;
+                _form.TopMost = true;
+                _form.Visible = true;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Called when [load]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        private protected virtual void OnLoad( object sender, EventArgs e )
+        {
+            try
+            {
+                InitializeLabels( );
+                FadeIn( );
             }
             catch( Exception _ex )
             {
@@ -525,28 +656,12 @@
             }
         }
 
-        /// <summary> Called when [load]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
+        /// <summary>
+        /// Get ErrorDialog Dialog.
+        /// </summary>
+        /// <param name="ex">
+        /// The ex.
         /// </param>
-        private protected virtual void OnLoad( object sender, EventArgs e )
-        {
-            try
-            {
-                InitializeLabels( );
-                FadeIn( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name="ex"> The ex. </param>
         private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

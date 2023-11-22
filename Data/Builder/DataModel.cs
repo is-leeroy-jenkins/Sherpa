@@ -374,7 +374,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NotExists( filePath, nameof( filePath ) );
+                ThrowIf.NullOrEmpty( filePath, nameof( filePath ) );
                 using var _package = new ExcelPackage( );
                 using var _stream = OpenRead( filePath );
                 _package.Load( _stream );
@@ -422,8 +422,12 @@ namespace BudgetExecution
         /// <summary>
         /// Creates the series.
         /// </summary>
-        /// <param name="dataTable">The data table.</param>
-        /// <returns></returns>
+        /// <param name="dataTable">
+        /// The data table.
+        /// </param>
+        /// <returns>
+        /// Dictionary
+        /// </returns>
         private static IDictionary<string, IEnumerable<string>> CreateSeries( DataTable dataTable )
         {
             try

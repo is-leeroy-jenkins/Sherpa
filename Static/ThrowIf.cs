@@ -43,6 +43,7 @@ namespace BudgetExecution
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Collections.Specialized;
     using System.ComponentModel;
     using System.Data;
     using System.Data.Common;
@@ -364,10 +365,14 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Nulls the specified argument. </summary>
+        /// <summary>
+        /// Throws exception if 'argument' is not a null or empty.
+        /// </summary>
         /// <param name="argument"> The argument. </param>
         /// <param name="paramName"> Name of the parameter. </param>
-        /// <exception cref="System.ArgumentNullException"> </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// ArgumentNullException
+        /// </exception>
         public static void NoItems( IDictionary<string, object> argument, string paramName )
         {
             if( argument.Any( ) != true )
@@ -377,10 +382,14 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Nulls the specified argument. </summary>
+        /// <summary>
+        /// Throws exception if 'argument' is null.
+        /// </summary>
         /// <param name="argument"> The argument. </param>
         /// <param name="paramName"> Name of the parameter. </param>
-        /// <exception cref="System.ArgumentNullException"> </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// ArgumentNullException
+        /// </exception>
         public static void NullOrEmpty( Color argument, string paramName )
         {
             if( argument.IsEmpty )
@@ -390,11 +399,18 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> NoData throws exception if 'argument' has no elements. </summary>
-        /// <param name="argument"> The argument. </param>
+        /// <summary>
+        /// NoData throws exception if 'argument' is null.
+        /// </summary>
+        /// <param name="argument">
+        /// The argument.
+        /// </param>
         /// <param name="paramName">
-        /// Name of the parameter. </param>
-        /// <exception cref="System.ArgumentNullException"> </exception>
+        /// Name of the parameter.
+        /// </param>
+        /// <exception cref="System.ArgumentNullException">
+        /// ArgumentNullException
+        /// </exception>
         public static void NoData( object argument, string paramName )
         {
             switch( argument )
@@ -452,10 +468,18 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Noes the data. </summary>
-        /// <param name="argument"> The argument. </param>
-        /// <param name="paramName"> Name of the parameter. </param>
-        /// <exception cref="System.ArgumentNullException"> </exception>
+        /// <summary>
+        /// NoData throws exception if 'argument' has no elements.
+        /// </summary>
+        /// <param name="argument">
+        /// The argument.
+        /// </param>
+        /// <param name="paramName">
+        /// Name of the parameter.
+        /// </param>
+        /// <exception cref="System.ArgumentException">
+        /// ArgumentException
+        /// </exception>
         public static void NoData( IListSource argument, string paramName )
         {
             var _list = argument?.GetList( );
@@ -466,10 +490,18 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Nulls the specified argument. </summary>
-        /// <param name="argument"> The argument. </param>
-        /// <param name="paramName"> Name of the parameter. </param>
-        /// <exception cref="System.ArgumentNullException"> </exception>
+        /// <summary>
+        /// Nots the exists.
+        /// </summary>
+        /// <param name="argument">
+        /// The argument.
+        /// </param>
+        /// <param name="paramName">
+        /// Name of the parameter.
+        /// </param>
+        /// <exception cref="System.ArgumentException">
+        /// ArgumentException
+        /// </exception>
         public static void NotExists( string argument, string paramName )
         {
             if( !File.Exists( argument ) )

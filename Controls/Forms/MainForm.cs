@@ -41,8 +41,6 @@
 //  </summary>
 //  ******************************************************************************************
 
-using OfficeOpenXml.FormulaParsing.Utilities;
-
 namespace BudgetExecution
 {
     using System;
@@ -51,7 +49,6 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Linq;
-    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Timer = System.Windows.Forms.Timer;
@@ -404,8 +401,8 @@ namespace BudgetExecution
             try
             {
                 var _programs = new ProgramProjectDialog( );
-                _programs.StartPosition = FormStartPosition.CenterScreen;
                 _programs.Owner = this;
+                _programs.StartPosition = FormStartPosition.CenterScreen;
                 _programs.Show( );
                 Hide( );
             }
@@ -461,6 +458,7 @@ namespace BudgetExecution
                 var _message = "THIS IS A SPLASH MESSAGE TEST!!";
                 var _splash = new SplashMessage( _message );
                 _splash.Owner = this;
+                _splash.TopMost = true;
                 _splash.Show( );
             }
             catch( Exception _ex )
@@ -741,7 +739,8 @@ namespace BudgetExecution
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnLoad( object sender, EventArgs e )
         {
             try
@@ -761,7 +760,8 @@ namespace BudgetExecution
         /// Called when [right click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/>
+        /// instance containing the event data.</param>
         private void OnRightClick( object sender, MouseEventArgs e )
         {
             if( e.Button == MouseButtons.Right )
@@ -781,7 +781,8 @@ namespace BudgetExecution
         /// Called when [shown].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnShown( object sender, EventArgs e )
         {
             try
@@ -798,7 +799,8 @@ namespace BudgetExecution
         /// Called when [edge tile click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnEdgeTileClick( object sender, EventArgs e )
         {
             try
@@ -815,7 +817,8 @@ namespace BudgetExecution
         /// Called when [chrome tile click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnChromeTileClick( object sender, EventArgs e )
         {
             try
@@ -832,7 +835,8 @@ namespace BudgetExecution
         /// Called when [firefox tile click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnFirefoxTileClick( object sender, EventArgs e )
         {
             try
@@ -849,7 +853,8 @@ namespace BudgetExecution
         /// Called when [browser tile click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnBrowserTileClick( object sender, EventArgs e )
         {
             Minion.RunBudgetBrowser( );
@@ -859,7 +864,8 @@ namespace BudgetExecution
         /// Called when [SQL ce tile click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnSqlCeTileClick( object sender, EventArgs e )
         {
             try
@@ -879,7 +885,8 @@ namespace BudgetExecution
         /// Called when [sq lite tile click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnSQLiteTileClick( object sender, EventArgs e )
         {
             try
@@ -899,7 +906,8 @@ namespace BudgetExecution
         /// Called when [SQL server tile click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnSqlServerTileClick( object sender, EventArgs e )
         {
             OpenSqlServerEditor( );
@@ -909,7 +917,8 @@ namespace BudgetExecution
         /// Called when [access tile click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnAccessTileClick( object sender, EventArgs e )
         {
             try
@@ -973,7 +982,8 @@ namespace BudgetExecution
         /// Called when [program project tile click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnProgramProjectTileClick( object sender, EventArgs e )
         {
             ShowProgramProjectDialog( );
@@ -983,7 +993,8 @@ namespace BudgetExecution
         /// Called when [calculator tile click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnCalculatorTileClick( object sender, EventArgs e )
         {
             OpenCalculationForm( );
@@ -993,7 +1004,8 @@ namespace BudgetExecution
         /// Called when [guidance tile click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnGuidanceTileClick( object sender, EventArgs e )
         {
             ShowGuidanceDialog( );
@@ -1003,7 +1015,8 @@ namespace BudgetExecution
         /// Called when [calendar tile click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnCalendarTileClick( object sender, EventArgs e )
         {
             OpenFiscalYearForm( );
@@ -1013,17 +1026,19 @@ namespace BudgetExecution
         /// Called when [test button click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnTestButtonClick( object sender, EventArgs e )
         {
-            ShowSplashMessage( );
+            ShowLoadingForm( );
         }
 
         /// <summary>
         /// Called when [message tile click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnMessageTileClick( object sender, EventArgs e )
         {
             ShowEmailDialog( );
@@ -1033,7 +1048,8 @@ namespace BudgetExecution
         /// Called when [exit button click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnExitButtonClick( object sender, EventArgs e )
         {
             try
@@ -1052,7 +1068,8 @@ namespace BudgetExecution
         /// Called when [visible changed].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnVisibleChanged( object sender, EventArgs e )
         {
             try

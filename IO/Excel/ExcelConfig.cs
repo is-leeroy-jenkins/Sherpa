@@ -1,13 +1,13 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:             BudgetExecution
 //     Author:                  Terry D. Eppler
-//     Created:                 04-22-2023
+//     Created:                 06-19-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        11-22-2023
 // ******************************************************************************************
-// <copyright file="ExcelConfig.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
+// <copyright file="Terry Eppler.cs" company="Terry D. Eppler">
+//    BudgetExecution is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
 // 
@@ -31,10 +31,10 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   ExcelConfig.cs
+//   ExcelConfig.cs.cs
 // </summary>
 // ******************************************************************************************
 
@@ -48,8 +48,8 @@ namespace BudgetExecution
     using OfficeOpenXml.Style;
     using static System.IO.Path;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
@@ -320,23 +320,18 @@ namespace BudgetExecution
                 switch( extension?.ToUpper( ) )
                 {
                     case ".XLS":
-
                     {
                         return @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source="
                             + filePath
                             + ";Extended Properties=\"Excel 8.0;HDR=YES;\"";
                     }
-
                     case ".XLSX":
-
                     {
                         return @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source="
                             + filePath
                             + ";Extended Properties=\"Excel 12.0;HDR=YES;\"";
                     }
-
                     default:
-
                     {
                         return @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source="
                             + filePath

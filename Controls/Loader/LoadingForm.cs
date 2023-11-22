@@ -46,7 +46,6 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using static System.Configuration.ConfigurationManager;
@@ -57,18 +56,52 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "RedundantEmptySwitchSection" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public partial class LoadingForm : MetroForm
     {
-        /// <summary> Gets or sets the picture. </summary>
-        /// <value> The picture. </value>
+        /// <summary>
+        /// The status update
+        /// </summary>
+        private Action _statusUpdate;
+
+        /// <summary>
+        /// Gets or sets the time.
+        /// </summary>
+        /// <value>
+        /// The time.
+        /// </value>
+        public int Time { get; set; }
+
+        /// <summary>
+        /// Gets or sets the seconds.
+        /// </summary>
+        /// <value>
+        /// The seconds.
+        /// </value>
+        public int Seconds { get; set; }
+
+        /// <summary>
+        /// Gets or sets the picture.
+        /// </summary>
+        /// <value>
+        /// The picture.
+        /// </value>
         public Image Picture { get; set; }
 
-        /// <summary> Gets or sets the loader. </summary>
-        /// <value> The loader. </value>
+        /// <summary>
+        /// Gets or sets the loader.
+        /// </summary>
+        /// <value>
+        /// The loader.
+        /// </value>
         public Bitmap Loader { get; set; }
 
-        /// <summary> Gets or sets the status. </summary>
-        /// <value> The status. </value>
+        /// <summary>
+        /// Gets or sets the status.
+        /// </summary>
+        /// <value>
+        /// The status.
+        /// </value>
         public Status Status { get; set; }
 
         /// <inheritdoc/>
@@ -80,6 +113,8 @@ namespace BudgetExecution
         public LoadingForm( )
         {
             InitializeComponent( );
+            InitializeDelegates( );
+            InitializeCallbacks( );
 
             // Basic Form Properties
             Size = new Size( 1345, 745 );
@@ -95,7 +130,7 @@ namespace BudgetExecution
             BackColor = Color.Black;
             MetroColor = Color.Black;
             ForeColor = Color.Black;
-            BorderColor = Color.Transparent;
+            BorderColor = Color.Black;
             BorderThickness = 1;
             ShowIcon = false;
             ShowInTaskbar = true;
@@ -107,10 +142,9 @@ namespace BudgetExecution
             MaximizeBox = false;
             ControlBox = false;
 
-            // Event Wiring
+            // Form Event Wiring
             Load += OnLoad;
             Closing += OnClose;
-            CloseButton.Click += OnCloseButtonClicked;
         }
 
         /// <inheritdoc/>
@@ -126,7 +160,161 @@ namespace BudgetExecution
             Status = status;
         }
 
-        /// <summary> Shows the image. </summary>
+        /// <summary>
+        /// Initializes the callbacks.
+        /// </summary>
+        private void InitializeCallbacks( )
+        {
+            try
+            {
+                CloseButton.Click += OnCloseButtonClicked;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the delegates.
+        /// </summary>
+        private void InitializeDelegates( )
+        {
+            try
+            {
+                _statusUpdate += Close;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the timer.
+        /// </summary>
+        private void InitializeTimer( )
+        {
+            try
+            {
+                // Timer Properties
+                Timer.Enabled = true;
+                Timer.Interval = 5000;
+                Timer.Tick += OnTick;
+                Timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Displays the control to the user.
+        /// </summary>
+        public new void Show( )
+        {
+            try
+            {
+                Opacity = 0;
+                if( Seconds != 0 )
+                {
+                    Timer = new Timer( );
+                    Timer.Interval = 1000;
+                    Timer.Tick += ( sender, args ) =>
+                    {
+                        Time++;
+                        if( Time == Seconds )
+                        {
+                            Timer.Stop( );
+                        }
+                    };
+                }
+
+                base.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the in Form.
+        /// </summary>
+        private protected virtual void FadeIn( )
+        {
+            try
+            {
+                var _timer = new Timer( );
+                _timer.Interval = 10;
+                _timer.Tick += ( sender, args ) =>
+                {
+                    if( Opacity == 1d )
+                    {
+                        _timer.Stop( );
+                    }
+
+                    Opacity += 0.02d;
+                };
+
+                _timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the Form out and closes it.
+        /// </summary>
+        private protected virtual void FadeOut( )
+        {
+            try
+            {
+                var _timer = new Timer( );
+                _timer.Interval = 10;
+                _timer.Tick += ( sender, args ) =>
+                {
+                    if( Opacity == 0d )
+                    {
+                        _timer.Stop( );
+                        Close( );
+                    }
+
+                    Opacity -= 0.02d;
+                };
+
+                _timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Invokes if needed.
+        /// </summary>
+        /// <param name="action">
+        /// The action.
+        /// </param>
+        public void InvokeIf( Action action )
+        {
+            if( InvokeRequired )
+            {
+                BeginInvoke( action );
+            }
+            else
+            {
+                action.Invoke( );
+            }
+        }
+
+        /// <summary>
+        /// Shows the image.
+        /// </summary>
         public void ShowImage( )
         {
             try
@@ -231,23 +419,6 @@ namespace BudgetExecution
             try
             {
                 Close( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Initializes the timer. </summary>
-        private void InitializeTimer( )
-        {
-            try
-            {
-                // Timer Properties
-                Timer.Enabled = true;
-                Timer.Interval = 5000;
-                Timer.Tick += OnTick;
-                Timer.Start( );
             }
             catch( Exception _ex )
             {

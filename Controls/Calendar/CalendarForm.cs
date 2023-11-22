@@ -607,17 +607,10 @@ namespace BudgetExecution
         {
             try
             {
-                if( Owner?.Visible == false )
-                {
-                    var _form = (MainForm)Program.Windows[ "MainForm" ];
-                    _form.Refresh( );
-                    _form.Visible = true;
-                }
-                else
-                {
-                    var _mainForm = new MainForm( );
-                    _mainForm.Show( );
-                }
+                var _form = (MainForm)Program.Windows[ "MainForm" ];
+                _form.StartPosition = FormStartPosition.CenterScreen;
+                _form.TopMost = true;
+                _form.Visible = true;
             }
             catch( Exception _ex )
             {
@@ -629,7 +622,8 @@ namespace BudgetExecution
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnLoad( object sender, EventArgs e )
         {
             try
@@ -653,7 +647,8 @@ namespace BudgetExecution
         /// Called when [main menu button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnMainMenuButtonClicked( object sender, EventArgs e )
         {
             try
@@ -672,7 +667,8 @@ namespace BudgetExecution
         /// Called when [close button click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnCloseButtonClick( object sender, EventArgs e )
         {
             try

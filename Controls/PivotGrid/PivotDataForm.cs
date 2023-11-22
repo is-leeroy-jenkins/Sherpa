@@ -47,7 +47,6 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Linq;
-    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
@@ -287,36 +286,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Displays the control to the user.
-        /// </summary>
-        public new void Show( )
-        {
-            try
-            {
-                Opacity = 0;
-                if( Seconds != 0 )
-                {
-                    Timer = new Timer( );
-                    Timer.Interval = 10;
-                    Timer.Tick += ( sender, args ) =>
-                    {
-                        Time++;
-                        if( Time == Seconds )
-                        {
-                            Timer.Stop( );
-                        }
-                    };
-                }
-
-                base.Show( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Initializes the tool strip.
         /// </summary>
         private void InitializeToolStrip( )
@@ -434,7 +403,9 @@ namespace BudgetExecution
         /// <summary>
         /// Invokes if.
         /// </summary>
-        /// <param name="action">The action.</param>
+        /// <param name="action">
+        /// The action.
+        /// </param>
         public void InvokeIf( Action action )
         {
             if( InvokeRequired )
@@ -506,13 +477,43 @@ namespace BudgetExecution
         /// <summary>
         /// Notifies this instance.
         /// </summary>
-        private void Notify( )
+        private void Notify( string message )
         {
             try
             {
-                var _message = "THIS IS NOT YET IMPLEMENTED!!";
-                var _notify = new SplashMessage( _message );
+                ThrowIf.NullOrEmpty( message, nameof( message ) );
+                var _notify = new SplashMessage( message );
                 _notify.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Displays the control to the user.
+        /// </summary>
+        public new void Show( )
+        {
+            try
+            {
+                Opacity = 0;
+                if( Seconds != 0 )
+                {
+                    Timer = new Timer( );
+                    Timer.Interval = 10;
+                    Timer.Tick += ( sender, args ) =>
+                    {
+                        Time++;
+                        if( Time == Seconds )
+                        {
+                            Timer.Stop( );
+                        }
+                    };
+                }
+
+                base.Show( );
             }
             catch( Exception _ex )
             {
@@ -835,7 +836,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    Notify( );
+                    Notify( "Error!" );
                 }
                 catch( Exception _ex )
                 {
@@ -856,7 +857,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    Notify( );
+                    Notify( "Error!" );
                 }
                 catch( Exception _ex )
                 {
@@ -879,7 +880,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    Notify( );
+                    Notify( "Error!" );
                 }
                 catch( Exception _ex )
                 {
@@ -898,10 +899,11 @@ namespace BudgetExecution
                 TableListBox.Items?.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
-                                  ?.OrderBy( r => r.Field<string>( "Title" ) )
-                                  ?.Select( r => r.Field<string>( "Title" ) )
-                                  ?.ToList( );
+                var _names = _data
+                    ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                    ?.OrderBy( r => r.Field<string>( "Title" ) )
+                    ?.Select( r => r.Field<string>( "Title" ) )
+                    ?.ToList( );
 
                 if( _names?.Any( ) == true )
                 {
@@ -1086,7 +1088,7 @@ namespace BudgetExecution
         {
             try
             {
-                Notify( );
+                Notify( "Error!" );
             }
             catch( Exception _ex )
             {
@@ -1111,23 +1113,34 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Updates the status.
+        /// </summary>
+        private void UpdateStatus( )
+        {
+            try
+            {
+                var _dateTime = DateTime.Now;
+                var _dateString = _dateTime.ToLongDateString( );
+                var _timeString = _dateTime.ToLongTimeString( );
+                //StatusLabel.Text = _dateString + "  " + _timeString;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Opens the main form.
         /// </summary>
         private void OpenMainForm( )
         {
             try
             {
-                if( Owner?.Visible == false )
-                {
-                    var _form = (MainForm)Program.Windows[ "MainForm" ];
-                    _form.Refresh( );
-                    _form.Visible = true;
-                }
-                else
-                {
-                    var _mainForm = new MainForm( );
-                    _mainForm.Show( );
-                }
+                var _form = (MainForm)Program.Windows[ "MainForm" ];
+                _form.StartPosition = FormStartPosition.CenterScreen;
+                _form.TopMost = true;
+                _form.Visible = true;
             }
             catch( Exception _ex )
             {

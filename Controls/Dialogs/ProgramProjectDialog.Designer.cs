@@ -470,6 +470,11 @@ partial class ProgramProjectDialog
         SearchButton.ThemeName = "Budget Execution";
         SearchButton.ToolTip = ToolTip;
         // 
+        // Timer
+        // 
+        Timer.Enabled = true;
+        Timer.Interval = 1000;
+        // 
         // ProgramProjectDialog
         // 
         AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );

@@ -451,6 +451,34 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Clears the selections.
+        /// </summary>
+        private void ClearSelections( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the collections.
+        /// </summary>
+        private void ClearCollections( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Called when [timer tick].
         /// </summary>
         /// <param name="sender">The sender.</param>
