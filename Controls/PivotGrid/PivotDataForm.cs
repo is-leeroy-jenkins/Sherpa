@@ -34,7 +34,7 @@
 //    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   PivotForm.cs.cs
+//   PivotDataForm.cs.cs
 // </summary>
 // ******************************************************************************************
 
@@ -64,7 +64,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
     [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public partial class PivotForm : MetroForm
+    public partial class PivotDataForm : MetroForm
     {
         /// <summary>
         /// The status update
@@ -242,9 +242,9 @@ namespace BudgetExecution
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.PivotForm" /> class.
+        /// <see cref="T:BudgetExecution.PivotDataForm" /> class.
         /// </summary>
-        public PivotForm( )
+        public PivotDataForm( )
         {
             InitializeComponent( );
 

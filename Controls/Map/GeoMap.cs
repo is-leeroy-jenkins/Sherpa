@@ -34,7 +34,7 @@
 //    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   GeographicForm.cs.cs
+//   GeoMap.cs.cs
 // </summary>
 // ******************************************************************************************
 
@@ -53,7 +53,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public partial class GeographicForm : MetroForm
+    public partial class GeoMap : MetroForm
     {
         /// <summary>
         /// The status update
@@ -103,10 +103,10 @@ namespace BudgetExecution
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.GeographicForm"/>
+        /// <see cref="T:BudgetExecution.GeoMap"/>
         /// class.
         /// </summary>
-        public GeographicForm( )
+        public GeoMap( )
         {
             InitializeComponent( );
 

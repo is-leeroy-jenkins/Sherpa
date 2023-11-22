@@ -61,10 +61,10 @@
             ContextMenu = new ContextMenu( );
             DataSheet = new GridControl( );
             Header.SuspendLayout( );
-            ( (System.ComponentModel.ISupportInitialize) PictureBox  ).BeginInit( );
+            ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
             ToolStrip.SuspendLayout( );
-            ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
-            ( (System.ComponentModel.ISupportInitialize) DataSheet  ).BeginInit( );
+            ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
+            ( (System.ComponentModel.ISupportInitialize)DataSheet ).BeginInit( );
             SuspendLayout( );
             // 
             // Header
@@ -174,15 +174,15 @@
             ToolStrip.TabIndex = 1;
             ToolStrip.TextBox = null;
             ToolStrip.ThemeName = "Office2016DarkGray";
-            ToolStrip.ThemeStyle.ArrowColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            ToolStrip.ThemeStyle.ArrowColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             ToolStrip.ThemeStyle.BackColor = System.Drawing.Color.Transparent;
             ToolStrip.ThemeStyle.BottomToolStripBackColor = System.Drawing.Color.Transparent;
-            ToolStrip.ThemeStyle.CaptionBackColor = System.Drawing.Color.FromArgb(   28  ,   28  ,   28   );
+            ToolStrip.ThemeStyle.CaptionBackColor = System.Drawing.Color.FromArgb( 28, 28, 28 );
             ToolStrip.ThemeStyle.CaptionForeColor = System.Drawing.Color.Black;
-            ToolStrip.ThemeStyle.ComboBoxStyle.BorderColor = System.Drawing.Color.FromArgb(   65  ,   65  ,   65   );
-            ToolStrip.ThemeStyle.ComboBoxStyle.HoverBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            ToolStrip.ThemeStyle.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
-            ToolStrip.ThemeStyle.HoverItemBackColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            ToolStrip.ThemeStyle.ComboBoxStyle.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
+            ToolStrip.ThemeStyle.ComboBoxStyle.HoverBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            ToolStrip.ThemeStyle.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
+            ToolStrip.ThemeStyle.HoverItemBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             ToolStrip.ThemeStyle.HoverItemForeColor = System.Drawing.Color.White;
             ToolStrip.VisualStyle = Syncfusion.Windows.Forms.Tools.ToolStripExStyle.Office2016DarkGray;
             // 
@@ -210,7 +210,7 @@
             // ToolTip
             // 
             ToolTip.AutoPopDelay = 5000;
-            ToolTip.BackColor = System.Drawing.Color.FromArgb(   5  ,   5  ,   5   );
+            ToolTip.BackColor = System.Drawing.Color.FromArgb( 5, 5, 5 );
             ToolTip.BindingSource = null;
             ToolTip.BorderColor = System.Drawing.SystemColors.Highlight;
             ToolTip.ForeColor = System.Drawing.Color.White;
@@ -267,7 +267,7 @@
             // 
             // ToolStripLabel
             // 
-            ToolStripLabel.BackColor = System.Drawing.Color.FromArgb(   45  ,   45  ,   45   );
+            ToolStripLabel.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             ToolStripLabel.BindingSource = BindingSource;
             ToolStripLabel.DataFilter = null;
             ToolStripLabel.Field = Field.AccountCode;
@@ -350,7 +350,7 @@
             // 
             // ToolStripTextBox
             // 
-            ToolStripTextBox.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            ToolStripTextBox.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             ToolStripTextBox.BindingSource = BindingSource;
             ToolStripTextBox.Field = Field.AccountCode;
             ToolStripTextBox.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -359,7 +359,7 @@
             ToolStripTextBox.Margin = new System.Windows.Forms.Padding( 1 );
             ToolStripTextBox.Name = "ToolStripTextBox";
             ToolStripTextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Size = new System.Drawing.Size( 160, 28 );
+            ToolStripTextBox.Size = new System.Drawing.Size( 158, 28 );
             ToolStripTextBox.Tag = "";
             ToolStripTextBox.ToolTip = ToolTip;
             // 
@@ -432,7 +432,7 @@
             // ContextMenu
             // 
             ContextMenu.AutoSize = false;
-            ContextMenu.BackColor = System.Drawing.Color.FromArgb(   30  ,   30  ,   30   );
+            ContextMenu.BackColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
             ContextMenu.ForeColor = System.Drawing.Color.White;
             ContextMenu.IsDerivedStyle = false;
             ContextMenu.Name = "ContextMenu";
@@ -445,15 +445,15 @@
             // 
             // DataSheet
             // 
-            DataSheet.AlphaBlendSelectionColor = System.Drawing.Color.FromArgb(   130  ,   80  ,   80  ,   80   );
-            DataSheet.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            gridBaseStyle1.Name = "Standard";
-            gridBaseStyle1.StyleInfo.Font.Facename = "Tahoma";
-            gridBaseStyle2.Name = "Column Header";
-            gridBaseStyle2.StyleInfo.BaseStyle = "Header";
-            gridBaseStyle2.StyleInfo.HorizontalAlignment = Syncfusion.Windows.Forms.Grid.GridHorizontalAlignment.Center;
-            gridBaseStyle3.Name = "Header";
-            gridBaseStyle3.StyleInfo.CellType = "Header";
+            DataSheet.AlphaBlendSelectionColor = System.Drawing.Color.FromArgb( 130, 80, 80, 80 );
+            DataSheet.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            gridBaseStyle1.Name = "Column Header";
+            gridBaseStyle1.StyleInfo.BaseStyle = "Header";
+            gridBaseStyle1.StyleInfo.HorizontalAlignment = Syncfusion.Windows.Forms.Grid.GridHorizontalAlignment.Center;
+            gridBaseStyle2.Name = "Standard";
+            gridBaseStyle2.StyleInfo.Font.Facename = "Tahoma";
+            gridBaseStyle3.Name = "Row Header";
+            gridBaseStyle3.StyleInfo.BaseStyle = "Header";
             gridBaseStyle3.StyleInfo.Font.Bold = true;
             gridBaseStyle3.StyleInfo.Font.Facename = "Segoe UI";
             gridBaseStyle3.StyleInfo.Font.Italic = false;
@@ -461,9 +461,9 @@
             gridBaseStyle3.StyleInfo.Font.Strikeout = false;
             gridBaseStyle3.StyleInfo.Font.Underline = false;
             gridBaseStyle3.StyleInfo.Font.Unit = System.Drawing.GraphicsUnit.Point;
-            gridBaseStyle3.StyleInfo.VerticalAlignment = Syncfusion.Windows.Forms.Grid.GridVerticalAlignment.Middle;
-            gridBaseStyle4.Name = "Row Header";
-            gridBaseStyle4.StyleInfo.BaseStyle = "Header";
+            gridBaseStyle3.StyleInfo.HorizontalAlignment = Syncfusion.Windows.Forms.Grid.GridHorizontalAlignment.Center;
+            gridBaseStyle4.Name = "Header";
+            gridBaseStyle4.StyleInfo.CellType = "Header";
             gridBaseStyle4.StyleInfo.Font.Bold = true;
             gridBaseStyle4.StyleInfo.Font.Facename = "Segoe UI";
             gridBaseStyle4.StyleInfo.Font.Italic = false;
@@ -471,7 +471,7 @@
             gridBaseStyle4.StyleInfo.Font.Strikeout = false;
             gridBaseStyle4.StyleInfo.Font.Underline = false;
             gridBaseStyle4.StyleInfo.Font.Unit = System.Drawing.GraphicsUnit.Point;
-            gridBaseStyle4.StyleInfo.HorizontalAlignment = Syncfusion.Windows.Forms.Grid.GridHorizontalAlignment.Center;
+            gridBaseStyle4.StyleInfo.VerticalAlignment = Syncfusion.Windows.Forms.Grid.GridVerticalAlignment.Middle;
             DataSheet.BaseStylesMap.AddRange( new Syncfusion.Windows.Forms.Grid.GridBaseStyle[ ] { gridBaseStyle1, gridBaseStyle2, gridBaseStyle3, gridBaseStyle4 } );
             DataSheet.CanOverrideStyle = true;
             DataSheet.ColCount = 50;
@@ -498,7 +498,7 @@
             DataSheet.Name = "DataSheet";
             DataSheet.Office2016ScrollBars = true;
             DataSheet.Office2016ScrollBarsColorScheme = Syncfusion.Windows.Forms.ScrollBarOffice2016ColorScheme.DarkGray;
-            DataSheet.Properties.GridLineColor = System.Drawing.Color.FromArgb(   120  ,   120  ,   120   );
+            DataSheet.Properties.GridLineColor = System.Drawing.Color.FromArgb( 68, 68, 68 );
             DataSheet.RowCount = 100;
             DataSheet.RowHeightEntries.AddRange( new Syncfusion.Windows.Forms.Grid.GridRowHeight[ ] { new Syncfusion.Windows.Forms.Grid.GridRowHeight( 0, 32 ) } );
             DataSheet.SerializeCellsBehavior = Syncfusion.Windows.Forms.Grid.GridSerializeCellsBehavior.SerializeIntoCode;
@@ -509,61 +509,61 @@
             DataSheet.Text = "gridControl1";
             DataSheet.ThemeName = "Office2016DarkGray";
             DataSheet.ThemesEnabled = true;
-            DataSheet.ThemeStyle.HorizontalScrollBarStyle.ArrowButtonBackColor = System.Drawing.Color.FromArgb(   255  ,   255  ,   255   );
-            DataSheet.ThemeStyle.HorizontalScrollBarStyle.ArrowButtonBorderColor = System.Drawing.Color.FromArgb(   225  ,   225  ,   225   );
-            DataSheet.ThemeStyle.HorizontalScrollBarStyle.ArrowButtonDisabledBackColor = System.Drawing.Color.FromArgb(   225  ,   225  ,   225   );
-            DataSheet.ThemeStyle.HorizontalScrollBarStyle.ArrowButtonDisabledBorderColor = System.Drawing.Color.FromArgb(   210  ,   210  ,   210   );
-            DataSheet.ThemeStyle.HorizontalScrollBarStyle.ArrowButtonHoverBackColor = System.Drawing.Color.FromArgb(   114  ,   114  ,   114   );
-            DataSheet.ThemeStyle.HorizontalScrollBarStyle.ArrowButtonHoverBorderColor = System.Drawing.Color.FromArgb(   94  ,   94  ,   94   );
-            DataSheet.ThemeStyle.HorizontalScrollBarStyle.ArrowButtonPressedBackColor = System.Drawing.Color.FromArgb(   225  ,   225  ,   225   );
-            DataSheet.ThemeStyle.HorizontalScrollBarStyle.ArrowButtonPressedBorderColor = System.Drawing.Color.FromArgb(   150  ,   150  ,   150   );
-            DataSheet.ThemeStyle.HorizontalScrollBarStyle.ScrollBarBackColor = System.Drawing.Color.FromArgb(   225  ,   225  ,   225   );
-            DataSheet.ThemeStyle.HorizontalScrollBarStyle.ThumbBorderColor = System.Drawing.Color.FromArgb(   171  ,   171  ,   171   );
-            DataSheet.ThemeStyle.HorizontalScrollBarStyle.ThumbColor = System.Drawing.Color.FromArgb(   255  ,   255  ,   255   );
-            DataSheet.ThemeStyle.HorizontalScrollBarStyle.ThumbDisabledBorderColor = System.Drawing.Color.FromArgb(   210  ,   210  ,   210   );
-            DataSheet.ThemeStyle.HorizontalScrollBarStyle.ThumbDisabledColor = System.Drawing.Color.FromArgb(   225  ,   225  ,   225   );
-            DataSheet.ThemeStyle.HorizontalScrollBarStyle.ThumbHoverBorderColor = System.Drawing.Color.FromArgb(   171  ,   171  ,   171   );
-            DataSheet.ThemeStyle.HorizontalScrollBarStyle.ThumbHoverColor = System.Drawing.Color.FromArgb(   197  ,   197  ,   197   );
-            DataSheet.ThemeStyle.HorizontalScrollBarStyle.ThumbPressedBorderColor = System.Drawing.Color.FromArgb(   150  ,   150  ,   150   );
-            DataSheet.ThemeStyle.HorizontalScrollBarStyle.ThumbPressedColor = System.Drawing.Color.FromArgb(   197  ,   197  ,   197   );
-            DataSheet.ThemeStyle.VerticalScrollBarStyle.ArrowButtonBackColor = System.Drawing.Color.FromArgb(   255  ,   255  ,   255   );
-            DataSheet.ThemeStyle.VerticalScrollBarStyle.ArrowButtonBorderColor = System.Drawing.Color.FromArgb(   225  ,   225  ,   225   );
-            DataSheet.ThemeStyle.VerticalScrollBarStyle.ArrowButtonDisabledBackColor = System.Drawing.Color.FromArgb(   225  ,   225  ,   225   );
-            DataSheet.ThemeStyle.VerticalScrollBarStyle.ArrowButtonDisabledBorderColor = System.Drawing.Color.FromArgb(   210  ,   210  ,   210   );
-            DataSheet.ThemeStyle.VerticalScrollBarStyle.ArrowButtonHoverBackColor = System.Drawing.Color.FromArgb(   114  ,   114  ,   114   );
-            DataSheet.ThemeStyle.VerticalScrollBarStyle.ArrowButtonHoverBorderColor = System.Drawing.Color.FromArgb(   94  ,   94  ,   94   );
-            DataSheet.ThemeStyle.VerticalScrollBarStyle.ArrowButtonPressedBackColor = System.Drawing.Color.FromArgb(   225  ,   225  ,   225   );
-            DataSheet.ThemeStyle.VerticalScrollBarStyle.ArrowButtonPressedBorderColor = System.Drawing.Color.FromArgb(   150  ,   150  ,   150   );
-            DataSheet.ThemeStyle.VerticalScrollBarStyle.ScrollBarBackColor = System.Drawing.Color.FromArgb(   225  ,   225  ,   225   );
-            DataSheet.ThemeStyle.VerticalScrollBarStyle.ThumbBorderColor = System.Drawing.Color.FromArgb(   171  ,   171  ,   171   );
-            DataSheet.ThemeStyle.VerticalScrollBarStyle.ThumbColor = System.Drawing.Color.FromArgb(   255  ,   255  ,   255   );
-            DataSheet.ThemeStyle.VerticalScrollBarStyle.ThumbDisabledBorderColor = System.Drawing.Color.FromArgb(   210  ,   210  ,   210   );
-            DataSheet.ThemeStyle.VerticalScrollBarStyle.ThumbDisabledColor = System.Drawing.Color.FromArgb(   225  ,   225  ,   225   );
-            DataSheet.ThemeStyle.VerticalScrollBarStyle.ThumbHoverBorderColor = System.Drawing.Color.FromArgb(   171  ,   171  ,   171   );
-            DataSheet.ThemeStyle.VerticalScrollBarStyle.ThumbHoverColor = System.Drawing.Color.FromArgb(   197  ,   197  ,   197   );
-            DataSheet.ThemeStyle.VerticalScrollBarStyle.ThumbPressedBorderColor = System.Drawing.Color.FromArgb(   150  ,   150  ,   150   );
-            DataSheet.ThemeStyle.VerticalScrollBarStyle.ThumbPressedColor = System.Drawing.Color.FromArgb(   197  ,   197  ,   197   );
+            DataSheet.ThemeStyle.HorizontalScrollBarStyle.ArrowButtonBackColor = System.Drawing.Color.FromArgb( 255, 255, 255 );
+            DataSheet.ThemeStyle.HorizontalScrollBarStyle.ArrowButtonBorderColor = System.Drawing.Color.FromArgb( 225, 225, 225 );
+            DataSheet.ThemeStyle.HorizontalScrollBarStyle.ArrowButtonDisabledBackColor = System.Drawing.Color.FromArgb( 225, 225, 225 );
+            DataSheet.ThemeStyle.HorizontalScrollBarStyle.ArrowButtonDisabledBorderColor = System.Drawing.Color.FromArgb( 210, 210, 210 );
+            DataSheet.ThemeStyle.HorizontalScrollBarStyle.ArrowButtonHoverBackColor = System.Drawing.Color.FromArgb( 114, 114, 114 );
+            DataSheet.ThemeStyle.HorizontalScrollBarStyle.ArrowButtonHoverBorderColor = System.Drawing.Color.FromArgb( 94, 94, 94 );
+            DataSheet.ThemeStyle.HorizontalScrollBarStyle.ArrowButtonPressedBackColor = System.Drawing.Color.FromArgb( 225, 225, 225 );
+            DataSheet.ThemeStyle.HorizontalScrollBarStyle.ArrowButtonPressedBorderColor = System.Drawing.Color.FromArgb( 150, 150, 150 );
+            DataSheet.ThemeStyle.HorizontalScrollBarStyle.ScrollBarBackColor = System.Drawing.Color.FromArgb( 225, 225, 225 );
+            DataSheet.ThemeStyle.HorizontalScrollBarStyle.ThumbBorderColor = System.Drawing.Color.FromArgb( 171, 171, 171 );
+            DataSheet.ThemeStyle.HorizontalScrollBarStyle.ThumbColor = System.Drawing.Color.FromArgb( 255, 255, 255 );
+            DataSheet.ThemeStyle.HorizontalScrollBarStyle.ThumbDisabledBorderColor = System.Drawing.Color.FromArgb( 210, 210, 210 );
+            DataSheet.ThemeStyle.HorizontalScrollBarStyle.ThumbDisabledColor = System.Drawing.Color.FromArgb( 225, 225, 225 );
+            DataSheet.ThemeStyle.HorizontalScrollBarStyle.ThumbHoverBorderColor = System.Drawing.Color.FromArgb( 171, 171, 171 );
+            DataSheet.ThemeStyle.HorizontalScrollBarStyle.ThumbHoverColor = System.Drawing.Color.FromArgb( 197, 197, 197 );
+            DataSheet.ThemeStyle.HorizontalScrollBarStyle.ThumbPressedBorderColor = System.Drawing.Color.FromArgb( 150, 150, 150 );
+            DataSheet.ThemeStyle.HorizontalScrollBarStyle.ThumbPressedColor = System.Drawing.Color.FromArgb( 197, 197, 197 );
+            DataSheet.ThemeStyle.VerticalScrollBarStyle.ArrowButtonBackColor = System.Drawing.Color.FromArgb( 255, 255, 255 );
+            DataSheet.ThemeStyle.VerticalScrollBarStyle.ArrowButtonBorderColor = System.Drawing.Color.FromArgb( 225, 225, 225 );
+            DataSheet.ThemeStyle.VerticalScrollBarStyle.ArrowButtonDisabledBackColor = System.Drawing.Color.FromArgb( 225, 225, 225 );
+            DataSheet.ThemeStyle.VerticalScrollBarStyle.ArrowButtonDisabledBorderColor = System.Drawing.Color.FromArgb( 210, 210, 210 );
+            DataSheet.ThemeStyle.VerticalScrollBarStyle.ArrowButtonHoverBackColor = System.Drawing.Color.FromArgb( 114, 114, 114 );
+            DataSheet.ThemeStyle.VerticalScrollBarStyle.ArrowButtonHoverBorderColor = System.Drawing.Color.FromArgb( 94, 94, 94 );
+            DataSheet.ThemeStyle.VerticalScrollBarStyle.ArrowButtonPressedBackColor = System.Drawing.Color.FromArgb( 225, 225, 225 );
+            DataSheet.ThemeStyle.VerticalScrollBarStyle.ArrowButtonPressedBorderColor = System.Drawing.Color.FromArgb( 150, 150, 150 );
+            DataSheet.ThemeStyle.VerticalScrollBarStyle.ScrollBarBackColor = System.Drawing.Color.FromArgb( 225, 225, 225 );
+            DataSheet.ThemeStyle.VerticalScrollBarStyle.ThumbBorderColor = System.Drawing.Color.FromArgb( 171, 171, 171 );
+            DataSheet.ThemeStyle.VerticalScrollBarStyle.ThumbColor = System.Drawing.Color.FromArgb( 255, 255, 255 );
+            DataSheet.ThemeStyle.VerticalScrollBarStyle.ThumbDisabledBorderColor = System.Drawing.Color.FromArgb( 210, 210, 210 );
+            DataSheet.ThemeStyle.VerticalScrollBarStyle.ThumbDisabledColor = System.Drawing.Color.FromArgb( 225, 225, 225 );
+            DataSheet.ThemeStyle.VerticalScrollBarStyle.ThumbHoverBorderColor = System.Drawing.Color.FromArgb( 171, 171, 171 );
+            DataSheet.ThemeStyle.VerticalScrollBarStyle.ThumbHoverColor = System.Drawing.Color.FromArgb( 197, 197, 197 );
+            DataSheet.ThemeStyle.VerticalScrollBarStyle.ThumbPressedBorderColor = System.Drawing.Color.FromArgb( 150, 150, 150 );
+            DataSheet.ThemeStyle.VerticalScrollBarStyle.ThumbPressedColor = System.Drawing.Color.FromArgb( 197, 197, 197 );
             // 
             // SheetForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            BorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            CaptionBarColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            CaptionBarColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionBarHeight = 5;
-            CaptionButtonColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            CaptionButtonHoverColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            CaptionButtonColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             ClientSize = new System.Drawing.Size( 1338, 739 );
             Controls.Add( DataSheet );
             Controls.Add( ToolStrip );
             Controls.Add( Header );
             Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             ForeColor = System.Drawing.Color.White;
-            Icon = (System.Drawing.Icon) resources.GetObject( "$this.Icon" ) ;
+            Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
             MaximizeBox = false;
             MaximumSize = new System.Drawing.Size( 1350, 750 );
-            MetroColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             MinimizeBox = false;
             MinimumSize = new System.Drawing.Size( 1350, 750 );
             Name = "SheetForm";
@@ -574,11 +574,11 @@
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "SheetForm";
             Header.ResumeLayout( false );
-            ( (System.ComponentModel.ISupportInitialize) PictureBox  ).EndInit( );
+            ( (System.ComponentModel.ISupportInitialize)PictureBox ).EndInit( );
             ToolStrip.ResumeLayout( false );
             ToolStrip.PerformLayout( );
-            ( (System.ComponentModel.ISupportInitialize) BindingSource  ).EndInit( );
-            ( (System.ComponentModel.ISupportInitialize) DataSheet  ).EndInit( );
+            ( (System.ComponentModel.ISupportInitialize)BindingSource ).EndInit( );
+            ( (System.ComponentModel.ISupportInitialize)DataSheet ).EndInit( );
             ResumeLayout( false );
             PerformLayout( );
         }

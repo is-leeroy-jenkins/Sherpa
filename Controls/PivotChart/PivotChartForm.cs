@@ -1,74 +1,30 @@
-﻿//  ******************************************************************************************
-//      Assembly:                Budget Execution
-//      Filename:                BudgetForm.cs
-//      Author:                  Terry D. Eppler
-//      Created:                 05-31-2023
-// 
-//      Last Modified By:        Terry D. Eppler
-//      Last Modified On:        06-01-2023
-//  ******************************************************************************************
-//  <copyright file="BudgetForm.cs" company="Terry D. Eppler">
-// 
-//     This is a Federal Budget, Finance, and Accounting application for the
-//     US Environmental Protection Agency (US EPA).
-//     Copyright ©  2023  Terry Eppler
-// 
-//     Permission is hereby granted, free of charge, to any person obtaining a copy
-//     of this software and associated documentation files (the “Software”),
-//     to deal in the Software without restriction,
-//     including without limitation the rights to use,
-//     copy, modify, merge, publish, distribute, sublicense,
-//     and/or sell copies of the Software,
-//     and to permit persons to whom the Software is furnished to do so,
-//     subject to the following conditions:
-// 
-//     The above copyright notice and this permission notice shall be included in all
-//     copies or substantial portions of the Software.
-// 
-//     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//     FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//     DEALINGS IN THE SOFTWARE.
-// 
-//     You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
-// 
-//  </copyright>
-//  <summary>
-//    BudgetForm.cs
-//  </summary>
-//  ******************************************************************************************
-
-namespace BudgetExecution
+﻿namespace BudgetExecution
 {
     using System;
-    using System.Diagnostics.CodeAnalysis;
-    using System.Drawing;
-    using System.Threading;
-    using System.Windows.Forms;
-    using Syncfusion.Windows.Forms;
-    using Timer = System.Windows.Forms.Timer;
     using System.Collections;
     using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Data;
+    using System.Diagnostics.CodeAnalysis;
+    using System.Drawing;
     using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using System.Windows.Forms;
+    using Syncfusion.Windows.Forms;
 
-    /// <summary> </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
-    public partial class BudgetForm : MetroForm
+    public partial class PivotChartForm : MetroForm
     {
         /// <summary>
         /// The status update
         /// </summary>
-        private Action _statusUpdate;
+        private System.Action _statusUpdate;
 
         /// <summary>
         /// Gets or sets the time.
@@ -87,28 +43,92 @@ namespace BudgetExecution
         public int Seconds { get; set; }
 
         /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
-        public Source Source { get; set; }
-
-        /// <summary>
-        /// Gets or sets the provider.
-        /// </summary>
-        /// <value>
-        /// The provider.
-        /// </value>
-        public Provider Provider { get; set; }
-
-        /// <summary>
         /// Gets or sets the selected table.
         /// </summary>
         /// <value>
         /// The selected table.
         /// </value>
         public string SelectedTable { get; set; }
+
+        /// <summary>
+        /// Gets or sets the first category.
+        /// </summary>
+        /// <value>
+        /// The first category.
+        /// </value>
+        public string FirstCategory { get; set; }
+
+        /// <summary>
+        /// Gets or sets the first value.
+        /// </summary>
+        /// <value>
+        /// The first value.
+        /// </value>
+        public string FirstValue { get; set; }
+
+        /// <summary>
+        /// Gets or sets the second category.
+        /// </summary>
+        /// <value>
+        /// The second category.
+        /// </value>
+        public string SecondCategory { get; set; }
+
+        /// <summary>
+        /// Gets or sets the second value.
+        /// </summary>
+        /// <value>
+        /// The second value.
+        /// </value>
+        public string SecondValue { get; set; }
+
+        /// <summary>
+        /// Gets or sets the third category.
+        /// </summary>
+        /// <value>
+        /// The third category.
+        /// </value>
+        public string ThirdCategory { get; set; }
+
+        /// <summary>
+        /// Gets or sets the third value.
+        /// </summary>
+        /// <value>
+        /// The third value.
+        /// </value>
+        public string ThirdValue { get; set; }
+
+        /// <summary>
+        /// Gets or sets the SQL query.
+        /// </summary>
+        /// <value>
+        /// The SQL query.
+        /// </value>
+        public string SqlQuery { get; set; }
+
+        /// <summary>
+        /// Gets or sets the form filter.
+        /// </summary>
+        /// <value>
+        /// The form filter.
+        /// </value>
+        public IDictionary<string, object> FormFilter { get; set; }
+
+        /// <summary>
+        /// Gets or sets the fields.
+        /// </summary>
+        /// <value>
+        /// The fields.
+        /// </value>
+        public IList<string> Fields { get; set; }
+
+        /// <summary>
+        /// Gets or sets the numerics.
+        /// </summary>
+        /// <value>
+        /// The numerics.
+        /// </value>
+        public IList<string> Numerics { get; set; }
 
         /// <summary>
         /// Gets or sets the selected columns.
@@ -135,20 +155,36 @@ namespace BudgetExecution
         public IList<string> SelectedNumerics { get; set; }
 
         /// <summary>
-        /// Gets or sets the SQL query.
+        /// Gets or sets the source.
         /// </summary>
         /// <value>
-        /// The SQL query.
+        /// The source.
         /// </value>
-        public string SqlQuery { get; set; }
+        public Source Source { get; set; }
 
         /// <summary>
-        /// Gets or sets the form filter.
+        /// Gets or sets the provider.
         /// </summary>
         /// <value>
-        /// The form filter.
+        /// The provider.
         /// </value>
-        public IDictionary<string, object> FormFilter { get; set; }
+        public Provider Provider { get; set; }
+
+        /// <summary>
+        /// Gets or sets the data table.
+        /// </summary>
+        /// <value>
+        /// The data table.
+        /// </value>
+        public DataTable DataTable { get; set; }
+
+        /// <summary>
+        /// Gets or sets the data model.
+        /// </summary>
+        /// <value>
+        /// The data model.
+        /// </value>
+        public DataBuilder DataModel { get; set; }
 
         /// <summary>
         /// Gets or sets the data arguments.
@@ -158,15 +194,15 @@ namespace BudgetExecution
         /// </value>
         public DataArgs DataArgs { get; set; }
 
-        /// <inheritdoc/>
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.BudgetForm"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.PivotChartForm" /> class.
         /// </summary>
-        public BudgetForm( )
+        public PivotChartForm( )
         {
             InitializeComponent( );
+            // Basic Properties
             Size = new Size( 1350, 750 );
             MaximumSize = new Size( 1350, 750 );
             MinimumSize = new Size( 1350, 750 );
@@ -182,7 +218,7 @@ namespace BudgetExecution
             MetroColor = Color.FromArgb( 20, 20, 20 );
             CaptionBarHeight = 5;
             CaptionAlign = HorizontalAlignment.Center;
-            CaptionFont = new Font( "Roboto", 12, FontStyle.Regular );
+            CaptionFont = new Font( "Roboto", 11, FontStyle.Regular );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionForeColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
@@ -194,13 +230,6 @@ namespace BudgetExecution
             MinimizeBox = false;
             MaximizeBox = false;
             ControlBox = false;
-
-            // Timer Properties
-            Time = 0;
-            Seconds = 5;
-
-            // Wire Events
-            Load += OnLoad;
         }
 
         /// <summary>

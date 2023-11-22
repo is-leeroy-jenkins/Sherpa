@@ -25,6 +25,7 @@ resharper_blank_lines_around_block_case_section = 0
 resharper_blank_lines_before_control_transfer_statements = 0
 resharper_blank_lines_before_single_line_comment = 0
 resharper_csharp_alignment_tab_fill_style = use_spaces
+resharper_csharp_align_multiline_calls_chain = false
 resharper_csharp_align_multiline_parameter = false
 resharper_csharp_blank_lines_inside_region = 0
 resharper_csharp_indent_method_decl_pars = inside

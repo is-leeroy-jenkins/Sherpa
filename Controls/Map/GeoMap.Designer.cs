@@ -1,6 +1,6 @@
 ﻿namespace BudgetExecution
 {
-    partial class GeographicForm
+    partial class GeoMap
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent( )
         {
             components = new System.ComponentModel.Container( );
-            var resources = new System.ComponentModel.ComponentResourceManager( typeof( GeographicForm ) );
+            var resources = new System.ComponentModel.ComponentResourceManager( typeof( GeoMap ) );
             tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel( );
             Map = new MapControl( );
             ToolStrip = new ToolStrip( );
@@ -555,7 +555,7 @@
             ToolTip.TipText = null;
             ToolTip.TipTitle = null;
             // 
-            // GeographicForm
+            // GeoMap
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 15F );
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -579,10 +579,10 @@
             MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             MinimizeBox = false;
             MinimumSize = new System.Drawing.Size( 1350, 801 );
-            Name = "GeographicForm";
+            Name = "GeoMap";
             ShowIcon = false;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            Text = "GeographicForm";
+            Text = "GeoMap";
             tableLayoutPanel1.ResumeLayout( false );
             ToolStrip.ResumeLayout( false );
             ToolStrip.PerformLayout( );

@@ -4,7 +4,7 @@
 
     using Syncfusion.Windows.Forms.Tools;
 
-    partial class PivotForm
+    partial class PivotDataForm
     {
         /// <summary>
         /// Required designer variable.
@@ -33,7 +33,7 @@
         private void InitializeComponent( )
         {
             components = new System.ComponentModel.Container( );
-            var resources = new System.ComponentModel.ComponentResourceManager( typeof( PivotForm ) );
+            var resources = new System.ComponentModel.ComponentResourceManager( typeof( PivotDataForm ) );
             ToolTip = new SmallTip( );
             PivotGridPanel = new Layout( );
             PivotChart = new Syncfusion.Windows.Forms.PivotChart.PivotChart( );
@@ -1615,7 +1615,7 @@
             Separator.Padding = new Padding( 1 );
             Separator.Size = new System.Drawing.Size( 6, 34 );
             // 
-            // PivotForm
+            // PivotDataForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
             AutoScaleMode = AutoScaleMode.Font;
@@ -1645,7 +1645,7 @@
             MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             MinimizeBox = false;
             MinimumSize = new System.Drawing.Size( 1350, 750 );
-            Name = "PivotForm";
+            Name = "PivotDataForm";
             ShowIcon = false;
             ShowMaximizeBox = false;
             ShowMinimizeBox = false;
