@@ -44,76 +44,131 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Security.AccessControl;
-    using System.Threading;
 
-    /// <summary> </summary>
+    /// <summary>
+    /// 
+    /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public interface IPath
     {
-        /// <summary> The path </summary>
+        /// <summary>
+        /// Gets or sets the buffer.
+        /// </summary>
+        /// <value>
+        /// The buffer.
+        /// </value>
         string Buffer { get; set; }
 
-        /// <summary> Gets or sets the name of the file. </summary>
-        /// <value> The name of the file. </value>
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
         string Name { get; set; }
 
-        /// <summary> Gets or sets the full name. </summary>
-        /// <value> The full name. </value>
+        /// <summary>
+        /// Gets or sets the full path.
+        /// </summary>
+        /// <value>
+        /// The full path.
+        /// </value>
         string FullPath { get; set; }
 
-        /// <summary> Gets or sets the full path. </summary>
-        /// <value> The full path. </value>
+        /// <summary>
+        /// Gets or sets the absolute path.
+        /// </summary>
+        /// <value>
+        /// The absolute path.
+        /// </value>
         string AbsolutePath { get; set; }
 
-        /// <summary> Gets or sets the changed date. </summary>
-        /// <value> The changed date. </value>
+        /// <summary>
+        /// Gets or sets the modified.
+        /// </summary>
+        /// <value>
+        /// The modified.
+        /// </value>
         DateTime Modified { get; set; }
 
-        /// <summary> Gets or sets the extension. </summary>
-        /// <value> The extension. </value>
+        /// <summary>
+        /// Gets or sets the extension.
+        /// </summary>
+        /// <value>
+        /// The extension.
+        /// </value>
         string Extension { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this instance has parent.
         /// </summary>
         /// <value>
-        /// <c> true </c>
-        /// if this instance has parent { get; set; } otherwise,
-        /// <c> false </c>
-        /// .
+        ///   <c>true</c> if this instance has parent; otherwise, <c>false</c>.
         /// </value>
         bool HasParent { get; set; }
 
-        /// <summary> Gets or sets the creation date. </summary>
-        /// <value> The creation date.p/// </value>
+        /// <summary>
+        /// Gets or sets the created.
+        /// </summary>
+        /// <value>
+        /// The created.
+        /// </value>
         DateTime Created { get; set; }
 
-        /// <summary> Gets or sets the lengeth. </summary>
-        /// <value> The lengeth. </value>
+        /// <summary>
+        /// Gets or sets the length.
+        /// </summary>
+        /// <value>
+        /// The length.
+        /// </value>
         long Length { get; set; }
 
-        /// <summary> Gets or sets the attributes. </summary>
-        /// <value> The attributes. </value>
+        /// <summary>
+        /// Gets or sets the attributes.
+        /// </summary>
+        /// <value>
+        /// The attributes.
+        /// </value>
         FileAttributes Attributes { get; set; }
 
-        /// <summary> Gets or sets the security. </summary>
-        /// <value> The security. </value>
+        /// <summary>
+        /// Gets or sets the file security.
+        /// </summary>
+        /// <value>
+        /// The file security.
+        /// </value>
         FileSecurity FileSecurity { get; set; }
 
-        /// <summary> Gets the dir sep. </summary>
-        /// <value> The dir sep. </value>
+        /// <summary>
+        /// Gets the dir sep.
+        /// </summary>
+        /// <value>
+        /// The dir sep.
+        /// </value>
         char DirSep { get; }
 
-        /// <summary> Gets the path sep. </summary>
-        /// <value> The path sep. </value>
+        /// <summary>
+        /// Gets the path sep.
+        /// </summary>
+        /// <value>
+        /// The path sep.
+        /// </value>
         char PathSep { get; }
 
-        /// <summary> Gets the invalid path character. </summary>
-        /// <value> The invalid path character. </value>
+        /// <summary>
+        /// Gets the invalid path chars.
+        /// </summary>
+        /// <value>
+        /// The invalid path chars.
+        /// </value>
         char[ ] InvalidPathChars { get; }
 
-        /// <summary> Gets the invalid chars. </summary>
-        /// <value> The invalid chars. </value>
+        /// <summary>
+        /// Gets the invalid name chars.
+        /// </summary>
+        /// <value>
+        /// The invalid name chars.
+        /// </value>
         char[ ] InvalidNameChars { get; }
     }
 }

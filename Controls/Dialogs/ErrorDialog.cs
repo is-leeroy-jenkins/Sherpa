@@ -85,6 +85,7 @@ namespace BudgetExecution
         public ErrorDialog( )
         {
             InitializeComponent( );
+            InitializeCallbacks( );
 
             // Form Property Values
             BackColor = Color.FromArgb( 20, 20, 20 );
@@ -108,19 +109,8 @@ namespace BudgetExecution
             Padding = new Padding( 1 );
             Text = string.Empty;
 
-            // Header Label Properties
-            Title.ForeColor = Color.Red;
-
-            // TextBox Properties
-            TextBox.Font = new Font( "Roboto", 8 );
-            TextBox.ForeColor = Color.FromArgb( 106, 189, 252 );
-            TextBox.BackColor = Color.FromArgb( 40, 40, 40 );
-            TextBox.BorderColor = Color.Maroon;
-            TextBox.HoverColor = Color.Maroon;
-
             // Event Wiring
             Load += OnLoad;
-            CloseButton.Click += OnCloseButtonClick;
         }
 
         /// <inheritdoc />
@@ -149,6 +139,37 @@ namespace BudgetExecution
         {
             Exception = null;
             TextBox.Text = message;
+        }
+
+        /// <summary>
+        /// Initializes the callbacks.
+        /// </summary>
+        private void InitializeCallbacks( )
+        {
+            CloseButton.Click += OnCloseButtonClick;
+        }
+
+        /// <summary>
+        /// Initializes the labels.
+        /// </summary>
+        private void InitializeLabels( )
+        {
+            // Header Label Properties
+            Title.ForeColor = Color.Red;
+            Title.TextAlign = ContentAlignment.MiddleLeft;
+        }
+
+        /// <summary>
+        /// Initializes the text box.
+        /// </summary>
+        private void InitializeTextBox( )
+        {
+            // TextBox Properties
+            TextBox.Font = new Font( "Roboto", 8 );
+            TextBox.ForeColor = Color.FromArgb( 106, 189, 252 );
+            TextBox.BackColor = Color.FromArgb( 40, 40, 40 );
+            TextBox.BorderColor = Color.Maroon;
+            TextBox.HoverColor = Color.Maroon;
         }
 
         /// <summary>
@@ -204,8 +225,8 @@ namespace BudgetExecution
         {
             try
             {
-                Title.TextAlign = ContentAlignment.MiddleLeft;
-                Title.ForeColor = Color.Red;
+                InitializeLabels( );
+                InitializeTextBox( );
                 if( Exception != null )
                 {
                     var _message = Exception.Message;
