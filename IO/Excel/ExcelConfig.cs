@@ -264,7 +264,7 @@ namespace BudgetExecution
                     _excelComment.To.Column = _range.End.Column;
                     _excelComment.BackgroundColor = Color.FromArgb( 15, 15, 15 );
                     _excelComment.Font.FontName = "Roboto";
-                    _excelComment.Font.Size = 8;
+                    _excelComment.Font.Size = 9;
                     _excelComment.Font.Color = Color.Black;
                     _excelComment.Text = text;
                 }

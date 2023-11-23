@@ -44,14 +44,16 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.PivotAnalysis;
 
+    /// <inheritdoc />
     /// <summary> </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl"/>
+    /// <seealso cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl" />
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class PivotGrid : PivotGridControl
     {
         /// <summary> Gets or sets the binding source. </summary>
@@ -62,9 +64,10 @@ namespace BudgetExecution
         /// <value> The tool tip. </value>
         public virtual SmallTip ToolTip { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="PivotGrid"/>
+        /// <see cref="T:BudgetExecution.PivotGrid" />
         /// class.
         /// </summary>
         public PivotGrid( )
