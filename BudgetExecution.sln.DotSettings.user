@@ -126,4 +126,7 @@
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005Cteppler_005Csource_005Crepos_005CBudgetExecution_005CLibraries_005CWinFormsExcel_002Edll/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005Cteppler_005Csource_005Crepos_005CBudgetExecution_005CLibraries_005CWinFormsExcel_002Exml/@EntryIndexedValue">True</s:Boolean>
 	
-	<s:String x:Key="/Default/CustomTools/CustomToolsData/@EntryValue"></s:String></wpf:ResourceDictionary>
+	<s:String x:Key="/Default/CustomTools/CustomToolsData/@EntryValue"></s:String>
+	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
+  &lt;Assembly Path="C:\Users\terry\source\repos\BudgetExecution\Clients\Baby\net6.0-windows\Syncfusion.Shared.Windows.dll" /&gt;&#xD;
+&lt;/AssemblyExplorer&gt;</s:String></wpf:ResourceDictionary>

@@ -41,7 +41,6 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Threading;
     using OfficeOpenXml;
 
     /// <summary>

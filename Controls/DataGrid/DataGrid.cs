@@ -49,7 +49,6 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Linq;
-    using System.Threading;
     using System.Windows.Forms;
 
     /// <inheritdoc/>

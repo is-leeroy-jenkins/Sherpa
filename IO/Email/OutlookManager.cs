@@ -46,7 +46,6 @@ namespace BudgetExecution
     using System.Net.Mime;
     using System.Runtime.InteropServices;
     using System.Text;
-    using System.Threading;
     using Microsoft.Office.Interop.Outlook;
     using Attachment = System.Net.Mail.Attachment;
     using Exception = System.Exception;

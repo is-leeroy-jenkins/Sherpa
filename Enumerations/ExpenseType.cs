@@ -41,7 +41,6 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Threading;
 
     /// <summary> Defines the OutlayType </summary>
     public enum ExpenseType

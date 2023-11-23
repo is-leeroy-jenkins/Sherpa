@@ -42,7 +42,6 @@ using System;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Diagnostics.CodeAnalysis;
-using static BudgetExecution.CommandFactory;
 
 namespace BudgetExecution
 {

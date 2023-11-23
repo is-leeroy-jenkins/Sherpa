@@ -46,29 +46,27 @@ namespace BudgetExecution
     using System;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
-    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.PivotAnalysis;
 
+    /// <inheritdoc />
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "CompareNonConstrainedGenericWithNull" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     public abstract class PivotGridBase : PivotGridControl
     {
-        /// <summary> Gets or sets the binding source. </summary>
-        /// <value> The binding source. </value>
-        public virtual BindingSource BindingSource { get; set; }
-
-        /// <summary> Gets or sets the tool tip. </summary>
-        /// <value> The tool tip. </value>
-        public virtual SmallTip ToolTip { get; set; }
-
-        /// <summary> Gets or sets the filter. </summary>
-        /// <value> The filter. </value>
+        /// <summary>
+        /// Gets or sets the data filter.
+        /// </summary>
+        /// <value>
+        /// The data filter.
+        /// </value>
         public virtual IDictionary<string, object> DataFilter { get; set; }
 
-        /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

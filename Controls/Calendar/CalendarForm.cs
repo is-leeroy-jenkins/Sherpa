@@ -377,7 +377,7 @@ namespace BudgetExecution
             {
                 if( !string.IsNullOrEmpty( text ) )
                 {
-                    Chart.Titles[ 0 ].Text = text;
+                    Plotter.Titles[ 0 ].Text = text;
                 }
             }
             catch( Exception _ex )
@@ -552,7 +552,7 @@ namespace BudgetExecution
                 Label10.Visible = false;
                 Label11.Visible = false;
                 Label12.Visible = false;
-                Chart.Refresh( );
+                Plotter.Refresh( );
             }
             catch( Exception _ex )
             {
@@ -581,18 +581,18 @@ namespace BudgetExecution
                 _data.Add( "Weekends", _weekends );
                 _data.Add( "Holidays", _holidays );
                 var _text = $"From {_start} To {_end} ";
-                Chart.Titles[ 0 ].Text = _text;
+                Plotter.Titles[ 0 ].Text = _text;
                 var _values = _data.Values.ToArray( );
                 var _names = _data.Keys.ToArray( );
-                Chart.Series[ 0 ].Points.Clear( );
-                Chart.Series[ 0 ].ChartType = SeriesChartType.Pie;
+                Plotter.Series[ 0 ].Points.Clear( );
+                Plotter.Series[ 0 ].ChartType = SeriesChartType.Pie;
                 for( var _i = 0; _i < _data.Count; _i++ )
                 {
-                    Chart.Series[ 0 ].IsXValueIndexed = false;
-                    Chart.Series[ 0 ].Points.AddXY( _names[ _i ], _values[ _i ] );
+                    Plotter.Series[ 0 ].IsXValueIndexed = false;
+                    Plotter.Series[ 0 ].Points.AddXY( _names[ _i ], _values[ _i ] );
                 }
 
-                Chart.Refresh( );
+                Plotter.Refresh( );
             }
             catch( Exception _ex )
             {
@@ -773,8 +773,8 @@ namespace BudgetExecution
                 EndDate = DateTime.Today;
                 FirstCalendar.SelectedDate = StartDate;
                 SecondCalendar.SelectedDate = EndDate;
-                Chart.Series[ 0 ].Points.Clear( );
-                Chart.Titles[ 0 ].Text = string.Empty;
+                Plotter.Series[ 0 ].Points.Clear( );
+                Plotter.Titles[ 0 ].Text = string.Empty;
                 TabControl.SelectedIndex = 0;
             }
             catch( Exception _ex )

@@ -48,7 +48,6 @@ namespace BudgetExecution
     using System.Data.OleDb;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
-    using System.Threading;
     using System.Windows.Forms;
     using System.Windows.Forms.DataVisualization.Charting;
     using System.Xml.Linq;

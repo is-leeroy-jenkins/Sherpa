@@ -47,18 +47,23 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.Threading;
     using Syncfusion.Windows.Forms;
-    using Syncfusion.Windows.Forms.Gauge;
     using Syncfusion.Windows.Forms.Grid;
 
-    /// <summary> </summary>
-    /// <seealso cref="DataViewBase"/>
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:BudgetExecution.DataViewBase" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class DataView : DataViewBase
     {
-        /// <summary> Gets or sets the data table. </summary>
-        /// <value> The data table. </value>
+        /// <summary>
+        /// Gets or sets the data table.
+        /// </summary>
+        /// <value>
+        /// The data table.
+        /// </value>
         public DataTable DataTable { get; set; }
 
         /// <summary>

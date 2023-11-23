@@ -44,9 +44,7 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Drawing;
     using Syncfusion.Drawing;
-    using System.Threading;
     using System.Diagnostics.CodeAnalysis;
 
     /// <inheritdoc />

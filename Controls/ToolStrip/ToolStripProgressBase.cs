@@ -44,7 +44,6 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Threading;
     using System.Windows.Forms;
 
     /// <summary> </summary>

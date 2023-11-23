@@ -43,7 +43,6 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics;
     using System.Diagnostics.CodeAnalysis;
-    using System.Threading;
     using static System.Configuration.ConfigurationManager;
 
     /// <summary> </summary>

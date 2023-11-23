@@ -46,7 +46,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics.CodeAnalysis;
-using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
@@ -56,6 +55,10 @@ using Syncfusion.Windows.Forms.Tools;
 namespace BudgetExecution
 {
     using System;
+    using Color = System.Drawing.Color;
+    using Font = System.Drawing.Font;
+    using FontStyle = System.Drawing.FontStyle;
+    using Size = System.Drawing.Size;
 
     /// <summary>
     /// 
@@ -106,6 +109,14 @@ namespace BudgetExecution
         /// The count.
         /// </value>
         public int Count { get; set; }
+
+        /// <summary>
+        /// Gets or sets the hover text.
+        /// </summary>
+        /// <value>
+        /// The hover text.
+        /// </value>
+        public virtual string HoverText { get; set; }
 
         /// <summary>
         /// Gets or sets the selected table.
@@ -315,6 +326,8 @@ namespace BudgetExecution
         public ChartDataForm( )
         {
             InitializeComponent( );
+            InitializeDelegates( );
+            InitializeCallbacks( );
 
             // Basic Properties
             Size = new Size( 1350, 750 );
@@ -361,26 +374,6 @@ namespace BudgetExecution
         /// Initializes a new instance of the
         /// <see cref="T:BudgetExecution.ChartDataForm" /> class.
         /// </summary>
-        /// <param name="bindingSource">The binding source.</param>
-        public ChartDataForm( BindingSource bindingSource )
-            : this( )
-        {
-            DataTable = (DataTable)bindingSource.DataSource;
-            Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
-            SelectedTable = DataTable.TableName;
-            DataModel = new DataBuilder( Source, Provider );
-            BindingSource.DataSource = DataModel.DataTable;
-            Chart.DataSource = DataModel.DataTable;
-            ToolStrip.BindingSource = BindingSource;
-            Fields = DataModel?.Fields;
-            Numerics = DataModel?.Numerics;
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ChartDataForm" /> class.
-        /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
         public ChartDataForm( Source source, Provider provider )
@@ -393,7 +386,6 @@ namespace BudgetExecution
             SelectedTable = DataTable.TableName;
             BindingSource.DataSource = DataModel.DataTable;
             ToolStrip.BindingSource = BindingSource;
-            Chart.DataSource = DataModel.DataTable;
             Fields = DataModel?.Fields;
             Numerics = DataModel?.Numerics;
         }
@@ -412,14 +404,139 @@ namespace BudgetExecution
             Source = source;
             Provider = provider;
             FormFilter = where;
-            DataModel = new DataBuilder( Source, Provider, FormFilter );
+            DataModel = new DataBuilder( source, provider, where );
             DataTable = DataModel.DataTable;
             SelectedTable = DataTable.TableName;
             BindingSource.DataSource = DataTable;
             ToolStrip.BindingSource.DataSource = DataModel.DataTable;
-            Chart.DataSource = DataModel.DataTable;
             Fields = DataModel?.Fields;
             Numerics = DataModel?.Numerics;
+        }
+
+        /// <summary>
+        /// Sets the title properties.
+        /// </summary>
+        private protected void InitializeTitle( )
+        {
+            try
+            {
+                Chart.Titles[ 0 ].Font = new Font( "Roboto", 10, FontStyle.Bold );
+                Chart.Titles[ 0 ].BackColor = Color.FromArgb( 20, 20, 20 );
+                Chart.Titles[ 0 ].ForeColor = Color.FromArgb( 106, 189, 252 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the labels.
+        /// </summary>
+        private void InitializeLabels( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the icon.
+        /// </summary>
+        private void InitializeIcon( )
+        {
+            try
+            {
+                PictureBox.Size = new Size( 24, 20 );
+                PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the timers.
+        /// </summary>
+        private void InitializeTimers( )
+        {
+            try
+            {
+                // Timer Properties
+                Timer.Enabled = true;
+                Timer.Interval = 500;
+                Timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the buttons.
+        /// </summary>
+        private void InitializeButtons( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the tool strip.
+        /// </summary>
+        private void InitializeToolStrip( )
+        {
+            try
+            {
+                ToolStrip.Visible = true;
+                ToolStrip.Text = string.Empty;
+                ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
+                ToolStrip.Office12Mode = true;
+                ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Black;
+                ToolStrip.LauncherStyle = LauncherStyle.Office12;
+                ToolStrip.ImageSize = new Size( 16, 16 );
+                ToolStrip.ImageScalingSize = new Size( 16, 16 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the delegates.
+        /// </summary>
+        private void InitializeDelegates( )
+        {
+            _statusUpdate += UpdateStatusLabel;
+        }
+
+        /// <summary>
+        /// Initializes the callbacks.
+        /// </summary>
+        private void InitializeCallbacks( )
+        {
+            try
+            {
+                MenuButton.Click += OnMainMenuButtonClicked;
+                ExitButton.Click += OnExitButtonClicked;
+                Timer.Tick += OnTimerTick;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -682,115 +799,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes the labels.
-        /// </summary>
-        private void InitializeLabels( )
-        {
-            try
-            {
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the icon.
-        /// </summary>
-        private void InitializeIcon( )
-        {
-            try
-            {
-                PictureBox.Size = new Size( 24, 20 );
-                PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the timers.
-        /// </summary>
-        private void InitializeTimers( )
-        {
-            try
-            {
-                // Timer Properties
-                Timer.Enabled = true;
-                Timer.Interval = 500;
-                Timer.Start( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the buttons.
-        /// </summary>
-        private void InitializeButtons( )
-        {
-            try
-            {
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the tool strip.
-        /// </summary>
-        private void InitializeToolStrip( )
-        {
-            try
-            {
-                ToolStrip.Visible = true;
-                ToolStrip.Text = string.Empty;
-                ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
-                ToolStrip.Office12Mode = true;
-                ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Black;
-                ToolStrip.LauncherStyle = LauncherStyle.Office12;
-                ToolStrip.ImageSize = new Size( 16, 16 );
-                ToolStrip.ImageScalingSize = new Size( 16, 16 );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the delegates.
-        /// </summary>
-        private void InitializeDelegates( )
-        {
-            _statusUpdate += UpdateStatusLabel;
-        }
-
-        /// <summary>
-        /// Initializes the callbacks.
-        /// </summary>
-        private void InitializeCallbacks( )
-        {
-            try
-            {
-                MenuButton.Click += OnMainMenuButtonClicked;
-                ExitButton.Click += OnExitButtonClicked;
-                Timer.Tick += OnTimerTick;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Fades the in.
         /// </summary>
         private void FadeIn( )
@@ -976,15 +984,6 @@ namespace BudgetExecution
                 {
                     Chart.Series[ 0 ].Points.Clear( );
                 }
-
-                Chart.DataSource = BindingSource;
-                Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
-                Chart.Series[ 0 ].XValueMember = Fields.Last( );
-                Chart.Series[ 0 ].IsXValueIndexed = true;
-                Chart.Series[ 0 ].YValueMembers = Numerics.First( );
-                Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
-                Chart.ChartAreas[ 0 ].AxisX.Title = string.Empty;
-                Chart.Refresh( );
             }
             catch( Exception ex )
             {
@@ -1014,12 +1013,6 @@ namespace BudgetExecution
                         Chart.Series[ 0 ].Points.Clear( );
                     }
 
-                    Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
-                    Chart.DataSource = BindingSource;
-                    Chart.Series[ 0 ].XValueMember = DataTable.Columns[ 0 ].ColumnName;
-                    Chart.Series[ 0 ].IsXValueIndexed = true;
-                    Chart.Series[ 0 ].YValueMembers = Numerics.First( );
-                    Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
                     Chart.Refresh( );
                 }
                 catch( Exception ex )
@@ -1051,12 +1044,6 @@ namespace BudgetExecution
                         Chart.Series[ 0 ].Points.Clear( );
                     }
 
-                    Chart.DataSource = DataTable;
-                    Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
-                    Chart.Series[ 0 ].IsXValueIndexed = false;
-                    Chart.Series[ 0 ].XValueMember = DataTable.Columns[ 0 ].ColumnName;
-                    Chart.Series[ 0 ].YValueMembers = Numerics.First( );
-                    Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
                     Chart.Refresh( );
                 }
                 catch( Exception ex )
@@ -1090,12 +1077,6 @@ namespace BudgetExecution
                         Chart.Series[ 0 ].Points.Clear( );
                     }
 
-                    Chart.DataSource = BindingSource;
-                    Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
-                    Chart.Series[ 0 ].XValueMember = DataTable.Columns[ 0 ].ColumnName;
-                    Chart.Series[ 0 ].IsXValueIndexed = true;
-                    Chart.Series[ 0 ].YValueMembers = Numerics.First( );
-                    Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
                     Chart.Refresh( );
                 }
                 catch( Exception ex )
@@ -1132,12 +1113,6 @@ namespace BudgetExecution
                         Chart.Series[ 0 ].Points.Clear( );
                     }
 
-                    Chart.DataSource = BindingSource;
-                    Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
-                    Chart.Series[ 0 ].XValueMember = Fields.Last( );
-                    Chart.Series[ 0 ].IsXValueIndexed = false;
-                    Chart.Series[ 0 ].YValueMembers = Numerics.First( );
-                    Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
                     Chart.Refresh( );
                 }
                 catch( Exception ex )
@@ -1162,12 +1137,6 @@ namespace BudgetExecution
                         Chart.Series[ 0 ].Points.Clear( );
                     }
 
-                    Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
-                    Chart.DataSource = BindingSource;
-                    Chart.Series[ 0 ].XValueMember = SelectedFields?.Last( );
-                    Chart.Series[ 0 ].IsXValueIndexed = false;
-                    Chart.Series[ 0 ].YValueMembers = SelectedNumerics?.First( );
-                    Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
                     Chart.Refresh( );
                 }
                 else
@@ -1177,12 +1146,6 @@ namespace BudgetExecution
                         Chart.Series[ 0 ].Points.Clear( );
                     }
 
-                    Chart.ChartAreas[ 0 ].RecalculateAxesScale( );
-                    Chart.DataSource = BindingSource;
-                    Chart.Series[ 0 ].XValueMember = DataTable.Columns[ 0 ].ColumnName;
-                    Chart.Series[ 0 ].IsXValueIndexed = true;
-                    Chart.Series[ 0 ].YValueMembers = Numerics.First( );
-                    Chart.Titles[ 0 ].Text = SelectedTable.SplitPascal( );
                     Chart.Refresh( );
                 }
             }
@@ -1645,9 +1608,8 @@ namespace BudgetExecution
             try
             {
                 InitializeToolStrip( );
-                InitializeDelegates( );
                 InitializeTimers( );
-                InitializeCallbacks( );
+                InitializeTitle( );
                 FormFilter = new Dictionary<string, object>( );
                 SelectedColumns = new List<string>( );
                 SelectedFields = new List<string>( );

@@ -41,41 +41,44 @@
 //  </summary>
 //  ******************************************************************************************
 
+
 namespace BudgetExecution
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.Threading;
+    using Syncfusion.Windows.Forms.Chart;
 
-    /// <inheritdoc/>
-    /// <summary> </summary>
-    /// <seealso cref="T:System.Windows.Forms.DataVisualization.Charting.Chart"/>
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:Syncfusion.Windows.Forms.Chart.ChartControl" />
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [ SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public abstract class ChartBase : System.Windows.Forms.DataVisualization.Charting.Chart
+    [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    public abstract class ChartBase : ChartControl
     {
-        /// <summary> Sets the chart palette colors. </summary>
-        protected void InitializePalette( )
+        /// <summary>
+        /// Sets the area properties.
+        /// </summary>
+        private protected void SetAreaProperties( )
         {
             try
             {
+                var _black = Color.FromArgb( 20, 20, 20 );
+                var _gray = Color.FromArgb( 65, 65, 65 );
+                var _transparent = Color.Transparent;
                 var _blue = Color.FromArgb( 0, 120, 212 );
-                var _lightBlue = Color.FromArgb( 180, 0, 120, 202 );
-                var _maroon = Color.Maroon;
-                var _red = Color.FromArgb( 255, 65, 84 );
-                var _green = Color.FromArgb( 0, 64, 0 );
-                var _darkGreen = Color.FromArgb( 150, 0, 64, 0 );
-                var _palette = new[ ]
-                {
-                    _blue,
-                    _lightBlue,
-                    _maroon,
-                    _red,
-                    _green,
-                    _darkGreen
-                };
+                var _darkBlue = Color.FromArgb( 24, 47, 66 );
 
-                PaletteCustomColors = _palette;
+                // General Area Properties
+
+                // Horizontal Axis Properties
+
+                // Vertical Axis Properties
             }
             catch( Exception _ex )
             {
@@ -83,9 +86,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
-        protected void Fail( Exception ex )
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">
+        /// The ex.
+        /// </param>
+        private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );

@@ -50,7 +50,6 @@ namespace BudgetExecution
     using System.Data.SqlServerCe;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
-    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]

@@ -41,7 +41,6 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Threading;
     using static System.Configuration.ConfigurationManager;
 
     /// <summary> </summary>

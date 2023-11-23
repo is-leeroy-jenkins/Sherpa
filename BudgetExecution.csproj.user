@@ -53,22 +53,7 @@
     <Compile Update="Controls\Chart\ChartDataForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\CheckBox\CheckBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Controls\ComboBox\ComboBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Controls\ContextMenu\ContextMenu.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Controls\ContextMenu\MenuBase.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Update="Controls\CurrencyBox\CurrencyBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Controls\DataGrid\DataGrid.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\DataGrid\DataGridBase.cs">
@@ -76,9 +61,6 @@
     </Compile>
     <Compile Update="Controls\DataGrid\DataGridForm.cs">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Controls\DataGrid\GridBase.cs">
-      <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\DataView\DataView.cs">
       <SubType>Component</SubType>
@@ -158,14 +140,32 @@
     <Compile Update="Controls\Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Controls\Graph\Plotter.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\Graph\PlottBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\CheckBox\CheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\ComboBox\ComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\ContextMenu\ContextMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\ContextMenu\MenuBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\DataGrid\DataGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\DataGrid\GridBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Update="Controls\Frame\Frame.cs">
       <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Controls\Graph\Graph.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Controls\Graph\GraphBase.cs">
-      <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\GridControl\GridControl.cs">
       <SubType>Component</SubType>
@@ -203,6 +203,9 @@
     <Compile Update="Controls\Loader\LoadingForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Controls\Map\GeoMap.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Controls\Map\MapControl.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -214,6 +217,9 @@
     </Compile>
     <Compile Update="Controls\PivotChart\PivotChart.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\PivotChart\PivotChartForm.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Update="Controls\PivotGrid\PivotDataForm.cs">
       <SubType>Form</SubType>
@@ -310,12 +316,6 @@
     </Compile>
     <Compile Update="Data\Adapter\AdapterFactory.cs">
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Controls\Map\GeoMap.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Controls\PivotChart\PivotChartForm.cs">
-      <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>

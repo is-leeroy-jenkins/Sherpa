@@ -46,7 +46,6 @@ namespace BudgetExecution
     using System.ComponentModel;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
-    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]

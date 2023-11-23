@@ -46,7 +46,6 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.Threading;
     using System.Windows.Forms;
     using MetroSet_UI.Child;
     using MetroSet_UI.Enums;

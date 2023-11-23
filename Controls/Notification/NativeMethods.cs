@@ -45,7 +45,6 @@ namespace BudgetExecution
 {
     using System;
     using System.Runtime.InteropServices;
-    using System.Threading;
 
     /// <summary> </summary>
     internal static class NativeMethods

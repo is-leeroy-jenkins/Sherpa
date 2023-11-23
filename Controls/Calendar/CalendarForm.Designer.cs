@@ -118,7 +118,7 @@ namespace BudgetExecution
             TabControl = new TabControl( );
             ChartTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             ChartLayout = new Layout( );
-            Chart = new Chart( );
+            Plotter = new Plotter( );
             DataTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             GridPanel = new Layout( );
             DataGrid = new DataGrid( );
@@ -156,7 +156,7 @@ namespace BudgetExecution
             TabControl.SuspendLayout( );
             ChartTab.SuspendLayout( );
             ChartLayout.SuspendLayout( );
-            ( (System.ComponentModel.ISupportInitialize)Chart ).BeginInit( );
+            ( (System.ComponentModel.ISupportInitialize)Plotter ).BeginInit( );
             DataTab.SuspendLayout( );
             GridPanel.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)DataGrid ).BeginInit( );
@@ -892,7 +892,7 @@ namespace BudgetExecution
             ChartLayout.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
             ChartLayout.BorderThickness = 1;
             ChartLayout.Children = null;
-            ChartLayout.Controls.Add( Chart );
+            ChartLayout.Controls.Add( Plotter );
             ChartLayout.DataFilter = null;
             ChartLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             ChartLayout.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -912,14 +912,14 @@ namespace BudgetExecution
             // 
             // Chart
             // 
-            Chart.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            Chart.BackSecondaryColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            Chart.BindingSource = null;
-            Chart.BorderlineColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            Chart.BorderSkin.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            Chart.BorderSkin.BackSecondaryColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            Chart.BorderSkin.BorderColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            Chart.BorderSkin.PageColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            Plotter.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            Plotter.BackSecondaryColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            Plotter.BindingSource = null;
+            Plotter.BorderlineColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            Plotter.BorderSkin.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            Plotter.BorderSkin.BackSecondaryColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            Plotter.BorderSkin.BorderColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            Plotter.BorderSkin.PageColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             chartArea1.Area3DStyle.Enable3D = true;
             chartArea1.Area3DStyle.Rotation = 15;
             chartArea1.AxisX.ArrowStyle = System.Windows.Forms.DataVisualization.Charting.AxisArrowStyle.SharpTriangle;
@@ -945,9 +945,9 @@ namespace BudgetExecution
             chartArea1.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             chartArea1.BorderColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             chartArea1.Name = "ChartArea1";
-            Chart.ChartAreas.Add( chartArea1 );
-            Chart.Data = null;
-            Chart.DataTable = null;
+            Plotter.ChartAreas.Add( chartArea1 );
+            Plotter.Data = null;
+            Plotter.DataTable = null;
             legend1.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             legend1.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             legend1.ForeColor = System.Drawing.Color.DarkGray;
@@ -955,10 +955,10 @@ namespace BudgetExecution
             legend1.Name = "Legend1";
             legend1.TitleBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             legend1.TitleForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            Chart.Legends.Add( legend1 );
-            Chart.Location = new System.Drawing.Point( 32, 25 );
-            Chart.Name = "Chart";
-            Chart.PaletteCustomColors = new System.Drawing.Color[ ]
+            Plotter.Legends.Add( legend1 );
+            Plotter.Location = new System.Drawing.Point( 32, 25 );
+            Plotter.Name = "Plotter";
+            Plotter.PaletteCustomColors = new System.Drawing.Color[ ]
     {
     System.Drawing.Color.FromArgb(0, 120, 212),
     System.Drawing.Color.FromArgb(180, 0, 120, 202),
@@ -979,16 +979,16 @@ namespace BudgetExecution
             series1.Name = "Series1";
             series1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.BrightPastel;
             series1.SmartLabelStyle.CalloutLineColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            Chart.Series.Add( series1 );
-            Chart.Size = new System.Drawing.Size( 672, 419 );
-            Chart.TabIndex = 0;
-            Chart.Text = "chart1";
+            Plotter.Series.Add( series1 );
+            Plotter.Size = new System.Drawing.Size( 672, 419 );
+            Plotter.TabIndex = 0;
+            Plotter.Text = "chart1";
             title1.Alignment = System.Drawing.ContentAlignment.TopCenter;
             title1.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             title1.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             title1.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             title1.Name = "Title1";
-            Chart.Titles.Add( title1 );
+            Plotter.Titles.Add( title1 );
             // 
             // DataTab
             // 
@@ -1525,7 +1525,7 @@ namespace BudgetExecution
             TabControl.ResumeLayout( false );
             ChartTab.ResumeLayout( false );
             ChartLayout.ResumeLayout( false );
-            ( (System.ComponentModel.ISupportInitialize)Chart ).EndInit( );
+            ( (System.ComponentModel.ISupportInitialize)Plotter ).EndInit( );
             DataTab.ResumeLayout( false );
             GridPanel.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize)DataGrid ).EndInit( );
@@ -1594,7 +1594,7 @@ namespace BudgetExecution
         public ToolStripButton TableButton;
         public ToolStripButton ChartButton;
 
-        public Chart Chart;
+        public Plotter Plotter;
         public ToolSeparator Separator9;
         public ToolSeparator Separator8;
         public Layout TimeTableLayout;
