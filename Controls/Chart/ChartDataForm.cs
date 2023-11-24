@@ -343,7 +343,7 @@ namespace BudgetExecution
             MetroColor = Color.FromArgb( 20, 20, 20 );
             CaptionBarHeight = 5;
             CaptionAlign = HorizontalAlignment.Center;
-            CaptionFont = new Font( "Roboto", 12, FontStyle.Regular );
+            CaptionFont = new Font( "Roboto", 10, FontStyle.Regular );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionForeColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
@@ -783,10 +783,10 @@ namespace BudgetExecution
 
                     BindData( FormFilter );
                     SqlQuery = CreateSqlText( FormFilter );
-                    SqlHeader.Text = SqlQuery;
+                    SqlTextLabel.Text = SqlQuery;
                     UpdateLabelText( );
                     Chart.Visible = true;
-                    SqlHeader.Visible = true;
+                    SqlTextLabel.Visible = true;
                     MetricsTable.Visible = true;
                 }
                 catch( Exception ex )
@@ -977,7 +977,7 @@ namespace BudgetExecution
                 Fields = DataModel.Fields;
                 Numerics = DataModel.Numerics;
                 SqlQuery = DataModel.SqlStatement.CommandText;
-                SqlHeader.Text = SqlQuery;
+                SqlTextLabel.Text = SqlQuery;
                 if( Chart.Series[ 0 ].Points.Count > 0 )
                 {
                     Chart.Series[ 0 ].Points.Clear( );
@@ -1401,7 +1401,7 @@ namespace BudgetExecution
                     if( Chart.Visible == true )
                     {
                         Chart.Visible = false;
-                        SqlHeader.Visible = false;
+                        SqlTextLabel.Visible = false;
                         MetricsTable.Visible = false;
                     }
 
@@ -1416,7 +1416,7 @@ namespace BudgetExecution
                     if( Chart.Visible == false )
                     {
                         Chart.Visible = true;
-                        SqlHeader.Visible = true;
+                        SqlTextLabel.Visible = true;
                         MetricsTable.Visible = true;
                     }
 
@@ -1444,8 +1444,8 @@ namespace BudgetExecution
             try
             {
                 var _dateTime = DateTime.Now;
-                var _dateString = _dateTime.ToLongDateString( );
-                var _timeString = _dateTime.ToLongTimeString( );
+                var _dateString = _dateTime.ToShortDateString( );
+                var _timeString = _dateTime.ToShortTimeString( );
                 StatusLabel.Text = _dateString + "  " + _timeString;
             }
             catch( Exception _ex )
@@ -1475,7 +1475,7 @@ namespace BudgetExecution
                     ThirdDataLabel.Text = $"Total Measures:  {_numerics}";
                     FourthDataLabel.Text = $"Active Filters:  {_filters}";
                     FifthDataLabel.Text = $"Selected Fields:  {_selectedFields}";
-                    SixthDataLabel.Text = $"Selected Measures:  {_selectedNumerics}";
+                    SeventhDataLabel.Text = $"Selected Measures:  {_selectedNumerics}";
                 }
                 else
                 {
@@ -1484,7 +1484,7 @@ namespace BudgetExecution
                     ThirdDataLabel.Text = "Total Measures: 0.0";
                     FourthDataLabel.Text = "Active Filters: 0.0";
                     FifthDataLabel.Text = "Selected Fields: 0.0";
-                    SixthDataLabel.Text = "Selected Measures: 0.0";
+                    SeventhDataLabel.Text = "Selected Measures: 0.0";
                 }
             }
             catch( Exception ex )
@@ -1782,7 +1782,7 @@ namespace BudgetExecution
 
                     BindData( FormFilter );
                     SqlQuery = CreateSqlText( FormFilter );
-                    SqlHeader.Text = SqlQuery;
+                    SqlTextLabel.Text = SqlQuery;
                     UpdateLabelText( );
                 }
                 catch( Exception ex )
@@ -1858,7 +1858,7 @@ namespace BudgetExecution
                     FormFilter.Add( ThirdCategory, ThirdValue );
                     BindData( FormFilter );
                     SqlQuery = CreateSqlText( FormFilter );
-                    SqlHeader.Text = SqlQuery;
+                    SqlTextLabel.Text = SqlQuery;
                     UpdateLabelText( );
                 }
                 catch( Exception ex )
@@ -1975,7 +1975,7 @@ namespace BudgetExecution
         {
             try
             {
-                SqlHeader.Text = string.Empty;
+                SqlTextLabel.Text = string.Empty;
                 var _selectedItem = FieldListBox.SelectedItem.ToString( );
                 PopulateNumericListBox( );
                 if( !string.IsNullOrEmpty( _selectedItem ) )
@@ -1994,21 +1994,21 @@ namespace BudgetExecution
                 {
                     BindData( SelectedFields, SelectedNumerics, FormFilter );
                     SqlQuery = CreateSqlText( SelectedFields, SelectedNumerics, FormFilter );
-                    SqlHeader.Text = SqlQuery;
+                    SqlTextLabel.Text = SqlQuery;
                     UpdateLabelText( );
                 }
                 else
                 {
                     BindData( Fields, Numerics, FormFilter );
                     SqlQuery = CreateSqlText( Fields, Numerics, FormFilter );
-                    SqlHeader.Text = SqlQuery;
+                    SqlTextLabel.Text = SqlQuery;
                     UpdateLabelText( );
                 }
 
                 if( Chart.Visible == false )
                 {
                     Chart.Visible = true;
-                    SqlHeader.Visible = true;
+                    SqlTextLabel.Visible = true;
                     MetricsTable.Visible = true;
                 }
             }
@@ -2027,7 +2027,7 @@ namespace BudgetExecution
             try
             {
                 SelectedNumerics.Clear( );
-                SqlHeader.Text = string.Empty;
+                SqlTextLabel.Text = string.Empty;
                 var _selectedItem = NumericListBox.SelectedValue.ToString( );
                 if( !string.IsNullOrEmpty( _selectedItem ) )
                 {
@@ -2036,7 +2036,7 @@ namespace BudgetExecution
 
                 BindData( SelectedFields, SelectedNumerics, FormFilter );
                 SqlQuery = CreateSqlText( SelectedFields, SelectedNumerics, FormFilter );
-                SqlHeader.Text = SqlQuery;
+                SqlTextLabel.Text = SqlQuery;
                 UpdateLabelText( );
             }
             catch( Exception ex )
@@ -2114,7 +2114,7 @@ namespace BudgetExecution
                     if( Chart.Visible == true )
                     {
                         Chart.Visible = false;
-                        SqlHeader.Visible = false;
+                        SqlTextLabel.Visible = false;
                         MetricsTable.Visible = false;
                     }
                 }
@@ -2253,6 +2253,11 @@ namespace BudgetExecution
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
+        }
+
+        private void ChartTable_Paint( object sender, PaintEventArgs e )
+        {
+
         }
     }
 }

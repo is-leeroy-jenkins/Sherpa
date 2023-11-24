@@ -60,16 +60,28 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public partial class CalculationForm : MetroForm
     {
-        /// <summary> Gets or sets the time. </summary>
-        /// <value> The time. </value>
+        /// <summary>
+        /// Gets or sets the time.
+        /// </summary>
+        /// <value>
+        /// The time.
+        /// </value>
         public int Time { get; set; }
 
-        /// <summary> Gets or sets the seconds. </summary>
-        /// <value> The seconds. </value>
+        /// <summary>
+        /// Gets or sets the seconds.
+        /// </summary>
+        /// <value>
+        /// The seconds.
+        /// </value>
         public int Seconds { get; set; }
 
-        /// <summary> Gets or sets the initial value. </summary>
-        /// <value> The initial value. </value>
+        /// <summary>
+        /// Gets or sets the initial value.
+        /// </summary>
+        /// <value>
+        /// The initial value.
+        /// </value>
         public double InitialValue { get; set; }
 
         /// <inheritdoc/>
@@ -125,7 +137,7 @@ namespace BudgetExecution
             try
             {
                 // Calculator Configuration
-                Calculator.Font = new Font( "Roboto", 10 );
+                Calculator.Font = new Font( "Roboto", 9 );
                 Calculator.Dock = DockStyle.Fill;
                 Calculator.BorderStyle = Border3DStyle.Adjust;
                 Calculator.HorizontalSpacing = 10;
@@ -148,7 +160,7 @@ namespace BudgetExecution
             try
             {
                 // Label Configuration
-                ValueLabel.Font = new Font( "Roboto", 14 );
+                ValueLabel.Font = new Font( "Roboto", 12 );
                 ValueLabel.Dock = DockStyle.Top;
                 ValueLabel.BackColor = Color.Transparent;
                 ValueLabel.ForeColor = Color.FromArgb( 106, 189, 252 );
@@ -193,7 +205,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Displays the control to the user. </summary>
+        /// <summary>
+        /// Displays the control to the user.
+        /// </summary>
         public new void Show( )
         {
             try
@@ -221,7 +235,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fades the in. </summary>
+        /// <summary>
+        /// Fades the in.
+        /// </summary>
         private void FadeIn( )
         {
             try
@@ -246,7 +262,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fades the out and close. </summary>
+        /// <summary>
+        /// Fades the out and close.
+        /// </summary>
         private void FadeOut( )
         {
             try
@@ -297,8 +315,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [calculation value changed]. </summary>
-        /// <param name="sender"> The sender. </param>
+        /// <summary>
+        /// Called when [calculation value changed].
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
         /// <param name="e">
         /// The
         /// <see cref="EventArgs"/>
@@ -319,8 +341,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [close button click]. </summary>
-        /// <param name="sender"> The sender. </param>
+        /// <summary>
+        /// Called when [close button click].
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
         /// <param name="e">
         /// The
         /// <see cref="EventArgs"/>
@@ -339,8 +365,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">
+        /// The ex.
+        /// </param>
         private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

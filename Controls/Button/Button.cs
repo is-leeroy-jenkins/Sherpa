@@ -104,7 +104,7 @@ namespace BudgetExecution
             Style = Style.Custom;
             ThemeAuthor = "Terry D. Eppler";
             ThemeName = "Budget Execution";
-            Font = new Font( "Roboto", 8 );
+            Font = new Font( "Roboto", 9 );
             ForeColor = Color.FromArgb( 106, 189, 252 );
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );
@@ -252,57 +252,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [mouse over].
-        /// </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        public void OnMouseOver( object sender, EventArgs e )
-        {
-            var _button = sender as Button;
-            try
-            {
-                if( _button != null
-                   && !string.IsNullOrEmpty( HoverText ) )
-                {
-                    if( !string.IsNullOrEmpty( HoverText ) )
-                    {
-                        var _hoverText = _button?.HoverText;
-                        var _ = new SmallTip( _button, _hoverText );
-                    }
-                    else
-                    {
-                        if( !string.IsNullOrEmpty( Tag?.ToString( ) ) )
-                        {
-                            var _text = Tag?.ToString( )?.SplitPascal( );
-                            var _ = new SmallTip( _button, _text );
-                        }
-                    }
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [click].
-        /// </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        public virtual void OnClick( object sender, EventArgs e )
-        {
-        }
-
-        /// <summary>
         /// Res the size.
         /// </summary>
         /// <param name="width"> The width. </param>
@@ -357,6 +306,64 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Called when [mouse over].
+        /// </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnMouseOver( object sender, EventArgs e )
+        {
+            var _button = sender as Button;
+            try
+            {
+                if( _button != null
+                   && !string.IsNullOrEmpty( HoverText ) )
+                {
+                    if( !string.IsNullOrEmpty( HoverText ) )
+                    {
+                        var _hoverText = _button?.HoverText;
+                        var _ = new SmallTip( _button, _hoverText );
+                    }
+                    else
+                    {
+                        if( !string.IsNullOrEmpty( Tag?.ToString( ) ) )
+                        {
+                            var _text = Tag?.ToString( )?.SplitPascal( );
+                            var _ = new SmallTip( _button, _text );
+                        }
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [click].
+        /// </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public virtual void OnClick( object sender, EventArgs e )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Called when [mouse leave].
         /// </summary>
         /// <param name="sender"> The sender. </param>
@@ -385,7 +392,9 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the color of the back.
         /// </summary>
-        /// <param name="normal"> The normal. </param>
+        /// <param name="normal">
+        /// The normal.
+        /// </param>
         public void SetBackColor( Color normal )
         {
             if( normal != Color.Empty )
