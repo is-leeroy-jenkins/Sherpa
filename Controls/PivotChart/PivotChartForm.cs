@@ -9,6 +9,7 @@
     using System.Linq;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
+    using Syncfusion.Windows.Forms.PivotChart;
     using Syncfusion.Windows.Forms.Tools;
     using Action = System.Action;
 
@@ -272,6 +273,30 @@
         {
             try
             {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the chart palette.
+        /// </summary>
+        private void InitializeChartPalette( )
+        {
+            try
+            {
+                var _palette = new List<Color>( );
+                var _steelBlue = Color.SteelBlue;
+                _palette.Add( _steelBlue );
+                var _slateGray = Color.SlateGray;
+                _palette.Add( _slateGray );
+                var _yellow = Color.FromArgb( 192, 192, 0 );
+                _palette.Add( _yellow );
+                var _maroon = Color.Maroon;
+                _palette.Add( _maroon );
+                Chart.CustomPalette = _palette.ToArray( );
             }
             catch( Exception _ex )
             {
@@ -560,8 +585,8 @@
             {
                 var _dateTime = DateTime.Now;
                 var _dateString = _dateTime.ToLongDateString( );
-                var _timeString = _dateTime.ToLongTimeString( );
-                //StatusLabel.Text = _dateString + "  " + _timeString;
+                var _timeString = _dateTime.ToShortTimeString( );
+                StatusLabel.Text = _dateString + "  " + _timeString;
             }
             catch( Exception _ex )
             {
@@ -587,6 +612,26 @@
             }
         }
 
+        /// <summary>
+        /// Sets the type of the chart.
+        /// </summary>
+        /// <param name="type">The type.</param>
+        public void SetChartType( string type )
+        {
+            try
+            {
+                ThrowIf.NullOrEmpty( type, nameof( type ) );
+                if( Enum.IsDefined( typeof( PivotChartTypes ), type ) )
+                {
+                    Chart.ChartTypes = (PivotChartTypes)Enum.Parse( typeof( PivotChartTypes ), type );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
         /// <summary> Called when [load]. </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
@@ -598,6 +643,7 @@
         {
             try
             {
+                InitializeChartPalette( );
                 InitializeLabels( );
                 FadeIn( );
             }

@@ -41,20 +41,18 @@
 //  </summary>
 //  ******************************************************************************************
 
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Data;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Windows.Forms;
-using System.Windows.Forms.DataVisualization.Charting;
-using Syncfusion.Windows.Forms;
-using Syncfusion.Windows.Forms.Tools;
-
 namespace BudgetExecution
 {
     using System;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Data;
+    using System.Diagnostics.CodeAnalysis;
+    using System.Linq;
+    using System.Windows.Forms;
+    using Syncfusion.Windows.Forms;
+    using Syncfusion.Windows.Forms.Chart;
+    using Syncfusion.Windows.Forms.Tools;
     using Color = System.Drawing.Color;
     using Font = System.Drawing.Font;
     using FontStyle = System.Drawing.FontStyle;
@@ -84,7 +82,7 @@ namespace BudgetExecution
         /// <summary>
         /// The status update
         /// </summary>
-        private Action _statusUpdate;
+        private System.Action _statusUpdate;
 
         /// <summary>
         /// Gets or sets the time.
@@ -295,20 +293,20 @@ namespace BudgetExecution
         public Provider Provider { get; set; }
 
         /// <summary>
-        /// Gets or sets the type of the chart.
-        /// </summary>
-        /// <value>
-        /// The type of the chart.
-        /// </value>
-        public SeriesChartType ChartType { get; set; }
-
-        /// <summary>
         /// Gets or sets the metric.
         /// </summary>
         /// <value>
         /// The metric.
         /// </value>
         public STAT Metric { get; set; }
+
+        /// <summary>
+        /// Gets or sets the type of the chart.
+        /// </summary>
+        /// <value>
+        /// The type of the chart.
+        /// </value>
+        public ChartSeriesType ChartType { get; set; } 
 
         /// <summary>
         /// Gets or sets the data arguments.
@@ -361,7 +359,7 @@ namespace BudgetExecution
             // Initialize Default Provider
             Provider = Provider.Access;
             Metric = STAT.Total;
-            ChartType = SeriesChartType.Column;
+            ChartType = ChartSeriesType.Column;
 
             // Timer Properties
             Time = 0;
@@ -543,7 +541,7 @@ namespace BudgetExecution
         /// Invokes if.
         /// </summary>
         /// <param name="action">The action.</param>
-        public void InvokeIf( Action action )
+        public void InvokeIf( System.Action action )
         {
             if( InvokeRequired )
             {
@@ -860,7 +858,7 @@ namespace BudgetExecution
             try
             {
                 ChartSeriesComboBox.Items.Clear( );
-                var _names = Enum.GetNames( typeof( SeriesChartType ) );
+                var _names = Enum.GetNames( typeof( ChartType ) );
                 for( var i = 0; i < _names.Length; i++ )
                 {
                     var _chart = _names[ i ];
@@ -1561,11 +1559,11 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _types = Enum.GetNames( typeof( SeriesChartType ) );
+                    var _types = Enum.GetNames( typeof( ChartSeriesType ) );
                     if( _types?.Contains( type ) == true )
                     {
                         ChartType =
-                            (SeriesChartType)Enum.Parse( typeof( SeriesChartType ), type );
+                            (ChartSeriesType)Enum.Parse( typeof( ChartSeriesType ), type );
                     }
                 }
                 catch( Exception ex )
@@ -1602,7 +1600,8 @@ namespace BudgetExecution
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnLoad( object sender, EventArgs e )
         {
             try
@@ -1655,7 +1654,8 @@ namespace BudgetExecution
         /// Called when [active tab changed].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnActiveTabChanged( object sender, EventArgs e )
         {
             try
@@ -1708,7 +1708,8 @@ namespace BudgetExecution
         /// Called when [second ComboBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnSecondComboBoxItemSelected( object sender, EventArgs e )
         {
             if( sender is ComboBox _comboBox )
@@ -1782,7 +1783,8 @@ namespace BudgetExecution
         /// Called when [third ComboBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnThirdComboBoxItemSelected( object sender, EventArgs e )
         {
             if( sender is ComboBox _comboBox )
@@ -1857,7 +1859,8 @@ namespace BudgetExecution
         /// Called when [exit button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnExitButtonClicked( object sender, EventArgs e )
         {
             try
@@ -1875,7 +1878,8 @@ namespace BudgetExecution
         /// Called when [main menu button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnMainMenuButtonClicked( object sender, EventArgs e )
         {
             try
@@ -1894,7 +1898,8 @@ namespace BudgetExecution
         /// Called when [binding source changed].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnBindingSourceChanged( object sender, EventArgs e )
         {
             if( sender is BindingSource bindingSource )
@@ -1914,7 +1919,8 @@ namespace BudgetExecution
         /// Called when [first ComboBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnFirstComboBoxItemSelected( object sender, EventArgs e )
         {
             if( sender is ComboBox _comboBox )
@@ -2030,7 +2036,8 @@ namespace BudgetExecution
         /// Called when [refresh data button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnRefreshDataButtonClicked( object sender, EventArgs e )
         {
             try
@@ -2054,7 +2061,8 @@ namespace BudgetExecution
         /// Called when [group button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnGroupButtonClicked( object sender, EventArgs e )
         {
             try
@@ -2074,7 +2082,8 @@ namespace BudgetExecution
         /// Called when [remove filters button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnRemoveFiltersButtonClicked( object sender, EventArgs e )
         {
             try
@@ -2107,7 +2116,8 @@ namespace BudgetExecution
         /// Called when [right click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/>
+        /// instance containing the event data.</param>
         private void OnRightClick( object sender, MouseEventArgs e )
         {
             if( e.Button == MouseButtons.Right )
@@ -2127,7 +2137,8 @@ namespace BudgetExecution
         /// Called when [back button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnBackButtonClicked( object sender, EventArgs e )
         {
             try
@@ -2155,21 +2166,22 @@ namespace BudgetExecution
         /// Called when [chart type selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnChartTypeSelected( object sender, EventArgs e )
         {
             try
             {
                 var _selectedItem = ChartSeriesComboBox.ComboBox.SelectedItem;
                 var _selection = _selectedItem.ToString( );
-                var _names = Enum.GetNames( typeof( SeriesChartType ) );
+                var _names = Enum.GetNames( typeof( ChartSeriesType ) );
                 var _message = $"Chart Type Changed To {_selection}";
                 var _notify = new Notification( _message );
                 if( !string.IsNullOrEmpty( _selection )
                    && _names.Contains( _selection ) )
                 {
                     ChartType =
-                        (SeriesChartType)Enum.Parse( typeof( SeriesChartType ), _selection );
+                        (ChartSeriesType)Enum.Parse( typeof( ChartSeriesType ), _selection );
 
                     _notify.Show( );
                 }
@@ -2184,7 +2196,8 @@ namespace BudgetExecution
         /// Called when [metric selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnMetricSelected( object sender, EventArgs e )
         {
             try
@@ -2211,7 +2224,8 @@ namespace BudgetExecution
         /// Called when [timer tick].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnTimerTick( object sender, EventArgs e )
         {
             InvokeIf( _statusUpdate );

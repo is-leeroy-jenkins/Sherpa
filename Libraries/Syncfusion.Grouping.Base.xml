@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <doc>
     <assembly>
         <name>Syncfusion.Grouping.Base</name>
@@ -147,7 +147,7 @@
             </returns>
             <example>
             <code lang="C#">
-            public GeographicForm()
+            public Form1()
             {
                 // Required for Windows Form Designer support
                 InitializeComponent();
@@ -278,7 +278,7 @@
             <param name="category">Category index.</param>
             <example>
             <code lang="C#">
-            public GeographicForm()
+            public Form1()
             {
                 //
                 // Required for Windows Form Designer support

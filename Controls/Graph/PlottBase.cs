@@ -53,7 +53,9 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public abstract class PlottBase : System.Windows.Forms.DataVisualization.Charting.Chart
     {
-        /// <summary> Sets the chart palette colors. </summary>
+        /// <summary>
+        /// Sets the chart palette colors.
+        /// </summary>
         protected void InitializePalette( )
         {
             try

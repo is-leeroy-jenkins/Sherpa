@@ -51,8 +51,8 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
-    using System.Windows.Forms.DataVisualization.Charting;
     using Syncfusion.Windows.Forms;
+    using Syncfusion.Windows.Forms.Chart;
     using Syncfusion.Windows.Forms.Tools;
     using Timer = System.Windows.Forms.Timer;
 
@@ -305,6 +305,21 @@ namespace BudgetExecution
             {
                 Title.ForeColor = Color.FromArgb( 106, 189, 252 );
                 Title.TextAlign = ContentAlignment.TopLeft;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the chart.
+        /// </summary>
+        private void InitializeChart( )
+        {
+            try
+            {
+                Plotter.Series[ 0 ].Type = ChartSeriesType.Pie;
             }
             catch( Exception _ex )
             {
@@ -585,11 +600,9 @@ namespace BudgetExecution
                 var _values = _data.Values.ToArray( );
                 var _names = _data.Keys.ToArray( );
                 Plotter.Series[ 0 ].Points.Clear( );
-                Plotter.Series[ 0 ].ChartType = SeriesChartType.Pie;
+                Plotter.Series[ 0 ].Type = ChartSeriesType.Pie;
                 for( var _i = 0; _i < _data.Count; _i++ )
                 {
-                    Plotter.Series[ 0 ].IsXValueIndexed = false;
-                    Plotter.Series[ 0 ].Points.AddXY( _names[ _i ], _values[ _i ] );
                 }
 
                 Plotter.Refresh( );
@@ -631,6 +644,7 @@ namespace BudgetExecution
                 InitializeToolStrip( );
                 InitializeLabels( );
                 InitializeCallbacks( );
+                InitializeChart( );
                 SetActiveTab( );
                 ClearLabels( );
                 FadeIn( );
@@ -773,8 +787,8 @@ namespace BudgetExecution
                 EndDate = DateTime.Today;
                 FirstCalendar.SelectedDate = StartDate;
                 SecondCalendar.SelectedDate = EndDate;
-                Plotter.Series[ 0 ].Points.Clear( );
-                Plotter.Titles[ 0 ].Text = string.Empty;
+                // Plotter.Series[ 0 ].Points.Clear( );
+                // Plotter.Titles[ 0 ].Text = string.Empty;
                 TabControl.SelectedIndex = 0;
             }
             catch( Exception _ex )

@@ -44,6 +44,7 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using Syncfusion.Windows.Forms.Chart;
     using Syncfusion.Windows.Forms.PivotChart;
@@ -51,6 +52,7 @@ namespace BudgetExecution
     /// <inheritdoc/>
     /// <summary> </summary>
     /// <seealso cref="T:Syncfusion.Windows.Forms.PivotChart.PivotChart"/>
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class PivotChart : Syncfusion.Windows.Forms.PivotChart.PivotChart
 
     {
@@ -65,10 +67,36 @@ namespace BudgetExecution
             // Control Properties
             Size = new Size( 550, 350 );
             Skins = Skins.Office2016Black;
-            ShowPivotTableFieldList = false;
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.FromArgb( 106, 189, 252 );
             ChartTypes = PivotChartTypes.Column;
+            PrimaryXAxis.Title.Color = Color.FromArgb( 0, 120, 212 );
+            PrimaryXAxis.Title.Font = new Font( "Roboto", 10 );
+            PrimaryYAxis.Title.Color = Color.FromArgb( 0, 120, 212 );
+            PrimaryYAxis.Title.Font = new Font( "Roboto", 10 );
+            AllowDrillDown = true;
+            AxisFieldSection.Visible = true;
+            LegendFieldSection.Visible = true;
+            LegendPosition = ChartDock.Floating;
+            ValueFieldSection.Visible = true;
+            FilterFieldSection.Visible = true;
+            AxisFieldSection.ItemBackColor = Color.FromArgb( 55, 55, 55 );
+            AxisFieldSection.ItemForeColor = Color.FromArgb( 106, 189, 252 );
+            AxisFieldSection.BackInterior = Color.FromArgb( 20, 20, 20 );
+            ShowPivotTableFieldList = true;
+        }
+
+        /// <summary>
+        /// Get ErrorDialog Dialog.
+        /// </summary>
+        /// <param name="ex">
+        /// The ex.
+        /// </param>
+        private void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }
