@@ -62,21 +62,21 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
-    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
-    [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
-    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
-    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ArrangeModifiersOrder" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "UnusedVariable" )]
+    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
+    [SuppressMessage( "ReSharper", "RedundantBoolCompare" )]
+    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
+    [SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" )]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
+    [SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" )]
+    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
+    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
+    [SuppressMessage( "ReSharper", "InconsistentNaming" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
+    [SuppressMessage( "ReSharper", "ArrangeModifiersOrder" )]
     public partial class ChartDataForm : MetroForm
     {
         /// <summary>
@@ -306,7 +306,7 @@ namespace BudgetExecution
         /// <value>
         /// The type of the chart.
         /// </value>
-        public ChartSeriesType ChartType { get; set; } 
+        public ChartSeriesType ChartType { get; set; }
 
         /// <summary>
         /// Gets or sets the data arguments.
@@ -858,7 +858,7 @@ namespace BudgetExecution
             try
             {
                 ChartSeriesComboBox.Items.Clear( );
-                var _names = Enum.GetNames( typeof( ChartType ) );
+                var _names = Enum.GetNames( typeof( ChartSeriesType ) );
                 for( var i = 0; i < _names.Length; i++ )
                 {
                     var _chart = _names[ i ];
@@ -981,6 +981,19 @@ namespace BudgetExecution
                 if( Chart.Series[ 0 ].Points.Count > 0 )
                 {
                     Chart.Series[ 0 ].Points.Clear( );
+                }
+
+                var _rows = DataTable.AsEnumerable( );
+                var _count = (double)_rows.Count( );
+                var _points = new List<ChartPoint>( );
+                var _data = _rows
+                    ?.Select( r => r.Field<double>( "Amount" ) )
+                    ?.ToArray( );
+
+                for( var i = 0d; i < _count; i++ )
+                {
+                    var _pt = new ChartPoint( i, _data[ (int)i ] );
+                    Chart.Series[ 0 ].Points.Add( _pt );
                 }
             }
             catch( Exception ex )
@@ -2240,6 +2253,11 @@ namespace BudgetExecution
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
+        }
+
+        private void Chart_Click( object sender, EventArgs e )
+        {
+
         }
     }
 }

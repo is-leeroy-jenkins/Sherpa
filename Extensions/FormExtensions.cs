@@ -76,8 +76,11 @@ namespace BudgetExecution
             control.Width = (int)Math.Ceiling( _length );
         }
 
-        /// <summary> Gets the controls. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the controls.
+        /// </summary>
+        /// <returns>
+        /// </returns>
         public static IEnumerable<Control> GetControls( this Form form )
         {
             var _list = new List<Control>( );

@@ -96,8 +96,12 @@ namespace BudgetExecution
             ChartArea.AutoScale = true;
             ChartArea.BackInterior = new BrushInfo( Color.FromArgb( 20, 20, 20 ) );
             ChartArea.BorderWidth = 1;
-            ChartArea.BorderColor = Color.Transparent;
+            ChartArea.BorderColor = Color.FromArgb( 20, 20, 20 );
             ChartArea.BorderStyle = BorderStyle.FixedSingle;
+            ChartArea.PrimaryXAxis.Font = new Font( "Roboto", 9 );
+            ChartArea.PrimaryXAxis.ForeColor = Color.FromArgb( 0, 120, 212 );
+            ChartArea.PrimaryYAxis.Font = new Font( "Roboto", 9 );
+            ChartArea.PrimaryYAxis.ForeColor = Color.FromArgb( 0, 120, 212 );
             ChartAreaMargins = new ChartMargins( 3, 3, 3, 3 );
 
             //ChartSeries Properties
@@ -135,7 +139,7 @@ namespace BudgetExecution
             //Chart Legend Setting;
             ShowLegend = true;
             Legend.Font = new Font( "Roboto", 9 );
-            Legend.ItemsSize = new Size( 12, 12 );
+            Legend.ItemsSize = new Size( 10, 10 );
             Legend.VisibleCheckBox = true;
             Legend.BackInterior = new BrushInfo( Color.FromArgb( 20, 20, 20 ) );
             Legend.ItemsAlignment = StringAlignment.Center;
