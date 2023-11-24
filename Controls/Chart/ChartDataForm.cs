@@ -2254,10 +2254,5 @@ namespace BudgetExecution
             _error?.SetText( );
             _error?.ShowDialog( );
         }
-
-        private void Chart_Click( object sender, EventArgs e )
-        {
-
-        }
     }
 }

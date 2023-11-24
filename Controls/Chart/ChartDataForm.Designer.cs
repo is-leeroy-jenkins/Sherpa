@@ -273,7 +273,6 @@
             Chart.ToolBar.ShowGrip = false;
             Chart.ToolBar.Visible = true;
             Chart.VisualTheme = "";
-            Chart.Click +=  Chart_Click ;
             // 
             // ChartSubTablePanel
             // 
