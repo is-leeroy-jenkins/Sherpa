@@ -382,7 +382,7 @@ partial class ProgramProjectDialog
         MenuButton.DisabledBorderColor = System.Drawing.Color.Transparent;
         MenuButton.DisabledForeColor = System.Drawing.Color.Transparent;
         MenuButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-        MenuButton.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+        MenuButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         MenuButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
         MenuButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
         MenuButton.HoverText = "Back To Main Menu";
@@ -414,7 +414,7 @@ partial class ProgramProjectDialog
         CloseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
         CloseButton.DisabledForeColor = System.Drawing.Color.Transparent;
         CloseButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-        CloseButton.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+        CloseButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
         CloseButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
         CloseButton.HoverText = "Close Application";
@@ -446,7 +446,7 @@ partial class ProgramProjectDialog
         SearchButton.DisabledBorderColor = System.Drawing.Color.Transparent;
         SearchButton.DisabledForeColor = System.Drawing.Color.Transparent;
         SearchButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-        SearchButton.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+        SearchButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         SearchButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
         SearchButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
         SearchButton.HoverText = "Domain Search";
@@ -487,7 +487,7 @@ partial class ProgramProjectDialog
         CaptionButtonColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         CaptionFont = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point );
-        CaptionForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+        CaptionForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         captionImage1.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         captionImage1.Image = Resources.Images.EPA;
         captionImage1.Location = new System.Drawing.Point( 5, 5 );
@@ -505,15 +505,19 @@ partial class ProgramProjectDialog
         Controls.Add( StatuteTable );
         Controls.Add( DescriptionTable );
         Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-        ForeColor = System.Drawing.Color.LightGray;
+        ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
         Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
         Margin = new System.Windows.Forms.Padding( 4, 3, 4, 3 );
+        MaximizeBox = false;
         MaximumSize = new System.Drawing.Size( 1066, 614 );
         MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+        MinimizeBox = false;
         MinimumSize = new System.Drawing.Size( 1066, 614 );
         Name = "ProgramProjectDialog";
         ShowIcon = false;
+        ShowMaximizeBox = false;
+        ShowMinimizeBox = false;
         SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
         StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
         ( (System.ComponentModel.ISupportInitialize)BindingSource ).EndInit( );

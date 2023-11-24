@@ -77,30 +77,6 @@ namespace BudgetExecution
         public virtual IEnumerable<ToolSeparator> Separators { get; set; }
 
         /// <summary>
-        /// Gets or sets the label.
-        /// </summary>
-        /// <value>
-        /// The label.
-        /// </value>
-        public virtual ToolStripLabel Label { get; set; }
-
-        /// <summary>
-        /// Gets or sets the search engine label.
-        /// </summary>
-        /// <value>
-        /// The search engine label.
-        /// </value>
-        public virtual ToolStripLabel SearchEngineLabel { get; set; }
-
-        /// <summary>
-        /// Gets or sets the search criteria label.
-        /// </summary>
-        /// <value>
-        /// The search criteria label.
-        /// </value>
-        public virtual ToolStripLabel SearchCriteriaLabel { get; set; }
-
-        /// <summary>
         /// Gets or sets the drop down.
         /// </summary>
         /// <value>
@@ -115,14 +91,6 @@ namespace BudgetExecution
         /// The text box.
         /// </value>
         public virtual ToolStripTextBox TextBox { get; set; }
-
-        /// <summary>
-        /// Gets or sets the progress bar.
-        /// </summary>
-        /// <value>
-        /// The progress bar.
-        /// </value>
-        public virtual ToolStripProgressBar ProgressBar { get; set; }
 
         /// <summary>
         /// Gets or sets the first button.

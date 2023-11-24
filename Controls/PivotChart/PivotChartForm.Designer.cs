@@ -226,7 +226,6 @@
             ToolStrip.ImageDirectory = null;
             ToolStrip.ImageSize = new System.Drawing.Size( 0, 0 );
             ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { Separator1, StatusLabel, FirstSeparator, ProgressBar, NavigationSeparator, NavigationLabel, Separator2, FirstButton, Separator3, PreviousButton, Separator5, NextButton, Separator4, LastButton, Separator6, SystemLabel, Separator7, BrowseButton, Separator8, SaveButton, Separator9, Separator10, CloseButton, Separator11, MenuButton, FilterLabel, Separator12, LookupButton, Separator13, FilterButton, Separator14, LastSeparator } );
-            ToolStrip.Label = null;
             ToolStrip.LastButton = null;
             ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
             ToolStrip.Location = new System.Drawing.Point( 0, 687 );
@@ -236,11 +235,8 @@
             ToolStrip.OfficeColorScheme = Syncfusion.Windows.Forms.Tools.ToolStripEx.ColorScheme.Black;
             ToolStrip.Padding = new System.Windows.Forms.Padding( 1 );
             ToolStrip.PreviousButton = null;
-            ToolStrip.ProgressBar = null;
             ToolStrip.RefreshButton = null;
             ToolStrip.SaveButton = null;
-            ToolStrip.SearchCriteriaLabel = null;
-            ToolStrip.SearchEngineLabel = null;
             ToolStrip.Separators = null;
             ToolStrip.ShowCaption = true;
             ToolStrip.ShowLauncher = true;

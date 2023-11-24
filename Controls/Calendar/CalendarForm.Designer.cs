@@ -285,7 +285,6 @@ namespace BudgetExecution
             ToolStrip.ImageDirectory = null;
             ToolStrip.ImageSize = new System.Drawing.Size( 0, 0 );
             ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { StripSeparator, ProgressBar, Separator11, StatusLabel, Separator12, FirstSpacer, Separator1, FirstButton, Separator2, PreviousButton, Separator3, NextButton, Separator4, LastButton, Separator5, Separator6, RefreshButton, CloseButton, Separator7, NavigationLabel, NavigationSeparator, TimeSpanInformation, TableButton, Separator8, Separator13, ChartButton, Separator9, MenuButton } );
-            ToolStrip.Label = null;
             ToolStrip.LastButton = null;
             ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
             ToolStrip.Location = new System.Drawing.Point( 0, 688 );
@@ -296,11 +295,8 @@ namespace BudgetExecution
             ToolStrip.OfficeColorScheme = Syncfusion.Windows.Forms.Tools.ToolStripEx.ColorScheme.Black;
             ToolStrip.Padding = new System.Windows.Forms.Padding( 1 );
             ToolStrip.PreviousButton = null;
-            ToolStrip.ProgressBar = null;
             ToolStrip.RefreshButton = null;
             ToolStrip.SaveButton = null;
-            ToolStrip.SearchCriteriaLabel = null;
-            ToolStrip.SearchEngineLabel = null;
             ToolStrip.Separators = null;
             ToolStrip.ShowCaption = true;
             ToolStrip.ShowLauncher = true;

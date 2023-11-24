@@ -1,45 +1,42 @@
-﻿//  ******************************************************************************************
-//      Assembly:                Budget Execution
-//      Filename:                ToolStripButton.cs
-//      Author:                  Terry D. Eppler
-//      Created:                 05-31-2023
+﻿// ******************************************************************************************
+//     Assembly:             BudgetExecution
+//     Author:                  Terry D. Eppler
+//     Created:                 06-19-2023
 // 
-//      Last Modified By:        Terry D. Eppler
-//      Last Modified On:        06-01-2023
-//  ******************************************************************************************
-//  <copyright file="ToolStripButton.cs" company="Terry D. Eppler">
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        11-24-2023
+// ******************************************************************************************
+// <copyright file="Terry Eppler.cs" company="Terry D. Eppler">
+//    BudgetExecution is a Federal Budget, Finance, and Accounting application for the
+//    US Environmental Protection Agency (US EPA).
+//    Copyright ©  2023  Terry Eppler
 // 
-//     This is a Federal Budget, Finance, and Accounting application for the
-//     US Environmental Protection Agency (US EPA).
-//     Copyright ©  2023  Terry Eppler
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
 // 
-//     Permission is hereby granted, free of charge, to any person obtaining a copy
-//     of this software and associated documentation files (the “Software”),
-//     to deal in the Software without restriction,
-//     including without limitation the rights to use,
-//     copy, modify, merge, publish, distribute, sublicense,
-//     and/or sell copies of the Software,
-//     and to permit persons to whom the Software is furnished to do so,
-//     subject to the following conditions:
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
 // 
-//     The above copyright notice and this permission notice shall be included in all
-//     copies or substantial portions of the Software.
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
 // 
-//     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//     FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//     DEALINGS IN THE SOFTWARE.
-// 
-//     You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
-// 
-//  </copyright>
-//  <summary>
-//    ToolStripButton.cs
-//  </summary>
-//  ******************************************************************************************
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
+// </copyright>
+// <summary>
+//   ToolStripButton.cs.cs
+// </summary>
+// ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -68,12 +65,12 @@ namespace BudgetExecution
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );
             DisplayStyle = ToolStripItemDisplayStyle.Image;
-            BackColor = Color.Transparent;
-            ForeColor = Color.LightGray;
+            BackColor = Color.FromArgb( 45, 45, 45 );
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             Font = new Font( "Roboto", 9 );
             AutoToolTip = false;
             Text = string.Empty;
-            Size = new Size( 26, 20 );
+            Size = new Size( 30, 24 );
 
             // Event Wiring
             MouseHover += OnMouseHover;
@@ -81,9 +78,10 @@ namespace BudgetExecution
             Click += OnClick;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance Mof the
-        /// <see cref="ToolStripButton"/>
+        /// <see cref="T:BudgetExecution.ToolStripButton" />
         /// class.
         /// </summary>
         /// <param name="toolType"> The tool. </param>
@@ -213,33 +211,25 @@ namespace BudgetExecution
                     switch( _button?.ToolType )
                     {
                         case ToolType.FirstButton:
-
                         {
                             BindingSource?.MoveFirst( );
                             break;
                         }
-
                         case ToolType.PreviousButton:
-
                         {
                             BindingSource?.MovePrevious( );
                             break;
                         }
-
                         case ToolType.NextButton:
-
                         {
                             BindingSource?.MoveNext( );
                             break;
                         }
-
                         case ToolType.LastButton:
-
                         {
                             BindingSource?.MoveLast( );
                             break;
                         }
-
                         case ToolType.RemoveFiltersButton:
                         case ToolType.RefreshDataButton:
                         case ToolType.SearchDataButton:
@@ -269,25 +259,20 @@ namespace BudgetExecution
                         case ToolType.GuidanceButton:
                         case ToolType.PdfButton:
                         case ToolType.ClientButton:
-
                         {
                             break;
                         }
-
                         case ToolType.ImportDatabaseButton:
                         case ToolType.ImportButton:
                         case ToolType.CsvImportButton:
                         case ToolType.PdfImportButton:
                         case ToolType.ExcelImportButton:
-
                         {
                             var _fileDialog = new FileBrowser( );
                             _fileDialog.ShowDialog( );
                             break;
                         }
-
                         case ToolType.ExcelButton:
-
                         {
                             var _excel =
                                 @"C:\Users\terry\source\repos\BudgetExecution\Resources\Reports\Template.xlsx";
@@ -296,29 +281,24 @@ namespace BudgetExecution
                             _excelForm?.ShowDialog( );
                             break;
                         }
-
                         case ToolType.DeleteButton:
                         case ToolType.EditButton:
                         case ToolType.DataRowButton:
                         case ToolType.CopyButton:
                         case ToolType.AccountButton:
                         case ToolType.AddRecordButton:
-
                         {
                             var _dialog = new EditDialog( _button.ToolType, BindingSource );
                             _dialog?.ShowDialog( );
                             break;
                         }
-
                         case ToolType.InsertButton:
                         case ToolType.UpdateButton:
-
                         {
                             var _dialog = new SqlDialog( _button.ToolType, BindingSource );
                             _dialog?.ShowDialog( );
                             break;
                         }
-
                         case ToolType.GoButton:
                         case ToolType.GoogleButton:
                         case ToolType.BlueToothButton:
@@ -357,31 +337,24 @@ namespace BudgetExecution
                         case ToolType.UndoButton:
                         case ToolType.WordButton:
                         case ToolType.RefreshButton:
-
                         {
                             var _notification = new Notification( "NOT YET IMPLEMENTED!" );
                             _notification.Show( );
                             break;
                         }
-
                         case ToolType.CalculatorButton:
-
                         {
                             using var _calculator = new CalculationForm( );
                             _calculator?.ShowDialog( );
                             break;
                         }
-
                         case ToolType.BrowseButton:
-
                         {
                             var _browser = new FileBrowser( );
                             _browser?.ShowDialog( );
                             break;
                         }
-
                         case ToolType.WebButton:
-
                         {
                             var _notification = new Notification( "NOT YET IMPLEMENTED!" );
                             _notification.Show( );
@@ -396,7 +369,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the image. </summary>
+        /// <summary>
+        /// Sets the image.
+        /// </summary>
         public void SetImage( )
         {
             if( Enum.IsDefined( typeof( ToolType ), ToolType ) )

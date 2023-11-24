@@ -52,6 +52,7 @@ namespace BudgetExecution
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class HeaderPanel : HeaderTableLayoutPanel
     {
         /// <summary>
@@ -62,7 +63,7 @@ namespace BudgetExecution
         public HeaderPanel( )
         {
             BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.DarkGray;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             CellBorderStyle = TableLayoutPanelCellBorderStyle.None;
             Font = new Font( "Roboto", 9 );
             ColumnCount = 1;
@@ -70,9 +71,10 @@ namespace BudgetExecution
             CaptionStyle = HighlightCaptionStyle.NavisionAxaptaStyle;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="HeaderPanel"/>
+        /// <see cref="T:BudgetExecution.HeaderPanel" />
         /// class.
         /// </summary>
         /// <param name="header"> The header. </param>

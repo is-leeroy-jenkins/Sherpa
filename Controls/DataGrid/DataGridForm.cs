@@ -1,45 +1,42 @@
-﻿//  ******************************************************************************************
-//      Assembly:                Budget Execution
-//      Filename:                DataGridForm.cs
-//      Author:                  Terry D. Eppler
-//      Created:                 05-31-2023
+﻿// ******************************************************************************************
+//     Assembly:             BudgetExecution
+//     Author:                  Terry D. Eppler
+//     Created:                 06-19-2023
 // 
-//      Last Modified By:        Terry D. Eppler
-//      Last Modified On:        06-01-2023
-//  ******************************************************************************************
-//  <copyright file="DataGridForm.cs" company="Terry D. Eppler">
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        11-24-2023
+// ******************************************************************************************
+// <copyright file="Terry Eppler.cs" company="Terry D. Eppler">
+//    BudgetExecution is a Federal Budget, Finance, and Accounting application for the
+//    US Environmental Protection Agency (US EPA).
+//    Copyright ©  2023  Terry Eppler
 // 
-//     This is a Federal Budget, Finance, and Accounting application for the
-//     US Environmental Protection Agency (US EPA).
-//     Copyright ©  2023  Terry Eppler
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
 // 
-//     Permission is hereby granted, free of charge, to any person obtaining a copy
-//     of this software and associated documentation files (the “Software”),
-//     to deal in the Software without restriction,
-//     including without limitation the rights to use,
-//     copy, modify, merge, publish, distribute, sublicense,
-//     and/or sell copies of the Software,
-//     and to permit persons to whom the Software is furnished to do so,
-//     subject to the following conditions:
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
 // 
-//     The above copyright notice and this permission notice shall be included in all
-//     copies or substantial portions of the Software.
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
 // 
-//     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//     FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//     DEALINGS IN THE SOFTWARE.
-// 
-//     You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
-// 
-//  </copyright>
-//  <summary>
-//    DataGridForm.cs
-//  </summary>
-//  ******************************************************************************************
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
+// </copyright>
+// <summary>
+//   DataGridForm.cs.cs
+// </summary>
+// ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -55,6 +52,7 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
+    using Action = System.Action;
     using Application = System.Windows.Forms.Application;
     using Control = System.Windows.Forms.Control;
     using Image = System.Drawing.Image;
@@ -80,7 +78,7 @@ namespace BudgetExecution
         /// <summary>
         /// The status update
         /// </summary>
-        private System.Action _statusUpdate;
+        private Action _statusUpdate;
 
         /// <summary>
         /// Gets or sets the time.
@@ -372,7 +370,7 @@ namespace BudgetExecution
         /// Invokes if needed.
         /// </summary>
         /// <param name="action">The action.</param>
-        public void InvokeIf( System.Action action )
+        public void InvokeIf( Action action )
         {
             if( InvokeRequired )
             {
@@ -429,7 +427,7 @@ namespace BudgetExecution
                 DataModel = null;
                 DataTable = null;
                 UpdateLabelText( );
-                TabControl.SelectedIndex = 0;
+                SelectionTabControl.SelectedIndex = 0;
             }
             catch( Exception _ex )
             {
@@ -444,7 +442,7 @@ namespace BudgetExecution
         {
             try
             {
-                TabControl.ActiveTabForeColor = Color.FromArgb( 20, 20, 20 );
+                SelectionTabControl.ActiveTabForeColor = Color.FromArgb( 20, 20, 20 );
                 TableTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
                 FilterTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
                 GroupTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
@@ -489,7 +487,7 @@ namespace BudgetExecution
             {
                 HeaderLabel.Font = new Font( "Roboto", 10 );
                 HeaderLabel.ForeColor = Color.FromArgb( 106, 189, 252 );
-                HeaderLabel.TextAlign = ContentAlignment.MiddleLeft;
+                HeaderLabel.TextAlign = ContentAlignment.TopLeft;
             }
             catch( Exception _ex )
             {
@@ -601,7 +599,7 @@ namespace BudgetExecution
                 RemoveFiltersButton.Click += null;
                 GroupButton.Click += null;
                 CalendarButton.Click += null;
-                TabControl.SelectedIndexChanged += OnActiveTabChanged;
+                SelectionTabControl.SelectedIndexChanged += OnActiveTabChanged;
                 TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
                 FirstComboBox.SelectedValueChanged += OnFirstComboBoxItemSelected;
                 FirstListBox.SelectedValueChanged += OnFirstListBoxItemSelected;
@@ -1231,8 +1229,8 @@ namespace BudgetExecution
                     var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
                     var _criteria = where.ToCriteria( );
                     var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_columns} " 
-                        + "FROM {Source} " 
+                    return $"SELECT {_columns} "
+                        + "FROM {Source} "
                         + $"WHERE {_criteria} "
                         + $"GROUP BY {_groups};";
                 }
@@ -1555,18 +1553,18 @@ namespace BudgetExecution
                 DataArgs = new DataArgs( );
                 if( !string.IsNullOrEmpty( SelectedTable ) )
                 {
-                    TabControl.SelectedIndex = 1;
+                    SelectionTabControl.SelectedIndex = 1;
                     FilterTabPage.TabVisible = true;
                     TableTabPage.TabVisible = false;
                     GroupTabPage.TabVisible = false;
                     CalendarTabPage.TabVisible = false;
-                    LabelTable.Visible = true;
+                    DataLabelTable.Visible = true;
                     PopulateFirstComboBoxItems( );
                     ResetListBoxVisibility( );
                 }
                 else if( string.IsNullOrEmpty( SelectedTable ) )
                 {
-                    TabControl.SelectedIndex = 0;
+                    SelectionTabControl.SelectedIndex = 0;
                     TableTabPage.TabVisible = true;
                     FilterTabPage.TabVisible = false;
                     GroupTabPage.TabVisible = false;
@@ -1614,7 +1612,7 @@ namespace BudgetExecution
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
-                    TabControl.SelectedIndex = 1;
+                    SelectionTabControl.SelectedIndex = 1;
                     UpdateLabelText( );
                     PopulateFirstComboBoxItems( );
                     ResetListBoxVisibility( );
@@ -1630,7 +1628,8 @@ namespace BudgetExecution
         /// Called when [first ComboBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnFirstComboBoxItemSelected( object sender, EventArgs e )
         {
             if( sender is ComboBox _comboBox )
@@ -1715,7 +1714,8 @@ namespace BudgetExecution
         /// Called when [second ComboBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnSecondComboBoxItemSelected( object sender, EventArgs e )
         {
             if( sender is ComboBox _comboBox )
@@ -1788,7 +1788,8 @@ namespace BudgetExecution
         /// Called when [third ComboBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnThirdComboBoxItemSelected( object sender, EventArgs e )
         {
             if( sender is ComboBox _comboBox )
@@ -1941,7 +1942,7 @@ namespace BudgetExecution
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
-                    TabControl.SelectedIndex = 1;
+                    SelectionTabControl.SelectedIndex = 1;
                     PopulateFirstComboBoxItems( );
                     UpdateLabelText( );
                 }
@@ -1956,7 +1957,8 @@ namespace BudgetExecution
         /// Called when [table ComboBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnTableComboBoxItemSelected( object sender, EventArgs e )
         {
             if( sender is ComboBox _tableComboBox )
@@ -2047,12 +2049,13 @@ namespace BudgetExecution
         /// Called when [active tab changed].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnActiveTabChanged( object sender, EventArgs e )
         {
             try
             {
-                switch( TabControl.SelectedIndex )
+                switch( SelectionTabControl.SelectedIndex )
                 {
                     case 0:
                     {
@@ -2105,14 +2108,15 @@ namespace BudgetExecution
         /// Called when [group button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnGroupButtonClicked( object sender, EventArgs e )
         {
             try
             {
                 if( FormFilter.Count > 0 )
                 {
-                    TabControl.SelectedIndex = 2;
+                    SelectionTabControl.SelectedIndex = 2;
                     PopulateFieldListBox( );
                     PopulateNumericListBox( );
                 }
@@ -2127,12 +2131,13 @@ namespace BudgetExecution
         /// Called when [calendar button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnCalendarButtonClicked( object sender, EventArgs e )
         {
             try
             {
-                TabControl.SelectedIndex = 3;
+                SelectionTabControl.SelectedIndex = 3;
                 FirstCalendarTable.CaptionText = $"Start Date: {FirstCalendar.SelectedDate}";
                 SecondCalendarTable.CaptionText = $"End Date: {SecondCalendar.SelectedDate}";
             }
@@ -2146,7 +2151,8 @@ namespace BudgetExecution
         /// Called when [edit record button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnEditRecordButtonClicked( object sender, EventArgs e )
         {
             if( sender is ToolStripButton _button )
@@ -2169,7 +2175,8 @@ namespace BudgetExecution
         /// Called when [edit column button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnEditColumnButtonClicked( object sender, EventArgs e )
         {
             if( sender is ToolStripButton _button )
@@ -2192,7 +2199,8 @@ namespace BudgetExecution
         /// Called when [right click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/>
+        /// instance containing the event data.</param>
         private void OnRightClick( object sender, MouseEventArgs e )
         {
             if( e.Button == MouseButtons.Right )
@@ -2212,7 +2220,8 @@ namespace BudgetExecution
         /// Called when [SQL button click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnSqlButtonClick( object sender, EventArgs e )
         {
             if( !string.IsNullOrEmpty( SqlQuery )
@@ -2237,7 +2246,8 @@ namespace BudgetExecution
         /// Called when [start date selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnStartDateSelected( object sender, EventArgs e )
         {
             try
@@ -2255,7 +2265,8 @@ namespace BudgetExecution
         /// Called when [end date selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnEndDateSelected( object sender, EventArgs e )
         {
             try
@@ -2273,7 +2284,8 @@ namespace BudgetExecution
         /// Called when [refresh data button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnRefreshDataButtonClicked( object sender, EventArgs e )
         {
             try
@@ -2314,7 +2326,8 @@ namespace BudgetExecution
         /// Called when [timer tick].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnTimerTick( object sender, EventArgs e )
         {
             InvokeIf( _statusUpdate );
@@ -2324,7 +2337,8 @@ namespace BudgetExecution
         /// Raises the Close event.
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         public void OnClosing( object sender, EventArgs e )
         {
             try

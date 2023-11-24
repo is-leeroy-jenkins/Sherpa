@@ -64,8 +64,12 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class ToolStripDropDown : ToolStripDropDownBase
     {
-        /// <summary> Gets or sets the tool tip. </summary>
-        /// <value> The tool tip. </value>
+        /// <summary>
+        /// Gets or sets the tool tip.
+        /// </summary>
+        /// <value>
+        /// The tool tip.
+        /// </value>
         public SmallTip ToolTip { get; set; }
 
         /// <inheritdoc/>

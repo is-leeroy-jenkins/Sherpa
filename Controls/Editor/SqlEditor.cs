@@ -327,7 +327,7 @@ namespace BudgetExecution
                 BindingSource.DataSource = null;
                 DataModel = null;
                 DataTable = null;
-                TabControl.SelectedIndex = 0;
+                SqlTabControl.SelectedIndex = 0;
             }
             catch( Exception _ex )
             {
@@ -494,7 +494,7 @@ namespace BudgetExecution
             // Control Event Wiring
             try
             {
-                TabControl.SelectedIndexChanged += OnActiveTabChanged;
+                SqlTabControl.SelectedIndexChanged += OnActiveTabChanged;
                 QueryListBox.SelectedValueChanged += OnQueryListBoxItemSelected;
                 RefreshButton.Click += OnRefreshButtonClick;
                 SaveButton.Click += OnSaveButtonClick;
@@ -747,7 +747,7 @@ namespace BudgetExecution
         /// <summary> Sets the active tab controls. </summary>
         private void SetActiveTab( )
         {
-            switch( TabControl.SelectedIndex )
+            switch( SqlTabControl.SelectedIndex )
             {
                 case 0:
                 {
@@ -1098,7 +1098,7 @@ namespace BudgetExecution
         /// </returns>
         private IDictionary<string, TabPageAdv> GetTabPages( )
         {
-            if( TabControl.TabPages?.Count > 0 )
+            if( SqlTabControl.TabPages?.Count > 0 )
             {
                 try
                 {
@@ -1377,7 +1377,7 @@ namespace BudgetExecution
                 Panels = GetPanels( );
                 RadioButtons = GetRadioButtons( );
                 ListBoxes = GetListBoxes( );
-                TabControl.SelectedIndex = 0;
+                SqlTabControl.SelectedIndex = 0;
                 SetActiveTab( );
                 FadeIn( );
             }
@@ -1460,9 +1460,9 @@ namespace BudgetExecution
                         }
                     }
 
-                    if( TabControl.SelectedIndex != 0 )
+                    if( SqlTabControl.SelectedIndex != 0 )
                     {
-                        TabControl.SelectedIndex = 0;
+                        SqlTabControl.SelectedIndex = 0;
                     }
                 }
                 catch( Exception _ex )
@@ -1529,7 +1529,7 @@ namespace BudgetExecution
             {
                 ClearSelections( );
                 ClearCollections( );
-                TabControl.SelectedIndex = 0;
+                SqlTabControl.SelectedIndex = 0;
             }
             catch( Exception _ex )
             {
@@ -1612,7 +1612,7 @@ namespace BudgetExecution
         {
             try
             {
-                TabControl.SelectedIndex = 0;
+                SqlTabControl.SelectedIndex = 0;
             }
             catch( Exception _ex )
             {
@@ -1631,7 +1631,7 @@ namespace BudgetExecution
         {
             try
             {
-                TabControl.SelectedIndex = 3;
+                SqlTabControl.SelectedIndex = 3;
             }
             catch( Exception _ex )
             {
@@ -1650,7 +1650,7 @@ namespace BudgetExecution
         {
             try
             {
-                TabControl.SelectedIndex = 2;
+                SqlTabControl.SelectedIndex = 2;
             }
             catch( Exception _ex )
             {
@@ -1669,7 +1669,7 @@ namespace BudgetExecution
         {
             try
             {
-                TabControl.SelectedIndex = 1;
+                SqlTabControl.SelectedIndex = 1;
             }
             catch( Exception _ex )
             {
@@ -1681,7 +1681,7 @@ namespace BudgetExecution
         {
             try
             {
-                TabControl.SelectedIndex = 1;
+                SqlTabControl.SelectedIndex = 1;
             }
             catch( Exception _ex )
             {
