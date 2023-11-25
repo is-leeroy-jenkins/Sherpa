@@ -197,9 +197,6 @@
     <Compile Update="Controls\ListView\ListView.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="Controls\ListView\ListViewBase.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Update="Controls\Loader\LoadingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -307,6 +304,12 @@
     </Compile>
     <Compile Update="Data\Adapter\AdapterFactory.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\PivotGrid\PivotGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\PivotGrid\PivotGridForm.cs">
+      <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -268,7 +268,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fades the in. </summary>
+        /// <summary>
+        /// Fades the form in.
+        /// </summary>
         private protected virtual void FadeIn( )
         {
             try
@@ -293,7 +295,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fades the out and close. </summary>
+        /// <summary>
+        /// Fades the form out and close.
+        /// </summary>
         private protected virtual void FadeOut( )
         {
             try
@@ -543,8 +547,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Get Error Dialog for exceptions.
+        /// </summary>
+        /// <param name="ex">
+        /// The exception.
+        /// </param>
         private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
