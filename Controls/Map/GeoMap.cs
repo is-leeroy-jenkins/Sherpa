@@ -306,7 +306,7 @@ namespace BudgetExecution
         {
             try
             {
-                DataArgs.DataFilter = FormFilter;
+                DataArgs.Filter = FormFilter;
                 DataArgs.SqlQuery = SqlQuery;
             }
             catch( Exception _ex )

@@ -2267,7 +2267,7 @@
             // ProgressBar
             // 
             ProgressBar.Name = "ProgressBar";
-            ProgressBar.Size = new System.Drawing.Size( 200, 24 );
+            ProgressBar.Size = new System.Drawing.Size( 150, 24 );
             ProgressBar.Value = 50;
             // 
             // StatusLabel
@@ -2300,7 +2300,7 @@
             ToolStripTextBox.Margin = new System.Windows.Forms.Padding( 1 );
             ToolStripTextBox.Name = "ToolStripTextBox";
             ToolStripTextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Size = new System.Drawing.Size( 130, 25 );
+            ToolStripTextBox.Size = new System.Drawing.Size( 194, 25 );
             ToolStripTextBox.Tag = "";
             ToolStripTextBox.ToolTip = ToolTip;
             // 

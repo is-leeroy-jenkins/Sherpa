@@ -70,7 +70,7 @@ namespace BudgetExecution
             Font = new Font( "Roboto", 9 );
             AutoToolTip = false;
             Text = string.Empty;
-            Size = new Size( 30, 24 );
+            Size = new Size( 30, 22 );
 
             // Event Wiring
             MouseHover += OnMouseHover;

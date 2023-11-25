@@ -1,45 +1,42 @@
-﻿//  ******************************************************************************************
-//      Assembly:                Budget Execution
-//      Filename:                ExcelDataForm.cs
-//      Author:                  Terry D. Eppler
-//      Created:                 05-31-2023
+﻿// ******************************************************************************************
+//     Assembly:             BudgetExecution
+//     Author:                  Terry D. Eppler
+//     Created:                 06-19-2023
 // 
-//      Last Modified By:        Terry D. Eppler
-//      Last Modified On:        06-01-2023
-//  ******************************************************************************************
-//  <copyright file="ExcelDataForm.cs" company="Terry D. Eppler">
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        11-24-2023
+// ******************************************************************************************
+// <copyright file="Terry Eppler.cs" company="Terry D. Eppler">
+//    BudgetExecution is a Federal Budget, Finance, and Accounting application for the
+//    US Environmental Protection Agency (US EPA).
+//    Copyright ©  2023  Terry Eppler
 // 
-//     This is a Federal Budget, Finance, and Accounting application for the
-//     US Environmental Protection Agency (US EPA).
-//     Copyright ©  2023  Terry Eppler
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
 // 
-//     Permission is hereby granted, free of charge, to any person obtaining a copy
-//     of this software and associated documentation files (the “Software”),
-//     to deal in the Software without restriction,
-//     including without limitation the rights to use,
-//     copy, modify, merge, publish, distribute, sublicense,
-//     and/or sell copies of the Software,
-//     and to permit persons to whom the Software is furnished to do so,
-//     subject to the following conditions:
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
 // 
-//     The above copyright notice and this permission notice shall be included in all
-//     copies or substantial portions of the Software.
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
 // 
-//     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//     FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//     DEALINGS IN THE SOFTWARE.
-// 
-//     You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
-// 
-//  </copyright>
-//  <summary>
-//    ExcelDataForm.cs
-//  </summary>
-//  ******************************************************************************************
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
+// </copyright>
+// <summary>
+//   ExcelDataForm.cs.cs
+// </summary>
+// ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -57,6 +54,7 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms.Spreadsheet;
     using Syncfusion.Windows.Forms.Tools;
     using Syncfusion.XlsIO;
+    using Action = System.Action;
     using Timer = System.Windows.Forms.Timer;
 
     /// <summary> </summary>
@@ -75,7 +73,7 @@ namespace BudgetExecution
         /// <summary>
         /// The status update
         /// </summary>
-        private System.Action _statusUpdate;
+        private Action _statusUpdate;
 
         /// <summary>
         /// Gets or sets the time.
@@ -327,7 +325,7 @@ namespace BudgetExecution
             Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
             Header.Text = $"{DataTable.TableName.SplitPascal( )} ";
         }
-        
+
         /// <summary>
         /// Initializes the delegates.
         /// </summary>
@@ -381,12 +379,6 @@ namespace BudgetExecution
                 ToolStrip.LauncherStyle = LauncherStyle.Office12;
                 ToolStrip.ImageSize = new Size( 16, 16 );
                 ToolStrip.ImageScalingSize = new Size( 16, 16 );
-                ToolStripTextBox.Size = new Size( 190, 28 );
-                ToolStripTextBox.Font = new Font( "Roboto", 8 );
-                ToolStripTextBox.BackColor = Color.FromArgb( 20, 20, 20 );
-                ToolStripTextBox.ForeColor = Color.White;
-                ToolStripTextBox.TextBoxTextAlign = HorizontalAlignment.Center;
-                ToolStripTextBox.Text = DateTime.Today.ToShortDateString( );
             }
             catch( Exception _ex )
             {
@@ -637,7 +629,7 @@ namespace BudgetExecution
         /// Invokes if needed.
         /// </summary>
         /// <param name="action">The action.</param>
-        public void InvokeIf( System.Action action )
+        public void InvokeIf( Action action )
         {
             if( InvokeRequired )
             {
@@ -656,7 +648,7 @@ namespace BudgetExecution
             {
                 DataArgs.Provider = Provider;
                 DataArgs.Source = Source;
-                DataArgs.DataFilter = FormFilter;
+                DataArgs.Filter = FormFilter;
                 DataArgs.SelectedTable = SelectedTable;
                 DataArgs.SelectedFields = SelectedFields;
                 DataArgs.SelectedNumerics = SelectedNumerics;
@@ -979,7 +971,7 @@ namespace BudgetExecution
                 Provider = _group.DataArgs.Provider;
                 Source = _group.DataArgs.Source;
                 SelectedTable = _group.DataArgs.SelectedTable ?? string.Empty;
-                FormFilter = _group.DataArgs.DataFilter ?? default( IDictionary<string, object> );
+                FormFilter = _group.DataArgs.Filter ?? default( IDictionary<string, object> );
                 SqlQuery = _group.DataArgs.SqlQuery;
                 SelectedColumns = _group.DataArgs.SelectedColumns ?? default( IList<string> );
                 SelectedFields = _group.DataArgs.SelectedFields ?? default( IList<string> );
@@ -1050,8 +1042,9 @@ namespace BudgetExecution
                 InitializeIcon( );
                 InitializeCallbacks( );
                 DataArgs = new DataArgs( );
+                Ribbon.Size = new Size( 1338, 128 );
                 Header.ForeColor = Color.FromArgb( 106, 189, 252 );
-                Header.Font = new Font( "Roboto", 11 );
+                Header.Font = new Font( "Roboto", 10 );
                 Header.TextAlign = ContentAlignment.TopLeft;
                 Ribbon.Spreadsheet = Spreadsheet;
                 FiltersButton.Visible = false;

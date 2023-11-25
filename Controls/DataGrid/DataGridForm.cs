@@ -1013,7 +1013,7 @@ namespace BudgetExecution
             {
                 DataArgs.Provider = Provider;
                 DataArgs.Source = Source;
-                DataArgs.DataFilter = FormFilter;
+                DataArgs.Filter = FormFilter;
                 DataArgs.SelectedTable = SelectedTable;
                 DataArgs.SelectedFields = SelectedFields;
                 DataArgs.SelectedNumerics = SelectedNumerics;

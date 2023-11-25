@@ -70,6 +70,6 @@ namespace BudgetExecution
 
         /// <summary> Gets or sets the data filter. </summary>
         /// <value> The data filter. </value>
-        public virtual IDictionary<string, object> DataFilter { get; set; }
+        public virtual IDictionary<string, object> Filter { get; set; }
     }
 }

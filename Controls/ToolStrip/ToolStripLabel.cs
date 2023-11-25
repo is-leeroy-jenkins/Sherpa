@@ -66,7 +66,7 @@ namespace BudgetExecution
         {
             Margin = new Padding( 1, 1, 1, 1 );
             Padding = new Padding( 1, 1, 1, 1 );
-            Size = new Size( 150, 24 );
+            Size = new Size( 150, 22 );
             ForeColor = Color.Black;
             BackColor = Color.Transparent;
             Font = new Font( "Roboto", 8, FontStyle.Regular );

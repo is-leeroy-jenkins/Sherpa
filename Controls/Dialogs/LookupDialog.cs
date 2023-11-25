@@ -127,7 +127,6 @@ namespace BudgetExecution
         public LookupDialog( )
         {
             InitializeComponent( );
-            InitializeCallbacks( );
 
             // Basic Properties
             Size = new Size( 1340, 674 );
@@ -309,7 +308,7 @@ namespace BudgetExecution
             {
                 DataArgs.Provider = Provider;
                 DataArgs.Source = Source;
-                DataArgs.DataFilter = FormFilter;
+                DataArgs.Filter = FormFilter;
                 DataArgs.SelectedTable = TableName;
                 DataArgs.SelectedFields = SelectedFields;
                 DataArgs.SelectedNumerics = SelectedNumerics;
@@ -393,7 +392,8 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the tab pages.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         private IDictionary<string, TabPageAdv> GetTabPages( )
         {
             if( TabControl.TabPages?.Count > 0 )
@@ -539,7 +539,8 @@ namespace BudgetExecution
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         public void OnLoad( object sender, EventArgs e )
         {
             try
@@ -553,6 +554,7 @@ namespace BudgetExecution
                 PopulateTableListBoxItems( );
                 InitializeTabControl( );
                 InitializeLabels( );
+                InitializeCallbacks( );
             }
             catch( Exception _ex )
             {
@@ -655,7 +657,7 @@ namespace BudgetExecution
             {
                 DataArgs.Provider = Provider;
                 DataArgs.Source = Source;
-                DataArgs.DataFilter = FormFilter;
+                DataArgs.Filter = FormFilter;
                 DataArgs.SelectedTable = TableName;
                 DataArgs.SelectedFields = SelectedFields;
                 DataArgs.SelectedNumerics = SelectedNumerics;

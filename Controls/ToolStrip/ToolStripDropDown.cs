@@ -82,7 +82,7 @@ namespace BudgetExecution
         {
             Margin = new Padding( 1, 1, 1, 1 );
             Padding = new Padding( 1, 1, 1, 1 );
-            Size = new Size( 150, 24 );
+            Size = new Size( 150, 22 );
             DropDownStyle = ComboBoxStyle.DropDownList;
             AllowDrop = true;
             MaxDropDownItems = 100;

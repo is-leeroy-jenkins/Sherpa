@@ -101,6 +101,6 @@ namespace BudgetExecution
         /// <value>
         /// The data filter.
         /// </value>
-        IDictionary<string, object> DataFilter { get; set; }
+        IDictionary<string, object> Filter { get; set; }
     }
 }

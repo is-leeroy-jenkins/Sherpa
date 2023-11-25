@@ -354,7 +354,7 @@ namespace BudgetExecution
             {
                 DataArgs.Provider = Provider;
                 DataArgs.Source = Source;
-                DataArgs.DataFilter = FormFilter;
+                DataArgs.Filter = FormFilter;
                 DataArgs.SqlQuery = SqlQuery;
             }
             catch( Exception _ex )
