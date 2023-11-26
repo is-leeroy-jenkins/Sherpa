@@ -92,7 +92,7 @@ namespace BudgetExecution
             CloseButtonPressedForeColor = Color.FromArgb( 20, 20, 20 );
             SeparatorColor = Color.FromArgb( 20, 20, 20 );
             ShowSeparator = false;
-            ItemSize = new Size( 100, 30 );
+            ItemSize = new Size( 150, 22 );
             TabPanelBackColor = Color.FromArgb( 20, 20, 20 );
             CanOverrideStyle = true;
             CanApplyTheme = true;

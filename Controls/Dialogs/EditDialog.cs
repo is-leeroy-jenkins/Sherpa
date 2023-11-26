@@ -517,9 +517,9 @@ namespace BudgetExecution
         {
             try
             {
-                if( FormFilter?.Any( ) == true )
+                if( Filter?.Any( ) == true )
                 {
-                    FormFilter.Clear( );
+                    Filter.Clear( );
                 }
 
                 if( Columns?.Any( ) == true )
@@ -553,7 +553,7 @@ namespace BudgetExecution
                 SelectedColumns?.Clear( );
                 SelectedFields?.Clear( );
                 SelectedNumerics?.Clear( );
-                FormFilter?.Clear( );
+                Filter?.Clear( );
                 TableName = string.Empty;
             }
             catch( Exception _ex )

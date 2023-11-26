@@ -387,7 +387,7 @@ namespace BudgetExecution
                 BindingSource.DataSource = null;
                 DataModel = null;
                 DataTable = null;
-                SqlTabControl.SelectedIndex = 0;
+                TabControl.SelectedIndex = 0;
             }
             catch( Exception _ex )
             {
@@ -498,7 +498,7 @@ namespace BudgetExecution
         {
             try
             {
-                SqlTabControl.SelectedIndexChanged += OnActiveTabChanged;
+                TabControl.SelectedIndexChanged += OnActiveTabChanged;
                 AccessRadioButton.CheckedChanged += OnRadioButtonChecked;
                 SQLiteRadioButton.CheckedChanged += OnRadioButtonChecked;
                 SqlCeRadioButton.CheckedChanged += OnRadioButtonChecked;
@@ -746,9 +746,9 @@ namespace BudgetExecution
         {
             try
             {
-                if( FormFilter?.Any( ) == true )
+                if( Filter?.Any( ) == true )
                 {
-                    FormFilter.Clear( );
+                    Filter.Clear( );
                 }
 
                 if( Columns?.Any( ) == true )
@@ -798,8 +798,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the title text. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the title text.
+        /// </summary>
+        /// <returns>
+        /// string
+        /// </returns>
         private string GetTitleText( )
         {
             try
@@ -820,10 +824,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the active tab. </summary>
+        /// <summary>
+        /// Sets the active tab controls.
+        /// </summary>
         private void SetActiveTab( )
         {
-            switch( SqlTabControl.SelectedIndex )
+            switch( TabControl.SelectedIndex )
             {
                 case 0:
                 {
@@ -831,6 +837,7 @@ namespace BudgetExecution
                     DataTab.TabVisible = false;
                     LookupTab.TabVisible = false;
                     SchemaTab.TabVisible = false;
+                    Busy.TabVisible = false;
                     Title.Text = GetTitleText( ) + "| SQL Editor";
                     Title.TextAlign = ContentAlignment.TopLeft;
                     Commands = CreateCommandList( Provider );
@@ -843,6 +850,7 @@ namespace BudgetExecution
                     LookupTab.TabVisible = false;
                     SchemaTab.TabVisible = false;
                     SqlTab.TabVisible = false;
+                    Busy.TabVisible = false;
                     Title.Text = GetTitleText( )
                         + $"| {Source.ToString( ).SplitPascal( )} Data Table";
 
@@ -853,10 +861,11 @@ namespace BudgetExecution
                 }
                 case 2:
                 {
-                    DataTab.TabVisible = false;
                     LookupTab.TabVisible = true;
+                    DataTab.TabVisible = false;
                     SchemaTab.TabVisible = false;
                     SqlTab.TabVisible = false;
+                    Busy.TabVisible = false;
                     PopulateTableListBoxItems( );
                     Title.Text = GetTitleText( ) + "| Data Look-Up";
                     TableListBox.SelectedValue = string.Empty;
@@ -870,10 +879,20 @@ namespace BudgetExecution
                     DataTab.TabVisible = false;
                     LookupTab.TabVisible = false;
                     SqlTab.TabVisible = false;
+                    Busy.TabVisible = false;
                     PopulateTableComboBoxItems( );
                     DataTypes = GetDataTypes( Provider );
                     PopulateDataTypeComboBoxItems( );
                     Title.Text = GetTitleText( ) + "| Schema Editor";
+                    break;
+                }
+                case 4:
+                {
+                    Busy.TabVisible = true;
+                    SchemaTab.TabVisible = false;
+                    DataTab.TabVisible = false;
+                    LookupTab.TabVisible = false;
+                    SqlTab.TabVisible = false;
                     break;
                 }
             }
@@ -1173,7 +1192,7 @@ namespace BudgetExecution
         /// </returns>
         private IDictionary<string, TabPageAdv> GetTabPages( )
         {
-            if( SqlTabControl.TabPages?.Count > 0 )
+            if( TabControl.TabPages?.Count > 0 )
             {
                 try
                 {
@@ -1462,7 +1481,7 @@ namespace BudgetExecution
                 Panels = GetPanels( );
                 RadioButtons = GetRadioButtons( );
                 ListBoxes = GetListBoxes( );
-                SqlTabControl.SelectedIndex = 0;
+                TabControl.SelectedIndex = 0;
                 SetActiveTab( );
                 FadeIn( );
             }
@@ -1552,9 +1571,9 @@ namespace BudgetExecution
                     }
                 }
 
-                if( SqlTabControl.SelectedIndex != 0 )
+                if( TabControl.SelectedIndex != 0 )
                 {
-                    SqlTabControl.SelectedIndex = 0;
+                    TabControl.SelectedIndex = 0;
                 }
             }
             catch( Exception _ex )
@@ -1622,7 +1641,7 @@ namespace BudgetExecution
         {
             try
             {
-                SqlTabControl.SelectedIndex = 0;
+                TabControl.SelectedIndex = 0;
                 ClearSelections( );
                 ClearCollections( );
             }
@@ -1715,7 +1734,7 @@ namespace BudgetExecution
         {
             try
             {
-                SqlTabControl.SelectedIndex = 0;
+                TabControl.SelectedIndex = 0;
             }
             catch( Exception _ex )
             {
@@ -1736,7 +1755,7 @@ namespace BudgetExecution
         {
             try
             {
-                SqlTabControl.SelectedIndex = 3;
+                TabControl.SelectedIndex = 3;
             }
             catch( Exception _ex )
             {
@@ -1757,7 +1776,7 @@ namespace BudgetExecution
         {
             try
             {
-                SqlTabControl.SelectedIndex = 2;
+                TabControl.SelectedIndex = 2;
             }
             catch( Exception _ex )
             {
@@ -1778,7 +1797,7 @@ namespace BudgetExecution
         {
             try
             {
-                SqlTabControl.SelectedIndex = 1;
+                TabControl.SelectedIndex = 1;
             }
             catch( Exception _ex )
             {
@@ -1799,7 +1818,7 @@ namespace BudgetExecution
         {
             try
             {
-                SqlTabControl.SelectedIndex = 1;
+                TabControl.SelectedIndex = 1;
             }
             catch( Exception _ex )
             {
@@ -1889,7 +1908,7 @@ namespace BudgetExecution
         {
             try
             {
-                FormFilter?.Clear( );
+                Filter?.Clear( );
                 ColumnListBox.Items?.Clear( );
                 ValueListBox.Items?.Clear( );
                 ColumnTable.CaptionText = string.Empty;

@@ -172,7 +172,7 @@ namespace BudgetExecution
         /// <value>
         /// The form filter.
         /// </value>
-        public IDictionary<string, object> FormFilter { get; set; }
+        public IDictionary<string, object> Filter { get; set; }
 
         /// <summary>
         /// Gets or sets the panels.
@@ -318,8 +318,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sends the notification. </summary>
-        /// <param name="text"> The text. </param>
+        /// <summary>
+        /// Sends the notification.
+        /// </summary>
+        /// <param name="text">The text.</param>
         private protected void SendNotification( string text )
         {
             if( !string.IsNullOrEmpty( text ) )
@@ -336,8 +338,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sends the message. </summary>
-        /// <param name="text"> The text. </param>
+        /// <summary>
+        /// Sends the message.
+        /// </summary>
+        /// <param name="text">The text.</param>
         private protected void SendMessage( string text )
         {
             if( !string.IsNullOrEmpty( text ) )

@@ -60,11 +60,11 @@ namespace BudgetExecution
     using Image = System.Drawing.Image;
 
     /// <inheritdoc/>
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
     public partial class SqlEditor : EditBase
     {
         /// <summary>
@@ -72,60 +72,116 @@ namespace BudgetExecution
         /// </summary>
         private System.Action _statusUpdate;
 
-        /// <summary> Gets or sets the time. </summary>
-        /// <value> The time. </value>
+        /// <summary>
+        /// Gets or sets the time.
+        /// </summary>
+        /// <value>
+        /// The time.
+        /// </value>
         public int Time { get; set; }
 
-        /// <summary> Gets or sets the seconds. </summary>
-        /// <value> The seconds. </value>
+        /// <summary>
+        /// Gets or sets the seconds.
+        /// </summary>
+        /// <value>
+        /// The seconds.
+        /// </value>
         public int Seconds { get; set; }
 
-        /// <summary> Gets or sets the first category. </summary>
-        /// <value> The first category. </value>
+        /// <summary>
+        /// Gets or sets the first category.
+        /// </summary>
+        /// <value>
+        /// The first category.
+        /// </value>
         public string FirstCategory { get; set; }
 
-        /// <summary> Gets or sets the first value. </summary>
-        /// <value> The first value. </value>
+        /// <summary>
+        /// Gets or sets the first value.
+        /// </summary>
+        /// <value>
+        /// The first value.
+        /// </value>
         public string FirstValue { get; set; }
 
-        /// <summary> Gets or sets the second category. </summary>
-        /// <value> The second category. </value>
+        /// <summary>
+        /// Gets or sets the second category.
+        /// </summary>
+        /// <value>
+        /// The second category.
+        /// </value>
         public string SecondCategory { get; set; }
 
-        /// <summary> Gets or sets the second value. </summary>
-        /// <value> The second value. </value>
+        /// <summary>
+        /// Gets or sets the second value.
+        /// </summary>
+        /// <value>
+        /// The second value.
+        /// </value>
         public string SecondValue { get; set; }
 
-        /// <summary> Gets or sets the third category. </summary>
-        /// <value> The third category. </value>
+        /// <summary>
+        /// Gets or sets the third category.
+        /// </summary>
+        /// <value>
+        /// The third category.
+        /// </value>
         public string ThirdCategory { get; set; }
 
-        /// <summary> Gets or sets the third value. </summary>
-        /// <value> The third value. </value>
+        /// <summary>
+        /// Gets or sets the third value.
+        /// </summary>
+        /// <value>
+        /// The third value.
+        /// </value>
         public string ThirdValue { get; set; }
 
-        /// <summary> Gets or sets the SQL query. </summary>
-        /// <value> The SQL query. </value>
+        /// <summary>
+        /// Gets or sets the SQL query.
+        /// </summary>
+        /// <value>
+        /// The SQL query.
+        /// </value>
         public string SqlQuery { get; set; }
 
-        /// <summary> Gets or sets the current. </summary>
-        /// <value> The current. </value>
+        /// <summary>
+        /// Gets or sets the current.
+        /// </summary>
+        /// <value>
+        /// The current.
+        /// </value>
         public DataRow Current { get; set; }
 
-        /// <summary> Gets or sets the selected command. </summary>
-        /// <value> The selected command. </value>
+        /// <summary>
+        /// Gets or sets the selected command.
+        /// </summary>
+        /// <value>
+        /// The selected command.
+        /// </value>
         public string SelectedCommand { get; set; }
 
-        /// <summary> Gets or sets the selected query. </summary>
-        /// <value> The selected query. </value>
+        /// <summary>
+        /// Gets or sets the selected query.
+        /// </summary>
+        /// <value>
+        /// The selected query.
+        /// </value>
         public string SelectedQuery { get; set; }
 
-        /// <summary> Gets or sets the commands. </summary>
-        /// <value> The commands. </value>
+        /// <summary>
+        /// Gets or sets the commands.
+        /// </summary>
+        /// <value>
+        /// The commands.
+        /// </value>
         public IList<string> Commands { get; set; }
 
-        /// <summary> Gets or sets the statements. </summary>
-        /// <value> The statements. </value>
+        /// <summary>
+        /// Gets or sets the statements.
+        /// </summary>
+        /// <value>
+        /// The statements.
+        /// </value>
         public IDictionary<string, object> Statements { get; set; }
 
         /// <inheritdoc/>
@@ -231,7 +287,36 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Populates the table ComboBox items. </summary>
+        /// <summary>
+        /// Populates the data type ComboBox items.
+        /// </summary>
+        public void PopulateDataTypeComboBoxItems( )
+        {
+            if( DataTypes?.Any( ) == true )
+            {
+                try
+                {
+                    DataTypeComboBox.Items?.Clear( );
+                    DataTypeComboBox.SelectedText = string.Empty;
+                    var _types = DataTypes.ToArray( );
+                    for( var _i = 0; _i < _types?.Length; _i++ )
+                    {
+                        if( !string.IsNullOrEmpty( _types[ _i ] ) )
+                        {
+                            DataTypeComboBox.Items.Add( _types[ _i ] );
+                        }
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Populates the table ListBox items.
+        /// </summary>
         public void PopulateTableListBoxItems( )
         {
             try
@@ -263,33 +348,8 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Populates the data type ComboBox items.
+        /// Populates the table ComboBox items.
         /// </summary>
-        public void PopulateDataTypeComboBoxItems( )
-        {
-            if( DataTypes?.Any( ) == true )
-            {
-                try
-                {
-                    DataTypeComboBox.Items?.Clear( );
-                    DataTypeComboBox.SelectedText = string.Empty;
-                    var _types = DataTypes.ToArray( );
-                    for( var _i = 0; _i < _types?.Length; _i++ )
-                    {
-                        if( !string.IsNullOrEmpty( _types[ _i ] ) )
-                        {
-                            DataTypeComboBox.Items.Add( _types[ _i ] );
-                        }
-                    }
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary> Populates the table ComboBox items. </summary>
         public void PopulateTableComboBoxItems( )
         {
             try
@@ -327,7 +387,7 @@ namespace BudgetExecution
                 BindingSource.DataSource = null;
                 DataModel = null;
                 DataTable = null;
-                SqlTabControl.SelectedIndex = 0;
+                TabControl.SelectedIndex = 0;
             }
             catch( Exception _ex )
             {
@@ -366,7 +426,7 @@ namespace BudgetExecution
                 Editor.EndOfLineForeColor = System.Drawing.SystemColors.ControlLight;
                 Editor.HighlightCurrentLine = true;
                 Editor.IndentationBlockBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-                Editor.IndentLineColor =System.Drawing.Color.FromArgb( 50, 93, 129 );
+                Editor.IndentLineColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
                 Editor.IndicatorMarginBackColor = System.Drawing.SystemColors.ControlLight;
                 Editor.CurrentLineHighlightColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
                 Editor.Font = new System.Drawing.Font( "Roboto", 12 );
@@ -391,7 +451,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Initializes the Title. </summary>
+        /// <summary>
+        /// Initializes the Title.
+        /// </summary>
         private void InitializeLabels( )
         {
             try
@@ -494,7 +556,7 @@ namespace BudgetExecution
             // Control Event Wiring
             try
             {
-                SqlTabControl.SelectedIndexChanged += OnActiveTabChanged;
+                TabControl.SelectedIndexChanged += OnActiveTabChanged;
                 QueryListBox.SelectedValueChanged += OnQueryListBoxItemSelected;
                 RefreshButton.Click += OnRefreshButtonClick;
                 SaveButton.Click += OnSaveButtonClick;
@@ -633,7 +695,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Notifies this instance. </summary>
+        /// <summary>
+        /// Notifies this instance.
+        /// </summary>
         private void Notify( )
         {
             try
@@ -648,7 +712,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Clears the selections. </summary>
+        /// <summary>
+        /// Clears the selections.
+        /// </summary>
         private void ClearSelections( )
         {
             try
@@ -666,14 +732,16 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Clears the collections. </summary>
+        /// <summary>
+        /// Clears the collections.
+        /// </summary>
         private void ClearCollections( )
         {
             try
             {
-                if( FormFilter?.Any( ) == true )
+                if( Filter?.Any( ) == true )
                 {
-                    FormFilter.Clear( );
+                    Filter.Clear( );
                 }
 
                 if( Columns?.Any( ) == true )
@@ -697,8 +765,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the provider. </summary>
-        /// <param name="provider"> The provider. </param>
+        /// <summary>
+        /// Sets the provider.
+        /// </summary>
+        /// <param name="provider">
+        /// The provider.
+        /// </param>
         private void SetProvider( string provider )
         {
             try
@@ -722,8 +794,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the title prefix. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the title prefix.
+        /// </summary>
+        /// <returns>
+        /// </returns>
         private string GetTitlePrefix( )
         {
             try
@@ -744,10 +819,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the active tab controls. </summary>
+        /// <summary>
+        /// Sets the active tab controls.
+        /// </summary>
         private void SetActiveTab( )
         {
-            switch( SqlTabControl.SelectedIndex )
+            switch( TabControl.SelectedIndex )
             {
                 case 0:
                 {
@@ -755,6 +832,7 @@ namespace BudgetExecution
                     DataTab.TabVisible = false;
                     LookupTab.TabVisible = false;
                     SchemaTab.TabVisible = false;
+                    Busy.TabVisible = false;
                     Title.Text = GetTitlePrefix( ) + "| SQL Editor";
                     Title.TextAlign = ContentAlignment.TopLeft;
                     Commands = CreateCommandList( Provider );
@@ -767,6 +845,7 @@ namespace BudgetExecution
                     LookupTab.TabVisible = false;
                     SchemaTab.TabVisible = false;
                     SqlTab.TabVisible = false;
+                    Busy.TabVisible = false;
                     Title.Text = GetTitlePrefix( )
                         + $"| {Source.ToString( ).SplitPascal( )} Data Table";
 
@@ -777,10 +856,11 @@ namespace BudgetExecution
                 }
                 case 2:
                 {
-                    DataTab.TabVisible = false;
                     LookupTab.TabVisible = true;
+                    DataTab.TabVisible = false;
                     SchemaTab.TabVisible = false;
                     SqlTab.TabVisible = false;
+                    Busy.TabVisible = false;
                     PopulateTableListBoxItems( );
                     Title.Text = GetTitlePrefix( ) + "| Data Look-Up";
                     TableListBox.SelectedValue = string.Empty;
@@ -794,10 +874,20 @@ namespace BudgetExecution
                     DataTab.TabVisible = false;
                     LookupTab.TabVisible = false;
                     SqlTab.TabVisible = false;
+                    Busy.TabVisible = false;
                     PopulateTableComboBoxItems( );
                     DataTypes = GetDataTypes( Provider );
                     PopulateDataTypeComboBoxItems( );
                     Title.Text = GetTitlePrefix( ) + "| Schema Editor";
+                    break;
+                }
+                case 4:
+                {
+                    Busy.TabVisible = true;
+                    SchemaTab.TabVisible = false;
+                    DataTab.TabVisible = false;
+                    LookupTab.TabVisible = false;
+                    SqlTab.TabVisible = false;
                     break;
                 }
             }
@@ -1098,7 +1188,7 @@ namespace BudgetExecution
         /// </returns>
         private IDictionary<string, TabPageAdv> GetTabPages( )
         {
-            if( SqlTabControl.TabPages?.Count > 0 )
+            if( TabControl.TabPages?.Count > 0 )
             {
                 try
                 {
@@ -1377,7 +1467,7 @@ namespace BudgetExecution
                 Panels = GetPanels( );
                 RadioButtons = GetRadioButtons( );
                 ListBoxes = GetListBoxes( );
-                SqlTabControl.SelectedIndex = 0;
+                TabControl.SelectedIndex = 0;
                 SetActiveTab( );
                 FadeIn( );
             }
@@ -1460,9 +1550,9 @@ namespace BudgetExecution
                         }
                     }
 
-                    if( SqlTabControl.SelectedIndex != 0 )
+                    if( TabControl.SelectedIndex != 0 )
                     {
-                        SqlTabControl.SelectedIndex = 0;
+                        TabControl.SelectedIndex = 0;
                     }
                 }
                 catch( Exception _ex )
@@ -1529,7 +1619,7 @@ namespace BudgetExecution
             {
                 ClearSelections( );
                 ClearCollections( );
-                SqlTabControl.SelectedIndex = 0;
+                TabControl.SelectedIndex = 0;
             }
             catch( Exception _ex )
             {
@@ -1612,7 +1702,7 @@ namespace BudgetExecution
         {
             try
             {
-                SqlTabControl.SelectedIndex = 0;
+                TabControl.SelectedIndex = 0;
             }
             catch( Exception _ex )
             {
@@ -1631,7 +1721,7 @@ namespace BudgetExecution
         {
             try
             {
-                SqlTabControl.SelectedIndex = 3;
+                TabControl.SelectedIndex = 3;
             }
             catch( Exception _ex )
             {
@@ -1650,7 +1740,7 @@ namespace BudgetExecution
         {
             try
             {
-                SqlTabControl.SelectedIndex = 2;
+                TabControl.SelectedIndex = 2;
             }
             catch( Exception _ex )
             {
@@ -1669,7 +1759,7 @@ namespace BudgetExecution
         {
             try
             {
-                SqlTabControl.SelectedIndex = 1;
+                TabControl.SelectedIndex = 1;
             }
             catch( Exception _ex )
             {
@@ -1681,7 +1771,7 @@ namespace BudgetExecution
         {
             try
             {
-                SqlTabControl.SelectedIndex = 1;
+                TabControl.SelectedIndex = 1;
             }
             catch( Exception _ex )
             {
@@ -1726,7 +1816,7 @@ namespace BudgetExecution
         {
             try
             {
-                FormFilter?.Clear( );
+                Filter?.Clear( );
                 ColumnListBox.Items?.Clear( );
                 ValueListBox.Items?.Clear( );
                 ColumnTable.CaptionText = string.Empty;

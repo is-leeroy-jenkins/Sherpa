@@ -116,7 +116,7 @@ namespace BudgetExecution
             MetroColor = Color.FromArgb( 20, 20, 20 );
             CaptionBarHeight = 5;
             CaptionAlign = HorizontalAlignment.Center;
-            CaptionFont = new Font( "Roboto", 12, FontStyle.Regular );
+            CaptionFont = new Font( "Roboto", 10, FontStyle.Regular );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionForeColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
@@ -437,7 +437,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _editor = new EditDialog( );
+                var _editor = new LookupDialog( );
                 _editor.Owner = this;
                 _editor.Show( );
                 Hide( );

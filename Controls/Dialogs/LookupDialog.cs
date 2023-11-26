@@ -256,7 +256,7 @@ namespace BudgetExecution
         {
             try
             {
-                FormFilter?.Clear( );
+                Filter?.Clear( );
                 DataArgs = null;
                 DataTable = null;
                 BindingSource.DataSource = null;
@@ -308,7 +308,7 @@ namespace BudgetExecution
             {
                 DataArgs.Provider = Provider;
                 DataArgs.Source = Source;
-                DataArgs.Filter = FormFilter;
+                DataArgs.Filter = Filter;
                 DataArgs.SelectedTable = TableName;
                 DataArgs.SelectedFields = SelectedFields;
                 DataArgs.SelectedNumerics = SelectedNumerics;
@@ -327,9 +327,9 @@ namespace BudgetExecution
         {
             try
             {
-                if( FormFilter?.Any( ) == true )
+                if( Filter?.Any( ) == true )
                 {
-                    FormFilter.Clear( );
+                    Filter.Clear( );
                 }
 
                 if( Columns?.Any( ) == true )
@@ -363,7 +363,7 @@ namespace BudgetExecution
                 SelectedColumns?.Clear( );
                 SelectedFields?.Clear( );
                 SelectedNumerics?.Clear( );
-                FormFilter?.Clear( );
+                Filter?.Clear( );
                 TableName = string.Empty;
             }
             catch( Exception _ex )
@@ -381,7 +381,7 @@ namespace BudgetExecution
             {
                 TableListBox?.Clear( );
                 ColumnListBox?.Clear( );
-                FormFilter?.Clear( );
+                Filter?.Clear( );
             }
             catch( Exception _ex )
             {
@@ -549,7 +549,7 @@ namespace BudgetExecution
                 Fields = new List<string>( );
                 Columns = new List<string>( );
                 Dates = new List<DateTime>( );
-                DataModel = new DataBuilder( Source.StatusOfFunds, Provider.Access, FormFilter );
+                DataModel = new DataBuilder( Source.StatusOfFunds, Provider.Access, Filter );
                 BindingSource.DataSource = DataModel.DataTable;
                 PopulateTableListBoxItems( );
                 InitializeTabControl( );
@@ -570,7 +570,7 @@ namespace BudgetExecution
         {
             try
             {
-                FormFilter.Clear( );
+                Filter.Clear( );
                 ColumnListBox.Items?.Clear( );
                 ValueListBox.Items?.Clear( );
                 ColumnTable.CaptionText = string.Empty;
@@ -657,7 +657,7 @@ namespace BudgetExecution
             {
                 DataArgs.Provider = Provider;
                 DataArgs.Source = Source;
-                DataArgs.Filter = FormFilter;
+                DataArgs.Filter = Filter;
                 DataArgs.SelectedTable = TableName;
                 DataArgs.SelectedFields = SelectedFields;
                 DataArgs.SelectedNumerics = SelectedNumerics;

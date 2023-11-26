@@ -482,6 +482,46 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Sends the notification.
+        /// </summary>
+        /// <param name="text">The text.</param>
+        private protected void SendNotification( string text )
+        {
+            if( !string.IsNullOrEmpty( text ) )
+            {
+                try
+                {
+                    var _notification = new Notification( text );
+                    _notification.Show( );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Sends the message.
+        /// </summary>
+        /// <param name="text">The text.</param>
+        private protected void SendMessage( string text )
+        {
+            if( !string.IsNullOrEmpty( text ) )
+            {
+                try
+                {
+                    var _message = new SplashMessage( text );
+                    _message.Show( );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
         /// Called when [timer tick].
         /// </summary>
         /// <param name="sender">The sender.</param>
