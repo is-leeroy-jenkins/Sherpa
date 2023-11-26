@@ -51,7 +51,6 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
-    using Syncfusion.Windows.Forms.Tools;
 
     /// <inheritdoc/>
     /// <summary> </summary>
@@ -64,6 +63,11 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public partial class EditDialog : EditBase
     {
+        /// <summary>
+        /// The busy
+        /// </summary>
+        private bool _busy;
+
         /// <summary>
         /// Gets or sets the SQL query.
         /// </summary>
@@ -104,6 +108,20 @@ namespace BudgetExecution
         /// <value> The frames. </value>
         public IEnumerable<Frame> Frames { get; set; }
 
+        /// <summary>
+        /// Gets a value indicating whether this instance is busy.
+        /// </summary>
+        /// <value>
+        /// <c> true </c>
+        /// if this instance is busy; otherwise,
+        /// <c> false </c>
+        /// </value>
+        public bool IsBusy
+        {
+            get { return _busy; }
+            private set { _busy = value; }
+        }
+
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
@@ -119,14 +137,30 @@ namespace BudgetExecution
             Size = new Size( 1340, 674 );
             MaximumSize = new Size( 1340, 674 );
             MinimumSize = new Size( 1340, 674 );
-            StartPosition = FormStartPosition.CenterParent;
+            StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.None;
+            BorderColor = Color.FromArgb( 0, 120, 212 );
+            BorderThickness = 1;
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.FromArgb( 106, 189, 252 );
             Font = new Font( "Roboto", 9 );
+            ShowIcon = false;
+            ShowInTaskbar = true;
+            MetroColor = Color.FromArgb( 20, 20, 20 );
+            CaptionBarHeight = 5;
+            CaptionAlign = HorizontalAlignment.Center;
+            CaptionFont = new Font( "Roboto", 10, FontStyle.Regular );
+            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
+            CaptionForeColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
+            SizeGripStyle = SizeGripStyle.Hide;
+            AutoScaleMode = AutoScaleMode.Font;
+            DoubleBuffered = true;
             ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
+            ControlBox = false;
             Frames = GetFrames( );
             TabPages = GetTabPages( );
 
@@ -141,18 +175,19 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.EditDialog"/>
         /// class.
         /// </summary>
-        /// <param name="tool"> Type of the tool. </param>
         /// <param name="bindingSource"> The binding source. </param>
-        public EditDialog( ToolType tool, BindingSource bindingSource )
+        public EditDialog( BindingSource bindingSource )
             : this( )
         {
-            Tool = tool;
             BindingSource = bindingSource;
-            DataTable = BindingSource.GetDataTable( );
-            Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
+            Filter = new Dictionary<string, object>( );
+            Current = bindingSource.GetCurrentDataRow( );
+            TableName = Current.Table.TableName;
+            Provider = Provider.Access;
+            Source = (Source)Enum.Parse( typeof( Source ), TableName );
             DataModel = new DataBuilder( Source, Provider );
-            Columns = DataTable.GetColumnNames( );
-            Current = BindingSource.GetCurrentDataRow( );
+            DataTable = DataModel.DataTable;
+            Columns = DataModel.ColumnNames;
             Fields = DataModel?.Fields;
             Numerics = DataModel?.Numerics;
         }
@@ -163,22 +198,21 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.EditDialog"/>
         /// class.
         /// </summary>
-        /// <param name="tool"> Type of the tool. </param>
         /// <param name="dataModel"> The data model. </param>
-        public EditDialog( ToolType tool, DataBuilder dataModel )
+        public EditDialog( DataBuilder dataModel )
             : this( )
         {
-            Tool = tool;
             DataModel = dataModel;
             Provider = dataModel.Provider;
             Source = dataModel.Source;
+            Filter = new Dictionary<string, object>( );
             CommandType = dataModel.SqlStatement.CommandType;
             BindingSource.DataSource = dataModel.DataTable;
             DataTable = dataModel.DataTable;
-            Columns = DataTable.GetColumnNames( );
-            Current = BindingSource.GetCurrentDataRow( );
-            Fields = DataModel?.Fields;
-            Numerics = DataModel?.Numerics;
+            Columns = dataModel.DataTable.GetColumnNames( );
+            Current = dataModel.Record;
+            Fields = dataModel?.Fields;
+            Numerics = dataModel?.Numerics;
         }
 
         /// <inheritdoc/>
@@ -187,15 +221,36 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.EditDialog"/>
         /// class.
         /// </summary>
-        /// <param name="tool"> Type of the tool. </param>
         /// <param name="source"> The source. </param>
         /// <param name="provider"> The provider. </param>
-        public EditDialog( ToolType tool, Source source, Provider provider = Provider.Access )
+        /// <param name="where"> </param>
+        public EditDialog( Source source, Provider provider, IDictionary<string, object> where )
             : this( )
         {
-            Tool = tool;
             Provider = provider;
             Source = source;
+            Filter = where;
+            DataModel = new DataBuilder( source, provider );
+            DataTable = DataModel.DataTable;
+            BindingSource.DataSource = DataModel.DataTable;
+            Columns = DataTable.GetColumnNames( );
+            Current = BindingSource.GetCurrentDataRow( );
+            Fields = DataModel?.Fields;
+            Numerics = DataModel?.Numerics;
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.EditDialog" /> class.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        public EditDialog( Source source, Provider provider = Provider.Access )
+            : this( )
+        {
+            Provider = provider;
+            Source = source;
+            Filter = new Dictionary<string, object>( );
             DataModel = new DataBuilder( source, provider );
             DataTable = DataModel.DataTable;
             BindingSource.DataSource = DataModel.DataTable;
@@ -256,6 +311,22 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Begins the initialize.
+        /// </summary>
+        private void BeginInit( )
+        {
+            _busy = true;
+        }
+
+        /// <summary>
+        /// Ends the initialize.
+        /// </summary>
+        private void EndInit( )
+        {
+            _busy = false;
+        }
+
         /// <summary> Sets the frame visibility. </summary>
         public void SetFrameVisibility( )
         {
@@ -279,37 +350,6 @@ namespace BudgetExecution
                     Fail( _ex );
                 }
             }
-        }
-
-        /// <summary> Gets the tab pages. </summary>
-        /// <returns> </returns>
-        public IDictionary<string, TabPageAdv> GetTabPages( )
-        {
-            if( TabControl?.TabPages?.Count > 0 )
-            {
-                try
-                {
-                    var _tabPages = new Dictionary<string, TabPageAdv>( );
-                    foreach( TabPageAdv _tabpage in TabControl.TabPages )
-                    {
-                        if( _tabpage != null )
-                        {
-                            _tabPages.Add( _tabpage.Name, _tabpage );
-                        }
-                    }
-
-                    return _tabPages?.Any( ) == true
-                        ? _tabPages
-                        : default( IDictionary<string, TabPageAdv> );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( IDictionary<string, TabPageAdv> );
-                }
-            }
-
-            return default( IDictionary<string, TabPageAdv> );
         }
 
         /// <summary> Gets the frames. </summary>
@@ -573,11 +613,6 @@ namespace BudgetExecution
         {
             try
             {
-                DataArgs = new DataArgs( );
-                Fields = new List<string>( );
-                Numerics = new List<string>( );
-                Columns = new List<string>( );
-                Dates = new List<DateTime>( );
                 SetActiveTab( );
                 SetTableLocation( );
                 SetFrameColors( );

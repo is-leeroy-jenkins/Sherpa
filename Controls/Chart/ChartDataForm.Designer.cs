@@ -63,7 +63,6 @@
             ToolStrip = new ToolStrip( );
             FirstButton = new ToolStripButton( );
             StripSeparator = new ToolSeparator( );
-            ProgressBar = new System.Windows.Forms.ToolStripProgressBar( );
             TextBoxSeparator = new ToolSeparator( );
             StatusLabel = new ToolStripLabel( );
             NavigationLabelSeparator = new ToolSeparator( );
@@ -342,6 +341,7 @@
             Chart.Legend.VisibleCheckBox = true;
             Chart.Localize = null;
             Chart.Location = new System.Drawing.Point( 0, 0 );
+            Chart.Margin = new System.Windows.Forms.Padding( 1 );
             Chart.Name = "Chart";
             Chart.Padding = new System.Windows.Forms.Padding( 1 );
             Chart.Palette = Syncfusion.Windows.Forms.Chart.ChartColorPalette.Metro;
@@ -709,7 +709,7 @@
             ToolStrip.Image = null;
             ToolStrip.ImageDirectory = null;
             ToolStrip.ImageSize = new System.Drawing.Size( 16, 16 );
-            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { StripSeparator, ProgressBar, TextBoxSeparator, StatusLabel, NavigationLabelSeparator, FirstButton, FirstSeparator, PreviousButton, PreviousSeparator, NextButton, NextSeparator, LastButton, EditSqlSeparator, FilterLabel, FilterLabelSeparator, RefreshDataButton, NavigationSeparator, RemoveFiltersButton, FilterSeparator, GroupButton, RemoveFiltersSeparator, ChartSpacerLabel, ChartSpacer, ChartSeriesComboBox, ChartSeriesSeparator, MetricsLabel, MetricsPreSeparator, MetricsComboBox, ApplicationLabel, ExitButton, MenuSeparator, MenuButton, ExitSeparator } );
+            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { TextBoxSeparator, StatusLabel, NavigationLabelSeparator, FirstButton, FirstSeparator, PreviousButton, PreviousSeparator, NextButton, NextSeparator, LastButton, EditSqlSeparator, FilterLabel, FilterLabelSeparator, RefreshDataButton, NavigationSeparator, RemoveFiltersButton, FilterSeparator, GroupButton, RemoveFiltersSeparator, ChartSpacerLabel, ChartSpacer, ChartSeriesComboBox, ChartSeriesSeparator, MetricsLabel, MetricsPreSeparator, MetricsComboBox, ApplicationLabel, ExitButton, MenuSeparator, MenuButton, ExitSeparator } );
             ToolStrip.LastButton = LastButton;
             ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
             ToolStrip.Location = new System.Drawing.Point( 1, 1 );
@@ -769,15 +769,6 @@
             StripSeparator.Name = "StripSeparator";
             StripSeparator.Padding = new System.Windows.Forms.Padding( 1 );
             StripSeparator.Size = new System.Drawing.Size( 6, 25 );
-            // 
-            // ProgressBar
-            // 
-            ProgressBar.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            ProgressBar.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
-            ProgressBar.Name = "ProgressBar";
-            ProgressBar.Padding = new System.Windows.Forms.Padding( 0, 1, 0, 1 );
-            ProgressBar.Size = new System.Drawing.Size( 125, 25 );
-            ProgressBar.Value = 50;
             // 
             // TextBoxSeparator
             // 
@@ -2177,7 +2168,6 @@
         private System.Windows.Forms.TableLayoutPanel ChartSubTable;
         public System.Windows.Forms.Timer Timer;
         public ToolSeparator StripSeparator;
-        public System.Windows.Forms.ToolStripProgressBar ProgressBar;
         public ToolSeparator ChartSpacer;
         public Chart Chart;
         public Label SixthDataLabel;

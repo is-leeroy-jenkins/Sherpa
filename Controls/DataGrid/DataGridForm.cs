@@ -73,8 +73,14 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     public partial class DataGridForm : MetroForm
     {
+        /// <summary>
+        /// The busy
+        /// </summary>
+        private bool _busy;
+
         /// <summary>
         /// The status update
         /// </summary>
@@ -248,6 +254,20 @@ namespace BudgetExecution
         /// </value>
         public DataArgs DataArgs { get; set; }
 
+        /// <summary>
+        /// Gets a value indicating whether this instance is busy.
+        /// </summary>
+        /// <value>
+        /// <c> true </c>
+        /// if this instance is busy; otherwise,
+        /// <c> false </c>
+        /// </value>
+        public bool IsBusy
+        {
+            get { return _busy; }
+            private set { _busy = value; }
+        }
+
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -275,7 +295,7 @@ namespace BudgetExecution
             MetroColor = Color.FromArgb( 20, 20, 20 );
             CaptionBarHeight = 5;
             CaptionAlign = HorizontalAlignment.Center;
-            CaptionFont = new Font( "Roboto", 11, FontStyle.Regular );
+            CaptionFont = new Font( "Roboto", 10, FontStyle.Regular );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionForeColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
@@ -595,6 +615,7 @@ namespace BudgetExecution
                 ExitButton.Click += null;
                 MenuButton.Click += null;
                 EditSqlButton.Click += null;
+                EditRecordButton.Click += null;
                 RefreshDataButton.Click += null;
                 RemoveFiltersButton.Click += null;
                 GroupButton.Click += null;
@@ -639,6 +660,22 @@ namespace BudgetExecution
         private void InitializeDelegates( )
         {
             _statusUpdate += UpdateStatusLabel;
+        }
+
+        /// <summary>
+        /// Begins the initialize.
+        /// </summary>
+        private void BeginInit( )
+        {
+            _busy = true;
+        }
+
+        /// <summary>
+        /// Ends the initialize.
+        /// </summary>
+        private void EndInit( )
+        {
+            _busy = false;
         }
 
         /// <summary>
@@ -1245,134 +1282,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the form icon.
-        /// </summary>
-        private void SetFormIcon( )
-        {
-            try
-            {
-                var _path = ConfigurationManager.AppSettings[ "Providers" ];
-                if( !string.IsNullOrEmpty( _path ) )
-                {
-                    var _files = Directory.GetFiles( _path );
-                    if( _files?.Any( ) == true )
-                    {
-                        var _extension = Provider.ToString( );
-                        var _file = _files
-                            ?.Where( f => f.Contains( _extension ) )
-                            ?.First( );
-
-                        if( !string.IsNullOrEmpty( _file )
-                           && File.Exists( _file ) )
-                        {
-                            var _img = Image.FromFile( _file );
-                            PictureBox.Image = _img;
-                        }
-                    }
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the icon.
-        /// </summary>
-        /// <param name="type">The type.</param>
-        private void SetIcon( ToolType type )
-        {
-            try
-            {
-                var _path = ConfigurationManager.AppSettings[ "Dialogs" ];
-                if( !string.IsNullOrEmpty( _path ) )
-                {
-                    var _files = Directory.GetFiles( _path );
-                    if( _files?.Any( ) == true )
-                    {
-                        switch( type )
-                        {
-                            case ToolType.EditTextButton:
-                            case ToolType.AddTableButton:
-                            case ToolType.DeleteTableButton:
-                            case ToolType.EditRecordButton:
-                            case ToolType.DeleteRecordButton:
-                            case ToolType.EditColumnButton:
-                            case ToolType.DeleteColumnButton:
-                            case ToolType.EditSqlButton:
-                            {
-                                var _tool = type.ToString( );
-                                var _file = _files
-                                    ?.Where( f => f.Contains( _tool ) )
-                                    ?.First( );
-
-                                if( !string.IsNullOrEmpty( _file )
-                                   && File.Exists( _file ) )
-                                {
-                                    var _img = Image.FromFile( _file );
-                                    PictureBox.Image = _img;
-                                }
-
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Resets the ListBox visibility.
-        /// </summary>
-        private void ResetListBoxVisibility( )
-        {
-            try
-            {
-                if( FirstTable?.Visible == false )
-                {
-                    FirstTable.Visible = true;
-                }
-
-                if( SecondTable?.Visible == true )
-                {
-                    SecondTable.Visible = false;
-                }
-
-                if( ThirdTable?.Visible == true )
-                {
-                    ThirdTable.Visible = false;
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Updates the status.
-        /// </summary>
-        private void UpdateStatusLabel( )
-        {
-            try
-            {
-                var _dateTime = DateTime.Now;
-                var _dateString = _dateTime.ToLongDateString( );
-                var _timeString = _dateTime.ToLongTimeString( );
-                StatusLabel.Text = _dateString + "  " + _timeString;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Binds the data.
         /// </summary>
         /// <param name="where">The where.</param>
@@ -1462,6 +1371,135 @@ namespace BudgetExecution
                 {
                     Fail( _ex );
                 }
+            }
+        }
+
+        /// <summary>
+        /// Sets the form icon.
+        /// </summary>
+        private void SetFormIcon( )
+        {
+            try
+            {
+                var _path = ConfigurationManager.AppSettings[ "Providers" ];
+                if( !string.IsNullOrEmpty( _path ) )
+                {
+                    var _files = Directory.GetFiles( _path );
+                    if( _files?.Any( ) == true )
+                    {
+                        var _extension = Provider.ToString( );
+                        var _file = _files
+                            ?.Where( f => f.Contains( _extension ) )
+                            ?.First( );
+
+                        if( !string.IsNullOrEmpty( _file )
+                           && File.Exists( _file ) )
+                        {
+                            var _img = Image.FromFile( _file );
+                            PictureBox.Image = _img;
+                        }
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the icon.
+        /// </summary>
+        /// <param name="type">The type.</param>
+        private void SetIcon( ToolType type )
+        {
+            try
+            {
+                var _path = ConfigurationManager.AppSettings[ "Dialogs" ];
+                if( !string.IsNullOrEmpty( _path ) )
+                {
+                    var _files = Directory.GetFiles( _path );
+                    if( _files?.Any( ) == true )
+                    {
+                        switch( type )
+                        {
+                            case ToolType.EditTextButton:
+                            case ToolType.AddTableButton:
+                            case ToolType.DeleteTableButton:
+                            case ToolType.EditRecordButton:
+                            case ToolType.DeleteRecordButton:
+                            case ToolType.EditColumnButton:
+                            case ToolType.DeleteColumnButton:
+                            case ToolType.EditSqlButton:
+                            case ToolType.EditButton:
+                            {
+                                var _tool = type.ToString( );
+                                var _file = _files
+                                    ?.Where( f => f.Contains( _tool ) )
+                                    ?.First( );
+
+                                if( !string.IsNullOrEmpty( _file )
+                                   && File.Exists( _file ) )
+                                {
+                                    var _img = Image.FromFile( _file );
+                                    PictureBox.Image = _img;
+                                }
+
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Resets the ListBox visibility.
+        /// </summary>
+        private void ResetListBoxVisibility( )
+        {
+            try
+            {
+                if( FirstTable?.Visible == false )
+                {
+                    FirstTable.Visible = true;
+                }
+
+                if( SecondTable?.Visible == true )
+                {
+                    SecondTable.Visible = false;
+                }
+
+                if( ThirdTable?.Visible == true )
+                {
+                    ThirdTable.Visible = false;
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Updates the status.
+        /// </summary>
+        private void UpdateStatusLabel( )
+        {
+            try
+            {
+                var _dateTime = DateTime.Now;
+                var _dateString = _dateTime.ToLongDateString( );
+                var _timeString = _dateTime.ToLongTimeString( );
+                StatusLabel.Text = _dateString + "  " + _timeString;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -2160,7 +2198,7 @@ namespace BudgetExecution
                 try
                 {
                     SetIcon( _button.ToolType );
-                    var _dialog = new EditDialog( _button.ToolType, BindingSource );
+                    var _dialog = new EditDialog( Source, Provider );
                     _dialog?.ShowDialog( this );
                     SetFormIcon( );
                 }

@@ -61,8 +61,14 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     public sealed partial class CalendarForm : MetroForm
     {
+        /// <summary>
+        /// The busy
+        /// </summary>
+        private bool _busy;
+
         /// <summary>
         /// Gets or sets the time.
         /// </summary>
@@ -158,6 +164,20 @@ namespace BudgetExecution
         /// The data arguments.
         /// </value>
         public DataArgs DataArgs { get; set; }
+
+        /// <summary>
+        /// Gets a value indicating whether this instance is busy.
+        /// </summary>
+        /// <value>
+        /// <c> true </c>
+        /// if this instance is busy; otherwise,
+        /// <c> false </c>
+        /// </value>
+        public bool IsBusy
+        {
+            get { return _busy; }
+            private set { _busy = value; }
+        }
 
         /// <inheritdoc />
         /// <summary>
@@ -325,11 +345,31 @@ namespace BudgetExecution
                 Chart.Series[ 0 ].SmartLabels = true;
                 Chart.Series[ 0 ].ConfigItems.PieItem.LabelStyle =
                     ChartAccumulationLabelStyle.Outside;
+
+                var _today = DateTime.Today;
+                var _start = new DateTime( _today.Year, 10, 1 );
+                BindChart( _start, _today );
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
             }
+        }
+
+        /// <summary>
+        /// Begins the initialize.
+        /// </summary>
+        private void BeginInit( )
+        {
+            _busy = true;
+        }
+
+        /// <summary>
+        /// Ends the initialize.
+        /// </summary>
+        private void EndInit( )
+        {
+            _busy = false;
         }
 
         /// <summary>

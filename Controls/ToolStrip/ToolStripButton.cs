@@ -259,6 +259,12 @@ namespace BudgetExecution
                         case ToolType.GuidanceButton:
                         case ToolType.PdfButton:
                         case ToolType.ClientButton:
+                        case ToolType.DeleteButton:
+                        case ToolType.EditButton:
+                        case ToolType.DataRowButton:
+                        case ToolType.CopyButton:
+                        case ToolType.AccountButton:
+                        case ToolType.AddRecordButton:
                         {
                             break;
                         }
@@ -279,17 +285,6 @@ namespace BudgetExecution
 
                             using var _excelForm = new ExcelDataForm( _excel );
                             _excelForm?.ShowDialog( );
-                            break;
-                        }
-                        case ToolType.DeleteButton:
-                        case ToolType.EditButton:
-                        case ToolType.DataRowButton:
-                        case ToolType.CopyButton:
-                        case ToolType.AccountButton:
-                        case ToolType.AddRecordButton:
-                        {
-                            var _dialog = new EditDialog( _button.ToolType, BindingSource );
-                            _dialog?.ShowDialog( );
                             break;
                         }
                         case ToolType.InsertButton:

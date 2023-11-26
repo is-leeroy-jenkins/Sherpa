@@ -52,7 +52,6 @@
             ToolStrip = new ToolStrip( );
             CloseButton = new ToolStripButton( );
             Separator1 = new ToolSeparator( );
-            ToolStripProgressBar = new System.Windows.Forms.ToolStripProgressBar( );
             Separator18 = new ToolSeparator( );
             StatusLabel = new ToolStripLabel( );
             Separator2 = new ToolSeparator( );
@@ -91,10 +90,6 @@
             Timer = new System.Windows.Forms.Timer( components );
             ToolStripTable = new System.Windows.Forms.TableLayoutPanel( );
             TabControl = new TabControl( );
-            Busy = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
-            headerPanel1 = new HeaderPanel( );
-            BusyPanel = new Layout( );
-            Loader = new System.Windows.Forms.PictureBox( );
             SqlTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             EditorTable = new HeaderPanel( );
             EditorPanel = new Layout( );
@@ -131,6 +126,10 @@
             SelectTableLabel = new Label( );
             TableNameComboBox = new ComboBox( );
             AddTableTextBox = new TextBox( );
+            Busy = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
+            headerPanel1 = new HeaderPanel( );
+            BusyPanel = new Layout( );
+            Loader = new System.Windows.Forms.PictureBox( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
             HeaderTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
@@ -143,10 +142,6 @@
             ToolStripTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)TabControl ).BeginInit( );
             TabControl.SuspendLayout( );
-            Busy.SuspendLayout( );
-            headerPanel1.SuspendLayout( );
-            BusyPanel.SuspendLayout( );
-            ( (System.ComponentModel.ISupportInitialize)Loader ).BeginInit( );
             SqlTab.SuspendLayout( );
             EditorTable.SuspendLayout( );
             EditorPanel.SuspendLayout( );
@@ -168,6 +163,10 @@
             SchemaPanel.SuspendLayout( );
             headerPanel2.SuspendLayout( );
             layout1.SuspendLayout( );
+            Busy.SuspendLayout( );
+            headerPanel1.SuspendLayout( );
+            BusyPanel.SuspendLayout( );
+            ( (System.ComponentModel.ISupportInitialize)Loader ).BeginInit( );
             SuspendLayout( );
             // 
             // ToolTip
@@ -471,7 +470,7 @@
             ToolStrip.Image = null;
             ToolStrip.ImageDirectory = null;
             ToolStrip.ImageSize = new System.Drawing.Size( 0, 0 );
-            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { CloseButton, Separator1, ToolStripProgressBar, Separator18, StatusLabel, Separator2, FirstButton, Separator3, PreviousButton, Separator4, NextButton, Separator5, LastButton, Separator6, DataLabel, Separator7, GoButton, Separator8, RefreshButton, Separator9, EditSqlButton, Separator11, EditDataButton, Separator12, TableButton, TableSeparator, LookupButton, Separator13, SaveButton, Separator14, FileSystemLabel, Separator15, ClientButton, ClientSeparator, BrowserButton, Separator16, HomeButton, Separator17 } );
+            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { CloseButton, Separator18, StatusLabel, Separator2, FirstButton, Separator3, PreviousButton, Separator4, NextButton, Separator5, LastButton, Separator6, DataLabel, Separator7, GoButton, Separator8, RefreshButton, Separator9, EditSqlButton, Separator11, EditDataButton, Separator12, TableButton, TableSeparator, LookupButton, Separator13, SaveButton, Separator14, FileSystemLabel, Separator15, ClientButton, ClientSeparator, BrowserButton, Separator16, HomeButton, Separator17 } );
             ToolStrip.LastButton = null;
             ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
             ToolStrip.Location = new System.Drawing.Point( 1, 1 );
@@ -532,13 +531,6 @@
             Separator1.Name = "Separator1";
             Separator1.Padding = new System.Windows.Forms.Padding( 1 );
             Separator1.Size = new System.Drawing.Size( 6, 25 );
-            // 
-            // ToolStripProgressBar
-            // 
-            ToolStripProgressBar.Margin = new System.Windows.Forms.Padding( 5, 2, 5, 1 );
-            ToolStripProgressBar.Name = "ToolStripProgressBar";
-            ToolStripProgressBar.Size = new System.Drawing.Size( 200, 24 );
-            ToolStripProgressBar.Value = 50;
             // 
             // Separator18
             // 
@@ -1084,73 +1076,6 @@
             TabControl.ThemeStyle.TabStyle.ActiveForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             TabControl.ThemeStyle.TabStyle.SeparatorColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.ToolTip = null;
-            // 
-            // Busy
-            // 
-            Busy.Controls.Add( headerPanel1 );
-            Busy.Image = null;
-            Busy.ImageSize = new System.Drawing.Size( 16, 16 );
-            Busy.Location = new System.Drawing.Point( 0, 21 );
-            Busy.Name = "Busy";
-            Busy.ShowCloseButton = true;
-            Busy.Size = new System.Drawing.Size( 911, 582 );
-            Busy.TabIndex = 2;
-            Busy.ThemesEnabled = false;
-            // 
-            // headerPanel1
-            // 
-            headerPanel1.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            headerPanel1.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
-            headerPanel1.CaptionText = "SQL Editor";
-            headerPanel1.ColumnCount = 1;
-            headerPanel1.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            headerPanel1.Controls.Add( BusyPanel, 0, 1 );
-            headerPanel1.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            headerPanel1.ForeColor = System.Drawing.Color.DarkGray;
-            headerPanel1.Location = new System.Drawing.Point( 7, 8 );
-            headerPanel1.Name = "headerPanel1";
-            headerPanel1.RowCount = 2;
-            headerPanel1.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 1.44665456F ) );
-            headerPanel1.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 98.5533447F ) );
-            headerPanel1.Size = new System.Drawing.Size( 896, 561 );
-            headerPanel1.TabIndex = 7;
-            // 
-            // BusyPanel
-            // 
-            BusyPanel.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
-            BusyPanel.BackColor = System.Drawing.Color.Transparent;
-            BusyPanel.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            BusyPanel.BindingSource = null;
-            BusyPanel.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
-            BusyPanel.BorderThickness = 1;
-            BusyPanel.Children = null;
-            BusyPanel.Controls.Add( Loader );
-            BusyPanel.DataFilter = null;
-            BusyPanel.Font = new System.Drawing.Font( "Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            BusyPanel.ForeColor = System.Drawing.Color.Transparent;
-            BusyPanel.HoverText = null;
-            BusyPanel.IsDerivedStyle = true;
-            BusyPanel.Location = new System.Drawing.Point( 3, 26 );
-            BusyPanel.Name = "BusyPanel";
-            BusyPanel.Padding = new System.Windows.Forms.Padding( 1 );
-            BusyPanel.Size = new System.Drawing.Size( 890, 532 );
-            BusyPanel.Style = MetroSet_UI.Enums.Style.Custom;
-            BusyPanel.StyleManager = null;
-            BusyPanel.TabIndex = 0;
-            BusyPanel.ThemeAuthor = "Terry D. Eppler";
-            BusyPanel.ThemeName = "BudgetExecution";
-            BusyPanel.ToolTip = null;
-            // 
-            // Loader
-            // 
-            Loader.Dock = System.Windows.Forms.DockStyle.Fill;
-            Loader.Image = Resources.Images.Loading;
-            Loader.Location = new System.Drawing.Point( 1, 1 );
-            Loader.Name = "Loader";
-            Loader.Size = new System.Drawing.Size( 888, 530 );
-            Loader.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            Loader.TabIndex = 0;
-            Loader.TabStop = false;
             // 
             // SqlTab
             // 
@@ -2146,6 +2071,73 @@
             AddTableTextBox.UseSystemPasswordChar = false;
             AddTableTextBox.WatermarkText = "";
             // 
+            // Busy
+            // 
+            Busy.Controls.Add( headerPanel1 );
+            Busy.Image = null;
+            Busy.ImageSize = new System.Drawing.Size( 16, 16 );
+            Busy.Location = new System.Drawing.Point( 0, 21 );
+            Busy.Name = "Busy";
+            Busy.ShowCloseButton = true;
+            Busy.Size = new System.Drawing.Size( 911, 582 );
+            Busy.TabIndex = 2;
+            Busy.ThemesEnabled = false;
+            // 
+            // headerPanel1
+            // 
+            headerPanel1.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            headerPanel1.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
+            headerPanel1.CaptionText = "SQL Editor";
+            headerPanel1.ColumnCount = 1;
+            headerPanel1.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+            headerPanel1.Controls.Add( BusyPanel, 0, 1 );
+            headerPanel1.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            headerPanel1.ForeColor = System.Drawing.Color.DarkGray;
+            headerPanel1.Location = new System.Drawing.Point( 7, 8 );
+            headerPanel1.Name = "headerPanel1";
+            headerPanel1.RowCount = 2;
+            headerPanel1.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 1.44665456F ) );
+            headerPanel1.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 98.5533447F ) );
+            headerPanel1.Size = new System.Drawing.Size( 896, 561 );
+            headerPanel1.TabIndex = 7;
+            // 
+            // BusyPanel
+            // 
+            BusyPanel.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            BusyPanel.BackColor = System.Drawing.Color.Transparent;
+            BusyPanel.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            BusyPanel.BindingSource = null;
+            BusyPanel.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
+            BusyPanel.BorderThickness = 1;
+            BusyPanel.Children = null;
+            BusyPanel.Controls.Add( Loader );
+            BusyPanel.DataFilter = null;
+            BusyPanel.Font = new System.Drawing.Font( "Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            BusyPanel.ForeColor = System.Drawing.Color.Transparent;
+            BusyPanel.HoverText = null;
+            BusyPanel.IsDerivedStyle = true;
+            BusyPanel.Location = new System.Drawing.Point( 3, 26 );
+            BusyPanel.Name = "BusyPanel";
+            BusyPanel.Padding = new System.Windows.Forms.Padding( 1 );
+            BusyPanel.Size = new System.Drawing.Size( 890, 532 );
+            BusyPanel.Style = MetroSet_UI.Enums.Style.Custom;
+            BusyPanel.StyleManager = null;
+            BusyPanel.TabIndex = 0;
+            BusyPanel.ThemeAuthor = "Terry D. Eppler";
+            BusyPanel.ThemeName = "BudgetExecution";
+            BusyPanel.ToolTip = null;
+            // 
+            // Loader
+            // 
+            Loader.Dock = System.Windows.Forms.DockStyle.Fill;
+            Loader.Image = Resources.Images.Loading;
+            Loader.Location = new System.Drawing.Point( 1, 1 );
+            Loader.Name = "Loader";
+            Loader.Size = new System.Drawing.Size( 888, 530 );
+            Loader.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            Loader.TabIndex = 0;
+            Loader.TabStop = false;
+            // 
             // SqlEditor
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
@@ -2191,10 +2183,6 @@
             ToolStripTable.PerformLayout( );
             ( (System.ComponentModel.ISupportInitialize)TabControl ).EndInit( );
             TabControl.ResumeLayout( false );
-            Busy.ResumeLayout( false );
-            headerPanel1.ResumeLayout( false );
-            BusyPanel.ResumeLayout( false );
-            ( (System.ComponentModel.ISupportInitialize)Loader ).EndInit( );
             SqlTab.ResumeLayout( false );
             EditorTable.ResumeLayout( false );
             EditorPanel.ResumeLayout( false );
@@ -2216,6 +2204,10 @@
             SchemaPanel.ResumeLayout( false );
             headerPanel2.ResumeLayout( false );
             layout1.ResumeLayout( false );
+            Busy.ResumeLayout( false );
+            headerPanel1.ResumeLayout( false );
+            BusyPanel.ResumeLayout( false );
+            ( (System.ComponentModel.ISupportInitialize)Loader ).EndInit( );
             ResumeLayout( false );
         }
 
@@ -2272,7 +2264,6 @@
         public ToolStripButton HomeButton;
         public ToolSeparator Separator17;
         public System.Windows.Forms.Timer Timer;
-        public System.Windows.Forms.ToolStripProgressBar ToolStripProgressBar;
         public ToolSeparator Separator18;
         public System.Windows.Forms.TableLayoutPanel ToolStripTable;
         public TabControl TabControl;

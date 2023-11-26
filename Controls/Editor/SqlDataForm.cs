@@ -41,8 +41,6 @@
 //  </summary>
 //  ******************************************************************************************
 
-using Syncfusion.Drawing;
-
 namespace BudgetExecution
 {
     using System;
@@ -53,6 +51,7 @@ namespace BudgetExecution
     using System.IO;
     using System.Linq;
     using System.Windows.Forms;
+    using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Edit;
     using Syncfusion.Windows.Forms.Tools;
@@ -60,7 +59,12 @@ namespace BudgetExecution
     using static System.IO.Directory;
     using static System.IO.Path;
     using CheckState = MetroSet_UI.Enums.CheckState;
+    using Color = System.Drawing.Color;
+    using Font = System.Drawing.Font;
+    using FontStyle = System.Drawing.FontStyle;
     using Image = System.Drawing.Image;
+    using Size = System.Drawing.Size;
+    using SystemColors = System.Drawing.SystemColors;
 
     /// <inheritdoc />
     /// <summary> </summary>
@@ -70,8 +74,15 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     public partial class SqlDataForm : EditBase
     {
+        /// <summary>
+        /// The busy
+        /// </summary>
+        private bool _busy;
+
         /// <summary>
         /// The status update
         /// </summary>
@@ -188,6 +199,20 @@ namespace BudgetExecution
         /// The statements.
         /// </value>
         public IDictionary<string, object> Statements { get; set; }
+
+        /// <summary>
+        /// Gets a value indicating whether this instance is busy.
+        /// </summary>
+        /// <value>
+        /// <c> true </c>
+        /// if this instance is busy; otherwise,
+        /// <c> false </c>
+        /// </value>
+        public bool IsBusy
+        {
+            get { return _busy; }
+            private set { _busy = value; }
+        }
 
         /// <summary>
         /// Initializes a new instance of the
@@ -615,6 +640,22 @@ namespace BudgetExecution
             {
                 Fail( _ex );
             }
+        }
+
+        /// <summary>
+        /// Begins the initialize.
+        /// </summary>
+        private void BeginInit( )
+        {
+            _busy = true;
+        }
+
+        /// <summary>
+        /// Ends the initialize.
+        /// </summary>
+        private void EndInit( )
+        {
+            _busy = false;
         }
 
         /// <summary>

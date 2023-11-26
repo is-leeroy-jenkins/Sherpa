@@ -65,6 +65,11 @@ namespace BudgetExecution
     public partial class BudgetForm : MetroForm
     {
         /// <summary>
+        /// The busy
+        /// </summary>
+        private bool _busy;
+
+        /// <summary>
         /// The status update
         /// </summary>
         private Action _statusUpdate;
@@ -157,6 +162,20 @@ namespace BudgetExecution
         /// </value>
         public DataArgs DataArgs { get; set; }
 
+        /// <summary>
+        /// Gets a value indicating whether this instance is busy.
+        /// </summary>
+        /// <value>
+        /// <c> true </c>
+        /// if this instance is busy; otherwise,
+        /// <c> false </c>
+        /// </value>
+        public bool IsBusy
+        {
+            get { return _busy; }
+            private set { _busy = value; }
+        }
+
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
@@ -200,6 +219,22 @@ namespace BudgetExecution
 
             // Wire Events
             Load += OnLoad;
+        }
+
+        /// <summary>
+        /// Begins the initialize.
+        /// </summary>
+        private void BeginInit( )
+        {
+            _busy = true;
+        }
+
+        /// <summary>
+        /// Ends the initialize.
+        /// </summary>
+        private void EndInit( )
+        {
+            _busy = false;
         }
 
         /// <summary>

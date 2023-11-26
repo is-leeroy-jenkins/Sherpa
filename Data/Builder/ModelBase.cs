@@ -54,12 +54,13 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ArrangeAccessorOwnerBody" ) ]
     public abstract class ModelBase : DataAccess
     {
-        /// <summary> Gets a value indicating whether this instance is busy. </summary>
+        /// <summary>
+        /// Gets a value indicating whether this instance is busy.
+        /// </summary>
         /// <value>
         /// <c> true </c>
         /// if this instance is busy; otherwise,
         /// <c> false </c>
-        /// .
         /// </value>
         public bool IsBusy
         {
@@ -67,13 +68,17 @@ namespace BudgetExecution
             private set { _busy = value; }
         }
 
-        /// <summary> Begins the initialize. </summary>
+        /// <summary>
+        /// Begins the initialize.
+        /// </summary>
         private protected void BeginInit( )
         {
             _busy = true;
         }
 
-        /// <summary> Ends the initialize. </summary>
+        /// <summary>
+        /// Ends the initialize.
+        /// </summary>
         private protected void EndInit( )
         {
             _busy = false;
@@ -148,7 +153,7 @@ namespace BudgetExecution
 
         /// <summary> Gets the data columns. </summary>
         /// <returns> </returns>
-        private protected IEnumerable<DataColumn> GetDataColumns( )
+        private protected IList<DataColumn> GetDataColumns( )
         {
             try
             {
@@ -172,18 +177,18 @@ namespace BudgetExecution
 
                 return _list?.Any( ) == true
                     ? _list
-                    : default( IEnumerable<DataColumn> );
+                    : default( IList<DataColumn> );
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return default( IEnumerable<DataColumn> );
+                return default( IList<DataColumn> );
             }
         }
 
         /// <summary> Gets the column names. </summary>
         /// <returns> </returns>
-        private protected IEnumerable<string> GetColumnNames( )
+        private protected IList<string> GetColumnNames( )
         {
             try
             {
@@ -206,17 +211,17 @@ namespace BudgetExecution
 
                     return _list?.Any( ) == true
                         ? _list
-                        : default( IEnumerable<string> );
+                        : default( IList<string> );
                 }
                 else
                 {
-                    return default( IEnumerable<string> );
+                    return default( IList<string> );
                 }
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return default( IEnumerable<string> );
+                return default( IList<string> );
             }
         }
     }

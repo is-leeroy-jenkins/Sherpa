@@ -67,26 +67,18 @@ namespace BudgetExecution
         public void InitializeComponent( )
         {
             components = new System.ComponentModel.Container( );
-            var config1 = new Syncfusion.Windows.Forms.Edit.Implementation.Config.Config( );
             var dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle( );
             var dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle( );
             var dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle( );
             var dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle( );
             var dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle( );
+            var config1 = new Syncfusion.Windows.Forms.Edit.Implementation.Config.Config( );
             var resources = new System.ComponentModel.ComponentResourceManager( typeof( SqlDataForm ) );
             HeaderTable = new System.Windows.Forms.TableLayoutPanel( );
             PictureBox = new Picture( );
             Title = new Label( );
             ToolTip = new SmallTip( );
             TabControl = new Syncfusion.Windows.Forms.Tools.TabControlAdv( );
-            SqlTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
-            EditorTable = new HeaderPanel( );
-            EditorPanel = new Layout( );
-            Editor = new Editor( );
-            DataTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
-            DataGridTable = new HeaderPanel( );
-            DataGridPanel = new Layout( );
-            DataGrid = new DataGrid( );
             LookupTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             ColumnTable = new HeaderPanel( );
             ColumnPanel = new Layout( );
@@ -97,6 +89,10 @@ namespace BudgetExecution
             SourceTable = new HeaderPanel( );
             TablePanel = new Layout( );
             TableListBox = new ListBox( );
+            DataTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
+            DataGridTable = new HeaderPanel( );
+            DataGridPanel = new Layout( );
+            DataGrid = new DataGrid( );
             SchemaTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             SchemaHeaderPanel = new HeaderPanel( );
             SchemaTable = new HeaderPanel( );
@@ -115,6 +111,10 @@ namespace BudgetExecution
             SelectTableLabel = new Label( );
             TableNameComboBox = new ComboBox( );
             AddTableTextBox = new TextBox( );
+            SqlTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
+            EditorTable = new HeaderPanel( );
+            EditorPanel = new Layout( );
+            Editor = new Editor( );
             Busy = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             BusyHeaderPanel = new HeaderPanel( );
             BusyPanel = new Layout( );
@@ -137,7 +137,6 @@ namespace BudgetExecution
             ToolStrip = new ToolStrip( );
             CloseButton = new ToolStripButton( );
             FirstSeparator = new ToolSeparator( );
-            ProgressBar = new System.Windows.Forms.ToolStripProgressBar( );
             Separator1 = new ToolSeparator( );
             StatusLabel = new ToolStripLabel( );
             Separator2 = new ToolSeparator( );
@@ -182,14 +181,6 @@ namespace BudgetExecution
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
             ( (System.ComponentModel.ISupportInitialize)TabControl ).BeginInit( );
             TabControl.SuspendLayout( );
-            SqlTab.SuspendLayout( );
-            EditorTable.SuspendLayout( );
-            EditorPanel.SuspendLayout( );
-            ( (System.ComponentModel.ISupportInitialize)Editor ).BeginInit( );
-            DataTab.SuspendLayout( );
-            DataGridTable.SuspendLayout( );
-            DataGridPanel.SuspendLayout( );
-            ( (System.ComponentModel.ISupportInitialize)DataGrid ).BeginInit( );
             LookupTab.SuspendLayout( );
             ColumnTable.SuspendLayout( );
             ColumnPanel.SuspendLayout( );
@@ -197,12 +188,20 @@ namespace BudgetExecution
             ValuePanel.SuspendLayout( );
             SourceTable.SuspendLayout( );
             TablePanel.SuspendLayout( );
+            DataTab.SuspendLayout( );
+            DataGridTable.SuspendLayout( );
+            DataGridPanel.SuspendLayout( );
+            ( (System.ComponentModel.ISupportInitialize)DataGrid ).BeginInit( );
             SchemaTab.SuspendLayout( );
             SchemaHeaderPanel.SuspendLayout( );
             SchemaTable.SuspendLayout( );
             SchemaPanel.SuspendLayout( );
             headerPanel1.SuspendLayout( );
             layout1.SuspendLayout( );
+            SqlTab.SuspendLayout( );
+            EditorTable.SuspendLayout( );
+            EditorPanel.SuspendLayout( );
+            ( (System.ComponentModel.ISupportInitialize)Editor ).BeginInit( );
             Busy.SuspendLayout( );
             BusyHeaderPanel.SuspendLayout( );
             BusyPanel.SuspendLayout( );
@@ -335,249 +334,6 @@ namespace BudgetExecution
             TabControl.ThemeStyle.TabStyle.ActiveCloseButtonForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.ThemeStyle.TabStyle.ActiveForeColor = System.Drawing.Color.White;
             TabControl.ThemeStyle.TabStyle.InactiveBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            // 
-            // SqlTab
-            // 
-            SqlTab.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            SqlTab.Controls.Add( EditorTable );
-            SqlTab.Image = null;
-            SqlTab.ImageSize = new System.Drawing.Size( 16, 16 );
-            SqlTab.Location = new System.Drawing.Point( 0, 4 );
-            SqlTab.Margin = new System.Windows.Forms.Padding( 1 );
-            SqlTab.Name = "SqlTab";
-            SqlTab.Padding = new System.Windows.Forms.Padding( 1 );
-            SqlTab.ShowCloseButton = true;
-            SqlTab.Size = new System.Drawing.Size( 951, 583 );
-            SqlTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            SqlTab.TabForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            SqlTab.TabIndex = 8;
-            SqlTab.ThemesEnabled = false;
-            // 
-            // EditorTable
-            // 
-            EditorTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            EditorTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
-            EditorTable.CaptionText = "SQL Editor";
-            EditorTable.ColumnCount = 1;
-            EditorTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            EditorTable.Controls.Add( EditorPanel, 0, 1 );
-            EditorTable.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            EditorTable.ForeColor = System.Drawing.Color.DarkGray;
-            EditorTable.Location = new System.Drawing.Point( 32, 22 );
-            EditorTable.Name = "EditorTable";
-            EditorTable.RowCount = 2;
-            EditorTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 2.15264177F ) );
-            EditorTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 97.84736F ) );
-            EditorTable.Size = new System.Drawing.Size( 919, 561 );
-            EditorTable.TabIndex = 5;
-            // 
-            // EditorPanel
-            // 
-            EditorPanel.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
-            EditorPanel.BackColor = System.Drawing.Color.Transparent;
-            EditorPanel.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            EditorPanel.BindingSource = null;
-            EditorPanel.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
-            EditorPanel.BorderThickness = 1;
-            EditorPanel.Children = null;
-            EditorPanel.Controls.Add( Editor );
-            EditorPanel.DataFilter = null;
-            EditorPanel.Font = new System.Drawing.Font( "Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            EditorPanel.ForeColor = System.Drawing.Color.Transparent;
-            EditorPanel.HoverText = null;
-            EditorPanel.IsDerivedStyle = true;
-            EditorPanel.Location = new System.Drawing.Point( 3, 30 );
-            EditorPanel.Name = "EditorPanel";
-            EditorPanel.Padding = new System.Windows.Forms.Padding( 1 );
-            EditorPanel.Size = new System.Drawing.Size( 913, 528 );
-            EditorPanel.Style = MetroSet_UI.Enums.Style.Custom;
-            EditorPanel.StyleManager = null;
-            EditorPanel.TabIndex = 0;
-            EditorPanel.ThemeAuthor = "Terry D. Eppler";
-            EditorPanel.ThemeName = "BudgetExecution";
-            EditorPanel.ToolTip = null;
-            // 
-            // Editor
-            // 
-            Editor.AllowZoom = false;
-            Editor.AlwaysShowScrollers = true;
-            Editor.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
-            Editor.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            Editor.BackColor = System.Drawing.SystemColors.ControlLight;
-            Editor.BookmarkTooltipBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            Editor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            Editor.CanOverrideStyle = true;
-            Editor.ChangedLinesMarkingLineColor = System.Drawing.Color.FromArgb( 255, 238, 98 );
-            Editor.CodeSnipptSize = new System.Drawing.Size( 100, 100 );
-            Editor.ColumnGuidesMeasuringFont = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            Editor.Configurator = config1;
-            Editor.ContextChoiceBackColor = System.Drawing.SystemColors.ControlLight;
-            Editor.ContextChoiceBorderColor = System.Drawing.Color.FromArgb( 233, 166, 50 );
-            Editor.ContextPromptBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            Editor.ContextTooltipBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            Editor.CurrentLineHighlightColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            Editor.EndOfLineBackColor = System.Drawing.SystemColors.ControlLight;
-            Editor.EndOfLineForeColor = System.Drawing.SystemColors.ControlLight;
-            Editor.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            Editor.ForeColor = System.Drawing.Color.Black;
-            Editor.HighlightCurrentLine = true;
-            Editor.IndentationBlockBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            Editor.IndentBlockHighlightingColor = System.Drawing.SystemColors.ActiveCaption;
-            Editor.IndentLineColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            Editor.IndicatorMarginBackColor = System.Drawing.SystemColors.ControlLight;
-            Editor.LineNumbersColor = System.Drawing.Color.Black;
-            Editor.LineNumbersFont = new System.Drawing.Font( "Hack", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point );
-            Editor.Location = new System.Drawing.Point( 17, 15 );
-            Editor.Name = "Editor";
-            Editor.RenderRightToLeft = false;
-            Editor.ScrollColorScheme = Syncfusion.Windows.Forms.Office2007ColorScheme.Black;
-            Editor.ScrollPosition = new System.Drawing.Point( 0, 0 );
-            Editor.ScrollVisualStyle = Syncfusion.Windows.Forms.ScrollBarCustomDrawStyles.Office2016;
-            Editor.SelectionMarginBackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            Editor.SelectionTextColor = System.Drawing.Color.White;
-            Editor.ShowEndOfLine = false;
-            Editor.Size = new System.Drawing.Size( 880, 496 );
-            Editor.StatusBarSettings.CoordsPanel.Width = 150;
-            Editor.StatusBarSettings.EncodingPanel.Width = 100;
-            Editor.StatusBarSettings.FileNamePanel.Width = 100;
-            Editor.StatusBarSettings.InsertPanel.Width = 33;
-            Editor.StatusBarSettings.Offcie2007ColorScheme = Syncfusion.Windows.Forms.Office2007Theme.Blue;
-            Editor.StatusBarSettings.Offcie2010ColorScheme = Syncfusion.Windows.Forms.Office2010Theme.Blue;
-            Editor.StatusBarSettings.StatusPanel.Width = 70;
-            Editor.StatusBarSettings.TextPanel.Width = 214;
-            Editor.StatusBarSettings.VisualStyle = Syncfusion.Windows.Forms.Tools.Controls.StatusBar.VisualStyle.Office2016Black;
-            Editor.Style = Syncfusion.Windows.Forms.Edit.EditControlStyle.Office2016Black;
-            Editor.TabIndex = 0;
-            Editor.TabSize = 4;
-            Editor.Text = "";
-            Editor.TextAreaWidth = 400;
-            Editor.ThemeName = "Office2016Black";
-            Editor.UserMarginTextColor = System.Drawing.Color.DimGray;
-            Editor.UseXPStyle = false;
-            Editor.UseXPStyleBorder = true;
-            Editor.VisualColumn = 1;
-            Editor.VScrollMode = Syncfusion.Windows.Forms.Edit.ScrollMode.Immediate;
-            Editor.WordWrap = true;
-            Editor.WordWrapColumn = 80;
-            Editor.ZoomFactor = 1F;
-            // 
-            // DataTab
-            // 
-            DataTab.Controls.Add( DataGridTable );
-            DataTab.Image = null;
-            DataTab.ImageSize = new System.Drawing.Size( 16, 16 );
-            DataTab.Location = new System.Drawing.Point( 0, 4 );
-            DataTab.Name = "DataTab";
-            DataTab.ShowCloseButton = true;
-            DataTab.Size = new System.Drawing.Size( 951, 583 );
-            DataTab.TabIndex = 9;
-            DataTab.ThemesEnabled = false;
-            // 
-            // DataGridTable
-            // 
-            DataGridTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            DataGridTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
-            DataGridTable.CaptionText = "Data Grid";
-            DataGridTable.ColumnCount = 1;
-            DataGridTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            DataGridTable.Controls.Add( DataGridPanel, 0, 1 );
-            DataGridTable.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            DataGridTable.ForeColor = System.Drawing.Color.DarkGray;
-            DataGridTable.Location = new System.Drawing.Point( 38, 22 );
-            DataGridTable.Name = "DataGridTable";
-            DataGridTable.RowCount = 2;
-            DataGridTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 1.4678899F ) );
-            DataGridTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 98.53211F ) );
-            DataGridTable.Size = new System.Drawing.Size( 908, 561 );
-            DataGridTable.TabIndex = 39;
-            // 
-            // DataGridPanel
-            // 
-            DataGridPanel.BackColor = System.Drawing.Color.Transparent;
-            DataGridPanel.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            DataGridPanel.BindingSource = null;
-            DataGridPanel.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
-            DataGridPanel.BorderThickness = 1;
-            DataGridPanel.Children = null;
-            DataGridPanel.Controls.Add( DataGrid );
-            DataGridPanel.DataFilter = null;
-            DataGridPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            DataGridPanel.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            DataGridPanel.ForeColor = System.Drawing.Color.Transparent;
-            DataGridPanel.HoverText = null;
-            DataGridPanel.IsDerivedStyle = true;
-            DataGridPanel.Location = new System.Drawing.Point( 3, 27 );
-            DataGridPanel.Name = "DataGridPanel";
-            DataGridPanel.Padding = new System.Windows.Forms.Padding( 1 );
-            DataGridPanel.Size = new System.Drawing.Size( 902, 531 );
-            DataGridPanel.Style = MetroSet_UI.Enums.Style.Custom;
-            DataGridPanel.StyleManager = null;
-            DataGridPanel.TabIndex = 47;
-            DataGridPanel.ThemeAuthor = "Terry D. Eppler";
-            DataGridPanel.ThemeName = "Budget Execution";
-            DataGridPanel.ToolTip = null;
-            // 
-            // DataGrid
-            // 
-            DataGrid.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb( 50, 50, 50 );
-            dataGridViewCellStyle1.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb( 26, 79, 125 );
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            DataGrid.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
-            DataGrid.BackgroundColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            DataGrid.BindingSource = null;
-            DataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            DataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            DataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb( 26, 79, 125 );
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DataGrid.DataFilter = null;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            dataGridViewCellStyle3.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb( 26, 79, 125 );
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            DataGrid.DefaultCellStyle = dataGridViewCellStyle3;
-            DataGrid.EnableHeadersVisualStyles = false;
-            DataGrid.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            DataGrid.GridColor = System.Drawing.Color.FromArgb( 141, 139, 138 );
-            DataGrid.HoverText = null;
-            DataGrid.Location = new System.Drawing.Point( 11, 19 );
-            DataGrid.MultiSelect = false;
-            DataGrid.Name = "DataGrid";
-            DataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb( 50, 50, 50 );
-            dataGridViewCellStyle4.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            DataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            DataGrid.RowHeadersWidth = 20;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            dataGridViewCellStyle5.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb( 26, 79, 125 );
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            DataGrid.RowsDefaultCellStyle = dataGridViewCellStyle5;
-            DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            DataGrid.Size = new System.Drawing.Size( 880, 496 );
-            DataGrid.TabIndex = 0;
-            DataGrid.ToolTip = null;
             // 
             // LookupTab
             // 
@@ -835,6 +591,124 @@ namespace BudgetExecution
             TableListBox.ThemeAuthor = "Terry D. Eppler";
             TableListBox.ThemeName = "BudgetExecution";
             TableListBox.ToolTip = ToolTip;
+            // 
+            // DataTab
+            // 
+            DataTab.Controls.Add( DataGridTable );
+            DataTab.Image = null;
+            DataTab.ImageSize = new System.Drawing.Size( 16, 16 );
+            DataTab.Location = new System.Drawing.Point( 0, 4 );
+            DataTab.Name = "DataTab";
+            DataTab.ShowCloseButton = true;
+            DataTab.Size = new System.Drawing.Size( 951, 583 );
+            DataTab.TabIndex = 9;
+            DataTab.ThemesEnabled = false;
+            // 
+            // DataGridTable
+            // 
+            DataGridTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            DataGridTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
+            DataGridTable.CaptionText = "Data Grid";
+            DataGridTable.ColumnCount = 1;
+            DataGridTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+            DataGridTable.Controls.Add( DataGridPanel, 0, 1 );
+            DataGridTable.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            DataGridTable.ForeColor = System.Drawing.Color.DarkGray;
+            DataGridTable.Location = new System.Drawing.Point( 38, 22 );
+            DataGridTable.Name = "DataGridTable";
+            DataGridTable.RowCount = 2;
+            DataGridTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 1.4678899F ) );
+            DataGridTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 98.53211F ) );
+            DataGridTable.Size = new System.Drawing.Size( 908, 561 );
+            DataGridTable.TabIndex = 39;
+            // 
+            // DataGridPanel
+            // 
+            DataGridPanel.BackColor = System.Drawing.Color.Transparent;
+            DataGridPanel.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            DataGridPanel.BindingSource = null;
+            DataGridPanel.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
+            DataGridPanel.BorderThickness = 1;
+            DataGridPanel.Children = null;
+            DataGridPanel.Controls.Add( DataGrid );
+            DataGridPanel.DataFilter = null;
+            DataGridPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            DataGridPanel.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            DataGridPanel.ForeColor = System.Drawing.Color.Transparent;
+            DataGridPanel.HoverText = null;
+            DataGridPanel.IsDerivedStyle = true;
+            DataGridPanel.Location = new System.Drawing.Point( 3, 27 );
+            DataGridPanel.Name = "DataGridPanel";
+            DataGridPanel.Padding = new System.Windows.Forms.Padding( 1 );
+            DataGridPanel.Size = new System.Drawing.Size( 902, 531 );
+            DataGridPanel.Style = MetroSet_UI.Enums.Style.Custom;
+            DataGridPanel.StyleManager = null;
+            DataGridPanel.TabIndex = 47;
+            DataGridPanel.ThemeAuthor = "Terry D. Eppler";
+            DataGridPanel.ThemeName = "Budget Execution";
+            DataGridPanel.ToolTip = null;
+            // 
+            // DataGrid
+            // 
+            DataGrid.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb( 50, 50, 50 );
+            dataGridViewCellStyle1.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb( 26, 79, 125 );
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            DataGrid.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            DataGrid.BackgroundColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            DataGrid.BindingSource = null;
+            DataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            DataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            DataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb( 26, 79, 125 );
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DataGrid.DataFilter = null;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            dataGridViewCellStyle3.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb( 26, 79, 125 );
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            DataGrid.DefaultCellStyle = dataGridViewCellStyle3;
+            DataGrid.EnableHeadersVisualStyles = false;
+            DataGrid.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            DataGrid.GridColor = System.Drawing.Color.FromArgb( 141, 139, 138 );
+            DataGrid.HoverText = null;
+            DataGrid.Location = new System.Drawing.Point( 11, 19 );
+            DataGrid.MultiSelect = false;
+            DataGrid.Name = "DataGrid";
+            DataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb( 50, 50, 50 );
+            dataGridViewCellStyle4.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            DataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            DataGrid.RowHeadersWidth = 20;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            dataGridViewCellStyle5.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb( 26, 79, 125 );
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            DataGrid.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            DataGrid.Size = new System.Drawing.Size( 880, 496 );
+            DataGrid.TabIndex = 0;
+            DataGrid.ToolTip = null;
             // 
             // SchemaTab
             // 
@@ -1337,6 +1211,131 @@ namespace BudgetExecution
             AddTableTextBox.UseSystemPasswordChar = false;
             AddTableTextBox.WatermarkText = "";
             // 
+            // SqlTab
+            // 
+            SqlTab.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            SqlTab.Controls.Add( EditorTable );
+            SqlTab.Image = null;
+            SqlTab.ImageSize = new System.Drawing.Size( 16, 16 );
+            SqlTab.Location = new System.Drawing.Point( 0, 4 );
+            SqlTab.Margin = new System.Windows.Forms.Padding( 1 );
+            SqlTab.Name = "SqlTab";
+            SqlTab.Padding = new System.Windows.Forms.Padding( 1 );
+            SqlTab.ShowCloseButton = true;
+            SqlTab.Size = new System.Drawing.Size( 951, 583 );
+            SqlTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            SqlTab.TabForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            SqlTab.TabIndex = 8;
+            SqlTab.ThemesEnabled = false;
+            // 
+            // EditorTable
+            // 
+            EditorTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            EditorTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
+            EditorTable.CaptionText = "SQL Editor";
+            EditorTable.ColumnCount = 1;
+            EditorTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+            EditorTable.Controls.Add( EditorPanel, 0, 1 );
+            EditorTable.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            EditorTable.ForeColor = System.Drawing.Color.DarkGray;
+            EditorTable.Location = new System.Drawing.Point( 32, 22 );
+            EditorTable.Name = "EditorTable";
+            EditorTable.RowCount = 2;
+            EditorTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 2.15264177F ) );
+            EditorTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 97.84736F ) );
+            EditorTable.Size = new System.Drawing.Size( 919, 561 );
+            EditorTable.TabIndex = 5;
+            // 
+            // EditorPanel
+            // 
+            EditorPanel.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            EditorPanel.BackColor = System.Drawing.Color.Transparent;
+            EditorPanel.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            EditorPanel.BindingSource = null;
+            EditorPanel.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
+            EditorPanel.BorderThickness = 1;
+            EditorPanel.Children = null;
+            EditorPanel.Controls.Add( Editor );
+            EditorPanel.DataFilter = null;
+            EditorPanel.Font = new System.Drawing.Font( "Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            EditorPanel.ForeColor = System.Drawing.Color.Transparent;
+            EditorPanel.HoverText = null;
+            EditorPanel.IsDerivedStyle = true;
+            EditorPanel.Location = new System.Drawing.Point( 3, 30 );
+            EditorPanel.Name = "EditorPanel";
+            EditorPanel.Padding = new System.Windows.Forms.Padding( 1 );
+            EditorPanel.Size = new System.Drawing.Size( 913, 528 );
+            EditorPanel.Style = MetroSet_UI.Enums.Style.Custom;
+            EditorPanel.StyleManager = null;
+            EditorPanel.TabIndex = 0;
+            EditorPanel.ThemeAuthor = "Terry D. Eppler";
+            EditorPanel.ThemeName = "BudgetExecution";
+            EditorPanel.ToolTip = null;
+            // 
+            // Editor
+            // 
+            Editor.AllowZoom = false;
+            Editor.AlwaysShowScrollers = true;
+            Editor.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            Editor.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            Editor.BackColor = System.Drawing.SystemColors.ControlLight;
+            Editor.BookmarkTooltipBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            Editor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            Editor.CanOverrideStyle = true;
+            Editor.ChangedLinesMarkingLineColor = System.Drawing.Color.FromArgb( 255, 238, 98 );
+            Editor.CodeSnipptSize = new System.Drawing.Size( 100, 100 );
+            Editor.ColumnGuidesMeasuringFont = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            Editor.Configurator = config1;
+            Editor.ContextChoiceBackColor = System.Drawing.SystemColors.ControlLight;
+            Editor.ContextChoiceBorderColor = System.Drawing.Color.FromArgb( 233, 166, 50 );
+            Editor.ContextPromptBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            Editor.ContextTooltipBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            Editor.CurrentLineHighlightColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            Editor.EndOfLineBackColor = System.Drawing.SystemColors.ControlLight;
+            Editor.EndOfLineForeColor = System.Drawing.SystemColors.ControlLight;
+            Editor.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            Editor.ForeColor = System.Drawing.Color.Black;
+            Editor.HighlightCurrentLine = true;
+            Editor.IndentationBlockBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            Editor.IndentBlockHighlightingColor = System.Drawing.SystemColors.ActiveCaption;
+            Editor.IndentLineColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            Editor.IndicatorMarginBackColor = System.Drawing.SystemColors.ControlLight;
+            Editor.LineNumbersColor = System.Drawing.Color.Black;
+            Editor.LineNumbersFont = new System.Drawing.Font( "Hack", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point );
+            Editor.Location = new System.Drawing.Point( 17, 15 );
+            Editor.Name = "Editor";
+            Editor.RenderRightToLeft = false;
+            Editor.ScrollColorScheme = Syncfusion.Windows.Forms.Office2007ColorScheme.Black;
+            Editor.ScrollPosition = new System.Drawing.Point( 0, 0 );
+            Editor.ScrollVisualStyle = Syncfusion.Windows.Forms.ScrollBarCustomDrawStyles.Office2016;
+            Editor.SelectionMarginBackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            Editor.SelectionTextColor = System.Drawing.Color.White;
+            Editor.ShowEndOfLine = false;
+            Editor.Size = new System.Drawing.Size( 880, 496 );
+            Editor.StatusBarSettings.CoordsPanel.Width = 150;
+            Editor.StatusBarSettings.EncodingPanel.Width = 100;
+            Editor.StatusBarSettings.FileNamePanel.Width = 100;
+            Editor.StatusBarSettings.InsertPanel.Width = 33;
+            Editor.StatusBarSettings.Offcie2007ColorScheme = Syncfusion.Windows.Forms.Office2007Theme.Blue;
+            Editor.StatusBarSettings.Offcie2010ColorScheme = Syncfusion.Windows.Forms.Office2010Theme.Blue;
+            Editor.StatusBarSettings.StatusPanel.Width = 70;
+            Editor.StatusBarSettings.TextPanel.Width = 214;
+            Editor.StatusBarSettings.VisualStyle = Syncfusion.Windows.Forms.Tools.Controls.StatusBar.VisualStyle.Office2016Black;
+            Editor.Style = Syncfusion.Windows.Forms.Edit.EditControlStyle.Office2016Black;
+            Editor.TabIndex = 0;
+            Editor.TabSize = 4;
+            Editor.Text = "";
+            Editor.TextAreaWidth = 400;
+            Editor.ThemeName = "Office2016Black";
+            Editor.UserMarginTextColor = System.Drawing.Color.DimGray;
+            Editor.UseXPStyle = false;
+            Editor.UseXPStyleBorder = true;
+            Editor.VisualColumn = 1;
+            Editor.VScrollMode = Syncfusion.Windows.Forms.Edit.ScrollMode.Immediate;
+            Editor.WordWrap = true;
+            Editor.WordWrapColumn = 80;
+            Editor.ZoomFactor = 1F;
+            // 
             // Busy
             // 
             Busy.Controls.Add( BusyHeaderPanel );
@@ -1786,7 +1785,7 @@ namespace BudgetExecution
             ToolStrip.Image = null;
             ToolStrip.ImageDirectory = null;
             ToolStrip.ImageSize = new System.Drawing.Size( 0, 0 );
-            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { CloseButton, FirstSeparator, ProgressBar, Separator1, StatusLabel, Separator2, FirstButton, Separator3, PreviousButton, Separator4, NextButton, Separator5, LastButton, Separator6, DataLabel, Separator7, GoButton, Separator8, RefreshButton, Separator9, EditSqlButton, Separator11, EditDataButton, Separator12, TableButton, TableSeparator, LookupButton, Separator13, SaveButton, Separator14, FileSystemLabel, Separator15, ClientButton, ClientSeparator, BrowserButton, Separator16, HomeButton, Separator17, Separator33 } );
+            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { CloseButton, Separator1, StatusLabel, Separator2, FirstButton, Separator3, PreviousButton, Separator4, NextButton, Separator5, LastButton, Separator6, DataLabel, Separator7, GoButton, Separator8, RefreshButton, Separator9, EditSqlButton, Separator11, EditDataButton, Separator12, TableButton, TableSeparator, LookupButton, Separator13, SaveButton, Separator14, FileSystemLabel, Separator15, ClientButton, ClientSeparator, BrowserButton, Separator16, Separator17, HomeButton, Separator33 } );
             ToolStrip.LastButton = null;
             ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
             ToolStrip.Location = new System.Drawing.Point( 1, 1 );
@@ -1847,12 +1846,6 @@ namespace BudgetExecution
             FirstSeparator.Name = "FirstSeparator";
             FirstSeparator.Padding = new System.Windows.Forms.Padding( 1 );
             FirstSeparator.Size = new System.Drawing.Size( 6, 25 );
-            // 
-            // ProgressBar
-            // 
-            ProgressBar.Name = "ProgressBar";
-            ProgressBar.Size = new System.Drawing.Size( 200, 24 );
-            ProgressBar.Value = 50;
             // 
             // Separator1
             // 
@@ -2316,6 +2309,7 @@ namespace BudgetExecution
             // 
             // HomeButton
             // 
+            HomeButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             HomeButton.AutoToolTip = false;
             HomeButton.BackColor = System.Drawing.Color.Transparent;
             HomeButton.BindingSource = BindingSource;
@@ -2337,6 +2331,7 @@ namespace BudgetExecution
             // 
             // Separator17
             // 
+            Separator17.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             Separator17.ForeColor = System.Drawing.Color.Black;
             Separator17.Margin = new System.Windows.Forms.Padding( 1 );
             Separator17.Name = "Separator17";
@@ -2438,14 +2433,6 @@ namespace BudgetExecution
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).EndInit( );
             ( (System.ComponentModel.ISupportInitialize)TabControl ).EndInit( );
             TabControl.ResumeLayout( false );
-            SqlTab.ResumeLayout( false );
-            EditorTable.ResumeLayout( false );
-            EditorPanel.ResumeLayout( false );
-            ( (System.ComponentModel.ISupportInitialize)Editor ).EndInit( );
-            DataTab.ResumeLayout( false );
-            DataGridTable.ResumeLayout( false );
-            DataGridPanel.ResumeLayout( false );
-            ( (System.ComponentModel.ISupportInitialize)DataGrid ).EndInit( );
             LookupTab.ResumeLayout( false );
             ColumnTable.ResumeLayout( false );
             ColumnPanel.ResumeLayout( false );
@@ -2453,12 +2440,20 @@ namespace BudgetExecution
             ValuePanel.ResumeLayout( false );
             SourceTable.ResumeLayout( false );
             TablePanel.ResumeLayout( false );
+            DataTab.ResumeLayout( false );
+            DataGridTable.ResumeLayout( false );
+            DataGridPanel.ResumeLayout( false );
+            ( (System.ComponentModel.ISupportInitialize)DataGrid ).EndInit( );
             SchemaTab.ResumeLayout( false );
             SchemaHeaderPanel.ResumeLayout( false );
             SchemaTable.ResumeLayout( false );
             SchemaPanel.ResumeLayout( false );
             headerPanel1.ResumeLayout( false );
             layout1.ResumeLayout( false );
+            SqlTab.ResumeLayout( false );
+            EditorTable.ResumeLayout( false );
+            EditorPanel.ResumeLayout( false );
+            ( (System.ComponentModel.ISupportInitialize)Editor ).EndInit( );
             Busy.ResumeLayout( false );
             BusyHeaderPanel.ResumeLayout( false );
             BusyPanel.ResumeLayout( false );
@@ -2579,7 +2574,6 @@ namespace BudgetExecution
         public ToolSeparator ClientSeparator;
         public System.Windows.Forms.Timer Timer;
         public ToolSeparator FirstSeparator;
-        public System.Windows.Forms.ToolStripProgressBar ProgressBar;
         public ToolSeparator Separator33;
         public Syncfusion.Windows.Forms.Tools.TabPageAdv Busy;
         public HeaderPanel BusyHeaderPanel;

@@ -103,8 +103,8 @@
             groupBox4 = new Layout( );
             groupBox9 = new Layout( );
             ContextMenu = new ContextMenu( );
-            ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
-            ( (System.ComponentModel.ISupportInitialize) TabControl  ).BeginInit( );
+            ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
+            ( (System.ComponentModel.ISupportInitialize)TabControl ).BeginInit( );
             TabControl.SuspendLayout( );
             TabPage.SuspendLayout( );
             FrameTable.SuspendLayout( );
@@ -115,46 +115,46 @@
             // 
             // TabControl
             // 
-            TabControl.ActiveTabColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            TabControl.ActiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.ActiveTabFont = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            TabControl.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            TabControl.BeforeTouchSize = new System.Drawing.Size( 1296, 507 );
+            TabControl.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.BeforeTouchSize = new System.Drawing.Size( 1308, 507 );
             TabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             TabControl.BorderWidth = 1;
             TabControl.CanOverrideStyle = true;
-            TabControl.CloseButtonBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            TabControl.CloseButtonBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.Controls.Add( TabPage );
             TabControl.Dock = System.Windows.Forms.DockStyle.Top;
-            TabControl.FixedSingleBorderColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            TabControl.FixedSingleBorderColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.FocusOnTabClick = false;
-            TabControl.InactiveCloseButtonForeColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            TabControl.InactiveTabColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            TabControl.InactiveCloseButtonForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.InactiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.ItemSize = new System.Drawing.Size( 158, 23 );
             TabControl.Location = new System.Drawing.Point( 1, 1 );
             TabControl.Margin = new System.Windows.Forms.Padding( 1 );
             TabControl.Name = "TabControl";
-            TabControl.Size = new System.Drawing.Size( 1296, 507 );
+            TabControl.Size = new System.Drawing.Size( 1308, 507 );
             TabControl.TabIndex = 8;
-            TabControl.TabPanelBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            TabControl.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.TabStyle = typeof( Syncfusion.Windows.Forms.Tools.TabRendererMetro );
             TabControl.ThemeName = "TabRendererMetro";
-            TabControl.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            TabControl.ThemeStyle.DisabledBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            TabControl.ThemeStyle.DisabledTabPanelBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            TabControl.ThemeStyle.EditableTabStyle.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            TabControl.ThemeStyle.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.ThemeStyle.DisabledBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.ThemeStyle.DisabledTabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.ThemeStyle.EditableTabStyle.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.ThemeStyle.EditableTabStyle.ForeColor = System.Drawing.Color.LightSteelBlue;
             TabControl.ThemeStyle.PrimitiveButtonStyle.DisabledNextPageImage = null;
-            TabControl.ThemeStyle.TabPanelBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            TabControl.ThemeStyle.TabStyle.ActiveBackColor = System.Drawing.Color.FromArgb(   22  ,   39  ,   70   );
-            TabControl.ThemeStyle.TabStyle.ActiveBorderColor = System.Drawing.Color.FromArgb(   22  ,   39  ,   70   );
-            TabControl.ThemeStyle.TabStyle.ActiveCloseButtonBackColor = System.Drawing.Color.FromArgb(   22  ,   39  ,   70   );
-            TabControl.ThemeStyle.TabStyle.ActiveCloseButtonForeColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            TabControl.ThemeStyle.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.ThemeStyle.TabStyle.ActiveBackColor = System.Drawing.Color.FromArgb( 22, 39, 70 );
+            TabControl.ThemeStyle.TabStyle.ActiveBorderColor = System.Drawing.Color.FromArgb( 22, 39, 70 );
+            TabControl.ThemeStyle.TabStyle.ActiveCloseButtonBackColor = System.Drawing.Color.FromArgb( 22, 39, 70 );
+            TabControl.ThemeStyle.TabStyle.ActiveCloseButtonForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.ThemeStyle.TabStyle.ActiveForeColor = System.Drawing.Color.White;
-            TabControl.ThemeStyle.TabStyle.InactiveBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            TabControl.ThemeStyle.TabStyle.InactiveBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             // 
             // TabPage
             // 
-            TabPage.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            TabPage.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabPage.Controls.Add( FrameTable );
             TabPage.Image = null;
             TabPage.ImageSize = new System.Drawing.Size( 14, 14 );
@@ -162,17 +162,17 @@
             TabPage.Margin = new System.Windows.Forms.Padding( 1 );
             TabPage.Name = "TabPage";
             TabPage.Padding = new System.Windows.Forms.Padding( 1 );
-            TabPage.ShowCloseButton = true;
-            TabPage.Size = new System.Drawing.Size( 1296, 485 );
-            TabPage.TabBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            TabPage.TabForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            TabPage.ShowCloseButton = false;
+            TabPage.Size = new System.Drawing.Size( 1308, 485 );
+            TabPage.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabPage.TabForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             TabPage.TabIndex = 8;
             TabPage.Text = "  Edit Mode";
             TabPage.ThemesEnabled = false;
             // 
             // FrameTable
             // 
-            FrameTable.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            FrameTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             FrameTable.ColumnCount = 7;
             FrameTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 14.28476F ) );
             FrameTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 14.28476F ) );
@@ -256,7 +256,7 @@
             Frame1.Margin = new System.Windows.Forms.Padding( 1 );
             Frame1.Name = "Frame1";
             Frame1.Padding = new System.Windows.Forms.Padding( 1 );
-            Frame1.Size = new System.Drawing.Size( 180, 54 );
+            Frame1.Size = new System.Drawing.Size( 180, 57 );
             Frame1.TabIndex = 0;
             // 
             // Frame2
@@ -270,7 +270,7 @@
             Frame2.Margin = new System.Windows.Forms.Padding( 1 );
             Frame2.Name = "Frame2";
             Frame2.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame2.Size = new System.Drawing.Size( 180, 54 );
+            Frame2.Size = new System.Drawing.Size( 180, 57 );
             Frame2.TabIndex = 1;
             // 
             // Frame3
@@ -284,7 +284,7 @@
             Frame3.Margin = new System.Windows.Forms.Padding( 1 );
             Frame3.Name = "Frame3";
             Frame3.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame3.Size = new System.Drawing.Size( 180, 54 );
+            Frame3.Size = new System.Drawing.Size( 180, 57 );
             Frame3.TabIndex = 2;
             // 
             // Frame4
@@ -298,7 +298,7 @@
             Frame4.Margin = new System.Windows.Forms.Padding( 1 );
             Frame4.Name = "Frame4";
             Frame4.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame4.Size = new System.Drawing.Size( 180, 54 );
+            Frame4.Size = new System.Drawing.Size( 180, 57 );
             Frame4.TabIndex = 3;
             // 
             // Frame5
@@ -312,7 +312,7 @@
             Frame5.Margin = new System.Windows.Forms.Padding( 1 );
             Frame5.Name = "Frame5";
             Frame5.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame5.Size = new System.Drawing.Size( 180, 54 );
+            Frame5.Size = new System.Drawing.Size( 180, 57 );
             Frame5.TabIndex = 4;
             // 
             // Frame6
@@ -326,7 +326,7 @@
             Frame6.Margin = new System.Windows.Forms.Padding( 1 );
             Frame6.Name = "Frame6";
             Frame6.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame6.Size = new System.Drawing.Size( 180, 54 );
+            Frame6.Size = new System.Drawing.Size( 180, 57 );
             Frame6.TabIndex = 5;
             // 
             // Frame7
@@ -340,7 +340,7 @@
             Frame7.Margin = new System.Windows.Forms.Padding( 1 );
             Frame7.Name = "Frame7";
             Frame7.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame7.Size = new System.Drawing.Size( 180, 54 );
+            Frame7.Size = new System.Drawing.Size( 180, 57 );
             Frame7.TabIndex = 6;
             // 
             // Frame8
@@ -354,7 +354,7 @@
             Frame8.Margin = new System.Windows.Forms.Padding( 1 );
             Frame8.Name = "Frame8";
             Frame8.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame8.Size = new System.Drawing.Size( 180, 54 );
+            Frame8.Size = new System.Drawing.Size( 180, 57 );
             Frame8.TabIndex = 7;
             // 
             // Frame9
@@ -368,7 +368,7 @@
             Frame9.Margin = new System.Windows.Forms.Padding( 1 );
             Frame9.Name = "Frame9";
             Frame9.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame9.Size = new System.Drawing.Size( 180, 54 );
+            Frame9.Size = new System.Drawing.Size( 180, 57 );
             Frame9.TabIndex = 8;
             // 
             // Frame10
@@ -382,7 +382,7 @@
             Frame10.Margin = new System.Windows.Forms.Padding( 1 );
             Frame10.Name = "Frame10";
             Frame10.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame10.Size = new System.Drawing.Size( 180, 54 );
+            Frame10.Size = new System.Drawing.Size( 180, 57 );
             Frame10.TabIndex = 9;
             // 
             // Frame11
@@ -396,7 +396,7 @@
             Frame11.Margin = new System.Windows.Forms.Padding( 1 );
             Frame11.Name = "Frame11";
             Frame11.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame11.Size = new System.Drawing.Size( 180, 54 );
+            Frame11.Size = new System.Drawing.Size( 180, 57 );
             Frame11.TabIndex = 10;
             // 
             // Frame12
@@ -410,7 +410,7 @@
             Frame12.Margin = new System.Windows.Forms.Padding( 1 );
             Frame12.Name = "Frame12";
             Frame12.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame12.Size = new System.Drawing.Size( 180, 54 );
+            Frame12.Size = new System.Drawing.Size( 180, 57 );
             Frame12.TabIndex = 11;
             // 
             // Frame13
@@ -424,7 +424,7 @@
             Frame13.Margin = new System.Windows.Forms.Padding( 1 );
             Frame13.Name = "Frame13";
             Frame13.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame13.Size = new System.Drawing.Size( 180, 54 );
+            Frame13.Size = new System.Drawing.Size( 180, 57 );
             Frame13.TabIndex = 12;
             // 
             // Frame14
@@ -438,7 +438,7 @@
             Frame14.Margin = new System.Windows.Forms.Padding( 1 );
             Frame14.Name = "Frame14";
             Frame14.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame14.Size = new System.Drawing.Size( 180, 54 );
+            Frame14.Size = new System.Drawing.Size( 180, 57 );
             Frame14.TabIndex = 13;
             // 
             // Frame36
@@ -452,7 +452,7 @@
             Frame36.Margin = new System.Windows.Forms.Padding( 1 );
             Frame36.Name = "Frame36";
             Frame36.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame36.Size = new System.Drawing.Size( 180, 56 );
+            Frame36.Size = new System.Drawing.Size( 180, 59 );
             Frame36.TabIndex = 35;
             // 
             // Frame37
@@ -466,7 +466,7 @@
             Frame37.Margin = new System.Windows.Forms.Padding( 1 );
             Frame37.Name = "Frame37";
             Frame37.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame37.Size = new System.Drawing.Size( 180, 56 );
+            Frame37.Size = new System.Drawing.Size( 180, 59 );
             Frame37.TabIndex = 36;
             // 
             // Frame38
@@ -480,7 +480,7 @@
             Frame38.Margin = new System.Windows.Forms.Padding( 1 );
             Frame38.Name = "Frame38";
             Frame38.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame38.Size = new System.Drawing.Size( 180, 56 );
+            Frame38.Size = new System.Drawing.Size( 180, 59 );
             Frame38.TabIndex = 37;
             // 
             // Frame39
@@ -494,7 +494,7 @@
             Frame39.Margin = new System.Windows.Forms.Padding( 1 );
             Frame39.Name = "Frame39";
             Frame39.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame39.Size = new System.Drawing.Size( 180, 56 );
+            Frame39.Size = new System.Drawing.Size( 180, 59 );
             Frame39.TabIndex = 38;
             // 
             // Frame40
@@ -508,7 +508,7 @@
             Frame40.Margin = new System.Windows.Forms.Padding( 1 );
             Frame40.Name = "Frame40";
             Frame40.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame40.Size = new System.Drawing.Size( 180, 56 );
+            Frame40.Size = new System.Drawing.Size( 180, 59 );
             Frame40.TabIndex = 39;
             // 
             // Frame41
@@ -522,7 +522,7 @@
             Frame41.Margin = new System.Windows.Forms.Padding( 1 );
             Frame41.Name = "Frame41";
             Frame41.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame41.Size = new System.Drawing.Size( 180, 56 );
+            Frame41.Size = new System.Drawing.Size( 180, 59 );
             Frame41.TabIndex = 40;
             // 
             // Frame42
@@ -536,7 +536,7 @@
             Frame42.Margin = new System.Windows.Forms.Padding( 1 );
             Frame42.Name = "Frame42";
             Frame42.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame42.Size = new System.Drawing.Size( 180, 56 );
+            Frame42.Size = new System.Drawing.Size( 180, 59 );
             Frame42.TabIndex = 41;
             // 
             // Frame43
@@ -550,7 +550,7 @@
             Frame43.Margin = new System.Windows.Forms.Padding( 1 );
             Frame43.Name = "Frame43";
             Frame43.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame43.Size = new System.Drawing.Size( 180, 57 );
+            Frame43.Size = new System.Drawing.Size( 180, 59 );
             Frame43.TabIndex = 42;
             // 
             // Frame45
@@ -564,7 +564,7 @@
             Frame45.Margin = new System.Windows.Forms.Padding( 1 );
             Frame45.Name = "Frame45";
             Frame45.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame45.Size = new System.Drawing.Size( 180, 57 );
+            Frame45.Size = new System.Drawing.Size( 180, 59 );
             Frame45.TabIndex = 44;
             // 
             // Frame46
@@ -578,7 +578,7 @@
             Frame46.Margin = new System.Windows.Forms.Padding( 1 );
             Frame46.Name = "Frame46";
             Frame46.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame46.Size = new System.Drawing.Size( 180, 57 );
+            Frame46.Size = new System.Drawing.Size( 180, 59 );
             Frame46.TabIndex = 45;
             // 
             // Frame47
@@ -592,7 +592,7 @@
             Frame47.Margin = new System.Windows.Forms.Padding( 1 );
             Frame47.Name = "Frame47";
             Frame47.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame47.Size = new System.Drawing.Size( 180, 57 );
+            Frame47.Size = new System.Drawing.Size( 180, 59 );
             Frame47.TabIndex = 46;
             // 
             // Frame48
@@ -606,7 +606,7 @@
             Frame48.Margin = new System.Windows.Forms.Padding( 1 );
             Frame48.Name = "Frame48";
             Frame48.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame48.Size = new System.Drawing.Size( 180, 57 );
+            Frame48.Size = new System.Drawing.Size( 180, 59 );
             Frame48.TabIndex = 47;
             // 
             // Frame49
@@ -620,7 +620,7 @@
             Frame49.Margin = new System.Windows.Forms.Padding( 1 );
             Frame49.Name = "Frame49";
             Frame49.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame49.Size = new System.Drawing.Size( 180, 57 );
+            Frame49.Size = new System.Drawing.Size( 180, 59 );
             Frame49.TabIndex = 48;
             // 
             // Frame25
@@ -634,7 +634,7 @@
             Frame25.Margin = new System.Windows.Forms.Padding( 1 );
             Frame25.Name = "Frame25";
             Frame25.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame25.Size = new System.Drawing.Size( 180, 54 );
+            Frame25.Size = new System.Drawing.Size( 180, 57 );
             Frame25.TabIndex = 24;
             // 
             // Frame22
@@ -648,7 +648,7 @@
             Frame22.Margin = new System.Windows.Forms.Padding( 1 );
             Frame22.Name = "Frame22";
             Frame22.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame22.Size = new System.Drawing.Size( 180, 54 );
+            Frame22.Size = new System.Drawing.Size( 180, 57 );
             Frame22.TabIndex = 21;
             // 
             // Frame23
@@ -662,7 +662,7 @@
             Frame23.Margin = new System.Windows.Forms.Padding( 1 );
             Frame23.Name = "Frame23";
             Frame23.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame23.Size = new System.Drawing.Size( 180, 54 );
+            Frame23.Size = new System.Drawing.Size( 180, 57 );
             Frame23.TabIndex = 22;
             // 
             // Frame24
@@ -676,7 +676,7 @@
             Frame24.Margin = new System.Windows.Forms.Padding( 1 );
             Frame24.Name = "Frame24";
             Frame24.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame24.Size = new System.Drawing.Size( 180, 54 );
+            Frame24.Size = new System.Drawing.Size( 180, 57 );
             Frame24.TabIndex = 23;
             // 
             // Frame26
@@ -690,7 +690,7 @@
             Frame26.Margin = new System.Windows.Forms.Padding( 1 );
             Frame26.Name = "Frame26";
             Frame26.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame26.Size = new System.Drawing.Size( 180, 54 );
+            Frame26.Size = new System.Drawing.Size( 180, 57 );
             Frame26.TabIndex = 25;
             // 
             // Frame27
@@ -704,7 +704,7 @@
             Frame27.Margin = new System.Windows.Forms.Padding( 1 );
             Frame27.Name = "Frame27";
             Frame27.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame27.Size = new System.Drawing.Size( 180, 54 );
+            Frame27.Size = new System.Drawing.Size( 180, 57 );
             Frame27.TabIndex = 26;
             // 
             // Frame28
@@ -718,7 +718,7 @@
             Frame28.Margin = new System.Windows.Forms.Padding( 1 );
             Frame28.Name = "Frame28";
             Frame28.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame28.Size = new System.Drawing.Size( 180, 54 );
+            Frame28.Size = new System.Drawing.Size( 180, 57 );
             Frame28.TabIndex = 27;
             // 
             // Frame29
@@ -732,7 +732,7 @@
             Frame29.Margin = new System.Windows.Forms.Padding( 1 );
             Frame29.Name = "Frame29";
             Frame29.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame29.Size = new System.Drawing.Size( 180, 54 );
+            Frame29.Size = new System.Drawing.Size( 180, 57 );
             Frame29.TabIndex = 28;
             // 
             // Frame30
@@ -746,7 +746,7 @@
             Frame30.Margin = new System.Windows.Forms.Padding( 1 );
             Frame30.Name = "Frame30";
             Frame30.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame30.Size = new System.Drawing.Size( 180, 54 );
+            Frame30.Size = new System.Drawing.Size( 180, 57 );
             Frame30.TabIndex = 29;
             // 
             // Frame31
@@ -760,7 +760,7 @@
             Frame31.Margin = new System.Windows.Forms.Padding( 1 );
             Frame31.Name = "Frame31";
             Frame31.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame31.Size = new System.Drawing.Size( 180, 54 );
+            Frame31.Size = new System.Drawing.Size( 180, 57 );
             Frame31.TabIndex = 30;
             // 
             // Frame32
@@ -774,7 +774,7 @@
             Frame32.Margin = new System.Windows.Forms.Padding( 1 );
             Frame32.Name = "Frame32";
             Frame32.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame32.Size = new System.Drawing.Size( 180, 54 );
+            Frame32.Size = new System.Drawing.Size( 180, 57 );
             Frame32.TabIndex = 31;
             // 
             // Frame33
@@ -788,7 +788,7 @@
             Frame33.Margin = new System.Windows.Forms.Padding( 1 );
             Frame33.Name = "Frame33";
             Frame33.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame33.Size = new System.Drawing.Size( 180, 54 );
+            Frame33.Size = new System.Drawing.Size( 180, 57 );
             Frame33.TabIndex = 32;
             // 
             // Frame34
@@ -802,7 +802,7 @@
             Frame34.Margin = new System.Windows.Forms.Padding( 1 );
             Frame34.Name = "Frame34";
             Frame34.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame34.Size = new System.Drawing.Size( 180, 54 );
+            Frame34.Size = new System.Drawing.Size( 180, 57 );
             Frame34.TabIndex = 33;
             // 
             // Frame35
@@ -816,7 +816,7 @@
             Frame35.Margin = new System.Windows.Forms.Padding( 1 );
             Frame35.Name = "Frame35";
             Frame35.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame35.Size = new System.Drawing.Size( 180, 54 );
+            Frame35.Size = new System.Drawing.Size( 180, 57 );
             Frame35.TabIndex = 34;
             // 
             // Frame15
@@ -830,7 +830,7 @@
             Frame15.Margin = new System.Windows.Forms.Padding( 1 );
             Frame15.Name = "Frame15";
             Frame15.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame15.Size = new System.Drawing.Size( 180, 54 );
+            Frame15.Size = new System.Drawing.Size( 180, 57 );
             Frame15.TabIndex = 14;
             // 
             // Frame16
@@ -844,7 +844,7 @@
             Frame16.Margin = new System.Windows.Forms.Padding( 1 );
             Frame16.Name = "Frame16";
             Frame16.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame16.Size = new System.Drawing.Size( 180, 54 );
+            Frame16.Size = new System.Drawing.Size( 180, 57 );
             Frame16.TabIndex = 15;
             // 
             // Frame17
@@ -858,7 +858,7 @@
             Frame17.Margin = new System.Windows.Forms.Padding( 1 );
             Frame17.Name = "Frame17";
             Frame17.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame17.Size = new System.Drawing.Size( 180, 54 );
+            Frame17.Size = new System.Drawing.Size( 180, 57 );
             Frame17.TabIndex = 16;
             // 
             // Frame18
@@ -872,7 +872,7 @@
             Frame18.Margin = new System.Windows.Forms.Padding( 1 );
             Frame18.Name = "Frame18";
             Frame18.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame18.Size = new System.Drawing.Size( 180, 54 );
+            Frame18.Size = new System.Drawing.Size( 180, 57 );
             Frame18.TabIndex = 17;
             // 
             // Frame19
@@ -886,7 +886,7 @@
             Frame19.Margin = new System.Windows.Forms.Padding( 1 );
             Frame19.Name = "Frame19";
             Frame19.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame19.Size = new System.Drawing.Size( 180, 54 );
+            Frame19.Size = new System.Drawing.Size( 180, 57 );
             Frame19.TabIndex = 18;
             // 
             // Frame20
@@ -900,7 +900,7 @@
             Frame20.Margin = new System.Windows.Forms.Padding( 1 );
             Frame20.Name = "Frame20";
             Frame20.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame20.Size = new System.Drawing.Size( 180, 54 );
+            Frame20.Size = new System.Drawing.Size( 180, 57 );
             Frame20.TabIndex = 19;
             // 
             // Frame21
@@ -914,7 +914,7 @@
             Frame21.Margin = new System.Windows.Forms.Padding( 1 );
             Frame21.Name = "Frame21";
             Frame21.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame21.Size = new System.Drawing.Size( 180, 54 );
+            Frame21.Size = new System.Drawing.Size( 180, 57 );
             Frame21.TabIndex = 20;
             // 
             // Frame44
@@ -928,13 +928,13 @@
             Frame44.Margin = new System.Windows.Forms.Padding( 1 );
             Frame44.Name = "Frame44";
             Frame44.Padding = new System.Windows.Forms.Padding( 3 );
-            Frame44.Size = new System.Drawing.Size( 180, 57 );
+            Frame44.Size = new System.Drawing.Size( 180, 59 );
             Frame44.TabIndex = 43;
             // 
             // ToolTip
             // 
             ToolTip.AutoPopDelay = 5000;
-            ToolTip.BackColor = System.Drawing.Color.FromArgb(   5  ,   5  ,   5   );
+            ToolTip.BackColor = System.Drawing.Color.FromArgb( 5, 5, 5 );
             ToolTip.BindingSource = null;
             ToolTip.BorderColor = System.Drawing.SystemColors.Highlight;
             ToolTip.ForeColor = System.Drawing.Color.White;
@@ -967,9 +967,9 @@
             // 
             // groupBox7
             // 
-            groupBox7.Anchor =   System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Right  ;
+            groupBox7.Anchor =  System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Right ;
             groupBox7.BackColor = System.Drawing.Color.Transparent;
-            groupBox7.BackgroundColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            groupBox7.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             groupBox7.BindingSource = null;
             groupBox7.BorderColor = System.Drawing.Color.Transparent;
             groupBox7.BorderThickness = 1;
@@ -995,15 +995,15 @@
             // 
             // listBox5
             // 
-            listBox5.Anchor =   System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Right  ;
-            listBox5.BackColor = System.Drawing.Color.FromArgb(   15  ,   15  ,   15   );
+            listBox5.Anchor =  System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Right ;
+            listBox5.BackColor = System.Drawing.Color.FromArgb( 15, 15, 15 );
             listBox5.BindingSource = null;
-            listBox5.BorderColor = System.Drawing.Color.FromArgb(   50  ,   50  ,   50   );
+            listBox5.BorderColor = System.Drawing.Color.FromArgb( 50, 50, 50 );
             listBox5.DataFilter = null;
-            listBox5.DisabledBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            listBox5.DisabledForeColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            listBox5.DisabledBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            listBox5.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             listBox5.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            listBox5.HoveredItemBackColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
+            listBox5.HoveredItemBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
             listBox5.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
             listBox5.HoverText = null;
             listBox5.IsDerivedStyle = true;
@@ -1015,7 +1015,7 @@
             listBox5.Padding = new System.Windows.Forms.Padding( 1 );
             listBox5.SelectedIndex = -1;
             listBox5.SelectedItem = null;
-            listBox5.SelectedItemBackColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            listBox5.SelectedItemBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             listBox5.SelectedItemColor = System.Drawing.Color.White;
             listBox5.SelectedText = null;
             listBox5.SelectedValue = null;
@@ -1032,15 +1032,15 @@
             // 
             // listBox6
             // 
-            listBox6.Anchor =   System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Right  ;
-            listBox6.BackColor = System.Drawing.Color.FromArgb(   15  ,   15  ,   15   );
+            listBox6.Anchor =  System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Right ;
+            listBox6.BackColor = System.Drawing.Color.FromArgb( 15, 15, 15 );
             listBox6.BindingSource = null;
-            listBox6.BorderColor = System.Drawing.Color.FromArgb(   50  ,   50  ,   50   );
+            listBox6.BorderColor = System.Drawing.Color.FromArgb( 50, 50, 50 );
             listBox6.DataFilter = null;
-            listBox6.DisabledBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            listBox6.DisabledForeColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            listBox6.DisabledBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            listBox6.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             listBox6.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            listBox6.HoveredItemBackColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
+            listBox6.HoveredItemBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
             listBox6.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
             listBox6.HoverText = null;
             listBox6.IsDerivedStyle = true;
@@ -1052,7 +1052,7 @@
             listBox6.Padding = new System.Windows.Forms.Padding( 1 );
             listBox6.SelectedIndex = -1;
             listBox6.SelectedItem = null;
-            listBox6.SelectedItemBackColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            listBox6.SelectedItemBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             listBox6.SelectedItemColor = System.Drawing.Color.White;
             listBox6.SelectedText = null;
             listBox6.SelectedValue = null;
@@ -1070,7 +1070,7 @@
             // groupBox8
             // 
             groupBox8.BackColor = System.Drawing.Color.Transparent;
-            groupBox8.BackgroundColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            groupBox8.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             groupBox8.BindingSource = null;
             groupBox8.BorderColor = System.Drawing.Color.Transparent;
             groupBox8.BorderThickness = 1;
@@ -1099,11 +1099,11 @@
             // visualComboBox3
             // 
             visualComboBox3.AllowDrop = true;
-            visualComboBox3.ArrowColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            visualComboBox3.ArrowColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             visualComboBox3.BackColor = System.Drawing.Color.Transparent;
-            visualComboBox3.BackgroundColor = System.Drawing.Color.FromArgb(   238  ,   238  ,   238   );
+            visualComboBox3.BackgroundColor = System.Drawing.Color.FromArgb( 238, 238, 238 );
             visualComboBox3.BindingSource = null;
-            visualComboBox3.BorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            visualComboBox3.BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             visualComboBox3.CausesValidation = false;
             visualComboBox3.DataFilter = null;
             visualComboBox3.DisabledBackColor = System.Drawing.Color.Transparent;
@@ -1121,7 +1121,7 @@
             visualComboBox3.ItemHeight = 24;
             visualComboBox3.Location = new System.Drawing.Point( 92, 91 );
             visualComboBox3.Name = "visualComboBox3";
-            visualComboBox3.SelectedItemBackColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            visualComboBox3.SelectedItemBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             visualComboBox3.SelectedItemForeColor = System.Drawing.Color.White;
             visualComboBox3.Size = new System.Drawing.Size( 221, 30 );
             visualComboBox3.Style = MetroSet_UI.Enums.Style.Custom;
@@ -1181,13 +1181,13 @@
             visualTextBox3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             visualTextBox3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             visualTextBox3.BindingSource = null;
-            visualTextBox3.BorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            visualTextBox3.BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             visualTextBox3.DataFilter = null;
             visualTextBox3.DisabledBackColor = System.Drawing.Color.Transparent;
             visualTextBox3.DisabledBorderColor = System.Drawing.Color.Transparent;
             visualTextBox3.DisabledForeColor = System.Drawing.Color.Transparent;
             visualTextBox3.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            visualTextBox3.HoverColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
+            visualTextBox3.HoverColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
             visualTextBox3.HoverText = null;
             visualTextBox3.Image = null;
             visualTextBox3.IsDerivedStyle = true;
@@ -1218,21 +1218,21 @@
             SelectButton.DisabledBorderColor = System.Drawing.Color.Transparent;
             SelectButton.DisabledForeColor = System.Drawing.Color.Transparent;
             SelectButton.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            SelectButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            SelectButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
-            SelectButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+            SelectButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            SelectButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            SelectButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             SelectButton.HoverText = "Save Changes";
             SelectButton.HoverTextColor = System.Drawing.Color.White;
             SelectButton.IsDerivedStyle = true;
             SelectButton.Location = new System.Drawing.Point( 604, 593 );
             SelectButton.Margin = new System.Windows.Forms.Padding( 0 );
             SelectButton.Name = "SelectButton";
-            SelectButton.NormalBorderColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
-            SelectButton.NormalColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
-            SelectButton.NormalTextColor = System.Drawing.Color.DarkGray;
+            SelectButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
+            SelectButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
+            SelectButton.NormalTextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             SelectButton.Padding = new System.Windows.Forms.Padding( 1 );
-            SelectButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            SelectButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            SelectButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            SelectButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             SelectButton.PressTextColor = System.Drawing.Color.White;
             SelectButton.Size = new System.Drawing.Size( 90, 30 );
             SelectButton.Style = MetroSet_UI.Enums.Style.Custom;
@@ -1252,21 +1252,21 @@
             RefreshButton.DisabledBorderColor = System.Drawing.Color.Transparent;
             RefreshButton.DisabledForeColor = System.Drawing.Color.Transparent;
             RefreshButton.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            RefreshButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            RefreshButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
-            RefreshButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+            RefreshButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            RefreshButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            RefreshButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             RefreshButton.HoverText = "Clear Text";
             RefreshButton.HoverTextColor = System.Drawing.Color.White;
             RefreshButton.IsDerivedStyle = true;
             RefreshButton.Location = new System.Drawing.Point( 82, 593 );
             RefreshButton.Margin = new System.Windows.Forms.Padding( 0 );
             RefreshButton.Name = "RefreshButton";
-            RefreshButton.NormalBorderColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
-            RefreshButton.NormalColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
-            RefreshButton.NormalTextColor = System.Drawing.Color.DarkGray;
+            RefreshButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
+            RefreshButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
+            RefreshButton.NormalTextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             RefreshButton.Padding = new System.Windows.Forms.Padding( 1 );
-            RefreshButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            RefreshButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            RefreshButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            RefreshButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             RefreshButton.PressTextColor = System.Drawing.Color.White;
             RefreshButton.Size = new System.Drawing.Size( 90, 30 );
             RefreshButton.Style = MetroSet_UI.Enums.Style.Custom;
@@ -1286,21 +1286,21 @@
             CloseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
             CloseButton.DisabledForeColor = System.Drawing.Color.Transparent;
             CloseButton.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            CloseButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
-            CloseButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+            CloseButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            CloseButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             CloseButton.HoverText = "Close Window";
             CloseButton.HoverTextColor = System.Drawing.Color.White;
             CloseButton.IsDerivedStyle = true;
             CloseButton.Location = new System.Drawing.Point( 1138, 593 );
             CloseButton.Margin = new System.Windows.Forms.Padding( 0 );
             CloseButton.Name = "CloseButton";
-            CloseButton.NormalBorderColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
-            CloseButton.NormalColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
-            CloseButton.NormalTextColor = System.Drawing.Color.DarkGray;
+            CloseButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
+            CloseButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
+            CloseButton.NormalTextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             CloseButton.Padding = new System.Windows.Forms.Padding( 1 );
-            CloseButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            CloseButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            CloseButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            CloseButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             CloseButton.PressTextColor = System.Drawing.Color.White;
             CloseButton.Size = new System.Drawing.Size( 90, 30 );
             CloseButton.Style = MetroSet_UI.Enums.Style.Custom;
@@ -1313,9 +1313,9 @@
             // 
             // groupBox2
             // 
-            groupBox2.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right  ;
+            groupBox2.Anchor =   System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             groupBox2.BackColor = System.Drawing.Color.Transparent;
-            groupBox2.BackgroundColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            groupBox2.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             groupBox2.BindingSource = null;
             groupBox2.BorderColor = System.Drawing.Color.Transparent;
             groupBox2.BorderThickness = 1;
@@ -1338,9 +1338,9 @@
             // 
             // groupBox3
             // 
-            groupBox3.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right  ;
+            groupBox3.Anchor =   System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             groupBox3.BackColor = System.Drawing.Color.Transparent;
-            groupBox3.BackgroundColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            groupBox3.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             groupBox3.BindingSource = null;
             groupBox3.BorderColor = System.Drawing.Color.Transparent;
             groupBox3.BorderThickness = 1;
@@ -1363,9 +1363,9 @@
             // 
             // groupBox4
             // 
-            groupBox4.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right  ;
+            groupBox4.Anchor =   System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             groupBox4.BackColor = System.Drawing.Color.Transparent;
-            groupBox4.BackgroundColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            groupBox4.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             groupBox4.BindingSource = null;
             groupBox4.BorderColor = System.Drawing.Color.Transparent;
             groupBox4.BorderThickness = 1;
@@ -1389,7 +1389,7 @@
             // groupBox9
             // 
             groupBox9.BackColor = System.Drawing.Color.Transparent;
-            groupBox9.BackgroundColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            groupBox9.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             groupBox9.BindingSource = null;
             groupBox9.BorderColor = System.Drawing.Color.Transparent;
             groupBox9.BorderThickness = 1;
@@ -1413,7 +1413,7 @@
             // ContextMenu
             // 
             ContextMenu.AutoSize = false;
-            ContextMenu.BackColor = System.Drawing.Color.FromArgb(   30  ,   30  ,   30   );
+            ContextMenu.BackColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
             ContextMenu.ForeColor = System.Drawing.Color.White;
             ContextMenu.IsDerivedStyle = false;
             ContextMenu.Name = "ContextMenu";
@@ -1428,23 +1428,36 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            CaptionButtonHoverColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            BorderColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            CaptionBarColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            CaptionBarHeight = 5;
+            CaptionButtonColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionFont = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            ClientSize = new System.Drawing.Size( 1298, 636 );
+            ClientSize = new System.Drawing.Size( 1310, 646 );
             ControlBox = false;
             Controls.Add( SelectButton );
             Controls.Add( TabControl );
             Controls.Add( RefreshButton );
             Controls.Add( CloseButton );
-            ForeColor = System.Drawing.Color.LightSteelBlue;
-            Icon = (System.Drawing.Icon) resources.GetObject( "$this.Icon" ) ;
+            Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
+            MaximizeBox = false;
             MaximumSize = new System.Drawing.Size( 1310, 648 );
+            MinimizeBox = false;
             MinimumSize = new System.Drawing.Size( 1310, 646 );
             Name = "EditDialog";
             Padding = new System.Windows.Forms.Padding( 1 );
-            ( (System.ComponentModel.ISupportInitialize) BindingSource  ).EndInit( );
-            ( (System.ComponentModel.ISupportInitialize) TabControl  ).EndInit( );
+            ShowIcon = false;
+            ShowMaximizeBox = false;
+            ShowMinimizeBox = false;
+            SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            ( (System.ComponentModel.ISupportInitialize)BindingSource ).EndInit( );
+            ( (System.ComponentModel.ISupportInitialize)TabControl ).EndInit( );
             TabControl.ResumeLayout( false );
             TabPage.ResumeLayout( false );
             FrameTable.ResumeLayout( false );

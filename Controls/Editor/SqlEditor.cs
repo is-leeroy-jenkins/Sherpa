@@ -1,45 +1,42 @@
-﻿//  ******************************************************************************************
-//      Assembly:                Budget Execution
-//      Filename:                SqlEditor.cs
-//      Author:                  Terry D. Eppler
-//      Created:                 05-31-2023
+﻿// ******************************************************************************************
+//     Assembly:             BudgetExecution
+//     Author:                  Terry D. Eppler
+//     Created:                 07-24-2023
 // 
-//      Last Modified By:        Terry D. Eppler
-//      Last Modified On:        06-01-2023
-//  ******************************************************************************************
-//  <copyright file="SqlEditor.cs" company="Terry D. Eppler">
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        11-26-2023
+// ******************************************************************************************
+// <copyright file="Terry Eppler.cs" company="Terry D. Eppler">
+//    BudgetExecution is a Federal Budget, Finance, and Accounting application for the
+//    US Environmental Protection Agency (US EPA).
+//    Copyright ©  2023  Terry Eppler
 // 
-//     This is a Federal Budget, Finance, and Accounting application for the
-//     US Environmental Protection Agency (US EPA).
-//     Copyright ©  2023  Terry Eppler
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
 // 
-//     Permission is hereby granted, free of charge, to any person obtaining a copy
-//     of this software and associated documentation files (the “Software”),
-//     to deal in the Software without restriction,
-//     including without limitation the rights to use,
-//     copy, modify, merge, publish, distribute, sublicense,
-//     and/or sell copies of the Software,
-//     and to permit persons to whom the Software is furnished to do so,
-//     subject to the following conditions:
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
 // 
-//     The above copyright notice and this permission notice shall be included in all
-//     copies or substantial portions of the Software.
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
 // 
-//     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//     FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//     DEALINGS IN THE SOFTWARE.
-// 
-//     You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
-// 
-//  </copyright>
-//  <summary>
-//    SqlEditor.cs
-//  </summary>
-//  ******************************************************************************************
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
+// </copyright>
+// <summary>
+//   SqlEditor.cs.cs
+// </summary>
+// ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -57,20 +54,32 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms.Tools;
     using static System.Configuration.ConfigurationManager;
     using static System.IO.File;
+    using Action = System.Action;
+    using Color = System.Drawing.Color;
+    using Font = System.Drawing.Font;
+    using FontStyle = System.Drawing.FontStyle;
     using Image = System.Drawing.Image;
+    using Size = System.Drawing.Size;
+    using SystemColors = System.Drawing.SystemColors;
 
     /// <inheritdoc/>
-    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
-    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     public partial class SqlEditor : EditBase
     {
         /// <summary>
+        /// The busy
+        /// </summary>
+        private bool _busy;
+
+        /// <summary>
         /// The status update
         /// </summary>
-        private System.Action _statusUpdate;
+        private Action _statusUpdate;
 
         /// <summary>
         /// Gets or sets the time.
@@ -184,6 +193,20 @@ namespace BudgetExecution
         /// </value>
         public IDictionary<string, object> Statements { get; set; }
 
+        /// <summary>
+        /// Gets a value indicating whether this instance is busy.
+        /// </summary>
+        /// <value>
+        /// <c> true </c>
+        /// if this instance is busy; otherwise,
+        /// <c> false </c>
+        /// </value>
+        public bool IsBusy
+        {
+            get { return _busy; }
+            private set { _busy = value; }
+        }
+
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
@@ -196,26 +219,26 @@ namespace BudgetExecution
             InitializeCallbacks( );
 
             // Form Properties
-            Size = new System.Drawing.Size( 1350, 750 );
-            MaximumSize = new System.Drawing.Size( 1350, 750 );
-            MinimumSize = new System.Drawing.Size( 1350, 750 );
+            Size = new Size( 1350, 750 );
+            MaximumSize = new Size( 1350, 750 );
+            MinimumSize = new Size( 1350, 750 );
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            BorderColor = Color.FromArgb( 0, 120, 212 );
             BorderThickness = 1;
-            BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            Font = new System.Drawing.Font( "Roboto", 9 );
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.FromArgb( 106, 189, 252 );
+            Font = new Font( "Roboto", 9 );
             ShowIcon = false;
             ShowInTaskbar = true;
-            MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            MetroColor = Color.FromArgb( 20, 20, 20 );
             CaptionBarHeight = 5;
             CaptionAlign = HorizontalAlignment.Center;
-            CaptionFont = new System.Drawing.Font( "Roboto", 10, System.Drawing.FontStyle.Regular );
-            CaptionBarColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            CaptionForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            CaptionButtonColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            CaptionFont = new Font( "Roboto", 10, FontStyle.Regular );
+            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
+            CaptionForeColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
             SizeGripStyle = SizeGripStyle.Hide;
             AutoScaleMode = AutoScaleMode.Font;
             DoubleBuffered = true;
@@ -397,37 +420,37 @@ namespace BudgetExecution
             {
                 Editor.AutoSizeMode = AutoSizeMode.GrowAndShrink;
                 Editor.AlwaysShowScrollers = true;
-                Editor.BackColor = System.Drawing.SystemColors.ControlLight;
-                Editor.ForeColor = System.Drawing.Color.Black;
-                Editor.BackgroundColor = new BrushInfo( System.Drawing.SystemColors.ControlLight );
+                Editor.BackColor = SystemColors.ControlLight;
+                Editor.ForeColor = Color.Black;
+                Editor.BackgroundColor = new BrushInfo( SystemColors.ControlLight );
                 Editor.BorderStyle = BorderStyle.FixedSingle;
                 Editor.CanOverrideStyle = true;
                 Editor.CanApplyTheme = true;
-                Editor.ColumnGuidesMeasuringFont = new System.Drawing.Font( "Roboto", 8 );
-                Editor.ContextChoiceFont = new System.Drawing.Font( "Roboto", 8 );
-                Editor.ContextChoiceForeColor = System.Drawing.Color.Black;
-                Editor.ContextChoiceBackColor = System.Drawing.SystemColors.ControlLight;
-                Editor.ContextPromptBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+                Editor.ColumnGuidesMeasuringFont = new Font( "Roboto", 8 );
+                Editor.ContextChoiceFont = new Font( "Roboto", 8 );
+                Editor.ContextChoiceForeColor = Color.Black;
+                Editor.ContextChoiceBackColor = SystemColors.ControlLight;
+                Editor.ContextPromptBorderColor = Color.FromArgb( 0, 120, 212 );
                 Editor.ContextPromptBackgroundBrush =
-                    new BrushInfo( System.Drawing.Color.FromArgb( 233, 166, 50 ) );
+                    new BrushInfo( Color.FromArgb( 233, 166, 50 ) );
 
                 Editor.ContextTooltipBackgroundBrush =
-                    new BrushInfo( System.Drawing.Color.FromArgb( 233, 166, 50 ) );
+                    new BrushInfo( Color.FromArgb( 233, 166, 50 ) );
 
-                Editor.ContextTooltipBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-                Editor.EndOfLineBackColor = System.Drawing.SystemColors.ControlLight;
-                Editor.EndOfLineForeColor = System.Drawing.SystemColors.ControlLight;
+                Editor.ContextTooltipBorderColor = Color.FromArgb( 0, 120, 212 );
+                Editor.EndOfLineBackColor = SystemColors.ControlLight;
+                Editor.EndOfLineForeColor = SystemColors.ControlLight;
                 Editor.HighlightCurrentLine = true;
-                Editor.IndentationBlockBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-                Editor.IndentLineColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
-                Editor.IndicatorMarginBackColor = System.Drawing.SystemColors.ControlLight;
-                Editor.CurrentLineHighlightColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-                Editor.Font = new System.Drawing.Font( "Roboto", 12 );
-                Editor.LineNumbersColor = System.Drawing.Color.Black;
-                Editor.LineNumbersFont = new System.Drawing.Font( "Roboto", 8, System.Drawing.FontStyle.Bold );
+                Editor.IndentationBlockBorderColor = Color.FromArgb( 0, 120, 212 );
+                Editor.IndentLineColor = Color.FromArgb( 50, 93, 129 );
+                Editor.IndicatorMarginBackColor = SystemColors.ControlLight;
+                Editor.CurrentLineHighlightColor = Color.FromArgb( 0, 120, 212 );
+                Editor.Font = new Font( "Roboto", 12 );
+                Editor.LineNumbersColor = Color.Black;
+                Editor.LineNumbersFont = new Font( "Roboto", 8, FontStyle.Bold );
                 Editor.ScrollVisualStyle = ScrollBarCustomDrawStyles.Office2016;
                 Editor.ScrollColorScheme = Office2007ColorScheme.Black;
-                Editor.SelectionTextColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+                Editor.SelectionTextColor = Color.FromArgb( 50, 93, 129 );
                 Editor.ShowEndOfLine = false;
                 Editor.Style = EditControlStyle.Office2016Black;
                 Editor.TabSize = 4;
@@ -451,8 +474,8 @@ namespace BudgetExecution
         {
             try
             {
-                Title.Font = new System.Drawing.Font( "Roboto", 10 );
-                Title.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+                Title.Font = new Font( "Roboto", 10 );
+                Title.ForeColor = Color.FromArgb( 106, 189, 252 );
             }
             catch( Exception _ex )
             {
@@ -465,7 +488,7 @@ namespace BudgetExecution
         {
             try
             {
-                PictureBox.Size = new System.Drawing.Size( 24, 22 );
+                PictureBox.Size = new Size( 24, 22 );
                 PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             }
             catch( Exception _ex )
@@ -487,8 +510,8 @@ namespace BudgetExecution
                 ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Black;
                 ToolStrip.LauncherStyle = LauncherStyle.Office12;
                 ToolStrip.ShowCaption = true;
-                ToolStrip.ImageSize = new System.Drawing.Size( 16, 16 );
-                ToolStrip.ImageScalingSize = new System.Drawing.Size( 16, 16 );
+                ToolStrip.ImageSize = new Size( 16, 16 );
+                ToolStrip.ImageScalingSize = new Size( 16, 16 );
             }
             catch( Exception _ex )
             {
@@ -608,7 +631,7 @@ namespace BudgetExecution
         /// Invokes if needed.
         /// </summary>
         /// <param name="action">The action.</param>
-        public void InvokeIf( System.Action action )
+        public void InvokeIf( Action action )
         {
             ThrowIf.Null( action, nameof( action ) );
             if( InvokeRequired )
@@ -619,6 +642,22 @@ namespace BudgetExecution
             {
                 action.Invoke( );
             }
+        }
+
+        /// <summary>
+        /// Begins the initialize.
+        /// </summary>
+        private void BeginInit( )
+        {
+            _busy = true;
+        }
+
+        /// <summary>
+        /// Ends the initialize.
+        /// </summary>
+        private void EndInit( )
+        {
+            _busy = false;
         }
 
         /// <summary>
@@ -1025,7 +1064,7 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.NoItems( where, nameof( where ) );
-                return $"SELECT * FROM {Source} " 
+                return $"SELECT * FROM {Source} "
                     + $"WHERE {where.ToCriteria( )};";
             }
             catch( Exception _ex )

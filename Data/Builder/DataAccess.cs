@@ -74,12 +74,12 @@ namespace BudgetExecution
         /// <summary>
         /// The column names
         /// </summary>
-        private protected IEnumerable<string> _columnNames;
+        private protected IList<string> _columnNames;
 
         /// <summary>
         /// The data columns
         /// </summary>
-        private protected IEnumerable<string> _dataColumns;
+        private protected IList<string> _dataColumns;
 
         /// <summary>
         /// The data set
@@ -181,7 +181,7 @@ namespace BudgetExecution
         /// <value>
         /// The data columns.
         /// </value>
-        public IEnumerable<DataColumn> DataColumns { get; set; }
+        public IList<DataColumn> DataColumns { get; set; }
 
         /// <summary>
         /// Gets or sets the column names.
@@ -189,7 +189,7 @@ namespace BudgetExecution
         /// <value>
         /// The column names.
         /// </value>
-        public IEnumerable<string> ColumnNames { get; set; }
+        public IList<string> ColumnNames { get; set; }
 
         /// <summary>
         /// Gets or sets the keys.

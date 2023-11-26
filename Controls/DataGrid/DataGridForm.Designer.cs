@@ -140,12 +140,11 @@
             MenuSeparator = new ToolSeparator( );
             ExitButton = new ToolStripButton( );
             ToolStrip = new ToolStrip( );
-            ToolSeparator1 = new ToolSeparator( );
-            ProgressBar = new System.Windows.Forms.ToolStripProgressBar( );
             StatusLabel = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt( );
             CommandLabelSeparator = new ToolSeparator( );
             ToolStripTextBox = new ToolStripTextBox( );
             ExitSeparator = new ToolSeparator( );
+            ToolSeparator1 = new ToolSeparator( );
             CommandSpacer = new ToolStripLabel( );
             FunctionSpacer = new ToolStripLabel( );
             FunctionalitySpacer = new ToolSeparator( );
@@ -2224,7 +2223,7 @@
             ToolStrip.Image = null;
             ToolStrip.ImageDirectory = null;
             ToolStrip.ImageSize = new System.Drawing.Size( 16, 16 );
-            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { ToolSeparator1, ProgressBar, StatusLabel, TextBoxSeparator, FirstButton, FirstSeparator, PreviousButton, PreviousSeparator, NextButton, NextSeparator, RemoveFiltersButton, EditRecordSeparator, RefreshDataButton, EditColumnSeparator, GroupButton, RefreshDataSeparator, CommandLabelSeparator, EditRecordButton, GroupSeparator, EditColumnButton, ColumnSeparator, EditSqlButton, EditSqlSeparator, ToolStripTextBox, ChartSeparator, ExcelImportButton, ExcelImportSeparator, CalendarButton, GuidanceSeparator, BrowseButton, BrowseSeparator, WebButton, ExitButton, BackSeparator, MenuButton, MenuSeparator, ExitSeparator } );
+            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { StatusLabel, TextBoxSeparator, FirstButton, FirstSeparator, PreviousButton, PreviousSeparator, NextButton, NextSeparator, RemoveFiltersButton, EditRecordSeparator, RefreshDataButton, EditColumnSeparator, GroupButton, RefreshDataSeparator, CommandLabelSeparator, EditRecordButton, GroupSeparator, EditColumnButton, ColumnSeparator, EditSqlButton, EditSqlSeparator, ToolStripTextBox, ChartSeparator, ExcelImportButton, ExcelImportSeparator, CalendarButton, GuidanceSeparator, BrowseButton, BrowseSeparator, WebButton, ExitButton, BackSeparator, MenuButton, MenuSeparator, ExitSeparator } );
             ToolStrip.LastButton = LastButton;
             ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
             ToolStrip.Location = new System.Drawing.Point( 1, 1 );
@@ -2256,20 +2255,6 @@
             ToolStrip.ThemeStyle.HoverItemForeColor = System.Drawing.Color.White;
             ToolStrip.VisualStyle = Syncfusion.Windows.Forms.Tools.ToolStripExStyle.Office2016DarkGray;
             // 
-            // ToolSeparator1
-            // 
-            ToolSeparator1.ForeColor = System.Drawing.Color.Black;
-            ToolSeparator1.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
-            ToolSeparator1.Name = "ToolSeparator1";
-            ToolSeparator1.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolSeparator1.Size = new System.Drawing.Size( 6, 25 );
-            // 
-            // ProgressBar
-            // 
-            ProgressBar.Name = "ProgressBar";
-            ProgressBar.Size = new System.Drawing.Size( 150, 24 );
-            ProgressBar.Value = 50;
-            // 
             // StatusLabel
             // 
             StatusLabel.BackColor = System.Drawing.Color.Transparent;
@@ -2300,7 +2285,7 @@
             ToolStripTextBox.Margin = new System.Windows.Forms.Padding( 1 );
             ToolStripTextBox.Name = "ToolStripTextBox";
             ToolStripTextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Size = new System.Drawing.Size( 178, 25 );
+            ToolStripTextBox.Size = new System.Drawing.Size( 142, 25 );
             ToolStripTextBox.Tag = "";
             ToolStripTextBox.ToolTip = ToolTip;
             // 
@@ -2312,6 +2297,14 @@
             ExitSeparator.Name = "ExitSeparator";
             ExitSeparator.Padding = new System.Windows.Forms.Padding( 1 );
             ExitSeparator.Size = new System.Drawing.Size( 6, 25 );
+            // 
+            // ToolSeparator1
+            // 
+            ToolSeparator1.ForeColor = System.Drawing.Color.Black;
+            ToolSeparator1.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            ToolSeparator1.Name = "ToolSeparator1";
+            ToolSeparator1.Padding = new System.Windows.Forms.Padding( 1 );
+            ToolSeparator1.Size = new System.Drawing.Size( 6, 25 );
             // 
             // CommandSpacer
             // 
@@ -2553,7 +2546,6 @@
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            BorderThickness = 2;
             CaptionAlign = System.Windows.Forms.HorizontalAlignment.Left;
             CaptionBarColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionBarHeight = 5;
@@ -2582,6 +2574,7 @@
             ShowIcon = false;
             ShowMaximizeBox = false;
             ShowMinimizeBox = false;
+            SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).EndInit( );
             DataGridPanel.ResumeLayout( false );
@@ -2753,7 +2746,6 @@
         public ToolStripTextBox ToolStripTextBox;
         public Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt StatusLabel;
         public ToolSeparator ToolSeparator1;
-        public System.Windows.Forms.ToolStripProgressBar ProgressBar;
         private HeaderPanel GridHeaderPanel;
         private TabControl GridTabControl;
         private Syncfusion.Windows.Forms.Tools.TabPageAdv Busy;
