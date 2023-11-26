@@ -47,7 +47,6 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
     /// <inheritdoc />
@@ -58,16 +57,8 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    public class Selector : Syncfusion.Windows.Forms.Tools.Carousel
+    public class Carousel : Syncfusion.Windows.Forms.Tools.Carousel
     {
-        /// <summary>
-        /// Gets or sets the binding source.
-        /// </summary>
-        /// <value>
-        /// The binding source.
-        /// </value>
-        public virtual BindingSource BindingSource { get; set; }
-
         /// <summary>
         /// Gets or sets the images.
         /// </summary>
@@ -84,10 +75,13 @@ namespace BudgetExecution
         /// </value>
         public Size ImageSize { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="Selector"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.Selector" />
+        /// class.
         /// </summary>
-        public Selector( )
+        public Carousel( )
         {
             // Basic Carousel Properties
             BackColor = Color.FromArgb( 20, 20, 20 );
@@ -111,7 +105,7 @@ namespace BudgetExecution
             // ThemeStyle Properties
             ThemeStyle.BackColor = Color.Transparent;
             ThemeStyle.Font = new Font( "Roboto", 9 );
-            ThemeStyle.ForeColor = Color.FromArgb( 106, 189, 252 );;
+            ThemeStyle.ForeColor = Color.FromArgb( 106, 189, 252 );
             ThemeStyle.HoverImageBorderColor = Color.FromArgb( 0, 120, 212 );
             ThemeStyle.HoverImageBorderThickness = 3;
             ThemeStyle.ImageShadeColor = Color.FromArgb( 18, 18, 18 );

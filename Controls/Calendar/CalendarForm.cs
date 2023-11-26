@@ -303,6 +303,7 @@ namespace BudgetExecution
         {
             try
             {
+                Title.Font = new Font( "Roboto", 10 );
                 Title.ForeColor = Color.FromArgb( 106, 189, 252 );
                 Title.TextAlign = ContentAlignment.TopLeft;
             }
@@ -319,7 +320,7 @@ namespace BudgetExecution
         {
             try
             {
-                Plotter.Series[ 0 ].Type = ChartSeriesType.Pie;
+                Chart.Series[ 0 ].Type = ChartSeriesType.Pie;
             }
             catch( Exception _ex )
             {
@@ -328,7 +329,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Fades the in.
+        /// Fades the form in.
         /// </summary>
         private void FadeIn( )
         {
@@ -355,7 +356,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Fades the out.
+        /// Fades the form out.
         /// </summary>
         private void FadeOut( )
         {
@@ -385,15 +386,15 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the title text.
         /// </summary>
-        /// <param name="text">The text.</param>
+        /// <param name="text">
+        /// The text.
+        /// </param>
         private void SetTitleText( string text )
         {
             try
             {
-                if( !string.IsNullOrEmpty( text ) )
-                {
-                    Plotter.Titles[ 0 ].Text = text;
-                }
+                ThrowIf.Null( text, nameof( text ) );
+                Chart.Titles[ 0 ].Text = text;
             }
             catch( Exception _ex )
             {
@@ -430,7 +431,8 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the controls.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         private IEnumerable<Control> GetControls( )
         {
             var _list = new List<Control>( );
@@ -465,7 +467,8 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the federal holidays.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         private DataTable GetFederalHolidays( )
         {
             try
@@ -486,7 +489,8 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the fiscal years.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         private DataTable GetFiscalYears( )
         {
             try
@@ -515,19 +519,32 @@ namespace BudgetExecution
                 {
                     case 0:
                     {
-                        TableButton.Visible = true;
+                        ChartTab.Visible = true;
                         ChartButton.Visible = false;
-                        Separator8.Visible = false;
+                        TableButton.Visible = true;
+                        DataTab.Visible = false;
+                        BusyTab.Visible = false;
                         break;
                     }
                     case 1:
                     {
-                        TableButton.Visible = false;
+                        DataTab.Visible = true;
                         ChartButton.Visible = true;
-                        Separator8.Visible = false;
+                        TableButton.Visible = false;
+                        ChartTab.Visible = false;
+                        BusyTab.Visible = false;
                         BindingSource.DataSource = GetFiscalYears( );
                         DataGrid.DataSource = BindingSource;
                         ToolStrip.BindingSource = BindingSource;
+                        break;
+                    }
+                    case 2:
+                    {
+                        BusyTab.Visible = true;
+                        ChartButton.Visible = false;
+                        TableButton.Visible = false;
+                        ChartTab.Visible = false;
+                        DataTab.Visible = false;
                         break;
                     }
                 }
@@ -541,8 +558,12 @@ namespace BudgetExecution
         /// <summary>
         /// Updates the label text.
         /// </summary>
-        /// <param name="start">The start.</param>
-        /// <param name="end">The end.</param>
+        /// <param name="start">
+        /// The start.
+        /// </param>
+        /// <param name="end">
+        /// The end.
+        /// </param>
         private void UpdateLabelText( DateTime start, DateTime end )
         {
             try
@@ -567,7 +588,7 @@ namespace BudgetExecution
                 Label10.Visible = false;
                 Label11.Visible = false;
                 Label12.Visible = false;
-                Plotter.Refresh( );
+                Chart.Refresh( );
             }
             catch( Exception _ex )
             {
@@ -578,8 +599,12 @@ namespace BudgetExecution
         /// <summary>
         /// Binds the chart.
         /// </summary>
-        /// <param name="start">The start.</param>
-        /// <param name="end">The end.</param>
+        /// <param name="start">
+        /// The start.
+        /// </param>
+        /// <param name="end">
+        /// The end.
+        /// </param>
         private void BindChart( DateTime start, DateTime end )
         {
             try
@@ -596,16 +621,20 @@ namespace BudgetExecution
                 _data.Add( "Weekends", _weekends );
                 _data.Add( "Holidays", _holidays );
                 var _text = $"From {_start} To {_end} ";
-                Plotter.Titles[ 0 ].Text = _text;
+                Chart.Titles[ 0 ].Text = _text;
                 var _values = _data.Values.ToArray( );
                 var _names = _data.Keys.ToArray( );
-                Plotter.Series[ 0 ].Points.Clear( );
-                Plotter.Series[ 0 ].Type = ChartSeriesType.Pie;
+                Chart.Series[ 0 ].Points.Clear( );
+                Chart.Series[ 0 ].Type = ChartSeriesType.Pie;
                 for( var _i = 0; _i < _data.Count; _i++ )
                 {
+                    var _pt = new ChartPoint( );
+                    _pt.Category = _names[ _i ];
+                    _pt.YValues = _values;
+                    Chart.Series[ 0 ].Points.Add( _pt );
                 }
 
-                Plotter.Refresh( );
+                Chart.Refresh( );
             }
             catch( Exception _ex )
             {
@@ -641,9 +670,9 @@ namespace BudgetExecution
         {
             try
             {
+                InitializeCallbacks( );
                 InitializeToolStrip( );
                 InitializeLabels( );
-                InitializeCallbacks( );
                 InitializeChart( );
                 SetActiveTab( );
                 ClearLabels( );
@@ -687,6 +716,7 @@ namespace BudgetExecution
         {
             try
             {
+                FadeOut( );
                 Close( );
             }
             catch( Exception _ex )
@@ -727,8 +757,11 @@ namespace BudgetExecution
         /// <summary>
         /// Called when [second calendar selection changed].
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="sender">The sender.
+        /// </param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnSecondCalendarSelectionChanged( object sender, EventArgs e )
         {
             try
@@ -746,8 +779,11 @@ namespace BudgetExecution
         /// <summary>
         /// Called when [table button click].
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="sender">The sender.
+        /// </param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnTableButtonClick( object sender, EventArgs e )
         {
             TabControl.SelectedIndex = 1;
@@ -756,8 +792,11 @@ namespace BudgetExecution
         /// <summary>
         /// Called when [chart button click].
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="sender">The sender.
+        /// </param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnChartButtonClick( object sender, EventArgs e )
         {
             TabControl.SelectedIndex = 0;
@@ -766,8 +805,11 @@ namespace BudgetExecution
         /// <summary>
         /// Called when [selected tab changed].
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="sender">The sender.
+        /// </param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnSelectedTabChanged( object sender, EventArgs e )
         {
             SetActiveTab( );
@@ -776,8 +818,11 @@ namespace BudgetExecution
         /// <summary>
         /// Called when [refresh button click].
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="sender">The sender.
+        /// </param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnRefreshButtonClick( object sender, EventArgs e )
         {
             try
@@ -800,7 +845,9 @@ namespace BudgetExecution
         /// <summary>
         /// Fails the specified ex.
         /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <param name="ex">
+        /// The exception.
+        /// </param>
         private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

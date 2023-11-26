@@ -321,28 +321,29 @@ namespace BudgetExecution
         /// <summary>
         /// Populates the data type ComboBox items.
         /// </summary>
-        public void PopulateDataTypeComboBoxItems( )
-        {
-            if( DataTypes?.Any( ) == true )
+        /// <param name="dataTypes">
+        /// The data types.
+        /// </param>
+        public void PopulateDataTypeComboBoxItems( IEnumerable<string> dataTypes )
+        { 
+            try
             {
-                try
+                ThrowIf.Null( dataTypes, nameof( dataTypes ) );
+                DataTypeComboBox.Items?.Clear( );
+                DataTypeComboBox.SelectedText = string.Empty;
+                var _types = DataTypes.ToArray( );
+                for( var _i = 0; _i < _types?.Length; _i++ )
                 {
-                    DataTypeComboBox.Items?.Clear( );
-                    DataTypeComboBox.SelectedText = string.Empty;
-                    var _types = DataTypes.ToArray( );
-                    for( var _i = 0; _i < _types?.Length; _i++ )
+                    if( !string.IsNullOrEmpty( _types[ _i ] ) )
                     {
-                        if( !string.IsNullOrEmpty( _types[ _i ] ) )
-                        {
-                            DataTypeComboBox.Items.Add( _types[ _i ] );
-                        }
+                        DataTypeComboBox.Items.Add( _types[ _i ] );
                     }
                 }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
             }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            } 
         }
 
         /// <summary>
@@ -528,7 +529,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the buttons.
         /// </summary>
-        private void InitializeButtons( )
+        private void InitializeRadioButtons( )
         {
             try
             {
@@ -591,6 +592,7 @@ namespace BudgetExecution
             {
                 Title.Font = new Font( "Roboto", 10 );
                 Title.ForeColor = Color.FromArgb( 106, 189, 252 );
+                Title.TextAlign = ContentAlignment.TopLeft;
             }
             catch( Exception _ex )
             {
@@ -639,6 +641,7 @@ namespace BudgetExecution
         /// <param name="action">The action.</param>
         public void InvokeIf( System.Action action )
         {
+            ThrowIf.Null( action, nameof( action ) );
             if( InvokeRequired )
             {
                 BeginInvoke( action );
@@ -696,23 +699,6 @@ namespace BudgetExecution
                 };
 
                 _timer.Start( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Notifies this instance.
-        /// </summary>
-        private void Notify( )
-        {
-            try
-            {
-                var _message = "THIS IS NOT IMPLEMENTED!!";
-                var _notification = new Notification( _message );
-                _notification.Show( );
             }
             catch( Exception _ex )
             {
@@ -833,6 +819,7 @@ namespace BudgetExecution
             {
                 case 0:
                 {
+                    // SQL Tab
                     SqlTab.TabVisible = true;
                     DataTab.TabVisible = false;
                     LookupTab.TabVisible = false;
@@ -846,6 +833,7 @@ namespace BudgetExecution
                 }
                 case 1:
                 {
+                    // Data Tab
                     DataTab.TabVisible = true;
                     LookupTab.TabVisible = false;
                     SchemaTab.TabVisible = false;
@@ -861,6 +849,7 @@ namespace BudgetExecution
                 }
                 case 2:
                 {
+                    // Lookup Tab
                     LookupTab.TabVisible = true;
                     DataTab.TabVisible = false;
                     SchemaTab.TabVisible = false;
@@ -875,6 +864,7 @@ namespace BudgetExecution
                 }
                 case 3:
                 {
+                    // Schema Tab
                     SchemaTab.TabVisible = true;
                     DataTab.TabVisible = false;
                     LookupTab.TabVisible = false;
@@ -882,12 +872,13 @@ namespace BudgetExecution
                     Busy.TabVisible = false;
                     PopulateTableComboBoxItems( );
                     DataTypes = GetDataTypes( Provider );
-                    PopulateDataTypeComboBoxItems( );
+                    PopulateDataTypeComboBoxItems( DataTypes );
                     Title.Text = GetTitleText( ) + "| Schema Editor";
                     break;
                 }
                 case 4:
                 {
+                    // Busy Tab
                     Busy.TabVisible = true;
                     SchemaTab.TabVisible = false;
                     DataTab.TabVisible = false;
@@ -926,13 +917,17 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Binds the data. </summary>
-        /// <param name="where"> The where. </param>
+        /// <summary>
+        /// Binds the data.
+        /// </summary>
+        /// <param name="where">
+        /// The where.
+        /// </param>
         private void BindData( IDictionary<string, object> where )
         {
             try
             {
-                ThrowIf.Null( where, "where" );
+                ThrowIf.Null( where, nameof( where ) );
                 var _sql = CreateSqlText( where );
                 DataModel = new DataBuilder( Source, Provider, _sql );
                 DataTable = DataModel?.DataTable;
@@ -958,8 +953,8 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.Null( columns, "columns" );
-                ThrowIf.Null( where, "where" );
+                ThrowIf.Null( columns, nameof( columns ) );
+                ThrowIf.Null( where, nameof( where ) );
                 var _sql = CreateSqlText( columns, where );
                 DataModel = new DataBuilder( Source, Provider, _sql );
                 DataTable = DataModel?.DataTable;
@@ -978,7 +973,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Binds the data. </summary>
+        /// <summary>
+        /// Binds the data.
+        /// </summary>
         /// <param name="fields"> The fields. </param>
         /// <param name="numerics"> The numerics. </param>
         /// <param name="where"> The where. </param>
@@ -987,9 +984,9 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.Null( numerics, "numerics" );
-                ThrowIf.Null( fields, "fields" );
-                ThrowIf.Null( where, "where" );
+                ThrowIf.Null( numerics, nameof( numerics ) );
+                ThrowIf.Null( fields, nameof( fields ) );
+                ThrowIf.Null( where, nameof( where ) );
                 var _sql = CreateSqlText( fields, numerics, where );
                 DataModel = new DataBuilder( Source, Provider, _sql );
                 DataTable = DataModel?.DataTable;
@@ -1008,15 +1005,20 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Creates the SQL text. </summary>
-        /// <param name="where"> The where. </param>
+        /// <summary>
+        /// Creates the SQL text.
+        /// </summary>
+        /// <param name="where">
+        /// The where.
+        /// </param>
         /// <returns> </returns>
         private string CreateSqlText( IDictionary<string, object> where )
         {
             try
             {
-                ThrowIf.Null( where, "where" );
-                return $"SELECT * FROM {Source} " + $"WHERE {where.ToCriteria( )};";
+                ThrowIf.Null( where, nameof( where ) );
+                return $"SELECT * FROM {Source} " 
+                    + $"WHERE {where.ToCriteria( )};";
             }
             catch( Exception _ex )
             {
@@ -1025,17 +1027,25 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Creates the SQL text. </summary>
-        /// <param name="columns"> The columns. </param>
-        /// <param name="where"> The where. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Creates the SQL text.
+        /// </summary>
+        /// <param name="columns">
+        /// The columns.
+        /// </param>
+        /// <param name="where">
+        /// The where.
+        /// </param>
+        /// <returns>
+        /// string
+        /// </returns>
         private string CreateSqlText( IEnumerable<string> columns,
             IDictionary<string, object> where )
         {
             try
             {
-                ThrowIf.Null( columns, "columns" );
-                ThrowIf.Null( where, "where" );
+                ThrowIf.Null( columns, nameof( columns ) );
+                ThrowIf.Null( where, nameof( where ) );
                 var _cols = string.Empty;
                 foreach( var _name in columns )
                 {
@@ -1054,19 +1064,29 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Creates the SQL text. </summary>
-        /// <param name="fields"> The fields. </param>
-        /// <param name="numerics"> The numerics. </param>
-        /// <param name="where"> The where. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Creates the SQL text.
+        /// </summary>
+        /// <param name="fields">
+        /// The fields.
+        /// </param>
+        /// <param name="numerics">
+        /// The numerics.
+        /// </param>
+        /// <param name="where">
+        /// The where.
+        /// </param>
+        /// <returns>
+        /// string
+        /// </returns>
         private string CreateSqlText( IEnumerable<string> fields, IEnumerable<string> numerics,
             IDictionary<string, object> where )
         {
             try
             {
-                ThrowIf.Null( numerics, "numerics" );
-                ThrowIf.Null( fields, "fields" );
-                ThrowIf.Null( where, "where" );
+                ThrowIf.Null( numerics, nameof( numerics ) );
+                ThrowIf.Null( fields, nameof( fields ) );
+                ThrowIf.Null( where, nameof( where ) );
                 var _cols = string.Empty;
                 var _aggr = string.Empty;
                 foreach( var _name in fields )
@@ -1092,9 +1112,15 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Creates the command list. </summary>
-        /// <param name="provider"> The provider. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Creates the command list.
+        /// </summary>
+        /// <param name="provider">
+        /// The provider.
+        /// </param>
+        /// <returns>
+        /// IList
+        /// </returns>
         private IList<string> CreateCommandList( Provider provider )
         {
             try
@@ -1129,9 +1155,15 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Creates the query list. </summary>
-        /// <param name="provider"> The provider. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Creates the query list.
+        /// </summary>
+        /// <param name="provider">
+        /// The provider.
+        /// </param>
+        /// <returns>
+        /// IList
+        /// </returns>
         private IList<string> CreateQueryList( Provider provider )
         {
             try
@@ -1185,161 +1217,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the tab pages.
-        /// </summary>
-        /// <returns>
-        /// IDictionary
-        /// </returns>
-        private IDictionary<string, TabPageAdv> GetTabPages( )
-        {
-            if( TabControl.TabPages?.Count > 0 )
-            {
-                try
-                {
-                    var _tabPages = new Dictionary<string, TabPageAdv>( );
-                    foreach( var _control in GetControls( ) )
-                    {
-                        if( _control.GetType( ) == typeof( TabPageAdv ) )
-                        {
-                            _tabPages.Add( _control.Name, _control as TabPageAdv );
-                        }
-                    }
-
-                    return _tabPages?.Any( ) == true
-                        ? _tabPages
-                        : default( IDictionary<string, TabPageAdv> );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( IDictionary<string, TabPageAdv> );
-                }
-            }
-
-            return default( IDictionary<string, TabPageAdv> );
-        }
-
-        /// <summary>
-        /// Gets the radio buttons.
-        /// </summary>
-        /// <returns>
-        /// IDictionary
-        /// </returns>
-        private IDictionary<string, RadioButton> GetRadioButtons( )
-        {
-            try
-            {
-                var _buttons = new Dictionary<string, RadioButton>( );
-                foreach( var _control in GetControls( ) )
-                {
-                    if( _control.GetType( ) == typeof( RadioButton ) )
-                    {
-                        _buttons.Add( _control.Name, _control as RadioButton );
-                    }
-                }
-
-                return _buttons?.Any( ) == true
-                    ? _buttons
-                    : default( IDictionary<string, RadioButton> );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( IDictionary<string, RadioButton> );
-            }
-        }
-
-        /// <summary>
-        /// Gets the combo boxes.
-        /// </summary>
-        /// <returns>
-        /// IDictionary
-        /// </returns>
-        private IDictionary<string, ComboBox> GetComboBoxes( )
-        {
-            try
-            {
-                var _comboBoxes = new Dictionary<string, ComboBox>( );
-                foreach( var _control in GetControls( ) )
-                {
-                    if( _control.GetType( ) == typeof( ComboBox ) )
-                    {
-                        _comboBoxes.Add( _control.Name, _control as ComboBox );
-                    }
-                }
-
-                return _comboBoxes?.Any( ) == true
-                    ? _comboBoxes
-                    : default( IDictionary<string, ComboBox> );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( IDictionary<string, ComboBox> );
-            }
-        }
-
-        /// <summary>
-        /// Gets the panels.
-        /// </summary>
-        /// <returns>
-        /// IDictionary
-        /// </returns>
-        private IDictionary<string, Layout> GetPanels( )
-        {
-            try
-            {
-                var _panels = new Dictionary<string, Layout>( );
-                foreach( var _control in GetControls( ) )
-                {
-                    if( _control.GetType( ) == typeof( Layout ) )
-                    {
-                        _panels.Add( _control.Name, _control as Layout );
-                    }
-                }
-
-                return _panels?.Any( ) == true
-                    ? _panels
-                    : default( IDictionary<string, Layout> );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( IDictionary<string, Layout> );
-            }
-        }
-
-        /// <summary>
-        /// Gets the list boxes.
-        /// </summary>
-        /// <returns>
-        /// IDictionary
-        /// </returns>
-        private IDictionary<string, ListBox> GetListBoxes( )
-        {
-            try
-            {
-                var _listBoxes = new Dictionary<string, ListBox>( );
-                foreach( var _control in GetControls( ) )
-                {
-                    if( _control is ListBox _listBox )
-                    {
-                        _listBoxes.Add( _listBox.Name, _listBox );
-                    }
-                }
-
-                return _listBoxes?.Any( ) == true
-                    ? _listBoxes
-                    : default( IDictionary<string, ListBox> );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( IDictionary<string, ListBox> );
-            }
-        }
-
-        /// <summary>
         /// Opens the main form.
         /// </summary>
         private void OpenMainForm( )
@@ -1367,7 +1244,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.Null( list, "list" );
+                ThrowIf.Null( list, nameof( list ) );
                 var _commands = Enum.GetNames( typeof( SQL ) );
                 CommandComboBox.Items?.Clear( );
                 QueryListBox.Items?.Clear( );
@@ -1429,7 +1306,7 @@ namespace BudgetExecution
         /// <summary>
         /// Runs the client application.
         /// </summary>
-        private void RunClientApplication( )
+        private void RunClient( )
         {
             try
             {
@@ -1461,7 +1338,9 @@ namespace BudgetExecution
         /// <summary>
         /// Called when [load].
         /// </summary>
-        /// <param name="sender"> The sender. </param>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
         /// <param name="e">
         /// The
         /// <see cref="EventArgs"/>
@@ -1473,7 +1352,7 @@ namespace BudgetExecution
             {
                 InitializeEditor( );
                 InitializeToolStrip( );
-                InitializeButtons( );
+                InitializeRadioButtons( );
                 SetFormIcon( );
                 InitializeLabels( );
                 InitializeTimers( );
@@ -1510,7 +1389,7 @@ namespace BudgetExecution
                         DataTypes = GetDataTypes( Provider );
                         Commands = CreateCommandList( Provider );
                         PopulateSqlComboBox( Commands );
-                        PopulateDataTypeComboBoxItems( );
+                        PopulateDataTypeComboBoxItems( DataTypes );
                         Title.Text = GetTitleText( );
                         SetFormIcon( );
                     }
@@ -1858,7 +1737,15 @@ namespace BudgetExecution
         /// </param>
         private void OnSaveButtonClick( object sender, EventArgs e )
         {
-            Notify( );
+            try
+            {
+                var _message = "THIS IS NOT IMPLEMENTED!";
+                SendNotification( _message );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -1895,7 +1782,7 @@ namespace BudgetExecution
         /// </param>
         private void OnClientButtonClick( object sender, EventArgs e )
         {
-            RunClientApplication( );
+            RunClient( );
         }
 
         /// <summary>

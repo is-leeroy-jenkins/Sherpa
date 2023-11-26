@@ -256,9 +256,15 @@ namespace BudgetExecution
         {
         }
 
-        /// <summary> Gets the data types. </summary>
-        /// <param name="provider"> The provider. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the data types.
+        /// </summary>
+        /// <param name="provider">
+        /// The provider.
+        /// </param>
+        /// <returns>
+        /// IEnumerable
+        /// </returns>
         private protected IEnumerable<string> GetDataTypes( Provider provider )
         {
             if( Enum.IsDefined( typeof( Provider ), provider ) )
@@ -285,8 +291,12 @@ namespace BudgetExecution
             return default( IEnumerable<string> );
         }
 
-        /// <summary> Gets the controls. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the controls.
+        /// </summary>
+        /// <returns>
+        /// IEnumerable
+        /// </returns>
         private protected IEnumerable<Control> GetControls( )
         {
             var _list = new List<Control>( );
@@ -296,7 +306,7 @@ namespace BudgetExecution
                 _queue.Enqueue( Controls );
                 while( _queue.Count > 0 )
                 {
-                    var _collection = (Control.ControlCollection) _queue.Dequeue( );
+                    var _collection = (Control.ControlCollection)_queue.Dequeue( );
                     if( _collection?.Count > 0 )
                     {
                         foreach( Control _control in _collection )
@@ -321,45 +331,199 @@ namespace BudgetExecution
         /// <summary>
         /// Sends the notification.
         /// </summary>
-        /// <param name="text">The text.</param>
+        /// <param name="text">
+        /// The text.
+        /// </param>
         private protected void SendNotification( string text )
         {
-            if( !string.IsNullOrEmpty( text ) )
+            try
             {
-                try
-                {
-                    var _notification = new Notification( text );
-                    _notification.Show( );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                ThrowIf.NullOrEmpty( text, nameof( text ) );
+                var _notification = new Notification( text );
+                _notification.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
         /// <summary>
         /// Sends the message.
         /// </summary>
-        /// <param name="text">The text.</param>
+        /// <param name="text">
+        /// The text.
+        /// </param>
         private protected void SendMessage( string text )
         {
-            if( !string.IsNullOrEmpty( text ) )
+            try
             {
-                try
+                ThrowIf.NullOrEmpty( text, nameof( text ) );
+                var _message = new SplashMessage( text );
+                _message.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+        
+        /// <summary>
+        /// Gets the tab pages.
+        /// </summary>
+        /// <returns>
+        /// IDictionary
+        /// </returns>
+        private protected IDictionary<string, TabPageAdv> GetTabPages( )
+        {
+            try
+            {
+                var _tabPages = new Dictionary<string, TabPageAdv>( );
+                foreach( var _control in GetControls( ) )
                 {
-                    var _message = new SplashMessage( text );
-                    _message.Show( );
+                    if( _control.GetType( ) == typeof( TabPageAdv ) )
+                    {
+                        _tabPages.Add( _control.Name, _control as TabPageAdv );
+                    }
                 }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+
+                return _tabPages?.Any( ) == true
+                    ? _tabPages
+                    : default( IDictionary<string, TabPageAdv> );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IDictionary<string, TabPageAdv> );
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Gets the radio buttons.
+        /// </summary>
+        /// <returns>
+        /// IDictionary
+        /// </returns>
+        private protected IDictionary<string, RadioButton> GetRadioButtons( )
+        {
+            try
+            {
+                var _radioButtons = new Dictionary<string, RadioButton>( );
+                foreach( var _control in GetControls( ) )
+                {
+                    if( _control.GetType( ) == typeof( RadioButton ) )
+                    {
+                        _radioButtons.Add( _control.Name, _control as RadioButton );
+                    }
+                }
+
+                return _radioButtons?.Any( ) == true
+                    ? _radioButtons
+                    : default( IDictionary<string, RadioButton> );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IDictionary<string, RadioButton> );
+            }
+        }
+
+        /// <summary>
+        /// Gets the combo boxes.
+        /// </summary>
+        /// <returns>
+        /// IDictionary
+        /// </returns>
+        private protected IDictionary<string, ComboBox> GetComboBoxes( )
+        {
+            try
+            {
+                var _comboBoxes = new Dictionary<string, ComboBox>( );
+                foreach( var _control in GetControls( ) )
+                {
+                    if( _control.GetType( ) == typeof( ComboBox ) )
+                    {
+                        _comboBoxes.Add( _control.Name, _control as ComboBox );
+                    }
+                }
+
+                return _comboBoxes?.Any( ) == true
+                    ? _comboBoxes
+                    : default( IDictionary<string, ComboBox> );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IDictionary<string, ComboBox> );
+            }
+        }
+
+        /// <summary>
+        /// Gets the panels.
+        /// </summary>
+        /// <returns>
+        /// IDictionary
+        /// </returns>
+        private protected IDictionary<string, Layout> GetPanels( )
+        {
+            try
+            {
+                var _panels = new Dictionary<string, Layout>( );
+                foreach( var _control in GetControls( ) )
+                {
+                    if( _control.GetType( ) == typeof( Layout ) )
+                    {
+                        _panels.Add( _control.Name, _control as Layout );
+                    }
+                }
+
+                return _panels?.Any( ) == true
+                    ? _panels
+                    : default( IDictionary<string, Layout> );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IDictionary<string, Layout> );
+            }
+        }
+
+        /// <summary>
+        /// Gets the list boxes.
+        /// </summary>
+        /// <returns>
+        /// IDictionary
+        /// </returns>
+        private protected IDictionary<string, ListBox> GetListBoxes( )
+        {
+            try
+            {
+                var _listBoxes = new Dictionary<string, ListBox>( );
+                foreach( var _control in GetControls( ) )
+                {
+                    if( _control is ListBox _listBox )
+                    {
+                        _listBoxes.Add( _listBox.Name, _listBox );
+                    }
+                }
+
+                return _listBoxes?.Any( ) == true
+                    ? _listBoxes
+                    : default( IDictionary<string, ListBox> );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IDictionary<string, ListBox> );
+            }
+        }
+
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">
+        /// The ex.
+        /// </param>
         private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

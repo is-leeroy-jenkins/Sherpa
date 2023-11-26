@@ -93,7 +93,6 @@ namespace BudgetExecution
         public DefinitionDialog( )
         {
             InitializeComponent( );
-            InitializeCallbacks( );
 
             // Basic Properties
             Size = new Size( 1340, 674 );
@@ -276,27 +275,25 @@ namespace BudgetExecution
         /// <summary>
         /// Populates the data type ComboBox items.
         /// </summary>
-        private void PopulateDataTypeComboBoxItems( )
+        public void PopulateDataTypeComboBoxItems( IEnumerable<string> dataTypes )
         {
-            if( DataTypes?.Any( ) == true )
+            try
             {
-                try
+                ThrowIf.Null( dataTypes, nameof( dataTypes ) );
+                DataTypeComboBox.Items?.Clear( );
+                DataTypeComboBox.SelectedText = string.Empty;
+                var _types = dataTypes.ToArray( );
+                for( var _i = 0; _i < _types?.Length; _i++ )
                 {
-                    DataTypeComboBox.Items?.Clear( );
-                    DataTypeComboBox.SelectedText = string.Empty;
-                    var _types = DataTypes.ToArray( );
-                    for( var _i = 0; _i < _types?.Length; _i++ )
+                    if( !string.IsNullOrEmpty( _types[ _i ] ) )
                     {
-                        if( !string.IsNullOrEmpty( _types[ _i ] ) )
-                        {
-                            DataTypeComboBox.Items.Add( _types[ _i ] );
-                        }
+                        DataTypeComboBox.Items.Add( _types[ _i ] );
                     }
                 }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -362,156 +359,6 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the tab pages.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        private IDictionary<string, TabPageAdv> GetTabPages( )
-        {
-            if( TabControl.TabPages?.Count > 0 )
-            {
-                try
-                {
-                    var _tabPages = new Dictionary<string, TabPageAdv>( );
-                    foreach( var _control in GetControls( ) )
-                    {
-                        if( _control.GetType( ) == typeof( TabPageAdv ) )
-                        {
-                            _tabPages.Add( _control.Name, _control as TabPageAdv );
-                        }
-                    }
-
-                    return _tabPages?.Any( ) == true
-                        ? _tabPages
-                        : default( IDictionary<string, TabPageAdv> );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( IDictionary<string, TabPageAdv> );
-                }
-            }
-
-            return default( IDictionary<string, TabPageAdv> );
-        }
-
-        /// <summary>
-        /// Gets the radio buttons.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        private IDictionary<string, RadioButton> GetRadioButtons( )
-        {
-            try
-            {
-                var _buttons = new Dictionary<string, RadioButton>( );
-                foreach( var _control in GetControls( ) )
-                {
-                    if( _control.GetType( ) == typeof( RadioButton ) )
-                    {
-                        _buttons.Add( _control.Name, _control as RadioButton );
-                    }
-                }
-
-                return _buttons?.Any( ) == true
-                    ? _buttons
-                    : default( IDictionary<string, RadioButton> );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( IDictionary<string, RadioButton> );
-            }
-        }
-
-        /// <summary>
-        /// Gets the combo boxes.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        private IDictionary<string, ComboBox> GetComboBoxes( )
-        {
-            try
-            {
-                var _comboBoxes = new Dictionary<string, ComboBox>( );
-                foreach( var _control in GetControls( ) )
-                {
-                    if( _control.GetType( ) == typeof( ComboBox ) )
-                    {
-                        _comboBoxes.Add( _control.Name, _control as ComboBox );
-                    }
-                }
-
-                return _comboBoxes?.Any( ) == true
-                    ? _comboBoxes
-                    : default( IDictionary<string, ComboBox> );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( IDictionary<string, ComboBox> );
-            }
-        }
-
-        /// <summary>
-        /// Gets the panels.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        private IDictionary<string, Layout> GetPanels( )
-        {
-            try
-            {
-                var _panels = new Dictionary<string, Layout>( );
-                foreach( var _control in GetControls( ) )
-                {
-                    if( _control.GetType( ) == typeof( Layout ) )
-                    {
-                        _panels.Add( _control.Name, _control as Layout );
-                    }
-                }
-
-                return _panels?.Any( ) == true
-                    ? _panels
-                    : default( IDictionary<string, Layout> );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( IDictionary<string, Layout> );
-            }
-        }
-
-        /// <summary>
-        /// Gets the list boxes.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        private IDictionary<string, ListBox> GetListBoxes( )
-        {
-            try
-            {
-                var _listBoxes = new Dictionary<string, ListBox>( );
-                foreach( var _control in GetControls( ) )
-                {
-                    if( _control is ListBox _listBox )
-                    {
-                        _listBoxes.Add( _listBox.Name, _listBox );
-                    }
-                }
-
-                return _listBoxes?.Any( ) == true
-                    ? _listBoxes
-                    : default( IDictionary<string, ListBox> );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( IDictionary<string, ListBox> );
-            }
-        }
-
         /// <summary> Called when [load]. </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
@@ -523,18 +370,19 @@ namespace BudgetExecution
         {
             try
             {
+                InitializeCallbacks( );
+                InitializeButtons( );
+                InitializeTabControl( );
+                InitializeComboBoxes( );
                 DataArgs = new DataArgs( );
                 Fields = new List<string>( );
                 Columns = new List<string>( );
                 Dates = new List<DateTime>( );
                 CloseButton.Text = "Exit";
                 DataTypes = GetDataTypes( Provider );
+                PopulateDataTypeComboBoxItems( DataTypes );
                 SetActiveTab( );
                 PopulateTableComboBoxItems( );
-                PopulateDataTypeComboBoxItems( );
-                InitializeButtons( );
-                InitializeTabControl( );
-                InitializeComboBoxes( );
             }
             catch( Exception _ex )
             {
@@ -559,7 +407,7 @@ namespace BudgetExecution
                     {
                         Provider = (Provider)Enum.Parse( typeof( Provider ), _name );
                         DataTypes = GetDataTypes( Provider );
-                        PopulateDataTypeComboBoxItems( );
+                        PopulateDataTypeComboBoxItems( DataTypes );
                         PopulateTableComboBoxItems( );
                     }
                 }

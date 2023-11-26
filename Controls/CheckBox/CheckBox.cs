@@ -59,20 +59,24 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public class CheckBox : MetroSetCheckBox
     {
-        /// <summary> Gets or sets the tool tip. </summary>
-        /// <value> The tool tip. </value>
         public virtual SmallTip ToolTip { get; set; }
 
-        /// <summary> Gets or sets the hover text. </summary>
-        /// <value> The hover text. </value>
         public virtual string HoverText { get; set; }
 
-        /// <summary> Gets or sets the data filter. </summary>
-        /// <value> The data filter. </value>
-        public virtual IDictionary<string, object> DataFilter { get; set; }
+        /// <summary>
+        /// Gets or sets the data filter.
+        /// </summary>
+        /// <value>
+        /// The data filter.
+        /// </value>
+        public virtual IDictionary<string, object> Filter { get; set; }
 
-        /// <summary> Gets or sets the binding source. </summary>
-        /// <value> The binding source. </value>
+        /// <summary>
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
         public BindingSource BindingSource { get; set; }
 
         /// <summary>
@@ -98,16 +102,17 @@ namespace BudgetExecution
             CheckSignColor = Color.LimeGreen;
             CheckState = CheckState.Unchecked;
 
-            // Disabled Color Configuration
-            DisabledBorderColor = Color.Transparent;
-
             // Event Wiring
             MouseHover += OnMouseOver;
             MouseLeave += OnMouseLeave;
         }
 
-        /// <summary> Called when [mouse over]. </summary>
-        /// <param name="sender"> The sender. </param>
+        /// <summary>
+        /// Called when [mouse over].
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
         /// <param name="e">
         /// The
         /// <see cref="EventArgs"/>
@@ -139,8 +144,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [mouse leave]. </summary>
-        /// <param name="sender"> The sender. </param>
+        /// <summary>
+        /// Called when [mouse leave].
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
         /// <param name="e">
         /// The
         /// <see cref="EventArgs"/>

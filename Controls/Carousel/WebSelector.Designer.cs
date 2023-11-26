@@ -36,7 +36,7 @@ partial class WebSelector
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WebSelector));
             this.Header = new BudgetExecution.Label();
-            this.Carousel = new BudgetExecution.Selector();
+            this.Carousel = new BudgetExecution.Carousel();
             this.CloseButton = new BudgetExecution.Button();
             this.BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ToolTip = new BudgetExecution.SmallTip();
@@ -196,7 +196,7 @@ partial class WebSelector
     #endregion
 
     public Label Header;
-    public Selector Carousel;
+    public Carousel Carousel;
     public Button CloseButton;
     public SmallTip ToolTip;
     public System.Windows.Forms.BindingSource BindingSource;

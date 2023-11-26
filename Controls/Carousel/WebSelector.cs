@@ -61,6 +61,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public partial class WebSelector : MetroForm
     {
         /// <summary>
@@ -112,14 +113,18 @@ namespace BudgetExecution
             Carousel.OnCarouselItemSelectionChanged += OnItemSelected;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="WebSelector"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.WebSelector" /> class.
         /// </summary>
-        /// <param name="directoryPath">The directory path.</param>
-        public WebSelector( string directoryPath )
+        /// <param name="dirPath">
+        /// The directory path.
+        /// </param>
+        public WebSelector( string dirPath )
             : this( )
         {
-            ImagePath = directoryPath;
+            ImagePath = dirPath;
             Header.Text = string.Empty;
             Load += OnLoad;
         }
@@ -160,15 +165,34 @@ namespace BudgetExecution
         /// <summary>
         /// Called when [item selected].
         /// </summary>
-        /// <param name="sender">The sender.</param>
+        /// <param name="sender">The sender.
+        /// </param>
         /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// instance containing the event data.
+        /// </param>
         public void OnItemSelected( object sender, EventArgs e )
         {
-            if( sender is Selector _carousel )
+            if( sender is Carousel _carousel )
             {
                 try
                 {
+                    var _tag = _carousel?.ActiveImage?.Tag?.ToString( );
+                    var _provider = DataBuilder.GetProvider( _tag );
+                    switch( _provider )
+                    {
+                        case Provider.SQLite:
+                        {
+                            Minion.RunSQLite( );
+                            Close( );
+                            break;
+                        }
+                        default:
+                        {
+                            Minion.RunSQLite( );
+                            Close( );
+                            break;
+                        }
+                    }
                 }
                 catch( Exception _ex )
                 {
@@ -178,9 +202,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Fails the specified ex.
+        /// Launches the ErrorDialog.
         /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <param name="ex">
+        /// The exception.</param>
         private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

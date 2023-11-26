@@ -56,7 +56,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
+    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
@@ -70,11 +70,13 @@ namespace BudgetExecution
         /// <value>
         /// The image path.
         /// </value>
-        public string ImagePath { get; set; } =
+        public string ImagePath { get; } =
             @"C:\Users\terry\source\repos\BudgetExecution\Resources\Pictures\Carousel\Minion";
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="MinionSelector"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.MinionSelector" /> class.
         /// </summary>
         public MinionSelector( )
         {
@@ -104,76 +106,206 @@ namespace BudgetExecution
             MaximizeBox = false;
             StartPosition = FormStartPosition.CenterParent;
 
-            // Header Properties
-            Header.Font = new Font( "Roboto", 16, FontStyle.Regular );
-            Header.ForeColor = Color.FromArgb( 106, 189, 252 );
-
             // Panel Properties
             SelectionPanel.BorderColor = Color.Transparent;
 
             // Event Wiring
-            Carousel.OnCarouselItemSelectionChanged += OnItemSelected;
-            CloseButton.Click += OnCloseButtonClicked;
+            Load += OnLoad;
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.MinionSelector" /> class.
+        /// </summary>
+        /// <param name="dirPath">
+        /// The directory path.
+        /// </param>
+        public MinionSelector( string dirPath )
+            : this( )
+        {
+            ImagePath = dirPath;
             Load += OnLoad;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MinionSelector"/> class.
+        /// Initializes the labels.
         /// </summary>
-        /// <param name="directoryPath">The directory path.</param>
-        public MinionSelector( string directoryPath )
-            : this( )
+        private void InitializeLabels( )
         {
-            ImagePath = directoryPath;
-            Header.Text = string.Empty;
-            Load += OnLoad;
+            try
+            {
+                Header.ForeColor = Color.FromArgb( 106, 189, 252 );
+                Header.TextAlign = ContentAlignment.TopLeft;
+                Header.Text = string.Empty;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the Carousel.
+        /// </summary>
+        private void InitializeCarousel( )
+        {
+            try
+            {
+                // Basic Carousel Properties
+                Carousel.BackColor = Color.FromArgb( 20, 20, 20 );
+                Carousel.ForeColor = Color.FromArgb( 106, 189, 252 );
+                Carousel.Font = new Font( "Roboto", 8 );
+                Carousel.CarouselPath = CarouselPath.Default;
+                Carousel.ImageSlides = true;
+                Carousel.PadX = 0;
+                Carousel.PadY = 0;
+                Carousel.Perspective = 4;
+                Carousel.RotateAlways = false;
+                Carousel.ShowImagePreview = true;
+                Carousel.ShowImageShadow = true;
+                Carousel.TransitionSpeed = 2;
+                Carousel.UseOriginalImageinPreview = true;
+                Carousel.UseCustomBounds = false;
+                Carousel.CanOverrideStyle = true;
+                Carousel.VisualStyle = CarouselVisualStyle.Metro;
+                Carousel.HighlightColor = Color.FromArgb( 0, 120, 212 );
+
+                // ThemeStyle Properties
+                Carousel.ThemeStyle.BackColor = Color.Transparent;
+                Carousel.ThemeStyle.Font = new Font( "Roboto", 9 );
+                Carousel.ThemeStyle.ForeColor = Color.FromArgb( 106, 189, 252 );
+                Carousel.ThemeStyle.HoverImageBorderColor = Color.FromArgb( 0, 120, 212 );
+                Carousel.ThemeStyle.HoverImageBorderThickness = 3;
+                Carousel.ThemeStyle.ImageShadeColor = Color.FromArgb( 18, 18, 18 );
+
+                // User Properties
+                Carousel.ImageSize = new Size( 250, 250 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the callbacks.
+        /// </summary>
+        private void InitializeCallbacks( )
+        {
+            try
+            {
+                Carousel.OnCarouselItemSelectionChanged += OnItemSelected;
+                CloseButton.Click += OnCloseButtonClicked;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the delegates.
+        /// </summary>
+        private void InitializeDelegates( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the timers.
+        /// </summary>
+        private void InitializeTimers( )
+        {
+            try
+            {
+                // Timer Properties
+                Timer.Enabled = true;
+                Timer.Interval = 500;
+                Timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the carousel images.
+        /// </summary>
+        /// <param name="dirPath">
+        /// The dir path.
+        /// </param>
+        private void SetCarouselImages( string dirPath )
+        {
+            try
+            {
+                ThrowIf.NullOrEmpty( dirPath, nameof( dirPath ) );
+                var _files = Directory.GetFiles( dirPath );
+                for( var _i = 0; _i < _files.Length; _i++ )
+                {
+                    var _path = _files[ _i ];
+                    if( !string.IsNullOrEmpty( _files[ _i ] )
+                       && File.Exists( _files[ _i ] ) )
+                    {
+                        var _name = Path.GetFileNameWithoutExtension( _path );
+                        using var _stream = File.Open( _path, FileMode.Open );
+                        var _image = new Bitmap( _stream );
+                        _image.Tag = _name;
+                        var _carouselImage = new CarouselImage( );
+                        _carouselImage.ItemImage = _image;
+                        Carousel.ImageListCollection.Add( _carouselImage );
+                    }
+                }
+
+                Carousel.FilePath = ImagePath;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         public void OnLoad( object sender, EventArgs e )
         {
-            if( !string.IsNullOrEmpty( ImagePath ) )
+            try
             {
-                try
-                {
-                    var _files = Directory.GetFiles( ImagePath );
-                    for( var _i = 0; _i < _files.Length; _i++ )
-                    {
-                        var _path = _files[ _i ];
-                        if( !string.IsNullOrEmpty( _files[ _i ] )
-                           && File.Exists( _files[ _i ] ) )
-                        {
-                            var _name = Path.GetFileNameWithoutExtension( _path );
-                            using var _stream = File.Open( _path, FileMode.Open );
-                            var _image = new Bitmap( _stream );
-                            _image.Tag = _name;
-                            var _carouselImage = new CarouselImage( );
-                            _carouselImage.ItemImage = _image;
-                            Carousel.ImageListCollection.Add( _carouselImage );
-                        }
-                    }
-
-                    Carousel.FilePath = ImagePath;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                InitializeCarousel( );
+                InitializeLabels( );
+                InitializeTimers( );
+                SetCarouselImages( ImagePath );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
         /// <summary>
         /// Called when [item selected].
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         public void OnItemSelected( object sender, EventArgs e )
         {
-            if( sender is Selector _carousel )
+            if( sender is Carousel _carousel )
             {
                 try
                 {
@@ -229,8 +361,12 @@ namespace BudgetExecution
         /// <summary>
         /// Called when [close button clicked].
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnCloseButtonClicked( object sender, EventArgs e )
         {
             if( sender is Button _button )
@@ -247,9 +383,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Fails the specified ex.
+        /// Launches the ErrorDialog
         /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <param name="ex">
+        /// The exception.
+        /// </param>
         private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

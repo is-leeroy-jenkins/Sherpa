@@ -38,7 +38,7 @@
     <Compile Update="Controls\Carousel\MinionSelector.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\Carousel\Selector.cs">
+    <Compile Update="Controls\Carousel\Carousel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\Carousel\WebSelector.cs">
