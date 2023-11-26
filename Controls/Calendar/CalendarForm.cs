@@ -1,45 +1,42 @@
-﻿//  ******************************************************************************************
-//      Assembly:                Budget Execution
-//      Filename:                CalendarForm.cs
-//      Author:                  Terry D. Eppler
-//      Created:                 05-31-2023
+﻿// ******************************************************************************************
+//     Assembly:             BudgetExecution
+//     Author:                  Terry D. Eppler
+//     Created:                 07-22-2023
 // 
-//      Last Modified By:        Terry D. Eppler
-//      Last Modified On:        06-01-2023
-//  ******************************************************************************************
-//  <copyright file="CalendarForm.cs" company="Terry D. Eppler">
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        11-26-2023
+// ******************************************************************************************
+// <copyright file="Terry Eppler.cs" company="Terry D. Eppler">
+//    BudgetExecution is a Federal Budget, Finance, and Accounting application for the
+//    US Environmental Protection Agency (US EPA).
+//    Copyright ©  2023  Terry Eppler
 // 
-//     This is a Federal Budget, Finance, and Accounting application for the
-//     US Environmental Protection Agency (US EPA).
-//     Copyright ©  2023  Terry Eppler
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
 // 
-//     Permission is hereby granted, free of charge, to any person obtaining a copy
-//     of this software and associated documentation files (the “Software”),
-//     to deal in the Software without restriction,
-//     including without limitation the rights to use,
-//     copy, modify, merge, publish, distribute, sublicense,
-//     and/or sell copies of the Software,
-//     and to permit persons to whom the Software is furnished to do so,
-//     subject to the following conditions:
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
 // 
-//     The above copyright notice and this permission notice shall be included in all
-//     copies or substantial portions of the Software.
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
 // 
-//     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//     FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//     DEALINGS IN THE SOFTWARE.
-// 
-//     You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
-// 
-//  </copyright>
-//  <summary>
-//    CalendarForm.cs
-//  </summary>
-//  ******************************************************************************************
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
+// </copyright>
+// <summary>
+//   CalendarForm.cs.cs
+// </summary>
+// ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -274,7 +271,7 @@ namespace BudgetExecution
                 ChartButton.Click += OnChartButtonClick;
                 TableButton.Click += OnTableButtonClick;
                 RefreshButton.Click += OnRefreshButtonClick;
-                TabControl.SelectedIndexChanged += OnSelectedTabChanged;
+                TabControl.SelectedIndexChanged += OnTabChanged;
             }
             catch( Exception _ex )
             {
@@ -321,6 +318,13 @@ namespace BudgetExecution
             try
             {
                 Chart.Series[ 0 ].Type = ChartSeriesType.Pie;
+                Chart.Titles[ 0 ].Font = new Font( "Roboto", 10 );
+                Chart.Titles[ 0 ].ForeColor = Color.FromArgb( 106, 189, 252 );
+                Chart.Series[ 0 ].Type = ChartSeriesType.Pie;
+                Chart.Series[ 0 ].Style.DisplayText = true;
+                Chart.Series[ 0 ].SmartLabels = true;
+                Chart.Series[ 0 ].ConfigItems.PieItem.LabelStyle =
+                    ChartAccumulationLabelStyle.Outside;
             }
             catch( Exception _ex )
             {
@@ -519,17 +523,23 @@ namespace BudgetExecution
                 {
                     case 0:
                     {
+                        // Chart Tab
                         ChartTab.Visible = true;
                         ChartButton.Visible = false;
+                        ChartSeparator.Visible = false;
                         TableButton.Visible = true;
                         DataTab.Visible = false;
+                        Separator13.Visible = false;
                         BusyTab.Visible = false;
                         break;
                     }
                     case 1:
                     {
+                        // Data Tab
                         DataTab.Visible = true;
+                        Separator13.Visible = true;
                         ChartButton.Visible = true;
+                        ChartSeparator.Visible = true;
                         TableButton.Visible = false;
                         ChartTab.Visible = false;
                         BusyTab.Visible = false;
@@ -540,11 +550,14 @@ namespace BudgetExecution
                     }
                     case 2:
                     {
+                        // Busy Tab
                         BusyTab.Visible = true;
                         ChartButton.Visible = false;
+                        ChartSeparator.Visible = false;
                         TableButton.Visible = false;
                         ChartTab.Visible = false;
                         DataTab.Visible = false;
+                        Separator13.Visible = false;
                         break;
                     }
                 }
@@ -570,11 +583,11 @@ namespace BudgetExecution
             {
                 var _timeSpan = end - start;
                 var _days = _timeSpan.TotalDays;
-                var _hours = _timeSpan.TotalHours.ToString( "N2" );
+                var _hours = _timeSpan.TotalHours.ToString( "N0" );
                 var _weekdays = start.CountWeekDays( end );
                 var _weekends = start.CountWeekEnds( end );
                 var _workdays = start.CountWorkdays( end );
-                var _holidays = start.CountHolidays( end );
+                var _holidays = CountHolidays( start, end );
                 var _fte = ( _workdays * 8M / 2050M ).ToString( "N3" );
                 Label1.Text = $"Start:  {start.ToShortDateString( )}";
                 Label2.Text = $"End:  {end.ToShortDateString( )}";
@@ -614,7 +627,7 @@ namespace BudgetExecution
                 var _weekdays = start.CountWeekDays( end );
                 var _weekends = start.CountWeekEnds( end );
                 var _workdays = start.CountWorkdays( end );
-                var _holidays = start.CountHolidays( end );
+                var _holidays = CountHolidays( start, end );
                 var _data = new Dictionary<string, double>( );
                 _data.Add( "Weekdays", _weekdays );
                 _data.Add( "Workdays", _workdays );
@@ -623,22 +636,53 @@ namespace BudgetExecution
                 var _text = $"From {_start} To {_end} ";
                 Chart.Titles[ 0 ].Text = _text;
                 var _values = _data.Values.ToArray( );
-                var _names = _data.Keys.ToArray( );
                 Chart.Series[ 0 ].Points.Clear( );
-                Chart.Series[ 0 ].Type = ChartSeriesType.Pie;
                 for( var _i = 0; _i < _data.Count; _i++ )
                 {
-                    var _pt = new ChartPoint( );
-                    _pt.Category = _names[ _i ];
-                    _pt.YValues = _values;
+                    double _k = _i;
+                    var _pt = new ChartPoint( _k, _values[ _i ] );
                     Chart.Series[ 0 ].Points.Add( _pt );
                 }
 
-                Chart.Refresh( );
+                Chart.Series[ 0 ].ExplodedAll = true;
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Counts the holidays.
+        /// </summary>
+        /// <param name="start">
+        /// The start.
+        /// </param>
+        /// <param name="end">
+        /// The end.
+        /// </param>
+        private int CountHolidays( DateTime start, DateTime end )
+        {
+            try
+            {
+                var _period = end - start;
+                var _days = _period.TotalDays;
+                var _holiday = 0;
+                for( var _i = 0d; _i <= _days; _i++ )
+                {
+                    var _day = start.AddDays( _i );
+                    if( _day.IsFederalHoliday( ) ) 
+                    {
+                        _holiday += 1;
+                    }
+                }
+
+                return _holiday;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return 0;
             }
         }
 
@@ -728,8 +772,12 @@ namespace BudgetExecution
         /// <summary>
         /// Called when [first calendar selection changed].
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
         private void OnFirstCalendarSelectionChanged( object sender, EventArgs e )
         {
             try
@@ -810,7 +858,7 @@ namespace BudgetExecution
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        private void OnSelectedTabChanged( object sender, EventArgs e )
+        private void OnTabChanged( object sender, EventArgs e )
         {
             SetActiveTab( );
         }
@@ -832,8 +880,8 @@ namespace BudgetExecution
                 EndDate = DateTime.Today;
                 FirstCalendar.SelectedDate = StartDate;
                 SecondCalendar.SelectedDate = EndDate;
-                // Plotter.Series[ 0 ].Points.Clear( );
-                // Plotter.Titles[ 0 ].Text = string.Empty;
+                Chart.Series[ 0 ].Points.Clear( );
+                Chart.Titles[ 0 ].Text = string.Empty;
                 TabControl.SelectedIndex = 0;
             }
             catch( Exception _ex )

@@ -34,16 +34,13 @@
             ImageList = new ImageList( );
             Header = new Label( );
             Timer = new System.Windows.Forms.Timer( components );
-            BindingSource = new System.Windows.Forms.BindingSource( components );
             ToolTip = new SmallTip( );
             ContextMenu = new ContextMenu( );
-            ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
             SuspendLayout( );
             // 
             // Carousel
             // 
             Carousel.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            Carousel.BindingSource = null;
             Carousel.CanOverrideStyle = true;
             Carousel.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             Carousel.ForeColor = System.Drawing.Color.White;
@@ -169,7 +166,6 @@
             Name = "CarouselForm";
             ShowIcon = false;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            ( (System.ComponentModel.ISupportInitialize)BindingSource ).EndInit( );
             ResumeLayout( false );
         }
 
@@ -179,7 +175,6 @@
         public ImageList ImageList;
         public Label Header;
         public System.Windows.Forms.Timer Timer;
-        public System.Windows.Forms.BindingSource BindingSource;
         public SmallTip ToolTip;
         public ContextMenu ContextMenu;
     }

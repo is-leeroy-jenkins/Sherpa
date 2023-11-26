@@ -37,14 +37,12 @@ partial class MinionSelector
         var resources = new System.ComponentModel.ComponentResourceManager( typeof( MinionSelector ) );
         Header = new Label( );
         CloseButton = new Button( );
-        BindingSource = new System.Windows.Forms.BindingSource( components );
         ToolTip = new SmallTip( );
         ImageList = new ImageList( );
         Carousel = new Carousel( );
         SelectorTable = new System.Windows.Forms.TableLayoutPanel( );
         SelectionPanel = new Layout( );
         Timer = new System.Windows.Forms.Timer( components );
-        ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
         SelectorTable.SuspendLayout( );
         SelectionPanel.SuspendLayout( );
         SuspendLayout( );
@@ -74,7 +72,6 @@ partial class MinionSelector
         // 
         // CloseButton
         // 
-        CloseButton.BindingSource = BindingSource;
         CloseButton.DataFilter = null;
         CloseButton.DisabledBackColor = System.Drawing.Color.Transparent;
         CloseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
@@ -126,7 +123,6 @@ partial class MinionSelector
         // 
         // ImageList
         // 
-        ImageList.BindingSource = BindingSource;
         ImageList.DataFilter = null;
         ImageList.FileNames = null;
         ImageList.FilePaths = null;
@@ -138,7 +134,6 @@ partial class MinionSelector
         // Carousel
         // 
         Carousel.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-        Carousel.BindingSource = BindingSource;
         Carousel.CanOverrideStyle = true;
         Carousel.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
         Carousel.ForeColor = System.Drawing.Color.White;
@@ -236,7 +231,6 @@ partial class MinionSelector
         Name = "MinionSelector";
         ShowIcon = false;
         Text = " ";
-        ( (System.ComponentModel.ISupportInitialize)BindingSource ).EndInit( );
         SelectorTable.ResumeLayout( false );
         SelectionPanel.ResumeLayout( false );
         ResumeLayout( false );
@@ -248,7 +242,6 @@ partial class MinionSelector
     public Button CloseButton;
     public SmallTip ToolTip;
     public ImageList ImageList;
-    public System.Windows.Forms.BindingSource BindingSource;
     private Carousel Carousel;
     private System.Windows.Forms.TableLayoutPanel SelectorTable;
     private Layout SelectionPanel;

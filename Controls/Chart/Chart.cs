@@ -78,7 +78,7 @@ namespace BudgetExecution
             ShowScrollBars = false;
             EnableMouseRotation = true;
             Padding = new Padding( 1 );
-            Margin = new Padding( 3 );
+            Margin = new Padding( 1 );
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
             AllowGapForEmptyPoints = true;
             AllowGradientPalette = true;
@@ -138,7 +138,7 @@ namespace BudgetExecution
 
             //Chart Legend Setting;
             ShowLegend = true;
-            Legend.Font = new Font( "Roboto", 9 );
+            Legend.Font = new Font( "Roboto", 8 );
             Legend.ItemsSize = new Size( 10, 10 );
             Legend.VisibleCheckBox = true;
             Legend.BackInterior = new BrushInfo( Color.FromArgb( 20, 20, 20 ) );
@@ -147,7 +147,8 @@ namespace BudgetExecution
             Legend.Orientation = ChartOrientation.Vertical;
             Legend.FloatingAutoSize = true;
             Legend.ShowSymbol = true;
-            Legend.ShowItemsShadow = true;
+            Legend.ItemsShadowColor = Color.Transparent;
+            Legend.ShowItemsShadow = false;
             Legend.ShowBorder = false;
             Legend.Visible = true;
         }
