@@ -62,9 +62,6 @@
     <Compile Update="Controls\DataGrid\DataGridForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\DataModelForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Controls\DataView\DataView.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -295,6 +292,9 @@
     </Compile>
     <Compile Update="Controls\ToolTips\SuperTip.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\DataView\DataViewForm.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Update="Data\Adapter\AdapterBase.cs">
       <SubType>Component</SubType>
