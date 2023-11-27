@@ -62,6 +62,9 @@
     <Compile Update="Controls\DataGrid\DataGridForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Controls\DataModelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Controls\DataView\DataView.cs">
       <SubType>Component</SubType>
     </Compile>

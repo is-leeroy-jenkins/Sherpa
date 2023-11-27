@@ -44,6 +44,7 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
@@ -56,8 +57,16 @@ namespace BudgetExecution
     /// <seealso cref="T:BudgetExecution.DataViewBase" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class DataView : DataViewBase
+    public class DataView : GridDataBoundGrid
     {
+        /// <summary>
+        /// Gets or sets the data filter.
+        /// </summary>
+        /// <value>
+        /// The data filter.
+        /// </value>
+        public IDictionary<string, object> Filter { get; set; }
+
         /// <summary>
         /// Gets or sets the data table.
         /// </summary>
@@ -66,9 +75,10 @@ namespace BudgetExecution
         /// </value>
         public DataTable DataTable { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="DataView"/>
+        /// <see cref="T:BudgetExecution.DataView" />
         /// class.
         /// </summary>
         public DataView( )
@@ -85,7 +95,7 @@ namespace BudgetExecution
             ExcelLikeSelectionFrame = true;
             ExcelLikeAlignment = true;
             BackColor = Color.FromArgb( 78, 78, 79 );
-            ForeColor = Color.Black;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             Font = new Font( "Roboto", 8, FontStyle.Regular );
             GridOfficeScrollBars = OfficeScrollBars.Office2010;
             Office2010ScrollBarsColorScheme = Office2010ColorScheme.Black;
@@ -102,16 +112,16 @@ namespace BudgetExecution
             // ThemStyle Properties
             ThemeStyle.CellStyle.Font = new Font( "Roboto", 8, FontStyle.Regular );
             ThemeStyle.CellStyle.BackColor = Color.FromArgb( 78, 78, 79 );
-            ThemeStyle.CellStyle.TextColor = Color.Black;
+            ThemeStyle.CellStyle.TextColor = Color.FromArgb( 106, 189, 252 );
             ThemeStyle.CellStyle.BackColor = Color.FromArgb( 78, 78, 79 );
-            ThemeStyle.CellStyle.TextColor = Color.LightSteelBlue;
+            ThemeStyle.CellStyle.TextColor = Color.FromArgb( 106, 189, 252 );
             ThemeStyle.HeaderStyle.HoverTextColor = Color.White;
             ThemeStyle.HeaderStyle.HoverBackColor = Color.FromArgb( 0, 120, 212 );
 
             // Model Properties
             Model.Rows.DefaultSize = 22;
             Model.ActiveGridView.PdfExport = true;
-            Model.Properties.ThemedHeader = false;
+            Model.Properties.ThemedHeader = true;
 
             // Style Properties
             Properties.ThemedHeader = true;
@@ -130,12 +140,13 @@ namespace BudgetExecution
             TableStyle.Font.Size = 8;
             TableStyle.Font.FontStyle = FontStyle.Regular;
             TableStyle.BackColor = Color.FromArgb( 78, 78, 79 );
-            TableStyle.TextColor = Color.LightSteelBlue;
+            TableStyle.TextColor = Color.FromArgb( 106, 189, 252 );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="DataView"/>
+        /// <see cref="T:BudgetExecution.DataView" />
         /// class.
         /// </summary>
         /// <param name="dataTable"> The data table. </param>
@@ -143,6 +154,17 @@ namespace BudgetExecution
             : this( )
         {
             DataTable = dataTable;
+        }
+
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        private void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

@@ -957,199 +957,202 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
-        /// <summary>
-        /// Binds the data.
-        /// </summary>
-        /// <param name="where">
-        /// The where.
-        /// </param>
-        private void BindData( IDictionary<string, object> where )
-        {
-            try
-            {
-                ThrowIf.Null( where, nameof( where ) );
-                var _sql = CreateSqlText( where );
-                DataModel = new DataBuilder( Source, Provider, _sql );
-                DataTable = DataModel?.DataTable;
-                TableName = DataTable?.TableName;
-                BindingSource.DataSource = DataTable;
-                DataGrid.DataSource = BindingSource;
-                DataGrid.PascalizeHeaders( );
-                DataGrid.FormatColumns( );
-                ToolStrip.BindingSource = BindingSource;
-                Fields = DataModel?.Fields;
-                Numerics = DataModel?.Numerics;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Binds the data. </summary>
-        /// <param name="columns"> The columns. </param>
-        /// <param name="where"> The where. </param>
-        private void BindData( IEnumerable<string> columns, IDictionary<string, object> where )
-        {
-            try
-            {
-                ThrowIf.Null( columns, nameof( columns ) );
-                ThrowIf.Null( where, nameof( where ) );
-                var _sql = CreateSqlText( columns, where );
-                DataModel = new DataBuilder( Source, Provider, _sql );
-                DataTable = DataModel?.DataTable;
-                TableName = DataTable?.TableName;
-                BindingSource.DataSource = DataTable;
-                DataGrid.DataSource = BindingSource;
-                DataGrid.PascalizeHeaders( );
-                DataGrid.FormatColumns( );
-                ToolStrip.BindingSource = BindingSource;
-                Fields = DataModel?.Fields;
-                Numerics = DataModel?.Numerics;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Binds the data.
-        /// </summary>
-        /// <param name="fields"> The fields. </param>
-        /// <param name="numerics"> The numerics. </param>
-        /// <param name="where"> The where. </param>
-        private void BindData( IEnumerable<string> fields, IEnumerable<string> numerics,
-            IDictionary<string, object> where )
-        {
-            try
-            {
-                ThrowIf.Null( numerics, nameof( numerics ) );
-                ThrowIf.Null( fields, nameof( fields ) );
-                ThrowIf.Null( where, nameof( where ) );
-                var _sql = CreateSqlText( fields, numerics, where );
-                DataModel = new DataBuilder( Source, Provider, _sql );
-                DataTable = DataModel?.DataTable;
-                TableName = DataTable?.TableName;
-                BindingSource.DataSource = DataTable;
-                DataGrid.DataSource = BindingSource;
-                DataGrid.PascalizeHeaders( );
-                DataGrid.FormatColumns( );
-                ToolStrip.BindingSource = BindingSource;
-                Fields = DataModel?.Fields;
-                Numerics = DataModel?.Numerics;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
+        
         /// <summary>
         /// Creates the SQL text.
         /// </summary>
-        /// <param name="where">
-        /// The where.
-        /// </param>
-        /// <returns> </returns>
+        /// <param name="where">The where.</param>
+        /// <returns></returns>
         private string CreateSqlText( IDictionary<string, object> where )
         {
-            try
+            if( where?.Any( ) == true )
             {
-                ThrowIf.Null( where, nameof( where ) );
-                return $"SELECT * FROM {Source} " 
-                    + $"WHERE {where.ToCriteria( )};";
+                try
+                {
+                    return $"SELECT * FROM {Source} " + $"WHERE {where.ToCriteria( )};";
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                    return string.Empty;
+                }
             }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return string.Empty;
-            }
+
+            return string.Empty;
         }
 
         /// <summary>
         /// Creates the SQL text.
         /// </summary>
-        /// <param name="columns">
-        /// The columns.
-        /// </param>
-        /// <param name="where">
-        /// The where.
-        /// </param>
-        /// <returns>
-        /// string
-        /// </returns>
+        /// <param name="columns">The columns.</param>
+        /// <param name="where">The where.</param>
+        /// <returns></returns>
         private string CreateSqlText( IEnumerable<string> columns,
             IDictionary<string, object> where )
         {
-            try
+            if( where?.Any( ) == true
+               && columns?.Any( ) == true
+               && !string.IsNullOrEmpty( TableName ) )
             {
-                ThrowIf.Null( columns, nameof( columns ) );
-                ThrowIf.Null( where, nameof( where ) );
-                var _cols = string.Empty;
-                foreach( var _name in columns )
+                try
                 {
-                    _cols += $"{_name}, ";
-                }
+                    var _cols = string.Empty;
+                    foreach( var _name in columns )
+                    {
+                        _cols += $"{_name}, ";
+                    }
 
-                var _criteria = where.ToCriteria( );
-                var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
-                return $"SELECT {_names} FROM {TableName} " + $"WHERE {_criteria} "
-                    + $"GROUP BY {_names} ;";
+                    var _criteria = where.ToCriteria( );
+                    var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
+                    return $"SELECT {_names} FROM {TableName} " + $"WHERE {_criteria} "
+                        + $"GROUP BY {_names} ;";
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                    return string.Empty;
+                }
             }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return string.Empty;
-            }
+
+            return string.Empty;
         }
 
         /// <summary>
         /// Creates the SQL text.
         /// </summary>
-        /// <param name="fields">
-        /// The fields.
-        /// </param>
-        /// <param name="numerics">
-        /// The numerics.
-        /// </param>
-        /// <param name="where">
-        /// The where.
-        /// </param>
-        /// <returns>
-        /// string
-        /// </returns>
+        /// <param name="fields">The fields.</param>
+        /// <param name="numerics">The numerics.</param>
+        /// <param name="where">The where.</param>
+        /// <returns></returns>
         private string CreateSqlText( IEnumerable<string> fields, IEnumerable<string> numerics,
             IDictionary<string, object> where )
         {
-            try
+            if( where?.Any( ) == true
+               && fields?.Any( ) == true
+               && numerics?.Any( ) == true )
             {
-                ThrowIf.Null( numerics, nameof( numerics ) );
-                ThrowIf.Null( fields, nameof( fields ) );
-                ThrowIf.Null( where, nameof( where ) );
-                var _cols = string.Empty;
-                var _aggr = string.Empty;
-                foreach( var _name in fields )
+                try
                 {
-                    _cols += $"{_name}, ";
-                }
+                    var _cols = string.Empty;
+                    var _aggr = string.Empty;
+                    foreach( var _name in fields )
+                    {
+                        _cols += $"{_name}, ";
+                    }
 
-                foreach( var _metric in numerics )
+                    foreach( var _metric in numerics )
+                    {
+                        _aggr += $"SUM({_metric}) AS {_metric}, ";
+                    }
+
+                    var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
+                    var _criteria = where.ToCriteria( );
+                    var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
+                    return $"SELECT {_columns} "
+                        + "FROM {Source} "
+                        + $"WHERE {_criteria} "
+                        + $"GROUP BY {_groups};";
+                }
+                catch( Exception _ex )
                 {
-                    _aggr += $"SUM({_metric}) AS {_metric}, ";
+                    Fail( _ex );
+                    return string.Empty;
                 }
-
-                var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
-                var _criteria = where.ToCriteria( );
-                var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                return $"SELECT {_columns} FROM {Source} " + $"WHERE {_criteria} "
-                    + $"GROUP BY {_groups};";
             }
-            catch( Exception _ex )
+
+            return string.Empty;
+        }
+
+        /// <summary>
+        /// Binds the data.
+        /// </summary>
+        /// <param name="where">The where.</param>
+        private void BindData( IDictionary<string, object> where )
+        {
+            if( where?.Any( ) == true )
             {
-                Fail( _ex );
-                return string.Empty;
+                try
+                {
+                    var _sql = CreateSqlText( where );
+                    DataModel = new DataBuilder( Source, Provider, _sql );
+                    DataTable = DataModel?.DataTable;
+                    TableName = DataTable?.TableName;
+                    BindingSource.DataSource = DataTable;
+                    DataGrid.DataSource = BindingSource;
+                    DataGrid.PascalizeHeaders( );
+                    DataGrid.FormatColumns( );
+                    ToolStrip.BindingSource = BindingSource;
+                    Fields = DataModel?.Fields;
+                    Numerics = DataModel?.Numerics;
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Binds the data.
+        /// </summary>
+        /// <param name="cols">The cols.</param>
+        /// <param name="where">The where.</param>
+        private void BindData( IEnumerable<string> cols, IDictionary<string, object> where )
+        {
+            if( where?.Any( ) == true
+               && cols?.Any( ) == true )
+            {
+                try
+                {
+                    var _sql = CreateSqlText( cols, where );
+                    DataModel = new DataBuilder( Source, Provider, _sql );
+                    DataTable = DataModel?.DataTable;
+                    TableName = DataTable?.TableName;
+                    BindingSource.DataSource = DataTable;
+                    DataGrid.DataSource = BindingSource;
+                    DataGrid.PascalizeHeaders( );
+                    DataGrid.FormatColumns( );
+                    ToolStrip.BindingSource = BindingSource;
+                    Fields = DataModel?.Fields;
+                    Numerics = DataModel?.Numerics;
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Binds the data.
+        /// </summary>
+        /// <param name="fields">The fields.</param>
+        /// <param name="numerics">The numerics.</param>
+        /// <param name="where">The where.</param>
+        private void BindData( IEnumerable<string> fields, IEnumerable<string> numerics,
+            IDictionary<string, object> where )
+        {
+            if( where?.Any( ) == true
+               && fields?.Any( ) == true )
+            {
+                try
+                {
+                    var _sql = CreateSqlText( fields, numerics, where );
+                    DataModel = new DataBuilder( Source, Provider, _sql );
+                    DataTable = DataModel?.DataTable;
+                    TableName = DataTable?.TableName;
+                    BindingSource.DataSource = DataTable;
+                    DataGrid.DataSource = BindingSource;
+                    DataGrid.PascalizeHeaders( );
+                    DataGrid.FormatColumns( );
+                    ToolStrip.BindingSource = BindingSource;
+                    Fields = DataModel?.Fields;
+                    Numerics = DataModel?.Numerics;
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
             }
         }
 
