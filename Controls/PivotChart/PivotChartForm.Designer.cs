@@ -92,6 +92,7 @@
             TableListBoxLayout = new Layout( );
             TableListBox = new ListBox( );
             ToolStripTable = new System.Windows.Forms.TableLayoutPanel( );
+            ApplicationLabel = new ToolStripLabel( );
             HeaderTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
@@ -237,7 +238,7 @@
             ToolStrip.Image = null;
             ToolStrip.ImageDirectory = null;
             ToolStrip.ImageSize = new System.Drawing.Size( 0, 0 );
-            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { Separator1, StatusLabel, NavigationSeparator, NavigationLabel, Separator2, FirstButton, Separator3, PreviousButton, Separator5, NextButton, Separator4, LastButton, Separator6, SystemLabel, Separator7, BrowseButton, Separator8, SaveButton, Separator9, Separator10, CloseButton, Separator11, MenuButton, FilterLabel, Separator12, LookupButton, Separator13, FilterButton, Separator14, LastSeparator } );
+            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { Separator1, StatusLabel, NavigationSeparator, NavigationLabel, Separator2, FirstButton, Separator3, PreviousButton, Separator5, NextButton, Separator4, LastButton, Separator6, SystemLabel, Separator7, BrowseButton, Separator8, SaveButton, Separator9, Separator10, CloseButton, Separator11, MenuButton, FilterLabel, Separator12, LookupButton, Separator13, FilterButton, Separator14, LastSeparator, ApplicationLabel } );
             ToolStrip.LastButton = null;
             ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
             ToolStrip.Location = new System.Drawing.Point( 1, 1 );
@@ -339,10 +340,10 @@
             FirstButton.HoverText = null;
             FirstButton.Image = Resources.Images.FirstButton;
             FirstButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            FirstButton.Margin = new System.Windows.Forms.Padding( 5, 3, 5, 3 );
+            FirstButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             FirstButton.Name = "FirstButton";
             FirstButton.Padding = new System.Windows.Forms.Padding( 1 );
-            FirstButton.Size = new System.Drawing.Size( 23, 19 );
+            FirstButton.Size = new System.Drawing.Size( 23, 23 );
             FirstButton.Text = "toolStripButton1";
             FirstButton.ToolTip = ToolTip;
             FirstButton.ToolType = ToolType.FirstButton;
@@ -368,10 +369,10 @@
             PreviousButton.HoverText = null;
             PreviousButton.Image = Resources.Images.WebPreviousButton;
             PreviousButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            PreviousButton.Margin = new System.Windows.Forms.Padding( 5, 3, 5, 3 );
+            PreviousButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             PreviousButton.Name = "PreviousButton";
             PreviousButton.Padding = new System.Windows.Forms.Padding( 1 );
-            PreviousButton.Size = new System.Drawing.Size( 23, 19 );
+            PreviousButton.Size = new System.Drawing.Size( 23, 23 );
             PreviousButton.Text = "toolStripButton2";
             PreviousButton.ToolTip = ToolTip;
             PreviousButton.ToolType = ToolType.PreviousButton;
@@ -397,10 +398,10 @@
             NextButton.HoverText = null;
             NextButton.Image = Resources.Images.WebNextButton;
             NextButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            NextButton.Margin = new System.Windows.Forms.Padding( 5, 3, 5, 3 );
+            NextButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             NextButton.Name = "NextButton";
             NextButton.Padding = new System.Windows.Forms.Padding( 1 );
-            NextButton.Size = new System.Drawing.Size( 23, 19 );
+            NextButton.Size = new System.Drawing.Size( 23, 23 );
             NextButton.Text = "toolStripButton3";
             NextButton.ToolTip = ToolTip;
             NextButton.ToolType = ToolType.NextButton;
@@ -426,10 +427,10 @@
             LastButton.HoverText = null;
             LastButton.Image = Resources.Images.LastButton;
             LastButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            LastButton.Margin = new System.Windows.Forms.Padding( 5, 3, 5, 3 );
+            LastButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             LastButton.Name = "LastButton";
             LastButton.Padding = new System.Windows.Forms.Padding( 1 );
-            LastButton.Size = new System.Drawing.Size( 23, 19 );
+            LastButton.Size = new System.Drawing.Size( 23, 23 );
             LastButton.Text = "toolStripButton4";
             LastButton.ToolTip = ToolTip;
             LastButton.ToolType = ToolType.LastButton;
@@ -456,7 +457,7 @@
             SystemLabel.Padding = new System.Windows.Forms.Padding( 1 );
             SystemLabel.Size = new System.Drawing.Size( 71, 23 );
             SystemLabel.Tag = "";
-            SystemLabel.Text = "                System:";
+            SystemLabel.Text = "                File Sys:";
             SystemLabel.ToolTip = null;
             // 
             // Separator7
@@ -480,10 +481,10 @@
             BrowseButton.HoverText = null;
             BrowseButton.Image = Resources.Images.BrowseButton;
             BrowseButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            BrowseButton.Margin = new System.Windows.Forms.Padding( 5, 3, 5, 3 );
+            BrowseButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             BrowseButton.Name = "BrowseButton";
             BrowseButton.Padding = new System.Windows.Forms.Padding( 1 );
-            BrowseButton.Size = new System.Drawing.Size( 23, 19 );
+            BrowseButton.Size = new System.Drawing.Size( 23, 23 );
             BrowseButton.Text = "toolStripButton5";
             BrowseButton.ToolTip = ToolTip;
             BrowseButton.ToolType = ToolType.BrowseButton;
@@ -509,10 +510,10 @@
             SaveButton.HoverText = null;
             SaveButton.Image = Resources.Images.SaveButton;
             SaveButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            SaveButton.Margin = new System.Windows.Forms.Padding( 5, 3, 5, 3 );
+            SaveButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             SaveButton.Name = "SaveButton";
             SaveButton.Padding = new System.Windows.Forms.Padding( 1 );
-            SaveButton.Size = new System.Drawing.Size( 23, 19 );
+            SaveButton.Size = new System.Drawing.Size( 23, 23 );
             SaveButton.Text = "toolStripButton6";
             SaveButton.ToolTip = ToolTip;
             SaveButton.ToolType = ToolType.SaveButton;
@@ -548,10 +549,10 @@
             CloseButton.HoverText = null;
             CloseButton.Image = Resources.Images.WebCloseButton;
             CloseButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            CloseButton.Margin = new System.Windows.Forms.Padding( 5, 3, 5, 3 );
+            CloseButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             CloseButton.Name = "CloseButton";
             CloseButton.Padding = new System.Windows.Forms.Padding( 1 );
-            CloseButton.Size = new System.Drawing.Size( 23, 19 );
+            CloseButton.Size = new System.Drawing.Size( 23, 23 );
             CloseButton.Text = "toolStripButton7";
             CloseButton.ToolTip = ToolTip;
             CloseButton.ToolType = ToolType.CloseButton;
@@ -579,10 +580,10 @@
             MenuButton.HoverText = null;
             MenuButton.Image = Resources.Images.WebMenuButton;
             MenuButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            MenuButton.Margin = new System.Windows.Forms.Padding( 5, 3, 5, 3 );
+            MenuButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             MenuButton.Name = "MenuButton";
             MenuButton.Padding = new System.Windows.Forms.Padding( 1 );
-            MenuButton.Size = new System.Drawing.Size( 23, 19 );
+            MenuButton.Size = new System.Drawing.Size( 23, 23 );
             MenuButton.Text = "toolStripButton8";
             MenuButton.ToolTip = ToolTip;
             MenuButton.ToolType = ToolType.MenuButton;
@@ -599,9 +600,9 @@
             FilterLabel.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             FilterLabel.Name = "FilterLabel";
             FilterLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            FilterLabel.Size = new System.Drawing.Size( 66, 23 );
+            FilterLabel.Size = new System.Drawing.Size( 60, 23 );
             FilterLabel.Tag = "";
-            FilterLabel.Text = "                Filters:";
+            FilterLabel.Text = "                Data:";
             FilterLabel.ToolTip = null;
             // 
             // Separator12
@@ -625,10 +626,10 @@
             LookupButton.HoverText = null;
             LookupButton.Image = Resources.Images.WebRefreshButton;
             LookupButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            LookupButton.Margin = new System.Windows.Forms.Padding( 5, 3, 5, 3 );
+            LookupButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             LookupButton.Name = "LookupButton";
             LookupButton.Padding = new System.Windows.Forms.Padding( 1 );
-            LookupButton.Size = new System.Drawing.Size( 23, 19 );
+            LookupButton.Size = new System.Drawing.Size( 23, 23 );
             LookupButton.Text = "toolStripButton9";
             LookupButton.ToolTip = ToolTip;
             LookupButton.ToolType = ToolType.LookupButton;
@@ -654,10 +655,10 @@
             FilterButton.HoverText = null;
             FilterButton.Image = Resources.Images.FilterButton;
             FilterButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            FilterButton.Margin = new System.Windows.Forms.Padding( 5, 3, 5, 3 );
+            FilterButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             FilterButton.Name = "FilterButton";
             FilterButton.Padding = new System.Windows.Forms.Padding( 1 );
-            FilterButton.Size = new System.Drawing.Size( 23, 19 );
+            FilterButton.Size = new System.Drawing.Size( 23, 23 );
             FilterButton.Text = "toolStripButton10";
             FilterButton.ToolTip = ToolTip;
             FilterButton.ToolType = ToolType.FilterButton;
@@ -1182,6 +1183,24 @@
             ToolStripTable.Size = new System.Drawing.Size( 1338, 45 );
             ToolStripTable.TabIndex = 52;
             // 
+            // ApplicationLabel
+            // 
+            ApplicationLabel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            ApplicationLabel.BackColor = System.Drawing.Color.Transparent;
+            ApplicationLabel.BindingSource = null;
+            ApplicationLabel.DataFilter = null;
+            ApplicationLabel.Field = Field.AccountCode;
+            ApplicationLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            ApplicationLabel.ForeColor = System.Drawing.Color.Black;
+            ApplicationLabel.HoverText = null;
+            ApplicationLabel.Margin = new System.Windows.Forms.Padding( 1 );
+            ApplicationLabel.Name = "ApplicationLabel";
+            ApplicationLabel.Padding = new System.Windows.Forms.Padding( 1 );
+            ApplicationLabel.Size = new System.Drawing.Size( 41, 23 );
+            ApplicationLabel.Tag = "";
+            ApplicationLabel.Text = "        App:";
+            ApplicationLabel.ToolTip = null;
+            // 
             // PivotChartForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
@@ -1302,5 +1321,6 @@
         public PivotChart Chart;
         public System.Windows.Forms.TableLayoutPanel ToolStripTable;
         public System.Windows.Forms.PictureBox Loader;
+        public ToolStripLabel ApplicationLabel;
     }
 }

@@ -582,7 +582,7 @@ namespace BudgetExecution
                 EditDataButton.Click += OnEditDataButtonClick;
                 TableButton.Click += OnTableButtonClick;
                 LookupButton.Click += OnLookupButtonClick;
-                HomeButton.Click += OnMainMenuButtonClicked;
+                MainMenuButton.Click += OnMainMenuButtonClicked;
                 ClientButton.Click += OnClientButtonClick;
                 TableListBox.SelectedIndexChanged += OnTableListBoxSelectionChanged;
                 ColumnListBox.SelectedIndexChanged += OnColumnListBoxSelectionChanged;
@@ -668,7 +668,7 @@ namespace BudgetExecution
             try
             {
                 var _dateTime = DateTime.Now;
-                var _dateString = _dateTime.ToLongDateString( );
+                var _dateString = _dateTime.ToShortDateString( );
                 var _timeString = _dateTime.ToLongTimeString( );
                 StatusLabel.Text = _dateString + "  " + _timeString;
             }

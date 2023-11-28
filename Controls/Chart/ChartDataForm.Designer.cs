@@ -26,16 +26,16 @@
         private void InitializeComponent( )
         {
             components = new System.ComponentModel.Container( );
-            var chartToolBarSaveItem2 = new Syncfusion.Windows.Forms.Chart.ChartToolBarSaveItem( );
-            var chartToolBarCopyItem2 = new Syncfusion.Windows.Forms.Chart.ChartToolBarCopyItem( );
-            var chartToolBarPrintItem2 = new Syncfusion.Windows.Forms.Chart.ChartToolBarPrintItem( );
-            var chartToolBarPrintPreviewItem2 = new Syncfusion.Windows.Forms.Chart.ChartToolBarPrintPreviewItem( );
-            var chartToolBarSplitter2 = new Syncfusion.Windows.Forms.Chart.ChartToolBarSplitter( );
-            var chartToolBarPaletteItem2 = new Syncfusion.Windows.Forms.Chart.ChartToolBarPaletteItem( );
-            var chartToolBarStyleItem2 = new Syncfusion.Windows.Forms.Chart.ChartToolBarStyleItem( );
-            var chartToolBarTypeItem2 = new Syncfusion.Windows.Forms.Chart.ChartToolBarTypeItem( );
-            var chartToolBarSeries3dItem2 = new Syncfusion.Windows.Forms.Chart.ChartToolBarSeries3DItem( );
-            var chartToolBarShowLegendItem2 = new Syncfusion.Windows.Forms.Chart.ChartToolBarShowLegendItem( );
+            var chartToolBarSaveItem1 = new Syncfusion.Windows.Forms.Chart.ChartToolBarSaveItem( );
+            var chartToolBarCopyItem1 = new Syncfusion.Windows.Forms.Chart.ChartToolBarCopyItem( );
+            var chartToolBarPrintItem1 = new Syncfusion.Windows.Forms.Chart.ChartToolBarPrintItem( );
+            var chartToolBarPrintPreviewItem1 = new Syncfusion.Windows.Forms.Chart.ChartToolBarPrintPreviewItem( );
+            var chartToolBarSplitter1 = new Syncfusion.Windows.Forms.Chart.ChartToolBarSplitter( );
+            var chartToolBarPaletteItem1 = new Syncfusion.Windows.Forms.Chart.ChartToolBarPaletteItem( );
+            var chartToolBarStyleItem1 = new Syncfusion.Windows.Forms.Chart.ChartToolBarStyleItem( );
+            var chartToolBarTypeItem1 = new Syncfusion.Windows.Forms.Chart.ChartToolBarTypeItem( );
+            var chartToolBarSeries3dItem1 = new Syncfusion.Windows.Forms.Chart.ChartToolBarSeries3DItem( );
+            var chartToolBarShowLegendItem1 = new Syncfusion.Windows.Forms.Chart.ChartToolBarShowLegendItem( );
             var resources = new System.ComponentModel.ComponentResourceManager( typeof( ChartDataForm ) );
             GridTable = new System.Windows.Forms.TableLayoutPanel( );
             LabelTable = new System.Windows.Forms.TableLayoutPanel( );
@@ -48,7 +48,7 @@
             Chart = new Chart( );
             ChartSubTablePanel = new Layout( );
             ChartSubTable = new System.Windows.Forms.TableLayoutPanel( );
-            TextLabel = new Label( );
+            SqlTextLabel = new Label( );
             MetricsTable = new System.Windows.Forms.TableLayoutPanel( );
             MetricsLabel6 = new Label( );
             MetricsLabel3 = new Label( );
@@ -134,6 +134,7 @@
             PictureBox = new System.Windows.Forms.PictureBox( );
             Timer = new System.Windows.Forms.Timer( components );
             ToolStripTable = new System.Windows.Forms.TableLayoutPanel( );
+            TextLabel = new Label( );
             AreaTable.SuspendLayout( );
             ChartPanel.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)DataTabControl ).BeginInit( );
@@ -370,16 +371,16 @@
             Chart.Titles.Add( Chart.Title );
             Chart.ToolBar.ButtonBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             Chart.ToolBar.EnableDefaultItems = false;
-            Chart.ToolBar.Items.Add( chartToolBarSaveItem2 );
-            Chart.ToolBar.Items.Add( chartToolBarCopyItem2 );
-            Chart.ToolBar.Items.Add( chartToolBarPrintItem2 );
-            Chart.ToolBar.Items.Add( chartToolBarPrintPreviewItem2 );
-            Chart.ToolBar.Items.Add( chartToolBarSplitter2 );
-            Chart.ToolBar.Items.Add( chartToolBarPaletteItem2 );
-            Chart.ToolBar.Items.Add( chartToolBarStyleItem2 );
-            Chart.ToolBar.Items.Add( chartToolBarTypeItem2 );
-            Chart.ToolBar.Items.Add( chartToolBarSeries3dItem2 );
-            Chart.ToolBar.Items.Add( chartToolBarShowLegendItem2 );
+            Chart.ToolBar.Items.Add( chartToolBarSaveItem1 );
+            Chart.ToolBar.Items.Add( chartToolBarCopyItem1 );
+            Chart.ToolBar.Items.Add( chartToolBarPrintItem1 );
+            Chart.ToolBar.Items.Add( chartToolBarPrintPreviewItem1 );
+            Chart.ToolBar.Items.Add( chartToolBarSplitter1 );
+            Chart.ToolBar.Items.Add( chartToolBarPaletteItem1 );
+            Chart.ToolBar.Items.Add( chartToolBarStyleItem1 );
+            Chart.ToolBar.Items.Add( chartToolBarTypeItem1 );
+            Chart.ToolBar.Items.Add( chartToolBarSeries3dItem1 );
+            Chart.ToolBar.Items.Add( chartToolBarShowLegendItem1 );
             Chart.ToolBar.Position = Syncfusion.Windows.Forms.Chart.ChartDock.Bottom;
             Chart.ToolBar.ShowBorder = false;
             Chart.ToolBar.ShowGrip = false;
@@ -416,35 +417,38 @@
             // 
             ChartSubTable.ColumnCount = 1;
             ChartSubTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            ChartSubTable.Controls.Add( TextLabel, 0, 0 );
+            ChartSubTable.Controls.Add( TextLabel, 0, 1 );
+            ChartSubTable.Controls.Add( SqlTextLabel, 0, 0 );
             ChartSubTable.Location = new System.Drawing.Point( 543, 4 );
             ChartSubTable.Name = "ChartSubTable";
-            ChartSubTable.RowCount = 1;
+            ChartSubTable.RowCount = 2;
             ChartSubTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+            ChartSubTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 56F ) );
             ChartSubTable.Size = new System.Drawing.Size( 514, 82 );
             ChartSubTable.TabIndex = 5;
             // 
-            // TextLabel
+            // SqlTextLabel
             // 
-            TextLabel.BindingSource = null;
-            TextLabel.DataFilter = null;
-            TextLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            TextLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            TextLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            TextLabel.HoverText = null;
-            TextLabel.IsDerivedStyle = true;
-            TextLabel.Location = new System.Drawing.Point( 3, 3 );
-            TextLabel.Margin = new System.Windows.Forms.Padding( 3 );
-            TextLabel.Name = "TextLabel";
-            TextLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            TextLabel.Size = new System.Drawing.Size( 508, 76 );
-            TextLabel.Style = MetroSet_UI.Enums.Style.Custom;
-            TextLabel.StyleManager = null;
-            TextLabel.TabIndex = 2;
-            TextLabel.Text = "Text";
-            TextLabel.ThemeAuthor = "Terry D. Eppler";
-            TextLabel.ThemeName = "Budget Execution";
-            TextLabel.ToolTip = null;
+            SqlTextLabel.BindingSource = null;
+            SqlTextLabel.DataFilter = null;
+            SqlTextLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            SqlTextLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            SqlTextLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            SqlTextLabel.HoverText = null;
+            SqlTextLabel.IsDerivedStyle = true;
+            SqlTextLabel.Location = new System.Drawing.Point( 3, 3 );
+            SqlTextLabel.Margin = new System.Windows.Forms.Padding( 3 );
+            SqlTextLabel.Name = "SqlTextLabel";
+            SqlTextLabel.Padding = new System.Windows.Forms.Padding( 1 );
+            SqlTextLabel.Size = new System.Drawing.Size( 508, 20 );
+            SqlTextLabel.Style = MetroSet_UI.Enums.Style.Custom;
+            SqlTextLabel.StyleManager = null;
+            SqlTextLabel.TabIndex = 2;
+            SqlTextLabel.Text = "Text";
+            SqlTextLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            SqlTextLabel.ThemeAuthor = "Terry D. Eppler";
+            SqlTextLabel.ThemeName = "Budget Execution";
+            SqlTextLabel.ToolTip = null;
             // 
             // MetricsTable
             // 
@@ -718,6 +722,7 @@
             ToolStrip.Margin = new System.Windows.Forms.Padding( 1 );
             ToolStrip.Name = "ToolStrip";
             ToolStrip.NextButton = NextButton;
+            ToolStrip.Office12Mode = false;
             ToolStrip.OfficeColorScheme = Syncfusion.Windows.Forms.Tools.ToolStripEx.ColorScheme.Black;
             ToolStrip.Padding = new System.Windows.Forms.Padding( 1 );
             ToolStrip.PreviousButton = PreviousButton;
@@ -759,7 +764,7 @@
             FirstButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             FirstButton.Name = "FirstButton";
             FirstButton.Padding = new System.Windows.Forms.Padding( 1 );
-            FirstButton.Size = new System.Drawing.Size( 23, 23 );
+            FirstButton.Size = new System.Drawing.Size( 23, 25 );
             FirstButton.ToolTip = null;
             FirstButton.ToolType = ToolType.FirstButton;
             // 
@@ -769,7 +774,7 @@
             StatusSeparator.Margin = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
             StatusSeparator.Name = "StatusSeparator";
             StatusSeparator.Padding = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
-            StatusSeparator.Size = new System.Drawing.Size( 6, 23 );
+            StatusSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
             // StatusLabel
             // 
@@ -783,7 +788,7 @@
             StatusLabel.Margin = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
             StatusLabel.Name = "StatusLabel";
             StatusLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            StatusLabel.Size = new System.Drawing.Size( 66, 23 );
+            StatusLabel.Size = new System.Drawing.Size( 66, 25 );
             StatusLabel.Tag = "";
             StatusLabel.Text = "Date And Time";
             StatusLabel.ToolTip = ToolTip;
@@ -800,7 +805,7 @@
             StatusSpacer.Margin = new System.Windows.Forms.Padding( 1 );
             StatusSpacer.Name = "StatusSpacer";
             StatusSpacer.Padding = new System.Windows.Forms.Padding( 1 );
-            StatusSpacer.Size = new System.Drawing.Size( 73, 23 );
+            StatusSpacer.Size = new System.Drawing.Size( 73, 25 );
             StatusSpacer.Tag = "";
             StatusSpacer.Text = "            Navigation";
             StatusSpacer.ToolTip = null;
@@ -811,7 +816,7 @@
             NavigationLabelSeparator.Margin = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
             NavigationLabelSeparator.Name = "NavigationLabelSeparator";
             NavigationLabelSeparator.Padding = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
-            NavigationLabelSeparator.Size = new System.Drawing.Size( 6, 23 );
+            NavigationLabelSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
             // FirstSeparator
             // 
@@ -819,7 +824,7 @@
             FirstSeparator.Margin = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
             FirstSeparator.Name = "FirstSeparator";
             FirstSeparator.Padding = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
-            FirstSeparator.Size = new System.Drawing.Size( 6, 23 );
+            FirstSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
             // PreviousButton
             // 
@@ -837,7 +842,7 @@
             PreviousButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             PreviousButton.Name = "PreviousButton";
             PreviousButton.Padding = new System.Windows.Forms.Padding( 1 );
-            PreviousButton.Size = new System.Drawing.Size( 23, 23 );
+            PreviousButton.Size = new System.Drawing.Size( 23, 25 );
             PreviousButton.Text = "toolStripButton2";
             PreviousButton.ToolTip = null;
             PreviousButton.ToolType = ToolType.Ns;
@@ -848,7 +853,7 @@
             PreviousSeparator.Margin = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
             PreviousSeparator.Name = "PreviousSeparator";
             PreviousSeparator.Padding = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
-            PreviousSeparator.Size = new System.Drawing.Size( 6, 23 );
+            PreviousSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
             // NextButton
             // 
@@ -866,7 +871,7 @@
             NextButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             NextButton.Name = "NextButton";
             NextButton.Padding = new System.Windows.Forms.Padding( 1 );
-            NextButton.Size = new System.Drawing.Size( 23, 23 );
+            NextButton.Size = new System.Drawing.Size( 23, 25 );
             NextButton.Text = "toolStripButton3";
             NextButton.ToolTip = null;
             NextButton.ToolType = ToolType.NextButton;
@@ -877,7 +882,7 @@
             NextSeparator.Margin = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
             NextSeparator.Name = "NextSeparator";
             NextSeparator.Padding = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
-            NextSeparator.Size = new System.Drawing.Size( 6, 23 );
+            NextSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
             // LastButton
             // 
@@ -895,7 +900,7 @@
             LastButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             LastButton.Name = "LastButton";
             LastButton.Padding = new System.Windows.Forms.Padding( 1 );
-            LastButton.Size = new System.Drawing.Size( 23, 23 );
+            LastButton.Size = new System.Drawing.Size( 23, 25 );
             LastButton.Text = "toolStripButton4";
             LastButton.ToolTip = null;
             LastButton.ToolType = ToolType.LastButton;
@@ -906,7 +911,7 @@
             EditSqlSeparator.Margin = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
             EditSqlSeparator.Name = "EditSqlSeparator";
             EditSqlSeparator.Padding = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
-            EditSqlSeparator.Size = new System.Drawing.Size( 6, 23 );
+            EditSqlSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
             // FilterLabel
             // 
@@ -920,7 +925,7 @@
             FilterLabel.Margin = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
             FilterLabel.Name = "FilterLabel";
             FilterLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            FilterLabel.Size = new System.Drawing.Size( 58, 23 );
+            FilterLabel.Size = new System.Drawing.Size( 58, 25 );
             FilterLabel.Tag = "";
             FilterLabel.Text = "            Filters:";
             FilterLabel.ToolTip = null;
@@ -931,7 +936,7 @@
             FilterLabelSeparator.Margin = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
             FilterLabelSeparator.Name = "FilterLabelSeparator";
             FilterLabelSeparator.Padding = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
-            FilterLabelSeparator.Size = new System.Drawing.Size( 6, 23 );
+            FilterLabelSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
             // RefreshDataButton
             // 
@@ -949,7 +954,7 @@
             RefreshDataButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             RefreshDataButton.Name = "RefreshDataButton";
             RefreshDataButton.Padding = new System.Windows.Forms.Padding( 1 );
-            RefreshDataButton.Size = new System.Drawing.Size( 23, 23 );
+            RefreshDataButton.Size = new System.Drawing.Size( 23, 25 );
             RefreshDataButton.Text = "toolStripButton1";
             RefreshDataButton.ToolTip = ToolTip;
             RefreshDataButton.ToolType = ToolType.RefreshDataButton;
@@ -960,7 +965,7 @@
             NavigationSeparator.Margin = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
             NavigationSeparator.Name = "NavigationSeparator";
             NavigationSeparator.Padding = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
-            NavigationSeparator.Size = new System.Drawing.Size( 6, 23 );
+            NavigationSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
             // RemoveFiltersButton
             // 
@@ -978,7 +983,7 @@
             RemoveFiltersButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             RemoveFiltersButton.Name = "RemoveFiltersButton";
             RemoveFiltersButton.Padding = new System.Windows.Forms.Padding( 1 );
-            RemoveFiltersButton.Size = new System.Drawing.Size( 23, 23 );
+            RemoveFiltersButton.Size = new System.Drawing.Size( 23, 25 );
             RemoveFiltersButton.Text = "toolStripButton1";
             RemoveFiltersButton.ToolTip = ToolTip;
             RemoveFiltersButton.ToolType = ToolType.RemoveFiltersButton;
@@ -989,7 +994,7 @@
             FilterSeparator.Margin = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
             FilterSeparator.Name = "FilterSeparator";
             FilterSeparator.Padding = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
-            FilterSeparator.Size = new System.Drawing.Size( 6, 23 );
+            FilterSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
             // GroupButton
             // 
@@ -1007,7 +1012,7 @@
             GroupButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             GroupButton.Name = "GroupButton";
             GroupButton.Padding = new System.Windows.Forms.Padding( 1 );
-            GroupButton.Size = new System.Drawing.Size( 23, 23 );
+            GroupButton.Size = new System.Drawing.Size( 23, 25 );
             GroupButton.Text = "toolStripButton1";
             GroupButton.ToolTip = ToolTip;
             GroupButton.ToolType = ToolType.GroupButton;
@@ -1018,7 +1023,7 @@
             RemoveFiltersSeparator.Margin = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
             RemoveFiltersSeparator.Name = "RemoveFiltersSeparator";
             RemoveFiltersSeparator.Padding = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
-            RemoveFiltersSeparator.Size = new System.Drawing.Size( 6, 23 );
+            RemoveFiltersSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
             // ChartSpacerLabel
             // 
@@ -1032,7 +1037,7 @@
             ChartSpacerLabel.Margin = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
             ChartSpacerLabel.Name = "ChartSpacerLabel";
             ChartSpacerLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            ChartSpacerLabel.Size = new System.Drawing.Size( 58, 23 );
+            ChartSpacerLabel.Size = new System.Drawing.Size( 58, 25 );
             ChartSpacerLabel.Tag = "";
             ChartSpacerLabel.Text = "            Charts";
             ChartSpacerLabel.ToolTip = null;
@@ -1043,7 +1048,7 @@
             ChartSpacer.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             ChartSpacer.Name = "ChartSpacer";
             ChartSpacer.Padding = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
-            ChartSpacer.Size = new System.Drawing.Size( 6, 23 );
+            ChartSpacer.Size = new System.Drawing.Size( 6, 25 );
             // 
             // SeriesComboBox
             // 
@@ -1059,7 +1064,7 @@
             SeriesComboBox.MaxLength = 32767;
             SeriesComboBox.Name = "SeriesComboBox";
             SeriesComboBox.Padding = new System.Windows.Forms.Padding( 1 );
-            SeriesComboBox.Size = new System.Drawing.Size( 150, 23 );
+            SeriesComboBox.Size = new System.Drawing.Size( 150, 25 );
             SeriesComboBox.Style = Syncfusion.Windows.Forms.Tools.ToolStripExStyle.Office2016Black;
             SeriesComboBox.ToolTip = ToolTip;
             SeriesComboBox.ToolTipText = "Select Series Type";
@@ -1070,7 +1075,7 @@
             ChartSeriesSeparator.Margin = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
             ChartSeriesSeparator.Name = "ChartSeriesSeparator";
             ChartSeriesSeparator.Padding = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
-            ChartSeriesSeparator.Size = new System.Drawing.Size( 6, 23 );
+            ChartSeriesSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
             // MetricsLabel
             // 
@@ -1084,7 +1089,7 @@
             MetricsLabel.Margin = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
             MetricsLabel.Name = "MetricsLabel";
             MetricsLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            MetricsLabel.Size = new System.Drawing.Size( 62, 23 );
+            MetricsLabel.Size = new System.Drawing.Size( 62, 25 );
             MetricsLabel.Tag = "";
             MetricsLabel.Text = "            Metrics";
             MetricsLabel.ToolTip = null;
@@ -1095,7 +1100,7 @@
             MetricsPreSeparator.Margin = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
             MetricsPreSeparator.Name = "MetricsPreSeparator";
             MetricsPreSeparator.Padding = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
-            MetricsPreSeparator.Size = new System.Drawing.Size( 6, 23 );
+            MetricsPreSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
             // MetricsComboBox
             // 
@@ -1111,7 +1116,7 @@
             MetricsComboBox.MaxLength = 32767;
             MetricsComboBox.Name = "MetricsComboBox";
             MetricsComboBox.Padding = new System.Windows.Forms.Padding( 1 );
-            MetricsComboBox.Size = new System.Drawing.Size( 125, 23 );
+            MetricsComboBox.Size = new System.Drawing.Size( 125, 25 );
             MetricsComboBox.Style = Syncfusion.Windows.Forms.Tools.ToolStripExStyle.Office2016Black;
             MetricsComboBox.Tag = "";
             MetricsComboBox.ToolTip = ToolTip;
@@ -1134,7 +1139,7 @@
             ExitButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             ExitButton.Name = "ExitButton";
             ExitButton.Padding = new System.Windows.Forms.Padding( 1 );
-            ExitButton.Size = new System.Drawing.Size( 23, 23 );
+            ExitButton.Size = new System.Drawing.Size( 23, 25 );
             ExitButton.Text = "toolStripButton1";
             ExitButton.ToolTip = ToolTip;
             ExitButton.ToolType = ToolType.ExitButton;
@@ -1146,7 +1151,7 @@
             MenuSeparator.Margin = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
             MenuSeparator.Name = "MenuSeparator";
             MenuSeparator.Padding = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
-            MenuSeparator.Size = new System.Drawing.Size( 6, 23 );
+            MenuSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
             // MenuButton
             // 
@@ -1165,7 +1170,7 @@
             MenuButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             MenuButton.Name = "MenuButton";
             MenuButton.Padding = new System.Windows.Forms.Padding( 1 );
-            MenuButton.Size = new System.Drawing.Size( 23, 23 );
+            MenuButton.Size = new System.Drawing.Size( 23, 25 );
             MenuButton.Text = "toolStripButton2";
             MenuButton.ToolTip = ToolTip;
             MenuButton.ToolType = ToolType.MenuButton;
@@ -1177,7 +1182,7 @@
             ExitSeparator.Margin = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
             ExitSeparator.Name = "ExitSeparator";
             ExitSeparator.Padding = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
-            ExitSeparator.Size = new System.Drawing.Size( 6, 23 );
+            ExitSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
             // ApplicationLabel
             // 
@@ -1192,7 +1197,7 @@
             ApplicationLabel.Margin = new System.Windows.Forms.Padding( 10, 1, 3, 1 );
             ApplicationLabel.Name = "ApplicationLabel";
             ApplicationLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            ApplicationLabel.Size = new System.Drawing.Size( 57, 23 );
+            ApplicationLabel.Size = new System.Drawing.Size( 57, 25 );
             ApplicationLabel.Tag = "";
             ApplicationLabel.Text = "                App:";
             ApplicationLabel.ToolTip = null;
@@ -2026,6 +2031,29 @@
             ToolStripTable.Size = new System.Drawing.Size( 1338, 45 );
             ToolStripTable.TabIndex = 1;
             // 
+            // TextLabel
+            // 
+            TextLabel.BindingSource = null;
+            TextLabel.DataFilter = null;
+            TextLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            TextLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            TextLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            TextLabel.HoverText = null;
+            TextLabel.IsDerivedStyle = true;
+            TextLabel.Location = new System.Drawing.Point( 3, 29 );
+            TextLabel.Margin = new System.Windows.Forms.Padding( 3 );
+            TextLabel.Name = "TextLabel";
+            TextLabel.Padding = new System.Windows.Forms.Padding( 1 );
+            TextLabel.Size = new System.Drawing.Size( 508, 50 );
+            TextLabel.Style = MetroSet_UI.Enums.Style.Custom;
+            TextLabel.StyleManager = null;
+            TextLabel.TabIndex = 3;
+            TextLabel.Text = "Text";
+            TextLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            TextLabel.ThemeAuthor = "Terry D. Eppler";
+            TextLabel.ThemeName = "Budget Execution";
+            TextLabel.ToolTip = null;
+            // 
             // ChartDataForm
             // 
             BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
@@ -2160,7 +2188,7 @@
         public System.Windows.Forms.TableLayoutPanel AreaTable;
         public Layout ChartPanel;
         public Layout ChartSubTablePanel;
-        public Label TextLabel;
+        public Label SqlTextLabel;
         public Syncfusion.Windows.Forms.Tools.TabPageAdv TableTabPage;
         public HeaderPanel SourcePanel;
         public Layout TableListBoxPanel;
@@ -2198,5 +2226,6 @@
         public System.Windows.Forms.TableLayoutPanel ToolStripTable;
         public System.Windows.Forms.PictureBox Loader;
         public ToolStripLabel StatusSpacer;
+        public Label TextLabel;
     }
 }

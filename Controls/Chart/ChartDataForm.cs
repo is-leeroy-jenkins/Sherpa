@@ -4,7 +4,7 @@
 //     Created:                 06-19-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        11-24-2023
+//     Last Modified On:        11-28-2023
 // ******************************************************************************************
 // <copyright file="Terry Eppler.cs" company="Terry D. Eppler">
 //    BudgetExecution is a Federal Budget, Finance, and Accounting application for the
@@ -817,10 +817,10 @@ namespace BudgetExecution
 
                     BindData( FormFilter );
                     SqlQuery = CreateSqlText( FormFilter );
-                    TextLabel.Text = SqlQuery;
+                    SqlTextLabel.Text = SqlQuery;
                     UpdateLabelText( );
                     Chart.Visible = true;
-                    TextLabel.Visible = true;
+                    SqlTextLabel.Visible = true;
                     MetricsTable.Visible = true;
                 }
                 catch( Exception ex )
@@ -1378,7 +1378,7 @@ namespace BudgetExecution
                     if( Chart.Visible == true )
                     {
                         Chart.Visible = false;
-                        TextLabel.Visible = false;
+                        SqlTextLabel.Visible = false;
                         MetricsTable.Visible = false;
                     }
 
@@ -1393,7 +1393,7 @@ namespace BudgetExecution
                     if( Chart.Visible == false )
                     {
                         Chart.Visible = true;
-                        TextLabel.Visible = true;
+                        SqlTextLabel.Visible = true;
                         MetricsTable.Visible = true;
                     }
 
@@ -1664,7 +1664,7 @@ namespace BudgetExecution
                     _series.Style.Callout.Font.Facename = _font.Name;
                     _series.Style.Callout.Font.Size = _font.Size;
                     _series.Style.Callout.TextColor = _textColor;
-                    _series.Style.Callout.Color = Color.FromArgb( 75, 75, 75 );
+                    _series.Style.Callout.Color = Color.Transparent;
                     _series.Style.Callout.Position = LabelPosition.Top;
                     _series.Style.Callout.Enable = true;
                     _series.ActualXAxis.Font = _font;
@@ -1692,6 +1692,42 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Sends the notification.
+        /// </summary>
+        /// <param name="text">The text.</param>
+        private void SendNotification( string text )
+        {
+            try
+            {
+                ThrowIf.NullOrEmpty( text, nameof( text ) );
+                var _notification = new Notification( text );
+                _notification.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Sends the message.
+        /// </summary>
+        /// <param name="text">The text.</param>
+        private void SendMessage( string text )
+        {
+            try
+            {
+                ThrowIf.NullOrEmpty( text, nameof( text ) );
+                var _message = new SplashMessage( text );
+                _message.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -1870,7 +1906,7 @@ namespace BudgetExecution
 
                     BindData( FormFilter );
                     SqlQuery = CreateSqlText( FormFilter );
-                    TextLabel.Text = SqlQuery;
+                    SqlTextLabel.Text = SqlQuery;
                     UpdateLabelText( );
                 }
                 catch( Exception ex )
@@ -1946,7 +1982,7 @@ namespace BudgetExecution
                     FormFilter.Add( ThirdCategory, ThirdValue );
                     BindData( FormFilter );
                     SqlQuery = CreateSqlText( FormFilter );
-                    TextLabel.Text = SqlQuery;
+                    SqlTextLabel.Text = SqlQuery;
                     UpdateLabelText( );
                 }
                 catch( Exception ex )
@@ -2063,7 +2099,7 @@ namespace BudgetExecution
         {
             try
             {
-                TextLabel.Text = string.Empty;
+                SqlTextLabel.Text = string.Empty;
                 var _selectedItem = FieldListBox.SelectedItem.ToString( );
                 PopulateNumericListBox( );
                 if( !string.IsNullOrEmpty( _selectedItem ) )
@@ -2082,21 +2118,21 @@ namespace BudgetExecution
                 {
                     BindData( SelectedFields, SelectedNumerics, FormFilter );
                     SqlQuery = CreateSqlText( SelectedFields, SelectedNumerics, FormFilter );
-                    TextLabel.Text = SqlQuery;
+                    SqlTextLabel.Text = SqlQuery;
                     UpdateLabelText( );
                 }
                 else
                 {
                     BindData( Fields, Numerics, FormFilter );
                     SqlQuery = CreateSqlText( Fields, Numerics, FormFilter );
-                    TextLabel.Text = SqlQuery;
+                    SqlTextLabel.Text = SqlQuery;
                     UpdateLabelText( );
                 }
 
                 if( Chart.Visible == false )
                 {
                     Chart.Visible = true;
-                    TextLabel.Visible = true;
+                    SqlTextLabel.Visible = true;
                     MetricsTable.Visible = true;
                 }
             }
@@ -2115,7 +2151,7 @@ namespace BudgetExecution
             try
             {
                 SelectedNumerics.Clear( );
-                TextLabel.Text = string.Empty;
+                SqlTextLabel.Text = string.Empty;
                 var _selectedItem = NumericListBox.SelectedValue.ToString( );
                 if( !string.IsNullOrEmpty( _selectedItem ) )
                 {
@@ -2124,7 +2160,7 @@ namespace BudgetExecution
 
                 BindData( SelectedFields, SelectedNumerics, FormFilter );
                 SqlQuery = CreateSqlText( SelectedFields, SelectedNumerics, FormFilter );
-                TextLabel.Text = SqlQuery;
+                SqlTextLabel.Text = SqlQuery;
                 UpdateLabelText( );
             }
             catch( Exception ex )
@@ -2202,7 +2238,7 @@ namespace BudgetExecution
                     if( Chart.Visible == true )
                     {
                         Chart.Visible = false;
-                        TextLabel.Visible = false;
+                        SqlTextLabel.Visible = false;
                         MetricsTable.Visible = false;
                     }
                 }

@@ -539,7 +539,7 @@ namespace BudgetExecution
                 EditDataButton.Click += OnEditDataButtonClick;
                 TableButton.Click += OnTableButtonClick;
                 LookupButton.Click += OnLookupButtonClick;
-                HomeButton.Click += OnMainMenuButtonClicked;
+                MainMenuButton.Click += OnMainMenuButtonClicked;
                 ClientButton.Click += OnClientButtonClick;
                 TableListBox.SelectedIndexChanged += OnTableListBoxSelectionChanged;
                 ColumnListBox.SelectedIndexChanged += OnColumnListBoxSelectionChanged;
@@ -666,7 +666,7 @@ namespace BudgetExecution
             try
             {
                 var _dateTime = DateTime.Now;
-                var _dateString = _dateTime.ToLongDateString( );
+                var _dateString = _dateTime.ToShortDateString( );
                 var _timeString = _dateTime.ToLongTimeString( );
                 StatusLabel.Text = _dateString + "  " + _timeString;
             }
@@ -865,7 +865,7 @@ namespace BudgetExecution
                     DataTab.TabVisible = false;
                     LookupTab.TabVisible = false;
                     SchemaTab.TabVisible = false;
-                    Busy.TabVisible = false;
+                    BusyTab.TabVisible = false;
                     Title.Text = GetTitleText( ) + "| SQL Editor";
                     Title.TextAlign = ContentAlignment.TopLeft;
                     Commands = CreateCommandList( Provider );
@@ -879,7 +879,7 @@ namespace BudgetExecution
                     LookupTab.TabVisible = false;
                     SchemaTab.TabVisible = false;
                     SqlTab.TabVisible = false;
-                    Busy.TabVisible = false;
+                    BusyTab.TabVisible = false;
                     Title.Text = GetTitleText( )
                         + $"| {Source.ToString( ).SplitPascal( )} Data Table";
 
@@ -895,7 +895,7 @@ namespace BudgetExecution
                     DataTab.TabVisible = false;
                     SchemaTab.TabVisible = false;
                     SqlTab.TabVisible = false;
-                    Busy.TabVisible = false;
+                    BusyTab.TabVisible = false;
                     PopulateTableListBoxItems( );
                     Title.Text = GetTitleText( ) + "| Data Look-Up";
                     TableListBox.SelectedValue = string.Empty;
@@ -910,7 +910,7 @@ namespace BudgetExecution
                     DataTab.TabVisible = false;
                     LookupTab.TabVisible = false;
                     SqlTab.TabVisible = false;
-                    Busy.TabVisible = false;
+                    BusyTab.TabVisible = false;
                     PopulateTableComboBoxItems( );
                     DataTypes = GetDataTypes( Provider );
                     PopulateDataTypeComboBoxItems( DataTypes );
@@ -920,7 +920,7 @@ namespace BudgetExecution
                 case 4:
                 {
                     // Busy Tab
-                    Busy.TabVisible = true;
+                    BusyTab.TabVisible = true;
                     SchemaTab.TabVisible = false;
                     DataTab.TabVisible = false;
                     LookupTab.TabVisible = false;
