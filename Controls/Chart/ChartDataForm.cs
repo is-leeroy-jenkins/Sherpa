@@ -45,6 +45,7 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Drawing.Drawing2D;
     using System.Linq;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
@@ -773,7 +774,7 @@ namespace BudgetExecution
                 SelectedTable = string.Empty;
                 DataModel = null;
                 DataTable = null;
-                TabControl.SelectedIndex = 0;
+                QueryTabControl.SelectedIndex = 0;
                 UpdateLabelText( );
             }
             catch( Exception _ex )
@@ -817,10 +818,10 @@ namespace BudgetExecution
 
                     BindData( FormFilter );
                     SqlQuery = CreateSqlText( FormFilter );
-                    SqlTextLabel.Text = SqlQuery;
+                    TextLabel.Text = SqlQuery;
                     UpdateLabelText( );
                     Chart.Visible = true;
-                    SqlTextLabel.Visible = true;
+                    TextLabel.Visible = true;
                     MetricsTable.Visible = true;
                 }
                 catch( Exception ex )
@@ -1011,24 +1012,6 @@ namespace BudgetExecution
                 Fields = DataModel.Fields;
                 Numerics = DataModel.Numerics;
                 SqlQuery = DataModel.SqlStatement.CommandText;
-                SqlTextLabel.Text = SqlQuery;
-                if( Chart.Series[ 0 ].Points.Count > 0 )
-                {
-                    Chart.Series[ 0 ].Points.Clear( );
-                }
-
-                var _rows = DataTable.AsEnumerable( );
-                var _count = (double)_rows.Count( );
-                var _points = new List<ChartPoint>( );
-                var _data = _rows
-                    ?.Select( r => r.Field<double>( "Amount" ) )
-                    ?.ToArray( );
-
-                for( var i = 0d; i < _count; i++ )
-                {
-                    var _pt = new ChartPoint( i, _data[ (int)i ] );
-                    Chart.Series[ 0 ].Points.Add( _pt );
-                }
             }
             catch( Exception ex )
             {
@@ -1425,7 +1408,7 @@ namespace BudgetExecution
         /// </summary>
         private void SetActiveTab( )
         {
-            switch( TabControl.SelectedIndex )
+            switch( QueryTabControl.SelectedIndex )
             {
                 case 0:
                 {
@@ -1435,7 +1418,7 @@ namespace BudgetExecution
                     if( Chart.Visible == true )
                     {
                         Chart.Visible = false;
-                        SqlTextLabel.Visible = false;
+                        TextLabel.Visible = false;
                         MetricsTable.Visible = false;
                     }
 
@@ -1450,7 +1433,7 @@ namespace BudgetExecution
                     if( Chart.Visible == false )
                     {
                         Chart.Visible = true;
-                        SqlTextLabel.Visible = true;
+                        TextLabel.Visible = true;
                         MetricsTable.Visible = true;
                     }
 
@@ -1504,21 +1487,21 @@ namespace BudgetExecution
                     var _numerics = Numerics?.Count ?? 0;
                     var _selectedFields = SelectedFields?.Count ?? 0;
                     var _selectedNumerics = SelectedNumerics?.Count ?? 0;
-                    FirstDataLabel.Text = $"Data Records:  {_records}";
-                    SecondDataLabel.Text = $"Total Fields:  {_fields}";
-                    ThirdDataLabel.Text = $"Total Measures:  {_numerics}";
-                    FourthDataLabel.Text = $"Active Filters:  {_filters}";
-                    FifthDataLabel.Text = $"Selected Fields:  {_selectedFields}";
-                    SeventhDataLabel.Text = $"Selected Measures:  {_selectedNumerics}";
+                    MetricsLabel1.Text = $"Data Records:  {_records}";
+                    MetricsLabel2.Text = $"Total Fields:  {_fields}";
+                    MetricsLabel3.Text = $"Total Measures:  {_numerics}";
+                    MetricsLabel4.Text = $"Active Filters:  {_filters}";
+                    MetricsLabel5.Text = $"Selected Fields:  {_selectedFields}";
+                    MetricsLabel7.Text = $"Selected Measures:  {_selectedNumerics}";
                 }
                 else
                 {
-                    FirstDataLabel.Text = "Data Records: 0.0";
-                    SecondDataLabel.Text = "Total Fields: 0.0";
-                    ThirdDataLabel.Text = "Total Measures: 0.0";
-                    FourthDataLabel.Text = "Active Filters: 0.0";
-                    FifthDataLabel.Text = "Selected Fields: 0.0";
-                    SeventhDataLabel.Text = "Selected Measures: 0.0";
+                    MetricsLabel1.Text = "Data Records: 0.0";
+                    MetricsLabel2.Text = "Total Fields: 0.0";
+                    MetricsLabel3.Text = "Total Measures: 0.0";
+                    MetricsLabel4.Text = "Active Filters: 0.0";
+                    MetricsLabel5.Text = "Selected Fields: 0.0";
+                    MetricsLabel7.Text = "Selected Measures: 0.0";
                 }
             }
             catch( Exception ex )
@@ -1644,6 +1627,115 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Sets the points.
+        /// </summary>
+        private void SetPiePoints( )
+        {
+            try
+            {
+                if( Chart.Series[ 0 ].Points.Count > 0 )
+                {
+                    Chart.Series[ 0 ].Points.Clear( );
+                }
+
+                var _rows = DataTable.AsEnumerable( );
+                var _count = (double)_rows.Count( );
+                var _points = new List<ChartPoint>( );
+                var _data = _rows
+                    ?.Select( r => r.Field<double>( "Amount" ) )
+                    ?.ToArray( );
+
+                for( var i = 0d; i < _count; i++ )
+                {
+                    var _pt = new ChartPoint( i, _data[ (int)i ] );
+                    Chart.Series[ 0 ].Points.Add( _pt );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the series.
+        /// </summary>
+        /// <param name="field">The field.</param>
+        private void SetSeries( string field )
+        {
+            try
+            {
+                if( Chart.Series.Count > 0 )
+                {
+                    Chart.Series.Clear( );
+                }
+
+                var _borderColor = Color.FromArgb( 0, 120, 212 );
+                var _textColor = Color.FromArgb( 106, 189, 252 );
+                var _font = new Font( "Roboto", 8 );
+                var _rows = DataTable.AsEnumerable( );
+                var _count = (double)_rows.Count( );
+                var _binding = new ChartDataBindModel( );
+                _binding.DataSource = DataTable;
+                _binding.XName = field;
+                _binding.YNames = SelectedNumerics.ToArray( );
+                foreach( var _num in SelectedNumerics )
+                {
+                    var _data = _rows
+                        ?.Select( r => r.Field<double>( _num ) )
+                        ?.ToArray( );
+
+                    var _series = new ChartSeries( );
+                    _series.Name = _num;
+                    _series.SeriesModel = _binding;
+                    _series.Visible = true;
+                    _series.EnableStyles = true;
+                    _series.Type = ChartSeriesType.Column;
+                    _series.SmartLabels = true;
+                    _series.SmartLabelsBorderColor = _borderColor;
+                    _series.DrawSeriesNameInDepth = true;
+                    _series.ConfigItems.ColumnItem.ColumnType = ChartColumnType.Box;
+                    _series.Style.DisplayText = true;
+                    _series.Style.Border.Width = 1;
+                    _series.Style.Border.Color = _borderColor;
+                    _series.Style.Font.Size = _font.Size;
+                    _series.Style.Font.Facename = _font.Name;
+                    _series.Style.TextColor = _textColor;
+                    _series.Style.Callout.Font.Facename = _font.Name;
+                    _series.Style.Callout.Font.Size = _font.Size;
+                    _series.Style.Callout.TextColor = _textColor;
+                    _series.Style.Callout.Color = Color.FromArgb( 75, 75, 75 );
+                    _series.Style.Callout.Position = LabelPosition.Top;
+                    _series.Style.Callout.Enable = true;
+                    _series.ActualXAxis.Font = _font;
+                    _series.ActualXAxis.ForeColor = _borderColor;
+                    _series.ActualXAxis.AutoSize = true;
+                    _series.ActualXAxis.AxisLabelPlacement = ChartPlacement.Outside;
+                    _series.ActualXAxis.ShowAxisLabelTooltip = true;
+                    _series.ActualXAxis.ValueType = ChartValueType.Category;
+                    _series.ActualYAxis.Font = _font;
+                    _series.ActualYAxis.ForeColor = _borderColor;
+                    _series.ActualYAxis.AutoSize = true;
+                    _series.ActualYAxis.AxisLabelPlacement = ChartPlacement.Outside;
+                    _series.ActualYAxis.ShowAxisLabelTooltip = true;
+                    _series.ActualYAxis.ValueType = ChartValueType.Double;
+                    for( var i = 0d; i < _count; i++ )
+                    {
+                        var _pt = new ChartPoint( i, _data );
+                        _series.Points.Add( _pt );
+                        _series.Style.Callout.Text = $"{i}-{_num} - {_data[ (int)i ]:N0}";
+                    }
+
+                    Chart.Series.Add( _series );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -1667,7 +1759,7 @@ namespace BudgetExecution
                 ToolStrip.Visible = true;
                 if( string.IsNullOrEmpty( SelectedTable ) )
                 {
-                    TabControl.SelectedIndex = 0;
+                    QueryTabControl.SelectedIndex = 0;
                     TableTabPage.TabVisible = true;
                     FilterTabPage.TabVisible = false;
                     GroupTabPage.TabVisible = false;
@@ -1675,7 +1767,7 @@ namespace BudgetExecution
                 }
                 else if( !string.IsNullOrEmpty( SelectedTable ) )
                 {
-                    TabControl.SelectedIndex = 1;
+                    QueryTabControl.SelectedIndex = 1;
                     FilterTabPage.TabVisible = true;
                     TableTabPage.TabVisible = false;
                     GroupTabPage.TabVisible = false;
@@ -1737,7 +1829,7 @@ namespace BudgetExecution
                         ToolStrip.BindingSource = BindingSource;
                         Fields = DataModel.Fields;
                         Numerics = DataModel.Numerics;
-                        TabControl.SelectedIndex = 1;
+                        QueryTabControl.SelectedIndex = 1;
                     }
 
                     PopulateFirstComboBoxItems( );
@@ -1816,7 +1908,7 @@ namespace BudgetExecution
 
                     BindData( FormFilter );
                     SqlQuery = CreateSqlText( FormFilter );
-                    SqlTextLabel.Text = SqlQuery;
+                    TextLabel.Text = SqlQuery;
                     UpdateLabelText( );
                 }
                 catch( Exception ex )
@@ -1892,7 +1984,7 @@ namespace BudgetExecution
                     FormFilter.Add( ThirdCategory, ThirdValue );
                     BindData( FormFilter );
                     SqlQuery = CreateSqlText( FormFilter );
-                    SqlTextLabel.Text = SqlQuery;
+                    TextLabel.Text = SqlQuery;
                     UpdateLabelText( );
                 }
                 catch( Exception ex )
@@ -2009,7 +2101,7 @@ namespace BudgetExecution
         {
             try
             {
-                SqlTextLabel.Text = string.Empty;
+                TextLabel.Text = string.Empty;
                 var _selectedItem = FieldListBox.SelectedItem.ToString( );
                 PopulateNumericListBox( );
                 if( !string.IsNullOrEmpty( _selectedItem ) )
@@ -2028,21 +2120,21 @@ namespace BudgetExecution
                 {
                     BindData( SelectedFields, SelectedNumerics, FormFilter );
                     SqlQuery = CreateSqlText( SelectedFields, SelectedNumerics, FormFilter );
-                    SqlTextLabel.Text = SqlQuery;
+                    TextLabel.Text = SqlQuery;
                     UpdateLabelText( );
                 }
                 else
                 {
                     BindData( Fields, Numerics, FormFilter );
                     SqlQuery = CreateSqlText( Fields, Numerics, FormFilter );
-                    SqlTextLabel.Text = SqlQuery;
+                    TextLabel.Text = SqlQuery;
                     UpdateLabelText( );
                 }
 
                 if( Chart.Visible == false )
                 {
                     Chart.Visible = true;
-                    SqlTextLabel.Visible = true;
+                    TextLabel.Visible = true;
                     MetricsTable.Visible = true;
                 }
             }
@@ -2061,7 +2153,7 @@ namespace BudgetExecution
             try
             {
                 SelectedNumerics.Clear( );
-                SqlTextLabel.Text = string.Empty;
+                TextLabel.Text = string.Empty;
                 var _selectedItem = NumericListBox.SelectedValue.ToString( );
                 if( !string.IsNullOrEmpty( _selectedItem ) )
                 {
@@ -2070,7 +2162,7 @@ namespace BudgetExecution
 
                 BindData( SelectedFields, SelectedNumerics, FormFilter );
                 SqlQuery = CreateSqlText( SelectedFields, SelectedNumerics, FormFilter );
-                SqlTextLabel.Text = SqlQuery;
+                TextLabel.Text = SqlQuery;
                 UpdateLabelText( );
             }
             catch( Exception ex )
@@ -2096,7 +2188,7 @@ namespace BudgetExecution
                 ClearComboBoxes( );
                 ClearListBoxes( );
                 UpdateLabelText( );
-                TabControl.SelectedIndex = 0;
+                QueryTabControl.SelectedIndex = 0;
             }
             catch( Exception ex )
             {
@@ -2116,7 +2208,7 @@ namespace BudgetExecution
             {
                 if( FormFilter?.Count > 0 )
                 {
-                    TabControl.SelectedIndex = 2;
+                    QueryTabControl.SelectedIndex = 2;
                 }
             }
             catch( Exception ex )
@@ -2143,12 +2235,12 @@ namespace BudgetExecution
                     ClearListBoxes( );
                     ClearComboBoxes( );
                     BindData( );
-                    TabControl.SelectedIndex = 1;
+                    QueryTabControl.SelectedIndex = 1;
                     UpdateLabelText( );
                     if( Chart.Visible == true )
                     {
                         Chart.Visible = false;
-                        SqlTextLabel.Visible = false;
+                        TextLabel.Visible = false;
                         MetricsTable.Visible = false;
                     }
                 }
