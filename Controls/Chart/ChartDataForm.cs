@@ -45,7 +45,6 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using System.Drawing.Drawing2D;
     using System.Linq;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
@@ -892,12 +891,12 @@ namespace BudgetExecution
         {
             try
             {
-                ChartSeriesComboBox.Items.Clear( );
+                SeriesComboBox.Items.Clear( );
                 var _names = Enum.GetNames( typeof( ChartSeriesType ) );
                 for( var i = 0; i < _names.Length; i++ )
                 {
                     var _chart = _names[ i ];
-                    ChartSeriesComboBox.Items.Add( _chart );
+                    SeriesComboBox.Items.Add( _chart );
                 }
 
                 MetricsComboBox.Items.Clear( );
@@ -1011,7 +1010,6 @@ namespace BudgetExecution
                 ToolStrip.BindingSource = BindingSource;
                 Fields = DataModel.Fields;
                 Numerics = DataModel.Numerics;
-                SqlQuery = DataModel.SqlStatement.CommandText;
             }
             catch( Exception ex )
             {
@@ -1036,12 +1034,6 @@ namespace BudgetExecution
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel?.Fields;
                     Numerics = DataModel?.Numerics;
-                    if( Chart.Series[ 0 ].Points.Count > 0 )
-                    {
-                        Chart.Series[ 0 ].Points.Clear( );
-                    }
-
-                    Chart.Refresh( );
                 }
                 catch( Exception ex )
                 {
@@ -1067,12 +1059,6 @@ namespace BudgetExecution
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
-                    if( Chart.Series[ 0 ].Points.Count > 0 )
-                    {
-                        Chart.Series[ 0 ].Points.Clear( );
-                    }
-
-                    Chart.Refresh( );
                 }
                 catch( Exception ex )
                 {
@@ -1100,12 +1086,6 @@ namespace BudgetExecution
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
-                    if( Chart.Series[ 0 ].Points.Count > 0 )
-                    {
-                        Chart.Series[ 0 ].Points.Clear( );
-                    }
-
-                    Chart.Refresh( );
                 }
                 catch( Exception ex )
                 {
@@ -1136,12 +1116,6 @@ namespace BudgetExecution
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
-                    if( Chart.Series[ 0 ].Points.Count > 0 )
-                    {
-                        Chart.Series[ 0 ].Points.Clear( );
-                    }
-
-                    Chart.Refresh( );
                 }
                 catch( Exception ex )
                 {
@@ -1160,20 +1134,6 @@ namespace BudgetExecution
                 if( SelectedFields?.Any( ) == true
                    && SelectedNumerics?.Any( ) == true )
                 {
-                    if( Chart.Series[ 0 ].Points.Count > 0 )
-                    {
-                        Chart.Series[ 0 ].Points.Clear( );
-                    }
-
-                    Chart.Refresh( );
-                }
-                else
-                {
-                    if( Chart.Series[ 0 ].Points.Count > 0 )
-                    {
-                        Chart.Series[ 0 ].Points.Clear( );
-                    }
-
                     Chart.Refresh( );
                 }
             }
@@ -1607,7 +1567,7 @@ namespace BudgetExecution
         /// Sets the measure.
         /// </summary>
         /// <param name="stat">The stat.</param>
-        private void SetMeasure( string stat )
+        private void SetMetric( string stat )
         {
             if( !string.IsNullOrEmpty( stat ) )
             {
@@ -1763,6 +1723,7 @@ namespace BudgetExecution
                     TableTabPage.TabVisible = true;
                     FilterTabPage.TabVisible = false;
                     GroupTabPage.TabVisible = false;
+                    Busy.TabVisible = false;
                     PopulateExecutionTables( );
                 }
                 else if( !string.IsNullOrEmpty( SelectedTable ) )
@@ -1771,6 +1732,7 @@ namespace BudgetExecution
                     FilterTabPage.TabVisible = true;
                     TableTabPage.TabVisible = false;
                     GroupTabPage.TabVisible = false;
+                    Busy.TabVisible = false;
                     LabelTable.Visible = true;
                     PopulateFirstComboBoxItems( );
                     ResetFilterTableVisibility( );
@@ -2311,7 +2273,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _selectedItem = ChartSeriesComboBox.ComboBox.SelectedItem;
+                var _selectedItem = SeriesComboBox.ComboBox.SelectedItem;
                 var _selection = _selectedItem.ToString( );
                 var _names = Enum.GetNames( typeof( ChartSeriesType ) );
                 var _message = $"Chart Type Changed To {_selection}";

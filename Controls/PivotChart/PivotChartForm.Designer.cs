@@ -40,7 +40,6 @@
             ToolStrip = new ToolStrip( );
             Separator1 = new ToolSeparator( );
             StatusLabel = new ToolStripLabel( );
-            FirstSeparator = new ToolSeparator( );
             NavigationSeparator = new ToolSeparator( );
             NavigationLabel = new ToolStripLabel( );
             Separator2 = new ToolSeparator( );
@@ -69,10 +68,11 @@
             FilterButton = new ToolStripButton( );
             Separator14 = new ToolSeparator( );
             LastSeparator = new ToolSeparator( );
+            FirstSeparator = new ToolSeparator( );
             ChartHeaderTable = new HeaderPanel( );
             PivotLayout = new Layout( );
-            PivotTabControl = new TabControl( );
-            Ready = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
+            TabControl = new TabControl( );
+            DataTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             AreaTable = new System.Windows.Forms.TableLayoutPanel( );
             ChartAreaPanel = new Layout( );
             Chart = new PivotChart( );
@@ -86,7 +86,7 @@
             FourthDataLabel = new Label( );
             FifthDataLabel = new Label( );
             SixthDataLabel = new Label( );
-            Busy = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
+            BusyTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             Loader = new System.Windows.Forms.PictureBox( );
             SourcePanel = new HeaderPanel( );
             TableListBoxLayout = new Layout( );
@@ -98,15 +98,15 @@
             ToolStrip.SuspendLayout( );
             ChartHeaderTable.SuspendLayout( );
             PivotLayout.SuspendLayout( );
-            ( (System.ComponentModel.ISupportInitialize)PivotTabControl ).BeginInit( );
-            PivotTabControl.SuspendLayout( );
-            Ready.SuspendLayout( );
+            ( (System.ComponentModel.ISupportInitialize)TabControl ).BeginInit( );
+            TabControl.SuspendLayout( );
+            DataTab.SuspendLayout( );
             AreaTable.SuspendLayout( );
             ChartAreaPanel.SuspendLayout( );
             ChartSubTablePanel.SuspendLayout( );
             ChartSubTable.SuspendLayout( );
             MetricsTable.SuspendLayout( );
-            Busy.SuspendLayout( );
+            BusyTab.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)Loader ).BeginInit( );
             SourcePanel.SuspendLayout( );
             TableListBoxLayout.SuspendLayout( );
@@ -156,8 +156,8 @@
             Title.Style = MetroSet_UI.Enums.Style.Custom;
             Title.StyleManager = null;
             Title.TabIndex = 1;
-            Title.Text = "label1";
-            Title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            Title.Text = "Pivot Chart Form";
+            Title.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             Title.ThemeAuthor = "Terry D. Eppler";
             Title.ThemeName = "Budget Execution";
             Title.ToolTip = null;
@@ -244,7 +244,6 @@
             ToolStrip.Margin = new System.Windows.Forms.Padding( 1 );
             ToolStrip.Name = "ToolStrip";
             ToolStrip.NextButton = null;
-            ToolStrip.Office12Mode = false;
             ToolStrip.OfficeColorScheme = Syncfusion.Windows.Forms.Tools.ToolStripEx.ColorScheme.Black;
             ToolStrip.Padding = new System.Windows.Forms.Padding( 1 );
             ToolStrip.PreviousButton = null;
@@ -275,7 +274,7 @@
             Separator1.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             Separator1.Name = "Separator1";
             Separator1.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator1.Size = new System.Drawing.Size( 6, 25 );
+            Separator1.Size = new System.Drawing.Size( 6, 23 );
             // 
             // StatusLabel
             // 
@@ -289,18 +288,10 @@
             StatusLabel.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             StatusLabel.Name = "StatusLabel";
             StatusLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            StatusLabel.Size = new System.Drawing.Size( 50, 25 );
+            StatusLabel.Size = new System.Drawing.Size( 50, 23 );
             StatusLabel.Tag = "";
             StatusLabel.Text = "Date & Time";
             StatusLabel.ToolTip = null;
-            // 
-            // FirstSeparator
-            // 
-            FirstSeparator.ForeColor = System.Drawing.Color.Black;
-            FirstSeparator.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
-            FirstSeparator.Name = "FirstSeparator";
-            FirstSeparator.Padding = new System.Windows.Forms.Padding( 1 );
-            FirstSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
             // NavigationSeparator
             // 
@@ -308,7 +299,7 @@
             NavigationSeparator.Margin = new System.Windows.Forms.Padding( 1 );
             NavigationSeparator.Name = "NavigationSeparator";
             NavigationSeparator.Padding = new System.Windows.Forms.Padding( 1 );
-            NavigationSeparator.Size = new System.Drawing.Size( 6, 25 );
+            NavigationSeparator.Size = new System.Drawing.Size( 6, 23 );
             // 
             // NavigationLabel
             // 
@@ -322,7 +313,7 @@
             NavigationLabel.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             NavigationLabel.Name = "NavigationLabel";
             NavigationLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            NavigationLabel.Size = new System.Drawing.Size( 83, 25 );
+            NavigationLabel.Size = new System.Drawing.Size( 83, 23 );
             NavigationLabel.Tag = "";
             NavigationLabel.Text = "                Navigation:";
             NavigationLabel.ToolTip = null;
@@ -333,7 +324,7 @@
             Separator2.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             Separator2.Name = "Separator2";
             Separator2.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator2.Size = new System.Drawing.Size( 6, 25 );
+            Separator2.Size = new System.Drawing.Size( 6, 23 );
             // 
             // FirstButton
             // 
@@ -351,7 +342,7 @@
             FirstButton.Margin = new System.Windows.Forms.Padding( 5, 3, 5, 3 );
             FirstButton.Name = "FirstButton";
             FirstButton.Padding = new System.Windows.Forms.Padding( 1 );
-            FirstButton.Size = new System.Drawing.Size( 23, 21 );
+            FirstButton.Size = new System.Drawing.Size( 23, 19 );
             FirstButton.Text = "toolStripButton1";
             FirstButton.ToolTip = ToolTip;
             FirstButton.ToolType = ToolType.FirstButton;
@@ -362,7 +353,7 @@
             Separator3.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             Separator3.Name = "Separator3";
             Separator3.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator3.Size = new System.Drawing.Size( 6, 25 );
+            Separator3.Size = new System.Drawing.Size( 6, 23 );
             // 
             // PreviousButton
             // 
@@ -375,12 +366,12 @@
             PreviousButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             PreviousButton.ForeColor = System.Drawing.Color.LightGray;
             PreviousButton.HoverText = null;
-            PreviousButton.Image = Resources.Images.PreviousButton;
+            PreviousButton.Image = Resources.Images.WebPreviousButton;
             PreviousButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             PreviousButton.Margin = new System.Windows.Forms.Padding( 5, 3, 5, 3 );
             PreviousButton.Name = "PreviousButton";
             PreviousButton.Padding = new System.Windows.Forms.Padding( 1 );
-            PreviousButton.Size = new System.Drawing.Size( 23, 21 );
+            PreviousButton.Size = new System.Drawing.Size( 23, 19 );
             PreviousButton.Text = "toolStripButton2";
             PreviousButton.ToolTip = ToolTip;
             PreviousButton.ToolType = ToolType.PreviousButton;
@@ -391,7 +382,7 @@
             Separator5.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             Separator5.Name = "Separator5";
             Separator5.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator5.Size = new System.Drawing.Size( 6, 25 );
+            Separator5.Size = new System.Drawing.Size( 6, 23 );
             // 
             // NextButton
             // 
@@ -404,12 +395,12 @@
             NextButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             NextButton.ForeColor = System.Drawing.Color.LightGray;
             NextButton.HoverText = null;
-            NextButton.Image = Resources.Images.NextButton;
+            NextButton.Image = Resources.Images.WebNextButton;
             NextButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             NextButton.Margin = new System.Windows.Forms.Padding( 5, 3, 5, 3 );
             NextButton.Name = "NextButton";
             NextButton.Padding = new System.Windows.Forms.Padding( 1 );
-            NextButton.Size = new System.Drawing.Size( 23, 21 );
+            NextButton.Size = new System.Drawing.Size( 23, 19 );
             NextButton.Text = "toolStripButton3";
             NextButton.ToolTip = ToolTip;
             NextButton.ToolType = ToolType.NextButton;
@@ -420,7 +411,7 @@
             Separator4.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             Separator4.Name = "Separator4";
             Separator4.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator4.Size = new System.Drawing.Size( 6, 25 );
+            Separator4.Size = new System.Drawing.Size( 6, 23 );
             // 
             // LastButton
             // 
@@ -438,7 +429,7 @@
             LastButton.Margin = new System.Windows.Forms.Padding( 5, 3, 5, 3 );
             LastButton.Name = "LastButton";
             LastButton.Padding = new System.Windows.Forms.Padding( 1 );
-            LastButton.Size = new System.Drawing.Size( 23, 21 );
+            LastButton.Size = new System.Drawing.Size( 23, 19 );
             LastButton.Text = "toolStripButton4";
             LastButton.ToolTip = ToolTip;
             LastButton.ToolType = ToolType.LastButton;
@@ -449,7 +440,7 @@
             Separator6.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             Separator6.Name = "Separator6";
             Separator6.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator6.Size = new System.Drawing.Size( 6, 25 );
+            Separator6.Size = new System.Drawing.Size( 6, 23 );
             // 
             // SystemLabel
             // 
@@ -463,7 +454,7 @@
             SystemLabel.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             SystemLabel.Name = "SystemLabel";
             SystemLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            SystemLabel.Size = new System.Drawing.Size( 71, 25 );
+            SystemLabel.Size = new System.Drawing.Size( 71, 23 );
             SystemLabel.Tag = "";
             SystemLabel.Text = "                System:";
             SystemLabel.ToolTip = null;
@@ -474,7 +465,7 @@
             Separator7.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             Separator7.Name = "Separator7";
             Separator7.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator7.Size = new System.Drawing.Size( 6, 25 );
+            Separator7.Size = new System.Drawing.Size( 6, 23 );
             // 
             // BrowseButton
             // 
@@ -492,7 +483,7 @@
             BrowseButton.Margin = new System.Windows.Forms.Padding( 5, 3, 5, 3 );
             BrowseButton.Name = "BrowseButton";
             BrowseButton.Padding = new System.Windows.Forms.Padding( 1 );
-            BrowseButton.Size = new System.Drawing.Size( 23, 21 );
+            BrowseButton.Size = new System.Drawing.Size( 23, 19 );
             BrowseButton.Text = "toolStripButton5";
             BrowseButton.ToolTip = ToolTip;
             BrowseButton.ToolType = ToolType.BrowseButton;
@@ -503,7 +494,7 @@
             Separator8.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             Separator8.Name = "Separator8";
             Separator8.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator8.Size = new System.Drawing.Size( 6, 25 );
+            Separator8.Size = new System.Drawing.Size( 6, 23 );
             // 
             // SaveButton
             // 
@@ -521,7 +512,7 @@
             SaveButton.Margin = new System.Windows.Forms.Padding( 5, 3, 5, 3 );
             SaveButton.Name = "SaveButton";
             SaveButton.Padding = new System.Windows.Forms.Padding( 1 );
-            SaveButton.Size = new System.Drawing.Size( 23, 21 );
+            SaveButton.Size = new System.Drawing.Size( 23, 19 );
             SaveButton.Text = "toolStripButton6";
             SaveButton.ToolTip = ToolTip;
             SaveButton.ToolType = ToolType.SaveButton;
@@ -532,7 +523,7 @@
             Separator9.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             Separator9.Name = "Separator9";
             Separator9.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator9.Size = new System.Drawing.Size( 6, 25 );
+            Separator9.Size = new System.Drawing.Size( 6, 23 );
             // 
             // Separator10
             // 
@@ -541,7 +532,7 @@
             Separator10.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             Separator10.Name = "Separator10";
             Separator10.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator10.Size = new System.Drawing.Size( 6, 25 );
+            Separator10.Size = new System.Drawing.Size( 6, 23 );
             // 
             // CloseButton
             // 
@@ -560,7 +551,7 @@
             CloseButton.Margin = new System.Windows.Forms.Padding( 5, 3, 5, 3 );
             CloseButton.Name = "CloseButton";
             CloseButton.Padding = new System.Windows.Forms.Padding( 1 );
-            CloseButton.Size = new System.Drawing.Size( 23, 21 );
+            CloseButton.Size = new System.Drawing.Size( 23, 19 );
             CloseButton.Text = "toolStripButton7";
             CloseButton.ToolTip = ToolTip;
             CloseButton.ToolType = ToolType.CloseButton;
@@ -572,7 +563,7 @@
             Separator11.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             Separator11.Name = "Separator11";
             Separator11.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator11.Size = new System.Drawing.Size( 6, 25 );
+            Separator11.Size = new System.Drawing.Size( 6, 23 );
             // 
             // MenuButton
             // 
@@ -591,7 +582,7 @@
             MenuButton.Margin = new System.Windows.Forms.Padding( 5, 3, 5, 3 );
             MenuButton.Name = "MenuButton";
             MenuButton.Padding = new System.Windows.Forms.Padding( 1 );
-            MenuButton.Size = new System.Drawing.Size( 23, 21 );
+            MenuButton.Size = new System.Drawing.Size( 23, 19 );
             MenuButton.Text = "toolStripButton8";
             MenuButton.ToolTip = ToolTip;
             MenuButton.ToolType = ToolType.MenuButton;
@@ -608,7 +599,7 @@
             FilterLabel.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             FilterLabel.Name = "FilterLabel";
             FilterLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            FilterLabel.Size = new System.Drawing.Size( 66, 25 );
+            FilterLabel.Size = new System.Drawing.Size( 66, 23 );
             FilterLabel.Tag = "";
             FilterLabel.Text = "                Filters:";
             FilterLabel.ToolTip = null;
@@ -619,7 +610,7 @@
             Separator12.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             Separator12.Name = "Separator12";
             Separator12.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator12.Size = new System.Drawing.Size( 6, 25 );
+            Separator12.Size = new System.Drawing.Size( 6, 23 );
             // 
             // LookupButton
             // 
@@ -632,12 +623,12 @@
             LookupButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             LookupButton.ForeColor = System.Drawing.Color.LightGray;
             LookupButton.HoverText = null;
-            LookupButton.Image = Resources.Images.DataSearchButton;
+            LookupButton.Image = Resources.Images.WebRefreshButton;
             LookupButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             LookupButton.Margin = new System.Windows.Forms.Padding( 5, 3, 5, 3 );
             LookupButton.Name = "LookupButton";
             LookupButton.Padding = new System.Windows.Forms.Padding( 1 );
-            LookupButton.Size = new System.Drawing.Size( 23, 21 );
+            LookupButton.Size = new System.Drawing.Size( 23, 19 );
             LookupButton.Text = "toolStripButton9";
             LookupButton.ToolTip = ToolTip;
             LookupButton.ToolType = ToolType.LookupButton;
@@ -648,7 +639,7 @@
             Separator13.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             Separator13.Name = "Separator13";
             Separator13.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator13.Size = new System.Drawing.Size( 6, 25 );
+            Separator13.Size = new System.Drawing.Size( 6, 23 );
             // 
             // FilterButton
             // 
@@ -666,7 +657,7 @@
             FilterButton.Margin = new System.Windows.Forms.Padding( 5, 3, 5, 3 );
             FilterButton.Name = "FilterButton";
             FilterButton.Padding = new System.Windows.Forms.Padding( 1 );
-            FilterButton.Size = new System.Drawing.Size( 23, 21 );
+            FilterButton.Size = new System.Drawing.Size( 23, 19 );
             FilterButton.Text = "toolStripButton10";
             FilterButton.ToolTip = ToolTip;
             FilterButton.ToolType = ToolType.FilterButton;
@@ -677,7 +668,7 @@
             Separator14.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             Separator14.Name = "Separator14";
             Separator14.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator14.Size = new System.Drawing.Size( 6, 25 );
+            Separator14.Size = new System.Drawing.Size( 6, 23 );
             // 
             // LastSeparator
             // 
@@ -686,7 +677,15 @@
             LastSeparator.Margin = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
             LastSeparator.Name = "LastSeparator";
             LastSeparator.Padding = new System.Windows.Forms.Padding( 1 );
-            LastSeparator.Size = new System.Drawing.Size( 6, 25 );
+            LastSeparator.Size = new System.Drawing.Size( 6, 23 );
+            // 
+            // FirstSeparator
+            // 
+            FirstSeparator.ForeColor = System.Drawing.Color.Black;
+            FirstSeparator.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            FirstSeparator.Name = "FirstSeparator";
+            FirstSeparator.Padding = new System.Windows.Forms.Padding( 1 );
+            FirstSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
             // ChartHeaderTable
             // 
@@ -714,7 +713,7 @@
             PivotLayout.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
             PivotLayout.BorderThickness = 1;
             PivotLayout.Children = null;
-            PivotLayout.Controls.Add( PivotTabControl );
+            PivotLayout.Controls.Add( TabControl );
             PivotLayout.DataFilter = null;
             PivotLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             PivotLayout.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -732,53 +731,53 @@
             PivotLayout.ThemeName = "Budget Execution";
             PivotLayout.ToolTip = null;
             // 
-            // PivotTabControl
+            // TabControl
             // 
-            PivotTabControl.ActiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            PivotTabControl.ActiveTabFont = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            PivotTabControl.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            PivotTabControl.BeforeTouchSize = new System.Drawing.Size( 1036, 616 );
-            PivotTabControl.BindingSource = null;
-            PivotTabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            PivotTabControl.CanOverrideStyle = true;
-            PivotTabControl.CloseButtonBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            PivotTabControl.Controls.Add( Ready );
-            PivotTabControl.Controls.Add( Busy );
-            PivotTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            PivotTabControl.FocusOnTabClick = false;
-            PivotTabControl.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            PivotTabControl.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            PivotTabControl.InactiveCloseButtonForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            PivotTabControl.InactiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            PivotTabControl.ItemSize = new System.Drawing.Size( 100, 30 );
-            PivotTabControl.Location = new System.Drawing.Point( 1, 1 );
-            PivotTabControl.Name = "PivotTabControl";
-            PivotTabControl.Size = new System.Drawing.Size( 1036, 616 );
-            PivotTabControl.TabIndex = 52;
-            PivotTabControl.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            PivotTabControl.TabStyle = typeof( Syncfusion.Windows.Forms.Tools.TabRendererMetro );
-            PivotTabControl.ThemeName = "TabRendererMetro";
-            PivotTabControl.ThemeStyle.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            PivotTabControl.ThemeStyle.BorderColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            PivotTabControl.ThemeStyle.BorderFillColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            PivotTabControl.ThemeStyle.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            PivotTabControl.ThemeStyle.TabStyle.ActiveBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            PivotTabControl.ThemeStyle.TabStyle.ActiveFont = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            PivotTabControl.ThemeStyle.TabStyle.ActiveForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            PivotTabControl.ThemeStyle.TabStyle.SeparatorColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            PivotTabControl.ToolTip = null;
+            TabControl.ActiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.ActiveTabFont = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            TabControl.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.BeforeTouchSize = new System.Drawing.Size( 1036, 616 );
+            TabControl.BindingSource = null;
+            TabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            TabControl.CanOverrideStyle = true;
+            TabControl.CloseButtonBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.Controls.Add( DataTab );
+            TabControl.Controls.Add( BusyTab );
+            TabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            TabControl.FocusOnTabClick = false;
+            TabControl.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            TabControl.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            TabControl.InactiveCloseButtonForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.InactiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.ItemSize = new System.Drawing.Size( 100, 30 );
+            TabControl.Location = new System.Drawing.Point( 1, 1 );
+            TabControl.Name = "TabControl";
+            TabControl.Size = new System.Drawing.Size( 1036, 616 );
+            TabControl.TabIndex = 52;
+            TabControl.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.TabStyle = typeof( Syncfusion.Windows.Forms.Tools.TabRendererMetro );
+            TabControl.ThemeName = "TabRendererMetro";
+            TabControl.ThemeStyle.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.ThemeStyle.BorderColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.ThemeStyle.BorderFillColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.ThemeStyle.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.ThemeStyle.TabStyle.ActiveBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.ThemeStyle.TabStyle.ActiveFont = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            TabControl.ThemeStyle.TabStyle.ActiveForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            TabControl.ThemeStyle.TabStyle.SeparatorColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.ToolTip = null;
             // 
-            // Ready
+            // DataTab
             // 
-            Ready.Controls.Add( AreaTable );
-            Ready.Image = null;
-            Ready.ImageSize = new System.Drawing.Size( 16, 16 );
-            Ready.Location = new System.Drawing.Point( 0, 29 );
-            Ready.Name = "Ready";
-            Ready.ShowCloseButton = true;
-            Ready.Size = new System.Drawing.Size( 1036, 587 );
-            Ready.TabIndex = 1;
-            Ready.ThemesEnabled = false;
+            DataTab.Controls.Add( AreaTable );
+            DataTab.Image = null;
+            DataTab.ImageSize = new System.Drawing.Size( 16, 16 );
+            DataTab.Location = new System.Drawing.Point( 0, 29 );
+            DataTab.Name = "DataTab";
+            DataTab.ShowCloseButton = true;
+            DataTab.Size = new System.Drawing.Size( 1036, 587 );
+            DataTab.TabIndex = 1;
+            DataTab.ThemesEnabled = false;
             // 
             // AreaTable
             // 
@@ -882,8 +881,8 @@
             ChartSubTable.Name = "ChartSubTable";
             ChartSubTable.RowCount = 2;
             ChartSubTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            ChartSubTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 13F ) );
-            ChartSubTable.Size = new System.Drawing.Size( 455, 68 );
+            ChartSubTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 72F ) );
+            ChartSubTable.Size = new System.Drawing.Size( 465, 97 );
             ChartSubTable.TabIndex = 5;
             // 
             // SqlHeader
@@ -899,7 +898,7 @@
             SqlHeader.Margin = new System.Windows.Forms.Padding( 3 );
             SqlHeader.Name = "SqlHeader";
             SqlHeader.Padding = new System.Windows.Forms.Padding( 1 );
-            SqlHeader.Size = new System.Drawing.Size( 449, 49 );
+            SqlHeader.Size = new System.Drawing.Size( 459, 19 );
             SqlHeader.Style = MetroSet_UI.Enums.Style.Custom;
             SqlHeader.StyleManager = null;
             SqlHeader.TabIndex = 2;
@@ -922,12 +921,13 @@
             MetricsTable.Controls.Add( FourthDataLabel, 0, 1 );
             MetricsTable.Controls.Add( FifthDataLabel, 1, 1 );
             MetricsTable.Controls.Add( SixthDataLabel, 2, 1 );
-            MetricsTable.Location = new System.Drawing.Point( 15, 4 );
+            MetricsTable.Location = new System.Drawing.Point( 1, 4 );
             MetricsTable.Name = "MetricsTable";
-            MetricsTable.RowCount = 2;
-            MetricsTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 48.52941F ) );
+            MetricsTable.RowCount = 3;
             MetricsTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 51.47059F ) );
-            MetricsTable.Size = new System.Drawing.Size( 486, 68 );
+            MetricsTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 48.52941F ) );
+            MetricsTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 28F ) );
+            MetricsTable.Size = new System.Drawing.Size( 500, 97 );
             MetricsTable.TabIndex = 4;
             // 
             // ThirdDataLabel
@@ -939,11 +939,11 @@
             ThirdDataLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             ThirdDataLabel.HoverText = null;
             ThirdDataLabel.IsDerivedStyle = true;
-            ThirdDataLabel.Location = new System.Drawing.Point( 231, 3 );
+            ThirdDataLabel.Location = new System.Drawing.Point( 241, 3 );
             ThirdDataLabel.Margin = new System.Windows.Forms.Padding( 3 );
             ThirdDataLabel.Name = "ThirdDataLabel";
             ThirdDataLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            ThirdDataLabel.Size = new System.Drawing.Size( 111, 27 );
+            ThirdDataLabel.Size = new System.Drawing.Size( 116, 29 );
             ThirdDataLabel.Style = MetroSet_UI.Enums.Style.Custom;
             ThirdDataLabel.StyleManager = null;
             ThirdDataLabel.TabIndex = 43;
@@ -966,7 +966,7 @@
             FirstDataLabel.Margin = new System.Windows.Forms.Padding( 3 );
             FirstDataLabel.Name = "FirstDataLabel";
             FirstDataLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            FirstDataLabel.Size = new System.Drawing.Size( 111, 27 );
+            FirstDataLabel.Size = new System.Drawing.Size( 116, 29 );
             FirstDataLabel.Style = MetroSet_UI.Enums.Style.Custom;
             FirstDataLabel.StyleManager = null;
             FirstDataLabel.TabIndex = 33;
@@ -985,11 +985,11 @@
             SecondDataLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             SecondDataLabel.HoverText = null;
             SecondDataLabel.IsDerivedStyle = true;
-            SecondDataLabel.Location = new System.Drawing.Point( 120, 3 );
+            SecondDataLabel.Location = new System.Drawing.Point( 125, 3 );
             SecondDataLabel.Margin = new System.Windows.Forms.Padding( 3 );
             SecondDataLabel.Name = "SecondDataLabel";
             SecondDataLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            SecondDataLabel.Size = new System.Drawing.Size( 105, 27 );
+            SecondDataLabel.Size = new System.Drawing.Size( 110, 29 );
             SecondDataLabel.Style = MetroSet_UI.Enums.Style.Custom;
             SecondDataLabel.StyleManager = null;
             SecondDataLabel.TabIndex = 44;
@@ -1008,11 +1008,11 @@
             FourthDataLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             FourthDataLabel.HoverText = null;
             FourthDataLabel.IsDerivedStyle = true;
-            FourthDataLabel.Location = new System.Drawing.Point( 3, 36 );
+            FourthDataLabel.Location = new System.Drawing.Point( 3, 38 );
             FourthDataLabel.Margin = new System.Windows.Forms.Padding( 3 );
             FourthDataLabel.Name = "FourthDataLabel";
             FourthDataLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            FourthDataLabel.Size = new System.Drawing.Size( 111, 29 );
+            FourthDataLabel.Size = new System.Drawing.Size( 116, 27 );
             FourthDataLabel.Style = MetroSet_UI.Enums.Style.Custom;
             FourthDataLabel.StyleManager = null;
             FourthDataLabel.TabIndex = 44;
@@ -1031,11 +1031,11 @@
             FifthDataLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             FifthDataLabel.HoverText = null;
             FifthDataLabel.IsDerivedStyle = true;
-            FifthDataLabel.Location = new System.Drawing.Point( 120, 36 );
+            FifthDataLabel.Location = new System.Drawing.Point( 125, 38 );
             FifthDataLabel.Margin = new System.Windows.Forms.Padding( 3 );
             FifthDataLabel.Name = "FifthDataLabel";
             FifthDataLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            FifthDataLabel.Size = new System.Drawing.Size( 105, 29 );
+            FifthDataLabel.Size = new System.Drawing.Size( 110, 27 );
             FifthDataLabel.Style = MetroSet_UI.Enums.Style.Custom;
             FifthDataLabel.StyleManager = null;
             FifthDataLabel.TabIndex = 45;
@@ -1054,11 +1054,11 @@
             SixthDataLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             SixthDataLabel.HoverText = null;
             SixthDataLabel.IsDerivedStyle = true;
-            SixthDataLabel.Location = new System.Drawing.Point( 231, 36 );
+            SixthDataLabel.Location = new System.Drawing.Point( 241, 38 );
             SixthDataLabel.Margin = new System.Windows.Forms.Padding( 3 );
             SixthDataLabel.Name = "SixthDataLabel";
             SixthDataLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            SixthDataLabel.Size = new System.Drawing.Size( 111, 29 );
+            SixthDataLabel.Size = new System.Drawing.Size( 116, 27 );
             SixthDataLabel.Style = MetroSet_UI.Enums.Style.Custom;
             SixthDataLabel.StyleManager = null;
             SixthDataLabel.TabIndex = 46;
@@ -1068,17 +1068,17 @@
             SixthDataLabel.ThemeName = "Budget Execution";
             SixthDataLabel.ToolTip = null;
             // 
-            // Busy
+            // BusyTab
             // 
-            Busy.Controls.Add( Loader );
-            Busy.Image = null;
-            Busy.ImageSize = new System.Drawing.Size( 16, 16 );
-            Busy.Location = new System.Drawing.Point( 0, 29 );
-            Busy.Name = "Busy";
-            Busy.ShowCloseButton = true;
-            Busy.Size = new System.Drawing.Size( 1036, 587 );
-            Busy.TabIndex = 2;
-            Busy.ThemesEnabled = false;
+            BusyTab.Controls.Add( Loader );
+            BusyTab.Image = null;
+            BusyTab.ImageSize = new System.Drawing.Size( 16, 16 );
+            BusyTab.Location = new System.Drawing.Point( 0, 29 );
+            BusyTab.Name = "BusyTab";
+            BusyTab.ShowCloseButton = true;
+            BusyTab.Size = new System.Drawing.Size( 1036, 587 );
+            BusyTab.TabIndex = 2;
+            BusyTab.ThemesEnabled = false;
             // 
             // Loader
             // 
@@ -1219,15 +1219,15 @@
             ToolStrip.PerformLayout( );
             ChartHeaderTable.ResumeLayout( false );
             PivotLayout.ResumeLayout( false );
-            ( (System.ComponentModel.ISupportInitialize)PivotTabControl ).EndInit( );
-            PivotTabControl.ResumeLayout( false );
-            Ready.ResumeLayout( false );
+            ( (System.ComponentModel.ISupportInitialize)TabControl ).EndInit( );
+            TabControl.ResumeLayout( false );
+            DataTab.ResumeLayout( false );
             AreaTable.ResumeLayout( false );
             ChartAreaPanel.ResumeLayout( false );
             ChartSubTablePanel.ResumeLayout( false );
             ChartSubTable.ResumeLayout( false );
             MetricsTable.ResumeLayout( false );
-            Busy.ResumeLayout( false );
+            BusyTab.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize)Loader ).EndInit( );
             SourcePanel.ResumeLayout( false );
             TableListBoxLayout.ResumeLayout( false );
@@ -1296,9 +1296,9 @@
         public ToolStripLabel StatusLabel;
         public ToolSeparator FirstSeparator;
         private Layout PivotLayout;
-        public TabControl PivotTabControl;
-        public Syncfusion.Windows.Forms.Tools.TabPageAdv Ready;
-        public Syncfusion.Windows.Forms.Tools.TabPageAdv Busy;
+        public TabControl TabControl;
+        public Syncfusion.Windows.Forms.Tools.TabPageAdv DataTab;
+        public Syncfusion.Windows.Forms.Tools.TabPageAdv BusyTab;
         public PivotChart Chart;
         public System.Windows.Forms.TableLayoutPanel ToolStripTable;
         public System.Windows.Forms.PictureBox Loader;
