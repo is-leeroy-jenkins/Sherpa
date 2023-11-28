@@ -302,6 +302,9 @@
     <Compile Update="Data\Adapter\AdapterFactory.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="Controls\Map\GeoMap.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Clients\Baby\net6.0-windows\Properties\Resources.resx">
