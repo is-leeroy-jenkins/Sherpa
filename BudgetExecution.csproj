@@ -320,6 +320,7 @@
     </Compile>
     <Compile Remove="bin\**" />
     <Compile Remove="Clients\WebBrower\**" />
+    <Compile Remove="Controls\Map\**" />
     <Compile Remove="Minions\SqlCe\C# Source code\**" />
     <Compile Remove="WebBrowser\**" />
   </ItemGroup>
@@ -331,9 +332,11 @@
     </EmbeddedResource>
     <EmbeddedResource Remove="bin\**" />
     <EmbeddedResource Remove="Clients\WebBrower\**" />
+    <EmbeddedResource Remove="Controls\Map\**" />
     <EmbeddedResource Remove="Minions\SqlCe\C# Source code\**" />
     <EmbeddedResource Remove="WebBrowser\**" />
     <None Remove="Clients\WebBrower\**" />
+    <None Remove="Controls\Map\**" />
     <None Remove="WebBrowser\**" />
   </ItemGroup>
   <ItemGroup>

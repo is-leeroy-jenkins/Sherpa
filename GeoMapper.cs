@@ -34,7 +34,7 @@
 //    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   GeoMap.cs.cs
+//   GeoMapper.cs.cs
 // </summary>
 // ******************************************************************************************
 
@@ -43,23 +43,24 @@ namespace BudgetExecution
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
 
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
+    /// <seealso cref="System.Windows.Forms.Form" />
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
-    public partial class GeoMap : MetroForm
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    public partial class GeoMapper : MetroForm
     {
         /// <summary>
         /// The busy
@@ -88,14 +89,6 @@ namespace BudgetExecution
         public int Seconds { get; set; }
 
         /// <summary>
-        /// Gets or sets the form filter.
-        /// </summary>
-        /// <value>
-        /// The form filter.
-        /// </value>
-        public IDictionary<string, object> Filter { get; set; }
-
-        /// <summary>
         /// Gets a value indicating whether this instance is busy.
         /// </summary>
         /// <value>
@@ -112,9 +105,9 @@ namespace BudgetExecution
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.GeoMap" /> class.
+        /// <see cref="T:BudgetExecution.GeoMapper" /> class.
         /// </summary>
-        public GeoMap( )
+        public GeoMapper( )
         {
             InitializeComponent( );
             Size = new Size( 1350, 750 );
@@ -132,7 +125,7 @@ namespace BudgetExecution
             MetroColor = Color.FromArgb( 20, 20, 20 );
             CaptionBarHeight = 5;
             CaptionAlign = HorizontalAlignment.Center;
-            CaptionFont = new Font( "Roboto", 12, FontStyle.Regular );
+            CaptionFont = new Font( "Roboto", 10, FontStyle.Regular );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionForeColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
@@ -235,7 +228,7 @@ namespace BudgetExecution
         /// <summary>
         /// Fades the form in.
         /// </summary>
-        private protected virtual void FadeIn( )
+        private void FadeIn( )
         {
             try
             {
@@ -262,7 +255,7 @@ namespace BudgetExecution
         /// <summary>
         /// Fades the form out and close.
         /// </summary>
-        private protected virtual void FadeOut( )
+        private void FadeOut( )
         {
             try
             {
@@ -312,8 +305,8 @@ namespace BudgetExecution
         {
             try
             {
-                // Title.ForeColor = Color.FromArgb( 106, 189, 252 );
-                // Title.TextAlign = ContentAlignment.TopLeft;
+                Title.ForeColor = Color.FromArgb( 106, 189, 252 );
+                Title.TextAlign = ContentAlignment.TopLeft;
             }
             catch( Exception _ex )
             {
@@ -328,7 +321,7 @@ namespace BudgetExecution
         {
             try
             {
-                CloseButton.Click += OnCloseButtonClick;
+                // CloseButton.Click += OnCloseButtonClick;
             }
             catch( Exception _ex )
             {
@@ -396,116 +389,6 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Clears the selections.
-        /// </summary>
-        private void ClearSelections( )
-        {
-            try
-            {
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Clears the collections.
-        /// </summary>
-        private void ClearCollections( )
-        {
-            try
-            {
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Sends the notification.
-        /// </summary>
-        /// <param name="text">The text.</param>
-        private void SendNotification( string text )
-        {
-            try
-            {
-                ThrowIf.NullOrEmpty( text, nameof( text ) );
-                var _notification = new Notification( text );
-                _notification.Show( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Sends the message.
-        /// </summary>
-        /// <param name="text">The text.</param>
-        private void SendMessage( string text )
-        {
-            try
-            {
-                ThrowIf.NullOrEmpty( text, nameof( text ) );
-                var _message = new SplashMessage( text );
-                _message.Show( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [timer tick].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnTimerTick( object sender, EventArgs e )
-        {
-            InvokeIf( _statusUpdate );
-        }
-
-        /// <summary>
-        /// Raises the Close event.
-        /// </summary>
-        private void OnClose( )
-        {
-            try
-            {
-                FadeOut( );
-                Close( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Called when [click]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        private void OnCloseButtonClick( object sender, EventArgs e )
-        {
-            try
-            {
-                OnClose( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
         /// <summary> Called when [load]. </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
@@ -513,7 +396,7 @@ namespace BudgetExecution
         /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        private void OnLoad( object sender, EventArgs e )
+        private protected virtual void OnLoad( object sender, EventArgs e )
         {
             try
             {

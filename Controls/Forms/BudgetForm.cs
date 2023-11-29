@@ -55,14 +55,14 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
+    [SuppressMessage( "ReSharper", "UnusedType.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" )]
+    [SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" )]
+    [SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" )]
     public partial class BudgetForm : MetroForm
     {
         /// <summary>
