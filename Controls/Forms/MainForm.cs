@@ -98,6 +98,7 @@ namespace BudgetExecution
         public MainForm( )
         {
             InitializeComponent( );
+            InitializeCallbacks( );
 
             // Basic Properties
             Name = "MainForm";
@@ -493,6 +494,7 @@ namespace BudgetExecution
             try
             {
                 var _form = new CalendarForm( );
+                _form.StartPosition = FormStartPosition.CenterScreen;
                 _form.Owner = this;
                 _form.Show( );
                 Hide( );
@@ -511,8 +513,8 @@ namespace BudgetExecution
             try
             {
                 var _dialog = new EmailDialog( );
-                _dialog.Owner = this;
                 _dialog.StartPosition = FormStartPosition.CenterScreen;
+                _dialog.Owner = this;
                 _dialog.Show( );
                 Hide( );
             }
@@ -530,8 +532,8 @@ namespace BudgetExecution
             try
             {
                 var _form = new ChartDataForm( );
-                _form.Owner = this;
                 _form.StartPosition = FormStartPosition.CenterScreen;
+                _form.Owner = this;
                 _form.Show( );
                 Hide( );
             }
@@ -549,8 +551,8 @@ namespace BudgetExecution
             try
             {
                 var _form = new ExcelDataForm( );
-                _form.Owner = this;
                 _form.StartPosition = FormStartPosition.CenterScreen;
+                _form.Owner = this;
                 _form.Show( );
                 Hide( );
             }
@@ -568,8 +570,8 @@ namespace BudgetExecution
             try
             {
                 var _sqlEditor = new SqlDataForm( );
-                _sqlEditor.Owner = this;
                 _sqlEditor.StartPosition = FormStartPosition.CenterScreen;
+                _sqlEditor.Owner = this;
                 _sqlEditor.Show( );
                 Hide( );
             }
@@ -587,8 +589,8 @@ namespace BudgetExecution
             try
             {
                 var _sqlEditor = new SqlEditor( Provider.SqlServer );
-                _sqlEditor.Owner = this;
                 _sqlEditor.StartPosition = FormStartPosition.CenterScreen;
+                _sqlEditor.Owner = this;
                 _sqlEditor.Show( );
                 Hide( );
             }
@@ -745,7 +747,6 @@ namespace BudgetExecution
         {
             try
             {
-                InitializeCallbacks( );
                 InitializeTiles( );
                 SetTileText( );
                 FadeIn( );

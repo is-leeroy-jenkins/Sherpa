@@ -239,7 +239,7 @@ namespace BudgetExecution
         /// <value>
         /// The form filter.
         /// </value>
-        public IDictionary<string, object> FormFilter { get; set; }
+        public IDictionary<string, object> Filter { get; set; }
 
         /// <summary>
         /// Gets or sets the fields.
@@ -398,13 +398,6 @@ namespace BudgetExecution
         {
             Source = source;
             Provider = provider;
-            DataModel = new DataBuilder( source, provider );
-            DataTable = DataModel.DataTable;
-            SelectedTable = DataTable.TableName;
-            BindingSource.DataSource = DataModel.DataTable;
-            ToolStrip.BindingSource = BindingSource;
-            Fields = DataModel?.Fields;
-            Numerics = DataModel?.Numerics;
         }
 
         /// <inheritdoc />
@@ -420,14 +413,7 @@ namespace BudgetExecution
         {
             Source = source;
             Provider = provider;
-            FormFilter = where;
-            DataModel = new DataBuilder( source, provider, where );
-            DataTable = DataModel.DataTable;
-            SelectedTable = DataTable.TableName;
-            BindingSource.DataSource = DataTable;
-            ToolStrip.BindingSource.DataSource = DataModel.DataTable;
-            Fields = DataModel?.Fields;
-            Numerics = DataModel?.Numerics;
+            Filter = where;
         }
 
         /// <summary>
@@ -454,7 +440,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _headerFont = new Font( "Roboto", 10 );
+                var _headerFont = new Font( "Roboto", 9 );
                 var _metricFont = new Font( "Roboto", 7 );
                 var _sqlFont = new Font( "Roboto", 8 );
                 var _foreColor = Color.FromArgb( 106, 189, 252 );
@@ -621,6 +607,7 @@ namespace BudgetExecution
         {
             try
             {
+                TableListBox.SelectedIndexChanged += OnTableListBoxItemSelected;
                 MenuButton.Click += OnMainMenuButtonClicked;
                 ExitButton.Click += OnExitButtonClicked;
                 Timer.Tick += OnTimerTick;
@@ -868,13 +855,13 @@ namespace BudgetExecution
             {
                 try
                 {
-                    if( FormFilter.Count > 0 )
+                    if( Filter.Count > 0 )
                     {
-                        FormFilter.Clear( );
+                        Filter.Clear( );
                     }
 
                     FirstValue = _listBox.SelectedValue?.ToString( );
-                    FormFilter.Add( FirstCategory, FirstValue );
+                    Filter.Add( FirstCategory, FirstValue );
                     PopulateSecondComboBoxItems( );
                     if( SecondTable.Visible == false )
                     {
@@ -891,8 +878,8 @@ namespace BudgetExecution
                         GroupButton.Visible = true;
                     }
 
-                    BindData( FormFilter );
-                    SqlQuery = CreateSqlText( FormFilter );
+                    BindData( Filter );
+                    SqlQuery = CreateSqlText( Filter );
                     SqlTextHeader.Text = SqlQuery;
                     UpdateLabelText( );
                     Chart.Visible = true;
@@ -1082,10 +1069,11 @@ namespace BudgetExecution
             {
                 DataModel = new DataBuilder( Source, Provider );
                 DataTable = DataModel.DataTable;
-                BindingSource.DataSource = DataTable;
+                SelectedTable = DataTable.TableName;
+                BindingSource.DataSource = DataModel.DataTable;
                 ToolStrip.BindingSource = BindingSource;
-                Fields = DataModel.Fields;
-                Numerics = DataModel.Numerics;
+                Fields = DataModel?.Fields;
+                Numerics = DataModel?.Numerics;
             }
             catch( Exception ex )
             {
@@ -1124,22 +1112,22 @@ namespace BudgetExecution
         /// <param name="where">The where.</param>
         private void BindData( IDictionary<string, object> where )
         {
-            if( where?.Any( ) == true )
+            try
             {
-                try
-                {
-                    var _sql = CreateSqlText( where );
-                    DataModel = new DataBuilder( Source, Provider, _sql );
-                    DataTable = DataModel.DataTable;
-                    BindingSource.DataSource = DataTable;
-                    ToolStrip.BindingSource = BindingSource;
-                    Fields = DataModel.Fields;
-                    Numerics = DataModel.Numerics;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
+                ThrowIf.Null( where, nameof( where ) );
+                Filter = where;
+                SqlQuery = CreateSqlText( where );
+                DataModel = new DataBuilder( Source, Provider, SqlQuery );
+                DataTable = DataModel.DataTable;
+                SelectedTable = DataTable.TableName;
+                BindingSource.DataSource = DataTable;
+                ToolStrip.BindingSource.DataSource = DataModel.DataTable;
+                Fields = DataModel?.Fields;
+                Numerics = DataModel?.Numerics;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
             }
         }
 
@@ -1150,23 +1138,21 @@ namespace BudgetExecution
         /// <param name="where">The where.</param>
         private void BindData( IEnumerable<string> cols, IDictionary<string, object> where )
         {
-            if( where?.Any( ) == true
-               && cols?.Any( ) == true )
+            try
             {
-                try
-                {
-                    var _sql = CreateSqlText( cols, where );
-                    DataModel = new DataBuilder( Source, Provider, _sql );
-                    DataTable = DataModel.DataTable;
-                    BindingSource.DataSource = DataTable;
-                    ToolStrip.BindingSource = BindingSource;
-                    Fields = DataModel.Fields;
-                    Numerics = DataModel.Numerics;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
+                ThrowIf.Null( cols, nameof( cols ) );
+                ThrowIf.Null( where, nameof( where ) );
+                var _sql = CreateSqlText( cols, where );
+                DataModel = new DataBuilder( Source, Provider, _sql );
+                DataTable = DataModel.DataTable;
+                BindingSource.DataSource = DataTable;
+                ToolStrip.BindingSource = BindingSource;
+                Fields = DataModel.Fields;
+                Numerics = DataModel.Numerics;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
             }
         }
 
@@ -1228,7 +1214,7 @@ namespace BudgetExecution
             {
                 DataArgs.Provider = Provider;
                 DataArgs.Source = Source;
-                DataArgs.Filter = FormFilter;
+                DataArgs.Filter = Filter;
                 DataArgs.SelectedTable = SelectedTable;
                 DataArgs.SelectedFields = SelectedFields;
                 DataArgs.SelectedNumerics = SelectedNumerics;
@@ -1391,9 +1377,9 @@ namespace BudgetExecution
         {
             try
             {
-                if( FormFilter.Keys.Count > 0 )
+                if( Filter.Keys.Count > 0 )
                 {
-                    FormFilter.Clear( );
+                    Filter.Clear( );
                 }
 
                 FourthCategory = string.Empty;
@@ -1518,7 +1504,7 @@ namespace BudgetExecution
                 {
                     var _table = SelectedTable?.SplitPascal( ) ?? string.Empty;
                     var _records = DataTable.Rows?.Count.ToString( "#,###" ) ?? "0";
-                    var _filters = FormFilter.Keys?.Count;
+                    var _filters = Filter.Keys?.Count;
                     var _fields = Fields?.Count ?? 0;
                     var _numerics = Numerics?.Count ?? 0;
                     var _selectedFields = SelectedFields?.Count ?? 0;
@@ -1823,7 +1809,7 @@ namespace BudgetExecution
                 InitializeTitle( );
                 InitializeLabels( );
                 InitializeToolTips( );
-                FormFilter = new Dictionary<string, object>( );
+                Filter = new Dictionary<string, object>( );
                 SelectedColumns = new List<string>( );
                 SelectedFields = new List<string>( );
                 SelectedNumerics = new List<string>( );
@@ -1832,29 +1818,12 @@ namespace BudgetExecution
                 FieldListBox.MultiSelect = true;
                 Text = string.Empty;
                 ToolStrip.Visible = true;
-                if( string.IsNullOrEmpty( SelectedTable ) )
-                {
-                    QueryTabControl.SelectedIndex = 0;
-                    TableTabPage.TabVisible = true;
-                    FilterTabPage.TabVisible = false;
-                    GroupTabPage.TabVisible = false;
-                    Busy.TabVisible = false;
-                    PopulateExecutionTables( );
-                }
-                else if( !string.IsNullOrEmpty( SelectedTable ) )
-                {
-                    QueryTabControl.SelectedIndex = 1;
-                    FilterTabPage.TabVisible = true;
-                    TableTabPage.TabVisible = false;
-                    GroupTabPage.TabVisible = false;
-                    Busy.TabVisible = false;
-                    LabelTable.Visible = true;
-                    PopulateFirstComboBoxItems( );
-                    ResetFilterTableVisibility( );
-                    BindData( );
-                    UpdateLabelText( );
-                }
-
+                QueryTabControl.SelectedIndex = 0;
+                TableTabPage.TabVisible = true;
+                FilterTabPage.TabVisible = false;
+                GroupTabPage.TabVisible = false;
+                Busy.TabVisible = false;
+                PopulateExecutionTables( );
                 UpdateStatusLabel( );
                 Timer.Start( );
                 PopulateToolBarDropDownItems( );
@@ -1894,7 +1863,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    FormFilter.Clear( );
+                    Filter.Clear( );
                     var _title = _listBox.SelectedValue?.ToString( );
                     SelectedTable = _title?.Replace( " ", "" );
                     if( !string.IsNullOrEmpty( SelectedTable ) )
@@ -1969,22 +1938,22 @@ namespace BudgetExecution
             {
                 try
                 {
-                    if( FormFilter.Keys?.Count > 0 )
+                    if( Filter.Keys?.Count > 0 )
                     {
-                        FormFilter.Clear( );
+                        Filter.Clear( );
                     }
 
                     SecondValue = _listBox.SelectedValue?.ToString( );
-                    FormFilter.Add( FirstCategory, FirstValue );
-                    FormFilter.Add( SecondCategory, SecondValue );
+                    Filter.Add( FirstCategory, FirstValue );
+                    Filter.Add( SecondCategory, SecondValue );
                     PopulateThirdComboBoxItems( );
                     if( ThirdTable.Visible == false )
                     {
                         ThirdTable.Visible = true;
                     }
 
-                    BindData( FormFilter );
-                    SqlQuery = CreateSqlText( FormFilter );
+                    BindData( Filter );
+                    SqlQuery = CreateSqlText( Filter );
                     SqlTextHeader.Text = SqlQuery;
                     UpdateLabelText( );
                 }
@@ -2045,9 +2014,9 @@ namespace BudgetExecution
             {
                 try
                 {
-                    if( FormFilter.Keys.Count > 0 )
+                    if( Filter.Keys.Count > 0 )
                     {
-                        FormFilter.Clear( );
+                        Filter.Clear( );
                     }
 
                     if( FieldListBox.Items.Count > 0 )
@@ -2056,11 +2025,11 @@ namespace BudgetExecution
                     }
 
                     ThirdValue = _listBox.SelectedValue?.ToString( );
-                    FormFilter.Add( FirstCategory, FirstValue );
-                    FormFilter.Add( SecondCategory, SecondValue );
-                    FormFilter.Add( ThirdCategory, ThirdValue );
-                    BindData( FormFilter );
-                    SqlQuery = CreateSqlText( FormFilter );
+                    Filter.Add( FirstCategory, FirstValue );
+                    Filter.Add( SecondCategory, SecondValue );
+                    Filter.Add( ThirdCategory, ThirdValue );
+                    BindData( Filter );
+                    SqlQuery = CreateSqlText( Filter );
                     SqlTextHeader.Text = SqlQuery;
                     UpdateLabelText( );
                 }
@@ -2195,15 +2164,15 @@ namespace BudgetExecution
                 if( SelectedFields.Count >= 2
                    && SelectedNumerics.Count >= 1 )
                 {
-                    BindData( SelectedFields, SelectedNumerics, FormFilter );
-                    SqlQuery = CreateSqlText( SelectedFields, SelectedNumerics, FormFilter );
+                    BindData( SelectedFields, SelectedNumerics, Filter );
+                    SqlQuery = CreateSqlText( SelectedFields, SelectedNumerics, Filter );
                     SqlTextHeader.Text = SqlQuery;
                     UpdateLabelText( );
                 }
                 else
                 {
-                    BindData( Fields, Numerics, FormFilter );
-                    SqlQuery = CreateSqlText( Fields, Numerics, FormFilter );
+                    BindData( Fields, Numerics, Filter );
+                    SqlQuery = CreateSqlText( Fields, Numerics, Filter );
                     SqlTextHeader.Text = SqlQuery;
                     UpdateLabelText( );
                 }
@@ -2237,8 +2206,8 @@ namespace BudgetExecution
                     SelectedNumerics.Add( _selectedItem );
                 }
 
-                BindData( SelectedFields, SelectedNumerics, FormFilter );
-                SqlQuery = CreateSqlText( SelectedFields, SelectedNumerics, FormFilter );
+                BindData( SelectedFields, SelectedNumerics, Filter );
+                SqlQuery = CreateSqlText( SelectedFields, SelectedNumerics, Filter );
                 SqlTextHeader.Text = SqlQuery;
                 UpdateLabelText( );
             }
@@ -2283,7 +2252,7 @@ namespace BudgetExecution
         {
             try
             {
-                if( FormFilter?.Count > 0 )
+                if( Filter?.Count > 0 )
                 {
                     QueryTabControl.SelectedIndex = 2;
                 }

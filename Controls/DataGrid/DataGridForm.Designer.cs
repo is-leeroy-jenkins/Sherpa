@@ -2258,11 +2258,11 @@
             // StatusLabel
             // 
             StatusLabel.BackColor = System.Drawing.Color.Transparent;
-            StatusLabel.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            StatusLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             StatusLabel.ForeColor = System.Drawing.Color.Black;
             StatusLabel.Margin = new System.Windows.Forms.Padding( 1, 1, 0, 1 );
             StatusLabel.Name = "StatusLabel";
-            StatusLabel.Size = new System.Drawing.Size( 98, 25 );
+            StatusLabel.Size = new System.Drawing.Size( 77, 25 );
             StatusLabel.Text = "toolStripLabelExt1";
             // 
             // CommandLabelSeparator
@@ -2285,7 +2285,7 @@
             ToolStripTextBox.Margin = new System.Windows.Forms.Padding( 1 );
             ToolStripTextBox.Name = "ToolStripTextBox";
             ToolStripTextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Size = new System.Drawing.Size( 118, 25 );
+            ToolStripTextBox.Size = new System.Drawing.Size( 98, 25 );
             ToolStripTextBox.Tag = "";
             ToolStripTextBox.ToolTip = ToolTip;
             // 
@@ -2564,6 +2564,7 @@
             ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
+            IconTextRelation = System.Windows.Forms.LeftRightAlignment.Right;
             Margin = new System.Windows.Forms.Padding( 4, 3, 4, 3 );
             MaximizeBox = false;
             MaximumSize = new System.Drawing.Size( 1350, 750 );

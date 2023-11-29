@@ -47,9 +47,6 @@
     <Compile Update="Controls\Chart\Chart.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="Controls\Chart\ChartBase.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Update="Controls\Chart\ChartDataForm.cs">
       <SubType>Form</SubType>
     </Compile>
