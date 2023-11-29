@@ -51,22 +51,14 @@ namespace BudgetExecution
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public class ListView : SfListView
-    {
-        /// <summary> Gets or sets the binding source. </summary>
-        /// <value> The binding source. </value>
+    { 
         public BindingSource BindingSource { get; set; }
-
-        /// <summary> Gets or sets the tool tip. </summary>
-        /// <value> The tool tip. </value>
+         
         public SmallTip ToolTip { get; set; }
-
-        /// <summary> Gets or sets the hover text. </summary>
-        /// <value> The hover text. </value>
+         
         public string HoverText { get; set; }
-
-        /// <summary> Gets or sets the filter. </summary>
-        /// <value> The filter. </value>
-        public IDictionary<string, object> DataFilter { get; set; }
+         
+        public IDictionary<string, object> Filter { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the
@@ -76,8 +68,8 @@ namespace BudgetExecution
         public ListView( )
         {
             // Basic Properties
-            Size = new Size( 250, 150 );
-            Font = new Font( "Roboto", 8 );
+            Size = new Size( 500, 250 );
+            Font = new Font( "Roboto", 9 );
             Margin = new Padding( 1 );
             Padding = new Padding( 1 );
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
@@ -95,6 +87,35 @@ namespace BudgetExecution
 
             // Item SeriesConfiguration
             ItemHeight = 24;
+            ItemWidth = Size.Width - 2;
+
+            // Border Style Configuration
+            Style.Border3DStyle = Border3DStyle.Flat;
+            Style.BorderColor = Color.FromArgb( 100, 100, 100 );
+            Style.BorderSides = Border3DSide.All;
+
+            // Item  Style Configuration
+            Style.ItemStyle.Font = new Font( "Roboto", 8 );
+            Style.ItemStyle.BackColor = Color.FromArgb( 70, 70, 70 );
+            Style.ItemStyle.ForeColor = Color.FromArgb( 106, 189, 252 );
+
+            // Selection Style Configuration
+            Style.SelectionStyle.HoverBackColor = Color.FromArgb( 50, 93, 129 );
+            Style.SelectionStyle.HoverForeColor = Color.White;
+            Style.SelectionStyle.SelectionBackColor = Color.FromArgb( 0, 120, 212 );
+            Style.SelectionStyle.SelectionForeColor = Color.White;
+
+            // Header Style Configuration
+            Style.HeaderItemStyle.BackColor = Color.SteelBlue;
+            Style.HeaderItemStyle.ForeColor = Color.White;
+            Style.HeaderItemStyle.Font = new Font( "Roboto", 9 );
+            Style.HeaderItemStyle.TextAlignment = ContentAlignment.MiddleCenter;
+
+            // Footer Style Configuration
+            Style.FooterItemStyle.BackColor = Color.FromArgb( 90, 90, 90 );
+            Style.HeaderItemStyle.ForeColor = Color.FromArgb( 106, 189, 252 );
+            Style.HeaderItemStyle.Font = new Font( "Roboto", 8 );
+            Style.HeaderItemStyle.TextAlignment = ContentAlignment.MiddleLeft;
         }
 
         /// <inheritdoc />
@@ -154,21 +175,6 @@ namespace BudgetExecution
             : this( size, location, parent )
         {
             Text = text;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ListView"/>
-        /// class.
-        /// </summary>
-        /// <param name="size"> The size. </param>
-        /// <param name="location"> The location. </param>
-        /// <param name="parent"> The parent. </param>
-        /// <param name="bindingSource"> The binding source. </param>
-        public ListView( Size size, Point location, Control parent, BindingSource bindingSource )
-            : this( size, location, parent )
-        {
-            BindingSource = bindingSource;
         }
 
         /// <summary>

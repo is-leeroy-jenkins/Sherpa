@@ -56,13 +56,14 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="EPPlus" Version="7.0.2" />
+    <PackageReference Include="GMap.NET.WinForms" Version="2.1.7" />
     <PackageReference Include="Google.Apis" Version="1.64.0" />
     <PackageReference Include="Google.Apis.Core" Version="1.64.0" />
     <PackageReference Include="Google.Apis.Customsearch.v1" Version="1.49.0.2084" />
     <PackageReference Include="Google.Cloud.ServiceUsage.V1" Version="2.2.0" />
     <PackageReference Include="LiveCharts" Version="0.9.7" />
     <PackageReference Include="LiveCharts.WinForms" Version="0.9.7.1" />
-    <PackageReference Include="LiveCharts.WinForms.NetCore3" Version="0.9.7" />
+    <PackageReference Include="LiveCharts.WinForms.NetCore3" Version="0.9.8" />
     <PackageReference Include="LiveChartsCore" Version="2.0.0-rc2" />
     <PackageReference Include="LiveChartsCore.SkiaSharpView" Version="2.0.0-rc2" />
     <PackageReference Include="LiveChartsCore.SkiaSharpView.WinForms" Version="2.0.0-rc2" />
@@ -108,6 +109,7 @@
     <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
     <PackageReference Include="System.Data.OleDb" Version="8.0.0" />
     <PackageReference Include="WinForms.DataVisualization" Version="1.9.1" />
+    <PackageReference Include="WinFormsMapControl" Version="1.1.0" />
     <PackageReference Include="Zeroit.Framework.BasicCharts" Version="1.0.0" />
     <PackageReference Include="Zeroit.Framework.Metro" Version="1.0.0" />
   </ItemGroup>

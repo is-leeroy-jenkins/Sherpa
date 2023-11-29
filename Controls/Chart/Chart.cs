@@ -58,7 +58,8 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class Chart : ChartBase
+    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
+    public class Chart : ChartControl
     {
         /// <summary>
         /// Initializes a new instance of the
@@ -154,22 +155,28 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the size.
+        /// Sets the custom palette.
         /// </summary>
-        /// <param name="width">
-        /// The width.
-        /// </param>
-        /// <param name="height">
-        /// The height.
-        /// </param>
-        public void SetSize( int width = 600, int height = 400 )
+        /// <param name="one">The one.</param>
+        /// <param name="two">The two.</param>
+        /// <param name="three">The three.</param>
+        /// <param name="four">The four.</param>
+        public void SetCustomPalette( Color one, Color two, Color three, Color four )
         {
-            if( ( width > 0 )
-               && ( height > 0 ) )
+            if( one != Color.Empty 
+               && two != Color.Empty 
+               && three != Color.Empty 
+               && four != Color.Empty )
             {
                 try
                 {
-                    Size = new Size( width, height );
+                    CustomPalette = new[ ]
+                    {
+                        one, 
+                        two, 
+                        three, 
+                        four
+                    };
                 }
                 catch( Exception _ex )
                 {
@@ -228,12 +235,25 @@ namespace BudgetExecution
                 _title.BackColor = Color.Transparent;
                 _title.ForeColor = color;
                 _title.Text = text;
-                Titles?.Add( _title );
+                Titles[ 0 ] = _title;
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
             }
+        }
+
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">
+        /// The ex.
+        /// </param>
+        private void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

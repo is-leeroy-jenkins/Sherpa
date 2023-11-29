@@ -305,6 +305,9 @@
     <Compile Update="GeoMapper.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="MapControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Clients\Baby\net6.0-windows\Properties\Resources.resx">

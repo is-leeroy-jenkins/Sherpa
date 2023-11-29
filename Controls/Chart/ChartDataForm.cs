@@ -47,6 +47,7 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using System.Windows.Forms;
+    using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Chart;
     using Syncfusion.Windows.Forms.Tools;
@@ -453,6 +454,65 @@ namespace BudgetExecution
         {
             try
             {
+                var _headerFont = new Font( "Roboto", 10 );
+                var _metricFont = new Font( "Roboto", 7 );
+                var _sqlFont = new Font( "Roboto", 8 );
+                var _foreColor = Color.FromArgb( 106, 189, 252 );
+                var _backColor = Color.Transparent;
+                HeaderLabel1.Font = _headerFont;
+                HeaderLabel1.ForeColor = _foreColor;
+                HeaderLabel1.BackColor = _backColor;
+                HeaderLabel2.Font = _headerFont;
+                HeaderLabel2.ForeColor = _foreColor;
+                HeaderLabel2.BackColor = _backColor;
+                HeaderLabel3.Font = _headerFont;
+                HeaderLabel3.ForeColor = _foreColor;
+                HeaderLabel3.BackColor = _backColor;
+                MetricsLabel1.Font = _metricFont;
+                MetricsLabel1.ForeColor = _foreColor;
+                MetricsLabel2.Font = _metricFont;
+                MetricsLabel2.ForeColor = _foreColor;
+                MetricsLabel3.Font = _metricFont;
+                MetricsLabel3.ForeColor = _foreColor;
+                MetricsLabel4.Font = _metricFont;
+                MetricsLabel4.ForeColor = _foreColor;
+                MetricsLabel5.Font = _metricFont;
+                MetricsLabel5.ForeColor = _foreColor;
+                MetricsLabel6.Font = _metricFont;
+                MetricsLabel6.ForeColor = _foreColor;
+                MetricsLabel7.Font = _metricFont;
+                MetricsLabel7.ForeColor = _foreColor;
+                MetricsLabel8.Font = _metricFont;
+                MetricsLabel8.ForeColor = _foreColor;
+                MetricsLabel9.Font = _metricFont;
+                MetricsLabel9.ForeColor = _foreColor;
+                MetricsLabel10.Font = _metricFont;
+                MetricsLabel10.ForeColor = _foreColor;
+                MetricsLabel11.Font = _metricFont;
+                MetricsLabel11.ForeColor = _foreColor;
+                MetricsLabel12.Font = _metricFont;
+                MetricsLabel12.ForeColor = _foreColor;
+                SqlTextHeader.Font = _sqlFont;
+                SqlTextHeader.ForeColor = _foreColor;
+                SqlText.Font = _sqlFont;
+                SqlText.ForeColor = _foreColor;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the tool tips.
+        /// </summary>
+        private void InitializeToolTips( )
+        {
+            try
+            {
+                Chart.Tooltip.BackgroundColor = new BrushInfo( Color.FromArgb( 90, 90, 90 ) );
+                Chart.Tooltip.Font = new Font( "Roboto Condensed", 8 );
+                Chart.Tooltip.BorderStyle = BorderStyle.FixedSingle;
             }
             catch( Exception _ex )
             {
@@ -497,10 +557,26 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the buttons.
         /// </summary>
-        private void InitializeButtons( )
+        private void InitializePalette( )
         {
             try
             {
+                var _steelBlue = Color.SteelBlue;
+                var _slateGray = Color.LightSlateGray;
+                var _yellow = Color.Yellow;
+                var _maroon = Color.Maroon;
+                var _green = Color.DarkOliveGreen;
+                var _colors = new[ ]
+                {
+                    _steelBlue,
+                    _slateGray,
+                    _yellow,
+                    _maroon,
+                    _green
+                };
+
+                Chart.CustomPalette = _colors;
+                Chart.Palette = ChartColorPalette.Custom;
             }
             catch( Exception _ex )
             {
@@ -817,10 +893,10 @@ namespace BudgetExecution
 
                     BindData( FormFilter );
                     SqlQuery = CreateSqlText( FormFilter );
-                    SqlTextLabel.Text = SqlQuery;
+                    SqlTextHeader.Text = SqlQuery;
                     UpdateLabelText( );
                     Chart.Visible = true;
-                    SqlTextLabel.Visible = true;
+                    SqlTextHeader.Visible = true;
                     MetricsTable.Visible = true;
                 }
                 catch( Exception ex )
@@ -1378,7 +1454,7 @@ namespace BudgetExecution
                     if( Chart.Visible == true )
                     {
                         Chart.Visible = false;
-                        SqlTextLabel.Visible = false;
+                        SqlTextHeader.Visible = false;
                         MetricsTable.Visible = false;
                     }
 
@@ -1393,7 +1469,7 @@ namespace BudgetExecution
                     if( Chart.Visible == false )
                     {
                         Chart.Visible = true;
-                        SqlTextLabel.Visible = true;
+                        SqlTextHeader.Visible = true;
                         MetricsTable.Visible = true;
                     }
 
@@ -1743,7 +1819,10 @@ namespace BudgetExecution
             {
                 InitializeToolStrip( );
                 InitializeTimers( );
+                InitializePalette( );
                 InitializeTitle( );
+                InitializeLabels( );
+                InitializeToolTips( );
                 FormFilter = new Dictionary<string, object>( );
                 SelectedColumns = new List<string>( );
                 SelectedFields = new List<string>( );
@@ -1906,7 +1985,7 @@ namespace BudgetExecution
 
                     BindData( FormFilter );
                     SqlQuery = CreateSqlText( FormFilter );
-                    SqlTextLabel.Text = SqlQuery;
+                    SqlTextHeader.Text = SqlQuery;
                     UpdateLabelText( );
                 }
                 catch( Exception ex )
@@ -1982,7 +2061,7 @@ namespace BudgetExecution
                     FormFilter.Add( ThirdCategory, ThirdValue );
                     BindData( FormFilter );
                     SqlQuery = CreateSqlText( FormFilter );
-                    SqlTextLabel.Text = SqlQuery;
+                    SqlTextHeader.Text = SqlQuery;
                     UpdateLabelText( );
                 }
                 catch( Exception ex )
@@ -2099,7 +2178,7 @@ namespace BudgetExecution
         {
             try
             {
-                SqlTextLabel.Text = string.Empty;
+                SqlTextHeader.Text = string.Empty;
                 var _selectedItem = FieldListBox.SelectedItem.ToString( );
                 PopulateNumericListBox( );
                 if( !string.IsNullOrEmpty( _selectedItem ) )
@@ -2118,21 +2197,21 @@ namespace BudgetExecution
                 {
                     BindData( SelectedFields, SelectedNumerics, FormFilter );
                     SqlQuery = CreateSqlText( SelectedFields, SelectedNumerics, FormFilter );
-                    SqlTextLabel.Text = SqlQuery;
+                    SqlTextHeader.Text = SqlQuery;
                     UpdateLabelText( );
                 }
                 else
                 {
                     BindData( Fields, Numerics, FormFilter );
                     SqlQuery = CreateSqlText( Fields, Numerics, FormFilter );
-                    SqlTextLabel.Text = SqlQuery;
+                    SqlTextHeader.Text = SqlQuery;
                     UpdateLabelText( );
                 }
 
                 if( Chart.Visible == false )
                 {
                     Chart.Visible = true;
-                    SqlTextLabel.Visible = true;
+                    SqlTextHeader.Visible = true;
                     MetricsTable.Visible = true;
                 }
             }
@@ -2151,7 +2230,7 @@ namespace BudgetExecution
             try
             {
                 SelectedNumerics.Clear( );
-                SqlTextLabel.Text = string.Empty;
+                SqlTextHeader.Text = string.Empty;
                 var _selectedItem = NumericListBox.SelectedValue.ToString( );
                 if( !string.IsNullOrEmpty( _selectedItem ) )
                 {
@@ -2160,7 +2239,7 @@ namespace BudgetExecution
 
                 BindData( SelectedFields, SelectedNumerics, FormFilter );
                 SqlQuery = CreateSqlText( SelectedFields, SelectedNumerics, FormFilter );
-                SqlTextLabel.Text = SqlQuery;
+                SqlTextHeader.Text = SqlQuery;
                 UpdateLabelText( );
             }
             catch( Exception ex )
@@ -2238,7 +2317,7 @@ namespace BudgetExecution
                     if( Chart.Visible == true )
                     {
                         Chart.Visible = false;
-                        SqlTextLabel.Visible = false;
+                        SqlTextHeader.Visible = false;
                         MetricsTable.Visible = false;
                     }
                 }
