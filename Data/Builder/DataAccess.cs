@@ -251,27 +251,35 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the data table.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         private protected DataTable GetDataTable( )
         {
             try
             {
                 ThrowIf.Null( SqlStatement, "SqlStatement" );
                 var _clock = Stopwatch.StartNew( );
-                _dataSet = new DataSet( $"{Provider}" );
+                _dataSet = new DataSet( $"{Source}" );
                 _dataTable = new DataTable( $"{Source}" );
                 _dataTable.TableName = Source.ToString( );
                 _dataSet.Tables.Add( _dataTable );
                 var _query = new Query( SqlStatement );
-                var _adapter = _query.DataAdapter;
-                _adapter.Fill( _dataSet, _dataTable.TableName );
-                SetColumnCaptions( _dataTable );
-                _duration = _clock.Elapsed;
-                return _dataTable?.Rows?.Count > 0
-                    ? _dataTable
-                    : default( DataTable );
+                var _adapter = _query.GetAdapter( );
+                if( _adapter != null )
+                {
+                    _adapter.Fill( _dataSet, _dataTable.TableName );
+                    SetColumnCaptions( _dataTable );
+                    _duration = _clock.Elapsed;
+                    return _dataTable?.Rows?.Count > 0
+                        ? _dataTable
+                        : default( DataTable );
+                }
+                else
+                {
+                    return default( DataTable );
+                }
             }
-            catch( ArgumentNullException _ex )
+            catch( Exception _ex )
             {
                 Fail( _ex );
                 return default( DataTable );
@@ -327,7 +335,7 @@ namespace BudgetExecution
                     }
                 }
             }
-            catch( ArgumentException _ex )
+            catch( Exception _ex )
             {
                 Fail( _ex );
             }

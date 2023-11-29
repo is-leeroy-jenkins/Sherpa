@@ -480,17 +480,17 @@ namespace BudgetExecution
         {
             try
             {
-                FirstGridLabel.Font = new Font( "Roboto", 8 );
-                FirstGridLabel.ForeColor = Color.FromArgb( 106, 189, 252 );
-                SecondGridLabel.Font = new Font( "Roboto", 8 );
-                SecondGridLabel.ForeColor = Color.FromArgb( 106, 189, 252 );
-                SecondGridLabel.Text = string.Empty;
-                ThirdGridLabel.Font = new Font( "Roboto", 8 );
-                ThirdGridLabel.ForeColor = Color.FromArgb( 106, 189, 252 );
-                ThirdGridLabel.Text = string.Empty;
-                FourthGridLabel.Font = new Font( "Roboto", 8 );
-                FourthGridLabel.ForeColor = Color.FromArgb( 106, 189, 252 );
-                FourthGridLabel.Text = string.Empty;
+                GridLabel1.Font = new Font( "Roboto", 8 );
+                GridLabel1.ForeColor = Color.FromArgb( 106, 189, 252 );
+                GridLabel2.Font = new Font( "Roboto", 8 );
+                GridLabel2.ForeColor = Color.FromArgb( 106, 189, 252 );
+                GridLabel2.Text = string.Empty;
+                GridLabel3.Font = new Font( "Roboto", 8 );
+                GridLabel3.ForeColor = Color.FromArgb( 106, 189, 252 );
+                GridLabel3.Text = string.Empty;
+                GridLabel4.Font = new Font( "Roboto", 8 );
+                GridLabel4.ForeColor = Color.FromArgb( 106, 189, 252 );
+                GridLabel4.Text = string.Empty;
             }
             catch( Exception _ex )
             {
@@ -1222,7 +1222,9 @@ namespace BudgetExecution
 
                     var _criteria = where.ToCriteria( );
                     var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_names} FROM {SelectedTable} " + $"WHERE {_criteria} "
+                    return $"SELECT {_names} " 
+                        + $"FROM {SelectedTable} " 
+                        + $"WHERE {_criteria} "
                         + $"GROUP BY {_names} ;";
                 }
                 catch( Exception _ex )
@@ -1267,7 +1269,7 @@ namespace BudgetExecution
                     var _criteria = where.ToCriteria( );
                     var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
                     return $"SELECT {_columns} "
-                        + "FROM {Source} "
+                        + $"FROM {Source} "
                         + $"WHERE {_criteria} "
                         + $"GROUP BY {_groups};";
                 }
@@ -1519,10 +1521,10 @@ namespace BudgetExecution
                     var _selectedFields = SelectedFields?.Count ?? 0;
                     var _selectedNumerics = SelectedNumerics?.Count ?? 0;
                     HeaderLabel.Text = $"{_table} ";
-                    FirstGridLabel.Text = $"Data Provider: {Provider}";
-                    SecondGridLabel.Text = $"Records: {_records}";
-                    ThirdGridLabel.Text = $"Total Fields: {_fields}";
-                    FourthGridLabel.Text = $"Total Measures: {_numerics}";
+                    GridLabel1.Text = $"Data Provider: {Provider}";
+                    GridLabel2.Text = $"Records: {_records}";
+                    GridLabel3.Text = $"Total Fields: {_fields}";
+                    GridLabel4.Text = $"Total Measures: {_numerics}";
                     FieldsTable.CaptionText = $"Selected Fields: {_selectedFields}";
                     NumericsTable.CaptionText = $"Selected Measures: {_selectedNumerics}";
                     FirstCalendarTable.CaptionText = $"Start Date: {FirstCalendar.SelectedDate}";
@@ -1531,10 +1533,10 @@ namespace BudgetExecution
                 else
                 {
                     HeaderLabel.Text = $"{Provider} Database ";
-                    FirstGridLabel.Text = $"Provider:  {Provider}";
-                    SecondGridLabel.Text = "Total Records: 0.0";
-                    ThirdGridLabel.Text = "Total Fields: 0.0";
-                    FourthGridLabel.Text = "Total Measures: 0.0";
+                    GridLabel1.Text = $"Provider:  {Provider}";
+                    GridLabel2.Text = "Total Records: 0.0";
+                    GridLabel3.Text = "Total Fields: 0.0";
+                    GridLabel4.Text = "Total Measures: 0.0";
                     FieldsTable.CaptionText = "Selected Fields: 0.0";
                     NumericsTable.CaptionText = "Selected Measures: 0.0";
                     FirstCalendarTable.CaptionText = "Start Date: --";
@@ -1705,7 +1707,9 @@ namespace BudgetExecution
         /// <summary>
         /// Called when [first ListBox item selected].
         /// </summary>
-        /// <param name="sender">The sender.</param>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
         private void OnFirstListBoxItemSelected( object sender )
         {
             if( sender is ListBox _listBox )

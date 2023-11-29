@@ -96,6 +96,7 @@ namespace BudgetExecution
             TabPanelBackColor = Color.FromArgb( 20, 20, 20 );
             CanOverrideStyle = true;
             CanApplyTheme = true;
+            KeepSelectedTabInFrontRow = true;
             ActiveTabColor = Color.FromArgb( 20, 20, 20 );
             ActiveTabFont = new Font( "Roboto", 8 );
             ActiveTabForeColor = Color.FromArgb( 106, 189, 252 );

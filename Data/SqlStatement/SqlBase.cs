@@ -1,13 +1,13 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:             BudgetExecution
 //     Author:                  Terry D. Eppler
-//     Created:                 06-19-2023
+//     Created:                 11-11-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        07-11-2023
+//     Last Modified On:        11-29-2023
 // ******************************************************************************************
-// <copyright file="SqlBase.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
+// <copyright file="Terry Eppler.cs" company="Terry D. Eppler">
+//    BudgetExecution is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
 // 
@@ -31,10 +31,10 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   SqlBase.cs
+//   SqlBase.cs.cs
 // </summary>
 // ******************************************************************************************
 
@@ -51,56 +51,108 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public abstract class SqlBase
     {
-        /// <summary> Gets or sets the source. </summary>
-        /// <value> The source. </value>
+        /// <summary>
+        /// Gets or sets the source.
+        /// </summary>
+        /// <value>
+        /// The source.
+        /// </value>
         public Source Source { get; set; }
 
-        /// <summary> Gets or sets the provider. </summary>
-        /// <value> The provider. </value>
+        /// <summary>
+        /// Gets or sets the provider.
+        /// </summary>
+        /// <value>
+        /// The provider.
+        /// </value>
         public Provider Provider { get; set; }
 
-        /// <summary> Gets or sets the type of the command. </summary>
-        /// <value> The type of the command. </value>
+        /// <summary>
+        /// Gets or sets the type of the command.
+        /// </summary>
+        /// <value>
+        /// The type of the command.
+        /// </value>
         public SQL CommandType { get; set; }
 
-        /// <summary> Gets or sets the extension. </summary>
-        /// <value> The extension. </value>
+        /// <summary>
+        /// Gets or sets the extension.
+        /// </summary>
+        /// <value>
+        /// The extension.
+        /// </value>
         public EXT Extension { get; set; }
 
-        /// <summary> Gets or sets the criteria. </summary>
-        /// <value> The criteria. </value>
+        /// <summary>
+        /// Gets or sets the criteria.
+        /// </summary>
+        /// <value>
+        /// The criteria.
+        /// </value>
         public IDictionary<string, object> Criteria { get; set; }
 
-        /// <summary> Gets or sets the updates. </summary>
-        /// <value> The updates. </value>
+        /// <summary>
+        /// Gets or sets the updates.
+        /// </summary>
+        /// <value>
+        /// The updates.
+        /// </value>
         public IDictionary<string, object> Updates { get; set; }
 
-        /// <summary> Gets or sets the fields. </summary>
-        /// <value> The fields. </value>
+        /// <summary>
+        /// Gets or sets the fields.
+        /// </summary>
+        /// <value>
+        /// The fields.
+        /// </value>
         public IList<string> Fields { get; set; }
 
-        /// <summary> Gets or sets the numerics. </summary>
-        /// <value> The numerics. </value>
+        /// <summary>
+        /// Gets or sets the numerics.
+        /// </summary>
+        /// <value>
+        /// The numerics.
+        /// </value>
         public IList<string> Numerics { get; set; }
 
-        /// <summary> Gets or sets the groups. </summary>
-        /// <value> The groups. </value>
+        /// <summary>
+        /// Gets or sets the groups.
+        /// </summary>
+        /// <value>
+        /// The groups.
+        /// </value>
         public IList<string> Groups { get; set; }
 
-        /// <summary> Gets or sets the name of the table. </summary>
-        /// <value> The name of the table. </value>
+        /// <summary>
+        /// Gets or sets the name of the table.
+        /// </summary>
+        /// <value>
+        /// The name of the table.
+        /// </value>
         public string TableName { get; set; }
 
-        /// <summary> Gets or sets the database path. </summary>
-        /// <value> The database path. </value>
+        /// <summary>
+        /// Gets or sets the database path.
+        /// </summary>
+        /// <value>
+        /// The database path.
+        /// </value>
         public string DbPath { get; set; }
 
-        /// <summary> Gets or sets the name of the file. </summary>
-        /// <value> The name of the file. </value>
+        /// <summary>
+        /// Gets or sets the name of the file.
+        /// </summary>
+        /// <value>
+        /// The name of the file.
+        /// </value>
         public string FileName { get; set; }
 
-        /// <summary> Gets or sets the command text. </summary>
-        /// <value> The command text. </value>
+        /// <summary>
+        /// Gets or sets the command text.
+        /// </summary>
+        /// <value>
+        /// The command text.
+        /// </value>
         public string CommandText { get; set; }
 
         /// <summary>
@@ -168,7 +220,7 @@ namespace BudgetExecution
         /// <param name="where"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
         protected SqlBase( Source source, Provider provider, IDictionary<string, object> where,
-                           SQL commandType = SQL.SELECTALL )
+            SQL commandType = SQL.SELECTALL )
             : this( )
         {
             DbPath = new ConnectionFactory( source, provider ).ClientPath;
@@ -192,7 +244,7 @@ namespace BudgetExecution
         /// <param name="where"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
         protected SqlBase( Source source, Provider provider, IDictionary<string, object> updates,
-                           IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
+            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
             : this( )
         {
             DbPath = new ConnectionFactory( source, provider ).ClientPath;
@@ -218,7 +270,7 @@ namespace BudgetExecution
         /// <param name="where"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
         protected SqlBase( Source source, Provider provider, IEnumerable<string> columns,
-                           IDictionary<string, object> where, SQL commandType = SQL.SELECT )
+            IDictionary<string, object> where, SQL commandType = SQL.SELECT )
             : this( )
         {
             DbPath = new ConnectionFactory( source, provider ).ClientPath;
@@ -244,8 +296,8 @@ namespace BudgetExecution
         /// <param name="having"> The having. </param>
         /// <param name="commandType"> Type of the command. </param>
         protected SqlBase( Source source, Provider provider, IEnumerable<string> fields,
-                           IEnumerable<string> numerics, IDictionary<string, object> having,
-                           SQL commandType = SQL.SELECT )
+            IEnumerable<string> numerics, IDictionary<string, object> having,
+            SQL commandType = SQL.SELECT )
             : this( )
         {
             DbPath = new ConnectionFactory( source, provider ).ClientPath;
@@ -269,31 +321,22 @@ namespace BudgetExecution
                 {
                     case SQL.SELECT:
                     case SQL.SELECTALL:
-
                     {
                         return GetSelectStatement( );
                     }
-
                     case SQL.INSERT:
-
                     {
                         return GetInsertStatement( );
                     }
-
                     case SQL.UPDATE:
-
                     {
                         return GetUpdateStatement( );
                     }
-
                     case SQL.DELETE:
-
                     {
                         return GetDeleteStatement( );
                     }
-
                     default:
-
                     {
                         return GetSelectStatement( );
                     }

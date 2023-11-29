@@ -1143,6 +1143,16 @@ namespace BudgetExecution.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap VerifyButton {
+            get {
+                object obj = ResourceManager.GetObject("VerifyButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap VerifyDataButton {
             get {
                 object obj = ResourceManager.GetObject("VerifyDataButton", resourceCulture);
@@ -1236,6 +1246,16 @@ namespace BudgetExecution.Resources {
         public static System.Drawing.Bitmap WebGoButton {
             get {
                 object obj = ResourceManager.GetObject("WebGoButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap WebGoButton1 {
+            get {
+                object obj = ResourceManager.GetObject("WebGoButton1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

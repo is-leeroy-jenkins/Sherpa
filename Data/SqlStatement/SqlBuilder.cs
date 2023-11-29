@@ -50,34 +50,63 @@ namespace BudgetExecution
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class SqlBuilder
     {
-        /// <summary> Gets or sets the source. </summary>
-        /// <value> The source. </value>
+        /// <summary>
+        /// Gets or sets the source.
+        /// </summary>
+        /// <value>
+        /// The source.
+        /// </value>
         public Source Source { get; set; }
 
-        /// <summary> Gets or sets the extension. </summary>
-        /// <value> The extension. </value>
+        /// <summary>
+        /// Gets or sets the extension.
+        /// </summary>
+        /// <value>
+        /// The extension.
+        /// </value>
         public EXT Extension { get; set; }
 
-        /// <summary> Gets or sets the type of the command. </summary>
-        /// <value> The type of the command. </value>
+        /// <summary>
+        /// Gets or sets the type of the command.
+        /// </summary>
+        /// <value>
+        /// The type of the command.
+        /// </value>
         public SQL CommandType { get; set; }
 
-        /// <summary> Gets or sets the files. </summary>
-        /// <value> The files. </value>
+        /// <summary>
+        /// Gets or sets the files.
+        /// </summary>
+        /// <value>
+        /// The files.
+        /// </value>
         public IEnumerable<string> Files { get; set; }
 
-        /// <summary> Gets or sets the name of the file. </summary>
-        /// <value> The name of the file. </value>
+        /// <summary>
+        /// Gets or sets the name of the file.
+        /// </summary>
+        /// <value>
+        /// The name of the file.
+        /// </value>
         public string FileName { get; set; }
 
-        /// <summary> Gets or sets the directory path. </summary>
-        /// <value> The directory path. </value>
+        /// <summary>
+        /// Gets or sets the directory path.
+        /// </summary>
+        /// <value>
+        /// The directory path.
+        /// </value>
         public string DirectoryPath { get; set; }
 
-        /// <summary> Gets or sets the commands. </summary>
-        /// <value> The commands. </value>
+        /// <summary>
+        /// Gets or sets the commands.
+        /// </summary>
+        /// <value>
+        /// The commands.
+        /// </value>
         public IDictionary<string, string> Commands { get; set; }
 
         /// <summary>
@@ -107,9 +136,13 @@ namespace BudgetExecution
             Commands = GetCommands( );
         }
 
-        /// <summary> Gets the command text. </summary>
-        /// <param name="commandName"> Name of the command. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the command text.
+        /// </summary>
+        /// <param name="commandName">
+        /// Name of the command.
+        /// </param>
+        /// <returns></returns>
         public string GetCommandText( string commandName )
         {
             if( !string.IsNullOrEmpty( commandName )
@@ -130,9 +163,13 @@ namespace BudgetExecution
             return string.Empty;
         }
 
-        /// <summary> Gets the command text. </summary>
-        /// <param name="sqlCommand"> The SQL command. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the command text.
+        /// </summary>
+        /// <param name="sqlCommand">
+        /// The SQL command.
+        /// </param>
+        /// <returns></returns>
         public string GetCommandText( SQL sqlCommand )
         {
             if( Enum.IsDefined( typeof( SQL ), sqlCommand )
@@ -153,8 +190,10 @@ namespace BudgetExecution
             return string.Empty;
         }
 
-        /// <summary> Gets the SQL directory path. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the SQL directory path.
+        /// </summary>
+        /// <returns></returns>
         private string GetSqlDirectoryPath( )
         {
             if( Enum.IsDefined( typeof( EXT ), Extension ) )
@@ -185,8 +224,10 @@ namespace BudgetExecution
             return string.Empty;
         }
 
-        /// <summary> Gets the commands. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the commands.
+        /// </summary>
+        /// <returns></returns>
         private IDictionary<string, string> GetCommands( )
         {
             if( Enum.IsDefined( typeof( SQL ), CommandType )
@@ -216,8 +257,10 @@ namespace BudgetExecution
             return default( IDictionary<string, string> );
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
