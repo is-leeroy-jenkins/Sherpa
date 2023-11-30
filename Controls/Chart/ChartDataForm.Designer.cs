@@ -48,8 +48,8 @@
             Loader = new System.Windows.Forms.PictureBox( );
             ChartSubTablePanel = new Layout( );
             ChartSubTable = new System.Windows.Forms.TableLayoutPanel( );
-            SqlText = new Label( );
-            SqlTextHeader = new Label( );
+            CommandLabel = new Label( );
+            BindingSource = new System.Windows.Forms.BindingSource( components );
             MetricsTable = new System.Windows.Forms.TableLayoutPanel( );
             MetricsLabel6 = new Label( );
             MetricsLabel3 = new Label( );
@@ -63,7 +63,6 @@
             MetricsLabel10 = new Label( );
             MetricsLabel11 = new Label( );
             MetricsLabel12 = new Label( );
-            BindingSource = new System.Windows.Forms.BindingSource( components );
             ToolTip = new SmallTip( );
             ToolStrip = new ToolStrip( );
             FirstButton = new ToolStripButton( );
@@ -110,6 +109,10 @@
             GroupSeparator = new ToolSeparator( );
             ContextMenu = new ContextMenu( );
             QueryTabControl = new TabControl( );
+            TableTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
+            SourcePanel = new HeaderPanel( );
+            TableListBoxPanel = new Layout( );
+            TableListBox = new ListBox( );
             FilterTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             ThirdTable = new HeaderPanel( );
             ThirdComboBox = new ComboBox( );
@@ -130,10 +133,6 @@
             FieldTable = new HeaderPanel( );
             FieldPanel = new Layout( );
             FieldListBox = new ListBox( );
-            TableTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
-            SourcePanel = new HeaderPanel( );
-            TableListBoxPanel = new Layout( );
-            TableListBox = new ListBox( );
             ChartHeaderPanel = new HeaderPanel( );
             ChartHeaderTable = new System.Windows.Forms.TableLayoutPanel( );
             PictureBox = new System.Windows.Forms.PictureBox( );
@@ -151,11 +150,14 @@
             ( (System.ComponentModel.ISupportInitialize)Loader ).BeginInit( );
             ChartSubTablePanel.SuspendLayout( );
             ChartSubTable.SuspendLayout( );
-            MetricsTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
+            MetricsTable.SuspendLayout( );
             ToolStrip.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)QueryTabControl ).BeginInit( );
             QueryTabControl.SuspendLayout( );
+            TableTabPage.SuspendLayout( );
+            SourcePanel.SuspendLayout( );
+            TableListBoxPanel.SuspendLayout( );
             FilterTabPage.SuspendLayout( );
             ThirdTable.SuspendLayout( );
             ThirdListBoxPanel.SuspendLayout( );
@@ -168,9 +170,6 @@
             NumericPanel.SuspendLayout( );
             FieldTable.SuspendLayout( );
             FieldPanel.SuspendLayout( );
-            TableTabPage.SuspendLayout( );
-            SourcePanel.SuspendLayout( );
-            TableListBoxPanel.SuspendLayout( );
             ChartHeaderPanel.SuspendLayout( );
             ChartHeaderTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
@@ -427,61 +426,35 @@
             // 
             ChartSubTable.ColumnCount = 1;
             ChartSubTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            ChartSubTable.Controls.Add( SqlText, 0, 1 );
-            ChartSubTable.Controls.Add( SqlTextHeader, 0, 0 );
+            ChartSubTable.Controls.Add( CommandLabel, 0, 0 );
             ChartSubTable.Location = new System.Drawing.Point( 543, 4 );
             ChartSubTable.Name = "ChartSubTable";
-            ChartSubTable.RowCount = 2;
+            ChartSubTable.RowCount = 1;
             ChartSubTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            ChartSubTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 54F ) );
             ChartSubTable.Size = new System.Drawing.Size( 490, 83 );
             ChartSubTable.TabIndex = 5;
             // 
-            // SqlText
+            // CommandLabel
             // 
-            SqlText.BindingSource = null;
-            SqlText.DataFilter = null;
-            SqlText.Dock = System.Windows.Forms.DockStyle.Fill;
-            SqlText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            SqlText.Font = new System.Drawing.Font( "Roboto", 6.75F );
-            SqlText.HoverText = null;
-            SqlText.IsDerivedStyle = true;
-            SqlText.Location = new System.Drawing.Point( 3, 32 );
-            SqlText.Margin = new System.Windows.Forms.Padding( 3 );
-            SqlText.Name = "SqlText";
-            SqlText.Padding = new System.Windows.Forms.Padding( 1 );
-            SqlText.Size = new System.Drawing.Size( 484, 48 );
-            SqlText.Style = MetroSet_UI.Enums.Style.Custom;
-            SqlText.StyleManager = null;
-            SqlText.TabIndex = 3;
-            SqlText.Text = "Text";
-            SqlText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            SqlText.ThemeAuthor = "Terry D. Eppler";
-            SqlText.ThemeName = "Budget Execution";
-            SqlText.ToolTip = null;
-            // 
-            // SqlTextHeader
-            // 
-            SqlTextHeader.BindingSource = null;
-            SqlTextHeader.DataFilter = null;
-            SqlTextHeader.Dock = System.Windows.Forms.DockStyle.Fill;
-            SqlTextHeader.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            SqlTextHeader.Font = new System.Drawing.Font( "Roboto", 6.75F );
-            SqlTextHeader.HoverText = null;
-            SqlTextHeader.IsDerivedStyle = true;
-            SqlTextHeader.Location = new System.Drawing.Point( 3, 3 );
-            SqlTextHeader.Margin = new System.Windows.Forms.Padding( 3 );
-            SqlTextHeader.Name = "SqlTextHeader";
-            SqlTextHeader.Padding = new System.Windows.Forms.Padding( 1 );
-            SqlTextHeader.Size = new System.Drawing.Size( 484, 23 );
-            SqlTextHeader.Style = MetroSet_UI.Enums.Style.Custom;
-            SqlTextHeader.StyleManager = null;
-            SqlTextHeader.TabIndex = 2;
-            SqlTextHeader.Text = "Text";
-            SqlTextHeader.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            SqlTextHeader.ThemeAuthor = "Terry D. Eppler";
-            SqlTextHeader.ThemeName = "Budget Execution";
-            SqlTextHeader.ToolTip = null;
+            CommandLabel.BindingSource = BindingSource;
+            CommandLabel.DataFilter = null;
+            CommandLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            CommandLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            CommandLabel.Font = new System.Drawing.Font( "Roboto", 6.75F );
+            CommandLabel.HoverText = null;
+            CommandLabel.IsDerivedStyle = true;
+            CommandLabel.Location = new System.Drawing.Point( 3, 3 );
+            CommandLabel.Margin = new System.Windows.Forms.Padding( 3 );
+            CommandLabel.Name = "CommandLabel";
+            CommandLabel.Padding = new System.Windows.Forms.Padding( 1 );
+            CommandLabel.Size = new System.Drawing.Size( 484, 77 );
+            CommandLabel.Style = MetroSet_UI.Enums.Style.Custom;
+            CommandLabel.StyleManager = null;
+            CommandLabel.TabIndex = 3;
+            CommandLabel.Text = "Text";
+            CommandLabel.ThemeAuthor = "Terry D. Eppler";
+            CommandLabel.ThemeName = "Budget Execution";
+            CommandLabel.ToolTip = null;
             // 
             // MetricsTable
             // 
@@ -1480,6 +1453,98 @@
             QueryTabControl.ThemeStyle.TabStyle.SeparatorColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             QueryTabControl.ToolTip = null;
             // 
+            // TableTabPage
+            // 
+            TableTabPage.Controls.Add( SourcePanel );
+            TableTabPage.Image = null;
+            TableTabPage.ImageSize = new System.Drawing.Size( 16, 16 );
+            TableTabPage.Location = new System.Drawing.Point( 0, 29 );
+            TableTabPage.Name = "TableTabPage";
+            TableTabPage.ShowCloseButton = true;
+            TableTabPage.Size = new System.Drawing.Size( 271, 658 );
+            TableTabPage.TabIndex = 4;
+            TableTabPage.ThemesEnabled = false;
+            // 
+            // SourcePanel
+            // 
+            SourcePanel.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            SourcePanel.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            SourcePanel.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
+            SourcePanel.CaptionText = "Data Tables";
+            SourcePanel.ColumnCount = 1;
+            SourcePanel.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+            SourcePanel.Controls.Add( TableListBoxPanel, 0, 1 );
+            SourcePanel.Font = new System.Drawing.Font( "Roboto", 9F );
+            SourcePanel.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            SourcePanel.Location = new System.Drawing.Point( 3, 3 );
+            SourcePanel.Name = "SourcePanel";
+            SourcePanel.RowCount = 2;
+            SourcePanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 1.26582277F ) );
+            SourcePanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 98.73418F ) );
+            SourcePanel.Size = new System.Drawing.Size( 242, 652 );
+            SourcePanel.TabIndex = 1;
+            // 
+            // TableListBoxPanel
+            // 
+            TableListBoxPanel.BackColor = System.Drawing.Color.Transparent;
+            TableListBoxPanel.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TableListBoxPanel.BindingSource = null;
+            TableListBoxPanel.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
+            TableListBoxPanel.BorderThickness = 1;
+            TableListBoxPanel.Children = null;
+            TableListBoxPanel.Controls.Add( TableListBox );
+            TableListBoxPanel.DataFilter = null;
+            TableListBoxPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            TableListBoxPanel.Font = new System.Drawing.Font( "Roboto", 8F );
+            TableListBoxPanel.ForeColor = System.Drawing.Color.Transparent;
+            TableListBoxPanel.HoverText = null;
+            TableListBoxPanel.IsDerivedStyle = true;
+            TableListBoxPanel.Location = new System.Drawing.Point( 3, 27 );
+            TableListBoxPanel.Name = "TableListBoxPanel";
+            TableListBoxPanel.Padding = new System.Windows.Forms.Padding( 1 );
+            TableListBoxPanel.Size = new System.Drawing.Size( 236, 622 );
+            TableListBoxPanel.Style = MetroSet_UI.Enums.Style.Custom;
+            TableListBoxPanel.StyleManager = null;
+            TableListBoxPanel.TabIndex = 0;
+            TableListBoxPanel.ThemeAuthor = "Terry D. Eppler";
+            TableListBoxPanel.ThemeName = "Budget Execution";
+            TableListBoxPanel.ToolTip = null;
+            // 
+            // TableListBox
+            // 
+            TableListBox.BackColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
+            TableListBox.BindingSource = null;
+            TableListBox.BorderColor = System.Drawing.Color.FromArgb( 55, 55, 55 );
+            TableListBox.DataFilter = null;
+            TableListBox.DisabledBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TableListBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TableListBox.Font = new System.Drawing.Font( "Roboto", 8F );
+            TableListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
+            TableListBox.HoveredItemColor = System.Drawing.Color.White;
+            TableListBox.HoverText = null;
+            TableListBox.IsDerivedStyle = true;
+            TableListBox.ItemHeight = 28;
+            TableListBox.Location = new System.Drawing.Point( 13, 19 );
+            TableListBox.Margin = new System.Windows.Forms.Padding( 1 );
+            TableListBox.MultiSelect = true;
+            TableListBox.Name = "TableListBox";
+            TableListBox.Padding = new System.Windows.Forms.Padding( 1 );
+            TableListBox.SelectedIndex = -1;
+            TableListBox.SelectedItem = null;
+            TableListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            TableListBox.SelectedItemColor = System.Drawing.Color.White;
+            TableListBox.SelectedText = null;
+            TableListBox.SelectedValue = null;
+            TableListBox.ShowBorder = false;
+            TableListBox.ShowScrollBar = false;
+            TableListBox.Size = new System.Drawing.Size( 208, 589 );
+            TableListBox.Style = MetroSet_UI.Enums.Style.Custom;
+            TableListBox.StyleManager = null;
+            TableListBox.TabIndex = 0;
+            TableListBox.ThemeAuthor = "Terry D. Eppler";
+            TableListBox.ThemeName = "Budget Execution";
+            TableListBox.ToolTip = null;
+            // 
             // FilterTabPage
             // 
             FilterTabPage.Controls.Add( ThirdTable );
@@ -2006,98 +2071,6 @@
             FieldListBox.ThemeName = "Budget Execution";
             FieldListBox.ToolTip = ToolTip;
             // 
-            // TableTabPage
-            // 
-            TableTabPage.Controls.Add( SourcePanel );
-            TableTabPage.Image = null;
-            TableTabPage.ImageSize = new System.Drawing.Size( 16, 16 );
-            TableTabPage.Location = new System.Drawing.Point( 0, 29 );
-            TableTabPage.Name = "TableTabPage";
-            TableTabPage.ShowCloseButton = true;
-            TableTabPage.Size = new System.Drawing.Size( 271, 658 );
-            TableTabPage.TabIndex = 4;
-            TableTabPage.ThemesEnabled = false;
-            // 
-            // SourcePanel
-            // 
-            SourcePanel.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
-            SourcePanel.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            SourcePanel.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
-            SourcePanel.CaptionText = "Data Tables";
-            SourcePanel.ColumnCount = 1;
-            SourcePanel.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            SourcePanel.Controls.Add( TableListBoxPanel, 0, 1 );
-            SourcePanel.Font = new System.Drawing.Font( "Roboto", 9F );
-            SourcePanel.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            SourcePanel.Location = new System.Drawing.Point( 3, 3 );
-            SourcePanel.Name = "SourcePanel";
-            SourcePanel.RowCount = 2;
-            SourcePanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 1.26582277F ) );
-            SourcePanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 98.73418F ) );
-            SourcePanel.Size = new System.Drawing.Size( 242, 652 );
-            SourcePanel.TabIndex = 1;
-            // 
-            // TableListBoxPanel
-            // 
-            TableListBoxPanel.BackColor = System.Drawing.Color.Transparent;
-            TableListBoxPanel.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            TableListBoxPanel.BindingSource = null;
-            TableListBoxPanel.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
-            TableListBoxPanel.BorderThickness = 1;
-            TableListBoxPanel.Children = null;
-            TableListBoxPanel.Controls.Add( TableListBox );
-            TableListBoxPanel.DataFilter = null;
-            TableListBoxPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            TableListBoxPanel.Font = new System.Drawing.Font( "Roboto", 8F );
-            TableListBoxPanel.ForeColor = System.Drawing.Color.Transparent;
-            TableListBoxPanel.HoverText = null;
-            TableListBoxPanel.IsDerivedStyle = true;
-            TableListBoxPanel.Location = new System.Drawing.Point( 3, 27 );
-            TableListBoxPanel.Name = "TableListBoxPanel";
-            TableListBoxPanel.Padding = new System.Windows.Forms.Padding( 1 );
-            TableListBoxPanel.Size = new System.Drawing.Size( 236, 622 );
-            TableListBoxPanel.Style = MetroSet_UI.Enums.Style.Custom;
-            TableListBoxPanel.StyleManager = null;
-            TableListBoxPanel.TabIndex = 0;
-            TableListBoxPanel.ThemeAuthor = "Terry D. Eppler";
-            TableListBoxPanel.ThemeName = "Budget Execution";
-            TableListBoxPanel.ToolTip = null;
-            // 
-            // TableListBox
-            // 
-            TableListBox.BackColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
-            TableListBox.BindingSource = null;
-            TableListBox.BorderColor = System.Drawing.Color.FromArgb( 55, 55, 55 );
-            TableListBox.DataFilter = null;
-            TableListBox.DisabledBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            TableListBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            TableListBox.Font = new System.Drawing.Font( "Roboto", 8F );
-            TableListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
-            TableListBox.HoveredItemColor = System.Drawing.Color.White;
-            TableListBox.HoverText = null;
-            TableListBox.IsDerivedStyle = true;
-            TableListBox.ItemHeight = 28;
-            TableListBox.Location = new System.Drawing.Point( 23, 19 );
-            TableListBox.Margin = new System.Windows.Forms.Padding( 1 );
-            TableListBox.MultiSelect = true;
-            TableListBox.Name = "TableListBox";
-            TableListBox.Padding = new System.Windows.Forms.Padding( 1 );
-            TableListBox.SelectedIndex = -1;
-            TableListBox.SelectedItem = null;
-            TableListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            TableListBox.SelectedItemColor = System.Drawing.Color.White;
-            TableListBox.SelectedText = null;
-            TableListBox.SelectedValue = null;
-            TableListBox.ShowBorder = false;
-            TableListBox.ShowScrollBar = false;
-            TableListBox.Size = new System.Drawing.Size( 188, 589 );
-            TableListBox.Style = MetroSet_UI.Enums.Style.Custom;
-            TableListBox.StyleManager = null;
-            TableListBox.TabIndex = 0;
-            TableListBox.ThemeAuthor = "Terry D. Eppler";
-            TableListBox.ThemeName = "Budget Execution";
-            TableListBox.ToolTip = null;
-            // 
             // ChartHeaderPanel
             // 
             ChartHeaderPanel.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
@@ -2120,9 +2093,9 @@
             // ChartHeaderTable
             // 
             ChartHeaderTable.ColumnCount = 4;
-            ChartHeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 23.1910954F ) );
-            ChartHeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 76.80891F ) );
-            ChartHeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 384F ) );
+            ChartHeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 9.48718F ) );
+            ChartHeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 90.51282F ) );
+            ChartHeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 514F ) );
             ChartHeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 433F ) );
             ChartHeaderTable.Controls.Add( PictureBox, 0, 0 );
             ChartHeaderTable.Controls.Add( HeaderLabel1, 1, 0 );
@@ -2155,11 +2128,11 @@
             HeaderLabel1.Font = new System.Drawing.Font( "Roboto", 8F );
             HeaderLabel1.HoverText = null;
             HeaderLabel1.IsDerivedStyle = true;
-            HeaderLabel1.Location = new System.Drawing.Point( 123, 3 );
+            HeaderLabel1.Location = new System.Drawing.Point( 40, 3 );
             HeaderLabel1.Margin = new System.Windows.Forms.Padding( 3 );
             HeaderLabel1.Name = "HeaderLabel1";
             HeaderLabel1.Padding = new System.Windows.Forms.Padding( 1 );
-            HeaderLabel1.Size = new System.Drawing.Size( 394, 18 );
+            HeaderLabel1.Size = new System.Drawing.Size( 347, 18 );
             HeaderLabel1.Style = MetroSet_UI.Enums.Style.Custom;
             HeaderLabel1.StyleManager = null;
             HeaderLabel1.TabIndex = 1;
@@ -2178,11 +2151,11 @@
             HeaderLabel2.Font = new System.Drawing.Font( "Roboto", 8F );
             HeaderLabel2.HoverText = null;
             HeaderLabel2.IsDerivedStyle = true;
-            HeaderLabel2.Location = new System.Drawing.Point( 523, 3 );
+            HeaderLabel2.Location = new System.Drawing.Point( 393, 3 );
             HeaderLabel2.Margin = new System.Windows.Forms.Padding( 3 );
             HeaderLabel2.Name = "HeaderLabel2";
             HeaderLabel2.Padding = new System.Windows.Forms.Padding( 1 );
-            HeaderLabel2.Size = new System.Drawing.Size( 378, 18 );
+            HeaderLabel2.Size = new System.Drawing.Size( 508, 18 );
             HeaderLabel2.Style = MetroSet_UI.Enums.Style.Custom;
             HeaderLabel2.StyleManager = null;
             HeaderLabel2.TabIndex = 2;
@@ -2273,12 +2246,15 @@
             ( (System.ComponentModel.ISupportInitialize)Loader ).EndInit( );
             ChartSubTablePanel.ResumeLayout( false );
             ChartSubTable.ResumeLayout( false );
-            MetricsTable.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).EndInit( );
+            MetricsTable.ResumeLayout( false );
             ToolStrip.ResumeLayout( false );
             ToolStrip.PerformLayout( );
             ( (System.ComponentModel.ISupportInitialize)QueryTabControl ).EndInit( );
             QueryTabControl.ResumeLayout( false );
+            TableTabPage.ResumeLayout( false );
+            SourcePanel.ResumeLayout( false );
+            TableListBoxPanel.ResumeLayout( false );
             FilterTabPage.ResumeLayout( false );
             ThirdTable.ResumeLayout( false );
             ThirdListBoxPanel.ResumeLayout( false );
@@ -2291,9 +2267,6 @@
             NumericPanel.ResumeLayout( false );
             FieldTable.ResumeLayout( false );
             FieldPanel.ResumeLayout( false );
-            TableTabPage.ResumeLayout( false );
-            SourcePanel.ResumeLayout( false );
-            TableListBoxPanel.ResumeLayout( false );
             ChartHeaderPanel.ResumeLayout( false );
             ChartHeaderTable.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).EndInit( );
@@ -2367,7 +2340,6 @@
         public System.Windows.Forms.TableLayoutPanel AreaTable;
         public Layout ChartPanel;
         public Layout ChartSubTablePanel;
-        public Label SqlTextHeader;
         public Syncfusion.Windows.Forms.Tools.TabPageAdv TableTabPage;
         public HeaderPanel SourcePanel;
         public Layout TableListBoxPanel;
@@ -2391,7 +2363,6 @@
         public ToolSeparator MetricsPostSeparator;
         public ToolSeparator ChartSeriesSeparator;
         public ToolStripDropDown SeriesComboBox;
-        private System.Windows.Forms.TableLayoutPanel ChartSubTable;
         public System.Windows.Forms.Timer Timer;
         public ToolSeparator StripSeparator;
         public ToolSeparator ChartSpacer;
@@ -2405,7 +2376,7 @@
         public System.Windows.Forms.TableLayoutPanel ToolStripTable;
         public System.Windows.Forms.PictureBox Loader;
         public ToolStripLabel StatusSpacer;
-        public Label SqlText;
+        public Label CommandLabel;
         public Label HeaderLabel1;
         public Label HeaderLabel2;
         public Label HeaderLabel3;
@@ -2413,5 +2384,6 @@
         public Label MetricsLabel10;
         public Label MetricsLabel11;
         private Label MetricsLabel12;
+        public System.Windows.Forms.TableLayoutPanel ChartSubTable;
     }
 }

@@ -4,7 +4,7 @@
 //     Created:                 06-19-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        11-28-2023
+//     Last Modified On:        11-30-2023
 // ******************************************************************************************
 // <copyright file="Terry Eppler.cs" company="Terry D. Eppler">
 //    BudgetExecution is a Federal Budget, Finance, and Accounting application for the
@@ -45,6 +45,7 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
     using Syncfusion.Drawing;
@@ -199,7 +200,7 @@ namespace BudgetExecution
         /// <value>
         /// The SQL query.
         /// </value>
-        public string SqlQuery { get; set; }
+        public string SqlCommand { get; set; }
 
         /// <summary>
         /// Gets or sets the x axis.
@@ -440,20 +441,19 @@ namespace BudgetExecution
         {
             try
             {
-                var _headerFont = new Font( "Roboto", 9 );
                 var _metricFont = new Font( "Roboto", 7 );
-                var _sqlFont = new Font( "Roboto", 8 );
+                var _sqlFont = new Font( "Roboto", 7 );
                 var _foreColor = Color.FromArgb( 106, 189, 252 );
                 var _backColor = Color.Transparent;
-                HeaderLabel1.Font = _headerFont;
+                HeaderLabel1.Font = _sqlFont;
                 HeaderLabel1.ForeColor = _foreColor;
                 HeaderLabel1.BackColor = _backColor;
                 HeaderLabel1.Text = string.Empty;
-                HeaderLabel2.Font = _headerFont;
+                HeaderLabel2.Font = _sqlFont;
                 HeaderLabel2.ForeColor = _foreColor;
                 HeaderLabel2.BackColor = _backColor;
                 HeaderLabel2.Text = string.Empty;
-                HeaderLabel3.Font = _headerFont;
+                HeaderLabel3.Font = _sqlFont;
                 HeaderLabel3.ForeColor = _foreColor;
                 HeaderLabel3.BackColor = _backColor;
                 HeaderLabel3.Text = string.Empty;
@@ -493,12 +493,10 @@ namespace BudgetExecution
                 MetricsLabel12.Font = _metricFont;
                 MetricsLabel12.ForeColor = _foreColor;
                 MetricsLabel12.Text = string.Empty;
-                SqlTextHeader.Font = _sqlFont;
-                SqlTextHeader.ForeColor = _foreColor;
-                SqlTextHeader.Text = string.Empty;
-                SqlText.Font = _sqlFont;
-                SqlText.ForeColor = _foreColor;
-                SqlText.Text = string.Empty;
+                CommandLabel.Font = _sqlFont;
+                CommandLabel.ForeColor = _foreColor;
+                CommandLabel.Text = string.Empty;
+                CommandLabel.TextAlign = ContentAlignment.TopLeft;
             }
             catch( Exception _ex )
             {
@@ -1092,8 +1090,8 @@ namespace BudgetExecution
             {
                 ThrowIf.Null( where, nameof( where ) );
                 Filter = where;
-                SqlQuery = CreateSqlText( where );
-                DataModel = new DataBuilder( Source, Provider, SqlQuery );
+                SqlCommand = CreateSqlText( where );
+                DataModel = new DataBuilder( Source, Provider, SqlCommand );
                 DataTable = DataModel.DataTable;
                 SelectedTable = DataTable.TableName;
                 BindingSource.DataSource = DataTable;
@@ -1118,8 +1116,8 @@ namespace BudgetExecution
             {
                 ThrowIf.Null( cols, nameof( cols ) );
                 ThrowIf.Null( where, nameof( where ) );
-                SqlQuery = CreateSqlText( cols, where );
-                DataModel = new DataBuilder( Source, Provider, SqlQuery );
+                SqlCommand = CreateSqlText( cols, where );
+                DataModel = new DataBuilder( Source, Provider, SqlCommand );
                 DataTable = DataModel.DataTable;
                 BindingSource.DataSource = DataTable;
                 ToolStrip.BindingSource = BindingSource;
@@ -1146,8 +1144,8 @@ namespace BudgetExecution
                 ThrowIf.Null( fields, nameof( fields ) );
                 ThrowIf.Null( numerics, nameof( numerics ) );
                 ThrowIf.Null( where, nameof( where ) );
-                SqlQuery = CreateSqlText( fields, numerics, where );
-                DataModel = new DataBuilder( Source, Provider, SqlQuery );
+                SqlCommand = CreateSqlText( fields, numerics, where );
+                DataModel = new DataBuilder( Source, Provider, SqlCommand );
                 DataTable = DataModel.DataTable;
                 BindingSource.DataSource = DataTable;
                 ToolStrip.BindingSource = BindingSource;
@@ -1192,7 +1190,7 @@ namespace BudgetExecution
                 DataArgs.SelectedTable = SelectedTable;
                 DataArgs.SelectedFields = SelectedFields;
                 DataArgs.SelectedNumerics = SelectedNumerics;
-                DataArgs.SqlQuery = SqlQuery;
+                DataArgs.SqlQuery = SqlCommand;
             }
             catch( Exception _ex )
             {
@@ -1465,25 +1463,33 @@ namespace BudgetExecution
                     var _table = SelectedTable?.SplitPascal( ) ?? string.Empty;
                     var _records = DataTable.Rows?.Count.ToString( "#,###" ) ?? "0";
                     var _filters = Filter.Keys?.Count;
-                    var _fields = Fields?.Count ?? 0;
-                    var _numerics = Numerics?.Count ?? 0;
+                    var _fields = DataModel.Fields?.Count ?? 0;
+                    var _numerics = DataModel.Numerics?.Count ?? 0;
                     var _selectedFields = SelectedFields?.Count ?? 0;
                     var _selectedNumerics = SelectedNumerics?.Count ?? 0;
+                    HeaderLabel1.Text = $"DB Provider: {Provider}";
+                    HeaderLabel2.Text = $"Data Table: {_table}";
+                    HeaderLabel3.Text = string.Empty;
                     MetricsLabel1.Text = $"Data Records:  {_records}";
                     MetricsLabel2.Text = $"Total Fields:  {_fields}";
                     MetricsLabel3.Text = $"Total Measures:  {_numerics}";
                     MetricsLabel4.Text = $"Active Filters:  {_filters}";
                     MetricsLabel5.Text = $"Selected Fields:  {_selectedFields}";
                     MetricsLabel6.Text = $"Selected Measures:  {_selectedNumerics}";
+                    CommandLabel.Text = DataModel?.SqlStatement?.CommandText ?? string.Empty;
                 }
                 else
                 {
+                    HeaderLabel1.Text = string.Empty;
+                    HeaderLabel2.Text = string.Empty;
+                    HeaderLabel3.Text = string.Empty;
                     MetricsLabel1.Text = "Data Records: 0.0";
                     MetricsLabel2.Text = "Total Fields: 0.0";
                     MetricsLabel3.Text = "Total Measures: 0.0";
                     MetricsLabel4.Text = "Active Filters: 0.0";
                     MetricsLabel5.Text = "Selected Fields: 0.0";
                     MetricsLabel6.Text = "Selected Measures: 0.0";
+                    CommandLabel.Text = string.Empty;
                 }
             }
             catch( Exception ex )
@@ -1905,7 +1911,7 @@ namespace BudgetExecution
                         ThirdTable.Visible = false;
                     }
 
-                    if( Filter?.Any( ) == true 
+                    if( Filter?.Any( ) == true
                        && GroupButton.Visible == false )
                     {
                         GroupButton.Visible = true;
@@ -1913,9 +1919,9 @@ namespace BudgetExecution
                     }
 
                     UpdateLabelText( );
-                    SqlQuery = CreateSqlText( Filter );
-                    SqlText.Text = SqlQuery;
-                    BindData( SqlQuery );
+                    SqlCommand = CreateSqlText( Filter );
+                    CommandLabel.Text = SqlCommand;
+                    BindData( SqlCommand );
                 }
                 catch( Exception _ex )
                 {
@@ -1936,7 +1942,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    SqlQuery = string.Empty;
+                    SqlCommand = string.Empty;
                     SecondCategory = string.Empty;
                     SecondValue = string.Empty;
                     ThirdCategory = string.Empty;
@@ -1988,8 +1994,8 @@ namespace BudgetExecution
                     }
 
                     BindData( Filter );
-                    SqlQuery = CreateSqlText( Filter );
-                    SqlTextHeader.Text = SqlQuery;
+                    SqlCommand = CreateSqlText( Filter );
+                    CommandLabel.Text = SqlCommand;
                     UpdateLabelText( );
                 }
                 catch( Exception ex )
@@ -2011,7 +2017,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    SqlQuery = string.Empty;
+                    SqlCommand = string.Empty;
                     ThirdCategory = string.Empty;
                     ThirdValue = string.Empty;
                     if( ThirdListBox.Items?.Count > 0 )
@@ -2064,8 +2070,6 @@ namespace BudgetExecution
                     Filter.Add( SecondCategory, SecondValue );
                     Filter.Add( ThirdCategory, ThirdValue );
                     BindData( Filter );
-                    SqlQuery = CreateSqlText( Filter );
-                    SqlTextHeader.Text = SqlQuery;
                     UpdateLabelText( );
                     QueryTabControl.SelectedIndex = 2;
                 }
@@ -2144,7 +2148,7 @@ namespace BudgetExecution
         {
             try
             {
-                SqlTextHeader.Text = string.Empty;
+                SqlCommand = string.Empty;
                 var _selectedItem = FieldListBox.SelectedItem.ToString( );
                 PopulateNumericListBox( );
                 if( !string.IsNullOrEmpty( _selectedItem ) )
@@ -2162,22 +2166,17 @@ namespace BudgetExecution
                    && SelectedNumerics.Count >= 1 )
                 {
                     BindData( SelectedFields, SelectedNumerics, Filter );
-                    SqlQuery = CreateSqlText( SelectedFields, SelectedNumerics, Filter );
-                    SqlTextHeader.Text = SqlQuery;
                     UpdateLabelText( );
                 }
                 else
                 {
                     BindData( Fields, Numerics, Filter );
-                    SqlQuery = CreateSqlText( Fields, Numerics, Filter );
-                    SqlTextHeader.Text = SqlQuery;
                     UpdateLabelText( );
                 }
 
                 if( Chart.Visible == false )
                 {
                     Chart.Visible = true;
-                    SqlTextHeader.Visible = true;
                     MetricsTable.Visible = true;
                 }
             }
@@ -2196,7 +2195,6 @@ namespace BudgetExecution
             try
             {
                 SelectedNumerics.Clear( );
-                SqlTextHeader.Text = string.Empty;
                 var _selectedItem = NumericListBox.SelectedValue.ToString( );
                 if( !string.IsNullOrEmpty( _selectedItem ) )
                 {
@@ -2204,8 +2202,6 @@ namespace BudgetExecution
                 }
 
                 BindData( SelectedFields, SelectedNumerics, Filter );
-                SqlQuery = CreateSqlText( SelectedFields, SelectedNumerics, Filter );
-                SqlTextHeader.Text = SqlQuery;
                 UpdateLabelText( );
             }
             catch( Exception ex )
@@ -2269,7 +2265,7 @@ namespace BudgetExecution
             {
                 if( !string.IsNullOrEmpty( SelectedTable ) )
                 {
-                    SqlQuery = string.Empty;
+                    CommandLabel.Text = string.Empty;
                     ClearCollections( );
                     ClearSelections( );
                     ClearListBoxes( );
@@ -2280,7 +2276,6 @@ namespace BudgetExecution
                     if( Chart.Visible == true )
                     {
                         Chart.Visible = false;
-                        SqlTextHeader.Visible = false;
                         MetricsTable.Visible = false;
                     }
                 }
