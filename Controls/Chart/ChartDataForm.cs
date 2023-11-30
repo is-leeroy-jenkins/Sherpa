@@ -448,40 +448,57 @@ namespace BudgetExecution
                 HeaderLabel1.Font = _headerFont;
                 HeaderLabel1.ForeColor = _foreColor;
                 HeaderLabel1.BackColor = _backColor;
+                HeaderLabel1.Text = string.Empty;
                 HeaderLabel2.Font = _headerFont;
                 HeaderLabel2.ForeColor = _foreColor;
                 HeaderLabel2.BackColor = _backColor;
+                HeaderLabel2.Text = string.Empty;
                 HeaderLabel3.Font = _headerFont;
                 HeaderLabel3.ForeColor = _foreColor;
                 HeaderLabel3.BackColor = _backColor;
+                HeaderLabel3.Text = string.Empty;
                 MetricsLabel1.Font = _metricFont;
                 MetricsLabel1.ForeColor = _foreColor;
+                MetricsLabel1.Text = string.Empty;
                 MetricsLabel2.Font = _metricFont;
                 MetricsLabel2.ForeColor = _foreColor;
+                MetricsLabel2.Text = string.Empty;
                 MetricsLabel3.Font = _metricFont;
                 MetricsLabel3.ForeColor = _foreColor;
+                MetricsLabel3.Text = string.Empty;
                 MetricsLabel4.Font = _metricFont;
                 MetricsLabel4.ForeColor = _foreColor;
+                MetricsLabel4.Text = string.Empty;
                 MetricsLabel5.Font = _metricFont;
                 MetricsLabel5.ForeColor = _foreColor;
+                MetricsLabel5.Text = string.Empty;
                 MetricsLabel6.Font = _metricFont;
                 MetricsLabel6.ForeColor = _foreColor;
+                MetricsLabel6.Text = string.Empty;
                 MetricsLabel7.Font = _metricFont;
                 MetricsLabel7.ForeColor = _foreColor;
+                MetricsLabel7.Text = string.Empty;
                 MetricsLabel8.Font = _metricFont;
                 MetricsLabel8.ForeColor = _foreColor;
+                MetricsLabel8.Text = string.Empty;
                 MetricsLabel9.Font = _metricFont;
                 MetricsLabel9.ForeColor = _foreColor;
+                MetricsLabel9.Text = string.Empty;
                 MetricsLabel10.Font = _metricFont;
                 MetricsLabel10.ForeColor = _foreColor;
+                MetricsLabel10.Text = string.Empty;
                 MetricsLabel11.Font = _metricFont;
                 MetricsLabel11.ForeColor = _foreColor;
+                MetricsLabel11.Text = string.Empty;
                 MetricsLabel12.Font = _metricFont;
                 MetricsLabel12.ForeColor = _foreColor;
+                MetricsLabel12.Text = string.Empty;
                 SqlTextHeader.Font = _sqlFont;
                 SqlTextHeader.ForeColor = _foreColor;
+                SqlTextHeader.Text = string.Empty;
                 SqlText.Font = _sqlFont;
                 SqlText.ForeColor = _foreColor;
+                SqlText.Text = string.Empty;
             }
             catch( Exception _ex )
             {
@@ -618,6 +635,9 @@ namespace BudgetExecution
                 SecondListBox.SelectedIndexChanged += OnSecondListBoxItemSelected;
                 ThirdComboBox.SelectedIndexChanged += OnThirdComboBoxItemSelected;
                 ThirdListBox.SelectedIndexChanged += OnThirdListBoxItemSelected;
+                GroupButton.Click += OnGroupButtonClicked;
+                FieldListBox.SelectedIndexChanged += OnFieldListBoxSelectedValueChanged;
+                NumericListBox.SelectedIndexChanged += OnNumericListBoxSelectedValueChanged;
             }
             catch( Exception _ex )
             {
@@ -1026,7 +1046,7 @@ namespace BudgetExecution
         {
             try
             {
-                DataModel = new DataBuilder( Source, Provider, SqlQuery );
+                DataModel = new DataBuilder( Source, Provider );
                 DataTable = DataModel.DataTable;
                 SelectedTable = DataTable.TableName;
                 BindingSource.DataSource = DataModel.DataTable;
@@ -1425,7 +1445,7 @@ namespace BudgetExecution
             {
                 var _dateTime = DateTime.Now;
                 var _dateString = _dateTime.ToShortDateString( );
-                var _timeString = _dateTime.ToShortTimeString( );
+                var _timeString = _dateTime.ToLongTimeString( );
                 StatusLabel.Text = _dateString + "  " + _timeString;
             }
             catch( Exception _ex )
@@ -1455,7 +1475,7 @@ namespace BudgetExecution
                     MetricsLabel3.Text = $"Total Measures:  {_numerics}";
                     MetricsLabel4.Text = $"Active Filters:  {_filters}";
                     MetricsLabel5.Text = $"Selected Fields:  {_selectedFields}";
-                    MetricsLabel7.Text = $"Selected Measures:  {_selectedNumerics}";
+                    MetricsLabel6.Text = $"Selected Measures:  {_selectedNumerics}";
                 }
                 else
                 {
@@ -1464,7 +1484,7 @@ namespace BudgetExecution
                     MetricsLabel3.Text = "Total Measures: 0.0";
                     MetricsLabel4.Text = "Active Filters: 0.0";
                     MetricsLabel5.Text = "Selected Fields: 0.0";
-                    MetricsLabel7.Text = "Selected Measures: 0.0";
+                    MetricsLabel6.Text = "Selected Measures: 0.0";
                 }
             }
             catch( Exception ex )
@@ -1766,7 +1786,6 @@ namespace BudgetExecution
                 Busy.TabVisible = false;
                 PopulateExecutionTables( );
                 UpdateStatusLabel( );
-                Timer.Start( );
                 PopulateToolBarDropDownItems( );
                 FadeIn( );
             }
@@ -1808,16 +1827,10 @@ namespace BudgetExecution
                     var _title = _listBox.SelectedValue?.ToString( );
                     SelectedTable = _title?.Replace( " ", "" );
                     Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
-                    DataModel = new DataBuilder( Source, Provider );
-                    DataTable = DataModel.DataTable;
-                    BindingSource.DataSource = DataModel.DataTable;
-                    ToolStrip.BindingSource = BindingSource;
-                    Fields = DataModel.Fields;
-                    Numerics = DataModel.Numerics;
+                    BindData( );
                     QueryTabControl.SelectedIndex = 1;
                     PopulateFirstComboBoxItems( );
                     ResetFilterTableVisibility( );
-                    BindData( );
                     UpdateLabelText( );
                 }
                 catch( Exception ex )

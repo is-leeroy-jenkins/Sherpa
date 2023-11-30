@@ -227,7 +227,7 @@
             ChartPanel.Controls.Add( DataTabControl );
             ChartPanel.DataFilter = null;
             ChartPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            ChartPanel.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            ChartPanel.Font = new System.Drawing.Font( "Roboto", 9F );
             ChartPanel.ForeColor = System.Drawing.Color.Transparent;
             ChartPanel.HoverText = null;
             ChartPanel.IsDerivedStyle = true;
@@ -245,7 +245,7 @@
             // DataTabControl
             // 
             DataTabControl.ActiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            DataTabControl.ActiveTabFont = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            DataTabControl.ActiveTabFont = new System.Drawing.Font( "Roboto", 8F );
             DataTabControl.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataTabControl.BeforeTouchSize = new System.Drawing.Size( 1008, 491 );
             DataTabControl.BindingSource = null;
@@ -255,7 +255,7 @@
             DataTabControl.Controls.Add( Ready );
             DataTabControl.Controls.Add( Busy );
             DataTabControl.FocusOnTabClick = false;
-            DataTabControl.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            DataTabControl.Font = new System.Drawing.Font( "Roboto", 9F );
             DataTabControl.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             DataTabControl.InactiveCloseButtonForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataTabControl.InactiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
@@ -273,7 +273,7 @@
             DataTabControl.ThemeStyle.PrimitiveButtonStyle.DisabledNextPageImage = null;
             DataTabControl.ThemeStyle.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataTabControl.ThemeStyle.TabStyle.ActiveBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            DataTabControl.ThemeStyle.TabStyle.ActiveFont = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            DataTabControl.ThemeStyle.TabStyle.ActiveFont = new System.Drawing.Font( "Roboto", 8F );
             DataTabControl.ThemeStyle.TabStyle.ActiveForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             DataTabControl.ThemeStyle.TabStyle.SeparatorColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataTabControl.ToolTip = null;
@@ -315,7 +315,7 @@
             // 
             // 
             // 
-            Chart.Legend.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            Chart.Legend.Font = new System.Drawing.Font( "Roboto", 8.25F );
             Chart.Legend.ItemsAlignment = System.Drawing.StringAlignment.Center;
             Chart.Legend.ItemsShadowColor = System.Drawing.Color.Transparent;
             Chart.Legend.ItemsSize = new System.Drawing.Size( 10, 10 );
@@ -349,7 +349,7 @@
             // 
             // 
             // 
-            Chart.Title.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            Chart.Title.Font = new System.Drawing.Font( "Roboto", 9.75F );
             Chart.Title.Name = "Default";
             Chart.Titles.Add( Chart.Title );
             Chart.ToolBar.ButtonBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
@@ -408,7 +408,7 @@
             ChartSubTablePanel.Controls.Add( MetricsTable );
             ChartSubTablePanel.DataFilter = null;
             ChartSubTablePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            ChartSubTablePanel.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            ChartSubTablePanel.Font = new System.Drawing.Font( "Roboto", 8F );
             ChartSubTablePanel.ForeColor = System.Drawing.Color.Transparent;
             ChartSubTablePanel.HoverText = null;
             ChartSubTablePanel.IsDerivedStyle = true;
@@ -443,7 +443,7 @@
             SqlText.DataFilter = null;
             SqlText.Dock = System.Windows.Forms.DockStyle.Fill;
             SqlText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            SqlText.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            SqlText.Font = new System.Drawing.Font( "Roboto", 6.75F );
             SqlText.HoverText = null;
             SqlText.IsDerivedStyle = true;
             SqlText.Location = new System.Drawing.Point( 3, 32 );
@@ -466,7 +466,7 @@
             SqlTextHeader.DataFilter = null;
             SqlTextHeader.Dock = System.Windows.Forms.DockStyle.Fill;
             SqlTextHeader.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            SqlTextHeader.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            SqlTextHeader.Font = new System.Drawing.Font( "Roboto", 6.75F );
             SqlTextHeader.HoverText = null;
             SqlTextHeader.IsDerivedStyle = true;
             SqlTextHeader.Location = new System.Drawing.Point( 3, 3 );
@@ -518,7 +518,7 @@
             MetricsLabel6.DataFilter = null;
             MetricsLabel6.Dock = System.Windows.Forms.DockStyle.Fill;
             MetricsLabel6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            MetricsLabel6.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            MetricsLabel6.Font = new System.Drawing.Font( "Roboto", 6.75F );
             MetricsLabel6.HoverText = null;
             MetricsLabel6.IsDerivedStyle = true;
             MetricsLabel6.Location = new System.Drawing.Point( 133, 31 );
@@ -541,7 +541,7 @@
             MetricsLabel3.DataFilter = null;
             MetricsLabel3.Dock = System.Windows.Forms.DockStyle.Fill;
             MetricsLabel3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            MetricsLabel3.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            MetricsLabel3.Font = new System.Drawing.Font( "Roboto", 6.75F );
             MetricsLabel3.HoverText = null;
             MetricsLabel3.IsDerivedStyle = true;
             MetricsLabel3.Location = new System.Drawing.Point( 264, 3 );
@@ -564,7 +564,7 @@
             MetricsLabel1.DataFilter = null;
             MetricsLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
             MetricsLabel1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            MetricsLabel1.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            MetricsLabel1.Font = new System.Drawing.Font( "Roboto", 6.75F );
             MetricsLabel1.HoverText = null;
             MetricsLabel1.IsDerivedStyle = true;
             MetricsLabel1.Location = new System.Drawing.Point( 3, 3 );
@@ -587,7 +587,7 @@
             MetricsLabel2.DataFilter = null;
             MetricsLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
             MetricsLabel2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            MetricsLabel2.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            MetricsLabel2.Font = new System.Drawing.Font( "Roboto", 6.75F );
             MetricsLabel2.HoverText = null;
             MetricsLabel2.IsDerivedStyle = true;
             MetricsLabel2.Location = new System.Drawing.Point( 133, 3 );
@@ -610,7 +610,7 @@
             MetricsLabel4.DataFilter = null;
             MetricsLabel4.Dock = System.Windows.Forms.DockStyle.Fill;
             MetricsLabel4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            MetricsLabel4.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            MetricsLabel4.Font = new System.Drawing.Font( "Roboto", 6.75F );
             MetricsLabel4.HoverText = null;
             MetricsLabel4.IsDerivedStyle = true;
             MetricsLabel4.Location = new System.Drawing.Point( 398, 3 );
@@ -633,7 +633,7 @@
             MetricsLabel5.DataFilter = null;
             MetricsLabel5.Dock = System.Windows.Forms.DockStyle.Fill;
             MetricsLabel5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            MetricsLabel5.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            MetricsLabel5.Font = new System.Drawing.Font( "Roboto", 6.75F );
             MetricsLabel5.HoverText = null;
             MetricsLabel5.IsDerivedStyle = true;
             MetricsLabel5.Location = new System.Drawing.Point( 3, 31 );
@@ -656,7 +656,7 @@
             MetricsLabel7.DataFilter = null;
             MetricsLabel7.Dock = System.Windows.Forms.DockStyle.Fill;
             MetricsLabel7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            MetricsLabel7.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            MetricsLabel7.Font = new System.Drawing.Font( "Roboto", 6.75F );
             MetricsLabel7.HoverText = null;
             MetricsLabel7.IsDerivedStyle = true;
             MetricsLabel7.Location = new System.Drawing.Point( 264, 31 );
@@ -679,7 +679,7 @@
             MetricsLabel8.DataFilter = null;
             MetricsLabel8.Dock = System.Windows.Forms.DockStyle.Fill;
             MetricsLabel8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            MetricsLabel8.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            MetricsLabel8.Font = new System.Drawing.Font( "Roboto", 6.75F );
             MetricsLabel8.HoverText = null;
             MetricsLabel8.IsDerivedStyle = true;
             MetricsLabel8.Location = new System.Drawing.Point( 398, 31 );
@@ -702,7 +702,7 @@
             MetricsLabel9.DataFilter = null;
             MetricsLabel9.Dock = System.Windows.Forms.DockStyle.Fill;
             MetricsLabel9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            MetricsLabel9.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            MetricsLabel9.Font = new System.Drawing.Font( "Roboto", 6.75F );
             MetricsLabel9.HoverText = null;
             MetricsLabel9.IsDerivedStyle = true;
             MetricsLabel9.Location = new System.Drawing.Point( 3, 59 );
@@ -725,7 +725,7 @@
             MetricsLabel10.DataFilter = null;
             MetricsLabel10.Dock = System.Windows.Forms.DockStyle.Fill;
             MetricsLabel10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            MetricsLabel10.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            MetricsLabel10.Font = new System.Drawing.Font( "Roboto", 6.75F );
             MetricsLabel10.HoverText = null;
             MetricsLabel10.IsDerivedStyle = true;
             MetricsLabel10.Location = new System.Drawing.Point( 133, 59 );
@@ -748,7 +748,7 @@
             MetricsLabel11.DataFilter = null;
             MetricsLabel11.Dock = System.Windows.Forms.DockStyle.Fill;
             MetricsLabel11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            MetricsLabel11.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            MetricsLabel11.Font = new System.Drawing.Font( "Roboto", 6.75F );
             MetricsLabel11.HoverText = null;
             MetricsLabel11.IsDerivedStyle = true;
             MetricsLabel11.Location = new System.Drawing.Point( 264, 59 );
@@ -771,7 +771,7 @@
             MetricsLabel12.DataFilter = null;
             MetricsLabel12.Dock = System.Windows.Forms.DockStyle.Fill;
             MetricsLabel12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            MetricsLabel12.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            MetricsLabel12.Font = new System.Drawing.Font( "Roboto", 6.75F );
             MetricsLabel12.HoverText = null;
             MetricsLabel12.IsDerivedStyle = true;
             MetricsLabel12.Location = new System.Drawing.Point( 398, 59 );
@@ -819,7 +819,7 @@
             ToolStrip.CalculatorButton = null;
             ToolStrip.CanOverrideStyle = true;
             ToolStrip.CaptionAlignment = Syncfusion.Windows.Forms.Tools.CaptionAlignment.Near;
-            ToolStrip.CaptionFont = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            ToolStrip.CaptionFont = new System.Drawing.Font( "Roboto", 8.25F );
             ToolStrip.CaptionStyle = Syncfusion.Windows.Forms.Tools.CaptionStyle.Top;
             ToolStrip.CaptionTextStyle = Syncfusion.Windows.Forms.Tools.CaptionTextStyle.Plain;
             ToolStrip.ChartButton = null;
@@ -837,7 +837,7 @@
             ToolStrip.ExcelButton = null;
             ToolStrip.FilterDataButton = null;
             ToolStrip.FirstButton = FirstButton;
-            ToolStrip.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            ToolStrip.Font = new System.Drawing.Font( "Roboto", 9F );
             ToolStrip.ForeColor = System.Drawing.Color.MidnightBlue;
             ToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             ToolStrip.HomeButton = null;
@@ -885,7 +885,7 @@
             FirstButton.DataFilter = null;
             FirstButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             FirstButton.Field = Field.AccountCode;
-            FirstButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            FirstButton.Font = new System.Drawing.Font( "Roboto", 9F );
             FirstButton.ForeColor = System.Drawing.Color.LightGray;
             FirstButton.HoverText = "First Record";
             FirstButton.Image = Resources.Images.FirstButton;
@@ -911,7 +911,7 @@
             StatusLabel.BindingSource = BindingSource;
             StatusLabel.DataFilter = null;
             StatusLabel.Field = Field.AccountCode;
-            StatusLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            StatusLabel.Font = new System.Drawing.Font( "Roboto", 6.75F );
             StatusLabel.ForeColor = System.Drawing.Color.Black;
             StatusLabel.HoverText = null;
             StatusLabel.Margin = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
@@ -928,7 +928,7 @@
             StatusSpacer.BindingSource = null;
             StatusSpacer.DataFilter = null;
             StatusSpacer.Field = Field.AccountCode;
-            StatusSpacer.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            StatusSpacer.Font = new System.Drawing.Font( "Roboto", 6.75F );
             StatusSpacer.ForeColor = System.Drawing.Color.Black;
             StatusSpacer.HoverText = null;
             StatusSpacer.Margin = new System.Windows.Forms.Padding( 1 );
@@ -963,7 +963,7 @@
             PreviousButton.DataFilter = null;
             PreviousButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             PreviousButton.Field = Field.AccountCode;
-            PreviousButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            PreviousButton.Font = new System.Drawing.Font( "Roboto", 9F );
             PreviousButton.ForeColor = System.Drawing.Color.LightGray;
             PreviousButton.HoverText = "Previous Button";
             PreviousButton.Image = Resources.Images.WebPreviousButton;
@@ -992,7 +992,7 @@
             NextButton.DataFilter = null;
             NextButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             NextButton.Field = Field.AccountCode;
-            NextButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            NextButton.Font = new System.Drawing.Font( "Roboto", 9F );
             NextButton.ForeColor = System.Drawing.Color.LightGray;
             NextButton.HoverText = "Next Record";
             NextButton.Image = Resources.Images.WebNextButton;
@@ -1021,7 +1021,7 @@
             LastButton.DataFilter = null;
             LastButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             LastButton.Field = Field.AccountCode;
-            LastButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            LastButton.Font = new System.Drawing.Font( "Roboto", 9F );
             LastButton.ForeColor = System.Drawing.Color.LightGray;
             LastButton.HoverText = "Last Record";
             LastButton.Image = Resources.Images.LastButton;
@@ -1048,7 +1048,7 @@
             FilterLabel.BindingSource = null;
             FilterLabel.DataFilter = null;
             FilterLabel.Field = Field.AccountCode;
-            FilterLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            FilterLabel.Font = new System.Drawing.Font( "Roboto", 6.75F );
             FilterLabel.ForeColor = System.Drawing.Color.Black;
             FilterLabel.HoverText = null;
             FilterLabel.Margin = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
@@ -1075,7 +1075,7 @@
             RefreshDataButton.DataFilter = null;
             RefreshDataButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             RefreshDataButton.Field = Field.AccountCode;
-            RefreshDataButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            RefreshDataButton.Font = new System.Drawing.Font( "Roboto", 9F );
             RefreshDataButton.ForeColor = System.Drawing.Color.LightGray;
             RefreshDataButton.HoverText = "Reset Query";
             RefreshDataButton.Image = Resources.Images.WebRefreshButton;
@@ -1104,7 +1104,7 @@
             RemoveFiltersButton.DataFilter = null;
             RemoveFiltersButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             RemoveFiltersButton.Field = Field.AccountCode;
-            RemoveFiltersButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            RemoveFiltersButton.Font = new System.Drawing.Font( "Roboto", 9F );
             RemoveFiltersButton.ForeColor = System.Drawing.Color.LightGray;
             RemoveFiltersButton.HoverText = "Filter Records";
             RemoveFiltersButton.Image = Resources.Images.FilterButton;
@@ -1133,7 +1133,7 @@
             GroupButton.DataFilter = null;
             GroupButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             GroupButton.Field = Field.AccountCode;
-            GroupButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            GroupButton.Font = new System.Drawing.Font( "Roboto", 9F );
             GroupButton.ForeColor = System.Drawing.Color.LightGray;
             GroupButton.HoverText = "Group Columns";
             GroupButton.Image = Resources.Images.GroupButton;
@@ -1160,7 +1160,7 @@
             ChartSpacerLabel.BindingSource = null;
             ChartSpacerLabel.DataFilter = null;
             ChartSpacerLabel.Field = Field.AccountCode;
-            ChartSpacerLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            ChartSpacerLabel.Font = new System.Drawing.Font( "Roboto", 6.75F );
             ChartSpacerLabel.ForeColor = System.Drawing.Color.Black;
             ChartSpacerLabel.HoverText = null;
             ChartSpacerLabel.Margin = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
@@ -1185,7 +1185,7 @@
             SeriesComboBox.BindingSource = BindingSource;
             SeriesComboBox.DataFilter = null;
             SeriesComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            SeriesComboBox.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            SeriesComboBox.Font = new System.Drawing.Font( "Roboto", 8F );
             SeriesComboBox.ForeColor = System.Drawing.Color.FromArgb( 218, 218, 218 );
             SeriesComboBox.HoverText = "Select Chart Type";
             SeriesComboBox.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
@@ -1212,7 +1212,7 @@
             MetricsLabel.BindingSource = null;
             MetricsLabel.DataFilter = null;
             MetricsLabel.Field = Field.AccountCode;
-            MetricsLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            MetricsLabel.Font = new System.Drawing.Font( "Roboto", 6.75F );
             MetricsLabel.ForeColor = System.Drawing.Color.Black;
             MetricsLabel.HoverText = null;
             MetricsLabel.Margin = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
@@ -1237,7 +1237,7 @@
             MetricsComboBox.BindingSource = BindingSource;
             MetricsComboBox.DataFilter = null;
             MetricsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            MetricsComboBox.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            MetricsComboBox.Font = new System.Drawing.Font( "Roboto", 8.25F );
             MetricsComboBox.ForeColor = System.Drawing.Color.FromArgb( 218, 218, 218 );
             MetricsComboBox.HoverText = "Choose Metric";
             MetricsComboBox.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
@@ -1260,7 +1260,7 @@
             ExitButton.DataFilter = null;
             ExitButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             ExitButton.Field = Field.AccountCode;
-            ExitButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            ExitButton.Font = new System.Drawing.Font( "Roboto", 9F );
             ExitButton.ForeColor = System.Drawing.Color.LightGray;
             ExitButton.HoverText = "Exit Application";
             ExitButton.Image = Resources.Images.ShutdownButton;
@@ -1291,7 +1291,7 @@
             MenuButton.DataFilter = null;
             MenuButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             MenuButton.Field = Field.AccountCode;
-            MenuButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            MenuButton.Font = new System.Drawing.Font( "Roboto", 9F );
             MenuButton.ForeColor = System.Drawing.Color.LightGray;
             MenuButton.HoverText = "Main Menu";
             MenuButton.Image = Resources.Images.HomeButton;
@@ -1320,7 +1320,7 @@
             ApplicationLabel.BindingSource = null;
             ApplicationLabel.DataFilter = null;
             ApplicationLabel.Field = Field.AccountCode;
-            ApplicationLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            ApplicationLabel.Font = new System.Drawing.Font( "Roboto", 6.75F );
             ApplicationLabel.ForeColor = System.Drawing.Color.Black;
             ApplicationLabel.HoverText = null;
             ApplicationLabel.Margin = new System.Windows.Forms.Padding( 10, 1, 3, 1 );
@@ -1361,7 +1361,7 @@
             FunctionLabel.BindingSource = null;
             FunctionLabel.DataFilter = null;
             FunctionLabel.Field = Field.AccountCode;
-            FunctionLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            FunctionLabel.Font = new System.Drawing.Font( "Roboto", 6.75F );
             FunctionLabel.ForeColor = System.Drawing.Color.Black;
             FunctionLabel.HoverText = null;
             FunctionLabel.Margin = new System.Windows.Forms.Padding( 1 );
@@ -1386,7 +1386,7 @@
             ChartSeriesLabel.BindingSource = null;
             ChartSeriesLabel.DataFilter = null;
             ChartSeriesLabel.Field = Field.AccountCode;
-            ChartSeriesLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            ChartSeriesLabel.Font = new System.Drawing.Font( "Roboto", 6.75F );
             ChartSeriesLabel.ForeColor = System.Drawing.Color.Black;
             ChartSeriesLabel.HoverText = null;
             ChartSeriesLabel.Margin = new System.Windows.Forms.Padding( 1 );
@@ -1446,18 +1446,18 @@
             // QueryTabControl
             // 
             QueryTabControl.ActiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            QueryTabControl.ActiveTabFont = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            QueryTabControl.ActiveTabFont = new System.Drawing.Font( "Roboto", 8F );
             QueryTabControl.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             QueryTabControl.BeforeTouchSize = new System.Drawing.Size( 271, 687 );
             QueryTabControl.BindingSource = null;
             QueryTabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             QueryTabControl.CanOverrideStyle = true;
             QueryTabControl.CloseButtonBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            QueryTabControl.Controls.Add( TableTabPage );
             QueryTabControl.Controls.Add( FilterTabPage );
             QueryTabControl.Controls.Add( GroupTabPage );
-            QueryTabControl.Controls.Add( TableTabPage );
             QueryTabControl.FocusOnTabClick = false;
-            QueryTabControl.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            QueryTabControl.Font = new System.Drawing.Font( "Roboto", 9F );
             QueryTabControl.ForeColor = System.Drawing.Color.LightGray;
             QueryTabControl.InactiveCloseButtonForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             QueryTabControl.InactiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
@@ -1475,7 +1475,7 @@
             QueryTabControl.ThemeStyle.PrimitiveButtonStyle.DisabledNextPageImage = null;
             QueryTabControl.ThemeStyle.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             QueryTabControl.ThemeStyle.TabStyle.ActiveBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            QueryTabControl.ThemeStyle.TabStyle.ActiveFont = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            QueryTabControl.ThemeStyle.TabStyle.ActiveFont = new System.Drawing.Font( "Roboto", 8F );
             QueryTabControl.ThemeStyle.TabStyle.ActiveForeColor = System.Drawing.Color.DarkGray;
             QueryTabControl.ThemeStyle.TabStyle.SeparatorColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             QueryTabControl.ToolTip = null;
@@ -1503,7 +1503,7 @@
             ThirdTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             ThirdTable.Controls.Add( ThirdComboBox, 0, 0 );
             ThirdTable.Controls.Add( ThirdListBoxPanel, 0, 1 );
-            ThirdTable.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            ThirdTable.Font = new System.Drawing.Font( "Roboto", 9F );
             ThirdTable.ForeColor = System.Drawing.Color.DarkGray;
             ThirdTable.Location = new System.Drawing.Point( 3, 440 );
             ThirdTable.Name = "ThirdTable";
@@ -1530,7 +1530,7 @@
             ThirdComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             ThirdComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             ThirdComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            ThirdComboBox.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            ThirdComboBox.Font = new System.Drawing.Font( "Roboto", 8F );
             ThirdComboBox.FormattingEnabled = true;
             ThirdComboBox.HoverText = null;
             ThirdComboBox.IsDerivedStyle = true;
@@ -1557,7 +1557,7 @@
             ThirdListBoxPanel.Children = null;
             ThirdListBoxPanel.Controls.Add( ThirdListBox );
             ThirdListBoxPanel.DataFilter = null;
-            ThirdListBoxPanel.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            ThirdListBoxPanel.Font = new System.Drawing.Font( "Roboto", 8F );
             ThirdListBoxPanel.ForeColor = System.Drawing.Color.Transparent;
             ThirdListBoxPanel.HoverText = null;
             ThirdListBoxPanel.IsDerivedStyle = true;
@@ -1580,7 +1580,7 @@
             ThirdListBox.DataFilter = null;
             ThirdListBox.DisabledBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             ThirdListBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            ThirdListBox.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            ThirdListBox.Font = new System.Drawing.Font( "Roboto", 8F );
             ThirdListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             ThirdListBox.HoveredItemColor = System.Drawing.Color.White;
             ThirdListBox.HoverText = null;
@@ -1616,13 +1616,13 @@
             FirstTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             FirstTable.Controls.Add( FirstComboBox, 0, 0 );
             FirstTable.Controls.Add( FirstListBoxPanel, 0, 1 );
-            FirstTable.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            FirstTable.Font = new System.Drawing.Font( "Roboto", 9F );
             FirstTable.ForeColor = System.Drawing.Color.DarkGray;
             FirstTable.Location = new System.Drawing.Point( 3, 3 );
             FirstTable.Name = "FirstTable";
             FirstTable.RowCount = 2;
-            FirstTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 22.2222214F ) );
-            FirstTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 77.77778F ) );
+            FirstTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 20.7729473F ) );
+            FirstTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 79.22705F ) );
             FirstTable.Size = new System.Drawing.Size( 242, 223 );
             FirstTable.TabIndex = 49;
             // 
@@ -1643,12 +1643,12 @@
             FirstComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             FirstComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             FirstComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            FirstComboBox.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            FirstComboBox.Font = new System.Drawing.Font( "Roboto", 8F );
             FirstComboBox.FormattingEnabled = true;
             FirstComboBox.HoverText = null;
             FirstComboBox.IsDerivedStyle = true;
             FirstComboBox.ItemHeight = 24;
-            FirstComboBox.Location = new System.Drawing.Point( 3, 29 );
+            FirstComboBox.Location = new System.Drawing.Point( 3, 26 );
             FirstComboBox.Name = "FirstComboBox";
             FirstComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             FirstComboBox.SelectedItemForeColor = System.Drawing.Color.White;
@@ -1671,14 +1671,14 @@
             FirstListBoxPanel.Controls.Add( FirstListBox );
             FirstListBoxPanel.DataFilter = null;
             FirstListBoxPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            FirstListBoxPanel.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            FirstListBoxPanel.Font = new System.Drawing.Font( "Roboto", 8F );
             FirstListBoxPanel.ForeColor = System.Drawing.Color.Transparent;
             FirstListBoxPanel.HoverText = null;
             FirstListBoxPanel.IsDerivedStyle = true;
-            FirstListBoxPanel.Location = new System.Drawing.Point( 3, 65 );
+            FirstListBoxPanel.Location = new System.Drawing.Point( 3, 62 );
             FirstListBoxPanel.Name = "FirstListBoxPanel";
             FirstListBoxPanel.Padding = new System.Windows.Forms.Padding( 1 );
-            FirstListBoxPanel.Size = new System.Drawing.Size( 236, 155 );
+            FirstListBoxPanel.Size = new System.Drawing.Size( 236, 158 );
             FirstListBoxPanel.Style = MetroSet_UI.Enums.Style.Custom;
             FirstListBoxPanel.StyleManager = null;
             FirstListBoxPanel.TabIndex = 1;
@@ -1694,7 +1694,7 @@
             FirstListBox.DataFilter = null;
             FirstListBox.DisabledBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             FirstListBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            FirstListBox.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            FirstListBox.Font = new System.Drawing.Font( "Roboto", 8F );
             FirstListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             FirstListBox.HoveredItemColor = System.Drawing.Color.White;
             FirstListBox.HoverText = null;
@@ -1730,7 +1730,7 @@
             SecondTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 20F ) );
             SecondTable.Controls.Add( SecondListBoxPanel, 0, 1 );
             SecondTable.Controls.Add( SecondComboBox, 0, 0 );
-            SecondTable.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            SecondTable.Font = new System.Drawing.Font( "Roboto", 9F );
             SecondTable.ForeColor = System.Drawing.Color.DarkGray;
             SecondTable.Location = new System.Drawing.Point( 3, 229 );
             SecondTable.Name = "SecondTable";
@@ -1751,7 +1751,7 @@
             SecondListBoxPanel.Controls.Add( SecondListBox );
             SecondListBoxPanel.DataFilter = null;
             SecondListBoxPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            SecondListBoxPanel.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            SecondListBoxPanel.Font = new System.Drawing.Font( "Roboto", 8F );
             SecondListBoxPanel.ForeColor = System.Drawing.Color.Transparent;
             SecondListBoxPanel.HoverText = null;
             SecondListBoxPanel.IsDerivedStyle = true;
@@ -1774,7 +1774,7 @@
             SecondListBox.DataFilter = null;
             SecondListBox.DisabledBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             SecondListBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            SecondListBox.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            SecondListBox.Font = new System.Drawing.Font( "Roboto", 8F );
             SecondListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             SecondListBox.HoveredItemColor = System.Drawing.Color.White;
             SecondListBox.HoverText = null;
@@ -1818,7 +1818,7 @@
             SecondComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             SecondComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             SecondComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            SecondComboBox.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            SecondComboBox.Font = new System.Drawing.Font( "Roboto", 8F );
             SecondComboBox.FormattingEnabled = true;
             SecondComboBox.HoverText = null;
             SecondComboBox.IsDerivedStyle = true;
@@ -1856,7 +1856,7 @@
             NumericTable.ColumnCount = 1;
             NumericTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             NumericTable.Controls.Add( NumericPanel, 0, 1 );
-            NumericTable.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            NumericTable.Font = new System.Drawing.Font( "Roboto", 9F );
             NumericTable.ForeColor = System.Drawing.Color.DarkGray;
             NumericTable.Location = new System.Drawing.Point( 3, 341 );
             NumericTable.Name = "NumericTable";
@@ -1877,7 +1877,7 @@
             NumericPanel.Controls.Add( NumericListBox );
             NumericPanel.DataFilter = null;
             NumericPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            NumericPanel.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            NumericPanel.Font = new System.Drawing.Font( "Roboto", 8F );
             NumericPanel.ForeColor = System.Drawing.Color.Transparent;
             NumericPanel.HoverText = null;
             NumericPanel.IsDerivedStyle = true;
@@ -1900,7 +1900,7 @@
             NumericListBox.DataFilter = null;
             NumericListBox.DisabledBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             NumericListBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            NumericListBox.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            NumericListBox.Font = new System.Drawing.Font( "Roboto", 8F );
             NumericListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             NumericListBox.HoveredItemColor = System.Drawing.Color.White;
             NumericListBox.HoverText = null;
@@ -1935,7 +1935,7 @@
             FieldTable.ColumnCount = 1;
             FieldTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             FieldTable.Controls.Add( FieldPanel, 0, 1 );
-            FieldTable.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            FieldTable.Font = new System.Drawing.Font( "Roboto", 9F );
             FieldTable.ForeColor = System.Drawing.Color.DarkGray;
             FieldTable.Location = new System.Drawing.Point( 3, 3 );
             FieldTable.Name = "FieldTable";
@@ -1956,7 +1956,7 @@
             FieldPanel.Controls.Add( FieldListBox );
             FieldPanel.DataFilter = null;
             FieldPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            FieldPanel.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            FieldPanel.Font = new System.Drawing.Font( "Roboto", 8F );
             FieldPanel.ForeColor = System.Drawing.Color.Transparent;
             FieldPanel.HoverText = null;
             FieldPanel.IsDerivedStyle = true;
@@ -1979,7 +1979,7 @@
             FieldListBox.DataFilter = null;
             FieldListBox.DisabledBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             FieldListBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            FieldListBox.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            FieldListBox.Font = new System.Drawing.Font( "Roboto", 8F );
             FieldListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             FieldListBox.HoveredItemColor = System.Drawing.Color.White;
             FieldListBox.HoverText = null;
@@ -2027,7 +2027,7 @@
             SourcePanel.ColumnCount = 1;
             SourcePanel.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             SourcePanel.Controls.Add( TableListBoxPanel, 0, 1 );
-            SourcePanel.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            SourcePanel.Font = new System.Drawing.Font( "Roboto", 9F );
             SourcePanel.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             SourcePanel.Location = new System.Drawing.Point( 3, 3 );
             SourcePanel.Name = "SourcePanel";
@@ -2048,7 +2048,7 @@
             TableListBoxPanel.Controls.Add( TableListBox );
             TableListBoxPanel.DataFilter = null;
             TableListBoxPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            TableListBoxPanel.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            TableListBoxPanel.Font = new System.Drawing.Font( "Roboto", 8F );
             TableListBoxPanel.ForeColor = System.Drawing.Color.Transparent;
             TableListBoxPanel.HoverText = null;
             TableListBoxPanel.IsDerivedStyle = true;
@@ -2071,7 +2071,7 @@
             TableListBox.DataFilter = null;
             TableListBox.DisabledBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TableListBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            TableListBox.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            TableListBox.Font = new System.Drawing.Font( "Roboto", 8F );
             TableListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             TableListBox.HoveredItemColor = System.Drawing.Color.White;
             TableListBox.HoverText = null;
@@ -2089,7 +2089,7 @@
             TableListBox.SelectedText = null;
             TableListBox.SelectedValue = null;
             TableListBox.ShowBorder = false;
-            TableListBox.ShowScrollBar = true;
+            TableListBox.ShowScrollBar = false;
             TableListBox.Size = new System.Drawing.Size( 188, 589 );
             TableListBox.Style = MetroSet_UI.Enums.Style.Custom;
             TableListBox.StyleManager = null;
@@ -2107,7 +2107,7 @@
             ChartHeaderPanel.ColumnCount = 1;
             ChartHeaderPanel.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             ChartHeaderPanel.Controls.Add( AreaTable, 0, 1 );
-            ChartHeaderPanel.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            ChartHeaderPanel.Font = new System.Drawing.Font( "Roboto", 9F );
             ChartHeaderPanel.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             ChartHeaderPanel.Location = new System.Drawing.Point( 12, 36 );
             ChartHeaderPanel.Name = "ChartHeaderPanel";
@@ -2152,7 +2152,7 @@
             HeaderLabel1.DataFilter = null;
             HeaderLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
             HeaderLabel1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            HeaderLabel1.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            HeaderLabel1.Font = new System.Drawing.Font( "Roboto", 8F );
             HeaderLabel1.HoverText = null;
             HeaderLabel1.IsDerivedStyle = true;
             HeaderLabel1.Location = new System.Drawing.Point( 123, 3 );
@@ -2175,7 +2175,7 @@
             HeaderLabel2.DataFilter = null;
             HeaderLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
             HeaderLabel2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            HeaderLabel2.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            HeaderLabel2.Font = new System.Drawing.Font( "Roboto", 8F );
             HeaderLabel2.HoverText = null;
             HeaderLabel2.IsDerivedStyle = true;
             HeaderLabel2.Location = new System.Drawing.Point( 523, 3 );
@@ -2198,7 +2198,7 @@
             HeaderLabel3.DataFilter = null;
             HeaderLabel3.Dock = System.Windows.Forms.DockStyle.Fill;
             HeaderLabel3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            HeaderLabel3.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            HeaderLabel3.Font = new System.Drawing.Font( "Roboto", 8F );
             HeaderLabel3.HoverText = null;
             HeaderLabel3.IsDerivedStyle = true;
             HeaderLabel3.Location = new System.Drawing.Point( 907, 3 );
@@ -2242,14 +2242,14 @@
             CaptionBarHeight = 5;
             CaptionButtonColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            CaptionFont = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            CaptionFont = new System.Drawing.Font( "Roboto", 9.75F );
             CaptionForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             ClientSize = new System.Drawing.Size( 1338, 739 );
             Controls.Add( ToolStripTable );
             Controls.Add( ChartHeaderTable );
             Controls.Add( ChartHeaderPanel );
             Controls.Add( QueryTabControl );
-            Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            Font = new System.Drawing.Font( "Roboto", 9F );
             ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );

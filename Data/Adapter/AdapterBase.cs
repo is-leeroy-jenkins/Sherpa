@@ -60,6 +60,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MergeConditionalExpression" ) ]
     public class AdapterBase : DbDataAdapter, ISource, IProvider
     {
         /// <summary>
@@ -172,8 +173,10 @@ namespace BudgetExecution
             CommandText = sqlStatement.CommandText;
         }
 
-        /// <summary> Gets the sq lite adapter. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the sq lite adapter.
+        /// </summary>
+        /// <returns></returns>
         private protected SQLiteDataAdapter GetSQLiteAdapter( )
         {
             try
@@ -205,8 +208,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the SQL adapter. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the SQL adapter.
+        /// </summary>
+        /// <returns></returns>
         private protected SqlDataAdapter GetSqlAdapter( )
         {
             try
@@ -260,12 +265,12 @@ namespace BudgetExecution
                     _adapter.InsertCommand = _builder.GetInsertCommand( );
                     _adapter.UpdateCommand = _builder.GetUpdateCommand( );
                     _adapter.DeleteCommand = _builder.GetDeleteCommand( );
-                    return _adapter;
+                    return ( _adapter != null )
+                        ? _adapter
+                        : default( OleDbDataAdapter );
                 }
-                else
-                {
-                    return _adapter;
-                }
+
+                return default( OleDbDataAdapter );
             }
             catch( Exception _ex )
             {

@@ -4,7 +4,7 @@
 //     Created:                 06-24-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        11-22-2023
+//     Last Modified On:        11-30-2023
 // ******************************************************************************************
 // <copyright file="Terry Eppler.cs" company="Terry D. Eppler">
 //    BudgetExecution is a Federal Budget, Finance, and Accounting application for the
@@ -35,12 +35,6 @@
 // </copyright>
 // <summary>
 //   ConnectionFactory.cs.cs
-// </summary>
-// ******************************************************************************************
-
-// </copyright>
-// <summary>
-//   ConnectionFactory.cs
 // </summary>
 // ******************************************************************************************
 
@@ -113,9 +107,11 @@ namespace BudgetExecution
         {
         }
 
-        /// <inheritdoc/>
-        /// <summary> Gets the connection. </summary>
-        /// <returns> </returns>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets the connection.
+        /// </summary>
+        /// <returns></returns>
         public DbConnection GetConnection( )
         {
             try
@@ -142,6 +138,10 @@ namespace BudgetExecution
                         case Provider.Text:
                         case Provider.Access:
                         case Provider.OleDb:
+                        {
+                            return new OleDbConnection( _connectionString );
+                        }
+                        default:
                         {
                             return new OleDbConnection( _connectionString );
                         }

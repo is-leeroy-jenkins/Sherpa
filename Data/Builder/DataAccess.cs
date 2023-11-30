@@ -258,7 +258,6 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.Null( SqlStatement, "SqlStatement" );
                 var _clock = Stopwatch.StartNew( );
                 _dataSet = new DataSet( $"{Source}" );
                 _dataTable = new DataTable( $"{Source}" );
@@ -285,8 +284,7 @@ namespace BudgetExecution
         /// </summary>
         /// <returns></returns>
         private protected Task<DataTable> GetTableAsync( )
-        {
-            ThrowIf.Null( SqlStatement, "SqlStatement" );
+        { 
             var _tcs = new TaskCompletionSource<DataTable>( );
             try
             {
@@ -319,7 +317,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.Null( dataTable, dataTable.TableName );
+                ThrowIf.Null( dataTable, nameof( dataTable ) );
                 foreach( DataColumn _column in dataTable?.Columns )
                 {
                     if( _column != null )
@@ -349,14 +347,11 @@ namespace BudgetExecution
                     _dataTable = GetDataTable( );
                 }
 
-                if( _dataTable != null )
+                foreach( DataColumn _col in _dataTable.Columns )
                 {
-                    foreach( DataColumn _col in _dataTable.Columns )
+                    if( _col.DataType == typeof( string ) )
                     {
-                        if( _col.DataType == typeof( string ) )
-                        {
-                            _list.Add( _col.ColumnName );
-                        }
+                        _list.Add( _col.ColumnName );
                     }
                 }
 

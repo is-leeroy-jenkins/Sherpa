@@ -107,6 +107,10 @@ namespace BudgetExecution
                         {
                             return GetOleDbAdapter( );
                         }
+                        default:
+                        {
+                            return GetOleDbAdapter( );
+                        }
                     }
                 }
                 catch( Exception _ex )

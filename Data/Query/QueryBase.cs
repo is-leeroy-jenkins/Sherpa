@@ -38,18 +38,17 @@
 // </summary>
 // ******************************************************************************************
 
-using System;
-using System.Collections.Generic;
-using System.Data.Common;
-using System.Data.OleDb;
-using System.Data.SqlClient;
-using System.Data.SQLite;
-using System.Data.SqlServerCe;
-using System.Diagnostics.CodeAnalysis;
-
 namespace BudgetExecution
 {
     using System;
+    using System;
+    using System.Collections.Generic;
+    using System.Data.Common;
+    using System.Data.OleDb;
+    using System.Data.SqlClient;
+    using System.Data.SQLite;
+    using System.Data.SqlServerCe;
+    using System.Diagnostics.CodeAnalysis;
 
     /// <inheritdoc/>
     /// <summary> </summary>
@@ -57,41 +56,75 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MergeConditionalExpression" ) ]
     public abstract class QueryBase : IDisposable
     {
-        /// <summary> Gets or sets the source. </summary>
-        /// <value> The source. </value>
+        /// <summary>
+        /// Gets or sets the source.
+        /// </summary>
+        /// <value>
+        /// The source.
+        /// </value>
         public virtual Source Source { get; set; }
 
-        /// <summary> Gets or sets the provider. </summary>
-        /// <value> The provider. </value>
+        /// <summary>
+        /// Gets or sets the provider.
+        /// </summary>
+        /// <value>
+        /// The provider.
+        /// </value>
         public virtual Provider Provider { get; set; }
 
-        /// <summary> Gets or sets the type of the command. </summary>
-        /// <value> The type of the command. </value>
+        /// <summary>
+        /// Gets or sets the type of the command.
+        /// </summary>
+        /// <value>
+        /// The type of the command.
+        /// </value>
         public virtual SQL CommandType { get; set; }
 
-        /// <summary> Gets or sets the criteria. </summary>
-        /// <value> The criteria. </value>
+        /// <summary>
+        /// Gets or sets the criteria.
+        /// </summary>
+        /// <value>
+        /// The criteria.
+        /// </value>
         public virtual IDictionary<string, object> Criteria { get; set; }
 
-        /// <summary> Gets or sets the SQL statement. </summary>
-        /// <value> The SQL statement. </value>
+        /// <summary>
+        /// Gets or sets the SQL statement.
+        /// </summary>
+        /// <value>
+        /// The SQL statement.
+        /// </value>
         public virtual ISqlStatement SqlStatement { get; set; }
 
-        /// <summary> Gets or sets the connection factory. </summary>
-        /// <value> The connection factory. </value>
+        /// <summary>
+        /// Gets or sets the connection factory.
+        /// </summary>
+        /// <value>
+        /// The connection factory.
+        /// </value>
         public virtual IConnectionFactory ConnectionFactory { get; set; }
 
-        /// <summary> Gets or sets the data connection. </summary>
-        /// <value> The data connection. </value>
+        /// <summary>
+        /// Gets or sets the data connection.
+        /// </summary>
+        /// <value>
+        /// The data connection.
+        /// </value>
         public virtual DbConnection DataConnection { get; set; }
 
-        /// <summary> Gets or sets the data adapter. </summary>
-        /// <value> The data adapter. </value>
+        /// <summary>
+        /// Gets or sets the data adapter.
+        /// </summary>
+        /// <value>
+        /// The data adapter.
+        /// </value>
         public virtual DbDataAdapter DataAdapter { get; set; }
 
-        /// <summary> Gets or sets a value indicating whether this instance is disposed. </summary>
+        /// <summary> Gets or sets a value indicating
+        /// whether this instance is disposed. </summary>
         /// <value>
         /// <c> true </c>
         /// if this instance is disposed; otherwise,
@@ -100,8 +133,12 @@ namespace BudgetExecution
         /// </value>
         public virtual bool IsDisposed { get; set; }
 
-        /// <summary> Gets or sets the data reader. </summary>
-        /// <value> The data reader. </value>
+        /// <summary>
+        /// Gets or sets the data reader.
+        /// </summary>
+        /// <value>
+        /// The data reader.
+        /// </value>
         public virtual DbDataReader DataReader { get; set; }
 
         /// <summary>
@@ -308,8 +345,10 @@ namespace BudgetExecution
             IsDisposed = false;
         }
 
-        /// <summary> Gets the adapter. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the adapter.
+        /// </summary>
+        /// <returns></returns>
         public virtual DbDataAdapter GetAdapter( )
         {
             if( Enum.IsDefined( typeof( Provider ), Provider )
@@ -317,6 +356,8 @@ namespace BudgetExecution
             {
                 try
                 {
+                    var _sqlText = SqlStatement.CommandText;
+                    var _connString = DataConnection.ConnectionString;
                     switch( Provider )
                     {
                         case Provider.Excel:
@@ -324,28 +365,38 @@ namespace BudgetExecution
                         case Provider.OleDb:
                         case Provider.Access:
                         {
-                            var _adapter = new AdapterFactory( SqlStatement );
-                            return _adapter?.GetAdapter( ) as OleDbDataAdapter;
+                            var _adapter = new OleDbDataAdapter( _sqlText, _connString );
+                            return (_adapter != null )
+                                ? _adapter 
+                                : default( OleDbDataAdapter );
                         }
                         case Provider.SQLite:
                         {
-                            var _builder = new AdapterFactory( SqlStatement );
-                            return _builder?.GetAdapter( ) as SQLiteDataAdapter;
+                            var _adapter = new SQLiteDataAdapter( _sqlText, _connString );
+                            return ( _adapter != null )
+                                ? _adapter
+                                : default( SQLiteDataAdapter );
                         }
                         case Provider.SqlCe:
                         {
-                            var _builder = new AdapterFactory( SqlStatement );
-                            return _builder?.GetAdapter( ) as SqlCeDataAdapter;
+                            var _adapter = new SqlCeDataAdapter( _sqlText, _connString );
+                            return ( _adapter != null )
+                                ? _adapter
+                                : default( SqlCeDataAdapter );
                         }
                         case Provider.SqlServer:
                         {
-                            var _builder = new AdapterFactory( SqlStatement );
-                            return _builder?.GetAdapter( ) as SqlDataAdapter;
+                            var _adapter = new SqlDataAdapter( _sqlText, _connString );
+                            return ( _adapter != null )
+                                ? _adapter
+                                : default( SqlDataAdapter );
                         }
                         default:
                         {
-                            var _builder = new AdapterFactory( SqlStatement );
-                            return _builder?.GetAdapter( ) as OleDbDataAdapter;
+                            var _adapter = new OleDbDataAdapter( _sqlText, _connString );
+                            return ( _adapter != null )
+                                ? _adapter
+                                : default( OleDbDataAdapter );
                         }
                     }
                 }

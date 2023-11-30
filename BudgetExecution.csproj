@@ -109,7 +109,11 @@
     <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
     <PackageReference Include="System.Data.OleDb" Version="8.0.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+    <PackageReference Include="System.Data.SQLite" Version="1.0.118" />
+    <PackageReference Include="System.Data.SQLite.Core" Version="1.0.118" />
+    <PackageReference Include="System.Data.SQLite.EF6" Version="1.0.118" />
     <PackageReference Include="System.Data.SqlServerCe_unofficial" Version="4.0.8482.1" />
+    <PackageReference Include="System.Drawing.Common" Version="8.0.0" />
     <PackageReference Include="WinForms.DataVisualization" Version="1.9.1" />
     <PackageReference Include="WinFormsMapControl" Version="1.1.0" />
     <PackageReference Include="Zeroit.Framework.BasicCharts" Version="1.0.0" />
@@ -261,12 +265,6 @@
     <Reference Include="Syncfusion.SpellChecker.Base">
       <HintPath>Libraries\Syncfusion.SpellChecker.Base.dll</HintPath>
     </Reference>
-    <Reference Include="System.Data.Common">
-      <HintPath>Libraries\System.Data.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Data.DataSetExtensions">
-      <HintPath>Libraries\System.Data.DataSetExtensions.dll</HintPath>
-    </Reference>
     <Reference Include="System.Data.Entity">
       <HintPath>Libraries\System.Data.Entity.dll</HintPath>
       <Private>True</Private>
@@ -277,10 +275,6 @@
     </Reference>
     <Reference Include="System.Data.Linq">
       <HintPath>Libraries\System.Data.Linq.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Data.OleDb">
-      <HintPath>Libraries\System.Data.OleDb.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Data.SqlClient">
