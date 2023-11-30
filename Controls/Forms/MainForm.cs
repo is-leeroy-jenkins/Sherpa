@@ -140,7 +140,6 @@ namespace BudgetExecution
             Load += OnLoad;
             Shown += OnShown;
             MouseClick += OnRightClick;
-            VisibleChanged += OnVisibleChanged;
         }
 
         /// <summary>
@@ -1055,7 +1054,6 @@ namespace BudgetExecution
         {
             try
             {
-                FadeOut( );
                 Close( );
                 Application.Exit( );
             }
@@ -1065,27 +1063,6 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Called when [visible changed].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnVisibleChanged( object sender, EventArgs e )
-        {
-            try
-            {
-                var _form = sender as MainForm;
-                if( _form.Visible == false )
-                {
-                    FadeIn( );
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
 
         /// <summary>
         /// Fails the specified ex.

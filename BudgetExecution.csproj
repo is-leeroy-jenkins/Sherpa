@@ -4,10 +4,8 @@
     <OutputType>WinExe</OutputType>
     <UseWindowsForms>true</UseWindowsForms>
     <StartupObject>BudgetExecution.Program</StartupObject>
-    <ApplicationIcon>Resources\Pictures\Forms\Application.ico</ApplicationIcon>
     <Nullable>disable</Nullable>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageIcon>BudExNinja.png</PackageIcon>
     <AnalysisLevel>6.0-minimum</AnalysisLevel>
     <LangVersion>10</LangVersion>
     <TargetFramework>net6.0-windows7.0</TargetFramework>
@@ -16,7 +14,6 @@
     <Company>US EPA</Company>
     <Product>BudgetExecution</Product>
     <RepositoryUrl>https://github.com/KarmaScripter/BudgetExecution</RepositoryUrl>
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <AutoGenerateBindingRedirects>True</AutoGenerateBindingRedirects>
     <IsPublishable>False</IsPublishable>
     <RunAnalyzersDuringLiveAnalysis>True</RunAnalyzersDuringLiveAnalysis>
@@ -26,10 +23,14 @@
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <BaseIntermediateOutputPath>Obj\</BaseIntermediateOutputPath>
     <BaseOutputPath>Bin\</BaseOutputPath>
-    <RunAnalyzersDuringBuild>False</RunAnalyzersDuringBuild>
+    <RunAnalyzersDuringBuild>True</RunAnalyzersDuringBuild>
     <IncludeSymbols>True</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <PackageProjectUrl>https://github.com/KarmaScripter/BudgetExecution</PackageProjectUrl>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <Title>Budget Execution</Title>
+    <PackageIcon>Application.png</PackageIcon>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702;2201;1051;CA1200;CA1310;CA1305;1822;CA1716;CA1812;CA1304</NoWarn>
@@ -72,6 +73,7 @@
     <PackageReference Include="Microsoft.Office.Interop.Excel" Version="15.0.4795.1001" />
     <PackageReference Include="Microsoft.Office.Interop.Outlook" Version="15.0.4797.1004" />
     <PackageReference Include="MSChartExtension" Version="3.10.2" />
+    <PackageReference Include="NETStandard.Library" Version="2.0.0" />
     <PackageReference Include="Ookii.Dialogs.WinForms" Version="4.0.0" />
     <PackageReference Include="ScottPlot.WinForms" Version="5.0.9-beta" />
     <PackageReference Include="Syncfusion.BulletGraph.Windows" Version="23.1.36" />
@@ -115,7 +117,9 @@
     <PackageReference Include="System.Data.SQLite.Linq" Version="1.0.118" />
     <PackageReference Include="System.Data.SqlServerCe_unofficial" Version="4.0.8482.1" />
     <PackageReference Include="System.Drawing.Common" Version="8.0.0" />
+    <PackageReference Include="System.Linq" Version="4.3.0" />
     <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
+    <PackageReference Include="System.Xml.XDocument" Version="4.3.0" />
     <PackageReference Include="WinForms.DataVisualization" Version="1.9.1" />
     <PackageReference Include="WinFormsMapControl" Version="1.1.0" />
     <PackageReference Include="Zeroit.Framework.BasicCharts" Version="1.0.0" />
@@ -314,10 +318,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Update="README.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-    <None Update="Resources\Pictures\Ninja\png\BudExNinja.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>

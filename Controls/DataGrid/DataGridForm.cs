@@ -317,7 +317,6 @@ namespace BudgetExecution
             // Form Event Wiring
             Load += OnLoad;
             MouseClick += OnRightClick;
-            Closing += OnClosing;
         }
 
         /// <inheritdoc />
@@ -2373,25 +2372,6 @@ namespace BudgetExecution
         private void OnTimerTick( object sender, EventArgs e )
         {
             InvokeIf( _statusUpdate );
-        }
-
-        /// <summary>
-        /// Raises the Close event.
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        public void OnClosing( object sender, EventArgs e )
-        {
-            try
-            {
-                ClearSelections( );
-                ClearCollections( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
         }
 
         /// <summary>

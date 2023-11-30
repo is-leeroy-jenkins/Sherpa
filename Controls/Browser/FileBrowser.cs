@@ -737,7 +737,8 @@ namespace BudgetExecution
         /// Called when [find button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private protected virtual void OnFindButtonClicked( object sender, EventArgs e )
         {
             if( sender is Button )
@@ -771,7 +772,8 @@ namespace BudgetExecution
         /// Called when [close button clicked].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private protected virtual void OnCloseButtonClicked( object sender, EventArgs e )
         {
             if( sender is Button )
