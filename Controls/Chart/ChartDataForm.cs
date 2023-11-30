@@ -1154,7 +1154,11 @@ namespace BudgetExecution
         {
             try
             {
-                SetSeries( );
+                var _table = DataTable.Rows;
+                var _binding = new ChartDataBindModel( DataTable );
+                _binding.YNames = Numerics.ToArray( );
+                _binding.XName = Fields.FirstOrDefault( );
+                Chart.Series[ 0 ].SeriesModel = _binding;
             }
             catch( Exception ex )
             {
@@ -1632,22 +1636,24 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the series.
         /// </summary>
-        private void SetSeries( )
+        private void InitializeSeries( )
         {
             try
             {
                 var _borderColor = Color.FromArgb( 0, 120, 212 );
                 var _textColor = Color.FromArgb( 106, 189, 252 );
-                var _font = new Font( "Roboto", 8 );
-                var _rows = DataTable.AsEnumerable( );
-                var _count = (double)_rows.Count( );
-                var _binding = new ChartDataBindModel( );
-                _binding.DataSource = DataTable;
-                _binding.XIndex = 0;
-                _binding.YNames = Numerics.ToArray( );
-                Chart.Series[ 0 ].SeriesModel = _binding;
+                var _font = new Font( "Roboto", 7 );
                 Chart.Series[ 0 ].Visible = true;
                 Chart.Series[ 0 ].EnableStyles = true;
+                Chart.Series[ 0 ].EnableAreaToolTip = true;
+                Chart.Series[ 0 ].ActualXAxis.Font = new Font( "Roboto", 8 );
+                Chart.Series[ 0 ].ActualXAxis.AxisLabelPlacement = ChartPlacement.Outside;
+                Chart.Series[ 0 ].ActualXAxis.ForeColor = _borderColor;
+                Chart.Series[ 0 ].ActualXAxis.ValueType = ChartValueType.Category;
+                Chart.Series[ 0 ].ActualYAxis.Font = new Font( "Roboto", 8 );
+                Chart.Series[ 0 ].ActualYAxis.ForeColor = _borderColor;
+                Chart.Series[ 0 ].ActualYAxis.AxisLabelPlacement = ChartPlacement.Outside;
+                Chart.Series[ 0 ].ActualYAxis.ValueType = ChartValueType.Double;
                 Chart.Series[ 0 ].Type = ChartSeriesType.Column;
                 Chart.Series[ 0 ].SmartLabels = true;
                 Chart.Series[ 0 ].SmartLabelsBorderColor = _borderColor;
@@ -1723,6 +1729,7 @@ namespace BudgetExecution
                 InitializeTitle( );
                 InitializeLabels( );
                 InitializeToolTips( );
+                InitializeSeries( );
                 Filter = new Dictionary<string, object>( );
                 SelectedColumns = new List<string>( );
                 SelectedFields = new List<string>( );
