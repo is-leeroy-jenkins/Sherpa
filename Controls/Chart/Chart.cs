@@ -61,9 +61,10 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     public class Chart : ChartControl
     {
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Chart"/>
+        /// <see cref="T:BudgetExecution.Chart" />
         /// class.
         /// </summary>
         public Chart( )

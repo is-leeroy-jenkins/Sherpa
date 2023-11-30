@@ -424,7 +424,7 @@ namespace BudgetExecution
         {
             try
             {
-                Chart.Titles[ 0 ].Font = new Font( "Roboto", 10, FontStyle.Bold );
+                Chart.Titles[ 0 ].Font = new Font( "Roboto", 10, FontStyle.Regular );
                 Chart.Titles[ 0 ].BackColor = Color.FromArgb( 20, 20, 20 );
                 Chart.Titles[ 0 ].ForeColor = Color.FromArgb( 106, 189, 252 );
             }
@@ -441,59 +441,46 @@ namespace BudgetExecution
         {
             try
             {
-                var _metricFont = new Font( "Roboto", 7 );
-                var _sqlFont = new Font( "Roboto", 7 );
+                var _font = new Font( "Roboto", 7 );
                 var _foreColor = Color.FromArgb( 106, 189, 252 );
                 var _backColor = Color.Transparent;
-                HeaderLabel1.Font = _sqlFont;
-                HeaderLabel1.ForeColor = _foreColor;
-                HeaderLabel1.BackColor = _backColor;
-                HeaderLabel1.Text = string.Empty;
-                HeaderLabel2.Font = _sqlFont;
-                HeaderLabel2.ForeColor = _foreColor;
-                HeaderLabel2.BackColor = _backColor;
-                HeaderLabel2.Text = string.Empty;
-                HeaderLabel3.Font = _sqlFont;
-                HeaderLabel3.ForeColor = _foreColor;
-                HeaderLabel3.BackColor = _backColor;
-                HeaderLabel3.Text = string.Empty;
-                MetricsLabel1.Font = _metricFont;
+                MetricsLabel1.Font = _font;
                 MetricsLabel1.ForeColor = _foreColor;
                 MetricsLabel1.Text = string.Empty;
-                MetricsLabel2.Font = _metricFont;
+                MetricsLabel2.Font = _font;
                 MetricsLabel2.ForeColor = _foreColor;
                 MetricsLabel2.Text = string.Empty;
-                MetricsLabel3.Font = _metricFont;
+                MetricsLabel3.Font = _font;
                 MetricsLabel3.ForeColor = _foreColor;
                 MetricsLabel3.Text = string.Empty;
-                MetricsLabel4.Font = _metricFont;
+                MetricsLabel4.Font = _font;
                 MetricsLabel4.ForeColor = _foreColor;
                 MetricsLabel4.Text = string.Empty;
-                MetricsLabel5.Font = _metricFont;
+                MetricsLabel5.Font = _font;
                 MetricsLabel5.ForeColor = _foreColor;
                 MetricsLabel5.Text = string.Empty;
-                MetricsLabel6.Font = _metricFont;
+                MetricsLabel6.Font = _font;
                 MetricsLabel6.ForeColor = _foreColor;
                 MetricsLabel6.Text = string.Empty;
-                MetricsLabel7.Font = _metricFont;
+                MetricsLabel7.Font = _font;
                 MetricsLabel7.ForeColor = _foreColor;
                 MetricsLabel7.Text = string.Empty;
-                MetricsLabel8.Font = _metricFont;
+                MetricsLabel8.Font = _font;
                 MetricsLabel8.ForeColor = _foreColor;
                 MetricsLabel8.Text = string.Empty;
-                MetricsLabel9.Font = _metricFont;
+                MetricsLabel9.Font = _font;
                 MetricsLabel9.ForeColor = _foreColor;
                 MetricsLabel9.Text = string.Empty;
-                MetricsLabel10.Font = _metricFont;
+                MetricsLabel10.Font = _font;
                 MetricsLabel10.ForeColor = _foreColor;
                 MetricsLabel10.Text = string.Empty;
-                MetricsLabel11.Font = _metricFont;
+                MetricsLabel11.Font = _font;
                 MetricsLabel11.ForeColor = _foreColor;
                 MetricsLabel11.Text = string.Empty;
-                MetricsLabel12.Font = _metricFont;
+                MetricsLabel12.Font = _font;
                 MetricsLabel12.ForeColor = _foreColor;
                 MetricsLabel12.Text = string.Empty;
-                CommandLabel.Font = _sqlFont;
+                CommandLabel.Font = _font;
                 CommandLabel.ForeColor = _foreColor;
                 CommandLabel.Text = string.Empty;
                 CommandLabel.TextAlign = ContentAlignment.TopLeft;
@@ -636,6 +623,8 @@ namespace BudgetExecution
                 GroupButton.Click += OnGroupButtonClicked;
                 FieldListBox.SelectedIndexChanged += OnFieldListBoxSelectedValueChanged;
                 NumericListBox.SelectedIndexChanged += OnNumericListBoxSelectedValueChanged;
+                SeriesComboBox.SelectedIndexChanged += OnChartTypeSelected;
+                MetricsComboBox.SelectedIndexChanged += OnMetricSelected;
             }
             catch( Exception _ex )
             {
@@ -1165,11 +1154,7 @@ namespace BudgetExecution
         {
             try
             {
-                if( SelectedFields?.Any( ) == true
-                   && SelectedNumerics?.Any( ) == true )
-                {
-                    Chart.Refresh( );
-                }
+                SetSeries( );
             }
             catch( Exception ex )
             {
@@ -1467,9 +1452,6 @@ namespace BudgetExecution
                     var _numerics = DataModel.Numerics?.Count ?? 0;
                     var _selectedFields = SelectedFields?.Count ?? 0;
                     var _selectedNumerics = SelectedNumerics?.Count ?? 0;
-                    HeaderLabel1.Text = $"DB Provider: {Provider}";
-                    HeaderLabel2.Text = $"Data Table: {_table}";
-                    HeaderLabel3.Text = string.Empty;
                     MetricsLabel1.Text = $"Data Records:  {_records}";
                     MetricsLabel2.Text = $"Total Fields:  {_fields}";
                     MetricsLabel3.Text = $"Total Measures:  {_numerics}";
@@ -1480,9 +1462,6 @@ namespace BudgetExecution
                 }
                 else
                 {
-                    HeaderLabel1.Text = string.Empty;
-                    HeaderLabel2.Text = string.Empty;
-                    HeaderLabel3.Text = string.Empty;
                     MetricsLabel1.Text = "Data Records: 0.0";
                     MetricsLabel2.Text = "Total Fields: 0.0";
                     MetricsLabel3.Text = "Total Measures: 0.0";
@@ -1582,6 +1561,9 @@ namespace BudgetExecution
                     {
                         ChartType =
                             (ChartSeriesType)Enum.Parse( typeof( ChartSeriesType ), type );
+
+                        var _message = "The Chart Type has been changed!";
+                        SendNotification( _message );
                     }
                 }
                 catch( Exception ex )
@@ -1605,6 +1587,8 @@ namespace BudgetExecution
                     if( _measures?.Contains( stat ) == true )
                     {
                         Metric = (STAT)Enum.Parse( typeof( STAT ), stat );
+                        var _message = "The Chart Statistics have been changed!";
+                        SendNotification( _message );
                     }
                 }
                 catch( Exception ex )
@@ -1648,16 +1632,10 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the series.
         /// </summary>
-        /// <param name="field">The field.</param>
-        private void SetSeries( string field )
+        private void SetSeries( )
         {
             try
             {
-                if( Chart.Series.Count > 0 )
-                {
-                    Chart.Series.Clear( );
-                }
-
                 var _borderColor = Color.FromArgb( 0, 120, 212 );
                 var _textColor = Color.FromArgb( 106, 189, 252 );
                 var _font = new Font( "Roboto", 8 );
@@ -1665,57 +1643,27 @@ namespace BudgetExecution
                 var _count = (double)_rows.Count( );
                 var _binding = new ChartDataBindModel( );
                 _binding.DataSource = DataTable;
-                _binding.XName = field;
-                _binding.YNames = SelectedNumerics.ToArray( );
-                foreach( var _num in SelectedNumerics )
-                {
-                    var _data = _rows
-                        ?.Select( r => r.Field<double>( _num ) )
-                        ?.ToArray( );
-
-                    var _series = new ChartSeries( );
-                    _series.Name = _num;
-                    _series.SeriesModel = _binding;
-                    _series.Visible = true;
-                    _series.EnableStyles = true;
-                    _series.Type = ChartSeriesType.Column;
-                    _series.SmartLabels = true;
-                    _series.SmartLabelsBorderColor = _borderColor;
-                    _series.DrawSeriesNameInDepth = true;
-                    _series.ConfigItems.ColumnItem.ColumnType = ChartColumnType.Box;
-                    _series.Style.DisplayText = true;
-                    _series.Style.Border.Width = 1;
-                    _series.Style.Border.Color = _borderColor;
-                    _series.Style.Font.Size = _font.Size;
-                    _series.Style.Font.Facename = _font.Name;
-                    _series.Style.TextColor = _textColor;
-                    _series.Style.Callout.Font.Facename = _font.Name;
-                    _series.Style.Callout.Font.Size = _font.Size;
-                    _series.Style.Callout.TextColor = _textColor;
-                    _series.Style.Callout.Color = Color.Transparent;
-                    _series.Style.Callout.Position = LabelPosition.Top;
-                    _series.Style.Callout.Enable = true;
-                    _series.ActualXAxis.Font = _font;
-                    _series.ActualXAxis.ForeColor = _borderColor;
-                    _series.ActualXAxis.AutoSize = true;
-                    _series.ActualXAxis.AxisLabelPlacement = ChartPlacement.Outside;
-                    _series.ActualXAxis.ShowAxisLabelTooltip = true;
-                    _series.ActualXAxis.ValueType = ChartValueType.Category;
-                    _series.ActualYAxis.Font = _font;
-                    _series.ActualYAxis.ForeColor = _borderColor;
-                    _series.ActualYAxis.AutoSize = true;
-                    _series.ActualYAxis.AxisLabelPlacement = ChartPlacement.Outside;
-                    _series.ActualYAxis.ShowAxisLabelTooltip = true;
-                    _series.ActualYAxis.ValueType = ChartValueType.Double;
-                    for( var i = 0d; i < _count; i++ )
-                    {
-                        var _pt = new ChartPoint( i, _data );
-                        _series.Points.Add( _pt );
-                        _series.Style.Callout.Text = $"{i}-{_num} - {_data[ (int)i ]:N0}";
-                    }
-
-                    Chart.Series.Add( _series );
-                }
+                _binding.XIndex = 0;
+                _binding.YNames = Numerics.ToArray( );
+                Chart.Series[ 0 ].SeriesModel = _binding;
+                Chart.Series[ 0 ].Visible = true;
+                Chart.Series[ 0 ].EnableStyles = true;
+                Chart.Series[ 0 ].Type = ChartSeriesType.Column;
+                Chart.Series[ 0 ].SmartLabels = true;
+                Chart.Series[ 0 ].SmartLabelsBorderColor = _borderColor;
+                Chart.Series[ 0 ].DrawSeriesNameInDepth = true;
+                Chart.Series[ 0 ].Style.DisplayText = true;
+                Chart.Series[ 0 ].Style.Border.Width = 1;
+                Chart.Series[ 0 ].Style.Border.Color = _borderColor;
+                Chart.Series[ 0 ].Style.Font.Size = _font.Size;
+                Chart.Series[ 0 ].Style.Font.Facename = _font.Name;
+                Chart.Series[ 0 ].Style.TextColor = _textColor;
+                Chart.Series[ 0 ].Style.Callout.Font.Facename = _font.Name;
+                Chart.Series[ 0 ].Style.Callout.Font.Size = _font.Size;
+                Chart.Series[ 0 ].Style.Callout.TextColor = _textColor;
+                Chart.Series[ 0 ].Style.Callout.Color = Color.FromArgb( 90, 90, 90 );
+                Chart.Series[ 0 ].Style.Callout.Position = LabelPosition.Top;
+                Chart.Series[ 0 ].Style.Callout.Enable = true;
             }
             catch( Exception ex )
             {
@@ -1832,10 +1780,11 @@ namespace BudgetExecution
                     SelectedTable = _title?.Replace( " ", "" );
                     Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
                     BindData( );
-                    QueryTabControl.SelectedIndex = 1;
+                    BindChart( );
                     PopulateFirstComboBoxItems( );
                     ResetFilterTableVisibility( );
                     UpdateLabelText( );
+                    Chart.Title.Text = SelectedTable.SplitPascal( );
                 }
                 catch( Exception ex )
                 {
@@ -2348,17 +2297,7 @@ namespace BudgetExecution
             {
                 var _selectedItem = SeriesComboBox.ComboBox.SelectedItem;
                 var _selection = _selectedItem.ToString( );
-                var _names = Enum.GetNames( typeof( ChartSeriesType ) );
-                var _message = $"Chart Type Changed To {_selection}";
-                var _notify = new Notification( _message );
-                if( !string.IsNullOrEmpty( _selection )
-                   && _names.Contains( _selection ) )
-                {
-                    ChartType =
-                        (ChartSeriesType)Enum.Parse( typeof( ChartSeriesType ), _selection );
-
-                    _notify.Show( );
-                }
+                SetChartType( _selection );
             }
             catch( Exception ex )
             {
@@ -2378,15 +2317,7 @@ namespace BudgetExecution
             {
                 var _selectedItem = MetricsComboBox.ComboBox.SelectedItem;
                 var _selection = _selectedItem.ToString( );
-                var _names = Enum.GetNames( typeof( STAT ) );
-                var _message = $"Selected Metric Changed To {_selection}";
-                var _notify = new Notification( _message );
-                if( !string.IsNullOrEmpty( _selection )
-                   && _names.Contains( _selection ) )
-                {
-                    Metric = (STAT)Enum.Parse( typeof( STAT ), _selection );
-                    _notify.Show( );
-                }
+                SetMetric( _selection );
             }
             catch( Exception ex )
             {

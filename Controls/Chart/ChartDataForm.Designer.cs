@@ -136,9 +136,6 @@
             ChartHeaderPanel = new HeaderPanel( );
             ChartHeaderTable = new System.Windows.Forms.TableLayoutPanel( );
             PictureBox = new System.Windows.Forms.PictureBox( );
-            HeaderLabel1 = new Label( );
-            HeaderLabel2 = new Label( );
-            HeaderLabel3 = new Label( );
             Timer = new System.Windows.Forms.Timer( components );
             ToolStripTable = new System.Windows.Forms.TableLayoutPanel( );
             AreaTable.SuspendLayout( );
@@ -452,6 +449,7 @@
             CommandLabel.StyleManager = null;
             CommandLabel.TabIndex = 3;
             CommandLabel.Text = "Text";
+            CommandLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             CommandLabel.ThemeAuthor = "Terry D. Eppler";
             CommandLabel.ThemeName = "Budget Execution";
             CommandLabel.ToolTip = null;
@@ -2098,9 +2096,6 @@
             ChartHeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 514F ) );
             ChartHeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 433F ) );
             ChartHeaderTable.Controls.Add( PictureBox, 0, 0 );
-            ChartHeaderTable.Controls.Add( HeaderLabel1, 1, 0 );
-            ChartHeaderTable.Controls.Add( HeaderLabel2, 2, 0 );
-            ChartHeaderTable.Controls.Add( HeaderLabel3, 3, 0 );
             ChartHeaderTable.Dock = System.Windows.Forms.DockStyle.Top;
             ChartHeaderTable.Location = new System.Drawing.Point( 0, 0 );
             ChartHeaderTable.Name = "ChartHeaderTable";
@@ -2118,75 +2113,6 @@
             PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             PictureBox.TabIndex = 0;
             PictureBox.TabStop = false;
-            // 
-            // HeaderLabel1
-            // 
-            HeaderLabel1.BindingSource = null;
-            HeaderLabel1.DataFilter = null;
-            HeaderLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            HeaderLabel1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            HeaderLabel1.Font = new System.Drawing.Font( "Roboto", 8F );
-            HeaderLabel1.HoverText = null;
-            HeaderLabel1.IsDerivedStyle = true;
-            HeaderLabel1.Location = new System.Drawing.Point( 40, 3 );
-            HeaderLabel1.Margin = new System.Windows.Forms.Padding( 3 );
-            HeaderLabel1.Name = "HeaderLabel1";
-            HeaderLabel1.Padding = new System.Windows.Forms.Padding( 1 );
-            HeaderLabel1.Size = new System.Drawing.Size( 347, 18 );
-            HeaderLabel1.Style = MetroSet_UI.Enums.Style.Custom;
-            HeaderLabel1.StyleManager = null;
-            HeaderLabel1.TabIndex = 1;
-            HeaderLabel1.Text = "Header";
-            HeaderLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            HeaderLabel1.ThemeAuthor = "Terry D. Eppler";
-            HeaderLabel1.ThemeName = "Budget Execution";
-            HeaderLabel1.ToolTip = null;
-            // 
-            // HeaderLabel2
-            // 
-            HeaderLabel2.BindingSource = null;
-            HeaderLabel2.DataFilter = null;
-            HeaderLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            HeaderLabel2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            HeaderLabel2.Font = new System.Drawing.Font( "Roboto", 8F );
-            HeaderLabel2.HoverText = null;
-            HeaderLabel2.IsDerivedStyle = true;
-            HeaderLabel2.Location = new System.Drawing.Point( 393, 3 );
-            HeaderLabel2.Margin = new System.Windows.Forms.Padding( 3 );
-            HeaderLabel2.Name = "HeaderLabel2";
-            HeaderLabel2.Padding = new System.Windows.Forms.Padding( 1 );
-            HeaderLabel2.Size = new System.Drawing.Size( 508, 18 );
-            HeaderLabel2.Style = MetroSet_UI.Enums.Style.Custom;
-            HeaderLabel2.StyleManager = null;
-            HeaderLabel2.TabIndex = 2;
-            HeaderLabel2.Text = "Header";
-            HeaderLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            HeaderLabel2.ThemeAuthor = "Terry D. Eppler";
-            HeaderLabel2.ThemeName = "Budget Execution";
-            HeaderLabel2.ToolTip = null;
-            // 
-            // HeaderLabel3
-            // 
-            HeaderLabel3.BindingSource = null;
-            HeaderLabel3.DataFilter = null;
-            HeaderLabel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            HeaderLabel3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            HeaderLabel3.Font = new System.Drawing.Font( "Roboto", 8F );
-            HeaderLabel3.HoverText = null;
-            HeaderLabel3.IsDerivedStyle = true;
-            HeaderLabel3.Location = new System.Drawing.Point( 907, 3 );
-            HeaderLabel3.Margin = new System.Windows.Forms.Padding( 3 );
-            HeaderLabel3.Name = "HeaderLabel3";
-            HeaderLabel3.Padding = new System.Windows.Forms.Padding( 1 );
-            HeaderLabel3.Size = new System.Drawing.Size( 428, 18 );
-            HeaderLabel3.Style = MetroSet_UI.Enums.Style.Custom;
-            HeaderLabel3.StyleManager = null;
-            HeaderLabel3.TabIndex = 3;
-            HeaderLabel3.Text = "Header";
-            HeaderLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            HeaderLabel3.ThemeAuthor = "Terry D. Eppler";
-            HeaderLabel3.ThemeName = "Budget Execution";
-            HeaderLabel3.ToolTip = null;
             // 
             // Timer
             // 
@@ -2377,9 +2303,6 @@
         public System.Windows.Forms.PictureBox Loader;
         public ToolStripLabel StatusSpacer;
         public Label CommandLabel;
-        public Label HeaderLabel1;
-        public Label HeaderLabel2;
-        public Label HeaderLabel3;
         public Label MetricsLabel9;
         public Label MetricsLabel10;
         public Label MetricsLabel11;
