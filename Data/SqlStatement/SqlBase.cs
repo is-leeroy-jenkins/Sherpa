@@ -183,8 +183,8 @@ namespace BudgetExecution
             DbPath = new ConnectionFactory( source, provider ).ClientPath;
             CommandType = commandType;
             Source = source;
-            TableName = source.ToString( );
             Provider = provider;
+            TableName = source.ToString( );
             CommandText = $"SELECT * FROM {source}";
         }
 
@@ -229,7 +229,7 @@ namespace BudgetExecution
             Provider = provider;
             TableName = source.ToString( );
             Criteria = where;
-            CommandText = $"SELECT * FROM {source} WHERE {where.ToCriteria( )}";
+            CommandText = $@"SELECT * FROM {source} WHERE {where.ToCriteria( )}";
         }
 
         /// <inheritdoc/>
@@ -311,8 +311,11 @@ namespace BudgetExecution
             CommandText = GetCommandText( );
         }
 
-        /// <summary> Gets the command text. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the command text.
+        /// </summary>
+        /// <returns>
+        /// </returns>
         public string GetCommandText( )
         {
             try
@@ -349,17 +352,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
-        protected void Fail( Exception ex )
-        {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
-        }
-
-        /// <summary> Gets the select statement. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the select statement.
+        /// </summary>
+        /// <returns></returns>
         private protected string GetSelectStatement( )
         {
             if( ( Fields?.Any( ) == true )
@@ -419,8 +415,10 @@ namespace BudgetExecution
             return default( string );
         }
 
-        /// <summary> Gets the update statement. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the update statement.
+        /// </summary>
+        /// <returns></returns>
         private protected string GetUpdateStatement( )
         {
             try
@@ -452,8 +450,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the insert statement. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the insert statement.
+        /// </summary>
+        /// <returns></returns>
         private protected string GetInsertStatement( )
         {
             try
@@ -505,6 +505,17 @@ namespace BudgetExecution
                 Fail( _ex );
                 return string.Empty;
             }
+        }
+
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex"> The ex. </param>
+        private protected void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

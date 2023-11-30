@@ -137,10 +137,10 @@
     <Compile Update="Controls\Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\Graph\Plotter.cs">
+    <Compile Update="Controls\Plots\Plotter.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="Controls\Graph\PlottBase.cs">
+    <Compile Update="Controls\Plots\PlottBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\CheckBox\CheckBox.cs">
@@ -167,7 +167,7 @@
     <Compile Update="Controls\GridControl\GridControl.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="Controls\GridSheet\SheetForm.cs">
+    <Compile Update="Controls\GridControl\SheetForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Controls\HeaderPanel\HeaderPanel.cs">
@@ -299,10 +299,10 @@
     <Compile Update="Data\Adapter\AdapterFactory.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="GeoMapper.cs">
+    <Compile Update="Controls\GeoMapper\GeoMapper.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="MapControl.cs">
+    <Compile Update="Controls\GeoMapper\MapControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>
