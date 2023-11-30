@@ -317,6 +317,7 @@ namespace BudgetExecution
             // Form Event Wiring
             Load += OnLoad;
             MouseClick += OnRightClick;
+            Closing += OnClosing;
         }
 
         /// <inheritdoc />
@@ -1567,6 +1568,36 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Closes the form.
+        /// </summary>
+        public new void Close( )
+        {
+            try
+            {
+                Opacity = 0;
+                if( Seconds != 0 )
+                {
+                    var _timer = new Timer( );
+                    _timer.Interval = 1000;
+                    _timer.Tick += ( sender, args ) =>
+                    {
+                        Time--;
+                        if( Time == Seconds )
+                        {
+                            _timer.Stop( );
+                        }
+                    };
+                }
+
+                base.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -2372,6 +2403,26 @@ namespace BudgetExecution
         private void OnTimerTick( object sender, EventArgs e )
         {
             InvokeIf( _statusUpdate );
+        }
+
+        /// <summary>
+        /// Raises the Close event.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        public void OnClosing( object sender, EventArgs e )
+        {
+            try
+            {
+                ClearSelections( );
+                ClearCollections( );
+                FadeOut( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>

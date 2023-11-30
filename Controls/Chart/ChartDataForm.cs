@@ -385,6 +385,7 @@ namespace BudgetExecution
             Time = 0;
             Seconds = 5;
             Load += OnLoad;
+            Closing += OnClosing;
         }
 
         /// <inheritdoc />
@@ -1154,11 +1155,55 @@ namespace BudgetExecution
         {
             try
             {
-                var _table = DataTable.Rows;
-                var _binding = new ChartDataBindModel( DataTable );
-                _binding.YNames = Numerics.ToArray( );
-                _binding.XName = Fields.FirstOrDefault( );
+                Chart.Series.Clear( );
+                var _borderColor = Color.FromArgb( 0, 120, 212 );
+                var _textColor = Color.FromArgb( 106, 189, 252 );
+                var _font = new Font( "Roboto", 7 );
+                var _yvalues = Numerics.ToArray( );
+                var _xvalues = Fields.ToArray( );
+                var _table = DataTable.AsEnumerable( );
+                var _data = _table.AsEnumerable( )
+                    ?.OrderByDescending( r => r.Field<decimal>( _yvalues[ 0 ] ) )
+                    ?.Select( r => r )
+                    ?.Take( 50 )
+                    ?.ToArray( );
+
+                var _dataSource = _data.CopyToDataTable( );
+                var _binding = new ChartDataBindModel( _dataSource );
+                _binding.YNames = _yvalues;
+                _binding.XName = _xvalues[ 0 ];
                 Chart.Series[ 0 ].SeriesModel = _binding;
+                Chart.Series[ 0 ].SmartLabels = true;
+                Chart.Series[ 0 ].ActualXAxis.ValueType = ChartValueType.Category;
+                Chart.Series[ 0 ].ActualYAxis.ValueType = ChartValueType.Double;
+                Chart.Series[ 0 ].Visible = true;
+                Chart.Series[ 0 ].EnableStyles = true;
+                Chart.Series[ 0 ].EnableAreaToolTip = true;
+                Chart.Series[ 0 ].ActualXAxis.Font = new Font( "Roboto", 8 );
+                Chart.Series[ 0 ].ActualXAxis.AxisLabelPlacement = ChartPlacement.Outside;
+                Chart.Series[ 0 ].ActualXAxis.ForeColor = _borderColor;
+                Chart.Series[ 0 ].ActualXAxis.ValueType = ChartValueType.Category;
+                Chart.Series[ 0 ].ActualYAxis.Font = new Font( "Roboto", 8 );
+                Chart.Series[ 0 ].ActualYAxis.ForeColor = _borderColor;
+                Chart.Series[ 0 ].ActualYAxis.AxisLabelPlacement = ChartPlacement.Outside;
+                Chart.Series[ 0 ].ActualYAxis.ValueType = ChartValueType.Double;
+                Chart.Series[ 0 ].Type = ChartSeriesType.Column;
+                Chart.Series[ 0 ].SmartLabels = true;
+                Chart.Series[ 0 ].SmartLabelsBorderColor = _borderColor;
+                Chart.Series[ 0 ].DrawSeriesNameInDepth = true;
+                Chart.Series[ 0 ].Style.DisplayText = true;
+                Chart.Series[ 0 ].Style.Border.Width = 1;
+                Chart.Series[ 0 ].Style.Border.Color = _borderColor;
+                Chart.Series[ 0 ].Style.Font.Size = _font.Size;
+                Chart.Series[ 0 ].Style.Font.Facename = _font.Name;
+                Chart.Series[ 0 ].Style.TextColor = _textColor;
+                Chart.Series[ 0 ].Style.Callout.Font.Facename = _font.Name;
+                Chart.Series[ 0 ].Style.Callout.Font.Size = _font.Size;
+                Chart.Series[ 0 ].Style.Callout.TextColor = _textColor;
+                Chart.Series[ 0 ].Style.Callout.Color = Color.FromArgb( 90, 90, 90 );
+                Chart.Series[ 0 ].Style.Callout.Position = LabelPosition.Top;
+                Chart.Series[ 0 ].Style.Callout.Enable = true;
+                Chart.Refresh( );
             }
             catch( Exception ex )
             {
@@ -1706,6 +1751,36 @@ namespace BudgetExecution
                 ThrowIf.NullOrEmpty( text, nameof( text ) );
                 var _message = new SplashMessage( text );
                 _message.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Closes the form.
+        /// </summary>
+        public new void Close( )
+        {
+            try
+            {
+                Opacity = 0;
+                if( Seconds != 0 )
+                {
+                    var _timer = new Timer( );
+                    _timer.Interval = 1000;
+                    _timer.Tick += ( sender, args ) =>
+                    {
+                        Time--;
+                        if( Time == Seconds )
+                        {
+                            _timer.Stop( );
+                        }
+                    };
+                }
+
+                base.Show( );
             }
             catch( Exception _ex )
             {
@@ -2341,6 +2416,26 @@ namespace BudgetExecution
         private void OnTimerTick( object sender, EventArgs e )
         {
             InvokeIf( _statusUpdate );
+        }
+
+        /// <summary>
+        /// Raises the Close event.
+        /// </summary>
+        /// <param name="sender"> </param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        public void OnClosing( object sender, EventArgs e )
+        {
+            try
+            {
+                ClearSelections( );
+                ClearCollections( );
+                FadeOut( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
