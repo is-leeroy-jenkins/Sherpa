@@ -642,6 +642,7 @@ namespace BudgetExecution
             try
             {
                 var _borderColor = Color.FromArgb( 0, 120, 212 );
+                var _backColor = Color.FromArgb( 90, 90, 90 );
                 var _textColor = Color.FromArgb( 106, 189, 252 );
                 var _callFont = new Font( "Roboto", 7 );
                 Chart.Series[ 0 ].Visible = true;
@@ -660,9 +661,15 @@ namespace BudgetExecution
                 Chart.Series[ 0 ].Style.Callout.Font.Facename = _callFont.Name;
                 Chart.Series[ 0 ].Style.Callout.Font.Size = _callFont.Size;
                 Chart.Series[ 0 ].Style.Callout.TextColor = _textColor;
-                Chart.Series[ 0 ].Style.Callout.Color = Color.FromArgb( 90, 90, 90 );
+                Chart.Series[ 0 ].Style.Callout.Color = _backColor;
                 Chart.Series[ 0 ].Style.Callout.Position = LabelPosition.Top;
                 Chart.Series[ 0 ].Style.Callout.Enable = true;
+                Chart.Series[ 0 ].FancyToolTip.BackColor = _backColor;
+                Chart.Series[ 0 ].FancyToolTip.Border.ForeColor = _borderColor;
+                Chart.Series[ 0 ].FancyToolTip.Border.BackColor = Color.Transparent;
+                Chart.Series[ 0 ].FancyToolTip.ForeColor = _textColor;
+                Chart.Series[ 0 ].FancyToolTip.Font = _callFont;
+                Chart.Series[ 0 ].FancyToolTip.Symbol = ChartSymbolShape.Arrow;
             }
             catch( Exception ex )
             {
@@ -673,14 +680,14 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the primary axes.
         /// </summary>
-        private void InitializePrimaryAxes( )
+        private void InitializeAxes( )
         {
             try
             {
                 var _borderColor = Color.FromArgb( 0, 120, 212 );
                 var _textColor = Color.FromArgb( 106, 189, 252 );
                 var _axisFont = new Font( "Roboto", 8 );
-                Chart.PrimaryXAxis.ValueType = ChartValueType.Double;
+                Chart.PrimaryXAxis.ValueType = ChartValueType.Category;
                 Chart.PrimaryXAxis.LabelPlacement = ChartAxisLabelPlacement.OnTicks;
                 Chart.PrimaryXAxis.Font = _axisFont;
                 Chart.PrimaryXAxis.AutoSize = true;
@@ -708,16 +715,18 @@ namespace BudgetExecution
             try
             {
                 var _backColor = Color.FromArgb( 20, 20, 20 );
+                var _shadow = Color.FromArgb( 50, 50, 50 );
                 var _textColor = Color.FromArgb( 106, 189, 252 );
                 var _axisFont = new Font( "Roboto", 8 );
-                Chart.ChartArea.AdjustPlotAreaMargins = ChartSetMode.AutoSet;
+                Chart.ChartArea.ChartAreaMargins = new ChartMargins( 0, 0, 0, 0 );
                 Chart.ChartArea.AutoScale = true;
-                Chart.ChartArea.BackInterior = new BrushInfo( _backColor );
                 Chart.ChartArea.BorderWidth = 1;
                 Chart.ChartArea.BorderColor = _backColor;
                 Chart.ChartArea.BorderStyle = BorderStyle.None;
                 Chart.ChartArea.RealSeries3D = true;
                 Chart.ChartArea.Series3D = true;
+                Chart.ChartArea.BackInterior = new BrushInfo( GradientStyle.PathRectangle,
+                    _backColor, _shadow );
             }
             catch( Exception ex )
             {
@@ -758,7 +767,7 @@ namespace BudgetExecution
                 Chart.Legend.Font = new Font( "Roboto", 7 );
                 Chart.Legend.ItemsSize = new Size( 10, 10 );
                 Chart.Legend.VisibleCheckBox = true;
-                Chart.Legend.BackInterior = new BrushInfo( Color.FromArgb( 20, 20, 20 ) );
+                Chart.Legend.BackInterior = new BrushInfo( Color.Transparent );
                 Chart.Legend.ItemsAlignment = StringAlignment.Center;
                 Chart.Legend.ItemsTextAligment = VerticalAlignment.Center;
                 Chart.Legend.Orientation = ChartOrientation.Vertical;
@@ -1869,7 +1878,7 @@ namespace BudgetExecution
                 InitializeLabels( );
                 InitializeToolTips( );
                 InitializeSeries( );
-                InitializePrimaryAxes( );
+                InitializeAxes( );
                 InitializeChartAreas( );
                 InitializeChartToolbar( );
                 InitializeLegend( );

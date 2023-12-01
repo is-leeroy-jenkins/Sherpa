@@ -81,50 +81,47 @@ namespace BudgetExecution
             AllowGradientPalette = true;
             AllowUserEditStyles = true;
             PrintColorMode = ChartPrintColorMode.CheckPrinter;
-            BackInterior = new BrushInfo( Color.FromArgb( 20, 20, 20 ) );
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.FromArgb( 106, 189, 252 );
+            BackInterior = new BrushInfo( GradientStyle.None, Color.FromArgb( 20, 20, 20 ),
+                Color.FromArgb( 20, 20, 20 ) );
+
             CalcRegions = true;
-            ChartInterior = new BrushInfo( GradientStyle.PathRectangle, 
-                Color.LightSteelBlue, Color.FromArgb( 20, 20, 20 ) );
-
-            //ChartArea Properties
             ChartAreaMargins = new ChartMargins( 3, 3, 3, 3 );
-
-            //ChartSeries Properties
-            DropSeriesPoints = false;
+            DropSeriesPoints = true;
             AddRandomSeries = true;
             Series3D = true;
             SeriesHighlight = true;
             SeriesHighlightIndex = -1;
             ShadowWidth = 5;
-            ShadowColor = new BrushInfo( GradientStyle.PathRectangle, 
-                Color.FromArgb( 20, 20, 20 ), Color.FromArgb( 100, 100, 100 ) );
-
             Depth = 250;
+            ZoomType = ZoomType.MouseWheelZooming;
             ElementsSpacing = 5;
             ColumnDrawMode = ChartColumnDrawMode.InDepthMode;
-            ColumnFixedWidth = 20;
-
-            //Chart Appearance Setting
-            Palette = ChartColorPalette.Metro;
-            Skins = Skins.None;
+            ColumnWidthMode = ChartColumnWidthMode.FixedWidthMode;
+            ColumnFixedWidth = 100;
+            Palette = ChartColorPalette.Custom;
+            Skins = Skins.Metro;
             RealMode3D = true;
-            Rotation = 0.1f;
+            Rotation = 0.2f;
             SmoothingMode = SmoothingMode.AntiAlias;
             Spacing = 5;
             AutoHighlight = true;
             SpacingBetweenPoints = 5;
-            SpacingBetweenSeries = 10;
+            SpacingBetweenSeries = 5;
             Style3D = true;
             TextAlignment = StringAlignment.Center;
             TextPosition = ChartTextPosition.Top;
             Tilt = 5;
             ScrollPrecision = 100;
             RadarStyle = ChartRadarAxisStyle.Polygon;
-
-            //Chart Legend Setting;
             ShowLegend = true;
+            ChartInterior = new BrushInfo( GradientStyle.PathRectangle,
+                Color.FromArgb( 20, 20, 20 ), Color.FromArgb( 50, 50, 50 ) );
+
+            ShowToolTips = true;
+            ShadowColor = new BrushInfo( GradientStyle.PathRectangle,
+                Color.FromArgb( 20, 20, 20 ), Color.FromArgb( 50, 50, 50 ) );
         }
 
         /// <summary>
