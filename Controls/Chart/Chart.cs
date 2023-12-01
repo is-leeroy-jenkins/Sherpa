@@ -72,11 +72,6 @@ namespace BudgetExecution
             //Basic Control Properties
             Size = new Size( 600, 400 );
             ShowToolbar = true;
-            ToolBar.Orientation = ChartOrientation.Horizontal;
-            ToolBar.ButtonBackColor = Color.FromArgb( 20, 20, 20 );
-            ToolBar.Position = ChartDock.Bottom;
-            ToolBar.ShowGrip = false;
-            ToolBar.ShowBorder = false;
             ShowScrollBars = false;
             EnableMouseRotation = true;
             Padding = new Padding( 1 );
@@ -94,16 +89,6 @@ namespace BudgetExecution
                 Color.LightSteelBlue, Color.FromArgb( 20, 20, 20 ) );
 
             //ChartArea Properties
-            ChartArea.AdjustPlotAreaMargins = ChartSetMode.AutoSet;
-            ChartArea.AutoScale = true;
-            ChartArea.BackInterior = new BrushInfo( Color.FromArgb( 20, 20, 20 ) );
-            ChartArea.BorderWidth = 1;
-            ChartArea.BorderColor = Color.FromArgb( 20, 20, 20 );
-            ChartArea.BorderStyle = BorderStyle.FixedSingle;
-            ChartArea.PrimaryXAxis.Font = new Font( "Roboto", 9 );
-            ChartArea.PrimaryXAxis.ForeColor = Color.FromArgb( 0, 120, 212 );
-            ChartArea.PrimaryYAxis.Font = new Font( "Roboto", 9 );
-            ChartArea.PrimaryYAxis.ForeColor = Color.FromArgb( 0, 120, 212 );
             ChartAreaMargins = new ChartMargins( 3, 3, 3, 3 );
 
             //ChartSeries Properties
@@ -114,10 +99,10 @@ namespace BudgetExecution
             SeriesHighlightIndex = -1;
             ShadowWidth = 5;
             ShadowColor = new BrushInfo( GradientStyle.PathRectangle, 
-                Color.FromArgb( 20, 20, 20 ), Color.Silver );
+                Color.FromArgb( 20, 20, 20 ), Color.FromArgb( 100, 100, 100 ) );
 
             Depth = 250;
-            ElementsSpacing = 10;
+            ElementsSpacing = 5;
             ColumnDrawMode = ChartColumnDrawMode.InDepthMode;
             ColumnFixedWidth = 20;
 
@@ -140,19 +125,6 @@ namespace BudgetExecution
 
             //Chart Legend Setting;
             ShowLegend = true;
-            Legend.Font = new Font( "Roboto", 8 );
-            Legend.ItemsSize = new Size( 10, 10 );
-            Legend.VisibleCheckBox = true;
-            Legend.BackInterior = new BrushInfo( Color.FromArgb( 20, 20, 20 ) );
-            Legend.ItemsAlignment = StringAlignment.Center;
-            Legend.ItemsTextAligment = VerticalAlignment.Center;
-            Legend.Orientation = ChartOrientation.Vertical;
-            Legend.FloatingAutoSize = true;
-            Legend.ShowSymbol = true;
-            Legend.ItemsShadowColor = Color.Transparent;
-            Legend.ShowItemsShadow = false;
-            Legend.ShowBorder = false;
-            Legend.Visible = true;
         }
 
         /// <summary>

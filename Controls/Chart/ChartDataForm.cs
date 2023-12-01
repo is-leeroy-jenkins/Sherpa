@@ -57,6 +57,7 @@ namespace BudgetExecution
     using Font = System.Drawing.Font;
     using FontStyle = System.Drawing.FontStyle;
     using Size = System.Drawing.Size;
+    using VerticalAlignment = Syncfusion.Windows.Forms.Chart.VerticalAlignment;
 
     /// <summary>
     /// 
@@ -632,6 +633,147 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
+        
+        /// <summary>
+        /// Sets the series.
+        /// </summary>
+        private void InitializeSeries( )
+        {
+            try
+            {
+                var _borderColor = Color.FromArgb( 0, 120, 212 );
+                var _textColor = Color.FromArgb( 106, 189, 252 );
+                var _callFont = new Font( "Roboto", 7 );
+                Chart.Series[ 0 ].Visible = true;
+                Chart.Series[ 0 ].EnableStyles = true;
+                Chart.Series[ 0 ].EnableAreaToolTip = true;
+                Chart.Series[ 0 ].Type = ChartSeriesType.Column;
+                Chart.Series[ 0 ].SmartLabels = true;
+                Chart.Series[ 0 ].SmartLabelsBorderColor = _borderColor;
+                Chart.Series[ 0 ].DrawSeriesNameInDepth = true;
+                Chart.Series[ 0 ].Style.DisplayText = true;
+                Chart.Series[ 0 ].Style.Border.Width = 1;
+                Chart.Series[ 0 ].Style.Border.Color = _borderColor;
+                Chart.Series[ 0 ].Style.Font.Size = _callFont.Size;
+                Chart.Series[ 0 ].Style.Font.Facename = _callFont.Name;
+                Chart.Series[ 0 ].Style.TextColor = _textColor;
+                Chart.Series[ 0 ].Style.Callout.Font.Facename = _callFont.Name;
+                Chart.Series[ 0 ].Style.Callout.Font.Size = _callFont.Size;
+                Chart.Series[ 0 ].Style.Callout.TextColor = _textColor;
+                Chart.Series[ 0 ].Style.Callout.Color = Color.FromArgb( 90, 90, 90 );
+                Chart.Series[ 0 ].Style.Callout.Position = LabelPosition.Top;
+                Chart.Series[ 0 ].Style.Callout.Enable = true;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the primary axes.
+        /// </summary>
+        private void InitializePrimaryAxes( )
+        {
+            try
+            {
+                var _borderColor = Color.FromArgb( 0, 120, 212 );
+                var _textColor = Color.FromArgb( 106, 189, 252 );
+                var _axisFont = new Font( "Roboto", 8 );
+                Chart.PrimaryXAxis.ValueType = ChartValueType.Double;
+                Chart.PrimaryXAxis.LabelPlacement = ChartAxisLabelPlacement.OnTicks;
+                Chart.PrimaryXAxis.Font = _axisFont;
+                Chart.PrimaryXAxis.AutoSize = true;
+                Chart.PrimaryXAxis.ShowAxisLabelTooltip = true;
+                Chart.PrimaryXAxis.ForeColor = _borderColor;
+                Chart.PrimaryYAxis.ValueType = ChartValueType.Double;
+                Chart.PrimaryYAxis.LabelPlacement = ChartAxisLabelPlacement.OnTicks;
+                Chart.PrimaryYAxis.Font = _axisFont;
+                Chart.PrimaryYAxis.AutoSize = true;
+                Chart.PrimaryYAxis.ShowAxisLabelTooltip = true;
+                Chart.PrimaryYAxis.ForeColor = _borderColor;
+                Chart.PrimaryYAxis.Format = "#,##0";
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the chart areas.
+        /// </summary>
+        private void InitializeChartAreas( )
+        {
+            try
+            {
+                var _backColor = Color.FromArgb( 20, 20, 20 );
+                var _textColor = Color.FromArgb( 106, 189, 252 );
+                var _axisFont = new Font( "Roboto", 8 );
+                Chart.ChartArea.AdjustPlotAreaMargins = ChartSetMode.AutoSet;
+                Chart.ChartArea.AutoScale = true;
+                Chart.ChartArea.BackInterior = new BrushInfo( _backColor );
+                Chart.ChartArea.BorderWidth = 1;
+                Chart.ChartArea.BorderColor = _backColor;
+                Chart.ChartArea.BorderStyle = BorderStyle.None;
+                Chart.ChartArea.RealSeries3D = true;
+                Chart.ChartArea.Series3D = true;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the chart toolbar.
+        /// </summary>
+        private void InitializeChartToolbar( )
+        {
+            try
+            {
+                var _backColor = Color.FromArgb( 20, 20, 20 );
+                var _textColor = Color.FromArgb( 106, 189, 252 );
+                Chart.ToolBar.Orientation = ChartOrientation.Horizontal;
+                Chart.ToolBar.ButtonBackColor = Color.FromArgb( 20, 20, 20 );
+                Chart.ToolBar.Position = ChartDock.Bottom;
+                Chart.ToolBar.ShowGrip = false;
+                Chart.ToolBar.ShowBorder = false;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the legend.
+        /// </summary>
+        private void InitializeLegend( )
+        {
+            try
+            {
+                var _backColor = Color.FromArgb( 20, 20, 20 );
+                var _textColor = Color.FromArgb( 106, 189, 252 );
+                Chart.Legend.Font = new Font( "Roboto", 7 );
+                Chart.Legend.ItemsSize = new Size( 10, 10 );
+                Chart.Legend.VisibleCheckBox = true;
+                Chart.Legend.BackInterior = new BrushInfo( Color.FromArgb( 20, 20, 20 ) );
+                Chart.Legend.ItemsAlignment = StringAlignment.Center;
+                Chart.Legend.ItemsTextAligment = VerticalAlignment.Center;
+                Chart.Legend.Orientation = ChartOrientation.Vertical;
+                Chart.Legend.FloatingAutoSize = true;
+                Chart.Legend.ShowSymbol = true;
+                Chart.Legend.ItemsShadowColor = Color.Transparent;
+                Chart.Legend.ShowItemsShadow = false;
+                Chart.Legend.ShowBorder = false;
+                Chart.Legend.Visible = true;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
 
         /// <summary>
         /// Begins the initialize.
@@ -1037,7 +1179,7 @@ namespace BudgetExecution
                 DataModel = new DataBuilder( Source, Provider );
                 DataTable = DataModel.DataTable;
                 SelectedTable = DataTable.TableName;
-                BindingSource.DataSource = DataModel.DataTable;
+                BindingSource.DataSource = DataTable;
                 ToolStrip.BindingSource = BindingSource;
                 Fields = DataModel?.Fields;
                 Numerics = DataModel?.Numerics;
@@ -1155,54 +1297,20 @@ namespace BudgetExecution
         {
             try
             {
-                Chart.Series.Clear( );
-                var _borderColor = Color.FromArgb( 0, 120, 212 );
-                var _textColor = Color.FromArgb( 106, 189, 252 );
-                var _font = new Font( "Roboto", 7 );
-                var _yvalues = Numerics.ToArray( );
-                var _xvalues = Fields.ToArray( );
-                var _table = DataTable.AsEnumerable( );
-                var _data = _table.AsEnumerable( )
-                    ?.OrderByDescending( r => r.Field<decimal>( _yvalues[ 0 ] ) )
+                var _numerics = Numerics.ToArray( );
+                var _names = Fields.ToArray( );
+                var _dataRows = DataTable.AsEnumerable( )
+                    ?.OrderByDescending( r => r.Field<decimal>( _numerics[ 0 ] ) )
                     ?.Select( r => r )
-                    ?.Take( 50 )
+                    ?.Take( 10 )
                     ?.ToArray( );
 
-                var _dataSource = _data.CopyToDataTable( );
-                var _binding = new ChartDataBindModel( _dataSource );
-                _binding.YNames = _yvalues;
-                _binding.XName = _xvalues[ 0 ];
+                var _table = _dataRows.CopyToDataTable( );
+                var _category = _table.Columns[ 0 ].ColumnName;
+                var _binding = new ChartDataBindModel( _table );
+                _binding.YNames = _numerics;
+                _binding.XName = _category;
                 Chart.Series[ 0 ].SeriesModel = _binding;
-                Chart.Series[ 0 ].SmartLabels = true;
-                Chart.Series[ 0 ].ActualXAxis.ValueType = ChartValueType.Category;
-                Chart.Series[ 0 ].ActualYAxis.ValueType = ChartValueType.Double;
-                Chart.Series[ 0 ].Visible = true;
-                Chart.Series[ 0 ].EnableStyles = true;
-                Chart.Series[ 0 ].EnableAreaToolTip = true;
-                Chart.Series[ 0 ].ActualXAxis.Font = new Font( "Roboto", 8 );
-                Chart.Series[ 0 ].ActualXAxis.AxisLabelPlacement = ChartPlacement.Outside;
-                Chart.Series[ 0 ].ActualXAxis.ForeColor = _borderColor;
-                Chart.Series[ 0 ].ActualXAxis.ValueType = ChartValueType.Category;
-                Chart.Series[ 0 ].ActualYAxis.Font = new Font( "Roboto", 8 );
-                Chart.Series[ 0 ].ActualYAxis.ForeColor = _borderColor;
-                Chart.Series[ 0 ].ActualYAxis.AxisLabelPlacement = ChartPlacement.Outside;
-                Chart.Series[ 0 ].ActualYAxis.ValueType = ChartValueType.Double;
-                Chart.Series[ 0 ].Type = ChartSeriesType.Column;
-                Chart.Series[ 0 ].SmartLabels = true;
-                Chart.Series[ 0 ].SmartLabelsBorderColor = _borderColor;
-                Chart.Series[ 0 ].DrawSeriesNameInDepth = true;
-                Chart.Series[ 0 ].Style.DisplayText = true;
-                Chart.Series[ 0 ].Style.Border.Width = 1;
-                Chart.Series[ 0 ].Style.Border.Color = _borderColor;
-                Chart.Series[ 0 ].Style.Font.Size = _font.Size;
-                Chart.Series[ 0 ].Style.Font.Facename = _font.Name;
-                Chart.Series[ 0 ].Style.TextColor = _textColor;
-                Chart.Series[ 0 ].Style.Callout.Font.Facename = _font.Name;
-                Chart.Series[ 0 ].Style.Callout.Font.Size = _font.Size;
-                Chart.Series[ 0 ].Style.Callout.TextColor = _textColor;
-                Chart.Series[ 0 ].Style.Callout.Color = Color.FromArgb( 90, 90, 90 );
-                Chart.Series[ 0 ].Style.Callout.Position = LabelPosition.Top;
-                Chart.Series[ 0 ].Style.Callout.Enable = true;
                 Chart.Refresh( );
             }
             catch( Exception ex )
@@ -1679,50 +1787,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the series.
-        /// </summary>
-        private void InitializeSeries( )
-        {
-            try
-            {
-                var _borderColor = Color.FromArgb( 0, 120, 212 );
-                var _textColor = Color.FromArgb( 106, 189, 252 );
-                var _font = new Font( "Roboto", 7 );
-                Chart.Series[ 0 ].Visible = true;
-                Chart.Series[ 0 ].EnableStyles = true;
-                Chart.Series[ 0 ].EnableAreaToolTip = true;
-                Chart.Series[ 0 ].ActualXAxis.Font = new Font( "Roboto", 8 );
-                Chart.Series[ 0 ].ActualXAxis.AxisLabelPlacement = ChartPlacement.Outside;
-                Chart.Series[ 0 ].ActualXAxis.ForeColor = _borderColor;
-                Chart.Series[ 0 ].ActualXAxis.ValueType = ChartValueType.Category;
-                Chart.Series[ 0 ].ActualYAxis.Font = new Font( "Roboto", 8 );
-                Chart.Series[ 0 ].ActualYAxis.ForeColor = _borderColor;
-                Chart.Series[ 0 ].ActualYAxis.AxisLabelPlacement = ChartPlacement.Outside;
-                Chart.Series[ 0 ].ActualYAxis.ValueType = ChartValueType.Double;
-                Chart.Series[ 0 ].Type = ChartSeriesType.Column;
-                Chart.Series[ 0 ].SmartLabels = true;
-                Chart.Series[ 0 ].SmartLabelsBorderColor = _borderColor;
-                Chart.Series[ 0 ].DrawSeriesNameInDepth = true;
-                Chart.Series[ 0 ].Style.DisplayText = true;
-                Chart.Series[ 0 ].Style.Border.Width = 1;
-                Chart.Series[ 0 ].Style.Border.Color = _borderColor;
-                Chart.Series[ 0 ].Style.Font.Size = _font.Size;
-                Chart.Series[ 0 ].Style.Font.Facename = _font.Name;
-                Chart.Series[ 0 ].Style.TextColor = _textColor;
-                Chart.Series[ 0 ].Style.Callout.Font.Facename = _font.Name;
-                Chart.Series[ 0 ].Style.Callout.Font.Size = _font.Size;
-                Chart.Series[ 0 ].Style.Callout.TextColor = _textColor;
-                Chart.Series[ 0 ].Style.Callout.Color = Color.FromArgb( 90, 90, 90 );
-                Chart.Series[ 0 ].Style.Callout.Position = LabelPosition.Top;
-                Chart.Series[ 0 ].Style.Callout.Enable = true;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
         /// Sends the notification.
         /// </summary>
         /// <param name="text">The text.</param>
@@ -1805,6 +1869,10 @@ namespace BudgetExecution
                 InitializeLabels( );
                 InitializeToolTips( );
                 InitializeSeries( );
+                InitializePrimaryAxes( );
+                InitializeChartAreas( );
+                InitializeChartToolbar( );
+                InitializeLegend( );
                 Filter = new Dictionary<string, object>( );
                 SelectedColumns = new List<string>( );
                 SelectedFields = new List<string>( );
