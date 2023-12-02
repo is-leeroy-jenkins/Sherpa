@@ -48,7 +48,6 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
-    using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Chart;
     using Syncfusion.Windows.Forms.Tools;
@@ -57,7 +56,6 @@ namespace BudgetExecution
     using Font = System.Drawing.Font;
     using FontStyle = System.Drawing.FontStyle;
     using Size = System.Drawing.Size;
-    using VerticalAlignment = Syncfusion.Windows.Forms.Chart.VerticalAlignment;
 
     /// <summary>
     /// 
@@ -420,23 +418,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the title properties.
-        /// </summary>
-        private protected void InitializeTitle( )
-        {
-            try
-            {
-                Chart.Titles[ 0 ].Font = new Font( "Roboto", 10, FontStyle.Regular );
-                Chart.Titles[ 0 ].BackColor = Color.FromArgb( 20, 20, 20 );
-                Chart.Titles[ 0 ].ForeColor = Color.FromArgb( 106, 189, 252 );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Initializes the labels.
         /// </summary>
         private void InitializeLabels( )
@@ -494,23 +475,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes the tool tips.
-        /// </summary>
-        private void InitializeToolTips( )
-        {
-            try
-            {
-                Chart.Tooltip.BackgroundColor = new BrushInfo( Color.FromArgb( 90, 90, 90 ) );
-                Chart.Tooltip.Font = new Font( "Roboto Condensed", 8 );
-                Chart.Tooltip.BorderStyle = BorderStyle.FixedSingle;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Initializes the icon.
         /// </summary>
         private void InitializeIcon( )
@@ -537,36 +501,6 @@ namespace BudgetExecution
                 Timer.Enabled = true;
                 Timer.Interval = 500;
                 Timer.Start( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the buttons.
-        /// </summary>
-        private void InitializePalette( )
-        {
-            try
-            {
-                var _steelBlue = Color.SteelBlue;
-                var _slateGray = Color.LightSlateGray;
-                var _yellow = Color.Yellow;
-                var _maroon = Color.Maroon;
-                var _green = Color.DarkOliveGreen;
-                var _colors = new[ ]
-                {
-                    _steelBlue,
-                    _slateGray,
-                    _yellow,
-                    _maroon,
-                    _green
-                };
-
-                Chart.CustomPalette = _colors;
-                Chart.Palette = ChartColorPalette.Custom;
             }
             catch( Exception _ex )
             {
@@ -678,28 +612,52 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes the primary axes.
+        /// Initializes the series.
         /// </summary>
-        private void InitializeAxes( )
+        /// <param name="seriesName">
+        /// Name of the series.
+        /// </param>
+        /// <param name="type">
+        /// Type of chart
+        /// </param>
+        private void InitializeSeries( string seriesName, ChartSeriesType type = ChartSeriesType.Column )
         {
             try
             {
+                ThrowIf.NullOrEmpty( seriesName, nameof( seriesName ) );
                 var _borderColor = Color.FromArgb( 0, 120, 212 );
+                var _backColor = Color.FromArgb( 90, 90, 90 );
                 var _textColor = Color.FromArgb( 106, 189, 252 );
-                var _axisFont = new Font( "Roboto", 8 );
-                Chart.PrimaryXAxis.ValueType = ChartValueType.Category;
-                Chart.PrimaryXAxis.LabelPlacement = ChartAxisLabelPlacement.OnTicks;
-                Chart.PrimaryXAxis.Font = _axisFont;
-                Chart.PrimaryXAxis.AutoSize = true;
-                Chart.PrimaryXAxis.ShowAxisLabelTooltip = true;
-                Chart.PrimaryXAxis.ForeColor = _borderColor;
-                Chart.PrimaryYAxis.ValueType = ChartValueType.Double;
-                Chart.PrimaryYAxis.LabelPlacement = ChartAxisLabelPlacement.OnTicks;
-                Chart.PrimaryYAxis.Font = _axisFont;
-                Chart.PrimaryYAxis.AutoSize = true;
-                Chart.PrimaryYAxis.ShowAxisLabelTooltip = true;
-                Chart.PrimaryYAxis.ForeColor = _borderColor;
-                Chart.PrimaryYAxis.Format = "#,##0";
+                var _callFont = new Font( "Roboto", 7 );
+                var _series = new ChartSeries( );
+                var _dataModel = new ChartDataBindModel( DataTable, seriesName );
+                _series.Name = seriesName;
+                _series.SeriesModel = _dataModel;
+                _series.Visible = true;
+                _series.EnableStyles = true;
+                _series.EnableAreaToolTip = true;
+                _series.Type = type;
+                _series.SmartLabels = true;
+                _series.SmartLabelsBorderColor = _borderColor;
+                _series.DrawSeriesNameInDepth = true;
+                _series.Style.DisplayText = true;
+                _series.Style.Border.Width = 1;
+                _series.Style.Border.Color = _borderColor;
+                _series.Style.Font.Size = _callFont.Size;
+                _series.Style.Font.Facename = _callFont.Name;
+                _series.Style.TextColor = _textColor;
+                _series.Style.Callout.Font.Facename = _callFont.Name;
+                _series.Style.Callout.Font.Size = _callFont.Size;
+                _series.Style.Callout.TextColor = _textColor;
+                _series.Style.Callout.Color = _backColor;
+                _series.Style.Callout.Position = LabelPosition.Top;
+                _series.Style.Callout.Enable = true;
+                _series.FancyToolTip.BackColor = _backColor;
+                _series.FancyToolTip.Border.ForeColor = _borderColor;
+                _series.FancyToolTip.Border.BackColor = Color.Transparent;
+                _series.FancyToolTip.ForeColor = _textColor;
+                _series.FancyToolTip.Font = _callFont;
+                _series.FancyToolTip.Symbol = ChartSymbolShape.Arrow;
             }
             catch( Exception ex )
             {
@@ -708,75 +666,13 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes the chart areas.
+        /// Sets the label model.
         /// </summary>
-        private void InitializeChartAreas( )
+        private void SetLabelModel( )
         {
             try
             {
-                var _backColor = Color.FromArgb( 20, 20, 20 );
-                var _shadow = Color.FromArgb( 50, 50, 50 );
-                var _textColor = Color.FromArgb( 106, 189, 252 );
-                var _axisFont = new Font( "Roboto", 8 );
-                Chart.ChartArea.ChartAreaMargins = new ChartMargins( 0, 0, 0, 0 );
-                Chart.ChartArea.AutoScale = true;
-                Chart.ChartArea.BorderWidth = 1;
-                Chart.ChartArea.BorderColor = _backColor;
-                Chart.ChartArea.BorderStyle = BorderStyle.None;
-                Chart.ChartArea.RealSeries3D = true;
-                Chart.ChartArea.Series3D = true;
-                Chart.ChartArea.BackInterior = new BrushInfo( GradientStyle.PathRectangle,
-                    _backColor, _shadow );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the chart toolbar.
-        /// </summary>
-        private void InitializeChartToolbar( )
-        {
-            try
-            {
-                var _backColor = Color.FromArgb( 20, 20, 20 );
-                var _textColor = Color.FromArgb( 106, 189, 252 );
-                Chart.ToolBar.Orientation = ChartOrientation.Horizontal;
-                Chart.ToolBar.ButtonBackColor = Color.FromArgb( 20, 20, 20 );
-                Chart.ToolBar.Position = ChartDock.Bottom;
-                Chart.ToolBar.ShowGrip = false;
-                Chart.ToolBar.ShowBorder = false;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the legend.
-        /// </summary>
-        private void InitializeLegend( )
-        {
-            try
-            {
-                var _backColor = Color.FromArgb( 20, 20, 20 );
-                var _textColor = Color.FromArgb( 106, 189, 252 );
-                Chart.Legend.Font = new Font( "Roboto", 7 );
-                Chart.Legend.ItemsSize = new Size( 10, 10 );
-                Chart.Legend.VisibleCheckBox = true;
-                Chart.Legend.BackInterior = new BrushInfo( Color.Transparent );
-                Chart.Legend.ItemsAlignment = StringAlignment.Center;
-                Chart.Legend.ItemsTextAligment = VerticalAlignment.Center;
-                Chart.Legend.Orientation = ChartOrientation.Vertical;
-                Chart.Legend.FloatingAutoSize = true;
-                Chart.Legend.ShowSymbol = true;
-                Chart.Legend.ItemsShadowColor = Color.Transparent;
-                Chart.Legend.ShowItemsShadow = false;
-                Chart.Legend.ShowBorder = false;
-                Chart.Legend.Visible = true;
+                var _labelModel = new ChartDataBindAxisLabelModel( );
             }
             catch( Exception ex )
             {
@@ -1320,6 +1216,7 @@ namespace BudgetExecution
                 _binding.YNames = _numerics;
                 _binding.XName = _category;
                 Chart.Series[ 0 ].SeriesModel = _binding;
+                Chart.Title.Text = DataTable.TableName.SplitPascal( );
                 Chart.Refresh( );
             }
             catch( Exception ex )
@@ -1873,15 +1770,8 @@ namespace BudgetExecution
             {
                 InitializeToolStrip( );
                 InitializeTimers( );
-                InitializePalette( );
-                InitializeTitle( );
                 InitializeLabels( );
-                InitializeToolTips( );
                 InitializeSeries( );
-                InitializeAxes( );
-                InitializeChartAreas( );
-                InitializeChartToolbar( );
-                InitializeLegend( );
                 Filter = new Dictionary<string, object>( );
                 SelectedColumns = new List<string>( );
                 SelectedFields = new List<string>( );

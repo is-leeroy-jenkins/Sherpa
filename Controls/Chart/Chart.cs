@@ -71,6 +71,7 @@ namespace BudgetExecution
         {
             //Basic Control Properties
             Size = new Size( 600, 400 );
+            Font = new Font( "Roboto", 9 );
             ShowToolbar = true;
             ShowScrollBars = false;
             EnableMouseRotation = true;
@@ -81,17 +82,21 @@ namespace BudgetExecution
             AllowGradientPalette = true;
             AllowUserEditStyles = true;
             PrintColorMode = ChartPrintColorMode.CheckPrinter;
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.FromArgb( 106, 189, 252 );
-            BackInterior = new BrushInfo( GradientStyle.None, Color.FromArgb( 20, 20, 20 ),
-                Color.FromArgb( 20, 20, 20 ) );
-
             CalcRegions = true;
-            ChartAreaMargins = new ChartMargins( 3, 3, 3, 3 );
+            ChartAreaMargins = new ChartMargins( 0, 0, 0, 0 );
             DropSeriesPoints = true;
             AddRandomSeries = true;
+            ChartAreaShadow = false;
             Series3D = true;
             SeriesHighlight = true;
+            RealMode3D = true;
+            AutoHighlight = true;
+            Style3D = true;
+            ShowLegend = true;
+            ShowToolTips = true;
+            ChartArea.RealSeries3D = true;
+            ChartArea.Series3D = true;
+            ChartArea.AutoScale = true;
             SeriesHighlightIndex = -1;
             ShadowWidth = 5;
             Depth = 250;
@@ -100,28 +105,44 @@ namespace BudgetExecution
             ColumnDrawMode = ChartColumnDrawMode.InDepthMode;
             ColumnWidthMode = ChartColumnWidthMode.FixedWidthMode;
             ColumnFixedWidth = 100;
-            Palette = ChartColorPalette.Custom;
-            Skins = Skins.Metro;
-            RealMode3D = true;
+            Palette = ChartColorPalette.Office2016;
+            Skins = Skins.Office2016Black;
             Rotation = 0.2f;
             SmoothingMode = SmoothingMode.AntiAlias;
             Spacing = 5;
-            AutoHighlight = true;
             SpacingBetweenPoints = 5;
             SpacingBetweenSeries = 5;
-            Style3D = true;
             TextAlignment = StringAlignment.Center;
             TextPosition = ChartTextPosition.Top;
             Tilt = 5;
             ScrollPrecision = 100;
             RadarStyle = ChartRadarAxisStyle.Polygon;
-            ShowLegend = true;
-            ChartInterior = new BrushInfo( GradientStyle.PathRectangle,
-                Color.FromArgb( 20, 20, 20 ), Color.FromArgb( 50, 50, 50 ) );
-
-            ShowToolTips = true;
-            ShadowColor = new BrushInfo( GradientStyle.PathRectangle,
-                Color.FromArgb( 20, 20, 20 ), Color.FromArgb( 50, 50, 50 ) );
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.FromArgb( 106, 189, 252 );
+            PrimaryXAxis.Font = new Font( "Roboto", 9 );
+            PrimaryXAxis.ForeColor = Color.FromArgb( 0, 120, 212 );
+            PrimaryXAxis.AxisLabelPlacement = ChartPlacement.Outside;
+            PrimaryYAxis.ValueType = ChartValueType.Category;
+            PrimaryYAxis.Font = new Font( "Roboto", 9 );
+            PrimaryYAxis.ForeColor = Color.FromArgb( 0, 120, 212 );
+            PrimaryYAxis.AxisLabelPlacement = ChartPlacement.Outside;
+            PrimaryYAxis.ValueType = ChartValueType.Double;
+            Tooltip.Font = new Font( "Roboto", 7 );
+            Tooltip.ForeColor = Color.FromArgb( 106, 189, 252 );
+            Tooltip.BorderStyle = BorderStyle.FixedSingle;
+            ToolBar.Border.ForeColor = Color.FromArgb( 0, 120, 212 );
+            Tooltip.BackgroundColor = new BrushInfo( Color.Transparent );
+            Tooltip.BorderStyle = BorderStyle.FixedSingle;
+            ToolBar.Orientation = ChartOrientation.Horizontal;
+            ToolBar.ButtonBackColor = Color.FromArgb( 20, 20, 20 );
+            ToolBar.Position = ChartDock.Bottom;
+            ToolBar.ShowGrip = false;
+            ToolBar.ShowBorder = false;
+            Title.Font = new Font( "Roboto", 10 );
+            Title.ForeColor = Color.FromArgb( 106, 189, 252 );
+            Title.BackColor = Color.Transparent;
+            Legend.Font = new Font( "Roboto", 7 );
+            Legend.ItemsSize = new Size( 10, 10 );
         }
 
         /// <summary>
