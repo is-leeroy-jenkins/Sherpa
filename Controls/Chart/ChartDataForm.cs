@@ -4,7 +4,7 @@
 //     Created:                 06-19-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        11-30-2023
+//     Last Modified On:        12-02-2023
 // ******************************************************************************************
 // <copyright file="Terry Eppler.cs" company="Terry D. Eppler">
 //    BudgetExecution is a Federal Budget, Finance, and Accounting application for the
@@ -48,13 +48,16 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
+    using DocumentFormat.OpenXml.Drawing.Charts;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Chart;
     using Syncfusion.Windows.Forms.Tools;
     using Action = System.Action;
     using Color = System.Drawing.Color;
+    using DataTable = System.Data.DataTable;
     using Font = System.Drawing.Font;
     using FontStyle = System.Drawing.FontStyle;
+    using MarkerStyle = Syncfusion.Windows.Forms.Chart.MarkerStyle;
     using Size = System.Drawing.Size;
 
     /// <summary>
@@ -567,7 +570,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-        
+
         /// <summary>
         /// Sets the series.
         /// </summary>
@@ -579,100 +582,18 @@ namespace BudgetExecution
                 var _backColor = Color.FromArgb( 90, 90, 90 );
                 var _textColor = Color.FromArgb( 106, 189, 252 );
                 var _callFont = new Font( "Roboto", 7 );
-                Chart.Series[ 0 ].Visible = true;
-                Chart.Series[ 0 ].EnableStyles = true;
-                Chart.Series[ 0 ].EnableAreaToolTip = true;
-                Chart.Series[ 0 ].Type = ChartSeriesType.Column;
-                Chart.Series[ 0 ].SmartLabels = true;
-                Chart.Series[ 0 ].SmartLabelsBorderColor = _borderColor;
-                Chart.Series[ 0 ].DrawSeriesNameInDepth = true;
-                Chart.Series[ 0 ].Style.DisplayText = true;
-                Chart.Series[ 0 ].Style.Border.Width = 1;
-                Chart.Series[ 0 ].Style.Border.Color = _borderColor;
-                Chart.Series[ 0 ].Style.Font.Size = _callFont.Size;
-                Chart.Series[ 0 ].Style.Font.Facename = _callFont.Name;
-                Chart.Series[ 0 ].Style.TextColor = _textColor;
-                Chart.Series[ 0 ].Style.Callout.Font.Facename = _callFont.Name;
-                Chart.Series[ 0 ].Style.Callout.Font.Size = _callFont.Size;
-                Chart.Series[ 0 ].Style.Callout.TextColor = _textColor;
-                Chart.Series[ 0 ].Style.Callout.Color = _backColor;
-                Chart.Series[ 0 ].Style.Callout.Position = LabelPosition.Top;
-                Chart.Series[ 0 ].Style.Callout.Enable = true;
-                Chart.Series[ 0 ].FancyToolTip.BackColor = _backColor;
-                Chart.Series[ 0 ].FancyToolTip.Border.ForeColor = _borderColor;
-                Chart.Series[ 0 ].FancyToolTip.Border.BackColor = Color.Transparent;
-                Chart.Series[ 0 ].FancyToolTip.ForeColor = _textColor;
-                Chart.Series[ 0 ].FancyToolTip.Font = _callFont;
-                Chart.Series[ 0 ].FancyToolTip.Symbol = ChartSymbolShape.Arrow;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
+                for( var i = 0; i < Chart.Series.Count; i++ )
+                {
+                    Chart.Series[ i ].Visible = true;
+                    Chart.Series[ i ].EnableStyles = true;
+                    Chart.Series[ i ].EnableAreaToolTip = false;
+                    Chart.Series[ i ].Type = ChartSeriesType.Column;
+                    Chart.Series[ i ].SmartLabels = true;
+                    Chart.Series[ i ].SmartLabelsBorderColor = _borderColor;
+                    Chart.Series[ i ].DrawSeriesNameInDepth = true;
+                }
 
-        /// <summary>
-        /// Initializes the series.
-        /// </summary>
-        /// <param name="seriesName">
-        /// Name of the series.
-        /// </param>
-        /// <param name="type">
-        /// Type of chart
-        /// </param>
-        private void InitializeSeries( string seriesName, ChartSeriesType type = ChartSeriesType.Column )
-        {
-            try
-            {
-                ThrowIf.NullOrEmpty( seriesName, nameof( seriesName ) );
-                var _borderColor = Color.FromArgb( 0, 120, 212 );
-                var _backColor = Color.FromArgb( 90, 90, 90 );
-                var _textColor = Color.FromArgb( 106, 189, 252 );
-                var _callFont = new Font( "Roboto", 7 );
-                var _series = new ChartSeries( );
-                var _dataModel = new ChartDataBindModel( DataTable, seriesName );
-                _series.Name = seriesName;
-                _series.SeriesModel = _dataModel;
-                _series.Visible = true;
-                _series.EnableStyles = true;
-                _series.EnableAreaToolTip = true;
-                _series.Type = type;
-                _series.SmartLabels = true;
-                _series.SmartLabelsBorderColor = _borderColor;
-                _series.DrawSeriesNameInDepth = true;
-                _series.Style.DisplayText = true;
-                _series.Style.Border.Width = 1;
-                _series.Style.Border.Color = _borderColor;
-                _series.Style.Font.Size = _callFont.Size;
-                _series.Style.Font.Facename = _callFont.Name;
-                _series.Style.TextColor = _textColor;
-                _series.Style.Callout.Font.Facename = _callFont.Name;
-                _series.Style.Callout.Font.Size = _callFont.Size;
-                _series.Style.Callout.TextColor = _textColor;
-                _series.Style.Callout.Color = _backColor;
-                _series.Style.Callout.Position = LabelPosition.Top;
-                _series.Style.Callout.Enable = true;
-                _series.FancyToolTip.BackColor = _backColor;
-                _series.FancyToolTip.Border.ForeColor = _borderColor;
-                _series.FancyToolTip.Border.BackColor = Color.Transparent;
-                _series.FancyToolTip.ForeColor = _textColor;
-                _series.FancyToolTip.Font = _callFont;
-                _series.FancyToolTip.Symbol = ChartSymbolShape.Arrow;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the label model.
-        /// </summary>
-        private void SetLabelModel( )
-        {
-            try
-            {
-                var _labelModel = new ChartDataBindAxisLabelModel( );
+                SetFancyToolTips( );
             }
             catch( Exception ex )
             {
@@ -699,7 +620,9 @@ namespace BudgetExecution
         /// <summary>
         /// Invokes if.
         /// </summary>
-        /// <param name="action">The action.</param>
+        /// <param name="action">
+        /// The action.
+        /// </param>
         public void InvokeIf( Action action )
         {
             if( InvokeRequired )
@@ -1037,6 +960,8 @@ namespace BudgetExecution
                     {
                         FieldListBox.Items.Add( _item );
                     }
+
+                    FieldListBox.MultiSelect = true;
                 }
                 catch( Exception ex )
                 {
@@ -1066,6 +991,8 @@ namespace BudgetExecution
                             NumericListBox.Items.Add( Numerics[ i ] );
                         }
                     }
+
+                    NumericListBox.MultiSelect = true;
                 }
                 catch( Exception ex )
                 {
@@ -1211,11 +1138,7 @@ namespace BudgetExecution
                     ?.ToArray( );
 
                 var _table = _dataRows.CopyToDataTable( );
-                var _category = _table.Columns[ 0 ].ColumnName;
-                var _binding = new ChartDataBindModel( _table );
-                _binding.YNames = _numerics;
-                _binding.XName = _category;
-                Chart.Series[ 0 ].SeriesModel = _binding;
+                SetSeriesPointStyles( _table );
                 Chart.Title.Text = DataTable.TableName.SplitPascal( );
                 Chart.Refresh( );
             }
@@ -1446,42 +1369,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the active tab.
-        /// </summary>
-        private void SetActiveTab( )
-        {
-            switch( QueryTabControl.SelectedIndex )
-            {
-                case 0:
-                {
-                    TableTabPage.TabVisible = true;
-                    FilterTabPage.TabVisible = false;
-                    GroupTabPage.TabVisible = false;
-                    PopulateExecutionTables( );
-                    break;
-                }
-                case 1:
-                {
-                    FilterTabPage.TabVisible = true;
-                    TableTabPage.TabVisible = false;
-                    GroupTabPage.TabVisible = false;
-                    PopulateFirstComboBoxItems( );
-                    ResetFilterTableVisibility( );
-                    break;
-                }
-                case 2:
-                {
-                    GroupTabPage.TabVisible = true;
-                    TableTabPage.TabVisible = false;
-                    FilterTabPage.TabVisible = false;
-                    PopulateFieldListBox( );
-                    ResetGroupTableVisibility( );
-                    break;
-                }
-            }
-        }
-
-        /// <summary>
         /// Updates the status.
         /// </summary>
         private void UpdateStatusLabel( )
@@ -1693,6 +1580,142 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Sets the active tab.
+        /// </summary>
+        private void SetActiveTab( )
+        {
+            try
+            {
+                switch( QueryTabControl.SelectedIndex )
+                {
+                    case 0:
+                    {
+                        TableTabPage.TabVisible = true;
+                        FilterTabPage.TabVisible = false;
+                        GroupTabPage.TabVisible = false;
+                        PopulateExecutionTables( );
+                        break;
+                    }
+                    case 1:
+                    {
+                        FilterTabPage.TabVisible = true;
+                        TableTabPage.TabVisible = false;
+                        GroupTabPage.TabVisible = false;
+                        PopulateFirstComboBoxItems( );
+                        ResetFilterTableVisibility( );
+                        break;
+                    }
+                    case 2:
+                    {
+                        GroupTabPage.TabVisible = true;
+                        TableTabPage.TabVisible = false;
+                        FilterTabPage.TabVisible = false;
+                        PopulateFieldListBox( );
+                        ResetGroupTableVisibility( );
+                        break;
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the series style.
+        /// </summary>
+        [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
+        private void SetSeriesPointStyles( DataTable table,
+            ChartSeriesType type = ChartSeriesType.StackingColumn )
+        {
+            try
+            {
+                ThrowIf.Null( table, nameof( table ) );
+                var _borderColor = Color.FromArgb( 0, 120, 212 );
+                var _backColor = Color.Black;
+                var _textColor = Color.FromArgb( 106, 189, 252 );
+                var _callFont = new Font( "Roboto", 7 );
+                var _numerics = Numerics.ToArray( );
+                var _dataRows = table.AsEnumerable( );
+                var _index = 0d;
+                for( var i = 0; i < table.Rows.Count; i++ )
+                {
+                    var _doubles = new List<double>( );
+                    var _row = table.Rows[ i ];
+                    var _series = new ChartSeries( );
+                    var _columnName = _numerics[ 0 ];
+                    var _value = double.Parse( _row[ _columnName ].ToString( ) );
+                    _series.Name = _columnName;
+                    _series.Text = _series.Name;
+                    _doubles.Add( _value );
+                    var _cp = new ChartPoint( _index, _value );
+                    _series.Points.Add( _cp );
+                    _series.Visible = true;
+                    _series.EnableStyles = true;
+                    _series.Type = type;
+                    _series.DrawSeriesNameInDepth = true;
+                    _series.Style.DisplayText = true;
+                    _series.Style.TextColor = Color.White;
+                    _series.Style.Font.Size = 9;
+                    _series.Style.Font.Facename = "Roboto";
+                    _series.Style.Symbol.Shape = ChartSymbolShape.Circle;
+                    _series.FancyToolTip.Style = MarkerStyle.Rectangle;
+                    _series.FancyToolTip.Angle = 45;
+                    _series.FancyToolTip.Border.ForeColor = _borderColor;
+                    _series.FancyToolTip.Border.BackColor = Color.Transparent;
+                    _series.FancyToolTip.ForeColor = Color.White;
+                    _series.FancyToolTip.BackColor = _backColor;
+                    _series.FancyToolTip.Symbol = ChartSymbolShape.Arrow;
+                    _series.FancyToolTip.Visible = true;
+                    _series.PointsToolTipFormat = $"{0} - {4}";
+                    Chart.Series.Add( _series );
+                    _index++;
+                }
+
+                var _fields = Fields
+                    ?.Take( 4 )
+                    ?.ToArray( );
+
+                var _title = string.Empty;
+                foreach( var col in _fields )
+                {
+                    _title += $"{col} ";
+                }
+
+                Chart.PrimaryXAxis.Title = _title;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the fancy tool tips.
+        /// </summary>
+        private void SetFancyToolTips( )
+        {
+            try
+            {
+                var _borderColor = Color.FromArgb( 0, 120, 212 );
+                var _backColor = Color.FromArgb( 90, 90, 90 );
+                var _textColor = Color.FromArgb( 106, 189, 252 );
+                var _callFont = new Font( "Roboto", 7 );
+                Chart.Series[ 0 ].FancyToolTip.BackColor = _backColor;
+                Chart.Series[ 0 ].FancyToolTip.Border.ForeColor = _borderColor;
+                Chart.Series[ 0 ].FancyToolTip.Border.BackColor = Color.Transparent;
+                Chart.Series[ 0 ].FancyToolTip.ForeColor = _textColor;
+                Chart.Series[ 0 ].FancyToolTip.Font = _callFont;
+                Chart.Series[ 0 ].FancyToolTip.Symbol = ChartSymbolShape.Arrow;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Sends the notification.
         /// </summary>
         /// <param name="text">The text.</param>
@@ -1789,6 +1812,7 @@ namespace BudgetExecution
                 PopulateExecutionTables( );
                 UpdateStatusLabel( );
                 PopulateToolBarDropDownItems( );
+                Chart.Title.Text = string.Empty;
                 FadeIn( );
             }
             catch( Exception ex )
@@ -2414,6 +2438,10 @@ namespace BudgetExecution
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
+        }
+
+        private void TableListBox_SelectedIndexChanged( object sender )
+        {
         }
     }
 }
