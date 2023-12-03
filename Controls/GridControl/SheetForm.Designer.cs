@@ -58,7 +58,6 @@
             LastButton = new ToolStripButton( );
             Separator8 = new ToolSeparator( );
             Timer = new System.Windows.Forms.Timer( components );
-            ContextMenu = new ContextMenu( );
             DataSheet = new GridControl( );
             Header.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
@@ -425,20 +424,6 @@
             Separator8.Padding = new System.Windows.Forms.Padding( 1 );
             Separator8.Size = new System.Drawing.Size( 6, 28 );
             // 
-            // ContextMenu
-            // 
-            ContextMenu.AutoSize = false;
-            ContextMenu.BackColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
-            ContextMenu.ForeColor = System.Drawing.Color.White;
-            ContextMenu.IsDerivedStyle = false;
-            ContextMenu.Name = "ContextMenu";
-            ContextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            ContextMenu.Size = new System.Drawing.Size( 140, 220 );
-            ContextMenu.Style = MetroSet_UI.Enums.Style.Custom;
-            ContextMenu.StyleManager = null;
-            ContextMenu.ThemeAuthor = "Terry Eppler";
-            ContextMenu.ThemeName = "Budget Execution";
-            // 
             // DataSheet
             // 
             DataSheet.AlphaBlendSelectionColor = System.Drawing.Color.FromArgb( 130, 80, 80, 80 );
@@ -604,7 +589,6 @@
         public ToolSeparator Separator7;
         public ToolStripButton LastButton;
         public ToolSeparator Separator8;
-        public ContextMenu ContextMenu;
         public GridControl DataSheet;
     }
 }

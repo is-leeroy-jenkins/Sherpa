@@ -154,7 +154,6 @@
             FunctionalitySpacer = new ToolSeparator( );
             LabelSpaceSeparator = new ToolSeparator( );
             NavigationSeparator = new ToolSeparator( );
-            ContextMenu = new ContextMenu( );
             HeaderTable = new System.Windows.Forms.TableLayoutPanel( );
             HeaderLabel = new Label( );
             PictureBox = new System.Windows.Forms.PictureBox( );
@@ -2438,20 +2437,6 @@
             NavigationSeparator.Padding = new System.Windows.Forms.Padding( 1 );
             NavigationSeparator.Size = new System.Drawing.Size( 6, 28 );
             // 
-            // ContextMenu
-            // 
-            ContextMenu.AutoSize = false;
-            ContextMenu.BackColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
-            ContextMenu.ForeColor = System.Drawing.Color.White;
-            ContextMenu.IsDerivedStyle = false;
-            ContextMenu.Name = "ContextMenu";
-            ContextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            ContextMenu.Size = new System.Drawing.Size( 156, 264 );
-            ContextMenu.Style = MetroSet_UI.Enums.Style.Custom;
-            ContextMenu.StyleManager = null;
-            ContextMenu.ThemeAuthor = "Terry D. Eppler";
-            ContextMenu.ThemeName = "Budget Execution";
-            // 
             // HeaderTable
             // 
             HeaderTable.ColumnCount = 2;
@@ -2788,7 +2773,6 @@
         public Layout TablePanel;
         public ListBox TableListBox;
         public Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt toolStripMenuItemExt1;
-        public ContextMenu ContextMenu;
         public RadioButton SqlServerRadioButton;
         public RadioButton AccessRadioButton;
         public RadioButton SQLiteRadioButton;

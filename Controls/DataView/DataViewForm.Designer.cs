@@ -72,7 +72,6 @@
             ExitSeparator = new ToolSeparator( );
             BindingSource = new System.Windows.Forms.BindingSource( components );
             Timer = new System.Windows.Forms.Timer( components );
-            ContextMenu = new ContextMenu( );
             ToolTip = new SmallTip( );
             GridHeaderPanel = new HeaderPanel( );
             DataLabelTable = new System.Windows.Forms.TableLayoutPanel( );
@@ -788,20 +787,6 @@
             // Timer
             // 
             Timer.Interval = 500;
-            // 
-            // ContextMenu
-            // 
-            ContextMenu.AutoSize = false;
-            ContextMenu.BackColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
-            ContextMenu.ForeColor = System.Drawing.Color.White;
-            ContextMenu.IsDerivedStyle = false;
-            ContextMenu.Name = "ContextMenu";
-            ContextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            ContextMenu.Size = new System.Drawing.Size( 140, 220 );
-            ContextMenu.Style = MetroSet_UI.Enums.Style.Custom;
-            ContextMenu.StyleManager = null;
-            ContextMenu.ThemeAuthor = "Terry Eppler";
-            ContextMenu.ThemeName = "Budget Execution";
             // 
             // ToolTip
             // 
@@ -2281,7 +2266,6 @@
         public ToolSeparator ExitSeparator;
         public System.Windows.Forms.BindingSource BindingSource;
         public System.Windows.Forms.Timer Timer;
-        public ContextMenu ContextMenu;
         public SmallTip ToolTip;
         private HeaderPanel GridHeaderPanel;
         public System.Windows.Forms.TableLayoutPanel DataLabelTable;

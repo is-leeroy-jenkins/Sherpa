@@ -70,7 +70,6 @@
             MenuButton = new ToolStripButton( );
             Separator15 = new ToolSeparator( );
             ApplicationLabel = new ToolStripLabel( );
-            ContextMenu = new ContextMenu( );
             Timer = new System.Windows.Forms.Timer( components );
             HeaderTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
@@ -700,20 +699,6 @@
             ApplicationLabel.Text = "         App:";
             ApplicationLabel.ToolTip = null;
             // 
-            // ContextMenu
-            // 
-            ContextMenu.AutoSize = false;
-            ContextMenu.BackColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
-            ContextMenu.ForeColor = System.Drawing.Color.White;
-            ContextMenu.IsDerivedStyle = false;
-            ContextMenu.Name = "ContextMenu";
-            ContextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            ContextMenu.Size = new System.Drawing.Size( 140, 220 );
-            ContextMenu.Style = MetroSet_UI.Enums.Style.Custom;
-            ContextMenu.StyleManager = null;
-            ContextMenu.ThemeAuthor = "Terry Eppler";
-            ContextMenu.ThemeName = "Budget Execution";
-            // 
             // Timer
             // 
             Timer.Enabled = true;
@@ -764,7 +749,6 @@
         private Label Title;
         public System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         public System.Windows.Forms.TableLayoutPanel HeaderTable;
-        public ContextMenu ContextMenu;
         public SmallTip ToolTip;
         public System.Windows.Forms.BindingSource BindingSource;
         public System.Windows.Forms.Timer Timer;

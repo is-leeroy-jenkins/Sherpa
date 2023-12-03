@@ -59,6 +59,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     public class Chart : ChartControl
     {
         /// <inheritdoc />
@@ -97,9 +98,6 @@ namespace BudgetExecution
             ShowToolTips = false;
             DisplayChartContextMenu = false;
             DisplaySeriesContextMenu = false;
-            ChartArea.RealSeries3D = true;
-            ChartArea.Series3D = true;
-            ChartArea.AutoScale = true;
             SeriesHighlightIndex = -1;
             Depth = 150;
             ElementsSpacing = 10;
@@ -149,6 +147,9 @@ namespace BudgetExecution
             Title.Font = new Font( "Roboto", 10 );
             Title.ForeColor = Color.FromArgb( 106, 189, 252 );
             Title.BackColor = Color.Transparent;
+            ChartArea.RealSeries3D = true;
+            ChartArea.Series3D = true;
+            ChartArea.AutoScale = true;
             ChartArea.BackInterior = new BrushInfo( GradientStyle.None, 
                 Color.FromArgb( 106, 189, 252 ), Color.FromArgb( 20, 20, 20 ) );
         }

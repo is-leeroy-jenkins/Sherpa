@@ -29,7 +29,6 @@
         private void InitializeComponent( )
         {
             components = new System.ComponentModel.Container( );
-            ContextMenu = new ContextMenu( );
             BindingSource = new System.Windows.Forms.BindingSource( components );
             ToolTip = new SmallTip( );
             Header = new System.Windows.Forms.TableLayoutPanel( );
@@ -37,24 +36,17 @@
             Title = new Label( );
             CloseButton = new Button( );
             Timer = new System.Windows.Forms.Timer( components );
+            toolStripMenuItemExt1 = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt( );
+            toolStripMenuItemExt2 = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt( );
+            toolStripMenuItemExt3 = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt( );
+            toolStripMenuItemExt4 = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt( );
+            toolStripMenuItemExt5 = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt( );
+            toolStripMenuItemExt6 = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt( );
+            toolStripMenuItemExt7 = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
             Header.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
             SuspendLayout( );
-            // 
-            // ContextMenu
-            // 
-            ContextMenu.AutoSize = false;
-            ContextMenu.BackColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
-            ContextMenu.ForeColor = System.Drawing.Color.White;
-            ContextMenu.IsDerivedStyle = false;
-            ContextMenu.Name = "ContextMenu";
-            ContextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            ContextMenu.Size = new System.Drawing.Size( 156, 264 );
-            ContextMenu.Style = MetroSet_UI.Enums.Style.Custom;
-            ContextMenu.StyleManager = null;
-            ContextMenu.ThemeAuthor = "Terry Eppler";
-            ContextMenu.ThemeName = "Budget Execution";
             // 
             // ToolTip
             // 
@@ -107,7 +99,7 @@
             Title.DataFilter = null;
             Title.Dock = System.Windows.Forms.DockStyle.Fill;
             Title.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            Title.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            Title.Font = new System.Drawing.Font( "Roboto", 8F );
             Title.HoverText = null;
             Title.IsDerivedStyle = true;
             Title.Location = new System.Drawing.Point( 47, 3 );
@@ -131,7 +123,7 @@
             CloseButton.DisabledBackColor = System.Drawing.Color.Transparent;
             CloseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
             CloseButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            CloseButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            CloseButton.Font = new System.Drawing.Font( "Roboto", 8F );
             CloseButton.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
             CloseButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
@@ -156,6 +148,48 @@
             CloseButton.ThemeName = "Budget Execution";
             CloseButton.ToolTip = null;
             // 
+            // toolStripMenuItemExt1
+            // 
+            toolStripMenuItemExt1.Name = "toolStripMenuItemExt1";
+            toolStripMenuItemExt1.Size = new System.Drawing.Size( 196, 22 );
+            toolStripMenuItemExt1.Text = "toolStripMenuItemExt1";
+            // 
+            // toolStripMenuItemExt2
+            // 
+            toolStripMenuItemExt2.Name = "toolStripMenuItemExt2";
+            toolStripMenuItemExt2.Size = new System.Drawing.Size( 198, 22 );
+            toolStripMenuItemExt2.Text = "toolStripMenuItemExt2";
+            // 
+            // toolStripMenuItemExt3
+            // 
+            toolStripMenuItemExt3.Name = "toolStripMenuItemExt3";
+            toolStripMenuItemExt3.Size = new System.Drawing.Size( 198, 22 );
+            toolStripMenuItemExt3.Text = "toolStripMenuItemExt3";
+            // 
+            // toolStripMenuItemExt4
+            // 
+            toolStripMenuItemExt4.Name = "toolStripMenuItemExt4";
+            toolStripMenuItemExt4.Size = new System.Drawing.Size( 198, 22 );
+            toolStripMenuItemExt4.Text = "toolStripMenuItemExt4";
+            // 
+            // toolStripMenuItemExt5
+            // 
+            toolStripMenuItemExt5.Name = "toolStripMenuItemExt5";
+            toolStripMenuItemExt5.Size = new System.Drawing.Size( 198, 22 );
+            toolStripMenuItemExt5.Text = "toolStripMenuItemExt5";
+            // 
+            // toolStripMenuItemExt6
+            // 
+            toolStripMenuItemExt6.Name = "toolStripMenuItemExt6";
+            toolStripMenuItemExt6.Size = new System.Drawing.Size( 198, 22 );
+            toolStripMenuItemExt6.Text = "toolStripMenuItemExt6";
+            // 
+            // toolStripMenuItemExt7
+            // 
+            toolStripMenuItemExt7.Name = "toolStripMenuItemExt7";
+            toolStripMenuItemExt7.Size = new System.Drawing.Size( 198, 22 );
+            toolStripMenuItemExt7.Text = "toolStripMenuItemExt7";
+            // 
             // BudgetForm
             // 
             BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
@@ -164,7 +198,7 @@
             CaptionBarHeight = 5;
             CaptionButtonColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            CaptionFont = new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            CaptionFont = new System.Drawing.Font( "Roboto", 12F );
             ClientSize = new System.Drawing.Size( 1338, 738 );
             ControlBox = false;
             Controls.Add( CloseButton );
@@ -189,12 +223,18 @@
         #endregion
         public SmallTip ToolTip;
         public System.Windows.Forms.BindingSource BindingSource;
-        public ContextMenu ContextMenu;
         private System.Windows.Forms.TableLayoutPanel Header;
         public System.Windows.Forms.PictureBox PictureBox;
         public Label Title;
         public Button CloseButton;
         public System.Windows.Forms.Timer Timer;
         public Syncfusion.Windows.Forms.Tools.ProgressBarAdv progressBarAdv1;
+        private Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt toolStripMenuItemExt1;
+        private Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt toolStripMenuItemExt2;
+        private Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt toolStripMenuItemExt3;
+        private Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt toolStripMenuItemExt4;
+        private Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt toolStripMenuItemExt5;
+        private Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt toolStripMenuItemExt6;
+        private Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt toolStripMenuItemExt7;
     }
 }

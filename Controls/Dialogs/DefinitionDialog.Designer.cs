@@ -74,7 +74,6 @@
             groupBox3 = new Layout( );
             groupBox4 = new Layout( );
             groupBox9 = new Layout( );
-            ContextMenu = new ContextMenu( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
             ( (System.ComponentModel.ISupportInitialize)TabControl ).BeginInit( );
             TabControl.SuspendLayout( );
@@ -1237,20 +1236,6 @@
             groupBox9.ThemeName = "BudgetExecution";
             groupBox9.ToolTip = null;
             // 
-            // ContextMenu
-            // 
-            ContextMenu.AutoSize = false;
-            ContextMenu.BackColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
-            ContextMenu.ForeColor = System.Drawing.Color.White;
-            ContextMenu.IsDerivedStyle = false;
-            ContextMenu.Name = "ContextMenu";
-            ContextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            ContextMenu.Size = new System.Drawing.Size( 156, 264 );
-            ContextMenu.Style = MetroSet_UI.Enums.Style.Custom;
-            ContextMenu.StyleManager = null;
-            ContextMenu.ThemeAuthor = "Terry D. Eppler";
-            ContextMenu.ThemeName = "Budget Execution";
-            // 
             // DefinitionDialog
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 15F );
@@ -1324,7 +1309,6 @@
         public HeaderPanel ProviderTable;
         public HeaderPanel SchemaTable;
         public HeaderPanel SourceTable;
-        public ContextMenu ContextMenu;
         public Layout TablePanel;
     }
 }

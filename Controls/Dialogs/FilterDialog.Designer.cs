@@ -114,7 +114,6 @@ partial class FilterDialog
         CommandTable = new HeaderPanel( );
         CommandPanel = new Layout( );
         CommandQueryComboBox = new ComboBox( );
-        ContextMenu = new ContextMenu( );
         CloseButton = new Button( );
         SelectButton = new Button( );
         GroupButton = new Button( );
@@ -2194,20 +2193,6 @@ partial class FilterDialog
         CommandQueryComboBox.ThemeName = "Budget Execution";
         CommandQueryComboBox.ToolTip = null;
         // 
-        // ContextMenu
-        // 
-        ContextMenu.AutoSize = false;
-        ContextMenu.BackColor = System.Drawing.Color.FromArgb(   30  ,   30  ,   30   );
-        ContextMenu.ForeColor = System.Drawing.Color.White;
-        ContextMenu.IsDerivedStyle = false;
-        ContextMenu.Name = "ContextMenu";
-        ContextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-        ContextMenu.Size = new System.Drawing.Size( 156, 264 );
-        ContextMenu.Style = MetroSet_UI.Enums.Style.Custom;
-        ContextMenu.StyleManager = null;
-        ContextMenu.ThemeAuthor = "Terry D. Eppler";
-        ContextMenu.ThemeName = "Budget Execution";
-        // 
         // CloseButton
         // 
         CloseButton.BindingSource = null;
@@ -2457,7 +2442,6 @@ partial class FilterDialog
     public HeaderPanel FieldTable;
     public Layout FieldPanel;
     public ListBox FieldListBox;
-    public ContextMenu ContextMenu;
     public HeaderPanel SqlTable;
     public Layout SqlPanel;
     public TextBox SqlTextBox;

@@ -121,7 +121,6 @@ namespace BudgetExecution
             BindingSource = new System.Windows.Forms.BindingSource( components );
             TestButton = new Button( );
             ExitButton = new Button( );
-            ContextMenu = new ContextMenu( );
             BrowserTable = new HeaderPanel( );
             BrowserPanel = new Layout( );
             ClientTable = new HeaderPanel( );
@@ -918,20 +917,6 @@ namespace BudgetExecution
             ExitButton.ThemeName = "BudgetExecution";
             ExitButton.ToolTip = ToolTip;
             // 
-            // ContextMenu
-            // 
-            ContextMenu.AutoSize = false;
-            ContextMenu.BackColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
-            ContextMenu.ForeColor = System.Drawing.Color.White;
-            ContextMenu.IsDerivedStyle = false;
-            ContextMenu.Name = "ContextMenu";
-            ContextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            ContextMenu.Size = new System.Drawing.Size( 140, 220 );
-            ContextMenu.Style = MetroSet_UI.Enums.Style.Custom;
-            ContextMenu.StyleManager = null;
-            ContextMenu.ThemeAuthor = "Terry D. Eppler";
-            ContextMenu.ThemeName = "Budget Execution";
-            // 
             // BrowserTable
             // 
             BrowserTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
@@ -1221,7 +1206,6 @@ namespace BudgetExecution
         public Tile GuidanceTile;
         public Tile VisualizationTile;
         public Tile LookupTile;
-        public ContextMenu ContextMenu;
         public SmallTip ToolTip;
         public Tile AccessTile;
         public Tile SQLiteTile;

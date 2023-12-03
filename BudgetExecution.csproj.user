@@ -11,6 +11,12 @@
     <VerifyUploadedFiles>false</VerifyUploadedFiles>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Update="Controls\ContextMenu\ContextBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\ContextMenu\ContextMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Update="Controls\Browser\FileBrowser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,12 +174,6 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\ComboBox\ComboBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Controls\ContextMenu\ContextMenu.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Controls\ContextMenu\MenuBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\DataGrid\DataGrid.cs">

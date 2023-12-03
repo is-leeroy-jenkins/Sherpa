@@ -45,7 +45,6 @@ partial class ProgramProjectDialog
         StatuteTable = new HeaderPanel( );
         ProgramAreaTable = new HeaderPanel( );
         ProgramProjectTable = new HeaderPanel( );
-        ContextMenu = new ContextMenu( );
         ToolTip = new SmallTip( );
         HeaderTable = new System.Windows.Forms.TableLayoutPanel( );
         pictureBox1 = new System.Windows.Forms.PictureBox( );
@@ -255,20 +254,6 @@ partial class ProgramProjectDialog
         ProgramProjectTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
         ProgramProjectTable.Size = new System.Drawing.Size( 448, 89 );
         ProgramProjectTable.TabIndex = 17;
-        // 
-        // ContextMenu
-        // 
-        ContextMenu.AutoSize = false;
-        ContextMenu.BackColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
-        ContextMenu.ForeColor = System.Drawing.Color.White;
-        ContextMenu.IsDerivedStyle = false;
-        ContextMenu.Name = "ContextMenu";
-        ContextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-        ContextMenu.Size = new System.Drawing.Size( 156, 264 );
-        ContextMenu.Style = MetroSet_UI.Enums.Style.Custom;
-        ContextMenu.StyleManager = null;
-        ContextMenu.ThemeAuthor = "Terry D. Eppler";
-        ContextMenu.ThemeName = "Budget Execution";
         // 
         // ToolTip
         // 
@@ -537,7 +522,6 @@ partial class ProgramProjectDialog
     public HeaderPanel StatuteTable;
     private HeaderPanel ProgramAreaTable;
     private HeaderPanel ProgramProjectTable;
-    public ContextMenu ContextMenu;
     public SmallTip ToolTip;
     public RichTextBox StatutoryAuthorityTextBox;
     public RichTextBox ProgramAreaNameTextBox;

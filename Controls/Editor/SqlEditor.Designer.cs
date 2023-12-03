@@ -38,7 +38,6 @@
             var resources = new System.ComponentModel.ComponentResourceManager( typeof( SqlEditor ) );
             BindingSource = new System.Windows.Forms.BindingSource( components );
             ToolTip = new SmallTip( );
-            ContextMenu = new ContextMenu( );
             HeaderTable = new System.Windows.Forms.TableLayoutPanel( );
             PictureBox = new Picture( );
             Title = new Label( );
@@ -191,20 +190,6 @@
             ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
             ToolTip.TipText = null;
             ToolTip.TipTitle = null;
-            // 
-            // ContextMenu
-            // 
-            ContextMenu.AutoSize = false;
-            ContextMenu.BackColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
-            ContextMenu.ForeColor = System.Drawing.Color.White;
-            ContextMenu.IsDerivedStyle = false;
-            ContextMenu.Name = "ContextMenu";
-            ContextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            ContextMenu.Size = new System.Drawing.Size( 156, 264 );
-            ContextMenu.Style = MetroSet_UI.Enums.Style.Custom;
-            ContextMenu.StyleManager = null;
-            ContextMenu.ThemeAuthor = "Terry Eppler";
-            ContextMenu.ThemeName = "Budget Execution";
             // 
             // HeaderTable
             // 
@@ -2262,7 +2247,6 @@
 
         public System.Windows.Forms.BindingSource BindingSource;
         public SmallTip ToolTip;
-        public ContextMenu ContextMenu;
         public System.Windows.Forms.TableLayoutPanel HeaderTable;
         public Picture PictureBox;
         public Label Title;

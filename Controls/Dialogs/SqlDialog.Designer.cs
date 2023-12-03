@@ -59,7 +59,6 @@ partial class SqlDialog
         SecondButton = new Button( );
         ThirdButton = new Button( );
         BindingSource = new System.Windows.Forms.BindingSource( components );
-        ContextMenu = new ContextMenu( );
         ( (System.ComponentModel.ISupportInitialize) TabControl  ).BeginInit( );
         TabControl.SuspendLayout( );
         TabPage.SuspendLayout( );
@@ -691,20 +690,6 @@ partial class SqlDialog
         ThirdButton.ThemeName = "BudgetExecution";
         ThirdButton.ToolTip = null;
         // 
-        // ContextMenu
-        // 
-        ContextMenu.AutoSize = false;
-        ContextMenu.BackColor = System.Drawing.Color.FromArgb(   30  ,   30  ,   30   );
-        ContextMenu.ForeColor = System.Drawing.Color.White;
-        ContextMenu.IsDerivedStyle = false;
-        ContextMenu.Name = "ContextMenu";
-        ContextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-        ContextMenu.Size = new System.Drawing.Size( 156, 264 );
-        ContextMenu.Style = MetroSet_UI.Enums.Style.Custom;
-        ContextMenu.StyleManager = null;
-        ContextMenu.ThemeAuthor = "Terry D. Eppler";
-        ContextMenu.ThemeName = "Budget Execution";
-        // 
         // SqlDialog
         // 
         AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
@@ -762,7 +747,6 @@ partial class SqlDialog
     public RadioButton AccessRadioButton;
     public Editor Editor;
     public HeaderPanel SqlStatementTable;
-    public ContextMenu ContextMenu;
     public HeaderPanel CommandTable;
     public HeaderPanel ProviderTable;
     private HeaderPanel EditorTable;

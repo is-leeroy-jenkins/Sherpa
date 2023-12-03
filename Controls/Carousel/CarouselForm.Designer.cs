@@ -35,7 +35,6 @@
             Header = new Label( );
             Timer = new System.Windows.Forms.Timer( components );
             ToolTip = new SmallTip( );
-            ContextMenu = new ContextMenu( );
             SuspendLayout( );
             // 
             // Carousel
@@ -129,20 +128,6 @@
             ToolTip.TipText = null;
             ToolTip.TipTitle = null;
             // 
-            // ContextMenu
-            // 
-            ContextMenu.AutoSize = false;
-            ContextMenu.BackColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
-            ContextMenu.ForeColor = System.Drawing.Color.White;
-            ContextMenu.IsDerivedStyle = false;
-            ContextMenu.Name = "ContextMenu";
-            ContextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            ContextMenu.Size = new System.Drawing.Size( 140, 220 );
-            ContextMenu.Style = MetroSet_UI.Enums.Style.Custom;
-            ContextMenu.StyleManager = null;
-            ContextMenu.ThemeAuthor = "Terry Eppler";
-            ContextMenu.ThemeName = "Budget Execution";
-            // 
             // CarouselForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
@@ -176,6 +161,5 @@
         public Label Header;
         public System.Windows.Forms.Timer Timer;
         public SmallTip ToolTip;
-        public ContextMenu ContextMenu;
     }
 }

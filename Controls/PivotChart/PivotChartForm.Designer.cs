@@ -36,7 +36,6 @@
             BindingSource = new System.Windows.Forms.BindingSource( components );
             Timer = new System.Windows.Forms.Timer( components );
             ToolTip = new SmallTip( );
-            ContextMenu = new ContextMenu( );
             ToolStrip = new ToolStrip( );
             Separator1 = new ToolSeparator( );
             StatusLabel = new ToolStripLabel( );
@@ -187,20 +186,6 @@
             ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
             ToolTip.TipText = null;
             ToolTip.TipTitle = null;
-            // 
-            // ContextMenu
-            // 
-            ContextMenu.AutoSize = false;
-            ContextMenu.BackColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
-            ContextMenu.ForeColor = System.Drawing.Color.White;
-            ContextMenu.IsDerivedStyle = false;
-            ContextMenu.Name = "ContextMenu";
-            ContextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            ContextMenu.Size = new System.Drawing.Size( 140, 220 );
-            ContextMenu.Style = MetroSet_UI.Enums.Style.Custom;
-            ContextMenu.StyleManager = null;
-            ContextMenu.ThemeAuthor = "Terry Eppler";
-            ContextMenu.ThemeName = "Budget Execution";
             // 
             // ToolStrip
             // 
@@ -1263,7 +1248,6 @@
         public System.Windows.Forms.BindingSource BindingSource;
         public System.Windows.Forms.Timer Timer;
         public SmallTip ToolTip;
-        public ContextMenu ContextMenu;
         public ToolStrip ToolStrip;
         public HeaderPanel ChartHeaderTable;
         public System.Windows.Forms.TableLayoutPanel AreaTable;

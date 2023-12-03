@@ -859,7 +859,7 @@ namespace BudgetExecution
                     RowCount = dataTable.Rows.Count;
                     ColCount = dataTable.Columns.Count;
                     var _blue = Color.FromArgb( 17, 69, 97 );
-                    Spreadsheet.ActiveGrid.ContextMenuStrip = ContextMenu;
+                    //Spreadsheet.ActiveGrid.ContextMenuStrip = FormMenu;
                     Spreadsheet.ActiveGrid.FrozenRows = 3;
                     Spreadsheet.ActiveGrid.AllowSelection = true;
                     Spreadsheet.ActiveGrid.CanOverrideStyle = true;
@@ -901,7 +901,7 @@ namespace BudgetExecution
             try
             {
                 var _blue = Color.FromArgb( 17, 69, 97 );
-                Spreadsheet.ActiveGrid.ContextMenuStrip = ContextMenu;
+                //Spreadsheet.ActiveGrid.ContextMenuStrip = FormMenu;
                 Spreadsheet.ActiveGrid.FrozenRows = 3;
                 Spreadsheet.ActiveGrid.AllowSelection = true;
                 Spreadsheet.ActiveGrid.CanOverrideStyle = true;
@@ -1133,7 +1133,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    ContextMenu.Show( this, e.Location );
+                    //FormMenu.Show( this, e.Location );
                 }
                 catch( Exception _ex )
                 {

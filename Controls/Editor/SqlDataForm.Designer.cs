@@ -132,7 +132,6 @@ namespace BudgetExecution
             SqlStatementTable = new HeaderPanel( );
             TextPanel = new Layout( );
             QueryListBox = new ListBox( );
-            ContextMenu = new ContextMenu( );
             BindingSource = new System.Windows.Forms.BindingSource( components );
             ToolStrip = new ToolStrip( );
             CloseButton = new ToolStripButton( );
@@ -1737,20 +1736,6 @@ namespace BudgetExecution
             QueryListBox.ThemeName = "Budget Execution";
             QueryListBox.ToolTip = null;
             // 
-            // ContextMenu
-            // 
-            ContextMenu.AutoSize = false;
-            ContextMenu.BackColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
-            ContextMenu.ForeColor = System.Drawing.Color.White;
-            ContextMenu.IsDerivedStyle = false;
-            ContextMenu.Name = "ContextMenu";
-            ContextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            ContextMenu.Size = new System.Drawing.Size( 156, 264 );
-            ContextMenu.Style = MetroSet_UI.Enums.Style.Custom;
-            ContextMenu.StyleManager = null;
-            ContextMenu.ThemeAuthor = "Terry Eppler";
-            ContextMenu.ThemeName = "Budget Execution";
-            // 
             // ToolStrip
             // 
             ToolStrip.AddButton = null;
@@ -2443,7 +2428,6 @@ namespace BudgetExecution
             CaptionFont = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             CaptionForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             ClientSize = new System.Drawing.Size( 1338, 739 );
-            ContextMenuStrip = ContextMenu;
             ControlBox = false;
             Controls.Add( ToolStripTable );
             Controls.Add( SqlCommandTable );
@@ -2532,7 +2516,6 @@ namespace BudgetExecution
         public HeaderPanel SqlStatementTable;
         public Layout TextPanel;
         public ListBox QueryListBox;
-        public ContextMenu ContextMenu;
         public System.Windows.Forms.BindingSource BindingSource;
         public SmallTip ToolTip;
         public Layout DataGridPanel;

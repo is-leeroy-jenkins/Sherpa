@@ -165,9 +165,6 @@
     <Reference Include="log4net">
       <HintPath>Libraries\log4net.dll</HintPath>
     </Reference>
-    <Reference Include="MetroSet UI">
-      <HintPath>Libraries\MetroSet UI.dll</HintPath>
-    </Reference>
     <Reference Include="PdfSharp">
       <HintPath>Libraries\PdfSharp.dll</HintPath>
     </Reference>

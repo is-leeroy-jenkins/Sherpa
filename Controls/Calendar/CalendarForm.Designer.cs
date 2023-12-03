@@ -79,7 +79,6 @@ namespace BudgetExecution
             Title = new Label( );
             HeaderTable = new System.Windows.Forms.TableLayoutPanel( );
             BindingSource = new System.Windows.Forms.BindingSource( components );
-            ContextMenu = new ContextMenu( );
             ToolTip = new SmallTip( );
             ToolStrip = new ToolStrip( );
             StripSeparator = new ToolSeparator( );
@@ -217,20 +216,6 @@ namespace BudgetExecution
             HeaderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             HeaderTable.Size = new System.Drawing.Size( 1338, 37 );
             HeaderTable.TabIndex = 2;
-            // 
-            // ContextMenu
-            // 
-            ContextMenu.AutoSize = false;
-            ContextMenu.BackColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
-            ContextMenu.ForeColor = System.Drawing.Color.White;
-            ContextMenu.IsDerivedStyle = false;
-            ContextMenu.Name = "ContextMenu";
-            ContextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            ContextMenu.Size = new System.Drawing.Size( 156, 264 );
-            ContextMenu.Style = MetroSet_UI.Enums.Style.Custom;
-            ContextMenu.StyleManager = null;
-            ContextMenu.ThemeAuthor = "Terry Eppler";
-            ContextMenu.ThemeName = "Budget Execution";
             // 
             // ToolTip
             // 
@@ -1587,7 +1572,6 @@ namespace BudgetExecution
         public Label Title;
         public System.Windows.Forms.TableLayoutPanel HeaderTable;
         public System.Windows.Forms.BindingSource BindingSource;
-        public ContextMenu ContextMenu;
         public SmallTip ToolTip;
         public ToolStrip ToolStrip;
         public ToolStripButton FirstButton;

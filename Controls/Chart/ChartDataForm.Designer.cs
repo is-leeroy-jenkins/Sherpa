@@ -97,7 +97,6 @@
             ExcelSeparator = new ToolSeparator( );
             RefreshDataSeparator = new ToolSeparator( );
             GroupSeparator = new ToolSeparator( );
-            ContextMenu = new ContextMenu( );
             QueryTabControl = new TabControl( );
             TableTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             SourcePanel = new HeaderPanel( );
@@ -1395,20 +1394,6 @@
             GroupSeparator.Padding = new System.Windows.Forms.Padding( 1 );
             GroupSeparator.Size = new System.Drawing.Size( 6, 28 );
             // 
-            // ContextMenu
-            // 
-            ContextMenu.AutoSize = false;
-            ContextMenu.BackColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
-            ContextMenu.ForeColor = System.Drawing.Color.White;
-            ContextMenu.IsDerivedStyle = false;
-            ContextMenu.Name = "ContextMenu";
-            ContextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            ContextMenu.Size = new System.Drawing.Size( 156, 264 );
-            ContextMenu.Style = MetroSet_UI.Enums.Style.Custom;
-            ContextMenu.StyleManager = null;
-            ContextMenu.ThemeAuthor = "Terry D. Eppler";
-            ContextMenu.ThemeName = "Budget Execution";
-            // 
             // QueryTabControl
             // 
             QueryTabControl.ActiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
@@ -2229,8 +2214,6 @@
         public System.Windows.Forms.BindingSource BindingSource;
         private System.ComponentModel.IContainer components;
         public SmallTip ToolTip;
-        public ContextMenu ContextMenu;
-
         #endregion Windows Form Designer generated code
         public ToolStripLabel ChartSeriesLabel;
         public ToolStripLabel ChartSpacerLabel;

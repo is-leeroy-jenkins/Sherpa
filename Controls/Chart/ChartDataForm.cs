@@ -1660,15 +1660,17 @@ namespace BudgetExecution
                     _series.Style.Font.Size = 9;
                     _series.Style.Font.Facename = "Roboto";
                     _series.Style.Symbol.Shape = ChartSymbolShape.Circle;
+                    _series.Style.TextOffset = 10f;
                     _series.FancyToolTip.Style = MarkerStyle.Rectangle;
                     _series.FancyToolTip.Angle = 45;
+                    _series.FancyToolTip.Spacing = 10f;
                     _series.FancyToolTip.Border.ForeColor = _borderColor;
                     _series.FancyToolTip.Border.BackColor = Color.Transparent;
                     _series.FancyToolTip.ForeColor = Color.White;
                     _series.FancyToolTip.BackColor = _backColor;
                     _series.FancyToolTip.Symbol = ChartSymbolShape.Arrow;
                     _series.FancyToolTip.Visible = true;
-                    _series.PointsToolTipFormat = $"{0} - {4}";
+                    _series.PointsToolTipFormat = "{0} - {4}";
                     Chart.Series.Add( _series );
                     _index++;
                 }
@@ -2238,10 +2240,11 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnRefreshDataButtonClicked( object sender, EventArgs e )
+        private void OnRefreshButtonClicked( object sender, EventArgs e )
         {
             try
             {
+                QueryTabControl.SelectedIndex = 0;
                 SelectedTable = string.Empty;
                 BindingSource.DataSource = null;
                 ClearCollections( );
@@ -2249,7 +2252,6 @@ namespace BudgetExecution
                 ClearComboBoxes( );
                 ClearListBoxes( );
                 UpdateLabelText( );
-                QueryTabControl.SelectedIndex = 0;
             }
             catch( Exception ex )
             {
@@ -2320,7 +2322,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    ContextMenu.Show( this, e.Location );
+                    //ContextMenu.Show( this, e.Location );
                 }
                 catch( Exception ex )
                 {
