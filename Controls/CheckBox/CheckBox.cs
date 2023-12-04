@@ -59,9 +59,21 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public class CheckBox : MetroSetCheckBox
     {
-        public virtual SmallTip ToolTip { get; set; }
+        /// <summary>
+        /// Gets or sets the tool tip.
+        /// </summary>
+        /// <value>
+        /// The tool tip.
+        /// </value>
+        public SmallTip ToolTip { get; set; }
 
-        public virtual string HoverText { get; set; }
+        /// <summary>
+        /// Gets or sets the hover text.
+        /// </summary>
+        /// <value>
+        /// The hover text.
+        /// </value>
+        public string HoverText { get; set; }
 
         /// <summary>
         /// Gets or sets the data filter.
@@ -69,7 +81,7 @@ namespace BudgetExecution
         /// <value>
         /// The data filter.
         /// </value>
-        public virtual IDictionary<string, object> Filter { get; set; }
+        public IDictionary<string, object> Filter { get; set; }
 
         /// <summary>
         /// Gets or sets the binding source.
@@ -173,7 +185,9 @@ namespace BudgetExecution
         /// <summary>
         /// Fails the specified ex.
         /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <param name="ex">
+        /// The ex.
+        /// </param>
         private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

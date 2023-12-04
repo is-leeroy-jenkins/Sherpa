@@ -5,11 +5,6 @@ VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BudgetExecution", "BudgetExecution.csproj", "{C6009DE6-18A5-4292-B68B-7E969C652E0A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{16D31337-52FF-4616-A17E-340BFD0E9437}"
-	ProjectSection(SolutionItems) = preProject
-		ContextMenu.cs = ContextMenu.cs
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		BudgetExecution|Any CPU = BudgetExecution|Any CPU

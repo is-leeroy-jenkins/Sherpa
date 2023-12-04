@@ -4,7 +4,7 @@
 //     Created:                 06-19-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-02-2023
+//     Last Modified On:        12-03-2023
 // ******************************************************************************************
 // <copyright file="Terry Eppler.cs" company="Terry D. Eppler">
 //    BudgetExecution is a Federal Budget, Finance, and Accounting application for the
@@ -48,7 +48,6 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
-    using DocumentFormat.OpenXml.Drawing.Charts;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Chart;
     using Syncfusion.Windows.Forms.Tools;
@@ -125,10 +124,10 @@ namespace BudgetExecution
         public virtual string HoverText { get; set; }
 
         /// <summary>
-        /// Gets or sets the selected table.
+        /// Gets or sets the selected row.
         /// </summary>
         /// <value>
-        /// The selected table.
+        /// The selected row.
         /// </value>
         public string SelectedTable { get; set; }
 
@@ -229,10 +228,10 @@ namespace BudgetExecution
         public DataBuilder DataModel { get; set; }
 
         /// <summary>
-        /// Gets or sets the data table.
+        /// Gets or sets the data row.
         /// </summary>
         /// <value>
-        /// The data table.
+        /// The data row.
         /// </value>
         public DataTable DataTable { get; set; }
 
@@ -551,7 +550,7 @@ namespace BudgetExecution
                 MenuButton.Click += OnMainMenuButtonClicked;
                 ExitButton.Click += OnExitButtonClicked;
                 Timer.Tick += OnTimerTick;
-                QueryTabControl.SelectedIndexChanged += OnActiveTabChanged;
+                DataTabControl.SelectedIndexChanged += OnActiveTabChanged;
                 TableListBox.SelectedIndexChanged += OnTableListBoxItemSelected;
                 FirstComboBox.SelectedIndexChanged += OnFirstComboBoxItemSelected;
                 FirstListBox.SelectedIndexChanged += OnFirstListBoxItemSelected;
@@ -562,8 +561,6 @@ namespace BudgetExecution
                 GroupButton.Click += OnGroupButtonClicked;
                 FieldListBox.SelectedIndexChanged += OnFieldListBoxSelectedValueChanged;
                 NumericListBox.SelectedIndexChanged += OnNumericListBoxSelectedValueChanged;
-                SeriesComboBox.SelectedIndexChanged += OnChartTypeSelected;
-                MetricsComboBox.SelectedIndexChanged += OnMetricSelected;
             }
             catch( Exception _ex )
             {
@@ -885,35 +882,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Populates the tool bar drop down items.
-        /// </summary>
-        private void PopulateToolBarDropDownItems( )
-        {
-            try
-            {
-                SeriesComboBox.Items.Clear( );
-                var _names = Enum.GetNames( typeof( ChartSeriesType ) );
-                for( var i = 0; i < _names.Length; i++ )
-                {
-                    var _chart = _names[ i ];
-                    SeriesComboBox.Items.Add( _chart );
-                }
-
-                MetricsComboBox.Items.Clear( );
-                var _metrics = Enum.GetNames( typeof( STAT ) );
-                for( var i = 0; i < _metrics.Length; i++ )
-                {
-                    var _measure = _metrics[ i ];
-                    MetricsComboBox.Items.Add( _measure );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
         /// Populates the execution tables.
         /// </summary>
         private void PopulateExecutionTables( )
@@ -923,7 +891,8 @@ namespace BudgetExecution
                 TableListBox.Items?.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                var _names = _data
+                    ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
                     ?.Select( r => r.Field<string>( "Title" ) )
                     ?.ToList( );
@@ -1129,16 +1098,8 @@ namespace BudgetExecution
         {
             try
             {
-                var _numerics = Numerics.ToArray( );
-                var _names = Fields.ToArray( );
-                var _dataRows = DataTable.AsEnumerable( )
-                    ?.OrderByDescending( r => r.Field<decimal>( _numerics[ 0 ] ) )
-                    ?.Select( r => r )
-                    ?.Take( 10 )
-                    ?.ToArray( );
-
-                var _table = _dataRows.CopyToDataTable( );
-                SetSeriesPointStyles( _table );
+                var _current = BindingSource.GetCurrentDataRow( );
+                SetSeriesPointStyles( _current );
                 Chart.Title.Text = DataTable.TableName.SplitPascal( );
                 Chart.Refresh( );
             }
@@ -1173,7 +1134,8 @@ namespace BudgetExecution
         /// Creates the SQL text.
         /// </summary>
         /// <param name="where">The where.</param>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         private string CreateSqlText( IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( SelectedTable )
@@ -1200,7 +1162,8 @@ namespace BudgetExecution
         /// <param name="fields">The fields.</param>
         /// <param name="numerics">The numerics.</param>
         /// <param name="where">The where.</param>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         private string CreateSqlText( IEnumerable<string> fields, IEnumerable<string> numerics,
             IDictionary<string, object> where )
         {
@@ -1245,7 +1208,8 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="columns">The columns.</param>
         /// <param name="where">The where.</param>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         private string CreateSqlText( IEnumerable<string> columns,
             IDictionary<string, object> where )
         {
@@ -1446,7 +1410,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Resets the filter table visibility.
+        /// Resets the filter row visibility.
         /// </summary>
         private void ResetFilterTableVisibility( )
         {
@@ -1474,7 +1438,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Resets the group table visibility.
+        /// Resets the group row visibility.
         /// </summary>
         private void ResetGroupTableVisibility( )
         {
@@ -1610,6 +1574,7 @@ namespace BudgetExecution
                         GroupTabPage.TabVisible = true;
                         TableTabPage.TabVisible = false;
                         FilterTabPage.TabVisible = false;
+                        ClearCollections( );
                         PopulateFieldListBox( );
                         ResetGroupTableVisibility( );
                         break;
@@ -1648,9 +1613,13 @@ namespace BudgetExecution
                     var _value = double.Parse( _row[ _columnName ].ToString( ) );
                     _series.Name = _columnName;
                     _series.Text = _series.Name;
-                    _doubles.Add( _value );
-                    var _cp = new ChartPoint( _index, _value );
-                    _series.Points.Add( _cp );
+                    if( _value > 0 )
+                    {
+                        _doubles.Add( _value );
+                        var _cp = new ChartPoint( _index, _value );
+                        _series.Points.Add( _cp );
+                    }
+
                     _series.Visible = true;
                     _series.EnableStyles = true;
                     _series.Type = type;
@@ -1682,7 +1651,80 @@ namespace BudgetExecution
                 var _title = string.Empty;
                 foreach( var col in _fields )
                 {
-                    _title += $"{col} ";
+                    _title += $"{col.SplitPascal( )} ";
+                }
+
+                Chart.PrimaryXAxis.Title = _title;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the series style.
+        /// </summary>
+        [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
+        private void SetSeriesPointStyles( DataRow row,
+            ChartSeriesType type = ChartSeriesType.Column )
+        {
+            try
+            {
+                ThrowIf.Null( row, nameof( row ) );
+                var _borderColor = Color.FromArgb( 0, 120, 212 );
+                var _backColor = Color.Black;
+                var _textColor = Color.FromArgb( 106, 189, 252 );
+                var _callFont = new Font( "Roboto", 7 );
+                var _numerics = Numerics.ToArray( );
+                for( var i = 0; i < _numerics.Length; i++ )
+                {
+                    var _doubles = new List<double>( );
+                    var _series = new ChartSeries( );
+                    var _columnName = _numerics[ i ];
+                    var _index = double.Parse( i.ToString( ) );
+                    var _value = double.Parse( row[ _columnName ].ToString( ) );
+                    _series.Name = _columnName;
+                    _series.Text = _series.Name;
+                    _series.Text = _series.Name;
+                    if( _value > 0d )
+                    {
+                        _doubles.Add( _value );
+                        var _cp = new ChartPoint( _index, _value );
+                        _series.Points.Add( _cp );
+                    }
+
+                    _series.Visible = true;
+                    _series.EnableStyles = true;
+                    _series.Type = type;
+                    _series.DrawSeriesNameInDepth = false;
+                    _series.Style.DisplayText = true;
+                    _series.Style.TextColor = Color.White;
+                    _series.Style.Font.Size = 9;
+                    _series.Style.Font.Facename = "Roboto";
+                    _series.Style.Symbol.Shape = ChartSymbolShape.Circle;
+                    _series.Style.TextOffset = 20f;
+                    _series.FancyToolTip.Style = MarkerStyle.SmoothRectangle;
+                    _series.FancyToolTip.Angle = 45;
+                    _series.FancyToolTip.Spacing = 10f;
+                    _series.FancyToolTip.Border.ForeColor = _borderColor;
+                    _series.FancyToolTip.Border.BackColor = Color.Transparent;
+                    _series.FancyToolTip.ForeColor = Color.White;
+                    _series.FancyToolTip.BackColor = _backColor;
+                    _series.FancyToolTip.Symbol = ChartSymbolShape.Arrow;
+                    _series.FancyToolTip.Visible = true;
+                    _series.PointsToolTipFormat = "{0} - {4}";
+                    Chart.Series.Add( _series );
+                }
+
+                var _fields = Fields
+                    ?.Take( 4 )
+                    ?.ToArray( );
+
+                var _title = string.Empty;
+                foreach( var col in _fields )
+                {
+                    _title += $"{col.SplitPascal( )} ";
                 }
 
                 Chart.PrimaryXAxis.Title = _title;
@@ -1813,7 +1855,6 @@ namespace BudgetExecution
                 Busy.TabVisible = false;
                 PopulateExecutionTables( );
                 UpdateStatusLabel( );
-                PopulateToolBarDropDownItems( );
                 Chart.Title.Text = string.Empty;
                 FadeIn( );
             }
@@ -1842,7 +1883,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [table ListBox item selected].
+        /// Called when [row ListBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
         private void OnTableListBoxItemSelected( object sender )
@@ -2270,6 +2311,7 @@ namespace BudgetExecution
             try
             {
                 QueryTabControl.SelectedIndex = 2;
+                SetActiveTab( );
             }
             catch( Exception ex )
             {
@@ -2361,46 +2403,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [chart type selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnChartTypeSelected( object sender, EventArgs e )
-        {
-            try
-            {
-                var _selectedItem = SeriesComboBox.ComboBox.SelectedItem;
-                var _selection = _selectedItem.ToString( );
-                SetChartType( _selection );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [metric selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnMetricSelected( object sender, EventArgs e )
-        {
-            try
-            {
-                var _selectedItem = MetricsComboBox.ComboBox.SelectedItem;
-                var _selection = _selectedItem.ToString( );
-                SetMetric( _selection );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
         /// Called when [timer tick].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -2440,10 +2442,6 @@ namespace BudgetExecution
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
-        }
-
-        private void TableListBox_SelectedIndexChanged( object sender )
-        {
         }
     }
 }

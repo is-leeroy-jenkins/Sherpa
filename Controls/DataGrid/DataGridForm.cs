@@ -659,7 +659,7 @@ namespace BudgetExecution
         /// </summary>
         private void InitializeDelegates( )
         {
-            _statusUpdate += UpdateStatusLabel;
+            _statusUpdate += UpdateStatus;
         }
 
         /// <summary>
@@ -1187,7 +1187,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return $"SELECT * FROM {Source} " + $"WHERE {where.ToCriteria( )};";
+                    return $"SELECT * FROM {Source} " 
+                        + $"WHERE {where.ToCriteria( )};";
                 }
                 catch( Exception _ex )
                 {
@@ -1286,7 +1287,9 @@ namespace BudgetExecution
         /// <summary>
         /// Binds the data.
         /// </summary>
-        /// <param name="where">The where.</param>
+        /// <param name="where">
+        /// The where.
+        /// </param>
         private void BindData( IDictionary<string, object> where )
         {
             if( where?.Any( ) == true )
@@ -1490,7 +1493,7 @@ namespace BudgetExecution
         /// <summary>
         /// Updates the status.
         /// </summary>
-        private void UpdateStatusLabel( )
+        private void UpdateStatus( )
         {
             try
             {
@@ -1645,7 +1648,7 @@ namespace BudgetExecution
                 DataGrid.PascalizeHeaders( );
                 DataGrid.FormatColumns( );
                 UpdateLabelText( );
-                UpdateStatusLabel( );
+                UpdateStatus( );
                 FadeIn( );
             }
             catch( Exception _ex )

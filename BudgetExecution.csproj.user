@@ -310,5 +310,8 @@
     <EmbeddedResource Update="Clients\Baby\net6.0-windows\Properties\Resources.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Update="Controls\DataGrid\DataGridForm.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

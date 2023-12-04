@@ -54,7 +54,7 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
     public partial class ColorDialog : MetroForm
     {
         /// <inheritdoc/>
@@ -78,7 +78,7 @@ namespace BudgetExecution
             CaptionAlign = HorizontalAlignment.Left;
             CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionForeColor = Color.FromArgb( 20, 20, 20);
+            CaptionForeColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = Color.FromArgb( 106, 189, 252 );
 

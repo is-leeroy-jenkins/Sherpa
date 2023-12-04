@@ -125,6 +125,7 @@
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005Cteppler_005Csource_005Crepos_005CBudgetExecution_005CLibraries_005CWinFormsExcel_002Edeps_002Ejson/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005Cteppler_005Csource_005Crepos_005CBudgetExecution_005CLibraries_005CWinFormsExcel_002Edll/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005Cteppler_005Csource_005Crepos_005CBudgetExecution_005CLibraries_005CWinFormsExcel_002Exml/@EntryIndexedValue">True</s:Boolean>
+	<s:String x:Key="/Default/CodeInspection/Highlighting/SweaWarningsMode/@EntryValue">DoNotShowAndRun</s:String>
 	
 	<s:String x:Key="/Default/CustomTools/CustomToolsData/@EntryValue"></s:String>
 	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
