@@ -164,6 +164,7 @@
             Busy = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             Loader = new System.Windows.Forms.PictureBox( );
             ToolStripTable = new System.Windows.Forms.TableLayoutPanel( );
+            ContextMenu = new ContextMenu( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
             DataGridPanel.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)DataGrid ).BeginInit( );
@@ -246,7 +247,6 @@
             HomeButton.AutoToolTip = false;
             HomeButton.BackColor = System.Drawing.Color.Transparent;
             HomeButton.BindingSource = BindingSource;
-            HomeButton.DataFilter = null;
             HomeButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             HomeButton.Field = Field.AccountCode;
             HomeButton.Font = new System.Drawing.Font( "Roboto", 8F );
@@ -286,7 +286,6 @@
             GridPanel.BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             GridPanel.BorderThickness = 1;
             GridPanel.Children = null;
-            GridPanel.DataFilter = null;
             GridPanel.Font = new System.Drawing.Font( "Roboto", 11F );
             GridPanel.ForeColor = System.Drawing.Color.Transparent;
             GridPanel.HoverText = null;
@@ -306,7 +305,6 @@
             // GridLabel1
             // 
             GridLabel1.BindingSource = null;
-            GridLabel1.DataFilter = null;
             GridLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
             GridLabel1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             GridLabel1.Font = new System.Drawing.Font( "Roboto", 8.25F );
@@ -335,7 +333,6 @@
             DataGridPanel.BorderThickness = 1;
             DataGridPanel.Children = null;
             DataGridPanel.Controls.Add( DataGrid );
-            DataGridPanel.DataFilter = null;
             DataGridPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             DataGridPanel.Font = new System.Drawing.Font( "Roboto", 8F );
             DataGridPanel.ForeColor = System.Drawing.Color.Transparent;
@@ -376,7 +373,6 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DataGrid.DataFilter = null;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             dataGridViewCellStyle3.Font = new System.Drawing.Font( "Roboto", 8F );
@@ -436,7 +432,6 @@
             // GridLabel2
             // 
             GridLabel2.BindingSource = null;
-            GridLabel2.DataFilter = null;
             GridLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
             GridLabel2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             GridLabel2.Font = new System.Drawing.Font( "Roboto", 8.25F );
@@ -459,7 +454,6 @@
             // GridLabel4
             // 
             GridLabel4.BindingSource = null;
-            GridLabel4.DataFilter = null;
             GridLabel4.Dock = System.Windows.Forms.DockStyle.Fill;
             GridLabel4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             GridLabel4.Font = new System.Drawing.Font( "Roboto", 8.25F );
@@ -482,7 +476,6 @@
             // GridLabel3
             // 
             GridLabel3.BindingSource = null;
-            GridLabel3.DataFilter = null;
             GridLabel3.Dock = System.Windows.Forms.DockStyle.Fill;
             GridLabel3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             GridLabel3.Font = new System.Drawing.Font( "Roboto", 8.25F );
@@ -530,7 +523,6 @@
             SecondCalendarPanel.BorderThickness = 1;
             SecondCalendarPanel.Children = null;
             SecondCalendarPanel.Controls.Add( SecondCalendar );
-            SecondCalendarPanel.DataFilter = null;
             SecondCalendarPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             SecondCalendarPanel.Font = new System.Drawing.Font( "Roboto", 8F );
             SecondCalendarPanel.ForeColor = System.Drawing.Color.Transparent;
@@ -626,7 +618,6 @@
             FirstCalendarPanel.BorderThickness = 1;
             FirstCalendarPanel.Children = null;
             FirstCalendarPanel.Controls.Add( FirstCalendar );
-            FirstCalendarPanel.DataFilter = null;
             FirstCalendarPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             FirstCalendarPanel.Font = new System.Drawing.Font( "Roboto", 8F );
             FirstCalendarPanel.ForeColor = System.Drawing.Color.Transparent;
@@ -721,7 +712,6 @@
             NumericPanel.BorderThickness = 1;
             NumericPanel.Children = null;
             NumericPanel.Controls.Add( NumericListBox );
-            NumericPanel.DataFilter = null;
             NumericPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             NumericPanel.Font = new System.Drawing.Font( "Roboto", 11F );
             NumericPanel.ForeColor = System.Drawing.Color.Transparent;
@@ -744,7 +734,6 @@
             NumericListBox.BackColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             NumericListBox.BindingSource = null;
             NumericListBox.BorderColor = System.Drawing.Color.FromArgb( 55, 55, 55 );
-            NumericListBox.DataFilter = null;
             NumericListBox.DisabledBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             NumericListBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             NumericListBox.Font = new System.Drawing.Font( "Roboto", 8F );
@@ -801,7 +790,6 @@
             FieldPanel.BorderThickness = 1;
             FieldPanel.Children = null;
             FieldPanel.Controls.Add( FieldListBox );
-            FieldPanel.DataFilter = null;
             FieldPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             FieldPanel.Font = new System.Drawing.Font( "Roboto", 11F );
             FieldPanel.ForeColor = System.Drawing.Color.Transparent;
@@ -824,7 +812,6 @@
             FieldListBox.BackColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             FieldListBox.BindingSource = null;
             FieldListBox.BorderColor = System.Drawing.Color.FromArgb( 55, 55, 55 );
-            FieldListBox.DataFilter = null;
             FieldListBox.DisabledBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             FieldListBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             FieldListBox.Font = new System.Drawing.Font( "Roboto", 8F );
@@ -883,7 +870,6 @@
             FirstComboBox.BindingSource = null;
             FirstComboBox.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
             FirstComboBox.CausesValidation = false;
-            FirstComboBox.DataFilter = null;
             FirstComboBox.DisabledBackColor = System.Drawing.Color.Transparent;
             FirstComboBox.DisabledBorderColor = System.Drawing.Color.Transparent;
             FirstComboBox.DisabledForeColor = System.Drawing.Color.Transparent;
@@ -917,7 +903,6 @@
             FirstListBoxPanel.BorderThickness = 1;
             FirstListBoxPanel.Children = null;
             FirstListBoxPanel.Controls.Add( FirstListBox );
-            FirstListBoxPanel.DataFilter = null;
             FirstListBoxPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             FirstListBoxPanel.Font = new System.Drawing.Font( "Roboto", 11F );
             FirstListBoxPanel.ForeColor = System.Drawing.Color.Transparent;
@@ -940,7 +925,6 @@
             FirstListBox.BackColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             FirstListBox.BindingSource = null;
             FirstListBox.BorderColor = System.Drawing.Color.FromArgb( 55, 55, 55 );
-            FirstListBox.DataFilter = null;
             FirstListBox.DisabledBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             FirstListBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             FirstListBox.Font = new System.Drawing.Font( "Roboto", 8.25F );
@@ -974,7 +958,6 @@
             // 
             SqlHeader.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             SqlHeader.BindingSource = null;
-            SqlHeader.DataFilter = null;
             SqlHeader.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             SqlHeader.Font = new System.Drawing.Font( "Roboto", 8.25F );
             SqlHeader.HoverText = null;
@@ -996,7 +979,6 @@
             // 
             DropDown.AllowDrop = true;
             DropDown.BindingSource = BindingSource;
-            DropDown.DataFilter = null;
             DropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             DropDown.Font = new System.Drawing.Font( "Roboto", 9F );
             DropDown.ForeColor = System.Drawing.Color.FromArgb( 218, 218, 218 );
@@ -1140,7 +1122,6 @@
             TableComboBox.BindingSource = null;
             TableComboBox.BorderColor = System.Drawing.Color.FromArgb( 75, 75, 75 );
             TableComboBox.CausesValidation = false;
-            TableComboBox.DataFilter = null;
             TableComboBox.DisabledBackColor = System.Drawing.Color.Transparent;
             TableComboBox.DisabledBorderColor = System.Drawing.Color.Transparent;
             TableComboBox.DisabledForeColor = System.Drawing.Color.Transparent;
@@ -1175,7 +1156,6 @@
             TablePanel.BorderThickness = 1;
             TablePanel.Children = null;
             TablePanel.Controls.Add( TableListBox );
-            TablePanel.DataFilter = null;
             TablePanel.Dock = System.Windows.Forms.DockStyle.Fill;
             TablePanel.Font = new System.Drawing.Font( "Roboto", 8F );
             TablePanel.ForeColor = System.Drawing.Color.Transparent;
@@ -1197,7 +1177,6 @@
             TableListBox.BackColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             TableListBox.BindingSource = null;
             TableListBox.BorderColor = System.Drawing.Color.FromArgb( 55, 55, 55 );
-            TableListBox.DataFilter = null;
             TableListBox.DisabledBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TableListBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TableListBox.Font = new System.Drawing.Font( "Roboto", 8F );
@@ -1288,7 +1267,6 @@
             SecondListBoxPanel.BorderThickness = 1;
             SecondListBoxPanel.Children = null;
             SecondListBoxPanel.Controls.Add( SecondListBox );
-            SecondListBoxPanel.DataFilter = null;
             SecondListBoxPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             SecondListBoxPanel.Font = new System.Drawing.Font( "Roboto", 11F );
             SecondListBoxPanel.ForeColor = System.Drawing.Color.Transparent;
@@ -1311,7 +1289,6 @@
             SecondListBox.BackColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             SecondListBox.BindingSource = null;
             SecondListBox.BorderColor = System.Drawing.Color.FromArgb( 55, 55, 55 );
-            SecondListBox.DataFilter = null;
             SecondListBox.DisabledBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             SecondListBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             SecondListBox.Font = new System.Drawing.Font( "Roboto", 8.25F );
@@ -1350,7 +1327,6 @@
             SecondComboBox.BindingSource = null;
             SecondComboBox.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
             SecondComboBox.CausesValidation = false;
-            SecondComboBox.DataFilter = null;
             SecondComboBox.DisabledBackColor = System.Drawing.Color.Transparent;
             SecondComboBox.DisabledBorderColor = System.Drawing.Color.Transparent;
             SecondComboBox.DisabledForeColor = System.Drawing.Color.Transparent;
@@ -1403,7 +1379,6 @@
             ThirdListBoxPanel.BorderThickness = 1;
             ThirdListBoxPanel.Children = null;
             ThirdListBoxPanel.Controls.Add( ThirdListBox );
-            ThirdListBoxPanel.DataFilter = null;
             ThirdListBoxPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             ThirdListBoxPanel.Font = new System.Drawing.Font( "Roboto", 11F );
             ThirdListBoxPanel.ForeColor = System.Drawing.Color.Transparent;
@@ -1426,7 +1401,6 @@
             ThirdListBox.BackColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             ThirdListBox.BindingSource = null;
             ThirdListBox.BorderColor = System.Drawing.Color.FromArgb( 55, 55, 55 );
-            ThirdListBox.DataFilter = null;
             ThirdListBox.DisabledBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             ThirdListBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             ThirdListBox.Font = new System.Drawing.Font( "Roboto", 8.25F );
@@ -1465,7 +1439,6 @@
             ThirdComboBox.BindingSource = null;
             ThirdComboBox.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
             ThirdComboBox.CausesValidation = false;
-            ThirdComboBox.DataFilter = null;
             ThirdComboBox.DisabledBackColor = System.Drawing.Color.Transparent;
             ThirdComboBox.DisabledBorderColor = System.Drawing.Color.Transparent;
             ThirdComboBox.DisabledForeColor = System.Drawing.Color.Transparent;
@@ -1675,7 +1648,6 @@
             FirstButton.AutoToolTip = false;
             FirstButton.BackColor = System.Drawing.Color.Transparent;
             FirstButton.BindingSource = BindingSource;
-            FirstButton.DataFilter = null;
             FirstButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             FirstButton.Field = Field.AccountCode;
             FirstButton.Font = new System.Drawing.Font( "Roboto", 9F );
@@ -1703,7 +1675,6 @@
             PreviousButton.AutoToolTip = false;
             PreviousButton.BackColor = System.Drawing.Color.Transparent;
             PreviousButton.BindingSource = BindingSource;
-            PreviousButton.DataFilter = null;
             PreviousButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             PreviousButton.Field = Field.AccountCode;
             PreviousButton.Font = new System.Drawing.Font( "Roboto", 9F );
@@ -1732,7 +1703,6 @@
             NextButton.AutoToolTip = false;
             NextButton.BackColor = System.Drawing.Color.Transparent;
             NextButton.BindingSource = BindingSource;
-            NextButton.DataFilter = null;
             NextButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             NextButton.Field = Field.AccountCode;
             NextButton.Font = new System.Drawing.Font( "Roboto", 9F );
@@ -1769,7 +1739,6 @@
             RemoveFiltersButton.AutoToolTip = false;
             RemoveFiltersButton.BackColor = System.Drawing.Color.Transparent;
             RemoveFiltersButton.BindingSource = BindingSource;
-            RemoveFiltersButton.DataFilter = null;
             RemoveFiltersButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             RemoveFiltersButton.Field = Field.AccountCode;
             RemoveFiltersButton.Font = new System.Drawing.Font( "Roboto", 9F );
@@ -1806,7 +1775,6 @@
             EditColumnButton.AutoToolTip = false;
             EditColumnButton.BackColor = System.Drawing.Color.Transparent;
             EditColumnButton.BindingSource = BindingSource;
-            EditColumnButton.DataFilter = null;
             EditColumnButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             EditColumnButton.Field = Field.AccountCode;
             EditColumnButton.Font = new System.Drawing.Font( "Roboto", 9F );
@@ -1835,7 +1803,6 @@
             EditRecordButton.AutoToolTip = false;
             EditRecordButton.BackColor = System.Drawing.Color.Transparent;
             EditRecordButton.BindingSource = BindingSource;
-            EditRecordButton.DataFilter = null;
             EditRecordButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             EditRecordButton.Field = Field.AccountCode;
             EditRecordButton.Font = new System.Drawing.Font( "Roboto", 9F );
@@ -1864,7 +1831,6 @@
             RefreshDataButton.AutoToolTip = false;
             RefreshDataButton.BackColor = System.Drawing.Color.Transparent;
             RefreshDataButton.BindingSource = BindingSource;
-            RefreshDataButton.DataFilter = null;
             RefreshDataButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             RefreshDataButton.Field = Field.AccountCode;
             RefreshDataButton.Font = new System.Drawing.Font( "Roboto", 9F );
@@ -1893,7 +1859,6 @@
             SaveButton.AutoToolTip = false;
             SaveButton.BackColor = System.Drawing.Color.Transparent;
             SaveButton.BindingSource = BindingSource;
-            SaveButton.DataFilter = null;
             SaveButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             SaveButton.Field = Field.AccountCode;
             SaveButton.Font = new System.Drawing.Font( "Roboto", 9F );
@@ -1914,7 +1879,6 @@
             GroupButton.AutoToolTip = false;
             GroupButton.BackColor = System.Drawing.Color.Transparent;
             GroupButton.BindingSource = BindingSource;
-            GroupButton.DataFilter = null;
             GroupButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             GroupButton.Field = Field.AccountCode;
             GroupButton.Font = new System.Drawing.Font( "Roboto", 9F );
@@ -1943,7 +1907,6 @@
             EditSqlButton.AutoToolTip = false;
             EditSqlButton.BackColor = System.Drawing.Color.Transparent;
             EditSqlButton.BindingSource = BindingSource;
-            EditSqlButton.DataFilter = null;
             EditSqlButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             EditSqlButton.Field = Field.AccountCode;
             EditSqlButton.Font = new System.Drawing.Font( "Roboto", 9F );
@@ -1980,7 +1943,6 @@
             ExcelImportButton.AutoToolTip = false;
             ExcelImportButton.BackColor = System.Drawing.Color.Transparent;
             ExcelImportButton.BindingSource = BindingSource;
-            ExcelImportButton.DataFilter = null;
             ExcelImportButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             ExcelImportButton.Field = Field.AccountCode;
             ExcelImportButton.Font = new System.Drawing.Font( "Roboto", 9F );
@@ -2010,7 +1972,6 @@
             CalendarButton.AutoToolTip = false;
             CalendarButton.BackColor = System.Drawing.Color.Transparent;
             CalendarButton.BindingSource = BindingSource;
-            CalendarButton.DataFilter = null;
             CalendarButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             CalendarButton.Field = Field.AccountCode;
             CalendarButton.Font = new System.Drawing.Font( "Roboto", 9F );
@@ -2047,7 +2008,6 @@
             BrowseButton.AutoToolTip = false;
             BrowseButton.BackColor = System.Drawing.Color.Transparent;
             BrowseButton.BindingSource = BindingSource;
-            BrowseButton.DataFilter = null;
             BrowseButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             BrowseButton.Field = Field.AccountCode;
             BrowseButton.Font = new System.Drawing.Font( "Roboto", 9F );
@@ -2076,7 +2036,6 @@
             WebButton.AutoToolTip = false;
             WebButton.BackColor = System.Drawing.Color.Transparent;
             WebButton.BindingSource = BindingSource;
-            WebButton.DataFilter = null;
             WebButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             WebButton.Field = Field.AccountCode;
             WebButton.Font = new System.Drawing.Font( "Roboto", 9F );
@@ -2123,7 +2082,6 @@
             MenuButton.AutoToolTip = false;
             MenuButton.BackColor = System.Drawing.Color.Transparent;
             MenuButton.BindingSource = BindingSource;
-            MenuButton.DataFilter = null;
             MenuButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             MenuButton.Field = Field.AccountCode;
             MenuButton.Font = new System.Drawing.Font( "Roboto", 9F );
@@ -2153,7 +2111,6 @@
             ExitButton.AutoToolTip = false;
             ExitButton.BackColor = System.Drawing.Color.Transparent;
             ExitButton.BindingSource = BindingSource;
-            ExitButton.DataFilter = null;
             ExitButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             ExitButton.Field = Field.AccountCode;
             ExitButton.Font = new System.Drawing.Font( "Roboto", 9F );
@@ -2184,7 +2141,6 @@
             ToolStrip.CaptionStyle = Syncfusion.Windows.Forms.Tools.CaptionStyle.Top;
             ToolStrip.CaptionTextStyle = Syncfusion.Windows.Forms.Tools.CaptionTextStyle.Plain;
             ToolStrip.ChartButton = null;
-            ToolStrip.DataFilter = null;
             ToolStrip.DeleteButton = null;
             ToolStrip.DeleteColumnButton = null;
             ToolStrip.DeleteRecordButton = null;
@@ -2241,7 +2197,6 @@
             // 
             StatusLabel.BackColor = System.Drawing.Color.Transparent;
             StatusLabel.BindingSource = null;
-            StatusLabel.DataFilter = null;
             StatusLabel.Field = Field.AccountCode;
             StatusLabel.Font = new System.Drawing.Font( "Roboto", 6.75F );
             StatusLabel.ForeColor = System.Drawing.Color.Black;
@@ -2259,7 +2214,6 @@
             LastButton.AutoToolTip = false;
             LastButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             LastButton.BindingSource = BindingSource;
-            LastButton.DataFilter = null;
             LastButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             LastButton.Field = Field.AccountCode;
             LastButton.Font = new System.Drawing.Font( "Roboto", 9F );
@@ -2287,7 +2241,6 @@
             // 
             DataSpacer.BackColor = System.Drawing.Color.Transparent;
             DataSpacer.BindingSource = null;
-            DataSpacer.DataFilter = null;
             DataSpacer.Field = Field.AccountCode;
             DataSpacer.Font = new System.Drawing.Font( "Roboto", 8F );
             DataSpacer.ForeColor = System.Drawing.Color.Transparent;
@@ -2304,7 +2257,6 @@
             // 
             DataLabel.BackColor = System.Drawing.Color.Transparent;
             DataLabel.BindingSource = null;
-            DataLabel.DataFilter = null;
             DataLabel.Field = Field.AccountCode;
             DataLabel.Font = new System.Drawing.Font( "Roboto", 6.75F );
             DataLabel.ForeColor = System.Drawing.Color.Black;
@@ -2337,7 +2289,7 @@
             ToolStripTextBox.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             ToolStripTextBox.Name = "ToolStripTextBox";
             ToolStripTextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Size = new System.Drawing.Size( 294, 25 );
+            ToolStripTextBox.Size = new System.Drawing.Size( 286, 25 );
             ToolStripTextBox.Tag = "";
             ToolStripTextBox.ToolTip = ToolTip;
             // 
@@ -2346,7 +2298,6 @@
             GoButton.AutoToolTip = false;
             GoButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             GoButton.BindingSource = BindingSource;
-            GoButton.DataFilter = null;
             GoButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             GoButton.Field = Field.AccountCode;
             GoButton.Font = new System.Drawing.Font( "Roboto", 9F );
@@ -2383,7 +2334,6 @@
             // 
             CommandSpacer.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             CommandSpacer.BindingSource = null;
-            CommandSpacer.DataFilter = null;
             CommandSpacer.Field = Field.AccountCode;
             CommandSpacer.Font = new System.Drawing.Font( "Roboto", 8F );
             CommandSpacer.ForeColor = System.Drawing.Color.Transparent;
@@ -2400,7 +2350,6 @@
             // 
             FunctionSpacer.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             FunctionSpacer.BindingSource = null;
-            FunctionSpacer.DataFilter = null;
             FunctionSpacer.Field = Field.AccountCode;
             FunctionSpacer.Font = new System.Drawing.Font( "Roboto", 8F );
             FunctionSpacer.ForeColor = System.Drawing.Color.Transparent;
@@ -2455,7 +2404,6 @@
             // HeaderLabel
             // 
             HeaderLabel.BindingSource = null;
-            HeaderLabel.DataFilter = null;
             HeaderLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             HeaderLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             HeaderLabel.Font = new System.Drawing.Font( "Roboto", 9.75F );
@@ -2481,8 +2429,8 @@
             PictureBox.InitialImage = null;
             PictureBox.Location = new System.Drawing.Point( 3, 3 );
             PictureBox.Name = "PictureBox";
-            PictureBox.Size = new System.Drawing.Size( 30, 20 );
-            PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            PictureBox.Size = new System.Drawing.Size( 33, 26 );
+            PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             PictureBox.TabIndex = 54;
             PictureBox.TabStop = false;
             // 
@@ -2599,6 +2547,26 @@
             ToolStripTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             ToolStripTable.Size = new System.Drawing.Size( 1338, 45 );
             ToolStripTable.TabIndex = 55;
+            // 
+            // ContextMenu
+            // 
+            ContextMenu.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ContextMenu.DropShadowEnabled = false;
+            ContextMenu.Font = new System.Drawing.Font( "Roboto", 9F );
+            ContextMenu.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ContextMenu.MetroColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ContextMenu.Name = "ContextMenu";
+            ContextMenu.Size = new System.Drawing.Size( 126, 180 );
+            ContextMenu.Style = Syncfusion.Windows.Forms.Tools.ContextMenuStripEx.ContextMenuStyle.Office2016Black;
+            ContextMenu.ThemeName = "Office2016Black";
+            ContextMenu.ThemeStyle.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ContextMenu.ThemeStyle.BorderColor = System.Drawing.Color.FromArgb( 77, 77, 77 );
+            ContextMenu.ThemeStyle.DisabledForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ContextMenu.ThemeStyle.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ContextMenu.ThemeStyle.HoverBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            ContextMenu.ThemeStyle.HoverForeColor = System.Drawing.Color.White;
+            ContextMenu.ThemeStyle.PressedBackColor = System.Drawing.Color.FromArgb( 204, 204, 204 );
+            ContextMenu.ThemeStyle.PressedForeColor = System.Drawing.Color.Black;
             // 
             // DataGridForm
             // 
@@ -2818,5 +2786,6 @@
         public ToolStripButton LastButton;
         public ToolSeparator LastButtonSeparator;
         public ToolStripButton GoButton;
+        private ContextMenu ContextMenu;
     }
 }

@@ -547,6 +547,10 @@ namespace BudgetExecution
         {
             try
             {
+                FirstButton.Click += OnFirstButtonClick;
+                PreviousButton.Click += OnPreviousButtonClick;
+                NextButton.Click += OnNextButtonClick;
+                LastButton.Click += OnLastButtonClick;
                 MenuButton.Click += OnMainMenuButtonClicked;
                 ExitButton.Click += OnExitButtonClicked;
                 Timer.Tick += OnTimerTick;
@@ -980,7 +984,7 @@ namespace BudgetExecution
                 DataModel = new DataBuilder( Source, Provider );
                 DataTable = DataModel.DataTable;
                 SelectedTable = DataTable.TableName;
-                BindingSource.DataSource = DataTable;
+                BindingSource.DataSource = DataModel.DataTable;
                 ToolStrip.BindingSource = BindingSource;
                 Fields = DataModel?.Fields;
                 Numerics = DataModel?.Numerics;
@@ -1665,13 +1669,14 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the series style.
         /// </summary>
-        [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
+        [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
         private void SetSeriesPointStyles( DataRow row,
             ChartSeriesType type = ChartSeriesType.Column )
         {
             try
             {
                 ThrowIf.Null( row, nameof( row ) );
+                Chart.Series?.Clear( );
                 var _borderColor = Color.FromArgb( 0, 120, 212 );
                 var _backColor = Color.Black;
                 var _textColor = Color.FromArgb( 106, 189, 252 );
@@ -1687,7 +1692,7 @@ namespace BudgetExecution
                     _series.Name = _columnName;
                     _series.Text = _series.Name;
                     _series.Text = _series.Name;
-                    if( _value > 0d )
+                    if( _value > 1000d )
                     {
                         _doubles.Add( _value );
                         var _cp = new ChartPoint( _index, _value );
@@ -1728,6 +1733,7 @@ namespace BudgetExecution
                 }
 
                 Chart.PrimaryXAxis.Title = _title;
+                Chart.Refresh( );
             }
             catch( Exception _ex )
             {
@@ -2192,16 +2198,18 @@ namespace BudgetExecution
         /// instance containing the event data.</param>
         private void OnBindingSourceChanged( object sender, EventArgs e )
         {
-            if( sender is BindingSource bindingSource )
+            try
             {
-                try
-                {
-                    var _position = bindingSource.CurrencyManager.Position;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
+                var _current = BindingSource.GetCurrentDataRow( );
+                SetSeriesPointStyles( _current );
+                var _position = BindingSource.Position;
+                MetricsLabel11.TextAlign = ContentAlignment.TopLeft;
+                MetricsLabel11.Text = $"Current Record: {_position}";
+                Chart.Refresh( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
             }
         }
 
@@ -2426,6 +2434,86 @@ namespace BudgetExecution
                 ClearSelections( );
                 ClearCollections( );
                 FadeOut( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [first button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        public void OnFirstButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                BindingSource?.MoveFirst( );
+                var _current = BindingSource.GetCurrentDataRow( );
+                SetSeriesPointStyles( _current );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [previous button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        public void OnPreviousButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                BindingSource?.MovePrevious( );
+                var _current = BindingSource.GetCurrentDataRow( );
+                SetSeriesPointStyles( _current );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [next button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        public void OnNextButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                BindingSource?.MoveNext( );
+                var _current = BindingSource.GetCurrentDataRow( );
+                SetSeriesPointStyles( _current );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [last button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        public void OnLastButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                BindingSource?.MoveLast( );
+                var _current = BindingSource.GetCurrentDataRow( );
+                SetSeriesPointStyles( _current );
             }
             catch( Exception _ex )
             {

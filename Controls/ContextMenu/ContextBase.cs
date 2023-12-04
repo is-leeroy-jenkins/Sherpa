@@ -80,6 +80,22 @@ namespace BudgetExecution
         public ToolStripMenuItemExt CalculatorOption { get; set; }
 
         /// <summary>
+        /// Gets or sets the Calendar option.
+        /// </summary>
+        /// <value>
+        /// The file option.
+        /// </value>
+        public ToolStripMenuItemExt CalendarOption { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Guidance option.
+        /// </summary>
+        /// <value>
+        /// The file option.
+        /// </value>
+        public ToolStripMenuItemExt GuidanceOption { get; set; }
+
+        /// <summary>
         /// Gets or sets the save option.
         /// </summary>
         /// <value>
@@ -379,7 +395,7 @@ namespace BudgetExecution
                             }
                             case MenuOption.Folder:
                             {
-                                var _file = new FileBrowser( );
+                                var _file = new FolderBrowser( );
                                 _file.Location = e.Location;
                                 _file.Show( );
                                 break;
@@ -400,9 +416,9 @@ namespace BudgetExecution
                             }
                             case MenuOption.Guidance:
                             {
-                                var _msg = "NOT YET IMPLEMENTED!!";
-                                var _notification = new Notification( _msg );
-                                _notification.Show( );
+                                var _guidance = new GuidanceDialog( );
+                                _guidance.Location = e.Location;
+                                _guidance.ShowDialog( );
                                 break;
                             }
                             case MenuOption.Save:

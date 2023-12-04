@@ -43,6 +43,9 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Windows.Forms;
+    using MetroSet_UI.Child;
+    using Syncfusion.Windows.Forms.Spreadsheet;
 
     /// <inheritdoc />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
@@ -64,6 +67,7 @@ namespace BudgetExecution
             ShowImageMargin = true;
             ShowCheckMargin = false;
             MetroColor = Color.FromArgb( 45, 45, 45 );
+            Style = ContextMenuStyle.Office2016Black;
             ThemeStyle.BackColor = Color.FromArgb( 45, 45, 45 );
             ThemeStyle.ForeColor = Color.FromArgb( 106, 189, 252 );
             ThemeStyle.DisabledForeColor = Color.FromArgb( 45, 45, 45 );
@@ -71,6 +75,17 @@ namespace BudgetExecution
             ThemeStyle.HoverForeColor = Color.White;
             ThemeStyle.PressedForeColor = Color.Black;
             ThemeStyle.PressedBackColor = Color.FromArgb( 204, 204, 204 );
+            ThemeStyle.BorderColor = Color.FromArgb( 77, 77, 77 );
+
+            // Menu Items
+            FileOption = CreateFileOption( );
+            FolderOption = CreateFolderOption( );
+            CalculatorOption = CreateCalculatorOption( );
+            CalendarOption = CreateCalendarOption( );
+            GuidanceOption = CreateGuidanceOption( );
+            SaveOption = CreateSaveOption( );
+            CloseOption = CreateCloseOption( );
+            ExitOption = CreateExitOption( );
         }
     }
 }

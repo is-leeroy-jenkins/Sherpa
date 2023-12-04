@@ -115,7 +115,7 @@ partial class EmailDialog
         textItem2.HubTile = ThirdTile;
         textItem2.TextColor = System.Drawing.Color.DarkGray;
         ThirdTile.Body = textItem2;
-        ThirdTile.DataFilter = null;
+        ThirdTile.Filter = null;
         ThirdTile.EnableSelectionMarker = false;
         ThirdTile.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
         textItem3.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -157,7 +157,7 @@ partial class EmailDialog
         textItem6.HubTile = FirstTile;
         textItem6.TextColor = System.Drawing.Color.DarkGray;
         FirstTile.Body = textItem6;
-        FirstTile.DataFilter = null;
+        FirstTile.Filter = null;
         FirstTile.EnableSelectionMarker = false;
         FirstTile.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
         textItem7.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -200,7 +200,7 @@ partial class EmailDialog
         textItem10.HubTile = SecondTile;
         textItem10.TextColor = System.Drawing.Color.DarkGray;
         SecondTile.Body = textItem10;
-        SecondTile.DataFilter = null;
+        SecondTile.Filter = null;
         SecondTile.EnableSelectionMarker = false;
         SecondTile.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
         textItem11.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );

@@ -1809,7 +1809,7 @@ namespace BudgetExecution
             CloseButton.AutoToolTip = false;
             CloseButton.BackColor = System.Drawing.Color.Transparent;
             CloseButton.BindingSource = BindingSource;
-            CloseButton.DataFilter = null;
+            CloseButton.Filter = null;
             CloseButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             CloseButton.Field = Field.AccountCode;
             CloseButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -1880,7 +1880,7 @@ namespace BudgetExecution
             FirstButton.AutoToolTip = false;
             FirstButton.BackColor = System.Drawing.Color.Transparent;
             FirstButton.BindingSource = BindingSource;
-            FirstButton.DataFilter = null;
+            FirstButton.Filter = null;
             FirstButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             FirstButton.Field = Field.AccountCode;
             FirstButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -1909,7 +1909,7 @@ namespace BudgetExecution
             PreviousButton.AutoToolTip = false;
             PreviousButton.BackColor = System.Drawing.Color.Transparent;
             PreviousButton.BindingSource = BindingSource;
-            PreviousButton.DataFilter = null;
+            PreviousButton.Filter = null;
             PreviousButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             PreviousButton.Field = Field.AccountCode;
             PreviousButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -1938,7 +1938,7 @@ namespace BudgetExecution
             NextButton.AutoToolTip = false;
             NextButton.BackColor = System.Drawing.Color.Transparent;
             NextButton.BindingSource = BindingSource;
-            NextButton.DataFilter = null;
+            NextButton.Filter = null;
             NextButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             NextButton.Field = Field.AccountCode;
             NextButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -1967,7 +1967,7 @@ namespace BudgetExecution
             LastButton.AutoToolTip = false;
             LastButton.BackColor = System.Drawing.Color.Transparent;
             LastButton.BindingSource = BindingSource;
-            LastButton.DataFilter = null;
+            LastButton.Filter = null;
             LastButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             LastButton.Field = Field.AccountCode;
             LastButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -2021,7 +2021,7 @@ namespace BudgetExecution
             GoButton.AutoToolTip = false;
             GoButton.BackColor = System.Drawing.Color.Transparent;
             GoButton.BindingSource = BindingSource;
-            GoButton.DataFilter = null;
+            GoButton.Filter = null;
             GoButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             GoButton.Field = Field.AccountCode;
             GoButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -2050,7 +2050,7 @@ namespace BudgetExecution
             RefreshButton.AutoToolTip = false;
             RefreshButton.BackColor = System.Drawing.Color.Transparent;
             RefreshButton.BindingSource = BindingSource;
-            RefreshButton.DataFilter = null;
+            RefreshButton.Filter = null;
             RefreshButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             RefreshButton.Field = Field.AccountCode;
             RefreshButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -2079,7 +2079,7 @@ namespace BudgetExecution
             EditSqlButton.AutoToolTip = false;
             EditSqlButton.BackColor = System.Drawing.Color.Transparent;
             EditSqlButton.BindingSource = BindingSource;
-            EditSqlButton.DataFilter = null;
+            EditSqlButton.Filter = null;
             EditSqlButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             EditSqlButton.Field = Field.AccountCode;
             EditSqlButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -2108,7 +2108,7 @@ namespace BudgetExecution
             EditDataButton.AutoToolTip = false;
             EditDataButton.BackColor = System.Drawing.Color.Transparent;
             EditDataButton.BindingSource = BindingSource;
-            EditDataButton.DataFilter = null;
+            EditDataButton.Filter = null;
             EditDataButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             EditDataButton.Field = Field.AccountCode;
             EditDataButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -2137,7 +2137,7 @@ namespace BudgetExecution
             TableButton.AutoToolTip = false;
             TableButton.BackColor = System.Drawing.Color.Transparent;
             TableButton.BindingSource = BindingSource;
-            TableButton.DataFilter = null;
+            TableButton.Filter = null;
             TableButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             TableButton.Field = Field.AccountCode;
             TableButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -2166,7 +2166,7 @@ namespace BudgetExecution
             LookupButton.AutoToolTip = false;
             LookupButton.BackColor = System.Drawing.Color.Transparent;
             LookupButton.BindingSource = BindingSource;
-            LookupButton.DataFilter = null;
+            LookupButton.Filter = null;
             LookupButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             LookupButton.Field = Field.AccountCode;
             LookupButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -2195,7 +2195,7 @@ namespace BudgetExecution
             SaveButton.AutoToolTip = false;
             SaveButton.BackColor = System.Drawing.Color.Transparent;
             SaveButton.BindingSource = BindingSource;
-            SaveButton.DataFilter = null;
+            SaveButton.Filter = null;
             SaveButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             SaveButton.Field = Field.AccountCode;
             SaveButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -2249,7 +2249,7 @@ namespace BudgetExecution
             ClientButton.AutoToolTip = false;
             ClientButton.BackColor = System.Drawing.Color.Transparent;
             ClientButton.BindingSource = BindingSource;
-            ClientButton.DataFilter = null;
+            ClientButton.Filter = null;
             ClientButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             ClientButton.Field = Field.AccountCode;
             ClientButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -2278,7 +2278,7 @@ namespace BudgetExecution
             BrowserButton.AutoToolTip = false;
             BrowserButton.BackColor = System.Drawing.Color.Transparent;
             BrowserButton.BindingSource = BindingSource;
-            BrowserButton.DataFilter = null;
+            BrowserButton.Filter = null;
             BrowserButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             BrowserButton.Field = Field.AccountCode;
             BrowserButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -2317,7 +2317,7 @@ namespace BudgetExecution
             MainMenuButton.AutoToolTip = false;
             MainMenuButton.BackColor = System.Drawing.Color.Transparent;
             MainMenuButton.BindingSource = BindingSource;
-            MainMenuButton.DataFilter = null;
+            MainMenuButton.Filter = null;
             MainMenuButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             MainMenuButton.Field = Field.AccountCode;
             MainMenuButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -2355,7 +2355,7 @@ namespace BudgetExecution
             SqlEditorButton.AutoToolTip = false;
             SqlEditorButton.BackColor = System.Drawing.Color.Transparent;
             SqlEditorButton.BindingSource = null;
-            SqlEditorButton.DataFilter = null;
+            SqlEditorButton.Filter = null;
             SqlEditorButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             SqlEditorButton.Field = Field.AccountCode;
             SqlEditorButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );

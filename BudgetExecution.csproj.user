@@ -11,7 +11,7 @@
     <VerifyUploadedFiles>false</VerifyUploadedFiles>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Update="ColorPanel.cs">
+    <Compile Update="Controls\Panel\ColorPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\ContextMenu\ContextBase.cs">
@@ -203,7 +203,7 @@
     <Compile Update="Controls\Label\Label.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="Controls\Layout\BackPanel.cs">
+    <Compile Update="Controls\Panel\BackPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\ListBox\ListBox.cs">

@@ -95,7 +95,7 @@ namespace BudgetExecution
         /// <value>
         /// The data filter.
         /// </value>
-        public virtual IDictionary<string, object> DataFilter { get; set; }
+        public virtual IDictionary<string, object> Filter { get; set; }
 
         /// <summary>
         /// Gets or sets the type of the tool.

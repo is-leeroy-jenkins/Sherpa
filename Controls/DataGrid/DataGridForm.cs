@@ -4,7 +4,7 @@
 //     Created:                 06-19-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        11-24-2023
+//     Last Modified On:        12-04-2023
 // ******************************************************************************************
 // <copyright file="Terry Eppler.cs" company="Terry D. Eppler">
 //    BudgetExecution is a Federal Budget, Finance, and Accounting application for the
@@ -1187,7 +1187,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return $"SELECT * FROM {Source} " 
+                    return $"SELECT * FROM {Source} "
                         + $"WHERE {where.ToCriteria( )};";
                 }
                 catch( Exception _ex )
@@ -1223,8 +1223,8 @@ namespace BudgetExecution
 
                     var _criteria = where.ToCriteria( );
                     var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_names} " 
-                        + $"FROM {SelectedTable} " 
+                    return $"SELECT {_names} "
+                        + $"FROM {SelectedTable} "
                         + $"WHERE {_criteria} "
                         + $"GROUP BY {_names} ;";
                 }

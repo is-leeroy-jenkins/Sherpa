@@ -107,7 +107,7 @@ namespace BudgetExecution
         public CurrencyTextBox( )
         {
             // Basic Properties
-            TextBox.Size = new Size( 180, 23 );
+            TextBox.Size = new Size( 200, 23 );
             Margin = new Padding( 3 );
             Padding = new Padding( 0 );
             Font = new Font( "Roboto", 9 );
@@ -116,17 +116,20 @@ namespace BudgetExecution
             Visible = true;
             FlatStyle = FlatStyle.Flat;
             Border3DStyle = Border3DStyle.Flat;
-            FlatBorderColor = Color.FromArgb( 45, 45, 45 );
+            FlatBorderColor = Color.FromArgb( 0, 120, 212 );
             PopupCalculatorAlignment = CalculatorPopupAlignment.Right;
             ShowCalculator = true;
             TextAlign = HorizontalAlignment.Center;
             ButtonStyle = ButtonAppearance.Office2010;
+            CanApplyTheme = false;
+            CanOverrideStyle = true;
             UseVisualStyle = false;
+            BackColor = Color.FromArgb( 45, 45, 45 );
             MetroColor = Color.FromArgb( 45, 45, 45 );
             CalculatorLayoutType = CalculatorLayoutTypes.Financial;
 
             // TextBox Properties
-            TextBox.Size = new Size( 180, 23 );
+            TextBox.Size = new Size( 200, 23 );
             TextBox.Style = TextBoxExt.theme.Office2016Black;
             TextBox.CurrencyDecimalDigits = 2;
             TextBox.NegativeColor = Color.Red;

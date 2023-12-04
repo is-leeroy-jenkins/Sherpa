@@ -318,7 +318,7 @@
             FirstButton.AutoToolTip = false;
             FirstButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             FirstButton.BindingSource = BindingSource;
-            FirstButton.DataFilter = null;
+            FirstButton.Filter = null;
             FirstButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             FirstButton.Field = Field.AccountCode;
             FirstButton.Font = new System.Drawing.Font( "Roboto", 9F );
@@ -367,7 +367,7 @@
             PreviousButton.AutoToolTip = false;
             PreviousButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             PreviousButton.BindingSource = BindingSource;
-            PreviousButton.DataFilter = null;
+            PreviousButton.Filter = null;
             PreviousButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             PreviousButton.Field = Field.AccountCode;
             PreviousButton.Font = new System.Drawing.Font( "Roboto", 9F );
@@ -396,7 +396,7 @@
             NextButton.AutoToolTip = false;
             NextButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             NextButton.BindingSource = BindingSource;
-            NextButton.DataFilter = null;
+            NextButton.Filter = null;
             NextButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             NextButton.Field = Field.AccountCode;
             NextButton.Font = new System.Drawing.Font( "Roboto", 9F );
@@ -425,7 +425,7 @@
             LastButton.AutoToolTip = false;
             LastButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             LastButton.BindingSource = BindingSource;
-            LastButton.DataFilter = null;
+            LastButton.Filter = null;
             LastButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             LastButton.Field = Field.AccountCode;
             LastButton.Font = new System.Drawing.Font( "Roboto", 9F );
@@ -496,7 +496,7 @@
             RefreshButton.AutoToolTip = false;
             RefreshButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             RefreshButton.BindingSource = BindingSource;
-            RefreshButton.DataFilter = null;
+            RefreshButton.Filter = null;
             RefreshButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             RefreshButton.Field = Field.AccountCode;
             RefreshButton.Font = new System.Drawing.Font( "Roboto", 9F );
@@ -525,7 +525,7 @@
             SaveButton.AutoToolTip = false;
             SaveButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             SaveButton.BindingSource = BindingSource;
-            SaveButton.DataFilter = null;
+            SaveButton.Filter = null;
             SaveButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             SaveButton.Field = Field.AccountCode;
             SaveButton.Font = new System.Drawing.Font( "Roboto", 9F );
@@ -554,7 +554,7 @@
             ExportButton.AutoToolTip = false;
             ExportButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             ExportButton.BindingSource = BindingSource;
-            ExportButton.DataFilter = null;
+            ExportButton.Filter = null;
             ExportButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             ExportButton.Field = Field.AccountCode;
             ExportButton.Font = new System.Drawing.Font( "Roboto", 9F );
@@ -609,7 +609,7 @@
             CloseButton.AutoToolTip = false;
             CloseButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             CloseButton.BindingSource = BindingSource;
-            CloseButton.DataFilter = null;
+            CloseButton.Filter = null;
             CloseButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             CloseButton.Field = Field.AccountCode;
             CloseButton.Font = new System.Drawing.Font( "Roboto", 9F );
@@ -640,7 +640,7 @@
             MenuButton.AutoToolTip = false;
             MenuButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             MenuButton.BindingSource = BindingSource;
-            MenuButton.DataFilter = null;
+            MenuButton.Filter = null;
             MenuButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             MenuButton.Field = Field.AccountCode;
             MenuButton.Font = new System.Drawing.Font( "Roboto", 9F );

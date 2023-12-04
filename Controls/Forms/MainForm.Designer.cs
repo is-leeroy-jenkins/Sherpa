@@ -132,7 +132,7 @@ namespace BudgetExecution
             ResourceTable = new HeaderPanel( );
             ResourcePanel = new BackPanel( );
             Timer = new System.Windows.Forms.Timer( components );
-            currencyTextBox1 = new CurrencyTextBox( );
+            ContextMenu = new ContextMenu( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
             BrowserTable.SuspendLayout( );
             BrowserPanel.SuspendLayout( );
@@ -144,8 +144,6 @@ namespace BudgetExecution
             DataManagementPanel.SuspendLayout( );
             ResourceTable.SuspendLayout( );
             ResourcePanel.SuspendLayout( );
-            ( (System.ComponentModel.ISupportInitialize)currencyTextBox1 ).BeginInit( );
-            ( (System.ComponentModel.ISupportInitialize)currencyTextBox1.TextBox ).BeginInit( );
             SuspendLayout( );
             // 
             // LookupTile
@@ -164,7 +162,7 @@ namespace BudgetExecution
             textItem2.HubTile = LookupTile;
             textItem2.TextColor = System.Drawing.Color.DarkGray;
             LookupTile.Body = textItem2;
-            LookupTile.DataFilter = null;
+            LookupTile.Filter = null;
             LookupTile.EnableSelectionMarker = false;
             LookupTile.Font = new System.Drawing.Font( "Roboto", 9F );
             textItem3.Font = new System.Drawing.Font( "Roboto", 9F );
@@ -227,7 +225,7 @@ namespace BudgetExecution
             textItem6.HubTile = VisualizationTile;
             textItem6.TextColor = System.Drawing.Color.DarkGray;
             VisualizationTile.Body = textItem6;
-            VisualizationTile.DataFilter = null;
+            VisualizationTile.Filter = null;
             VisualizationTile.EnableSelectionMarker = false;
             VisualizationTile.Font = new System.Drawing.Font( "Roboto", 9F );
             textItem7.Font = new System.Drawing.Font( "Roboto", 9F );
@@ -270,7 +268,7 @@ namespace BudgetExecution
             textItem10.HubTile = GuidanceTile;
             textItem10.TextColor = System.Drawing.Color.DarkGray;
             GuidanceTile.Body = textItem10;
-            GuidanceTile.DataFilter = null;
+            GuidanceTile.Filter = null;
             GuidanceTile.EnableSelectionMarker = false;
             GuidanceTile.Font = new System.Drawing.Font( "Roboto", 9F );
             textItem11.Font = new System.Drawing.Font( "Roboto", 9F );
@@ -313,7 +311,7 @@ namespace BudgetExecution
             textItem14.HubTile = BrowserTile;
             textItem14.TextColor = System.Drawing.Color.DarkGray;
             BrowserTile.Body = textItem14;
-            BrowserTile.DataFilter = null;
+            BrowserTile.Filter = null;
             BrowserTile.EnableSelectionMarker = false;
             BrowserTile.Font = new System.Drawing.Font( "Roboto", 9F );
             textItem15.Font = new System.Drawing.Font( "Roboto", 9F );
@@ -356,7 +354,7 @@ namespace BudgetExecution
             textItem18.HubTile = SqlServerTile;
             textItem18.TextColor = System.Drawing.Color.DarkGray;
             SqlServerTile.Body = textItem18;
-            SqlServerTile.DataFilter = null;
+            SqlServerTile.Filter = null;
             SqlServerTile.EnableSelectionMarker = false;
             SqlServerTile.Font = new System.Drawing.Font( "Roboto", 9F );
             textItem19.Font = new System.Drawing.Font( "Roboto", 9F );
@@ -399,7 +397,7 @@ namespace BudgetExecution
             textItem22.HubTile = AccessTile;
             textItem22.TextColor = System.Drawing.Color.DarkGray;
             AccessTile.Body = textItem22;
-            AccessTile.DataFilter = null;
+            AccessTile.Filter = null;
             AccessTile.EnableSelectionMarker = false;
             AccessTile.Font = new System.Drawing.Font( "Roboto", 9F );
             textItem23.Font = new System.Drawing.Font( "Roboto", 8F );
@@ -442,7 +440,7 @@ namespace BudgetExecution
             textItem26.HubTile = SQLiteTile;
             textItem26.TextColor = System.Drawing.Color.DarkGray;
             SQLiteTile.Body = textItem26;
-            SQLiteTile.DataFilter = null;
+            SQLiteTile.Filter = null;
             SQLiteTile.EnableSelectionMarker = false;
             SQLiteTile.Font = new System.Drawing.Font( "Roboto", 9F );
             textItem27.Font = new System.Drawing.Font( "Roboto", 9F );
@@ -485,7 +483,7 @@ namespace BudgetExecution
             textItem30.HubTile = ExcelDataTile;
             textItem30.TextColor = System.Drawing.Color.DarkGray;
             ExcelDataTile.Body = textItem30;
-            ExcelDataTile.DataFilter = null;
+            ExcelDataTile.Filter = null;
             ExcelDataTile.EnableSelectionMarker = false;
             ExcelDataTile.Font = new System.Drawing.Font( "Roboto", 9F );
             textItem31.Font = new System.Drawing.Font( "Roboto", 9F );
@@ -528,7 +526,7 @@ namespace BudgetExecution
             textItem34.HubTile = SqlCeTile;
             textItem34.TextColor = System.Drawing.Color.DarkGray;
             SqlCeTile.Body = textItem34;
-            SqlCeTile.DataFilter = null;
+            SqlCeTile.Filter = null;
             SqlCeTile.EnableSelectionMarker = false;
             SqlCeTile.Font = new System.Drawing.Font( "Roboto", 9F );
             textItem35.Font = new System.Drawing.Font( "Roboto", 9F );
@@ -571,7 +569,7 @@ namespace BudgetExecution
             textItem38.HubTile = ChromeTile;
             textItem38.TextColor = System.Drawing.Color.DarkGray;
             ChromeTile.Body = textItem38;
-            ChromeTile.DataFilter = null;
+            ChromeTile.Filter = null;
             ChromeTile.EnableSelectionMarker = false;
             ChromeTile.Font = new System.Drawing.Font( "Roboto", 9F );
             textItem39.Font = new System.Drawing.Font( "Roboto", 9F );
@@ -614,7 +612,7 @@ namespace BudgetExecution
             textItem42.HubTile = EdgeTile;
             textItem42.TextColor = System.Drawing.Color.DarkGray;
             EdgeTile.Body = textItem42;
-            EdgeTile.DataFilter = null;
+            EdgeTile.Filter = null;
             EdgeTile.EnableSelectionMarker = false;
             EdgeTile.Font = new System.Drawing.Font( "Roboto", 9F );
             textItem43.Font = new System.Drawing.Font( "Roboto", 9F );
@@ -657,7 +655,7 @@ namespace BudgetExecution
             textItem46.HubTile = FirefoxTile;
             textItem46.TextColor = System.Drawing.Color.DarkGray;
             FirefoxTile.Body = textItem46;
-            FirefoxTile.DataFilter = null;
+            FirefoxTile.Filter = null;
             FirefoxTile.EnableSelectionMarker = false;
             FirefoxTile.Font = new System.Drawing.Font( "Roboto", 9F );
             textItem47.Font = new System.Drawing.Font( "Roboto", 9F );
@@ -700,7 +698,7 @@ namespace BudgetExecution
             textItem50.HubTile = CalendarTile;
             textItem50.TextColor = System.Drawing.Color.DarkGray;
             CalendarTile.Body = textItem50;
-            CalendarTile.DataFilter = null;
+            CalendarTile.Filter = null;
             CalendarTile.EnableSelectionMarker = false;
             CalendarTile.Font = new System.Drawing.Font( "Roboto", 9F );
             textItem51.Font = new System.Drawing.Font( "Roboto", 9F );
@@ -743,7 +741,7 @@ namespace BudgetExecution
             textItem54.HubTile = SqlEditorTile;
             textItem54.TextColor = System.Drawing.Color.DarkGray;
             SqlEditorTile.Body = textItem54;
-            SqlEditorTile.DataFilter = null;
+            SqlEditorTile.Filter = null;
             SqlEditorTile.EnableSelectionMarker = false;
             SqlEditorTile.Font = new System.Drawing.Font( "Roboto", 9F );
             textItem55.Font = new System.Drawing.Font( "Roboto", 9F );
@@ -786,7 +784,7 @@ namespace BudgetExecution
             textItem58.HubTile = ProgramProjectTile;
             textItem58.TextColor = System.Drawing.Color.DarkGray;
             ProgramProjectTile.Body = textItem58;
-            ProgramProjectTile.DataFilter = null;
+            ProgramProjectTile.Filter = null;
             ProgramProjectTile.EnableSelectionMarker = false;
             ProgramProjectTile.Font = new System.Drawing.Font( "Roboto", 9F );
             textItem59.Font = new System.Drawing.Font( "Roboto", 9F );
@@ -829,7 +827,7 @@ namespace BudgetExecution
             textItem62.HubTile = MessageTile;
             textItem62.TextColor = System.Drawing.Color.DarkGray;
             MessageTile.Body = textItem62;
-            MessageTile.DataFilter = null;
+            MessageTile.Filter = null;
             MessageTile.EnableSelectionMarker = false;
             MessageTile.Font = new System.Drawing.Font( "Roboto", 9F );
             textItem63.Font = new System.Drawing.Font( "Roboto", 9F );
@@ -1151,56 +1149,26 @@ namespace BudgetExecution
             ResourcePanel.ThemeName = "Budget Execution";
             ResourcePanel.ToolTip = null;
             // 
-            // currencyTextBox1
+            // ContextMenu
             // 
-            currencyTextBox1.BackColor = System.Drawing.Color.FromArgb( 68, 68, 68 );
-            currencyTextBox1.BeforeTouchSize = new System.Drawing.Size( 232, 23 );
-            currencyTextBox1.BindingSource = null;
-            currencyTextBox1.Border3DStyle = System.Windows.Forms.Border3DStyle.Flat;
-            currencyTextBox1.ButtonStyle = Syncfusion.Windows.Forms.ButtonAppearance.Office2016Black;
-            currencyTextBox1.DataFilter = null;
-            currencyTextBox1.FlatBorderColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            currencyTextBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            currencyTextBox1.Font = new System.Drawing.Font( "Roboto", 9F );
-            currencyTextBox1.HoverText = null;
-            currencyTextBox1.Location = new System.Drawing.Point( 897, 366 );
-            currencyTextBox1.MetroColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            currencyTextBox1.Name = "currencyTextBox1";
-            currencyTextBox1.Size = new System.Drawing.Size( 232, 23 );
-            currencyTextBox1.TabIndex = 20;
-            // 
-            // 
-            // 
-            currencyTextBox1.TextBox.BackGroundColor = System.Drawing.Color.FromArgb( 68, 68, 68 );
-            currencyTextBox1.TextBox.BeforeTouchSize = new System.Drawing.Size( 100, 23 );
-            currencyTextBox1.TextBox.Border3DStyle = System.Windows.Forms.Border3DStyle.Flat;
-            currencyTextBox1.TextBox.BorderColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            currencyTextBox1.TextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            currencyTextBox1.TextBox.CanOverrideStyle = true;
-            currencyTextBox1.TextBox.DecimalValue = new decimal( new int[ ] { 100, 0, 0, 131072 } );
-            currencyTextBox1.TextBox.FocusBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            currencyTextBox1.TextBox.ForeColor = System.Drawing.Color.FromArgb( 218, 218, 218 );
-            currencyTextBox1.TextBox.Location = new System.Drawing.Point( 3, 4 );
-            currencyTextBox1.TextBox.Name = "";
-            currencyTextBox1.TextBox.Office2007ColorScheme = Syncfusion.Windows.Forms.Office2007Theme.Black;
-            currencyTextBox1.TextBox.Office2010ColorScheme = Syncfusion.Windows.Forms.Office2010Theme.Black;
-            currencyTextBox1.TextBox.PositiveColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            currencyTextBox1.TextBox.Size = new System.Drawing.Size( 202, 15 );
-            currencyTextBox1.TextBox.Style = Syncfusion.Windows.Forms.Tools.TextBoxExt.theme.Office2016Black;
-            currencyTextBox1.TextBox.TabIndex = 0;
-            currencyTextBox1.TextBox.Text = "$1.00";
-            currencyTextBox1.TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            currencyTextBox1.TextBox.ThemeName = "Office2016Black";
-            currencyTextBox1.TextBox.ZeroColor = System.Drawing.Color.FromArgb( 211, 211, 211 );
-            currencyTextBox1.ThemeName = "Office2016Black";
-            currencyTextBox1.ThemeStyle.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            currencyTextBox1.ThemeStyle.BorderColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            currencyTextBox1.ThemeStyle.DisabledBackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            currencyTextBox1.ThemeStyle.DisabledBorderColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            currencyTextBox1.ThemeStyle.FocusedBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            currencyTextBox1.ThemeStyle.HoverBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            currencyTextBox1.ThemeStyle.PressedBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            currencyTextBox1.ToolTip = null;
+            ContextMenu.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ContextMenu.DropShadowEnabled = false;
+            ContextMenu.Font = new System.Drawing.Font( "Roboto", 9F );
+            ContextMenu.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ContextMenu.MetroColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ContextMenu.Name = "ContextMenu";
+            ContextMenu.Size = new System.Drawing.Size( 126, 180 );
+            ContextMenu.Style = Syncfusion.Windows.Forms.Tools.ContextMenuStripEx.ContextMenuStyle.Office2016Black;
+            ContextMenu.ThemeName = "Office2016Black";
+            ContextMenu.ThemeStyle.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ContextMenu.ThemeStyle.BorderColor = System.Drawing.Color.FromArgb( 77, 77, 77 );
+            ContextMenu.ThemeStyle.DisabledForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ContextMenu.ThemeStyle.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
+            ContextMenu.ThemeStyle.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ContextMenu.ThemeStyle.HoverBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            ContextMenu.ThemeStyle.HoverForeColor = System.Drawing.Color.White;
+            ContextMenu.ThemeStyle.PressedBackColor = System.Drawing.Color.FromArgb( 204, 204, 204 );
+            ContextMenu.ThemeStyle.PressedForeColor = System.Drawing.Color.Black;
             // 
             // MainForm
             // 
@@ -1216,7 +1184,6 @@ namespace BudgetExecution
             CaptionForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             ClientSize = new System.Drawing.Size( 1338, 738 );
             ControlBox = false;
-            Controls.Add( currencyTextBox1 );
             Controls.Add( ResourceTable );
             Controls.Add( DataManagementTable );
             Controls.Add( UtilityTable );
@@ -1249,8 +1216,6 @@ namespace BudgetExecution
             DataManagementPanel.ResumeLayout( false );
             ResourceTable.ResumeLayout( false );
             ResourcePanel.ResumeLayout( false );
-            ( (System.ComponentModel.ISupportInitialize)currencyTextBox1.TextBox ).EndInit( );
-            ( (System.ComponentModel.ISupportInitialize)currencyTextBox1 ).EndInit( );
             ResumeLayout( false );
         }
 
@@ -1287,6 +1252,6 @@ namespace BudgetExecution
         public HeaderPanel ResourceTable;
         public BackPanel ResourcePanel;
         public System.Windows.Forms.Timer Timer;
-        private CurrencyTextBox currencyTextBox1;
+        public ContextMenu ContextMenu;
     }
 }
