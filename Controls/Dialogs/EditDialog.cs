@@ -61,6 +61,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     public partial class EditDialog : EditBase
     {
         /// <summary>
@@ -100,12 +101,20 @@ namespace BudgetExecution
         /// </value>
         public IList<string> SelectedNumerics { get; set; }
 
-        /// <summary> Gets or sets the current. </summary>
-        /// <value> The current. </value>
+        /// <summary>
+        /// Gets or sets the current.
+        /// </summary>
+        /// <value>
+        /// The current.
+        /// </value>
         public DataRow Current { get; set; }
 
-        /// <summary> Gets or sets the frames. </summary>
-        /// <value> The frames. </value>
+        /// <summary>
+        /// Gets or sets the frames.
+        /// </summary>
+        /// <value>
+        /// The frames.
+        /// </value>
         public IEnumerable<Frame> Frames { get; set; }
 
         /// <summary>
@@ -175,7 +184,9 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.EditDialog"/>
         /// class.
         /// </summary>
-        /// <param name="bindingSource"> The binding source. </param>
+        /// <param name="bindingSource">
+        /// The binding source.
+        /// </param>
         public EditDialog( BindingSource bindingSource )
             : this( )
         {
@@ -198,7 +209,9 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.EditDialog"/>
         /// class.
         /// </summary>
-        /// <param name="dataModel"> The data model. </param>
+        /// <param name="dataModel">
+        /// The data model.
+        /// </param>
         public EditDialog( DataBuilder dataModel )
             : this( )
         {

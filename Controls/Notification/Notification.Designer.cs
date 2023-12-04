@@ -33,7 +33,7 @@
             Title = new Label( );
             Message = new Label( );
             Header = new System.Windows.Forms.TableLayoutPanel( );
-            Panel = new Layout( );
+            Panel = new BackPanel( );
             Timer = new System.Windows.Forms.Timer( components );
             ( (System.ComponentModel.ISupportInitialize)NotifyIcon ).BeginInit( );
             Header.SuspendLayout( );
@@ -178,7 +178,7 @@
         public Label Title;
         public Label Message;
         public System.Windows.Forms.TableLayoutPanel Header;
-        public Layout Panel;
+        public BackPanel Panel;
         public System.Windows.Forms.Timer Timer;
     }
 }

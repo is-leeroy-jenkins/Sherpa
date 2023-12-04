@@ -39,7 +39,7 @@ partial class ColorDialog
         CloseButton = new Button( );
         ToolTip = new SmallTip( );
         BindingSource = new System.Windows.Forms.BindingSource( components );
-        ButtonPanel = new Layout( );
+        ButtonPanel = new BackPanel( );
         HeaderTable = new System.Windows.Forms.TableLayoutPanel( );
         Picture = new System.Windows.Forms.PictureBox( );
         Title = new Label( );
@@ -264,7 +264,7 @@ partial class ColorDialog
     }
 
     #endregion
-    private Layout ButtonPanel;
+    private BackPanel ButtonPanel;
     public SmallTip ToolTip;
     public System.Windows.Forms.BindingSource BindingSource;
     public System.Windows.Forms.PictureBox Picture;

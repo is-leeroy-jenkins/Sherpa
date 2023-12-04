@@ -180,7 +180,7 @@ namespace BudgetExecution
         /// <value>
         /// The panels.
         /// </value>
-        public IDictionary<string, Layout> Panels { get; set; }
+        public IDictionary<string, BackPanel> Panels { get; set; }
 
         /// <summary>
         /// Gets or sets the list boxes.
@@ -464,27 +464,27 @@ namespace BudgetExecution
         /// <returns>
         /// IDictionary
         /// </returns>
-        private protected IDictionary<string, Layout> GetPanels( )
+        private protected IDictionary<string, BackPanel> GetPanels( )
         {
             try
             {
-                var _panels = new Dictionary<string, Layout>( );
+                var _panels = new Dictionary<string, BackPanel>( );
                 foreach( var _control in GetControls( ) )
                 {
-                    if( _control.GetType( ) == typeof( Layout ) )
+                    if( _control.GetType( ) == typeof( BackPanel ) )
                     {
-                        _panels.Add( _control.Name, _control as Layout );
+                        _panels.Add( _control.Name, _control as BackPanel );
                     }
                 }
 
                 return _panels?.Any( ) == true
                     ? _panels
-                    : default( IDictionary<string, Layout> );
+                    : default( IDictionary<string, BackPanel> );
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return default( IDictionary<string, Layout> );
+                return default( IDictionary<string, BackPanel> );
             }
         }
 

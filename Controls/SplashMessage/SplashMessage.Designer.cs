@@ -34,7 +34,7 @@
             PictureBox = new Picture( );
             Title = new System.Windows.Forms.Label( );
             Timer = new System.Windows.Forms.Timer( components );
-            BackPanel = new Layout( );
+            BackPanel = new BackPanel( );
             Message = new Label( );
             Header.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize) PictureBox  ).BeginInit( );
@@ -175,7 +175,7 @@
         public System.Windows.Forms.TableLayoutPanel Header;
         public Picture PictureBox;
         public System.Windows.Forms.Timer Timer;
-        public Layout BackPanel;
+        public BackPanel BackPanel;
         public System.Windows.Forms.Label Title;
         public Label Message;
     }

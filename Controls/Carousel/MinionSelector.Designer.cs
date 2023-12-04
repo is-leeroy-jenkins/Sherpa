@@ -41,7 +41,7 @@ partial class MinionSelector
         ImageList = new ImageList( );
         Carousel = new Carousel( );
         SelectorTable = new System.Windows.Forms.TableLayoutPanel( );
-        SelectionPanel = new Layout( );
+        SelectionPanel = new BackPanel( );
         Timer = new System.Windows.Forms.Timer( components );
         SelectorTable.SuspendLayout( );
         SelectionPanel.SuspendLayout( );
@@ -244,6 +244,6 @@ partial class MinionSelector
     public ImageList ImageList;
     private Carousel Carousel;
     private System.Windows.Forms.TableLayoutPanel SelectorTable;
-    private Layout SelectionPanel;
+    private BackPanel SelectionPanel;
     public System.Windows.Forms.Timer Timer;
 }

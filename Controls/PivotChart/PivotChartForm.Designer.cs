@@ -69,13 +69,13 @@
             LastSeparator = new ToolSeparator( );
             FirstSeparator = new ToolSeparator( );
             ChartHeaderTable = new HeaderPanel( );
-            PivotLayout = new Layout( );
+            PivotLayout = new BackPanel( );
             TabControl = new TabControl( );
             DataTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             AreaTable = new System.Windows.Forms.TableLayoutPanel( );
-            ChartAreaPanel = new Layout( );
+            ChartAreaPanel = new BackPanel( );
             Chart = new PivotChart( );
-            ChartSubTablePanel = new Layout( );
+            ChartSubTablePanel = new BackPanel( );
             ChartSubTable = new System.Windows.Forms.TableLayoutPanel( );
             SqlHeader = new Label( );
             MetricsTable = new System.Windows.Forms.TableLayoutPanel( );
@@ -88,7 +88,7 @@
             BusyTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             Loader = new System.Windows.Forms.PictureBox( );
             SourcePanel = new HeaderPanel( );
-            TableListBoxLayout = new Layout( );
+            TableListBoxLayout = new BackPanel( );
             TableListBox = new ListBox( );
             ToolStripTable = new System.Windows.Forms.TableLayoutPanel( );
             ApplicationLabel = new ToolStripLabel( );
@@ -1251,8 +1251,8 @@
         public ToolStrip ToolStrip;
         public HeaderPanel ChartHeaderTable;
         public System.Windows.Forms.TableLayoutPanel AreaTable;
-        public Layout ChartAreaPanel;
-        public Layout ChartSubTablePanel;
+        public BackPanel ChartAreaPanel;
+        public BackPanel ChartSubTablePanel;
         private System.Windows.Forms.TableLayoutPanel ChartSubTable;
         public Label SqlHeader;
         public System.Windows.Forms.TableLayoutPanel MetricsTable;
@@ -1263,7 +1263,7 @@
         public Label FifthDataLabel;
         public Label SixthDataLabel;
         public HeaderPanel SourcePanel;
-        public Layout TableListBoxLayout;
+        public BackPanel TableListBoxLayout;
         public ListBox TableListBox;
         public ToolSeparator Separator1;
         public ToolSeparator Separator2;
@@ -1298,7 +1298,7 @@
         public ToolStripLabel FilterLabel;
         public ToolStripLabel StatusLabel;
         public ToolSeparator FirstSeparator;
-        private Layout PivotLayout;
+        private BackPanel PivotLayout;
         public TabControl TabControl;
         public Syncfusion.Windows.Forms.Tools.TabPageAdv DataTab;
         public Syncfusion.Windows.Forms.Tools.TabPageAdv BusyTab;

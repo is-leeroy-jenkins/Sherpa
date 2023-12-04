@@ -1,13 +1,13 @@
 ﻿//  ******************************************************************************************
 //      Assembly:                Budget Execution
-//      Filename:                CurrencyBox.cs
+//      Filename:                CurrencyTextBox.cs
 //      Author:                  Terry D. Eppler
 //      Created:                 05-31-2023
 // 
 //      Last Modified By:        Terry D. Eppler
 //      Last Modified On:        06-01-2023
 //  ******************************************************************************************
-//  <copyright file="CurrencyBox.cs" company="Terry D. Eppler">
+//  <copyright file="CurrencyTextBox.cs" company="Terry D. Eppler">
 // 
 //     This is a Federal Budget, Finance, and Accounting application for the
 //     US Environmental Protection Agency (US EPA).
@@ -37,7 +37,7 @@
 // 
 //  </copyright>
 //  <summary>
-//    CurrencyBox.cs
+//    CurrencyTextBox.cs
 //  </summary>
 //  ******************************************************************************************
 
@@ -57,7 +57,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class CurrencyBox : CurrencyEdit
+    public class CurrencyTextBox : CurrencyEdit
     {
         /// <summary>
         /// Gets or sets the binding source.
@@ -94,7 +94,7 @@ namespace BudgetExecution
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.CurrencyBox"/>
+        /// <see cref="T:BudgetExecution.CurrencyTextBox"/>
         /// class.
         /// </summary>
         /// <remarks>
@@ -104,36 +104,38 @@ namespace BudgetExecution
         /// <see cref="T:Syncfusion.Windows.Forms.Tools.PopupCalculator"/>
         /// control.
         /// </remarks>
-        public CurrencyBox( )
+        public CurrencyTextBox( )
         {
             // Basic Properties
-            TextBox.Size = new Size( 180, 32 );
-            Margin = new Padding( 1 );
-            Padding = new Padding( 1 );
+            TextBox.Size = new Size( 180, 23 );
+            Margin = new Padding( 3 );
+            Padding = new Padding( 0 );
             Font = new Font( "Roboto", 9 );
             ForeColor = Color.FromArgb( 106, 189, 252 );
             Enabled = true;
             Visible = true;
-            Border3DStyle = Border3DStyle.Adjust;
-            FlatBorderColor = Color.FromArgb( 50, 93, 129 );
+            FlatStyle = FlatStyle.Flat;
+            Border3DStyle = Border3DStyle.Flat;
+            FlatBorderColor = Color.FromArgb( 45, 45, 45 );
             PopupCalculatorAlignment = CalculatorPopupAlignment.Right;
             ShowCalculator = true;
-            CanOverrideStyle = true;
             TextAlign = HorizontalAlignment.Center;
-            ButtonStyle = ButtonAppearance.Office2016Black;
-            UseVisualStyle = true;
-            MetroColor = Color.FromArgb( 40, 40, 40 );
+            ButtonStyle = ButtonAppearance.Office2010;
+            UseVisualStyle = false;
+            MetroColor = Color.FromArgb( 45, 45, 45 );
+            CalculatorLayoutType = CalculatorLayoutTypes.Financial;
 
             // TextBox Properties
-            TextBox.Size = new Size( 180, 32 );
+            TextBox.Size = new Size( 180, 23 );
             TextBox.Style = TextBoxExt.theme.Office2016Black;
             TextBox.CurrencyDecimalDigits = 2;
             TextBox.NegativeColor = Color.Red;
             TextBox.PositiveColor = Color.FromArgb( 106, 189, 252 );
-            TextBox.BackGroundColor = Color.FromArgb( 40, 40, 40 );
-            TextBox.Border3DStyle = Border3DStyle.Adjust;
-            TextBox.BorderColor = Color.FromArgb( 50, 93, 129 );
-            TextBox.BorderStyle = BorderStyle.FixedSingle;
+            TextBox.BackGroundColor = Color.FromArgb( 45, 45, 45 );
+            TextBox.Border3DStyle = Border3DStyle.Flat;
+            TextBox.BorderColor = Color.FromArgb( 45, 45, 45 );
+            TextBox.BorderStyle = BorderStyle.None;
+            TextBox.Office2010ColorScheme = Office2010Theme.Black;
             TextBox.CurrencyDecimalSeparator = ".";
             TextBox.CurrencyGroupSeparator = ",";
             TextBox.FocusBorderColor = Color.FromArgb( 0, 120, 212 );
@@ -141,71 +143,13 @@ namespace BudgetExecution
             TransferToCalculator = true;
 
             // TextBox ThemeStyle Properties
-            ThemeStyle.BackColor = Color.FromArgb( 40, 40, 40 );
-            ThemeStyle.BorderColor = Color.FromArgb( 50, 93, 129 );
-            ThemeStyle.DisabledBackColor = Color.FromArgb( 40, 40, 40 );
-            ThemeStyle.DisabledBorderColor = Color.FromArgb( 40, 40, 40 );
+            ThemeStyle.BackColor = Color.FromArgb( 45, 45, 45 );
+            ThemeStyle.BorderColor = Color.FromArgb( 45, 45, 45 );
+            ThemeStyle.DisabledBackColor = Color.FromArgb( 45, 45, 45 );
+            ThemeStyle.DisabledBorderColor = Color.FromArgb( 45, 45, 45 );
             ThemeStyle.HoverBorderColor = Color.FromArgb( 0, 120, 212 );
             ThemeStyle.FocusedBorderColor = Color.FromArgb( 0, 120, 212 );
             ThemeStyle.PressedBorderColor = Color.FromArgb( 0, 120, 212 );
-        }
-
-        /// <summary> Called when [mouse over]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        public void OnMouseOver( object sender, EventArgs e )
-        {
-            var _currencyTextBox = sender as CurrencyBox;
-            try
-            {
-                if( ( _currencyTextBox != null )
-                   && !string.IsNullOrEmpty( HoverText ) )
-                {
-                    if( !string.IsNullOrEmpty( HoverText ) )
-                    {
-                        var _hoverText = _currencyTextBox?.HoverText;
-                        var _ = new SmallTip( _currencyTextBox, _hoverText );
-                    }
-                    else
-                    {
-                        if( !string.IsNullOrEmpty( Tag?.ToString( ) ) )
-                        {
-                            var _text = Tag?.ToString( )?.SplitPascal( );
-                            var _ = new SmallTip( _currencyTextBox, _text );
-                        }
-                    }
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Called when [mouse leave]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        public void OnMouseLeave( object sender, EventArgs e )
-        {
-            var _currencyTextBox = sender as CurrencyBox;
-            try
-            {
-                if( _currencyTextBox != null )
-                {
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
         }
 
         /// <summary>

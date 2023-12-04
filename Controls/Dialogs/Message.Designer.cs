@@ -42,7 +42,7 @@ namespace BudgetExecution
             Label = new Label( );
             PictureBox = new Picture( );
             Title = new Label( );
-            BackPanel = new Layout( );
+            BackPanel = new BackPanel( );
             TextBox = new RichTextBox( );
             TitleTable = new TableLayoutPanel( );
             CloseButton = new Button( );
@@ -280,7 +280,7 @@ namespace BudgetExecution
         public Picture PictureBox;
         private Label Title;
         public BindingSource BindingSource;
-        private Layout BackPanel;
+        private BackPanel BackPanel;
         private RichTextBox TextBox;
         public TableLayoutPanel TitleTable;
         private Button CloseButton;

@@ -11,6 +11,9 @@
     <VerifyUploadedFiles>false</VerifyUploadedFiles>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Update="ColorPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Update="Controls\ContextMenu\ContextBase.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -56,7 +59,7 @@
     <Compile Update="Controls\Chart\ChartDataForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\CurrencyBox\CurrencyBox.cs">
+    <Compile Update="Controls\CurrencyBox\CurrencyTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\DataGrid\DataGridBase.cs">
@@ -200,7 +203,7 @@
     <Compile Update="Controls\Label\Label.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="Controls\Layout\Layout.cs">
+    <Compile Update="Controls\Layout\BackPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\ListBox\ListBox.cs">
@@ -303,6 +306,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\GeoMapper\GeoMapper.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Controls\PivotGrid\PivotGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\PivotGrid\PivotGridForm.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

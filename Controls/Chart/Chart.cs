@@ -99,10 +99,10 @@ namespace BudgetExecution
             DisplayChartContextMenu = false;
             DisplaySeriesContextMenu = false;
             SeriesHighlightIndex = -1;
-            Depth = 150;
+            Depth = 250;
             ElementsSpacing = 10;
-            Spacing = 1;
-            SpacingBetweenPoints = 10;
+            Spacing = 5;
+            SpacingBetweenPoints = 5;
             SpacingBetweenSeries = 10;
             ColumnFixedWidth = 20;
             ColumnDrawMode = ChartColumnDrawMode.ClusteredMode;

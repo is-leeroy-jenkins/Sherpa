@@ -43,9 +43,12 @@
             toolStripMenuItemExt5 = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt( );
             toolStripMenuItemExt6 = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt( );
             toolStripMenuItemExt7 = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt( );
+            currencyEdit1 = new Syncfusion.Windows.Forms.Tools.CurrencyEdit( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
             Header.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
+            ( (System.ComponentModel.ISupportInitialize)currencyEdit1 ).BeginInit( );
+            ( (System.ComponentModel.ISupportInitialize)currencyEdit1.TextBox ).BeginInit( );
             SuspendLayout( );
             // 
             // ToolTip
@@ -190,6 +193,42 @@
             toolStripMenuItemExt7.Size = new System.Drawing.Size( 198, 22 );
             toolStripMenuItemExt7.Text = "toolStripMenuItemExt7";
             // 
+            // currencyEdit1
+            // 
+            currencyEdit1.BackColor = System.Drawing.Color.FromArgb( 68, 68, 68 );
+            currencyEdit1.BeforeTouchSize = new System.Drawing.Size( 171, 23 );
+            currencyEdit1.Border3DStyle = System.Windows.Forms.Border3DStyle.Flat;
+            currencyEdit1.ButtonStyle = Syncfusion.Windows.Forms.ButtonAppearance.Office2016Black;
+            currencyEdit1.FlatBorderColor = System.Drawing.Color.FromArgb( 77, 77, 77 );
+            currencyEdit1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            currencyEdit1.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
+            currencyEdit1.Location = new System.Drawing.Point( 625, 421 );
+            currencyEdit1.MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            currencyEdit1.Name = "currencyEdit1";
+            currencyEdit1.SelectionStart = 2;
+            currencyEdit1.Size = new System.Drawing.Size( 171, 23 );
+            currencyEdit1.TabIndex = 3;
+            // 
+            // 
+            // 
+            currencyEdit1.TextBox.BackGroundColor = System.Drawing.Color.FromArgb( 68, 68, 68 );
+            currencyEdit1.TextBox.BeforeTouchSize = new System.Drawing.Size( 100, 23 );
+            currencyEdit1.TextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            currencyEdit1.TextBox.DecimalValue = new decimal( new int[ ] { 100, 0, 0, 131072 } );
+            currencyEdit1.TextBox.ForeColor = System.Drawing.Color.FromArgb( 218, 218, 218 );
+            currencyEdit1.TextBox.Location = new System.Drawing.Point( 2, 4 );
+            currencyEdit1.TextBox.Name = "";
+            currencyEdit1.TextBox.Size = new System.Drawing.Size( 143, 15 );
+            currencyEdit1.TextBox.TabIndex = 0;
+            currencyEdit1.TextBox.Text = "$1.00";
+            currencyEdit1.TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            currencyEdit1.ThemeName = "Office2016Black";
+            currencyEdit1.ThemeStyle.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            currencyEdit1.ThemeStyle.BorderColor = System.Drawing.Color.FromArgb( 77, 77, 77 );
+            currencyEdit1.ThemeStyle.DisabledBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            currencyEdit1.ThemeStyle.DisabledBorderColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            currencyEdit1.UseVisualStyle = true;
+            // 
             // BudgetForm
             // 
             BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
@@ -201,6 +240,7 @@
             CaptionFont = new System.Drawing.Font( "Roboto", 12F );
             ClientSize = new System.Drawing.Size( 1338, 738 );
             ControlBox = false;
+            Controls.Add( currencyEdit1 );
             Controls.Add( CloseButton );
             Controls.Add( Header );
             MaximizeBox = false;
@@ -217,6 +257,8 @@
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).EndInit( );
             Header.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).EndInit( );
+            ( (System.ComponentModel.ISupportInitialize)currencyEdit1.TextBox ).EndInit( );
+            ( (System.ComponentModel.ISupportInitialize)currencyEdit1 ).EndInit( );
             ResumeLayout( false );
         }
 
@@ -236,5 +278,6 @@
         private Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt toolStripMenuItemExt5;
         private Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt toolStripMenuItemExt6;
         private Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt toolStripMenuItemExt7;
+        private Syncfusion.Windows.Forms.Tools.CurrencyEdit currencyEdit1;
     }
 }

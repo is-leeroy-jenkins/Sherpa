@@ -200,7 +200,7 @@
         #endregion
 
         public RichTextBox TextBox;
-        public Layout BackPanel;
+        public BackPanel BackPanel;
         public SmallTip ToolTip;
         public Label Title;
         public Picture Picture;

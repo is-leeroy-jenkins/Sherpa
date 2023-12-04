@@ -1,13 +1,13 @@
 ﻿//  ******************************************************************************************
 //      Assembly:                Budget Execution
-//      Filename:                Layout.cs
+//      Filename:                BackPanel.cs
 //      Author:                  Terry D. Eppler
 //      Created:                 05-31-2023
 // 
 //      Last Modified By:        Terry D. Eppler
 //      Last Modified On:        06-01-2023
 //  ******************************************************************************************
-//  <copyright file="Layout.cs" company="Terry D. Eppler">
+//  <copyright file="BackPanel.cs" company="Terry D. Eppler">
 // 
 //     This is a Federal Budget, Finance, and Accounting application for the
 //     US Environmental Protection Agency (US EPA).
@@ -37,7 +37,7 @@
 // 
 //  </copyright>
 //  <summary>
-//    Layout.cs
+//    BackPanel.cs
 //  </summary>
 //  ******************************************************************************************
 
@@ -59,23 +59,15 @@ namespace BudgetExecution
     /// <seealso cref="MetroSet_UI.Controls.MetroSetPanel"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    public class Layout : MetroSetPanel
+    public class BackPanel : MetroSetPanel
     {
-        /// <summary>
-        /// Gets or sets the binding source.
-        /// </summary>
-        /// <value>
-        /// The binding source.
-        /// </value>
-        public virtual BindingSource BindingSource { get; set; }
-
         /// <summary>
         /// Gets or sets the tool tip.
         /// </summary>
         /// <value>
         /// The tool tip.
         /// </value>
-        public virtual SmallTip ToolTip { get; set; }
+        public SmallTip ToolTip { get; set; }
 
         /// <summary>
         /// Gets or sets the hover text.
@@ -83,7 +75,7 @@ namespace BudgetExecution
         /// <value>
         /// The hover text.
         /// </value>
-        public virtual string HoverText { get; set; }
+        public string HoverText { get; set; }
 
         /// <summary>
         /// Gets or sets the data filter.
@@ -91,7 +83,15 @@ namespace BudgetExecution
         /// <value>
         /// The data filter.
         /// </value>
-        public virtual IDictionary<string, object> DataFilter { get; set; }
+        public IDictionary<string, object> DataFilter { get; set; }
+
+        /// <summary>
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
+        public virtual BindingSource BindingSource { get; set; }
 
         /// <summary>
         /// Gets or sets the children.
@@ -103,10 +103,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Layout"/>
+        /// <see cref="BackPanel"/>
         /// class.
         /// </summary>
-        public Layout( )
+        public BackPanel( )
         {
             // Basic Properties
             Style = Style.Custom;
@@ -133,55 +133,23 @@ namespace BudgetExecution
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Layout" />
+        /// <see cref="T:BudgetExecution.BackPanel" />
         /// class.
         /// </summary>
         /// <param name="size"> The size. </param>
         /// <param name="location"> The location. </param>
-        public Layout( Size size, Point location )
+        public BackPanel( Size size, Point location )
             : this( )
         {
             Size = size;
             Location = location;
         }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Layout" />
-        /// class.
-        /// </summary>
-        /// <param name="size"> The size. </param>
-        /// <param name="location"> The location. </param>
-        /// <param name="parent"> The parent. </param>
-        public Layout( Size size, Point location, Control parent )
-            : this( size, location )
-        {
-            Size = new Size( size.Width, size.Height );
-            Location = location;
-            Parent = parent;
-            Parent.Controls.Add( this );
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Layout" />
-        /// class.
-        /// </summary>
-        /// <param name="parent"> The parent. </param>
-        public Layout( Control parent ) 
-            : this( )
-        {
-            Parent = parent;
-            Parent.Controls.Add( this );
-        }
-
         /// <summary>
         /// Gets the controls.
         /// </summary>
         /// <returns></returns>
-        private protected IEnumerable<Control> GetControls( )
+        private IEnumerable<Control> GetControls( )
         {
             var _list = new List<Control>( );
             var _queue = new Queue( );
@@ -313,9 +281,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
-        private protected void Fail( Exception ex )
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">
+        /// The ex.
+        /// </param>
+        private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
