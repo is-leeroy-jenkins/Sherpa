@@ -541,7 +541,7 @@ namespace BudgetExecution
         /// </summary>
         private void InitializeDelegates( )
         {
-            _statusUpdate += UpdateStatusLabel;
+            _statusUpdate += UpdateStatus;
         }
 
         /// <summary>
@@ -1406,7 +1406,7 @@ namespace BudgetExecution
         /// <summary>
         /// Updates the status.
         /// </summary>
-        private void UpdateStatusLabel( )
+        private void UpdateStatus( )
         {
             try
             {
@@ -1469,7 +1469,9 @@ namespace BudgetExecution
         /// <summary>
         /// Updates the schema labels.
         /// </summary>
-        /// <param name="row">The row.</param>
+        /// <param name="row">
+        /// The row.
+        /// </param>
         private void UpdateSchema( DataRow row )
         {
             try
@@ -2000,7 +2002,7 @@ namespace BudgetExecution
                 Busy.TabVisible = false;
                 ClearLabelText( );
                 PopulateExecutionTables( );
-                UpdateStatusLabel( );
+                UpdateStatus( );
                 Chart.Title.Text = string.Empty;
                 FadeIn( );
             }

@@ -4,7 +4,7 @@
 //     Created:                 12-04-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-04-2023
+//     Last Modified On:        12-05-2023
 // ******************************************************************************************
 // <copyright file="Terry Eppler.cs" company="Terry D. Eppler">
 //    BudgetExecution is a Federal Budget, Finance, and Accounting application for the
@@ -49,10 +49,8 @@ namespace BudgetExecution
     using System.Linq;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
-    using Syncfusion.Windows.Forms.Chart;
     using Syncfusion.Windows.Forms.Tools;
     using Action = System.Action;
-    using MarkerStyle = System.Windows.Forms.MarkerStyle;
 
     /// <inheritdoc />
     /// <summary>
@@ -62,6 +60,10 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public partial class PivotGridForm : MetroForm
     {
         /// <summary>
@@ -480,25 +482,6 @@ namespace BudgetExecution
             catch( Exception _ex )
             {
                 Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the series.
-        /// </summary>
-        private void InitializeSeries( )
-        {
-            try
-            {
-                var _borderColor = Color.FromArgb( 0, 120, 212 );
-                var _backColor = Color.FromArgb( 90, 90, 90 );
-                var _textColor = Color.FromArgb( 106, 189, 252 );
-                var _callFont = new Font( "Roboto", 7 );
-                SetFancyToolTips( );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
             }
         }
 
@@ -1264,7 +1247,6 @@ namespace BudgetExecution
                 InitializeToolStrip( );
                 InitializeTimers( );
                 InitializeLabels( );
-                InitializeSeries( );
                 Filter = new Dictionary<string, object>( );
                 SelectedColumns = new List<string>( );
                 SelectedFields = new List<string>( );
@@ -1448,9 +1430,9 @@ namespace BudgetExecution
                     BindData( );
                     TabControl.SelectedIndex = 1;
                     UpdateLabelText( );
-                    if( Chart.Visible )
+                    if( pivotGrid1.Visible )
                     {
-                        Chart.Visible = false;
+                        pivotGrid1.Visible = false;
                         MetricsTable.Visible = false;
                     }
                 }
