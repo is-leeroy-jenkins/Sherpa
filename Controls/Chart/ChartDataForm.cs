@@ -4,7 +4,7 @@
 //     Created:                 06-19-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-04-2023
+//     Last Modified On:        12-05-2023
 // ******************************************************************************************
 // <copyright file="Terry Eppler.cs" company="Terry D. Eppler">
 //    BudgetExecution is a Federal Budget, Finance, and Accounting application for the
@@ -62,22 +62,23 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "UnusedVariable" )]
-    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
-    [SuppressMessage( "ReSharper", "RedundantBoolCompare" )]
-    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
-    [SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" )]
-    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
-    [SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" )]
-    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
-    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
-    [SuppressMessage( "ReSharper", "InconsistentNaming" )]
-    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
-    [SuppressMessage( "ReSharper", "ArrangeModifiersOrder" )]
-    [SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
+    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
+    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeModifiersOrder" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
+    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     public partial class ChartDataForm : MetroForm
     {
         /// <summary>
@@ -241,6 +242,14 @@ namespace BudgetExecution
         /// The form filter.
         /// </value>
         public IDictionary<string, object> Filter { get; set; }
+
+        /// <summary>
+        /// Gets or sets the fields.
+        /// </summary>
+        /// <value>
+        /// The fields.
+        /// </value>
+        public IList<string> Columns { get; set; }
 
         /// <summary>
         /// Gets or sets the fields.
@@ -1011,6 +1020,7 @@ namespace BudgetExecution
                 SelectedTable = DataTable.TableName;
                 BindingSource.DataSource = DataModel.DataTable;
                 ToolStrip.BindingSource = BindingSource;
+                Columns = DataModel?.ColumnNames;
                 Fields = DataModel?.Fields;
                 Numerics = DataModel?.Numerics;
             }
@@ -1035,6 +1045,7 @@ namespace BudgetExecution
                 DataTable = DataModel.DataTable;
                 BindingSource.DataSource = DataModel.DataTable;
                 ToolStrip.BindingSource = BindingSource;
+                Columns = DataModel?.ColumnNames;
                 Fields = DataModel?.Fields;
                 Numerics = DataModel?.Numerics;
             }
@@ -1062,6 +1073,7 @@ namespace BudgetExecution
                 SelectedTable = DataTable.TableName;
                 BindingSource.DataSource = DataTable;
                 ToolStrip.BindingSource.DataSource = DataModel.DataTable;
+                Columns = DataModel?.ColumnNames;
                 Fields = DataModel?.Fields;
                 Numerics = DataModel?.Numerics;
             }
@@ -1087,8 +1099,9 @@ namespace BudgetExecution
                 DataTable = DataModel.DataTable;
                 BindingSource.DataSource = DataTable;
                 ToolStrip.BindingSource = BindingSource;
-                Fields = DataModel.Fields;
-                Numerics = DataModel.Numerics;
+                Columns = DataModel?.ColumnNames;
+                Fields = DataModel?.Fields;
+                Numerics = DataModel?.Numerics;
             }
             catch( Exception ex )
             {
@@ -1115,8 +1128,9 @@ namespace BudgetExecution
                 DataTable = DataModel.DataTable;
                 BindingSource.DataSource = DataTable;
                 ToolStrip.BindingSource = BindingSource;
-                Fields = DataModel.Fields;
-                Numerics = DataModel.Numerics;
+                Columns = DataModel?.ColumnNames;
+                Fields = DataModel?.Fields;
+                Numerics = DataModel?.Numerics;
             }
             catch( Exception ex )
             {
@@ -1376,7 +1390,11 @@ namespace BudgetExecution
                 var _labels = GetLabels( );
                 foreach( var _lbl in _labels.Values )
                 {
-                    _lbl.Text = string.Empty;
+                    var _tag = _lbl.Tag.ToString( );
+                    if( _tag?.Equals( "Field" ) == true )
+                    {
+                        _lbl.Text = string.Empty;
+                    }
                 }
             }
             catch( Exception ex )
@@ -1412,28 +1430,34 @@ namespace BudgetExecution
             {
                 if( !string.IsNullOrEmpty( SelectedTable ) )
                 {
+                    ClearLabelText( );
                     var _table = SelectedTable?.SplitPascal( ) ?? string.Empty;
                     var _records = DataTable.Rows?.Count.ToString( "#,###" ) ?? "0";
+                    var _columns = Columns?.Count;
                     var _filters = Filter.Keys?.Count;
                     var _fields = DataModel.Fields?.Count ?? 0;
                     var _numerics = DataModel.Numerics?.Count ?? 0;
                     var _selectedFields = SelectedFields?.Count ?? 0;
                     var _selectedNumerics = SelectedNumerics?.Count ?? 0;
                     Label1.Text = $"Data Records:  {_records}";
-                    Label2.Text = $"Total Fields:  {_fields}";
-                    Label3.Text = $"Total Measures:  {_numerics}";
-                    Label4.Text = $"Active Filters:  {_filters}";
-                    Label5.Text = $"Selected Fields:  {_selectedFields}";
-                    Label6.Text = $"Selected Measures:  {_selectedNumerics}";
+                    Label2.Text = $"Data Columns:  {_columns}";
+                    Label3.Text = $"Total Fields:  {_fields}";
+                    Label4.Text = $"Total Measures:  {_numerics}";
+                    Label5.Text = $"Active Filters:  {_filters}";
+                    Label6.Text = $"Selected Fields:  {_selectedFields} of {_fields}";
+                    Label7.Text = $"Selected Measures:  {_selectedNumerics} of {_numerics}";
                 }
                 else
                 {
-                    Label1.Text = "Data Records: 0.0";
-                    Label2.Text = "Total Fields: 0.0";
-                    Label3.Text = "Total Measures: 0.0";
-                    Label4.Text = "Active Filters: 0.0";
-                    Label5.Text = "Selected Fields: 0.0";
-                    Label6.Text = "Selected Measures: 0.0";
+                    var _labels = GetLabels( );
+                    foreach( var lbl in _labels.Values )
+                    {
+                        var _tag = lbl.Tag.ToString( );
+                        if( _tag?.Equals( "Field" ) == true )
+                        {
+                            lbl.Text = string.Empty;
+                        }
+                    }
                 }
             }
             catch( Exception ex )
@@ -1451,21 +1475,24 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( row, nameof( row ) );
-                var _data = row.ToDictionary( ); 
-                var _dict = GetLabels( );
-                var _labels = _dict.Values.ToArray( );
-                var _names = _data.Keys.ToArray( );
-                var _values = _data.Values.ToArray( );
-                foreach( var label in _labels )
+                ClearLabelText( );
+                var _data = row.ToDictionary( );
+                var _labels = GetLabels( )
+                    ?.Where( l => l.Value.Tag.ToString( ) == "Field" )
+                    ?.Select( l => l.Value )
+                    ?.ToArray( );
+
+                var _colNames = _data.Keys
+                    ?.Take( _labels.Length )
+                    ?.ToArray( );
+
+                var _colValues = _data.Values
+                    ?.Take( _labels.Length )
+                    ?.ToArray( );
+
+                for( var i = 0; i < _labels.Length; i++ )
                 {
-                    foreach( var kvp in _data )
-                    {
-                        var _tag = label.Tag.ToString( );
-                        if( _tag.Equals( "Field" ) )
-                        {
-                            label.Text = $"{kvp.Key}={kvp.Value} ";
-                        }
-                    }
+                    _labels[ i ].Text = $"{_colNames[ i ]} = {_colValues[ i ]}";
                 }
             }
             catch( Exception ex )
@@ -1629,7 +1656,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the active tab.
         /// </summary>
-        private void SetActiveTab( )
+        private void SetActiveQueryTab( )
         {
             try
             {
@@ -1648,6 +1675,7 @@ namespace BudgetExecution
                         FilterTabPage.TabVisible = true;
                         TableTabPage.TabVisible = false;
                         GroupTabPage.TabVisible = false;
+                        Filter?.Clear( );
                         PopulateFirstComboBoxItems( );
                         ResetFilterTableVisibility( );
                         break;
@@ -1662,6 +1690,49 @@ namespace BudgetExecution
                         ResetGroupTableVisibility( );
                         break;
                     }
+                    default:
+                    {
+                        TableTabPage.TabVisible = true;
+                        FilterTabPage.TabVisible = false;
+                        GroupTabPage.TabVisible = false;
+                        PopulateExecutionTables( );
+                        break;
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the active data tab.
+        /// </summary>
+        private void SetActiveDataTab( )
+        {
+            try
+            {
+                switch( DataTabControl.SelectedIndex )
+                {
+                    case 0:
+                    {
+                        Ready.TabVisible = true;
+                        Busy.TabVisible = false;
+                        break;
+                    }
+                    case 1:
+                    {
+                        Busy.TabVisible = true;
+                        Ready.TabVisible = false;
+                        break;
+                    }
+                    default:
+                    {
+                        Ready.TabVisible = true;
+                        Busy.TabVisible = false;
+                        break;
+                    }
                 }
             }
             catch( Exception _ex )
@@ -1673,7 +1744,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the series style.
         /// </summary>
-        [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
+        [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
         private void SetSeriesPointStyles( DataTable table,
             ChartSeriesType type = ChartSeriesType.StackingColumn )
         {
@@ -1748,7 +1819,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the series style.
         /// </summary>
-        [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
+        [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
         private void SetSeriesPointStyles( DataRow row,
             ChartSeriesType type = ChartSeriesType.Column )
         {
@@ -1949,7 +2020,7 @@ namespace BudgetExecution
         {
             try
             {
-                SetActiveTab( );
+                SetActiveQueryTab( );
             }
             catch( Exception ex )
             {
@@ -1974,8 +2045,8 @@ namespace BudgetExecution
                     BindChart( );
                     PopulateFirstComboBoxItems( );
                     ResetFilterTableVisibility( );
-                    UpdateMetrics( );
                     Chart.Title.Text = SelectedTable.SplitPascal( );
+                    QueryTabControl.SelectedIndex = 1;
                 }
                 catch( Exception ex )
                 {
@@ -2315,7 +2386,7 @@ namespace BudgetExecution
                 if( Chart.Visible == false )
                 {
                     Chart.Visible = true;
-                    FirstSchemaTable.Visible = true;
+                    SchemaTable.Visible = true;
                 }
             }
             catch( Exception ex )
@@ -2384,7 +2455,7 @@ namespace BudgetExecution
             try
             {
                 QueryTabControl.SelectedIndex = 2;
-                SetActiveTab( );
+                SetActiveQueryTab( );
             }
             catch( Exception ex )
             {
@@ -2414,7 +2485,7 @@ namespace BudgetExecution
                     if( Chart.Visible == true )
                     {
                         Chart.Visible = false;
-                        FirstSchemaTable.Visible = false;
+                        SchemaTable.Visible = false;
                     }
                 }
             }
@@ -2436,7 +2507,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    //ContextMenu.Show( this, e.Location );
+                    ContextMenu.Show( this, e.Location );
                 }
                 catch( Exception ex )
                 {

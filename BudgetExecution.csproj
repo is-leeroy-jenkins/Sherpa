@@ -20,7 +20,7 @@
     <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
     <Configurations>Debug;Release</Configurations>
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <GenerateDocumentationFile>False</GenerateDocumentationFile>
     <BaseIntermediateOutputPath>Obj\</BaseIntermediateOutputPath>
     <BaseOutputPath>Bin\</BaseOutputPath>
     <RunAnalyzersDuringBuild>True</RunAnalyzersDuringBuild>
@@ -29,8 +29,9 @@
     <PackageProjectUrl>https://github.com/KarmaScripter/BudgetExecution</PackageProjectUrl>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <Title>Budget Execution</Title>
-    <PackageIcon>Application.png</PackageIcon>
+    <PackageIcon></PackageIcon>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <ApplicationIcon>Resources\Pictures\Forms\Application.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702;2201;1051;CA1200;CA1310;CA1305;1822;CA1716;CA1812;CA1304</NoWarn>
