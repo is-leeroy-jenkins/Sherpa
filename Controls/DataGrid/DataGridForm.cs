@@ -1497,10 +1497,8 @@ namespace BudgetExecution
         {
             try
             {
-                var _dateTime = DateTime.Now;
-                var _dateString = _dateTime.ToLongDateString( );
-                var _timeString = _dateTime.ToLongTimeString( );
-                StatusLabel.Text = _dateString + "  " + _timeString;
+                var _now = DateTime.Now;
+                StatusLabel.Text = $"{_now.ToShortDateString( )} - {_now.ToLongTimeString( )}";
             }
             catch( Exception _ex )
             {

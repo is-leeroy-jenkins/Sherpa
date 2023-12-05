@@ -4,7 +4,7 @@
 //     Created:                 11-22-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        11-26-2023
+//     Last Modified On:        12-05-2023
 // ******************************************************************************************
 // <copyright file="Terry Eppler.cs" company="Terry D. Eppler">
 //    BudgetExecution is a Federal Budget, Finance, and Accounting application for the
@@ -64,6 +64,8 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
+    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
+    [ SuppressMessage( "ReSharper", "UseNullPropagation" ) ]
     public partial class PivotChartForm : MetroForm
     {
         /// <summary>
@@ -162,7 +164,15 @@ namespace BudgetExecution
         /// <value>
         /// The form filter.
         /// </value>
-        public IDictionary<string, object> FormFilter { get; set; }
+        public IDictionary<string, object> Filter { get; set; }
+
+        /// <summary>
+        /// Gets or sets the fields.
+        /// </summary>
+        /// <value>
+        /// The fields.
+        /// </value>
+        public IList<string> Columns { get; set; }
 
         /// <summary>
         /// Gets or sets the fields.
@@ -219,6 +229,14 @@ namespace BudgetExecution
         /// The provider.
         /// </value>
         public Provider Provider { get; set; }
+
+        /// <summary>
+        /// Gets or sets the type of the chart.
+        /// </summary>
+        /// <value>
+        /// The type of the chart.
+        /// </value>
+        public PivotChartTypes ChartType { get; set; }
 
         /// <summary>
         /// Gets or sets the data table.
@@ -282,7 +300,7 @@ namespace BudgetExecution
             MetroColor = Color.FromArgb( 20, 20, 20 );
             CaptionBarHeight = 5;
             CaptionAlign = HorizontalAlignment.Center;
-            CaptionFont = new Font( "Roboto", 11, FontStyle.Regular );
+            CaptionFont = new Font( "Roboto", 10, FontStyle.Regular );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionForeColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
@@ -356,7 +374,7 @@ namespace BudgetExecution
                 _palette.Add( _yellow );
                 var _maroon = Color.Maroon;
                 _palette.Add( _maroon );
-                Chart.CustomPalette = _palette.ToArray( );
+                PivotChart.CustomPalette = _palette.ToArray( );
             }
             catch( Exception _ex )
             {
@@ -435,6 +453,30 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Binds the data.
+        /// </summary>
+        private void BindData( )
+        {
+            try
+            {
+                DataModel = new DataBuilder( Source, Provider );
+                DataTable = DataModel.DataTable;
+                PivotChart.ItemSource = DataModel.DataTable;
+                SelectedTable = DataTable.TableName;
+                BindingSource.DataSource = DataModel.DataTable;
+                ToolStrip.BindingSource = BindingSource;
+                Columns = DataModel?.ColumnNames;
+                Fields = DataModel?.Fields;
+                Numerics = DataModel?.Numerics;
+                Title.Text = DataTable.TableName.SplitPascal( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Gets the controls.
         /// </summary>
         /// <returns>
@@ -467,6 +509,36 @@ namespace BudgetExecution
             {
                 Fail( _ex );
                 return default( Control[ ] );
+            }
+        }
+
+        /// <summary>
+        /// Gets the labels.
+        /// </summary>
+        /// <returns>
+        /// Dictionary
+        /// </returns>
+        private IDictionary<string, Label> GetLabels( )
+        {
+            try
+            {
+                var _labels = new Dictionary<string, Label>( );
+                foreach( var _control in GetControls( ) )
+                {
+                    if( _control.GetType( ) == typeof( Label ) )
+                    {
+                        _labels.Add( _control.Name, _control as Label );
+                    }
+                }
+
+                return _labels?.Any( ) == true
+                    ? _labels
+                    : default( IDictionary<string, Label> );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IDictionary<string, Label> );
             }
         }
 
@@ -582,7 +654,7 @@ namespace BudgetExecution
             {
                 DataArgs.Provider = Provider;
                 DataArgs.Source = Source;
-                DataArgs.Filter = FormFilter;
+                DataArgs.Filter = Filter;
                 DataArgs.SelectedTable = SelectedTable;
                 DataArgs.SelectedFields = SelectedFields;
                 DataArgs.SelectedNumerics = SelectedNumerics;
@@ -601,9 +673,9 @@ namespace BudgetExecution
         {
             try
             {
-                if( FormFilter?.Any( ) == true )
+                if( Filter?.Any( ) == true )
                 {
-                    FormFilter.Clear( );
+                    Filter.Clear( );
                 }
 
                 if( SelectedColumns?.Any( ) == true )
@@ -634,9 +706,9 @@ namespace BudgetExecution
         {
             try
             {
-                if( FormFilter.Keys.Count > 0 )
+                if( Filter.Keys.Count > 0 )
                 {
-                    FormFilter.Clear( );
+                    Filter.Clear( );
                 }
 
                 ThirdCategory = string.Empty;
@@ -653,16 +725,37 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Clears the label text.
+        /// </summary>
+        private void ClearLabelText( )
+        {
+            try
+            {
+                var _labels = GetLabels( );
+                foreach( var _lbl in _labels.Values )
+                {
+                    var _tag = _lbl.Tag.ToString( );
+                    if( _tag?.Equals( "STAT" ) == true )
+                    {
+                        _lbl.Text = string.Empty;
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Updates the status.
         /// </summary>
         private void UpdateStatus( )
         {
             try
             {
-                var _dateTime = DateTime.Now;
-                var _dateString = _dateTime.ToLongDateString( );
-                var _timeString = _dateTime.ToShortTimeString( );
-                StatusLabel.Text = _dateString + "  " + _timeString;
+                var _now = DateTime.Now;
+                StatusLabel.Text = $"{_now.ToShortDateString( )} - {_now.ToLongTimeString( )}";
             }
             catch( Exception _ex )
             {
@@ -688,6 +781,27 @@ namespace BudgetExecution
             }
         }
 
+        private void PopulateComboBox( )
+        {
+            try
+            {
+                var _charts = Enum.GetNames( typeof( PivotChartTypes ) );
+                if( ComboBox.Items.Count > 0 )
+                {
+                    ComboBox.Items.Clear( );
+                }
+
+                foreach( var _item in _charts )
+                {
+                    ComboBox.Items.Add( _item );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
         /// <summary>
         /// Sets the type of the chart.
         /// </summary>
@@ -699,7 +813,8 @@ namespace BudgetExecution
                 ThrowIf.NullOrEmpty( type, nameof( type ) );
                 if( Enum.IsDefined( typeof( PivotChartTypes ), type ) )
                 {
-                    Chart.ChartTypes =
+                    ChartType = (PivotChartTypes)Enum.Parse( typeof( PivotChartTypes ), type );
+                    PivotChart.ChartTypes =
                         (PivotChartTypes)Enum.Parse( typeof( PivotChartTypes ), type );
                 }
             }
@@ -759,6 +874,51 @@ namespace BudgetExecution
                 InitializeChartPalette( );
                 InitializeLabels( );
                 FadeIn( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [ComboBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        public void OnComboBoxItemSelected( object sender, EventArgs e )
+        {
+            try
+            {
+                var _item = ComboBox.GetSelectedItem( );
+                if( _item != null )
+                {
+                    var _name = _item.ToString( );
+                    if( _name != null )
+                    {
+                        SetChartType( _name );
+                        var _message = "The chart type has been change!";
+                        SendNotification( _message );
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        public void OnListBoxItemSelected( object sender, EventArgs e )
+        {
+            try
+            {
+                var _item = TableListBox.SelectedItem.ToString( );
+                SelectedTable = _item?.Replace( " ", "" );
+                Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
+                if( _item != null )
+                {
+                }
             }
             catch( Exception _ex )
             {

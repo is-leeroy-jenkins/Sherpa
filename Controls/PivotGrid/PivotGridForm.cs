@@ -64,6 +64,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     public partial class PivotGridForm : MetroForm
     {
         /// <summary>
@@ -391,10 +392,10 @@ namespace BudgetExecution
                 MetricsLabel12.Font = _font;
                 MetricsLabel12.ForeColor = _foreColor;
                 MetricsLabel12.Text = string.Empty;
-                CommandLabel.Font = _font;
-                CommandLabel.ForeColor = _foreColor;
-                CommandLabel.Text = string.Empty;
-                CommandLabel.TextAlign = ContentAlignment.TopLeft;
+                CommandLabel1.Font = _font;
+                CommandLabel1.ForeColor = _foreColor;
+                CommandLabel1.Text = string.Empty;
+                CommandLabel1.TextAlign = ContentAlignment.TopLeft;
             }
             catch( Exception _ex )
             {
@@ -1069,7 +1070,6 @@ namespace BudgetExecution
             {
                 if( !string.IsNullOrEmpty( SelectedTable ) )
                 {
-                    var _table = SelectedTable?.SplitPascal( ) ?? string.Empty;
                     var _records = DataTable.Rows?.Count.ToString( "#,###" ) ?? "0";
                     var _filters = Filter.Keys?.Count;
                     var _fields = DataModel.Fields?.Count ?? 0;
@@ -1082,7 +1082,7 @@ namespace BudgetExecution
                     MetricsLabel4.Text = $"Active Filters:  {_filters}";
                     MetricsLabel5.Text = $"Selected Fields:  {_selectedFields}";
                     MetricsLabel6.Text = $"Selected Measures:  {_selectedNumerics}";
-                    CommandLabel.Text = DataModel?.SqlStatement?.CommandText ?? string.Empty;
+                    CommandLabel1.Text = DataModel?.SqlStatement?.CommandText ?? string.Empty;
                 }
                 else
                 {
@@ -1092,7 +1092,7 @@ namespace BudgetExecution
                     MetricsLabel4.Text = "Active Filters: 0.0";
                     MetricsLabel5.Text = "Selected Fields: 0.0";
                     MetricsLabel6.Text = "Selected Measures: 0.0";
-                    CommandLabel.Text = string.Empty;
+                    CommandLabel1.Text = string.Empty;
                 }
             }
             catch( Exception ex )
@@ -1430,11 +1430,6 @@ namespace BudgetExecution
                     BindData( );
                     TabControl.SelectedIndex = 1;
                     UpdateLabelText( );
-                    if( pivotGrid1.Visible )
-                    {
-                        pivotGrid1.Visible = false;
-                        MetricsTable.Visible = false;
-                    }
                 }
             }
             catch( Exception ex )
@@ -1528,7 +1523,7 @@ namespace BudgetExecution
         /// Fails the specified ex.
         /// </summary>
         /// <param name="ex">The ex.</param>
-        private protected void Fail( Exception ex )
+        private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
