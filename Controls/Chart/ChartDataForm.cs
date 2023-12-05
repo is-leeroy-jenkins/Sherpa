@@ -4,7 +4,7 @@
 //     Created:                 06-19-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-03-2023
+//     Last Modified On:        12-04-2023
 // ******************************************************************************************
 // <copyright file="Terry Eppler.cs" company="Terry D. Eppler">
 //    BudgetExecution is a Federal Budget, Finance, and Accounting application for the
@@ -45,7 +45,6 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
@@ -63,22 +62,22 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
-    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
-    [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
-    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
-    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ArrangeModifiersOrder" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "UnusedVariable" )]
+    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
+    [SuppressMessage( "ReSharper", "RedundantBoolCompare" )]
+    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
+    [SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" )]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
+    [SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" )]
+    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
+    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
+    [SuppressMessage( "ReSharper", "InconsistentNaming" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
+    [SuppressMessage( "ReSharper", "ArrangeModifiersOrder" )]
+    [SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" )]
     public partial class ChartDataForm : MetroForm
     {
         /// <summary>
@@ -429,46 +428,42 @@ namespace BudgetExecution
                 var _font = new Font( "Roboto", 7 );
                 var _foreColor = Color.FromArgb( 106, 189, 252 );
                 var _backColor = Color.Transparent;
-                MetricsLabel1.Font = _font;
-                MetricsLabel1.ForeColor = _foreColor;
-                MetricsLabel1.Text = string.Empty;
-                MetricsLabel2.Font = _font;
-                MetricsLabel2.ForeColor = _foreColor;
-                MetricsLabel2.Text = string.Empty;
-                MetricsLabel3.Font = _font;
-                MetricsLabel3.ForeColor = _foreColor;
-                MetricsLabel3.Text = string.Empty;
-                MetricsLabel4.Font = _font;
-                MetricsLabel4.ForeColor = _foreColor;
-                MetricsLabel4.Text = string.Empty;
-                MetricsLabel5.Font = _font;
-                MetricsLabel5.ForeColor = _foreColor;
-                MetricsLabel5.Text = string.Empty;
-                MetricsLabel6.Font = _font;
-                MetricsLabel6.ForeColor = _foreColor;
-                MetricsLabel6.Text = string.Empty;
-                MetricsLabel7.Font = _font;
-                MetricsLabel7.ForeColor = _foreColor;
-                MetricsLabel7.Text = string.Empty;
-                MetricsLabel8.Font = _font;
-                MetricsLabel8.ForeColor = _foreColor;
-                MetricsLabel8.Text = string.Empty;
-                MetricsLabel9.Font = _font;
-                MetricsLabel9.ForeColor = _foreColor;
-                MetricsLabel9.Text = string.Empty;
-                MetricsLabel10.Font = _font;
-                MetricsLabel10.ForeColor = _foreColor;
-                MetricsLabel10.Text = string.Empty;
-                MetricsLabel11.Font = _font;
-                MetricsLabel11.ForeColor = _foreColor;
-                MetricsLabel11.Text = string.Empty;
-                MetricsLabel12.Font = _font;
-                MetricsLabel12.ForeColor = _foreColor;
-                MetricsLabel12.Text = string.Empty;
-                CommandLabel.Font = _font;
-                CommandLabel.ForeColor = _foreColor;
-                CommandLabel.Text = string.Empty;
-                CommandLabel.TextAlign = ContentAlignment.TopLeft;
+                Label1.Font = _font;
+                Label1.ForeColor = _foreColor;
+                Label1.Text = string.Empty;
+                Label2.Font = _font;
+                Label2.ForeColor = _foreColor;
+                Label2.Text = string.Empty;
+                Label3.Font = _font;
+                Label3.ForeColor = _foreColor;
+                Label3.Text = string.Empty;
+                Label4.Font = _font;
+                Label4.ForeColor = _foreColor;
+                Label4.Text = string.Empty;
+                Label5.Font = _font;
+                Label5.ForeColor = _foreColor;
+                Label5.Text = string.Empty;
+                Label6.Font = _font;
+                Label6.ForeColor = _foreColor;
+                Label6.Text = string.Empty;
+                Label7.Font = _font;
+                Label7.ForeColor = _foreColor;
+                Label7.Text = string.Empty;
+                Label8.Font = _font;
+                Label8.ForeColor = _foreColor;
+                Label8.Text = string.Empty;
+                Label9.Font = _font;
+                Label9.ForeColor = _foreColor;
+                Label9.Text = string.Empty;
+                Label10.Font = _font;
+                Label10.ForeColor = _foreColor;
+                Label10.Text = string.Empty;
+                Label11.Font = _font;
+                Label11.ForeColor = _foreColor;
+                Label11.Text = string.Empty;
+                Label12.Font = _font;
+                Label12.ForeColor = _foreColor;
+                Label12.Text = string.Empty;
             }
             catch( Exception _ex )
             {
@@ -672,6 +667,36 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Gets the labels.
+        /// </summary>
+        /// <returns>
+        /// Dictionary
+        /// </returns>
+        private IDictionary<string, Label> GetLabels( )
+        {
+            try
+            {
+                var _labels = new Dictionary<string, Label>( );
+                foreach( var _control in GetControls( ) )
+                {
+                    if( _control.GetType( ) == typeof( Label ) )
+                    {
+                        _labels.Add( _control.Name, _control as Label );
+                    }
+                }
+
+                return _labels?.Any( ) == true
+                    ? _labels
+                    : default( IDictionary<string, Label> );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IDictionary<string, Label> );
+            }
+        }
+
+        /// <summary>
         /// Displays the control to the user.
         /// </summary>
         public new void Show( )
@@ -823,7 +848,7 @@ namespace BudgetExecution
                 DataModel = null;
                 DataTable = null;
                 QueryTabControl.SelectedIndex = 0;
-                UpdateLabelText( );
+                UpdateMetrics( );
             }
             catch( Exception _ex )
             {
@@ -998,7 +1023,9 @@ namespace BudgetExecution
         /// <summary>
         /// Binds the data.
         /// </summary>
-        /// <param name="sqlText">The SQL text.</param>
+        /// <param name="sqlText">
+        /// The SQL text.
+        /// </param>
         private void BindData( string sqlText )
         {
             try
@@ -1020,7 +1047,9 @@ namespace BudgetExecution
         /// <summary>
         /// Binds the data.
         /// </summary>
-        /// <param name="where">The where.</param>
+        /// <param name="where">
+        /// The where.
+        /// </param>
         private void BindData( IDictionary<string, object> where )
         {
             try
@@ -1104,6 +1133,7 @@ namespace BudgetExecution
             {
                 var _current = BindingSource.GetCurrentDataRow( );
                 SetSeriesPointStyles( _current );
+                UpdateSchema( _current );
                 Chart.Title.Text = DataTable.TableName.SplitPascal( );
                 Chart.Refresh( );
             }
@@ -1337,6 +1367,25 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Clears the label text.
+        /// </summary>
+        private void ClearLabelText( )
+        {
+            try
+            {
+                var _labels = GetLabels( );
+                foreach( var _lbl in _labels.Values )
+                {
+                    _lbl.Text = string.Empty;
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
         /// Updates the status.
         /// </summary>
         private void UpdateStatusLabel( )
@@ -1357,7 +1406,7 @@ namespace BudgetExecution
         /// <summary>
         /// Updates the label text.
         /// </summary>
-        private void UpdateLabelText( )
+        private void UpdateMetrics( )
         {
             try
             {
@@ -1370,23 +1419,53 @@ namespace BudgetExecution
                     var _numerics = DataModel.Numerics?.Count ?? 0;
                     var _selectedFields = SelectedFields?.Count ?? 0;
                     var _selectedNumerics = SelectedNumerics?.Count ?? 0;
-                    MetricsLabel1.Text = $"Data Records:  {_records}";
-                    MetricsLabel2.Text = $"Total Fields:  {_fields}";
-                    MetricsLabel3.Text = $"Total Measures:  {_numerics}";
-                    MetricsLabel4.Text = $"Active Filters:  {_filters}";
-                    MetricsLabel5.Text = $"Selected Fields:  {_selectedFields}";
-                    MetricsLabel6.Text = $"Selected Measures:  {_selectedNumerics}";
-                    CommandLabel.Text = DataModel?.SqlStatement?.CommandText ?? string.Empty;
+                    Label1.Text = $"Data Records:  {_records}";
+                    Label2.Text = $"Total Fields:  {_fields}";
+                    Label3.Text = $"Total Measures:  {_numerics}";
+                    Label4.Text = $"Active Filters:  {_filters}";
+                    Label5.Text = $"Selected Fields:  {_selectedFields}";
+                    Label6.Text = $"Selected Measures:  {_selectedNumerics}";
                 }
                 else
                 {
-                    MetricsLabel1.Text = "Data Records: 0.0";
-                    MetricsLabel2.Text = "Total Fields: 0.0";
-                    MetricsLabel3.Text = "Total Measures: 0.0";
-                    MetricsLabel4.Text = "Active Filters: 0.0";
-                    MetricsLabel5.Text = "Selected Fields: 0.0";
-                    MetricsLabel6.Text = "Selected Measures: 0.0";
-                    CommandLabel.Text = string.Empty;
+                    Label1.Text = "Data Records: 0.0";
+                    Label2.Text = "Total Fields: 0.0";
+                    Label3.Text = "Total Measures: 0.0";
+                    Label4.Text = "Active Filters: 0.0";
+                    Label5.Text = "Selected Fields: 0.0";
+                    Label6.Text = "Selected Measures: 0.0";
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Updates the schema labels.
+        /// </summary>
+        /// <param name="row">The row.</param>
+        private void UpdateSchema( DataRow row )
+        {
+            try
+            {
+                ThrowIf.Null( row, nameof( row ) );
+                var _data = row.ToDictionary( ); 
+                var _dict = GetLabels( );
+                var _labels = _dict.Values.ToArray( );
+                var _names = _data.Keys.ToArray( );
+                var _values = _data.Values.ToArray( );
+                foreach( var label in _labels )
+                {
+                    foreach( var kvp in _data )
+                    {
+                        var _tag = label.Tag.ToString( );
+                        if( _tag.Equals( "Field" ) )
+                        {
+                            label.Text = $"{kvp.Key}={kvp.Value} ";
+                        }
+                    }
                 }
             }
             catch( Exception ex )
@@ -1594,7 +1673,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the series style.
         /// </summary>
-        [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
+        [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
         private void SetSeriesPointStyles( DataTable table,
             ChartSeriesType type = ChartSeriesType.StackingColumn )
         {
@@ -1669,7 +1748,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the series style.
         /// </summary>
-        [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
+        [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
         private void SetSeriesPointStyles( DataRow row,
             ChartSeriesType type = ChartSeriesType.Column )
         {
@@ -1722,17 +1801,6 @@ namespace BudgetExecution
                     Chart.Series.Add( _series );
                 }
 
-                var _fields = Fields
-                    ?.Take( 4 )
-                    ?.ToArray( );
-
-                var _title = string.Empty;
-                foreach( var col in _fields )
-                {
-                    _title += $"{col.SplitPascal( )} ";
-                }
-
-                Chart.PrimaryXAxis.Title = _title;
                 Chart.Refresh( );
             }
             catch( Exception _ex )
@@ -1859,6 +1927,7 @@ namespace BudgetExecution
                 FilterTabPage.TabVisible = false;
                 GroupTabPage.TabVisible = false;
                 Busy.TabVisible = false;
+                ClearLabelText( );
                 PopulateExecutionTables( );
                 UpdateStatusLabel( );
                 Chart.Title.Text = string.Empty;
@@ -1905,7 +1974,7 @@ namespace BudgetExecution
                     BindChart( );
                     PopulateFirstComboBoxItems( );
                     ResetFilterTableVisibility( );
-                    UpdateLabelText( );
+                    UpdateMetrics( );
                     Chart.Title.Text = SelectedTable.SplitPascal( );
                 }
                 catch( Exception ex )
@@ -1989,9 +2058,8 @@ namespace BudgetExecution
                         GroupSeparator.Visible = true;
                     }
 
-                    UpdateLabelText( );
+                    UpdateMetrics( );
                     SqlCommand = CreateSqlText( Filter );
-                    CommandLabel.Text = SqlCommand;
                     BindData( SqlCommand );
                 }
                 catch( Exception _ex )
@@ -2066,8 +2134,7 @@ namespace BudgetExecution
 
                     BindData( Filter );
                     SqlCommand = CreateSqlText( Filter );
-                    CommandLabel.Text = SqlCommand;
-                    UpdateLabelText( );
+                    UpdateMetrics( );
                 }
                 catch( Exception ex )
                 {
@@ -2141,7 +2208,7 @@ namespace BudgetExecution
                     Filter.Add( SecondCategory, SecondValue );
                     Filter.Add( ThirdCategory, ThirdValue );
                     BindData( Filter );
-                    UpdateLabelText( );
+                    UpdateMetrics( );
                     QueryTabControl.SelectedIndex = 2;
                 }
                 catch( Exception ex )
@@ -2203,8 +2270,6 @@ namespace BudgetExecution
                 var _current = BindingSource.GetCurrentDataRow( );
                 SetSeriesPointStyles( _current );
                 var _position = BindingSource.Position;
-                MetricsLabel11.TextAlign = ContentAlignment.TopLeft;
-                MetricsLabel11.Text = $"Current Record: {_position}";
                 Chart.Refresh( );
             }
             catch( Exception ex )
@@ -2239,18 +2304,18 @@ namespace BudgetExecution
                    && SelectedNumerics.Count >= 1 )
                 {
                     BindData( SelectedFields, SelectedNumerics, Filter );
-                    UpdateLabelText( );
+                    UpdateMetrics( );
                 }
                 else
                 {
                     BindData( Fields, Numerics, Filter );
-                    UpdateLabelText( );
+                    UpdateMetrics( );
                 }
 
                 if( Chart.Visible == false )
                 {
                     Chart.Visible = true;
-                    MetricsTable.Visible = true;
+                    FirstSchemaTable.Visible = true;
                 }
             }
             catch( Exception ex )
@@ -2275,7 +2340,7 @@ namespace BudgetExecution
                 }
 
                 BindData( SelectedFields, SelectedNumerics, Filter );
-                UpdateLabelText( );
+                UpdateMetrics( );
             }
             catch( Exception ex )
             {
@@ -2300,7 +2365,7 @@ namespace BudgetExecution
                 ClearSelections( );
                 ClearComboBoxes( );
                 ClearListBoxes( );
-                UpdateLabelText( );
+                UpdateMetrics( );
             }
             catch( Exception ex )
             {
@@ -2339,18 +2404,17 @@ namespace BudgetExecution
             {
                 if( !string.IsNullOrEmpty( SelectedTable ) )
                 {
-                    CommandLabel.Text = string.Empty;
                     ClearCollections( );
                     ClearSelections( );
                     ClearListBoxes( );
                     ClearComboBoxes( );
                     BindData( );
                     QueryTabControl.SelectedIndex = 1;
-                    UpdateLabelText( );
+                    UpdateMetrics( );
                     if( Chart.Visible == true )
                     {
                         Chart.Visible = false;
-                        MetricsTable.Visible = false;
+                        FirstSchemaTable.Visible = false;
                     }
                 }
             }
@@ -2454,6 +2518,7 @@ namespace BudgetExecution
                 BindingSource?.MoveFirst( );
                 var _current = BindingSource.GetCurrentDataRow( );
                 SetSeriesPointStyles( _current );
+                UpdateSchema( _current );
             }
             catch( Exception _ex )
             {
@@ -2474,6 +2539,7 @@ namespace BudgetExecution
                 BindingSource?.MovePrevious( );
                 var _current = BindingSource.GetCurrentDataRow( );
                 SetSeriesPointStyles( _current );
+                UpdateSchema( _current );
             }
             catch( Exception _ex )
             {
@@ -2494,6 +2560,7 @@ namespace BudgetExecution
                 BindingSource?.MoveNext( );
                 var _current = BindingSource.GetCurrentDataRow( );
                 SetSeriesPointStyles( _current );
+                UpdateSchema( _current );
             }
             catch( Exception _ex )
             {
@@ -2514,6 +2581,7 @@ namespace BudgetExecution
                 BindingSource?.MoveLast( );
                 var _current = BindingSource.GetCurrentDataRow( );
                 SetSeriesPointStyles( _current );
+                UpdateSchema( _current );
             }
             catch( Exception _ex )
             {
