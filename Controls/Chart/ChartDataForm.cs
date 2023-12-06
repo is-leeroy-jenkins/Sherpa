@@ -843,29 +843,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Clears the data.
-        /// </summary>
-        public void ClearData( )
-        {
-            try
-            {
-                ClearSelections( );
-                ClearCollections( );
-                ClearComboBoxes( );
-                ClearListBoxes( );
-                SelectedTable = string.Empty;
-                DataModel = null;
-                DataTable = null;
-                QueryTabControl.SelectedIndex = 0;
-                UpdateMetrics( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Fades the in.
         /// </summary>
         private void FadeIn( )
@@ -1326,29 +1303,41 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Clears the selections.
+        /// Clears the data.
         /// </summary>
-        private void ClearSelections( )
+        public void ClearData( )
         {
             try
             {
-                if( Filter.Keys.Count > 0 )
+                ClearSelections( );
+                ClearCollections( );
+                ClearFilter( );
+                SelectedTable = string.Empty;
+                BindingSource.DataSource = null;
+                DataModel = null;
+                DataTable = null;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the filter.
+        /// </summary>
+        private void ClearFilter( )
+        {
+            try
+            {
+                if( Filter?.Any( ) == true )
                 {
                     Filter.Clear( );
                 }
-
-                FourthCategory = string.Empty;
-                FourthValue = string.Empty;
-                ThirdCategory = string.Empty;
-                ThirdValue = string.Empty;
-                SecondCategory = string.Empty;
-                SecondValue = string.Empty;
-                FirstCategory = string.Empty;
-                FirstValue = string.Empty;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -1374,16 +1363,36 @@ namespace BudgetExecution
                     SelectedNumerics.Clear( );
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the selections.
+        /// </summary>
+        private void ClearSelections( )
+        {
+            try
+            {
+                ThirdCategory = string.Empty;
+                ThirdValue = string.Empty;
+                SecondCategory = string.Empty;
+                SecondValue = string.Empty;
+                FirstCategory = string.Empty;
+                FirstValue = string.Empty;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
         /// <summary>
         /// Clears the label text.
         /// </summary>
-        private void ClearLabelText( )
+        private void ClearLabels( )
         {
             try
             {
@@ -1428,7 +1437,7 @@ namespace BudgetExecution
             {
                 if( !string.IsNullOrEmpty( SelectedTable ) )
                 {
-                    ClearLabelText( );
+                    ClearLabels( );
                     var _table = SelectedTable?.SplitPascal( ) ?? string.Empty;
                     var _records = DataTable.Rows?.Count.ToString( "#,###" ) ?? "0";
                     var _columns = Columns?.Count;
@@ -1475,7 +1484,7 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( row, nameof( row ) );
-                ClearLabelText( );
+                ClearLabels( );
                 var _data = row.ToDictionary( );
                 var _labels = GetLabels( )
                     ?.Where( l => l.Value.Tag.ToString( ) == "Field" )
@@ -1998,7 +2007,7 @@ namespace BudgetExecution
                 FilterTabPage.TabVisible = false;
                 GroupTabPage.TabVisible = false;
                 Busy.TabVisible = false;
-                ClearLabelText( );
+                ClearLabels( );
                 PopulateExecutionTables( );
                 UpdateStatus( );
                 Chart.Title.Text = string.Empty;

@@ -400,28 +400,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Clears the data.
-        /// </summary>
-        public void ClearData( )
-        {
-            try
-            {
-                ClearSelections( );
-                ClearCollections( );
-                TableName = string.Empty;
-                DataGrid.DataSource = null;
-                BindingSource.DataSource = null;
-                DataModel = null;
-                DataTable = null;
-                TabControl.SelectedIndex = 0;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Initializes the editor.
         /// </summary>
         private void InitializeEditor( )
@@ -748,19 +726,12 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Clears the selections.
+        /// Clears the list boxes.
         /// </summary>
-        private void ClearSelections( )
+        private void ClearListBoxes( )
         {
             try
             {
-                Commands?.Clear( );
-                Statements?.Clear( );
-                Provider = Provider.Access;
-                AccessRadioButton.Checked = true;
-                Editor.Text = "";
-                CommandComboBox.SelectedText = string.Empty;
-                QueryListBox.SelectedText = string.Empty;
             }
             catch( Exception _ex )
             {
@@ -768,8 +739,59 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Clears the collections. </summary>
-        private void ClearCollections( )
+        /// <summary>
+        /// Clears the combo boxes.
+        /// </summary>
+        private void ClearComboBoxes( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the label text.
+        /// </summary>
+        private void ClearLabels( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the data.
+        /// </summary>
+        public void ClearData( )
+        {
+            try
+            {
+                ClearSelections( );
+                ClearCollections( );
+                ClearFilter( );
+                SelectedTable = string.Empty;
+                BindingSource.DataSource = null;
+                DataModel = null;
+                DataTable = null;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the filter.
+        /// </summary>
+        private void ClearFilter( )
         {
             try
             {
@@ -777,20 +799,33 @@ namespace BudgetExecution
                 {
                     Filter.Clear( );
                 }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
 
-                if( Columns?.Any( ) == true )
+        /// <summary>
+        /// Clears the collections.
+        /// </summary>
+        private void ClearCollections( )
+        {
+            try
+            {
+                if( SelectedColumns?.Any( ) == true )
                 {
-                    Columns.Clear( );
+                    SelectedColumns.Clear( );
                 }
 
-                if( Fields?.Any( ) == true )
+                if( SelectedFields?.Any( ) == true )
                 {
-                    Fields.Clear( );
+                    SelectedFields.Clear( );
                 }
 
-                if( Numerics?.Any( ) == true )
+                if( SelectedNumerics?.Any( ) == true )
                 {
-                    Numerics.Clear( );
+                    SelectedNumerics.Clear( );
                 }
             }
             catch( Exception _ex )
@@ -799,8 +834,30 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the provider. </summary>
-        /// <param name="provider"> The provider. </param>
+        /// <summary>
+        /// Clears the selections.
+        /// </summary>
+        private void ClearSelections( )
+        {
+            try
+            {
+                ThirdCategory = string.Empty;
+                ThirdValue = string.Empty;
+                SecondCategory = string.Empty;
+                SecondValue = string.Empty;
+                FirstCategory = string.Empty;
+                FirstValue = string.Empty;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the provider.
+        /// </summary>
+        /// <param name="provider">The provider.</param>
         private void SetProvider( string provider )
         {
             try
@@ -992,7 +1049,7 @@ namespace BudgetExecution
         {
             if( where?.Any( ) == true
                && columns?.Any( ) == true
-               && !string.IsNullOrEmpty( TableName ) )
+               && !string.IsNullOrEmpty( SelectedTable ) )
             {
                 try
                 {
@@ -1004,7 +1061,7 @@ namespace BudgetExecution
 
                     var _criteria = where.ToCriteria( );
                     var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_names} FROM {TableName} " + $"WHERE {_criteria} "
+                    return $"SELECT {_names} FROM {SelectedTable} " + $"WHERE {_criteria} "
                         + $"GROUP BY {_names} ;";
                 }
                 catch( Exception _ex )
@@ -1076,7 +1133,7 @@ namespace BudgetExecution
                     var _sql = CreateSqlText( where );
                     DataModel = new DataBuilder( Source, Provider, _sql );
                     DataTable = DataModel?.DataTable;
-                    TableName = DataTable?.TableName;
+                    SelectedTable = DataTable?.TableName;
                     BindingSource.DataSource = DataTable;
                     DataGrid.DataSource = BindingSource;
                     DataGrid.PascalizeHeaders( );
@@ -1107,7 +1164,7 @@ namespace BudgetExecution
                     var _sql = CreateSqlText( cols, where );
                     DataModel = new DataBuilder( Source, Provider, _sql );
                     DataTable = DataModel?.DataTable;
-                    TableName = DataTable?.TableName;
+                    SelectedTable = DataTable?.TableName;
                     BindingSource.DataSource = DataTable;
                     DataGrid.DataSource = BindingSource;
                     DataGrid.PascalizeHeaders( );
@@ -1140,7 +1197,7 @@ namespace BudgetExecution
                     var _sql = CreateSqlText( fields, numerics, where );
                     DataModel = new DataBuilder( Source, Provider, _sql );
                     DataTable = DataModel?.DataTable;
-                    TableName = DataTable?.TableName;
+                    SelectedTable = DataTable?.TableName;
                     BindingSource.DataSource = DataTable;
                     DataGrid.DataSource = BindingSource;
                     DataGrid.PascalizeHeaders( );

@@ -66,6 +66,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
     [ SuppressMessage( "ReSharper", "UseNullPropagation" ) ]
+    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     public partial class PivotChartForm : MetroForm
     {
         /// <summary>
@@ -284,6 +285,8 @@ namespace BudgetExecution
         public PivotChartForm( )
         {
             InitializeComponent( );
+            InitializeDelegates( );
+
             // Basic Properties
             Size = new Size( 1350, 750 );
             MaximumSize = new Size( 1350, 750 );
@@ -312,6 +315,9 @@ namespace BudgetExecution
             MinimizeBox = false;
             MaximizeBox = false;
             ControlBox = false;
+
+            // Wire Events
+            Load += OnLoad;
         }
 
         /// <summary>
@@ -335,7 +341,19 @@ namespace BudgetExecution
         {
             try
             {
+                FirstButton.Click += OnFirstButtonClick;
+                PreviousButton.Click += OnPreviousButtonClick;
+                NextButton.Click += OnNextButtonClick;
+                LastButton.Click += OnLastButtonClick;
+                MenuButton.Click += OnMenuButtonClick;
                 CloseButton.Click += OnCloseButtonClick;
+                TabControl.SelectedIndexChanged += OnActiveTabChanged;
+                TableListBox.SelectedIndexChanged += OnTableListBoxItemSelected;
+                RefreshButton.Click += OnRefreshButtonClicked;
+                ComboBox.SelectedIndexChanged += OnComboBoxItemSelected;
+                SaveButton.Click += OnSaveButtonClick;
+                BindingSource.CurrentChanged += OnBindingSourceChanged;
+                Timer.Tick += OnTimerTick;
             }
             catch( Exception _ex )
             {
@@ -477,6 +495,23 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Binds the chart.
+        /// </summary>
+        private void BindChart( )
+        {
+            try
+            {
+                var _current = BindingSource.GetCurrentDataRow( );
+                UpdateSchema( _current );
+                PivotChart.Refresh( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Gets the controls.
         /// </summary>
         /// <returns>
@@ -588,7 +623,7 @@ namespace BudgetExecution
                         _timer.Stop( );
                     }
 
-                    Opacity += 0.02d;
+                    Opacity += 0.01d;
                 };
 
                 _timer.Start( );
@@ -616,7 +651,7 @@ namespace BudgetExecution
                         Close( );
                     }
 
-                    Opacity -= 0.02d;
+                    Opacity -= 0.01d;
                 };
 
                 _timer.Start( );
@@ -667,9 +702,58 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Clears the collections.
+        /// Clears the list boxes.
         /// </summary>
-        private void ClearCollections( )
+        private void ClearListBoxes( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the combo boxes.
+        /// </summary>
+        private void ClearComboBoxes( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the data.
+        /// </summary>
+        public void ClearData( )
+        {
+            try
+            {
+                ClearSelections( );
+                ClearCollections( );
+                ClearFilter( );
+                SelectedTable = string.Empty;
+                BindingSource.DataSource = null;
+                DataModel = null;
+                DataTable = null;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the filter.
+        /// </summary>
+        private void ClearFilter( )
         {
             try
             {
@@ -677,7 +761,20 @@ namespace BudgetExecution
                 {
                     Filter.Clear( );
                 }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
 
+        /// <summary>
+        /// Clears the collections.
+        /// </summary>
+        private void ClearCollections( )
+        {
+            try
+            {
                 if( SelectedColumns?.Any( ) == true )
                 {
                     SelectedColumns.Clear( );
@@ -706,11 +803,6 @@ namespace BudgetExecution
         {
             try
             {
-                if( Filter.Keys.Count > 0 )
-                {
-                    Filter.Clear( );
-                }
-
                 ThirdCategory = string.Empty;
                 ThirdValue = string.Empty;
                 SecondCategory = string.Empty;
@@ -727,17 +819,20 @@ namespace BudgetExecution
         /// <summary>
         /// Clears the label text.
         /// </summary>
-        private void ClearLabelText( )
+        private void ClearLabels( )
         {
             try
             {
                 var _labels = GetLabels( );
                 foreach( var _lbl in _labels.Values )
                 {
-                    var _tag = _lbl.Tag.ToString( );
-                    if( _tag?.Equals( "STAT" ) == true )
+                    if( _lbl.Tag != null )
                     {
-                        _lbl.Text = string.Empty;
+                        var _tag = _lbl.Tag.ToString( );
+                        if( _tag.Equals( "STAT" ) )
+                        {
+                            _lbl.Text = string.Empty;
+                        }
                     }
                 }
             }
@@ -764,6 +859,43 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Updates the schema labels.
+        /// </summary>
+        /// <param name="row">
+        /// The row.
+        /// </param>
+        private void UpdateSchema( DataRow row )
+        {
+            try
+            {
+                ThrowIf.Null( row, nameof( row ) );
+                ClearLabels( );
+                var _data = row.ToDictionary( );
+                var _labels = GetLabels( )
+                    ?.Where( l => l.Value.Tag.ToString( ) == "Field" )
+                    ?.Select( l => l.Value )
+                    ?.ToArray( );
+
+                var _colNames = _data.Keys
+                    ?.Take( _labels.Length )
+                    ?.ToArray( );
+
+                var _colValues = _data.Values
+                    ?.Take( _labels.Length )
+                    ?.ToArray( );
+
+                for( var _i = 0; _i < _labels.Length; _i++ )
+                {
+                    _labels[ _i ].Text = $"{_colNames[ _i ]} = {_colValues[ _i ]}";
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Opens the main form.
         /// </summary>
         private void OpenMainForm( )
@@ -781,6 +913,9 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Populates the ComboBox.
+        /// </summary>
         private void PopulateComboBox( )
         {
             try
@@ -803,19 +938,27 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the type of the chart.
+        /// Populates the execution tables.
         /// </summary>
-        /// <param name="type">The type.</param>
-        public void SetChartType( string type )
+        private void PopulateExecutionTables( )
         {
             try
             {
-                ThrowIf.NullOrEmpty( type, nameof( type ) );
-                if( Enum.IsDefined( typeof( PivotChartTypes ), type ) )
+                TableListBox.Items?.Clear( );
+                var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
+                var _data = _model.GetData( );
+                var _names = _data
+                    ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                    ?.OrderBy( r => r.Field<string>( "Title" ) )
+                    ?.Select( r => r.Field<string>( "Title" ) )
+                    ?.ToList( );
+
+                if( _names?.Any( ) == true )
                 {
-                    ChartType = (PivotChartTypes)Enum.Parse( typeof( PivotChartTypes ), type );
-                    PivotChart.ChartTypes =
-                        (PivotChartTypes)Enum.Parse( typeof( PivotChartTypes ), type );
+                    foreach( var _name in _names )
+                    {
+                        TableListBox.Items?.Add( _name );
+                    }
                 }
             }
             catch( Exception _ex )
@@ -860,6 +1003,63 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Sets the active data tab.
+        /// </summary>
+        private void SetActiveDataTab( )
+        {
+            try
+            {
+                switch( TabControl.SelectedIndex )
+                {
+                    case 0:
+                    {
+                        DataTab.TabVisible = true;
+                        BusyTab.TabVisible = false;
+                        break;
+                    }
+                    case 1:
+                    {
+                        BusyTab.TabVisible = true;
+                        DataTab.TabVisible = false;
+                        break;
+                    }
+                    default:
+                    {
+                        DataTab.TabVisible = true;
+                        BusyTab.TabVisible = false;
+                        break;
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the type of the chart.
+        /// </summary>
+        /// <param name="type">The type.</param>
+        public void SetChartType( string type )
+        {
+            try
+            {
+                ThrowIf.NullOrEmpty( type, nameof( type ) );
+                if( Enum.IsDefined( typeof( PivotChartTypes ), type ) )
+                {
+                    ChartType = (PivotChartTypes)Enum.Parse( typeof( PivotChartTypes ), type );
+                    PivotChart.ChartTypes =
+                        (PivotChartTypes)Enum.Parse( typeof( PivotChartTypes ), type );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
         /// <summary> Called when [load]. </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
@@ -871,9 +1071,56 @@ namespace BudgetExecution
         {
             try
             {
+                InitializeCallbacks( );
                 InitializeChartPalette( );
                 InitializeLabels( );
+                InitializeToolStrip( );
+                InitializeTimers( );
+                PopulateExecutionTables( );
+                PopulateComboBox( );
+                ClearLabels( );
+                Title.Text = string.Empty;
                 FadeIn( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [binding source changed].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnBindingSourceChanged( object sender, EventArgs e )
+        {
+            try
+            {
+                var _current = BindingSource.GetCurrentDataRow( );
+                UpdateSchema( _current );
+                PivotChart.Refresh( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [main menu button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnMenuButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                FadeOut( );
+                OpenMainForm( );
+                Close( );
             }
             catch( Exception _ex )
             {
@@ -909,20 +1156,47 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Called when [ListBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         public void OnListBoxItemSelected( object sender, EventArgs e )
         {
             try
             {
                 var _item = TableListBox.SelectedItem.ToString( );
                 SelectedTable = _item?.Replace( " ", "" );
-                Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
-                if( _item != null )
+                if( SelectedTable != null )
                 {
+                    Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
                 }
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [right click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnRightClick( object sender, MouseEventArgs e )
+        {
+            if( e.Button == MouseButtons.Right )
+            {
+                try
+                {
+                    ContextMenu.Show( this, e.Location );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
             }
         }
 
@@ -937,22 +1211,6 @@ namespace BudgetExecution
             InvokeIf( _statusUpdate );
         }
 
-        /// <summary>
-        /// Raises the Close event.
-        /// </summary>
-        public void OnClose( )
-        {
-            try
-            {
-                FadeOut( );
-                Close( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
         /// <summary> Called when [click]. </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
@@ -964,7 +1222,179 @@ namespace BudgetExecution
         {
             try
             {
-                OnClose( );
+                ClearSelections( );
+                ClearCollections( );
+                FadeOut( );
+                Close( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [table ListBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        private void OnTableListBoxItemSelected( object sender )
+        {
+            if( sender is ListBox _listBox )
+            {
+                try
+                {
+                    var _title = _listBox.SelectedValue?.ToString( );
+                    SelectedTable = _title?.Replace( " ", "" );
+                    if( SelectedTable != null )
+                    {
+                        Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
+                        BindData( );
+                        BindChart( );
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [first button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        public void OnFirstButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                BindingSource?.MoveFirst( );
+                var _current = BindingSource.GetCurrentDataRow( );
+                UpdateSchema( _current );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [previous button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        public void OnPreviousButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                BindingSource?.MovePrevious( );
+                var _current = BindingSource.GetCurrentDataRow( );
+                UpdateSchema( _current );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [next button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        public void OnNextButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                BindingSource?.MoveNext( );
+                var _current = BindingSource.GetCurrentDataRow( );
+                UpdateSchema( _current );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [last button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        public void OnLastButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                BindingSource?.MoveLast( );
+                var _current = BindingSource.GetCurrentDataRow( );
+                UpdateSchema( _current );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [active tab changed].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnActiveTabChanged( object sender, EventArgs e )
+        {
+            try
+            {
+                SetActiveDataTab( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [refresh data button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnRefreshButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                ClearData( );
+                TabControl.SelectedIndex = 0;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        private void OnSaveButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _message = "The Save Button is not yet implemented!";
+                SendMessage( _message );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        private void OnBrowseButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _message = "The Save Button is not yet implemented!";
+                SendMessage( _message );
             }
             catch( Exception _ex )
             {

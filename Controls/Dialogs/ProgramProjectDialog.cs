@@ -119,7 +119,7 @@ namespace BudgetExecution
         /// <value>
         /// The form filter.
         /// </value>
-        public IDictionary<string, object> FormFilter { get; set; }
+        public IDictionary<string, object> Filter { get; set; }
 
         /// <summary>
         /// Gets or sets the selected value.
@@ -265,12 +265,11 @@ namespace BudgetExecution
         {
             try
             {
-                _statusUpdate += UpdateStatusLabel;
+                _statusUpdate += UpdateStatus;
             }
-            catch( Exception e )
+            catch( Exception _ex )
             {
-                Console.WriteLine( e );
-                throw;
+                Fail( _ex );
             }
         }
 
@@ -354,7 +353,7 @@ namespace BudgetExecution
             {
                 DataArgs.Provider = Provider;
                 DataArgs.Source = Source;
-                DataArgs.Filter = FormFilter;
+                DataArgs.Filter = Filter;
                 DataArgs.SqlQuery = SqlQuery;
             }
             catch( Exception _ex )
@@ -448,12 +447,45 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Clears the header text.
+        /// Clears the combo boxes.
         /// </summary>
-        private void ClearHeaderText( )
+        private void ClearComboBoxes( )
         {
             try
             {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the list boxes.
+        /// </summary>
+        private void ClearListBoxes( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the header text.
+        /// </summary>
+        private void ClearLabels( )
+        {
+            try
+            {
+                DescriptionTable.CaptionText = "Program Description";
+                StatutoryAuthorityTextBox.Text = string.Empty;
+                ProgramAreaNameTextBox.Text = string.Empty;
+                ProgramProjectNameTextBox.Text = string.Empty;
+                ProgramDescriptionTextBox.Text = string.Empty;
             }
             catch( Exception _ex )
             {
@@ -541,14 +573,10 @@ namespace BudgetExecution
         /// <summary>
         /// Updates the status.
         /// </summary>
-        private void UpdateStatusLabel( )
+        private void UpdateStatus( )
         {
             try
             {
-                var _dateTime = DateTime.Now;
-                var _dateString = _dateTime.ToLongDateString( );
-                var _timeString = _dateTime.ToLongTimeString( );
-                //StatusLabel.Text = _dateString + "  " + _timeString;
             }
             catch( Exception _ex )
             {
@@ -571,16 +599,15 @@ namespace BudgetExecution
                 InitializeCallbacks( );
                 InitializeLabels( );
                 InitializeButtons( );
-                FormFilter = new Dictionary<string, object>( );
+                Filter = new Dictionary<string, object>( );
                 DataArgs = new DataArgs( );
-                FadeIn( );
                 if( !string.IsNullOrEmpty( SelectedProgram ) )
                 {
-                    FormFilter.Add( "Code", SelectedProgram );
-                    DataModel = new DataBuilder( Source, Provider, FormFilter );
+                    Filter.Add( "Code", SelectedProgram );
+                    DataModel = new DataBuilder( Source, Provider, Filter );
                     DataTable = DataModel.DataTable;
                     BindingSource.DataSource = DataTable;
-                    BindingSource.Filter = FormFilter.ToCriteria( );
+                    BindingSource.Filter = Filter.ToCriteria( );
                     Current = BindingSource.GetCurrentDataRow( );
                     DescriptionTable.CaptionText = "Program Description";
                     ComboBox.Visible = false;
@@ -591,10 +618,12 @@ namespace BudgetExecution
                     Header.Text = "Program Title";
                     DescriptionTable.CaptionText = "Program Description";
                     PopulateComboBoxItems( );
-                    ClearHeaderText( );
+                    ClearLabels( );
                     ClearProgramText( );
                     ComboBox.Visible = true;
                 }
+
+                FadeIn( );
             }
             catch( Exception _ex )
             {
@@ -602,13 +631,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [close button clicked]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [close button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         public void OnCloseButtonClicked( object sender, EventArgs e )
         {
             try
@@ -621,13 +649,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [menu button click]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [menu button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnMenuButtonClick( object sender, EventArgs e )
         {
             try
@@ -642,13 +669,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [search button clicked]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [search button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnSearchButtonClicked( object sender, EventArgs e )
         {
             try
@@ -678,28 +704,27 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [ComboBox selection changed]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [ComboBox selection changed].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnComboBoxSelectionChanged( object sender, EventArgs e )
         {
             if( sender is ComboBox _comboBox )
             {
                 try
                 {
-                    if( FormFilter?.Count > 0 )
+                    if( Filter?.Count > 0 )
                     {
-                        FormFilter.Clear( );
+                        Filter.Clear( );
                     }
 
                     var _selection = _comboBox.SelectedItem.ToString( );
                     SelectedProgram = _selection?.Substring( 0, 2 );
-                    FormFilter.Add( "Code", SelectedProgram );
-                    DataModel = new DataBuilder( Source, Provider, FormFilter );
+                    Filter.Add( "Code", SelectedProgram );
+                    DataModel = new DataBuilder( Source, Provider, Filter );
                     DataTable = DataModel.DataTable;
                     BindingSource.DataSource = DataTable;
                     Current = BindingSource.GetCurrentDataRow( );
@@ -709,7 +734,7 @@ namespace BudgetExecution
                     }
                     else
                     {
-                        ClearHeaderText( );
+                        ClearLabels( );
                         ClearProgramText( );
                     }
 
@@ -723,13 +748,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [right click]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="MouseEventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [right click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/>
+        /// instance containing the event data.</param>
         private void OnRightClick( object sender, MouseEventArgs e )
         {
             if( e.Button == MouseButtons.Right )

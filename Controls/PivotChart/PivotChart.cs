@@ -55,7 +55,6 @@ namespace BudgetExecution
     /// <seealso cref="T:Syncfusion.Windows.Forms.PivotChart.PivotChart"/>
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class PivotChart : Syncfusion.Windows.Forms.PivotChart.PivotChart
-
     {
         /// <inheritdoc/>
         /// <summary>
@@ -74,9 +73,9 @@ namespace BudgetExecution
             ForeColor = Color.FromArgb( 106, 189, 252 );
             ChartTypes = PivotChartTypes.Column;
             PrimaryXAxis.Title.Color = Color.FromArgb( 0, 120, 212 );
-            PrimaryXAxis.Title.Font = new Font( "Roboto", 10 );
+            PrimaryXAxis.Title.Font = new Font( "Roboto", 9 );
             PrimaryYAxis.Title.Color = Color.FromArgb( 0, 120, 212 );
-            PrimaryYAxis.Title.Font = new Font( "Roboto", 10 );
+            PrimaryYAxis.Title.Font = new Font( "Roboto", 9 );
             AxisFieldSection.Visible = true;
             LegendFieldSection.Visible = false;
             ValueFieldSection.Visible = true;

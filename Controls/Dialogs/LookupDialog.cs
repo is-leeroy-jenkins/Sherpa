@@ -63,6 +63,75 @@ namespace BudgetExecution
     public partial class LookupDialog : EditBase
     {
         /// <summary>
+        /// The busy
+        /// </summary>
+        private bool _busy;
+
+        /// <summary>
+        /// Gets or sets the time.
+        /// </summary>
+        /// <value>
+        /// The time.
+        /// </value>
+        public int Time { get; set; }
+
+        /// <summary>
+        /// Gets or sets the seconds.
+        /// </summary>
+        /// <value>
+        /// The seconds.
+        /// </value>
+        public int Seconds { get; set; }
+
+        /// <summary>
+        /// Gets or sets the first category.
+        /// </summary>
+        /// <value>
+        /// The first category.
+        /// </value>
+        public string FirstCategory { get; set; }
+
+        /// <summary>
+        /// Gets or sets the first value.
+        /// </summary>
+        /// <value>
+        /// The first value.
+        /// </value>
+        public string FirstValue { get; set; }
+
+        /// <summary>
+        /// Gets or sets the second category.
+        /// </summary>
+        /// <value>
+        /// The second category.
+        /// </value>
+        public string SecondCategory { get; set; }
+
+        /// <summary>
+        /// Gets or sets the second value.
+        /// </summary>
+        /// <value>
+        /// The second value.
+        /// </value>
+        public string SecondValue { get; set; }
+
+        /// <summary>
+        /// Gets or sets the third category.
+        /// </summary>
+        /// <value>
+        /// The third category.
+        /// </value>
+        public string ThirdCategory { get; set; }
+
+        /// <summary>
+        /// Gets or sets the third value.
+        /// </summary>
+        /// <value>
+        /// The third value.
+        /// </value>
+        public string ThirdValue { get; set; }
+
+        /// <summary>
         /// Gets or sets the table prefix.
         /// </summary>
         /// <value>
@@ -93,30 +162,6 @@ namespace BudgetExecution
         /// The SQL query.
         /// </value>
         public string SqlQuery { get; set; }
-
-        /// <summary>
-        /// Gets or sets the selected columns.
-        /// </summary>
-        /// <value>
-        /// The selected columns.
-        /// </value>
-        public IList<string> SelectedColumns { get; set; }
-
-        /// <summary>
-        /// Gets or sets the selected fields.
-        /// </summary>
-        /// <value>
-        /// The selected fields.
-        /// </value>
-        public IList<string> SelectedFields { get; set; }
-
-        /// <summary>
-        /// Gets or sets the selected numerics.
-        /// </summary>
-        /// <value>
-        /// The selected numerics.
-        /// </value>
-        public IList<string> SelectedNumerics { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the
@@ -249,30 +294,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Clears the data.
-        /// </summary>
-        public void ClearData( )
-        {
-            try
-            {
-                Filter?.Clear( );
-                DataArgs = null;
-                DataTable = null;
-                BindingSource.DataSource = null;
-                Fields?.Clear( );
-                Numerics?.Clear( );
-                Columns?.Clear( );
-                Dates?.Clear( );
-                SelectedFields?.Clear( );
-                SelectedColumns?.Clear( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Populates the table ListBox items.
         /// </summary>
         public void PopulateTableListBoxItems( )
@@ -308,10 +329,63 @@ namespace BudgetExecution
                 DataArgs.Provider = Provider;
                 DataArgs.Source = Source;
                 DataArgs.Filter = Filter;
-                DataArgs.SelectedTable = TableName;
+                DataArgs.SelectedTable = SelectedTable;
                 DataArgs.SelectedFields = SelectedFields;
                 DataArgs.SelectedNumerics = SelectedNumerics;
                 DataArgs.SqlQuery = SqlQuery;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the combo boxes.
+        /// </summary>
+        private void ClearComboBoxes( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the data.
+        /// </summary>
+        public void ClearData( )
+        {
+            try
+            {
+                ClearSelections( );
+                ClearCollections( );
+                ClearFilter( );
+                SelectedTable = string.Empty;
+                BindingSource.DataSource = null;
+                DataModel = null;
+                DataTable = null;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the filter.
+        /// </summary>
+        private void ClearFilter( )
+        {
+            try
+            {
+                if( Filter?.Any( ) == true )
+                {
+                    Filter.Clear( );
+                }
             }
             catch( Exception _ex )
             {
@@ -326,24 +400,19 @@ namespace BudgetExecution
         {
             try
             {
-                if( Filter?.Any( ) == true )
+                if( SelectedColumns?.Any( ) == true )
                 {
-                    Filter.Clear( );
+                    SelectedColumns.Clear( );
                 }
 
-                if( Columns?.Any( ) == true )
+                if( SelectedFields?.Any( ) == true )
                 {
-                    Columns.Clear( );
+                    SelectedFields.Clear( );
                 }
 
-                if( Fields?.Any( ) == true )
+                if( SelectedNumerics?.Any( ) == true )
                 {
-                    Fields.Clear( );
-                }
-
-                if( Numerics?.Any( ) == true )
-                {
-                    Numerics.Clear( );
+                    SelectedNumerics.Clear( );
                 }
             }
             catch( Exception _ex )
@@ -359,11 +428,12 @@ namespace BudgetExecution
         {
             try
             {
-                SelectedColumns?.Clear( );
-                SelectedFields?.Clear( );
-                SelectedNumerics?.Clear( );
-                Filter?.Clear( );
-                TableName = string.Empty;
+                ThirdCategory = string.Empty;
+                ThirdValue = string.Empty;
+                SecondCategory = string.Empty;
+                SecondValue = string.Empty;
+                FirstCategory = string.Empty;
+                FirstValue = string.Empty;
             }
             catch( Exception _ex )
             {
@@ -374,7 +444,7 @@ namespace BudgetExecution
         /// <summary>
         /// Clears the ListBox items.
         /// </summary>
-        private void ClearListBoxItems( )
+        private void ClearListBoxes( )
         {
             try
             {
@@ -490,7 +560,7 @@ namespace BudgetExecution
             try
             {
                 ClearSelections( );
-                ClearListBoxItems( );
+                ClearListBoxes( );
             }
             catch( Exception _ex )
             {
@@ -511,7 +581,7 @@ namespace BudgetExecution
                 DataArgs.Provider = Provider;
                 DataArgs.Source = Source;
                 DataArgs.Filter = Filter;
-                DataArgs.SelectedTable = TableName;
+                DataArgs.SelectedTable = SelectedTable;
                 DataArgs.SelectedFields = SelectedFields;
                 DataArgs.SelectedNumerics = SelectedNumerics;
                 DataArgs.SqlQuery = SqlQuery;

@@ -391,26 +391,6 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Clears the data. </summary>
-        public void ClearData( )
-        {
-            try
-            {
-                ClearSelections( );
-                ClearCollections( );
-                TableName = string.Empty;
-                DataGrid.DataSource = null;
-                BindingSource.DataSource = null;
-                DataModel = null;
-                DataTable = null;
-                TabControl.SelectedIndex = 0;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
         /// <summary>
         /// Initializes the editor.
         /// </summary>
@@ -733,18 +713,79 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Clears the selections.
+        /// Clears the list boxes.
         /// </summary>
-        private void ClearSelections( )
+        private void ClearListBoxes( )
         {
             try
             {
-                Commands?.Clear( );
-                Statements?.Clear( );
-                Editor.Text = string.Empty;
-                CommandComboBox.SelectedText = string.Empty;
-                QueryListBox.SelectedText = string.Empty;
-                Provider = Provider.Access;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the combo boxes.
+        /// </summary>
+        private void ClearComboBoxes( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the label text.
+        /// </summary>
+        private void ClearLabels( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the data.
+        /// </summary>
+        public void ClearData( )
+        {
+            try
+            {
+                ClearSelections( );
+                ClearCollections( );
+                ClearFilter( );
+                SelectedTable = string.Empty;
+                BindingSource.DataSource = null;
+                DataModel = null;
+                DataTable = null;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the filter.
+        /// </summary>
+        private void ClearFilter( )
+        {
+            try
+            {
+                if( Filter?.Any( ) == true )
+                {
+                    Filter.Clear( );
+                }
             }
             catch( Exception _ex )
             {
@@ -759,25 +800,40 @@ namespace BudgetExecution
         {
             try
             {
-                if( Filter?.Any( ) == true )
+                if( SelectedColumns?.Any( ) == true )
                 {
-                    Filter.Clear( );
+                    SelectedColumns.Clear( );
                 }
 
-                if( Columns?.Any( ) == true )
+                if( SelectedFields?.Any( ) == true )
                 {
-                    Columns.Clear( );
+                    SelectedFields.Clear( );
                 }
 
-                if( Fields?.Any( ) == true )
+                if( SelectedNumerics?.Any( ) == true )
                 {
-                    Fields.Clear( );
+                    SelectedNumerics.Clear( );
                 }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
 
-                if( Numerics?.Any( ) == true )
-                {
-                    Numerics.Clear( );
-                }
+        /// <summary>
+        /// Clears the selections.
+        /// </summary>
+        private void ClearSelections( )
+        {
+            try
+            {
+                ThirdCategory = string.Empty;
+                ThirdValue = string.Empty;
+                SecondCategory = string.Empty;
+                SecondValue = string.Empty;
+                FirstCategory = string.Empty;
+                FirstValue = string.Empty;
             }
             catch( Exception _ex )
             {
@@ -965,7 +1021,7 @@ namespace BudgetExecution
                 var _sql = CreateSqlText( where );
                 DataModel = new DataBuilder( Source, Provider, _sql );
                 DataTable = DataModel?.DataTable;
-                TableName = DataTable?.TableName;
+                SelectedTable = DataTable?.TableName;
                 BindingSource.DataSource = DataTable;
                 DataGrid.DataSource = BindingSource;
                 DataGrid.PascalizeHeaders( );
@@ -998,7 +1054,7 @@ namespace BudgetExecution
                 var _sql = CreateSqlText( columns, where );
                 DataModel = new DataBuilder( Source, Provider, _sql );
                 DataTable = DataModel?.DataTable;
-                TableName = DataTable?.TableName;
+                SelectedTable = DataTable?.TableName;
                 BindingSource.DataSource = DataTable;
                 DataGrid.DataSource = BindingSource;
                 DataGrid.PascalizeHeaders( );
@@ -1036,7 +1092,7 @@ namespace BudgetExecution
                 var _sql = CreateSqlText( fields, numerics, where );
                 DataModel = new DataBuilder( Source, Provider, _sql );
                 DataTable = DataModel?.DataTable;
-                TableName = DataTable?.TableName;
+                SelectedTable = DataTable?.TableName;
                 BindingSource.DataSource = DataTable;
                 DataGrid.DataSource = BindingSource;
                 DataGrid.PascalizeHeaders( );
@@ -1101,7 +1157,7 @@ namespace BudgetExecution
 
                 var _criteria = where.ToCriteria( );
                 var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
-                return $"SELECT {_names} FROM {TableName} " + $"WHERE {_criteria} "
+                return $"SELECT {_names} FROM {SelectedTable} " + $"WHERE {_criteria} "
                     + $"GROUP BY {_names} ;";
             }
             catch( Exception _ex )

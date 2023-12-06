@@ -648,6 +648,25 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Opens the pivot chart form.
+        /// </summary>
+        private void OpenPivotChartForm( )
+        {
+            try
+            {
+                var _pivotChart = new PivotChartForm( );
+                _pivotChart.StartPosition = FormStartPosition.CenterScreen;
+                _pivotChart.Owner = this;
+                _pivotChart.Show( );
+                Hide( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Fades the in.
         /// </summary>
         private protected virtual void FadeIn( )
@@ -1027,7 +1046,7 @@ namespace BudgetExecution
         /// instance containing the event data.</param>
         private void OnTestButtonClick( object sender, EventArgs e )
         {
-            ShowLoadingForm( );
+            OpenPivotChartForm( );
         }
 
         /// <summary>

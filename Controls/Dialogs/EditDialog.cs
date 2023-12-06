@@ -62,6 +62,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
     public partial class EditDialog : EditBase
     {
         /// <summary>
@@ -70,36 +71,76 @@ namespace BudgetExecution
         private bool _busy;
 
         /// <summary>
+        /// Gets or sets the time.
+        /// </summary>
+        /// <value>
+        /// The time.
+        /// </value>
+        public int Time { get; set; }
+
+        /// <summary>
+        /// Gets or sets the seconds.
+        /// </summary>
+        /// <value>
+        /// The seconds.
+        /// </value>
+        public int Seconds { get; set; }
+
+        /// <summary>
+        /// Gets or sets the first category.
+        /// </summary>
+        /// <value>
+        /// The first category.
+        /// </value>
+        public string FirstCategory { get; set; }
+
+        /// <summary>
+        /// Gets or sets the first value.
+        /// </summary>
+        /// <value>
+        /// The first value.
+        /// </value>
+        public string FirstValue { get; set; }
+
+        /// <summary>
+        /// Gets or sets the second category.
+        /// </summary>
+        /// <value>
+        /// The second category.
+        /// </value>
+        public string SecondCategory { get; set; }
+
+        /// <summary>
+        /// Gets or sets the second value.
+        /// </summary>
+        /// <value>
+        /// The second value.
+        /// </value>
+        public string SecondValue { get; set; }
+
+        /// <summary>
+        /// Gets or sets the third category.
+        /// </summary>
+        /// <value>
+        /// The third category.
+        /// </value>
+        public string ThirdCategory { get; set; }
+
+        /// <summary>
+        /// Gets or sets the third value.
+        /// </summary>
+        /// <value>
+        /// The third value.
+        /// </value>
+        public string ThirdValue { get; set; }
+
+        /// <summary>
         /// Gets or sets the SQL query.
         /// </summary>
         /// <value>
         /// The SQL query.
         /// </value>
         public string SqlQuery { get; set; }
-
-        /// <summary>
-        /// Gets or sets the selected columns.
-        /// </summary>
-        /// <value>
-        /// The selected columns.
-        /// </value>
-        public IList<string> SelectedColumns { get; set; }
-
-        /// <summary>
-        /// Gets or sets the selected fields.
-        /// </summary>
-        /// <value>
-        /// The selected fields.
-        /// </value>
-        public IList<string> SelectedFields { get; set; }
-
-        /// <summary>
-        /// Gets or sets the selected numerics.
-        /// </summary>
-        /// <value>
-        /// The selected numerics.
-        /// </value>
-        public IList<string> SelectedNumerics { get; set; }
 
         /// <summary>
         /// Gets or sets the current.
@@ -193,9 +234,9 @@ namespace BudgetExecution
             BindingSource = bindingSource;
             Filter = new Dictionary<string, object>( );
             Current = bindingSource.GetCurrentDataRow( );
-            TableName = Current.Table.TableName;
+            SelectedTable = Current.Table.TableName;
             Provider = Provider.Access;
-            Source = (Source)Enum.Parse( typeof( Source ), TableName );
+            Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
             DataModel = new DataBuilder( Source, Provider );
             DataTable = DataModel.DataTable;
             Columns = DataModel.ColumnNames;
@@ -410,7 +451,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the active tab. </summary>
+        /// <summary>
+        /// Sets the active tab.
+        /// </summary>
         private void SetActiveTab( )
         {
             if( Enum.IsDefined( typeof( ToolType ), Tool ) )
@@ -459,7 +502,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the frame dock style. </summary>
+        /// <summary>
+        /// Sets the frame dock style.
+        /// </summary>
         private void SetFrameDockStyle( )
         {
             if( Frames?.Any( ) == true )
@@ -478,7 +523,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the table location. </summary>
+        /// <summary>
+        /// Sets the table location.
+        /// </summary>
         private void SetTableLocation( )
         {
             if( FrameTable != null
@@ -509,7 +556,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Binds the record data. </summary>
+        /// <summary>
+        /// Binds the record.
+        /// </summary>
         private void BindRecord( )
         {
             if( Current != null
@@ -548,18 +597,87 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the frame colors. </summary>
+        /// <summary>
+        /// Sets the frame colors.
+        /// </summary>
         private void SetFrameColors( )
         {
             if( Frames?.Any( ) == true )
             {
                 foreach( var _frame in Frames )
                 {
-                    _frame.Label.ForeColor = Color.LightSteelBlue;
-                    _frame.TextBox.ForeColor = Color.DarkGray;
+                    _frame.Label.ForeColor = Color.FromArgb( 106, 189, 252 );
+                    _frame.TextBox.ForeColor = Color.FromArgb( 106, 189, 252 );
                     _frame.TextBox.BorderColor = Color.FromArgb( 50, 93, 129 );
                     _frame.TextBox.HoverColor = Color.FromArgb( 0, 120, 212 );
                 }
+            }
+        }
+
+        /// <summary>
+        /// Clears the combo boxes.
+        /// </summary>
+        private void ClearComboBoxes( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the list boxes.
+        /// </summary>
+        private void ClearListBoxes( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the data.
+        /// </summary>
+        public void ClearData( )
+        {
+            try
+            {
+                ClearSelections( );
+                ClearCollections( );
+                ClearFilter( );
+                SelectedTable = string.Empty;
+                BindingSource.DataSource = null;
+                DataModel = null;
+                DataTable = null;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the filter.
+        /// </summary>
+        private void ClearFilter( )
+        {
+            try
+            {
+                if( Filter?.Any( ) == true )
+                {
+                    Filter.Clear( );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -570,24 +688,19 @@ namespace BudgetExecution
         {
             try
             {
-                if( Filter?.Any( ) == true )
+                if( SelectedColumns?.Any( ) == true )
                 {
-                    Filter.Clear( );
+                    SelectedColumns.Clear( );
                 }
 
-                if( Columns?.Any( ) == true )
+                if( SelectedFields?.Any( ) == true )
                 {
-                    Columns.Clear( );
+                    SelectedFields.Clear( );
                 }
 
-                if( Fields?.Any( ) == true )
+                if( SelectedNumerics?.Any( ) == true )
                 {
-                    Fields.Clear( );
-                }
-
-                if( Numerics?.Any( ) == true )
-                {
-                    Numerics.Clear( );
+                    SelectedNumerics.Clear( );
                 }
             }
             catch( Exception _ex )
@@ -603,11 +716,12 @@ namespace BudgetExecution
         {
             try
             {
-                SelectedColumns?.Clear( );
-                SelectedFields?.Clear( );
-                SelectedNumerics?.Clear( );
-                Filter?.Clear( );
-                TableName = string.Empty;
+                ThirdCategory = string.Empty;
+                ThirdValue = string.Empty;
+                SecondCategory = string.Empty;
+                SecondValue = string.Empty;
+                FirstCategory = string.Empty;
+                FirstValue = string.Empty;
             }
             catch( Exception _ex )
             {
@@ -615,13 +729,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [load]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnLoad( object sender, EventArgs e )
         {
             try
@@ -642,13 +755,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [content click]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="MouseEventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [content click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/>
+        /// instance containing the event data.</param>
         private void OnContentClick( object sender, MouseEventArgs e )
         {
             if( sender is TextBox _currentCell
@@ -697,13 +809,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [right click]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="MouseEventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [right click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/>
+        /// instance containing the event data.</param>
         private void OnRightClick( object sender, MouseEventArgs e )
         {
             if( e.Button == MouseButtons.Right )
@@ -719,13 +830,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [close button clicked]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [close button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private protected void OnCloseButtonClicked( object sender, EventArgs e )
         {
             try
