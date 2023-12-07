@@ -167,6 +167,9 @@
     <Compile Update="Controls\PivotChart\PivotChartForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Controls\PivotGrid\PivotGridForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Controls\Plots\Plotter.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -310,9 +313,6 @@
     </Compile>
     <Compile Update="Controls\PivotGrid\PivotGrid.cs">
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Controls\PivotGrid\PivotGridForm.cs">
-      <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>

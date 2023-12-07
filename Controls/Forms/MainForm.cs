@@ -167,6 +167,7 @@ namespace BudgetExecution
                 SqlServerTile.Click += OnSqlServerTileClick;
                 TestButton.Click += OnTestButtonClick;
                 AccessTile.Click += OnAccessTileClick;
+                PivotTile.Click += OnPivotTileClick;
             }
             catch( Exception _ex )
             {
@@ -308,13 +309,13 @@ namespace BudgetExecution
                 SqlServerTile.Title.Text = "SQL Server";
                 SqlServerTile.Body.Text = string.Empty;
                 SqlServerTile.Banner.Text = string.Empty;
-                LookupTile.Title.Text = "Data Lookup";
+                LookupTile.Title.Text = "Grids";
                 LookupTile.Body.Text = string.Empty;
                 LookupTile.Banner.Text = string.Empty;
                 SqlEditorTile.Title.Text = "SQL Editor";
                 SqlEditorTile.Body.Text = string.Empty;
                 SqlEditorTile.Banner.Text = string.Empty;
-                VisualizationTile.Title.Text = "Data Visualizations";
+                VisualizationTile.Title.Text = "Charts";
                 VisualizationTile.Body.Text = string.Empty;
                 VisualizationTile.Banner.Text = string.Empty;
                 ExcelDataTile.Title.Text = "Excel Data";
@@ -332,6 +333,9 @@ namespace BudgetExecution
                 MessageTile.Title.Text = "Email";
                 MessageTile.Body.Text = string.Empty;
                 MessageTile.Banner.Text = string.Empty;
+                PivotTile.Title.Text = "Pivots";
+                PivotTile.Body.Text = string.Empty;
+                PivotTile.Banner.Text = string.Empty;
             }
             catch( Exception _ex )
             {
@@ -995,6 +999,17 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Called when [pivot tile click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnPivotTileClick( object sender, EventArgs e )
+        {
+            OpenPivotChartForm( );
+        }
+
+        /// <summary>
         /// Called when [program project tile click].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -1046,7 +1061,7 @@ namespace BudgetExecution
         /// instance containing the event data.</param>
         private void OnTestButtonClick( object sender, EventArgs e )
         {
-            OpenPivotChartForm( );
+            ShowSheetForm( );
         }
 
         /// <summary>

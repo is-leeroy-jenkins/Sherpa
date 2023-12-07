@@ -144,7 +144,7 @@ partial class ColorDialog
         // Picture
         // 
         Picture.Dock = System.Windows.Forms.DockStyle.Fill;
-        Picture.Image = Resources.Images.App;
+        Picture.Image = Resources.Images.Application;
         Picture.Location = new System.Drawing.Point( 3, 3 );
         Picture.Name = "Picture";
         Picture.Size = new System.Drawing.Size( 30, 20 );

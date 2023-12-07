@@ -67,7 +67,7 @@ namespace BudgetExecution
             // Control Properties
             Size = new Size( 550, 350 );
             Skins = Skins.Office2016Black;
-            ShowPivotTableFieldList = true;
+            ShowPivotTableFieldList = false;
             AllowDrillDown = true;
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.FromArgb( 106, 189, 252 );
@@ -80,9 +80,20 @@ namespace BudgetExecution
             LegendFieldSection.Visible = false;
             ValueFieldSection.Visible = true;
             FilterFieldSection.Visible = true;
-            AxisFieldSection.ItemBackColor = Color.FromArgb( 55, 55, 55 );
-            AxisFieldSection.ItemForeColor = Color.FromArgb( 106, 189, 252 );
-            AxisFieldSection.BackInterior = Color.FromArgb( 20, 20, 20 );
+            AxisFieldSection.ItemBackColor = Color.FromArgb( 50, 93, 129 );
+            AxisFieldSection.ItemForeColor = Color.White;
+            AxisFieldSection.BackInterior = Color.FromArgb( 45, 45, 45 );
+            CustomPalette = new[ ]
+            {
+                Color.FromArgb( 0, 120, 212 ),
+                Color.SlateGray,
+                Color.Yellow,
+                Color.LimeGreen,
+                Color.Maroon
+            };
+
+            ChartControl.Palette = ChartColorPalette.Custom;
+            ChartControl.Skins = Skins.Office2016Black;
         }
 
         /// <summary>

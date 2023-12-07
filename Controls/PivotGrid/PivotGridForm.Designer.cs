@@ -37,7 +37,8 @@
             ToolStrip = new ToolStrip( );
             Separator1 = new ToolSeparator( );
             StatusLabel = new ToolStripLabel( );
-            NavigationSpacer = new ToolStripLabel( );
+            StatusSpacer1 = new ToolStripLabel( );
+            Navigation = new ToolStripLabel( );
             Separator2 = new ToolSeparator( );
             FirstButton = new ToolStripButton( );
             BindingSource = new System.Windows.Forms.BindingSource( components );
@@ -65,6 +66,7 @@
             MenuButton = new ToolStripButton( );
             Separator14 = new ToolSeparator( );
             ApplicationLabel = new ToolStripLabel( );
+            NavigationSpacer = new ToolStripLabel( );
             toolSeparator8 = new ToolSeparator( );
             ChartHeaderTable = new HeaderPanel( );
             PivotLayout = new BackPanel( );
@@ -99,8 +101,6 @@
             TableListBoxLayout = new BackPanel( );
             TableListBox = new ListBox( );
             Timer = new System.Windows.Forms.Timer( components );
-            StatusSpacer1 = new ToolStripLabel( );
-            Navigation = new ToolStripLabel( );
             HeaderTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
             ToolStripTable.SuspendLayout( );
@@ -138,7 +138,7 @@
             // 
             // PictureBox
             // 
-            PictureBox.Image = Resources.Images.App;
+            PictureBox.Image = Resources.Images.Application;
             PictureBox.Location = new System.Drawing.Point( 3, 3 );
             PictureBox.Name = "PictureBox";
             PictureBox.Size = new System.Drawing.Size( 22, 18 );
@@ -276,22 +276,39 @@
             StatusLabel.Text = "Date and Time:";
             StatusLabel.ToolTip = null;
             // 
-            // NavigationSpacer
+            // StatusSpacer1
             // 
-            NavigationSpacer.BackColor = System.Drawing.Color.Transparent;
-            NavigationSpacer.BindingSource = null;
-            NavigationSpacer.DataFilter = null;
-            NavigationSpacer.Field = Field.AccountCode;
-            NavigationSpacer.Font = new System.Drawing.Font( "Roboto", 8F );
-            NavigationSpacer.ForeColor = System.Drawing.Color.Transparent;
-            NavigationSpacer.HoverText = null;
-            NavigationSpacer.Margin = new System.Windows.Forms.Padding( 1 );
-            NavigationSpacer.Name = "NavigationSpacer";
-            NavigationSpacer.Padding = new System.Windows.Forms.Padding( 1 );
-            NavigationSpacer.Size = new System.Drawing.Size( 85, 25 );
-            NavigationSpacer.Tag = "";
-            NavigationSpacer.Text = "toolStripLabel1";
-            NavigationSpacer.ToolTip = null;
+            StatusSpacer1.BackColor = System.Drawing.Color.Transparent;
+            StatusSpacer1.BindingSource = null;
+            StatusSpacer1.DataFilter = null;
+            StatusSpacer1.Field = Field.AccountCode;
+            StatusSpacer1.Font = new System.Drawing.Font( "Roboto", 8F );
+            StatusSpacer1.ForeColor = System.Drawing.Color.Transparent;
+            StatusSpacer1.HoverText = null;
+            StatusSpacer1.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            StatusSpacer1.Name = "StatusSpacer1";
+            StatusSpacer1.Padding = new System.Windows.Forms.Padding( 1 );
+            StatusSpacer1.Size = new System.Drawing.Size( 85, 25 );
+            StatusSpacer1.Tag = "";
+            StatusSpacer1.Text = "toolStripLabel1";
+            StatusSpacer1.ToolTip = null;
+            // 
+            // Navigation
+            // 
+            Navigation.BackColor = System.Drawing.Color.Transparent;
+            Navigation.BindingSource = null;
+            Navigation.DataFilter = null;
+            Navigation.Field = Field.AccountCode;
+            Navigation.Font = new System.Drawing.Font( "Roboto", 8F );
+            Navigation.ForeColor = System.Drawing.Color.Black;
+            Navigation.HoverText = null;
+            Navigation.Margin = new System.Windows.Forms.Padding( 1 );
+            Navigation.Name = "Navigation";
+            Navigation.Padding = new System.Windows.Forms.Padding( 1 );
+            Navigation.Size = new System.Drawing.Size( 95, 25 );
+            Navigation.Tag = "";
+            Navigation.Text = "          Navigation:";
+            Navigation.ToolTip = null;
             // 
             // Separator2
             // 
@@ -679,6 +696,23 @@
             ApplicationLabel.Tag = "";
             ApplicationLabel.Text = "          Application:";
             ApplicationLabel.ToolTip = null;
+            // 
+            // NavigationSpacer
+            // 
+            NavigationSpacer.BackColor = System.Drawing.Color.Transparent;
+            NavigationSpacer.BindingSource = null;
+            NavigationSpacer.DataFilter = null;
+            NavigationSpacer.Field = Field.AccountCode;
+            NavigationSpacer.Font = new System.Drawing.Font( "Roboto", 8F );
+            NavigationSpacer.ForeColor = System.Drawing.Color.Transparent;
+            NavigationSpacer.HoverText = null;
+            NavigationSpacer.Margin = new System.Windows.Forms.Padding( 1 );
+            NavigationSpacer.Name = "NavigationSpacer";
+            NavigationSpacer.Padding = new System.Windows.Forms.Padding( 1 );
+            NavigationSpacer.Size = new System.Drawing.Size( 85, 25 );
+            NavigationSpacer.Tag = "";
+            NavigationSpacer.Text = "toolStripLabel1";
+            NavigationSpacer.ToolTip = null;
             // 
             // toolSeparator8
             // 
@@ -1405,7 +1439,7 @@
             TableListBox.SelectedText = null;
             TableListBox.SelectedValue = null;
             TableListBox.ShowBorder = false;
-            TableListBox.ShowScrollBar = true;
+            TableListBox.ShowScrollBar = false;
             TableListBox.Size = new System.Drawing.Size( 188, 562 );
             TableListBox.Style = MetroSet_UI.Enums.Style.Custom;
             TableListBox.StyleManager = null;
@@ -1418,40 +1452,6 @@
             // 
             Timer.Enabled = true;
             Timer.Interval = 500;
-            // 
-            // StatusSpacer1
-            // 
-            StatusSpacer1.BackColor = System.Drawing.Color.Transparent;
-            StatusSpacer1.BindingSource = null;
-            StatusSpacer1.DataFilter = null;
-            StatusSpacer1.Field = Field.AccountCode;
-            StatusSpacer1.Font = new System.Drawing.Font( "Roboto", 8F );
-            StatusSpacer1.ForeColor = System.Drawing.Color.Transparent;
-            StatusSpacer1.HoverText = null;
-            StatusSpacer1.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
-            StatusSpacer1.Name = "StatusSpacer1";
-            StatusSpacer1.Padding = new System.Windows.Forms.Padding( 1 );
-            StatusSpacer1.Size = new System.Drawing.Size( 85, 25 );
-            StatusSpacer1.Tag = "";
-            StatusSpacer1.Text = "toolStripLabel1";
-            StatusSpacer1.ToolTip = null;
-            // 
-            // Navigation
-            // 
-            Navigation.BackColor = System.Drawing.Color.Transparent;
-            Navigation.BindingSource = null;
-            Navigation.DataFilter = null;
-            Navigation.Field = Field.AccountCode;
-            Navigation.Font = new System.Drawing.Font( "Roboto", 8F );
-            Navigation.ForeColor = System.Drawing.Color.Black;
-            Navigation.HoverText = null;
-            Navigation.Margin = new System.Windows.Forms.Padding( 1 );
-            Navigation.Name = "Navigation";
-            Navigation.Padding = new System.Windows.Forms.Padding( 1 );
-            Navigation.Size = new System.Drawing.Size( 95, 25 );
-            Navigation.Tag = "";
-            Navigation.Text = "          Navigation:";
-            Navigation.ToolTip = null;
             // 
             // PivotGridForm
             // 

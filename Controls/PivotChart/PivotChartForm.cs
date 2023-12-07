@@ -48,10 +48,13 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
+    using Syncfusion.PivotAnalysis.Base;
     using Syncfusion.Windows.Forms;
+    using Syncfusion.Windows.Forms.Chart;
     using Syncfusion.Windows.Forms.PivotChart;
     using Syncfusion.Windows.Forms.Tools;
     using Action = System.Action;
+    using MarkerStyle = System.Windows.Forms.MarkerStyle;
 
     /// <summary>
     /// 
@@ -67,6 +70,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
     [ SuppressMessage( "ReSharper", "UseNullPropagation" ) ]
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
+    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     public partial class PivotChartForm : MetroForm
     {
         /// <summary>
@@ -421,10 +425,11 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the buttons.
         /// </summary>
-        private void InitializeButtons( )
+        private void InitializeListBox( )
         {
             try
             {
+                TableListBox.ShowScrollBar = false;
             }
             catch( Exception _ex )
             {
@@ -479,7 +484,6 @@ namespace BudgetExecution
             {
                 DataModel = new DataBuilder( Source, Provider );
                 DataTable = DataModel.DataTable;
-                PivotChart.ItemSource = DataModel.DataTable;
                 SelectedTable = DataTable.TableName;
                 BindingSource.DataSource = DataModel.DataTable;
                 ToolStrip.BindingSource = BindingSource;
@@ -501,8 +505,52 @@ namespace BudgetExecution
         {
             try
             {
+                PivotChart.ShowPivotTableFieldList = true;
+                var _dataRows = DataTable?.AsEnumerable( )
+                    ?.Take( 1000 );
+
+                PivotChart.ItemSource = _dataRows?.CopyToDataTable( );
                 var _current = BindingSource.GetCurrentDataRow( );
                 UpdateSchema( _current );
+                SetSeriesPointStyles( _current );
+                var _fields = Fields.Take( 10 )
+                    ?.ToArray( );
+
+                var _numbers = Numerics.Take( 3 )
+                    ?.ToArray( );
+
+                foreach( var _name in _fields )
+                {
+                    if( !_name.Contains( "Name" ) )
+                    {
+                        var _item = new PivotItem
+                        {
+                            FieldMappingName = _name,
+                            TotalHeader = "Total"
+                        };
+
+                        PivotChart.PivotAxis.Add( _item );
+                    }
+                }
+
+                foreach( var _value in _numbers )
+                {
+                    var _info = new PivotComputationInfo
+                    {
+                        FieldName = _value,
+                        Format = "#,##0",
+                        SummaryType = SummaryType.DoubleTotalSum
+                    };
+
+                    PivotChart.PivotCalculations.Add( _info );
+                }
+
+                PivotChart.EnableXZooming = true;
+                PivotChart.PrimaryXAxis.ZoomFactor = .7;
+                PivotChart.PrimaryXAxis.Title.Text = "Fields";
+                PivotChart.PrimaryYAxis.ShowAxisLabelTooltip = true;
+                PivotChart.PrimaryYAxis.Title.Text = "Values";
+                PivotChart.AllowDrillDown = true;
                 PivotChart.Refresh( );
             }
             catch( Exception _ex )
@@ -872,7 +920,7 @@ namespace BudgetExecution
                 ClearLabels( );
                 var _data = row.ToDictionary( );
                 var _labels = GetLabels( )
-                    ?.Where( l => l.Value.Tag.ToString( ) == "Field" )
+                    ?.Where( l => l.Value?.Tag != null )
                     ?.Select( l => l.Value )
                     ?.ToArray( );
 
@@ -886,7 +934,11 @@ namespace BudgetExecution
 
                 for( var _i = 0; _i < _labels.Length; _i++ )
                 {
-                    _labels[ _i ].Text = $"{_colNames[ _i ]} = {_colValues[ _i ]}";
+                    var _lbl = _labels[ _i ].Tag?.ToString( );
+                    if( _lbl == "STAT" )
+                    {
+                        _labels[ _i ].Text = $"{_colNames[ _i ]} = {_colValues[ _i ]}";
+                    }
                 }
             }
             catch( Exception _ex )
@@ -1060,6 +1112,74 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Sets the series point styles.
+        /// </summary>
+        /// <param name="row">The row.</param>
+        /// <param name="type">The type.</param>
+        private void SetSeriesPointStyles( DataRow row,
+            ChartSeriesType type = ChartSeriesType.Column )
+        {
+            try
+            {
+                ThrowIf.Null( row, nameof( row ) );
+                PivotChart.ChartControl.Series?.Clear( );
+                var _borderColor = Color.FromArgb( 0, 120, 212 );
+                var _backColor = Color.Black;
+                var _textColor = Color.FromArgb( 106, 189, 252 );
+                var _callFont = new Font( "Roboto", 7 );
+                var _numerics = Numerics.ToArray( );
+                for( var i = 0; i < _numerics.Length; i++ )
+                {
+                    var _doubles = new List<double>( );
+                    var _series = new ChartSeries( );
+                    var _columnName = _numerics[ i ];
+                    var _index = double.Parse( i.ToString( ) );
+                    var _value = double.Parse( row[ _columnName ].ToString( ) );
+                    _series.Name = _columnName;
+                    _series.Text = _series.Name;
+                    _series.Text = _series.Name;
+                    if( _value > 1000d )
+                    {
+                        _doubles.Add( _value );
+                        var _cp = new ChartPoint( _index, _value );
+                        _series.Points.Add( _cp );
+                    }
+
+                    _series.Visible = true;
+                    _series.EnableStyles = true;
+                    _series.Type = type;
+                    _series.DrawSeriesNameInDepth = false;
+                    _series.Style.DisplayText = true;
+                    _series.Style.TextColor = Color.White;
+                    _series.Style.Font.Size = 9;
+                    _series.Style.Font.Facename = "Roboto";
+                    _series.Style.Symbol.Shape = ChartSymbolShape.Circle;
+                    _series.Style.TextOffset = 20f;
+                    _series.FancyToolTip.Style =
+                        Syncfusion.Windows.Forms.Chart.MarkerStyle.SmoothRectangle;
+
+                    _series.FancyToolTip.Angle = 45;
+                    _series.FancyToolTip.Spacing = 10f;
+                    _series.FancyToolTip.Border.ForeColor = _borderColor;
+                    _series.FancyToolTip.Border.BackColor = Color.Transparent;
+                    _series.FancyToolTip.ForeColor = Color.White;
+                    _series.FancyToolTip.BackColor = _backColor;
+                    _series.FancyToolTip.Symbol = ChartSymbolShape.Arrow;
+                    _series.FancyToolTip.Visible = true;
+                    _series.PointsToolTipFormat = "{0} - {4}";
+                    PivotChart.ChartControl.Series.Add( _series );
+                }
+
+                PivotChart.ChartControl.Refresh( );
+                PivotChart.Refresh( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
         /// <summary> Called when [load]. </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
@@ -1076,6 +1196,7 @@ namespace BudgetExecution
                 InitializeLabels( );
                 InitializeToolStrip( );
                 InitializeTimers( );
+                InitializeListBox( );
                 PopulateExecutionTables( );
                 PopulateComboBox( );
                 ClearLabels( );

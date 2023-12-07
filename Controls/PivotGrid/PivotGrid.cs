@@ -1,6 +1,7 @@
 ﻿namespace BudgetExecution
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.PivotAnalysis;
@@ -9,6 +10,7 @@
     /// <summary>
     /// </summary>
     /// <seealso cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl" />
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class PivotGrid : PivotGridControl
     {
         /// <inheritdoc />

@@ -145,7 +145,7 @@
             // 
             // PictureBox
             // 
-            PictureBox.Image = Resources.Images.App;
+            PictureBox.Image = Resources.Images.Application;
             PictureBox.InitialImage = null;
             PictureBox.Location = new System.Drawing.Point( 3, 3 );
             PictureBox.Name = "PictureBox";
@@ -873,7 +873,7 @@
             PivotChart.Location = new System.Drawing.Point( 1, 1 );
             PivotChart.MinimumSize = new System.Drawing.Size( 300, 250 );
             PivotChart.Name = "PivotChart";
-            PivotChart.ShowPivotTableFieldList = true;
+            PivotChart.ShowPivotTableFieldList = false;
             PivotChart.Size = new System.Drawing.Size( 1038, 453 );
             PivotChart.TabIndex = 0;
             PivotChart.Text = "PivotChart";
@@ -911,12 +911,12 @@
             ChartSubTable.ColumnCount = 1;
             ChartSubTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             ChartSubTable.Controls.Add( SqlHeader, 0, 0 );
-            ChartSubTable.Location = new System.Drawing.Point( 656, 4 );
+            ChartSubTable.Location = new System.Drawing.Point( 788, 4 );
             ChartSubTable.Name = "ChartSubTable";
             ChartSubTable.RowCount = 2;
             ChartSubTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             ChartSubTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 73F ) );
-            ChartSubTable.Size = new System.Drawing.Size( 380, 97 );
+            ChartSubTable.Size = new System.Drawing.Size( 248, 97 );
             ChartSubTable.TabIndex = 5;
             // 
             // SqlHeader
@@ -932,7 +932,7 @@
             SqlHeader.Margin = new System.Windows.Forms.Padding( 3 );
             SqlHeader.Name = "SqlHeader";
             SqlHeader.Padding = new System.Windows.Forms.Padding( 1 );
-            SqlHeader.Size = new System.Drawing.Size( 374, 18 );
+            SqlHeader.Size = new System.Drawing.Size( 242, 18 );
             SqlHeader.Style = MetroSet_UI.Enums.Style.Custom;
             SqlHeader.StyleManager = null;
             SqlHeader.TabIndex = 2;
@@ -976,7 +976,7 @@
             MetricsTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 25F ) );
             MetricsTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 25F ) );
             MetricsTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 25F ) );
-            MetricsTable.Size = new System.Drawing.Size( 649, 97 );
+            MetricsTable.Size = new System.Drawing.Size( 781, 97 );
             MetricsTable.TabIndex = 4;
             // 
             // MetricLabel17
@@ -988,11 +988,11 @@
             MetricLabel17.Font = new System.Drawing.Font( "Roboto", 6.75F );
             MetricLabel17.HoverText = null;
             MetricLabel17.IsDerivedStyle = true;
-            MetricLabel17.Location = new System.Drawing.Point( 132, 75 );
+            MetricLabel17.Location = new System.Drawing.Point( 159, 75 );
             MetricLabel17.Margin = new System.Windows.Forms.Padding( 3 );
             MetricLabel17.Name = "MetricLabel17";
             MetricLabel17.Padding = new System.Windows.Forms.Padding( 1 );
-            MetricLabel17.Size = new System.Drawing.Size( 123, 19 );
+            MetricLabel17.Size = new System.Drawing.Size( 150, 19 );
             MetricLabel17.Style = MetroSet_UI.Enums.Style.Custom;
             MetricLabel17.StyleManager = null;
             MetricLabel17.TabIndex = 60;
@@ -1016,7 +1016,7 @@
             MetricLabel16.Margin = new System.Windows.Forms.Padding( 3 );
             MetricLabel16.Name = "MetricLabel16";
             MetricLabel16.Padding = new System.Windows.Forms.Padding( 1 );
-            MetricLabel16.Size = new System.Drawing.Size( 123, 19 );
+            MetricLabel16.Size = new System.Drawing.Size( 150, 19 );
             MetricLabel16.Style = MetroSet_UI.Enums.Style.Custom;
             MetricLabel16.StyleManager = null;
             MetricLabel16.TabIndex = 59;
@@ -1036,11 +1036,11 @@
             MetricLabel18.Font = new System.Drawing.Font( "Roboto", 6.75F );
             MetricLabel18.HoverText = null;
             MetricLabel18.IsDerivedStyle = true;
-            MetricLabel18.Location = new System.Drawing.Point( 261, 75 );
+            MetricLabel18.Location = new System.Drawing.Point( 315, 75 );
             MetricLabel18.Margin = new System.Windows.Forms.Padding( 3 );
             MetricLabel18.Name = "MetricLabel18";
             MetricLabel18.Padding = new System.Windows.Forms.Padding( 1 );
-            MetricLabel18.Size = new System.Drawing.Size( 123, 19 );
+            MetricLabel18.Size = new System.Drawing.Size( 150, 19 );
             MetricLabel18.Style = MetroSet_UI.Enums.Style.Custom;
             MetricLabel18.StyleManager = null;
             MetricLabel18.TabIndex = 58;
@@ -1060,11 +1060,11 @@
             MetricLabel20.Font = new System.Drawing.Font( "Roboto", 6.75F );
             MetricLabel20.HoverText = null;
             MetricLabel20.IsDerivedStyle = true;
-            MetricLabel20.Location = new System.Drawing.Point( 519, 75 );
+            MetricLabel20.Location = new System.Drawing.Point( 627, 75 );
             MetricLabel20.Margin = new System.Windows.Forms.Padding( 3 );
             MetricLabel20.Name = "MetricLabel20";
             MetricLabel20.Padding = new System.Windows.Forms.Padding( 1 );
-            MetricLabel20.Size = new System.Drawing.Size( 127, 19 );
+            MetricLabel20.Size = new System.Drawing.Size( 151, 19 );
             MetricLabel20.Style = MetroSet_UI.Enums.Style.Custom;
             MetricLabel20.StyleManager = null;
             MetricLabel20.TabIndex = 57;
@@ -1084,11 +1084,11 @@
             MetricLabel19.Font = new System.Drawing.Font( "Roboto", 6.75F );
             MetricLabel19.HoverText = null;
             MetricLabel19.IsDerivedStyle = true;
-            MetricLabel19.Location = new System.Drawing.Point( 390, 75 );
+            MetricLabel19.Location = new System.Drawing.Point( 471, 75 );
             MetricLabel19.Margin = new System.Windows.Forms.Padding( 3 );
             MetricLabel19.Name = "MetricLabel19";
             MetricLabel19.Padding = new System.Windows.Forms.Padding( 1 );
-            MetricLabel19.Size = new System.Drawing.Size( 123, 19 );
+            MetricLabel19.Size = new System.Drawing.Size( 150, 19 );
             MetricLabel19.Style = MetroSet_UI.Enums.Style.Custom;
             MetricLabel19.StyleManager = null;
             MetricLabel19.TabIndex = 56;
@@ -1108,11 +1108,11 @@
             MetricLabel3.Font = new System.Drawing.Font( "Roboto", 6.75F );
             MetricLabel3.HoverText = null;
             MetricLabel3.IsDerivedStyle = true;
-            MetricLabel3.Location = new System.Drawing.Point( 261, 3 );
+            MetricLabel3.Location = new System.Drawing.Point( 315, 3 );
             MetricLabel3.Margin = new System.Windows.Forms.Padding( 3 );
             MetricLabel3.Name = "MetricLabel3";
             MetricLabel3.Padding = new System.Windows.Forms.Padding( 1 );
-            MetricLabel3.Size = new System.Drawing.Size( 123, 18 );
+            MetricLabel3.Size = new System.Drawing.Size( 150, 18 );
             MetricLabel3.Style = MetroSet_UI.Enums.Style.Custom;
             MetricLabel3.StyleManager = null;
             MetricLabel3.TabIndex = 43;
@@ -1136,7 +1136,7 @@
             MetricLabel1.Margin = new System.Windows.Forms.Padding( 3 );
             MetricLabel1.Name = "MetricLabel1";
             MetricLabel1.Padding = new System.Windows.Forms.Padding( 1 );
-            MetricLabel1.Size = new System.Drawing.Size( 123, 18 );
+            MetricLabel1.Size = new System.Drawing.Size( 150, 18 );
             MetricLabel1.Style = MetroSet_UI.Enums.Style.Custom;
             MetricLabel1.StyleManager = null;
             MetricLabel1.TabIndex = 33;
@@ -1156,11 +1156,11 @@
             MetricLabel2.Font = new System.Drawing.Font( "Roboto", 6.75F );
             MetricLabel2.HoverText = null;
             MetricLabel2.IsDerivedStyle = true;
-            MetricLabel2.Location = new System.Drawing.Point( 132, 3 );
+            MetricLabel2.Location = new System.Drawing.Point( 159, 3 );
             MetricLabel2.Margin = new System.Windows.Forms.Padding( 3 );
             MetricLabel2.Name = "MetricLabel2";
             MetricLabel2.Padding = new System.Windows.Forms.Padding( 1 );
-            MetricLabel2.Size = new System.Drawing.Size( 123, 18 );
+            MetricLabel2.Size = new System.Drawing.Size( 150, 18 );
             MetricLabel2.Style = MetroSet_UI.Enums.Style.Custom;
             MetricLabel2.StyleManager = null;
             MetricLabel2.TabIndex = 44;
@@ -1180,11 +1180,11 @@
             MetricLabel4.Font = new System.Drawing.Font( "Roboto", 6.75F );
             MetricLabel4.HoverText = null;
             MetricLabel4.IsDerivedStyle = true;
-            MetricLabel4.Location = new System.Drawing.Point( 390, 3 );
+            MetricLabel4.Location = new System.Drawing.Point( 471, 3 );
             MetricLabel4.Margin = new System.Windows.Forms.Padding( 3 );
             MetricLabel4.Name = "MetricLabel4";
             MetricLabel4.Padding = new System.Windows.Forms.Padding( 1 );
-            MetricLabel4.Size = new System.Drawing.Size( 123, 18 );
+            MetricLabel4.Size = new System.Drawing.Size( 150, 18 );
             MetricLabel4.Style = MetroSet_UI.Enums.Style.Custom;
             MetricLabel4.StyleManager = null;
             MetricLabel4.TabIndex = 44;
@@ -1204,11 +1204,11 @@
             MetricLabel5.Font = new System.Drawing.Font( "Roboto", 6.75F );
             MetricLabel5.HoverText = null;
             MetricLabel5.IsDerivedStyle = true;
-            MetricLabel5.Location = new System.Drawing.Point( 519, 3 );
+            MetricLabel5.Location = new System.Drawing.Point( 627, 3 );
             MetricLabel5.Margin = new System.Windows.Forms.Padding( 3 );
             MetricLabel5.Name = "MetricLabel5";
             MetricLabel5.Padding = new System.Windows.Forms.Padding( 1 );
-            MetricLabel5.Size = new System.Drawing.Size( 127, 18 );
+            MetricLabel5.Size = new System.Drawing.Size( 151, 18 );
             MetricLabel5.Style = MetroSet_UI.Enums.Style.Custom;
             MetricLabel5.StyleManager = null;
             MetricLabel5.TabIndex = 45;
@@ -1232,7 +1232,7 @@
             MetricLabel6.Margin = new System.Windows.Forms.Padding( 3 );
             MetricLabel6.Name = "MetricLabel6";
             MetricLabel6.Padding = new System.Windows.Forms.Padding( 1 );
-            MetricLabel6.Size = new System.Drawing.Size( 123, 18 );
+            MetricLabel6.Size = new System.Drawing.Size( 150, 18 );
             MetricLabel6.Style = MetroSet_UI.Enums.Style.Custom;
             MetricLabel6.StyleManager = null;
             MetricLabel6.TabIndex = 46;
@@ -1252,11 +1252,11 @@
             MetricLabel7.Font = new System.Drawing.Font( "Roboto", 6.75F );
             MetricLabel7.HoverText = null;
             MetricLabel7.IsDerivedStyle = true;
-            MetricLabel7.Location = new System.Drawing.Point( 132, 27 );
+            MetricLabel7.Location = new System.Drawing.Point( 159, 27 );
             MetricLabel7.Margin = new System.Windows.Forms.Padding( 3 );
             MetricLabel7.Name = "MetricLabel7";
             MetricLabel7.Padding = new System.Windows.Forms.Padding( 1 );
-            MetricLabel7.Size = new System.Drawing.Size( 123, 18 );
+            MetricLabel7.Size = new System.Drawing.Size( 150, 18 );
             MetricLabel7.Style = MetroSet_UI.Enums.Style.Custom;
             MetricLabel7.StyleManager = null;
             MetricLabel7.TabIndex = 47;
@@ -1276,11 +1276,11 @@
             MetricLabel8.Font = new System.Drawing.Font( "Roboto", 6.75F );
             MetricLabel8.HoverText = null;
             MetricLabel8.IsDerivedStyle = true;
-            MetricLabel8.Location = new System.Drawing.Point( 261, 27 );
+            MetricLabel8.Location = new System.Drawing.Point( 315, 27 );
             MetricLabel8.Margin = new System.Windows.Forms.Padding( 3 );
             MetricLabel8.Name = "MetricLabel8";
             MetricLabel8.Padding = new System.Windows.Forms.Padding( 1 );
-            MetricLabel8.Size = new System.Drawing.Size( 123, 18 );
+            MetricLabel8.Size = new System.Drawing.Size( 150, 18 );
             MetricLabel8.Style = MetroSet_UI.Enums.Style.Custom;
             MetricLabel8.StyleManager = null;
             MetricLabel8.TabIndex = 48;
@@ -1300,11 +1300,11 @@
             MetricLabel9.Font = new System.Drawing.Font( "Roboto", 6.75F );
             MetricLabel9.HoverText = null;
             MetricLabel9.IsDerivedStyle = true;
-            MetricLabel9.Location = new System.Drawing.Point( 390, 27 );
+            MetricLabel9.Location = new System.Drawing.Point( 471, 27 );
             MetricLabel9.Margin = new System.Windows.Forms.Padding( 3 );
             MetricLabel9.Name = "MetricLabel9";
             MetricLabel9.Padding = new System.Windows.Forms.Padding( 1 );
-            MetricLabel9.Size = new System.Drawing.Size( 123, 18 );
+            MetricLabel9.Size = new System.Drawing.Size( 150, 18 );
             MetricLabel9.Style = MetroSet_UI.Enums.Style.Custom;
             MetricLabel9.StyleManager = null;
             MetricLabel9.TabIndex = 49;
@@ -1324,11 +1324,11 @@
             MetricLabel10.Font = new System.Drawing.Font( "Roboto", 6.75F );
             MetricLabel10.HoverText = null;
             MetricLabel10.IsDerivedStyle = true;
-            MetricLabel10.Location = new System.Drawing.Point( 519, 27 );
+            MetricLabel10.Location = new System.Drawing.Point( 627, 27 );
             MetricLabel10.Margin = new System.Windows.Forms.Padding( 3 );
             MetricLabel10.Name = "MetricLabel10";
             MetricLabel10.Padding = new System.Windows.Forms.Padding( 1 );
-            MetricLabel10.Size = new System.Drawing.Size( 127, 18 );
+            MetricLabel10.Size = new System.Drawing.Size( 151, 18 );
             MetricLabel10.Style = MetroSet_UI.Enums.Style.Custom;
             MetricLabel10.StyleManager = null;
             MetricLabel10.TabIndex = 50;
@@ -1352,7 +1352,7 @@
             MetricLabel11.Margin = new System.Windows.Forms.Padding( 3 );
             MetricLabel11.Name = "MetricLabel11";
             MetricLabel11.Padding = new System.Windows.Forms.Padding( 1 );
-            MetricLabel11.Size = new System.Drawing.Size( 123, 18 );
+            MetricLabel11.Size = new System.Drawing.Size( 150, 18 );
             MetricLabel11.Style = MetroSet_UI.Enums.Style.Custom;
             MetricLabel11.StyleManager = null;
             MetricLabel11.TabIndex = 51;
@@ -1372,11 +1372,11 @@
             MetricLabel12.Font = new System.Drawing.Font( "Roboto", 6.75F );
             MetricLabel12.HoverText = null;
             MetricLabel12.IsDerivedStyle = true;
-            MetricLabel12.Location = new System.Drawing.Point( 132, 51 );
+            MetricLabel12.Location = new System.Drawing.Point( 159, 51 );
             MetricLabel12.Margin = new System.Windows.Forms.Padding( 3 );
             MetricLabel12.Name = "MetricLabel12";
             MetricLabel12.Padding = new System.Windows.Forms.Padding( 1 );
-            MetricLabel12.Size = new System.Drawing.Size( 123, 18 );
+            MetricLabel12.Size = new System.Drawing.Size( 150, 18 );
             MetricLabel12.Style = MetroSet_UI.Enums.Style.Custom;
             MetricLabel12.StyleManager = null;
             MetricLabel12.TabIndex = 52;
@@ -1396,11 +1396,11 @@
             MetricLabel13.Font = new System.Drawing.Font( "Roboto", 6.75F );
             MetricLabel13.HoverText = null;
             MetricLabel13.IsDerivedStyle = true;
-            MetricLabel13.Location = new System.Drawing.Point( 261, 51 );
+            MetricLabel13.Location = new System.Drawing.Point( 315, 51 );
             MetricLabel13.Margin = new System.Windows.Forms.Padding( 3 );
             MetricLabel13.Name = "MetricLabel13";
             MetricLabel13.Padding = new System.Windows.Forms.Padding( 1 );
-            MetricLabel13.Size = new System.Drawing.Size( 123, 18 );
+            MetricLabel13.Size = new System.Drawing.Size( 150, 18 );
             MetricLabel13.Style = MetroSet_UI.Enums.Style.Custom;
             MetricLabel13.StyleManager = null;
             MetricLabel13.TabIndex = 53;
@@ -1420,11 +1420,11 @@
             MetricLabel14.Font = new System.Drawing.Font( "Roboto", 6.75F );
             MetricLabel14.HoverText = null;
             MetricLabel14.IsDerivedStyle = true;
-            MetricLabel14.Location = new System.Drawing.Point( 390, 51 );
+            MetricLabel14.Location = new System.Drawing.Point( 471, 51 );
             MetricLabel14.Margin = new System.Windows.Forms.Padding( 3 );
             MetricLabel14.Name = "MetricLabel14";
             MetricLabel14.Padding = new System.Windows.Forms.Padding( 1 );
-            MetricLabel14.Size = new System.Drawing.Size( 123, 18 );
+            MetricLabel14.Size = new System.Drawing.Size( 150, 18 );
             MetricLabel14.Style = MetroSet_UI.Enums.Style.Custom;
             MetricLabel14.StyleManager = null;
             MetricLabel14.TabIndex = 54;
@@ -1444,11 +1444,11 @@
             MetricLabel15.Font = new System.Drawing.Font( "Roboto", 6.75F );
             MetricLabel15.HoverText = null;
             MetricLabel15.IsDerivedStyle = true;
-            MetricLabel15.Location = new System.Drawing.Point( 519, 51 );
+            MetricLabel15.Location = new System.Drawing.Point( 627, 51 );
             MetricLabel15.Margin = new System.Windows.Forms.Padding( 3 );
             MetricLabel15.Name = "MetricLabel15";
             MetricLabel15.Padding = new System.Windows.Forms.Padding( 1 );
-            MetricLabel15.Size = new System.Drawing.Size( 127, 18 );
+            MetricLabel15.Size = new System.Drawing.Size( 151, 18 );
             MetricLabel15.Style = MetroSet_UI.Enums.Style.Custom;
             MetricLabel15.StyleManager = null;
             MetricLabel15.TabIndex = 55;

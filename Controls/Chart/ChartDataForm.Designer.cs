@@ -2225,7 +2225,7 @@
             // 
             // PictureBox
             // 
-            PictureBox.Image = Resources.Images.App;
+            PictureBox.Image = Resources.Images.Application;
             PictureBox.Location = new System.Drawing.Point( 3, 3 );
             PictureBox.Name = "PictureBox";
             PictureBox.Size = new System.Drawing.Size( 22, 16 );
