@@ -1,12 +1,12 @@
 ﻿// ******************************************************************************************
 //     Assembly:             BudgetExecution
 //     Author:                  Terry D. Eppler
-//     Created:                 07-18-2023
+//     Created:                 7-18-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-03-2023
+//     Last Modified On:        12-7-2023
 // ******************************************************************************************
-// <copyright file="Terry Eppler.cs" company="Terry D. Eppler">
+// <copyright file="teppler.cs" company="Terry D. Eppler">
 //    BudgetExecution is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -54,13 +54,13 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
-    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
-    [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
-    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public partial class MainForm : MetroForm
     {
         /// <summary>
@@ -165,9 +165,8 @@ namespace BudgetExecution
                 BrowserTile.Click += OnBrowserTileClick;
                 MessageTile.Click += OnMessageTileClick;
                 SqlServerTile.Click += OnSqlServerTileClick;
-                TestButton.Click += OnTestButtonClick;
+                TestButton.Click += OnPivotTileClick;
                 AccessTile.Click += OnAccessTileClick;
-                PivotTile.Click += OnPivotTileClick;
             }
             catch( Exception _ex )
             {
@@ -333,9 +332,6 @@ namespace BudgetExecution
                 MessageTile.Title.Text = "Email";
                 MessageTile.Body.Text = string.Empty;
                 MessageTile.Banner.Text = string.Empty;
-                PivotTile.Title.Text = "Pivots";
-                PivotTile.Body.Text = string.Empty;
-                PivotTile.Banner.Text = string.Empty;
             }
             catch( Exception _ex )
             {

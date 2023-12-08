@@ -322,5 +322,8 @@
     <EmbeddedResource Update="Controls\DataGrid\DataGridForm.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Images.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

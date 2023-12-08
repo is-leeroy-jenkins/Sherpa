@@ -3,19 +3,20 @@
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using System.ComponentModel;
     using System.Configuration;
     using System.Data;
+    using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.IO;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
     using Action = System.Action;
 
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public partial class DataViewForm : MetroForm
     {
         /// <summary>
@@ -607,10 +608,13 @@
                 while( _queue.Count > 0 )
                 {
                     var _collection = (Control.ControlCollection)_queue.Dequeue( );
-                    foreach( Control _control in _collection )
+                    if( _collection != null )
                     {
-                        _list.Add( _control );
-                        _queue.Enqueue( _control.Controls );
+                        foreach( Control _control in _collection )
+                        {
+                            _list.Add( _control );
+                            _queue.Enqueue( _control.Controls );
+                        }
                     }
                 }
 
@@ -775,7 +779,7 @@
 
                     foreach( var _item in Fields )
                     {
-                        FieldListBox.Items.Add( _item );
+                        FieldListBox?.Items?.Add( _item );
                     }
                 }
                 catch( Exception _ex )
@@ -803,7 +807,7 @@
                     {
                         if( !string.IsNullOrEmpty( Numerics[ _i ] ) )
                         {
-                            NumericListBox.Items.Add( Numerics[ _i ] );
+                            NumericListBox?.Items?.Add( Numerics[ _i ] );
                         }
                     }
                 }
@@ -1294,7 +1298,7 @@
                                     ?.First( );
 
                                 if( !string.IsNullOrEmpty( _file )
-                                   && System.IO.File.Exists( _file ) )
+                                   && File.Exists( _file ) )
                                 {
                                     var _img = Image.FromFile( _file );
                                     PictureBox.Image = _img;
@@ -1576,7 +1580,7 @@
                         SecondTable.Visible = true;
                     }
 
-                    if( ThirdTable.Visible == true )
+                    if( ThirdTable.Visible )
                     {
                         ThirdTable.Visible = false;
                     }

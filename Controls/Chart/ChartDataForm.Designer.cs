@@ -32,11 +32,16 @@
             AreaTable = new System.Windows.Forms.TableLayoutPanel( );
             ChartPanel = new BackPanel( );
             DataTabControl = new TabControl( );
-            Ready = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
+            ReadyTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             Chart = new Chart( );
-            Busy = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
+            BusyTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             Loader = new System.Windows.Forms.PictureBox( );
             SchemaTable = new System.Windows.Forms.TableLayoutPanel( );
+            Label22 = new Label( );
+            Label21 = new Label( );
+            Label23 = new Label( );
+            Label25 = new Label( );
+            Label24 = new Label( );
             Label18 = new Label( );
             Label17 = new Label( );
             Label16 = new Label( );
@@ -77,7 +82,7 @@
             FilterLabel = new ToolStripLabel( );
             FilterLabelSeparator = new ToolSeparator( );
             RefreshDataButton = new ToolStripButton( );
-            NavigationSeparator = new ToolSeparator( );
+            RefreshSeparator = new ToolSeparator( );
             RemoveFiltersButton = new ToolStripButton( );
             FilterSeparator = new ToolSeparator( );
             GroupButton = new ToolStripButton( );
@@ -129,17 +134,12 @@
             Timer = new System.Windows.Forms.Timer( components );
             ToolStripTable = new System.Windows.Forms.TableLayoutPanel( );
             ContextMenu = new ContextMenu( );
-            Label24 = new Label( );
-            Label25 = new Label( );
-            Label23 = new Label( );
-            Label21 = new Label( );
-            Label22 = new Label( );
             AreaTable.SuspendLayout( );
             ChartPanel.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)DataTabControl ).BeginInit( );
             DataTabControl.SuspendLayout( );
-            Ready.SuspendLayout( );
-            Busy.SuspendLayout( );
+            ReadyTab.SuspendLayout( );
+            BusyTab.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)Loader ).BeginInit( );
             SchemaTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
@@ -241,8 +241,8 @@
             DataTabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             DataTabControl.CanOverrideStyle = true;
             DataTabControl.CloseButtonBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            DataTabControl.Controls.Add( Ready );
-            DataTabControl.Controls.Add( Busy );
+            DataTabControl.Controls.Add( ReadyTab );
+            DataTabControl.Controls.Add( BusyTab );
             DataTabControl.FocusOnTabClick = false;
             DataTabControl.Font = new System.Drawing.Font( "Roboto", 9F );
             DataTabControl.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
@@ -267,21 +267,21 @@
             DataTabControl.ThemeStyle.TabStyle.SeparatorColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataTabControl.ToolTip = null;
             // 
-            // Ready
+            // ReadyTab
             // 
-            Ready.Controls.Add( Chart );
-            Ready.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            Ready.Image = null;
-            Ready.ImageSize = new System.Drawing.Size( 16, 16 );
-            Ready.Location = new System.Drawing.Point( 0, 17 );
-            Ready.Name = "Ready";
-            Ready.ShowCloseButton = true;
-            Ready.Size = new System.Drawing.Size( 1023, 480 );
-            Ready.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            Ready.TabForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            Ready.TabIndex = 1;
-            Ready.Text = " ";
-            Ready.ThemesEnabled = false;
+            ReadyTab.Controls.Add( Chart );
+            ReadyTab.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ReadyTab.Image = null;
+            ReadyTab.ImageSize = new System.Drawing.Size( 16, 16 );
+            ReadyTab.Location = new System.Drawing.Point( 0, 17 );
+            ReadyTab.Name = "ReadyTab";
+            ReadyTab.ShowCloseButton = true;
+            ReadyTab.Size = new System.Drawing.Size( 1023, 480 );
+            ReadyTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            ReadyTab.TabForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ReadyTab.TabIndex = 1;
+            ReadyTab.Text = " ";
+            ReadyTab.ThemesEnabled = false;
             // 
             // Chart
             // 
@@ -367,20 +367,20 @@
             Chart.ToolBar.Visible = true;
             Chart.VisualTheme = "";
             // 
-            // Busy
+            // BusyTab
             // 
-            Busy.Controls.Add( Loader );
-            Busy.Image = null;
-            Busy.ImageSize = new System.Drawing.Size( 16, 16 );
-            Busy.Location = new System.Drawing.Point( 0, 17 );
-            Busy.Name = "Busy";
-            Busy.ShowCloseButton = true;
-            Busy.Size = new System.Drawing.Size( 1023, 480 );
-            Busy.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            Busy.TabForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            Busy.TabIndex = 2;
-            Busy.Text = " ";
-            Busy.ThemesEnabled = false;
+            BusyTab.Controls.Add( Loader );
+            BusyTab.Image = null;
+            BusyTab.ImageSize = new System.Drawing.Size( 16, 16 );
+            BusyTab.Location = new System.Drawing.Point( 0, 17 );
+            BusyTab.Name = "BusyTab";
+            BusyTab.ShowCloseButton = true;
+            BusyTab.Size = new System.Drawing.Size( 1023, 480 );
+            BusyTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            BusyTab.TabForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            BusyTab.TabIndex = 2;
+            BusyTab.Text = " ";
+            BusyTab.ThemesEnabled = false;
             // 
             // Loader
             // 
@@ -437,6 +437,126 @@
             SchemaTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 20F ) );
             SchemaTable.Size = new System.Drawing.Size( 1041, 106 );
             SchemaTable.TabIndex = 4;
+            // 
+            // Label22
+            // 
+            Label22.BindingSource = null;
+            Label22.DataFilter = null;
+            Label22.Dock = System.Windows.Forms.DockStyle.Fill;
+            Label22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            Label22.Font = new System.Drawing.Font( "Roboto", 6.75F );
+            Label22.HoverText = null;
+            Label22.IsDerivedStyle = true;
+            Label22.Location = new System.Drawing.Point( 211, 87 );
+            Label22.Margin = new System.Windows.Forms.Padding( 3 );
+            Label22.Name = "Label22";
+            Label22.Padding = new System.Windows.Forms.Padding( 1 );
+            Label22.Size = new System.Drawing.Size( 202, 16 );
+            Label22.Style = MetroSet_UI.Enums.Style.Custom;
+            Label22.StyleManager = null;
+            Label22.TabIndex = 65;
+            Label22.Tag = "Field";
+            Label22.Text = "Text";
+            Label22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            Label22.ThemeAuthor = "Terry D. Eppler";
+            Label22.ThemeName = "Budget Execution";
+            Label22.ToolTip = null;
+            // 
+            // Label21
+            // 
+            Label21.BindingSource = null;
+            Label21.DataFilter = null;
+            Label21.Dock = System.Windows.Forms.DockStyle.Fill;
+            Label21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            Label21.Font = new System.Drawing.Font( "Roboto", 6.75F );
+            Label21.HoverText = null;
+            Label21.IsDerivedStyle = true;
+            Label21.Location = new System.Drawing.Point( 3, 87 );
+            Label21.Margin = new System.Windows.Forms.Padding( 3 );
+            Label21.Name = "Label21";
+            Label21.Padding = new System.Windows.Forms.Padding( 1 );
+            Label21.Size = new System.Drawing.Size( 202, 16 );
+            Label21.Style = MetroSet_UI.Enums.Style.Custom;
+            Label21.StyleManager = null;
+            Label21.TabIndex = 64;
+            Label21.Tag = "Field";
+            Label21.Text = "Text";
+            Label21.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            Label21.ThemeAuthor = "Terry D. Eppler";
+            Label21.ThemeName = "Budget Execution";
+            Label21.ToolTip = null;
+            // 
+            // Label23
+            // 
+            Label23.BindingSource = null;
+            Label23.DataFilter = null;
+            Label23.Dock = System.Windows.Forms.DockStyle.Fill;
+            Label23.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            Label23.Font = new System.Drawing.Font( "Roboto", 6.75F );
+            Label23.HoverText = null;
+            Label23.IsDerivedStyle = true;
+            Label23.Location = new System.Drawing.Point( 419, 87 );
+            Label23.Margin = new System.Windows.Forms.Padding( 3 );
+            Label23.Name = "Label23";
+            Label23.Padding = new System.Windows.Forms.Padding( 1 );
+            Label23.Size = new System.Drawing.Size( 202, 16 );
+            Label23.Style = MetroSet_UI.Enums.Style.Custom;
+            Label23.StyleManager = null;
+            Label23.TabIndex = 63;
+            Label23.Tag = "Field";
+            Label23.Text = "Text";
+            Label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            Label23.ThemeAuthor = "Terry D. Eppler";
+            Label23.ThemeName = "Budget Execution";
+            Label23.ToolTip = null;
+            // 
+            // Label25
+            // 
+            Label25.BindingSource = null;
+            Label25.DataFilter = null;
+            Label25.Dock = System.Windows.Forms.DockStyle.Fill;
+            Label25.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            Label25.Font = new System.Drawing.Font( "Roboto", 6.75F );
+            Label25.HoverText = null;
+            Label25.IsDerivedStyle = true;
+            Label25.Location = new System.Drawing.Point( 835, 87 );
+            Label25.Margin = new System.Windows.Forms.Padding( 3 );
+            Label25.Name = "Label25";
+            Label25.Padding = new System.Windows.Forms.Padding( 1 );
+            Label25.Size = new System.Drawing.Size( 203, 16 );
+            Label25.Style = MetroSet_UI.Enums.Style.Custom;
+            Label25.StyleManager = null;
+            Label25.TabIndex = 62;
+            Label25.Tag = "Field";
+            Label25.Text = "Text";
+            Label25.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            Label25.ThemeAuthor = "Terry D. Eppler";
+            Label25.ThemeName = "Budget Execution";
+            Label25.ToolTip = null;
+            // 
+            // Label24
+            // 
+            Label24.BindingSource = null;
+            Label24.DataFilter = null;
+            Label24.Dock = System.Windows.Forms.DockStyle.Fill;
+            Label24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            Label24.Font = new System.Drawing.Font( "Roboto", 6.75F );
+            Label24.HoverText = null;
+            Label24.IsDerivedStyle = true;
+            Label24.Location = new System.Drawing.Point( 627, 87 );
+            Label24.Margin = new System.Windows.Forms.Padding( 3 );
+            Label24.Name = "Label24";
+            Label24.Padding = new System.Windows.Forms.Padding( 1 );
+            Label24.Size = new System.Drawing.Size( 202, 16 );
+            Label24.Style = MetroSet_UI.Enums.Style.Custom;
+            Label24.StyleManager = null;
+            Label24.TabIndex = 61;
+            Label24.Tag = "Field";
+            Label24.Text = "Text";
+            Label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            Label24.ThemeAuthor = "Terry D. Eppler";
+            Label24.ThemeName = "Budget Execution";
+            Label24.ToolTip = null;
             // 
             // Label18
             // 
@@ -974,7 +1094,7 @@
             ToolStrip.Image = null;
             ToolStrip.ImageDirectory = null;
             ToolStrip.ImageSize = new System.Drawing.Size( 16, 16 );
-            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { StatusSeparator, StatusLabel, ChartSpacerLabel, StatusSpacer, NavigationLabelSeparator, FirstButton, FirstSeparator, PreviousButton, PreviousSeparator, NextButton, NextSeparator, LastButton, EditSqlSeparator, MetricsLabel, FilterLabel, FilterLabelSeparator, RefreshDataButton, NavigationSeparator, RemoveFiltersButton, FilterSeparator, GroupButton, RemoveFiltersSeparator, ExitButton, MenuSeparator, MenuButton, ExitSeparator, ApplicationLabel } );
+            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { StatusSeparator, StatusLabel, ChartSpacerLabel, StatusSpacer, NavigationLabelSeparator, FirstButton, FirstSeparator, PreviousButton, PreviousSeparator, NextButton, NextSeparator, LastButton, EditSqlSeparator, MetricsLabel, FilterLabel, FilterLabelSeparator, RefreshDataButton, RefreshSeparator, RemoveFiltersButton, FilterSeparator, GroupButton, RemoveFiltersSeparator, ExitButton, MenuSeparator, MenuButton, ExitSeparator, ApplicationLabel } );
             ToolStrip.LastButton = LastButton;
             ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
             ToolStrip.Location = new System.Drawing.Point( 1, 1 );
@@ -1252,13 +1372,13 @@
             RefreshDataButton.ToolTip = ToolTip;
             RefreshDataButton.ToolType = ToolType.RefreshDataButton;
             // 
-            // NavigationSeparator
+            // RefreshSeparator
             // 
-            NavigationSeparator.ForeColor = System.Drawing.Color.Black;
-            NavigationSeparator.Margin = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
-            NavigationSeparator.Name = "NavigationSeparator";
-            NavigationSeparator.Padding = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
-            NavigationSeparator.Size = new System.Drawing.Size( 6, 25 );
+            RefreshSeparator.ForeColor = System.Drawing.Color.Black;
+            RefreshSeparator.Margin = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
+            RefreshSeparator.Name = "RefreshSeparator";
+            RefreshSeparator.Padding = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
+            RefreshSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
             // RemoveFiltersButton
             // 
@@ -1271,7 +1391,7 @@
             RemoveFiltersButton.Font = new System.Drawing.Font( "Roboto", 9F );
             RemoveFiltersButton.ForeColor = System.Drawing.Color.LightGray;
             RemoveFiltersButton.HoverText = "Filter Records";
-            RemoveFiltersButton.Image = Resources.Images.FilterButton;
+            RemoveFiltersButton.Image = Resources.Images.RemoveFiltersButton;
             RemoveFiltersButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             RemoveFiltersButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             RemoveFiltersButton.Name = "RemoveFiltersButton";
@@ -1607,7 +1727,7 @@
             TableListBox.HoverText = null;
             TableListBox.IsDerivedStyle = true;
             TableListBox.ItemHeight = 28;
-            TableListBox.Location = new System.Drawing.Point( 13, 19 );
+            TableListBox.Location = new System.Drawing.Point( 12, 19 );
             TableListBox.Margin = new System.Windows.Forms.Padding( 1 );
             TableListBox.MultiSelect = true;
             TableListBox.Name = "TableListBox";
@@ -1620,7 +1740,7 @@
             TableListBox.SelectedValue = null;
             TableListBox.ShowBorder = false;
             TableListBox.ShowScrollBar = false;
-            TableListBox.Size = new System.Drawing.Size( 212, 589 );
+            TableListBox.Size = new System.Drawing.Size( 213, 589 );
             TableListBox.Style = MetroSet_UI.Enums.Style.Custom;
             TableListBox.StyleManager = null;
             TableListBox.TabIndex = 0;
@@ -2271,126 +2391,6 @@
             ContextMenu.ThemeStyle.PressedBackColor = System.Drawing.Color.FromArgb( 204, 204, 204 );
             ContextMenu.ThemeStyle.PressedForeColor = System.Drawing.Color.Black;
             // 
-            // Label24
-            // 
-            Label24.BindingSource = null;
-            Label24.DataFilter = null;
-            Label24.Dock = System.Windows.Forms.DockStyle.Fill;
-            Label24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            Label24.Font = new System.Drawing.Font( "Roboto", 6.75F );
-            Label24.HoverText = null;
-            Label24.IsDerivedStyle = true;
-            Label24.Location = new System.Drawing.Point( 627, 87 );
-            Label24.Margin = new System.Windows.Forms.Padding( 3 );
-            Label24.Name = "Label24";
-            Label24.Padding = new System.Windows.Forms.Padding( 1 );
-            Label24.Size = new System.Drawing.Size( 202, 16 );
-            Label24.Style = MetroSet_UI.Enums.Style.Custom;
-            Label24.StyleManager = null;
-            Label24.TabIndex = 61;
-            Label24.Tag = "Field";
-            Label24.Text = "Text";
-            Label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            Label24.ThemeAuthor = "Terry D. Eppler";
-            Label24.ThemeName = "Budget Execution";
-            Label24.ToolTip = null;
-            // 
-            // Label25
-            // 
-            Label25.BindingSource = null;
-            Label25.DataFilter = null;
-            Label25.Dock = System.Windows.Forms.DockStyle.Fill;
-            Label25.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            Label25.Font = new System.Drawing.Font( "Roboto", 6.75F );
-            Label25.HoverText = null;
-            Label25.IsDerivedStyle = true;
-            Label25.Location = new System.Drawing.Point( 835, 87 );
-            Label25.Margin = new System.Windows.Forms.Padding( 3 );
-            Label25.Name = "Label25";
-            Label25.Padding = new System.Windows.Forms.Padding( 1 );
-            Label25.Size = new System.Drawing.Size( 203, 16 );
-            Label25.Style = MetroSet_UI.Enums.Style.Custom;
-            Label25.StyleManager = null;
-            Label25.TabIndex = 62;
-            Label25.Tag = "Field";
-            Label25.Text = "Text";
-            Label25.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            Label25.ThemeAuthor = "Terry D. Eppler";
-            Label25.ThemeName = "Budget Execution";
-            Label25.ToolTip = null;
-            // 
-            // Label23
-            // 
-            Label23.BindingSource = null;
-            Label23.DataFilter = null;
-            Label23.Dock = System.Windows.Forms.DockStyle.Fill;
-            Label23.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            Label23.Font = new System.Drawing.Font( "Roboto", 6.75F );
-            Label23.HoverText = null;
-            Label23.IsDerivedStyle = true;
-            Label23.Location = new System.Drawing.Point( 419, 87 );
-            Label23.Margin = new System.Windows.Forms.Padding( 3 );
-            Label23.Name = "Label23";
-            Label23.Padding = new System.Windows.Forms.Padding( 1 );
-            Label23.Size = new System.Drawing.Size( 202, 16 );
-            Label23.Style = MetroSet_UI.Enums.Style.Custom;
-            Label23.StyleManager = null;
-            Label23.TabIndex = 63;
-            Label23.Tag = "Field";
-            Label23.Text = "Text";
-            Label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            Label23.ThemeAuthor = "Terry D. Eppler";
-            Label23.ThemeName = "Budget Execution";
-            Label23.ToolTip = null;
-            // 
-            // Label21
-            // 
-            Label21.BindingSource = null;
-            Label21.DataFilter = null;
-            Label21.Dock = System.Windows.Forms.DockStyle.Fill;
-            Label21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            Label21.Font = new System.Drawing.Font( "Roboto", 6.75F );
-            Label21.HoverText = null;
-            Label21.IsDerivedStyle = true;
-            Label21.Location = new System.Drawing.Point( 3, 87 );
-            Label21.Margin = new System.Windows.Forms.Padding( 3 );
-            Label21.Name = "Label21";
-            Label21.Padding = new System.Windows.Forms.Padding( 1 );
-            Label21.Size = new System.Drawing.Size( 202, 16 );
-            Label21.Style = MetroSet_UI.Enums.Style.Custom;
-            Label21.StyleManager = null;
-            Label21.TabIndex = 64;
-            Label21.Tag = "Field";
-            Label21.Text = "Text";
-            Label21.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            Label21.ThemeAuthor = "Terry D. Eppler";
-            Label21.ThemeName = "Budget Execution";
-            Label21.ToolTip = null;
-            // 
-            // Label22
-            // 
-            Label22.BindingSource = null;
-            Label22.DataFilter = null;
-            Label22.Dock = System.Windows.Forms.DockStyle.Fill;
-            Label22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            Label22.Font = new System.Drawing.Font( "Roboto", 6.75F );
-            Label22.HoverText = null;
-            Label22.IsDerivedStyle = true;
-            Label22.Location = new System.Drawing.Point( 211, 87 );
-            Label22.Margin = new System.Windows.Forms.Padding( 3 );
-            Label22.Name = "Label22";
-            Label22.Padding = new System.Windows.Forms.Padding( 1 );
-            Label22.Size = new System.Drawing.Size( 202, 16 );
-            Label22.Style = MetroSet_UI.Enums.Style.Custom;
-            Label22.StyleManager = null;
-            Label22.TabIndex = 65;
-            Label22.Tag = "Field";
-            Label22.Text = "Text";
-            Label22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            Label22.ThemeAuthor = "Terry D. Eppler";
-            Label22.ThemeName = "Budget Execution";
-            Label22.ToolTip = null;
-            // 
             // ChartDataForm
             // 
             BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
@@ -2426,8 +2426,8 @@
             ChartPanel.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize)DataTabControl ).EndInit( );
             DataTabControl.ResumeLayout( false );
-            Ready.ResumeLayout( false );
-            Busy.ResumeLayout( false );
+            ReadyTab.ResumeLayout( false );
+            BusyTab.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize)Loader ).EndInit( );
             SchemaTable.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).EndInit( );
@@ -2495,7 +2495,7 @@
         public ToolStripLabel ChartSeriesLabel;
         public ToolSeparator LabelSeparator;
         public ToolSeparator ExitSeparator;
-        public ToolSeparator NavigationSeparator;
+        public ToolSeparator RefreshSeparator;
         public TabControl QueryTabControl;
         public Syncfusion.Windows.Forms.Tools.TabPageAdv GroupTabPage;
         public HeaderPanel FieldTable;
@@ -2543,8 +2543,8 @@
         public Label Label6;
         public Label Label8;
         public TabControl DataTabControl;
-        public Syncfusion.Windows.Forms.Tools.TabPageAdv Busy;
-        public Syncfusion.Windows.Forms.Tools.TabPageAdv Ready;
+        public Syncfusion.Windows.Forms.Tools.TabPageAdv BusyTab;
+        public Syncfusion.Windows.Forms.Tools.TabPageAdv ReadyTab;
         public System.Windows.Forms.TableLayoutPanel ChartHeaderTable;
         public System.Windows.Forms.TableLayoutPanel ToolStripTable;
         public System.Windows.Forms.PictureBox Loader;

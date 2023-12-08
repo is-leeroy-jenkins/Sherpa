@@ -1726,20 +1726,20 @@ namespace BudgetExecution
                 {
                     case 0:
                     {
-                        Ready.TabVisible = true;
-                        Busy.TabVisible = false;
+                        ReadyTab.TabVisible = true;
+                        BusyTab.TabVisible = false;
                         break;
                     }
                     case 1:
                     {
-                        Busy.TabVisible = true;
-                        Ready.TabVisible = false;
+                        BusyTab.TabVisible = true;
+                        ReadyTab.TabVisible = false;
                         break;
                     }
                     default:
                     {
-                        Ready.TabVisible = true;
-                        Busy.TabVisible = false;
+                        ReadyTab.TabVisible = true;
+                        BusyTab.TabVisible = false;
                         break;
                     }
                 }
@@ -1763,7 +1763,7 @@ namespace BudgetExecution
                 var _borderColor = Color.FromArgb( 0, 120, 212 );
                 var _backColor = Color.Black;
                 var _textColor = Color.FromArgb( 106, 189, 252 );
-                var _callFont = new Font( "Roboto", 7 );
+                var _callFont = new Font( "Roboto", 8 );
                 var _numerics = Numerics.ToArray( );
                 var _dataRows = table.AsEnumerable( );
                 var _index = 0d;
@@ -1783,6 +1783,8 @@ namespace BudgetExecution
                         _series.Points.Add( _cp );
                     }
 
+                    _series.YAxis.TickColor = _textColor;
+                    _series.XAxis.TickColor = _textColor;
                     _series.Visible = true;
                     _series.EnableStyles = true;
                     _series.Type = type;
@@ -1803,6 +1805,7 @@ namespace BudgetExecution
                     _series.FancyToolTip.Symbol = ChartSymbolShape.Arrow;
                     _series.FancyToolTip.Visible = true;
                     _series.PointsToolTipFormat = "{0} - {4}";
+                    _series.SeriesToolTipFormat = "#,##0";
                     Chart.Series.Add( _series );
                     _index++;
                 }
@@ -1839,7 +1842,7 @@ namespace BudgetExecution
                 var _borderColor = Color.FromArgb( 0, 120, 212 );
                 var _backColor = Color.Black;
                 var _textColor = Color.FromArgb( 106, 189, 252 );
-                var _callFont = new Font( "Roboto", 7 );
+                var _callFont = new Font( "Roboto", 8 );
                 var _numerics = Numerics.ToArray( );
                 for( var i = 0; i < _numerics.Length; i++ )
                 {
@@ -1849,7 +1852,6 @@ namespace BudgetExecution
                     var _index = double.Parse( i.ToString( ) );
                     var _value = double.Parse( row[ _columnName ].ToString( ) );
                     _series.Name = _columnName;
-                    _series.Text = _series.Name;
                     _series.Text = _series.Name;
                     if( _value > 1000d )
                     {
@@ -2006,11 +2008,11 @@ namespace BudgetExecution
                 TableTabPage.TabVisible = true;
                 FilterTabPage.TabVisible = false;
                 GroupTabPage.TabVisible = false;
-                Busy.TabVisible = false;
+                BusyTab.TabVisible = false;
                 ClearLabels( );
                 PopulateExecutionTables( );
                 UpdateStatus( );
-                Chart.Title.Text = string.Empty;
+                Chart.Title.Text = "Select a Data Table";
                 FadeIn( );
             }
             catch( Exception ex )

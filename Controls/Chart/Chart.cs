@@ -109,7 +109,7 @@ namespace BudgetExecution
             ColumnWidthMode = ChartColumnWidthMode.DefaultWidthMode;
             Palette = ChartColorPalette.Office2016;
             Skins = Skins.Office2016Black;
-            Rotation = 15;
+            Rotation = 10;
             SmoothingMode = SmoothingMode.AntiAlias;
             TextAlignment = StringAlignment.Center;
             TextPosition = ChartTextPosition.Top;
@@ -133,10 +133,10 @@ namespace BudgetExecution
             PrimaryYAxis.Format = "#,##0";
             Tooltip.Font = new Font( "Roboto", 8 );
             Tooltip.ForeColor = Color.FromArgb( 106, 189, 252 );
+            Tooltip.BorderStyle = BorderStyle.FixedSingle;
             Tooltip.BackgroundColor = new BrushInfo( GradientStyle.None,
                 Color.FromArgb( 106, 189, 252 ), Color.Black );
 
-            Tooltip.BorderStyle = BorderStyle.FixedSingle;
             ToolBar.Border.ForeColor = Color.Black;
             ToolBar.Orientation = ChartOrientation.Horizontal;
             ToolBar.ButtonBackColor = Color.FromArgb( 20, 20, 20 );

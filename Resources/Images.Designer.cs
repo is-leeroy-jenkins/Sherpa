@@ -483,16 +483,6 @@ namespace BudgetExecution.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap EditFilterButton {
-            get {
-                object obj = ResourceManager.GetObject("EditFilterButton", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         public static System.Drawing.Bitmap EditRecordButton {
             get {
                 object obj = ResourceManager.GetObject("EditRecordButton", resourceCulture);
@@ -616,16 +606,6 @@ namespace BudgetExecution.Resources {
         public static System.Drawing.Bitmap FilterButton {
             get {
                 object obj = ResourceManager.GetObject("FilterButton", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap FilterSettingButton {
-            get {
-                object obj = ResourceManager.GetObject("FilterSettingButton", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

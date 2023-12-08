@@ -101,6 +101,7 @@
             TableListBoxLayout = new BackPanel( );
             TableListBox = new ListBox( );
             Timer = new System.Windows.Forms.Timer( components );
+            pivotGrid1 = new PivotGrid( );
             HeaderTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
             ToolStripTable.SuspendLayout( );
@@ -112,6 +113,7 @@
             TabControl.SuspendLayout( );
             PivotTab.SuspendLayout( );
             AreaTable.SuspendLayout( );
+            PivotPanel.SuspendLayout( );
             ChartSubTablePanel.SuspendLayout( );
             ChartSubTable.SuspendLayout( );
             MetricsTable.SuspendLayout( );
@@ -838,6 +840,7 @@
             PivotPanel.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
             PivotPanel.BorderThickness = 1;
             PivotPanel.Children = null;
+            PivotPanel.Controls.Add( pivotGrid1 );
             PivotPanel.DataFilter = null;
             PivotPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             PivotPanel.Font = new System.Drawing.Font( "Roboto", 8F );
@@ -1453,6 +1456,22 @@
             Timer.Enabled = true;
             Timer.Interval = 500;
             // 
+            // pivotGrid1
+            // 
+            pivotGrid1.Anchor =  System.Windows.Forms.AnchorStyles.Bottom  |  System.Windows.Forms.AnchorStyles.Right ;
+            pivotGrid1.CanOverrideStyle = true;
+            pivotGrid1.EditManager = null;
+            pivotGrid1.Font = new System.Drawing.Font( "Roboto", 9F );
+            pivotGrid1.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            pivotGrid1.GridVisualStyles = Syncfusion.Windows.Forms.GridVisualStyles.Office2016Black;
+            pivotGrid1.Location = new System.Drawing.Point( 19, 9 );
+            pivotGrid1.Name = "pivotGrid1";
+            pivotGrid1.Size = new System.Drawing.Size( 977, 446 );
+            pivotGrid1.TabIndex = 0;
+            pivotGrid1.Text = "pivotGrid1";
+            pivotGrid1.ThemeName = "Office2016Black";
+            pivotGrid1.UpdateManager = null;
+            // 
             // PivotGridForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
@@ -1500,6 +1519,7 @@
             TabControl.ResumeLayout( false );
             PivotTab.ResumeLayout( false );
             AreaTable.ResumeLayout( false );
+            PivotPanel.ResumeLayout( false );
             ChartSubTablePanel.ResumeLayout( false );
             ChartSubTable.ResumeLayout( false );
             MetricsTable.ResumeLayout( false );
@@ -1583,5 +1603,6 @@
         public ToolStripLabel NavigationSpacer;
         public ToolStripLabel StatusSpacer1;
         public ToolStripLabel Navigation;
+        private PivotGrid pivotGrid1;
     }
 }
