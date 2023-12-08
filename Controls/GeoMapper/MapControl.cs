@@ -1,13 +1,8 @@
 ﻿namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
     using System.Drawing;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using System.Windows.Forms;
-    using DocumentFormat.OpenXml.Drawing.Charts;
     using GMap.NET;
     using GMap.NET.WindowsForms;
     using Size = System.Drawing.Size;

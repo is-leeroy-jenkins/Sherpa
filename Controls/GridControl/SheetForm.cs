@@ -52,32 +52,44 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms.Tools;
     using Timer = System.Windows.Forms.Timer;
 
-    /// <summary> SheetForm Class </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public partial class SheetForm : MetroForm
     {
-        /// <summary> Gets or sets the time. </summary>
-        /// <value> The time. </value>
+        /// <summary>
+        /// Gets or sets the time.
+        /// </summary>
+        /// <value>
+        /// The time.
+        /// </value>
         public int Time { get; set; }
 
-        /// <summary> Gets or sets the seconds. </summary>
-        /// <value> The seconds. </value>
+        /// <summary>
+        /// Gets or sets the seconds.
+        /// </summary>
+        /// <value>
+        /// The seconds.
+        /// </value>
         public int Seconds { get; set; }
 
-        /// <summary> Gets or sets the data table. </summary>
-        /// <value> The data table. </value>
+        /// <summary>
+        /// Gets or sets the data table.
+        /// </summary>
+        /// <value>
+        /// The data table.
+        /// </value>
         public DataTable DataTable { get; set; }
 
-        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SheetForm"/>
-        /// class.
+        /// <see cref="SheetForm"/> class.
         /// </summary>
         public SheetForm( )
         {
@@ -121,13 +133,11 @@ namespace BudgetExecution
             CloseButton.Click += OnCloseButtonClicked;
         }
 
-        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SheetForm"/>
-        /// class.
+        /// <see cref="SheetForm"/> class.
         /// </summary>
-        /// <param name="dataTable"> The data table. </param>
+        /// <param name="dataTable">The data table.</param>
         public SheetForm( DataTable dataTable )
             : this( )
         {
@@ -136,7 +146,9 @@ namespace BudgetExecution
             DataSheet.RowCount = dataTable.Rows.Count;
         }
 
-        /// <summary> Displays the control to the user. </summary>
+        /// <summary>
+        /// Displays the control to the user.
+        /// </summary>
         public new void Show( )
         {
             try
@@ -164,8 +176,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the tool strip properties. </summary>
-        private void InitToolStrip( )
+        /// <summary>
+        /// Initializes the tool strip.
+        /// </summary>
+        private void InitializeToolStrip( )
         {
             try
             {
@@ -187,7 +201,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fades the in. </summary>
+        /// <summary>
+        /// Fades the in.
+        /// </summary>
         private void FadeIn( )
         {
             try
@@ -212,7 +228,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fades the out and close. </summary>
+        /// <summary>
+        /// Fades the out.
+        /// </summary>
         private void FadeOut( )
         {
             try
@@ -238,7 +256,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Notifies this instance. </summary>
+        /// <summary>
+        /// Notifies this instance.
+        /// </summary>
         private void Notify( )
         {
             try
@@ -253,7 +273,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Opens the main form. </summary>
+        /// <summary>
+        /// Opens the main form.
+        /// </summary>
         private void OpenMainForm( )
         {
             try
@@ -276,7 +298,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Populates the headers. </summary>
+        /// <summary>
+        /// Populates the headers.
+        /// </summary>
         private void PopulateHeaders( )
         {
             if( DataTable?.Rows?.Count > 0 )
@@ -296,8 +320,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Populates the cells. </summary>
-        /// <param name="dataTable"> The data table. </param>
+        /// <summary>
+        /// Populates the cells.
+        /// </summary>
         private void PopulateCells( )
         {
             if( DataTable?.Rows?.Count > 0 )
@@ -324,18 +349,17 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [load]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnLoad( object sender, EventArgs e )
         {
             try
             {
-                InitToolStrip( );
+                InitializeToolStrip( );
                 Text = string.Empty;
                 ToolStrip.Visible = true;
                 if( DataTable != null )
@@ -357,13 +381,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [exit button clicked]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [close button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnCloseButtonClicked( object sender, EventArgs e )
         {
             try
@@ -377,13 +400,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [main menu button clicked]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [menu button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnMenuButtonClicked( object sender, EventArgs e )
         {
             try
@@ -398,8 +420,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

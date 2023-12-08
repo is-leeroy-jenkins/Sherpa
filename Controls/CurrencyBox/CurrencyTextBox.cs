@@ -89,7 +89,7 @@ namespace BudgetExecution
         /// <value>
         /// The data filter.
         /// </value>
-        public IDictionary<string, object> DataFilter { get; set; }
+        public IDictionary<string, object> Filter { get; set; }
 
         /// <inheritdoc/>
         /// <summary>
@@ -121,9 +121,9 @@ namespace BudgetExecution
             ShowCalculator = true;
             TextAlign = HorizontalAlignment.Center;
             ButtonStyle = ButtonAppearance.Office2010;
-            CanApplyTheme = false;
-            CanOverrideStyle = true;
-            UseVisualStyle = false;
+            CanApplyTheme = true;
+            CanOverrideStyle = false;
+            UseVisualStyle = true;
             BackColor = Color.FromArgb( 45, 45, 45 );
             MetroColor = Color.FromArgb( 45, 45, 45 );
             CalculatorLayoutType = CalculatorLayoutTypes.Financial;

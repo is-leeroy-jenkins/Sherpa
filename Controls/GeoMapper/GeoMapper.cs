@@ -1,12 +1,12 @@
 ﻿// ******************************************************************************************
 //     Assembly:             BudgetExecution
 //     Author:                  Terry D. Eppler
-//     Created:                 11-28-2023
+//     Created:                 11-29-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        11-28-2023
+//     Last Modified On:        12-8-2023
 // ******************************************************************************************
-// <copyright file="Terry Eppler.cs" company="Terry D. Eppler">
+// <copyright file="teppler.cs" company="Terry D. Eppler">
 //    BudgetExecution is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -47,12 +47,16 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
+    using GMap.NET;
+    using GMap.NET.MapProviders;
     using Syncfusion.Windows.Forms;
+    using Syncfusion.Windows.Forms.Tools;
+    using Action = System.Action;
 
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="System.Windows.Forms.Form" />
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -60,8 +64,19 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public partial class GeoMapper : MetroForm
     {
+        /// <summary>
+        /// The lat
+        /// </summary>
+        private readonly double _lat = 38.887161;
+
+        /// <summary>
+        /// The long
+        /// </summary>
+        private readonly double _long = -77.037331;
+
         /// <summary>
         /// The busy
         /// </summary>
@@ -110,6 +125,9 @@ namespace BudgetExecution
         public GeoMapper( )
         {
             InitializeComponent( );
+            InitializeDelegates( );
+
+            // General Properties
             Size = new Size( 1350, 750 );
             MaximumSize = new Size( 1350, 750 );
             MinimumSize = new Size( 1350, 750 );
@@ -138,13 +156,23 @@ namespace BudgetExecution
             MaximizeBox = false;
             ControlBox = false;
 
+            // Map Properties
+            Map.Size = new Size( 1149, 604 );
+            Map.MinZoom = 2;
+            Map.MaxZoom = 18;
+            Map.Zoom = 8;
+            Map.ShowCenter = true;
+
             // Timer Properties
             Time = 0;
             Seconds = 5;
+
+            // Wire Events
+            Load += OnLoad;
         }
 
         /// <summary>
-        /// Begins the initialize.
+        /// Begins to initialize.
         /// </summary>
         private void BeginInit( )
         {
@@ -152,7 +180,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Ends the initialize.
+        /// Ends the initialized.
         /// </summary>
         private void EndInit( )
         {
@@ -321,7 +349,8 @@ namespace BudgetExecution
         {
             try
             {
-                // CloseButton.Click += OnCloseButtonClick;
+                CloseButton.Click += OnCloseButtonClicked;
+                MenuButton.Click += OnMenuButtonClicked;
             }
             catch( Exception _ex )
             {
@@ -336,6 +365,7 @@ namespace BudgetExecution
         {
             try
             {
+                _statusUpdate += UpdateStatus;
             }
             catch( Exception _ex )
             {
@@ -362,12 +392,34 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes the buttons.
+        /// Initializes the tool strip.
         /// </summary>
-        private void InitializeButtons( )
+        private void InitializeToolStrip( )
         {
             try
             {
+                ToolStrip.Visible = true;
+                ToolStrip.Text = string.Empty;
+                ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
+                ToolStrip.Office12Mode = true;
+                ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Black;
+                ToolStrip.LauncherStyle = LauncherStyle.Office12;
+                ToolStrip.ImageSize = new Size( 16, 16 );
+                ToolStrip.ImageScalingSize = new Size( 16, 16 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        private void InitializeMap( )
+        {
+            try
+            {
+                Map.MapProvider = BingMapProvider.Instance;
+                GMaps.Instance.Mode = AccessMode.ServerAndCache;
+                Map.Position = new PointLatLng( _lat, _long );
             }
             catch( Exception _ex )
             {
@@ -376,12 +428,32 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes the tool strip.
+        /// Opens the main form.
         /// </summary>
-        private void InitializeToolStrip( )
+        private void OpenMainForm( )
         {
             try
             {
+                var _form = (MainForm)Program.Windows[ "MainForm" ];
+                _form.StartPosition = FormStartPosition.CenterScreen;
+                _form.TopMost = true;
+                _form.Visible = true;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Updates the status.
+        /// </summary>
+        private void UpdateStatus( )
+        {
+            try
+            {
+                var _now = DateTime.Now;
+                StatusLabel.Text = $"{_now.ToShortDateString( )} - {_now.ToLongTimeString( )}";
             }
             catch( Exception _ex )
             {
@@ -396,12 +468,55 @@ namespace BudgetExecution
         /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        private protected virtual void OnLoad( object sender, EventArgs e )
+        private void OnLoad( object sender, EventArgs e )
         {
             try
             {
+                InitializeCallbacks( );
+                InitializeMap( );
+                InitializeToolStrip( );
                 InitializeLabels( );
+                InitializeTimers( );
                 FadeIn( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [exit button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnCloseButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                FadeOut( );
+                Close( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [main menu button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnMenuButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                FadeOut( );
+                OpenMainForm( );
+                Close( );
             }
             catch( Exception _ex )
             {

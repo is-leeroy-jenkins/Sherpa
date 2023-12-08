@@ -1,13 +1,13 @@
 ﻿//  ******************************************************************************************
 //      Assembly:                Budget Execution
-//      Filename:                SuperTip.cs
+//      Filename:                SyncTip.cs
 //      Author:                  Terry D. Eppler
 //      Created:                 05-31-2023
 // 
 //      Last Modified By:        Terry D. Eppler
 //      Last Modified On:        06-01-2023
 //  ******************************************************************************************
-//  <copyright file="SuperTip.cs" company="Terry D. Eppler">
+//  <copyright file="SyncTip.cs" company="Terry D. Eppler">
 // 
 //     This is a Federal Budget, Finance, and Accounting application for the
 //     US Environmental Protection Agency (US EPA).
@@ -37,7 +37,7 @@
 // 
 //  </copyright>
 //  <summary>
-//    SuperTip.cs
+//    SyncTip.cs
 //  </summary>
 //  ******************************************************************************************
 
@@ -54,31 +54,47 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class SuperTip : SuperToolTip
+    public class SyncTip : SuperToolTip
     {
-        /// <summary> Gets or sets the tip text. </summary>
-        /// <value> The tip text. </value>
+        /// <summary>
+        /// Gets or sets the tip text.
+        /// </summary>
+        /// <value>
+        /// The tip text.
+        /// </value>
         public TextItem TipText { get; set; }
 
-        /// <summary> Gets or sets the tip item. </summary>
-        /// <value> The tip item. </value>
+        /// <summary>
+        /// Gets or sets the tip item.
+        /// </summary>
+        /// <value>
+        /// The tip item.
+        /// </value>
         public ToolTipInfo.ToolTipItem TipItem { get; set; }
 
-        /// <summary> Gets or sets the binding source. </summary>
-        /// <value> The binding source. </value>
+        /// <summary>
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
         public BindingSource BindingSource { get; set; }
 
-        /// <summary> Gets or sets the tip information. </summary>
-        /// <value> The tip information. </value>
+        /// <summary>
+        /// Gets or sets the tip information.
+        /// </summary>
+        /// <value>
+        /// The tip information.
+        /// </value>
         protected ToolTipInfo TipInfo { get; set; }
 
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SuperTip"/>
+        /// <see cref="T:BudgetExecution.SyncTip"/>
         /// class.
         /// </summary>
-        public SuperTip( )
+        public SyncTip( )
         {
             // Basic Properties
             InitialDelay = 300;
@@ -116,13 +132,13 @@ namespace BudgetExecution
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SuperTip"/>
+        /// <see cref="T:BudgetExecution.SyncTip"/>
         /// class.
         /// </summary>
         /// <param name="control"> The control. </param>
         /// <param name="text"> The text. </param>
         /// <param name="title"> The title. </param>
-        public SuperTip( Control control, string text, string title = "" )
+        public SyncTip( Control control, string text, string title = "" )
             : this( )
         {
         }
@@ -130,25 +146,25 @@ namespace BudgetExecution
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SuperTip"/>
+        /// <see cref="T:BudgetExecution.SyncTip"/>
         /// class.
         /// </summary>
         /// <param name="toolItem"> The tool item. </param>
-        public SuperTip( ToolStripItem toolItem )
+        public SyncTip( ToolStripItem toolItem )
             : this( )
         {
         }
 
-        /// <summary> Sets the header text. </summary>
-        /// <param name="bodyText"> The body text. </param>
-        public void SetHeaderText( string bodyText )
+        /// <summary>
+        /// Sets the header text.
+        /// </summary>
+        /// <param name="headerText">The header text.</param>
+        public void SetHeaderText( string headerText )
         {
             try
             {
-                if( !string.IsNullOrEmpty( bodyText ) )
-                {
-                    TipInfo.Body.Text = bodyText;
-                }
+                ThrowIf.NullOrEmpty( headerText, nameof( headerText ) );
+                TipInfo.Body.Text = headerText; 
             }
             catch( Exception _ex )
             {
@@ -156,16 +172,16 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the body text. </summary>
-        /// <param name="bodyText"> The body text. </param>
+        /// <summary>
+        /// Sets the body text.
+        /// </summary>
+        /// <param name="bodyText">The body text.</param>
         public void SetBodyText( string bodyText )
         {
             try
-            {
-                if( !string.IsNullOrEmpty( bodyText ) )
-                {
-                    TipInfo.Body.Text = bodyText;
-                }
+            { 
+                ThrowIf.NullOrEmpty( bodyText, nameof( bodyText ) );
+                TipInfo.Body.Text = bodyText; 
             }
             catch( Exception _ex )
             {
@@ -173,16 +189,16 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the footer text. </summary>
-        /// <param name="footerText"> The footer text. </param>
-        public virtual void SetFooterText( string footerText )
+        /// <summary>
+        /// Sets the footer text.
+        /// </summary>
+        /// <param name="footerText">The footer text.</param>
+        public void SetFooterText( string footerText )
         {
             try
-            {
-                if( !string.IsNullOrEmpty( footerText ) )
-                {
-                    TipInfo.Body.Text = footerText;
-                }
+            { 
+                ThrowIf.NullOrEmpty( footerText, nameof( footerText ) );
+                TipInfo.Body.Text = footerText; 
             }
             catch( Exception _ex )
             {
@@ -190,9 +206,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
-        private protected void Fail( Exception ex )
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );

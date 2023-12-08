@@ -100,6 +100,10 @@ namespace BudgetExecution
             var textItem62 = new Syncfusion.Windows.Forms.Tools.TextItem( );
             var textItem63 = new Syncfusion.Windows.Forms.Tools.TextItem( );
             var textItem64 = new Syncfusion.Windows.Forms.Tools.TextItem( );
+            var textItem65 = new Syncfusion.Windows.Forms.Tools.TextItem( );
+            var textItem66 = new Syncfusion.Windows.Forms.Tools.TextItem( );
+            var textItem67 = new Syncfusion.Windows.Forms.Tools.TextItem( );
+            var textItem68 = new Syncfusion.Windows.Forms.Tools.TextItem( );
             var resources = new System.ComponentModel.ComponentResourceManager( typeof( MainForm ) );
             LookupTile = new Tile( );
             ToolTip = new SmallTip( );
@@ -133,6 +137,7 @@ namespace BudgetExecution
             ResourcePanel = new BackPanel( );
             Timer = new System.Windows.Forms.Timer( components );
             ContextMenu = new ContextMenu( );
+            MapTile = new Tile( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
             BrowserTable.SuspendLayout( );
             BrowserPanel.SuspendLayout( );
@@ -715,7 +720,7 @@ namespace BudgetExecution
             CalendarTile.Name = "CalendarTile";
             CalendarTile.ShowBanner = true;
             CalendarTile.ShowBannerIcon = true;
-            CalendarTile.Size = new System.Drawing.Size( 225, 80 );
+            CalendarTile.Size = new System.Drawing.Size( 131, 80 );
             CalendarTile.TabIndex = 11;
             textItem52.Font = new System.Drawing.Font( "Roboto", 9.75F );
             textItem52.HubTile = CalendarTile;
@@ -838,13 +843,13 @@ namespace BudgetExecution
             MessageTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             MessageTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             MessageTile.HoverText = null;
-            MessageTile.Location = new System.Drawing.Point( 275, 16 );
+            MessageTile.Location = new System.Drawing.Point( 182, 17 );
             MessageTile.Margin = new System.Windows.Forms.Padding( 1 );
             MessageTile.MinimumSize = new System.Drawing.Size( 100, 50 );
             MessageTile.Name = "MessageTile";
             MessageTile.ShowBanner = true;
             MessageTile.ShowBannerIcon = true;
-            MessageTile.Size = new System.Drawing.Size( 230, 80 );
+            MessageTile.Size = new System.Drawing.Size( 152, 80 );
             MessageTile.TabIndex = 13;
             textItem64.Font = new System.Drawing.Font( "Roboto", 9.75F );
             textItem64.HubTile = MessageTile;
@@ -1038,6 +1043,7 @@ namespace BudgetExecution
             UtilityPanel.BorderColor = System.Drawing.Color.Transparent;
             UtilityPanel.BorderThickness = 1;
             UtilityPanel.Children = null;
+            UtilityPanel.Controls.Add( MapTile );
             UtilityPanel.Controls.Add( MessageTile );
             UtilityPanel.Controls.Add( CalendarTile );
             UtilityPanel.DataFilter = null;
@@ -1170,6 +1176,49 @@ namespace BudgetExecution
             ContextMenu.ThemeStyle.PressedBackColor = System.Drawing.Color.FromArgb( 204, 204, 204 );
             ContextMenu.ThemeStyle.PressedForeColor = System.Drawing.Color.Black;
             // 
+            // MapTile
+            // 
+            MapTile.Anchor = System.Windows.Forms.AnchorStyles.None;
+            MapTile.BackColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
+            textItem65.Font = new System.Drawing.Font( "Roboto", 8F );
+            textItem65.HubTile = MapTile;
+            textItem65.TextColor = System.Drawing.Color.DarkGray;
+            MapTile.Banner = textItem65;
+            MapTile.BannerColor = System.Drawing.Color.Transparent;
+            MapTile.BannerHeight = 30;
+            MapTile.BannerIcon = Resources.Images.MapTile;
+            MapTile.BindingSource = null;
+            textItem66.Font = new System.Drawing.Font( "Roboto", 10F );
+            textItem66.HubTile = MapTile;
+            textItem66.TextColor = System.Drawing.Color.DarkGray;
+            MapTile.Body = textItem66;
+            MapTile.EnableSelectionMarker = false;
+            MapTile.Filter = null;
+            MapTile.Font = new System.Drawing.Font( "Roboto", 9F );
+            textItem67.Font = new System.Drawing.Font( "Roboto", 9F );
+            textItem67.HubTile = MapTile;
+            textItem67.TextColor = System.Drawing.Color.DarkGray;
+            MapTile.Footer = textItem67;
+            MapTile.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            MapTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
+            MapTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
+            MapTile.HoverText = null;
+            MapTile.Location = new System.Drawing.Point( 353, 16 );
+            MapTile.Margin = new System.Windows.Forms.Padding( 1 );
+            MapTile.MinimumSize = new System.Drawing.Size( 100, 50 );
+            MapTile.Name = "MapTile";
+            MapTile.ShowBanner = true;
+            MapTile.ShowBannerIcon = true;
+            MapTile.Size = new System.Drawing.Size( 152, 80 );
+            MapTile.TabIndex = 14;
+            textItem68.Font = new System.Drawing.Font( "Roboto", 9.75F );
+            textItem68.HubTile = MapTile;
+            textItem68.Text = "Map";
+            textItem68.TextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            MapTile.Title = textItem68;
+            MapTile.ToolTip = ToolTip;
+            MapTile.TurnLiveTileOn = true;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
@@ -1253,5 +1302,6 @@ namespace BudgetExecution
         public BackPanel ResourcePanel;
         public System.Windows.Forms.Timer Timer;
         public ContextMenu ContextMenu;
+        public Tile MapTile;
     }
 }

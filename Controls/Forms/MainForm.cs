@@ -167,6 +167,7 @@ namespace BudgetExecution
                 SqlServerTile.Click += OnSqlServerTileClick;
                 TestButton.Click += OnPivotTileClick;
                 AccessTile.Click += OnAccessTileClick;
+                MapTile.Click += OnMapTileClick;
             }
             catch( Exception _ex )
             {
@@ -569,6 +570,22 @@ namespace BudgetExecution
                 _sqlEditor.StartPosition = FormStartPosition.CenterScreen;
                 _sqlEditor.Owner = this;
                 _sqlEditor.Show( );
+                Hide( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        private void OpenGeoMapper( )
+        {
+            try
+            {
+                var _geoMapper = new GeoMapper( );
+                _geoMapper.StartPosition = FormStartPosition.CenterScreen;
+                _geoMapper.Owner = this;
+                _geoMapper.Show( );
                 Hide( );
             }
             catch( Exception _ex )
@@ -1083,13 +1100,23 @@ namespace BudgetExecution
             try
             {
                 FadeOut( );
-                Close( );
                 Application.Exit( );
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
             }
+        }
+
+        /// <summary>
+        /// Called when [map tile click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnMapTileClick( object sender, EventArgs e )
+        {
+            OpenGeoMapper( );
         }
 
         /// <summary>

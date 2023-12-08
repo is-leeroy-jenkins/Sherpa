@@ -11,6 +11,9 @@
     <VerifyUploadedFiles>false</VerifyUploadedFiles>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Update="Controls\CircularGuage\CircularGuage.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Update="Controls\Panel\ColorPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -299,7 +302,7 @@
     <Compile Update="Controls\ToolTips\SmallTip.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="Controls\ToolTips\SuperTip.cs">
+    <Compile Update="Controls\ToolTips\SyncTip.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Data\Adapter\AdapterBase.cs">
@@ -312,6 +315,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Controls\PivotGrid\PivotGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\TreeView\TreeView.cs">
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>

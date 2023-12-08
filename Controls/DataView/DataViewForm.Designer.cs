@@ -39,7 +39,6 @@
             EditSqlButton = new ToolStripButton( );
             EditColumnButton = new ToolStripButton( );
             FirstButton = new ToolStripButton( );
-            StatusLabel = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt( );
             TextBoxSeparator = new ToolSeparator( );
             FirstSeparator = new ToolSeparator( );
             PreviousButton = new ToolStripButton( );
@@ -56,7 +55,6 @@
             GroupSeparator = new ToolSeparator( );
             ColumnSeparator = new ToolSeparator( );
             EditSqlSeparator = new ToolSeparator( );
-            ToolStripTextBox = new ToolStripTextBox( );
             ChartSeparator = new ToolSeparator( );
             ExcelImportButton = new ToolStripButton( );
             ExcelImportSeparator = new ToolSeparator( );
@@ -82,14 +80,20 @@
             GridTabControl = new TabControl( );
             Ready = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             DataGridPanel = new BackPanel( );
+            DataGrid = new DataView( );
             Busy = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             Loader = new System.Windows.Forms.PictureBox( );
             SelectionTabControl = new TabControl( );
             TableTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             SourceTable = new HeaderPanel( );
-            TableComboBox = new ComboBox( );
+            ProviderTable = new System.Windows.Forms.TableLayoutPanel( );
+            SQLiteRadioButton = new RadioButton( );
+            SqlServerRadioButton = new RadioButton( );
+            AccessRadioButton = new RadioButton( );
+            SqlCeRadioButton = new RadioButton( );
             TablePanel = new BackPanel( );
             TableListBox = new ListBox( );
+            TableComboBox = new ComboBox( );
             FilterTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             FilterTable = new System.Windows.Forms.TableLayoutPanel( );
             SecondTable = new HeaderPanel( );
@@ -119,12 +123,17 @@
             FirstCalendarTable = new HeaderPanel( );
             FirstCalendarPanel = new BackPanel( );
             FirstCalendar = new Syncfusion.WinForms.Input.SfCalendar( );
-            ProviderTable = new System.Windows.Forms.TableLayoutPanel( );
-            SQLiteRadioButton = new RadioButton( );
-            SqlServerRadioButton = new RadioButton( );
-            AccessRadioButton = new RadioButton( );
-            SqlCeRadioButton = new RadioButton( );
-            DataGrid = new DataView( );
+            ContextMenu = new ContextMenu( );
+            StatusLabel = new ToolStripLabel( );
+            NavigationLabel = new ToolStripLabel( );
+            NavigationSeparator = new ToolSeparator( );
+            LastButton = new ToolStripButton( );
+            DataLabel = new ToolStripLabel( );
+            DataSeparator = new ToolSeparator( );
+            DataSpacer = new ToolStripLabel( );
+            FileSysLabel = new ToolStripLabel( );
+            FileSysSpacer = new ToolStripLabel( );
+            ApplicationLabel = new ToolStripLabel( );
             HeaderTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
             ToolStripTable.SuspendLayout( );
@@ -136,12 +145,14 @@
             GridTabControl.SuspendLayout( );
             Ready.SuspendLayout( );
             DataGridPanel.SuspendLayout( );
+            ( (System.ComponentModel.ISupportInitialize)DataGrid ).BeginInit( );
             Busy.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)Loader ).BeginInit( );
             ( (System.ComponentModel.ISupportInitialize)SelectionTabControl ).BeginInit( );
             SelectionTabControl.SuspendLayout( );
             TableTabPage.SuspendLayout( );
             SourceTable.SuspendLayout( );
+            ProviderTable.SuspendLayout( );
             TablePanel.SuspendLayout( );
             FilterTabPage.SuspendLayout( );
             FilterTable.SuspendLayout( );
@@ -162,8 +173,6 @@
             SecondCalendarPanel.SuspendLayout( );
             FirstCalendarTable.SuspendLayout( );
             FirstCalendarPanel.SuspendLayout( );
-            ProviderTable.SuspendLayout( );
-            ( (System.ComponentModel.ISupportInitialize)DataGrid ).BeginInit( );
             SuspendLayout( );
             // 
             // HeaderTable
@@ -187,7 +196,7 @@
             Title.DataFilter = null;
             Title.Dock = System.Windows.Forms.DockStyle.Fill;
             Title.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            Title.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            Title.Font = new System.Drawing.Font( "Roboto", 9.75F );
             Title.HoverText = null;
             Title.IsDerivedStyle = true;
             Title.Location = new System.Drawing.Point( 41, 3 );
@@ -209,7 +218,7 @@
             PictureBox.Image = Resources.Images.Application;
             PictureBox.Location = new System.Drawing.Point( 3, 3 );
             PictureBox.Name = "PictureBox";
-            PictureBox.Size = new System.Drawing.Size( 32, 22 );
+            PictureBox.Size = new System.Drawing.Size( 22, 20 );
             PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             PictureBox.TabIndex = 1;
             PictureBox.TabStop = false;
@@ -238,7 +247,7 @@
             ToolStrip.CalculatorButton = null;
             ToolStrip.CanOverrideStyle = true;
             ToolStrip.CaptionAlignment = Syncfusion.Windows.Forms.Tools.CaptionAlignment.Near;
-            ToolStrip.CaptionFont = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            ToolStrip.CaptionFont = new System.Drawing.Font( "Roboto", 8.25F );
             ToolStrip.CaptionStyle = Syncfusion.Windows.Forms.Tools.CaptionStyle.Top;
             ToolStrip.CaptionTextStyle = Syncfusion.Windows.Forms.Tools.CaptionTextStyle.Plain;
             ToolStrip.ChartButton = null;
@@ -256,14 +265,14 @@
             ToolStrip.ExcelButton = null;
             ToolStrip.FilterDataButton = null;
             ToolStrip.FirstButton = FirstButton;
-            ToolStrip.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            ToolStrip.Font = new System.Drawing.Font( "Roboto", 9F );
             ToolStrip.ForeColor = System.Drawing.Color.MidnightBlue;
             ToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             ToolStrip.HomeButton = null;
             ToolStrip.Image = null;
             ToolStrip.ImageDirectory = null;
             ToolStrip.ImageSize = new System.Drawing.Size( 16, 16 );
-            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { StatusLabel, TextBoxSeparator, FirstButton, FirstSeparator, PreviousButton, PreviousSeparator, NextButton, NextSeparator, RemoveFiltersButton, EditRecordSeparator, RefreshDataButton, EditColumnSeparator, GroupButton, RefreshDataSeparator, CommandLabelSeparator, EditRecordButton, GroupSeparator, EditColumnButton, ColumnSeparator, EditSqlButton, EditSqlSeparator, ToolStripTextBox, ChartSeparator, ExcelImportButton, ExcelImportSeparator, CalendarButton, GuidanceSeparator, BrowseButton, BrowseSeparator, WebButton, ExitButton, BackSeparator, MenuButton, MenuSeparator, ExitSeparator } );
+            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { NavigationSeparator, StatusLabel, NavigationLabel, TextBoxSeparator, FirstButton, FirstSeparator, PreviousButton, PreviousSeparator, NextButton, NextSeparator, LastButton, CommandLabelSeparator, DataSpacer, DataLabel, DataSeparator, RemoveFiltersButton, EditRecordSeparator, RefreshDataButton, EditColumnSeparator, GroupButton, RefreshDataSeparator, EditRecordButton, GroupSeparator, EditColumnButton, ColumnSeparator, EditSqlButton, EditSqlSeparator, FileSysSpacer, FileSysLabel, ChartSeparator, ExcelImportButton, ExcelImportSeparator, CalendarButton, GuidanceSeparator, BrowseButton, BrowseSeparator, WebButton, ExitButton, BackSeparator, MenuButton, MenuSeparator, ExitSeparator, ApplicationLabel } );
             ToolStrip.LastButton = null;
             ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
             ToolStrip.Location = new System.Drawing.Point( 1, 1 );
@@ -300,10 +309,10 @@
             EditRecordButton.AutoToolTip = false;
             EditRecordButton.BackColor = System.Drawing.Color.Transparent;
             EditRecordButton.BindingSource = null;
-            EditRecordButton.Filter = null;
             EditRecordButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             EditRecordButton.Field = Field.AccountCode;
-            EditRecordButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            EditRecordButton.Filter = null;
+            EditRecordButton.Font = new System.Drawing.Font( "Roboto", 9F );
             EditRecordButton.ForeColor = System.Drawing.Color.LightGray;
             EditRecordButton.HoverText = "Edit Current Record";
             EditRecordButton.Image = Resources.Images.EditRecordButton;
@@ -321,10 +330,10 @@
             EditSqlButton.AutoToolTip = false;
             EditSqlButton.BackColor = System.Drawing.Color.Transparent;
             EditSqlButton.BindingSource = null;
-            EditSqlButton.Filter = null;
             EditSqlButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             EditSqlButton.Field = Field.AccountCode;
-            EditSqlButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            EditSqlButton.Filter = null;
+            EditSqlButton.Font = new System.Drawing.Font( "Roboto", 9F );
             EditSqlButton.ForeColor = System.Drawing.Color.LightGray;
             EditSqlButton.HoverText = "Open SQL Editor";
             EditSqlButton.Image = Resources.Images.EditSqlButton;
@@ -342,10 +351,10 @@
             EditColumnButton.AutoToolTip = false;
             EditColumnButton.BackColor = System.Drawing.Color.Transparent;
             EditColumnButton.BindingSource = null;
-            EditColumnButton.Filter = null;
             EditColumnButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             EditColumnButton.Field = Field.AccountCode;
-            EditColumnButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            EditColumnButton.Filter = null;
+            EditColumnButton.Font = new System.Drawing.Font( "Roboto", 9F );
             EditColumnButton.ForeColor = System.Drawing.Color.LightGray;
             EditColumnButton.HoverText = "Edit Table Schema";
             EditColumnButton.Image = Resources.Images.EditColumnButtnon;
@@ -363,10 +372,10 @@
             FirstButton.AutoToolTip = false;
             FirstButton.BackColor = System.Drawing.Color.Transparent;
             FirstButton.BindingSource = null;
-            FirstButton.Filter = null;
             FirstButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             FirstButton.Field = Field.AccountCode;
-            FirstButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            FirstButton.Filter = null;
+            FirstButton.Font = new System.Drawing.Font( "Roboto", 9F );
             FirstButton.ForeColor = System.Drawing.Color.LightGray;
             FirstButton.HoverText = "First Record";
             FirstButton.Image = Resources.Images.FirstButton;
@@ -377,16 +386,6 @@
             FirstButton.Size = new System.Drawing.Size( 23, 25 );
             FirstButton.ToolTip = null;
             FirstButton.ToolType = ToolType.FirstButton;
-            // 
-            // StatusLabel
-            // 
-            StatusLabel.BackColor = System.Drawing.Color.Transparent;
-            StatusLabel.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            StatusLabel.ForeColor = System.Drawing.Color.Black;
-            StatusLabel.Margin = new System.Windows.Forms.Padding( 1, 1, 0, 1 );
-            StatusLabel.Name = "StatusLabel";
-            StatusLabel.Size = new System.Drawing.Size( 98, 25 );
-            StatusLabel.Text = "toolStripLabelExt1";
             // 
             // TextBoxSeparator
             // 
@@ -409,13 +408,13 @@
             PreviousButton.AutoToolTip = false;
             PreviousButton.BackColor = System.Drawing.Color.Transparent;
             PreviousButton.BindingSource = null;
-            PreviousButton.Filter = null;
             PreviousButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             PreviousButton.Field = Field.AccountCode;
-            PreviousButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            PreviousButton.Filter = null;
+            PreviousButton.Font = new System.Drawing.Font( "Roboto", 9F );
             PreviousButton.ForeColor = System.Drawing.Color.LightGray;
             PreviousButton.HoverText = "Previous Button";
-            PreviousButton.Image = Resources.Images.PreviousButton;
+            PreviousButton.Image = Resources.Images.WebPreviousButton;
             PreviousButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             PreviousButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             PreviousButton.Name = "PreviousButton";
@@ -438,13 +437,13 @@
             NextButton.AutoToolTip = false;
             NextButton.BackColor = System.Drawing.Color.Transparent;
             NextButton.BindingSource = null;
-            NextButton.Filter = null;
             NextButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             NextButton.Field = Field.AccountCode;
-            NextButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            NextButton.Filter = null;
+            NextButton.Font = new System.Drawing.Font( "Roboto", 9F );
             NextButton.ForeColor = System.Drawing.Color.LightGray;
             NextButton.HoverText = "Next Record";
-            NextButton.Image = Resources.Images.NextButton;
+            NextButton.Image = Resources.Images.WebNextButton;
             NextButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             NextButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             NextButton.Name = "NextButton";
@@ -467,10 +466,10 @@
             RemoveFiltersButton.AutoToolTip = false;
             RemoveFiltersButton.BackColor = System.Drawing.Color.Transparent;
             RemoveFiltersButton.BindingSource = null;
-            RemoveFiltersButton.Filter = null;
             RemoveFiltersButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             RemoveFiltersButton.Field = Field.AccountCode;
-            RemoveFiltersButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            RemoveFiltersButton.Filter = null;
+            RemoveFiltersButton.Font = new System.Drawing.Font( "Roboto", 9F );
             RemoveFiltersButton.ForeColor = System.Drawing.Color.LightGray;
             RemoveFiltersButton.HoverText = "Reset Table Filters";
             RemoveFiltersButton.Image = Resources.Images.FilterButton;
@@ -496,10 +495,10 @@
             RefreshDataButton.AutoToolTip = false;
             RefreshDataButton.BackColor = System.Drawing.Color.Transparent;
             RefreshDataButton.BindingSource = null;
-            RefreshDataButton.Filter = null;
             RefreshDataButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             RefreshDataButton.Field = Field.AccountCode;
-            RefreshDataButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            RefreshDataButton.Filter = null;
+            RefreshDataButton.Font = new System.Drawing.Font( "Roboto", 9F );
             RefreshDataButton.ForeColor = System.Drawing.Color.LightGray;
             RefreshDataButton.HoverText = "Reset Data Source";
             RefreshDataButton.Image = Resources.Images.RefreshDataButton;
@@ -525,10 +524,10 @@
             GroupButton.AutoToolTip = false;
             GroupButton.BackColor = System.Drawing.Color.Transparent;
             GroupButton.BindingSource = null;
-            GroupButton.Filter = null;
             GroupButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             GroupButton.Field = Field.AccountCode;
-            GroupButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            GroupButton.Filter = null;
+            GroupButton.Font = new System.Drawing.Font( "Roboto", 9F );
             GroupButton.ForeColor = System.Drawing.Color.LightGray;
             GroupButton.HoverText = "Aggregate Columns";
             GroupButton.Image = Resources.Images.GroupButton;
@@ -581,22 +580,6 @@
             EditSqlSeparator.Padding = new System.Windows.Forms.Padding( 1 );
             EditSqlSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
-            // ToolStripTextBox
-            // 
-            ToolStripTextBox.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            ToolStripTextBox.BindingSource = null;
-            ToolStripTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            ToolStripTextBox.Field = Field.AccountCode;
-            ToolStripTextBox.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            ToolStripTextBox.ForeColor = System.Drawing.SystemColors.WindowText;
-            ToolStripTextBox.HoverText = "";
-            ToolStripTextBox.Margin = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Name = "ToolStripTextBox";
-            ToolStripTextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Size = new System.Drawing.Size( 116, 25 );
-            ToolStripTextBox.Tag = "";
-            ToolStripTextBox.ToolTip = null;
-            // 
             // ChartSeparator
             // 
             ChartSeparator.ForeColor = System.Drawing.Color.Black;
@@ -610,10 +593,10 @@
             ExcelImportButton.AutoToolTip = false;
             ExcelImportButton.BackColor = System.Drawing.Color.Transparent;
             ExcelImportButton.BindingSource = null;
-            ExcelImportButton.Filter = null;
             ExcelImportButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             ExcelImportButton.Field = Field.AccountCode;
-            ExcelImportButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            ExcelImportButton.Filter = null;
+            ExcelImportButton.Font = new System.Drawing.Font( "Roboto", 9F );
             ExcelImportButton.ForeColor = System.Drawing.Color.LightGray;
             ExcelImportButton.HoverText = "Excel Import";
             ExcelImportButton.Image = Resources.Images.UploadButton;
@@ -640,10 +623,10 @@
             CalendarButton.AutoToolTip = false;
             CalendarButton.BackColor = System.Drawing.Color.Transparent;
             CalendarButton.BindingSource = null;
-            CalendarButton.Filter = null;
             CalendarButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             CalendarButton.Field = Field.AccountCode;
-            CalendarButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            CalendarButton.Filter = null;
+            CalendarButton.Font = new System.Drawing.Font( "Roboto", 9F );
             CalendarButton.ForeColor = System.Drawing.Color.LightGray;
             CalendarButton.HoverText = "Date Picker";
             CalendarButton.Image = Resources.Images.CalendarButton;
@@ -669,10 +652,10 @@
             BrowseButton.AutoToolTip = false;
             BrowseButton.BackColor = System.Drawing.Color.Transparent;
             BrowseButton.BindingSource = null;
-            BrowseButton.Filter = null;
             BrowseButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             BrowseButton.Field = Field.AccountCode;
-            BrowseButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            BrowseButton.Filter = null;
+            BrowseButton.Font = new System.Drawing.Font( "Roboto", 9F );
             BrowseButton.ForeColor = System.Drawing.Color.LightGray;
             BrowseButton.HoverText = "Search File System";
             BrowseButton.Image = Resources.Images.BrowseButton;
@@ -698,10 +681,10 @@
             WebButton.AutoToolTip = false;
             WebButton.BackColor = System.Drawing.Color.Transparent;
             WebButton.BindingSource = null;
-            WebButton.Filter = null;
             WebButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             WebButton.Field = Field.AccountCode;
-            WebButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            WebButton.Filter = null;
+            WebButton.Font = new System.Drawing.Font( "Roboto", 9F );
             WebButton.ForeColor = System.Drawing.Color.LightGray;
             WebButton.HoverText = "Search Web";
             WebButton.Image = Resources.Images.WebSearchButton;
@@ -720,10 +703,10 @@
             ExitButton.AutoToolTip = false;
             ExitButton.BackColor = System.Drawing.Color.Transparent;
             ExitButton.BindingSource = null;
-            ExitButton.Filter = null;
             ExitButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             ExitButton.Field = Field.AccountCode;
-            ExitButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            ExitButton.Filter = null;
+            ExitButton.Font = new System.Drawing.Font( "Roboto", 9F );
             ExitButton.ForeColor = System.Drawing.Color.LightGray;
             ExitButton.HoverText = "Exit Application";
             ExitButton.Image = Resources.Images.ShutdownButton;
@@ -751,10 +734,10 @@
             MenuButton.AutoToolTip = false;
             MenuButton.BackColor = System.Drawing.Color.Transparent;
             MenuButton.BindingSource = null;
-            MenuButton.Filter = null;
             MenuButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             MenuButton.Field = Field.AccountCode;
-            MenuButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            MenuButton.Filter = null;
+            MenuButton.Font = new System.Drawing.Font( "Roboto", 9F );
             MenuButton.ForeColor = System.Drawing.Color.LightGray;
             MenuButton.HoverText = "Main Menu";
             MenuButton.Image = Resources.Images.HomeButton;
@@ -818,7 +801,7 @@
             GridHeaderPanel.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
             GridHeaderPanel.Controls.Add( DataLabelTable, 0, 0 );
             GridHeaderPanel.Controls.Add( GridTabControl, 0, 1 );
-            GridHeaderPanel.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            GridHeaderPanel.Font = new System.Drawing.Font( "Roboto", 9F );
             GridHeaderPanel.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             GridHeaderPanel.Location = new System.Drawing.Point( 3, 40 );
             GridHeaderPanel.Name = "GridHeaderPanel";
@@ -854,7 +837,7 @@
             SecondGridLabel.DataFilter = null;
             SecondGridLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             SecondGridLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            SecondGridLabel.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            SecondGridLabel.Font = new System.Drawing.Font( "Roboto", 8.25F );
             SecondGridLabel.HoverText = null;
             SecondGridLabel.IsDerivedStyle = true;
             SecondGridLabel.Location = new System.Drawing.Point( 179, 3 );
@@ -877,7 +860,7 @@
             FourthGridLabel.DataFilter = null;
             FourthGridLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             FourthGridLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            FourthGridLabel.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            FourthGridLabel.Font = new System.Drawing.Font( "Roboto", 8.25F );
             FourthGridLabel.HoverText = null;
             FourthGridLabel.IsDerivedStyle = true;
             FourthGridLabel.Location = new System.Drawing.Point( 455, 3 );
@@ -900,7 +883,7 @@
             FirstGridLabel.DataFilter = null;
             FirstGridLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             FirstGridLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            FirstGridLabel.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            FirstGridLabel.Font = new System.Drawing.Font( "Roboto", 8.25F );
             FirstGridLabel.HoverText = null;
             FirstGridLabel.IsDerivedStyle = true;
             FirstGridLabel.Location = new System.Drawing.Point( 3, 3 );
@@ -923,7 +906,7 @@
             ThirdGridLabel.DataFilter = null;
             ThirdGridLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             ThirdGridLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            ThirdGridLabel.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            ThirdGridLabel.Font = new System.Drawing.Font( "Roboto", 8.25F );
             ThirdGridLabel.HoverText = null;
             ThirdGridLabel.IsDerivedStyle = true;
             ThirdGridLabel.Location = new System.Drawing.Point( 329, 3 );
@@ -943,7 +926,7 @@
             // GridTabControl
             // 
             GridTabControl.ActiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            GridTabControl.ActiveTabFont = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            GridTabControl.ActiveTabFont = new System.Drawing.Font( "Roboto", 8F );
             GridTabControl.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             GridTabControl.BeforeTouchSize = new System.Drawing.Size( 1013, 554 );
             GridTabControl.BindingSource = null;
@@ -954,7 +937,7 @@
             GridTabControl.Controls.Add( Busy );
             GridTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             GridTabControl.FocusOnTabClick = false;
-            GridTabControl.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            GridTabControl.Font = new System.Drawing.Font( "Roboto", 9F );
             GridTabControl.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             GridTabControl.InactiveCloseButtonForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             GridTabControl.InactiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
@@ -971,7 +954,7 @@
             GridTabControl.ThemeStyle.BorderFillColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             GridTabControl.ThemeStyle.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             GridTabControl.ThemeStyle.TabStyle.ActiveBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            GridTabControl.ThemeStyle.TabStyle.ActiveFont = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            GridTabControl.ThemeStyle.TabStyle.ActiveFont = new System.Drawing.Font( "Roboto", 8F );
             GridTabControl.ThemeStyle.TabStyle.ActiveForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             GridTabControl.ThemeStyle.TabStyle.SeparatorColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             GridTabControl.ToolTip = null;
@@ -1001,7 +984,7 @@
             DataGridPanel.Controls.Add( DataGrid );
             DataGridPanel.DataFilter = null;
             DataGridPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            DataGridPanel.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            DataGridPanel.Font = new System.Drawing.Font( "Roboto", 8F );
             DataGridPanel.ForeColor = System.Drawing.Color.Transparent;
             DataGridPanel.HoverText = null;
             DataGridPanel.IsDerivedStyle = true;
@@ -1015,6 +998,44 @@
             DataGridPanel.ThemeAuthor = "Terry D. Eppler";
             DataGridPanel.ThemeName = "Budget Execution";
             DataGridPanel.ToolTip = null;
+            // 
+            // DataGrid
+            // 
+            DataGrid.AccessibleName = "Table";
+            DataGrid.AllowDeleting = true;
+            DataGrid.AllowDraggingColumns = true;
+            DataGrid.AllowFiltering = true;
+            DataGrid.AllowResizingColumns = true;
+            DataGrid.AllowSelectionOnMouseDown = true;
+            DataGrid.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            DataGrid.DataTable = null;
+            DataGrid.Filter = null;
+            DataGrid.Font = new System.Drawing.Font( "Roboto", 9F );
+            DataGrid.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            DataGrid.Location = new System.Drawing.Point( 35, 27 );
+            DataGrid.Name = "DataGrid";
+            DataGrid.NavigationMode = Syncfusion.WinForms.DataGrid.Enums.NavigationMode.Row;
+            DataGrid.Size = new System.Drawing.Size( 942, 501 );
+            DataGrid.Style.Border3DStyle = System.Windows.Forms.Border3DStyle.Flat;
+            DataGrid.Style.BorderColor = System.Drawing.Color.FromArgb( 100, 100, 100 );
+            DataGrid.Style.CellStyle.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            DataGrid.Style.CellStyle.TextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            DataGrid.Style.CheckBoxStyle.CheckedBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            DataGrid.Style.CheckBoxStyle.CheckedBorderColor = System.Drawing.Color.Lime;
+            DataGrid.Style.CheckBoxStyle.IndeterminateBorderColor = System.Drawing.Color.FromArgb( 0, 120, 215 );
+            DataGrid.Style.CheckBoxStyle.UncheckedBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            DataGrid.Style.CurrentCellStyle.BackColor = System.Drawing.Color.FromArgb( 100, 100, 100 );
+            DataGrid.Style.CurrentCellStyle.TextColor = System.Drawing.Color.White;
+            DataGrid.Style.HeaderStyle.BackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            DataGrid.Style.HeaderStyle.FilterIconColor = System.Drawing.Color.FromArgb( 29, 29, 29 );
+            DataGrid.Style.HeaderStyle.HoverBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            DataGrid.Style.HeaderStyle.HoverTextColor = System.Drawing.Color.White;
+            DataGrid.Style.HeaderStyle.TextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            DataGrid.Style.HyperlinkStyle.DefaultLinkColor = System.Drawing.Color.FromArgb( 0, 120, 215 );
+            DataGrid.Style.SelectionStyle.TextColor = System.Drawing.Color.White;
+            DataGrid.SummaryCalculationUnit = Syncfusion.Data.SummaryCalculationUnit.SelectedRows;
+            DataGrid.TabIndex = 0;
+            DataGrid.Text = "dataView1";
             // 
             // Busy
             // 
@@ -1044,7 +1065,7 @@
             // SelectionTabControl
             // 
             SelectionTabControl.ActiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            SelectionTabControl.ActiveTabFont = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            SelectionTabControl.ActiveTabFont = new System.Drawing.Font( "Roboto", 8F );
             SelectionTabControl.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             SelectionTabControl.BeforeTouchSize = new System.Drawing.Size( 312, 632 );
             SelectionTabControl.BindingSource = null;
@@ -1058,7 +1079,7 @@
             SelectionTabControl.Controls.Add( CalendarTabPage );
             SelectionTabControl.FixedSingleBorderColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             SelectionTabControl.FocusOnTabClick = false;
-            SelectionTabControl.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            SelectionTabControl.Font = new System.Drawing.Font( "Roboto", 9F );
             SelectionTabControl.ForeColor = System.Drawing.Color.LightGray;
             SelectionTabControl.InactiveCloseButtonForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             SelectionTabControl.InactiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
@@ -1076,7 +1097,7 @@
             SelectionTabControl.ThemeStyle.PrimitiveButtonStyle.DisabledNextPageImage = null;
             SelectionTabControl.ThemeStyle.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             SelectionTabControl.ThemeStyle.TabStyle.ActiveBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            SelectionTabControl.ThemeStyle.TabStyle.ActiveFont = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            SelectionTabControl.ThemeStyle.TabStyle.ActiveFont = new System.Drawing.Font( "Roboto", 8F );
             SelectionTabControl.ThemeStyle.TabStyle.ActiveForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             SelectionTabControl.ThemeStyle.TabStyle.SeparatorColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             SelectionTabControl.ToolTip = ToolTip;
@@ -1103,7 +1124,7 @@
             SourceTable.Controls.Add( ProviderTable, 0, 1 );
             SourceTable.Controls.Add( TablePanel, 0, 3 );
             SourceTable.Controls.Add( TableComboBox, 0, 2 );
-            SourceTable.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            SourceTable.Font = new System.Drawing.Font( "Roboto", 9F );
             SourceTable.ForeColor = System.Drawing.Color.DarkGray;
             SourceTable.Location = new System.Drawing.Point( 26, 0 );
             SourceTable.Name = "SourceTable";
@@ -1115,39 +1136,123 @@
             SourceTable.Size = new System.Drawing.Size( 283, 608 );
             SourceTable.TabIndex = 54;
             // 
-            // TableComboBox
+            // ProviderTable
             // 
-            TableComboBox.AllowDrop = true;
-            TableComboBox.ArrowColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            TableComboBox.BackColor = System.Drawing.Color.Transparent;
-            TableComboBox.BackgroundColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
-            TableComboBox.BindingSource = null;
-            TableComboBox.BorderColor = System.Drawing.Color.FromArgb( 75, 75, 75 );
-            TableComboBox.CausesValidation = false;
-            TableComboBox.DataFilter = null;
-            TableComboBox.DisabledBackColor = System.Drawing.Color.Transparent;
-            TableComboBox.DisabledBorderColor = System.Drawing.Color.Transparent;
-            TableComboBox.DisabledForeColor = System.Drawing.Color.Transparent;
-            TableComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            TableComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            TableComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            TableComboBox.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            TableComboBox.FormattingEnabled = true;
-            TableComboBox.HoverText = null;
-            TableComboBox.IsDerivedStyle = true;
-            TableComboBox.ItemHeight = 24;
-            TableComboBox.Items.AddRange( new object[ ] { "Execution", "Reference", "Maintenance" } );
-            TableComboBox.Location = new System.Drawing.Point( 3, 63 );
-            TableComboBox.Name = "TableComboBox";
-            TableComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            TableComboBox.SelectedItemForeColor = System.Drawing.Color.White;
-            TableComboBox.Size = new System.Drawing.Size( 277, 30 );
-            TableComboBox.Style = MetroSet_UI.Enums.Style.Custom;
-            TableComboBox.StyleManager = null;
-            TableComboBox.TabIndex = 1;
-            TableComboBox.ThemeAuthor = "Terry D. Eppler";
-            TableComboBox.ThemeName = "Budget Execution";
-            TableComboBox.ToolTip = ToolTip;
+            ProviderTable.ColumnCount = 4;
+            ProviderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 49.25373F ) );
+            ProviderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50.74627F ) );
+            ProviderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 72F ) );
+            ProviderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 77F ) );
+            ProviderTable.Controls.Add( SQLiteRadioButton, 0, 0 );
+            ProviderTable.Controls.Add( SqlServerRadioButton, 2, 0 );
+            ProviderTable.Controls.Add( AccessRadioButton, 1, 0 );
+            ProviderTable.Controls.Add( SqlCeRadioButton, 3, 0 );
+            ProviderTable.Location = new System.Drawing.Point( 3, 21 );
+            ProviderTable.Name = "ProviderTable";
+            ProviderTable.RowCount = 1;
+            ProviderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+            ProviderTable.Size = new System.Drawing.Size( 277, 23 );
+            ProviderTable.TabIndex = 57;
+            // 
+            // SQLiteRadioButton
+            // 
+            SQLiteRadioButton.BackgroundColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
+            SQLiteRadioButton.BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            SQLiteRadioButton.Checked = false;
+            SQLiteRadioButton.CheckSignColor = System.Drawing.Color.LimeGreen;
+            SQLiteRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
+            SQLiteRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 205, 205, 205 );
+            SQLiteRadioButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            SQLiteRadioButton.Font = new System.Drawing.Font( "Roboto", 8F );
+            SQLiteRadioButton.Group = 0;
+            SQLiteRadioButton.HoverText = "SQLite Data Provider";
+            SQLiteRadioButton.IsDerivedStyle = true;
+            SQLiteRadioButton.Location = new System.Drawing.Point( 3, 3 );
+            SQLiteRadioButton.Name = "SQLiteRadioButton";
+            SQLiteRadioButton.Result = null;
+            SQLiteRadioButton.Size = new System.Drawing.Size( 57, 17 );
+            SQLiteRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
+            SQLiteRadioButton.StyleManager = null;
+            SQLiteRadioButton.TabIndex = 50;
+            SQLiteRadioButton.Text = "SQLite";
+            SQLiteRadioButton.ThemeAuthor = "Terry D. Eppler";
+            SQLiteRadioButton.ThemeName = "Budget Execution";
+            SQLiteRadioButton.ToolTip = null;
+            // 
+            // SqlServerRadioButton
+            // 
+            SqlServerRadioButton.BackgroundColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
+            SqlServerRadioButton.BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            SqlServerRadioButton.Checked = false;
+            SqlServerRadioButton.CheckSignColor = System.Drawing.Color.LimeGreen;
+            SqlServerRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
+            SqlServerRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 205, 205, 205 );
+            SqlServerRadioButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            SqlServerRadioButton.Font = new System.Drawing.Font( "Roboto", 8F );
+            SqlServerRadioButton.Group = 0;
+            SqlServerRadioButton.HoverText = "SQL Server Provider";
+            SqlServerRadioButton.IsDerivedStyle = true;
+            SqlServerRadioButton.Location = new System.Drawing.Point( 130, 3 );
+            SqlServerRadioButton.Name = "SqlServerRadioButton";
+            SqlServerRadioButton.Result = null;
+            SqlServerRadioButton.Size = new System.Drawing.Size( 66, 17 );
+            SqlServerRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
+            SqlServerRadioButton.StyleManager = null;
+            SqlServerRadioButton.TabIndex = 48;
+            SqlServerRadioButton.Text = "MS SQL";
+            SqlServerRadioButton.ThemeAuthor = "Terry D. Eppler";
+            SqlServerRadioButton.ThemeName = "Budget Execution";
+            SqlServerRadioButton.ToolTip = null;
+            // 
+            // AccessRadioButton
+            // 
+            AccessRadioButton.BackgroundColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
+            AccessRadioButton.BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            AccessRadioButton.Checked = false;
+            AccessRadioButton.CheckSignColor = System.Drawing.Color.LimeGreen;
+            AccessRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
+            AccessRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 205, 205, 205 );
+            AccessRadioButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            AccessRadioButton.Font = new System.Drawing.Font( "Roboto", 8F );
+            AccessRadioButton.Group = 0;
+            AccessRadioButton.HoverText = "Access Data Provider";
+            AccessRadioButton.IsDerivedStyle = true;
+            AccessRadioButton.Location = new System.Drawing.Point( 66, 3 );
+            AccessRadioButton.Name = "AccessRadioButton";
+            AccessRadioButton.Result = null;
+            AccessRadioButton.Size = new System.Drawing.Size( 58, 17 );
+            AccessRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
+            AccessRadioButton.StyleManager = null;
+            AccessRadioButton.TabIndex = 49;
+            AccessRadioButton.Text = "Access";
+            AccessRadioButton.ThemeAuthor = "Terry D. Eppler";
+            AccessRadioButton.ThemeName = "Budget Execution";
+            AccessRadioButton.ToolTip = null;
+            // 
+            // SqlCeRadioButton
+            // 
+            SqlCeRadioButton.BackgroundColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
+            SqlCeRadioButton.BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            SqlCeRadioButton.Checked = false;
+            SqlCeRadioButton.CheckSignColor = System.Drawing.Color.LimeGreen;
+            SqlCeRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
+            SqlCeRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 205, 205, 205 );
+            SqlCeRadioButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            SqlCeRadioButton.Font = new System.Drawing.Font( "Roboto", 8F );
+            SqlCeRadioButton.Group = 0;
+            SqlCeRadioButton.HoverText = "SQL Compact Provider";
+            SqlCeRadioButton.IsDerivedStyle = true;
+            SqlCeRadioButton.Location = new System.Drawing.Point( 202, 3 );
+            SqlCeRadioButton.Name = "SqlCeRadioButton";
+            SqlCeRadioButton.Result = null;
+            SqlCeRadioButton.Size = new System.Drawing.Size( 72, 17 );
+            SqlCeRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
+            SqlCeRadioButton.StyleManager = null;
+            SqlCeRadioButton.TabIndex = 51;
+            SqlCeRadioButton.Text = "SQL CE";
+            SqlCeRadioButton.ThemeAuthor = "Terry D. Eppler";
+            SqlCeRadioButton.ThemeName = "Budget Execution";
+            SqlCeRadioButton.ToolTip = null;
             // 
             // TablePanel
             // 
@@ -1160,7 +1265,7 @@
             TablePanel.Controls.Add( TableListBox );
             TablePanel.DataFilter = null;
             TablePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            TablePanel.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            TablePanel.Font = new System.Drawing.Font( "Roboto", 8F );
             TablePanel.ForeColor = System.Drawing.Color.Transparent;
             TablePanel.HoverText = null;
             TablePanel.IsDerivedStyle = true;
@@ -1184,7 +1289,7 @@
             TableListBox.DataFilter = null;
             TableListBox.DisabledBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TableListBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            TableListBox.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            TableListBox.Font = new System.Drawing.Font( "Roboto", 8F );
             TableListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             TableListBox.HoveredItemColor = System.Drawing.Color.White;
             TableListBox.HoverText = null;
@@ -1211,6 +1316,40 @@
             TableListBox.ThemeName = "Budget Execution";
             TableListBox.ToolTip = null;
             // 
+            // TableComboBox
+            // 
+            TableComboBox.AllowDrop = true;
+            TableComboBox.ArrowColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            TableComboBox.BackColor = System.Drawing.Color.Transparent;
+            TableComboBox.BackgroundColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
+            TableComboBox.BindingSource = null;
+            TableComboBox.BorderColor = System.Drawing.Color.FromArgb( 75, 75, 75 );
+            TableComboBox.CausesValidation = false;
+            TableComboBox.DataFilter = null;
+            TableComboBox.DisabledBackColor = System.Drawing.Color.Transparent;
+            TableComboBox.DisabledBorderColor = System.Drawing.Color.Transparent;
+            TableComboBox.DisabledForeColor = System.Drawing.Color.Transparent;
+            TableComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            TableComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            TableComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            TableComboBox.Font = new System.Drawing.Font( "Roboto", 8F );
+            TableComboBox.FormattingEnabled = true;
+            TableComboBox.HoverText = null;
+            TableComboBox.IsDerivedStyle = true;
+            TableComboBox.ItemHeight = 24;
+            TableComboBox.Items.AddRange( new object[ ] { "Execution", "Reference", "Maintenance" } );
+            TableComboBox.Location = new System.Drawing.Point( 3, 63 );
+            TableComboBox.Name = "TableComboBox";
+            TableComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            TableComboBox.SelectedItemForeColor = System.Drawing.Color.White;
+            TableComboBox.Size = new System.Drawing.Size( 277, 30 );
+            TableComboBox.Style = MetroSet_UI.Enums.Style.Custom;
+            TableComboBox.StyleManager = null;
+            TableComboBox.TabIndex = 1;
+            TableComboBox.ThemeAuthor = "Terry D. Eppler";
+            TableComboBox.ThemeName = "Budget Execution";
+            TableComboBox.ToolTip = ToolTip;
+            // 
             // FilterTabPage
             // 
             FilterTabPage.Controls.Add( FilterTable );
@@ -1221,7 +1360,7 @@
             FilterTabPage.ShowCloseButton = true;
             FilterTabPage.Size = new System.Drawing.Size( 312, 623 );
             FilterTabPage.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            FilterTabPage.TabFont = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            FilterTabPage.TabFont = new System.Drawing.Font( "Roboto", 8.25F );
             FilterTabPage.TabForeColor = System.Drawing.Color.DarkGray;
             FilterTabPage.TabIndex = 1;
             FilterTabPage.ThemesEnabled = false;
@@ -1253,7 +1392,7 @@
             SecondTable.Controls.Add( SecondListBoxPanel, 0, 1 );
             SecondTable.Controls.Add( SecondComboBox, 0, 0 );
             SecondTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            SecondTable.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            SecondTable.Font = new System.Drawing.Font( "Roboto", 9F );
             SecondTable.ForeColor = System.Drawing.Color.DarkGray;
             SecondTable.Location = new System.Drawing.Point( 3, 403 );
             SecondTable.Name = "SecondTable";
@@ -1274,7 +1413,7 @@
             SecondListBoxPanel.Controls.Add( SecondListBox );
             SecondListBoxPanel.DataFilter = null;
             SecondListBoxPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            SecondListBoxPanel.Font = new System.Drawing.Font( "Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            SecondListBoxPanel.Font = new System.Drawing.Font( "Roboto", 11F );
             SecondListBoxPanel.ForeColor = System.Drawing.Color.Transparent;
             SecondListBoxPanel.HoverText = null;
             SecondListBoxPanel.IsDerivedStyle = true;
@@ -1298,7 +1437,7 @@
             SecondListBox.DataFilter = null;
             SecondListBox.DisabledBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             SecondListBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            SecondListBox.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            SecondListBox.Font = new System.Drawing.Font( "Roboto", 8.25F );
             SecondListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
             SecondListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
             SecondListBox.HoverText = null;
@@ -1342,7 +1481,7 @@
             SecondComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             SecondComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             SecondComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            SecondComboBox.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            SecondComboBox.Font = new System.Drawing.Font( "Roboto", 8F );
             SecondComboBox.FormattingEnabled = true;
             SecondComboBox.HoverText = null;
             SecondComboBox.IsDerivedStyle = true;
@@ -1369,7 +1508,7 @@
             FirstTable.Controls.Add( FirstComboBox, 0, 0 );
             FirstTable.Controls.Add( FirstListBoxPanel, 0, 1 );
             FirstTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            FirstTable.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            FirstTable.Font = new System.Drawing.Font( "Roboto", 9F );
             FirstTable.ForeColor = System.Drawing.Color.DarkGray;
             FirstTable.Location = new System.Drawing.Point( 3, 3 );
             FirstTable.Name = "FirstTable";
@@ -1396,7 +1535,7 @@
             FirstComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             FirstComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             FirstComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            FirstComboBox.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            FirstComboBox.Font = new System.Drawing.Font( "Roboto", 8F );
             FirstComboBox.FormattingEnabled = true;
             FirstComboBox.HoverText = null;
             FirstComboBox.IsDerivedStyle = true;
@@ -1424,7 +1563,7 @@
             FirstListBoxPanel.Controls.Add( FirstListBox );
             FirstListBoxPanel.DataFilter = null;
             FirstListBoxPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            FirstListBoxPanel.Font = new System.Drawing.Font( "Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            FirstListBoxPanel.Font = new System.Drawing.Font( "Roboto", 11F );
             FirstListBoxPanel.ForeColor = System.Drawing.Color.Transparent;
             FirstListBoxPanel.HoverText = null;
             FirstListBoxPanel.IsDerivedStyle = true;
@@ -1448,7 +1587,7 @@
             FirstListBox.DataFilter = null;
             FirstListBox.DisabledBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             FirstListBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            FirstListBox.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            FirstListBox.Font = new System.Drawing.Font( "Roboto", 8.25F );
             FirstListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
             FirstListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
             FirstListBox.HoverText = null;
@@ -1484,7 +1623,7 @@
             ThirdTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             ThirdTable.Controls.Add( ThirdListBoxPanel, 0, 1 );
             ThirdTable.Controls.Add( ThirdComboBox, 0, 0 );
-            ThirdTable.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            ThirdTable.Font = new System.Drawing.Font( "Roboto", 9F );
             ThirdTable.ForeColor = System.Drawing.Color.DarkGray;
             ThirdTable.Location = new System.Drawing.Point( 3, 756 );
             ThirdTable.Name = "ThirdTable";
@@ -1505,7 +1644,7 @@
             ThirdListBoxPanel.Controls.Add( ThirdListBox );
             ThirdListBoxPanel.DataFilter = null;
             ThirdListBoxPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            ThirdListBoxPanel.Font = new System.Drawing.Font( "Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            ThirdListBoxPanel.Font = new System.Drawing.Font( "Roboto", 11F );
             ThirdListBoxPanel.ForeColor = System.Drawing.Color.Transparent;
             ThirdListBoxPanel.HoverText = null;
             ThirdListBoxPanel.IsDerivedStyle = true;
@@ -1529,7 +1668,7 @@
             ThirdListBox.DataFilter = null;
             ThirdListBox.DisabledBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             ThirdListBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            ThirdListBox.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            ThirdListBox.Font = new System.Drawing.Font( "Roboto", 8.25F );
             ThirdListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
             ThirdListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
             ThirdListBox.HoverText = null;
@@ -1573,7 +1712,7 @@
             ThirdComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             ThirdComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             ThirdComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            ThirdComboBox.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            ThirdComboBox.Font = new System.Drawing.Font( "Roboto", 8F );
             ThirdComboBox.FormattingEnabled = true;
             ThirdComboBox.HoverText = null;
             ThirdComboBox.IsDerivedStyle = true;
@@ -1601,7 +1740,7 @@
             GroupTabPage.ShowCloseButton = true;
             GroupTabPage.Size = new System.Drawing.Size( 312, 623 );
             GroupTabPage.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            GroupTabPage.TabFont = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            GroupTabPage.TabFont = new System.Drawing.Font( "Roboto", 8.25F );
             GroupTabPage.TabForeColor = System.Drawing.Color.DarkGray;
             GroupTabPage.TabIndex = 2;
             GroupTabPage.ThemesEnabled = false;
@@ -1614,7 +1753,7 @@
             NumericsTable.ColumnCount = 1;
             NumericsTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             NumericsTable.Controls.Add( NumericPanel, 0, 1 );
-            NumericsTable.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            NumericsTable.Font = new System.Drawing.Font( "Roboto", 9F );
             NumericsTable.ForeColor = System.Drawing.Color.DarkGray;
             NumericsTable.Location = new System.Drawing.Point( 15, 295 );
             NumericsTable.Name = "NumericsTable";
@@ -1635,7 +1774,7 @@
             NumericPanel.Controls.Add( NumericListBox );
             NumericPanel.DataFilter = null;
             NumericPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            NumericPanel.Font = new System.Drawing.Font( "Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            NumericPanel.Font = new System.Drawing.Font( "Roboto", 11F );
             NumericPanel.ForeColor = System.Drawing.Color.Transparent;
             NumericPanel.HoverText = null;
             NumericPanel.IsDerivedStyle = true;
@@ -1659,7 +1798,7 @@
             NumericListBox.DataFilter = null;
             NumericListBox.DisabledBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             NumericListBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            NumericListBox.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            NumericListBox.Font = new System.Drawing.Font( "Roboto", 8F );
             NumericListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
             NumericListBox.HoveredItemColor = System.Drawing.Color.White;
             NumericListBox.HoverText = null;
@@ -1694,7 +1833,7 @@
             FieldsTable.ColumnCount = 1;
             FieldsTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             FieldsTable.Controls.Add( FieldPanel, 0, 1 );
-            FieldsTable.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            FieldsTable.Font = new System.Drawing.Font( "Roboto", 9F );
             FieldsTable.ForeColor = System.Drawing.Color.DarkGray;
             FieldsTable.Location = new System.Drawing.Point( 13, 3 );
             FieldsTable.Name = "FieldsTable";
@@ -1715,7 +1854,7 @@
             FieldPanel.Controls.Add( FieldListBox );
             FieldPanel.DataFilter = null;
             FieldPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            FieldPanel.Font = new System.Drawing.Font( "Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            FieldPanel.Font = new System.Drawing.Font( "Roboto", 11F );
             FieldPanel.ForeColor = System.Drawing.Color.Transparent;
             FieldPanel.HoverText = null;
             FieldPanel.IsDerivedStyle = true;
@@ -1739,7 +1878,7 @@
             FieldListBox.DataFilter = null;
             FieldListBox.DisabledBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             FieldListBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            FieldListBox.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            FieldListBox.Font = new System.Drawing.Font( "Roboto", 8F );
             FieldListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
             FieldListBox.HoveredItemColor = System.Drawing.Color.White;
             FieldListBox.HoverText = null;
@@ -1805,7 +1944,7 @@
             SecondCalendarTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             SecondCalendarTable.Controls.Add( SecondCalendarPanel, 0, 1 );
             SecondCalendarTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            SecondCalendarTable.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            SecondCalendarTable.Font = new System.Drawing.Font( "Roboto", 9F );
             SecondCalendarTable.ForeColor = System.Drawing.Color.DarkGray;
             SecondCalendarTable.Location = new System.Drawing.Point( 3, 571 );
             SecondCalendarTable.Name = "SecondCalendarTable";
@@ -1826,7 +1965,7 @@
             SecondCalendarPanel.Controls.Add( SecondCalendar );
             SecondCalendarPanel.DataFilter = null;
             SecondCalendarPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            SecondCalendarPanel.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            SecondCalendarPanel.Font = new System.Drawing.Font( "Roboto", 8F );
             SecondCalendarPanel.ForeColor = System.Drawing.Color.Transparent;
             SecondCalendarPanel.HoverText = null;
             SecondCalendarPanel.IsDerivedStyle = true;
@@ -1853,26 +1992,26 @@
             SecondCalendar.Size = new System.Drawing.Size( 238, 230 );
             SecondCalendar.Style.BorderColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             SecondCalendar.Style.Cell.BlackoutDatesBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            SecondCalendar.Style.Cell.BlackoutDatesFont = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            SecondCalendar.Style.Cell.BlackoutDatesFont = new System.Drawing.Font( "Roboto", 11.25F );
             SecondCalendar.Style.Cell.BlackoutDatesForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             SecondCalendar.Style.Cell.CellBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            SecondCalendar.Style.Cell.CellFont = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            SecondCalendar.Style.Cell.CellFont = new System.Drawing.Font( "Roboto", 9F );
             SecondCalendar.Style.Cell.CellForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             SecondCalendar.Style.Cell.CellHoverBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             SecondCalendar.Style.Cell.SelectedCellBackColor = System.Drawing.Color.SteelBlue;
             SecondCalendar.Style.Cell.SelectedCellBorderColor = System.Drawing.Color.SteelBlue;
-            SecondCalendar.Style.Cell.SelectedCellFont = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point );
+            SecondCalendar.Style.Cell.SelectedCellFont = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Bold );
             SecondCalendar.Style.Cell.SelectedCellForeColor = System.Drawing.Color.White;
             SecondCalendar.Style.Cell.SelectedCellHoverBorderColor = System.Drawing.Color.SteelBlue;
             SecondCalendar.Style.Cell.TodayBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            SecondCalendar.Style.Cell.TodayFont = new System.Drawing.Font( "Roboto Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point );
+            SecondCalendar.Style.Cell.TodayFont = new System.Drawing.Font( "Roboto Condensed", 11.25F, System.Drawing.FontStyle.Bold );
             SecondCalendar.Style.Cell.TodayForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             SecondCalendar.Style.Cell.TodayHoverBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             SecondCalendar.Style.Cell.TrailingCellBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            SecondCalendar.Style.Cell.TrailingCellFont = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            SecondCalendar.Style.Cell.TrailingCellFont = new System.Drawing.Font( "Roboto", 11.25F );
             SecondCalendar.Style.Cell.TrailingCellForeColor = System.Drawing.Color.SteelBlue;
             SecondCalendar.Style.Cell.WeekNumberBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            SecondCalendar.Style.Cell.WeekNumberFont = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            SecondCalendar.Style.Cell.WeekNumberFont = new System.Drawing.Font( "Roboto", 9F );
             SecondCalendar.Style.Cell.WeekNumberForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             SecondCalendar.Style.Footer.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             SecondCalendar.Style.Footer.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
@@ -1880,9 +2019,9 @@
             SecondCalendar.Style.Footer.HoverForeColor = System.Drawing.Color.White;
             SecondCalendar.Style.Header.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             SecondCalendar.Style.Header.DayNamesBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            SecondCalendar.Style.Header.DayNamesFont = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            SecondCalendar.Style.Header.DayNamesFont = new System.Drawing.Font( "Roboto", 9F );
             SecondCalendar.Style.Header.DayNamesForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            SecondCalendar.Style.Header.Font = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point );
+            SecondCalendar.Style.Header.Font = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Bold );
             SecondCalendar.Style.Header.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             SecondCalendar.Style.Header.HoverForeColor = System.Drawing.Color.White;
             SecondCalendar.Style.Header.NavigationButtonDisabledForeColor = System.Drawing.Color.DimGray;
@@ -1901,7 +2040,7 @@
             FirstCalendarTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             FirstCalendarTable.Controls.Add( FirstCalendarPanel, 0, 1 );
             FirstCalendarTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            FirstCalendarTable.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            FirstCalendarTable.Font = new System.Drawing.Font( "Roboto", 9F );
             FirstCalendarTable.ForeColor = System.Drawing.Color.DarkGray;
             FirstCalendarTable.Location = new System.Drawing.Point( 3, 3 );
             FirstCalendarTable.Name = "FirstCalendarTable";
@@ -1922,7 +2061,7 @@
             FirstCalendarPanel.Controls.Add( FirstCalendar );
             FirstCalendarPanel.DataFilter = null;
             FirstCalendarPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            FirstCalendarPanel.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            FirstCalendarPanel.Font = new System.Drawing.Font( "Roboto", 8F );
             FirstCalendarPanel.ForeColor = System.Drawing.Color.Transparent;
             FirstCalendarPanel.HoverText = null;
             FirstCalendarPanel.IsDerivedStyle = true;
@@ -1949,26 +2088,26 @@
             FirstCalendar.Size = new System.Drawing.Size( 238, 230 );
             FirstCalendar.Style.BorderColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             FirstCalendar.Style.Cell.BlackoutDatesBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            FirstCalendar.Style.Cell.BlackoutDatesFont = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            FirstCalendar.Style.Cell.BlackoutDatesFont = new System.Drawing.Font( "Roboto", 11.25F );
             FirstCalendar.Style.Cell.BlackoutDatesForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             FirstCalendar.Style.Cell.CellBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            FirstCalendar.Style.Cell.CellFont = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            FirstCalendar.Style.Cell.CellFont = new System.Drawing.Font( "Roboto", 9F );
             FirstCalendar.Style.Cell.CellForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             FirstCalendar.Style.Cell.CellHoverBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             FirstCalendar.Style.Cell.SelectedCellBackColor = System.Drawing.Color.SteelBlue;
             FirstCalendar.Style.Cell.SelectedCellBorderColor = System.Drawing.Color.SteelBlue;
-            FirstCalendar.Style.Cell.SelectedCellFont = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point );
+            FirstCalendar.Style.Cell.SelectedCellFont = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Bold );
             FirstCalendar.Style.Cell.SelectedCellForeColor = System.Drawing.Color.White;
             FirstCalendar.Style.Cell.SelectedCellHoverBorderColor = System.Drawing.Color.SteelBlue;
             FirstCalendar.Style.Cell.TodayBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            FirstCalendar.Style.Cell.TodayFont = new System.Drawing.Font( "Roboto Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point );
+            FirstCalendar.Style.Cell.TodayFont = new System.Drawing.Font( "Roboto Condensed", 11.25F, System.Drawing.FontStyle.Bold );
             FirstCalendar.Style.Cell.TodayForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             FirstCalendar.Style.Cell.TodayHoverBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             FirstCalendar.Style.Cell.TrailingCellBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            FirstCalendar.Style.Cell.TrailingCellFont = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            FirstCalendar.Style.Cell.TrailingCellFont = new System.Drawing.Font( "Roboto", 11.25F );
             FirstCalendar.Style.Cell.TrailingCellForeColor = System.Drawing.Color.SteelBlue;
             FirstCalendar.Style.Cell.WeekNumberBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            FirstCalendar.Style.Cell.WeekNumberFont = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            FirstCalendar.Style.Cell.WeekNumberFont = new System.Drawing.Font( "Roboto", 9F );
             FirstCalendar.Style.Cell.WeekNumberForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             FirstCalendar.Style.Footer.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             FirstCalendar.Style.Footer.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
@@ -1976,9 +2115,9 @@
             FirstCalendar.Style.Footer.HoverForeColor = System.Drawing.Color.White;
             FirstCalendar.Style.Header.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             FirstCalendar.Style.Header.DayNamesBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            FirstCalendar.Style.Header.DayNamesFont = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            FirstCalendar.Style.Header.DayNamesFont = new System.Drawing.Font( "Roboto", 9F );
             FirstCalendar.Style.Header.DayNamesForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            FirstCalendar.Style.Header.Font = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point );
+            FirstCalendar.Style.Header.Font = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Bold );
             FirstCalendar.Style.Header.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             FirstCalendar.Style.Header.HoverForeColor = System.Drawing.Color.White;
             FirstCalendar.Style.Header.NavigationButtonDisabledForeColor = System.Drawing.Color.DimGray;
@@ -1988,161 +2127,182 @@
             FirstCalendar.Style.VerticalSplitterColor = System.Drawing.Color.DimGray;
             FirstCalendar.TabIndex = 1;
             // 
-            // ProviderTable
+            // ContextMenu
             // 
-            ProviderTable.ColumnCount = 4;
-            ProviderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 49.25373F ) );
-            ProviderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50.74627F ) );
-            ProviderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 72F ) );
-            ProviderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 77F ) );
-            ProviderTable.Controls.Add( SQLiteRadioButton, 0, 0 );
-            ProviderTable.Controls.Add( SqlServerRadioButton, 2, 0 );
-            ProviderTable.Controls.Add( AccessRadioButton, 1, 0 );
-            ProviderTable.Controls.Add( SqlCeRadioButton, 3, 0 );
-            ProviderTable.Location = new System.Drawing.Point( 3, 21 );
-            ProviderTable.Name = "ProviderTable";
-            ProviderTable.RowCount = 1;
-            ProviderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            ProviderTable.Size = new System.Drawing.Size( 277, 23 );
-            ProviderTable.TabIndex = 57;
+            ContextMenu.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ContextMenu.DropShadowEnabled = false;
+            ContextMenu.Font = new System.Drawing.Font( "Roboto", 9F );
+            ContextMenu.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ContextMenu.MetroColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ContextMenu.Name = "ContextMenu";
+            ContextMenu.Size = new System.Drawing.Size( 126, 180 );
+            ContextMenu.Style = Syncfusion.Windows.Forms.Tools.ContextMenuStripEx.ContextMenuStyle.Office2016Black;
+            ContextMenu.ThemeName = "Office2016Black";
+            ContextMenu.ThemeStyle.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ContextMenu.ThemeStyle.BorderColor = System.Drawing.Color.FromArgb( 77, 77, 77 );
+            ContextMenu.ThemeStyle.DisabledForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ContextMenu.ThemeStyle.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ContextMenu.ThemeStyle.HoverBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            ContextMenu.ThemeStyle.HoverForeColor = System.Drawing.Color.White;
+            ContextMenu.ThemeStyle.PressedBackColor = System.Drawing.Color.FromArgb( 204, 204, 204 );
+            ContextMenu.ThemeStyle.PressedForeColor = System.Drawing.Color.Black;
             // 
-            // SQLiteRadioButton
+            // StatusLabel
             // 
-            SQLiteRadioButton.BackgroundColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
-            SQLiteRadioButton.BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            SQLiteRadioButton.Checked = false;
-            SQLiteRadioButton.CheckSignColor = System.Drawing.Color.LimeGreen;
-            SQLiteRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
-            SQLiteRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 205, 205, 205 );
-            SQLiteRadioButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            SQLiteRadioButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            SQLiteRadioButton.Group = 0;
-            SQLiteRadioButton.HoverText = "SQLite Data Provider";
-            SQLiteRadioButton.IsDerivedStyle = true;
-            SQLiteRadioButton.Location = new System.Drawing.Point( 3, 3 );
-            SQLiteRadioButton.Name = "SQLiteRadioButton";
-            SQLiteRadioButton.Result = null;
-            SQLiteRadioButton.Size = new System.Drawing.Size( 57, 17 );
-            SQLiteRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
-            SQLiteRadioButton.StyleManager = null;
-            SQLiteRadioButton.TabIndex = 50;
-            SQLiteRadioButton.Text = "SQLite";
-            SQLiteRadioButton.ThemeAuthor = "Terry D. Eppler";
-            SQLiteRadioButton.ThemeName = "Budget Execution";
-            SQLiteRadioButton.ToolTip = null;
+            StatusLabel.BackColor = System.Drawing.Color.Transparent;
+            StatusLabel.BindingSource = null;
+            StatusLabel.DataFilter = null;
+            StatusLabel.Field = Field.AccountCode;
+            StatusLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
+            StatusLabel.ForeColor = System.Drawing.Color.Black;
+            StatusLabel.HoverText = null;
+            StatusLabel.Margin = new System.Windows.Forms.Padding( 1 );
+            StatusLabel.Name = "StatusLabel";
+            StatusLabel.Padding = new System.Windows.Forms.Padding( 1 );
+            StatusLabel.Size = new System.Drawing.Size( 65, 25 );
+            StatusLabel.Tag = "";
+            StatusLabel.Text = "Date and Time";
+            StatusLabel.ToolTip = null;
             // 
-            // SqlServerRadioButton
+            // NavigationLabel
             // 
-            SqlServerRadioButton.BackgroundColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
-            SqlServerRadioButton.BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            SqlServerRadioButton.Checked = false;
-            SqlServerRadioButton.CheckSignColor = System.Drawing.Color.LimeGreen;
-            SqlServerRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
-            SqlServerRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 205, 205, 205 );
-            SqlServerRadioButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            SqlServerRadioButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            SqlServerRadioButton.Group = 0;
-            SqlServerRadioButton.HoverText = "SQL Server Provider";
-            SqlServerRadioButton.IsDerivedStyle = true;
-            SqlServerRadioButton.Location = new System.Drawing.Point( 130, 3 );
-            SqlServerRadioButton.Name = "SqlServerRadioButton";
-            SqlServerRadioButton.Result = null;
-            SqlServerRadioButton.Size = new System.Drawing.Size( 66, 17 );
-            SqlServerRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
-            SqlServerRadioButton.StyleManager = null;
-            SqlServerRadioButton.TabIndex = 48;
-            SqlServerRadioButton.Text = "MS SQL";
-            SqlServerRadioButton.ThemeAuthor = "Terry D. Eppler";
-            SqlServerRadioButton.ThemeName = "Budget Execution";
-            SqlServerRadioButton.ToolTip = null;
+            NavigationLabel.BackColor = System.Drawing.Color.Transparent;
+            NavigationLabel.BindingSource = null;
+            NavigationLabel.DataFilter = null;
+            NavigationLabel.Field = Field.AccountCode;
+            NavigationLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
+            NavigationLabel.ForeColor = System.Drawing.Color.Black;
+            NavigationLabel.HoverText = null;
+            NavigationLabel.Margin = new System.Windows.Forms.Padding( 1 );
+            NavigationLabel.Name = "NavigationLabel";
+            NavigationLabel.Padding = new System.Windows.Forms.Padding( 1 );
+            NavigationLabel.Size = new System.Drawing.Size( 89, 25 );
+            NavigationLabel.Tag = "";
+            NavigationLabel.Text = "                   Navigation:";
+            NavigationLabel.ToolTip = null;
             // 
-            // AccessRadioButton
+            // NavigationSeparator
             // 
-            AccessRadioButton.BackgroundColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
-            AccessRadioButton.BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            AccessRadioButton.Checked = false;
-            AccessRadioButton.CheckSignColor = System.Drawing.Color.LimeGreen;
-            AccessRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
-            AccessRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 205, 205, 205 );
-            AccessRadioButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            AccessRadioButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            AccessRadioButton.Group = 0;
-            AccessRadioButton.HoverText = "Access Data Provider";
-            AccessRadioButton.IsDerivedStyle = true;
-            AccessRadioButton.Location = new System.Drawing.Point( 66, 3 );
-            AccessRadioButton.Name = "AccessRadioButton";
-            AccessRadioButton.Result = null;
-            AccessRadioButton.Size = new System.Drawing.Size( 58, 17 );
-            AccessRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
-            AccessRadioButton.StyleManager = null;
-            AccessRadioButton.TabIndex = 49;
-            AccessRadioButton.Text = "Access";
-            AccessRadioButton.ThemeAuthor = "Terry D. Eppler";
-            AccessRadioButton.ThemeName = "Budget Execution";
-            AccessRadioButton.ToolTip = null;
+            NavigationSeparator.ForeColor = System.Drawing.Color.Black;
+            NavigationSeparator.Margin = new System.Windows.Forms.Padding( 5, 1, 3, 1 );
+            NavigationSeparator.Name = "NavigationSeparator";
+            NavigationSeparator.Padding = new System.Windows.Forms.Padding( 1 );
+            NavigationSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
-            // SqlCeRadioButton
+            // LastButton
             // 
-            SqlCeRadioButton.BackgroundColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
-            SqlCeRadioButton.BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            SqlCeRadioButton.Checked = false;
-            SqlCeRadioButton.CheckSignColor = System.Drawing.Color.LimeGreen;
-            SqlCeRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
-            SqlCeRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 205, 205, 205 );
-            SqlCeRadioButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            SqlCeRadioButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            SqlCeRadioButton.Group = 0;
-            SqlCeRadioButton.HoverText = "SQL Compact Provider";
-            SqlCeRadioButton.IsDerivedStyle = true;
-            SqlCeRadioButton.Location = new System.Drawing.Point( 202, 3 );
-            SqlCeRadioButton.Name = "SqlCeRadioButton";
-            SqlCeRadioButton.Result = null;
-            SqlCeRadioButton.Size = new System.Drawing.Size( 72, 17 );
-            SqlCeRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
-            SqlCeRadioButton.StyleManager = null;
-            SqlCeRadioButton.TabIndex = 51;
-            SqlCeRadioButton.Text = "SQL CE";
-            SqlCeRadioButton.ThemeAuthor = "Terry D. Eppler";
-            SqlCeRadioButton.ThemeName = "Budget Execution";
-            SqlCeRadioButton.ToolTip = null;
+            LastButton.AutoToolTip = false;
+            LastButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            LastButton.BindingSource = null;
+            LastButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            LastButton.Field = Field.AccountCode;
+            LastButton.Filter = null;
+            LastButton.Font = new System.Drawing.Font( "Roboto", 9F );
+            LastButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            LastButton.HoverText = null;
+            LastButton.Image = Resources.Images.LastButton;
+            LastButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            LastButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            LastButton.Name = "LastButton";
+            LastButton.Padding = new System.Windows.Forms.Padding( 1 );
+            LastButton.Size = new System.Drawing.Size( 23, 25 );
+            LastButton.Text = "toolStripButton1";
+            LastButton.ToolTip = null;
+            LastButton.ToolType = ToolType.Ns;
             // 
-            // DataGrid
+            // DataLabel
             // 
-            DataGrid.AccessibleName = "Table";
-            DataGrid.AllowDeleting = true;
-            DataGrid.AllowDraggingColumns = true;
-            DataGrid.AllowFiltering = true;
-            DataGrid.AllowResizingColumns = true;
-            DataGrid.AllowSelectionOnMouseDown = true;
-            DataGrid.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            DataGrid.DataTable = null;
-            DataGrid.Filter = null;
-            DataGrid.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            DataGrid.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            DataGrid.Location = new System.Drawing.Point( 35, 27 );
-            DataGrid.Name = "DataGrid";
-            DataGrid.NavigationMode = Syncfusion.WinForms.DataGrid.Enums.NavigationMode.Row;
-            DataGrid.Size = new System.Drawing.Size( 942, 501 );
-            DataGrid.Style.Border3DStyle = System.Windows.Forms.Border3DStyle.Flat;
-            DataGrid.Style.BorderColor = System.Drawing.Color.FromArgb( 100, 100, 100 );
-            DataGrid.Style.CellStyle.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            DataGrid.Style.CellStyle.TextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            DataGrid.Style.CheckBoxStyle.CheckedBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            DataGrid.Style.CheckBoxStyle.CheckedBorderColor = System.Drawing.Color.Lime;
-            DataGrid.Style.CheckBoxStyle.IndeterminateBorderColor = System.Drawing.Color.FromArgb( 0, 120, 215 );
-            DataGrid.Style.CheckBoxStyle.UncheckedBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
-            DataGrid.Style.CurrentCellStyle.BackColor = System.Drawing.Color.FromArgb( 100, 100, 100 );
-            DataGrid.Style.CurrentCellStyle.TextColor = System.Drawing.Color.White;
-            DataGrid.Style.HeaderStyle.BackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
-            DataGrid.Style.HeaderStyle.FilterIconColor = System.Drawing.Color.FromArgb( 29, 29, 29 );
-            DataGrid.Style.HeaderStyle.HoverBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            DataGrid.Style.HeaderStyle.HoverTextColor = System.Drawing.Color.White;
-            DataGrid.Style.HeaderStyle.TextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            DataGrid.Style.HyperlinkStyle.DefaultLinkColor = System.Drawing.Color.FromArgb( 0, 120, 215 );
-            DataGrid.Style.SelectionStyle.TextColor = System.Drawing.Color.White;
-            DataGrid.SummaryCalculationUnit = Syncfusion.Data.SummaryCalculationUnit.SelectedRows;
-            DataGrid.TabIndex = 0;
-            DataGrid.Text = "dataView1";
+            DataLabel.BackColor = System.Drawing.Color.Transparent;
+            DataLabel.BindingSource = null;
+            DataLabel.DataFilter = null;
+            DataLabel.Field = Field.AccountCode;
+            DataLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
+            DataLabel.ForeColor = System.Drawing.Color.Black;
+            DataLabel.HoverText = null;
+            DataLabel.Margin = new System.Windows.Forms.Padding( 1 );
+            DataLabel.Name = "DataLabel";
+            DataLabel.Padding = new System.Windows.Forms.Padding( 1 );
+            DataLabel.Size = new System.Drawing.Size( 64, 25 );
+            DataLabel.Tag = "";
+            DataLabel.Text = "                  Data:";
+            DataLabel.ToolTip = null;
+            // 
+            // DataSeparator
+            // 
+            DataSeparator.ForeColor = System.Drawing.Color.Black;
+            DataSeparator.Margin = new System.Windows.Forms.Padding( 1 );
+            DataSeparator.Name = "DataSeparator";
+            DataSeparator.Padding = new System.Windows.Forms.Padding( 1 );
+            DataSeparator.Size = new System.Drawing.Size( 6, 25 );
+            // 
+            // DataSpacer
+            // 
+            DataSpacer.BackColor = System.Drawing.Color.Transparent;
+            DataSpacer.BindingSource = null;
+            DataSpacer.DataFilter = null;
+            DataSpacer.Field = Field.AccountCode;
+            DataSpacer.Font = new System.Drawing.Font( "Roboto", 8F );
+            DataSpacer.ForeColor = System.Drawing.Color.Transparent;
+            DataSpacer.HoverText = null;
+            DataSpacer.Margin = new System.Windows.Forms.Padding( 1 );
+            DataSpacer.Name = "DataSpacer";
+            DataSpacer.Padding = new System.Windows.Forms.Padding( 1 );
+            DataSpacer.Size = new System.Drawing.Size( 85, 25 );
+            DataSpacer.Tag = "";
+            DataSpacer.Text = "toolStripLabel1";
+            DataSpacer.ToolTip = null;
+            // 
+            // FileSysLabel
+            // 
+            FileSysLabel.BackColor = System.Drawing.Color.Transparent;
+            FileSysLabel.BindingSource = null;
+            FileSysLabel.DataFilter = null;
+            FileSysLabel.Field = Field.AccountCode;
+            FileSysLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
+            FileSysLabel.ForeColor = System.Drawing.Color.Black;
+            FileSysLabel.HoverText = null;
+            FileSysLabel.Margin = new System.Windows.Forms.Padding( 1 );
+            FileSysLabel.Name = "FileSysLabel";
+            FileSysLabel.Padding = new System.Windows.Forms.Padding( 1 );
+            FileSysLabel.Size = new System.Drawing.Size( 73, 25 );
+            FileSysLabel.Tag = "";
+            FileSysLabel.Text = "                 File Sys:";
+            FileSysLabel.ToolTip = null;
+            // 
+            // FileSysSpacer
+            // 
+            FileSysSpacer.BackColor = System.Drawing.Color.Transparent;
+            FileSysSpacer.BindingSource = null;
+            FileSysSpacer.DataFilter = null;
+            FileSysSpacer.Field = Field.AccountCode;
+            FileSysSpacer.Font = new System.Drawing.Font( "Roboto", 8F );
+            FileSysSpacer.ForeColor = System.Drawing.Color.Transparent;
+            FileSysSpacer.HoverText = null;
+            FileSysSpacer.Margin = new System.Windows.Forms.Padding( 1 );
+            FileSysSpacer.Name = "FileSysSpacer";
+            FileSysSpacer.Padding = new System.Windows.Forms.Padding( 1 );
+            FileSysSpacer.Size = new System.Drawing.Size( 85, 25 );
+            FileSysSpacer.Tag = "";
+            FileSysSpacer.Text = "toolStripLabel2";
+            FileSysSpacer.ToolTip = null;
+            // 
+            // ApplicationLabel
+            // 
+            ApplicationLabel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            ApplicationLabel.BackColor = System.Drawing.Color.Transparent;
+            ApplicationLabel.BindingSource = null;
+            ApplicationLabel.DataFilter = null;
+            ApplicationLabel.Field = Field.AccountCode;
+            ApplicationLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
+            ApplicationLabel.ForeColor = System.Drawing.Color.Black;
+            ApplicationLabel.HoverText = null;
+            ApplicationLabel.Margin = new System.Windows.Forms.Padding( 1 );
+            ApplicationLabel.Name = "ApplicationLabel";
+            ApplicationLabel.Padding = new System.Windows.Forms.Padding( 1 );
+            ApplicationLabel.Size = new System.Drawing.Size( 68, 25 );
+            ApplicationLabel.Tag = "";
+            ApplicationLabel.Text = "       Application:";
+            ApplicationLabel.ToolTip = null;
             // 
             // DataViewForm
             // 
@@ -2154,7 +2314,7 @@
             CaptionBarHeight = 5;
             CaptionButtonColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            CaptionFont = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            CaptionFont = new System.Drawing.Font( "Roboto", 9.75F );
             CaptionForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             ClientSize = new System.Drawing.Size( 1338, 739 );
             ControlBox = false;
@@ -2163,7 +2323,7 @@
             Controls.Add( ToolStripTable );
             Controls.Add( HeaderTable );
             DoubleBuffered = true;
-            Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            Font = new System.Drawing.Font( "Roboto", 9F );
             ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
@@ -2191,12 +2351,14 @@
             GridTabControl.ResumeLayout( false );
             Ready.ResumeLayout( false );
             DataGridPanel.ResumeLayout( false );
+            ( (System.ComponentModel.ISupportInitialize)DataGrid ).EndInit( );
             Busy.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize)Loader ).EndInit( );
             ( (System.ComponentModel.ISupportInitialize)SelectionTabControl ).EndInit( );
             SelectionTabControl.ResumeLayout( false );
             TableTabPage.ResumeLayout( false );
             SourceTable.ResumeLayout( false );
+            ProviderTable.ResumeLayout( false );
             TablePanel.ResumeLayout( false );
             FilterTabPage.ResumeLayout( false );
             FilterTable.ResumeLayout( false );
@@ -2217,8 +2379,6 @@
             SecondCalendarPanel.ResumeLayout( false );
             FirstCalendarTable.ResumeLayout( false );
             FirstCalendarPanel.ResumeLayout( false );
-            ProviderTable.ResumeLayout( false );
-            ( (System.ComponentModel.ISupportInitialize)DataGrid ).EndInit( );
             ResumeLayout( false );
         }
 
@@ -2233,7 +2393,6 @@
         public ToolStripButton EditSqlButton;
         public ToolStripButton EditColumnButton;
         public ToolStripButton FirstButton;
-        public Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt StatusLabel;
         public ToolSeparator TextBoxSeparator;
         public ToolSeparator FirstSeparator;
         public ToolStripButton PreviousButton;
@@ -2250,7 +2409,6 @@
         public ToolSeparator GroupSeparator;
         public ToolSeparator ColumnSeparator;
         public ToolSeparator EditSqlSeparator;
-        public ToolStripTextBox ToolStripTextBox;
         public ToolSeparator ChartSeparator;
         public ToolStripButton ExcelImportButton;
         public ToolSeparator ExcelImportSeparator;
@@ -2313,11 +2471,22 @@
         private HeaderPanel FirstCalendarTable;
         public BackPanel FirstCalendarPanel;
         public Syncfusion.WinForms.Input.SfCalendar FirstCalendar;
-        private DataView DataGrid;
         public System.Windows.Forms.TableLayoutPanel ProviderTable;
         public RadioButton SQLiteRadioButton;
         public RadioButton SqlServerRadioButton;
         public RadioButton AccessRadioButton;
         public RadioButton SqlCeRadioButton;
+        public ContextMenu ContextMenu;
+        public ToolSeparator NavigationSeparator;
+        public ToolStripLabel StatusLabel;
+        public ToolStripLabel NavigationLabel;
+        public ToolStripButton LastButton;
+        public ToolStripLabel DataSpacer;
+        public ToolStripLabel DataLabel;
+        public ToolSeparator DataSeparator;
+        public ToolStripLabel FileSysSpacer;
+        public ToolStripLabel FileSysLabel;
+        public ToolStripLabel ApplicationLabel;
+        public DataView DataGrid;
     }
 }

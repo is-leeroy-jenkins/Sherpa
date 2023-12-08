@@ -596,7 +596,6 @@ namespace BudgetExecution
                 RefreshDataButton.Click += null;
                 RemoveFiltersButton.Click += null;
                 GroupButton.Click += null;
-                CalendarButton.Click += null;
                 SelectionTabControl.SelectedIndexChanged += OnActiveTabChanged;
                 TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
                 FirstComboBox.SelectedValueChanged += OnFirstComboBoxItemSelected;
@@ -617,7 +616,6 @@ namespace BudgetExecution
                 RemoveFiltersButton.Click += OnRemoveFilterButtonClicked;
                 RefreshDataButton.Click += OnRefreshDataButtonClicked;
                 GroupButton.Click += OnGroupButtonClicked;
-                CalendarButton.Click += OnCalendarButtonClicked;
                 FirstCalendar.SelectionChanged += OnStartDateSelected;
                 SecondCalendar.SelectionChanged += OnEndDateSelected;
                 EditSqlButton.Click += OnSqlButtonClick;
