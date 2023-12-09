@@ -87,7 +87,7 @@ namespace BudgetExecution
         /// </summary>
         public BudgetWorkbook( )
         {
-            InternalPath = AppSettings[ "Reports" ];
+            InternalPath = AppSettings[ nameof( Reports ) ];
             FileInfo = new FileInfo( InternalPath );
             Application = new ExcelPackage( FileInfo );
             Workbook = Application.Workbook;
@@ -112,7 +112,7 @@ namespace BudgetExecution
         /// <param name="filePath">The file path.</param>
         public BudgetWorkbook( string filePath )
         {
-            InternalPath = AppSettings[ "Reports" ];
+            InternalPath = AppSettings[ nameof( Reports ) ];
             FileInfo = new FileInfo( filePath );
             Application = new ExcelPackage( FileInfo );
             Workbook = Application.Workbook;
@@ -140,7 +140,7 @@ namespace BudgetExecution
         /// </param>
         public BudgetWorkbook( DataTable dataTable )
         {
-            InternalPath = AppSettings[ "Reports" ];
+            InternalPath = AppSettings[ nameof( Reports ) ];
             FileInfo = new FileInfo( InternalPath );
             Application = new ExcelPackage( FileInfo );
             Workbook = Application.Workbook;
@@ -298,7 +298,7 @@ namespace BudgetExecution
                 var _count = Workbook?.Worksheets?.Count;
                 for( var _i = 0; _i < _count; _i++ )
                 {
-                    Workbook.Worksheets[ _i ].Tables[ _i ].StyleName = "DataTable";
+                    Workbook.Worksheets[ _i ].Tables[ _i ].StyleName = nameof( DataTable );
                     Workbook.Worksheets[ _i ].Tables[ _i ].ShowTotal = true;
                     Workbook.Worksheets[ _i ].Tables[ _i ].ShowHeader = true;
                     Workbook.Worksheets[ _i ].Tables[ _i ].HeaderRowBorderStyle.Bottom.Style =

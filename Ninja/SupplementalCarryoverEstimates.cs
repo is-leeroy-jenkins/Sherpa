@@ -70,20 +70,20 @@ namespace BudgetExecution
             Source = Source.SupplementalCarryoverEstimates;
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
-            BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
-            FundCode = Record[ "FundCode" ].ToString( );
-            FundName = Record[ "FundName" ].ToString( );
-            RpioCode = Record[ "RpioCode" ].ToString( );
-            RpioName = Record[ "RpioName" ].ToString( );
-            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
-            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
-            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
-            Available = double.Parse( Record[ "Available" ].ToString( ) ?? "0" );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
+            BFY = Record[ nameof( BFY ) ].ToString( );
+            EFY = Record[ nameof( EFY ) ].ToString( );
+            FundCode = Record[ nameof( FundCode ) ].ToString( );
+            FundName = Record[ nameof( FundName ) ].ToString( );
+            RpioCode = Record[ nameof( RpioCode ) ].ToString( );
+            RpioName = Record[ nameof( RpioName ) ].ToString( );
+            Amount = double.Parse( Record[ nameof( Amount ) ].ToString( ) ?? "0" );
+            OpenCommitments = double.Parse( Record[ nameof( OpenCommitments ) ].ToString( ) ?? "0" );
+            Obligations = double.Parse( Record[ nameof( Obligations ) ].ToString( ) ?? "0" );
+            Available = double.Parse( Record[ nameof( Available ) ].ToString( ) ?? "0" );
+            TreasuryAccountCode = Record[ nameof( TreasuryAccountCode ) ].ToString( );
+            TreasuryAccountName = Record[ nameof( TreasuryAccountName ) ].ToString( );
+            BudgetAccountCode = Record[ nameof( BudgetAccountCode ) ].ToString( );
+            BudgetAccountName = Record[ nameof( BudgetAccountName ) ].ToString( );
         }
 
         /// <summary>
@@ -98,20 +98,20 @@ namespace BudgetExecution
             Source = Source.SupplementalCarryoverEstimates;
             Record = builder.Record;
             Data = Record.ToDictionary( );
-            BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
-            FundCode = Record[ "FundCode" ].ToString( );
-            FundName = Record[ "FundName" ].ToString( );
-            RpioCode = Record[ "RpioCode" ].ToString( );
-            RpioName = Record[ "RpioName" ].ToString( );
-            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
-            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
-            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
-            Available = double.Parse( Record[ "Available" ].ToString( ) ?? "0" );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
+            BFY = Record[ nameof( BFY ) ].ToString( );
+            EFY = Record[ nameof( EFY ) ].ToString( );
+            FundCode = Record[ nameof( FundCode ) ].ToString( );
+            FundName = Record[ nameof( FundName ) ].ToString( );
+            RpioCode = Record[ nameof( RpioCode ) ].ToString( );
+            RpioName = Record[ nameof( RpioName ) ].ToString( );
+            Amount = double.Parse( Record[ nameof( Amount ) ].ToString( ) ?? "0" );
+            OpenCommitments = double.Parse( Record[ nameof( OpenCommitments ) ].ToString( ) ?? "0" );
+            Obligations = double.Parse( Record[ nameof( Obligations ) ].ToString( ) ?? "0" );
+            Available = double.Parse( Record[ nameof( Available ) ].ToString( ) ?? "0" );
+            TreasuryAccountCode = Record[ nameof( TreasuryAccountCode ) ].ToString( );
+            TreasuryAccountName = Record[ nameof( TreasuryAccountName ) ].ToString( );
+            BudgetAccountCode = Record[ nameof( BudgetAccountCode ) ].ToString( );
+            BudgetAccountName = Record[ nameof( BudgetAccountName ) ].ToString( );
         }
 
         /// <summary>
@@ -126,20 +126,20 @@ namespace BudgetExecution
             Source = Source.SupplementalCarryoverEstimates;
             Record = dataRow;
             Data = dataRow.ToDictionary( );
-            BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
-            FundCode = Record[ "FundCode" ].ToString( );
-            FundName = Record[ "FundName" ].ToString( );
-            RpioCode = Record[ "RpioCode" ].ToString( );
-            RpioName = Record[ "RpioName" ].ToString( );
-            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
-            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
-            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
-            Available = double.Parse( Record[ "Available" ].ToString( ) ?? "0" );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
+            BFY = Record[ nameof( BFY ) ].ToString( );
+            EFY = Record[ nameof( EFY ) ].ToString( );
+            FundCode = Record[ nameof( FundCode ) ].ToString( );
+            FundName = Record[ nameof( FundName ) ].ToString( );
+            RpioCode = Record[ nameof( RpioCode ) ].ToString( );
+            RpioName = Record[ nameof( RpioName ) ].ToString( );
+            Amount = double.Parse( Record[ nameof( Amount ) ].ToString( ) ?? "0" );
+            OpenCommitments = double.Parse( Record[ nameof( OpenCommitments ) ].ToString( ) ?? "0" );
+            Obligations = double.Parse( Record[ nameof( Obligations ) ].ToString( ) ?? "0" );
+            Available = double.Parse( Record[ nameof( Available ) ].ToString( ) ?? "0" );
+            TreasuryAccountCode = Record[ nameof( TreasuryAccountCode ) ].ToString( );
+            TreasuryAccountName = Record[ nameof( TreasuryAccountName ) ].ToString( );
+            BudgetAccountCode = Record[ nameof( BudgetAccountCode ) ].ToString( );
+            BudgetAccountName = Record[ nameof( BudgetAccountName ) ].ToString( );
         }
 
         /// <summary> </summary>

@@ -129,7 +129,7 @@ namespace BudgetExecution
                         ToolType.SaveButton => "Save Record",
                         ToolType.RefreshButton => "Reset Filters",
                         ToolType.ExcelButton => "Excel Export",
-                        ToolType.CalculatorButton => "Calculator",
+                        ToolType.CalculatorButton => nameof( Calculator ),
                         ToolType.ChartButton => "Visualizations",
                         ToolType.HomeButton => "Main Menu",
                         _ => string.Empty

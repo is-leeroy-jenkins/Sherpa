@@ -78,42 +78,42 @@ namespace BudgetExecution
             Source = Source.StatusOfSupplementalFunds;
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
-            BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
-            FundCode = Record[ "FundCode" ].ToString( );
-            FundName = Record[ "FundName" ].ToString( );
-            RpioCode = Record[ "RpioCode" ].ToString( );
-            RpioName = Record[ "RpioName" ].ToString( );
-            AhCode = Record[ "AhCode" ].ToString( );
-            AhName = Record[ "AhName" ].ToString( );
-            OrgCode = Record[ "OrgCode" ].ToString( );
-            OrgName = Record[ "OrgName" ].ToString( );
-            AccountCode = Record[ "AccountCode" ].ToString( );
-            BocCode = Record[ "BocCode" ].ToString( );
-            BocName = Record[ "BocName" ].ToString( );
-            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? string.Empty );
-            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? string.Empty );
-            Posted = double.Parse( Record[ "Posted" ].ToString( ) ?? string.Empty );
+            BFY = Record[ nameof( BFY ) ].ToString( );
+            EFY = Record[ nameof( EFY ) ].ToString( );
+            FundCode = Record[ nameof( FundCode ) ].ToString( );
+            FundName = Record[ nameof( FundName ) ].ToString( );
+            RpioCode = Record[ nameof( RpioCode ) ].ToString( );
+            RpioName = Record[ nameof( RpioName ) ].ToString( );
+            AhCode = Record[ nameof( AhCode ) ].ToString( );
+            AhName = Record[ nameof( AhName ) ].ToString( );
+            OrgCode = Record[ nameof( OrgCode ) ].ToString( );
+            OrgName = Record[ nameof( OrgName ) ].ToString( );
+            AccountCode = Record[ nameof( AccountCode ) ].ToString( );
+            BocCode = Record[ nameof( BocCode ) ].ToString( );
+            BocName = Record[ nameof( BocName ) ].ToString( );
+            Amount = double.Parse( Record[ nameof( Amount ) ].ToString( ) ?? string.Empty );
+            Budgeted = double.Parse( Record[ nameof( Budgeted ) ].ToString( ) ?? string.Empty );
+            Posted = double.Parse( Record[ nameof( Posted ) ].ToString( ) ?? string.Empty );
             OpenCommitments =
-                double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? string.Empty );
+                double.Parse( Record[ nameof( OpenCommitments ) ].ToString( ) ?? string.Empty );
 
             UnliquidatedObligations =
-                double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) ?? string.Empty );
+                double.Parse( Record[ nameof( UnliquidatedObligations ) ].ToString( ) ?? string.Empty );
 
-            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? string.Empty );
-            Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) ?? string.Empty );
-            Used = double.Parse( Record[ "Used" ].ToString( ) ?? string.Empty );
-            Available = double.Parse( Record[ "Available" ].ToString( ) ?? string.Empty );
-            ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
-            ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
-            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
-            ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
-            NpmCode = Record[ "NpmCode" ].ToString( );
-            NpmName = Record[ "NpmName" ].ToString( );
-            GoalCode = Record[ "GoalCode" ].ToString( );
-            GoalName = Record[ "GoalName" ].ToString( );
-            ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
-            ObjectiveName = Record[ "ObjectiveName" ].ToString( );
+            Obligations = double.Parse( Record[ nameof( Obligations ) ].ToString( ) ?? string.Empty );
+            Expenditures = double.Parse( Record[ nameof( Expenditures ) ].ToString( ) ?? string.Empty );
+            Used = double.Parse( Record[ nameof( Used ) ].ToString( ) ?? string.Empty );
+            Available = double.Parse( Record[ nameof( Available ) ].ToString( ) ?? string.Empty );
+            ProgramProjectCode = Record[ nameof( ProgramProjectCode ) ].ToString( );
+            ProgramProjectName = Record[ nameof( ProgramProjectName ) ].ToString( );
+            ProgramAreaCode = Record[ nameof( ProgramAreaCode ) ].ToString( );
+            ProgramAreaName = Record[ nameof( ProgramAreaName ) ].ToString( );
+            NpmCode = Record[ nameof( NpmCode ) ].ToString( );
+            NpmName = Record[ nameof( NpmName ) ].ToString( );
+            GoalCode = Record[ nameof( GoalCode ) ].ToString( );
+            GoalName = Record[ nameof( GoalName ) ].ToString( );
+            ObjectiveCode = Record[ nameof( ObjectiveCode ) ].ToString( );
+            ObjectiveName = Record[ nameof( ObjectiveName ) ].ToString( );
         }
 
         /// <inheritdoc />
@@ -129,42 +129,42 @@ namespace BudgetExecution
             Source = Source.StatusOfSupplementalFunds;
             Record = dataBuilder.Record;
             Data = Record.ToDictionary( );
-            BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
-            FundCode = Record[ "FundCode" ].ToString( );
-            FundName = Record[ "FundName" ].ToString( );
-            RpioCode = Record[ "RpioCode" ].ToString( );
-            RpioName = Record[ "RpioName" ].ToString( );
-            AhCode = Record[ "AhCode" ].ToString( );
-            AhName = Record[ "AhName" ].ToString( );
-            OrgCode = Record[ "OrgCode" ].ToString( );
-            OrgName = Record[ "OrgName" ].ToString( );
-            AccountCode = Record[ "AccountCode" ].ToString( );
-            BocCode = Record[ "BocCode" ].ToString( );
-            BocName = Record[ "BocName" ].ToString( );
-            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? string.Empty );
-            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? string.Empty );
-            Posted = double.Parse( Record[ "Posted" ].ToString( ) ?? string.Empty );
+            BFY = Record[ nameof( BFY ) ].ToString( );
+            EFY = Record[ nameof( EFY ) ].ToString( );
+            FundCode = Record[ nameof( FundCode ) ].ToString( );
+            FundName = Record[ nameof( FundName ) ].ToString( );
+            RpioCode = Record[ nameof( RpioCode ) ].ToString( );
+            RpioName = Record[ nameof( RpioName ) ].ToString( );
+            AhCode = Record[ nameof( AhCode ) ].ToString( );
+            AhName = Record[ nameof( AhName ) ].ToString( );
+            OrgCode = Record[ nameof( OrgCode ) ].ToString( );
+            OrgName = Record[ nameof( OrgName ) ].ToString( );
+            AccountCode = Record[ nameof( AccountCode ) ].ToString( );
+            BocCode = Record[ nameof( BocCode ) ].ToString( );
+            BocName = Record[ nameof( BocName ) ].ToString( );
+            Amount = double.Parse( Record[ nameof( Amount ) ].ToString( ) ?? string.Empty );
+            Budgeted = double.Parse( Record[ nameof( Budgeted ) ].ToString( ) ?? string.Empty );
+            Posted = double.Parse( Record[ nameof( Posted ) ].ToString( ) ?? string.Empty );
             OpenCommitments =
-                double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? string.Empty );
+                double.Parse( Record[ nameof( OpenCommitments ) ].ToString( ) ?? string.Empty );
 
             UnliquidatedObligations =
-                double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) ?? string.Empty );
+                double.Parse( Record[ nameof( UnliquidatedObligations ) ].ToString( ) ?? string.Empty );
 
-            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? string.Empty );
-            Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) ?? string.Empty );
-            Used = double.Parse( Record[ "Used" ].ToString( ) ?? string.Empty );
-            Available = double.Parse( Record[ "Available" ].ToString( ) ?? string.Empty );
-            ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
-            ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
-            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
-            ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
-            NpmCode = Record[ "NpmCode" ].ToString( );
-            NpmName = Record[ "NpmName" ].ToString( );
-            GoalCode = Record[ "GoalCode" ].ToString( );
-            GoalName = Record[ "GoalName" ].ToString( );
-            ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
-            ObjectiveName = Record[ "ObjectiveName" ].ToString( );
+            Obligations = double.Parse( Record[ nameof( Obligations ) ].ToString( ) ?? string.Empty );
+            Expenditures = double.Parse( Record[ nameof( Expenditures ) ].ToString( ) ?? string.Empty );
+            Used = double.Parse( Record[ nameof( Used ) ].ToString( ) ?? string.Empty );
+            Available = double.Parse( Record[ nameof( Available ) ].ToString( ) ?? string.Empty );
+            ProgramProjectCode = Record[ nameof( ProgramProjectCode ) ].ToString( );
+            ProgramProjectName = Record[ nameof( ProgramProjectName ) ].ToString( );
+            ProgramAreaCode = Record[ nameof( ProgramAreaCode ) ].ToString( );
+            ProgramAreaName = Record[ nameof( ProgramAreaName ) ].ToString( );
+            NpmCode = Record[ nameof( NpmCode ) ].ToString( );
+            NpmName = Record[ nameof( NpmName ) ].ToString( );
+            GoalCode = Record[ nameof( GoalCode ) ].ToString( );
+            GoalName = Record[ nameof( GoalName ) ].ToString( );
+            ObjectiveCode = Record[ nameof( ObjectiveCode ) ].ToString( );
+            ObjectiveName = Record[ nameof( ObjectiveName ) ].ToString( );
         }
 
         /// <inheritdoc />
@@ -180,40 +180,40 @@ namespace BudgetExecution
             Source = Source.StatusOfSupplementalFunds;
             Record = dataRow;
             Data = dataRow.ToDictionary( );
-            BFY = dataRow[ "BFY" ].ToString( );
-            EFY = dataRow[ "EFY" ].ToString( );
-            FundCode = dataRow[ "FundCode" ].ToString( );
-            FundName = dataRow[ "FundName" ].ToString( );
-            RpioCode = dataRow[ "RpioCode" ].ToString( );
-            RpioName = dataRow[ "RpioName" ].ToString( );
-            AhCode = dataRow[ "AhCode" ].ToString( );
-            AhName = dataRow[ "AhName" ].ToString( );
-            OrgCode = dataRow[ "OrgCode" ].ToString( );
-            OrgName = dataRow[ "OrgName" ].ToString( );
-            AccountCode = dataRow[ "AccountCode" ].ToString( );
-            BocCode = dataRow[ "BocCode" ].ToString( );
-            BocName = dataRow[ "BocName" ].ToString( );
-            Amount = double.Parse( dataRow[ "Amount" ].ToString( ) ?? "0" );
-            Budgeted = double.Parse( dataRow[ "Budgeted" ].ToString( ) ?? "0" );
-            Posted = double.Parse( dataRow[ "Posted" ].ToString( ) ?? "0" );
-            OpenCommitments = double.Parse( dataRow[ "OpenCommitments" ].ToString( ) ?? "0" );
+            BFY = dataRow[ nameof( BFY ) ].ToString( );
+            EFY = dataRow[ nameof( EFY ) ].ToString( );
+            FundCode = dataRow[ nameof( FundCode ) ].ToString( );
+            FundName = dataRow[ nameof( FundName ) ].ToString( );
+            RpioCode = dataRow[ nameof( RpioCode ) ].ToString( );
+            RpioName = dataRow[ nameof( RpioName ) ].ToString( );
+            AhCode = dataRow[ nameof( AhCode ) ].ToString( );
+            AhName = dataRow[ nameof( AhName ) ].ToString( );
+            OrgCode = dataRow[ nameof( OrgCode ) ].ToString( );
+            OrgName = dataRow[ nameof( OrgName ) ].ToString( );
+            AccountCode = dataRow[ nameof( AccountCode ) ].ToString( );
+            BocCode = dataRow[ nameof( BocCode ) ].ToString( );
+            BocName = dataRow[ nameof( BocName ) ].ToString( );
+            Amount = double.Parse( dataRow[ nameof( Amount ) ].ToString( ) ?? "0" );
+            Budgeted = double.Parse( dataRow[ nameof( Budgeted ) ].ToString( ) ?? "0" );
+            Posted = double.Parse( dataRow[ nameof( Posted ) ].ToString( ) ?? "0" );
+            OpenCommitments = double.Parse( dataRow[ nameof( OpenCommitments ) ].ToString( ) ?? "0" );
             UnliquidatedObligations =
-                double.Parse( dataRow[ "UnliquidatedObligations" ].ToString( ) ?? string.Empty );
+                double.Parse( dataRow[ nameof( UnliquidatedObligations ) ].ToString( ) ?? string.Empty );
 
-            Obligations = double.Parse( dataRow[ "Obligations" ].ToString( ) ?? "0" );
-            Expenditures = double.Parse( dataRow[ "Expenditures" ].ToString( ) ?? "0" );
-            Used = double.Parse( dataRow[ "Used" ].ToString( ) ?? "0" );
-            Available = double.Parse( dataRow[ "Available" ].ToString( ) ?? "0" );
-            ProgramProjectCode = dataRow[ "ProgramProjectCode" ].ToString( );
-            ProgramProjectName = dataRow[ "ProgramProjectName" ].ToString( );
-            ProgramAreaCode = dataRow[ "ProgramAreaCode" ].ToString( );
-            ProgramAreaName = dataRow[ "ProgramAreaName" ].ToString( );
-            NpmCode = dataRow[ "NpmCode" ].ToString( );
-            NpmName = dataRow[ "NpmName" ].ToString( );
-            GoalCode = dataRow[ "GoalCode" ].ToString( );
-            GoalName = dataRow[ "GoalName" ].ToString( );
-            ObjectiveCode = dataRow[ "ObjectiveCode" ].ToString( );
-            ObjectiveName = dataRow[ "ObjectiveName" ].ToString( );
+            Obligations = double.Parse( dataRow[ nameof( Obligations ) ].ToString( ) ?? "0" );
+            Expenditures = double.Parse( dataRow[ nameof( Expenditures ) ].ToString( ) ?? "0" );
+            Used = double.Parse( dataRow[ nameof( Used ) ].ToString( ) ?? "0" );
+            Available = double.Parse( dataRow[ nameof( Available ) ].ToString( ) ?? "0" );
+            ProgramProjectCode = dataRow[ nameof( ProgramProjectCode ) ].ToString( );
+            ProgramProjectName = dataRow[ nameof( ProgramProjectName ) ].ToString( );
+            ProgramAreaCode = dataRow[ nameof( ProgramAreaCode ) ].ToString( );
+            ProgramAreaName = dataRow[ nameof( ProgramAreaName ) ].ToString( );
+            NpmCode = dataRow[ nameof( NpmCode ) ].ToString( );
+            NpmName = dataRow[ nameof( NpmName ) ].ToString( );
+            GoalCode = dataRow[ nameof( GoalCode ) ].ToString( );
+            GoalName = dataRow[ nameof( GoalName ) ].ToString( );
+            ObjectiveCode = dataRow[ nameof( ObjectiveCode ) ].ToString( );
+            ObjectiveName = dataRow[ nameof( ObjectiveName ) ].ToString( );
         }
 
         /// <inheritdoc />

@@ -459,7 +459,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _form = (MainForm)Program.Windows[ "MainForm" ];
+                var _form = (MainForm)Program.Windows[ nameof( MainForm ) ];
                 _form.StartPosition = FormStartPosition.CenterScreen;
                 _form.TopMost = true;
                 _form.Visible = true;

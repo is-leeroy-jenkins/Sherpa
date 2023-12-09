@@ -862,7 +862,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( provider, "provider" );
+                ThrowIf.NullOrEmpty( provider, nameof( provider ) );
                 var _provider = (Provider)Enum.Parse( typeof( Provider ), provider );
                 if( Enum.IsDefined( typeof( Provider ), _provider ) )
                 {
@@ -1324,7 +1324,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _form = (MainForm)Program.Windows[ "MainForm" ];
+                var _form = (MainForm)Program.Windows[ nameof( MainForm ) ];
                 _form.StartPosition = FormStartPosition.CenterScreen;
                 _form.TopMost = true;
                 _form.Visible = true;
@@ -1690,9 +1690,9 @@ namespace BudgetExecution
         {
             try
             {
-                if( Program.Windows.ContainsKey( "SqlDataForm" ) )
+                if( Program.Windows.ContainsKey( nameof( SqlDataForm ) ) )
                 {
-                    Program.Windows.Remove( "SqlDataForm" );
+                    Program.Windows.Remove( nameof( SqlDataForm ) );
                 }
             }
             catch( Exception _ex )

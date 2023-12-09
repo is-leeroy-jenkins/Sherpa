@@ -117,7 +117,8 @@ namespace BudgetExecution
         public IPEndPoint EndPoint { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether this instance is connected.
+        /// Gets or sets a value indicating whether
+        /// this instance is connected.
         /// </summary>
         /// <value>
         /// <c>true</c> if this instance is connected;
@@ -211,7 +212,7 @@ namespace BudgetExecution
                     var _client = Socket.Accept( );
                     Data = new byte[ Bytes ];
                     _client.Receive( Data, Bytes, SocketFlags.None );
-                    if( _client.Available == 0 )
+                    if( Data.Length == 0 )
                     {
                         break;
                     }

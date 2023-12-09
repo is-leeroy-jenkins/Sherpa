@@ -538,7 +538,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _form = (MainForm)Program.Windows[ "MainForm" ];
+                var _form = (MainForm)Program.Windows[ nameof( MainForm ) ];
                 _form.StartPosition = FormStartPosition.CenterScreen;
                 _form.TopMost = true;
                 _form.Visible = true;
@@ -561,7 +561,7 @@ namespace BudgetExecution
                 ProgramProjectTable.CaptionText = "Program Project - " + Current[ "Code" ];
                 StatutoryAuthorityTextBox.Text = Current[ "Laws" ].ToString( );
                 ProgramAreaNameTextBox.Text = Current[ "ProgramAreaName" ].ToString( );
-                ProgramProjectNameTextBox.Text = Current[ "Name" ].ToString( );
+                ProgramProjectNameTextBox.Text = Current[ nameof( Name ) ].ToString( );
                 ProgramDescriptionTextBox.Text = Current[ "Description" ].ToString( );
             }
             catch( Exception _ex )

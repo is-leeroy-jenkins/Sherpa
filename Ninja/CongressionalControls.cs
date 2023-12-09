@@ -120,18 +120,18 @@ namespace BudgetExecution
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "CongressionalControlsId" ].ToString( ) ?? "0" );
-            FundCode = Record[ "FundCode" ].ToString( );
-            FundName = Record[ "FundName" ].ToString( );
-            ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
-            ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
-            SubProjectCode = Record[ "SubProjectCode" ].ToString( );
-            SubProjectName = Record[ "SubProjectName" ].ToString( );
-            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
-            ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
-            ReprogrammingRestriction = Record[ "ReprogrammingRestriction" ].ToString( );
-            IncreaseRestriction = Record[ "IncreaseRestriction" ].ToString( );
-            DecreaseRestriction = Record[ "DecreaseRestriction" ].ToString( );
-            MemoRequirement = Record[ "MemoRequirement" ].ToString( );
+            FundCode = Record[ nameof( FundCode ) ].ToString( );
+            FundName = Record[ nameof( FundName ) ].ToString( );
+            ProgramProjectCode = Record[ nameof( ProgramProjectCode ) ].ToString( );
+            ProgramProjectName = Record[ nameof( ProgramProjectName ) ].ToString( );
+            SubProjectCode = Record[ nameof( SubProjectCode ) ].ToString( );
+            SubProjectName = Record[ nameof( SubProjectName ) ].ToString( );
+            ProgramAreaCode = Record[ nameof( ProgramAreaCode ) ].ToString( );
+            ProgramAreaName = Record[ nameof( ProgramAreaName ) ].ToString( );
+            ReprogrammingRestriction = Record[ nameof( ReprogrammingRestriction ) ].ToString( );
+            IncreaseRestriction = Record[ nameof( IncreaseRestriction ) ].ToString( );
+            DecreaseRestriction = Record[ nameof( DecreaseRestriction ) ].ToString( );
+            MemoRequirement = Record[ nameof( MemoRequirement ) ].ToString( );
         }
 
         /// <summary>
@@ -146,18 +146,18 @@ namespace BudgetExecution
             Record = builder.Record;
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "CongressionalControlsId" ].ToString( ) ?? "0" );
-            FundCode = Record[ "FundCode" ].ToString( );
-            FundName = Record[ "FundName" ].ToString( );
-            ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
-            ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
-            SubProjectCode = Record[ "SubProjectCode" ].ToString( );
-            SubProjectName = Record[ "SubProjectName" ].ToString( );
-            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
-            ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
-            ReprogrammingRestriction = Record[ "ReprogrammingRestriction" ].ToString( );
-            IncreaseRestriction = Record[ "IncreaseRestriction" ].ToString( );
-            DecreaseRestriction = Record[ "DecreaseRestriction" ].ToString( );
-            MemoRequirement = Record[ "MemoRequirement" ].ToString( );
+            FundCode = Record[ nameof( FundCode ) ].ToString( );
+            FundName = Record[ nameof( FundName ) ].ToString( );
+            ProgramProjectCode = Record[ nameof( ProgramProjectCode ) ].ToString( );
+            ProgramProjectName = Record[ nameof( ProgramProjectName ) ].ToString( );
+            SubProjectCode = Record[ nameof( SubProjectCode ) ].ToString( );
+            SubProjectName = Record[ nameof( SubProjectName ) ].ToString( );
+            ProgramAreaCode = Record[ nameof( ProgramAreaCode ) ].ToString( );
+            ProgramAreaName = Record[ nameof( ProgramAreaName ) ].ToString( );
+            ReprogrammingRestriction = Record[ nameof( ReprogrammingRestriction ) ].ToString( );
+            IncreaseRestriction = Record[ nameof( IncreaseRestriction ) ].ToString( );
+            DecreaseRestriction = Record[ nameof( DecreaseRestriction ) ].ToString( );
+            MemoRequirement = Record[ nameof( MemoRequirement ) ].ToString( );
         }
 
         /// <summary>
@@ -172,17 +172,17 @@ namespace BudgetExecution
             Record = dataRow;
             Data = dataRow.ToDictionary( );
             ID = int.Parse( dataRow[ "CongressionalControlsId" ].ToString( ) ?? "0" );
-            FundCode = dataRow[ "FundCode" ].ToString( );
-            FundName = dataRow[ "FundName" ].ToString( );
-            ProgramProjectCode = dataRow[ "ProgramProjectCode" ].ToString( );
-            ProgramProjectName = dataRow[ "ProgramProjectName" ].ToString( );
-            SubProjectCode = dataRow[ "SubProjectCode" ].ToString( );
-            SubProjectName = dataRow[ "ProgramAreaCode" ].ToString( );
-            ProgramAreaName = dataRow[ "ProgramAreaName" ].ToString( );
-            ReprogrammingRestriction = dataRow[ "ReprogrammingRestriction" ].ToString( );
-            IncreaseRestriction = dataRow[ "IncreaseRestriction" ].ToString( );
-            DecreaseRestriction = dataRow[ "DecreaseRestriction" ].ToString( );
-            MemoRequirement = dataRow[ "MemoRequirement" ].ToString( );
+            FundCode = dataRow[ nameof( FundCode ) ].ToString( );
+            FundName = dataRow[ nameof( FundName ) ].ToString( );
+            ProgramProjectCode = dataRow[ nameof( ProgramProjectCode ) ].ToString( );
+            ProgramProjectName = dataRow[ nameof( ProgramProjectName ) ].ToString( );
+            SubProjectCode = dataRow[ nameof( SubProjectCode ) ].ToString( );
+            SubProjectName = dataRow[ nameof( ProgramAreaCode ) ].ToString( );
+            ProgramAreaName = dataRow[ nameof( ProgramAreaName ) ].ToString( );
+            ReprogrammingRestriction = dataRow[ nameof( ReprogrammingRestriction ) ].ToString( );
+            IncreaseRestriction = dataRow[ nameof( IncreaseRestriction ) ].ToString( );
+            DecreaseRestriction = dataRow[ nameof( DecreaseRestriction ) ].ToString( );
+            MemoRequirement = dataRow[ nameof( MemoRequirement ) ].ToString( );
         }
 
         /// <summary>

@@ -86,13 +86,13 @@ namespace BudgetExecution
             Source = Source.Accounts;
             Record = new DataBuilder( query )?.Record;
             ID = int.Parse( Record[ "AccountsId" ]?.ToString( ) );
-            NpmCode = Record[ "NpmCode" ].ToString( );
-            ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
-            ActivityCode = Record[ "ActivityCode" ].ToString( );
-            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
-            GoalCode = Record[ "GoalCode" ].ToString( );
-            ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
-            ActivityCode = Record[ "ActivityCode" ].ToString( );
+            NpmCode = Record[ nameof( NpmCode ) ].ToString( );
+            ProgramProjectCode = Record[ nameof( ProgramProjectCode ) ].ToString( );
+            ActivityCode = Record[ nameof( ActivityCode ) ].ToString( );
+            ProgramAreaCode = Record[ nameof( ProgramAreaCode ) ].ToString( );
+            GoalCode = Record[ nameof( GoalCode ) ].ToString( );
+            ObjectiveCode = Record[ nameof( ObjectiveCode ) ].ToString( );
+            ActivityCode = Record[ nameof( ActivityCode ) ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -109,18 +109,18 @@ namespace BudgetExecution
             Source = Source.Accounts;
             Record = dataBuilder?.Record;
             ID = int.Parse( Record?[ "AccountsId" ]?.ToString( ) );
-            GoalCode = Record?[ "GoalCode" ].ToString( );
-            GoalName = Record?[ "GoalName" ].ToString( );
-            ObjectiveCode = Record?[ "ObjectiveCode" ].ToString( );
-            ObjectiveName = Record?[ "ObjectiveName" ].ToString( );
-            NpmCode = Record?[ "NpmCode" ].ToString( );
-            NpmName = Record?[ "NpmName" ].ToString( );
-            ProgramProjectCode = Record?[ "ProgramProjectCode" ].ToString( );
-            ProgramProjectName = Record?[ "ProgramProjectName" ].ToString( );
-            ActivityCode = Record?[ "ActivityCode" ].ToString( );
-            ActivityName = Record?[ "ActivityName" ].ToString( );
-            ProgramAreaCode = Record?[ "ProgramAreaCode" ].ToString( );
-            ProgramAreaName = Record?[ "ProgramAreaName" ].ToString( );
+            GoalCode = Record?[ nameof( GoalCode ) ].ToString( );
+            GoalName = Record?[ nameof( GoalName ) ].ToString( );
+            ObjectiveCode = Record?[ nameof( ObjectiveCode ) ].ToString( );
+            ObjectiveName = Record?[ nameof( ObjectiveName ) ].ToString( );
+            NpmCode = Record?[ nameof( NpmCode ) ].ToString( );
+            NpmName = Record?[ nameof( NpmName ) ].ToString( );
+            ProgramProjectCode = Record?[ nameof( ProgramProjectCode ) ].ToString( );
+            ProgramProjectName = Record?[ nameof( ProgramProjectName ) ].ToString( );
+            ActivityCode = Record?[ nameof( ActivityCode ) ].ToString( );
+            ActivityName = Record?[ nameof( ActivityName ) ].ToString( );
+            ProgramAreaCode = Record?[ nameof( ProgramAreaCode ) ].ToString( );
+            ProgramAreaName = Record?[ nameof( ProgramAreaName ) ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -136,18 +136,18 @@ namespace BudgetExecution
             Source = Source.Accounts;
             Record = dataRow;
             ID = int.Parse( Record[ "AccountsId" ]?.ToString( ) );
-            GoalCode = dataRow[ "GoalCode" ].ToString( );
-            GoalName = dataRow[ "GoalName" ].ToString( );
-            ObjectiveCode = dataRow[ "ObjectiveCode" ].ToString( );
-            ObjectiveName = dataRow[ "ObjectiveName" ].ToString( );
-            NpmCode = dataRow[ "NpmCode" ].ToString( );
-            NpmName = dataRow[ "NpmName" ].ToString( );
-            ProgramProjectCode = dataRow[ "ProgramProjectCode" ].ToString( );
-            ProgramProjectName = dataRow[ "ProgramProjectName" ].ToString( );
-            ActivityCode = dataRow[ "ActivityCode" ].ToString( );
-            ActivityName = dataRow[ "ActivityName" ].ToString( );
-            ProgramAreaCode = dataRow[ "ProgramAreaCode" ].ToString( );
-            ProgramAreaName = dataRow[ "ProgramAreaName" ].ToString( );
+            GoalCode = dataRow[ nameof( GoalCode ) ].ToString( );
+            GoalName = dataRow[ nameof( GoalName ) ].ToString( );
+            ObjectiveCode = dataRow[ nameof( ObjectiveCode ) ].ToString( );
+            ObjectiveName = dataRow[ nameof( ObjectiveName ) ].ToString( );
+            NpmCode = dataRow[ nameof( NpmCode ) ].ToString( );
+            NpmName = dataRow[ nameof( NpmName ) ].ToString( );
+            ProgramProjectCode = dataRow[ nameof( ProgramProjectCode ) ].ToString( );
+            ProgramProjectName = dataRow[ nameof( ProgramProjectName ) ].ToString( );
+            ActivityCode = dataRow[ nameof( ActivityCode ) ].ToString( );
+            ActivityName = dataRow[ nameof( ActivityName ) ].ToString( );
+            ProgramAreaCode = dataRow[ nameof( ProgramAreaCode ) ].ToString( );
+            ProgramAreaName = dataRow[ nameof( ProgramAreaName ) ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -162,18 +162,18 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( Source, GetArgs( code ) )?.Record;
             ID = int.Parse( Record[ "AccountsId" ]?.ToString( ) );
-            GoalCode = Record?[ "GoalCode" ].ToString( );
-            GoalName = Record?[ "GoalName" ].ToString( );
-            ObjectiveCode = Record?[ "ObjectiveCode" ].ToString( );
-            ObjectiveName = Record?[ "ObjectiveName" ].ToString( );
-            NpmCode = Record?[ "NpmCode" ].ToString( );
-            NpmName = Record?[ "NpmName" ].ToString( );
-            ProgramProjectCode = Record?[ "ProgramProjectCode" ].ToString( );
-            ProgramProjectName = Record?[ "ProgramProjectName" ].ToString( );
-            ActivityCode = Record?[ "ActivityCode" ].ToString( );
-            ActivityName = Record?[ "ActivityName" ].ToString( );
-            ProgramAreaCode = Record?[ "ProgramAreaCode" ].ToString( );
-            ProgramAreaName = Record?[ "ProgramAreaName" ].ToString( );
+            GoalCode = Record?[ nameof( GoalCode ) ].ToString( );
+            GoalName = Record?[ nameof( GoalName ) ].ToString( );
+            ObjectiveCode = Record?[ nameof( ObjectiveCode ) ].ToString( );
+            ObjectiveName = Record?[ nameof( ObjectiveName ) ].ToString( );
+            NpmCode = Record?[ nameof( NpmCode ) ].ToString( );
+            NpmName = Record?[ nameof( NpmName ) ].ToString( );
+            ProgramProjectCode = Record?[ nameof( ProgramProjectCode ) ].ToString( );
+            ProgramProjectName = Record?[ nameof( ProgramProjectName ) ].ToString( );
+            ActivityCode = Record?[ nameof( ActivityCode ) ].ToString( );
+            ActivityName = Record?[ nameof( ActivityName ) ].ToString( );
+            ProgramAreaCode = Record?[ nameof( ProgramAreaCode ) ].ToString( );
+            ProgramAreaName = Record?[ nameof( ProgramAreaName ) ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -223,10 +223,10 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( code, "code" );
+                ThrowIf.NullOrEmpty( code, nameof( code ) );
                 return new Dictionary<string, object>
                 {
-                    [ "Code" ] = code
+                    [ nameof( Code ) ] = code
                 };
             }
             catch( Exception _ex )

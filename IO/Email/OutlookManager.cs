@@ -201,8 +201,8 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.Null( config, "config" );
-                ThrowIf.Null( content, "content" );
+                ThrowIf.Null( config, nameof( config ) );
+                ThrowIf.Null( content, nameof( content ) );
                 var _message = new MailMessage( );
                 for( var _i = 0; _i < config.Recipient.Count; _i++ )
                 {

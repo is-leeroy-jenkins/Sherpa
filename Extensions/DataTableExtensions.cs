@@ -170,7 +170,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _connectionString = Connection[ "Excel" ].ConnectionString;
+                    var _connectionString = Connection[ nameof( Excel ) ].ConnectionString;
 
                     var _sql = "SELECT * FROM [" + sheetName + "$]";
                     using var _adapter = new OleDbDataAdapter( _sql, _connectionString );

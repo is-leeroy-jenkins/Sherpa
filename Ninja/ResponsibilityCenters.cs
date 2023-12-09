@@ -101,8 +101,8 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query )?.Record;
             ID = int.Parse( Record[ "ResponsibilityCentersId" ].ToString( ) ?? string.Empty );
-            Name = Record[ "Name" ].ToString( );
-            Code = Record[ "Code" ].ToString( );
+            Name = Record[ nameof( Name ) ].ToString( );
+            Code = Record[ nameof( Code ) ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -114,8 +114,8 @@ namespace BudgetExecution
         {
             Record = builder?.Record;
             ID = int.Parse( Record[ "ResponsibilityCentersId" ].ToString( ) );
-            Name = Record[ "Name" ].ToString( );
-            Code = Record[ "Code" ].ToString( );
+            Name = Record[ nameof( Name ) ].ToString( );
+            Code = Record[ nameof( Code ) ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -129,8 +129,8 @@ namespace BudgetExecution
         {
             Record = dataRow;
             ID = int.Parse( Record[ "ResponsibilityCentersId" ].ToString( ) );
-            Name = Record[ "Name" ].ToString( );
-            Code = Record[ "Code" ].ToString( );
+            Name = Record[ nameof( Name ) ].ToString( );
+            Code = Record[ nameof( Code ) ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -144,8 +144,8 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( Source, SetArgs( rcCode ) )?.Record;
             ID = int.Parse( Record[ "ResponsibilityCentersId" ].ToString( ) );
-            Name = Record[ "Name" ].ToString( );
-            Code = Record[ "Code" ].ToString( );
+            Name = Record[ nameof( Name ) ].ToString( );
+            Code = Record[ nameof( Code ) ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -160,7 +160,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return new Dictionary<string, object> { [ "Code" ] = code };
+                    return new Dictionary<string, object> { [ nameof( Code ) ] = code };
                 }
                 catch( Exception _ex )
                 {

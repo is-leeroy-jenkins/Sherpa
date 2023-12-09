@@ -537,7 +537,7 @@ namespace BudgetExecution
                 if( Enum.IsDefined( typeof( Provider ), provider ) )
                 {
                     var _prefix = AppSettings[ "PathPrefix" ];
-                    var _dbpath = AppSettings[ "DatabaseDirectory" ];
+                    var _dbpath = AppSettings[ nameof( DatabaseDirectory ) ];
                     var _path = _prefix + _dbpath + @$"\{provider}\DataModels\";
                     var _names = Directory.GetDirectories( _path );
                     var _list = new List<string>( );
@@ -576,7 +576,7 @@ namespace BudgetExecution
                 if( Enum.IsDefined( typeof( Provider ), provider ) )
                 {
                     var _prefix = AppSettings[ "PathPrefix" ];
-                    var _dbpath = AppSettings[ "DatabaseDirectory" ];
+                    var _dbpath = AppSettings[ nameof( DatabaseDirectory ) ];
                     var _path = _prefix + _dbpath + @$"\{provider}\DataModels\";
                     var _names = Directory.GetDirectories( _path );
                     var _list = new List<string>( );
@@ -714,7 +714,7 @@ namespace BudgetExecution
                     {
                         SelectedCommand = _selection.Replace( " ", "" );
                         var _prefix = AppSettings[ "PathPrefix" ];
-                        var _dbpath = AppSettings[ "DatabaseDirectory" ];
+                        var _dbpath = AppSettings[ nameof( DatabaseDirectory ) ];
                         var _path = _prefix + _dbpath
                             + @$"\{Provider}\DataModels\{SelectedCommand}";
 
@@ -730,7 +730,7 @@ namespace BudgetExecution
                     {
                         SelectedCommand = _comboBox.SelectedItem?.ToString( );
                         var _prefix = AppSettings[ "PathPrefix" ];
-                        var _dbpath = AppSettings[ "DatabaseDirectory" ];
+                        var _dbpath = AppSettings[ nameof( DatabaseDirectory ) ];
                         var _path = _prefix + _dbpath
                             + @$"\{Provider}\DataModels\{SelectedCommand}";
 
@@ -766,7 +766,7 @@ namespace BudgetExecution
                        || SelectedCommand?.Contains( " " ) == true )
                     {
                         var _prefix = AppSettings[ "PathPrefix" ];
-                        var _dbpath = AppSettings[ "DatabaseDirectory" ];
+                        var _dbpath = AppSettings[ nameof( DatabaseDirectory ) ];
                         var _command = SelectedCommand?.Replace( " ", "" );
                         var _query = SelectedQuery?.Replace( " ", "" );
                         var _filePath = _prefix + _dbpath
@@ -780,7 +780,7 @@ namespace BudgetExecution
                     else
                     {
                         var _prefix = AppSettings[ "PathPrefix" ];
-                        var _dbpath = AppSettings[ "DatabaseDirectory" ];
+                        var _dbpath = AppSettings[ nameof( DatabaseDirectory ) ];
                         var _path = _prefix + _dbpath
                             + @$"\{Provider}\DataModels\{SelectedCommand}\{SelectedQuery}.sql";
 

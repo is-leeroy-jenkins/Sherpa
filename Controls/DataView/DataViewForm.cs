@@ -406,20 +406,20 @@
         {
             try
             {
-                SQLiteRadioButton.Tag = "SQLite";
-                SQLiteRadioButton.Text = "SQLite";
+                SQLiteRadioButton.Tag = nameof( SQLite );
+                SQLiteRadioButton.Text = nameof( SQLite );
                 SQLiteRadioButton.ForeColor = Color.FromArgb( 106, 189, 252 );
                 SQLiteRadioButton.HoverText = "SQLite Provider";
-                AccessRadioButton.Tag = "Access";
-                AccessRadioButton.Text = "Access";
+                AccessRadioButton.Tag = nameof( Access );
+                AccessRadioButton.Text = nameof( Access );
                 AccessRadioButton.ForeColor = Color.FromArgb( 106, 189, 252 );
                 AccessRadioButton.HoverText = "MS Access Provider";
                 AccessRadioButton.Checked = true;
-                SqlCeRadioButton.Tag = "SqlCe";
+                SqlCeRadioButton.Tag = nameof( SqlCe );
                 SqlCeRadioButton.Text = "SQL CE";
                 SqlCeRadioButton.ForeColor = Color.FromArgb( 106, 189, 252 );
                 SqlCeRadioButton.HoverText = "SQL Compact Provider";
-                SqlServerRadioButton.Tag = "SqlServer";
+                SqlServerRadioButton.Tag = nameof( SqlServer );
                 SqlServerRadioButton.Text = "MS SQL";
                 SqlServerRadioButton.ForeColor = Color.FromArgb( 106, 189, 252 );
                 SqlServerRadioButton.HoverText = "Sql Server Provider";
@@ -830,8 +830,8 @@
                 var _data = _model.GetData( );
                 var _names = _data
                     ?.Where( r => r.Field<string>( "Model" ).Equals( "REFERENCE" ) )
-                    ?.OrderBy( r => r.Field<string>( "Title" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
+                    ?.OrderBy( r => r.Field<string>( nameof( Title ) ) )
+                    ?.Select( r => r.Field<string>( nameof( Title ) ) )?.ToList( );
 
                 if( _names?.Any( ) == true )
                 {
@@ -859,8 +859,8 @@
                 var _data = _model.GetData( );
                 var _names = _data
                     ?.Where( r => r.Field<string>( "Model" ).Equals( "MAINTENANCE" ) )
-                    ?.OrderBy( r => r.Field<string>( "Title" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
+                    ?.OrderBy( r => r.Field<string>( nameof( Title ) ) )
+                    ?.Select( r => r.Field<string>( nameof( Title ) ) )?.ToList( );
 
                 if( _names?.Any( ) == true )
                 {
@@ -888,8 +888,8 @@
                 var _data = _model.GetData( );
                 var _names = _data
                     ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
-                    ?.OrderBy( r => r.Field<string>( "Title" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )
+                    ?.OrderBy( r => r.Field<string>( nameof( Title ) ) )
+                    ?.Select( r => r.Field<string>( nameof( Title ) ) )
                     ?.ToList( );
 
                 if( _names?.Any( ) == true )
@@ -1413,7 +1413,7 @@
         {
             try
             {
-                var _form = (MainForm)Program.Windows[ "MainForm" ];
+                var _form = (MainForm)Program.Windows[ nameof( MainForm ) ];
                 _form.StartPosition = FormStartPosition.CenterScreen;
                 _form.TopMost = true;
                 _form.Visible = true;

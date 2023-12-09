@@ -672,7 +672,7 @@ namespace BudgetExecution
                 _data.Add( "Weekdays", _weekdays );
                 _data.Add( "Workdays", _workdays );
                 _data.Add( "Weekends", _weekends );
-                _data.Add( "Holidays", _holidays );
+                _data.Add( nameof( Holidays ), _holidays );
                 var _text = $"From {_start} To {_end} ";
                 Chart.Titles[ 0 ].Text = _text;
                 var _values = _data.Values.ToArray( );
@@ -733,7 +733,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _form = (MainForm)Program.Windows[ "MainForm" ];
+                var _form = (MainForm)Program.Windows[ nameof( MainForm ) ];
                 _form.StartPosition = FormStartPosition.CenterScreen;
                 _form.TopMost = true;
                 _form.Visible = true;

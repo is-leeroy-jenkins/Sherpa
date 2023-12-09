@@ -66,13 +66,13 @@ namespace BudgetExecution
         [ STAThread ]
         public static void Main( )
         {
-            var _key = ConfigurationManager.AppSettings[ "Syncfusion" ];
+            var _key = ConfigurationManager.AppSettings[ nameof( Syncfusion ) ];
             SyncfusionLicenseProvider.RegisterLicense( _key );
             Application.EnableVisualStyles( );
             Application.SetCompatibleTextRenderingDefault( false );
             Windows = new Dictionary<string, Form>( );
             var _mainForm = new MainForm( );
-            Program.Windows.Add( "MainForm", _mainForm );
+            Program.Windows.Add( nameof( MainForm ), _mainForm );
             Application.Run( _mainForm );
         }
     }

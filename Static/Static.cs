@@ -61,20 +61,20 @@ namespace BudgetExecution
                 type = Nullable.GetUnderlyingType( type ) ?? type;
                 switch( type.Name )
                 {
-                    case "String":
-                    case "Boolean":
+                    case nameof( String ):
+                    case nameof( Boolean ):
                     {
                         return "Text";
                     }
-                    case "DateTime":
+                    case nameof( DateTime ):
                     {
                         return "Date";
                     }
-                    case "Int32":
+                    case nameof( Int32 ):
                     {
-                        return "Double";
+                        return nameof( Double );
                     }
-                    case "Decimal":
+                    case nameof( Decimal ):
                     {
                         return "Currency";
                     }

@@ -423,7 +423,7 @@ namespace BudgetExecution
                        && ( ( _col.DataType == typeof( DateTime ) )
                            || ( _col.DataType == typeof( DateOnly ) )
                            || ( _col.DataType == typeof( DateTimeOffset ) )
-                           || _col.ColumnName.EndsWith( "Day" )
+                           || _col.ColumnName.EndsWith( nameof( Day ) )
                            || _col.ColumnName.EndsWith( "Date" ) ) )
                     {
                         _list.Add( _col.ColumnName );

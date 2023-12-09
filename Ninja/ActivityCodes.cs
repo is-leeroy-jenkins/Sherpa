@@ -100,7 +100,7 @@ namespace BudgetExecution
             Record = builder?.Record;
             ID = int.Parse( Record?[ "ActivityCodesId" ].ToString( ) ?? "0" );
             Name = Record?[ "ActivityName" ].ToString( );
-            Code = Record?[ "ActivityCode" ].ToString( );
+            Code = Record?[ nameof( ActivityCode ) ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -116,7 +116,7 @@ namespace BudgetExecution
             Record = dataRow;
             ID = int.Parse( Record[ "ActivityCodesId" ].ToString( ) ?? "0" );
             Name = dataRow[ "ActivityName" ].ToString( );
-            Code = dataRow[ "ActivityCode" ].ToString( );
+            Code = dataRow[ nameof( ActivityCode ) ].ToString( );
             Data = dataRow?.ToDictionary( );
         }
 
@@ -132,7 +132,7 @@ namespace BudgetExecution
             Record = new DataBuilder( Source, GetArgs( code ) )?.Record;
             ID = int.Parse( Record[ "ActivityCodesId" ].ToString( ) ?? "0" );
             Name = Record[ "ActivityName" ].ToString( );
-            Code = Record[ "ActivityCode" ].ToString( );
+            Code = Record[ nameof( ActivityCode ) ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -159,7 +159,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return new Dictionary<string, object> { [ "ActivityCode" ] = code };
+                    return new Dictionary<string, object> { [ nameof( ActivityCode ) ] = code };
                 }
                 catch( Exception _ex )
                 {

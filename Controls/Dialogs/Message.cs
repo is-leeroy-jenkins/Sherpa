@@ -91,7 +91,7 @@ namespace BudgetExecution
 
             // Control Properties
             CloseButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            CloseButton.Text = "Close";
+            CloseButton.Text = nameof( Close );
             CloseButton.ForeColor = Color.FromArgb( 106, 189, 252 );
             CloseButton.BackColor = Color.FromArgb( 20, 20, 20 );
             TextBox.BackColor = Color.FromArgb( 40, 40, 40 );

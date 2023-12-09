@@ -1400,7 +1400,7 @@ namespace BudgetExecution
                 foreach( var _lbl in _labels.Values )
                 {
                     var _tag = _lbl.Tag.ToString( );
-                    if( _tag?.Equals( "Field" ) == true )
+                    if( _tag?.Equals( nameof( Field ) ) == true )
                     {
                         _lbl.Text = string.Empty;
                     }
@@ -1460,7 +1460,7 @@ namespace BudgetExecution
                     foreach( var lbl in _labels.Values )
                     {
                         var _tag = lbl.Tag.ToString( );
-                        if( _tag?.Equals( "Field" ) == true )
+                        if( _tag?.Equals( nameof( Field ) ) == true )
                         {
                             lbl.Text = string.Empty;
                         }
@@ -1487,7 +1487,7 @@ namespace BudgetExecution
                 ClearLabels( );
                 var _data = row.ToDictionary( );
                 var _labels = GetLabels( )
-                    ?.Where( l => l.Value.Tag.ToString( ) == "Field" )
+                    ?.Where( l => l.Value.Tag.ToString( ) == nameof( Field ) )
                     ?.Select( l => l.Value )
                     ?.ToArray( );
 
@@ -1517,7 +1517,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _form = (MainForm)Program.Windows[ "MainForm" ];
+                var _form = (MainForm)Program.Windows[ nameof( MainForm ) ];
                 _form.StartPosition = FormStartPosition.CenterScreen;
                 _form.TopMost = true;
                 _form.Visible = true;
@@ -2539,7 +2539,7 @@ namespace BudgetExecution
             {
                 if( Owner?.Visible == false )
                 {
-                    var _mainForm = (MainForm)Program.Windows[ "MainForm" ];
+                    var _mainForm = (MainForm)Program.Windows[ nameof( MainForm ) ];
                     _mainForm.Refresh( );
                     _mainForm.Visible = true;
                     Close( );

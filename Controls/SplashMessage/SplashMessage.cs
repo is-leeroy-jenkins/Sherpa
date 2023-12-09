@@ -167,7 +167,7 @@ namespace BudgetExecution
             Time = 0;
             Seconds = duration;
             Timer.Interval = duration * 1000;
-            Title.Text = "Notification";
+            Title.Text = nameof( Notification );
             Message.Text = message;
         }
 
@@ -189,7 +189,7 @@ namespace BudgetExecution
             Time = 0;
             Seconds = duration;
             Timer.Interval = duration * 1000;
-            Title.Text = "Notification";
+            Title.Text = nameof( Notification );
         }
 
         /// <summary>

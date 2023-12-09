@@ -235,7 +235,7 @@ namespace BudgetExecution
                 }
 
                 ListBox.SelectedIndex = -1;
-                Title.Text = "Guidance";
+                Title.Text = nameof( Guidance );
             }
             catch( Exception _ex )
             {
@@ -401,7 +401,7 @@ namespace BudgetExecution
                 BindingSource.DataSource = DataModel.DataTable;
                 var _data = DataTable.AsEnumerable( );
                 var _names = _data
-                    ?.Where( r => r.Field<string>( "Type" ).Equals( "DOCUMENT" ) )
+                    ?.Where( r => r.Field<string>( nameof( Type ) ).Equals( "DOCUMENT" ) )
                     ?.Select( r => r.Field<string>( "Caption" ) )
                     ?.ToList( );
 
@@ -438,7 +438,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _form = (MainForm)Program.Windows[ "MainForm" ];
+                var _form = (MainForm)Program.Windows[ nameof( MainForm ) ];
                 _form.StartPosition = FormStartPosition.CenterScreen;
                 _form.TopMost = true;
                 _form.Visible = true;
@@ -556,7 +556,7 @@ namespace BudgetExecution
                     };
 
                     var _data = new DataBuilder( Source, Provider, _filter ).Record;
-                    var _path = _data[ "Location" ].ToString( );
+                    var _path = _data[ nameof( Location ) ].ToString( );
                     SelectedPath = Prefix + _path;
                     Minion.RunEdge( SelectedPath );
                     OpenMainForm( );

@@ -64,7 +64,7 @@ namespace BudgetExecution
         [ DllImport( "user32" ) ]
         internal static extern bool AnimateWindow( IntPtr hWnd, int dwTime, int dwFlags );
 
-        [ DllImport( "Gdi32.dll", EntryPoint = "CreateRoundRectRgn" ) ]
+        [ DllImport( "Gdi32.dll", EntryPoint = nameof( CreateRoundRectRgn ) ) ]
         internal static extern IntPtr CreateRoundRectRgn( int nLeftRect, int nTopRect,
                                                           int nRightRect, int nBottomRect,
                                                           int nWidthEllipse, int nHeightEllipse );

@@ -115,7 +115,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _path = AppSettings[ "ToolStrip" ] + $"{toolType}.png";
+                    var _path = AppSettings[ nameof( ToolStrip ) ] + $"{toolType}.png";
                     if( File.Exists( _path ) )
                     {
                         using var _stream = File.Open( _path, FileMode.Open );
@@ -373,7 +373,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _path = AppSettings[ "ToolStrip" ] + $"{ToolType}.png";
+                    var _path = AppSettings[ nameof( ToolStrip ) ] + $"{ToolType}.png";
                     using var _stream = File.Open( _path, FileMode.Open );
                     if( _stream != null )
                     {

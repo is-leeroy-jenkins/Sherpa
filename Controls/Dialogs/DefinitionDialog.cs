@@ -199,9 +199,9 @@ namespace BudgetExecution
                 ClearButton.ForeColor = Color.FromArgb( 106, 189, 252 );
 
                 // Radio Buttons
-                SqliteRadioButton.Tag = "SQLite";
-                SqlServerRadioButton.Tag = "SqlServer";
-                AccessRadioButton.Tag = "Access";
+                SqliteRadioButton.Tag = nameof( SQLite );
+                SqlServerRadioButton.Tag = nameof( SqlServer );
+                AccessRadioButton.Tag = nameof( Access );
             }
             catch( Exception _ex )
             {

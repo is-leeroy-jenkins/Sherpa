@@ -55,19 +55,21 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="T:BudgetExecution.FileBase" />
     /// <seealso cref="T:BudgetExecution.IFile" />
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     public class DataFile : FileBase, IFile
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataFile"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="DataFile"/> class.
         /// </summary>
         public DataFile( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataFile"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="DataFile"/> class.
         /// </summary>
         /// <param name="input">The input.</param>
         public DataFile( string input )
@@ -107,37 +109,39 @@ namespace BudgetExecution
         /// Deconstructs the specified buffer.
         /// </summary>
         /// <param name="buffer">The buffer.</param>
-        /// <param name="absPath">The abs path.</param>
+        /// <param name="absolutePath">The abs path.</param>
         /// <param name="name">The name.</param>
         /// <param name="fullPath">The full path.</param>
-        /// <param name="ext">The ext.</param>
+        /// <param name="extension">The ext.</param>
         /// <param name="length">The length.</param>
-        /// <param name="attrs">The attrs.</param>
+        /// <param name="attributes">The attrs.</param>
         /// <param name="fileSecurity">The file security.</param>
-        /// <param name="created">The created.</param>
-        /// <param name="modified">The modified.</param>
-        public void Deconstruct( out string buffer, out string absPath, out string name,
-            out string fullPath, out string ext, out long length,
-            out FileAttributes attrs, out FileSecurity fileSecurity, 
-            out DateTime created, out DateTime modified )
+        /// <param name="createDate">The created.</param>
+        /// <param name="modifyDate">The modified.</param>
+        public void Deconstruct( out string buffer, out string absolutePath, out string name,
+            out string fullPath, out string extension, out long length,
+            out FileAttributes attributes, out FileSecurity fileSecurity, 
+            out DateTime createDate, out DateTime modifyDate )
         {
             buffer = Buffer;
-            absPath = AbsolutePath;
+            absolutePath = AbsolutePath;
             name = Name;
             fullPath = FullPath;
-            ext = Extension;
+            extension = Extension;
             length = Length;
-            attrs = Attributes;
+            attributes = Attributes;
             fileSecurity = FileSecurity;
-            created = Created;
-            modified = Modified;
+            createDate = Created;
+            modifyDate = Modified;
         }
 
         /// <inheritdoc />
         /// <summary>
         /// Transfers the specified folder.
         /// </summary>
-        /// <param name="folder">The folder.</param>
+        /// <param name="folder">
+        /// The folder.
+        /// </param>
         public void Transfer( DirectoryInfo folder )
         {
             try
@@ -164,7 +168,8 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="search">The search.</param>
         /// <returns>
-        ///  <c>true</c> if [contains] [the specified search]; otherwise, <c>false</c>.
+        /// <c>true</c> if [contains] [the specified search];
+        /// otherwise, <c>false</c>.
         /// </returns>
         public bool Contains( string search )
         {
@@ -301,7 +306,8 @@ namespace BudgetExecution
         /// <summary>
         /// Opens the dialog.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         public static string OpenDialog( )
         {
             try
@@ -324,7 +330,8 @@ namespace BudgetExecution
         /// <summary>
         /// Saves the dialog.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         public static string SaveDialog( )
         {
             try
@@ -346,7 +353,8 @@ namespace BudgetExecution
         /// <summary>
         /// Saves this instance.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         public string Save( )
         {
             try

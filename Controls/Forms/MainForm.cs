@@ -98,7 +98,7 @@ namespace BudgetExecution
             InitializeCallbacks( );
 
             // Basic Properties
-            Name = "MainForm";
+            Name = nameof( MainForm );
             Size = new Size( 1350, 750 );
             MaximumSize = new Size( 1350, 750 );
             MinimumSize = new Size( 1350, 750 );
@@ -296,10 +296,10 @@ namespace BudgetExecution
                 FirefoxTile.Title.Text = "Firefox";
                 FirefoxTile.Body.Text = string.Empty;
                 FirefoxTile.Banner.Text = string.Empty;
-                AccessTile.Title.Text = "Access";
+                AccessTile.Title.Text = nameof( Access );
                 AccessTile.Body.Text = string.Empty;
                 AccessTile.Banner.Text = string.Empty;
-                SQLiteTile.Title.Text = "SQLite";
+                SQLiteTile.Title.Text = nameof( SQLite );
                 SQLiteTile.Body.Text = string.Empty;
                 SQLiteTile.Banner.Text = string.Empty;
                 SqlCeTile.Title.Text = "SQL Compact";
@@ -320,7 +320,7 @@ namespace BudgetExecution
                 ExcelDataTile.Title.Text = "Excel Data";
                 ExcelDataTile.Body.Text = string.Empty;
                 ExcelDataTile.Banner.Text = string.Empty;
-                GuidanceTile.Title.Text = "Guidance";
+                GuidanceTile.Title.Text = nameof( Guidance );
                 GuidanceTile.Body.Text = string.Empty;
                 GuidanceTile.Banner.Text = string.Empty;
                 ProgramProjectTile.Title.Text = "Program Projects";

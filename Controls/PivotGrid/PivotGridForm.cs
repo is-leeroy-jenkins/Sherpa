@@ -674,8 +674,8 @@ namespace BudgetExecution
                 var _data = _model.GetData( );
                 var _names = _data
                     ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
-                    ?.OrderBy( r => r.Field<string>( "Title" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )
+                    ?.OrderBy( r => r.Field<string>( nameof( Title ) ) )
+                    ?.Select( r => r.Field<string>( nameof( Title ) ) )
                     ?.ToList( );
 
                 if( _names?.Any( ) == true )
@@ -1108,7 +1108,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _form = (MainForm)Program.Windows[ "MainForm" ];
+                var _form = (MainForm)Program.Windows[ nameof( MainForm ) ];
                 _form.StartPosition = FormStartPosition.CenterScreen;
                 _form.TopMost = true;
                 _form.Visible = true;
@@ -1471,7 +1471,7 @@ namespace BudgetExecution
             {
                 if( Owner?.Visible == false )
                 {
-                    var _mainForm = (MainForm)Program.Windows[ "MainForm" ];
+                    var _mainForm = (MainForm)Program.Windows[ nameof( MainForm ) ];
                     _mainForm.Refresh( );
                     _mainForm.Visible = true;
                     Close( );

@@ -72,7 +72,7 @@ namespace BudgetExecution
             Font = new Font( "Roboto", 9 );
             Visible = true;
             Enabled = true;
-            Name = "ProgressBar";
+            Name = nameof( ProgressBar );
             Maximum = 100;
             Minimum = 1;
             Tag = Name;

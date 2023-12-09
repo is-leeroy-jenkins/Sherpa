@@ -38,14 +38,13 @@
 // </summary>
 // ******************************************************************************************
 
-using System.Collections.Generic;
-
 namespace BudgetExecution
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.IO.Compression;
+    using System.Collections.Generic;
     using System.Security.AccessControl;
     using static System.IO.Directory;
 
@@ -89,7 +88,8 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Folder"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="Folder"/> class.
         /// </summary>
         /// <param name="folder">The folder.</param>
         public Folder( Folder folder )
@@ -166,7 +166,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( fullPath, nameof( fullPath) );
+                ThrowIf.NullOrEmpty( fullPath, nameof( fullPath ) );
                 return CreateDirectory( fullPath );
             }
             catch( Exception _ex )
@@ -216,7 +216,7 @@ namespace BudgetExecution
 
         /// <inheritdoc />
         /// <summary>
-        /// Creates the sub directory.
+        /// Creates the subdirectory.
         /// </summary>
         /// <param name="dirName">The folderName.</param>
         /// <returns></returns>

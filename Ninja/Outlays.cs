@@ -122,21 +122,21 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
-            BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
-            FundCode = Record[ "FundCode" ].ToString( );
-            FundName = Record[ "FundName" ].ToString( );
-            AppropriationCode = Record[ "AppropriationCode" ].ToString( );
-            AppropriationName = Record[ "AppropriationName" ].ToString( );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
-            MonthProcessed = Record[ "MonthProcessed" ].ToString( );
-            TotalObligations = double.Parse( Record[ "TotalObligations" ].ToString( ) ?? "0" );
-            ObligationsPaid = double.Parse( Record[ "ObligationsPaid" ].ToString( ) ?? "0" );
+            BFY = Record[ nameof( BFY ) ].ToString( );
+            EFY = Record[ nameof( EFY ) ].ToString( );
+            FundCode = Record[ nameof( FundCode ) ].ToString( );
+            FundName = Record[ nameof( FundName ) ].ToString( );
+            AppropriationCode = Record[ nameof( AppropriationCode ) ].ToString( );
+            AppropriationName = Record[ nameof( AppropriationName ) ].ToString( );
+            TreasuryAccountCode = Record[ nameof( TreasuryAccountCode ) ].ToString( );
+            TreasuryAccountName = Record[ nameof( TreasuryAccountName ) ].ToString( );
+            BudgetAccountCode = Record[ nameof( BudgetAccountCode ) ].ToString( );
+            BudgetAccountName = Record[ nameof( BudgetAccountName ) ].ToString( );
+            MonthProcessed = Record[ nameof( MonthProcessed ) ].ToString( );
+            TotalObligations = double.Parse( Record[ nameof( TotalObligations ) ].ToString( ) ?? "0" );
+            ObligationsPaid = double.Parse( Record[ nameof( ObligationsPaid ) ].ToString( ) ?? "0" );
             UnliquidatedObligations =
-                double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) ?? "0" );
+                double.Parse( Record[ nameof( UnliquidatedObligations ) ].ToString( ) ?? "0" );
         }
 
         /// <inheritdoc />
@@ -149,21 +149,21 @@ namespace BudgetExecution
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
-            BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
-            FundCode = Record[ "FundCode" ].ToString( );
-            FundName = Record[ "FundName" ].ToString( );
-            AppropriationCode = Record[ "AppropriationCode" ].ToString( );
-            AppropriationName = Record[ "AppropriationName" ].ToString( );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
-            MonthProcessed = Record[ "MonthProcessed" ].ToString( );
-            TotalObligations = double.Parse( Record[ "TotalObligations" ].ToString( ) ?? "0" );
-            ObligationsPaid = double.Parse( Record[ "ObligationsPaid" ].ToString( ) ?? "0" );
+            BFY = Record[ nameof( BFY ) ].ToString( );
+            EFY = Record[ nameof( EFY ) ].ToString( );
+            FundCode = Record[ nameof( FundCode ) ].ToString( );
+            FundName = Record[ nameof( FundName ) ].ToString( );
+            AppropriationCode = Record[ nameof( AppropriationCode ) ].ToString( );
+            AppropriationName = Record[ nameof( AppropriationName ) ].ToString( );
+            TreasuryAccountCode = Record[ nameof( TreasuryAccountCode ) ].ToString( );
+            TreasuryAccountName = Record[ nameof( TreasuryAccountName ) ].ToString( );
+            BudgetAccountCode = Record[ nameof( BudgetAccountCode ) ].ToString( );
+            BudgetAccountName = Record[ nameof( BudgetAccountName ) ].ToString( );
+            MonthProcessed = Record[ nameof( MonthProcessed ) ].ToString( );
+            TotalObligations = double.Parse( Record[ nameof( TotalObligations ) ].ToString( ) ?? "0" );
+            ObligationsPaid = double.Parse( Record[ nameof( ObligationsPaid ) ].ToString( ) ?? "0" );
             UnliquidatedObligations =
-                double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) ?? "0" );
+                double.Parse( Record[ nameof( UnliquidatedObligations ) ].ToString( ) ?? "0" );
         }
 
         /// <inheritdoc />
@@ -176,21 +176,21 @@ namespace BudgetExecution
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
-            BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
-            FundCode = Record[ "FundCode" ].ToString( );
-            FundName = Record[ "FundName" ].ToString( );
-            AppropriationCode = Record[ "AppropriationCode" ].ToString( );
-            AppropriationName = Record[ "AppropriationName" ].ToString( );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
-            MonthProcessed = Record[ "MonthProcessed" ].ToString( );
-            TotalObligations = double.Parse( Record[ "TotalObligations" ].ToString( ) ?? "0" );
-            ObligationsPaid = double.Parse( Record[ "ObligationsPaid" ].ToString( ) ?? "0" );
+            BFY = Record[ nameof( BFY ) ].ToString( );
+            EFY = Record[ nameof( EFY ) ].ToString( );
+            FundCode = Record[ nameof( FundCode ) ].ToString( );
+            FundName = Record[ nameof( FundName ) ].ToString( );
+            AppropriationCode = Record[ nameof( AppropriationCode ) ].ToString( );
+            AppropriationName = Record[ nameof( AppropriationName ) ].ToString( );
+            TreasuryAccountCode = Record[ nameof( TreasuryAccountCode ) ].ToString( );
+            TreasuryAccountName = Record[ nameof( TreasuryAccountName ) ].ToString( );
+            BudgetAccountCode = Record[ nameof( BudgetAccountCode ) ].ToString( );
+            BudgetAccountName = Record[ nameof( BudgetAccountName ) ].ToString( );
+            MonthProcessed = Record[ nameof( MonthProcessed ) ].ToString( );
+            TotalObligations = double.Parse( Record[ nameof( TotalObligations ) ].ToString( ) ?? "0" );
+            ObligationsPaid = double.Parse( Record[ nameof( ObligationsPaid ) ].ToString( ) ?? "0" );
             UnliquidatedObligations =
-                double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) ?? "0" );
+                double.Parse( Record[ nameof( UnliquidatedObligations ) ].ToString( ) ?? "0" );
         }
 
         /// <summary>

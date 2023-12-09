@@ -1,45 +1,42 @@
-﻿//  ******************************************************************************************
-//      Assembly:                Budget Execution
-//      Filename:                Chart.cs
-//      Author:                  Terry D. Eppler
-//      Created:                 05-31-2023
+﻿// ******************************************************************************************
+//     Assembly:              Budget Execution
+//     Author:                  Terry D. Eppler
+//     Created:                 12-9-2023
 // 
-//      Last Modified By:        Terry D. Eppler
-//      Last Modified On:        06-01-2023
-//  ******************************************************************************************
-//  <copyright file="Chart.cs" company="Terry D. Eppler">
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        12-9-2023
+// ******************************************************************************************
+// <copyright file="Plotter.cs" company="Terry D. Eppler">
+//    This is a tiny web browser used in Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2023  Terry Eppler
 // 
-//     This is a Federal Budget, Finance, and Accounting application for the
-//     US Environmental Protection Agency (US EPA).
-//     Copyright ©  2023  Terry Eppler
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
 // 
-//     Permission is hereby granted, free of charge, to any person obtaining a copy
-//     of this software and associated documentation files (the “Software”),
-//     to deal in the Software without restriction,
-//     including without limitation the rights to use,
-//     copy, modify, merge, publish, distribute, sublicense,
-//     and/or sell copies of the Software,
-//     and to permit persons to whom the Software is furnished to do so,
-//     subject to the following conditions:
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
 // 
-//     The above copyright notice and this permission notice shall be included in all
-//     copies or substantial portions of the Software.
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
 // 
-//     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//     FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//     DEALINGS IN THE SOFTWARE.
-// 
-//     You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
-// 
-//  </copyright>
-//  <summary>
-//    Chart.cs
-//  </summary>
-//  ******************************************************************************************
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+// </copyright>
+// <summary>
+//   Plotter.cs
+// </summary>
+// ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -58,7 +55,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class Plotter : PlottBase
+    public class Plotter : System.Windows.Forms.DataVisualization.Charting.Chart
     {
         /// <summary>
         /// Gets or sets the measure.
@@ -108,7 +105,6 @@ namespace BudgetExecution
             BorderSkin.BackSecondaryColor = Color.FromArgb( 20, 20, 20 );
             BorderSkin.PageColor = Color.FromArgb( 20, 20, 20 );
             BorderSkin.BorderColor = Color.FromArgb( 20, 20, 20 );
-            InitializePalette( );
             SetAreaProperties( );
             SetTitleProperties( );
             SetSeriesProperties( );
@@ -126,18 +122,20 @@ namespace BudgetExecution
         /// <param name="type"> The type. </param>
         /// <param name="stat"> The stat. </param>
         public Plotter( BindingSource bindingSource, string category, IEnumerable<string> values,
-                      SeriesChartType type = SeriesChartType.Column, STAT stat = STAT.Total )
+            SeriesChartType type = SeriesChartType.Column, STAT stat = STAT.Total )
             : this( )
         {
-            DataTable = (DataTable) bindingSource.DataSource;
-            BindingSource.DataSource = (DataTable) bindingSource.DataSource;
-            DataSource = (DataTable) bindingSource.DataSource;
+            DataTable = (DataTable)bindingSource.DataSource;
+            BindingSource.DataSource = (DataTable)bindingSource.DataSource;
+            DataSource = (DataTable)bindingSource.DataSource;
             Data = DataTable.AsEnumerable( );
             Series[ 0 ].ChartType = type;
             Measure = stat;
         }
 
-        /// <summary> Sets the area properties. </summary>
+        /// <summary>
+        /// Sets the area properties.
+        /// </summary>
         private void SetAreaProperties( )
         {
             if( ChartAreas.Count > 0 )
@@ -187,7 +185,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the title properties. </summary>
+        /// <summary>
+        /// Sets the title properties.
+        /// </summary>
         private void SetTitleProperties( )
         {
             if( Titles.Count > 0 )
@@ -209,7 +209,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the legend properties. </summary>
+        /// <summary>
+        /// Sets the legend properties.
+        /// </summary>
         private void SetLegendProperties( )
         {
             if( Legends.Count > 0 )
@@ -236,7 +238,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the series properties. </summary>
+        /// <summary>
+        /// Sets the series properties.
+        /// </summary>
         private void SetSeriesProperties( )
         {
             if( Series.Count > 0 )
@@ -270,6 +274,19 @@ namespace BudgetExecution
                     Fail( _ex );
                 }
             }
+        }
+
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">
+        /// The ex.
+        /// </param>
+        protected void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

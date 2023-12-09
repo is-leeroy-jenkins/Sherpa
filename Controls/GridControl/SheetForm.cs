@@ -282,7 +282,7 @@ namespace BudgetExecution
             {
                 if( Owner?.Visible == false )
                 {
-                    var _form = (MainForm) Program.Windows[ "MainForm" ];
+                    var _form = (MainForm) Program.Windows[ nameof( MainForm ) ];
                     _form.Refresh( );
                     _form.Visible = true;
                 }

@@ -71,13 +71,13 @@ namespace BudgetExecution
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "ProgramProjectsId" ].ToString( ) );
-            Code = Record[ "Code" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
-            Title = Record[ "Title" ].ToString( );
-            Definition = Record[ "Definition" ].ToString( );
-            Laws = Record[ "Laws" ].ToString( );
-            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
-            ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
+            Code = Record[ nameof( Code ) ].ToString( );
+            Name = Record[ nameof( Name ) ].ToString( );
+            Title = Record[ nameof( Title ) ].ToString( );
+            Definition = Record[ nameof( Definition ) ].ToString( );
+            Laws = Record[ nameof( Laws ) ].ToString( );
+            ProgramAreaCode = Record[ nameof( ProgramAreaCode ) ].ToString( );
+            ProgramAreaName = Record[ nameof( ProgramAreaName ) ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -92,13 +92,13 @@ namespace BudgetExecution
             Record = builder.Record;
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "ProgramProjectsId" ].ToString( ) );
-            Code = Record[ "Code" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
-            Title = Record[ "Title" ].ToString( );
-            Definition = Record[ "Definition" ].ToString( );
-            Laws = Record[ "Laws" ].ToString( );
-            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
-            ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
+            Code = Record[ nameof( Code ) ].ToString( );
+            Name = Record[ nameof( Name ) ].ToString( );
+            Title = Record[ nameof( Title ) ].ToString( );
+            Definition = Record[ nameof( Definition ) ].ToString( );
+            Laws = Record[ nameof( Laws ) ].ToString( );
+            ProgramAreaCode = Record[ nameof( ProgramAreaCode ) ].ToString( );
+            ProgramAreaName = Record[ nameof( ProgramAreaName ) ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -113,13 +113,13 @@ namespace BudgetExecution
             Record = dataRow;
             Data = dataRow.ToDictionary( );
             ID = int.Parse( dataRow[ "ProgramProjectsId" ].ToString( ) );
-            Code = dataRow[ "Code" ].ToString( );
-            Name = dataRow[ "Name" ].ToString( );
-            Title = dataRow[ "Title" ].ToString( );
-            Definition = dataRow[ "Definition" ].ToString( );
-            Laws = dataRow[ "Laws" ].ToString( );
-            ProgramAreaCode = dataRow[ "ProgramAreaCode" ].ToString( );
-            ProgramAreaName = dataRow[ "ProgramAreaName" ].ToString( );
+            Code = dataRow[ nameof( Code ) ].ToString( );
+            Name = dataRow[ nameof( Name ) ].ToString( );
+            Title = dataRow[ nameof( Title ) ].ToString( );
+            Definition = dataRow[ nameof( Definition ) ].ToString( );
+            Laws = dataRow[ nameof( Laws ) ].ToString( );
+            ProgramAreaCode = dataRow[ nameof( ProgramAreaCode ) ].ToString( );
+            ProgramAreaName = dataRow[ nameof( ProgramAreaName ) ].ToString( );
             Data = dataRow?.ToDictionary( );
         }
     }

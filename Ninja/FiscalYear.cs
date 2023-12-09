@@ -180,7 +180,7 @@ namespace BudgetExecution
                 {
                     return new Dictionary<string, object> 
                     {
-                        [ "BFY" ] = bfy
+                        [ nameof( BFY ) ] = bfy
                     };
                 }
                 catch( Exception _ex )

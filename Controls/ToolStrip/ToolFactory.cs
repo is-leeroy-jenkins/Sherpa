@@ -56,7 +56,7 @@ namespace BudgetExecution
         /// <summary> Gets the image directory. </summary>
         /// <value> The image directory. </value>
         public static string ImageDirectory { get; } =
-            ConfigurationManager.AppSettings[ "ToolStrip" ];
+            ConfigurationManager.AppSettings[ nameof( ToolStrip ) ];
 
         /// <summary>
         /// Initializes a new instance of the

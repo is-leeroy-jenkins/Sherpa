@@ -521,7 +521,7 @@ namespace BudgetExecution
 
                 foreach( var _name in _fields )
                 {
-                    if( !_name.Contains( "Name" ) )
+                    if( !_name.Contains( nameof( Name ) ) )
                     {
                         var _item = new PivotItem
                         {
@@ -547,7 +547,7 @@ namespace BudgetExecution
 
                 PivotChart.EnableXZooming = true;
                 PivotChart.PrimaryXAxis.ZoomFactor = .7;
-                PivotChart.PrimaryXAxis.Title.Text = "Fields";
+                PivotChart.PrimaryXAxis.Title.Text = nameof( Fields );
                 PivotChart.PrimaryYAxis.ShowAxisLabelTooltip = true;
                 PivotChart.PrimaryYAxis.Title.Text = "Values";
                 PivotChart.AllowDrillDown = true;
@@ -877,7 +877,7 @@ namespace BudgetExecution
                     if( _lbl.Tag != null )
                     {
                         var _tag = _lbl.Tag.ToString( );
-                        if( _tag.Equals( "STAT" ) )
+                        if( _tag.Equals( nameof( STAT ) ) )
                         {
                             _lbl.Text = string.Empty;
                         }
@@ -935,7 +935,7 @@ namespace BudgetExecution
                 for( var _i = 0; _i < _labels.Length; _i++ )
                 {
                     var _lbl = _labels[ _i ].Tag?.ToString( );
-                    if( _lbl == "STAT" )
+                    if( _lbl == nameof( STAT ) )
                     {
                         _labels[ _i ].Text = $"{_colNames[ _i ]} = {_colValues[ _i ]}";
                     }
@@ -954,7 +954,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _form = (MainForm)Program.Windows[ "MainForm" ];
+                var _form = (MainForm)Program.Windows[ nameof( MainForm ) ];
                 _form.StartPosition = FormStartPosition.CenterScreen;
                 _form.TopMost = true;
                 _form.Visible = true;
@@ -1001,8 +1001,8 @@ namespace BudgetExecution
                 var _data = _model.GetData( );
                 var _names = _data
                     ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
-                    ?.OrderBy( r => r.Field<string>( "Title" ) )
-                    ?.Select( r => r.Field<string>( "Title" ) )
+                    ?.OrderBy( r => r.Field<string>( nameof( Title ) ) )
+                    ?.Select( r => r.Field<string>( nameof( Title ) ) )
                     ?.ToList( );
 
                 if( _names?.Any( ) == true )

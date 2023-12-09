@@ -252,14 +252,14 @@ namespace BudgetExecution
         {
             try
             {
-                SQLiteRadioButton.Tag = "SQLite";
+                SQLiteRadioButton.Tag = nameof( SQLite );
                 SQLiteRadioButton.HoverText = "SQLite Provider";
-                AccessRadioButton.Tag = "Access";
+                AccessRadioButton.Tag = nameof( Access );
                 AccessRadioButton.HoverText = "MS Access Provider";
                 AccessRadioButton.Checked = true;
-                SqlCeRadioButton.Tag = "SqlCe";
+                SqlCeRadioButton.Tag = nameof( SqlCe );
                 SqlCeRadioButton.HoverText = "SQL Compact Provider";
-                SqlServerRadioButton.Tag = "SqlServer";
+                SqlServerRadioButton.Tag = nameof( SqlServer );
                 SqlServerRadioButton.HoverText = "Sql Server Provider";
             }
             catch( Exception _ex )

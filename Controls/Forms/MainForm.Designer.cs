@@ -1297,7 +1297,7 @@ namespace BudgetExecution
         public Tile CalendarTile;
         public Tile SqlEditorTile;
         public Tile MessageTile;
-        private BackPanel DataPanel;
+        public BackPanel DataPanel;
         public HeaderPanel ResourceTable;
         public BackPanel ResourcePanel;
         public System.Windows.Forms.Timer Timer;

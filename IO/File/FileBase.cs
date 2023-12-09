@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:              Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 04-22-2023
+//     Created:                 12-9-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        12-9-2023
 // ******************************************************************************************
 // <copyright file="FileBase.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
+//    This is a tiny web browser used in Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,7 +31,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//    Contact at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   FileBase.cs
@@ -49,18 +49,18 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="BudgetExecution.PathBase" />
-    [SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
+    [ SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
     public abstract class FileBase : PathBase
     {
         /// <summary>
         /// Moves the specified file path.
         /// </summary>
         /// <param name="filePath">The file path.</param>
-        public virtual void Move( string filePath )
+        public void Move( string filePath )
         {
             try
             {
-                ThrowIf.NotExists( filePath, "filePath" );
+                ThrowIf.NullOrEmpty( filePath, nameof( filePath ) );
                 var _source = new FileInfo( FullPath );
                 _source.MoveTo( filePath );
             }
@@ -73,12 +73,14 @@ namespace BudgetExecution
         /// <summary>
         /// Copies the specified file path.
         /// </summary>
-        /// <param name="filePath">The file path.</param>
-        public virtual void Copy( string filePath )
+        /// <param name="filePath">
+        /// The file path.
+        /// </param>
+        public void Copy( string filePath )
         {
             try
             {
-                ThrowIf.NotExists( filePath, "filePath" );
+                ThrowIf.NullOrEmpty( filePath, nameof( filePath ) );
                 var _source = new FileInfo( FullPath );
                 _source.CopyTo( filePath );
             }
@@ -91,7 +93,7 @@ namespace BudgetExecution
         /// <summary>
         /// Deletes this instance.
         /// </summary>
-        public virtual void Delete( )
+        public void Delete( )
         {
             try
             {
@@ -149,7 +151,8 @@ namespace BudgetExecution
         /// Converts to string.
         /// </summary>
         /// <returns>
-        /// A <see cref="System.String" /> that represents this instance.
+        /// A <see cref="System.String" />
+        /// that represents this instance.
         /// </returns>
         public override string ToString( )
         {
