@@ -113,11 +113,11 @@ namespace BudgetExecution
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "ReportingLinesId" ].ToString( ) ?? string.Empty );
-            Number = Record[ nameof( Number ) ].ToString( );
-            Name = Record[ nameof( Name ) ].ToString( );
-            Caption = Record[ nameof( Caption ) ].ToString( );
-            Category = Record[ nameof( Category ) ].ToString( );
-            Range = Record[ nameof( Range ) ].ToString( );
+            Number = Record[ "Number" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            Caption = Record[ "Caption" ].ToString( );
+            Category = Record[ "Category" ].ToString( );
+            Range = Record[ "Range" ].ToString( );
         }
 
         /// <inheritdoc/>
@@ -133,11 +133,11 @@ namespace BudgetExecution
             Record = dataBuilder.Record;
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "ReportingLinesId" ].ToString( ) ?? string.Empty );
-            Number = Record[ nameof( Number ) ].ToString( );
-            Name = Record[ nameof( Name ) ].ToString( );
-            Caption = Record[ nameof( Caption ) ].ToString( );
-            Category = Record[ nameof( Category ) ].ToString( );
-            Range = Record[ nameof( Range ) ].ToString( );
+            Number = Record[ "Number" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            Caption = Record[ "Caption" ].ToString( );
+            Category = Record[ "Category" ].ToString( );
+            Range = Record[ "Range" ].ToString( );
         }
 
         /// <inheritdoc/>
@@ -153,11 +153,11 @@ namespace BudgetExecution
             Record = dataRow;
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "ReportingLinesId" ].ToString( ) ?? string.Empty );
-            Number = Record[ nameof( Number ) ].ToString( );
-            Name = Record[ nameof( Name ) ].ToString( );
-            Caption = Record[ nameof( Caption ) ].ToString( );
-            Category = Record[ nameof( Category ) ].ToString( );
-            Range = Record[ nameof( Range ) ].ToString( );
+            Number = Record[ "Number" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            Caption = Record[ "Caption" ].ToString( );
+            Category = Record[ "Category" ].ToString( );
+            Range = Record[ "Range" ].ToString( );
         }
     }
 }

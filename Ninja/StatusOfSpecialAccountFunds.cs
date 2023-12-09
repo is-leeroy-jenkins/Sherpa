@@ -198,36 +198,36 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
-            BFY = Record[ nameof( BFY ) ].ToString( );
-            EFY = Record[ nameof( EFY ) ].ToString( );
-            FundCode = Record[ nameof( FundCode ) ].ToString( );
-            FundName = Record[ nameof( FundName ) ].ToString( );
-            RpioCode = Record[ nameof( RpioCode ) ].ToString( );
-            RpioName = Record[ nameof( RpioName ) ].ToString( );
-            CerclisSiteId = Record[ nameof( CerclisSiteId ) ].ToString( );
-            SiteId = Record[ nameof( SiteId ) ].ToString( );
-            ProgramCode = Record[ nameof( ProgramCode ) ].ToString( );
-            SpecialAccountNumber = Record[ nameof( SpecialAccountNumber ) ].ToString( );
-            SpecialAccountName = Record[ nameof( SpecialAccountName ) ].ToString( );
-            SpecialAccountStatus = Record[ nameof( SpecialAccountStatus ) ].ToString( );
-            NplStatusCode = Record[ nameof( NplStatusCode ) ].ToString( );
-            InterestDate = DateOnly.Parse( Record[ nameof( InterestDate ) ].ToString( ) );
-            TrustfundTransfers = double.Parse( Record[ nameof( TrustfundTransfers ) ].ToString( ) ?? "0" );
-            Interest = double.Parse( Record[ nameof( Interest ) ].ToString( ) ?? "0" );
-            OpenCommitments = double.Parse( Record[ nameof( OpenCommitments ) ].ToString( ) ?? "0" );
-            Obligations = double.Parse( Record[ nameof( Obligations ) ].ToString( ) ?? "0" );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            RpioCode = Record[ "RpioCode" ].ToString( );
+            RpioName = Record[ "RpioName" ].ToString( );
+            CerclisSiteId = Record[ "CerclisSiteId" ].ToString( );
+            SiteId = Record[ "SiteId" ].ToString( );
+            ProgramCode = Record[ "ProgramCode" ].ToString( );
+            SpecialAccountNumber = Record[ "SpecialAccountNumber" ].ToString( );
+            SpecialAccountName = Record[ "SpecialAccountName" ].ToString( );
+            SpecialAccountStatus = Record[ "SpecialAccountStatus" ].ToString( );
+            NplStatusCode = Record[ "NplStatusCode" ].ToString( );
+            InterestDate = DateOnly.Parse( Record[ "InterestDate" ].ToString( ) );
+            TrustfundTransfers = double.Parse( Record[ "TrustfundTransfers" ].ToString( ) ?? "0" );
+            Interest = double.Parse( Record[ "Interest" ].ToString( ) ?? "0" );
+            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
+            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
             UnliquidatedObligations =
-                double.Parse( Record[ nameof( UnliquidatedObligations ) ].ToString( ) );
+                double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) );
 
-            Disbursements = double.Parse( Record[ nameof( Disbursements ) ].ToString( ) ?? "0" );
-            CumulativeReceipts = double.Parse( Record[ nameof( CumulativeReceipts ) ].ToString( ) ?? "0" );
-            NetReceipts = double.Parse( Record[ nameof( NetReceipts ) ].ToString( ) ?? "0" );
-            CollectionsAndInterest = double.Parse( Record[ nameof( CollectionsAndInterest ) ].ToString( ) );
-            AvailableBalance = double.Parse( Record[ nameof( Expenditures ) ].ToString( ) ?? "0" );
-            TreasuryAccountCode = Record[ nameof( TreasuryAccountCode ) ].ToString( );
-            TreasuryAccountName = Record[ nameof( TreasuryAccountName ) ].ToString( );
-            BudgetAccountCode = Record[ nameof( BudgetAccountCode ) ].ToString( );
-            BudgetAccountName = Record[ nameof( BudgetAccountName ) ].ToString( );
+            Disbursements = double.Parse( Record[ "Disbursements" ].ToString( ) ?? "0" );
+            CumulativeReceipts = double.Parse( Record[ "CumulativeReceipts" ].ToString( ) ?? "0" );
+            NetReceipts = double.Parse( Record[ "NetReceipts" ].ToString( ) ?? "0" );
+            CollectionsAndInterest = double.Parse( Record[ "CollectionsAndInterest" ].ToString( ) );
+            AvailableBalance = double.Parse( Record[ "Expenditures" ].ToString( ) ?? "0" );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
         /// <summary>
@@ -240,36 +240,36 @@ namespace BudgetExecution
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
-            BFY = Record[ nameof( BFY ) ].ToString( );
-            EFY = Record[ nameof( EFY ) ].ToString( );
-            FundCode = Record[ nameof( FundCode ) ].ToString( );
-            FundName = Record[ nameof( FundName ) ].ToString( );
-            RpioCode = Record[ nameof( RpioCode ) ].ToString( );
-            RpioName = Record[ nameof( RpioName ) ].ToString( );
-            CerclisSiteId = Record[ nameof( CerclisSiteId ) ].ToString( );
-            SiteId = Record[ nameof( SiteId ) ].ToString( );
-            ProgramCode = Record[ nameof( ProgramCode ) ].ToString( );
-            SpecialAccountNumber = Record[ nameof( SpecialAccountNumber ) ].ToString( );
-            SpecialAccountName = Record[ nameof( SpecialAccountName ) ].ToString( );
-            SpecialAccountStatus = Record[ nameof( SpecialAccountStatus ) ].ToString( );
-            NplStatusCode = Record[ nameof( NplStatusCode ) ].ToString( );
-            InterestDate = DateOnly.Parse( Record[ nameof( InterestDate ) ].ToString( ) );
-            TrustfundTransfers = double.Parse( Record[ nameof( TrustfundTransfers ) ].ToString( ) ?? "0" );
-            Interest = double.Parse( Record[ nameof( Interest ) ].ToString( ) ?? "0" );
-            OpenCommitments = double.Parse( Record[ nameof( OpenCommitments ) ].ToString( ) ?? "0" );
-            Obligations = double.Parse( Record[ nameof( Obligations ) ].ToString( ) ?? "0" );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            RpioCode = Record[ "RpioCode" ].ToString( );
+            RpioName = Record[ "RpioName" ].ToString( );
+            CerclisSiteId = Record[ "CerclisSiteId" ].ToString( );
+            SiteId = Record[ "SiteId" ].ToString( );
+            ProgramCode = Record[ "ProgramCode" ].ToString( );
+            SpecialAccountNumber = Record[ "SpecialAccountNumber" ].ToString( );
+            SpecialAccountName = Record[ "SpecialAccountName" ].ToString( );
+            SpecialAccountStatus = Record[ "SpecialAccountStatus" ].ToString( );
+            NplStatusCode = Record[ "NplStatusCode" ].ToString( );
+            InterestDate = DateOnly.Parse( Record[ "InterestDate" ].ToString( ) );
+            TrustfundTransfers = double.Parse( Record[ "TrustfundTransfers" ].ToString( ) ?? "0" );
+            Interest = double.Parse( Record[ "Interest" ].ToString( ) ?? "0" );
+            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
+            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
             UnliquidatedObligations =
-                double.Parse( Record[ nameof( UnliquidatedObligations ) ].ToString( ) );
+                double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) );
 
-            Disbursements = double.Parse( Record[ nameof( Disbursements ) ].ToString( ) ?? "0" );
-            CumulativeReceipts = double.Parse( Record[ nameof( CumulativeReceipts ) ].ToString( ) ?? "0" );
-            NetReceipts = double.Parse( Record[ nameof( NetReceipts ) ].ToString( ) ?? "0" );
-            CollectionsAndInterest = double.Parse( Record[ nameof( CollectionsAndInterest ) ].ToString( ) );
-            AvailableBalance = double.Parse( Record[ nameof( Expenditures ) ].ToString( ) ?? "0" );
-            TreasuryAccountCode = Record[ nameof( TreasuryAccountCode ) ].ToString( );
-            TreasuryAccountName = Record[ nameof( TreasuryAccountName ) ].ToString( );
-            BudgetAccountCode = Record[ nameof( BudgetAccountCode ) ].ToString( );
-            BudgetAccountName = Record[ nameof( BudgetAccountName ) ].ToString( );
+            Disbursements = double.Parse( Record[ "Disbursements" ].ToString( ) ?? "0" );
+            CumulativeReceipts = double.Parse( Record[ "CumulativeReceipts" ].ToString( ) ?? "0" );
+            NetReceipts = double.Parse( Record[ "NetReceipts" ].ToString( ) ?? "0" );
+            CollectionsAndInterest = double.Parse( Record[ "CollectionsAndInterest" ].ToString( ) );
+            AvailableBalance = double.Parse( Record[ "Expenditures" ].ToString( ) ?? "0" );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
         /// <summary>
@@ -282,36 +282,36 @@ namespace BudgetExecution
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
-            BFY = Record[ nameof( BFY ) ].ToString( );
-            EFY = Record[ nameof( EFY ) ].ToString( );
-            FundCode = Record[ nameof( FundCode ) ].ToString( );
-            FundName = Record[ nameof( FundName ) ].ToString( );
-            RpioCode = Record[ nameof( RpioCode ) ].ToString( );
-            RpioName = Record[ nameof( RpioName ) ].ToString( );
-            CerclisSiteId = Record[ nameof( CerclisSiteId ) ].ToString( );
-            SiteId = Record[ nameof( SiteId ) ].ToString( );
-            ProgramCode = Record[ nameof( ProgramCode ) ].ToString( );
-            SpecialAccountNumber = Record[ nameof( SpecialAccountNumber ) ].ToString( );
-            SpecialAccountName = Record[ nameof( SpecialAccountName ) ].ToString( );
-            SpecialAccountStatus = Record[ nameof( SpecialAccountStatus ) ].ToString( );
-            NplStatusCode = Record[ nameof( NplStatusCode ) ].ToString( );
-            InterestDate = DateOnly.Parse( Record[ nameof( InterestDate ) ].ToString( ) );
-            TrustfundTransfers = double.Parse( Record[ nameof( TrustfundTransfers ) ].ToString( ) ?? "0" );
-            Interest = double.Parse( Record[ nameof( Interest ) ].ToString( ) ?? "0" );
-            OpenCommitments = double.Parse( Record[ nameof( OpenCommitments ) ].ToString( ) ?? "0" );
-            Obligations = double.Parse( Record[ nameof( Obligations ) ].ToString( ) ?? "0" );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            RpioCode = Record[ "RpioCode" ].ToString( );
+            RpioName = Record[ "RpioName" ].ToString( );
+            CerclisSiteId = Record[ "CerclisSiteId" ].ToString( );
+            SiteId = Record[ "SiteId" ].ToString( );
+            ProgramCode = Record[ "ProgramCode" ].ToString( );
+            SpecialAccountNumber = Record[ "SpecialAccountNumber" ].ToString( );
+            SpecialAccountName = Record[ "SpecialAccountName" ].ToString( );
+            SpecialAccountStatus = Record[ "SpecialAccountStatus" ].ToString( );
+            NplStatusCode = Record[ "NplStatusCode" ].ToString( );
+            InterestDate = DateOnly.Parse( Record[ "InterestDate" ].ToString( ) );
+            TrustfundTransfers = double.Parse( Record[ "TrustfundTransfers" ].ToString( ) ?? "0" );
+            Interest = double.Parse( Record[ "Interest" ].ToString( ) ?? "0" );
+            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
+            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
             UnliquidatedObligations =
-                double.Parse( Record[ nameof( UnliquidatedObligations ) ].ToString( ) );
+                double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) );
 
-            Disbursements = double.Parse( Record[ nameof( Disbursements ) ].ToString( ) ?? "0" );
-            CumulativeReceipts = double.Parse( Record[ nameof( CumulativeReceipts ) ].ToString( ) ?? "0" );
-            NetReceipts = double.Parse( Record[ nameof( NetReceipts ) ].ToString( ) ?? "0" );
-            CollectionsAndInterest = double.Parse( Record[ nameof( CollectionsAndInterest ) ].ToString( ) );
-            AvailableBalance = double.Parse( Record[ nameof( Expenditures ) ].ToString( ) ?? "0" );
-            TreasuryAccountCode = Record[ nameof( TreasuryAccountCode ) ].ToString( );
-            TreasuryAccountName = Record[ nameof( TreasuryAccountName ) ].ToString( );
-            BudgetAccountCode = Record[ nameof( BudgetAccountCode ) ].ToString( );
-            BudgetAccountName = Record[ nameof( BudgetAccountName ) ].ToString( );
+            Disbursements = double.Parse( Record[ "Disbursements" ].ToString( ) ?? "0" );
+            CumulativeReceipts = double.Parse( Record[ "CumulativeReceipts" ].ToString( ) ?? "0" );
+            NetReceipts = double.Parse( Record[ "NetReceipts" ].ToString( ) ?? "0" );
+            CollectionsAndInterest = double.Parse( Record[ "CollectionsAndInterest" ].ToString( ) );
+            AvailableBalance = double.Parse( Record[ "Expenditures" ].ToString( ) ?? "0" );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
         /// <summary> </summary>

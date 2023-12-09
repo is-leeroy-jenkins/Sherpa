@@ -226,7 +226,8 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the data.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         public IEnumerable<DataRow> GetData( )
         {
             try
@@ -281,7 +282,8 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the table asynchronous.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         private protected Task<DataTable> GetTableAsync( )
         { 
             var _tcs = new TaskCompletionSource<DataTable>( );

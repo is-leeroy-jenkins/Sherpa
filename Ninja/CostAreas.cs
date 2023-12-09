@@ -69,8 +69,8 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
-            Code = Record[ nameof( Code ) ].ToString( );
-            Name = Record[ nameof( Name ) ].ToString( );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
         }
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace BudgetExecution
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
-            Code = Record[ nameof( Code ) ].ToString( );
-            Name = Record[ nameof( Name ) ].ToString( );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
         }
 
         /// <summary>
@@ -99,8 +99,8 @@ namespace BudgetExecution
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
-            Code = dataRow[ nameof( Code ) ].ToString( );
-            Name = dataRow[ nameof( Name ) ].ToString( );
+            Code = dataRow[ "Code" ].ToString( );
+            Name = dataRow[ "Name" ].ToString( );
         }
     }
 }

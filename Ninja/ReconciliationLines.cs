@@ -104,8 +104,8 @@ namespace BudgetExecution
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "ReconciliationLinesId" ].ToString( ) ?? string.Empty );
-            Number = Record[ nameof( Number ) ].ToString( );
-            Name = Record[ nameof( Name ) ].ToString( );
+            Number = Record[ "Number" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
         }
 
         /// <inheritdoc/>
@@ -121,8 +121,8 @@ namespace BudgetExecution
             Record = dataBuilder.Record;
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "ReconciliationLinesId" ].ToString( ) ?? string.Empty );
-            Number = Record[ nameof( Number ) ].ToString( );
-            Name = Record[ nameof( Name ) ].ToString( );
+            Number = Record[ "Number" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
         }
 
         /// <inheritdoc/>
@@ -138,8 +138,8 @@ namespace BudgetExecution
             Record = dataRow;
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "ReconciliationLinesId" ].ToString( ) ?? string.Empty );
-            Number = Record[ nameof( Number ) ].ToString( );
-            Name = Record[ nameof( Name ) ].ToString( );
+            Number = Record[ "Number" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
         }
     }
 }

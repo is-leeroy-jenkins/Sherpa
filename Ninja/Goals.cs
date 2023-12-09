@@ -75,8 +75,8 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query )?.Record;
             ID = int.Parse( Record[ "GoalsId" ].ToString( ) );
-            Code = Record[ nameof( Code ) ].ToString( );
-            Name = Record[ nameof( Name ) ].ToString( );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -90,8 +90,8 @@ namespace BudgetExecution
         {
             Record = builder?.Record;
             ID = int.Parse( Record[ "GoalsId" ].ToString( ) );
-            Code = Record[ nameof( Code ) ].ToString( );
-            Name = Record[ nameof( Name ) ].ToString( );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -105,8 +105,8 @@ namespace BudgetExecution
         {
             Record = dataRow;
             ID = int.Parse( Record[ "GoalsId" ].ToString( ) );
-            Code = Record[ nameof( Code ) ].ToString( );
-            Name = Record[ nameof( Name ) ].ToString( );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -120,8 +120,8 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( Source, GetArgs( code ) )?.Record;
             ID = int.Parse( Record[ "GoalsId" ].ToString( ) );
-            Code = Record[ nameof( Code ) ].ToString( );
-            Name = Record[ nameof( Name ) ].ToString( );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -148,7 +148,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return new Dictionary<string, object> { [ nameof( Code ) ] = goal.ToString( ) };
+                    return new Dictionary<string, object> { [ "Code" ] = goal.ToString( ) };
                 }
                 catch( SystemException _ex )
                 {
@@ -186,7 +186,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return new Dictionary<string, object> { [ nameof( Code ) ] = code };
+                    return new Dictionary<string, object> { [ "Code" ] = code };
                 }
                 catch( Exception _ex )
                 {

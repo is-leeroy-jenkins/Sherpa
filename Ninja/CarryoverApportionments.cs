@@ -183,23 +183,23 @@ namespace BudgetExecution
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "CarryoverApportionmentsId" ].ToString( ) ?? "0" );
-            BFY = Record[ nameof( BFY ) ].ToString( );
-            EFY = Record[ nameof( EFY ) ].ToString( );
-            Group = Record[ nameof( Group ) ].ToString( );
-            Description = Record[ nameof( Description ) ].ToString( );
-            LineName = Record[ nameof( LineName ) ].ToString( );
-            LineNumber = Record[ nameof( LineNumber ) ].ToString( );
-            AuthorityType = Record[ nameof( AuthorityType ) ].ToString( );
-            Request = double.Parse( Record[ nameof( Request ) ].ToString( ) ?? "0" );
-            Balance = double.Parse( Record[ nameof( Balance ) ].ToString( ) ?? "0" );
-            Deobligations = double.Parse( Record[ nameof( Deobligations ) ].ToString( ) ?? "0" );
-            Amount = double.Parse( Record[ nameof( Amount ) ].ToString( ) ?? "0" );
-            LineSplit = Record[ nameof( LineSplit ) ].ToString( );
-            ApportionmentAccountCode = Record[ nameof( ApportionmentAccountCode ) ].ToString( );
-            TreasuryAccountCode = Record[ nameof( TreasuryAccountCode ) ].ToString( );
-            TreasuryAccountName = Record[ nameof( TreasuryAccountName ) ].ToString( );
-            BudgetAccountCode = Record[ nameof( BudgetAccountCode ) ].ToString( );
-            BudgetAccountName = Record[ nameof( BudgetAccountName ) ].ToString( );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            Group = Record[ "Group" ].ToString( );
+            Description = Record[ "Description" ].ToString( );
+            LineName = Record[ "LineName" ].ToString( );
+            LineNumber = Record[ "LineNumber" ].ToString( );
+            AuthorityType = Record[ "AuthorityType" ].ToString( );
+            Request = double.Parse( Record[ "Request" ].ToString( ) ?? "0" );
+            Balance = double.Parse( Record[ "Balance" ].ToString( ) ?? "0" );
+            Deobligations = double.Parse( Record[ "Deobligations" ].ToString( ) ?? "0" );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
+            LineSplit = Record[ "LineSplit" ].ToString( );
+            ApportionmentAccountCode = Record[ "ApportionmentAccountCode" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
         /// <inheritdoc />
@@ -214,23 +214,23 @@ namespace BudgetExecution
             Record = builder.Record;
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "CarryoverApportionmentsId" ].ToString( ) ?? "0" );
-            BFY = Record[ nameof( BFY ) ].ToString( );
-            EFY = Record[ nameof( EFY ) ].ToString( );
-            Group = Record[ nameof( Group ) ].ToString( );
-            Description = Record[ nameof( Description ) ].ToString( );
-            LineName = Record[ nameof( LineName ) ].ToString( );
-            LineNumber = Record[ nameof( LineNumber ) ].ToString( );
-            AuthorityType = Record[ nameof( AuthorityType ) ].ToString( );
-            Request = double.Parse( Record[ nameof( Request ) ].ToString( ) ?? "0" );
-            Balance = double.Parse( Record[ nameof( Balance ) ].ToString( ) ?? "0" );
-            Deobligations = double.Parse( Record[ nameof( Deobligations ) ].ToString( ) ?? "0" );
-            Amount = double.Parse( Record[ nameof( Amount ) ].ToString( ) ?? "0" );
-            LineSplit = Record[ nameof( LineSplit ) ].ToString( );
-            ApportionmentAccountCode = Record[ nameof( ApportionmentAccountCode ) ].ToString( );
-            TreasuryAccountCode = Record[ nameof( TreasuryAccountCode ) ].ToString( );
-            TreasuryAccountName = Record[ nameof( TreasuryAccountName ) ].ToString( );
-            BudgetAccountCode = Record[ nameof( BudgetAccountCode ) ].ToString( );
-            BudgetAccountName = Record[ nameof( BudgetAccountName ) ].ToString( );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            Group = Record[ "Group" ].ToString( );
+            Description = Record[ "Description" ].ToString( );
+            LineName = Record[ "LineName" ].ToString( );
+            LineNumber = Record[ "LineNumber" ].ToString( );
+            AuthorityType = Record[ "AuthorityType" ].ToString( );
+            Request = double.Parse( Record[ "Request" ].ToString( ) ?? "0" );
+            Balance = double.Parse( Record[ "Balance" ].ToString( ) ?? "0" );
+            Deobligations = double.Parse( Record[ "Deobligations" ].ToString( ) ?? "0" );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
+            LineSplit = Record[ "LineSplit" ].ToString( );
+            ApportionmentAccountCode = Record[ "ApportionmentAccountCode" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
         /// <inheritdoc />
@@ -245,23 +245,23 @@ namespace BudgetExecution
             Record = dataRow;
             Data = dataRow.ToDictionary( );
             ID = int.Parse( dataRow[ "CarryoverApportionmentsId" ].ToString( ) ?? "0" );
-            BFY = dataRow[ nameof( BFY ) ].ToString( );
-            EFY = dataRow[ nameof( EFY ) ].ToString( );
-            Group = dataRow[ nameof( Group ) ].ToString( );
-            Description = dataRow[ nameof( Description ) ].ToString( );
-            LineName = dataRow[ nameof( LineName ) ].ToString( );
-            LineNumber = dataRow[ nameof( LineNumber ) ].ToString( );
-            AuthorityType = dataRow[ nameof( AuthorityType ) ].ToString( );
-            Request = double.Parse( dataRow[ nameof( Request ) ].ToString( ) ?? "0" );
-            Balance = double.Parse( dataRow[ nameof( Balance ) ].ToString( ) ?? "0" );
-            Deobligations = double.Parse( dataRow[ nameof( Deobligations ) ].ToString( ) ?? "0" );
-            Amount = double.Parse( dataRow[ nameof( Amount ) ].ToString( ) ?? "0" );
-            LineSplit = dataRow[ nameof( LineSplit ) ].ToString( );
-            ApportionmentAccountCode = dataRow[ nameof( ApportionmentAccountCode ) ].ToString( );
-            TreasuryAccountCode = dataRow[ nameof( TreasuryAccountCode ) ].ToString( );
-            TreasuryAccountName = dataRow[ nameof( TreasuryAccountName ) ].ToString( );
-            BudgetAccountCode = dataRow[ nameof( BudgetAccountCode ) ].ToString( );
-            BudgetAccountName = dataRow[ nameof( BudgetAccountName ) ].ToString( );
+            BFY = dataRow[ "BFY" ].ToString( );
+            EFY = dataRow[ "EFY" ].ToString( );
+            Group = dataRow[ "Group" ].ToString( );
+            Description = dataRow[ "Description" ].ToString( );
+            LineName = dataRow[ "LineName" ].ToString( );
+            LineNumber = dataRow[ "LineNumber" ].ToString( );
+            AuthorityType = dataRow[ "AuthorityType" ].ToString( );
+            Request = double.Parse( dataRow[ "Request" ].ToString( ) ?? "0" );
+            Balance = double.Parse( dataRow[ "Balance" ].ToString( ) ?? "0" );
+            Deobligations = double.Parse( dataRow[ "Deobligations" ].ToString( ) ?? "0" );
+            Amount = double.Parse( dataRow[ "Amount" ].ToString( ) ?? "0" );
+            LineSplit = dataRow[ "LineSplit" ].ToString( );
+            ApportionmentAccountCode = dataRow[ "ApportionmentAccountCode" ].ToString( );
+            TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
         }
 
         /// <inheritdoc />

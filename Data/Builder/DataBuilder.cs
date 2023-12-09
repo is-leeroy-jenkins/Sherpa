@@ -45,7 +45,6 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
-    using static DataBuilder;
 
     /// <inheritdoc />
     /// <summary>
@@ -271,17 +270,6 @@ namespace BudgetExecution
         public DataBuilder( string fullPath, string sqlText, SQL commandType = SQL.SELECT )
             : base( fullPath, sqlText, commandType )
         {
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Initializes a new instance of the
-        /// see cref="T:BudgetExecution.DataBuilder" /> class.
-        /// </summary>
-        /// <param name="row">The row.</param>
-        public DataBuilder( DataRow row )
-        {
-            Record = row;
         }
 
         /// <summary>

@@ -199,17 +199,17 @@ namespace BudgetExecution
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "PartitionsId" ].ToString( ) ?? string.Empty );
-            FiscalYear = Record[ nameof( FiscalYear ) ].ToString( );
-            BFY = Record[ nameof( BFY ) ].ToString( );
-            EFY = Record[ nameof( EFY ) ].ToString( );
-            FundCode = Record[ nameof( FundCode ) ].ToString( );
-            Type = Record[ nameof( Type ) ].ToString( );
-            ProgramName = Record[ nameof( ProgramName ) ].ToString( );
-            ProgramAreaName = Record[ nameof( ProgramAreaName ) ].ToString( );
-            Amount = double.Parse( Record[ nameof( Amount ) ].ToString( ) ?? string.Empty );
-            MainAccount = Record[ nameof( MainAccount ) ].ToString( );
-            TreasuryAccountCode = Record[ nameof( TreasuryAccountCode ) ].ToString( );
-            BudgetAccountCode = Record[ nameof( BudgetAccountCode ) ].ToString( );
+            FiscalYear = Record[ "FiscalYear" ].ToString( );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            Type = Record[ "Type" ].ToString( );
+            ProgramName = Record[ "ProgramName" ].ToString( );
+            ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? string.Empty );
+            MainAccount = Record[ "MainAccount" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
         }
 
         /// <summary>
@@ -222,17 +222,17 @@ namespace BudgetExecution
             Record = dataBuilder.Record;
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "PartitionsId" ].ToString( ) ?? string.Empty );
-            FiscalYear = Record[ nameof( FiscalYear ) ].ToString( );
-            BFY = Record[ nameof( BFY ) ].ToString( );
-            EFY = Record[ nameof( EFY ) ].ToString( );
-            FundCode = Record[ nameof( FundCode ) ].ToString( );
-            Type = Record[ nameof( Type ) ].ToString( );
-            ProgramName = Record[ nameof( ProgramName ) ].ToString( );
-            ProgramAreaName = Record[ nameof( ProgramAreaName ) ].ToString( );
-            Amount = double.Parse( Record[ nameof( Amount ) ].ToString( ) ?? string.Empty );
-            MainAccount = Record[ nameof( MainAccount ) ].ToString( );
-            TreasuryAccountCode = Record[ nameof( TreasuryAccountCode ) ].ToString( );
-            BudgetAccountCode = Record[ nameof( BudgetAccountCode ) ].ToString( );
+            FiscalYear = Record[ "FiscalYear" ].ToString( );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            Type = Record[ "Type" ].ToString( );
+            ProgramName = Record[ "ProgramName" ].ToString( );
+            ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? string.Empty );
+            MainAccount = Record[ "MainAccount" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
         }
 
         /// <summary>
@@ -245,17 +245,17 @@ namespace BudgetExecution
             Record = dataRow;
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "PartitionsId" ].ToString( ) ?? string.Empty );
-            FiscalYear = Record[ nameof( FiscalYear ) ].ToString( );
-            BFY = Record[ nameof( BFY ) ].ToString( );
-            EFY = Record[ nameof( EFY ) ].ToString( );
-            FundCode = Record[ nameof( FundCode ) ].ToString( );
-            Type = Record[ nameof( Type ) ].ToString( );
-            ProgramName = Record[ nameof( ProgramName ) ].ToString( );
-            ProgramAreaName = Record[ nameof( ProgramAreaName ) ].ToString( );
-            Amount = double.Parse( Record[ nameof( Amount ) ].ToString( ) ?? string.Empty );
-            MainAccount = Record[ nameof( MainAccount ) ].ToString( );
-            TreasuryAccountCode = Record[ nameof( TreasuryAccountCode ) ].ToString( );
-            BudgetAccountCode = Record[ nameof( BudgetAccountCode ) ].ToString( );
+            FiscalYear = Record[ "FiscalYear" ].ToString( );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            Type = Record[ "Type" ].ToString( );
+            ProgramName = Record[ "ProgramName" ].ToString( );
+            ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? string.Empty );
+            MainAccount = Record[ "MainAccount" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
         }
     }
 }

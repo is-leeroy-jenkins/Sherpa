@@ -85,10 +85,10 @@ namespace BudgetExecution
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "DocumentsId" ].ToString( ) ?? "0" );
-            Code = Record[ nameof( Code ) ].ToString( );
-            Category = Record[ nameof( Category ) ].ToString( );
-            Name = Record[ nameof( Name ) ].ToString( );
-            System = Record[ nameof( System ) ].ToString( );
+            Code = Record[ "Code" ].ToString( );
+            Category = Record[ "Category" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            System = Record[ "System" ].ToString( );
         }
 
         /// <summary>
@@ -100,10 +100,10 @@ namespace BudgetExecution
             Record = builder.Record;
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "DocumentsId" ].ToString( ) ?? "0" );
-            Code = Record[ nameof( Code ) ].ToString( );
-            Category = Record[ nameof( Category ) ].ToString( );
-            Name = Record[ nameof( Name ) ].ToString( );
-            System = Record[ nameof( System ) ].ToString( );
+            Code = Record[ "Code" ].ToString( );
+            Category = Record[ "Category" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            System = Record[ "System" ].ToString( );
         }
 
         /// <summary>
@@ -115,10 +115,10 @@ namespace BudgetExecution
             Record = dataRow;
             Data = dataRow.ToDictionary( );
             ID = int.Parse( Record[ "DocumentsId" ].ToString( ) ?? "0" );
-            Code = Record[ nameof( Code ) ].ToString( );
-            Category = Record[ nameof( Category ) ].ToString( );
-            Name = Record[ nameof( Name ) ].ToString( );
-            System = Record[ nameof( System ) ].ToString( );
+            Code = Record[ "Code" ].ToString( );
+            Category = Record[ "Category" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            System = Record[ "System" ].ToString( );
         }
 
         /// <summary>

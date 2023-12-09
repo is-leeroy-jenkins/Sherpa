@@ -294,7 +294,7 @@ namespace BudgetExecution
                 {
                     return new Dictionary<string, object>
                     {
-                        [ nameof( Code ) ] = code
+                        [ "Code" ] = code
                     };
                 }
                 catch( Exception _ex )
@@ -311,7 +311,7 @@ namespace BudgetExecution
                 {
                     return new Dictionary<string, object>
                     {
-                        [ nameof( Name ) ] = code
+                        [ "Name" ] = code
                     };
                 }
                 catch( Exception _ex )
@@ -339,7 +339,7 @@ namespace BudgetExecution
                 {
                     return new Dictionary<string, object>
                     {
-                        [ nameof( Code ) ] = boc.ToString( )
+                        [ "Code" ] = boc.ToString( )
                     };
                 }
                 catch( Exception _ex )

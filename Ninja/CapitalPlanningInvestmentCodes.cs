@@ -84,9 +84,9 @@ namespace BudgetExecution
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "CapitalPlanningInvestmentCodesId" ].ToString( ) ?? "0" );
-            Code = Record[ nameof( Code ) ].ToString( );
-            Name = Record[ nameof( Name ) ].ToString( );
-            Type = Record[ nameof( Type ) ].ToString( );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            Type = Record[ "Type" ].ToString( );
         }
 
         /// <summary>
@@ -101,9 +101,9 @@ namespace BudgetExecution
             Record = builder.Record;
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "CapitalPlanningInvestmentCodesId" ].ToString( ) ?? "0" );
-            Code = Record[ nameof( Code ) ].ToString( );
-            Name = Record[ nameof( Name ) ].ToString( );
-            Type = Record[ nameof( Type ) ].ToString( );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            Type = Record[ "Type" ].ToString( );
         }
 
         /// <summary>
@@ -118,9 +118,9 @@ namespace BudgetExecution
             Record = dataRow;
             Data = dataRow.ToDictionary( );
             ID = int.Parse( dataRow[ "CapitalPlanningInvestmentCodesId" ].ToString( ) ?? "0" );
-            Code = dataRow[ nameof( Code ) ].ToString( );
-            Name = dataRow[ nameof( Name ) ].ToString( );
-            Type = dataRow[ nameof( Type ) ].ToString( );
+            Code = dataRow[ "Code" ].ToString( );
+            Name = dataRow[ "Name" ].ToString( );
+            Type = dataRow[ "Type" ].ToString( );
         }
 
         /// <summary>

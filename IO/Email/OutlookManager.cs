@@ -58,6 +58,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ArrangeModifiersOrder" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantAssignment" ) ]
     public class OutlookManager
     {
         /// <summary>
@@ -166,7 +167,7 @@ namespace BudgetExecution
                 _namespace = _outlook.GetNamespace( "MAPI" );
                 _inbox = _namespace.GetDefaultFolder( OlDefaultFolders.olFolderInbox );
                 _items = _inbox.Items;
-                foreach ( MailItem _item in _items )
+                foreach( MailItem _item in _items )
                 {
                     var _builder = new StringBuilder( );
                     _builder.AppendLine( "From: " + _item.SenderEmailAddress );

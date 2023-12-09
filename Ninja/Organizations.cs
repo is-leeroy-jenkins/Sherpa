@@ -76,8 +76,8 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query )?.Record;
             ID = int.Parse( Record[ "OrganizationsId" ].ToString( ) ?? "0" );
-            Name = Record[ nameof( Name ) ].ToString( );
-            Code = Record[ nameof( Code ) ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            Code = Record[ "Code" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -91,8 +91,8 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( Source, GetArgs( org ) )?.Record;
             ID = int.Parse( Record[ "OrganizationsId" ].ToString( ) ?? "0" );
-            Name = Record[ nameof( Name ) ].ToString( );
-            Code = Record[ nameof( Code ) ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            Code = Record[ "Code" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -106,8 +106,8 @@ namespace BudgetExecution
         {
             Record = builder.Record;
             ID = int.Parse( Record[ "OrganizationsId" ].ToString( ) ?? "0" );
-            Name = Record[ nameof( Name ) ].ToString( );
-            Code = Record[ nameof( Code ) ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            Code = Record[ "Code" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -134,8 +134,8 @@ namespace BudgetExecution
         {
             Record = dataRow;
             ID = int.Parse( Record[ "OrganizationsId" ].ToString( ) ?? "0" );
-            Name = Record[ nameof( Name ) ].ToString( );
-            Code = Record[ nameof( Code ) ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            Code = Record[ "Code" ].ToString( );
             Data = dataRow?.ToDictionary( );
         }
 

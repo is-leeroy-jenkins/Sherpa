@@ -159,24 +159,24 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
-            BudgetLevel = Record[ nameof( BudgetLevel ) ].ToString( );
-            BFY = Record[ nameof( BFY ) ].ToString( );
-            EFY = Record[ nameof( EFY ) ].ToString( );
-            FundCode = Record[ nameof( FundCode ) ].ToString( );
-            FundName = Record[ nameof( FundName ) ].ToString( );
-            DocumentType = Record[ nameof( DocumentType ) ].ToString( );
-            DocumentNumber = Record[ nameof( DocumentNumber ) ].ToString( );
-            DocumentDate = DateOnly.Parse( Record[ nameof( DocumentDate ) ].ToString( ) ?? "" );
-            Budgeted = double.Parse( Record[ nameof( Budgeted ) ].ToString( ) ?? "0" );
-            Posted = double.Parse( Record[ nameof( Posted ) ].ToString( ) ?? "0" );
-            CarryoverOut = double.Parse( Record[ nameof( CarryoverOut ) ].ToString( ) ?? "0" );
-            CarryoverIn = double.Parse( Record[ nameof( CarryoverIn ) ].ToString( ) ?? "0" );
-            Recoveries = double.Parse( Record[ nameof( Recoveries ) ].ToString( ) ?? "0" );
-            Reimbursements = double.Parse( Record[ nameof( Reimbursements ) ].ToString( ) ?? "0" );
-            TreasuryAccountCode = Record[ nameof( TreasuryAccountCode ) ].ToString( );
-            TreasuryAccountName = Record[ nameof( TreasuryAccountName ) ].ToString( );
-            BudgetAccountCode = Record[ nameof( BudgetAccountCode ) ].ToString( );
-            BudgetAccountName = Record[ nameof( BudgetAccountName ) ].ToString( );
+            BudgetLevel = Record[ "BudgetLevel" ].ToString( );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            DocumentType = Record[ "DocumentType" ].ToString( );
+            DocumentNumber = Record[ "DocumentNumber" ].ToString( );
+            DocumentDate = DateOnly.Parse( Record[ "DocumentDate" ].ToString( ) ?? "" );
+            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? "0" );
+            Posted = double.Parse( Record[ "Posted" ].ToString( ) ?? "0" );
+            CarryoverOut = double.Parse( Record[ "CarryoverOut" ].ToString( ) ?? "0" );
+            CarryoverIn = double.Parse( Record[ "CarryoverIn" ].ToString( ) ?? "0" );
+            Recoveries = double.Parse( Record[ "Recoveries" ].ToString( ) ?? "0" );
+            Reimbursements = double.Parse( Record[ "Reimbursements" ].ToString( ) ?? "0" );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
         /// <inheritdoc />
@@ -190,24 +190,24 @@ namespace BudgetExecution
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
-            BudgetLevel = Record[ nameof( BudgetLevel ) ].ToString( );
-            BFY = Record[ nameof( BFY ) ].ToString( );
-            EFY = Record[ nameof( EFY ) ].ToString( );
-            FundCode = Record[ nameof( FundCode ) ].ToString( );
-            FundName = Record[ nameof( FundName ) ].ToString( );
-            DocumentType = Record[ nameof( DocumentType ) ].ToString( );
-            DocumentNumber = Record[ nameof( DocumentNumber ) ].ToString( );
-            DocumentDate = DateOnly.Parse( Record[ nameof( DocumentDate ) ].ToString( ) ?? "" );
-            Budgeted = double.Parse( Record[ nameof( Budgeted ) ].ToString( ) ?? "0" );
-            Posted = double.Parse( Record[ nameof( Posted ) ].ToString( ) ?? "0" );
-            CarryoverOut = double.Parse( Record[ nameof( CarryoverOut ) ].ToString( ) ?? "0" );
-            CarryoverIn = double.Parse( Record[ nameof( CarryoverIn ) ].ToString( ) ?? "0" );
-            Recoveries = double.Parse( Record[ nameof( Recoveries ) ].ToString( ) ?? "0" );
-            Reimbursements = double.Parse( Record[ nameof( Reimbursements ) ].ToString( ) ?? "0" );
-            TreasuryAccountCode = Record[ nameof( TreasuryAccountCode ) ].ToString( );
-            TreasuryAccountName = Record[ nameof( TreasuryAccountName ) ].ToString( );
-            BudgetAccountCode = Record[ nameof( BudgetAccountCode ) ].ToString( );
-            BudgetAccountName = Record[ nameof( BudgetAccountName ) ].ToString( );
+            BudgetLevel = Record[ "BudgetLevel" ].ToString( );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            DocumentType = Record[ "DocumentType" ].ToString( );
+            DocumentNumber = Record[ "DocumentNumber" ].ToString( );
+            DocumentDate = DateOnly.Parse( Record[ "DocumentDate" ].ToString( ) ?? "" );
+            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? "0" );
+            Posted = double.Parse( Record[ "Posted" ].ToString( ) ?? "0" );
+            CarryoverOut = double.Parse( Record[ "CarryoverOut" ].ToString( ) ?? "0" );
+            CarryoverIn = double.Parse( Record[ "CarryoverIn" ].ToString( ) ?? "0" );
+            Recoveries = double.Parse( Record[ "Recoveries" ].ToString( ) ?? "0" );
+            Reimbursements = double.Parse( Record[ "Reimbursements" ].ToString( ) ?? "0" );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
         /// <inheritdoc />
@@ -221,23 +221,23 @@ namespace BudgetExecution
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
-            BudgetLevel = Record[ nameof( BudgetLevel ) ].ToString( );
-            BFY = dataRow[ nameof( BFY ) ].ToString( );
-            EFY = dataRow[ nameof( EFY ) ].ToString( );
-            FundCode = dataRow[ nameof( FundCode ) ].ToString( );
-            FundName = dataRow[ nameof( FundName ) ].ToString( );
-            DocumentType = dataRow[ nameof( DocumentType ) ].ToString( );
-            DocumentDate = DateOnly.Parse( dataRow[ nameof( DocumentDate ) ].ToString( ) ?? "" );
-            Budgeted = double.Parse( dataRow[ nameof( Budgeted ) ].ToString( ) ?? "0" );
-            Posted = double.Parse( dataRow[ nameof( Posted ) ].ToString( ) ?? "0" );
-            CarryoverOut = double.Parse( dataRow[ nameof( CarryoverOut ) ].ToString( ) ?? "0" );
-            CarryoverIn = double.Parse( dataRow[ nameof( CarryoverIn ) ].ToString( ) ?? "0" );
-            Recoveries = double.Parse( Record[ nameof( Recoveries ) ].ToString( ) ?? "0" );
-            Reimbursements = double.Parse( Record[ nameof( Reimbursements ) ].ToString( ) ?? "0" );
-            TreasuryAccountCode = dataRow[ nameof( TreasuryAccountCode ) ].ToString( );
-            TreasuryAccountName = dataRow[ nameof( TreasuryAccountName ) ].ToString( );
-            BudgetAccountCode = dataRow[ nameof( BudgetAccountCode ) ].ToString( );
-            BudgetAccountName = dataRow[ nameof( BudgetAccountName ) ].ToString( );
+            BudgetLevel = Record[ "BudgetLevel" ].ToString( );
+            BFY = dataRow[ "BFY" ].ToString( );
+            EFY = dataRow[ "EFY" ].ToString( );
+            FundCode = dataRow[ "FundCode" ].ToString( );
+            FundName = dataRow[ "FundName" ].ToString( );
+            DocumentType = dataRow[ "DocumentType" ].ToString( );
+            DocumentDate = DateOnly.Parse( dataRow[ "DocumentDate" ].ToString( ) ?? "" );
+            Budgeted = double.Parse( dataRow[ "Budgeted" ].ToString( ) ?? "0" );
+            Posted = double.Parse( dataRow[ "Posted" ].ToString( ) ?? "0" );
+            CarryoverOut = double.Parse( dataRow[ "CarryoverOut" ].ToString( ) ?? "0" );
+            CarryoverIn = double.Parse( dataRow[ "CarryoverIn" ].ToString( ) ?? "0" );
+            Recoveries = double.Parse( Record[ "Recoveries" ].ToString( ) ?? "0" );
+            Reimbursements = double.Parse( Record[ "Reimbursements" ].ToString( ) ?? "0" );
+            TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
         }
 
         /// <summary>

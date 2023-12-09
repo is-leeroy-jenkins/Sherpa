@@ -117,14 +117,14 @@ namespace BudgetExecution
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "CongressionalProjectsId" ].ToString( ) );
-            BFY = Record[ nameof( BFY ) ].ToString( );
-            EFY = Record[ nameof( EFY ) ].ToString( );
-            RpioCode = Record[ nameof( RpioCode ) ].ToString( );
-            RpioName = Record[ nameof( RpioName ) ].ToString( );
-            StateCode = Record[ nameof( StateCode ) ].ToString( );
-            StateName = Record[ nameof( StateName ) ].ToString( );
-            ProjectName = Record[ nameof( ProjectName ) ].ToString( );
-            Amount = double.Parse( Record[ nameof( Amount ) ].ToString( ) );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            RpioCode = Record[ "RpioCode" ].ToString( );
+            RpioName = Record[ "RpioName" ].ToString( );
+            StateCode = Record[ "StateCode" ].ToString( );
+            StateName = Record[ "StateName" ].ToString( );
+            ProjectName = Record[ "ProjectName" ].ToString( );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) );
         }
 
         /// <summary>
@@ -138,14 +138,14 @@ namespace BudgetExecution
             Record = builder.Record;
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "CongressionalProjectsId" ].ToString( ) );
-            BFY = Record[ nameof( BFY ) ].ToString( );
-            EFY = Record[ nameof( EFY ) ].ToString( );
-            RpioCode = Record[ nameof( RpioCode ) ].ToString( );
-            RpioName = Record[ nameof( RpioName ) ].ToString( );
-            StateCode = Record[ nameof( StateCode ) ].ToString( );
-            StateName = Record[ nameof( StateName ) ].ToString( );
-            ProjectName = Record[ nameof( ProjectName ) ].ToString( );
-            Amount = double.Parse( Record[ nameof( Amount ) ].ToString( ) );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            RpioCode = Record[ "RpioCode" ].ToString( );
+            RpioName = Record[ "RpioName" ].ToString( );
+            StateCode = Record[ "StateCode" ].ToString( );
+            StateName = Record[ "StateName" ].ToString( );
+            ProjectName = Record[ "ProjectName" ].ToString( );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) );
         }
 
         /// <summary>
@@ -159,14 +159,14 @@ namespace BudgetExecution
             Record = dataRow;
             Data = dataRow.ToDictionary( );
             ID = int.Parse( Record[ "CongressionalProjectsId" ].ToString( ) );
-            BFY = Record[ nameof( BFY ) ].ToString( );
-            EFY = Record[ nameof( EFY ) ].ToString( );
-            RpioCode = Record[ nameof( RpioCode ) ].ToString( );
-            RpioName = Record[ nameof( RpioName ) ].ToString( );
-            StateCode = Record[ nameof( StateCode ) ].ToString( );
-            StateName = Record[ nameof( StateName ) ].ToString( );
-            ProjectName = Record[ nameof( ProjectName ) ].ToString( );
-            Amount = double.Parse( Record[ nameof( Amount ) ].ToString( ) );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            RpioCode = Record[ "RpioCode" ].ToString( );
+            RpioName = Record[ "RpioName" ].ToString( );
+            StateCode = Record[ "StateCode" ].ToString( );
+            StateName = Record[ "StateName" ].ToString( );
+            ProjectName = Record[ "ProjectName" ].ToString( );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) );
         }
 
         /// <summary> </summary>

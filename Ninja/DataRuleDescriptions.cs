@@ -91,11 +91,11 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
-            Schedule = Record[ nameof( Schedule ) ].ToString( );
-            LineNumber = Record[ nameof( LineNumber ) ].ToString( );
-            RuleNumber = Record[ nameof( RuleNumber ) ].ToString( );
-            ScheduleOrder = Record[ nameof( ScheduleOrder ) ].ToString( );
-            RuleDescription = Record[ nameof( RuleDescription ) ].ToString( );
+            Schedule = Record[ "Schedule" ].ToString( );
+            LineNumber = Record[ "LineNumber" ].ToString( );
+            RuleNumber = Record[ "RuleNumber" ].ToString( );
+            ScheduleOrder = Record[ "ScheduleOrder" ].ToString( );
+            RuleDescription = Record[ "RuleDescription" ].ToString( );
         }
 
         /// <summary>
@@ -109,11 +109,11 @@ namespace BudgetExecution
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
-            Schedule = Record[ nameof( Schedule ) ].ToString( );
-            LineNumber = Record[ nameof( LineNumber ) ].ToString( );
-            RuleNumber = Record[ nameof( RuleNumber ) ].ToString( );
-            ScheduleOrder = Record[ nameof( ScheduleOrder ) ].ToString( );
-            RuleDescription = Record[ nameof( RuleDescription ) ].ToString( );
+            Schedule = Record[ "Schedule" ].ToString( );
+            LineNumber = Record[ "LineNumber" ].ToString( );
+            RuleNumber = Record[ "RuleNumber" ].ToString( );
+            ScheduleOrder = Record[ "ScheduleOrder" ].ToString( );
+            RuleDescription = Record[ "RuleDescription" ].ToString( );
         }
 
         /// <summary>
@@ -127,11 +127,11 @@ namespace BudgetExecution
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
-            Schedule = dataRow[ nameof( Schedule ) ].ToString( );
-            LineNumber = dataRow[ nameof( LineNumber ) ].ToString( );
-            RuleNumber = dataRow[ nameof( RuleNumber ) ].ToString( );
-            ScheduleOrder = dataRow[ nameof( ScheduleOrder ) ].ToString( );
-            RuleDescription = dataRow[ nameof( RuleDescription ) ].ToString( );
+            Schedule = dataRow[ "Schedule" ].ToString( );
+            LineNumber = dataRow[ "LineNumber" ].ToString( );
+            RuleNumber = dataRow[ "RuleNumber" ].ToString( );
+            ScheduleOrder = dataRow[ "ScheduleOrder" ].ToString( );
+            RuleDescription = dataRow[ "RuleDescription" ].ToString( );
         }
     }
 }

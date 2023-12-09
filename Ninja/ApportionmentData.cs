@@ -141,18 +141,18 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
-            BFY = Record[ nameof( BFY ) ].ToString( );
-            EFY = Record[ nameof( EFY ) ].ToString( );
-            TreasuryAccountCode = Record[ nameof( TreasuryAccountCode ) ].ToString( );
-            TreasuryAccountName = Record[ nameof( TreasuryAccountName ) ].ToString( );
-            BudgetAccountCode = Record[ nameof( BudgetAccountCode ) ].ToString( );
-            BudgetAccountName = Record[ nameof( BudgetAccountName ) ].ToString( );
-            ApportionmentAccountCode = Record[ nameof( ApportionmentAccountCode ) ].ToString( );
-            ApportionmentAccountName = Record[ nameof( ApportionmentAccountName ) ].ToString( );
-            AvailabilityType = Record[ nameof( AvailabilityType ) ].ToString( );
-            LineNumber = Record[ nameof( LineNumber ) ].ToString( );
-            LineName = Record[ nameof( LineName ) ].ToString( );
-            Amount = double.Parse( Record[ nameof( Amount ) ].ToString( ) ?? "0" );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
+            ApportionmentAccountCode = Record[ "ApportionmentAccountCode" ].ToString( );
+            ApportionmentAccountName = Record[ "ApportionmentAccountName" ].ToString( );
+            AvailabilityType = Record[ "AvailabilityType" ].ToString( );
+            LineNumber = Record[ "LineNumber" ].ToString( );
+            LineName = Record[ "LineName" ].ToString( );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
         }
 
         /// <inheritdoc />
@@ -166,18 +166,18 @@ namespace BudgetExecution
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
-            BFY = Record[ nameof( BFY ) ].ToString( );
-            EFY = Record[ nameof( EFY ) ].ToString( );
-            BudgetAccountCode = Record[ nameof( BudgetAccountCode ) ].ToString( );
-            BudgetAccountName = Record[ nameof( BudgetAccountName ) ].ToString( );
-            TreasuryAccountCode = Record[ nameof( TreasuryAccountCode ) ].ToString( );
-            TreasuryAccountName = Record[ nameof( TreasuryAccountName ) ].ToString( );
-            ApportionmentAccountCode = Record[ nameof( ApportionmentAccountCode ) ].ToString( );
-            ApportionmentAccountName = Record[ nameof( ApportionmentAccountName ) ].ToString( );
-            AvailabilityType = Record[ nameof( AvailabilityType ) ].ToString( );
-            LineNumber = Record[ nameof( LineNumber ) ].ToString( );
-            LineName = Record[ nameof( LineName ) ].ToString( );
-            Amount = double.Parse( Record[ nameof( Amount ) ].ToString( ) ?? "0" );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            ApportionmentAccountCode = Record[ "ApportionmentAccountCode" ].ToString( );
+            ApportionmentAccountName = Record[ "ApportionmentAccountName" ].ToString( );
+            AvailabilityType = Record[ "AvailabilityType" ].ToString( );
+            LineNumber = Record[ "LineNumber" ].ToString( );
+            LineName = Record[ "LineName" ].ToString( );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
         }
 
         /// <inheritdoc />
@@ -191,18 +191,18 @@ namespace BudgetExecution
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
-            BFY = dataRow[ nameof( BFY ) ].ToString( );
-            EFY = dataRow[ nameof( EFY ) ].ToString( );
-            BudgetAccountCode = dataRow[ nameof( BudgetAccountCode ) ].ToString( );
-            BudgetAccountName = dataRow[ nameof( BudgetAccountName ) ].ToString( );
-            TreasuryAccountCode = dataRow[ nameof( TreasuryAccountCode ) ].ToString( );
-            TreasuryAccountName = dataRow[ nameof( TreasuryAccountName ) ].ToString( );
-            ApportionmentAccountCode = dataRow[ nameof( ApportionmentAccountCode ) ].ToString( );
-            ApportionmentAccountName = dataRow[ nameof( ApportionmentAccountName ) ].ToString( );
-            AvailabilityType = dataRow[ nameof( AvailabilityType ) ].ToString( );
-            LineNumber = dataRow[ nameof( LineNumber ) ].ToString( );
-            LineName = dataRow[ nameof( LineName ) ].ToString( );
-            Amount = double.Parse( dataRow[ nameof( Amount ) ].ToString( ) ?? "0" );
+            BFY = dataRow[ "BFY" ].ToString( );
+            EFY = dataRow[ "EFY" ].ToString( );
+            BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
+            TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString( );
+            ApportionmentAccountCode = dataRow[ "ApportionmentAccountCode" ].ToString( );
+            ApportionmentAccountName = dataRow[ "ApportionmentAccountName" ].ToString( );
+            AvailabilityType = dataRow[ "AvailabilityType" ].ToString( );
+            LineNumber = dataRow[ "LineNumber" ].ToString( );
+            LineName = dataRow[ "LineName" ].ToString( );
+            Amount = double.Parse( dataRow[ "Amount" ].ToString( ) ?? "0" );
         }
 
         /// <summary>

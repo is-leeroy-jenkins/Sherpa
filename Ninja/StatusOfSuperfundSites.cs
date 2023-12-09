@@ -154,23 +154,23 @@ namespace BudgetExecution
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "StatusOfSuperfundSitesId" ].ToString(  ) );
-            FiscalYear = Record[ nameof( FiscalYear ) ].ToString(  );
-            BFY = Record[ nameof( BFY ) ].ToString(  );
-            EFY = Record[ nameof( EFY ) ].ToString(  );
-            RpioCode = Record[ nameof( RpioCode ) ].ToString(  );
-            RpioName = Record[ nameof( RpioName ) ].ToString(  );
-            FundCode = Record[ nameof( FundCode ) ].ToString(  );
-            FundName = Record[ nameof( FundName ) ].ToString(  );
-            ProgramProjectCode = Record[ nameof( ProgramProjectCode ) ].ToString(  );
-            ProgramProjectName = Record[ nameof( ProgramProjectName ) ].ToString(  );
-            StateCode = Record[ nameof( StateCode ) ].ToString(  );
-            StateName = Record[ nameof( StateName ) ].ToString(  );
-            City = Record[ nameof( City ) ].ToString(  );
-            StreetAddress = Record[ nameof( StreetAddress ) ].ToString(  );
-            ZipCode = Record[ nameof( ZipCode ) ].ToString(  );
-            Obligations = double.Parse( Record[ nameof( Obligations ) ].ToString(  ) );
-            Deobligations = double.Parse( Record[ nameof( Deobligations ) ].ToString(  ) );
-            Expenditures = double.Parse( Record[ nameof( Expenditures ) ].ToString(  ) );
+            FiscalYear = Record[ "FiscalYear" ].ToString(  );
+            BFY = Record[ "BFY" ].ToString(  );
+            EFY = Record[ "EFY" ].ToString(  );
+            RpioCode = Record[ "RpioCode" ].ToString(  );
+            RpioName = Record[ "RpioName" ].ToString(  );
+            FundCode = Record[ "FundCode" ].ToString(  );
+            FundName = Record[ "FundName" ].ToString(  );
+            ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString(  );
+            ProgramProjectName = Record[ "ProgramProjectName" ].ToString(  );
+            StateCode = Record[ "StateCode" ].ToString(  );
+            StateName = Record[ "StateName" ].ToString(  );
+            City = Record[ "City" ].ToString(  );
+            StreetAddress = Record[ "StreetAddress" ].ToString(  );
+            ZipCode = Record[ "ZipCode" ].ToString(  );
+            Obligations = double.Parse( Record[ "Obligations" ].ToString(  ) );
+            Deobligations = double.Parse( Record[ "Deobligations" ].ToString(  ) );
+            Expenditures = double.Parse( Record[ "Expenditures" ].ToString(  ) );
         }
 
         /// <summary>
@@ -184,23 +184,23 @@ namespace BudgetExecution
             Record = builder.Record;
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "StatusOfSuperfundSitesId" ].ToString(  ) );
-            FiscalYear = Record[ nameof( FiscalYear ) ].ToString(  );
-            BFY = Record[ nameof( BFY ) ].ToString(  );
-            EFY = Record[ nameof( EFY ) ].ToString(  );
-            RpioCode = Record[ nameof( RpioCode ) ].ToString(  );
-            RpioName = Record[ nameof( RpioName ) ].ToString(  );
-            FundCode = Record[ nameof( FundCode ) ].ToString(  );
-            FundName = Record[ nameof( FundName ) ].ToString(  );
-            ProgramProjectCode = Record[ nameof( ProgramProjectCode ) ].ToString(  );
-            ProgramProjectName = Record[ nameof( ProgramProjectName ) ].ToString(  );
-            StateCode = Record[ nameof( StateCode ) ].ToString(  );
-            StateName = Record[ nameof( StateName ) ].ToString(  );
-            City = Record[ nameof( City ) ].ToString(  );
-            StreetAddress = Record[ nameof( StreetAddress ) ].ToString(  );
-            ZipCode = Record[ nameof( ZipCode ) ].ToString(  );
-            Obligations = double.Parse( Record[ nameof( Obligations ) ].ToString(  ) );
-            Deobligations = double.Parse( Record[ nameof( Deobligations ) ].ToString(  ) );
-            Expenditures = double.Parse( Record[ nameof( Expenditures ) ].ToString(  ) );
+            FiscalYear = Record[ "FiscalYear" ].ToString(  );
+            BFY = Record[ "BFY" ].ToString(  );
+            EFY = Record[ "EFY" ].ToString(  );
+            RpioCode = Record[ "RpioCode" ].ToString(  );
+            RpioName = Record[ "RpioName" ].ToString(  );
+            FundCode = Record[ "FundCode" ].ToString(  );
+            FundName = Record[ "FundName" ].ToString(  );
+            ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString(  );
+            ProgramProjectName = Record[ "ProgramProjectName" ].ToString(  );
+            StateCode = Record[ "StateCode" ].ToString(  );
+            StateName = Record[ "StateName" ].ToString(  );
+            City = Record[ "City" ].ToString(  );
+            StreetAddress = Record[ "StreetAddress" ].ToString(  );
+            ZipCode = Record[ "ZipCode" ].ToString(  );
+            Obligations = double.Parse( Record[ "Obligations" ].ToString(  ) );
+            Deobligations = double.Parse( Record[ "Deobligations" ].ToString(  ) );
+            Expenditures = double.Parse( Record[ "Expenditures" ].ToString(  ) );
         }
 
         /// <summary>
@@ -214,23 +214,23 @@ namespace BudgetExecution
             Record = dataRow;
             Data = dataRow.ToDictionary( );
             ID = int.Parse( Record[ "StatusOfSuperfundSitesId" ].ToString(  ) );
-            FiscalYear = Record[ nameof( FiscalYear ) ].ToString(  );
-            BFY = Record[ nameof( BFY ) ].ToString(  );
-            EFY = Record[ nameof( EFY ) ].ToString(  );
-            RpioCode = Record[ nameof( RpioCode ) ].ToString(  );
-            RpioName = Record[ nameof( RpioName ) ].ToString(  );
-            FundCode = Record[ nameof( FundCode ) ].ToString(  );
-            FundName = Record[ nameof( FundName ) ].ToString(  );
-            ProgramProjectCode = Record[ nameof( ProgramProjectCode ) ].ToString(  );
-            ProgramProjectName = Record[ nameof( ProgramProjectName ) ].ToString(  );
-            StateCode = Record[ nameof( StateCode ) ].ToString(  );
-            StateName = Record[ nameof( StateName ) ].ToString(  );
-            City = Record[ nameof( City ) ].ToString(  );
-            StreetAddress = Record[ nameof( StreetAddress ) ].ToString(  );
-            ZipCode = Record[ nameof( ZipCode ) ].ToString(  );
-            Obligations = double.Parse( Record[ nameof( Obligations ) ].ToString(  ) );
-            Deobligations = double.Parse( Record[ nameof( Deobligations ) ].ToString(  ) );
-            Expenditures = double.Parse( Record[ nameof( Expenditures ) ].ToString(  ) );
+            FiscalYear = Record[ "FiscalYear" ].ToString(  );
+            BFY = Record[ "BFY" ].ToString(  );
+            EFY = Record[ "EFY" ].ToString(  );
+            RpioCode = Record[ "RpioCode" ].ToString(  );
+            RpioName = Record[ "RpioName" ].ToString(  );
+            FundCode = Record[ "FundCode" ].ToString(  );
+            FundName = Record[ "FundName" ].ToString(  );
+            ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString(  );
+            ProgramProjectName = Record[ "ProgramProjectName" ].ToString(  );
+            StateCode = Record[ "StateCode" ].ToString(  );
+            StateName = Record[ "StateName" ].ToString(  );
+            City = Record[ "City" ].ToString(  );
+            StreetAddress = Record[ "StreetAddress" ].ToString(  );
+            ZipCode = Record[ "ZipCode" ].ToString(  );
+            Obligations = double.Parse( Record[ "Obligations" ].ToString(  ) );
+            Deobligations = double.Parse( Record[ "Deobligations" ].ToString(  ) );
+            Expenditures = double.Parse( Record[ "Expenditures" ].ToString(  ) );
         }
 
         /// <summary> </summary>

@@ -80,17 +80,17 @@ namespace BudgetExecution
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "CarryoverRequestsId" ].ToString( ) ?? "0" );
-            Analyst = Record[ nameof( Analyst ) ].ToString( );
-            DocumentTitle = Record[ nameof( DocumentTitle ) ].ToString( );
-            Amount = double.Parse( Record[ nameof( Amount ) ].ToString( ) ?? "0" );
-            FundCode = Record[ nameof( FundCode ) ].ToString( );
-            Status = Record[ nameof( Status ) ].ToString( );
-            BudgetFormulationSystem = Record[ nameof( BudgetFormulationSystem ) ].ToString( );
-            Comments = Record[ nameof( Comments ) ].ToString( );
+            Analyst = Record[ "Analyst" ].ToString( );
+            DocumentTitle = Record[ "DocumentTitle" ].ToString( );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
+            FundCode = Record[ "FundCode" ].ToString( );
+            Status = Record[ "Status" ].ToString( );
+            BudgetFormulationSystem = Record[ "BudgetFormulationSystem" ].ToString( );
+            Comments = Record[ "Comments" ].ToString( );
             OriginalRequestDate =
-                DateOnly.Parse( Record[ nameof( OriginalRequestDate ) ].ToString( ) ?? "" );
+                DateOnly.Parse( Record[ "OriginalRequestDate" ].ToString( ) ?? "" );
 
-            LastActivityDate = DateOnly.Parse( Record[ nameof( LastActivityDate ) ].ToString( ) ?? "" );
+            LastActivityDate = DateOnly.Parse( Record[ "LastActivityDate" ].ToString( ) ?? "" );
         }
 
         /// <summary>
@@ -104,17 +104,17 @@ namespace BudgetExecution
             Record = builder.Record;
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "CarryoverRequestsId" ].ToString( ) ?? "0" );
-            Analyst = Record[ nameof( Analyst ) ].ToString( );
-            DocumentTitle = Record[ nameof( DocumentTitle ) ].ToString( );
-            Amount = double.Parse( Record[ nameof( Amount ) ].ToString( ) ?? "0" );
-            FundCode = Record[ nameof( FundCode ) ].ToString( );
-            Status = Record[ nameof( Status ) ].ToString( );
-            BudgetFormulationSystem = Record[ nameof( BudgetFormulationSystem ) ].ToString( );
-            Comments = Record[ nameof( Comments ) ].ToString( );
+            Analyst = Record[ "Analyst" ].ToString( );
+            DocumentTitle = Record[ "DocumentTitle" ].ToString( );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
+            FundCode = Record[ "FundCode" ].ToString( );
+            Status = Record[ "Status" ].ToString( );
+            BudgetFormulationSystem = Record[ "BudgetFormulationSystem" ].ToString( );
+            Comments = Record[ "Comments" ].ToString( );
             OriginalRequestDate =
-                DateOnly.Parse( Record[ nameof( OriginalRequestDate ) ].ToString( ) ?? "" );
+                DateOnly.Parse( Record[ "OriginalRequestDate" ].ToString( ) ?? "" );
 
-            LastActivityDate = DateOnly.Parse( Record[ nameof( LastActivityDate ) ].ToString( ) ?? "" );
+            LastActivityDate = DateOnly.Parse( Record[ "LastActivityDate" ].ToString( ) ?? "" );
         }
 
         /// <summary>
@@ -128,17 +128,17 @@ namespace BudgetExecution
             Record = dataRow;
             Data = dataRow.ToDictionary( );
             ID = int.Parse( dataRow[ "CarryoverRequestsId" ].ToString( ) ?? "0" );
-            Analyst = dataRow[ nameof( Analyst ) ].ToString( );
-            DocumentTitle = dataRow[ nameof( DocumentTitle ) ].ToString( );
-            Amount = double.Parse( dataRow[ nameof( Amount ) ].ToString( ) ?? "0" );
-            FundCode = dataRow[ nameof( FundCode ) ].ToString( );
-            Status = dataRow[ nameof( Status ) ].ToString( );
-            BudgetFormulationSystem = dataRow[ nameof( BudgetFormulationSystem ) ].ToString( );
-            Comments = dataRow[ nameof( Comments ) ].ToString( );
+            Analyst = dataRow[ "Analyst" ].ToString( );
+            DocumentTitle = dataRow[ "DocumentTitle" ].ToString( );
+            Amount = double.Parse( dataRow[ "Amount" ].ToString( ) ?? "0" );
+            FundCode = dataRow[ "FundCode" ].ToString( );
+            Status = dataRow[ "Status" ].ToString( );
+            BudgetFormulationSystem = dataRow[ "BudgetFormulationSystem" ].ToString( );
+            Comments = dataRow[ "Comments" ].ToString( );
             OriginalRequestDate =
-                DateOnly.Parse( dataRow[ nameof( OriginalRequestDate ) ].ToString( ) ?? "" );
+                DateOnly.Parse( dataRow[ "OriginalRequestDate" ].ToString( ) ?? "" );
 
-            LastActivityDate = DateOnly.Parse( dataRow[ nameof( LastActivityDate ) ].ToString( ) ?? "" );
+            LastActivityDate = DateOnly.Parse( dataRow[ "LastActivityDate" ].ToString( ) ?? "" );
         }
 
         /// <summary>

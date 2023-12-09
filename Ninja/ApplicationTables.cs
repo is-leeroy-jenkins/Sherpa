@@ -94,8 +94,8 @@ namespace BudgetExecution
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "ApplicationTablesId" ].ToString( ) ?? "0" );
-            TableName = Record[ nameof( TableName ) ].ToString( );
-            Model = Record[ nameof( Model ) ].ToString( );
+            TableName = Record[ "TableName" ].ToString( );
+            Model = Record[ "Model" ].ToString( );
         }
 
         /// <summary>
@@ -109,8 +109,8 @@ namespace BudgetExecution
             Record = builder.Record;
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "ApplicationTablesId" ].ToString( ) ?? "0" );
-            TableName = Record[ nameof( TableName ) ].ToString( );
-            Model = Record[ nameof( Model ) ].ToString( );
+            TableName = Record[ "TableName" ].ToString( );
+            Model = Record[ "Model" ].ToString( );
         }
 
         /// <summary>
@@ -124,8 +124,8 @@ namespace BudgetExecution
             Record = dataRow;
             Data = dataRow.ToDictionary( );
             ID = int.Parse( dataRow[ "ApplicationTablesId" ].ToString( ) ?? "0" );
-            TableName = dataRow[ nameof( TableName ) ].ToString( );
-            Model = dataRow[ nameof( Model ) ].ToString( );
+            TableName = dataRow[ "TableName" ].ToString( );
+            Model = dataRow[ "Model" ].ToString( );
         }
     }
 }

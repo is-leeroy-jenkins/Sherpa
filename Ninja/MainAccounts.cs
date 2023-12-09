@@ -132,14 +132,14 @@ namespace BudgetExecution
             Provider = query.Provider;
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
-            MainAccountsId = int.Parse( Record[ nameof( MainAccountsId ) ].ToString( ) ?? string.Empty );
-            Code = Record[ nameof( Code ) ].ToString( );
-            Name = Record[ nameof( Name ) ].ToString( );
-            TreasuryAccountCode = Record[ nameof( TreasuryAccountCode ) ].ToString( );
-            TreasuryAccountName = Record[ nameof( TreasuryAccountName ) ].ToString( );
-            BudgetAccountCode = Record[ nameof( BudgetAccountCode ) ].ToString( );
-            BudgetAccountName = Record[ nameof( BudgetAccountName ) ].ToString( );
-            BudgetEnforcementActCategory = Record[ nameof( BudgetEnforcementActCategory ) ].ToString( );
+            MainAccountsId = int.Parse( Record[ "MainAccountsId" ].ToString( ) ?? string.Empty );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
+            BudgetEnforcementActCategory = Record[ "BudgetEnforcementActCategory" ].ToString( );
         }
 
         /// <inheritdoc/>
@@ -155,14 +155,14 @@ namespace BudgetExecution
             Provider = builder.Provider;
             Record = builder.Record;
             Data = Record.ToDictionary( );
-            MainAccountsId = int.Parse( Record[ nameof( MainAccountsId ) ].ToString( ) ?? string.Empty );
-            Code = Record[ nameof( Code ) ].ToString( );
-            Name = Record[ nameof( Name ) ].ToString( );
-            TreasuryAccountCode = Record[ nameof( TreasuryAccountCode ) ].ToString( );
-            TreasuryAccountName = Record[ nameof( TreasuryAccountName ) ].ToString( );
-            BudgetAccountCode = Record[ nameof( BudgetAccountCode ) ].ToString( );
-            BudgetAccountName = Record[ nameof( BudgetAccountName ) ].ToString( );
-            BudgetEnforcementActCategory = Record[ nameof( BudgetEnforcementActCategory ) ].ToString( );
+            MainAccountsId = int.Parse( Record[ "MainAccountsId" ].ToString( ) ?? string.Empty );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
+            BudgetEnforcementActCategory = Record[ "BudgetEnforcementActCategory" ].ToString( );
         }
 
         /// <inheritdoc/>
@@ -177,14 +177,14 @@ namespace BudgetExecution
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
-            MainAccountsId = int.Parse( Record[ nameof( MainAccountsId ) ].ToString( ) ?? string.Empty );
-            Code = Record[ nameof( Code ) ].ToString( );
-            Name = Record[ nameof( Name ) ].ToString( );
-            TreasuryAccountCode = Record[ nameof( TreasuryAccountCode ) ].ToString( );
-            TreasuryAccountName = Record[ nameof( TreasuryAccountName ) ].ToString( );
-            BudgetAccountCode = Record[ nameof( BudgetAccountCode ) ].ToString( );
-            BudgetAccountName = Record[ nameof( BudgetAccountName ) ].ToString( );
-            BudgetEnforcementActCategory = Record[ nameof( BudgetEnforcementActCategory ) ].ToString( );
+            MainAccountsId = int.Parse( Record[ "MainAccountsId" ].ToString( ) ?? string.Empty );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
+            BudgetEnforcementActCategory = Record[ "BudgetEnforcementActCategory" ].ToString( );
         }
     }
 }

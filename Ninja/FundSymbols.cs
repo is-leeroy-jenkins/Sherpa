@@ -270,12 +270,12 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return new Dictionary<string, object> { [ nameof( Code ) ] = fundCode };
+                    return new Dictionary<string, object> { [ "Code" ] = fundCode };
                 }
                 catch( Exception _ex )
                 {
                     Fail( _ex );
-                    return new Dictionary<string, object> { [ nameof( Name ) ] = fundCode };
+                    return new Dictionary<string, object> { [ "Name" ] = fundCode };
                 }
             }
 
@@ -284,7 +284,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return new Dictionary<string, object> { [ nameof( Name ) ] = fundCode };
+                    return new Dictionary<string, object> { [ "Name" ] = fundCode };
                 }
                 catch( Exception _ex )
                 {
@@ -306,7 +306,7 @@ namespace BudgetExecution
             try
             {
                 return Enum.IsDefined( typeof( FundCode ), fundCode )
-                    ? new Dictionary<string, object> { [ nameof( Code ) ] = fundCode.ToString( ) }
+                    ? new Dictionary<string, object> { [ "Code" ] = fundCode.ToString( ) }
                     : default( Dictionary<string, object> );
             }
             catch( SystemException _ex )

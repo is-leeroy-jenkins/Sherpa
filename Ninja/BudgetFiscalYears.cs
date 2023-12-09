@@ -48,7 +48,7 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     /// <seealso cref="BudgetExecution.FiscalYear"/>
-    /// <seealso cref="BudgetExecution.BudgetFiscalYear"/>
+    /// <seealso cref="BudgetExecution.IBudgetFiscalYear"/>
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
@@ -125,16 +125,16 @@ namespace BudgetExecution
             InputYear = bfy;
             Record = new DataBuilder( Source, SetArgs( bfy ) )?.Record;
             ID = int.Parse( Record[ "FiscalYearId" ].ToString( ) );
-            FirstYear = Record[ nameof( FirstYear ) ].ToString( );
+            FirstYear = Record[ "FirstYear" ].ToString( );
             LastYear = Record[ "LastYEar" ].ToString( );
-            Availability = Record[ nameof( Availability ) ].ToString( );
-            WorkDays = double.Parse( Record[ nameof( WorkDays ) ].ToString( ) );
-            WeekDays = double.Parse( Record[ nameof( WeekDays ) ].ToString( ) );
-            WeekEnds = double.Parse( Record[ nameof( WeekEnds ) ].ToString( ) );
-            ExpiringYear = Record[ nameof( ExpiringYear ) ].ToString( );
-            StartDate = DateOnly.Parse( Record[ nameof( StartDate ) ].ToString( ) );
-            EndDate = DateOnly.Parse( Record[ nameof( EndDate ) ].ToString( ) );
-            CancellationDate = DateOnly.Parse( Record[ nameof( CancellationDate ) ].ToString( ) );
+            Availability = Record[ "Availability" ].ToString( );
+            WorkDays = double.Parse( Record[ "WorkDays" ].ToString( ) );
+            WeekDays = double.Parse( Record[ "WeekDays" ].ToString( ) );
+            WeekEnds = double.Parse( Record[ "WeekEnds" ].ToString( ) );
+            ExpiringYear = Record[ "ExpiringYear" ].ToString( );
+            StartDate = DateOnly.Parse( Record[ "StartDate" ].ToString( ) );
+            EndDate = DateOnly.Parse( Record[ "EndDate" ].ToString( ) );
+            CancellationDate = DateOnly.Parse( Record[ "CancellationDate" ].ToString( ) );
             Holidays = new HolidayFactory( Record );
         }
 
@@ -149,16 +149,16 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query )?.Record;
             ID = int.Parse( Record[ "FiscalYearId" ].ToString( ) );
-            FirstYear = Record[ nameof( FirstYear ) ].ToString( );
+            FirstYear = Record[ "FirstYear" ].ToString( );
             LastYear = Record[ "LastYEar" ].ToString( );
-            Availability = Record[ nameof( Availability ) ].ToString( );
-            WorkDays = double.Parse( Record[ nameof( WorkDays ) ].ToString( ) );
-            WeekDays = double.Parse( Record[ nameof( WeekDays ) ].ToString( ) );
-            WeekEnds = double.Parse( Record[ nameof( WeekEnds ) ].ToString( ) );
-            ExpiringYear = Record[ nameof( ExpiringYear ) ].ToString( );
-            StartDate = DateOnly.Parse( Record[ nameof( StartDate ) ].ToString( ) );
-            EndDate = DateOnly.Parse( Record[ nameof( EndDate ) ].ToString( ) );
-            CancellationDate = DateOnly.Parse( Record[ nameof( CancellationDate ) ].ToString( ) );
+            Availability = Record[ "Availability" ].ToString( );
+            WorkDays = double.Parse( Record[ "WorkDays" ].ToString( ) );
+            WeekDays = double.Parse( Record[ "WeekDays" ].ToString( ) );
+            WeekEnds = double.Parse( Record[ "WeekEnds" ].ToString( ) );
+            ExpiringYear = Record[ "ExpiringYear" ].ToString( );
+            StartDate = DateOnly.Parse( Record[ "StartDate" ].ToString( ) );
+            EndDate = DateOnly.Parse( Record[ "EndDate" ].ToString( ) );
+            CancellationDate = DateOnly.Parse( Record[ "CancellationDate" ].ToString( ) );
             Holidays = new HolidayFactory( Record );
         }
 
@@ -173,18 +173,18 @@ namespace BudgetExecution
         {
             Record = dataBuilder.Record;
             ID = int.Parse( Record[ "FiscalYearsId" ].ToString( ) );
-            BFY = Record[ nameof( BFY ) ].ToString( );
+            BFY = Record[ "BFY" ].ToString( );
             Efy = Record[ "EFY" ].ToString( );
-            FirstYear = Record[ nameof( FirstYear ) ].ToString( );
+            FirstYear = Record[ "FirstYear" ].ToString( );
             LastYear = Record[ "LastYEar" ].ToString( );
-            Availability = Record?[ nameof( Availability ) ].ToString( );
-            WorkDays = double.Parse( Record[ nameof( WorkDays ) ].ToString( ) );
-            WeekDays = double.Parse( Record[ nameof( WeekDays ) ].ToString( ) );
-            WeekEnds = double.Parse( Record[ nameof( WeekEnds ) ].ToString( ) );
-            ExpiringYear = Record[ nameof( ExpiringYear ) ].ToString( );
-            StartDate = DateOnly.Parse( Record[ nameof( StartDate ) ].ToString( ) );
-            EndDate = DateOnly.Parse( Record[ nameof( EndDate ) ].ToString( ) );
-            CancellationDate = DateOnly.Parse( Record[ nameof( CancellationDate ) ].ToString( ) );
+            Availability = Record?[ "Availability" ].ToString( );
+            WorkDays = double.Parse( Record[ "WorkDays" ].ToString( ) );
+            WeekDays = double.Parse( Record[ "WeekDays" ].ToString( ) );
+            WeekEnds = double.Parse( Record[ "WeekEnds" ].ToString( ) );
+            ExpiringYear = Record[ "ExpiringYear" ].ToString( );
+            StartDate = DateOnly.Parse( Record[ "StartDate" ].ToString( ) );
+            EndDate = DateOnly.Parse( Record[ "EndDate" ].ToString( ) );
+            CancellationDate = DateOnly.Parse( Record[ "CancellationDate" ].ToString( ) );
             Holidays = new HolidayFactory( Record );
         }
 
@@ -198,20 +198,20 @@ namespace BudgetExecution
             : this( )
         {
             Record = dataRow;
-            InputYear = dataRow[ nameof( BFY ) ].ToString( );
+            InputYear = dataRow[ "BFY" ].ToString( );
             ID = int.Parse( dataRow[ "FiscalYearsId" ].ToString( ) );
-            BFY = dataRow[ nameof( BFY ) ].ToString( );
+            BFY = dataRow[ "BFY" ].ToString( );
             Efy = dataRow[ "EFY" ].ToString( );
-            FirstYear = dataRow[ nameof( FirstYear ) ].ToString( );
+            FirstYear = dataRow[ "FirstYear" ].ToString( );
             LastYear = dataRow[ "LastYEar" ].ToString( );
-            Availability = dataRow[ nameof( Availability ) ].ToString( );
-            WorkDays = double.Parse( dataRow[ nameof( WorkDays ) ].ToString( ) );
-            WeekDays = double.Parse( dataRow[ nameof( WeekDays ) ].ToString( ) );
-            WeekEnds = double.Parse( dataRow[ nameof( WeekEnds ) ].ToString( ) );
-            ExpiringYear = dataRow[ nameof( ExpiringYear ) ].ToString( );
-            StartDate = DateOnly.Parse( dataRow[ nameof( StartDate ) ].ToString( ) );
-            EndDate = DateOnly.Parse( dataRow[ nameof( EndDate ) ].ToString( ) );
-            CancellationDate = DateOnly.Parse( dataRow[ nameof( CancellationDate ) ].ToString( ) );
+            Availability = dataRow[ "Availability" ].ToString( );
+            WorkDays = double.Parse( dataRow[ "WorkDays" ].ToString( ) );
+            WeekDays = double.Parse( dataRow[ "WeekDays" ].ToString( ) );
+            WeekEnds = double.Parse( dataRow[ "WeekEnds" ].ToString( ) );
+            ExpiringYear = dataRow[ "ExpiringYear" ].ToString( );
+            StartDate = DateOnly.Parse( dataRow[ "StartDate" ].ToString( ) );
+            EndDate = DateOnly.Parse( dataRow[ "EndDate" ].ToString( ) );
+            CancellationDate = DateOnly.Parse( dataRow[ "CancellationDate" ].ToString( ) );
             Holidays = new HolidayFactory( dataRow );
         }
 
@@ -238,9 +238,7 @@ namespace BudgetExecution
             CancellationDate = fiscalYear.CancellationDate;
         }
 
-        /// <summary>
-        /// Gets the federal holidays.
-        /// </summary>
+        /// <summary> Gets the federal holidays. </summary>
         /// <returns> </returns>
         public IDictionary<Holiday, DateOnly> GetFederalHolidays( )
         {
@@ -270,9 +268,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the identifier.
-        /// </summary>
+        /// <summary> Gets the identifier. </summary>
         /// <param name="dataRow"> The data row. </param>
         /// <returns> </returns>
         public int GetId( DataRow dataRow )

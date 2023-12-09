@@ -119,7 +119,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.Null( unit, nameof( unit ) );
+                ThrowIf.Null( unit, "unit" );
                 if( ( unit.Code?.Equals( Code ) == true )
                    && unit.Name.Equals( Name ) )
                 {
@@ -152,7 +152,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NoItems( dict, nameof( dict ) );
+                ThrowIf.NoItems( dict, "dict" );
                 var _name = dict.Keys?.First( );
                 var _value = dict[ _name ];
                 return _value.Equals( Code ) && _name.Equals( Name );

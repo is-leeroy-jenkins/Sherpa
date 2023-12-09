@@ -75,57 +75,57 @@ namespace BudgetExecution
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "BudgetControlValuesId" ].ToString( ) ?? "0" );
-            Name = Record?[ nameof( Name ) ].ToString( );
-            Code = Record?[ nameof( Code ) ].ToString( );
+            Name = Record?[ "Name" ].ToString( );
+            Code = Record?[ "Code" ].ToString( );
             SecurityOrg = Record?[ "" ].ToString( );
-            BudgetingTransType = Record?[ nameof( SecurityOrg ) ].ToString( );
-            PostedTransType = Record?[ nameof( PostedTransType ) ].ToString( );
+            BudgetingTransType = Record?[ "SecurityOrg" ].ToString( );
+            PostedTransType = Record?[ "PostedTransType" ].ToString( );
             EstimatedReimbursableTransType =
-                Record?[ nameof( EstimatedReimbursableTransType ) ].ToString( );
+                Record?[ "EstimatedReimbursableTransType" ].ToString( );
 
-            SpendingAdjustmentTransType = Record?[ nameof( SpendingAdjustmentTransType ) ].ToString( );
-            EstimatedRecoveriesTransType = Record?[ nameof( EstimatedRecoveriesTransType ) ].ToString( );
-            ActualRecoveriesTransType = Record?[ nameof( ActualRecoveriesTransType ) ].ToString( );
-            StrategicReserveTransType = Record?[ nameof( StrategicReserveTransType ) ].ToString( );
-            SpendingAdjustmentTransType = Record?[ nameof( SpendingAdjustmentTransType ) ].ToString( );
-            ProfitLossTransType = Record?[ nameof( ProfitLossTransType ) ].ToString( );
+            SpendingAdjustmentTransType = Record?[ "SpendingAdjustmentTransType" ].ToString( );
+            EstimatedRecoveriesTransType = Record?[ "EstimatedRecoveriesTransType" ].ToString( );
+            ActualRecoveriesTransType = Record?[ "ActualRecoveriesTransType" ].ToString( );
+            StrategicReserveTransType = Record?[ "StrategicReserveTransType" ].ToString( );
+            SpendingAdjustmentTransType = Record?[ "SpendingAdjustmentTransType" ].ToString( );
+            ProfitLossTransType = Record?[ "ProfitLossTransType" ].ToString( );
             EstimatedReimbursableBudgetingOption =
-                Record?[ nameof( EstimatedReimbursableBudgetingOption ) ].ToString( );
+                Record?[ "EstimatedReimbursableBudgetingOption" ].ToString( );
 
             EstimatedReimbursableSpendingOption =
-                Record?[ nameof( EstimatedReimbursableSpendingOption ) ].ToString( );
+                Record?[ "EstimatedReimbursableSpendingOption" ].ToString( );
 
             EstimatedRecoveriesBudgetingOption =
-                Record?[ nameof( EstimatedRecoveriesBudgetingOption ) ].ToString( );
+                Record?[ "EstimatedRecoveriesBudgetingOption" ].ToString( );
 
             EstimatedRecoveriesSpendingOption =
-                Record?[ nameof( EstimatedRecoveriesSpendingOption ) ].ToString( );
+                Record?[ "EstimatedRecoveriesSpendingOption" ].ToString( );
 
-            RecordNextLevel = Record?[ nameof( RecordNextLevel ) ].ToString( );
-            RecordBudgetingMismatch = Record?[ nameof( RecordBudgetingMismatch ) ].ToString( );
-            ProfitLossBudgetingOption = Record?[ nameof( ProfitLossBudgetingOption ) ].ToString( );
-            ProfitLossSpendingOption = Record?[ nameof( ProfitLossSpendingOption ) ].ToString( );
-            RecordCarryInLowerLevel = Record?[ nameof( RecordCarryInLowerLevel ) ].ToString( );
+            RecordNextLevel = Record?[ "RecordNextLevel" ].ToString( );
+            RecordBudgetingMismatch = Record?[ "RecordBudgetingMismatch" ].ToString( );
+            ProfitLossBudgetingOption = Record?[ "ProfitLossBudgetingOption" ].ToString( );
+            ProfitLossSpendingOption = Record?[ "ProfitLossSpendingOption" ].ToString( );
+            RecordCarryInLowerLevel = Record?[ "RecordCarryInLowerLevel" ].ToString( );
             RecordCarryInLowerLevelControl =
-                Record?[ nameof( RecordCarryInLowerLevelControl ) ].ToString( );
+                Record?[ "RecordCarryInLowerLevelControl" ].ToString( );
 
-            RecordCarryInAmountControl = Record?[ nameof( RecordCarryInAmountControl ) ].ToString( );
-            BudgetingControl = Record?[ nameof( BudgetingControl ) ].ToString( );
-            PostingControl = Record?[ nameof( PostingControl ) ].ToString( );
-            PreCommitmentSpendingControl = Record?[ nameof( PreCommitmentSpendingControl ) ].ToString( );
-            CommitmentSpendingControl = Record?[ nameof( CommitmentSpendingControl ) ].ToString( );
-            ObligationSpendingControl = Record?[ nameof( ObligationSpendingControl ) ].ToString( );
+            RecordCarryInAmountControl = Record?[ "RecordCarryInAmountControl" ].ToString( );
+            BudgetingControl = Record?[ "BudgetingControl" ].ToString( );
+            PostingControl = Record?[ "PostingControl" ].ToString( );
+            PreCommitmentSpendingControl = Record?[ "PreCommitmentSpendingControl" ].ToString( );
+            CommitmentSpendingControl = Record?[ "CommitmentSpendingControl" ].ToString( );
+            ObligationSpendingControl = Record?[ "ObligationSpendingControl" ].ToString( );
             AccrualSpendingControl = Record?[ "" ].ToString( );
-            ExpenditureSpendingControl = Record?[ nameof( ExpenditureSpendingControl ) ].ToString( );
-            ExpenseSpendingControl = Record?[ nameof( ExpenseSpendingControl ) ].ToString( );
-            ReimbursableSpendingControl = Record?[ nameof( ReimbursableSpendingControl ) ].ToString( );
+            ExpenditureSpendingControl = Record?[ "ExpenditureSpendingControl" ].ToString( );
+            ExpenseSpendingControl = Record?[ "ExpenseSpendingControl" ].ToString( );
+            ReimbursableSpendingControl = Record?[ "ReimbursableSpendingControl" ].ToString( );
             ReimbursableAgreementSpendingControl =
-                Record?[ nameof( ReimbursableAgreementSpendingControl ) ].ToString( );
+                Record?[ "ReimbursableAgreementSpendingControl" ].ToString( );
 
-            FteBudgetingControl = Record?[ nameof( FteBudgetingControl ) ].ToString( );
-            FteSpendingControl = Record?[ nameof( FteSpendingControl ) ].ToString( );
-            TransactionTypeControl = Record?[ nameof( TransactionTypeControl ) ].ToString( );
-            AuthorityDistributionControl = Record?[ nameof( AuthorityDistributionControl ) ].ToString( );
+            FteBudgetingControl = Record?[ "FteBudgetingControl" ].ToString( );
+            FteSpendingControl = Record?[ "FteSpendingControl" ].ToString( );
+            TransactionTypeControl = Record?[ "TransactionTypeControl" ].ToString( );
+            AuthorityDistributionControl = Record?[ "AuthorityDistributionControl" ].ToString( );
         }
 
         /// <inheritdoc/>
@@ -141,53 +141,53 @@ namespace BudgetExecution
             Record = builder.Record;
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "BudgetControlValuesId" ].ToString( ) ?? "0" );
-            Name = Record[ nameof( Name ) ].ToString( );
-            Code = Record[ nameof( Code ) ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            Code = Record[ "Code" ].ToString( );
             SecurityOrg = Record[ "" ].ToString( );
-            BudgetingTransType = Record[ nameof( SecurityOrg ) ].ToString( );
-            PostedTransType = Record[ nameof( PostedTransType ) ].ToString( );
-            EstimatedReimbursableTransType = Record[ nameof( EstimatedReimbursableTransType ) ].ToString( );
-            SpendingAdjustmentTransType = Record[ nameof( SpendingAdjustmentTransType ) ].ToString( );
-            EstimatedRecoveriesTransType = Record[ nameof( EstimatedRecoveriesTransType ) ].ToString( );
-            ActualRecoveriesTransType = Record[ nameof( ActualRecoveriesTransType ) ].ToString( );
-            StrategicReserveTransType = Record[ nameof( StrategicReserveTransType ) ].ToString( );
-            SpendingAdjustmentTransType = Record[ nameof( SpendingAdjustmentTransType ) ].ToString( );
-            ProfitLossTransType = Record[ nameof( ProfitLossTransType ) ].ToString( );
+            BudgetingTransType = Record[ "SecurityOrg" ].ToString( );
+            PostedTransType = Record[ "PostedTransType" ].ToString( );
+            EstimatedReimbursableTransType = Record[ "EstimatedReimbursableTransType" ].ToString( );
+            SpendingAdjustmentTransType = Record[ "SpendingAdjustmentTransType" ].ToString( );
+            EstimatedRecoveriesTransType = Record[ "EstimatedRecoveriesTransType" ].ToString( );
+            ActualRecoveriesTransType = Record[ "ActualRecoveriesTransType" ].ToString( );
+            StrategicReserveTransType = Record[ "StrategicReserveTransType" ].ToString( );
+            SpendingAdjustmentTransType = Record[ "SpendingAdjustmentTransType" ].ToString( );
+            ProfitLossTransType = Record[ "ProfitLossTransType" ].ToString( );
             EstimatedReimbursableBudgetingOption =
-                Record[ nameof( EstimatedReimbursableBudgetingOption ) ].ToString( );
+                Record[ "EstimatedReimbursableBudgetingOption" ].ToString( );
 
             EstimatedReimbursableSpendingOption =
-                Record[ nameof( EstimatedReimbursableSpendingOption ) ].ToString( );
+                Record[ "EstimatedReimbursableSpendingOption" ].ToString( );
 
             EstimatedRecoveriesBudgetingOption =
-                Record[ nameof( EstimatedRecoveriesBudgetingOption ) ].ToString( );
+                Record[ "EstimatedRecoveriesBudgetingOption" ].ToString( );
 
             EstimatedRecoveriesSpendingOption =
-                Record[ nameof( EstimatedRecoveriesSpendingOption ) ].ToString( );
+                Record[ "EstimatedRecoveriesSpendingOption" ].ToString( );
 
-            RecordNextLevel = Record[ nameof( RecordNextLevel ) ].ToString( );
-            RecordBudgetingMismatch = Record[ nameof( RecordBudgetingMismatch ) ].ToString( );
-            ProfitLossBudgetingOption = Record[ nameof( ProfitLossBudgetingOption ) ].ToString( );
-            ProfitLossSpendingOption = Record[ nameof( ProfitLossSpendingOption ) ].ToString( );
-            RecordCarryInLowerLevel = Record[ nameof( RecordCarryInLowerLevel ) ].ToString( );
-            RecordCarryInLowerLevelControl = Record[ nameof( RecordCarryInLowerLevelControl ) ].ToString( );
-            RecordCarryInAmountControl = Record[ nameof( RecordCarryInAmountControl ) ].ToString( );
-            BudgetingControl = Record[ nameof( BudgetingControl ) ].ToString( );
-            PostingControl = Record[ nameof( PostingControl ) ].ToString( );
-            PreCommitmentSpendingControl = Record[ nameof( PreCommitmentSpendingControl ) ].ToString( );
-            CommitmentSpendingControl = Record[ nameof( CommitmentSpendingControl ) ].ToString( );
-            ObligationSpendingControl = Record[ nameof( ObligationSpendingControl ) ].ToString( );
+            RecordNextLevel = Record[ "RecordNextLevel" ].ToString( );
+            RecordBudgetingMismatch = Record[ "RecordBudgetingMismatch" ].ToString( );
+            ProfitLossBudgetingOption = Record[ "ProfitLossBudgetingOption" ].ToString( );
+            ProfitLossSpendingOption = Record[ "ProfitLossSpendingOption" ].ToString( );
+            RecordCarryInLowerLevel = Record[ "RecordCarryInLowerLevel" ].ToString( );
+            RecordCarryInLowerLevelControl = Record[ "RecordCarryInLowerLevelControl" ].ToString( );
+            RecordCarryInAmountControl = Record[ "RecordCarryInAmountControl" ].ToString( );
+            BudgetingControl = Record[ "BudgetingControl" ].ToString( );
+            PostingControl = Record[ "PostingControl" ].ToString( );
+            PreCommitmentSpendingControl = Record[ "PreCommitmentSpendingControl" ].ToString( );
+            CommitmentSpendingControl = Record[ "CommitmentSpendingControl" ].ToString( );
+            ObligationSpendingControl = Record[ "ObligationSpendingControl" ].ToString( );
             AccrualSpendingControl = Record[ "" ].ToString( );
-            ExpenditureSpendingControl = Record[ nameof( ExpenditureSpendingControl ) ].ToString( );
-            ExpenseSpendingControl = Record[ nameof( ExpenseSpendingControl ) ].ToString( );
-            ReimbursableSpendingControl = Record[ nameof( ReimbursableSpendingControl ) ].ToString( );
+            ExpenditureSpendingControl = Record[ "ExpenditureSpendingControl" ].ToString( );
+            ExpenseSpendingControl = Record[ "ExpenseSpendingControl" ].ToString( );
+            ReimbursableSpendingControl = Record[ "ReimbursableSpendingControl" ].ToString( );
             ReimbursableAgreementSpendingControl =
-                Record[ nameof( ReimbursableAgreementSpendingControl ) ].ToString( );
+                Record[ "ReimbursableAgreementSpendingControl" ].ToString( );
 
-            FteBudgetingControl = Record[ nameof( FteBudgetingControl ) ].ToString( );
-            FteSpendingControl = Record[ nameof( FteSpendingControl ) ].ToString( );
-            TransactionTypeControl = Record[ nameof( TransactionTypeControl ) ].ToString( );
-            AuthorityDistributionControl = Record[ nameof( AuthorityDistributionControl ) ].ToString( );
+            FteBudgetingControl = Record[ "FteBudgetingControl" ].ToString( );
+            FteSpendingControl = Record[ "FteSpendingControl" ].ToString( );
+            TransactionTypeControl = Record[ "TransactionTypeControl" ].ToString( );
+            AuthorityDistributionControl = Record[ "AuthorityDistributionControl" ].ToString( );
         }
 
         /// <inheritdoc/>
@@ -203,53 +203,53 @@ namespace BudgetExecution
             Record = row;
             Data = row.ToDictionary( );
             ID = int.Parse( row[ "BudgetControlValuesId" ].ToString( ) ?? "0" );
-            Name = row?[ nameof( Name ) ].ToString( );
-            Code = row?[ nameof( Code ) ].ToString( );
+            Name = row?[ "Name" ].ToString( );
+            Code = row?[ "Code" ].ToString( );
             SecurityOrg = row[ "" ].ToString( );
-            BudgetingTransType = row[ nameof( SecurityOrg ) ].ToString( );
-            PostedTransType = row[ nameof( PostedTransType ) ].ToString( );
-            EstimatedReimbursableTransType = row[ nameof( EstimatedReimbursableTransType ) ].ToString( );
-            SpendingAdjustmentTransType = row[ nameof( SpendingAdjustmentTransType ) ].ToString( );
-            EstimatedRecoveriesTransType = row[ nameof( EstimatedRecoveriesTransType ) ].ToString( );
-            ActualRecoveriesTransType = row[ nameof( ActualRecoveriesTransType ) ].ToString( );
-            StrategicReserveTransType = row[ nameof( StrategicReserveTransType ) ].ToString( );
-            SpendingAdjustmentTransType = row[ nameof( SpendingAdjustmentTransType ) ].ToString( );
-            ProfitLossTransType = row[ nameof( ProfitLossTransType ) ].ToString( );
+            BudgetingTransType = row[ "SecurityOrg" ].ToString( );
+            PostedTransType = row[ "PostedTransType" ].ToString( );
+            EstimatedReimbursableTransType = row[ "EstimatedReimbursableTransType" ].ToString( );
+            SpendingAdjustmentTransType = row[ "SpendingAdjustmentTransType" ].ToString( );
+            EstimatedRecoveriesTransType = row[ "EstimatedRecoveriesTransType" ].ToString( );
+            ActualRecoveriesTransType = row[ "ActualRecoveriesTransType" ].ToString( );
+            StrategicReserveTransType = row[ "StrategicReserveTransType" ].ToString( );
+            SpendingAdjustmentTransType = row[ "SpendingAdjustmentTransType" ].ToString( );
+            ProfitLossTransType = row[ "ProfitLossTransType" ].ToString( );
             EstimatedReimbursableBudgetingOption =
-                row[ nameof( EstimatedReimbursableBudgetingOption ) ].ToString( );
+                row[ "EstimatedReimbursableBudgetingOption" ].ToString( );
 
             EstimatedReimbursableSpendingOption =
-                Record[ nameof( EstimatedReimbursableSpendingOption ) ].ToString( );
+                Record[ "EstimatedReimbursableSpendingOption" ].ToString( );
 
             EstimatedRecoveriesSpendingOption =
-                row[ nameof( EstimatedRecoveriesSpendingOption ) ].ToString( );
+                row[ "EstimatedRecoveriesSpendingOption" ].ToString( );
 
             EstimatedRecoveriesBudgetingOption =
-                row[ nameof( EstimatedRecoveriesBudgetingOption ) ].ToString( );
+                row[ "EstimatedRecoveriesBudgetingOption" ].ToString( );
 
             RecordNextLevel = row[ "NextLevel" ].ToString( );
             RecordBudgetingMismatch = row[ "BudgetingMismatch" ].ToString( );
-            ProfitLossBudgetingOption = row[ nameof( ProfitLossBudgetingOption ) ].ToString( );
-            ProfitLossSpendingOption = row[ nameof( ProfitLossSpendingOption ) ].ToString( );
+            ProfitLossBudgetingOption = row[ "ProfitLossBudgetingOption" ].ToString( );
+            ProfitLossSpendingOption = row[ "ProfitLossSpendingOption" ].ToString( );
             RecordCarryInLowerLevel = row[ "CarryInLowerLevel" ].ToString( );
             RecordCarryInLowerLevelControl = row[ "CarryInLowerLevelControl" ].ToString( );
             RecordCarryInAmountControl = row[ "CarryInAmountControl" ].ToString( );
-            BudgetingControl = row[ nameof( BudgetingControl ) ].ToString( );
-            PostingControl = row[ nameof( PostingControl ) ].ToString( );
-            PreCommitmentSpendingControl = row[ nameof( PreCommitmentSpendingControl ) ].ToString( );
-            CommitmentSpendingControl = row[ nameof( CommitmentSpendingControl ) ].ToString( );
-            ObligationSpendingControl = row[ nameof( ObligationSpendingControl ) ].ToString( );
+            BudgetingControl = row[ "BudgetingControl" ].ToString( );
+            PostingControl = row[ "PostingControl" ].ToString( );
+            PreCommitmentSpendingControl = row[ "PreCommitmentSpendingControl" ].ToString( );
+            CommitmentSpendingControl = row[ "CommitmentSpendingControl" ].ToString( );
+            ObligationSpendingControl = row[ "ObligationSpendingControl" ].ToString( );
             AccrualSpendingControl = row[ "" ].ToString( );
-            ExpenditureSpendingControl = row[ nameof( ExpenditureSpendingControl ) ].ToString( );
-            ExpenseSpendingControl = row[ nameof( ExpenseSpendingControl ) ].ToString( );
-            ReimbursableSpendingControl = row[ nameof( ReimbursableSpendingControl ) ].ToString( );
+            ExpenditureSpendingControl = row[ "ExpenditureSpendingControl" ].ToString( );
+            ExpenseSpendingControl = row[ "ExpenseSpendingControl" ].ToString( );
+            ReimbursableSpendingControl = row[ "ReimbursableSpendingControl" ].ToString( );
             ReimbursableAgreementSpendingControl =
-                row[ nameof( ReimbursableAgreementSpendingControl ) ].ToString( );
+                row[ "ReimbursableAgreementSpendingControl" ].ToString( );
 
-            FteBudgetingControl = row[ nameof( FteBudgetingControl ) ].ToString( );
-            FteSpendingControl = row[ nameof( FteSpendingControl ) ].ToString( );
-            TransactionTypeControl = row[ nameof( TransactionTypeControl ) ].ToString( );
-            AuthorityDistributionControl = row[ nameof( AuthorityDistributionControl ) ].ToString( );
+            FteBudgetingControl = row[ "FteBudgetingControl" ].ToString( );
+            FteSpendingControl = row[ "FteSpendingControl" ].ToString( );
+            TransactionTypeControl = row[ "TransactionTypeControl" ].ToString( );
+            AuthorityDistributionControl = row[ "AuthorityDistributionControl" ].ToString( );
         }
 
         /// <inheritdoc/>

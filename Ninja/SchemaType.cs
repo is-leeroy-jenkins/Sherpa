@@ -118,8 +118,8 @@ namespace BudgetExecution
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "SchemaTypesId" ].ToString( ) ?? "0" );
-            TypeName = Record[ nameof( TypeName ) ].ToString( );
-            Database = Record[ nameof( Database ) ].ToString( );
+            TypeName = Record[ "TypeName" ].ToString( );
+            Database = Record[ "Database" ].ToString( );
         }
 
         /// <summary>
@@ -132,8 +132,8 @@ namespace BudgetExecution
             Record = builder.Record;
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "SchemaTypesId" ].ToString( ) ?? "0" );
-            TypeName = Record[ nameof( TypeName ) ].ToString( );
-            Database = Record[ nameof( Database ) ].ToString( );
+            TypeName = Record[ "TypeName" ].ToString( );
+            Database = Record[ "Database" ].ToString( );
         }
 
         /// <summary>
@@ -145,8 +145,8 @@ namespace BudgetExecution
             Record = dataRow;
             Data = dataRow.ToDictionary( );
             ID = int.Parse( dataRow[ "SchemaTypesId" ].ToString( ) ?? "0" );
-            TypeName = dataRow[ nameof( TypeName ) ].ToString( );
-            Database = dataRow[ nameof( Database ) ].ToString( );
+            TypeName = dataRow[ "TypeName" ].ToString( );
+            Database = dataRow[ "Database" ].ToString( );
         }
     }
 }

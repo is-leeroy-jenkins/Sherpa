@@ -99,10 +99,10 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query )?.Record;
             ID = int.Parse( Record[ "NationalProgramsId" ].ToString( ) );
-            Name = Record[ nameof( Name ) ].ToString( );
-            Code = Record[ nameof( Code ) ].ToString( );
-            RpioCode = Record[ nameof( RpioCode ) ].ToString( );
-            Title = Record[ nameof( Title ) ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            Code = Record[ "Code" ].ToString( );
+            RpioCode = Record[ "RpioCode" ].ToString( );
+            Title = Record[ "Title" ].ToString( );
             Data = Record?.ToDictionary( );
             NPM = (NPM) Enum.Parse( typeof( NPM ), Code );
         }
@@ -115,10 +115,10 @@ namespace BudgetExecution
         {
             Record = builder?.Record;
             ID = int.Parse( Record[ "NationalProgramsId" ].ToString( ) );
-            Name = Record[ nameof( Name ) ].ToString( );
-            Code = Record[ nameof( Code ) ].ToString( );
-            RpioCode = Record[ nameof( RpioCode ) ].ToString( );
-            Title = Record[ nameof( Title ) ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            Code = Record[ "Code" ].ToString( );
+            RpioCode = Record[ "RpioCode" ].ToString( );
+            Title = Record[ "Title" ].ToString( );
             Data = Record?.ToDictionary( );
             NPM = (NPM) Enum.Parse( typeof( NPM ), Code );
         }
@@ -131,10 +131,10 @@ namespace BudgetExecution
         {
             Record = dataRow;
             ID = int.Parse( Record[ "NationalProgramsId" ].ToString( ) );
-            Name = Record[ nameof( Name ) ].ToString( );
-            Code = Record[ nameof( Code ) ].ToString( );
-            RpioCode = Record[ nameof( RpioCode ) ].ToString( );
-            Title = Record[ nameof( Title ) ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            Code = Record[ "Code" ].ToString( );
+            RpioCode = Record[ "RpioCode" ].ToString( );
+            Title = Record[ "Title" ].ToString( );
             Data = Record?.ToDictionary( );
             NPM = (NPM) Enum.Parse( typeof( NPM ), Code );
         }
@@ -147,10 +147,10 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( Source, GetArgs( code ) )?.Record;
             ID = int.Parse( Record[ "NationalProgramsId" ].ToString( ) );
-            Name = Record[ nameof( Name ) ].ToString( );
-            Code = Record[ nameof( Code ) ].ToString( );
-            RpioCode = Record[ nameof( RpioCode ) ].ToString( );
-            Title = Record[ nameof( Title ) ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            Code = Record[ "Code" ].ToString( );
+            RpioCode = Record[ "RpioCode" ].ToString( );
+            Title = Record[ "Title" ].ToString( );
             Data = Record?.ToDictionary( );
             NPM = (NPM) Enum.Parse( typeof( NPM ), Code );
         }

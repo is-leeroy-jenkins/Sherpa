@@ -84,8 +84,10 @@ namespace BudgetExecution
             _busy = false;
         }
 
-        /// <summary> Gets the ordinals. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the ordinals.
+        /// </summary>
+        /// <returns></returns>
         private protected IEnumerable<int> GetOrdinals( )
         {
             try
@@ -119,8 +121,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the column schema. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the column schema.
+        /// </summary>
+        /// <returns>
+        /// </returns>
         private protected IDictionary<string, Type> GetColumnSchema( )
         {
             try
@@ -151,8 +156,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the data columns. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the data columns.
+        /// </summary>
+        /// <returns>
+        /// </returns>
         private protected IList<DataColumn> GetDataColumns( )
         {
             try
@@ -186,8 +194,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the column names. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the column names.
+        /// </summary>
+        /// <returns>
+        /// </returns>
         private protected IList<string> GetColumnNames( )
         {
             try
