@@ -2281,7 +2281,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    //FormMenu.Show( this, e.Location );
+                    ContextMenu.Show( this, e.Location );
                 }
                 catch( Exception _ex )
                 {

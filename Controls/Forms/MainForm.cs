@@ -1,12 +1,12 @@
 ﻿// ******************************************************************************************
-//     Assembly:             BudgetExecution
+//     Assembly:                BudgetExecution
 //     Author:                  Terry D. Eppler
 //     Created:                 7-18-2023
 // 
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        12-7-2023
 // ******************************************************************************************
-// <copyright file="teppler.cs" company="Terry D. Eppler">
+// <copyright file="MainForm.cs" company="Terry D. Eppler">
 //    BudgetExecution is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   MainForm.cs.cs
+//   MainForm.cs
 // </summary>
 // ******************************************************************************************
 
@@ -144,7 +144,6 @@ namespace BudgetExecution
         /// </summary>
         private void InitializeCallbacks( )
         {
-            // Event Wiring
             try
             {
                 ExitButton.Click += OnExitButtonClick;
@@ -801,7 +800,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    //FormMenu.Show( this, e.Location );
+                    ContextMenu.Show( this, e.Location );
                 }
                 catch( Exception _ex )
                 {

@@ -14,7 +14,8 @@
     public class MapControl : GMapControl
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="MapControl"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="MapControl"/> class.
         /// </summary>
         public MapControl( )
         {
@@ -28,7 +29,8 @@
             MarkersEnabled = true;
             Bearing = 0;
             MaxZoom = 2;
-            MinZoom = 2;
+            MinZoom = 18;
+            Zoom = 8;
             MouseWheelZoomEnabled = true;
             MouseWheelZoomType = MouseWheelZoomType.MousePositionAndCenter;
             NegativeMode = false;

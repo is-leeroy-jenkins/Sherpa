@@ -49,6 +49,8 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using GMap.NET;
     using GMap.NET.MapProviders;
+    using GMap.NET.WindowsForms;
+    using GMap.NET.WindowsForms.Markers;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
     using Action = System.Action;
@@ -157,7 +159,6 @@ namespace BudgetExecution
             ControlBox = false;
 
             // Map Properties
-            Map.Size = new Size( 1149, 604 );
             Map.MinZoom = 2;
             Map.MaxZoom = 18;
             Map.Zoom = 8;
@@ -169,6 +170,7 @@ namespace BudgetExecution
 
             // Wire Events
             Load += OnLoad;
+            MouseClick += OnRightClick;
         }
 
         /// <summary>
@@ -220,6 +222,29 @@ namespace BudgetExecution
             {
                 Fail( _ex );
                 return default( Control[ ] );
+            }
+        }
+
+        /// <summary>
+        /// Creates the marker.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="latitude">The latitude.</param>
+        /// <param name="longitude">The longitude.</param>
+        public void CreateMarker( string name, double latitude, double longitude )
+        {
+            try
+            {
+                ThrowIf.NullOrEmpty( name, nameof( name ) );
+                var _overlay = new GMapOverlay( name );
+                var _point = new PointLatLng( latitude, longitude );
+                var _marker = new GMarkerGoogle( _point, GMarkerGoogleType.blue_pushpin );
+                _overlay.Markers.Add( _marker );
+                Map.Overlays.Add( _overlay );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -521,6 +546,27 @@ namespace BudgetExecution
             catch( Exception _ex )
             {
                 Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [right click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnRightClick( object sender, MouseEventArgs e )
+        {
+            if( e.Button == MouseButtons.Right )
+            {
+                try
+                {
+                    ContextMenu.Show( this, e.Location );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
             }
         }
 
