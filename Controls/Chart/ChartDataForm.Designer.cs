@@ -92,6 +92,9 @@
             MenuButton = new ToolStripButton( );
             ExitSeparator = new ToolSeparator( );
             ApplicationLabel = new ToolStripLabel( );
+            ChartTypeSpacer = new ToolStripLabel( );
+            ChartLabel = new ToolStripLabel( );
+            ToolStripComboBox = new ToolStripDropDown( );
             StripSeparator = new ToolSeparator( );
             MetricsPostSeparator = new ToolSeparator( );
             LastSeparator = new ToolSeparator( );
@@ -1094,7 +1097,7 @@
             ToolStrip.Image = null;
             ToolStrip.ImageDirectory = null;
             ToolStrip.ImageSize = new System.Drawing.Size( 16, 16 );
-            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { StatusSeparator, StatusLabel, ChartSpacerLabel, StatusSpacer, NavigationLabelSeparator, FirstButton, FirstSeparator, PreviousButton, PreviousSeparator, NextButton, NextSeparator, LastButton, EditSqlSeparator, MetricsLabel, FilterLabel, FilterLabelSeparator, RefreshDataButton, RefreshSeparator, RemoveFiltersButton, FilterSeparator, GroupButton, RemoveFiltersSeparator, ExitButton, MenuSeparator, MenuButton, ExitSeparator, ApplicationLabel } );
+            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { StatusSeparator, StatusLabel, ChartSpacerLabel, StatusSpacer, NavigationLabelSeparator, FirstButton, FirstSeparator, PreviousButton, PreviousSeparator, NextButton, NextSeparator, LastButton, EditSqlSeparator, MetricsLabel, FilterLabel, FilterLabelSeparator, RefreshDataButton, RefreshSeparator, RemoveFiltersButton, FilterSeparator, GroupButton, RemoveFiltersSeparator, ExitButton, MenuSeparator, MenuButton, ExitSeparator, ApplicationLabel, ChartTypeSpacer, ChartLabel, ToolStripComboBox } );
             ToolStrip.LastButton = LastButton;
             ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
             ToolStrip.Location = new System.Drawing.Point( 1, 1 );
@@ -1517,6 +1520,59 @@
             ApplicationLabel.Tag = "";
             ApplicationLabel.Text = "                Application:";
             ApplicationLabel.ToolTip = null;
+            // 
+            // ChartTypeSpacer
+            // 
+            ChartTypeSpacer.BackColor = System.Drawing.Color.Transparent;
+            ChartTypeSpacer.BindingSource = null;
+            ChartTypeSpacer.DataFilter = null;
+            ChartTypeSpacer.Field = Field.AccountCode;
+            ChartTypeSpacer.Font = new System.Drawing.Font( "Roboto", 8F );
+            ChartTypeSpacer.ForeColor = System.Drawing.Color.Transparent;
+            ChartTypeSpacer.HoverText = null;
+            ChartTypeSpacer.Margin = new System.Windows.Forms.Padding( 1 );
+            ChartTypeSpacer.Name = "ChartTypeSpacer";
+            ChartTypeSpacer.Padding = new System.Windows.Forms.Padding( 1 );
+            ChartTypeSpacer.Size = new System.Drawing.Size( 85, 25 );
+            ChartTypeSpacer.Tag = "";
+            ChartTypeSpacer.Text = "toolStripLabel2";
+            ChartTypeSpacer.ToolTip = null;
+            // 
+            // ChartLabel
+            // 
+            ChartLabel.BackColor = System.Drawing.Color.Transparent;
+            ChartLabel.BindingSource = null;
+            ChartLabel.DataFilter = null;
+            ChartLabel.Field = Field.AccountCode;
+            ChartLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
+            ChartLabel.ForeColor = System.Drawing.Color.Black;
+            ChartLabel.HoverText = null;
+            ChartLabel.Margin = new System.Windows.Forms.Padding( 1 );
+            ChartLabel.Name = "ChartLabel";
+            ChartLabel.Padding = new System.Windows.Forms.Padding( 1 );
+            ChartLabel.Size = new System.Drawing.Size( 36, 25 );
+            ChartLabel.Tag = "";
+            ChartLabel.Text = "Charts:";
+            ChartLabel.ToolTip = null;
+            // 
+            // ToolStripComboBox
+            // 
+            ToolStripComboBox.AllowDrop = true;
+            ToolStripComboBox.BindingSource = BindingSource;
+            ToolStripComboBox.DataFilter = null;
+            ToolStripComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            ToolStripComboBox.Font = new System.Drawing.Font( "Roboto", 8F );
+            ToolStripComboBox.ForeColor = System.Drawing.Color.FromArgb( 218, 218, 218 );
+            ToolStripComboBox.HoverText = "Make Selection";
+            ToolStripComboBox.Margin = new System.Windows.Forms.Padding( 1 );
+            ToolStripComboBox.MaxDropDownItems = 100;
+            ToolStripComboBox.MaxLength = 32767;
+            ToolStripComboBox.Name = "ToolStripComboBox";
+            ToolStripComboBox.Padding = new System.Windows.Forms.Padding( 1 );
+            ToolStripComboBox.Size = new System.Drawing.Size( 150, 25 );
+            ToolStripComboBox.Style = Syncfusion.Windows.Forms.Tools.ToolStripExStyle.Office2016Black;
+            ToolStripComboBox.ToolTip = ToolTip;
+            ToolStripComboBox.ToolTipText = "Make Selection";
             // 
             // StripSeparator
             // 
@@ -2571,5 +2627,8 @@
         public Label Label23;
         public Label Label25;
         public Label Label24;
+        public ToolStripLabel ChartTypeSpacer;
+        public ToolStripLabel ChartLabel;
+        public ToolStripDropDown ToolStripComboBox;
     }
 }

@@ -344,8 +344,14 @@ namespace BudgetExecution
         /// </value>
         public bool IsBusy
         {
-            get => _busy;
-            private set => _busy = value;
+            get
+            {
+                return _busy;
+            }
+            private set
+            {
+                _busy = value;
+            }
         }
 
         /// <inheritdoc />
@@ -440,42 +446,13 @@ namespace BudgetExecution
                 var _font = new Font( "Roboto", 7 );
                 var _foreColor = Color.FromArgb( 106, 189, 252 );
                 var _backColor = Color.Transparent;
-                Label1.Font = _font;
-                Label1.ForeColor = _foreColor;
-                Label1.Text = string.Empty;
-                Label2.Font = _font;
-                Label2.ForeColor = _foreColor;
-                Label2.Text = string.Empty;
-                Label3.Font = _font;
-                Label3.ForeColor = _foreColor;
-                Label3.Text = string.Empty;
-                Label4.Font = _font;
-                Label4.ForeColor = _foreColor;
-                Label4.Text = string.Empty;
-                Label5.Font = _font;
-                Label5.ForeColor = _foreColor;
-                Label5.Text = string.Empty;
-                Label6.Font = _font;
-                Label6.ForeColor = _foreColor;
-                Label6.Text = string.Empty;
-                Label7.Font = _font;
-                Label7.ForeColor = _foreColor;
-                Label7.Text = string.Empty;
-                Label8.Font = _font;
-                Label8.ForeColor = _foreColor;
-                Label8.Text = string.Empty;
-                Label9.Font = _font;
-                Label9.ForeColor = _foreColor;
-                Label9.Text = string.Empty;
-                Label10.Font = _font;
-                Label10.ForeColor = _foreColor;
-                Label10.Text = string.Empty;
-                Label11.Font = _font;
-                Label11.ForeColor = _foreColor;
-                Label11.Text = string.Empty;
-                Label12.Font = _font;
-                Label12.ForeColor = _foreColor;
-                Label12.Text = string.Empty;
+                var _labels = GetLabels( );
+                foreach( var lbl in _labels.Values )
+                {
+                    lbl.Font = _font;
+                    lbl.ForeColor = _foreColor;
+                    lbl.BackColor = _backColor;
+                }
             }
             catch( Exception _ex )
             {
@@ -542,7 +519,10 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the delegates.
         /// </summary>
-        private void InitializeDelegates( ) => _statusUpdate += UpdateStatus;
+        private void InitializeDelegates( )
+        {
+            _statusUpdate += UpdateStatus;
+        }
 
         /// <summary>
         /// Initializes the callbacks.
@@ -558,7 +538,7 @@ namespace BudgetExecution
                 MenuButton.Click += OnMainMenuButtonClicked;
                 ExitButton.Click += OnExitButtonClicked;
                 Timer.Tick += OnTimerTick;
-                DataTabControl.SelectedIndexChanged += OnActiveTabChanged;
+                QueryTabControl.SelectedIndexChanged += OnActiveTabChanged;
                 TableListBox.SelectedIndexChanged += OnTableListBoxItemSelected;
                 FirstComboBox.SelectedIndexChanged += OnFirstComboBoxItemSelected;
                 FirstListBox.SelectedIndexChanged += OnFirstListBoxItemSelected;
@@ -569,6 +549,7 @@ namespace BudgetExecution
                 GroupButton.Click += OnGroupButtonClicked;
                 FieldListBox.SelectedIndexChanged += OnFieldListBoxSelectedValueChanged;
                 NumericListBox.SelectedIndexChanged += OnNumericListBoxSelectedValueChanged;
+                ToolStripComboBox.SelectedIndexChanged += OnChartSelected;
             }
             catch( Exception _ex )
             {
@@ -583,28 +564,22 @@ namespace BudgetExecution
         {
             try
             {
-                var _list = new List<ChartSeriesType>( );
-                _list.Add( ChartSeriesType.ThreeLineBreak );
-                _list.Add( ChartSeriesType.Histogram );
                 var _borderColor = Color.FromArgb( 0, 120, 212 );
                 var _backColor = Color.FromArgb( 90, 90, 90 );
                 var _textColor = Color.FromArgb( 106, 189, 252 );
                 var _callFont = new Font( "Roboto", 7 );
-                if( !_list.Contains( type ) )
+                for( var i = 0; i < Chart.Series.Count; i++ )
                 {
-                    for( var i = 0; i < Chart.Series.Count; i++ )
-                    {
-                        Chart.Series[ i ].Visible = true;
-                        Chart.Series[ i ].EnableStyles = true;
-                        Chart.Series[ i ].EnableAreaToolTip = false;
-                        Chart.Series[ i ].Type = type;
-                        Chart.Series[ i ].SmartLabels = true;
-                        Chart.Series[ i ].SmartLabelsBorderColor = _borderColor;
-                        Chart.Series[ i ].DrawSeriesNameInDepth = true;
-                    }
-
-                    SetFancyToolTips( );
+                    Chart.Series[ i ].Visible = true;
+                    Chart.Series[ i ].EnableStyles = true;
+                    Chart.Series[ i ].EnableAreaToolTip = false;
+                    Chart.Series[ i ].Type = type;
+                    Chart.Series[ i ].SmartLabels = true;
+                    Chart.Series[ i ].SmartLabelsBorderColor = _borderColor;
+                    Chart.Series[ i ].DrawSeriesNameInDepth = true;
                 }
+
+                SetFancyToolTips( );
             }
             catch( Exception ex )
             {
@@ -950,6 +925,42 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Populates the tool strip ComboBox items.
+        /// </summary>
+        public void PopulateToolStripComboBoxItems( )
+        {
+            try
+            {
+                if( ToolStripComboBox.Items?.Count > 0 )
+                {
+                    ToolStripComboBox.Items.Clear( );
+                }
+
+                if( ToolStripComboBox.Items?.Count > 0 )
+                {
+                    ToolStripComboBox.Items?.Clear( );
+                }
+
+                var _types = Enum.GetNames( typeof( ChartSeriesType ) );
+                var _list = new List<string>( );
+                _list.Add( ChartSeriesType.Histogram.ToString( ) );
+                _list.Add( ChartSeriesType.Custom.ToString( ) );
+                _list.Add( ChartSeriesType.ThreeLineBreak.ToString( ) );
+                foreach( var _typ in _types )
+                {
+                    if( !_list.Contains( _typ ) )
+                    {
+                        ToolStripComboBox.Items.Add( _typ );
+                    }
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
         /// Fades the in.
         /// </summary>
         private void FadeIn( )
@@ -1230,7 +1241,7 @@ namespace BudgetExecution
             try
             {
                 var _current = BindingSource.GetCurrentDataRow( );
-                SetSeriesPointStyles( _current );
+                SetSeriesPointStyles( _current, ChartType );
                 UpdateSchema( _current );
                 Chart.Title.Text = DataTable.TableName.SplitPascal( );
                 Chart.Refresh( );
@@ -1783,14 +1794,18 @@ namespace BudgetExecution
                         TableTabPage.TabVisible = true;
                         FilterTabPage.TabVisible = false;
                         GroupTabPage.TabVisible = false;
+                        ToolStripComboBox.Visible = false;
+                        ChartLabel.Visible = false;
                         PopulateExecutionTables( );
                         break;
                     }
                     case 1:
                     {
-                        FilterTabPage.TabVisible = true;
                         TableTabPage.TabVisible = false;
+                        FilterTabPage.TabVisible = true;
                         GroupTabPage.TabVisible = false;
+                        ToolStripComboBox.Visible = true;
+                        ChartLabel.Visible = true;
                         Filter?.Clear( );
                         PopulateFirstComboBoxItems( );
                         ResetFilterTableVisibility( );
@@ -1801,6 +1816,8 @@ namespace BudgetExecution
                         GroupTabPage.TabVisible = true;
                         TableTabPage.TabVisible = false;
                         FilterTabPage.TabVisible = false;
+                        ToolStripComboBox.Visible = true;
+                        ChartLabel.Visible = true;
                         ClearCollections( );
                         PopulateFieldListBox( );
                         ResetGroupTableVisibility( );
@@ -1811,6 +1828,8 @@ namespace BudgetExecution
                         TableTabPage.TabVisible = true;
                         FilterTabPage.TabVisible = false;
                         GroupTabPage.TabVisible = false;
+                        ToolStripComboBox.Visible = false;
+                        ChartLabel.Visible = false;
                         PopulateExecutionTables( );
                         break;
                     }
@@ -1862,7 +1881,7 @@ namespace BudgetExecution
         /// </summary>
         [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
         private void SetSeriesPointStyles( DataTable table,
-            ChartSeriesType type = ChartSeriesType.StackingColumn )
+            ChartSeriesType type = ChartSeriesType.Column )
         {
             try
             {
@@ -1897,11 +1916,13 @@ namespace BudgetExecution
                     _series.Type = type;
                     _series.DrawSeriesNameInDepth = true;
                     _series.Style.DisplayText = true;
+                    _series.Style.DrawTextShape = true;
+                    _series.Style.TextFormat = "#,##0";
                     _series.Style.TextColor = Color.White;
                     _series.Style.Font.Size = 9;
                     _series.Style.Font.Facename = "Roboto";
                     _series.Style.Symbol.Shape = ChartSymbolShape.Circle;
-                    _series.Style.TextOffset = 10f;
+                    _series.Style.TextOffset = 20f;
                     _series.FancyToolTip.Style = MarkerStyle.Rectangle;
                     _series.FancyToolTip.Angle = 45;
                     _series.FancyToolTip.Spacing = 10f;
@@ -1973,6 +1994,8 @@ namespace BudgetExecution
                     _series.DrawSeriesNameInDepth = false;
                     _series.PointsToolTipFormat = "{0} - {4}";
                     _series.Style.DisplayText = true;
+                    _series.Style.DrawTextShape = true;
+                    _series.Style.TextFormat = "#,##0";
                     _series.Style.TextColor = Color.White;
                     _series.Style.Font.Size = 9;
                     _series.Style.Font.Facename = "Roboto";
@@ -2118,8 +2141,10 @@ namespace BudgetExecution
                 GroupTabPage.TabVisible = false;
                 BusyTab.TabVisible = false;
                 ClearLabels( );
+                PopulateToolStripComboBoxItems( );
                 PopulateExecutionTables( );
                 UpdateStatus( );
+                SetActiveQueryTab( );
                 Chart.Title.Text = "Select a Data Table";
                 FadeIn( );
             }
@@ -2162,10 +2187,10 @@ namespace BudgetExecution
                     Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
                     BindData( );
                     BindChart( );
+                    QueryTabControl.SelectedIndex = 1;
                     PopulateFirstComboBoxItems( );
                     ResetFilterTableVisibility( );
                     Chart.Title.Text = SelectedTable.SplitPascal( );
-                    QueryTabControl.SelectedIndex = 1;
                 }
                 catch( Exception ex )
                 {
@@ -2458,9 +2483,31 @@ namespace BudgetExecution
             try
             {
                 var _current = BindingSource.GetCurrentDataRow( );
-                SetSeriesPointStyles( _current );
+                SetSeriesPointStyles( _current, ChartType );
                 var _position = BindingSource.Position;
                 Chart.Refresh( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [chart selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnChartSelected( object sender, EventArgs e )
+        {
+            try
+            {
+                var _selectedItem = ToolStripComboBox.ComboBox.SelectedItem.ToString( );
+                ChartType = 
+                    (ChartSeriesType)Enum.Parse( typeof( ChartSeriesType ), _selectedItem );
+
+                BindChart( );
             }
             catch( Exception ex )
             {
