@@ -361,7 +361,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _loader = new LoadingForm( Status.Processing );
+                var _loader = new DelayForm( Status.Processing );
                 _loader.StartPosition = FormStartPosition.CenterParent;
                 _loader.ShowDialog( this );
             }
@@ -416,7 +416,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _editor = new EditDialog( );
+                var _editor = new EditWindow( );
                 _editor.Owner = this;
                 _editor.Show( );
                 Hide( );
@@ -434,7 +434,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _editor = new LookupDialog( );
+                var _editor = new LookupWindow( );
                 _editor.Owner = this;
                 _editor.Show( );
                 Hide( );

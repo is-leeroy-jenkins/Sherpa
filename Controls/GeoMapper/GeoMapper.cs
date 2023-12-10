@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
-//     Assembly:             BudgetExecution
+//     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 11-29-2023
+//     Created:                 12-10-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-8-2023
+//     Last Modified On:        12-10-2023
 // ******************************************************************************************
-// <copyright file="teppler.cs" company="Terry D. Eppler">
-//    BudgetExecution is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
+// <copyright file="GeoMapper.cs" company="Terry D. Eppler">
+//    Budget Execution is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,10 +31,10 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
+//    Contact at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   GeoMapper.cs.cs
+//   GeoMapper.cs
 // </summary>
 // ******************************************************************************************
 
@@ -115,8 +115,8 @@ namespace BudgetExecution
         /// </value>
         public bool IsBusy
         {
-            get { return _busy; }
-            private set { _busy = value; }
+            get => _busy;
+            private set => _busy = value;
         }
 
         /// <inheritdoc />
@@ -176,18 +176,12 @@ namespace BudgetExecution
         /// <summary>
         /// Begins to initialize.
         /// </summary>
-        private void BeginInit( )
-        {
-            _busy = true;
-        }
+        private void BeginInit( ) => _busy = true;
 
         /// <summary>
         /// Ends the initialized.
         /// </summary>
-        private void EndInit( )
-        {
-            _busy = false;
-        }
+        private void EndInit( ) => _busy = false;
 
         /// <summary>
         /// Gets the controls.

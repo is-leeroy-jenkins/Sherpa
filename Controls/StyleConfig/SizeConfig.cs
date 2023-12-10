@@ -1,45 +1,42 @@
-﻿//  ******************************************************************************************
-//      Assembly:                Budget Execution
-//      Filename:                SizeConfig.cs
-//      Author:                  Terry D. Eppler
-//      Created:                 05-31-2023
+﻿// ******************************************************************************************
+//     Assembly:                Budget Execution
+//     Author:                  Terry D. Eppler
+//     Created:                 12-10-2023
 // 
-//      Last Modified By:        Terry D. Eppler
-//      Last Modified On:        06-01-2023
-//  ******************************************************************************************
-//  <copyright file="SizeConfig.cs" company="Terry D. Eppler">
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        12-10-2023
+// ******************************************************************************************
+// <copyright file="SizeConfig.cs" company="Terry D. Eppler">
+//    Budget Execution is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2023  Terry Eppler
 // 
-//     This is a Federal Budget, Finance, and Accounting application for the
-//     US Environmental Protection Agency (US EPA).
-//     Copyright ©  2023  Terry Eppler
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
 // 
-//     Permission is hereby granted, free of charge, to any person obtaining a copy
-//     of this software and associated documentation files (the “Software”),
-//     to deal in the Software without restriction,
-//     including without limitation the rights to use,
-//     copy, modify, merge, publish, distribute, sublicense,
-//     and/or sell copies of the Software,
-//     and to permit persons to whom the Software is furnished to do so,
-//     subject to the following conditions:
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
 // 
-//     The above copyright notice and this permission notice shall be included in all
-//     copies or substantial portions of the Software.
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
 // 
-//     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//     FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//     DEALINGS IN THE SOFTWARE.
-// 
-//     You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
-// 
-//  </copyright>
-//  <summary>
-//    SizeConfig.cs
-//  </summary>
-//  ******************************************************************************************
+//    Contact at:   terryeppler@gmail.com or eppler.terry@epa.gov
+// </copyright>
+// <summary>
+//   SizeConfig.cs
+// </summary>
+// ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -74,37 +71,37 @@ namespace BudgetExecution
         }
 
         /// <summary> The form normal </summary>
-        public static readonly Size FormNormal = new Size ( 1200, 750 );
+        public static readonly Size FormNormal = new Size( 1200, 750 );
 
         /// <summary> The form maximum </summary>
-        public static readonly Size FormMaximum = new Size ( 1500, 820 );
+        public static readonly Size FormMaximum = new Size( 1500, 820 );
 
         /// <summary> The form minimum </summary>
-        public static readonly Size FormMinimum = new Size ( 600, 400 );
+        public static readonly Size FormMinimum = new Size( 600, 400 );
 
         /// <summary> The dialog normal </summary>
-        public static readonly Size DialogNormal = new Size ( 680, 530 );
+        public static readonly Size DialogNormal = new Size( 680, 530 );
 
         /// <summary> The dialog minimum </summary>
-        public static readonly Size DialogMinimum = new Size ( 300, 300 );
+        public static readonly Size DialogMinimum = new Size( 300, 300 );
 
         /// <summary> The dialog maximum </summary>
-        public static readonly Size DialogMaximum = new Size ( 800, 800 );
+        public static readonly Size DialogMaximum = new Size( 800, 800 );
 
         /// <summary> The context menu normal </summary>
-        public static readonly Size ContextMenuNormal = new Size ( 250, 350 );
+        public static readonly Size ContextMenuNormal = new Size( 250, 350 );
 
         /// <summary> The image small </summary>
-        public static readonly Size ImageSmall = new Size ( 12, 12 );
+        public static readonly Size ImageSmall = new Size( 12, 12 );
 
         /// <summary> The image medium </summary>
-        public static readonly Size ImageMedium = new Size ( 16, 16 );
+        public static readonly Size ImageMedium = new Size( 16, 16 );
 
         /// <summary> The image large </summary>
-        public static readonly Size ImageLarge = new Size ( 20, 20 );
+        public static readonly Size ImageLarge = new Size( 20, 20 );
 
         /// <summary> The image huge </summary>
-        public static readonly Size ImageHuge = new Size ( 250, 250 );
+        public static readonly Size ImageHuge = new Size( 250, 250 );
 
         /// <summary> Gets the size. </summary>
         /// <param name="width"> The width. </param>
@@ -160,7 +157,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _message = new Message( "NOT YET IMPLEMENTED" );
+                    var _message = new MessageDialog( "NOT YET IMPLEMENTED" );
                     _message?.ShowDialog( );
                 }
                 catch( Exception _ex )

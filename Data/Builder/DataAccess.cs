@@ -263,8 +263,8 @@ namespace BudgetExecution
                 _dataTable = new DataTable( $"{Source}" );
                 _dataTable.TableName = Source.ToString( );
                 _dataSet.Tables.Add( _dataTable );
-                var _query = new Query( SqlStatement );
-                var _adapter = _query.GetAdapter( );
+                using var _query = new Query( SqlStatement );
+                using var _adapter = _query.GetAdapter( );
                 _adapter.Fill( _dataSet, _dataTable.TableName );
                 SetColumnCaptions( _dataTable );
                 _duration = _clock.Elapsed;
@@ -294,7 +294,7 @@ namespace BudgetExecution
                 _dataTable = new DataTable( $"{Source}" );
                 _dataTable.TableName = Source.ToString( );
                 _dataSet.Tables.Add( _dataTable );
-                var _query = new Query( SqlStatement );
+                using var _query = new Query( SqlStatement );
                 using var _adapter = _query.DataAdapter;
                 _adapter.Fill( _dataSet, _dataTable.TableName );
                 SetColumnCaptions( _dataTable );

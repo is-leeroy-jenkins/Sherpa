@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
-//     Assembly:             BudgetExecution
+//     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 06-19-2023
+//     Created:                 12-10-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-05-2023
+//     Last Modified On:        12-10-2023
 // ******************************************************************************************
-// <copyright file="Terry Eppler.cs" company="Terry D. Eppler">
-//    BudgetExecution is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
+// <copyright file="ChartDataForm.cs" company="Terry D. Eppler">
+//    Budget Execution is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,10 +31,10 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
+//    Contact at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   ChartDataForm.cs.cs
+//   ChartDataForm.cs
 // </summary>
 // ******************************************************************************************
 
@@ -45,8 +45,11 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Drawing;
+    using System.Drawing.Drawing2D;
     using System.Linq;
     using System.Windows.Forms;
+    using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Chart;
     using Syncfusion.Windows.Forms.Tools;
@@ -341,8 +344,8 @@ namespace BudgetExecution
         /// </value>
         public bool IsBusy
         {
-            get { return _busy; }
-            private set { _busy = value; }
+            get => _busy;
+            private set => _busy = value;
         }
 
         /// <inheritdoc />
@@ -539,10 +542,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the delegates.
         /// </summary>
-        private void InitializeDelegates( )
-        {
-            _statusUpdate += UpdateStatus;
-        }
+        private void InitializeDelegates( ) => _statusUpdate += UpdateStatus;
 
         /// <summary>
         /// Initializes the callbacks.
@@ -579,30 +579,137 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the series.
         /// </summary>
-        private void InitializeSeries( )
+        private void InitializeSeries( ChartSeriesType type = ChartSeriesType.Column )
         {
             try
             {
+                var _list = new List<ChartSeriesType>( );
+                _list.Add( ChartSeriesType.ThreeLineBreak );
+                _list.Add( ChartSeriesType.Histogram );
                 var _borderColor = Color.FromArgb( 0, 120, 212 );
                 var _backColor = Color.FromArgb( 90, 90, 90 );
                 var _textColor = Color.FromArgb( 106, 189, 252 );
                 var _callFont = new Font( "Roboto", 7 );
-                for( var i = 0; i < Chart.Series.Count; i++ )
+                if( !_list.Contains( type ) )
                 {
-                    Chart.Series[ i ].Visible = true;
-                    Chart.Series[ i ].EnableStyles = true;
-                    Chart.Series[ i ].EnableAreaToolTip = false;
-                    Chart.Series[ i ].Type = ChartSeriesType.Column;
-                    Chart.Series[ i ].SmartLabels = true;
-                    Chart.Series[ i ].SmartLabelsBorderColor = _borderColor;
-                    Chart.Series[ i ].DrawSeriesNameInDepth = true;
-                }
+                    for( var i = 0; i < Chart.Series.Count; i++ )
+                    {
+                        Chart.Series[ i ].Visible = true;
+                        Chart.Series[ i ].EnableStyles = true;
+                        Chart.Series[ i ].EnableAreaToolTip = false;
+                        Chart.Series[ i ].Type = type;
+                        Chart.Series[ i ].SmartLabels = true;
+                        Chart.Series[ i ].SmartLabelsBorderColor = _borderColor;
+                        Chart.Series[ i ].DrawSeriesNameInDepth = true;
+                    }
 
-                SetFancyToolTips( );
+                    SetFancyToolTips( );
+                }
             }
             catch( Exception ex )
             {
                 Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the chart.
+        /// </summary>
+        private void InitializeChart( )
+        {
+            try
+            {
+                Chart.ShowToolbar = true;
+                Chart.ShowScrollBars = false;
+                Chart.EnableMouseRotation = true;
+                Chart.Padding = new Padding( 1 );
+                Chart.Margin = new Padding( 1 );
+                Chart.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+                Chart.AllowGapForEmptyPoints = false;
+                Chart.AllowGradientPalette = true;
+                Chart.AutoHighlight = false;
+                Chart.AllowUserEditStyles = true;
+                Chart.PrintColorMode = ChartPrintColorMode.CheckPrinter;
+                Chart.CalcRegions = true;
+                Chart.ChartAreaMargins = new ChartMargins( 0, 0, 0, 0 );
+                Chart.DropSeriesPoints = false;
+                Chart.AddRandomSeries = true;
+                Chart.ChartAreaShadow = false;
+                Chart.Series3D = true;
+                Chart.SeriesHighlight = true;
+                Chart.RealMode3D = true;
+                Chart.AutoHighlight = true;
+                Chart.Style3D = true;
+                Chart.ShowLegend = false;
+                Chart.ShowToolTips = false;
+                Chart.DisplayChartContextMenu = false;
+                Chart.DisplaySeriesContextMenu = false;
+                Chart.SeriesHighlightIndex = -1;
+                Chart.Depth = 250;
+                Chart.ElementsSpacing = 10;
+                Chart.Spacing = 5;
+                Chart.SpacingBetweenPoints = 5;
+                Chart.SpacingBetweenSeries = 10;
+                Chart.ColumnFixedWidth = 20;
+                Chart.ColumnDrawMode = ChartColumnDrawMode.ClusteredMode;
+                Chart.ColumnWidthMode = ChartColumnWidthMode.DefaultWidthMode;
+                Chart.Palette = ChartColorPalette.Office2016;
+                Chart.Skins = Skins.Office2016Black;
+                Chart.Rotation = 10;
+                Chart.SmoothingMode = SmoothingMode.AntiAlias;
+                Chart.TextAlignment = StringAlignment.Center;
+                Chart.TextPosition = ChartTextPosition.Top;
+                Chart.Tilt = 3;
+                Chart.RadarStyle = ChartRadarAxisStyle.Polygon;
+                Chart.BackColor = Color.FromArgb( 20, 20, 20 );
+                Chart.ForeColor = Color.FromArgb( 106, 189, 252 );
+                Chart.PrimaryXAxis.Font = new Font( "Roboto", 8 );
+                Chart.PrimaryXAxis.ForeColor = Color.White;
+                Chart.PrimaryXAxis.AxisLabelPlacement = ChartPlacement.Outside;
+                Chart.PrimaryXAxis.ValueType = ChartValueType.Category;
+                Chart.PrimaryXAxis.TitleFont = new Font( "Roboto", 8 );
+                Chart.PrimaryXAxis.TitleColor = Color.FromArgb( 106, 189, 252 );
+                Chart.PrimaryXAxis.Title = "Records";
+                Chart.PrimaryYAxis.Font = new Font( "Roboto", 8 );
+                Chart.PrimaryYAxis.ForeColor = Color.White;
+                Chart.PrimaryYAxis.AxisLabelPlacement = ChartPlacement.Outside;
+                Chart.PrimaryYAxis.ValueType = ChartValueType.Double;
+                Chart.PrimaryYAxis.TitleFont = new Font( "Roboto", 9 );
+                Chart.PrimaryYAxis.TitleColor = Color.FromArgb( 106, 189, 252 );
+                Chart.PrimaryYAxis.Format = "#,##0";
+                Chart.Tooltip.Font = new Font( "Roboto", 8 );
+                Chart.Tooltip.ForeColor = Color.FromArgb( 106, 189, 252 );
+                Chart.Tooltip.BorderStyle = BorderStyle.FixedSingle;
+                Chart.Tooltip.BackgroundColor = new BrushInfo( GradientStyle.None,
+                    Color.FromArgb( 106, 189, 252 ), Color.Black );
+
+                Chart.ToolBar.Border.ForeColor = Color.Black;
+                Chart.ToolBar.Orientation = ChartOrientation.Horizontal;
+                Chart.ToolBar.ButtonBackColor = Color.FromArgb( 20, 20, 20 );
+                Chart.ToolBar.Position = ChartDock.Bottom;
+                Chart.ToolBar.ShowGrip = false;
+                Chart.ToolBar.ShowBorder = false;
+                Chart.ToolBar.BackColor = Color.FromArgb( 20, 20, 20 );
+                Chart.Title.Font = new Font( "Roboto", 10 );
+                Chart.Title.ForeColor = Color.FromArgb( 106, 189, 252 );
+                Chart.Title.BackColor = Color.Transparent;
+                Chart.Legend.BackColor = Color.Transparent;
+                Chart.Legend.ForeColor = Color.FromArgb( 106, 189, 252 );
+                Chart.Legend.Font = new Font( "Roboto", 7 );
+                Chart.Legend.ShowBorder = false;
+                Chart.Legend.ColumnsCount = 1;
+                Chart.Legend.Position = ChartDock.Right;
+                Chart.Legend.VisibleCheckBox = true;
+                Chart.Legend.Visible = false;
+                Chart.ChartArea.RealSeries3D = true;
+                Chart.ChartArea.Series3D = true;
+                Chart.ChartArea.AutoScale = true;
+                Chart.ChartArea.BackInterior = new BrushInfo( GradientStyle.None,
+                    Color.FromArgb( 106, 189, 252 ), Color.FromArgb( 20, 20, 20 ) );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -1864,6 +1971,7 @@ namespace BudgetExecution
                     _series.EnableStyles = true;
                     _series.Type = type;
                     _series.DrawSeriesNameInDepth = false;
+                    _series.PointsToolTipFormat = "{0} - {4}";
                     _series.Style.DisplayText = true;
                     _series.Style.TextColor = Color.White;
                     _series.Style.Font.Size = 9;
@@ -1879,7 +1987,6 @@ namespace BudgetExecution
                     _series.FancyToolTip.BackColor = _backColor;
                     _series.FancyToolTip.Symbol = ChartSymbolShape.Arrow;
                     _series.FancyToolTip.Visible = true;
-                    _series.PointsToolTipFormat = "{0} - {4}";
                     Chart.Series.Add( _series );
                 }
 
@@ -1994,6 +2101,7 @@ namespace BudgetExecution
                 InitializeToolStrip( );
                 InitializeTimers( );
                 InitializeLabels( );
+                InitializeChart( );
                 InitializeSeries( );
                 Filter = new Dictionary<string, object>( );
                 SelectedColumns = new List<string>( );
@@ -2562,10 +2670,7 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnTimerTick( object sender, EventArgs e )
-        {
-            InvokeIf( _statusUpdate );
-        }
+        private void OnTimerTick( object sender, EventArgs e ) => InvokeIf( _statusUpdate );
 
         /// <summary>
         /// Raises the Close event.

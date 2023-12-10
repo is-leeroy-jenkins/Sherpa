@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 12-10-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        12-10-2023
 // ******************************************************************************************
 // <copyright file="SQLiteQuery.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
+//    Budget Execution is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,7 +31,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//    Contact at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   SQLiteQuery.cs
@@ -56,7 +56,6 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public class SQLiteQuery : Query
     {
-
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
@@ -229,7 +228,7 @@ namespace BudgetExecution
                     if( ( _table?.Rows.Count > 0 )
                        && CheckIfSheetNameExists( sheetName, _table ) )
                     {
-                        var _message = new Message( _msg );
+                        var _message = new MessageDialog( _msg );
                         _message?.ShowDialog( );
                     }
                     else

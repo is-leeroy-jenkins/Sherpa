@@ -29,12 +29,10 @@
         private void InitializeComponent( )
         {
             components = new System.ComponentModel.Container( );
+            var resources = new System.ComponentModel.ComponentResourceManager( typeof( BudgetForm ) );
             BindingSource = new System.Windows.Forms.BindingSource( components );
-            ToolTip = new SmallTip( );
             Header = new System.Windows.Forms.TableLayoutPanel( );
             PictureBox = new System.Windows.Forms.PictureBox( );
-            Title = new Label( );
-            CloseButton = new Button( );
             Timer = new System.Windows.Forms.Timer( components );
             toolStripMenuItemExt1 = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt( );
             toolStripMenuItemExt2 = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt( );
@@ -43,110 +41,36 @@
             toolStripMenuItemExt5 = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt( );
             toolStripMenuItemExt6 = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt( );
             toolStripMenuItemExt7 = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt( );
+            Style = new MetroSet_UI.Components.StyleManager( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
             Header.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
             SuspendLayout( );
             // 
-            // ToolTip
-            // 
-            ToolTip.AutoPopDelay = 5000;
-            ToolTip.BackColor = System.Drawing.Color.FromArgb( 5, 5, 5 );
-            ToolTip.BindingSource = null;
-            ToolTip.BorderColor = System.Drawing.SystemColors.Highlight;
-            ToolTip.ForeColor = System.Drawing.Color.White;
-            ToolTip.InitialDelay = 500;
-            ToolTip.IsDerivedStyle = true;
-            ToolTip.Name = null;
-            ToolTip.OwnerDraw = true;
-            ToolTip.ReshowDelay = 100;
-            ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
-            ToolTip.StyleManager = null;
-            ToolTip.ThemeAuthor = "Terry D. Eppler";
-            ToolTip.ThemeName = "Budget Execution";
-            ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            ToolTip.TipText = null;
-            ToolTip.TipTitle = null;
-            // 
             // Header
             // 
             Header.ColumnCount = 2;
-            Header.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 3.2884903F ) );
-            Header.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 96.71151F ) );
+            Header.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 2.316891F ) );
+            Header.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 97.6831055F ) );
             Header.Controls.Add( PictureBox, 0, 0 );
-            Header.Controls.Add( Title, 1, 0 );
             Header.Dock = System.Windows.Forms.DockStyle.Top;
+            Header.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
             Header.Location = new System.Drawing.Point( 0, 0 );
             Header.Name = "Header";
             Header.RowCount = 1;
             Header.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            Header.Size = new System.Drawing.Size( 1338, 30 );
+            Header.Size = new System.Drawing.Size( 1338, 24 );
             Header.TabIndex = 1;
             // 
             // PictureBox
             // 
-            PictureBox.Image = Resources.Images.EPA;
+            PictureBox.Image = (System.Drawing.Image)resources.GetObject( "PictureBox.Image" );
             PictureBox.Location = new System.Drawing.Point( 3, 3 );
             PictureBox.Name = "PictureBox";
-            PictureBox.Size = new System.Drawing.Size( 38, 20 );
+            PictureBox.Size = new System.Drawing.Size( 22, 18 );
             PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             PictureBox.TabIndex = 0;
             PictureBox.TabStop = false;
-            // 
-            // Title
-            // 
-            Title.BindingSource = null;
-            Title.DataFilter = null;
-            Title.Dock = System.Windows.Forms.DockStyle.Fill;
-            Title.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            Title.Font = new System.Drawing.Font( "Roboto", 8F );
-            Title.HoverText = null;
-            Title.IsDerivedStyle = true;
-            Title.Location = new System.Drawing.Point( 47, 3 );
-            Title.Margin = new System.Windows.Forms.Padding( 3 );
-            Title.Name = "Title";
-            Title.Padding = new System.Windows.Forms.Padding( 1 );
-            Title.Size = new System.Drawing.Size( 1288, 24 );
-            Title.Style = MetroSet_UI.Enums.Style.Custom;
-            Title.StyleManager = null;
-            Title.TabIndex = 1;
-            Title.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            Title.ThemeAuthor = "Terry D. Eppler";
-            Title.ThemeName = "Budget Execution";
-            Title.ToolTip = null;
-            // 
-            // CloseButton
-            // 
-            CloseButton.Anchor =  System.Windows.Forms.AnchorStyles.Bottom  |  System.Windows.Forms.AnchorStyles.Right ;
-            CloseButton.BindingSource = null;
-            CloseButton.DataFilter = null;
-            CloseButton.DisabledBackColor = System.Drawing.Color.Transparent;
-            CloseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
-            CloseButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            CloseButton.Font = new System.Drawing.Font( "Roboto", 8F );
-            CloseButton.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
-            CloseButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
-            CloseButton.HoverText = null;
-            CloseButton.HoverTextColor = System.Drawing.Color.White;
-            CloseButton.IsDerivedStyle = true;
-            CloseButton.Location = new System.Drawing.Point( 1245, 707 );
-            CloseButton.Name = "CloseButton";
-            CloseButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
-            CloseButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
-            CloseButton.NormalTextColor = System.Drawing.Color.DarkGray;
-            CloseButton.Padding = new System.Windows.Forms.Padding( 1 );
-            CloseButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            CloseButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            CloseButton.PressTextColor = System.Drawing.Color.White;
-            CloseButton.Size = new System.Drawing.Size( 90, 30 );
-            CloseButton.Style = MetroSet_UI.Enums.Style.Custom;
-            CloseButton.StyleManager = null;
-            CloseButton.TabIndex = 2;
-            CloseButton.Text = "Close";
-            CloseButton.ThemeAuthor = "Terry D. Eppler";
-            CloseButton.ThemeName = "Budget Execution";
-            CloseButton.ToolTip = null;
             // 
             // toolStripMenuItemExt1
             // 
@@ -190,19 +114,32 @@
             toolStripMenuItemExt7.Size = new System.Drawing.Size( 198, 22 );
             toolStripMenuItemExt7.Text = "toolStripMenuItemExt7";
             // 
+            // Style
+            // 
+            Style.CustomTheme = "C:\\Users\\terry\\AppData\\Roaming\\Microsoft\\Windows\\Templates\\ThemeFile.xml";
+            Style.MetroForm = this;
+            Style.Style = MetroSet_UI.Enums.Style.Custom;
+            Style.ThemeAuthor = "Terry D. Eppler";
+            Style.ThemeName = "Budget Execution";
+            // 
             // BudgetForm
             // 
+            AutoScaleDimensions = new System.Drawing.SizeF( 7F, 15F );
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             CaptionBarColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionBarHeight = 5;
             CaptionButtonColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            CaptionFont = new System.Drawing.Font( "Roboto", 12F );
+            CaptionFont = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
+            CaptionForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             ClientSize = new System.Drawing.Size( 1338, 738 );
             ControlBox = false;
-            Controls.Add( CloseButton );
             Controls.Add( Header );
+            DoubleBuffered = true;
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
             MaximizeBox = false;
             MaximumSize = new System.Drawing.Size( 1350, 750 );
             MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
@@ -223,7 +160,6 @@
         #endregion
         public SmallTip ToolTip;
         public System.Windows.Forms.BindingSource BindingSource;
-        private System.Windows.Forms.TableLayoutPanel Header;
         public System.Windows.Forms.PictureBox PictureBox;
         public Label Title;
         public Button CloseButton;
@@ -236,5 +172,7 @@
         private Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt toolStripMenuItemExt5;
         private Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt toolStripMenuItemExt6;
         private Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt toolStripMenuItemExt7;
+        public System.Windows.Forms.TableLayoutPanel Header;
+        public MetroSet_UI.Components.StyleManager Style;
     }
 }

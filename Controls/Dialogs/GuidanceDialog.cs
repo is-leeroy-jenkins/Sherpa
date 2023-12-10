@@ -54,8 +54,10 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms;
     using Timer = System.Windows.Forms.Timer;
 
-    /// <summary> </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
@@ -63,59 +65,106 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public partial class GuidanceDialog : MetroForm
     {
-        /// <summary> Gets or sets the time. </summary>
-        /// <value> The time. </value>
+        /// <summary>
+        /// Gets or sets the time.
+        /// </summary>
+        /// <value>
+        /// The time.
+        /// </value>
         public int Time { get; set; }
 
-        /// <summary> Gets or sets the seconds. </summary>
-        /// <value> The seconds. </value>
+        /// <summary>
+        /// Gets or sets the seconds.
+        /// </summary>
+        /// <value>
+        /// The seconds.
+        /// </value>
         public int Seconds { get; set; }
 
-        /// <summary> Gets or sets the SQL query. </summary>
-        /// <value> The SQL query. </value>
+        /// <summary>
+        /// Gets or sets the SQL query.
+        /// </summary>
+        /// <value>
+        /// The SQL query.
+        /// </value>
         public string SqlQuery { get; set; }
 
-        /// <summary> Gets or sets the data model. </summary>
-        /// <value> The data model. </value>
+        /// <summary>
+        /// Gets or sets the data model.
+        /// </summary>
+        /// <value>
+        /// The data model.
+        /// </value>
         public DataBuilder DataModel { get; set; }
 
-        /// <summary> Gets or sets the data table. </summary>
-        /// <value> The data table. </value>
+        /// <summary>
+        /// Gets or sets the data table.
+        /// </summary>
+        /// <value>
+        /// The data table.
+        /// </value>
         public DataTable DataTable { get; set; }
 
-        /// <summary> Gets or sets the form filter. </summary>
-        /// <value> The form filter. </value>
+        /// <summary>
+        /// Gets or sets the form filter.
+        /// </summary>
+        /// <value>
+        /// The form filter.
+        /// </value>
         public IDictionary<string, object> FormFilter { get; set; }
 
-        /// <summary> Gets or sets the prefix. </summary>
-        /// <value> The prefix. </value>
+        /// <summary>
+        /// Gets or sets the prefix.
+        /// </summary>
+        /// <value>
+        /// The prefix.
+        /// </value>
         public string Prefix { get; set; }
 
-        /// <summary> Gets or sets the source. </summary>
-        /// <value> The source. </value>
+        /// <summary>
+        /// Gets or sets the source.
+        /// </summary>
+        /// <value>
+        /// The source.
+        /// </value>
         public Source Source { get; set; }
 
-        /// <summary> Gets or sets the provider. </summary>
-        /// <value> The provider. </value>
+        /// <summary>
+        /// Gets or sets the provider.
+        /// </summary>
+        /// <value>
+        /// The provider.
+        /// </value>
         public Provider Provider { get; set; }
 
-        /// <summary> Gets or sets the extenstion. </summary>
-        /// <value> The extenstion. </value>
+        /// <summary>
+        /// Gets or sets the extenstion.
+        /// </summary>
+        /// <value>
+        /// The extenstion.
+        /// </value>
         public EXT Extenstion { get; set; }
 
-        /// <summary> Gets or sets the selected path. </summary>
-        /// <value> The selected path. </value>
+        /// <summary>
+        /// Gets or sets the selected path.
+        /// </summary>
+        /// <value>
+        /// The selected path.
+        /// </value>
         public string SelectedPath { get; set; }
 
-        /// <summary> Gets or sets the selected item. </summary>
-        /// <value> The selected item. </value>
+        /// <summary>
+        /// Gets or sets the selected item.
+        /// </summary>
+        /// <value>
+        /// The selected item.
+        /// </value>
         public string SelectedItem { get; set; }
 
-        /// <inheritdoc/>
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.GuidanceDialog"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.GuidanceDialog" /> class.
         /// </summary>
         public GuidanceDialog( )
         {
@@ -169,7 +218,9 @@ namespace BudgetExecution
             ListBox.SelectedValueChanged += OnListBoxSelectedValueChanged;
         }
 
-        /// <summary> Displays the control to the user. </summary>
+        /// <summary>
+        /// Displays the control to the user.
+        /// </summary>
         public new void Show( )
         {
             try
@@ -190,52 +241,6 @@ namespace BudgetExecution
                 }
 
                 base.Show( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Called when [browse button clicked]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        public void OnBrowseButtonClick( object sender, EventArgs e )
-        {
-            try
-            {
-                OpenFileDialog.ShowDialog( );
-                OpenFileDialog.Filter = "PDF Files | *.pdf";
-                SelectedPath = OpenFileDialog.SafeFileName;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Called when [clear button clicked]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        public void OnClearButtonClick( object sender, EventArgs e )
-        {
-            try
-            {
-                if( !string.IsNullOrEmpty( SelectedPath ) )
-                {
-                    SelectedPath = string.Empty;
-                }
-
-                ListBox.SelectedIndex = -1;
-                Title.Text = nameof( Guidance );
             }
             catch( Exception _ex )
             {
@@ -465,13 +470,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [load]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnLoad( object sender, EventArgs e )
         {
             try
@@ -489,13 +493,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [main menu button clicked]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [main menu button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnMainMenuButtonClicked( object sender, EventArgs e )
         {
             try
@@ -510,8 +513,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [ListView selected value changed]. </summary>
-        /// <param name="sender"> The sender. </param>
+        /// <summary>
+        /// Called when [ListBox selected value changed].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
         private void OnListBoxSelectedValueChanged( object sender )
         {
             if( sender is ListBox _listBox )
@@ -529,13 +534,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [select button click]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [select button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// nstance containing the event data.</param>
         private void OnSelectButtonClick( object sender, EventArgs e )
         {
             try
@@ -568,18 +572,61 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [close button clicked]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [close button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnCloseButtonClicked( object sender, EventArgs e )
         {
             try
             {
                 Close( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [browse button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        public void OnBrowseButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                OpenFileDialog.ShowDialog( );
+                OpenFileDialog.Filter = "PDF Files | *.pdf";
+                SelectedPath = OpenFileDialog.SafeFileName;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [clear button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        public void OnClearButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                if( !string.IsNullOrEmpty( SelectedPath ) )
+                {
+                    SelectedPath = string.Empty;
+                }
+
+                ListBox.SelectedIndex = -1;
+                Title.Text = "Guidance";
             }
             catch( Exception _ex )
             {

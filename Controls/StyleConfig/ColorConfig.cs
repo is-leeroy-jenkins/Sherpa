@@ -182,6 +182,14 @@ namespace BudgetExecution
         public Color DodgerBlue { get; }
 
         /// <summary>
+        /// Gets the metro blue.
+        /// </summary>
+        /// <value>
+        /// The metro blue.
+        /// </value>
+        public Color MetroBlue { get; }
+
+        /// <summary>
         /// Gets the blue highlight.
         /// </summary>
         /// <value>
@@ -206,6 +214,7 @@ namespace BudgetExecution
             Blue = Color.FromArgb( 0, 120, 212 );
             BlueHighlight = Color.FromArgb( 106, 189, 252 );
             HoverBlue = Color.FromArgb( 50, 93, 129 );
+            MetroBlue = Color.FromArgb( 65, 177, 225 );
             HoverDarkBlue = Color.FromArgb( 24, 47, 66 );
             Transparent = Color.Transparent;
             HoverGray = Color.FromArgb( 70, 70, 70 );

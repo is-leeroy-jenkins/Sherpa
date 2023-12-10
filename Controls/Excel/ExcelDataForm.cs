@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
-//     Assembly:             BudgetExecution
+//     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 06-19-2023
+//     Created:                 12-10-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        11-24-2023
+//     Last Modified On:        12-10-2023
 // ******************************************************************************************
-// <copyright file="Terry Eppler.cs" company="Terry D. Eppler">
-//    BudgetExecution is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
+// <copyright file="ExcelDataForm.cs" company="Terry D. Eppler">
+//    This is a tiny web browser used in Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,10 +31,10 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
+//    Contact at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   ExcelDataForm.cs.cs
+//   ExcelDataForm.cs
 // </summary>
 // ******************************************************************************************
 
@@ -240,9 +240,9 @@ namespace BudgetExecution
             InitializeCallbacks( );
 
             // Form Properties
-            Size = new Size( 1350, 800 );
-            MaximumSize = new Size( 1350, 800 );
-            MinimumSize = new Size( 1350, 800 );
+            Size = new Size( 1350, 750 );
+            MaximumSize = new Size( 1350, 750 );
+            MinimumSize = new Size( 1350, 750 );
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             BorderColor = Color.FromArgb( 0, 120, 212 );
@@ -939,7 +939,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _dialog = new FilterDialog( );
+                var _dialog = new FilterWindow( );
                 _dialog.ShowDialog( this );
                 Provider = _dialog.DataArgs.Provider;
                 Source = _dialog.DataArgs.Source;
@@ -966,7 +966,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _group = new FilterDialog( );
+                var _group = new FilterWindow( );
                 _group.ShowDialog( this );
                 Provider = _group.DataArgs.Provider;
                 Source = _group.DataArgs.Source;
@@ -1308,10 +1308,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnTimerTick( object sender, EventArgs e )
-        {
-            InvokeIf( _statusUpdate );
-        }
+        private void OnTimerTick( object sender, EventArgs e ) => InvokeIf( _statusUpdate );
 
         /// <summary>
         /// Raises the Close event.

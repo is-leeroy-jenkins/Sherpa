@@ -184,6 +184,55 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Initializes the buttons.
+        /// </summary>
+        private void InitializeButtons( )
+        {
+            try
+            {
+                ClearButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+                CloseButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the radio buttons.
+        /// </summary>
+        private void InitializeRadioButtons( )
+        {
+            try
+            {
+                FirstRadioButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+                SecondRadioButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+                ThirdRadioButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the labels.
+        /// </summary>
+        private void InitializeLabels( )
+        {
+            try
+            {
+                Title.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+                Title.Text = "Email";
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Initializes the editor.
         /// </summary>
         private void InitializeEditor( )
@@ -234,55 +283,6 @@ namespace BudgetExecution
                     | AnchorStyles.Bottom
                     | AnchorStyles.Left
                     | AnchorStyles.Right;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the buttons.
-        /// </summary>
-        private void InitializeButtons( )
-        {
-            try
-            {
-                ClearButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-                CloseButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the radio buttons.
-        /// </summary>
-        private void InitializeRadioButtons( )
-        {
-            try
-            {
-                FirstRadioButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-                SecondRadioButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-                ThirdRadioButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the labels.
-        /// </summary>
-        private void InitializeLabels( )
-        {
-            try
-            {
-                Title.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-                Title.Text = "Email";
             }
             catch( Exception _ex )
             {
@@ -396,10 +396,10 @@ namespace BudgetExecution
         {
             try
             {
-                InitializeEditor( );
                 InitializeButtons( );
                 InitializeRadioButtons( );
                 InitializeLabels( );
+                InitializeEditor( );
                 TabControl.SelectedIndex = 0;
                 FirstRadioButton.Checked = true;
                 FadeIn( );

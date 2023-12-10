@@ -2234,7 +2234,7 @@ namespace BudgetExecution
                 try
                 {
                     SetIcon( _button.ToolType );
-                    var _dialog = new EditDialog( Source, Provider );
+                    var _dialog = new EditWindow( Source, Provider );
                     _dialog?.ShowDialog( this );
                     SetFormIcon( );
                 }
@@ -2258,7 +2258,7 @@ namespace BudgetExecution
                 try
                 {
                     SetIcon( _button.ToolType );
-                    var _dialog = new DefinitionDialog( _button.ToolType, BindingSource );
+                    var _dialog = new SchemaWindow( _button.ToolType, BindingSource );
                     _dialog?.ShowDialog( this );
                     SetFormIcon( );
                 }
@@ -2298,15 +2298,13 @@ namespace BudgetExecution
         /// instance containing the event data.</param>
         private void OnSqlButtonClick( object sender, EventArgs e )
         {
-            if( !string.IsNullOrEmpty( SqlQuery )
-               && sender is ToolStripButton _button )
+            if( sender is ToolStripButton _button )
             {
                 try
                 {
                     SetIcon( _button.ToolType );
-                    var _dialog = new SqlDialog( BindingSource );
-                    _dialog.Editor.Text = SqlQuery;
-                    _dialog.ShowDialog( this );
+                    var _sqlDialog = new SqlWindow( Source, Provider );
+                    _sqlDialog.ShowDialog( this );
                     SetFormIcon( );
                 }
                 catch( Exception _ex )

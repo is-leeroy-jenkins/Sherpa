@@ -54,7 +54,6 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms.PivotChart;
     using Syncfusion.Windows.Forms.Tools;
     using Action = System.Action;
-    using MarkerStyle = System.Windows.Forms.MarkerStyle;
 
     /// <summary>
     /// 
@@ -1138,7 +1137,6 @@ namespace BudgetExecution
                     var _value = double.Parse( row[ _columnName ].ToString( ) );
                     _series.Name = _columnName;
                     _series.Text = _series.Name;
-                    _series.Text = _series.Name;
                     if( _value > 1000d )
                     {
                         _doubles.Add( _value );
@@ -1151,9 +1149,9 @@ namespace BudgetExecution
                     _series.Type = type;
                     _series.DrawSeriesNameInDepth = false;
                     _series.Style.DisplayText = true;
-                    _series.Style.TextColor = Color.White;
-                    _series.Style.Font.Size = 9;
-                    _series.Style.Font.Facename = "Roboto";
+                    _series.Style.TextColor = _textColor;
+                    _series.Style.Font.Size = 8;
+                    _series.Style.Font.Facename = _callFont.Name;
                     _series.Style.Symbol.Shape = ChartSymbolShape.Circle;
                     _series.Style.TextOffset = 20f;
                     _series.FancyToolTip.Style =

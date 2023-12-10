@@ -1,4 +1,44 @@
-﻿namespace BudgetExecution
+﻿// ******************************************************************************************
+//     Assembly:                Budget Execution
+//     Author:                  Terry D. Eppler
+//     Created:                 12-10-2023
+// 
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        12-10-2023
+// ******************************************************************************************
+// <copyright file="DataViewForm.cs" company="Terry D. Eppler">
+//    This is a tiny web browser used in Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2023  Terry Eppler
+// 
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
+// 
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
+// 
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
+// 
+//    Contact at:   terryeppler@gmail.com or eppler.terry@epa.gov
+// </copyright>
+// <summary>
+//   DataViewForm.cs
+// </summary>
+// ******************************************************************************************
+
+namespace BudgetExecution
 {
     using System;
     using System.Collections;
@@ -14,9 +54,15 @@
     using Syncfusion.Windows.Forms.Tools;
     using Action = System.Action;
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public partial class DataViewForm : MetroForm
     {
         /// <summary>
@@ -207,8 +253,8 @@
         /// </value>
         public bool IsBusy
         {
-            get { return _busy; }
-            private set { _busy = value; }
+            get => _busy;
+            private set => _busy = value;
         }
 
         public DataViewForm( )
@@ -247,7 +293,7 @@
             // Initialize Default Provider
             Provider = Provider.Access;
         }
-        
+
         /// <summary>
         /// Invokes if needed.
         /// </summary>
@@ -519,26 +565,17 @@
         /// <summary>
         /// Initializes the delegates.
         /// </summary>
-        private void InitializeDelegates( )
-        {
-            _statusUpdate += UpdateStatusLabel;
-        }
+        private void InitializeDelegates( ) => _statusUpdate += UpdateStatusLabel;
 
         /// <summary>
         /// Begins the initialize.
         /// </summary>
-        private void BeginInit( )
-        {
-            _busy = true;
-        }
+        private void BeginInit( ) => _busy = true;
 
         /// <summary>
         /// Ends the initialize.
         /// </summary>
-        private void EndInit( )
-        {
-            _busy = false;
-        }
+        private void EndInit( ) => _busy = false;
 
         /// <summary>
         /// Fades the in.
@@ -2047,7 +2084,7 @@
                 try
                 {
                     SetIcon( _button.ToolType );
-                    var _dialog = new EditDialog( Source, Provider );
+                    var _dialog = new EditWindow( Source, Provider );
                     _dialog?.ShowDialog( this );
                     SetFormIcon( );
                 }
@@ -2071,7 +2108,7 @@
                 try
                 {
                     SetIcon( _button.ToolType );
-                    var _dialog = new DefinitionDialog( _button.ToolType, BindingSource );
+                    var _dialog = new SchemaWindow( _button.ToolType, BindingSource );
                     _dialog?.ShowDialog( this );
                     SetFormIcon( );
                 }
@@ -2117,7 +2154,8 @@
                 try
                 {
                     SetIcon( _button.ToolType );
-                    var _dialog = new SqlDialog( BindingSource );
+                    var _dialog = new SqlWindow( );
+                    _dialog.BindingSource = BindingSource;
                     _dialog.Editor.Text = SqlQuery;
                     _dialog.ShowDialog( this );
                     SetFormIcon( );
@@ -2215,10 +2253,7 @@
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnTimerTick( object sender, EventArgs e )
-        {
-            InvokeIf( _statusUpdate );
-        }
+        private void OnTimerTick( object sender, EventArgs e ) => InvokeIf( _statusUpdate );
 
         /// <summary>
         /// Raises the Close event.

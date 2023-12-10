@@ -875,6 +875,7 @@
             PivotChart.Name = "PivotChart";
             PivotChart.ShowPivotTableFieldList = false;
             PivotChart.Size = new System.Drawing.Size( 1038, 453 );
+            PivotChart.Skins = Syncfusion.Windows.Forms.Chart.Skins.Office2016Black;
             PivotChart.TabIndex = 0;
             PivotChart.Text = "PivotChart";
             PivotChart.UpdateManager = null;

@@ -11,6 +11,9 @@
     <VerifyUploadedFiles>false</VerifyUploadedFiles>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Update="Controls\Forms\BudgetWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Controls\CircularGuage\CircularGuage.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -89,13 +92,13 @@
     <Compile Update="Controls\Dialogs\ColumnConfiguration.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\Dialogs\DefinitionDialog.cs">
+    <Compile Update="Controls\Window\SchemaWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\Dialogs\DelayDialog.cs">
+    <Compile Update="Controls\Delay\DelayDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\Dialogs\EditDialog.cs">
+    <Compile Update="Controls\Window\EditWindow.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Controls\Dialogs\EmailDialog.cs">
@@ -104,22 +107,22 @@
     <Compile Update="Controls\Dialogs\ErrorDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\Dialogs\FilterDialog.cs">
+    <Compile Update="Controls\Window\FilterWindow.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Controls\Dialogs\GuidanceDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\Dialogs\LookupDialog.cs">
+    <Compile Update="Controls\Window\LookupWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\Dialogs\Message.cs">
+    <Compile Update="Controls\Dialogs\MessageDialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Controls\Dialogs\ProgramProjectDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\Dialogs\SqlDialog.cs">
+    <Compile Update="Controls\Window\SqlWindow.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Controls\Dialogs\TextDialog.cs">
@@ -161,7 +164,7 @@
     <Compile Update="Controls\ImageList\ImageListBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="Controls\Loader\LoadingForm.cs">
+    <Compile Update="Controls\Delay\DelayForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Controls\Notification\Notification.cs">
@@ -239,7 +242,7 @@
     <Compile Update="Controls\SplashMessage\SplashMessage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\SplashMessage\SplashPanel.cs">
+    <Compile Update="Controls\Panel\SplashPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\TabControl\TabControl.cs">

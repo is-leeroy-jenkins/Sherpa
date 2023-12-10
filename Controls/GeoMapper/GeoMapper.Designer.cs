@@ -96,7 +96,7 @@
             HeaderTable.Name = "HeaderTable";
             HeaderTable.RowCount = 1;
             HeaderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            HeaderTable.Size = new System.Drawing.Size( 1338, 27 );
+            HeaderTable.Size = new System.Drawing.Size( 1338, 24 );
             HeaderTable.TabIndex = 0;
             // 
             // PictureBox
@@ -105,7 +105,7 @@
             PictureBox.Image = Resources.Images.Application;
             PictureBox.Location = new System.Drawing.Point( 3, 3 );
             PictureBox.Name = "PictureBox";
-            PictureBox.Size = new System.Drawing.Size( 22, 21 );
+            PictureBox.Size = new System.Drawing.Size( 22, 18 );
             PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             PictureBox.TabIndex = 0;
             PictureBox.TabStop = false;
@@ -123,7 +123,7 @@
             Title.Margin = new System.Windows.Forms.Padding( 3 );
             Title.Name = "Title";
             Title.Padding = new System.Windows.Forms.Padding( 1 );
-            Title.Size = new System.Drawing.Size( 1304, 21 );
+            Title.Size = new System.Drawing.Size( 1304, 18 );
             Title.Style = MetroSet_UI.Enums.Style.Custom;
             Title.StyleManager = null;
             Title.TabIndex = 1;
@@ -775,7 +775,7 @@
             MapPanel.ForeColor = System.Drawing.Color.Transparent;
             MapPanel.HoverText = null;
             MapPanel.IsDerivedStyle = true;
-            MapPanel.Location = new System.Drawing.Point( 93, 25 );
+            MapPanel.Location = new System.Drawing.Point( 93, 28 );
             MapPanel.Name = "MapPanel";
             MapPanel.Padding = new System.Windows.Forms.Padding( 1 );
             MapPanel.Size = new System.Drawing.Size( 1149, 604 );
@@ -794,13 +794,13 @@
             MapTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 93F ) );
             MapTable.Controls.Add( MapPanel, 1, 1 );
             MapTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            MapTable.Location = new System.Drawing.Point( 0, 27 );
+            MapTable.Location = new System.Drawing.Point( 0, 24 );
             MapTable.Name = "MapTable";
             MapTable.RowCount = 3;
             MapTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             MapTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 610F ) );
             MapTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 34F ) );
-            MapTable.Size = new System.Drawing.Size( 1338, 666 );
+            MapTable.Size = new System.Drawing.Size( 1338, 669 );
             MapTable.TabIndex = 4;
             // 
             // GeoMapper
@@ -825,8 +825,10 @@
             ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
+            MaximizeBox = false;
             MaximumSize = new System.Drawing.Size( 1350, 750 );
             MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            MinimizeBox = false;
             MinimumSize = new System.Drawing.Size( 1350, 750 );
             Name = "GeoMapper";
             ShowIcon = false;
