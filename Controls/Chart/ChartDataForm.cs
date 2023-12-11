@@ -1610,6 +1610,7 @@ namespace BudgetExecution
                     ?.ToArray( );
 
                 var _colNames = _data.Keys
+                    ?.Where( n => n.Contains( "Name" ) != true )
                     ?.Take( _labels.Length )
                     ?.ToArray( );
 
@@ -1617,9 +1618,14 @@ namespace BudgetExecution
                     ?.Take( _labels.Length )
                     ?.ToArray( );
 
-                for( var i = 0; i < _labels.Length; i++ )
+                var _names = _colNames.ToArray( );
+                for( var i = 0; i < _names.Length; i++ )
                 {
-                    _labels[ i ].Text = $"{_colNames[ i ]} = {_colValues[ i ]}";
+                    var _name = _names[ i ];
+                    var _n = _name.SplitPascal( )
+                        ?.Replace( "Code", "" );
+
+                    _labels[ i ].Text = $"{_n} = {row[ _name ]}";
                 }
             }
             catch( Exception ex )
@@ -1917,7 +1923,6 @@ namespace BudgetExecution
                     _series.DrawSeriesNameInDepth = true;
                     _series.Style.DisplayText = true;
                     _series.Style.DrawTextShape = true;
-                    _series.Style.TextFormat = "#,##0";
                     _series.Style.TextColor = Color.White;
                     _series.Style.Font.Size = 9;
                     _series.Style.Font.Facename = "Roboto";
@@ -1945,7 +1950,12 @@ namespace BudgetExecution
                 var _title = string.Empty;
                 foreach( var col in _fields )
                 {
-                    _title += $"{col.SplitPascal( )} ";
+                    if( col.Contains( "Code" ) )
+                    {
+                        var _split = col.SplitPascal( );
+                        var _name = _split.Replace( "Code", "" );
+                        _title += $"{_name} ";
+                    }
                 }
 
                 Chart.PrimaryXAxis.Title = _title;
@@ -1995,7 +2005,6 @@ namespace BudgetExecution
                     _series.PointsToolTipFormat = "{0} - {4}";
                     _series.Style.DisplayText = true;
                     _series.Style.DrawTextShape = true;
-                    _series.Style.TextFormat = "#,##0";
                     _series.Style.TextColor = Color.White;
                     _series.Style.Font.Size = 9;
                     _series.Style.Font.Facename = "Roboto";
@@ -2188,9 +2197,7 @@ namespace BudgetExecution
                     BindData( );
                     BindChart( );
                     QueryTabControl.SelectedIndex = 1;
-                    PopulateFirstComboBoxItems( );
-                    ResetFilterTableVisibility( );
-                    Chart.Title.Text = SelectedTable.SplitPascal( );
+                    SetActiveQueryTab( );
                 }
                 catch( Exception ex )
                 {
@@ -2254,7 +2261,7 @@ namespace BudgetExecution
                     }
 
                     FirstValue = _listBox.SelectedValue?.ToString( );
-                    Filter.Add( FirstCategory, FirstValue );
+                    Filter[ FirstCategory ] = FirstValue;
                     PopulateSecondComboBoxItems( );
                     if( SecondTable.Visible == false )
                     {
@@ -2273,9 +2280,10 @@ namespace BudgetExecution
                         GroupSeparator.Visible = true;
                     }
 
-                    UpdateMetrics( );
                     SqlCommand = CreateSqlText( Filter );
                     BindData( SqlCommand );
+                    UpdateMetrics( );
+                    BindChart( );
                 }
                 catch( Exception _ex )
                 {
@@ -2339,17 +2347,18 @@ namespace BudgetExecution
                     }
 
                     SecondValue = _listBox.SelectedValue?.ToString( );
-                    Filter.Add( FirstCategory, FirstValue );
-                    Filter.Add( SecondCategory, SecondValue );
+                    Filter[ FirstCategory ] = FirstValue;
+                    Filter[ SecondCategory ] = SecondValue;
                     PopulateThirdComboBoxItems( );
                     if( ThirdTable.Visible == false )
                     {
                         ThirdTable.Visible = true;
                     }
 
-                    BindData( Filter );
                     SqlCommand = CreateSqlText( Filter );
+                    BindData( SqlCommand );
                     UpdateMetrics( );
+                    BindChart( );
                 }
                 catch( Exception ex )
                 {
@@ -2419,12 +2428,13 @@ namespace BudgetExecution
                     }
 
                     ThirdValue = _listBox.SelectedValue?.ToString( );
-                    Filter.Add( FirstCategory, FirstValue );
-                    Filter.Add( SecondCategory, SecondValue );
-                    Filter.Add( ThirdCategory, ThirdValue );
-                    BindData( Filter );
+                    Filter[ FirstCategory ] = FirstValue;
+                    Filter[ SecondCategory ] = SecondValue;
+                    Filter[ ThirdCategory ] = ThirdValue;
+                    SqlCommand = CreateSqlText( Filter );
+                    BindData( SqlCommand );
                     UpdateMetrics( );
-                    QueryTabControl.SelectedIndex = 2;
+                    BindChart( );
                 }
                 catch( Exception ex )
                 {

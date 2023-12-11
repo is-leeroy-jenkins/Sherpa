@@ -95,7 +95,7 @@ namespace BudgetExecution
             MetroColor = Color.FromArgb( 20, 20, 20 );
             CaptionBarHeight = 5;
             CaptionAlign = HorizontalAlignment.Center;
-            CaptionFont = new Font( "Roboto", 12, FontStyle.Regular );
+            CaptionFont = new Font( "Roboto", 10, FontStyle.Regular );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionForeColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
@@ -177,7 +177,7 @@ namespace BudgetExecution
                 Carousel.VisualStyle = CarouselVisualStyle.Metro;
                 Carousel.HighlightColor = Color.FromArgb( 0, 120, 212 );
 
-                // ThemeStyle Properties
+                // Style Properties
                 Carousel.ThemeStyle.BackColor = Color.Transparent;
                 Carousel.ThemeStyle.Font = new Font( "Roboto", 9 );
                 Carousel.ThemeStyle.ForeColor = Color.FromArgb( 106, 189, 252 );
