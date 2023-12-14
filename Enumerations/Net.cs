@@ -41,7 +41,6 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Threading;
 
     /// <summary> Defines the Net enumeration </summary>
     public enum NET

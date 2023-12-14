@@ -46,7 +46,6 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.Threading;
     using System.Windows.Forms;
 
     /// <inheritdoc/>
@@ -56,12 +55,20 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public partial class Frame : UserControl
     {
-        /// <summary> Gets or sets the index. </summary>
-        /// <value> The index. </value>
+        /// <summary>
+        /// Gets or sets the index.
+        /// </summary>
+        /// <value>
+        /// The index.
+        /// </value>
         public int Index { get; set; }
 
-        /// <summary> Gets or sets the binding source. </summary>
-        /// <value> The binding source. </value>
+        /// <summary>
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
         public BindingSource BindingSource { get; set; }
 
         /// <inheritdoc/>
@@ -79,18 +86,20 @@ namespace BudgetExecution
             Table.ColumnCount = 1;
             Table.RowCount = 2;
             Table.Font = new Font( "Roboto", 9 );
-            Table.ForeColor = Color.White;
+            Table.ForeColor = Color.FromArgb( 106, 189, 252 );
 
             // TextBox Properties
-            TextBox.ForeColor = Color.White;
+            TextBox.ForeColor = Color.FromArgb( 106, 189, 252 );
             TextBox.BorderColor = Color.FromArgb( 50, 93, 129 );
             TextBox.HoverColor = Color.FromArgb( 0, 120, 212 );
             TextBox.BackColor = Color.FromArgb( 40, 40, 40 );
             TextBox.Size = new Size( 118, 26 );
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

@@ -48,7 +48,6 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Linq;
-    using System.Threading;
     using System.Windows.Forms;
     using MetroSet_UI.Controls;
     using MetroSet_UI.Enums;
@@ -93,7 +92,7 @@ namespace BudgetExecution
             Margin = new Padding( 1 );
             Padding = new Padding( 1 );
             Font = new Font( "Roboto", 8 );
-            ForeColor = Color.LightGray;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             Enabled = true;
             Visible = true;
 

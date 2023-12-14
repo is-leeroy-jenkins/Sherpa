@@ -45,7 +45,6 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Linq;
-    using System.Threading;
     using static System.Configuration.ConfigurationManager;
     using static System.IO.Path;
 
@@ -55,44 +54,84 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public abstract class ConnectionBase
     {
-        /// <summary> Gets or sets the connection. </summary>
-        /// <value> The connection. </value>
+        /// <summary>
+        /// Gets or sets the connection.
+        /// </summary>
+        /// <value>
+        /// The connection.
+        /// </value>
         public DbConnection Connection { get; set; }
 
-        /// <summary> Gets or sets the database path. </summary>
-        /// <value> The database path. </value>
+        /// <summary>
+        /// Gets or sets the client path.
+        /// </summary>
+        /// <value>
+        /// The client path.
+        /// </value>
         public string ClientPath { get; set; }
 
-        /// <summary> Gets or sets the source. </summary>
-        /// <value> The source. </value>
+        /// <summary>
+        /// Gets or sets the source.
+        /// </summary>
+        /// <value>
+        /// The source.
+        /// </value>
         public Source Source { get; set; }
 
-        /// <summary> Gets or sets the provider. </summary>
-        /// <value> The provider. </value>
+        /// <summary>
+        /// Gets or sets the provider.
+        /// </summary>
+        /// <value>
+        /// The provider.
+        /// </value>
         public Provider Provider { get; set; }
 
-        /// <summary> Gets or sets the extension. </summary>
-        /// <value> The extension. </value>
+        /// <summary>
+        /// Gets or sets the extension.
+        /// </summary>
+        /// <value>
+        /// The extension.
+        /// </value>
         public EXT Extension { get; set; }
 
-        /// <summary> Gets or sets the path extension. </summary>
-        /// <value> The path extension. </value>
+        /// <summary>
+        /// Gets or sets the path extension.
+        /// </summary>
+        /// <value>
+        /// The path extension.
+        /// </value>
         public string PathExtension { get; set; }
 
-        /// <summary> Gets or sets the file path. </summary>
-        /// <value> The file path. </value>
+        /// <summary>
+        /// Gets or sets the file path.
+        /// </summary>
+        /// <value>
+        /// The file path.
+        /// </value>
         public string FilePath { get; set; }
 
-        /// <summary> Gets or sets the name of the file. </summary>
-        /// <value> The name of the file. </value>
+        /// <summary>
+        /// Gets or sets the name of the file.
+        /// </summary>
+        /// <value>
+        /// The name of the file.
+        /// </value>
         public string FileName { get; set; }
 
-        /// <summary> Gets or sets the name of the table. </summary>
-        /// <value> The name of the table. </value>
+        /// <summary>
+        /// Gets or sets the name of the table.
+        /// </summary>
+        /// <value>
+        /// The name of the table.
+        /// </value>
         public string TableName { get; set; }
 
-        /// <summary> Gets or sets the connection string. </summary>
-        /// <value> The connection string. </value>
+        /// <summary>
+        /// Gets or sets the connection string.
+        /// </summary>
+        /// <value>
+        /// The connection string.
+        /// </value>
         public string ConnectionString { get; set; }
 
         /// <summary>
@@ -121,8 +160,8 @@ namespace BudgetExecution
             PathExtension = GetExtension( fullPath )?.Replace( ".", "" );
             if( !string.IsNullOrEmpty( PathExtension ) )
             {
-                Extension = (EXT) Enum.Parse( typeof( EXT ), PathExtension.ToUpper( ) );
-                Provider = (Provider) Enum.Parse( typeof( Provider ), PathExtension.ToUpper( ) );
+                Extension = (EXT)Enum.Parse( typeof( EXT ), PathExtension.ToUpper( ) );
+                Provider = (Provider)Enum.Parse( typeof( Provider ), PathExtension.ToUpper( ) );
                 ClientPath = AppSettings[ Extension.ToString( ) ];
                 ConnectionString = CreateConnectionString( Provider );
             }
@@ -147,7 +186,7 @@ namespace BudgetExecution
             PathExtension = GetExtension( fullPath )?.Replace( ".", "" );
             if( !string.IsNullOrEmpty( PathExtension ) )
             {
-                Extension = (EXT) Enum.Parse( typeof( EXT ), PathExtension.ToUpper( ) );
+                Extension = (EXT)Enum.Parse( typeof( EXT ), PathExtension.ToUpper( ) );
                 ClientPath = AppSettings[ Extension.ToString( ) ];
                 ConnectionString = CreateConnectionString( Provider );
             }
@@ -167,20 +206,22 @@ namespace BudgetExecution
             Source = source;
             Provider = provider;
             TableName = source.ToString( );
-            ConnectionString = CreateConnectionString( provider );
             FilePath = GetDbClientPath( provider );
+            ConnectionString = CreateConnectionString( provider );
             PathExtension = GetExtension( FilePath )?.Replace( ".", "" );
             FileName = GetFileNameWithoutExtension( FilePath );
             if( !string.IsNullOrEmpty( PathExtension ) )
             {
-                Extension = (EXT) Enum.Parse( typeof( EXT ), PathExtension.ToUpper( ) );
+                Extension = (EXT)Enum.Parse( typeof( EXT ), PathExtension.ToUpper( ) );
                 ClientPath = AppSettings[ Extension.ToString( ) ];
             }
         }
 
-        /// <summary> Gets the database client path. </summary>
-        /// <param name="provider"> The provider. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the database client path.
+        /// </summary>
+        /// <param name="provider">The provider.</param>
+        /// <returns></returns>
         private protected string GetDbClientPath( Provider provider )
         {
             if( Enum.IsDefined( typeof( Provider ), provider ) )
@@ -208,9 +249,11 @@ namespace BudgetExecution
             return string.Empty;
         }
 
-        /// <summary> Gets the database client path. </summary>
-        /// <param name="filePath"> The file path. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the database client path.
+        /// </summary>
+        /// <param name="filePath">The file path.</param>
+        /// <returns></returns>
         private protected string GetDbClientPath( string filePath )
         {
             if( !string.IsNullOrEmpty( filePath )
@@ -218,10 +261,13 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _file = GetExtension( filePath )?.Replace( ".", "" )?.ToUpper( );
+                    var _file = GetExtension( filePath )
+                        ?.Replace( ".", "" )
+                        ?.ToUpper( );
+
                     if( !string.IsNullOrEmpty( _file ) )
                     {
-                        var _extension = (EXT) Enum.Parse( typeof( EXT ), _file );
+                        var _extension = (EXT)Enum.Parse( typeof( EXT ), _file );
                         var _names = Enum.GetNames( typeof( EXT ) );
                         if( _names?.Contains( _extension.ToString( ) ) == true )
                         {
@@ -241,9 +287,11 @@ namespace BudgetExecution
             return string.Empty;
         }
 
-        /// <summary> Gets the connection string. </summary>
-        /// <param name="provider"> The provider. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Creates the connection string.
+        /// </summary>
+        /// <param name="provider">The provider.</param>
+        /// <returns></returns>
         private protected virtual string CreateConnectionString( Provider provider )
         {
             if( Enum.IsDefined( typeof( Provider ), provider )
@@ -253,7 +301,7 @@ namespace BudgetExecution
                 {
                     var _connection = ConnectionStrings[ provider.ToString( ) ]?.ConnectionString;
                     return !string.IsNullOrEmpty( _connection )
-                        ? _connection?.Replace( "{FilePath}", FilePath )
+                        ? _connection?.Replace( $"{FilePath}", FilePath )
                         : string.Empty;
                 }
                 catch( Exception _ex )
@@ -265,9 +313,11 @@ namespace BudgetExecution
             return string.Empty;
         }
 
-        /// <summary> Gets the connection string. </summary>
-        /// <param name="filePath"> The file path. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Creates the connection string.
+        /// </summary>
+        /// <param name="filePath">The file path.</param>
+        /// <returns></returns>
         private protected virtual string CreateConnectionString( string filePath )
         {
             if( !string.IsNullOrEmpty( filePath )
@@ -279,7 +329,7 @@ namespace BudgetExecution
                     var _file = GetExtension( filePath );
                     if( !string.IsNullOrEmpty( _file ) )
                     {
-                        var _ext = (EXT) Enum.Parse( typeof( EXT ), _file.ToUpper( ) );
+                        var _ext = (EXT)Enum.Parse( typeof( EXT ), _file.ToUpper( ) );
                         var _names = Enum.GetNames( typeof( EXT ) );
                         if( _names?.Contains( _ext.ToString( ) ) == true )
                         {
@@ -301,8 +351,10 @@ namespace BudgetExecution
             return string.Empty;
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

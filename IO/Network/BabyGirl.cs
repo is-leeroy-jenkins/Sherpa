@@ -48,7 +48,6 @@ namespace BudgetExecution
     using System.Net;
     using System.Net.Sockets;
     using System.Text;
-    using System.Threading;
 
     /// <summary>
     /// 
@@ -118,7 +117,8 @@ namespace BudgetExecution
         public IPEndPoint EndPoint { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether this instance is connected.
+        /// Gets or sets a value indicating whether
+        /// this instance is connected.
         /// </summary>
         /// <value>
         /// <c>true</c> if this instance is connected;
@@ -133,7 +133,7 @@ namespace BudgetExecution
         public BabyGirl( )
         {
             Bytes = 1024;
-            Port = 9050;
+            Port = 5000;
             Data = new byte[ Bytes ];
             Address = IPAddress.Any;
             EndPoint = new IPEndPoint( Address, Port );
@@ -148,7 +148,7 @@ namespace BudgetExecution
         /// <param name="address">The ip address.</param>
         /// <param name="port">The port.</param>
         /// <param name="size"> </param>
-        public BabyGirl( IPAddress address, int port = 9050, int size = 1024 )
+        public BabyGirl( IPAddress address, int port = 5000, int size = 1024 )
         {
             Bytes = size;
             Port = port;
@@ -166,7 +166,7 @@ namespace BudgetExecution
         /// <param name="address">The ip address.</param>
         /// <param name="port">The port number.</param>
         /// <param name="size">Size of the buffer.</param>
-        public BabyGirl( string address, int port = 9050, int size = 1024 )
+        public BabyGirl( string address, int port = 5000, int size = 1024 )
         {
             Bytes = size;
             Port = port;
@@ -178,7 +178,8 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BabyGirl"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="BabyGirl"/> class.
         /// </summary>
         /// <param name="girl">The client.</param>
         public BabyGirl( BabyGirl girl )
@@ -199,7 +200,7 @@ namespace BudgetExecution
         {
             try
             {
-                int _received = 0;
+                var _received = 0;
                 Socket.Bind( EndPoint );
                 Socket.Listen( 10 );
                 Message = "Welcome to the Baby Server!";
@@ -211,7 +212,7 @@ namespace BudgetExecution
                     var _client = Socket.Accept( );
                     Data = new byte[ Bytes ];
                     _client.Receive( Data, Bytes, SocketFlags.None );
-                    if( _client.Available == 0 )
+                    if( Data.Length == 0 )
                     {
                         break;
                     }

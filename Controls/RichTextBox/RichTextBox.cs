@@ -41,33 +41,52 @@
 //  </summary>
 //  ******************************************************************************************
 
+using System.Diagnostics.CodeAnalysis;
+
 namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
     using System.Drawing;
-    using System.Threading;
     using System.Windows.Forms;
     using MetroSet_UI.Controls;
     using MetroSet_UI.Enums;
 
     /// <summary> </summary>
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class RichTextBox : MetroSetRichTextBox
     {
-        /// <summary> Gets or sets the binding source. </summary>
-        /// <value> The binding source. </value>
+        /// <summary>
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
         public virtual BindingSource BindingSource { get; set; }
 
-        /// <summary> Gets or sets the tool tip. </summary>
-        /// <value> The tool tip. </value>
+        /// <summary>
+        /// Gets or sets the tool tip.
+        /// </summary>
+        /// <value>
+        /// The tool tip.
+        /// </value>
         public virtual SmallTip ToolTip { get; set; }
 
-        /// <summary> Gets or sets the hover text. </summary>
-        /// <value> The hover text. </value>
+        /// <summary>
+        /// Gets or sets the hover text.
+        /// </summary>
+        /// <value>
+        /// The hover text.
+        /// </value>
         public virtual string HoverText { get; set; }
 
-        /// <summary> Gets or sets the filter. </summary>
-        /// <value> The filter. </value>
+        /// <summary>
+        /// Gets or sets the data filter.
+        /// </summary>
+        /// <value>
+        /// The data filter.
+        /// </value>
         public virtual IDictionary<string, object> DataFilter { get; set; }
 
         /// <summary>
@@ -87,7 +106,7 @@ namespace BudgetExecution
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );
             Font = new Font( "Roboto", 8 );
-            ForeColor = Color.LightGray;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             BackColor = Color.FromArgb( 30, 30, 30 );
             Enabled = true;
             Visible = true;
@@ -99,9 +118,10 @@ namespace BudgetExecution
             HoverColor = Color.FromArgb( 0, 120, 212 );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="RichTextBox"/>
+        /// <see cref="T:BudgetExecution.RichTextBox" />
         /// class.
         /// </summary>
         /// <param name="size"> The size. </param>
@@ -113,9 +133,10 @@ namespace BudgetExecution
             Location = location;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="RichTextBox"/>
+        /// <see cref="T:BudgetExecution.RichTextBox" />
         /// class.
         /// </summary>
         /// <param name="location"> The location. </param>
@@ -131,9 +152,10 @@ namespace BudgetExecution
             }
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="RichTextBox"/>
+        /// <see cref="T:BudgetExecution.RichTextBox" />
         /// class.
         /// </summary>
         /// <param name="size"> The size. </param>
@@ -149,9 +171,10 @@ namespace BudgetExecution
             }
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="RichTextBox"/>
+        /// <see cref="T:BudgetExecution.RichTextBox" />
         /// class.
         /// </summary>
         /// <param name="size"> The size. </param>
@@ -166,9 +189,10 @@ namespace BudgetExecution
             Parent.Controls.Add( this );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="RichTextBox"/>
+        /// <see cref="T:BudgetExecution.RichTextBox" />
         /// class.
         /// </summary>
         /// <param name="title"> The title. </param>
@@ -178,8 +202,10 @@ namespace BudgetExecution
             Text = title;
         }
 
-        /// <summary> Sets the text. </summary>
-        /// <param name="text"> The text. </param>
+        /// <summary>
+        /// Sets the text.
+        /// </summary>
+        /// <param name="text">The text.</param>
         public void SetText( string text )
         {
             if( !string.IsNullOrEmpty( text ) )
@@ -216,8 +242,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the backColor of the back. </summary>
-        /// <param name="backColor"> The backColor. </param>
+        /// <summary>
+        /// Sets the color of the back.
+        /// </summary>
+        /// <param name="backColor">Color of the back.</param>
         public void SetBackColor( Color backColor )
         {
             if( backColor != Color.Empty )
@@ -233,8 +261,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 12-10-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        12-10-2023
 // ******************************************************************************************
 // <copyright file="ExcelQuery.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
+//    Budget Execution is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,7 +31,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//    Contact at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   ExcelQuery.cs
@@ -230,7 +230,7 @@ namespace BudgetExecution
                     var _name = _dialog.FileName;
                     workBook.Save( _name );
                     const string SUCCESSFUL = "Save Successful!";
-                    var _message = new Message( SUCCESSFUL );
+                    var _message = new MessageDialog( SUCCESSFUL );
                     _message?.ShowDialog( );
                 }
             }
@@ -334,7 +334,7 @@ namespace BudgetExecution
                    && !SheetExists( sheetName, _schema ) )
                 {
                     const string MSG = "Sheet Does Not Exist!";
-                    var _message = new Message( MSG );
+                    var _message = new MessageDialog( MSG );
                     _message?.ShowDialog( );
                 }
                 else
@@ -378,7 +378,7 @@ namespace BudgetExecution
                     if( !SheetExists( sheetName, _schema ) )
                     {
                         var _msg = $"{sheetName} in {fileName} Does Not Exist!";
-                        var _message = new Message( _msg );
+                        var _message = new MessageDialog( _msg );
                         _message?.ShowDialog( );
                     }
                 }

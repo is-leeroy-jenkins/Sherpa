@@ -46,7 +46,6 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.Threading;
     using System.Windows.Forms;
     using MetroSet_UI.Controls;
     using MetroSet_UI.Enums;
@@ -56,6 +55,9 @@ namespace BudgetExecution
     /// <seealso cref="MetroSet_UI.Controls.MetroSetRadioButton"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertTypeCheckPatternToNullCheck" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public class RadioButton : MetroSetRadioButton
     {
         /// <summary> Gets or sets the tool tip. </summary>
@@ -83,7 +85,7 @@ namespace BudgetExecution
             ThemeName = "Budget Execution";
             BackgroundColor = Color.FromArgb( 30, 30, 30 );
             Font = new Font( "Roboto", 8, FontStyle.Regular );
-            ForeColor = Color.LightSteelBlue;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             CheckSignColor = Color.LimeGreen;
             BorderColor = Color.FromArgb( 0, 120, 212 );
             Size = new Size( 125, 17 );
@@ -97,9 +99,10 @@ namespace BudgetExecution
             MouseLeave += OnMouseLeave;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="RadioButton"/>
+        /// <see cref="T:BudgetExecution.RadioButton" />
         /// class.
         /// </summary>
         /// <param name="text"> The text displayed by the control. </param>

@@ -11,29 +11,32 @@
     <VerifyUploadedFiles>false</VerifyUploadedFiles>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Update="Controls\Forms\BudgetWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Controls\CircularGuage\CircularGuage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\Panel\ColorPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\ContextMenu\ContextBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\ContextMenu\ContextMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Update="Controls\Browser\FileBrowser.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Controls\Browser\FolderBrowser.cs">
-      <SubType>Component</SubType>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Update="Controls\Calculator\CalculationForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Controls\Calculator\Calculator.cs">
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Controls\Carousel\CarouselForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Controls\Carousel\MinionSelector.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Controls\Carousel\Selector.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Controls\Carousel\WebSelector.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Update="Controls\Calendar\CalendarControl.cs">
       <SubType>UserControl</SubType>
@@ -44,31 +47,25 @@
     <Compile Update="Controls\Calendar\CalendarForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\Chart\Chart.cs">
+    <Compile Update="Controls\Carousel\CarouselForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Controls\Carousel\MinionSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Controls\Carousel\Carousel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="Controls\Chart\ChartBase.cs">
+    <Compile Update="Controls\Carousel\WebSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Controls\Chart\Chart.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\Chart\ChartDataForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\CheckBox\CheckBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Controls\ComboBox\ComboBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Controls\ContextMenu\ContextMenu.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Controls\ContextMenu\MenuBase.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Controls\CurrencyBox\CurrencyBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Controls\DataGrid\DataGrid.cs">
+    <Compile Update="Controls\CurrencyBox\CurrencyTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\DataGrid\DataGridBase.cs">
@@ -77,14 +74,14 @@
     <Compile Update="Controls\DataGrid\DataGridForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\DataGrid\GridBase.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Update="Controls\DataView\DataView.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\DataView\DataViewBase.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\DataView\DataViewForm.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Update="Controls\Dialogs\CalendarDialog.cs">
       <SubType>Form</SubType>
@@ -95,13 +92,13 @@
     <Compile Update="Controls\Dialogs\ColumnConfiguration.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\Dialogs\DefinitionDialog.cs">
+    <Compile Update="Controls\Window\SchemaWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\Dialogs\DelayDialog.cs">
+    <Compile Update="Controls\Delay\DelayDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\Dialogs\EditDialog.cs">
+    <Compile Update="Controls\Window\EditWindow.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Controls\Dialogs\EmailDialog.cs">
@@ -110,22 +107,22 @@
     <Compile Update="Controls\Dialogs\ErrorDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\Dialogs\FilterDialog.cs">
+    <Compile Update="Controls\Window\FilterWindow.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Controls\Dialogs\GuidanceDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\Dialogs\LookupDialog.cs">
+    <Compile Update="Controls\Window\LookupWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\Dialogs\Message.cs">
+    <Compile Update="Controls\Dialogs\MessageDialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Controls\Dialogs\ProgramProjectDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\Dialogs\SqlDialog.cs">
+    <Compile Update="Controls\Window\SqlWindow.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Controls\Dialogs\TextDialog.cs">
@@ -158,14 +155,47 @@
     <Compile Update="Controls\Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\Frame\Frame.cs">
+    <Compile Update="Controls\GeoMapper\MapControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Controls\Graph\Graph.cs">
+    <Compile Update="Controls\GridControl\SheetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Controls\ImageList\ImageListBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="Controls\Graph\GraphBase.cs">
+    <Compile Update="Controls\Delay\DelayForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Controls\Notification\Notification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Controls\PivotChart\PivotChartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Controls\PivotGrid\PivotGridForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Controls\Plots\Plotter.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\Plots\PlottBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\CheckBox\CheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\ComboBox\ComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\DataGrid\DataGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\DataGrid\GridBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\Frame\Frame.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Controls\GridControl\GridControl.cs">
       <SubType>Component</SubType>
@@ -179,13 +209,10 @@
     <Compile Update="Controls\ImageList\ImageList.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="Controls\ImageList\ImageListBase.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Update="Controls\Label\Label.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="Controls\Layout\Layout.cs">
+    <Compile Update="Controls\Panel\BackPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\ListBox\ListBox.cs">
@@ -194,31 +221,13 @@
     <Compile Update="Controls\ListView\ListView.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="Controls\ListView\ListViewBase.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Controls\Loader\LoadingForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Controls\Map\MapControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Controls\Notification\Notification.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Controls\PictureBox\Picture.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\PivotChart\PivotChart.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="Controls\PivotGrid\PivotForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Controls\PivotGrid\PivotGrid.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="Controls\PivotGrid\PivotGridBase.cs">
+    <Compile Update="Controls\ProgressBar\ProgressBar.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\RadioButton\RadioButton.cs">
@@ -227,13 +236,13 @@
     <Compile Update="Controls\RichTextBox\RichTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="Controls\Splash\SplashForm.cs">
+    <Compile Update="Controls\SplashMessage\SplashForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\Splash\SplashMessage.cs">
+    <Compile Update="Controls\SplashMessage\SplashMessage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\Splash\SplashPanel.cs">
+    <Compile Update="Controls\Panel\SplashPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\TabControl\TabControl.cs">
@@ -296,7 +305,7 @@
     <Compile Update="Controls\ToolTips\SmallTip.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="Controls\ToolTips\SuperTip.cs">
+    <Compile Update="Controls\ToolTips\SyncTip.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Data\Adapter\AdapterBase.cs">
@@ -305,12 +314,24 @@
     <Compile Update="Data\Adapter\AdapterFactory.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="Controls\GridSheet\SheetForm.cs">
+    <Compile Update="Controls\GeoMapper\GeoMapper.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Controls\PivotGrid\PivotGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\TreeView\TreeView.cs">
+      <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Clients\Baby\net6.0-windows\Properties\Resources.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Controls\DataGrid\DataGridForm.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Images.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>

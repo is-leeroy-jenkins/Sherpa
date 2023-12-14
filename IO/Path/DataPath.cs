@@ -38,14 +38,12 @@
 // </summary>
 // ******************************************************************************************
 
-using System.IO;
-using System.Security.AccessControl;
-
 namespace BudgetExecution
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
-    using System.Threading;
+    using System.IO;
+    using System.Security.AccessControl;
 
     /// <inheritdoc/>
     /// <summary> </summary>
@@ -53,6 +51,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameterInConstructor" ) ]
     public class DataPath : PathBase, IPath
     {
         /// <inheritdoc/>
@@ -71,7 +70,9 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.DataPath"/>
         /// class.
         /// </summary>
-        /// <param name="input"> The input. </param>
+        /// <param name="input">
+        /// The input.
+        /// </param>
         public DataPath( string input )
         {
             Buffer = input;
@@ -90,7 +91,9 @@ namespace BudgetExecution
         /// Initializes a new instance of the
         /// <see cref="DataPath"/> class.
         /// </summary>
-        /// <param name="path">The path.</param>
+        /// <param name="path">
+        /// The path.
+        /// </param>
         public DataPath( DataPath path )
         {
             Buffer = path.Buffer;
@@ -109,30 +112,30 @@ namespace BudgetExecution
         /// Deconstructs the specified buffer.
         /// </summary>
         /// <param name="buffer">The buffer.</param>
-        /// <param name="absPath">The abs path.</param>
+        /// <param name="absolutePath">The abs path.</param>
         /// <param name="name">The name.</param>
         /// <param name="fullPath">The full path.</param>
-        /// <param name="ext">The ext.</param>
+        /// <param name="extension">The extension.</param>
         /// <param name="length">The length.</param>
-        /// <param name="attrs">The attrs.</param>
+        /// <param name="attributes">The attributes.</param>
         /// <param name="fileSecurity">The file security.</param>
-        /// <param name="created">The created.</param>
-        /// <param name="modified">The modified.</param>
-        public void Deconstruct( out string buffer, out string absPath, out string name,
-            out string fullPath, out string ext, out long length,
-            out FileAttributes attrs, out FileSecurity fileSecurity,
-            out DateTime created, out DateTime modified )
+        /// <param name="createDate">The created.</param>
+        /// <param name="modifyDate">The modified.</param>
+        public void Deconstruct( out string buffer, out string absolutePath, out string name,
+            out string fullPath, out string extension, out long length,
+            out FileAttributes attributes, out FileSecurity fileSecurity,
+            out DateTime createDate, out DateTime modifyDate )
         {
             buffer = Buffer;
-            absPath = AbsolutePath;
+            absolutePath = AbsolutePath;
             name = Name;
             fullPath = FullPath;
-            ext = Extension;
+            extension = Extension;
             length = Length;
-            attrs = Attributes;
+            attributes = Attributes;
             fileSecurity = FileSecurity;
-            created = Created;
-            modified = Modified;
+            createDate = Created;
+            modifyDate = Modified;
         }
 
         /// <inheritdoc />

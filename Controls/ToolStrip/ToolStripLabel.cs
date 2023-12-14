@@ -46,37 +46,42 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.Threading;
     using System.Windows.Forms;
 
-    /// <summary> </summary>
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class ToolStripLabel : ToolStripLabelBase
     {
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ToolStripLabel"/>
+        /// <see cref="T:BudgetExecution.ToolStripLabel" />
         /// class.
         /// </summary>
         public ToolStripLabel( )
         {
             Margin = new Padding( 1, 1, 1, 1 );
             Padding = new Padding( 1, 1, 1, 1 );
-            Size = new Size( 150, 23 );
+            Size = new Size( 150, 22 );
             ForeColor = Color.Black;
-            BackColor = Color.FromArgb( 45, 45, 45 );
+            BackColor = Color.Transparent;
             Font = new Font( "Roboto", 8, FontStyle.Regular );
             Tag = Name;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ToolStripLabel"/>
+        /// <see cref="T:BudgetExecution.ToolStripLabel" />
         /// class.
         /// </summary>
         /// <param name="text">
         /// The text to display on the
-        /// <see/>
+        /// <see />
         /// .
         /// </param>
         public ToolStripLabel( string text )
@@ -85,9 +90,10 @@ namespace BudgetExecution
             Text = text;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ToolStripLabel"/>
+        /// <see cref="T:BudgetExecution.ToolStripLabel" />
         /// class.
         /// </summary>
         /// <param name="text"> The text. </param>
@@ -99,7 +105,9 @@ namespace BudgetExecution
             MouseHover += OnMouseHover;
         }
 
-        /// <summary> Sets the text. </summary>
+        /// <summary>
+        /// Sets the text.
+        /// </summary>
         /// <param name="text"> The text. </param>
         /// <param name="color"> The color. </param>
         public void SetText( string text, Color color )
@@ -120,7 +128,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the text. </summary>
+        /// <summary>
+        /// Sets the text.
+        /// </summary>
         /// <param name="text"> The text. </param>
         /// <param name="font"> The font. </param>
         /// <param name="color"> The color. </param>
@@ -143,7 +153,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the text. </summary>
+        /// <summary>
+        /// Sets the text.
+        /// </summary>
         /// <param name="text"> The text. </param>
         public void SetHoverText( string text )
         {

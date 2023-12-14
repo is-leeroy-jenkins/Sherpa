@@ -46,19 +46,20 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.Threading;
     using System.Windows.Forms;
 
+    /// <inheritdoc />
     /// <summary> </summary>
-    /// <seealso cref="BudgetExecution.ToolStripProgressBase"/>
+    /// <seealso cref="T:BudgetExecution.ToolStripProgressBase" />
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public class ToolStripProgressBar : ToolStripProgressBase
     {
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ToolStripProgressBar"/>
+        /// <see cref="T:BudgetExecution.ToolStripProgressBar" />
         /// class.
         /// </summary>
         public ToolStripProgressBar( )
@@ -71,7 +72,7 @@ namespace BudgetExecution
             Font = new Font( "Roboto", 9 );
             Visible = true;
             Enabled = true;
-            Name = "ProgressBar";
+            Name = nameof( ProgressBar );
             Maximum = 100;
             Minimum = 1;
             Tag = Name;
@@ -82,8 +83,10 @@ namespace BudgetExecution
             MouseHover += OnMouseHover;
         }
 
-        /// <summary> Increases the by. </summary>
-        /// <param name="increment"> The increment. </param>
+        /// <summary>
+        /// Increases the by.
+        /// </summary>
+        /// <param name="increment">The increment.</param>
         public void IncreaseBy( int increment )
         {
             if( increment > 0 )
@@ -99,8 +102,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Progresses the by step. </summary>
-        /// <param name="step"> The step. </param>
+        /// <summary>
+        /// Progresses the by step.
+        /// </summary>
+        /// <param name="step">The step.</param>
         public void ProgressByStep( int step = 10 )
         {
             try
@@ -114,8 +119,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the hover text. </summary>
-        /// <param name="text"> The text. </param>
+        /// <summary>
+        /// Sets the hover text.
+        /// </summary>
+        /// <param name="text">The text.</param>
         public void SetHoverText( string text )
         {
             try

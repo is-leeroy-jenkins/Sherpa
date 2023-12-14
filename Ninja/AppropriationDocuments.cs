@@ -49,7 +49,7 @@ namespace BudgetExecution
     /// <summary>
     /// </summary>
     /// <seealso cref="T:BudgetExecution.BudgetUnit" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
@@ -126,10 +126,10 @@ namespace BudgetExecution
         public DateOnly DocumentDate { get; set; }
 
         /// <summary>
-        /// 
+        /// Gets or sets the budget level.
         /// </summary>
         /// <value>
-        /// 
+        /// The budget level.
         /// </value>
         public string BudgetLevel { get; set; }
 

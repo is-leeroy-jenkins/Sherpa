@@ -29,14 +29,13 @@
         private void InitializeComponent( )
         {
             components = new System.ComponentModel.Container( );
-            var resources = new System.ComponentModel.ComponentResourceManager( typeof( Notification ) );
             NotifyIcon = new System.Windows.Forms.PictureBox( );
             Title = new Label( );
             Message = new Label( );
             Header = new System.Windows.Forms.TableLayoutPanel( );
-            Panel = new Layout( );
+            Panel = new BackPanel( );
             Timer = new System.Windows.Forms.Timer( components );
-            ( (System.ComponentModel.ISupportInitialize) NotifyIcon  ).BeginInit( );
+            ( (System.ComponentModel.ISupportInitialize)NotifyIcon ).BeginInit( );
             Header.SuspendLayout( );
             Panel.SuspendLayout( );
             SuspendLayout( );
@@ -44,10 +43,10 @@
             // NotifyIcon
             // 
             NotifyIcon.BackColor = System.Drawing.Color.Transparent;
-            NotifyIcon.Image = (System.Drawing.Image) resources.GetObject( "NotifyIcon.Image" ) ;
+            NotifyIcon.Image = Resources.Images.SplashNotification;
             NotifyIcon.Location = new System.Drawing.Point( 3, 3 );
             NotifyIcon.Name = "NotifyIcon";
-            NotifyIcon.Size = new System.Drawing.Size( 27, 29 );
+            NotifyIcon.Size = new System.Drawing.Size( 24, 18 );
             NotifyIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             NotifyIcon.TabIndex = 2;
             NotifyIcon.TabStop = false;
@@ -58,7 +57,7 @@
             Title.DataFilter = null;
             Title.Dock = System.Windows.Forms.DockStyle.Fill;
             Title.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            Title.Font = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            Title.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point );
             Title.HoverText = null;
             Title.IsDerivedStyle = true;
             Title.Location = new System.Drawing.Point( 39, 3 );
@@ -69,8 +68,6 @@
             Title.Style = MetroSet_UI.Enums.Style.Custom;
             Title.StyleManager = null;
             Title.TabIndex = 3;
-            Title.Text = "label1";
-            Title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             Title.ThemeAuthor = "Terry D. Eppler";
             Title.ThemeName = "BudgetExecution";
             Title.ToolTip = null;
@@ -80,14 +77,14 @@
             Message.BindingSource = null;
             Message.DataFilter = null;
             Message.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            Message.Font = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            Message.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point );
             Message.HoverText = null;
             Message.IsDerivedStyle = true;
-            Message.Location = new System.Drawing.Point( 36, 47 );
+            Message.Location = new System.Drawing.Point( 43, 55 );
             Message.Margin = new System.Windows.Forms.Padding( 3 );
             Message.Name = "Message";
             Message.Padding = new System.Windows.Forms.Padding( 1 );
-            Message.Size = new System.Drawing.Size( 333, 115 );
+            Message.Size = new System.Drawing.Size( 326, 84 );
             Message.Style = MetroSet_UI.Enums.Style.Custom;
             Message.StyleManager = null;
             Message.TabIndex = 4;
@@ -114,9 +111,9 @@
             // Panel
             // 
             Panel.BackColor = System.Drawing.Color.Transparent;
-            Panel.BackgroundColor = System.Drawing.Color.FromArgb(   0  ,   73  ,   112   );
+            Panel.BackgroundColor = System.Drawing.Color.FromArgb( 0, 73, 112 );
             Panel.BindingSource = null;
-            Panel.BorderColor = System.Drawing.Color.FromArgb(   0  ,   73  ,   112   );
+            Panel.BorderColor = System.Drawing.Color.FromArgb( 0, 73, 112 );
             Panel.BorderThickness = 1;
             Panel.Children = null;
             Panel.Controls.Add( Header );
@@ -141,14 +138,14 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            BackColor = System.Drawing.Color.FromArgb(   0  ,   73  ,   112   );
+            BackColor = System.Drawing.Color.FromArgb( 0, 73, 112 );
             BorderColor = System.Drawing.Color.Transparent;
-            CaptionBarColor = System.Drawing.Color.FromArgb(   0  ,   73  ,   112   );
+            CaptionBarColor = System.Drawing.Color.FromArgb( 0, 73, 112 );
             CaptionBarHeight = 5;
-            CaptionButtonColor = System.Drawing.Color.FromArgb(   0  ,   73  ,   112   );
-            CaptionButtonHoverColor = System.Drawing.Color.FromArgb(   0  ,   73  ,   112   );
+            CaptionButtonColor = System.Drawing.Color.FromArgb( 0, 73, 112 );
+            CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 0, 73, 112 );
             CaptionFont = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            CaptionForeColor = System.Drawing.Color.FromArgb(   0  ,   73  ,   112   );
+            CaptionForeColor = System.Drawing.Color.FromArgb( 0, 73, 112 );
             ClientSize = new System.Drawing.Size( 400, 190 );
             ControlBox = false;
             Controls.Add( Message );
@@ -159,7 +156,7 @@
             InnerBorderVisibility = false;
             MaximizeBox = false;
             MaximumSize = new System.Drawing.Size( 400, 190 );
-            MetroColor = System.Drawing.Color.FromArgb(   0  ,   73  ,   112   );
+            MetroColor = System.Drawing.Color.FromArgb( 0, 73, 112 );
             MinimizeBox = false;
             MinimumSize = new System.Drawing.Size( 400, 190 );
             Name = "Notification";
@@ -170,7 +167,7 @@
             SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             Text = "Notification";
             TopMost = true;
-            ( (System.ComponentModel.ISupportInitialize) NotifyIcon  ).EndInit( );
+            ( (System.ComponentModel.ISupportInitialize)NotifyIcon ).EndInit( );
             Header.ResumeLayout( false );
             Panel.ResumeLayout( false );
             ResumeLayout( false );
@@ -181,7 +178,7 @@
         public Label Title;
         public Label Message;
         public System.Windows.Forms.TableLayoutPanel Header;
-        public Layout Panel;
+        public BackPanel Panel;
         public System.Windows.Forms.Timer Timer;
     }
 }

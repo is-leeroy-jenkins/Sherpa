@@ -89,10 +89,10 @@ namespace BudgetExecution
             : this( )
         {
             Record = builder.Record;
-            ID = int.Parse( builder.Record[ "AccountingEventsId" ].ToString( ) ?? "0" );
-            Code = builder.Record[ "Code" ].ToString( );
-            Name = builder.Record[ "Name" ].ToString( );
-            Data = builder.Record.ToDictionary( );
+            ID = int.Parse( Record[ "AccountingEventsId" ].ToString( ) ?? "0" );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            Data = Record.ToDictionary( );
         }
 
         /// <inheritdoc/>

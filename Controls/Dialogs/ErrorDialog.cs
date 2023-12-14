@@ -46,23 +46,33 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
 
-    /// <summary> </summary>
+    /// <summary>
+    /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public partial class ErrorDialog : MetroForm
     {
-        /// <summary> Gets or sets the exception. </summary>
-        /// <value> The exception. </value>
+        /// <summary>
+        /// Gets or sets the exception.
+        /// </summary>
+        /// <value>
+        /// The exception.
+        /// </value>
         public virtual Exception Exception { get; set; }
 
-        /// <summary> Gets or sets the icon path. </summary>
-        /// <value> The icon path. </value>
+        /// <summary>
+        /// Gets or sets the icon path.
+        /// </summary>
+        /// <value>
+        /// The icon path.
+        /// </value>
         public virtual string IconPath { get; set; }
 
         /// <inheritdoc/>
@@ -74,10 +84,11 @@ namespace BudgetExecution
         public ErrorDialog( )
         {
             InitializeComponent( );
+            InitializeCallbacks( );
 
             // Form Property Values
             BackColor = Color.FromArgb( 20, 20, 20 );
-            BorderThickness = 2;
+            BorderThickness = 1;
             BorderColor = Color.Red;
             Size = new Size( 700, 450 );
             MaximumSize = new Size( 700, 450 );
@@ -97,24 +108,14 @@ namespace BudgetExecution
             Padding = new Padding( 1 );
             Text = string.Empty;
 
-            // Header Label Properties
-            Title.ForeColor = Color.Red;
-
-            // TextBox Properties
-            TextBox.Font = new Font( "Roboto", 8 );
-            TextBox.ForeColor = Color.White;
-            TextBox.BackColor = Color.FromArgb( 40, 40, 40 );
-            TextBox.BorderColor = Color.Maroon;
-            TextBox.HoverColor = Color.Maroon;
-
             // Event Wiring
             Load += OnLoad;
-            CloseButton.Click += OnCloseButtonClick;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ErrorDialog"/>
+        /// <see cref="T:BudgetExecution.ErrorDialog" />
         /// class.
         /// </summary>
         /// <param name="ext"> The ext. </param>
@@ -125,9 +126,10 @@ namespace BudgetExecution
             TextBox.Text = ext.ToLogString( Exception?.Message );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ErrorDialog"/>
+        /// <see cref="T:BudgetExecution.ErrorDialog" />
         /// class.
         /// </summary>
         /// <param name="message"> The message. </param>
@@ -138,32 +140,40 @@ namespace BudgetExecution
             TextBox.Text = message;
         }
 
-        /// <summary> Called when [load]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        public void OnLoad( object sender, EventArgs e )
+        /// <summary>
+        /// Initializes the callbacks.
+        /// </summary>
+        private void InitializeCallbacks( )
         {
-            try
-            {
-                Title.TextAlign = ContentAlignment.MiddleLeft;
-                Title.ForeColor = Color.Red;
-                if( Exception != null )
-                {
-                    var _message = Exception.Message;
-                    TextBox.Text = Exception.ToLogString( _message );
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
+            CloseButton.Click += OnCloseButtonClick;
         }
 
-        /// <summary> Sets the text. </summary>
+        /// <summary>
+        /// Initializes the labels.
+        /// </summary>
+        private void InitializeLabels( )
+        {
+            // Header Label Properties
+            Title.ForeColor = Color.Red;
+            Title.TextAlign = ContentAlignment.MiddleLeft;
+        }
+
+        /// <summary>
+        /// Initializes the text box.
+        /// </summary>
+        private void InitializeTextBox( )
+        {
+            // TextBox Properties
+            TextBox.Font = new Font( "Roboto", 8 );
+            TextBox.ForeColor = Color.FromArgb( 106, 189, 252 );
+            TextBox.BackColor = Color.FromArgb( 40, 40, 40 );
+            TextBox.BorderColor = Color.Maroon;
+            TextBox.HoverColor = Color.Maroon;
+        }
+
+        /// <summary>
+        /// Sets the text.
+        /// </summary>
         public void SetText( )
         {
             try
@@ -177,8 +187,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the text. </summary>
-        /// <param name="exc"> The exc. </param>
+        /// <summary>
+        /// Sets the text.
+        /// </summary>
+        /// <param name="exc">The exc.</param>
         public void SetText( Exception exc )
         {
             try
@@ -192,11 +204,38 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the text. </summary>
-        /// <param name="msg"> The MSG. </param>
+        /// <summary>
+        /// Sets the text.
+        /// </summary>
+        /// <param name="msg">The MSG.</param>
         public void SetText( string msg = "" )
         {
             TextBox.Text = msg;
+        }
+
+        /// <summary> Called when [load]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnLoad( object sender, EventArgs e )
+        {
+            try
+            {
+                InitializeLabels( );
+                InitializeTextBox( );
+                if( Exception != null )
+                {
+                    var _message = Exception.Message;
+                    TextBox.Text = Exception.ToLogString( _message );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary> Called when [close button click]. </summary>

@@ -44,7 +44,6 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
-    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Licensing;
 
@@ -53,20 +52,27 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public static class Program
     {
-        /// <summary> Gets or sets the windows. </summary>
-        /// <value> The windows. </value>
+        /// <summary>
+        /// Gets or sets the windows.
+        /// </summary>
+        /// <value>
+        /// The windows.
+        /// </value>
         public static IDictionary<string, Form> Windows { get; set; }
 
-        /// <summary> The main entry point for the application. </summary>
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
         [ STAThread ]
         public static void Main( )
         {
-            var _key = ConfigurationManager.AppSettings[ "Syncfusion" ];
+            var _key = ConfigurationManager.AppSettings[ nameof( Syncfusion ) ];
             SyncfusionLicenseProvider.RegisterLicense( _key );
             Application.EnableVisualStyles( );
             Application.SetCompatibleTextRenderingDefault( false );
             Windows = new Dictionary<string, Form>( );
             var _mainForm = new MainForm( );
+            Program.Windows.Add( nameof( MainForm ), _mainForm );
             Application.Run( _mainForm );
         }
     }

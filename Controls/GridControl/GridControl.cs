@@ -46,9 +46,7 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.Threading;
     using System.Windows.Forms;
-    using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Grid;
 
@@ -60,7 +58,7 @@ namespace BudgetExecution
     public class GridControl : Syncfusion.Windows.Forms.Grid.GridControl
     {
         /// <summary> The grid information </summary>
-        public readonly GridStyleInfo GridStyle = new GridStyleInfo ( );
+        public readonly GridStyleInfo GridStyle = new GridStyleInfo( );
 
         /// <inheritdoc/>
         /// <summary>
@@ -75,22 +73,24 @@ namespace BudgetExecution
             Size = new Size( 750, 350 );
             ThemesEnabled = true;
             CanApplyTheme = true;
-            GridVisualStyles = GridVisualStyles.Office2016DarkGray;
-            CanOverrideStyle = true;
+            CanOverrideStyle = false;
+            GridVisualStyles = GridVisualStyles.Office2016Black;
+            Office2016ScrollBarsColorScheme = ScrollBarOffice2016ColorScheme.Black;
             DefaultColWidth = 150;
             DefaultRowHeight = 22;
             RowCount = 100;
             ColCount = 50;
             DefaultGridBorderStyle = GridBorderStyle.Dotted;
-            GridLineColor = Color.FromArgb( 120, 120, 120 );
-            ColorStyles = ColorStyles.Office2016DarkGray;
-            ForeColor = Color.White;
+            GridLineColor = Color.FromArgb( 106, 189, 252 );
+            ColorStyles = ColorStyles.Office2016Black;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             BackColor = Color.FromArgb( 20, 20, 20 );
             Office2016ScrollBars = true;
             SizeGripStyle = SizeGripStyle.Hide;
             GridStyle.BackColor = Color.FromArgb( 60, 60, 60 );
-            GridStyle.Interior = new BrushInfo( GradientStyle.None, ForeColor,
-                Color.FromArgb( 60, 60, 60 ) );
+            GridStyle.Interior 
+                = new Syncfusion.Drawing.BrushInfo( Syncfusion.Drawing.GradientStyle.None, ForeColor,
+                    Color.FromArgb( 60, 60, 60 ) );
 
             RangeStyles[ 0 ].StyleInfo = GridStyle;
             BaseStylesMap[ "Row Header" ].StyleInfo.HorizontalAlignment =

@@ -47,7 +47,6 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.Threading;
     using System.Windows.Forms;
     using MetroSet_UI.Controls;
     using MetroSet_UI.Enums;
@@ -57,22 +56,39 @@ namespace BudgetExecution
     /// <seealso cref="MetroSet_UI.Controls.MetroSetCheckBox"/>
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public class CheckBox : MetroSetCheckBox
     {
-        /// <summary> Gets or sets the tool tip. </summary>
-        /// <value> The tool tip. </value>
-        public virtual SmallTip ToolTip { get; set; }
+        /// <summary>
+        /// Gets or sets the tool tip.
+        /// </summary>
+        /// <value>
+        /// The tool tip.
+        /// </value>
+        public SmallTip ToolTip { get; set; }
 
-        /// <summary> Gets or sets the hover text. </summary>
-        /// <value> The hover text. </value>
-        public virtual string HoverText { get; set; }
+        /// <summary>
+        /// Gets or sets the hover text.
+        /// </summary>
+        /// <value>
+        /// The hover text.
+        /// </value>
+        public string HoverText { get; set; }
 
-        /// <summary> Gets or sets the data filter. </summary>
-        /// <value> The data filter. </value>
-        public virtual IDictionary<string, object> DataFilter { get; set; }
+        /// <summary>
+        /// Gets or sets the data filter.
+        /// </summary>
+        /// <value>
+        /// The data filter.
+        /// </value>
+        public IDictionary<string, object> Filter { get; set; }
 
-        /// <summary> Gets or sets the binding source. </summary>
-        /// <value> The binding source. </value>
+        /// <summary>
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
         public BindingSource BindingSource { get; set; }
 
         /// <summary>
@@ -90,7 +106,7 @@ namespace BudgetExecution
             BackColor = Color.FromArgb( 20, 20, 20 );
             DisabledBorderColor = Color.FromArgb( 20, 20, 20 );
             Font = new Font( "Roboto", 8 );
-            ForeColor = Color.LightGray;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
             Dock = DockStyle.None;
             Cursor = Cursors.Hand;
@@ -98,16 +114,17 @@ namespace BudgetExecution
             CheckSignColor = Color.LimeGreen;
             CheckState = CheckState.Unchecked;
 
-            // Disabled Color Configuration
-            DisabledBorderColor = Color.Transparent;
-
             // Event Wiring
             MouseHover += OnMouseOver;
             MouseLeave += OnMouseLeave;
         }
 
-        /// <summary> Called when [mouse over]. </summary>
-        /// <param name="sender"> The sender. </param>
+        /// <summary>
+        /// Called when [mouse over].
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
         /// <param name="e">
         /// The
         /// <see cref="EventArgs"/>
@@ -139,8 +156,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [mouse leave]. </summary>
-        /// <param name="sender"> The sender. </param>
+        /// <summary>
+        /// Called when [mouse leave].
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
         /// <param name="e">
         /// The
         /// <see cref="EventArgs"/>
@@ -161,8 +182,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">
+        /// The ex.
+        /// </param>
         private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

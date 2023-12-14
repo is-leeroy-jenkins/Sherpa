@@ -1,14 +1,14 @@
-﻿// ************************************************************************************************
-//     Assembly:                Budget Execution
+﻿// ******************************************************************************************
+//     Assembly:              Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:              15-11-2023
+//     Created:                 12-9-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        15-11-2023
-// ************************************************************************************************
-// <copyright file="EmailValidator'.cs.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
+//     Last Modified On:        12-9-2023
+// ******************************************************************************************
+// <copyright file="EmailValidator.cs" company="Terry D. Eppler">
+//    This is a tiny web browser used in Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,22 +31,24 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    Contact at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   Eppler, Terry.cs
+//   EmailValidator.cs
 // </summary>
-// ************************************************************************************************
+// ******************************************************************************************
+
 namespace BudgetExecution
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
+    [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     public class EmailValidator : ValidationBase
     {
         /// <summary>
@@ -62,9 +64,9 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( text, nameof( text) );
+                ThrowIf.NullOrEmpty( text, nameof( text ) );
                 ThrowIf.Negative( index, nameof( index ) );
-                if( !SkipSubDomain( text, ref index, allowInternational, out var type ) )
+                if( !SkipSubDomain( text, ref index, allowInternational, out var _type ) )
                 {
                     return false;
                 }
@@ -79,8 +81,8 @@ namespace BudgetExecution
                         {
                             return false;
                         }
-                    
-                        if( !SkipSubDomain( text, ref index, allowInternational, out type ) )
+
+                        if( !SkipSubDomain( text, ref index, allowInternational, out _type ) )
                         {
                             return false;
                         }
@@ -93,7 +95,7 @@ namespace BudgetExecution
                     return false;
                 }
 
-                return type != SubDomainType.Numeric;
+                return _type != SubDomainType.Numeric;
             }
             catch( Exception _ex )
             {
@@ -111,7 +113,7 @@ namespace BudgetExecution
         /// <returns></returns>
         private static bool SkipQuoted( string text, ref int index, bool allowInternational )
         {
-            var escaped = false;
+            var _escaped = false;
             index++;
             while( index < text.Length )
             {
@@ -123,9 +125,9 @@ namespace BudgetExecution
 
                 if( text[ index ] == '\\' )
                 {
-                    escaped = !escaped;
+                    _escaped = !_escaped;
                 }
-                else if( !escaped )
+                else if( !_escaped )
                 {
                     if( text[ index ] == '"' )
                     {
@@ -134,7 +136,7 @@ namespace BudgetExecution
                 }
                 else
                 {
-                    escaped = false;
+                    _escaped = false;
                 }
 
                 index++;
@@ -162,28 +164,28 @@ namespace BudgetExecution
             {
                 ThrowIf.NullOrEmpty( text, nameof( text ) );
                 ThrowIf.Negative( index, nameof( index ) );
-                var groups = 0;
+                var _groups = 0;
                 while( ( index < text.Length )
-                      && ( groups < 4 ) )
+                      && ( _groups < 4 ) )
                 {
-                    var startIndex = index;
-                    var value = 0;
+                    var _startIndex = index;
+                    var _value = 0;
                     while( ( index < text.Length )
                           && IsDigit( text[ index ] ) )
                     {
-                        value = value * 10 + ( text[ index ] - '0' );
+                        _value = ( _value * 10 ) + ( text[ index ] - '0' );
                         index++;
                     }
 
-                    if( ( index == startIndex )
-                       || ( ( index - startIndex ) > 3 )
-                       || ( value > 255 ) )
+                    if( ( index == _startIndex )
+                       || ( ( index - _startIndex ) > 3 )
+                       || ( _value > 255 ) )
                     {
                         return false;
                     }
 
-                    groups++;
-                    if( ( groups < 4 )
+                    _groups++;
+                    if( ( _groups < 4 )
                        && ( index < text.Length )
                        && ( text[ index ] == '.' ) )
                     {
@@ -191,7 +193,7 @@ namespace BudgetExecution
                     }
                 }
 
-                return groups == 4;
+                return _groups == 4;
             }
             catch( Exception _ex )
             {
@@ -234,12 +236,12 @@ namespace BudgetExecution
             {
                 ThrowIf.NullOrEmpty( text, nameof( text ) );
                 ThrowIf.Negative( index, nameof( index ) );
-                var needGroup = false;
-                var compact = false;
-                var groups = 0;
+                var _needGroup = false;
+                var _compact = false;
+                var _groups = 0;
                 while( index < text.Length )
                 {
-                    var startIndex = index;
+                    var _startIndex = index;
                     while( ( index < text.Length )
                           && IsHexDigit( text[ index ] ) )
                     {
@@ -251,33 +253,33 @@ namespace BudgetExecution
                         break;
                     }
 
-                    if( ( index > startIndex )
+                    if( ( index > _startIndex )
                        && ( text[ index ] == '.' )
-                       && ( compact || ( groups == 6 ) ) )
+                       && ( _compact || ( _groups == 6 ) ) )
                     {
-                        index = startIndex;
+                        index = _startIndex;
                         if( !SkipIPv4Literal( text, ref index ) )
                         {
                             return false;
                         }
 
-                        return compact
-                            ? groups <= 4
-                            : groups == 6;
+                        return _compact
+                            ? _groups <= 4
+                            : _groups == 6;
                     }
 
-                    var count = index - startIndex;
-                    if( count > 4 )
+                    var _count = index - _startIndex;
+                    if( _count > 4 )
                     {
                         return false;
                     }
 
-                    bool comp;
-                    if( count > 0 )
+                    bool _comp;
+                    if( _count > 0 )
                     {
-                        needGroup = false;
-                        comp = false;
-                        groups++;
+                        _needGroup = false;
+                        _comp = false;
+                        _groups++;
                         if( text[ index ] != ':' )
                         {
                             break;
@@ -285,49 +287,49 @@ namespace BudgetExecution
                     }
                     else if( text[ index ] == ':' )
                     {
-                        comp = true;
+                        _comp = true;
                     }
                     else
                     {
                         break;
                     }
 
-                    startIndex = index;
+                    _startIndex = index;
                     while( ( index < text.Length )
                           && ( text[ index ] == ':' ) )
                     {
                         index++;
                     }
 
-                    count = index - startIndex;
-                    if( count > 2 )
+                    _count = index - _startIndex;
+                    if( _count > 2 )
                     {
                         return false;
                     }
 
-                    if( count == 2 )
+                    if( _count == 2 )
                     {
-                        if( compact )
+                        if( _compact )
                         {
                             return false;
                         }
 
-                        compact = true;
+                        _compact = true;
                     }
-                    else if( comp )
+                    else if( _comp )
                     {
                         return false;
                     }
                     else
                     {
-                        needGroup = true;
+                        _needGroup = true;
                     }
                 }
 
-                return !needGroup
-                    && ( compact
-                        ? groups <= 6
-                        : groups == 8 );
+                return !_needGroup
+                    && ( _compact
+                        ? _groups <= 6
+                        : _groups == 8 );
             }
             catch( Exception _ex )
             {
@@ -350,7 +352,7 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.NullOrEmpty( email, nameof( email ) );
-                var index = 0;
+                var _index = 0;
                 if( email == null )
                 {
                     throw new ArgumentNullException( nameof( email ) );
@@ -363,91 +365,91 @@ namespace BudgetExecution
                     return false;
                 }
 
-                if( email[ index ] == '"' )
+                if( email[ _index ] == '"' )
                 {
-                    if( !SkipQuoted( email, ref index, allowInternational )
-                       || ( index >= email.Length ) )
+                    if( !SkipQuoted( email, ref _index, allowInternational )
+                       || ( _index >= email.Length ) )
                     {
                         return false;
                     }
                 }
                 else
                 {
-                    if( !SkipAtom( email, ref index, allowInternational )
-                       || ( index >= email.Length ) )
+                    if( !SkipAtom( email, ref _index, allowInternational )
+                       || ( _index >= email.Length ) )
                     {
                         return false;
                     }
 
-                    while( email[ index ] == '.' )
+                    while( email[ _index ] == '.' )
                     {
-                        index++;
-                        if( index >= email.Length )
+                        _index++;
+                        if( _index >= email.Length )
                         {
                             return false;
                         }
 
-                        if( !SkipAtom( email, ref index, allowInternational ) )
+                        if( !SkipAtom( email, ref _index, allowInternational ) )
                         {
                             return false;
                         }
 
-                        if( index >= email.Length )
+                        if( _index >= email.Length )
                         {
                             return false;
                         }
                     }
                 }
 
-                var localPartLength = Measure( email, 0, index, allowInternational );
-                if( ( ( index + 1 ) >= email.Length )
-                   || ( localPartLength > MaxLocalPartLength )
-                   || ( email[ index++ ] != '@' ) )
+                var _localPartLength = Measure( email, 0, _index, allowInternational );
+                if( ( ( _index + 1 ) >= email.Length )
+                   || ( _localPartLength > MaxLocalPartLength )
+                   || ( email[ _index++ ] != '@' ) )
                 {
                     return false;
                 }
 
-                if( email[ index ] != '[' )
+                if( email[ _index ] != '[' )
                 {
-                    if( !SkipDomain( email, ref index, allowTopLevelDomains, allowInternational ) )
+                    if( !SkipDomain( email, ref _index, allowTopLevelDomains, allowInternational ) )
                     {
                         return false;
                     }
 
-                    return index == email.Length;
+                    return _index == email.Length;
                 }
 
-                index++;
-                if( ( index + 7 ) >= email.Length )
+                _index++;
+                if( ( _index + 7 ) >= email.Length )
                 {
                     return false;
                 }
 
-                if( string.Compare( email, index, "IPv6:", 0, 5,
+                if( string.Compare( email, _index, "IPv6:", 0, 5,
                        StringComparison.OrdinalIgnoreCase )
                    == 0 )
                 {
-                    index += "IPv6:".Length;
-                    if( !SkipIPv6Literal( email, ref index ) )
+                    _index += "IPv6:".Length;
+                    if( !SkipIPv6Literal( email, ref _index ) )
                     {
                         return false;
                     }
                 }
                 else
                 {
-                    if( !SkipIPv4Literal( email, ref index ) )
+                    if( !SkipIPv4Literal( email, ref _index ) )
                     {
                         return false;
                     }
                 }
 
-                if( ( index >= email.Length )
-                   || ( email[ index++ ] != ']' ) )
+                if( ( _index >= email.Length )
+                   || ( email[ _index++ ] != ']' ) )
                 {
                     return false;
                 }
 
-                return index == email.Length;
+                return _index == email.Length;
             }
             catch( Exception _ex )
             {

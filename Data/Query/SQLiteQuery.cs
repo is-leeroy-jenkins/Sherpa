@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 12-10-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        12-10-2023
 // ******************************************************************************************
 // <copyright file="SQLiteQuery.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
+//    Budget Execution is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,7 +31,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//    Contact at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   SQLiteQuery.cs
@@ -56,7 +56,6 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public class SQLiteQuery : Query
     {
-
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
@@ -117,7 +116,7 @@ namespace BudgetExecution
         /// <param name="where"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
         public SQLiteQuery( Source source, IDictionary<string, object> updates,
-                            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
+            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
             : base( source, Provider.SQLite, updates, where, commandType )
         {
         }
@@ -133,7 +132,7 @@ namespace BudgetExecution
         /// <param name="criteria"> The criteria. </param>
         /// <param name="commandType"> Type of the command. </param>
         public SQLiteQuery( Source source, IEnumerable<string> columns,
-                            IDictionary<string, object> criteria, SQL commandType = SQL.SELECT )
+            IDictionary<string, object> criteria, SQL commandType = SQL.SELECT )
             : base( source, Provider.SQLite, columns, criteria, commandType )
         {
         }
@@ -229,7 +228,7 @@ namespace BudgetExecution
                     if( ( _table?.Rows.Count > 0 )
                        && CheckIfSheetNameExists( sheetName, _table ) )
                     {
-                        var _message = new Message( _msg );
+                        var _message = new MessageDialog( _msg );
                         _message?.ShowDialog( );
                     }
                     else
@@ -325,24 +324,6 @@ namespace BudgetExecution
             return default( IEnumerable<SQLiteParameter> );
         }
 
-        /// <inheritdoc/>
-        /// <summary> Releases unmanaged and - optionally - managed resources. </summary>
-        /// <param name="disposing">
-        /// <c> true </c>
-        /// to release both managed and unmanaged resources;
-        /// <c> false </c>
-        /// to release only unmanaged resources.
-        /// </param>
-        protected override void Dispose( bool disposing )
-        {
-            if( disposing )
-            {
-                base.Dispose( disposing );
-            }
-
-            IsDisposed = true;
-        }
-
         /// <summary> Gets the command builder. </summary>
         /// <param name="adapter"> The adapter. </param>
         /// <returns> </returns>
@@ -397,9 +378,10 @@ namespace BudgetExecution
         /// <returns> </returns>
         private bool CheckIfSheetNameExists( string sheetName, DataTable dataSchema )
         {
-            if( !string.IsNullOrEmpty( sheetName )
-               && ( dataSchema?.Columns.Count > 0 ) )
+            try
             {
+                ThrowIf.NullOrEmpty( sheetName, nameof( sheetName ) );
+                ThrowIf.NoData( dataSchema, nameof( dataSchema ) );
                 for( var _i = 0; _i < dataSchema.Rows.Count; _i++ )
                 {
                     var _dataRow = dataSchema.Rows[ _i ];
@@ -408,9 +390,14 @@ namespace BudgetExecution
                         return true;
                     }
                 }
-            }
 
-            return false;
+                return false;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return false;
+            }
         }
 
         /// <summary> Creates the database. </summary>
@@ -421,7 +408,7 @@ namespace BudgetExecution
                                       [Key] NVARCHAR(2048)  NULL,
                                       [Value] VARCHAR(2048)  NULL )";
 
-            using var _connection = new SQLiteConnection( "Data source=databaseFile.db" );
+            using var _connection = new SQLiteConnection( "Data source=Data.db" );
             var _command = new SQLiteCommand( _connection );
             _connection.Open( );
             _command.CommandText = _commandText;
@@ -437,28 +424,6 @@ namespace BudgetExecution
             _command.CommandText = "SELECT * FROM MyTable";
             _command.ExecuteReader( );
             _connection.Close( );
-        }
-
-        /// <summary> </summary>
-        public enum ColDataType
-        {
-            /// <summary> The default </summary>
-            Default,
-
-            /// <summary> The text </summary>
-            Text,
-
-            /// <summary> The date time </summary>
-            DateTime,
-
-            /// <summary> The integer </summary>
-            Integer,
-
-            /// <summary> The decimal </summary>
-            Decimal,
-
-            /// <summary> The BLOB </summary>
-            Blob
         }
     }
 }

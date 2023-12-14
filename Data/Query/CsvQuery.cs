@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 12-10-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        12-10-2023
 // ******************************************************************************************
 // <copyright file="CsvQuery.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
+//    Budget Execution is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,7 +31,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//    Contact at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   CsvQuery.cs
@@ -53,10 +53,14 @@ namespace BudgetExecution
     /// <summary> </summary>
     /// <seealso cref="T:BudgetExecution.Query"/>
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class CsvQuery : Query
     {
         /// <inheritdoc/>
-        /// <summary> Gets the Provider </summary>
+        /// <summary>
+        /// Gets the Provider
+        /// </summary>
         public new Provider Provider { get; set; } = Provider.CSV;
 
         /// <inheritdoc/>
@@ -105,7 +109,7 @@ namespace BudgetExecution
         /// <param name="dict"> </param>
         /// <param name="commandType"> The type of sql command. </param>
         public CsvQuery( Source source, Provider provider, IDictionary<string, object> dict,
-                         SQL commandType )
+            SQL commandType )
             : base( source, provider, dict, commandType )
         {
         }
@@ -122,7 +126,7 @@ namespace BudgetExecution
         /// <param name="where"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
         public CsvQuery( Source source, Provider provider, IDictionary<string, object> updates,
-                         IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
+            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
             : base( source, provider, updates, where, commandType )
         {
         }
@@ -139,7 +143,7 @@ namespace BudgetExecution
         /// <param name="criteria"> </param>
         /// <param name="commandType"> Type of the command. </param>
         public CsvQuery( Source source, Provider provider, IEnumerable<string> columns,
-                         IDictionary<string, object> criteria, SQL commandType = SQL.SELECT )
+            IDictionary<string, object> criteria, SQL commandType = SQL.SELECT )
             : base( source, provider, columns, criteria, commandType )
         {
         }
@@ -212,204 +216,166 @@ namespace BudgetExecution
         {
         }
 
-        /// <summary> Saves the file. </summary>
-        /// <param name="workBook"> The work book. </param>
-        public void SaveFile( ExcelPackage workBook )
+        /// <summary>
+        /// CSVs the import.
+        /// </summary>
+        /// <param name="sheetName">Name of the sheet.</param>
+        /// <returns></returns>
+        public DataTable CsvImport( ref string sheetName )
         {
-            if( workBook != null )
+            try
             {
-                try
-                {
-                    var _fileDialog = new SaveFileDialog
-                    {
-                        Filter = "CSV files (*.csv)|*.csv",
-                        FilterIndex = 1
-                    };
+                ThrowIf.NullOrEmpty( sheetName, nameof( sheetName ) );
+                using var _dataSet = new DataSet( );
+                var _sql = "SELECT * FROM [" + sheetName + "]";
+                var _connstring = $@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source={
+                    Path.GetDirectoryName( sheetName )};"
+                    + "Extended Properties='Text;HDR=YES;FMT=Delimited'";
 
-                    if( _fileDialog.ShowDialog( ) == DialogResult.OK )
+                using var _connection = new OleDbConnection( _connstring );
+                var _schema = _connection.GetOleDbSchemaTable( OleDbSchemaGuid.Tables, null );
+                if( !string.IsNullOrEmpty( sheetName ) )
+                {
+                    if( !SheetExists( sheetName, _schema ) )
                     {
-                        workBook.SaveAs( new FileInfo( _fileDialog.FileName ) );
-                        const string MSG = "Save Successful!";
-                        using var _message = new Message( MSG );
+                        var _msg = $"{sheetName} in {sheetName} Does Not Exist!";
+                        using var _message = new MessageDialog( _msg );
                         _message?.ShowDialog( );
                     }
                 }
-                catch( Exception _ex )
+                else
                 {
-                    Fail( _ex );
+                    sheetName = _schema?.Rows[ 0 ][ "TABLENAME" ].ToString( );
                 }
+
+                using var _dataAdapter = new OleDbDataAdapter( _sql, _connection );
+                _dataAdapter.Fill( _dataSet );
+                return _dataSet.Tables[ 0 ];
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( DataTable );
             }
         }
 
         /// <summary> CSVs the import. </summary>
+        /// <param name="filePath"> Name of the file. </param>
         /// <param name="sheetName"> Name of the sheet. </param>
         /// <returns> </returns>
-        public DataTable CsvImport( ref string sheetName )
+        public DataTable CsvImport( string filePath, ref string sheetName )
         {
-            if( !string.IsNullOrEmpty( sheetName )
-               && !string.IsNullOrEmpty( sheetName ) )
+            try
             {
-                try
-                {
-                    using var _dataSet = new DataSet( );
-                    var _sql = "SELECT * FROM [" + sheetName + "]";
-                    var _connectionString = $@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source={
-                        Path.GetDirectoryName( sheetName )};"
-                        + "Extended Properties='Text;HDR=YES;FMT=Delimited'";
+                ThrowIf.NullOrEmpty( filePath, nameof( filePath ) );
+                ThrowIf.NullOrEmpty( sheetName, nameof( sheetName ) );
+                using var _dataSet = new DataSet( );
+                var _sql = "SELECT * FROM [" + sheetName + "]";
+                var _connectionString = $@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source={
+                    Path.GetDirectoryName( filePath )
+                };Extended Properties='Text;HDR=YES;FMT=Delimited'";
 
-                    using var _connection = new OleDbConnection( _connectionString );
-                    var _schema = _connection.GetOleDbSchemaTable( OleDbSchemaGuid.Tables, null );
-                    if( !string.IsNullOrEmpty( sheetName ) )
-                    {
-                        if( !SheetExists( sheetName, _schema ) )
-                        {
-                            var _msg = $"{sheetName} in {sheetName} Does Not Exist!";
-                            using var _message = new Message( _msg );
-                            _message?.ShowDialog( );
-                        }
-                    }
-                    else
-                    {
-                        sheetName = _schema?.Rows[ 0 ][ "TABLENAME" ].ToString( );
-                    }
-
-                    using var _dataAdapter = new OleDbDataAdapter( _sql, _connection );
-                    _dataAdapter.Fill( _dataSet );
-                    return _dataSet.Tables[ 0 ];
-                }
-                catch( Exception _ex )
+                using var _connection = new OleDbConnection( _connectionString );
+                var _schema = _connection.GetOleDbSchemaTable( OleDbSchemaGuid.Tables, null );
+                if( !string.IsNullOrEmpty( sheetName ) )
                 {
-                    Fail( _ex );
-                    return default( DataTable );
+                    if( !SheetExists( sheetName, _schema ) )
+                    {
+                        var _msg = $"{sheetName} in {filePath} Does Not Exist!";
+                        using var _message = new MessageDialog( _msg );
+                        _message?.ShowDialog( );
+                    }
                 }
+                else
+                {
+                    sheetName = _schema?.Rows[ 0 ][ "TABLENAME" ].ToString( );
+                }
+
+                using var _dataAdapter = new OleDbDataAdapter( _sql, _connection );
+                _dataAdapter.Fill( _dataSet );
+                return _dataSet.Tables[ 0 ];
             }
-
-            return default( DataTable );
-        }
-
-        /// <summary> CSVs the import. </summary>
-        /// <param name="fileName"> Name of the file. </param>
-        /// <param name="sheetName"> Name of the sheet. </param>
-        /// <returns> </returns>
-        public DataTable CsvImport( string fileName, ref string sheetName )
-        {
-            if( !string.IsNullOrEmpty( fileName )
-               && !string.IsNullOrEmpty( sheetName ) )
+            catch( Exception _ex )
             {
-                try
-                {
-                    using var _dataSet = new DataSet( );
-                    var _sql = "SELECT * FROM [" + sheetName + "]";
-                    var _connectionString = $@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source={
-                        Path.GetDirectoryName( fileName )
-                    };Extended Properties='Text;HDR=YES;FMT=Delimited'";
-
-                    using var _connection = new OleDbConnection( _connectionString );
-                    var _schema = _connection.GetOleDbSchemaTable( OleDbSchemaGuid.Tables, null );
-                    if( !string.IsNullOrEmpty( sheetName ) )
-                    {
-                        if( !SheetExists( sheetName, _schema ) )
-                        {
-                            var _msg = $"{sheetName} in {fileName} Does Not Exist!";
-                            using var _message = new Message( _msg );
-                            _message?.ShowDialog( );
-                        }
-                    }
-                    else
-                    {
-                        sheetName = _schema?.Rows[ 0 ][ "TABLENAME" ].ToString( );
-                    }
-
-                    using var _dataAdapter = new OleDbDataAdapter( _sql, _connection );
-                    _dataAdapter.Fill( _dataSet );
-                    return _dataSet.Tables[ 0 ];
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( DataTable );
-                }
+                Fail( _ex );
+                return default( DataTable );
             }
-
-            return default( DataTable );
         }
 
         /// <summary> CSVs the export. </summary>
-        /// <param name="table"> The table. </param>
+        /// <param name="dataTable"> The table. </param>
         /// <param name="filePath"> The file path. </param>
-        public void CsvExport( DataTable table, string filePath )
+        public void CsvExport( DataTable dataTable, string filePath )
         {
-            if( ( table?.Columns.Count > 0 )
-               && ( table.Rows.Count > 0 )
-               && !string.IsNullOrEmpty( filePath ) )
+            try
             {
-                try
+                ThrowIf.NullOrEmpty( filePath, nameof( filePath ) );
+                ThrowIf.NoData( dataTable, nameof( dataTable ) );
+                using var _excel = CreateCsvFile( filePath );
+                var _name = Path.GetFileNameWithoutExtension( filePath );
+                var _sheet = _excel.Workbook.Worksheets.Add( _name );
+                var _columns = dataTable.Columns.Count;
+                var _rows = dataTable.Rows.Count;
+                for( var _column = 1; _column <= _columns; _column++ )
                 {
-                    using var _excel = CreateCsvFile( filePath );
-                    var _withoutExtension = Path.GetFileNameWithoutExtension( filePath );
-                    var _sheet = _excel.Workbook.Worksheets.Add( _withoutExtension );
-                    var _columns = table.Columns.Count;
-                    var _rows = table.Rows.Count;
-                    for( var _column = 1; _column <= _columns; _column++ )
-                    {
-                        _sheet.Cells[ 1, _column ].Value = table.Columns[ _column - 1 ].ColumnName;
-                    }
+                    _sheet.Cells[ 1, _column ].Value = dataTable.Columns[ _column - 1 ].ColumnName;
+                }
 
-                    for( var _row = 1; _row <= _rows; _row++ )
+                for( var _row = 1; _row <= _rows; _row++ )
+                {
+                    for( var _col = 0; _col < _columns; _col++ )
                     {
-                        for( var _col = 0; _col < _columns; _col++ )
-                        {
-                            _sheet.Cells[ _row + 1, _col + 1 ].Value =
-                                table.Rows[ _row - 1 ][ _col ];
-                        }
+                        _sheet.Cells[ _row + 1, _col + 1 ].Value =
+                            dataTable.Rows[ _row - 1 ][ _col ];
                     }
                 }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
-        /// <summary> CSVs the export. </summary>
-        /// <param name="dataGrid"> The data grid. </param>
+        /// <summary>
+        /// CSVs the export.
+        /// </summary>
+        /// <param name="dataGrid">The data grid.</param>
         public void CsvExport( DataGridView dataGrid )
         {
-            if( ( dataGrid?.DataSource != null )
-               && ( ConnectionFactory != null ) )
+            try
             {
-                try
+                ThrowIf.Null( dataGrid, nameof( dataGrid ) );
+                var _filePath = ConnectionFactory.ClientPath;
+                using var _excel = new ExcelPackage( new FileInfo( _filePath ) );
+                var _workbook = _excel.Workbook;
+                var _worksheet = _workbook.Worksheets[ 1 ];
+                var _rows = _worksheet.SelectedRange.Rows;
+                var _columns = _worksheet.SelectedRange.Columns;
+                dataGrid.ColumnCount = _columns;
+                dataGrid.RowCount = _rows;
+                for( var _i = 1; _i <= _rows; _i++ )
                 {
-                    var _filePath = ConnectionFactory.ClientPath;
-                    using var _excel = new ExcelPackage( new FileInfo( _filePath ) );
-                    var _workbook = _excel.Workbook;
-                    var _worksheet = _workbook.Worksheets[ 1 ];
-                    var _rows = _worksheet.SelectedRange.Rows;
-                    var _columns = _worksheet.SelectedRange.Columns;
-                    dataGrid.ColumnCount = _columns;
-                    dataGrid.RowCount = _rows;
-                    for( var _i = 1; _i <= _rows; _i++ )
+                    for( var _j = 1; _j <= _columns; _j++ )
                     {
-                        for( var _j = 1; _j <= _columns; _j++ )
+                        var _value = _worksheet.Cells[ _i, _j ].Value.ToString( );
+                        if( !string.IsNullOrEmpty( _value ) )
                         {
-                            var _value = _worksheet.Cells[ _i, _j ].Value.ToString( );
-                            if( !string.IsNullOrEmpty( _value ) )
-                            {
-                                dataGrid.Rows[ _i - 1 ].Cells[ _j - 1 ].Value = _value;
-                            }
+                            dataGrid.Rows[ _i - 1 ].Cells[ _j - 1 ].Value = _value;
                         }
                     }
                 }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
-        /// <summary> Creates the CSV file. </summary>
-        /// <param name="filePath"> The file path. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Creates the CSV file.
+        /// </summary>
+        /// <param name="filePath">The file path.</param>
+        /// <returns></returns>
         public ExcelPackage CreateCsvFile( string filePath )
         {
             if( !string.IsNullOrEmpty( filePath ) )
@@ -429,9 +395,11 @@ namespace BudgetExecution
             return default( ExcelPackage );
         }
 
-        /// <summary> Gets the CSV file. </summary>
-        /// <returns> </returns>
-        public string GetCsvFile( )
+        /// <summary>
+        /// Gets the CSV file path.
+        /// </summary>
+        /// <returns></returns>
+        public string GetCsvFilePath( )
         {
             try
             {
@@ -459,36 +427,34 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sheets the exists. </summary>
-        /// <param name="sheetName"> Name of the sheet. </param>
-        /// <param name="dataTable"> The data table. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Sheets the exists.
+        /// </summary>
+        /// <param name="sheetName">Name of the sheet.</param>
+        /// <param name="dataTable">The data table.</param>
+        /// <returns></returns>
         private bool SheetExists( string sheetName, DataTable dataTable )
         {
-            if( !string.IsNullOrEmpty( sheetName )
-               && ( dataTable?.Columns.Count > 0 )
-               && ( dataTable.Rows.Count > 0 ) )
+            try
             {
-                try
+                ThrowIf.NullOrEmpty( sheetName, nameof( sheetName ) );
+                ThrowIf.NoData( dataTable, nameof( dataTable ) );
+                for( var _i = 0; _i < dataTable.Rows.Count; _i++ )
                 {
-                    for( var _i = 0; _i < dataTable.Rows.Count; _i++ )
+                    var _dataRow = dataTable.Rows[ _i ];
+                    if( sheetName == _dataRow[ "TABLENAME" ].ToString( ) )
                     {
-                        var _dataRow = dataTable.Rows[ _i ];
-                        if( sheetName == _dataRow[ "TABLENAME" ].ToString( ) )
-                        {
-                            return true;
-                        }
+                        return true;
                     }
+                }
 
-                    return false;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                return false;
             }
-
-            return false;
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return false;
+            }
         }
     }
 }

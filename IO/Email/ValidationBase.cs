@@ -1,14 +1,14 @@
-﻿// ************************************************************************************************
-//     Assembly:                Budget Execution
+﻿// ******************************************************************************************
+//     Assembly:              Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:              15-11-2023
+//     Created:                 12-9-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        15-11-2023
-// ************************************************************************************************
-// <copyright file="ValidationBase.cs.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
+//     Last Modified On:        12-9-2023
+// ******************************************************************************************
+// <copyright file="ValidationBase.cs" company="Terry D. Eppler">
+//    This is a tiny web browser used in Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,12 +31,13 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    Contact at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   Eppler, Terry.cs
+//   ValidationBase.cs
 // </summary>
-// ************************************************************************************************
+// ******************************************************************************************
+
 namespace BudgetExecution
 {
     using System;
@@ -46,25 +47,27 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public abstract class ValidationBase
     {
         /// <summary>
-        /// 
+        /// The atom characters
         /// </summary>
         private protected const string AtomCharacters = "!#$%&'*+-/=?^_`{|}~";
 
         /// <summary>
-        /// 
+        /// The maximum domain label length
         /// </summary>
         private protected const int MaxDomainLabelLength = 63;
 
         /// <summary>
-        /// 
+        /// The maximum email address length
         /// </summary>
         private protected const int MaxEmailAddressLength = 254;
 
         /// <summary>
-        /// 
+        /// The maximum local part length
         /// </summary>
         private protected const int MaxLocalPartLength = 64;
 
@@ -75,50 +78,61 @@ namespace BudgetExecution
         /// <param name="startIndex"></param>
         /// <param name="endIndex"></param>
         /// <param name="allowInternational"></param>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         private protected static int Measure( string text, int startIndex, int endIndex,
             bool allowInternational )
         {
-            int count;
-            if( allowInternational )
+            try
             {
-                var index = startIndex;
-                count = 0;
-                while( index < endIndex )
+                ThrowIf.NullOrEmpty( text, nameof( text ) );
+                int count;
+                if( allowInternational )
                 {
-                    if( ( ( index + 1 ) < endIndex )
-                       && char.IsSurrogatePair( text, index ) )
+                    var index = startIndex;
+                    count = 0;
+                    while( index < endIndex )
                     {
+                        if( ( ( index + 1 ) < endIndex )
+                           && char.IsSurrogatePair( text, index ) )
+                        {
+                            index++;
+                        }
+
                         index++;
+                        count++;
                     }
-
-                    index++;
-                    count++;
                 }
+                else
+                {
+                    count = endIndex - startIndex;
+                }
+
+                return count;
             }
-            else
+            catch( Exception _ex )
             {
-                count = endIndex - startIndex;
+                Fail( _ex );
+                return default( int );
             }
-
-            return count;
         }
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="c"></param>
-        /// <returns></returns>
-        private protected static bool IsControl( char c )
-        {
-            return ( c <= 31 ) || ( c == 127 );
-        }
+        /// <param name="c">
+        /// </param>
+        /// <returns>
+        /// </returns>
+        private protected static bool IsControl( char c ) => ( c <= 31 ) || ( c == 127 );
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="c"></param>
-        /// <returns></returns>
+        /// <param name="c">
+        /// </param>
+        /// <returns>
+        /// </returns>
         public static bool IsDigit( char c )
         {
             try
@@ -137,8 +151,10 @@ namespace BudgetExecution
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="c"></param>
-        /// <returns></returns>
+        /// <param name="c">
+        /// </param>
+        /// <returns>
+        /// </returns>
         private protected static bool IsLetter( char c )
         {
             try
@@ -158,7 +174,8 @@ namespace BudgetExecution
         /// 
         /// </summary>
         /// <param name="c"></param>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         private protected static bool IsLetterOrDigit( char c )
         {
             try
@@ -179,7 +196,8 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="c"></param>
         /// <param name="allowInternational"></param>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         private protected static bool IsAtom( char c, bool allowInternational )
         {
             try
@@ -209,7 +227,7 @@ namespace BudgetExecution
         /// <param name="allowInternational"></param>
         /// <param name="type"></param>
         /// <returns></returns>
-        private protected static bool IsDomain( char c, bool allowInternational, 
+        private protected static bool IsDomain( char c, bool allowInternational,
             ref SubDomainType type )
         {
             try
@@ -256,7 +274,7 @@ namespace BudgetExecution
         /// <param name="allowInternational"></param>
         /// <param name="type"></param>
         /// <returns></returns>
-        private static bool IsDomainStart( char c, bool allowInternational, 
+        private static bool IsDomainStart( char c, bool allowInternational,
             out SubDomainType type )
         {
             try
@@ -279,7 +297,7 @@ namespace BudgetExecution
 
                     type = SubDomainType.None;
                     return false;
-                } 
+                }
                 else if( allowInternational && !char.IsWhiteSpace( c ) )
                 {
                     type = SubDomainType.Alphabetic;
@@ -306,7 +324,7 @@ namespace BudgetExecution
         /// <param name="index"></param>
         /// <param name="allowInternational"></param>
         /// <returns></returns>
-        private protected static bool SkipAtom( string text, ref int index, 
+        private protected static bool SkipAtom( string text, ref int index,
             bool allowInternational )
         {
             try
@@ -365,8 +383,12 @@ namespace BudgetExecution
             return ( length <= MaxDomainLabelLength ) && ( text[ index - 1 ] != '-' );
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">
+        /// The ex.
+        /// </param>
         private protected static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

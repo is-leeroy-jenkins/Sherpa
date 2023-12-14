@@ -46,7 +46,6 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
@@ -61,16 +60,28 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public partial class CalculationForm : MetroForm
     {
-        /// <summary> Gets or sets the time. </summary>
-        /// <value> The time. </value>
+        /// <summary>
+        /// Gets or sets the time.
+        /// </summary>
+        /// <value>
+        /// The time.
+        /// </value>
         public int Time { get; set; }
 
-        /// <summary> Gets or sets the seconds. </summary>
-        /// <value> The seconds. </value>
+        /// <summary>
+        /// Gets or sets the seconds.
+        /// </summary>
+        /// <value>
+        /// The seconds.
+        /// </value>
         public int Seconds { get; set; }
 
-        /// <summary> Gets or sets the initial value. </summary>
-        /// <value> The initial value. </value>
+        /// <summary>
+        /// Gets or sets the initial value.
+        /// </summary>
+        /// <value>
+        /// The initial value.
+        /// </value>
         public double InitialValue { get; set; }
 
         /// <inheritdoc/>
@@ -86,7 +97,7 @@ namespace BudgetExecution
             // Basic Properties
             Font = new Font( "Roboto", 9 );
             BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.LightGray;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             Size = new Size( 373, 451 );
             FormBorderStyle = FormBorderStyle.FixedSingle;
             BorderColor = Color.FromArgb( 0, 120, 212 );
@@ -99,30 +110,8 @@ namespace BudgetExecution
             MaximizeBox = false;
             StartPosition = FormStartPosition.CenterParent;
 
-            // Calculator Configuration
-            Calculator.Font = new Font( "Roboto", 10 );
-            Calculator.Dock = DockStyle.Fill;
-            Calculator.BorderStyle = Border3DStyle.Adjust;
-            Calculator.HorizontalSpacing = 10;
-            Calculator.VerticalSpacing = 10;
-            Calculator.UseVerticalAndHorizontalSpacing = true;
-            Calculator.ShowDisplayArea = false;
-            Calculator.BackColor = Color.FromArgb( 20, 20, 20 );
-
-            // Label Configuration
-            ValueLabel.Font = new Font( "Roboto", 14 );
-            ValueLabel.Dock = DockStyle.Top;
-            ValueLabel.BackColor = Color.Transparent;
-            ValueLabel.ForeColor = Color.White;
-            ValueLabel.TextAlign = ContentAlignment.MiddleCenter;
-
-            // Timer Properties
-            Time = 0;
-            Seconds = 5;
-
             // Event Wiring
             Load += OnLoad;
-            CloseButton.Click += OnCloseButtonClick;
         }
 
         /// <inheritdoc/>
@@ -140,7 +129,85 @@ namespace BudgetExecution
             ValueLabel.Text = Calculator.Value.ToString( );
         }
 
-        /// <summary> Displays the control to the user. </summary>
+        /// <summary>
+        /// Initializes the calculator.
+        /// </summary>
+        private void InitializeCalculator( )
+        {
+            try
+            {
+                // Calculator Configuration
+                Calculator.Font = new Font( "Roboto", 9 );
+                Calculator.Dock = DockStyle.Fill;
+                Calculator.BorderStyle = Border3DStyle.Adjust;
+                Calculator.HorizontalSpacing = 10;
+                Calculator.VerticalSpacing = 10;
+                Calculator.UseVerticalAndHorizontalSpacing = true;
+                Calculator.ShowDisplayArea = false;
+                Calculator.BackColor = Color.FromArgb( 20, 20, 20 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the labels.
+        /// </summary>
+        private void InitializeLabels( )
+        {
+            try
+            {
+                // Label Configuration
+                ValueLabel.Font = new Font( "Roboto", 12 );
+                ValueLabel.Dock = DockStyle.Top;
+                ValueLabel.BackColor = Color.Transparent;
+                ValueLabel.ForeColor = Color.FromArgb( 106, 189, 252 );
+                ValueLabel.TextAlign = ContentAlignment.MiddleCenter;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the callback.
+        /// </summary>
+        private void InitializeCallbacks( )
+        {
+            try
+            {
+                Calculator.ValueCalculated += OnCalculationValueChanged;
+                CloseButton.Click += OnCloseButtonClick;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the timers.
+        /// </summary>
+        private void InitializeTimers( )
+        {
+            try
+            {
+                // Timer Properties
+                Time = 0;
+                Seconds = 5;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Displays the control to the user.
+        /// </summary>
         public new void Show( )
         {
             try
@@ -168,29 +235,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [calculation value changed]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        public void OnCalculationValueChanged( object sender, EventArgs e )
-        {
-            if( sender != null )
-            {
-                try
-                {
-                    ValueLabel.Text = Calculator.Value.ToString( );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary> Fades the in. </summary>
+        /// <summary>
+        /// Fades the in.
+        /// </summary>
         private void FadeIn( )
         {
             try
@@ -215,7 +262,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fades the out and close. </summary>
+        /// <summary>
+        /// Fades the out and close.
+        /// </summary>
         private void FadeOut( )
         {
             try
@@ -252,7 +301,10 @@ namespace BudgetExecution
             try
             {
                 FadeIn( );
-                Calculator.ValueCalculated += OnCalculationValueChanged;
+                InitializeLabels( );
+                InitializeCallbacks( );
+                InitializeTimers( );
+                InitializeCalculator( );
                 Calculator.BorderStyle = Border3DStyle.Adjust;
                 Calculator.BackColor = Color.FromArgb( 20, 20, 20 );
                 CloseButton.HoverText = "Exit Calculator";
@@ -263,8 +315,38 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [close button click]. </summary>
-        /// <param name="sender"> The sender. </param>
+        /// <summary>
+        /// Called when [calculation value changed].
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnCalculationValueChanged( object sender, EventArgs e )
+        {
+            if( sender != null )
+            {
+                try
+                {
+                    ValueLabel.Text = Calculator.Value.ToString( );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [close button click].
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
         /// <param name="e">
         /// The
         /// <see cref="EventArgs"/>
@@ -283,8 +365,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">
+        /// The ex.
+        /// </param>
         private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

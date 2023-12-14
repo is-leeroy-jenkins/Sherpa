@@ -42,23 +42,28 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
     /// <summary> </summary>
-    /// <seealso cref="Query"/>
+    /// <seealso cref="T:BudgetExecution.Query" />
+    [SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class SqlServerQuery : Query
     {
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SqlServerQuery"/>
+        /// <see cref="T:BudgetExecution.SqlServerQuery" />
         /// class.
         /// </summary>
         public SqlServerQuery( )
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SqlServerQuery"/>
+        /// <see cref="T:BudgetExecution.SqlServerQuery" />
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -67,9 +72,10 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SqlServerQuery"/>
+        /// <see cref="T:BudgetExecution.SqlServerQuery" />
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -79,9 +85,10 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SqlServerQuery"/>
+        /// <see cref="T:BudgetExecution.SqlServerQuery" />
         /// class.
         /// </summary>
         /// <param name="source"> The source Data. </param>
@@ -92,9 +99,10 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SqlServerQuery"/>
+        /// <see cref="T:BudgetExecution.SqlServerQuery" />
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -102,14 +110,15 @@ namespace BudgetExecution
         /// <param name="where"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
         public SqlServerQuery( Source source, IDictionary<string, object> updates,
-                               IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
+            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
             : base( source, Provider.SqlServer, updates, where, commandType )
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SqlServerQuery"/>
+        /// <see cref="T:BudgetExecution.SqlServerQuery" />
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -117,14 +126,15 @@ namespace BudgetExecution
         /// <param name="criteria"> The criteria. </param>
         /// <param name="commandType"> Type of the command. </param>
         public SqlServerQuery( Source source, IEnumerable<string> columns,
-                               IDictionary<string, object> criteria, SQL commandType = SQL.SELECT )
+            IDictionary<string, object> criteria, SQL commandType = SQL.SELECT )
             : base( source, Provider.SqlServer, columns, criteria, commandType )
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SqlServerQuery"/>
+        /// <see cref="T:BudgetExecution.SqlServerQuery" />
         /// class.
         /// </summary>
         /// <param name="sqlStatement"> The sqlStatement. </param>
@@ -133,9 +143,10 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SqlServerQuery"/>
+        /// <see cref="T:BudgetExecution.SqlServerQuery" />
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -145,9 +156,10 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SqlServerQuery"/>
+        /// <see cref="T:BudgetExecution.SqlServerQuery" />
         /// class.
         /// </summary>
         /// <param name="fullPath"> The fullpath. </param>
@@ -158,9 +170,10 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SqlServerQuery"/>
+        /// <see cref="T:BudgetExecution.SqlServerQuery" />
         /// class.
         /// </summary>
         /// <param name="fullPath"> The full path. </param>
@@ -169,23 +182,6 @@ namespace BudgetExecution
         public SqlServerQuery( string fullPath, SQL commandType, IDictionary<string, object> dict )
             : base( fullPath, commandType, dict )
         {
-        }
-
-        /// <summary> The Dispose </summary>
-        /// <param name="disposing">
-        /// <c> true </c>
-        /// to release both managed and unmanaged resources;
-        /// <c> false </c>
-        /// to release only unmanaged resources.
-        /// </param>
-        protected override void Dispose( bool disposing )
-        {
-            if( disposing )
-            {
-                base.Dispose( disposing );
-            }
-
-            IsDisposed = true;
         }
     }
 }

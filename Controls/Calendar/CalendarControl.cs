@@ -45,7 +45,6 @@ namespace BudgetExecution
 {
     using System;
     using System.Drawing;
-    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Grid;
@@ -70,7 +69,7 @@ namespace BudgetExecution
 
             // Control Properties
             BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.LightGray;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             Font = new Font( "Roboto", 9 );
             Size = new Size( 350, 300 );
 

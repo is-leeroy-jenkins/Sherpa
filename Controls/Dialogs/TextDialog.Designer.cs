@@ -78,7 +78,7 @@ namespace BudgetExecution
             TitleTable = new System.Windows.Forms.TableLayoutPanel( );
             Title = new Label( );
             PictureBox = new Picture( );
-            EditorPanel = new Layout( );
+            EditorPanel = new BackPanel( );
             Editor = new Editor( );
             FormTable.SuspendLayout( );
             ButtonTable.SuspendLayout( );
@@ -422,7 +422,7 @@ namespace BudgetExecution
         private System.Windows.Forms.TableLayoutPanel FormTable;
         public System.Windows.Forms.TableLayoutPanel TitleTable;
         public System.Windows.Forms.TableLayoutPanel ButtonTable;
-        public Layout EditorPanel;
+        public BackPanel EditorPanel;
         public Label Title;
         public Picture PictureBox;
         public Editor Editor;

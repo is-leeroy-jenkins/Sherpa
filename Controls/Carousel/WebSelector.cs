@@ -47,27 +47,35 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.IO;
-    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
-    /// <summary> </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public partial class WebSelector : MetroForm
     {
-        /// <summary> Gets or sets the image path. </summary>
-        /// <value> The image path. </value>
+        /// <summary>
+        /// Gets or sets the image path.
+        /// </summary>
+        /// <value>
+        /// The image path.
+        /// </value>
         public string ImagePath { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="WebSelector"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.WebSelector" /> class.
         /// </summary>
         public WebSelector( )
         {
@@ -78,7 +86,7 @@ namespace BudgetExecution
             MaximumSize = new Size( 1200, 600 );
             MinimumSize = new Size( 1200, 600 );
             BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.LightGray;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             Font = new Font( "Roboto", 9 );
             FormBorderStyle = FormBorderStyle.FixedSingle;
             BorderColor = Color.FromArgb( 20, 20, 20 );
@@ -99,33 +107,34 @@ namespace BudgetExecution
 
             // Header Properties
             Header.Font = new Font( "Roboto", 16, FontStyle.Bold );
-            Header.ForeColor = Color.FromArgb( 0, 120, 212 );
+            Header.ForeColor = Color.FromArgb( 106, 189, 252 );
 
             // Event Wiring
             Carousel.OnCarouselItemSelectionChanged += OnItemSelected;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="WebSelector"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.WebSelector" /> class.
         /// </summary>
-        /// <param name="directoryPath"> The directory path. </param>
-        public WebSelector( string directoryPath )
+        /// <param name="dirPath">
+        /// The directory path.
+        /// </param>
+        public WebSelector( string dirPath )
             : this( )
         {
-            ImagePath = directoryPath;
+            ImagePath = dirPath;
             Header.Text = string.Empty;
             Load += OnLoad;
         }
 
-        /// <summary> Called when [load]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         public void OnLoad( object sender, EventArgs e )
         {
             if( !string.IsNullOrEmpty( ImagePath ) )
@@ -153,19 +162,37 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [item selected]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
+        /// <summary>
+        /// Called when [item selected].
+        /// </summary>
+        /// <param name="sender">The sender.
+        /// </param>
+        /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
         public void OnItemSelected( object sender, EventArgs e )
         {
-            if( sender is Selector _carousel )
+            if( sender is Carousel _carousel )
             {
                 try
                 {
+                    var _tag = _carousel?.ActiveImage?.Tag?.ToString( );
+                    var _provider = DataBuilder.GetProvider( _tag );
+                    switch( _provider )
+                    {
+                        case Provider.SQLite:
+                        {
+                            Minion.RunSQLite( );
+                            Close( );
+                            break;
+                        }
+                        default:
+                        {
+                            Minion.RunSQLite( );
+                            Close( );
+                            break;
+                        }
+                    }
                 }
                 catch( Exception _ex )
                 {
@@ -174,8 +201,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Launches the ErrorDialog.
+        /// </summary>
+        /// <param name="ex">
+        /// The exception.</param>
         private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

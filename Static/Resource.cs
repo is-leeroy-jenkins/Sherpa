@@ -41,7 +41,6 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Threading;
     using static System.Configuration.ConfigurationManager;
 
     /// <summary> </summary>
@@ -51,55 +50,55 @@ namespace BudgetExecution
         public static readonly string Summary = AppSettings[ "SummaryImages" ];
 
         /// <summary> The fund images </summary>
-        public static readonly string FundImages = AppSettings[ "FundImages" ];
+        public static readonly string FundImages = AppSettings[ nameof( FundImages ) ];
 
         /// <summary> The databases </summary>
         public static readonly string Databases = AppSettings[ "DatabaseImages" ];
 
         /// <summary> The data images </summary>
-        public static readonly string DataImages = AppSettings[ "DataImages" ];
+        public static readonly string DataImages = AppSettings[ nameof( DataImages ) ];
 
         /// <summary> The office images </summary>
-        public static readonly string OfficeImages = AppSettings[ "OfficeImages" ];
+        public static readonly string OfficeImages = AppSettings[ nameof( OfficeImages ) ];
 
         /// <summary> The navigation images </summary>
-        public static readonly string NavigationImages = AppSettings[ "NavigationImages" ];
+        public static readonly string NavigationImages = AppSettings[ nameof( NavigationImages ) ];
 
         /// <summary> The codec images </summary>
-        public static readonly string CodecImages = AppSettings[ "CodecImages" ];
+        public static readonly string CodecImages = AppSettings[ nameof( CodecImages ) ];
 
         /// <summary> The outlay images </summary>
-        public static readonly string OutlayImages = AppSettings[ "OutlayImages" ];
+        public static readonly string OutlayImages = AppSettings[ nameof( OutlayImages ) ];
 
         /// <summary> The file images </summary>
-        public static readonly string FileImages = AppSettings[ "FileImages" ];
+        public static readonly string FileImages = AppSettings[ nameof( FileImages ) ];
 
         /// <summary> The object class images </summary>
-        public static readonly string ObjectClassImages = AppSettings[ "ObjectClassImages" ];
+        public static readonly string ObjectClassImages = AppSettings[ nameof( ObjectClassImages ) ];
 
         /// <summary> The provider images </summary>
-        public static readonly string ProviderImages = AppSettings[ "ProviderImages" ];
+        public static readonly string ProviderImages = AppSettings[ nameof( ProviderImages ) ];
 
         /// <summary> The math images </summary>
-        public static readonly string MathImages = AppSettings[ "MathImages" ];
+        public static readonly string MathImages = AppSettings[ nameof( MathImages ) ];
 
         /// <summary> The interface images </summary>
-        public static readonly string InterfaceImages = AppSettings[ "InterfaceImages" ];
+        public static readonly string InterfaceImages = AppSettings[ nameof( InterfaceImages ) ];
 
         /// <summary> The folder images </summary>
-        public static readonly string FolderImages = AppSettings[ "FolderImages" ];
+        public static readonly string FolderImages = AppSettings[ nameof( FolderImages ) ];
 
         /// <summary> The division caption </summary>
-        public static readonly string DivisionCaption = AppSettings[ "DivisionCaption" ];
+        public static readonly string DivisionCaption = AppSettings[ nameof( DivisionCaption ) ];
 
         /// <summary> The main form images </summary>
-        public static readonly string MainFormImages = AppSettings[ "MainFormImages" ];
+        public static readonly string MainFormImages = AppSettings[ nameof( MainFormImages ) ];
 
         /// <summary> The execution images </summary>
-        public static readonly string ExecutionImages = AppSettings[ "ExecutionImages" ];
+        public static readonly string ExecutionImages = AppSettings[ nameof( ExecutionImages ) ];
 
         /// <summary> The tool strip images </summary>
-        public static readonly string ToolStripImages = AppSettings[ "ToolStripImages" ];
+        public static readonly string ToolStripImages = AppSettings[ nameof( ToolStripImages ) ];
 
         /// <summary> The chart types </summary>
         public static readonly string[ ] ChartTypes = Enum.GetNames( typeof( ChartType ) );

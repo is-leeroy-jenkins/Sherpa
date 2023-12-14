@@ -47,7 +47,6 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
-    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -137,20 +136,29 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the holidays until. </summary>
-        /// <param name="startDate"> The start date. </param>
-        /// <param name="endDate"> The end date. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the holidays until.
+        /// </summary>
+        /// <param name="startDate">
+        /// The start date.
+        /// </param>
+        /// <param name="endDate">
+        /// The end date.
+        /// </param>
+        /// <returns>
+        /// IEnumerable
+        /// </returns>
         public static IEnumerable<DateTime> GetHolidays( this DateTime startDate, DateTime endDate )
         {
             try
             {
                 var _timeSpan = endDate - startDate;
-                var _days = 0;
+                var _days = _timeSpan.TotalDays;
+                var _count = 0;
                 var _holidays = new List<DateTime>( );
-                for( _days = 0; _days < _timeSpan.Days; _days++ )
+                for( _count = 0; _count < _days; _count++ )
                 {
-                    var _dateTime = startDate.AddDays( _days );
+                    var _dateTime = startDate.AddDays( _count );
                     if( _dateTime.IsFederalHoliday( ) )
                     {
                         _holidays.Add( _dateTime );
@@ -239,10 +247,18 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Determines whether the specified start date is between. </summary>
-        /// <param name="dateTime"> The date time. </param>
-        /// <param name="startDate"> The start date. </param>
-        /// <param name="endDate"> The end date. </param>
+        /// <summary>
+        /// Determines whether the specified start date is between.
+        /// </summary>
+        /// <param name="dateTime">
+        /// The date time.
+        /// </param>
+        /// <param name="startDate">
+        /// The start date.
+        /// </param>
+        /// <param name="endDate">
+        /// The end date.
+        /// </param>
         /// <param name="compareTime">
         /// if set to
         /// <c> true </c>
@@ -312,18 +328,19 @@ namespace BudgetExecution
             try
             {
                 var _timeSpan = endDate - startDate;
-                int _days;
-                for( _days = 0; _days < _timeSpan.Days; _days++ )
+                var _days = _timeSpan.TotalDays;
+                var _weekDays = 0;
+                for( var _i = 0; _i < _days; _i++ )
                 {
-                    var _dateTime = startDate.AddDays( _days );
+                    var _dateTime = startDate.AddDays( _i );
                     if( _dateTime.IsWeekDay( ) )
                     {
-                        _days++;
+                        _weekDays++;
                     }
                 }
 
-                return _days > 0
-                    ? _days
+                return _weekDays > 0
+                    ? _weekDays
                     : 0;
             }
             catch( Exception _ex )
@@ -344,8 +361,9 @@ namespace BudgetExecution
             try
             {
                 var _timeSpan = endDate - startDate;
+                var _days = _timeSpan.TotalDays;
                 var _weekEnds = 0;
-                for( var _i = 0; _i < _timeSpan.Days; _i++ )
+                for( var _i = 0; _i < _days; _i++ )
                 {
                     var _dateTime = startDate.AddDays( _i );
                     if( _dateTime.IsWeekEnd( ) )
@@ -374,19 +392,20 @@ namespace BudgetExecution
             try
             {
                 var _timeSpan = endDate - startDate;
-                int _days;
-                for( _days = 0; _days < _timeSpan.Days; _days++ )
+                var _days = _timeSpan.TotalDays;
+                var _workdays = 0;
+                for( var _i = 0; _i < _days; _i++ )
                 {
-                    var _dateTime = startDate.AddDays( _days );
+                    var _dateTime = startDate.AddDays( _i );
                     if( !_dateTime.IsFederalHoliday( )
                        && !_dateTime.IsWeekEnd( ) )
                     {
-                        _days++;
+                        _workdays += 1;
                     }
                 }
 
-                return _days > 0
-                    ? _days
+                return _workdays > 0
+                    ? _workdays
                     : 0;
             }
             catch( Exception _ex )
@@ -405,19 +424,18 @@ namespace BudgetExecution
             try
             {
                 var _timeSpan = endDate - startDate;
-                int _days;
-                for( _days = 0; _days < _timeSpan.Days; _days++ )
+                var _days = _timeSpan.TotalDays;
+                var _holidays = 0;
+                for( var _i = 0; _i < _days; _i++ )
                 {
-                    var _dateTime = startDate.AddDays( _days );
-                    if( _dateTime.IsFederalHoliday( ) )
+                    var _date = startDate.AddDays( _days );
+                    if( _date.IsFederalHoliday( ) )
                     {
-                        _days++;
+                        _holidays++;
                     }
                 }
 
-                return _days > 0
-                    ? _days
-                    : 0;
+                return _holidays;
             }
             catch( Exception _ex )
             {
@@ -443,46 +461,56 @@ namespace BudgetExecution
             var _thursday = _date == DayOfWeek.Thursday;
             var _friday = _date == DayOfWeek.Friday;
             var _monday = _date == DayOfWeek.Monday;
-            var _weekend = ( _date == DayOfWeek.Saturday ) || ( _date == DayOfWeek.Sunday );
+            var _weekend = ( _date == DayOfWeek.Saturday ) | ( _date == DayOfWeek.Sunday );
             switch( dateTime.Month )
             {
                 // New Years Day (Jan 1, or preceding Friday/following Monday if weekend)
                 case 12 when ( dateTime.Day == 31 ) && _friday:
                 case 1 when ( dateTime.Day == 1 ) && !_weekend:
                 case 1 when ( dateTime.Day == 2 ) && _monday:
+                    return true;
 
                 // MLK day (3rd monday in January)
                 case 1 when _monday && ( _nthDay == 3 ):
+                    return true;
 
                 // President’s Day (3rd Monday in February)
                 case 2 when _monday && ( _nthDay == 3 ):
+                    return true;
 
                 // Memorial Day (Last Monday in May)
                 case 5 when _monday && ( dateTime.AddDays( 7 ).Month == 6 ):
+                    return true;
 
                 // Juneteenth (June 19)
                 case 6 when ( dateTime.Day == 18 ) && _friday:
                 case 6 when ( dateTime.Day == 19 ) && !_weekend:
                 case 6 when ( dateTime.Day == 20 ) && _monday:
+                    return true;
 
                 // Independence Day (July 4, or preceding Friday/following Monday if weekend)
                 case 7 when ( dateTime.Day == 3 ) && _friday:
                 case 7 when ( dateTime.Day == 4 ) && !_weekend:
                 case 7 when ( dateTime.Day == 5 ) && _monday:
+                    return true;
 
                 // Labor Day (1st Monday in September)
                 case 9 when _monday && ( _nthDay == 1 ):
+                    return true;
 
                 // Columbus Day (2nd Monday in October)
                 case 10 when _monday && ( _nthDay == 2 ):
+                    return true;
 
                 // Veteran’s Day (November 11, or preceding Friday/following Monday if weekend))
                 case 11 when ( dateTime.Day == 10 ) && _friday:
                 case 11 when ( dateTime.Day == 11 ) && !_weekend:
                 case 11 when ( dateTime.Day == 12 ) && _monday:
+                    return true;
 
                 // Thanksgiving Day (4th Thursday in November)
                 case 11 when _thursday && ( _nthDay == 4 ):
+                    return true;
 
                 // Christmas Day (December 25, or preceding Friday/following Monday if weekend))
                 case 12 when ( dateTime.Day == 24 ) && _friday:
@@ -494,8 +522,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Launches the ErrorDialog.
+        /// </summary>
+        /// <param name="ex">
+        /// The exception.
+        /// </param>
         private static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

@@ -46,11 +46,11 @@ namespace BudgetExecution
     using System;
     using System.Collections.Generic;
     using System.Drawing;
-    using System.Threading;
     using System.Windows.Forms;
 
+    /// <inheritdoc />
     /// <summary> </summary>
-    /// <seealso cref="System.Windows.Forms.PictureBox"/>
+    /// <seealso cref="T:System.Windows.Forms.PictureBox" />
     public class Picture : PictureBox
     {
         /// <summary> Gets or sets the tool tip. </summary>
@@ -103,9 +103,10 @@ namespace BudgetExecution
             Location = location;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Picture"/>
+        /// <see cref="T:BudgetExecution.Picture" />
         /// class.
         /// </summary>
         /// <param name="image"> The image. </param>
@@ -114,9 +115,10 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Picture"/>
+        /// <see cref="T:BudgetExecution.Picture" />
         /// class.
         /// </summary>
         /// <param name="path"> The path. </param>

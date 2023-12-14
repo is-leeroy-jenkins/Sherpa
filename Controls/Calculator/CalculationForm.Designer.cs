@@ -34,11 +34,11 @@ namespace BudgetExecution
         {
             components = new System.ComponentModel.Container( );
             var resources = new System.ComponentModel.ComponentResourceManager( typeof( CalculationForm ) );
-            TopPanel = new Layout( );
+            TopPanel = new BackPanel( );
             TopTable = new System.Windows.Forms.TableLayoutPanel( );
             ValueLabel = new Label( );
             Image = new Picture( );
-            CalculatorPanel = new Layout( );
+            CalculatorPanel = new BackPanel( );
             Calculator = new Syncfusion.Windows.Forms.Tools.CalculatorControl( );
             CloseButton = new Button( );
             CalculatorTable = new System.Windows.Forms.TableLayoutPanel( );
@@ -282,10 +282,10 @@ namespace BudgetExecution
 
         #endregion
 
-        private Layout TopPanel;
+        private BackPanel TopPanel;
         private Picture Image;
         private Label ValueLabel;
-        private Layout CalculatorPanel;
+        private BackPanel CalculatorPanel;
         public Syncfusion.Windows.Forms.Tools.CalculatorControl Calculator;
         public Button CloseButton;
         private System.Windows.Forms.TableLayoutPanel CalculatorTable;

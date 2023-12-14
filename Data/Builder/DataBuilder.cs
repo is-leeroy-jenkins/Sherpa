@@ -1,45 +1,42 @@
-﻿//  ******************************************************************************************
-//      Assembly:                Budget Execution
-//      Filename:                DataBuilder.cs
-//      Author:                  Terry D. Eppler
-//      Created:                 05-31-2023
+﻿// ******************************************************************************************
+//     Assembly:             BudgetExecution
+//     Author:                  Terry D. Eppler
+//     Created:                 06-19-2023
 // 
-//      Last Modified By:        Terry D. Eppler
-//      Last Modified On:        06-01-2023
-//  ******************************************************************************************
-//  <copyright file="DataBuilder.cs" company="Terry D. Eppler">
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        11-26-2023
+// ******************************************************************************************
+// <copyright file="Terry Eppler.cs" company="Terry D. Eppler">
+//    BudgetExecution is a Federal Budget, Finance, and Accounting application for the
+//    US Environmental Protection Agency (US EPA).
+//    Copyright ©  2023  Terry Eppler
 // 
-//     This is a Federal Budget, Finance, and Accounting application for the
-//     US Environmental Protection Agency (US EPA).
-//     Copyright ©  2023  Terry Eppler
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
 // 
-//     Permission is hereby granted, free of charge, to any person obtaining a copy
-//     of this software and associated documentation files (the “Software”),
-//     to deal in the Software without restriction,
-//     including without limitation the rights to use,
-//     copy, modify, merge, publish, distribute, sublicense,
-//     and/or sell copies of the Software,
-//     and to permit persons to whom the Software is furnished to do so,
-//     subject to the following conditions:
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
 // 
-//     The above copyright notice and this permission notice shall be included in all
-//     copies or substantial portions of the Software.
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
 // 
-//     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//     FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//     DEALINGS IN THE SOFTWARE.
-// 
-//     You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
-// 
-//  </copyright>
-//  <summary>
-//    DataBuilder.cs
-//  </summary>
-//  ******************************************************************************************
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
+// </copyright>
+// <summary>
+//   DataBuilder.cs.cs
+// </summary>
+// ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -144,7 +141,8 @@ namespace BudgetExecution
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.DataBuilder" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.DataBuilder" /> class.
         /// </summary>
         public DataBuilder( )
         {
@@ -152,7 +150,8 @@ namespace BudgetExecution
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.DataBuilder" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.DataBuilder" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
@@ -163,7 +162,8 @@ namespace BudgetExecution
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.DataBuilder" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.DataBuilder" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
@@ -175,7 +175,8 @@ namespace BudgetExecution
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.DataBuilder" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.DataBuilder" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="dict">The dictionary.</param>
@@ -186,7 +187,8 @@ namespace BudgetExecution
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.DataBuilder" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.DataBuilder" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
@@ -201,7 +203,8 @@ namespace BudgetExecution
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.DataBuilder" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.DataBuilder" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
@@ -216,7 +219,8 @@ namespace BudgetExecution
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.DataBuilder" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.DataBuilder" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
@@ -233,7 +237,8 @@ namespace BudgetExecution
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.DataBuilder" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.DataBuilder" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
@@ -245,7 +250,8 @@ namespace BudgetExecution
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.DataBuilder" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.DataBuilder" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         public DataBuilder( IQuery query )
@@ -255,7 +261,8 @@ namespace BudgetExecution
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.DataBuilder" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.DataBuilder" /> class.
         /// </summary>
         /// <param name="fullPath">The full path.</param>
         /// <param name="sqlText">The SQL text.</param>
@@ -263,16 +270,6 @@ namespace BudgetExecution
         public DataBuilder( string fullPath, string sqlText, SQL commandType = SQL.SELECT )
             : base( fullPath, sqlText, commandType )
         {
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.DataBuilder" /> class.
-        /// </summary>
-        /// <param name="row">The row.</param>
-        public DataBuilder( DataRow row )
-        {
-            Record = row;
         }
 
         /// <summary>
@@ -300,31 +297,22 @@ namespace BudgetExecution
                         case EXT.XLSX:
                         case EXT.CSV:
                         case EXT.ACCDB:
-
                         {
                             return Provider.Access;
                         }
-
                         case EXT.SDF:
-
                         {
                             return Provider.SqlCe;
                         }
-
                         case EXT.MDF:
-
                         {
                             return Provider.SqlServer;
                         }
-
                         case EXT.DB:
-
                         {
                             return Provider.SQLite;
                         }
-
                         default:
-
                         {
                             return Provider.Access;
                         }
@@ -337,7 +325,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                DataBuilder.Fail( _ex );
+                Fail( _ex );
                 return default( Provider );
             }
         }
@@ -345,7 +333,7 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the provider.
         /// </summary>
-        /// <param name="ext">The ext.</param>
+        /// <param name="ext">The provider</param>
         /// <returns></returns>
         public static Provider GetProvider( EXT ext )
         {
@@ -358,31 +346,22 @@ namespace BudgetExecution
                     case EXT.XLSX:
                     case EXT.CSV:
                     case EXT.ACCDB:
-
                     {
                         return Provider.Access;
                     }
-
                     case EXT.SDF:
-
                     {
                         return Provider.SqlCe;
                     }
-
                     case EXT.MDF:
-
                     {
                         return Provider.SqlServer;
                     }
-
                     case EXT.DB:
-
                     {
                         return Provider.SQLite;
                     }
-
                     default:
-
                     {
                         return Provider.Access;
                     }
@@ -390,7 +369,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                DataBuilder.Fail( _ex );
+                Fail( _ex );
                 return default( Provider );
             }
         }
@@ -398,8 +377,12 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the source.
         /// </summary>
-        /// <param name="tableName">Name of the table.</param>
-        /// <returns></returns>
+        /// <param name="tableName">
+        /// Name of the table.
+        /// </param>
+        /// <returns>
+        /// Source
+        /// </returns>
         public static Source GetSource( string tableName )
         {
             try
@@ -418,7 +401,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                DataBuilder.Fail( _ex );
+                Fail( _ex );
                 return default( Source );
             }
         }

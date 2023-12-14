@@ -43,7 +43,6 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics;
     using System.Diagnostics.CodeAnalysis;
-    using System.Threading;
     using static System.Configuration.ConfigurationManager;
 
     /// <summary> </summary>
@@ -133,7 +132,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _app = AppSettings[ "Reports" ];
+                var _app = AppSettings[ nameof( Reports ) ];
                 var _startInfo = new ProcessStartInfo( );
                 _startInfo.UseShellExecute = true;
                 _startInfo.LoadUserProfile = true;
@@ -156,7 +155,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _app = AppSettings[ "Reports" ];
+                var _app = AppSettings[ nameof( Reports ) ];
                 var _startInfo = new ProcessStartInfo( );
                 _startInfo.UseShellExecute = true;
                 if( !string.IsNullOrEmpty( _app ) )

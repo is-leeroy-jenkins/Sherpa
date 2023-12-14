@@ -36,12 +36,10 @@ partial class WebSelector
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WebSelector));
             this.Header = new BudgetExecution.Label();
-            this.Carousel = new BudgetExecution.Selector();
+            this.Carousel = new BudgetExecution.Carousel();
             this.CloseButton = new BudgetExecution.Button();
-            this.BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ToolTip = new BudgetExecution.SmallTip();
             this.ImageList = new BudgetExecution.ImageList();
-            ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // Header
@@ -69,7 +67,6 @@ partial class WebSelector
             // Carousel
             // 
             this.Carousel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.Carousel.BindingSource = null;
             this.Carousel.CanOverrideStyle = true;
             this.Carousel.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Carousel.ForeColor = System.Drawing.Color.LightGray;
@@ -188,7 +185,6 @@ partial class WebSelector
             this.Name = "WebSelector";
             this.ShowIcon = false;
             this.Text = " ";
-            ((System.ComponentModel.ISupportInitialize)(this.BindingSource)).EndInit();
             this.ResumeLayout(false);
 
     }
@@ -196,9 +192,8 @@ partial class WebSelector
     #endregion
 
     public Label Header;
-    public Selector Carousel;
+    public Carousel Carousel;
     public Button CloseButton;
     public SmallTip ToolTip;
-    public System.Windows.Forms.BindingSource BindingSource;
     public ImageList ImageList;
 }

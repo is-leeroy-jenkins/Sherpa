@@ -41,23 +41,27 @@
 //  </summary>
 //  ******************************************************************************************
 
+using Syncfusion.Drawing;
+
 namespace BudgetExecution
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.Threading;
     using System.Windows.Forms;
-    using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Edit;
 
+    /// <inheritdoc />
     /// <summary> </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.Edit.EditControl"/>
+    /// <seealso cref="T:Syncfusion.Windows.Forms.Edit.EditControl" />
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class Editor : EditControl
     {
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Editor"/>
+        /// <see cref="T:BudgetExecution.Editor" />
         /// class.
         /// </summary>
         public Editor( )

@@ -46,29 +46,30 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.Threading;
     using System.Windows.Forms;
 
+    /// <inheritdoc />
     /// <summary> </summary>
-    /// <seealso cref="System.Windows.Forms.ToolStripTextBox"/>
-    /// <seealso cref="IToolStripTextBox"/>
+    /// <seealso cref="T:System.Windows.Forms.ToolStripTextBox" />
+    /// <seealso cref="!:IToolStripTextBox" />
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class ToolStripTextBox : ToolStripTextBase
     {
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ToolStripTextBox"/>
+        /// <see cref="T:BudgetExecution.ToolStripTextBox" />
         /// class.
         /// </summary>
         public ToolStripTextBox( )
         {
             Margin = new Padding( 1, 1, 1, 1 );
             Padding = new Padding( 1, 1, 1, 1 );
-            Size = new Size( 200, 32 );
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.FromArgb( 141, 139, 138 );
+            Size = new Size( 200, 22 );
+            BackColor = Color.FromArgb( 10, 10, 10 );
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             Font = new Font( "Roboto", 9 );
             Visible = true;
             Enabled = true;
@@ -79,9 +80,10 @@ namespace BudgetExecution
             MouseLeave += OnMouseLeave;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ToolStripTextBox"/>
+        /// <see cref="T:BudgetExecution.ToolStripTextBox" />
         /// class.
         /// </summary>
         /// <param name="text"> The text. </param>
@@ -91,9 +93,10 @@ namespace BudgetExecution
             Text = text;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ToolStripTextBox"/>
+        /// <see cref="T:BudgetExecution.ToolStripTextBox" />
         /// class.
         /// </summary>
         /// <param name="text"> The text. </param>
@@ -104,8 +107,10 @@ namespace BudgetExecution
             HoverText = hoverText;
         }
 
-        /// <summary> Sets the text. </summary>
-        /// <param name="text"> The text. </param>
+        /// <summary>
+        /// Resets the text.
+        /// </summary>
+        /// <param name="text">The text.</param>
         public void ResetText( string text )
         {
             try
@@ -120,8 +125,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the hover text. </summary>
-        /// <param name="item"> The item. </param>
+        /// <summary>
+        /// Sets the hover text.
+        /// </summary>
+        /// <param name="item">The item.</param>
         public void SetHoverText( ToolStripItem item )
         {
             var _text = item?.Tag?.ToString( );

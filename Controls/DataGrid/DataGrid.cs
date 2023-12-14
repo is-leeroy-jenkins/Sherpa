@@ -49,7 +49,6 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Linq;
-    using System.Threading;
     using System.Windows.Forms;
 
     /// <inheritdoc/>
@@ -62,22 +61,39 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class DataGrid : DataGridView
     {
-        /// <summary> Gets or sets the hover text. </summary>
-        /// <value> The hover text. </value>
+        /// <summary>
+        /// Gets or sets the hover text.
+        /// </summary>
+        /// <value>
+        /// The hover text.
+        /// </value>
         public string HoverText { get; set; }
 
-        /// <summary> Gets or sets the tool tip. </summary>
-        /// <value> The tool tip. </value>
+        /// <summary>
+        /// Gets or sets the tool tip.
+        /// </summary>
+        /// <value>
+        /// The tool tip.
+        /// </value>
         public SmallTip ToolTip { get; set; }
 
-        /// <summary> Gets or sets the binding source. </summary>
-        /// <value> The binding source. </value>
+        /// <summary>
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
         public BindingSource BindingSource { get; set; }
 
-        /// <summary> Gets or sets the data filter. </summary>
-        /// <value> The data filter. </value>
+        /// <summary>
+        /// Gets or sets the data filter.
+        /// </summary>
+        /// <value>
+        /// The data filter.
+        /// </value>
         public IDictionary<string, object> DataFilter { get; set; }
 
         /// <inheritdoc/>
@@ -89,7 +105,7 @@ namespace BudgetExecution
         public DataGrid( )
         {
             EnableHeadersVisualStyles = false;
-            ForeColor = Color.LightGray;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             Font = new Font( "Roboto", 8 );
             Margin = new Padding( 3 );
             Padding = new Padding( 1 );
@@ -110,7 +126,7 @@ namespace BudgetExecution
 
             // Default Cell Style
             DefaultCellStyle.BackColor = Color.FromArgb( 45, 45, 45 );
-            DefaultCellStyle.ForeColor = Color.LightGray;
+            DefaultCellStyle.ForeColor = Color.FromArgb( 106, 189, 252 );
             DefaultCellStyle.SelectionBackColor = Color.FromArgb( 26, 79, 125 );
             DefaultCellStyle.SelectionForeColor = Color.White;
             DefaultCellStyle.Font = new Font( "Roboto", 8, FontStyle.Regular );
@@ -138,12 +154,12 @@ namespace BudgetExecution
             CellBorderStyle = DataGridViewCellBorderStyle.None;
             RowsDefaultCellStyle.BackColor = Color.FromArgb( 45, 45, 45 );
             RowsDefaultCellStyle.Font = new Font( "Roboto", 8 );
-            RowsDefaultCellStyle.ForeColor = Color.LightGray;
+            RowsDefaultCellStyle.ForeColor = Color.FromArgb( 106, 189, 252 );
             RowsDefaultCellStyle.SelectionBackColor = Color.FromArgb( 26, 79, 125 );
             RowsDefaultCellStyle.SelectionForeColor = Color.White;
             RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb( 50, 50, 50 );
-            AlternatingRowsDefaultCellStyle.ForeColor = Color.LightGray;
+            AlternatingRowsDefaultCellStyle.ForeColor = Color.FromArgb( 106, 189, 252 );
             AlternatingRowsDefaultCellStyle.Font = new Font( "Roboto", 8 );
             AlternatingRowsDefaultCellStyle.SelectionBackColor = Color.FromArgb( 26, 79, 125 );
             AlternatingRowsDefaultCellStyle.SelectionForeColor = Color.White;
@@ -230,11 +246,11 @@ namespace BudgetExecution
         /// <returns> </returns>
         public DataRow GetCurrentDataRow( )
         {
-            if( BindingSource.DataSource != null )
+            if( BindingSource?.DataSource != null )
             {
                 try
                 {
-                    var _dataRow = BindingSource.GetCurrentDataRow( );
+                    var _dataRow = BindingSource?.Current as DataRow;
                     return _dataRow?.ItemArray?.Length > 0
                         ? _dataRow
                         : default( DataRow );
@@ -296,15 +312,15 @@ namespace BudgetExecution
                     if( CurrentCell.ValueType == typeof( string ) )
                     {
                         var _value = CurrentCell.Value.ToString( );
-                        if( _value.Length > 25 )
+                        if( _value?.Length > 25 )
                         {
                             var _editDialog = new TextDialog( _value );
                             _editDialog.ShowDialog( );
                             CurrentCell.Value = _editDialog.Editor.Text;
                         }
-                        else if( ( _value.Length >= 6 )
+                        else if( ( _value?.Length >= 6 )
                                 && ( _value.Length <= 9 )
-                                && ( _value.Substring( 0, 3 ) == "000" ) )
+                                && ( _value?.Substring( 0, 3 ) == "000" ) )
                         {
                             var _code = _value.Substring( 4, 2 );
                             var _dialog = new ProgramProjectDialog( _code );

@@ -1,45 +1,42 @@
-﻿//  ******************************************************************************************
-//      Assembly:                Budget Execution
-//      Filename:                ExcelDataForm.cs
-//      Author:                  Terry D. Eppler
-//      Created:                 05-31-2023
+﻿// ******************************************************************************************
+//     Assembly:                Budget Execution
+//     Author:                  Terry D. Eppler
+//     Created:                 12-10-2023
 // 
-//      Last Modified By:        Terry D. Eppler
-//      Last Modified On:        06-01-2023
-//  ******************************************************************************************
-//  <copyright file="ExcelDataForm.cs" company="Terry D. Eppler">
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        12-10-2023
+// ******************************************************************************************
+// <copyright file="ExcelDataForm.cs" company="Terry D. Eppler">
+//    This is a tiny web browser used in Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2023  Terry Eppler
 // 
-//     This is a Federal Budget, Finance, and Accounting application for the
-//     US Environmental Protection Agency (US EPA).
-//     Copyright ©  2023  Terry Eppler
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
 // 
-//     Permission is hereby granted, free of charge, to any person obtaining a copy
-//     of this software and associated documentation files (the “Software”),
-//     to deal in the Software without restriction,
-//     including without limitation the rights to use,
-//     copy, modify, merge, publish, distribute, sublicense,
-//     and/or sell copies of the Software,
-//     and to permit persons to whom the Software is furnished to do so,
-//     subject to the following conditions:
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
 // 
-//     The above copyright notice and this permission notice shall be included in all
-//     copies or substantial portions of the Software.
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
 // 
-//     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//     FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//     DEALINGS IN THE SOFTWARE.
-// 
-//     You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
-// 
-//  </copyright>
-//  <summary>
-//    ExcelDataForm.cs
-//  </summary>
-//  ******************************************************************************************
+//    Contact at:   terryeppler@gmail.com or eppler.terry@epa.gov
+// </copyright>
+// <summary>
+//   ExcelDataForm.cs
+// </summary>
+// ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -51,13 +48,13 @@ namespace BudgetExecution
     using System.Drawing;
     using System.IO;
     using System.Linq;
-    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.CellGrid.Helpers;
     using Syncfusion.Windows.Forms.Spreadsheet;
     using Syncfusion.Windows.Forms.Tools;
     using Syncfusion.XlsIO;
+    using Action = System.Action;
     using Timer = System.Windows.Forms.Timer;
 
     /// <summary> </summary>
@@ -73,80 +70,161 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public partial class ExcelDataForm : MetroForm
     {
-        /// <summary> Gets or sets the time. </summary>
-        /// <value> The time. </value>
+        /// <summary>
+        /// The status update
+        /// </summary>
+        private Action _statusUpdate;
+
+        /// <summary>
+        /// Gets or sets the time.
+        /// </summary>
+        /// <value>
+        /// The time.
+        /// </value>
         public int Time { get; set; }
 
-        /// <summary> Gets or sets the seconds. </summary>
-        /// <value> The seconds. </value>
+        /// <summary>
+        /// Gets or sets the seconds.
+        /// </summary>
+        /// <value>
+        /// The seconds.
+        /// </value>
         public int Seconds { get; set; }
 
-        /// <summary> Gets or sets the row count. </summary>
-        /// <value> The row count. </value>
+        /// <summary>
+        /// Gets or sets the row count.
+        /// </summary>
+        /// <value>
+        /// The row count.
+        /// </value>
         public int RowCount { get; set; }
 
-        /// <summary> Gets or sets the col count. </summary>
-        /// <value> The col count. </value>
+        /// <summary>
+        /// Gets or sets the col count.
+        /// </summary>
+        /// <value>
+        /// The col count.
+        /// </value>
         public int ColCount { get; set; }
 
-        /// <summary> Gets or sets the file path. </summary>
-        /// <value> The file path. </value>
+        /// <summary>
+        /// Gets or sets the file path.
+        /// </summary>
+        /// <value>
+        /// The file path.
+        /// </value>
         public string FilePath { get; set; }
 
-        /// <summary> Gets or sets the name of the file. </summary>
-        /// <value> The name of the file. </value>
+        /// <summary>
+        /// Gets or sets the name of the file.
+        /// </summary>
+        /// <value>
+        /// The name of the file.
+        /// </value>
         public string FileName { get; set; }
 
-        /// <summary> Gets or sets the selected table. </summary>
-        /// <value> The selected table. </value>
+        /// <summary>
+        /// Gets or sets the selected table.
+        /// </summary>
+        /// <value>
+        /// The selected table.
+        /// </value>
         public string SelectedTable { get; set; }
 
-        /// <summary> Gets or sets the SQL query. </summary>
-        /// <value> The SQL query. </value>
+        /// <summary>
+        /// Gets or sets the SQL query.
+        /// </summary>
+        /// <value>
+        /// The SQL query.
+        /// </value>
         public string SqlQuery { get; set; }
 
-        /// <summary> Gets or sets the form filter. </summary>
-        /// <value> The form filter. </value>
+        /// <summary>
+        /// Gets or sets the form filter.
+        /// </summary>
+        /// <value>
+        /// The form filter.
+        /// </value>
         public IDictionary<string, object> FormFilter { get; set; }
 
-        /// <summary> Gets or sets the selected columns. </summary>
-        /// <value> The selected columns. </value>
+        /// <summary>
+        /// Gets or sets the selected columns.
+        /// </summary>
+        /// <value>
+        /// The selected columns.
+        /// </value>
         public IList<string> SelectedColumns { get; set; }
 
-        /// <summary> Gets or sets the selected fields. </summary>
-        /// <value> The selected fields. </value>
+        /// <summary>
+        /// Gets or sets the selected fields.
+        /// </summary>
+        /// <value>
+        /// The selected fields.
+        /// </value>
         public IList<string> SelectedFields { get; set; }
 
-        /// <summary> Gets or sets the selected numerics. </summary>
-        /// <value> The selected numerics. </value>
+        /// <summary>
+        /// Gets or sets the selected numerics.
+        /// </summary>
+        /// <value>
+        /// The selected numerics.
+        /// </value>
         public IList<string> SelectedNumerics { get; set; }
 
-        /// <summary> Gets or sets the grid. </summary>
-        /// <value> The grid. </value>
+        /// <summary>
+        /// Gets or sets the grid.
+        /// </summary>
+        /// <value>
+        /// The grid.
+        /// </value>
         public SpreadsheetGrid Grid { get; set; }
 
-        /// <summary> Gets or sets the model. </summary>
-        /// <value> The model. </value>
+        /// <summary>
+        /// Gets or sets the model.
+        /// </summary>
+        /// <value>
+        /// The model.
+        /// </value>
         public SpreadsheetGridModel Model { get; set; }
 
-        /// <summary> Gets or sets the source. </summary>
-        /// <value> The source. </value>
+        /// <summary>
+        /// Gets or sets the source.
+        /// </summary>
+        /// <value>
+        /// The source.
+        /// </value>
         public Source Source { get; set; }
 
-        /// <summary> Gets or sets the provider. </summary>
-        /// <value> The provider. </value>
+        /// <summary>
+        /// Gets or sets the provider.
+        /// </summary>
+        /// <value>
+        /// The provider.
+        /// </value>
         public Provider Provider { get; set; }
 
-        /// <summary> Gets or sets the data table. </summary>
-        /// <value> The data table. </value>
+        /// <summary>
+        /// Gets or sets the data table.
+        /// </summary>
+        /// <value>
+        /// The data table.
+        /// </value>
         public DataTable DataTable { get; set; }
 
-        /// <summary> Gets or sets the data model. </summary>
-        /// <value> The data model. </value>
+        /// <summary>
+        /// Gets or sets the data model.
+        /// </summary>
+        /// <value>
+        /// The data model.
+        /// </value>
         public DataBuilder DataModel { get; set; }
 
-        /// <summary> Gets or sets the state of the view. </summary>
-        /// <value> The state of the view. </value>
+        /// <summary>
+        /// Gets or sets the data arguments.
+        /// </summary>
+        /// <value>
+        /// The data arguments.
+        /// </value>
         public DataArgs DataArgs { get; set; }
 
         /// <inheritdoc/>
@@ -158,6 +236,8 @@ namespace BudgetExecution
         public ExcelDataForm( )
         {
             InitializeComponent( );
+            InitializeDelegates( );
+            InitializeCallbacks( );
 
             // Form Properties
             Size = new Size( 1350, 750 );
@@ -168,14 +248,14 @@ namespace BudgetExecution
             BorderColor = Color.FromArgb( 0, 120, 212 );
             BorderThickness = 1;
             BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.DarkGray;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             Font = new Font( "Roboto", 9 );
             ShowIcon = false;
             ShowInTaskbar = true;
             MetroColor = Color.FromArgb( 20, 20, 20 );
             CaptionBarHeight = 5;
             CaptionAlign = HorizontalAlignment.Center;
-            CaptionFont = new Font( "Roboto", 12, FontStyle.Regular );
+            CaptionFont = new Font( "Roboto", 10, FontStyle.Regular );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionForeColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
@@ -188,25 +268,13 @@ namespace BudgetExecution
             MaximizeBox = false;
             ControlBox = false;
 
-            // Timer Properties
-            Time = 0;
-            Seconds = 5;
-
             // Ribbon Properties
             Ribbon.Spreadsheet = Spreadsheet;
 
             // Default Provider
             Provider = Provider.Access;
-
-            // Event Wiring
-            Spreadsheet.WorkbookLoaded += OnWorkBookLoaded;
-            Header.MouseClick += OnRightClick;
-            FiltersButton.Click += OnRemoveFilterButtonClick;
-            LookupButton.Click += OnLookupButtonClicked;
-            CloseButton.Click += OnCloseButtonClick;
-            UploadButton.Click += OnUploadButtonClick;
-            MenuButton.Click += OnMainMenuButtonClicked;
             Load += OnLoad;
+            Closing += OnClosing;
         }
 
         /// <inheritdoc/>
@@ -235,10 +303,10 @@ namespace BudgetExecution
         public ExcelDataForm( BindingSource bindingSource )
             : this( )
         {
-            BindingSource.DataSource = (DataTable) bindingSource.DataSource;
-            DataTable = (DataTable) bindingSource.DataSource;
-            SelectedTable = ( (DataTable) bindingSource.DataSource ).TableName;
-            Source = (Source) Enum.Parse( typeof( Source ), SelectedTable );
+            BindingSource.DataSource = (DataTable)bindingSource.DataSource;
+            DataTable = (DataTable)bindingSource.DataSource;
+            SelectedTable = ( (DataTable)bindingSource.DataSource ).TableName;
+            Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
             Header.Text = $"{SelectedTable.SplitPascal( )} ";
         }
 
@@ -254,11 +322,185 @@ namespace BudgetExecution
         {
             DataTable = dataTable;
             BindingSource.DataSource = dataTable;
-            Source = (Source) Enum.Parse( typeof( Source ), DataTable.TableName );
+            Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
             Header.Text = $"{DataTable.TableName.SplitPascal( )} ";
         }
 
-        /// <summary> Displays the control to the user. </summary>
+        /// <summary>
+        /// Initializes the delegates.
+        /// </summary>
+        private void InitializeDelegates( )
+        {
+            try
+            {
+                _statusUpdate += UpdateStatusLabel;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the callbacks.
+        /// </summary>
+        private void InitializeCallbacks( )
+        {
+            // Event Wiring
+            try
+            {
+                Spreadsheet.WorkbookLoaded += OnWorkBookLoaded;
+                Header.MouseClick += OnRightClick;
+                FiltersButton.Click += OnRemoveFilterButtonClick;
+                LookupButton.Click += OnLookupButtonClicked;
+                CloseButton.Click += OnCloseButtonClick;
+                BrowseButton.Click += OnBrowserButtonClick;
+                MenuButton.Click += OnMainMenuButtonClicked;
+                Timer.Tick += OnTimerTick;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the tool strip.
+        /// </summary>
+        private void InitializeToolStrip( )
+        {
+            try
+            {
+                ToolStrip.Visible = true;
+                ToolStrip.Text = string.Empty;
+                ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
+                ToolStrip.Office12Mode = true;
+                ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Black;
+                ToolStrip.LauncherStyle = LauncherStyle.Office12;
+                ToolStrip.ImageSize = new Size( 16, 16 );
+                ToolStrip.ImageScalingSize = new Size( 16, 16 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the icon.
+        /// </summary>
+        private void InitializeIcon( )
+        {
+            try
+            {
+                PictureBox.Size = new Size( 24, 18 );
+                PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the timers.
+        /// </summary>
+        private void InitializeTimers( )
+        {
+            try
+            {
+                Timer.Enabled = true;
+                Timer.Interval = 500;
+                Timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the labels.
+        /// </summary>
+        private void InitializeLabels( )
+        {
+            try
+            {
+                Header.ForeColor = Color.FromArgb( 106, 189, 252 );
+                Header.Font = new Font( "Roboto", 10 );
+                Header.TextAlign = ContentAlignment.TopLeft;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the table.
+        /// </summary>
+        private void InitializeTable( )
+        {
+            try
+            {
+                Spreadsheet?.SetActiveSheet( "Sheet1" );
+                Spreadsheet?.RenameSheet( "Sheet1", "Data" );
+                Spreadsheet?.SetZoomFactor( "Data", 100 );
+                Spreadsheet?.SetGridLinesVisibility( false );
+                var _activeSheet = Spreadsheet?.Workbook?.ActiveSheet;
+                ToolStripTextBox.Text = $"  Rows: {_activeSheet.Rows.Length} "
+                    + $"Columns: {_activeSheet.Columns.Length}";
+
+                Spreadsheet?.ActiveGrid?.InvalidateCells( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the table.
+        /// </summary>
+        /// <param name="table">The table.</param>
+        private void InitializeTable( DataTable table )
+        {
+            if( table?.Rows?.Count > 0 )
+            {
+                try
+                {
+                    Spreadsheet?.SetActiveSheet( "Sheet1" );
+                    Spreadsheet?.RenameSheet( "Sheet1", "Data" );
+                    Spreadsheet?.SetZoomFactor( "Data", 100 );
+                    Spreadsheet?.ActiveSheet?.ImportDataTable( table, true, 1, 1 );
+                    Spreadsheet?.SetGridLinesVisibility( false );
+                    var _activeSheet = Spreadsheet?.Workbook?.ActiveSheet;
+                    var _usedRange = _activeSheet?.UsedRange;
+                    var _table = _activeSheet?.ListObjects?.Create( table.TableName, _usedRange );
+                    _usedRange.CellStyle.Font.FontName = "Roboto";
+                    _usedRange.CellStyle.Font.Size = 9;
+                    _usedRange.CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
+                    _usedRange.CellStyle.VerticalAlignment = ExcelVAlign.VAlignBottom;
+                    var _topRow = _activeSheet?.Range[ 1, 1, 1, 60 ];
+                    RowCount = DataTable.Rows.Count;
+                    ColCount = DataTable.Columns.Count;
+                    ToolStripTextBox.Text = $"  Rows: {RowCount}  Columns: {ColCount}";
+                    _topRow?.FreezePanes( );
+                    _table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium16;
+                    var _title = table?.TableName.SplitPascal( );
+                    Spreadsheet?.ActiveGrid?.InvalidateCells( );
+                    Header.Text = $"{_title} Data Table";
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Displays the control to the user.
+        /// </summary>
         public new void Show( )
         {
             try
@@ -266,14 +508,14 @@ namespace BudgetExecution
                 Opacity = 0;
                 if( Seconds != 0 )
                 {
-                    Timer = new Timer( );
-                    Timer.Interval = 10;
-                    Timer.Tick += ( sender, args ) =>
+                    var _timer = new Timer( );
+                    _timer.Interval = 1000;
+                    _timer.Tick += ( sender, args ) =>
                     {
                         Time++;
                         if( Time == Seconds )
                         {
-                            Timer.Stop( );
+                            _timer.Stop( );
                         }
                     };
                 }
@@ -286,15 +528,496 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Clears the data. </summary>
+        /// <summary>
+        /// Clears the data.
+        /// </summary>
         public void ClearData( )
         {
             try
             {
-                SelectedTable = string.Empty;
                 DataModel = null;
                 DataTable = null;
                 Spreadsheet.ActiveSheet.ClearData( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the selections.
+        /// </summary>
+        private void ClearSelections( )
+        {
+            try
+            {
+                SelectedTable = string.Empty;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the collections.
+        /// </summary>
+        private void ClearCollections( )
+        {
+            try
+            {
+                if( FormFilter?.Any( ) == true )
+                {
+                    FormFilter.Clear( );
+                }
+
+                if( SelectedColumns?.Any( ) == true )
+                {
+                    SelectedColumns.Clear( );
+                }
+
+                if( SelectedFields?.Any( ) == true )
+                {
+                    SelectedFields.Clear( );
+                }
+
+                if( SelectedNumerics?.Any( ) == true )
+                {
+                    SelectedNumerics.Clear( );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Gets the controls.
+        /// </summary>
+        /// <returns></returns>
+        private protected IEnumerable<Control> GetControls( )
+        {
+            var _list = new List<Control>( );
+            var _queue = new Queue( );
+            try
+            {
+                _queue.Enqueue( Controls );
+                while( _queue.Count > 0 )
+                {
+                    var _collection = (Control.ControlCollection)_queue.Dequeue( );
+                    foreach( Control _control in _collection )
+                    {
+                        _list.Add( _control );
+                        _queue.Enqueue( _control.Controls );
+                    }
+                }
+
+                return _list?.Any( ) == true
+                    ? _list.ToArray( )
+                    : default( IEnumerable<Control> );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IEnumerable<Control> );
+            }
+        }
+
+        /// <summary>
+        /// Invokes if needed.
+        /// </summary>
+        /// <param name="action">The action.</param>
+        public void InvokeIf( Action action )
+        {
+            if( InvokeRequired )
+            {
+                BeginInvoke( action );
+            }
+            else
+            {
+                action.Invoke( );
+            }
+        }
+
+        /// <summary> Captures the state. </summary>
+        private void CaptureState( )
+        {
+            try
+            {
+                DataArgs.Provider = Provider;
+                DataArgs.Source = Source;
+                DataArgs.Filter = FormFilter;
+                DataArgs.SelectedTable = SelectedTable;
+                DataArgs.SelectedFields = SelectedFields;
+                DataArgs.SelectedNumerics = SelectedNumerics;
+                DataArgs.SqlQuery = SqlQuery;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Fades the in. </summary>
+        private void FadeIn( )
+        {
+            try
+            {
+                var _timer = new Timer( );
+                _timer.Interval = 10;
+                _timer.Tick += ( sender, args ) =>
+                {
+                    if( Opacity == 1d )
+                    {
+                        _timer.Stop( );
+                    }
+
+                    Opacity += 0.02d;
+                };
+
+                _timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Fades the out and close. </summary>
+        private void FadeOut( )
+        {
+            try
+            {
+                var _timer = new Timer( );
+                _timer.Interval = 10;
+                _timer.Tick += ( sender, args ) =>
+                {
+                    if( Opacity == 0d )
+                    {
+                        _timer.Stop( );
+                    }
+
+                    Opacity -= 0.02d;
+                };
+
+                _timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Notifies this instance. </summary>
+        private void Notify( )
+        {
+            try
+            {
+                var _message = "THIS IS NOT YET IMPLEMENTED!!";
+                var _notify = new SplashMessage( _message );
+                _notify.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Sets the worksheet properties. </summary>
+        private void SetWorksheetConfiguration( )
+        {
+            try
+            {
+                if( DataTable != null )
+                {
+                    InitializeWorksheet( DataTable );
+                }
+                else
+                {
+                    InitializeWorksheet( );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Sets the table configuration. </summary>
+        private void SetTableConfiguration( )
+        {
+            try
+            {
+                if( DataTable != null )
+                {
+                    InitializeTable( DataTable );
+                }
+                else
+                {
+                    InitializeTable( );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Sets the worksheet properties. </summary>
+        /// <param name="dataTable"> The data table. </param>
+        private void InitializeWorksheet( DataTable dataTable )
+        {
+            if( dataTable != null )
+            {
+                try
+                {
+                    Spreadsheet.DisplayAlerts = false;
+                    Spreadsheet.Font = new Font( "Roboto", 10 );
+                    Spreadsheet.AllowCellContextMenu = true;
+                    Spreadsheet.CanApplyTheme = true;
+                    Spreadsheet.CanOverrideStyle = true;
+                    Spreadsheet.Margin = new Padding( 1 );
+                    Spreadsheet.Padding = new Padding( 1 );
+                    Spreadsheet.ForeColor = Color.Black;
+                    RowCount = dataTable.Rows.Count;
+                    ColCount = dataTable.Columns.Count;
+                    Spreadsheet.DefaultColumnCount = RowCount;
+                    Spreadsheet.DefaultRowCount = ColCount;
+                    Spreadsheet.AllowZooming = true;
+                    Spreadsheet.AllowFiltering = true;
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary> Sets the worksheet properties. </summary>
+        private void InitializeWorksheet( )
+        {
+            try
+            {
+                Spreadsheet.DisplayAlerts = false;
+                Spreadsheet.Font = new Font( "Roboto", 10 );
+                Spreadsheet.AllowCellContextMenu = true;
+                Spreadsheet.CanApplyTheme = true;
+                Spreadsheet.CanOverrideStyle = true;
+                Spreadsheet.Margin = new Padding( 1 );
+                Spreadsheet.Padding = new Padding( 1 );
+                Spreadsheet.ForeColor = Color.Black;
+                Spreadsheet.AllowZooming = true;
+                Spreadsheet.AllowFiltering = true;
+                var _sheet = Spreadsheet?.Workbook?.ActiveSheet;
+                RowCount = _sheet.Rows.Length;
+                ColCount = _sheet.Columns.Length;
+                Spreadsheet.DefaultColumnCount = ColCount;
+                Spreadsheet.DefaultRowCount = RowCount;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the active grid configuration.
+        /// </summary>
+        private void SetActiveGridConfiguration( )
+        {
+            try
+            {
+                if( DataTable != null )
+                {
+                    SetGridProperties( DataTable );
+                }
+                else
+                {
+                    SetGridProperties( );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the grid properties.
+        /// </summary>
+        /// <param name="dataTable">
+        /// The data table.
+        /// </param>
+        private void SetGridProperties( DataTable dataTable )
+        {
+            if( dataTable != null )
+            {
+                try
+                {
+                    RowCount = dataTable.Rows.Count;
+                    ColCount = dataTable.Columns.Count;
+                    var _blue = Color.FromArgb( 17, 69, 97 );
+                    //Spreadsheet.ActiveGrid.ContextMenuStrip = FormMenu;
+                    Spreadsheet.ActiveGrid.FrozenRows = 3;
+                    Spreadsheet.ActiveGrid.AllowSelection = true;
+                    Spreadsheet.ActiveGrid.CanOverrideStyle = true;
+                    Spreadsheet.ActiveGrid.CanApplyTheme = true;
+                    Spreadsheet.ActiveGrid.BackColor = SystemColors.GradientInactiveCaption;
+                    Spreadsheet.ActiveGrid.MetroScrollBars = true;
+                    Spreadsheet.ActiveGrid.MetroColorTable = new MetroColorTable( );
+                    Spreadsheet.ActiveGrid.MetroColorTable.ScrollerBackground =
+                        SystemColors.ControlDarkDark;
+
+                    Spreadsheet.ActiveGrid.MetroColorTable.ArrowNormalBackGround = _blue;
+                    Spreadsheet.ActiveGrid.MetroColorTable.ArrowPushed = Color.Green;
+                    Spreadsheet.ActiveGrid.MetroColorTable.ArrowNormalBorderColor = Color.Green;
+                    Spreadsheet.ActiveGrid.MetroColorTable.ThumbNormalBorderColor =
+                        Color.LightSteelBlue;
+
+                    Spreadsheet.ActiveGrid.MetroColorTable.ThumbNormal = _blue;
+                    Spreadsheet.ActiveGrid.MetroColorTable.ThumbPushed = _blue;
+                    Spreadsheet.ActiveGrid.Font = new Font( "Roboto", 10 );
+                    Spreadsheet.ActiveGrid.ForeColor = Color.Black;
+                    Spreadsheet.ActiveGrid.ColumnCount = RowCount;
+                    Spreadsheet.ActiveGrid.RowCount = ColCount;
+                    Spreadsheet.ActiveGrid.DefaultColumnWidth = 120;
+                    Spreadsheet.ActiveGrid.DefaultRowHeight = 22;
+                    Spreadsheet.ActiveGrid.CurrentCellActivated += OnCellEnter;
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Sets the grid properties.
+        /// </summary>
+        private void SetGridProperties( )
+        {
+            try
+            {
+                var _blue = Color.FromArgb( 17, 69, 97 );
+                //Spreadsheet.ActiveGrid.ContextMenuStrip = FormMenu;
+                Spreadsheet.ActiveGrid.FrozenRows = 3;
+                Spreadsheet.ActiveGrid.AllowSelection = true;
+                Spreadsheet.ActiveGrid.CanOverrideStyle = true;
+                Spreadsheet.ActiveGrid.CanApplyTheme = true;
+                Spreadsheet.ActiveGrid.BackColor = SystemColors.GradientInactiveCaption;
+                Spreadsheet.ActiveGrid.MetroScrollBars = true;
+                Spreadsheet.ActiveGrid.MetroColorTable = new MetroColorTable( );
+                Spreadsheet.ActiveGrid.MetroColorTable.ScrollerBackground =
+                    SystemColors.ControlDarkDark;
+
+                Spreadsheet.ActiveGrid.MetroColorTable.ArrowNormalBackGround = _blue;
+                Spreadsheet.ActiveGrid.MetroColorTable.ArrowPushed = Color.Green;
+                Spreadsheet.ActiveGrid.MetroColorTable.ArrowNormalBorderColor = Color.Green;
+                Spreadsheet.ActiveGrid.MetroColorTable.ThumbNormalBorderColor =
+                    Color.LightSteelBlue;
+
+                Spreadsheet.ActiveGrid.MetroColorTable.ThumbNormal = _blue;
+                Spreadsheet.ActiveGrid.MetroColorTable.ThumbPushed = _blue;
+                Spreadsheet.ActiveGrid.Font = new Font( "Roboto", 10 );
+                Spreadsheet.ActiveGrid.ForeColor = Color.Black;
+                Spreadsheet.ActiveGrid.DefaultColumnWidth = 120;
+                Spreadsheet.ActiveGrid.DefaultRowHeight = 22;
+                Spreadsheet.ActiveGrid.CurrentCellActivated += OnCellEnter;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Shows the table dialog.
+        /// </summary>
+        private void ShowTableDialog( )
+        {
+            try
+            {
+                var _dialog = new FilterWindow( );
+                _dialog.ShowDialog( this );
+                Provider = _dialog.DataArgs.Provider;
+                Source = _dialog.DataArgs.Source;
+                SelectedTable = _dialog.DataArgs.SelectedTable;
+                DataModel = new DataBuilder( Source, Provider );
+                DataTable = DataModel?.DataTable;
+                FiltersButton.Visible = true;
+                FilterSeparator.Visible = true;
+                SetTableConfiguration( );
+                SetWorksheetConfiguration( );
+                SetActiveGridConfiguration( );
+                Refresh( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Shows the filter dialog.
+        /// </summary>
+        private void ShowFilterDialog( )
+        {
+            try
+            {
+                var _group = new FilterWindow( );
+                _group.ShowDialog( this );
+                Provider = _group.DataArgs.Provider;
+                Source = _group.DataArgs.Source;
+                SelectedTable = _group.DataArgs.SelectedTable ?? string.Empty;
+                FormFilter = _group.DataArgs.Filter ?? default( IDictionary<string, object> );
+                SqlQuery = _group.DataArgs.SqlQuery;
+                SelectedColumns = _group.DataArgs.SelectedColumns ?? default( IList<string> );
+                SelectedFields = _group.DataArgs.SelectedFields ?? default( IList<string> );
+                SelectedNumerics = _group.DataArgs.SelectedNumerics ?? default( IList<string> );
+                DataModel = new DataBuilder( Source, Provider, SqlQuery );
+                DataTable = DataModel?.DataTable;
+                SetTableConfiguration( );
+                SetWorksheetConfiguration( );
+                SetActiveGridConfiguration( );
+                Refresh( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Opens the main form.
+        /// </summary>
+        private void OpenMainForm( )
+        {
+            try
+            {
+                var _form = (MainForm)Program.Windows[ nameof( MainForm ) ];
+                _form.StartPosition = FormStartPosition.CenterScreen;
+                _form.TopMost = true;
+                _form.Visible = true;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Updates the status.
+        /// </summary>
+        private void UpdateStatusLabel( )
+        {
+            try
+            {
+                var _dateTime = DateTime.Now;
+                var _dateString = _dateTime.ToShortDateString( );
+                var _timeString = _dateTime.ToLongTimeString( );
+                StatusLabel.Text = _dateString + "  " + _timeString;
             }
             catch( Exception _ex )
             {
@@ -313,16 +1036,19 @@ namespace BudgetExecution
         {
             try
             {
+                InitializeTimers( );
+                InitializeToolStrip( );
+                InitializeLabels( );
+                InitializeIcon( );
+                InitializeCallbacks( );
                 DataArgs = new DataArgs( );
+                Ribbon.Size = new Size( 1338, 128 );
                 Header.ForeColor = Color.FromArgb( 106, 189, 252 );
-                Header.Font = new Font( "Roboto", 11 );
+                Header.Font = new Font( "Roboto", 10 );
                 Header.TextAlign = ContentAlignment.TopLeft;
                 Ribbon.Spreadsheet = Spreadsheet;
                 FiltersButton.Visible = false;
                 FilterSeparator.Visible = false;
-                InitToolStrip( );
-                InitTitle( );
-                InitIcon( );
                 FadeIn( );
             }
             catch( Exception _ex )
@@ -407,7 +1133,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    ContextMenu.Show( this, e.Location );
+                    //FormMenu.Show( this, e.Location );
                 }
                 catch( Exception _ex )
                 {
@@ -461,488 +1187,15 @@ namespace BudgetExecution
         /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        public void OnUploadButtonClick( object sender, EventArgs e )
+        public void OnBrowserButtonClick( object sender, EventArgs e )
         {
             try
             {
                 if( sender is ToolStripButton _button
-                   && ( _button.ToolType == ToolType.UploadButton ) )
+                   && ( _button.ToolType == ToolType.BrowseButton ) )
                 {
-                    var _dialog = new LoadingForm( Status.Waiting );
-                    _dialog.ShowDialog( this );
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Captures the state. </summary>
-        private void CaptureState( )
-        {
-            try
-            {
-                DataArgs.Provider = Provider;
-                DataArgs.Source = Source;
-                DataArgs.DataFilter = FormFilter;
-                DataArgs.SelectedTable = SelectedTable;
-                DataArgs.SelectedFields = SelectedFields;
-                DataArgs.SelectedNumerics = SelectedNumerics;
-                DataArgs.SqlQuery = SqlQuery;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Fades the in. </summary>
-        private void FadeIn( )
-        {
-            try
-            {
-                var _timer = new Timer( );
-                _timer.Interval = 10;
-                _timer.Tick += ( sender, args ) =>
-                {
-                    if( Opacity == 1d )
-                    {
-                        _timer.Stop( );
-                    }
-
-                    Opacity += 0.02d;
-                };
-
-                _timer.Start( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Fades the out and close. </summary>
-        private void FadeOut( )
-        {
-            try
-            {
-                var _timer = new Timer( );
-                _timer.Interval = 10;
-                _timer.Tick += ( sender, args ) =>
-                {
-                    if( Opacity == 0d )
-                    {
-                        _timer.Stop( );
-                    }
-
-                    Opacity -= 0.02d;
-                };
-
-                _timer.Start( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Notifies this instance. </summary>
-        private void Notify( )
-        {
-            try
-            {
-                var _message = "THIS IS NOT YET IMPLEMENTED!!";
-                var _notify = new SplashMessage( _message );
-                _notify.Show( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Sets the tool strip properties. </summary>
-        private void InitToolStrip( )
-        {
-            try
-            {
-                ToolStrip.Margin = new Padding( 1, 1, 1, 3 );
-                ToolStrip.Visible = true;
-                ToolStrip.Text = string.Empty;
-                ToolStrip.Office12Mode = true;
-                ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
-                ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Black;
-                ToolStrip.LauncherStyle = LauncherStyle.Office12;
-                ToolStrip.ShowCaption = true;
-                ToolStrip.ImageSize = new Size( 16, 16 );
-                ToolStrip.ImageScalingSize = new Size( 16, 16 );
-                ToolStripTextBox.Size = new Size( 190, 28 );
-                ToolStripTextBox.Font = new Font( "Roboto", 8 );
-                ToolStripTextBox.ForeColor = Color.White;
-                ToolStripTextBox.TextBoxTextAlign = HorizontalAlignment.Center;
-                ToolStripTextBox.Text = DateTime.Today.ToShortDateString( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Initializes the icon. </summary>
-        private void InitIcon( )
-        {
-            try
-            {
-                PictureBox.Size = new Size( 40, 18 );
-                PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Initializes the title. </summary>
-        private void InitTitle( )
-        {
-            try
-            {
-                Header.ForeColor = Color.FromArgb( 106, 189, 252 );
-                Header.Font = new Font( "Roboto", 11 );
-                Header.TextAlign = ContentAlignment.TopLeft;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Sets the table properties. </summary>
-        private void InitTable( )
-        {
-            try
-            {
-                Spreadsheet?.SetActiveSheet( "Sheet1" );
-                Spreadsheet?.RenameSheet( "Sheet1", "Data" );
-                Spreadsheet?.SetZoomFactor( "Data", 100 );
-                Spreadsheet?.SetGridLinesVisibility( false );
-                var _activeSheet = Spreadsheet?.Workbook?.ActiveSheet;
-                ToolStripTextBox.Text = $"  Rows: {_activeSheet.Rows.Length} "
-                    + $"Columns: {_activeSheet.Columns.Length}";
-
-                Spreadsheet?.ActiveGrid?.InvalidateCells( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Sets the table properties. </summary>
-        /// <param name="table"> The table. </param>
-        private void InitTable( DataTable table )
-        {
-            if( table?.Rows?.Count > 0 )
-            {
-                try
-                {
-                    Spreadsheet?.SetActiveSheet( "Sheet1" );
-                    Spreadsheet?.RenameSheet( "Sheet1", "Data" );
-                    Spreadsheet?.SetZoomFactor( "Data", 100 );
-                    Spreadsheet?.ActiveSheet?.ImportDataTable( table, true, 1, 1 );
-                    Spreadsheet?.SetGridLinesVisibility( false );
-                    var _activeSheet = Spreadsheet?.Workbook?.ActiveSheet;
-                    var _usedRange = _activeSheet?.UsedRange;
-                    var _table = _activeSheet?.ListObjects?.Create( table.TableName, _usedRange );
-                    _usedRange.CellStyle.Font.FontName = "Roboto";
-                    _usedRange.CellStyle.Font.Size = 10;
-                    _usedRange.CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
-                    _usedRange.CellStyle.VerticalAlignment = ExcelVAlign.VAlignBottom;
-                    var _topRow = _activeSheet?.Range[ 1, 1, 1, 60 ];
-                    RowCount = DataTable.Rows.Count;
-                    ColCount = DataTable.Columns.Count;
-                    ToolStripTextBox.Text = $"  Rows: {RowCount}  Columns: {ColCount}";
-                    _topRow?.FreezePanes( );
-                    _table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium16;
-                    var _title = table?.TableName.SplitPascal( );
-                    Spreadsheet?.ActiveGrid?.InvalidateCells( );
-                    Header.Text = $"{_title} Data Table";
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary> Sets the worksheet properties. </summary>
-        private void SetWorksheetConfiguration( )
-        {
-            try
-            {
-                if( DataTable != null )
-                {
-                    InitializeWorksheet( DataTable );
-                }
-                else
-                {
-                    InitializeWorksheet( );
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Sets the table configuration. </summary>
-        private void SetTableConfiguration( )
-        {
-            try
-            {
-                if( DataTable != null )
-                {
-                    InitTable( DataTable );
-                }
-                else
-                {
-                    InitTable( );
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Sets the worksheet properties. </summary>
-        /// <param name="dataTable"> The data table. </param>
-        private void InitializeWorksheet( DataTable dataTable )
-        {
-            if( dataTable != null )
-            {
-                try
-                {
-                    Spreadsheet.DisplayAlerts = false;
-                    Spreadsheet.Font = new Font( "Roboto", 10 );
-                    Spreadsheet.AllowCellContextMenu = true;
-                    Spreadsheet.CanApplyTheme = true;
-                    Spreadsheet.CanOverrideStyle = true;
-                    Spreadsheet.Margin = new Padding( 1 );
-                    Spreadsheet.Padding = new Padding( 1 );
-                    Spreadsheet.ForeColor = Color.Black;
-                    RowCount = dataTable.Rows.Count;
-                    ColCount = dataTable.Columns.Count;
-                    Spreadsheet.DefaultColumnCount = RowCount;
-                    Spreadsheet.DefaultRowCount = ColCount;
-                    Spreadsheet.AllowZooming = true;
-                    Spreadsheet.AllowFiltering = true;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary> Sets the worksheet properties. </summary>
-        private void InitializeWorksheet( )
-        {
-            try
-            {
-                Spreadsheet.DisplayAlerts = false;
-                Spreadsheet.Font = new Font( "Roboto", 10 );
-                Spreadsheet.AllowCellContextMenu = true;
-                Spreadsheet.CanApplyTheme = true;
-                Spreadsheet.CanOverrideStyle = true;
-                Spreadsheet.Margin = new Padding( 1 );
-                Spreadsheet.Padding = new Padding( 1 );
-                Spreadsheet.ForeColor = Color.Black;
-                Spreadsheet.AllowZooming = true;
-                Spreadsheet.AllowFiltering = true;
-                var _activeSheet = Spreadsheet?.Workbook?.ActiveSheet;
-                RowCount = _activeSheet.Rows.Length;
-                ColCount = _activeSheet.Columns.Length;
-                Spreadsheet.DefaultColumnCount = ColCount;
-                Spreadsheet.DefaultRowCount = RowCount;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Sets the active grid properties. </summary>
-        private void SetActiveGridConfiguration( )
-        {
-            try
-            {
-                if( DataTable != null )
-                {
-                    SetGridProperties( DataTable );
-                }
-                else
-                {
-                    SetGridProperties( );
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Sets the grid properties. </summary>
-        /// <param name="dataTable"> The data table. </param>
-        private void SetGridProperties( DataTable dataTable )
-        {
-            if( dataTable != null )
-            {
-                try
-                {
-                    RowCount = dataTable.Rows.Count;
-                    ColCount = dataTable.Columns.Count;
-                    var _blue = Color.FromArgb( 17, 69, 97 );
-                    Spreadsheet.ActiveGrid.ContextMenuStrip = ContextMenu;
-                    Spreadsheet.ActiveGrid.FrozenRows = 3;
-                    Spreadsheet.ActiveGrid.AllowSelection = true;
-                    Spreadsheet.ActiveGrid.CanOverrideStyle = true;
-                    Spreadsheet.ActiveGrid.CanApplyTheme = true;
-                    Spreadsheet.ActiveGrid.BackColor = SystemColors.GradientInactiveCaption;
-                    Spreadsheet.ActiveGrid.MetroScrollBars = true;
-                    Spreadsheet.ActiveGrid.MetroColorTable = new MetroColorTable( );
-                    Spreadsheet.ActiveGrid.MetroColorTable.ScrollerBackground =
-                        SystemColors.ControlDarkDark;
-
-                    Spreadsheet.ActiveGrid.MetroColorTable.ArrowNormalBackGround = _blue;
-                    Spreadsheet.ActiveGrid.MetroColorTable.ArrowPushed = Color.Green;
-                    Spreadsheet.ActiveGrid.MetroColorTable.ArrowNormalBorderColor = Color.Green;
-                    Spreadsheet.ActiveGrid.MetroColorTable.ThumbNormalBorderColor =
-                        Color.LightSteelBlue;
-
-                    Spreadsheet.ActiveGrid.MetroColorTable.ThumbNormal = _blue;
-                    Spreadsheet.ActiveGrid.MetroColorTable.ThumbPushed = _blue;
-                    Spreadsheet.ActiveGrid.Font = new Font( "Roboto", 10 );
-                    Spreadsheet.ActiveGrid.ForeColor = Color.Black;
-                    Spreadsheet.ActiveGrid.ColumnCount = RowCount;
-                    Spreadsheet.ActiveGrid.RowCount = ColCount;
-                    Spreadsheet.ActiveGrid.DefaultColumnWidth = 120;
-                    Spreadsheet.ActiveGrid.DefaultRowHeight = 22;
-                    Spreadsheet.ActiveGrid.CurrentCellActivated += OnCellEnter;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary> Sets the grid properties. </summary>
-        private void SetGridProperties( )
-        {
-            try
-            {
-                var _blue = Color.FromArgb( 17, 69, 97 );
-                Spreadsheet.ActiveGrid.ContextMenuStrip = ContextMenu;
-                Spreadsheet.ActiveGrid.FrozenRows = 3;
-                Spreadsheet.ActiveGrid.AllowSelection = true;
-                Spreadsheet.ActiveGrid.CanOverrideStyle = true;
-                Spreadsheet.ActiveGrid.CanApplyTheme = true;
-                Spreadsheet.ActiveGrid.BackColor = SystemColors.GradientInactiveCaption;
-                Spreadsheet.ActiveGrid.MetroScrollBars = true;
-                Spreadsheet.ActiveGrid.MetroColorTable = new MetroColorTable( );
-                Spreadsheet.ActiveGrid.MetroColorTable.ScrollerBackground =
-                    SystemColors.ControlDarkDark;
-
-                Spreadsheet.ActiveGrid.MetroColorTable.ArrowNormalBackGround = _blue;
-                Spreadsheet.ActiveGrid.MetroColorTable.ArrowPushed = Color.Green;
-                Spreadsheet.ActiveGrid.MetroColorTable.ArrowNormalBorderColor = Color.Green;
-                Spreadsheet.ActiveGrid.MetroColorTable.ThumbNormalBorderColor =
-                    Color.LightSteelBlue;
-
-                Spreadsheet.ActiveGrid.MetroColorTable.ThumbNormal = _blue;
-                Spreadsheet.ActiveGrid.MetroColorTable.ThumbPushed = _blue;
-                Spreadsheet.ActiveGrid.Font = new Font( "Roboto", 10 );
-                Spreadsheet.ActiveGrid.ForeColor = Color.Black;
-                Spreadsheet.ActiveGrid.DefaultColumnWidth = 120;
-                Spreadsheet.ActiveGrid.DefaultRowHeight = 22;
-                Spreadsheet.ActiveGrid.CurrentCellActivated += OnCellEnter;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Shows the table dialog. </summary>
-        private void ShowTableDialog( )
-        {
-            try
-            {
-                var _dialog = new FilterDialog( );
-                _dialog.ShowDialog( this );
-                Provider = _dialog.DataArgs.Provider;
-                Source = _dialog.DataArgs.Source;
-                SelectedTable = _dialog.DataArgs.SelectedTable;
-                DataModel = new DataBuilder( Source, Provider );
-                DataTable = DataModel?.DataTable;
-                FiltersButton.Visible = true;
-                FilterSeparator.Visible = true;
-                SetTableConfiguration( );
-                SetWorksheetConfiguration( );
-                SetActiveGridConfiguration( );
-                Refresh( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Shows the filter dialog. </summary>
-        private void ShowFilterDialog( )
-        {
-            try
-            {
-                var _group = new FilterDialog( );
-                _group.ShowDialog( this );
-                Provider = _group.DataArgs.Provider;
-                Source = _group.DataArgs.Source;
-                SelectedTable = _group.DataArgs.SelectedTable ?? string.Empty;
-                FormFilter = _group.DataArgs.DataFilter ?? default( IDictionary<string, object> );
-                SqlQuery = _group.DataArgs.SqlQuery;
-                SelectedColumns = _group.DataArgs.SelectedColumns ?? default( IList<string> );
-                SelectedFields = _group.DataArgs.SelectedFields ?? default( IList<string> );
-                SelectedNumerics = _group.DataArgs.SelectedNumerics ?? default( IList<string> );
-                DataModel = new DataBuilder( Source, Provider, SqlQuery );
-                DataTable = DataModel?.DataTable;
-                SetTableConfiguration( );
-                SetWorksheetConfiguration( );
-                SetActiveGridConfiguration( );
-                Refresh( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Opens the main form. </summary>
-        private void OpenMainForm( )
-        {
-            try
-            {
-                if( Owner?.Visible == false )
-                {
-                    var _form = (MainForm) Program.Windows[ "MainForm" ];
-                    _form.Refresh( );
-                    _form.Visible = true;
-                }
-                else
-                {
-                    var _mainForm = new MainForm( );
-                    _mainForm.Show( );
+                    var _dialog = new FileBrowser( );
+                    _dialog.ShowDialog( );
                 }
             }
             catch( Exception _ex )
@@ -1020,6 +1273,7 @@ namespace BudgetExecution
         {
             try
             {
+                FadeOut( );
                 Application.Exit( );
             }
             catch( Exception _ex )
@@ -1049,33 +1303,28 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the controls. </summary>
-        /// <returns> </returns>
-        private protected IEnumerable<Control> GetControls( )
+        /// <summary>
+        /// Called when [timer tick].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnTimerTick( object sender, EventArgs e ) => InvokeIf( _statusUpdate );
+
+        /// <summary>
+        /// Raises the Close event.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        public void OnClosing( object sender, EventArgs e )
         {
-            var _list = new List<Control>( );
-            var _queue = new Queue( );
             try
             {
-                _queue.Enqueue( Controls );
-                while( _queue.Count > 0 )
-                {
-                    var _collection = (Control.ControlCollection) _queue.Dequeue( );
-                    foreach( Control _control in _collection )
-                    {
-                        _list.Add( _control );
-                        _queue.Enqueue( _control.Controls );
-                    }
-                }
-
-                return _list?.Any( ) == true
-                    ? _list.ToArray( )
-                    : default( IEnumerable<Control> );
+                ClearSelections( );
+                ClearCollections( );
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return default( IEnumerable<Control> );
             }
         }
 

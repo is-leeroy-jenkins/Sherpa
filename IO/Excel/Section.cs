@@ -38,123 +38,241 @@
 // </summary>
 // ******************************************************************************************
 
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using OfficeOpenXml;
+
 namespace BudgetExecution
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
-    using System.Threading;
+    using System;
 
-    /// <summary> </summary>
-    /// <seealso cref="BudgetExecution.Grid"/>
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:BudgetExecution.Grid" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Local" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Local" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
     public class Section : Grid
     {
-        /// <summary> Gets or sets the anchor. </summary>
-        /// <value> The anchor. </value>
-        public (int Row, int Column) Anchor { get; set; }
-
-        /// <summary> Gets or sets the span. </summary>
-        /// <value> The span. </value>
-        public int Span { get; set; }
-
-        /// <summary> Gets or sets the depth. </summary>
-        /// <value> The depth. </value>
-        public int Depth { get; set; }
-
-        /// <summary> Gets or sets the area. </summary>
-        /// <value> The area. </value>
-        public (int Depth, int Span) Area { get; set; }
-
-        /// <summary> Gets the grid. </summary>
-        /// <value> The grid. </value>
-        private IGrid Grid { get;  }
+        /// <summary>
+        /// The span
+        /// </summary>
+        private int _span;
 
         /// <summary>
+        /// The depth
+        /// </summary>
+        private int _depth;
+
+        /// <summary>
+        /// The area
+        /// </summary>
+        private int _area;
+
+        /// <summary>
+        /// The anchor
+        /// </summary>
+        private (int Row, int Column) _anchor;
+
+        /// <summary>
+        /// Gets the span.
+        /// </summary>
+        /// <value>
+        /// The span.
+        /// </value>
+        public int Span { get; private set; }
+
+        /// <summary>
+        /// Gets the depth.
+        /// </summary>
+        /// <value>
+        /// The depth.
+        /// </value>
+        public int Depth { get; private set; }
+
+        /// <summary>
+        /// Gets the anchor.
+        /// </summary>
+        /// <value>
+        /// The anchor.
+        /// </value>
+        public (int Row, int Column) Anchor { get; private set; }
+
+        /// <summary>
+        /// Gets the area.
+        /// </summary>
+        /// <value>
+        /// The area.
+        /// </value>
+        public int Area { get; private set; }
+
+        /// <summary>
+        /// Gets the cells.
+        /// </summary>
+        /// <value>
+        /// The cells.
+        /// </value>
+        public IList<ExcelRangeBase> Cells { get; private set; }
+
+        /// <summary>
+        /// Gets the values.
+        /// </summary>
+        /// <value>
+        /// The values.
+        /// </value>
+        public IList<object> Values { get; private set; }
+
+        /// <inheritdoc />
+        /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Section"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.Section" /> class.
         /// </summary>
         public Section( )
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Section"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.Section" /> class.
         /// </summary>
-        /// <param name="grid"> The grid. </param>
-        public Section( IGrid grid )
-
+        /// <param name="excel">The excel.</param>
+        /// <param name="range">The range.</param>
+        public Section( ExcelPackage excel, ExcelRange range ) 
+            : base( excel, range )
         {
-            Grid = grid;
-            Worksheet = Grid.Worksheet;
-            Range = Grid.Range;
-            Address = Grid.Address;
-            From = ( Range.Start.Row, Range.Start.Column );
-            To = ( Range.End.Row, Range.End.Column );
-            Span = Range.Columns;
-            Depth = Range.Rows;
-            Area = ( Depth, Span );
+            _anchor = ( range.Start.Row, range.Start.Column );
+            _span = Range.Columns;
+            _depth = Range.Rows;
+            _area = Range.Rows * Range.Columns;
+            _cells = GetCells( );
         }
 
-        /// <summary> Gets the anchor. </summary>
-        /// <returns> </returns>
-        public (int Row, int Column) GetAnchor( )
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.Section" /> class.
+        /// </summary>
+        /// <param name="excel">The excel.</param>
+        /// <param name="fromRow">From row.</param>
+        /// <param name="fromColumn">From column.</param>
+        /// <param name="toRow">To row.</param>
+        /// <param name="toColumn">To column.</param>
+        public Section( ExcelPackage excel, int fromRow = 1, int fromColumn = 1,
+            int toRow = 55, int toColumn = 12 ) 
+            : base( excel, fromRow, fromColumn, toRow, toColumn )
+        {
+            _anchor = ( fromRow, fromColumn );
+            _span = Range.Columns;
+            _depth = Range.Rows;
+            _area = Range.Rows * Range.Columns;
+            _cells = GetCells( );
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.Section" /> class.
+        /// </summary>
+        /// <param name="excel">The worksheet.</param>
+        /// <param name="cell">The cell.</param>
+        public Section( ExcelPackage excel, IList<int> cell ) 
+            : base( excel, cell )
+        {
+            _anchor = ( cell[ 0 ], cell[ 1 ] );
+            _span = Range.Columns;
+            _depth = Range.Rows;
+            _area = Range.Rows * Range.Columns;
+            _cells = GetCells( );
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.Section" /> class.
+        /// </summary>
+        /// <param name="excel">The excel.</param>
+        /// <param name="from">From.</param>
+        /// <param name="to">To.</param>
+        public Section( ExcelPackage excel, (int Row, int Column) from,
+            (int Row, int Column) to )
+            : base( excel, from, to )
+        {
+            _anchor = ( from.Row, from.Column );
+            _span = Range.Columns;
+            _depth = Range.Rows;
+            _area = Range.Rows * Range.Columns;
+            _cells = GetCells( );
+        }
+
+        /// <summary>
+        /// Sets the values.
+        /// </summary>
+        /// <param name="row">The row.</param>
+        public void SetValues( DataRow row )
         {
             try
             {
-                return default( (int Row, int Column) );
+                ThrowIf.Null( row, nameof( row ) );
+                if( _cells.Count == row.ItemArray.Length )
+                {
+                    SetValues( row.ItemArray );
+                }
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return ( 0, 0 );
             }
         }
 
-        /// <summary> Gets the span. </summary>
-        /// <returns> </returns>
-        public int GetSpan( )
+        /// <summary>
+        /// Sets the values.
+        /// </summary>
+        /// <param name="dict">The dictionary.</param>
+        public void SetValues( IDictionary<string, object> dict )
         {
             try
             {
-                return default( int );
+                ThrowIf.NoItems( dict, nameof( dict ) );
+                var _items = dict.Values.ToArray( );
+                if( _cells.Count == _items.Length )
+                {
+                    SetValues( _items );
+                }
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return 0;
             }
         }
 
-        /// <summary> Gets the depth. </summary>
-        /// <returns> </returns>
-        public int GetDepth( )
+        /// <summary>
+        /// Sets the values.
+        /// </summary>
+        /// <param name="data">The data.</param>
+        public void SetValues( IEnumerable<string> data )
         {
             try
             {
-                return default( int );
+                ThrowIf.NoData( data, nameof( data ) );
+                var _items = data.ToArray( );
+                if( _cells.Count == _items.Length )
+                {
+                    SetValues( _items );
+                }
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return 0;
-            }
-        }
-
-        /// <summary> Gets the area. </summary>
-        /// <returns> </returns>
-        public (int Depth, int Span) GetArea( )
-        {
-            try
-            {
-                return default( (int Depth, int Span) );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return ( 0, 0 );
             }
         }
     }

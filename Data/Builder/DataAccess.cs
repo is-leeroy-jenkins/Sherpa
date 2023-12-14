@@ -74,12 +74,12 @@ namespace BudgetExecution
         /// <summary>
         /// The column names
         /// </summary>
-        private protected IEnumerable<string> _columnNames;
+        private protected IList<string> _columnNames;
 
         /// <summary>
         /// The data columns
         /// </summary>
-        private protected IEnumerable<string> _dataColumns;
+        private protected IList<string> _dataColumns;
 
         /// <summary>
         /// The data set
@@ -181,7 +181,7 @@ namespace BudgetExecution
         /// <value>
         /// The data columns.
         /// </value>
-        public IEnumerable<DataColumn> DataColumns { get; set; }
+        public IList<DataColumn> DataColumns { get; set; }
 
         /// <summary>
         /// Gets or sets the column names.
@@ -189,7 +189,7 @@ namespace BudgetExecution
         /// <value>
         /// The column names.
         /// </value>
-        public IEnumerable<string> ColumnNames { get; set; }
+        public IList<string> ColumnNames { get; set; }
 
         /// <summary>
         /// Gets or sets the keys.
@@ -226,7 +226,8 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the data.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         public IEnumerable<DataRow> GetData( )
         {
             try
@@ -251,19 +252,19 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the data table.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         private protected DataTable GetDataTable( )
         {
             try
             {
-                ThrowIf.Null( SqlStatement, "SqlStatement" );
                 var _clock = Stopwatch.StartNew( );
-                _dataSet = new DataSet( $"{Provider}" );
+                _dataSet = new DataSet( $"{Source}" );
                 _dataTable = new DataTable( $"{Source}" );
                 _dataTable.TableName = Source.ToString( );
                 _dataSet.Tables.Add( _dataTable );
-                var _query = new Query( SqlStatement );
-                var _adapter = _query.DataAdapter;
+                using var _query = new Query( SqlStatement );
+                using var _adapter = _query.GetAdapter( );
                 _adapter.Fill( _dataSet, _dataTable.TableName );
                 SetColumnCaptions( _dataTable );
                 _duration = _clock.Elapsed;
@@ -271,7 +272,7 @@ namespace BudgetExecution
                     ? _dataTable
                     : default( DataTable );
             }
-            catch( ArgumentNullException _ex )
+            catch( Exception _ex )
             {
                 Fail( _ex );
                 return default( DataTable );
@@ -281,10 +282,10 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the table asynchronous.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         private protected Task<DataTable> GetTableAsync( )
-        {
-            ThrowIf.Null( SqlStatement, "SqlStatement" );
+        { 
             var _tcs = new TaskCompletionSource<DataTable>( );
             try
             {
@@ -293,8 +294,8 @@ namespace BudgetExecution
                 _dataTable = new DataTable( $"{Source}" );
                 _dataTable.TableName = Source.ToString( );
                 _dataSet.Tables.Add( _dataTable );
-                var _query = new Query( SqlStatement );
-                var _adapter = _query.DataAdapter;
+                using var _query = new Query( SqlStatement );
+                using var _adapter = _query.DataAdapter;
                 _adapter.Fill( _dataSet, _dataTable.TableName );
                 SetColumnCaptions( _dataTable );
                 _tcs.SetResult( _dataTable );
@@ -317,7 +318,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.Null( dataTable, dataTable.TableName );
+                ThrowIf.Null( dataTable, nameof( dataTable ) );
                 foreach( DataColumn _column in dataTable?.Columns )
                 {
                     if( _column != null )
@@ -327,7 +328,7 @@ namespace BudgetExecution
                     }
                 }
             }
-            catch( ArgumentException _ex )
+            catch( Exception _ex )
             {
                 Fail( _ex );
             }
@@ -342,19 +343,16 @@ namespace BudgetExecution
             try
             {
                 var _list = new List<string>( );
-                if( _dataTable != null )
+                if( _dataTable == null )
                 {
                     _dataTable = GetDataTable( );
                 }
 
-                if( _dataTable != null )
+                foreach( DataColumn _col in _dataTable.Columns )
                 {
-                    foreach( DataColumn _col in _dataTable.Columns )
+                    if( _col.DataType == typeof( string ) )
                     {
-                        if( _col.DataType == typeof( string ) )
-                        {
-                            _list.Add( _col.ColumnName );
-                        }
+                        _list.Add( _col.ColumnName );
                     }
                 }
 
@@ -378,7 +376,7 @@ namespace BudgetExecution
             try
             {
                 var _list = new List<string>( );
-                if( _dataTable != null )
+                if( _dataTable == null )
                 {
                     _dataTable = GetDataTable( );
                 }
@@ -416,7 +414,7 @@ namespace BudgetExecution
             try
             {
                 var _list = new List<string>( );
-                if( _dataTable != null )
+                if( _dataTable == null )
                 {
                     _dataTable = GetDataTable( );
                 }
@@ -427,7 +425,7 @@ namespace BudgetExecution
                        && ( ( _col.DataType == typeof( DateTime ) )
                            || ( _col.DataType == typeof( DateOnly ) )
                            || ( _col.DataType == typeof( DateTimeOffset ) )
-                           || _col.ColumnName.EndsWith( "Day" )
+                           || _col.ColumnName.EndsWith( nameof( Day ) )
                            || _col.ColumnName.EndsWith( "Date" ) ) )
                     {
                         _list.Add( _col.ColumnName );
@@ -453,7 +451,7 @@ namespace BudgetExecution
         {
             try
             {
-                if( _dataTable != null )
+                if( _dataTable == null )
                 {
                     _dataTable = GetDataTable( );
                 }

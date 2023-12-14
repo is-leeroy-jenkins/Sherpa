@@ -47,146 +47,239 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
-    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
-    /// <summary> </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.Tools.ToolStripEx"/>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.Tools.ToolStripEx" />
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public abstract class ToolStripBase : ToolStripEx
     {
-        /// <summary> Gets or sets the binding source. </summary>
-        /// <value> The binding source. </value>
+        /// <summary>
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
         public virtual BindingSource BindingSource { get; set; }
 
-        /// <summary> Gets or sets the separators. </summary>
-        /// <value> The separators. </value>
+        /// <summary>
+        /// Gets or sets the separators.
+        /// </summary>
+        /// <value>
+        /// The separators.
+        /// </value>
         public virtual IEnumerable<ToolSeparator> Separators { get; set; }
 
-        /// <summary> Gets or sets the label. </summary>
-        /// <value> The label. </value>
-        public virtual ToolStripLabel Label { get; set; }
-
-        /// <summary> Gets or sets the search engine label. </summary>
-        /// <value> The search engine label. </value>
-        public virtual ToolStripLabel SearchEngineLabel { get; set; }
-
-        /// <summary> Gets or sets the search criteria label. </summary>
-        /// <value> The search criteria label. </value>
-        public virtual ToolStripLabel SearchCriteriaLabel { get; set; }
-
-        /// <summary> Gets or sets the drop down. </summary>
-        /// <value> The drop down. </value>
+        /// <summary>
+        /// Gets or sets the drop down.
+        /// </summary>
+        /// <value>
+        /// The drop down.
+        /// </value>
         public virtual ToolStripDropDown DropDown { get; set; }
 
-        /// <summary> Gets or sets the text box. </summary>
-        /// <value> The text box. </value>
+        /// <summary>
+        /// Gets or sets the text box.
+        /// </summary>
+        /// <value>
+        /// The text box.
+        /// </value>
         public virtual ToolStripTextBox TextBox { get; set; }
 
-        /// <summary> Gets or sets the progress bar. </summary>
-        /// <value> The progress bar. </value>
-        public virtual ToolStripProgressBar ProgressBar { get; set; }
-
-        /// <summary> Gets or sets the first button. </summary>
-        /// <value> The first button. </value>
+        /// <summary>
+        /// Gets or sets the first button.
+        /// </summary>
+        /// <value>
+        /// The first button.
+        /// </value>
         public virtual ToolStripButton FirstButton { get; set; }
 
-        /// <summary> Gets or sets the previous button. </summary>
-        /// <value> The previous button. </value>
+        /// <summary>
+        /// Gets or sets the previous button.
+        /// </summary>
+        /// <value>
+        /// The previous button.
+        /// </value>
         public virtual ToolStripButton PreviousButton { get; set; }
 
-        /// <summary> Gets or sets the next button. </summary>
-        /// <value> The next button. </value>
+        /// <summary>
+        /// Gets or sets the next button.
+        /// </summary>
+        /// <value>
+        /// The next button.
+        /// </value>
         public virtual ToolStripButton NextButton { get; set; }
 
-        /// <summary> Gets or sets the last button. </summary>
-        /// <value> The last button. </value>
+        /// <summary>
+        /// Gets or sets the last button.
+        /// </summary>
+        /// <value>
+        /// The last button.
+        /// </value>
         public virtual ToolStripButton LastButton { get; set; }
 
-        /// <summary> Gets or sets the add button. </summary>
-        /// <value> The add button. </value>
+        /// <summary>
+        /// Gets or sets the add button.
+        /// </summary>
+        /// <value>
+        /// The add button.
+        /// </value>
         public virtual ToolStripButton AddButton { get; set; }
 
-        /// <summary> Gets or sets the delete button. </summary>
-        /// <value> The delete button. </value>
+        /// <summary>
+        /// Gets or sets the delete button.
+        /// </summary>
+        /// <value>
+        /// The delete button.
+        /// </value>
         public virtual ToolStripButton DeleteButton { get; set; }
 
-        /// <summary> Gets or sets the edit button. </summary>
-        /// <value> The edit button. </value>
+        /// <summary>
+        /// Gets or sets the edit button.
+        /// </summary>
+        /// <value>
+        /// The edit button.
+        /// </value>
         public virtual ToolStripButton EditButton { get; set; }
 
-        /// <summary> Gets or sets the edit column button. </summary>
-        /// <value> The edit column button. </value>
+        /// <summary>
+        /// Gets or sets the edit column button.
+        /// </summary>
+        /// <value>
+        /// The edit column button.
+        /// </value>
         public virtual ToolStripButton EditColumnButton { get; set; }
 
-        /// <summary> Gets or sets the edit record button. </summary>
-        /// <value> The edit record button. </value>
+        /// <summary>
+        /// Gets or sets the edit record button.
+        /// </summary>
+        /// <value>
+        /// The edit record button.
+        /// </value>
         public virtual ToolStripButton EditRecordButton { get; set; }
 
-        /// <summary> Gets or sets the edit SQL button. </summary>
-        /// <value> The edit SQL button. </value>
+        /// <summary>
+        /// Gets or sets the edit SQL button.
+        /// </summary>
+        /// <value>
+        /// The edit SQL button.
+        /// </value>
         public virtual ToolStripButton EditSqlButton { get; set; }
 
-        /// <summary> Gets or sets the add table button. </summary>
-        /// <value> The add table button. </value>
+        /// <summary>
+        /// Gets or sets the add table button.
+        /// </summary>
+        /// <value>
+        /// The add table button.
+        /// </value>
         public virtual ToolStripButton AddTableButton { get; set; }
 
-        /// <summary> Gets or sets the filter data button. </summary>
-        /// <value> The filter data button. </value>
+        /// <summary>
+        /// Gets or sets the filter data button.
+        /// </summary>
+        /// <value>
+        /// The filter data button.
+        /// </value>
         public virtual ToolStripButton FilterDataButton { get; set; }
 
-        /// <summary> Gets or sets the add column button. </summary>
-        /// <value> The add column button. </value>
+        /// <summary>
+        /// Gets or sets the add column button.
+        /// </summary>
+        /// <value>
+        /// The add column button.
+        /// </value>
         public virtual ToolStripButton AddColumnButton { get; set; }
 
-        /// <summary> Gets or sets the delete table button. </summary>
-        /// <value> The delete table button. </value>
+        /// <summary>
+        /// Gets or sets the delete table button.
+        /// </summary>
+        /// <value>
+        /// The delete table button.
+        /// </value>
         public virtual ToolStripButton DeleteTableButton { get; set; }
 
-        /// <summary> Gets or sets the delete column button. </summary>
-        /// <value> The delete column button. </value>
+        /// <summary>
+        /// Gets or sets the delete column button.
+        /// </summary>
+        /// <value>
+        /// The delete column button.
+        /// </value>
         public virtual ToolStripButton DeleteColumnButton { get; set; }
 
-        /// <summary> Gets or sets the delete record button. </summary>
-        /// <value> The delete record button. </value>
+        /// <summary>
+        /// Gets or sets the delete record button.
+        /// </summary>
+        /// <value>
+        /// The delete record button.
+        /// </value>
         public virtual ToolStripButton DeleteRecordButton { get; set; }
 
-        /// <summary> Gets or sets the save button. </summary>
-        /// <value> The save button. </value>
+        /// <summary>
+        /// Gets or sets the save button.
+        /// </summary>
+        /// <value>
+        /// The save button.
+        /// </value>
         public virtual ToolStripButton SaveButton { get; set; }
 
-        /// <summary> Gets or sets the refresh button. </summary>
-        /// <value> The refresh button. </value>
+        /// <summary>
+        /// Gets or sets the refresh button.
+        /// </summary>
+        /// <value>
+        /// The refresh button.
+        /// </value>
         public virtual ToolStripButton RefreshButton { get; set; }
 
-        /// <summary> Gets or sets the excel button. </summary>
-        /// <value> The excel button. </value>
+        /// <summary>
+        /// Gets or sets the excel button.
+        /// </summary>
+        /// <value>
+        /// The excel button.
+        /// </value>
         public virtual ToolStripButton ExcelButton { get; set; }
 
-        /// <summary> Gets or sets the calculator button. </summary>
-        /// <value> The calculator button. </value>
+        /// <summary>
+        /// Gets or sets the calculator button.
+        /// </summary>
+        /// <value>
+        /// The calculator button.
+        /// </value>
         public virtual ToolStripButton CalculatorButton { get; set; }
 
-        /// <summary> Gets or sets the chart button. </summary>
-        /// <value> The chart button. </value>
+        /// <summary>
+        /// Gets or sets the chart button.
+        /// </summary>
+        /// <value>
+        /// The chart button.
+        /// </value>
         public virtual ToolStripButton ChartButton { get; set; }
 
-        /// <summary> Gets or sets the home button. </summary>
-        /// <value> The home button. </value>
+        /// <summary>
+        /// Gets or sets the home button.
+        /// </summary>
+        /// <value>
+        /// The home button.
+        /// </value>
         public virtual ToolStripButton HomeButton { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ToolStripBase"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.ToolStripBase" /> class.
         /// </summary>
         protected ToolStripBase( )
         {
         }
 
-        /// <summary> Adds the text box. </summary>
+        /// <summary>
+        /// Adds the text box.
+        /// </summary>
         public virtual void AddTextBox( )
         {
             try
@@ -200,7 +293,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Adds the ComboBox. </summary>
+        /// <summary>
+        /// Adds the ComboBox.
+        /// </summary>
         public virtual void AddComboBox( )
         {
             try
@@ -214,8 +309,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Adds the drop down item. </summary>
-        /// <param name="item"> The item. </param>
+        /// <summary>
+        /// Adds the drop down item.
+        /// </summary>
+        /// <param name="item">The item.</param>
         public virtual void AddDropDownItem( object item )
         {
             if( item != null )
@@ -231,8 +328,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Resets the drop down list. </summary>
-        /// <param name="items"> The items. </param>
+        /// <summary>
+        /// Resets the drop down list.
+        /// </summary>
+        /// <param name="items">The items.</param>
         public virtual void ResetDropDownList( IEnumerable<object> items )
         {
             try
@@ -252,7 +351,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Adds the separator. </summary>
+        /// <summary>
+        /// Adds the separator.
+        /// </summary>
         public virtual void AddSeparator( )
         {
             try
@@ -266,8 +367,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

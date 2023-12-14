@@ -33,7 +33,7 @@
 //     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //     DEALINGS IN THE SOFTWARE.
 // 
-//     You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//     You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // 
 //  </copyright>
 //  <summary>
@@ -45,62 +45,70 @@ namespace BudgetExecution
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
-    using System.Drawing;
-    using System.Threading;
     using System.Windows.Forms;
-    using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms;
+    using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms.Edit;
     using Timer = System.Windows.Forms.Timer;
 
-    /// <summary> </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public partial class EmailDialog : MetroForm
     {
-        /// <summary> Gets or sets the time. </summary>
-        /// <value> The time. </value>
+        /// <summary>
+        /// Gets or sets the time.
+        /// </summary>
+        /// <value>
+        /// The time.
+        /// </value>
         public int Time { get; set; }
 
-        /// <summary> Gets or sets the seconds. </summary>
-        /// <value> The seconds. </value>
+        /// <summary>
+        /// Gets or sets the seconds.
+        /// </summary>
+        /// <value>
+        /// The seconds.
+        /// </value>
         public int Seconds { get; set; }
 
-        /// <inheritdoc/>
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.EmailDialog"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.EmailDialog" /> class.
         /// </summary>
         public EmailDialog( )
         {
             InitializeComponent( );
 
             // Basic Properties
-            Size = new Size( 981, 742 );
-            MaximumSize = new Size( 981, 742 );
-            MinimumSize = new Size( 981, 742 );
+            Size = new System.Drawing.Size( 981, 742 );
+            MaximumSize = new System.Drawing.Size( 981, 742 );
+            MinimumSize = new System.Drawing.Size( 981, 742 );
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            BorderColor = Color.FromArgb( 0, 120, 212 );
+            BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             BorderThickness = 1;
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.DarkGray;
-            Font = new Font( "Roboto", 9 );
+            BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            Font = new System.Drawing.Font( "Roboto", 9 );
             ShowIcon = false;
             ShowInTaskbar = true;
-            MetroColor = Color.FromArgb( 20, 20, 20 );
+            MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionBarHeight = 5;
             CaptionAlign = HorizontalAlignment.Center;
-            CaptionFont = new Font( "Roboto", 12, FontStyle.Regular );
-            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionForeColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
+            CaptionFont = new System.Drawing.Font( "Roboto", 10, System.Drawing.FontStyle.Regular );
+            CaptionBarColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            CaptionForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            CaptionButtonColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             SizeGripStyle = SizeGripStyle.Hide;
             AutoScaleMode = AutoScaleMode.Font;
             DoubleBuffered = true;
@@ -126,7 +134,9 @@ namespace BudgetExecution
             MenuButton.Click += OnMainMenuButtonClicked;
         }
 
-        /// <summary> Displays the control to the user. </summary>
+        /// <summary>
+        /// Displays the control to the user.
+        /// </summary>
         public new void Show( )
         {
             try
@@ -154,7 +164,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Updates the header text. </summary>
+        /// <summary>
+        /// Updates the title text.
+        /// </summary>
+        /// <param name="text">The text.</param>
         public void UpdateTitleText( string text )
         {
             if( !string.IsNullOrEmpty( text ) )
@@ -170,44 +183,95 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the editor configuration. </summary>
+        /// <summary>
+        /// Initializes the buttons.
+        /// </summary>
+        private void InitializeButtons( )
+        {
+            try
+            {
+                ClearButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+                CloseButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the radio buttons.
+        /// </summary>
+        private void InitializeRadioButtons( )
+        {
+            try
+            {
+                FirstRadioButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+                SecondRadioButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+                ThirdRadioButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the labels.
+        /// </summary>
+        private void InitializeLabels( )
+        {
+            try
+            {
+                Title.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+                Title.Text = "Email";
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the editor.
+        /// </summary>
         private void InitializeEditor( )
         {
             try
             {
                 Editor.AutoSizeMode = AutoSizeMode.GrowAndShrink;
                 Editor.AlwaysShowScrollers = true;
-                Editor.BackColor = SystemColors.ControlLight;
-                Editor.ForeColor = Color.Black;
-                Editor.BackgroundColor = new BrushInfo( SystemColors.ControlLight );
+                Editor.BackColor = System.Drawing.SystemColors.ControlLight;
+                Editor.ForeColor = System.Drawing.Color.Black;
+                Editor.BackgroundColor = new BrushInfo( System.Drawing.SystemColors.ControlLight );
                 Editor.BorderStyle = BorderStyle.FixedSingle;
                 Editor.CanOverrideStyle = true;
                 Editor.CanApplyTheme = true;
-                Editor.ColumnGuidesMeasuringFont = new Font( "Roboto", 8 );
-                Editor.ContextChoiceFont = new Font( "Roboto", 8 );
-                Editor.ContextChoiceForeColor = Color.Black;
-                Editor.ContextChoiceBackColor = SystemColors.ControlLight;
-                Editor.ContextPromptBorderColor = Color.FromArgb( 0, 120, 212 );
+                Editor.ColumnGuidesMeasuringFont = new System.Drawing.Font( "Roboto", 8 );
+                Editor.ContextChoiceFont = new System.Drawing.Font( "Roboto", 8 );
+                Editor.ContextChoiceForeColor = System.Drawing.Color.Black;
+                Editor.ContextChoiceBackColor = System.Drawing.SystemColors.ControlLight;
+                Editor.ContextPromptBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
                 Editor.ContextPromptBackgroundBrush =
-                    new BrushInfo( Color.FromArgb( 233, 166, 50 ) );
+                    new BrushInfo( System.Drawing.Color.FromArgb( 233, 166, 50 ) );
 
                 Editor.ContextTooltipBackgroundBrush =
-                    new BrushInfo( Color.FromArgb( 233, 166, 50 ) );
+                    new BrushInfo( System.Drawing.Color.FromArgb( 233, 166, 50 ) );
 
-                Editor.ContextTooltipBorderColor = Color.FromArgb( 0, 120, 212 );
-                Editor.EndOfLineBackColor = SystemColors.ControlLight;
-                Editor.EndOfLineForeColor = SystemColors.ControlLight;
+                Editor.ContextTooltipBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+                Editor.EndOfLineBackColor = System.Drawing.SystemColors.ControlLight;
+                Editor.EndOfLineForeColor = System.Drawing.SystemColors.ControlLight;
                 Editor.HighlightCurrentLine = true;
-                Editor.IndentationBlockBorderColor = Color.FromArgb( 0, 120, 212 );
-                Editor.IndentLineColor = Color.FromArgb( 50, 93, 129 );
-                Editor.IndicatorMarginBackColor = SystemColors.ControlLight;
-                Editor.CurrentLineHighlightColor = Color.FromArgb( 0, 120, 212 );
-                Editor.Font = new Font( "Roboto", 12 );
-                Editor.LineNumbersColor = Color.Black;
-                Editor.LineNumbersFont = new Font( "Roboto", 8, FontStyle.Bold );
+                Editor.IndentationBlockBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+                Editor.IndentLineColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+                Editor.IndicatorMarginBackColor = System.Drawing.SystemColors.ControlLight;
+                Editor.CurrentLineHighlightColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+                Editor.Font = new System.Drawing.Font( "Roboto", 12 );
+                Editor.LineNumbersColor = System.Drawing.Color.Black;
+                Editor.LineNumbersFont = new System.Drawing.Font( "Roboto", 8, System.Drawing.FontStyle.Bold );
                 Editor.ScrollVisualStyle = ScrollBarCustomDrawStyles.Office2016;
                 Editor.ScrollColorScheme = Office2007ColorScheme.Black;
-                Editor.SelectionTextColor = Color.FromArgb( 50, 93, 129 );
+                Editor.SelectionTextColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
                 Editor.ShowEndOfLine = false;
                 Editor.Style = EditControlStyle.Office2016Black;
                 Editor.TabSize = 4;
@@ -226,50 +290,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Initializes the buttons. </summary>
-        private void InitializeButtons( )
-        {
-            try
-            {
-                ClearButton.ForeColor = Color.DarkGray;
-                CloseButton.ForeColor = Color.DarkGray;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Initializes the radio buttons. </summary>
-        private void InitializeRadioButtons( )
-        {
-            try
-            {
-                FirstRadioButton.ForeColor = Color.FromArgb( 0, 120, 212 );
-                SecondRadioButton.ForeColor = Color.FromArgb( 0, 120, 212 );
-                ThirdRadioButton.ForeColor = Color.FromArgb( 0, 120, 212 );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Initializes the labels. </summary>
-        private void InitializeLabels( )
-        {
-            try
-            {
-                Title.ForeColor = Color.FromArgb( 0, 120, 212 );
-                Title.Text = "Email";
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Fades the in. </summary>
+        /// <summary>
+        /// Fades the in.
+        /// </summary>
         private void FadeIn( )
         {
             try
@@ -294,7 +317,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fades the out and close. </summary>
+        /// <summary>
+        /// Fades the out.
+        /// </summary>
         private void FadeOut( )
         {
             try
@@ -319,7 +344,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Notifies this instance. </summary>
+        /// <summary>
+        /// Notifies this instance.
+        /// </summary>
         private void Notify( )
         {
             try
@@ -334,14 +361,16 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Opens the main form. </summary>
+        /// <summary>
+        /// Opens the main form.
+        /// </summary>
         private void OpenMainForm( )
         {
             try
             {
                 if( Owner?.Visible == false )
                 {
-                    var _form = (MainForm) Program.Windows[ "MainForm" ];
+                    var _form = (MainForm)Program.Windows[ nameof( MainForm ) ];
                     _form.Refresh( );
                     _form.Visible = true;
                 }
@@ -357,21 +386,20 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [load]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnLoad( object sender, EventArgs e )
         {
             try
             {
-                InitializeEditor( );
                 InitializeButtons( );
                 InitializeRadioButtons( );
                 InitializeLabels( );
+                InitializeEditor( );
                 TabControl.SelectedIndex = 0;
                 FirstRadioButton.Checked = true;
                 FadeIn( );
@@ -382,13 +410,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [first tile click]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [first tile click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnFirstTileClick( object sender, EventArgs e )
         {
             try
@@ -401,13 +428,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [second button clicked]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [second tile click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnSecondTileClick( object sender, EventArgs e )
         {
             try
@@ -420,13 +446,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [third tile click]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [third tile click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnThirdTileClick( object sender, EventArgs e )
         {
             try
@@ -439,13 +464,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [inbox RadioButton selected]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [first RadioButton selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnFirstRadioButtonSelected( object sender, EventArgs e )
         {
             try
@@ -458,13 +482,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [sent RadioButton selected]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [second RadioButton selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnSecondRadioButtonSelected( object sender, EventArgs e )
         {
             try
@@ -477,13 +500,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [deleted RadioButton selected]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [third RadioButton selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnThirdRadioButtonSelected( object sender, EventArgs e )
         {
             try
@@ -496,13 +518,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [active tab changed]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [active tab changed].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnActiveTabChanged( object sender, EventArgs e )
         {
             try
@@ -515,13 +536,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [first ListBox selection changed]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [first ListBox selection changed].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnFirstListBoxSelectionChanged( object sender, EventArgs e )
         {
             try
@@ -534,13 +554,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [second ListBox selection changed]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [second ListBox selection changed].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnSecondListBoxSelectionChanged( object sender, EventArgs e )
         {
             try
@@ -553,13 +572,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [third ListBox selection changed]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [third ListBox selection changed].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnThirdListBoxSelectionChanged( object sender, EventArgs e )
         {
             try
@@ -572,13 +590,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [clear button click]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [clear button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnClearButtonClick( object sender, EventArgs e )
         {
             try
@@ -591,13 +608,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [close button clicked]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [close button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnCloseButtonClick( object sender, EventArgs e )
         {
             try
@@ -610,13 +626,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [main menu button clicked]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [main menu button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnMainMenuButtonClicked( object sender, EventArgs e )
         {
             try
@@ -631,8 +646,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

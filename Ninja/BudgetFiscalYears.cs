@@ -48,7 +48,7 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     /// <seealso cref="BudgetExecution.FiscalYear"/>
-    /// <seealso cref="BudgetExecution.BudgetFiscalYear"/>
+    /// <seealso cref="BudgetExecution.IBudgetFiscalYear"/>
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
@@ -238,9 +238,7 @@ namespace BudgetExecution
             CancellationDate = fiscalYear.CancellationDate;
         }
 
-        /// <summary>
-        /// Gets the federal holidays.
-        /// </summary>
+        /// <summary> Gets the federal holidays. </summary>
         /// <returns> </returns>
         public IDictionary<Holiday, DateOnly> GetFederalHolidays( )
         {
@@ -270,9 +268,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets the identifier.
-        /// </summary>
+        /// <summary> Gets the identifier. </summary>
         /// <param name="dataRow"> The data row. </param>
         /// <returns> </returns>
         public int GetId( DataRow dataRow )

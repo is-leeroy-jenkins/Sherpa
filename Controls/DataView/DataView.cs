@@ -44,93 +44,101 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.Threading;
-    using Syncfusion.Windows.Forms;
-    using Syncfusion.Windows.Forms.Gauge;
-    using Syncfusion.Windows.Forms.Grid;
+    using System.Windows.Forms;
+    using Syncfusion.Data;
+    using Syncfusion.WinForms.DataGrid;
+    using Syncfusion.WinForms.DataGrid.Enums;
 
-    /// <summary> </summary>
-    /// <seealso cref="DataViewBase"/>
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:BudgetExecution.DataViewBase" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class DataView : DataViewBase
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    public class DataView : SfDataGrid
     {
-        /// <summary> Gets or sets the data table. </summary>
-        /// <value> The data table. </value>
-        public DataTable DataTable { get; set; }
+        /// <summary>
+        /// Gets or sets the data filter.
+        /// </summary>
+        /// <value>
+        /// The data filter.
+        /// </value>
+        public IDictionary<string, object> Filter { get; set; }
 
         /// <summary>
+        /// Gets or sets the data table.
+        /// </summary>
+        /// <value>
+        /// The data table.
+        /// </value>
+        public DataTable DataTable { get; set; }
+
+        /// <inheritdoc />
+        /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="DataView"/>
+        /// <see cref="T:BudgetExecution.DataView" />
         /// class.
         /// </summary>
         public DataView( )
         {
             // Control Properties
-            ThemesEnabled = true;
-            ApplyVisualStyles = true;
-            TransparentBackground = false;
-            EnableAddNew = true;
-            EnableEdit = true;
-            CanOverrideStyle = true;
-            EnableRemove = true;
-            AllowResizeToFit = true;
-            ExcelLikeSelectionFrame = true;
-            ExcelLikeAlignment = true;
-            BackColor = Color.FromArgb( 78, 78, 79 );
-            ForeColor = Color.Black;
-            Font = new Font( "Roboto", 8, FontStyle.Regular );
-            GridOfficeScrollBars = OfficeScrollBars.Office2010;
-            Office2010ScrollBarsColorScheme = Office2010ColorScheme.Black;
-            ColorStyles = ColorStyles.Office2016DarkGray;
-            GridVisualStyles = GridVisualStyles.Metro;
-            GridLineColor = Color.Black;
-            HorizontalScrollTips = true;
-            HorizontalThumbTrack = true;
-            VerticalScrollTips = true;
-            VerticalThumbTrack = true;
-            DefaultGridBorderStyle = GridBorderStyle.Dotted;
-            AlphaBlendSelectionColor = Color.FromArgb( 0, 120, 212 );
+            Size = new Size( 600, 300 );
+            BackColor = Color.FromArgb( 45, 45, 45 );
+            ForeColor = Color.FromArgb( 106, 189, 252 );
+            Font = new Font( "Roboto", 9, FontStyle.Regular );
+            AllowEditing = true;
+            AllowFiltering = true;
+            AllowDeleting = true;
+            AllowGrouping = true;
+            AllowSorting = true;
+            AllowDraggingColumns = true;
+            AllowResizingColumns = true;
+            AllowSelectionOnMouseDown = true;
+            Style.Border3DStyle = Border3DStyle.Flat;
+            Style.BorderColor = Color.FromArgb( 100, 100, 100 );
+            Style.BorderSides = Border3DSide.All;
+            Style.BorderStyle = BorderStyle.FixedSingle;
+            NavigationMode = NavigationMode.Row;
+            SelectionMode = GridSelectionMode.Single;
+            SelectionUnit = SelectionUnit.Row;
+            PasteOption = PasteOptions.PasteData;
+            PreviewRowHeight = 28;
+            RowHeaderWidth = 28;
+            RowHeight = 28;
+            SummaryCalculationUnit = SummaryCalculationUnit.SelectedRows;
+            SummaryCalculationMode = CalculationMode.Default;
 
-            // ThemStyle Properties
-            ThemeStyle.CellStyle.Font = new Font( "Roboto", 8, FontStyle.Regular );
-            ThemeStyle.CellStyle.BackColor = Color.FromArgb( 78, 78, 79 );
-            ThemeStyle.CellStyle.TextColor = Color.Black;
-            ThemeStyle.CellStyle.BackColor = Color.FromArgb( 78, 78, 79 );
-            ThemeStyle.CellStyle.TextColor = Color.LightSteelBlue;
-            ThemeStyle.HeaderStyle.HoverTextColor = Color.White;
-            ThemeStyle.HeaderStyle.HoverBackColor = Color.FromArgb( 0, 120, 212 );
+            // Cell Style
+            Style.CellStyle.BackColor = Color.FromArgb( 45, 45, 45 );
+            Style.CellStyle.TextColor = Color.FromArgb( 106, 189, 252 );
+            Style.CurrentCellStyle.BackColor = Color.FromArgb( 100, 100, 100 ); 
+            Style.CurrentCellStyle.TextColor = Color.White;
 
-            // Model Properties
-            Model.Rows.DefaultSize = 22;
-            Model.ActiveGridView.PdfExport = true;
-            Model.Properties.ThemedHeader = false;
+            // CheckBox Style
+            Style.CheckBoxStyle.CheckedBackColor = Color.FromArgb( 0, 120, 212 );
+            Style.CheckBoxStyle.UncheckedBackColor = Color.FromArgb( 100, 100, 100 ); 
+            Style.CheckBoxStyle.CheckedBorderColor = Color.Lime;
+            Style.CheckBoxStyle.UncheckedBackColor = Color.FromArgb( 50, 93, 129 );
 
-            // Style Properties
-            Properties.ThemedHeader = true;
-            Properties.CenterHorizontal = true;
-            Properties.CenterVertical = true;
-            Properties.ColHeaders = true;
-            Properties.RowHeaders = true;
-            Properties.Buttons3D = true;
+            // Header Style
+            Style.HeaderStyle.BackColor = Color.FromArgb( 50, 93, 129 );
+            Style.HeaderStyle.TextColor = Color.FromArgb( 106, 189, 252 );
+            Style.HeaderStyle.HoverTextColor = Color.White;
+            Style.HeaderStyle.HoverBackColor = Color.FromArgb( 0, 120, 212 );
 
-            // Table Style Properties
-            TableStyle.Themed = true;
-            TableStyle.WrapText = false;
-            TableStyle.HorizontalAlignment = GridHorizontalAlignment.Center;
-            TableStyle.AutoFit = AutoFitOptions.Both;
-            TableStyle.Font.Facename = "Roboto";
-            TableStyle.Font.Size = 8;
-            TableStyle.Font.FontStyle = FontStyle.Regular;
-            TableStyle.BackColor = Color.FromArgb( 78, 78, 79 );
-            TableStyle.TextColor = Color.LightSteelBlue;
+            // Selection Style
+            Style.SelectionStyle.BackColor = Color.SteelBlue;
+            Style.SelectionStyle.TextColor = Color.White;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="DataView"/>
+        /// <see cref="T:BudgetExecution.DataView" />
         /// class.
         /// </summary>
         /// <param name="dataTable"> The data table. </param>
@@ -138,6 +146,17 @@ namespace BudgetExecution
             : this( )
         {
             DataTable = dataTable;
+        }
+
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        private void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

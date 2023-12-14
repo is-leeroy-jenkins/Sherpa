@@ -49,7 +49,6 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
-    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
@@ -61,98 +60,207 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertTypeCheckPatternToNullCheck" ) ]
     [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public partial class EditBase : MetroForm
     {
-        /// <summary> Gets or sets the source. </summary>
-        /// <value> The source. </value>
+        /// <summary>
+        /// Gets or sets the selected columns.
+        /// </summary>
+        /// <value>
+        /// The selected columns.
+        /// </value>
+        public IList<string> SelectedColumns { get; set; }
+
+        /// <summary>
+        /// Gets or sets the selected fields.
+        /// </summary>
+        /// <value>
+        /// The selected fields.
+        /// </value>
+        public IList<string> SelectedFields { get; set; }
+
+        /// <summary>
+        /// Gets or sets the selected numerics.
+        /// </summary>
+        /// <value>
+        /// The selected numerics.
+        /// </value>
+        public IList<string> SelectedNumerics { get; set; }
+
+        /// <summary>
+        /// Gets or sets the source.
+        /// </summary>
+        /// <value>
+        /// The source.
+        /// </value>
         public Source Source { get; set; }
 
-        /// <summary> Gets or sets the provider. </summary>
-        /// <value> The provider. </value>
+        /// <summary>
+        /// Gets or sets the provider.
+        /// </summary>
+        /// <value>
+        /// The provider.
+        /// </value>
         public Provider Provider { get; set; }
 
-        /// <summary> Gets or sets the type of the command. </summary>
-        /// <value> The type of the command. </value>
+        /// <summary>
+        /// Gets or sets the type of the command.
+        /// </summary>
+        /// <value>
+        /// The type of the command.
+        /// </value>
         public SQL CommandType { get; set; }
 
-        /// <summary> Gets or sets the type of the tool. </summary>
-        /// <value> The type of the tool. </value>
+        /// <summary>
+        /// Gets or sets the type of the tool.
+        /// </summary>
+        /// <value>
+        /// The type of the tool.
+        /// </value>
         public ToolType Tool { get; set; }
 
-        /// <summary> Gets or sets the active tab. </summary>
-        /// <value> The active tab. </value>
+        /// <summary>
+        /// Gets or sets the active tab.
+        /// </summary>
+        /// <value>
+        /// The active tab.
+        /// </value>
         public TabPageAdv ActiveTab { get; set; }
 
-        /// <summary> Gets or sets the data model. </summary>
-        /// <value> The data model. </value>
+        /// <summary>
+        /// Gets or sets the data model.
+        /// </summary>
+        /// <value>
+        /// The data model.
+        /// </value>
         public DataBuilder DataModel { get; set; }
 
-        /// <summary> Gets or sets the data table. </summary>
-        /// <value> The data table. </value>
+        /// <summary>
+        /// Gets or sets the data table.
+        /// </summary>
+        /// <value>
+        /// The data table.
+        /// </value>
         public DataTable DataTable { get; set; }
 
-        /// <summary> Gets or sets the columns. </summary>
-        /// <value> The columns. </value>
+        /// <summary>
+        /// Gets or sets the columns.
+        /// </summary>
+        /// <value>
+        /// The columns.
+        /// </value>
         public IList<string> Columns { get; set; }
 
-        /// <summary> Gets or sets the fields. </summary>
-        /// <value> The fields. </value>
+        /// <summary>
+        /// Gets or sets the fields.
+        /// </summary>
+        /// <value>
+        /// The fields.
+        /// </value>
         public IList<string> Fields { get; set; }
 
-        /// <summary> Gets or sets the numeric fields. </summary>
-        /// <value> The numerics. </value>
+        /// <summary>
+        /// Gets or sets the numeric fields.
+        /// </summary>
+        /// <value>
+        /// The numerics.
+        /// </value>
         public IList<string> Numerics { get; set; }
 
-        /// <summary> Gets or sets the dates. </summary>
-        /// <value> The dates. </value>
+        /// <summary>
+        /// Gets or sets the dates.
+        /// </summary>
+        /// <value>
+        /// The dates.
+        /// </value>
         public IList<DateTime> Dates { get; set; }
 
-        /// <summary> Gets or sets the selected column. </summary>
-        /// <value> The selected column. </value>
-        public string SelectedColumn { get; set; }
-
-        /// <summary> Gets or sets the selected table. </summary>
-        /// <value> The selected table. </value>
+        /// <summary>
+        /// Gets or sets the selected table.
+        /// </summary>
+        /// <value>
+        /// The selected table.
+        /// </value>
         public string SelectedTable { get; set; }
 
-        /// <summary> Gets or sets the form filter. </summary>
-        /// <value> The form filter. </value>
-        public IDictionary<string, object> FormFilter { get; set; }
+        /// <summary>
+        /// Gets or sets the form filter.
+        /// </summary>
+        /// <value>
+        /// The form filter.
+        /// </value>
+        public IDictionary<string, object> Filter { get; set; }
 
-        /// <summary> Gets or sets the panels. </summary>
-        /// <value> The panels. </value>
-        public IDictionary<string, Layout> Panels { get; set; }
+        /// <summary>
+        /// Gets or sets the panels.
+        /// </summary>
+        /// <value>
+        /// The panels.
+        /// </value>
+        public IDictionary<string, BackPanel> Panels { get; set; }
 
-        /// <summary> Gets or sets the list boxes. </summary>
-        /// <value> The list boxes. </value>
+        /// <summary>
+        /// Gets or sets the list boxes.
+        /// </summary>
+        /// <value>
+        /// The list boxes.
+        /// </value>
         public IDictionary<string, ListBox> ListBoxes { get; set; }
 
-        /// <summary> Gets or sets the labels. </summary>
-        /// <value> The labels. </value>
+        /// <summary>
+        /// Gets or sets the labels.
+        /// </summary>
+        /// <value>
+        /// The labels.
+        /// </value>
         public IEnumerable<Label> Labels { get; set; }
 
-        /// <summary> Gets or sets the tab pages. </summary>
-        /// <value> The tab pages. </value>
+        /// <summary>
+        /// Gets or sets the tab pages.
+        /// </summary>
+        /// <value>
+        /// The tab pages.
+        /// </value>
         public IDictionary<string, TabPageAdv> TabPages { get; set; }
 
-        /// <summary> Gets or sets the radio buttons. </summary>
-        /// <value> The radio buttons. </value>
+        /// <summary>
+        /// Gets or sets the radio buttons.
+        /// </summary>
+        /// <value>
+        /// The radio buttons.
+        /// </value>
         public IDictionary<string, RadioButton> RadioButtons { get; set; }
 
-        /// <summary> Gets or sets the combo boxes. </summary>
-        /// <value> The combo boxes. </value>
+        /// <summary>
+        /// Gets or sets the combo boxes.
+        /// </summary>
+        /// <value>
+        /// The combo boxes.
+        /// </value>
         public IDictionary<string, ComboBox> ComboBoxes { get; set; }
 
-        /// <summary> Gets or sets the text boxes. </summary>
-        /// <value> The text boxes. </value>
+        /// <summary>
+        /// Gets or sets the text boxes.
+        /// </summary>
+        /// <value>
+        /// The text boxes.
+        /// </value>
         public IEnumerable<TextBox> TextBoxes { get; set; }
 
-        /// <summary> Gets or sets the data types. </summary>
-        /// <value> The data types. </value>
+        /// <summary>
+        /// Gets or sets the data types.
+        /// </summary>
+        /// <value>
+        /// The data types.
+        /// </value>
         public IEnumerable<string> DataTypes { get; set; }
 
-        /// <summary> Gets or sets the state of the view. </summary>
-        /// <value> The state of the view. </value>
+        /// <summary>
+        /// Gets or sets the state of the view.
+        /// </summary>
+        /// <value>
+        /// The state of the view.
+        /// </value>
         public DataArgs DataArgs { get; set; }
 
         /// <inheritdoc/>
@@ -165,9 +273,15 @@ namespace BudgetExecution
         {
         }
 
-        /// <summary> Gets the data types. </summary>
-        /// <param name="provider"> The provider. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the data types.
+        /// </summary>
+        /// <param name="provider">
+        /// The provider.
+        /// </param>
+        /// <returns>
+        /// IEnumerable
+        /// </returns>
         private protected IEnumerable<string> GetDataTypes( Provider provider )
         {
             if( Enum.IsDefined( typeof( Provider ), provider ) )
@@ -194,8 +308,12 @@ namespace BudgetExecution
             return default( IEnumerable<string> );
         }
 
-        /// <summary> Gets the controls. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the controls.
+        /// </summary>
+        /// <returns>
+        /// IEnumerable
+        /// </returns>
         private protected IEnumerable<Control> GetControls( )
         {
             var _list = new List<Control>( );
@@ -205,7 +323,7 @@ namespace BudgetExecution
                 _queue.Enqueue( Controls );
                 while( _queue.Count > 0 )
                 {
-                    var _collection = (Control.ControlCollection) _queue.Dequeue( );
+                    var _collection = (Control.ControlCollection)_queue.Dequeue( );
                     if( _collection?.Count > 0 )
                     {
                         foreach( Control _control in _collection )
@@ -227,44 +345,202 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sends the notification. </summary>
-        /// <param name="text"> The text. </param>
+        /// <summary>
+        /// Sends the notification.
+        /// </summary>
+        /// <param name="text">
+        /// The text.
+        /// </param>
         private protected void SendNotification( string text )
         {
-            if( !string.IsNullOrEmpty( text ) )
+            try
             {
-                try
-                {
-                    var _notification = new Notification( text );
-                    _notification.Show( );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                ThrowIf.NullOrEmpty( text, nameof( text ) );
+                var _notification = new Notification( text );
+                _notification.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
-        /// <summary> Sends the message. </summary>
-        /// <param name="text"> The text. </param>
+        /// <summary>
+        /// Sends the message.
+        /// </summary>
+        /// <param name="text">
+        /// The text.
+        /// </param>
         private protected void SendMessage( string text )
         {
-            if( !string.IsNullOrEmpty( text ) )
+            try
             {
-                try
+                ThrowIf.NullOrEmpty( text, nameof( text ) );
+                var _message = new SplashMessage( text );
+                _message.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+        
+        /// <summary>
+        /// Gets the tab pages.
+        /// </summary>
+        /// <returns>
+        /// IDictionary
+        /// </returns>
+        private protected IDictionary<string, TabPageAdv> GetTabPages( )
+        {
+            try
+            {
+                var _tabPages = new Dictionary<string, TabPageAdv>( );
+                foreach( var _control in GetControls( ) )
                 {
-                    var _message = new SplashMessage( text );
-                    _message.Show( );
+                    if( _control.GetType( ) == typeof( TabPageAdv ) )
+                    {
+                        _tabPages.Add( _control.Name, _control as TabPageAdv );
+                    }
                 }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+
+                return _tabPages?.Any( ) == true
+                    ? _tabPages
+                    : default( IDictionary<string, TabPageAdv> );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IDictionary<string, TabPageAdv> );
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Gets the radio buttons.
+        /// </summary>
+        /// <returns>
+        /// IDictionary
+        /// </returns>
+        private protected IDictionary<string, RadioButton> GetRadioButtons( )
+        {
+            try
+            {
+                var _radioButtons = new Dictionary<string, RadioButton>( );
+                foreach( var _control in GetControls( ) )
+                {
+                    if( _control.GetType( ) == typeof( RadioButton ) )
+                    {
+                        _radioButtons.Add( _control.Name, _control as RadioButton );
+                    }
+                }
+
+                return _radioButtons?.Any( ) == true
+                    ? _radioButtons
+                    : default( IDictionary<string, RadioButton> );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IDictionary<string, RadioButton> );
+            }
+        }
+
+        /// <summary>
+        /// Gets the combo boxes.
+        /// </summary>
+        /// <returns>
+        /// IDictionary
+        /// </returns>
+        private protected IDictionary<string, ComboBox> GetComboBoxes( )
+        {
+            try
+            {
+                var _comboBoxes = new Dictionary<string, ComboBox>( );
+                foreach( var _control in GetControls( ) )
+                {
+                    if( _control.GetType( ) == typeof( ComboBox ) )
+                    {
+                        _comboBoxes.Add( _control.Name, _control as ComboBox );
+                    }
+                }
+
+                return _comboBoxes?.Any( ) == true
+                    ? _comboBoxes
+                    : default( IDictionary<string, ComboBox> );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IDictionary<string, ComboBox> );
+            }
+        }
+
+        /// <summary>
+        /// Gets the panels.
+        /// </summary>
+        /// <returns>
+        /// IDictionary
+        /// </returns>
+        private protected IDictionary<string, BackPanel> GetPanels( )
+        {
+            try
+            {
+                var _panels = new Dictionary<string, BackPanel>( );
+                foreach( var _control in GetControls( ) )
+                {
+                    if( _control.GetType( ) == typeof( BackPanel ) )
+                    {
+                        _panels.Add( _control.Name, _control as BackPanel );
+                    }
+                }
+
+                return _panels?.Any( ) == true
+                    ? _panels
+                    : default( IDictionary<string, BackPanel> );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IDictionary<string, BackPanel> );
+            }
+        }
+
+        /// <summary>
+        /// Gets the list boxes.
+        /// </summary>
+        /// <returns>
+        /// IDictionary
+        /// </returns>
+        private protected IDictionary<string, ListBox> GetListBoxes( )
+        {
+            try
+            {
+                var _listBoxes = new Dictionary<string, ListBox>( );
+                foreach( var _control in GetControls( ) )
+                {
+                    if( _control is ListBox _listBox )
+                    {
+                        _listBoxes.Add( _listBox.Name, _listBox );
+                    }
+                }
+
+                return _listBoxes?.Any( ) == true
+                    ? _listBoxes
+                    : default( IDictionary<string, ListBox> );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IDictionary<string, ListBox> );
+            }
+        }
+
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">
+        /// The ex.
+        /// </param>
         private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

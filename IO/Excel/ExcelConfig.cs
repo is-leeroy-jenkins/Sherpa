@@ -1,13 +1,13 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:             BudgetExecution
 //     Author:                  Terry D. Eppler
-//     Created:                 04-22-2023
+//     Created:                 06-19-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        11-22-2023
 // ******************************************************************************************
-// <copyright file="ExcelConfig.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
+// <copyright file="Terry Eppler.cs" company="Terry D. Eppler">
+//    BudgetExecution is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
 // 
@@ -31,10 +31,10 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   ExcelConfig.cs
+//   ExcelConfig.cs.cs
 // </summary>
 // ******************************************************************************************
 
@@ -42,14 +42,16 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
+    using System.Data;
+    using System.Data.OleDb;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.Threading;
-    using OfficeOpenXml.Style;
+    using System.IO;
+    using OfficeOpenXml;
     using static System.IO.Path;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
@@ -57,8 +59,80 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public abstract class ExcelConfig : IExcelConfig
+    public abstract class ExcelConfig
     {
+        /// <summary>
+        /// Gets or sets the data connection.
+        /// </summary>
+        /// <value>
+        /// The data connection.
+        /// </value>
+        public OleDbConnection DataConnection { get; set; }
+
+        /// <summary>
+        /// Gets or sets the data command.
+        /// </summary>
+        /// <value>
+        /// The data command.
+        /// </value>
+        public OleDbCommand DataCommand { get; set; }
+
+        /// <summary>
+        /// Gets or sets the data adapter.
+        /// </summary>
+        /// <value>
+        /// The data adapter.
+        /// </value>
+        public OleDbDataAdapter DataAdapter { get; set; }
+
+        /// <summary>
+        /// Gets or sets the file information.
+        /// </summary>
+        /// <value>
+        /// The file information.
+        /// </value>
+        public FileInfo FileInfo { get; set; }
+
+        /// <summary>
+        /// Gets or sets the application.
+        /// </summary>
+        /// <value>
+        /// The application.
+        /// </value>
+        public ExcelPackage Application { get; set; }
+
+        /// <summary>
+        /// Gets or sets the workbook.
+        /// </summary>
+        /// <value>
+        /// The workbook.
+        /// </value>
+        public ExcelWorkbook Workbook { get; set; }
+
+        /// <summary>
+        /// Gets or sets the worksheet.
+        /// </summary>
+        /// <value>
+        /// The worksheet.
+        /// </value>
+        public ExcelWorksheet Worksheet { get; set; }
+
+        /// <summary>
+        /// Gets or sets the comment.
+        /// </summary>
+        /// <value>
+        /// The comment.
+        /// </value>
+        public IEnumerable<ExcelComment> Comment { get; set; }
+
+        /// <summary>
+        /// Gets or sets the data.
+        /// </summary>
+        /// <value>
+        /// The data.
+        /// </value>
+        public IEnumerable<DataRow> Data { get; set; }
+
         /// <inheritdoc />
         /// <summary>
         /// Gets or sets the index.
@@ -88,159 +162,6 @@ namespace BudgetExecution
 
         /// <inheritdoc />
         /// <summary>
-        /// Gets or sets the connection string.
-        /// </summary>
-        /// <value>
-        /// The connection string.
-        /// </value>
-        public string ConnectionString { get; set; }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets or sets the color of the primary back.
-        /// </summary>
-        /// <value>
-        /// The color of the primary back.
-        /// </value>
-        public Color PrimaryBackColor { get; set; } = Color.FromArgb( 255, 242, 242, 242 );
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets or sets the color of the secondary back.
-        /// </summary>
-        /// <value>
-        /// The color of the secondary back.
-        /// </value>
-        public Color SecondaryBackColor { get; set; } = Color.FromArgb( 255, 221, 235, 247 );
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets or sets the left.
-        /// </summary>
-        /// <value>
-        /// The left.
-        /// </value>
-        public ExcelHorizontalAlignment Left { get; set; } = ExcelHorizontalAlignment.Left;
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets or sets the center.
-        /// </summary>
-        /// <value>
-        /// The center.
-        /// </value>
-        public ExcelHorizontalAlignment Center { get; set; } = ExcelHorizontalAlignment.Center;
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets or sets the right.
-        /// </summary>
-        /// <value>
-        /// The right.
-        /// </value>
-        public ExcelHorizontalAlignment Right { get; set; } = ExcelHorizontalAlignment.Right;
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets or sets the height of the row.
-        /// </summary>
-        /// <value>
-        /// The height of the row.
-        /// </value>
-        public double RowHeight { get; set; } = 0.22;
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets or sets the width of the column.
-        /// </summary>
-        /// <value>
-        /// The width of the column.
-        /// </value>
-        public double ColumnWidth { get; set; } = 0.75;
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets or sets the top margin.
-        /// </summary>
-        /// <value>
-        /// The top margin.
-        /// </value>
-        public int TopMargin { get; set; } = 1;
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets or sets the bottom margin.
-        /// </summary>
-        /// <value>
-        /// The bottom margin.
-        /// </value>
-        public int BottomMargin { get; set; } = 1;
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets or sets the left margin.
-        /// </summary>
-        /// <value>
-        /// The left margin.
-        /// </value>
-        public decimal LeftMargin { get; set; } = 0.25m;
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets or sets the right margin.
-        /// </summary>
-        /// <value>
-        /// The right margin.
-        /// </value>
-        public decimal RightMargin { get; set; } = 0.25m;
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets or sets the header margin.
-        /// </summary>
-        /// <value>
-        /// The header margin.
-        /// </value>
-        public decimal HeaderMargin { get; set; } = 0.25m;
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets or sets the footer margin.
-        /// </summary>
-        /// <value>
-        /// The footer margin.
-        /// </value>
-        public decimal FooterMargin { get; set; } = 0.25m;
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets or sets the column count.
-        /// </summary>
-        /// <value>
-        /// The column count.
-        /// </value>
-        public int ColumnCount { get; set; } = 12;
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets or sets the row count.
-        /// </summary>
-        /// <value>
-        /// The row count.
-        /// </value>
-        public int RowCount { get; set; } = 55;
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets or sets the zoom level.
-        /// </summary>
-        /// <value>
-        /// The zoom level.
-        /// </value>
-        public int ZoomLevel { get; set; } = 100;
-
-        /// <inheritdoc />
-        /// <summary>
         /// Sets the file path.
         /// </summary>
         /// <param name="filePath">The file path.</param>
@@ -249,7 +170,9 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.NotExists( filePath, nameof( filePath ) );
-                FilePath = GetFileName( filePath );
+                FilePath = System.IO.File.Exists( filePath )
+                    ? filePath
+                    : string.Empty;
             }
             catch( Exception _ex )
             {
@@ -267,40 +190,13 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.NullOrEmpty( filePath, nameof( filePath ) );
-                FilePath = GetFileNameWithoutExtension( filePath );
+                FileName = System.IO.File.Exists( filePath )
+                    ? GetFileNameWithoutExtension( filePath )
+                    : string.Empty;
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
-            }
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets the file extension.
-        /// </summary>
-        /// <param name="filePath">The file path.</param>
-        /// <returns></returns>
-        public EXT GetFileExtension( string filePath )
-        {
-            try
-            {
-                ThrowIf.NotExists( filePath, nameof( filePath ) );
-                var _path = GetExtension( filePath );
-                if( _path != null )
-                {
-                    var _extension = (EXT)Enum.Parse( typeof( EXT ), _path );
-                    return Enum.IsDefined( typeof( EXT ), _extension )
-                        ? _extension
-                        : default( EXT );
-                }
-
-                return default( EXT );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( EXT );
             }
         }
 
@@ -320,23 +216,18 @@ namespace BudgetExecution
                 switch( extension?.ToUpper( ) )
                 {
                     case ".XLS":
-
                     {
                         return @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source="
                             + filePath
                             + ";Extended Properties=\"Excel 8.0;HDR=YES;\"";
                     }
-
                     case ".XLSX":
-
                     {
                         return @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source="
                             + filePath
                             + ";Extended Properties=\"Excel 12.0;HDR=YES;\"";
                     }
-
                     default:
-
                     {
                         return @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source="
                             + filePath
@@ -373,66 +264,9 @@ namespace BudgetExecution
                     _excelComment.To.Column = _range.End.Column;
                     _excelComment.BackgroundColor = Color.FromArgb( 15, 15, 15 );
                     _excelComment.Font.FontName = "Roboto";
-                    _excelComment.Font.Size = 8;
+                    _excelComment.Font.Size = 9;
                     _excelComment.Font.Color = Color.Black;
                     _excelComment.Text = text;
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Sets the caption text.
-        /// </summary>
-        /// <param name="grid">The grid.</param>
-        public void SetCaptionText( Grid grid )
-        {
-            try
-            {
-                ThrowIf.Null( grid, nameof( grid ) );
-                using var _sheet = grid.Worksheet;
-                var _row = grid.Range.Start.Row;
-                var _column = grid.Range.Start.Column;
-                _sheet.Cells[ _row, _column ].Value = "Account";
-                _sheet.Cells[ _row, _column + 1 ].Value = "SuperfundSite";
-                _sheet.Cells[ _row, _column + 2 ].Value = "Travel";
-                _sheet.Cells[ _row, _column + 3 ].Value = "Expenses";
-                _sheet.Cells[ _row, _column + 4 ].Value = "Contracts";
-                _sheet.Cells[ _row, _column + 5 ].Value = "Grants";
-                _sheet.Cells[ _row, _column + 6 ].Value = "Total";
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Sets the text.
-        /// </summary>
-        /// <param name="grid">The grid.</param>
-        /// <param name="text">The text.</param>
-        public void SetText( Grid grid, IEnumerable<string> text )
-        {
-            try
-            {
-                ThrowIf.Null( grid, nameof( grid ) );
-                ThrowIf.NoData( text, nameof( text ) );
-                foreach( var _cell in grid.Range )
-                {
-                    foreach( var _caption in text )
-                    {
-                        if( ( _cell != null )
-                           && !string.IsNullOrEmpty( _caption ) )
-                        {
-                            _cell.Value = _caption;
-                        }
-                    }
                 }
             }
             catch( Exception _ex )
@@ -452,31 +286,5 @@ namespace BudgetExecution
             _error?.SetText( );
             _error?.ShowDialog( );
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public enum BorderSide
-        {
-            /// <summary>
-            /// The top
-            /// </summary>
-            Top,
-
-            /// <summary>
-            /// The bottom
-            /// </summary>
-            Bottom,
-
-            /// <summary>
-            /// The left
-            /// </summary>
-            Left,
-
-            /// <summary>
-            /// The right
-            /// </summary>
-            Right
-        };
     }
 }

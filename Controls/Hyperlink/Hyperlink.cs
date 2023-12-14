@@ -45,13 +45,14 @@ namespace BudgetExecution
 {
     using System;
     using System.Drawing;
-    using System.Threading;
     using System.Windows.Forms;
     using MetroSet_UI.Controls;
+    using System.Diagnostics.CodeAnalysis;
     using MetroSet_UI.Enums;
 
     /// <summary> </summary>
     /// <seealso cref="MetroSet_UI.Controls.MetroSetLink"/>
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class Hyperlink : MetroSetLink
     {
         /// <summary>
@@ -62,8 +63,8 @@ namespace BudgetExecution
         public Hyperlink( )
         {
             Font = new Font( "Roboto", 9 );
-            ForeColor = Color.LightGray;
-            LinkColor = Color.FromArgb( 106, 189, 252 );
+            ForeColor = Color.FromArgb( 106, 189, 252 );
+            LinkColor = Color.FromArgb( 0, 120, 212 );
             LinkBehavior = LinkBehavior.AlwaysUnderline;
             Size = new Size( 100, 30 );
             TextAlign = ContentAlignment.MiddleLeft;

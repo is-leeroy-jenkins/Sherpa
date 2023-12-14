@@ -48,7 +48,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="BudgetExecution.DataUnit" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "InheritdocConsiderUsage" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
@@ -139,14 +139,14 @@ namespace BudgetExecution
             : this( )
         {
             Record = builder.Record;
-            Data = builder.Record.ToDictionary( );
-            ID = int.Parse( builder.Record[ "ContactsId" ].ToString( ) ?? "0" );
-            FirstName = builder.Record[ "FirstName" ].ToString( );
-            LastName = builder.Record[ "LastName" ].ToString( );
-            FullName = builder.Record[ "FullName" ].ToString( );
-            RPIO = builder.Record[ "RPIO" ].ToString( );
-            EmailAddress = builder.Record[ "EmailAddress" ].ToString( );
-            Section = builder.Record[ "Section" ].ToString( );
+            Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "ContactsId" ].ToString( ) ?? "0" );
+            FirstName = Record[ "FirstName" ].ToString( );
+            LastName = Record[ "LastName" ].ToString( );
+            FullName = Record[ "FullName" ].ToString( );
+            RPIO = Record[ "RPIO" ].ToString( );
+            EmailAddress = Record[ "EmailAddress" ].ToString( );
+            Section = Record[ "Section" ].ToString( );
         }
 
         /// <summary>

@@ -46,14 +46,14 @@ namespace BudgetExecution
     using System.IO;
     using System.Linq;
     using System.Security.AccessControl;
-    using System.Threading;
 
     /// <summary>
     /// 
     /// </summary>
-    [SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     public abstract class FolderBase
     {
         /// <summary>
@@ -62,7 +62,7 @@ namespace BudgetExecution
         /// <value>
         /// The buffer.
         /// </value>
-        public virtual string Buffer { get; set; }
+        public string Buffer { get; set; }
 
         /// <summary>
         /// Gets or sets the name.
@@ -70,7 +70,7 @@ namespace BudgetExecution
         /// <value>
         /// The name.
         /// </value>
-        public virtual string Name { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the full name.
@@ -78,7 +78,7 @@ namespace BudgetExecution
         /// <value>
         /// The full name.
         /// </value>
-        public virtual string FullName { get; set; }
+        public string FullName { get; set; }
 
         /// <summary>
         /// Gets or sets the full path.
@@ -86,7 +86,7 @@ namespace BudgetExecution
         /// <value>
         /// The full path.
         /// </value>
-        public virtual string FullPath { get; set; }
+        public string FullPath { get; set; }
 
         /// <summary>
         /// Gets or sets the modified.
@@ -94,7 +94,7 @@ namespace BudgetExecution
         /// <value>
         /// The modified.
         /// </value>
-        public virtual DateTime Modified { get; set; }
+        public DateTime Modified { get; set; }
 
         /// <summary>
         /// Gets or sets the parent.
@@ -102,7 +102,7 @@ namespace BudgetExecution
         /// <value>
         /// The parent.
         /// </value>
-        public virtual DirectoryInfo Parent { get; set; }
+        public DirectoryInfo Parent { get; set; }
 
         /// <summary>
         /// Gets or sets the created.
@@ -110,7 +110,7 @@ namespace BudgetExecution
         /// <value>
         /// The created.
         /// </value>
-        public virtual DateTime Created { get; set; }
+        public DateTime Created { get; set; }
 
         /// <summary>
         /// Gets or sets the sub files.
@@ -118,7 +118,7 @@ namespace BudgetExecution
         /// <value>
         /// The sub files.
         /// </value>
-        public virtual IEnumerable<string> SubFiles { get; set; }
+        public IEnumerable<string> SubFiles { get; set; }
 
         /// <summary>
         /// Gets or sets the sub folders.
@@ -126,7 +126,7 @@ namespace BudgetExecution
         /// <value>
         /// The sub folders.
         /// </value>
-        public virtual IEnumerable<string> SubFolders { get; set; }
+        public IEnumerable<string> SubFolders { get; set; }
 
         /// <summary>
         /// Gets or sets the security.
@@ -134,13 +134,13 @@ namespace BudgetExecution
         /// <value>
         /// The security.
         /// </value>
-        public virtual DirectorySecurity Security { get; set; }
+        public DirectorySecurity Security { get; set; }
 
         /// <summary>
         /// Gets the sub file data.
         /// </summary>
         /// <returns></returns>
-        public virtual IDictionary<string, FileInfo> GetSubFileData( )
+        public IDictionary<string, FileInfo> GetSubFileData( )
         {
             if( !string.IsNullOrEmpty( FullPath ) )
             {
@@ -149,9 +149,12 @@ namespace BudgetExecution
                     var _data = new Dictionary<string, FileInfo>( );
                     foreach( var _path in SubFiles )
                     {
-                        var _name = Path.GetFileNameWithoutExtension( _path );
-                        var _file = new FileInfo( _path );
-                        _data.Add( _name, _file );
+                        if( File.Exists( _path ) )
+                        {
+                            var _name = Path.GetFileNameWithoutExtension( _path );
+                            var _file = new FileInfo( _path );
+                            _data.Add( _name, _file );
+                        }
                     }
 
                     return _data?.Any( ) == true
@@ -172,7 +175,7 @@ namespace BudgetExecution
         /// Gets the special folders.
         /// </summary>
         /// <returns></returns>
-        public virtual IEnumerable<string> GetSpecialFolders( )
+        public IEnumerable<string> GetSpecialFolders( )
         {
             try
             {
@@ -189,19 +192,25 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the sub directory data.
+        /// Gets the subdirectory data.
         /// </summary>
         /// <returns></returns>
-        public virtual IDictionary<string, DirectoryInfo> GetSubDirectoryData( )
+        public IDictionary<string, DirectoryInfo> GetSubDirectoryData( )
         {
             try
             {
                 var _data = new Dictionary<string, DirectoryInfo>( );
                 foreach( var _file in SubFolders )
                 {
-                    var _name = Path.GetDirectoryName( _file );
-                    var _folder = new DirectoryInfo( _file );
-                    _data.Add( _name, _folder );
+                    if( Directory.Exists( _file ) )
+                    {
+                        var _name = Path.GetDirectoryName( _file );
+                        var _folder = new DirectoryInfo( _file );
+                        if( _name != null )
+                        {
+                            _data.Add( _name, _folder );
+                        }
+                    }
                 }
 
                 return _data?.Any( ) != true
@@ -218,7 +227,9 @@ namespace BudgetExecution
         /// <summary>
         /// Fails the specified ex.
         /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <param name="ex">
+        /// The ex.
+        /// </param>
         private protected static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

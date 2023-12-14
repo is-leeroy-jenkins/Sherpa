@@ -1,13 +1,13 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:             BudgetExecution
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 06-24-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        11-30-2023
 // ******************************************************************************************
-// <copyright file="ConnectionFactory.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
+// <copyright file="Terry Eppler.cs" company="Terry D. Eppler">
+//    BudgetExecution is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
 // 
@@ -31,11 +31,10 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
-
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   ConnectionFactory.cs
+//   ConnectionFactory.cs.cs
 // </summary>
 // ******************************************************************************************
 
@@ -48,7 +47,6 @@ namespace BudgetExecution
     using System.Data.SQLite;
     using System.Data.SqlServerCe;
     using System.Diagnostics.CodeAnalysis;
-    using System.Threading;
     using static System.Configuration.ConfigurationManager;
 
     /// <inheritdoc/>
@@ -109,9 +107,11 @@ namespace BudgetExecution
         {
         }
 
-        /// <inheritdoc/>
-        /// <summary> Gets the connection. </summary>
-        /// <returns> </returns>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets the connection.
+        /// </summary>
+        /// <returns></returns>
         public DbConnection GetConnection( )
         {
             try
@@ -122,29 +122,26 @@ namespace BudgetExecution
                     switch( Provider )
                     {
                         case Provider.SQLite:
-
                         {
                             return new SQLiteConnection( _connectionString );
                         }
-
                         case Provider.SqlCe:
-
                         {
                             return new SqlCeConnection( _connectionString );
                         }
-
                         case Provider.SqlServer:
-
                         {
                             return new SqlConnection( _connectionString );
                         }
-
                         case Provider.Excel:
                         case Provider.CSV:
                         case Provider.Text:
                         case Provider.Access:
                         case Provider.OleDb:
-
+                        {
+                            return new OleDbConnection( _connectionString );
+                        }
+                        default:
                         {
                             return new OleDbConnection( _connectionString );
                         }

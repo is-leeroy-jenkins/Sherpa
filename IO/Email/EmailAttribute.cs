@@ -1,14 +1,14 @@
-﻿// ************************************************************************************************
-//     Assembly:                Budget Execution
+﻿// ******************************************************************************************
+//     Assembly:              Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:              15-11-2023
+//     Created:                 12-9-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        15-11-2023
-// ************************************************************************************************
-// <copyright file="ValidationAttribute.cs.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
+//     Last Modified On:        12-9-2023
+// ******************************************************************************************
+// <copyright file="EmailAttribute.cs" company="Terry D. Eppler">
+//    This is a tiny web browser used in Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,18 +31,20 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    Contact at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   Eppler, Terry.cs
+//   EmailAttribute.cs
 // </summary>
-// ************************************************************************************************
+// ******************************************************************************************
+
 namespace BudgetExecution
 {
     using System;
     using System.ComponentModel.DataAnnotations;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
     /// <summary>
     /// An attribute that validates the syntax of an email address.
     /// </summary>
@@ -55,13 +57,16 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MissingBlankLines" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Local" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "GrammarMistakeInComment" ) ]
     public sealed class EmailAttribute : ValidationAttribute
     {
+        /// <inheritdoc />
         /// <summary>
-        /// Instantiates a new instance of <see cref="EmailAttribute"/>.
+        /// Instantiates a new instance of <see cref="T:BudgetExecution.EmailAttribute" />.
         /// </summary>
         /// <remarks>
-        /// Creates a new <see cref="EmailAttribute"/>.
+        /// Creates a new <see cref="T:BudgetExecution.EmailAttribute" />.
         /// </remarks>
         /// <param name="allowTopLevelDomains"><c>true</c>
         /// if the validator should allow addresses at top-level domains; otherwise,
@@ -96,6 +101,7 @@ namespace BudgetExecution
         // ReSharper disable once MemberCanBePrivate.Global
         public bool AllowInternational { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Validates the value.
         /// </summary>
@@ -108,15 +114,18 @@ namespace BudgetExecution
         protected override ValidationResult IsValid( object value,
             ValidationContext validationContext )
         {
-            var memberNames = new[ ] { validationContext?.MemberName ?? nameof( value ) };
+            var _memberNames = new[ ] { validationContext?.MemberName ?? nameof( value ) };
             if( ( value == null )
                || EmailValidator.Validate( (string)value, AllowTopLevelDomains,
                    AllowInternational ) )
+            {
                 return ValidationResult.Success;
+            }
 
-            return new ValidationResult( "Email invalid", memberNames );
+            return new ValidationResult( "Email invalid", _memberNames );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Validates the value.
         /// </summary>
@@ -126,11 +135,9 @@ namespace BudgetExecution
         /// <returns><c>true</c> if the value is a valid email address;
         /// otherwise, <c>false</c>.</returns>
         /// <param name="value">The value to validate.</param>
-        public override bool IsValid( object value )
-        {
-            return ( value == null )
-                || EmailValidator.Validate( (string)value, AllowTopLevelDomains,
-                    AllowInternational );
-        }
+        public override bool IsValid( object value ) =>
+            ( value == null )
+            || EmailValidator.Validate( (string)value, AllowTopLevelDomains,
+                AllowInternational );
     }
 }

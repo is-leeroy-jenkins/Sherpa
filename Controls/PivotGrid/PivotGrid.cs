@@ -1,118 +1,69 @@
-﻿//  ******************************************************************************************
-//      Assembly:                Budget Execution
-//      Filename:                PivotGrid.cs
-//      Author:                  Terry D. Eppler
-//      Created:                 05-31-2023
-// 
-//      Last Modified By:        Terry D. Eppler
-//      Last Modified On:        06-01-2023
-//  ******************************************************************************************
-//  <copyright file="PivotGrid.cs" company="Terry D. Eppler">
-// 
-//     This is a Federal Budget, Finance, and Accounting application for the
-//     US Environmental Protection Agency (US EPA).
-//     Copyright ©  2023  Terry Eppler
-// 
-//     Permission is hereby granted, free of charge, to any person obtaining a copy
-//     of this software and associated documentation files (the “Software”),
-//     to deal in the Software without restriction,
-//     including without limitation the rights to use,
-//     copy, modify, merge, publish, distribute, sublicense,
-//     and/or sell copies of the Software,
-//     and to permit persons to whom the Software is furnished to do so,
-//     subject to the following conditions:
-// 
-//     The above copyright notice and this permission notice shall be included in all
-//     copies or substantial portions of the Software.
-// 
-//     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//     FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//     DEALINGS IN THE SOFTWARE.
-// 
-//     You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
-// 
-//  </copyright>
-//  <summary>
-//    PivotGrid.cs
-//  </summary>
-//  ******************************************************************************************
-
-namespace BudgetExecution
+﻿namespace BudgetExecution
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.Threading;
-    using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.PivotAnalysis;
 
-    /// <summary> </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl"/>
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl" />
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class PivotGrid : PivotGridControl
     {
-        /// <summary> Gets or sets the binding source. </summary>
-        /// <value> The binding source. </value>
-        public virtual BindingSource BindingSource { get; set; }
-
-        /// <summary> Gets or sets the tool tip. </summary>
-        /// <value> The tool tip. </value>
-        public virtual SmallTip ToolTip { get; set; }
-
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="PivotGrid"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.PivotGrid" /> class.
         /// </summary>
         public PivotGrid( )
         {
-            GridVisualStyles = GridVisualStyles.Custom;
+            GridVisualStyles = GridVisualStyles.Office2016Black;
             CanOverrideStyle = true;
             CanApplyTheme = true;
             Font = new Font( "Roboto", 9 );
-            ForeColor = Color.LightGray;
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             Size = new Size( 900, 500 );
             ShowCalculationsAsColumns = true;
             ShowSubTotals = true;
 
             // Dialog Style Properties
             ThemeStyle.ComputationInfoDialogStyle.BackColor = Color.FromArgb( 45, 45, 45 );
-            ThemeStyle.ComputationInfoDialogStyle.ForeColor = Color.DarkGray;
+            ThemeStyle.ComputationInfoDialogStyle.ForeColor = Color.FromArgb( 106, 189, 252 );
             ThemeStyle.ComputationInfoDialogStyle.BorderColor = Color.FromArgb( 0, 120, 212 );
 
             // Edit Menu Style Properties
             ThemeStyle.EditMenuStyle.BackColor = Color.FromArgb( 45, 45, 45 );
-            ThemeStyle.EditMenuStyle.ForeColor = Color.LightGray;
+            ThemeStyle.EditMenuStyle.ForeColor = Color.FromArgb( 106, 189, 252 );
             ThemeStyle.EditMenuStyle.BorderColor = Color.FromArgb( 0, 120, 212 );
 
             // Header Cell Style Properties
             ThemeStyle.HeaderCellStyle.HoverBackColor = Color.FromArgb( 45, 45, 45 );
             ThemeStyle.HeaderCellStyle.HoverTextColor = Color.White;
             ThemeStyle.HeaderCellStyle.PressedBackColor = Color.FromArgb( 0, 120, 212 );
-            ThemeStyle.HeaderCellStyle.PressedTextColor = Color.LightGray;
+            ThemeStyle.HeaderCellStyle.PressedTextColor = Color.FromArgb( 106, 189, 252 );
 
             // Value Cell Style Properties
             ThemeStyle.ValueCellStyle.Font = new Font( "Roboto", 9 );
             ThemeStyle.ValueCellStyle.BackColor = Color.FromArgb( 45, 45, 45 );
-            ThemeStyle.ValueCellStyle.TextColor = Color.LightGray;
+            ThemeStyle.ValueCellStyle.TextColor = Color.FromArgb( 106, 189, 252 );
 
             // Summary Cell Style Properties
             ThemeStyle.SummaryCellStyle.Font = new Font( "Roboto", 9 );
             ThemeStyle.SummaryCellStyle.BackColor = Color.FromArgb( 45, 45, 45 );
-            ThemeStyle.SummaryCellStyle.TextColor = Color.LightGray;
+            ThemeStyle.SummaryCellStyle.TextColor = Color.FromArgb( 106, 189, 252 );
 
             // Expander Style Properties
 
             // Filter DropDown Style Properties
-            ThemeStyle.FilterDropDownStyle.ForeColor = Color.LightGray;
+            ThemeStyle.FilterDropDownStyle.ForeColor = Color.FromArgb( 106, 189, 252 );
             ThemeStyle.FilterDropDownStyle.BackColor = Color.FromArgb( 45, 45, 45 );
             ThemeStyle.FilterDropDownStyle.BorderColor = Color.FromArgb( 0, 120, 212 );
 
             // GroupBar Item Style Properties
-            ThemeStyle.GroupBarItemStyle.ForeColor = Color.LightGray;
+            ThemeStyle.GroupBarItemStyle.ForeColor = Color.FromArgb( 106, 189, 252 );
             ThemeStyle.GroupBarItemStyle.BackColor = Color.FromArgb( 45, 45, 45 );
             ThemeStyle.GroupBarItemStyle.Font = new Font( "Roboto", 9 );
             ThemeStyle.GroupBarItemStyle.SortIconColor = Color.FromArgb( 0, 120, 212 );
@@ -122,9 +73,22 @@ namespace BudgetExecution
             ThemeStyle.GroupBarStyle.BackColor = Color.FromArgb( 45, 45, 45 );
 
             // PivotValueChooser Style Properties
-            ThemeStyle.PivotValueChooserStyle.ForeColor = Color.LightGray;
+            ThemeStyle.PivotValueChooserStyle.ForeColor = Color.FromArgb( 106, 189, 252 );
             ThemeStyle.PivotValueChooserStyle.BackColor = Color.FromArgb( 45, 45, 45 );
             ThemeStyle.PivotValueChooserStyle.BorderColor = Color.FromArgb( 0, 120, 212 );
+        }
+
+        /// <summary>
+        /// Get ErrorDialog Dialog.
+        /// </summary>
+        /// <param name="ex">
+        /// The ex.
+        /// </param>
+        private void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

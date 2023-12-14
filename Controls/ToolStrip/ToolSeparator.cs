@@ -46,18 +46,20 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.Threading;
     using System.Windows.Forms;
 
-    /// <summary> </summary>
-    /// <seealso cref="System.Windows.Forms.ToolStripSeparator"/>
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:System.Windows.Forms.ToolStripSeparator" />
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class ToolSeparator : ToolStripSeparator
     {
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ToolSeparator"/>
+        /// <see cref="T:BudgetExecution.ToolSeparator" />
         /// class.
         /// </summary>
         public ToolSeparator( )
@@ -67,11 +69,13 @@ namespace BudgetExecution
             ForeColor = Color.Black;
             Font = new Font( "Roboto", 8 );
             Width = 1;
-            Height = 42;
+            Height = 22;
         }
 
-        /// <summary> Sets the width. </summary>
-        /// <param name="width"> The width. </param>
+        /// <summary>
+        /// Sets the width.
+        /// </summary>
+        /// <param name="width">The width.</param>
         public void SetWidth( int width = 3 )
         {
             if( ( width > 0 )
@@ -88,8 +92,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

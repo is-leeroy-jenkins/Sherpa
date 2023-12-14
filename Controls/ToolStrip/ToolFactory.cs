@@ -47,7 +47,6 @@ namespace BudgetExecution
     using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.Threading;
     using Syncfusion.Windows.Forms.Tools;
 
     /// <summary> </summary>
@@ -57,7 +56,7 @@ namespace BudgetExecution
         /// <summary> Gets the image directory. </summary>
         /// <value> The image directory. </value>
         public static string ImageDirectory { get; } =
-            ConfigurationManager.AppSettings[ "ToolStrip" ];
+            ConfigurationManager.AppSettings[ nameof( ToolStrip ) ];
 
         /// <summary>
         /// Initializes a new instance of the

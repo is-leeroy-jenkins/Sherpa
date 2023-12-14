@@ -51,7 +51,7 @@ namespace BudgetExecution
             SelectButton = new Button( );
             MenuButton = new Button( );
             CloseButton = new Button( );
-            ListBoxPanel = new Layout( );
+            ListBoxPanel = new BackPanel( );
             Timer = new System.Windows.Forms.Timer( components );
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
             ( (System.ComponentModel.ISupportInitialize) Picture  ).BeginInit( );
@@ -462,7 +462,7 @@ namespace BudgetExecution
         public Button MenuButton;
         public Button CloseButton;
         public ListBox ListBox;
-        public Layout ListBoxPanel;
+        public BackPanel ListBoxPanel;
         public Button SelectButton;
         public System.Windows.Forms.Timer Timer;
     }

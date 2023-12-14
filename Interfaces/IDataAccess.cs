@@ -43,58 +43,81 @@ namespace BudgetExecution
     using System;
     using System.Collections.Generic;
     using System.Data;
-    using System.Threading;
+    using System.Diagnostics.CodeAnalysis;
 
     /// <summary> </summary>
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public interface IDataAccess
     {
-        /// <summary> Gets the query. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the query.
+        /// </summary>
+        /// <returns></returns>
         IQuery GetQuery( );
 
-        /// <summary> Gets the query. </summary>
-        /// <param name="connectionFactory"> The connection factory. </param>
-        /// <param name="sqlStatement"> The SQL statement. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the query.
+        /// </summary>
+        /// <param name="connectionFactory">The connection factory.</param>
+        /// <param name="sqlStatement">The SQL statement.</param>
+        /// <returns></returns>
         IQuery GetQuery( IConnectionFactory connectionFactory, ISqlStatement sqlStatement );
 
-        /// <summary> Gets the record. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the record.
+        /// </summary>
+        /// <returns></returns>
         DataRow GetRecord( );
 
-        /// <summary> Gets the Data. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the data.
+        /// </summary>
+        /// <returns></returns>
         IEnumerable<DataRow> GetData( );
 
-        /// <summary> Gets the Data table. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the data table.
+        /// </summary>
+        /// <returns></returns>
         DataTable GetDataTable( );
 
-        /// <summary> Sets the column captions. </summary>
-        /// <param name="dataTable"> The dataTable. </param>
+        /// <summary>
+        /// Sets the column captions.
+        /// </summary>
+        /// <param name="dataTable">The data table.</param>
         void SetColumnCaptions( DataTable dataTable );
 
-        /// <summary> Gets the column schema. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the column schema.
+        /// </summary>
+        /// <returns></returns>
         DataColumnCollection GetColumnSchema( );
 
-        /// <summary> Gets the schema table. </summary>
-        /// <param name="dataTable"> The dataTable. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the schema table.
+        /// </summary>
+        /// <param name="dataTable">The data table.</param>
+        /// <returns></returns>
         DataTable GetSchemaTable( DataTable dataTable );
 
-        /// <summary> Gets the primary indexes. </summary>
-        /// <param name="data"> The Data. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the primary indexes.
+        /// </summary>
+        /// <param name="data">The data.</param>
+        /// <returns></returns>
         IEnumerable<int> GetPrimaryIndexes( IEnumerable<DataRow> data );
 
-        /// <summary> Gets the column ordinals. </summary>
-        /// <param name="data"> The Data. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the column ordinals.
+        /// </summary>
+        /// <param name="data">The data.</param>
+        /// <returns></returns>
         IEnumerable<int> GetColumnOrdinals( IEnumerable<DataColumn> data );
 
-        /// <summary> Gets the Data set. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the data set.
+        /// </summary>
+        /// <returns></returns>
         DataSet GetDataSet( );
     }
 }

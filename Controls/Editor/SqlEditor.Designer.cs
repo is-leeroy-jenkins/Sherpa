@@ -38,21 +38,21 @@
             var resources = new System.ComponentModel.ComponentResourceManager( typeof( SqlEditor ) );
             BindingSource = new System.Windows.Forms.BindingSource( components );
             ToolTip = new SmallTip( );
-            ContextMenu = new ContextMenu( );
             HeaderTable = new System.Windows.Forms.TableLayoutPanel( );
             PictureBox = new Picture( );
             Title = new Label( );
             SqlCommandTable = new System.Windows.Forms.TableLayoutPanel( );
             CommandTable = new HeaderPanel( );
-            CommandPanel = new Layout( );
+            CommandPanel = new BackPanel( );
             CommandComboBox = new ComboBox( );
             SqlStatementTable = new HeaderPanel( );
-            TextPanel = new Layout( );
+            TextPanel = new BackPanel( );
             QueryListBox = new ListBox( );
             ToolStrip = new ToolStrip( );
             CloseButton = new ToolStripButton( );
-            Separator1 = new ToolSeparator( );
-            NavigationLabel = new ToolStripLabel( );
+            Separator18 = new ToolSeparator( );
+            StatusLabel = new ToolStripLabel( );
+            NavigationSpacer = new ToolStripLabel( );
             Separator2 = new ToolSeparator( );
             FirstButton = new ToolStripButton( );
             Separator3 = new ToolSeparator( );
@@ -84,64 +84,74 @@
             ClientSeparator = new ToolSeparator( );
             BrowserButton = new ToolStripButton( );
             Separator16 = new ToolSeparator( );
-            HomeButton = new ToolStripButton( );
+            MainMenuButton = new ToolStripButton( );
             Separator17 = new ToolSeparator( );
-            TabControl = new Syncfusion.Windows.Forms.Tools.TabControlAdv( );
+            MenuSeparator = new ToolSeparator( );
+            ApplicationLabel = new ToolStripLabel( );
+            Separator1 = new ToolSeparator( );
+            Timer = new System.Windows.Forms.Timer( components );
+            ToolStripTable = new System.Windows.Forms.TableLayoutPanel( );
+            TabControl = new TabControl( );
             SqlTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             EditorTable = new HeaderPanel( );
-            EditorPanel = new Layout( );
+            EditorPanel = new BackPanel( );
             Editor = new Editor( );
             DataTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             DataGridTable = new HeaderPanel( );
-            DataGridPanel = new Layout( );
+            DataGridPanel = new BackPanel( );
             DataGrid = new DataGrid( );
             LookupTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             ColumnTable = new HeaderPanel( );
-            ColumnPanel = new Layout( );
+            ColumnPanel = new BackPanel( );
             ColumnListBox = new ListBox( );
             ValueTable = new HeaderPanel( );
-            ValuePanel = new Layout( );
+            ValuePanel = new BackPanel( );
             ValueListBox = new ListBox( );
             SourceTable = new HeaderPanel( );
-            TablePanel = new Layout( );
+            TablePanel = new BackPanel( );
             TableListBox = new ListBox( );
             SchemaTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
+            SchemaHeaderPanel = new HeaderPanel( );
             SchemaTable = new HeaderPanel( );
-            SchemaPanel = new Layout( );
+            SchemaPanel = new BackPanel( );
             DeleteColumnButton = new Button( );
             AddColumnButton = new Button( );
             SelectDataTypeLable = new Label( );
             AddColumnLabel = new Label( );
             AddColumnTextBox = new TextBox( );
             DataTypeComboBox = new ComboBox( );
-            headerPanel1 = new HeaderPanel( );
-            layout1 = new Layout( );
+            headerPanel2 = new HeaderPanel( );
+            layout1 = new BackPanel( );
             AddTableLabel = new Label( );
             DeleteTableButton = new Button( );
             AddTableButton = new Button( );
             SelectTableLabel = new Label( );
             TableNameComboBox = new ComboBox( );
             AddTableTextBox = new TextBox( );
-            Timer = new System.Windows.Forms.Timer( components );
-            ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
+            Busy = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
+            headerPanel1 = new HeaderPanel( );
+            BusyPanel = new BackPanel( );
+            Loader = new System.Windows.Forms.PictureBox( );
+            ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
             HeaderTable.SuspendLayout( );
-            ( (System.ComponentModel.ISupportInitialize) PictureBox  ).BeginInit( );
+            ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
             SqlCommandTable.SuspendLayout( );
             CommandTable.SuspendLayout( );
             CommandPanel.SuspendLayout( );
             SqlStatementTable.SuspendLayout( );
             TextPanel.SuspendLayout( );
             ToolStrip.SuspendLayout( );
-            ( (System.ComponentModel.ISupportInitialize) TabControl  ).BeginInit( );
+            ToolStripTable.SuspendLayout( );
+            ( (System.ComponentModel.ISupportInitialize)TabControl ).BeginInit( );
             TabControl.SuspendLayout( );
             SqlTab.SuspendLayout( );
             EditorTable.SuspendLayout( );
             EditorPanel.SuspendLayout( );
-            ( (System.ComponentModel.ISupportInitialize) Editor  ).BeginInit( );
+            ( (System.ComponentModel.ISupportInitialize)Editor ).BeginInit( );
             DataTab.SuspendLayout( );
             DataGridTable.SuspendLayout( );
             DataGridPanel.SuspendLayout( );
-            ( (System.ComponentModel.ISupportInitialize) DataGrid  ).BeginInit( );
+            ( (System.ComponentModel.ISupportInitialize)DataGrid ).BeginInit( );
             LookupTab.SuspendLayout( );
             ColumnTable.SuspendLayout( );
             ColumnPanel.SuspendLayout( );
@@ -150,16 +160,21 @@
             SourceTable.SuspendLayout( );
             TablePanel.SuspendLayout( );
             SchemaTab.SuspendLayout( );
+            SchemaHeaderPanel.SuspendLayout( );
             SchemaTable.SuspendLayout( );
             SchemaPanel.SuspendLayout( );
-            headerPanel1.SuspendLayout( );
+            headerPanel2.SuspendLayout( );
             layout1.SuspendLayout( );
+            Busy.SuspendLayout( );
+            headerPanel1.SuspendLayout( );
+            BusyPanel.SuspendLayout( );
+            ( (System.ComponentModel.ISupportInitialize)Loader ).BeginInit( );
             SuspendLayout( );
             // 
             // ToolTip
             // 
             ToolTip.AutoPopDelay = 5000;
-            ToolTip.BackColor = System.Drawing.Color.FromArgb(   5  ,   5  ,   5   );
+            ToolTip.BackColor = System.Drawing.Color.FromArgb( 5, 5, 5 );
             ToolTip.BindingSource = null;
             ToolTip.BorderColor = System.Drawing.SystemColors.Highlight;
             ToolTip.ForeColor = System.Drawing.Color.White;
@@ -175,20 +190,6 @@
             ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
             ToolTip.TipText = null;
             ToolTip.TipTitle = null;
-            // 
-            // ContextMenu
-            // 
-            ContextMenu.AutoSize = false;
-            ContextMenu.BackColor = System.Drawing.Color.FromArgb(   30  ,   30  ,   30   );
-            ContextMenu.ForeColor = System.Drawing.Color.White;
-            ContextMenu.IsDerivedStyle = false;
-            ContextMenu.Name = "ContextMenu";
-            ContextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            ContextMenu.Size = new System.Drawing.Size( 156, 264 );
-            ContextMenu.Style = MetroSet_UI.Enums.Style.Custom;
-            ContextMenu.StyleManager = null;
-            ContextMenu.ThemeAuthor = "Terry Eppler";
-            ContextMenu.ThemeName = "Budget Execution";
             // 
             // HeaderTable
             // 
@@ -228,7 +229,7 @@
             Title.DataFilter = null;
             Title.Dock = System.Windows.Forms.DockStyle.Fill;
             Title.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            Title.Font = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            Title.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             Title.HoverText = null;
             Title.IsDerivedStyle = true;
             Title.Location = new System.Drawing.Point( 50, 3 );
@@ -263,7 +264,7 @@
             // 
             // CommandTable
             // 
-            CommandTable.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            CommandTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CommandTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             CommandTable.CaptionText = "Commands";
             CommandTable.ColumnCount = 1;
@@ -283,9 +284,9 @@
             // CommandPanel
             // 
             CommandPanel.BackColor = System.Drawing.Color.Transparent;
-            CommandPanel.BackgroundColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            CommandPanel.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CommandPanel.BindingSource = null;
-            CommandPanel.BorderColor = System.Drawing.Color.FromArgb(   65  ,   65  ,   65   );
+            CommandPanel.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
             CommandPanel.BorderThickness = 1;
             CommandPanel.Children = null;
             CommandPanel.Controls.Add( CommandComboBox );
@@ -309,12 +310,12 @@
             // CommandComboBox
             // 
             CommandComboBox.AllowDrop = true;
-            CommandComboBox.Anchor =     System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right  ;
-            CommandComboBox.ArrowColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            CommandComboBox.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            CommandComboBox.ArrowColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             CommandComboBox.BackColor = System.Drawing.Color.Transparent;
-            CommandComboBox.BackgroundColor = System.Drawing.Color.FromArgb(   30  ,   30  ,   30   );
+            CommandComboBox.BackgroundColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
             CommandComboBox.BindingSource = null;
-            CommandComboBox.BorderColor = System.Drawing.Color.FromArgb(   64  ,   64  ,   64   );
+            CommandComboBox.BorderColor = System.Drawing.Color.FromArgb( 64, 64, 64 );
             CommandComboBox.CausesValidation = false;
             CommandComboBox.DataFilter = null;
             CommandComboBox.DisabledBackColor = System.Drawing.Color.Transparent;
@@ -330,7 +331,7 @@
             CommandComboBox.ItemHeight = 24;
             CommandComboBox.Location = new System.Drawing.Point( 25, 28 );
             CommandComboBox.Name = "CommandComboBox";
-            CommandComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            CommandComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             CommandComboBox.SelectedItemForeColor = System.Drawing.Color.White;
             CommandComboBox.Size = new System.Drawing.Size( 296, 30 );
             CommandComboBox.Style = MetroSet_UI.Enums.Style.Custom;
@@ -342,7 +343,7 @@
             // 
             // SqlStatementTable
             // 
-            SqlStatementTable.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            SqlStatementTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             SqlStatementTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             SqlStatementTable.CaptionText = "SQL Statements";
             SqlStatementTable.ColumnCount = 1;
@@ -362,9 +363,9 @@
             // TextPanel
             // 
             TextPanel.BackColor = System.Drawing.Color.Transparent;
-            TextPanel.BackgroundColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            TextPanel.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TextPanel.BindingSource = null;
-            TextPanel.BorderColor = System.Drawing.Color.FromArgb(   65  ,   65  ,   65   );
+            TextPanel.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
             TextPanel.BorderThickness = 1;
             TextPanel.Children = null;
             TextPanel.Controls.Add( QueryListBox );
@@ -387,15 +388,15 @@
             // 
             // QueryListBox
             // 
-            QueryListBox.Anchor =     System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right  ;
-            QueryListBox.BackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            QueryListBox.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            QueryListBox.BackColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             QueryListBox.BindingSource = null;
-            QueryListBox.BorderColor = System.Drawing.Color.FromArgb(   55  ,   55  ,   55   );
+            QueryListBox.BorderColor = System.Drawing.Color.FromArgb( 55, 55, 55 );
             QueryListBox.DataFilter = null;
-            QueryListBox.DisabledBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            QueryListBox.DisabledForeColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            QueryListBox.DisabledBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            QueryListBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             QueryListBox.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            QueryListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
+            QueryListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
             QueryListBox.HoveredItemColor = System.Drawing.Color.White;
             QueryListBox.HoverText = null;
             QueryListBox.IsDerivedStyle = true;
@@ -407,13 +408,13 @@
             QueryListBox.Padding = new System.Windows.Forms.Padding( 1 );
             QueryListBox.SelectedIndex = -1;
             QueryListBox.SelectedItem = null;
-            QueryListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            QueryListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             QueryListBox.SelectedItemColor = System.Drawing.Color.White;
             QueryListBox.SelectedText = null;
             QueryListBox.SelectedValue = null;
             QueryListBox.ShowBorder = false;
             QueryListBox.ShowScrollBar = false;
-            QueryListBox.Size = new System.Drawing.Size( 296, 371 );
+            QueryListBox.Size = new System.Drawing.Size( 296, 353 );
             QueryListBox.Style = MetroSet_UI.Enums.Style.Custom;
             QueryListBox.StyleManager = null;
             QueryListBox.TabIndex = 0;
@@ -441,7 +442,7 @@
             ToolStrip.DeleteColumnButton = null;
             ToolStrip.DeleteRecordButton = null;
             ToolStrip.DeleteTableButton = null;
-            ToolStrip.Dock = System.Windows.Forms.DockStyle.Bottom;
+            ToolStrip.Dock = System.Windows.Forms.DockStyle.Fill;
             ToolStrip.DropDown = null;
             ToolStrip.EditButton = null;
             ToolStrip.EditColumnButton = null;
@@ -457,39 +458,34 @@
             ToolStrip.Image = null;
             ToolStrip.ImageDirectory = null;
             ToolStrip.ImageSize = new System.Drawing.Size( 0, 0 );
-            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { CloseButton, Separator1, NavigationLabel, Separator2, FirstButton, Separator3, PreviousButton, Separator4, NextButton, Separator5, LastButton, Separator6, DataLabel, Separator7, GoButton, Separator8, RefreshButton, Separator9, EditSqlButton, Separator11, EditDataButton, Separator12, TableButton, TableSeparator, LookupButton, Separator13, SaveButton, Separator14, FileSystemLabel, Separator15, ClientButton, ClientSeparator, BrowserButton, Separator16, HomeButton, Separator17 } );
-            ToolStrip.Label = null;
+            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { CloseButton, Separator18, StatusLabel, NavigationSpacer, Separator2, FirstButton, Separator3, PreviousButton, Separator4, NextButton, Separator5, LastButton, Separator6, DataLabel, Separator7, GoButton, Separator8, RefreshButton, Separator9, EditSqlButton, Separator11, EditDataButton, Separator12, TableButton, TableSeparator, LookupButton, Separator13, SaveButton, Separator14, FileSystemLabel, Separator15, ClientButton, ClientSeparator, BrowserButton, Separator16, MainMenuButton, Separator17, MenuSeparator, ApplicationLabel } );
             ToolStrip.LastButton = null;
             ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
-            ToolStrip.Location = new System.Drawing.Point( 0, 693 );
+            ToolStrip.Location = new System.Drawing.Point( 1, 1 );
             ToolStrip.Margin = new System.Windows.Forms.Padding( 1 );
             ToolStrip.Name = "ToolStrip";
             ToolStrip.NextButton = null;
-            ToolStrip.Office12Mode = false;
             ToolStrip.OfficeColorScheme = Syncfusion.Windows.Forms.Tools.ToolStripEx.ColorScheme.Black;
             ToolStrip.Padding = new System.Windows.Forms.Padding( 1 );
             ToolStrip.PreviousButton = null;
-            ToolStrip.ProgressBar = null;
             ToolStrip.RefreshButton = null;
             ToolStrip.SaveButton = null;
-            ToolStrip.SearchCriteriaLabel = null;
-            ToolStrip.SearchEngineLabel = null;
             ToolStrip.Separators = null;
             ToolStrip.ShowCaption = true;
             ToolStrip.ShowLauncher = true;
-            ToolStrip.Size = new System.Drawing.Size( 1338, 46 );
+            ToolStrip.Size = new System.Drawing.Size( 1336, 43 );
             ToolStrip.TabIndex = 15;
             ToolStrip.TextBox = null;
             ToolStrip.ThemeName = "Office2016DarkGray";
-            ToolStrip.ThemeStyle.ArrowColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            ToolStrip.ThemeStyle.ArrowColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             ToolStrip.ThemeStyle.BackColor = System.Drawing.Color.Transparent;
             ToolStrip.ThemeStyle.BottomToolStripBackColor = System.Drawing.Color.Transparent;
-            ToolStrip.ThemeStyle.CaptionBackColor = System.Drawing.Color.FromArgb(   28  ,   28  ,   28   );
+            ToolStrip.ThemeStyle.CaptionBackColor = System.Drawing.Color.FromArgb( 28, 28, 28 );
             ToolStrip.ThemeStyle.CaptionForeColor = System.Drawing.Color.Black;
-            ToolStrip.ThemeStyle.ComboBoxStyle.BorderColor = System.Drawing.Color.FromArgb(   65  ,   65  ,   65   );
-            ToolStrip.ThemeStyle.ComboBoxStyle.HoverBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            ToolStrip.ThemeStyle.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
-            ToolStrip.ThemeStyle.HoverItemBackColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            ToolStrip.ThemeStyle.ComboBoxStyle.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
+            ToolStrip.ThemeStyle.ComboBoxStyle.HoverBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            ToolStrip.ThemeStyle.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
+            ToolStrip.ThemeStyle.HoverItemBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             ToolStrip.ThemeStyle.HoverItemForeColor = System.Drawing.Color.White;
             ToolStrip.VisualStyle = Syncfusion.Windows.Forms.Tools.ToolStripExStyle.Office2016DarkGray;
             // 
@@ -499,7 +495,7 @@
             CloseButton.AutoToolTip = false;
             CloseButton.BackColor = System.Drawing.Color.Transparent;
             CloseButton.BindingSource = BindingSource;
-            CloseButton.DataFilter = null;
+            CloseButton.Filter = null;
             CloseButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             CloseButton.Field = Field.AccountCode;
             CloseButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -507,38 +503,54 @@
             CloseButton.HoverText = "Close Application";
             CloseButton.Image = Resources.Images.WebCloseButton;
             CloseButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            CloseButton.Margin = new System.Windows.Forms.Padding( 3 );
+            CloseButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             CloseButton.Name = "CloseButton";
             CloseButton.Padding = new System.Windows.Forms.Padding( 1 );
-            CloseButton.Size = new System.Drawing.Size( 23, 24 );
+            CloseButton.Size = new System.Drawing.Size( 23, 23 );
             CloseButton.Text = "toolStripButton1";
             CloseButton.ToolTip = ToolTip;
             CloseButton.ToolType = ToolType.ExitButton;
             // 
-            // Separator1
+            // Separator18
             // 
-            Separator1.ForeColor = System.Drawing.Color.Black;
-            Separator1.Margin = new System.Windows.Forms.Padding( 1 );
-            Separator1.Name = "Separator1";
-            Separator1.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator1.Size = new System.Drawing.Size( 6, 28 );
+            Separator18.ForeColor = System.Drawing.Color.Black;
+            Separator18.Margin = new System.Windows.Forms.Padding( 1 );
+            Separator18.Name = "Separator18";
+            Separator18.Padding = new System.Windows.Forms.Padding( 1 );
+            Separator18.Size = new System.Drawing.Size( 6, 23 );
             // 
-            // NavigationLabel
+            // StatusLabel
             // 
-            NavigationLabel.BackColor = System.Drawing.Color.FromArgb(   45  ,   45  ,   45   );
-            NavigationLabel.BindingSource = null;
-            NavigationLabel.DataFilter = null;
-            NavigationLabel.Field = Field.AccountCode;
-            NavigationLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            NavigationLabel.ForeColor = System.Drawing.Color.Black;
-            NavigationLabel.HoverText = null;
-            NavigationLabel.Margin = new System.Windows.Forms.Padding( 1 );
-            NavigationLabel.Name = "NavigationLabel";
-            NavigationLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            NavigationLabel.Size = new System.Drawing.Size( 83, 28 );
-            NavigationLabel.Tag = "";
-            NavigationLabel.Text = "                 Navigation";
-            NavigationLabel.ToolTip = null;
+            StatusLabel.BackColor = System.Drawing.Color.Transparent;
+            StatusLabel.BindingSource = null;
+            StatusLabel.DataFilter = null;
+            StatusLabel.Field = Field.AccountCode;
+            StatusLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            StatusLabel.ForeColor = System.Drawing.Color.Black;
+            StatusLabel.HoverText = null;
+            StatusLabel.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            StatusLabel.Name = "StatusLabel";
+            StatusLabel.Padding = new System.Windows.Forms.Padding( 1 );
+            StatusLabel.Size = new System.Drawing.Size( 2, 23 );
+            StatusLabel.Tag = "";
+            StatusLabel.ToolTip = null;
+            // 
+            // NavigationSpacer
+            // 
+            NavigationSpacer.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            NavigationSpacer.BindingSource = null;
+            NavigationSpacer.DataFilter = null;
+            NavigationSpacer.Field = Field.AccountCode;
+            NavigationSpacer.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            NavigationSpacer.ForeColor = System.Drawing.Color.Black;
+            NavigationSpacer.HoverText = null;
+            NavigationSpacer.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            NavigationSpacer.Name = "NavigationSpacer";
+            NavigationSpacer.Padding = new System.Windows.Forms.Padding( 1 );
+            NavigationSpacer.Size = new System.Drawing.Size( 85, 23 );
+            NavigationSpacer.Tag = "";
+            NavigationSpacer.Text = "                 Navigation:";
+            NavigationSpacer.ToolTip = ToolTip;
             // 
             // Separator2
             // 
@@ -546,25 +558,25 @@
             Separator2.Margin = new System.Windows.Forms.Padding( 1 );
             Separator2.Name = "Separator2";
             Separator2.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator2.Size = new System.Drawing.Size( 6, 28 );
+            Separator2.Size = new System.Drawing.Size( 6, 23 );
             // 
             // FirstButton
             // 
             FirstButton.AutoToolTip = false;
             FirstButton.BackColor = System.Drawing.Color.Transparent;
             FirstButton.BindingSource = BindingSource;
-            FirstButton.DataFilter = null;
+            FirstButton.Filter = null;
             FirstButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             FirstButton.Field = Field.AccountCode;
             FirstButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             FirstButton.ForeColor = System.Drawing.Color.LightGray;
-            FirstButton.HoverText = "Move First";
+            FirstButton.HoverText = "First Record";
             FirstButton.Image = Resources.Images.FirstButton;
             FirstButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            FirstButton.Margin = new System.Windows.Forms.Padding( 3 );
+            FirstButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             FirstButton.Name = "FirstButton";
             FirstButton.Padding = new System.Windows.Forms.Padding( 1 );
-            FirstButton.Size = new System.Drawing.Size( 23, 24 );
+            FirstButton.Size = new System.Drawing.Size( 23, 23 );
             FirstButton.Text = "toolStripButton1";
             FirstButton.ToolTip = ToolTip;
             FirstButton.ToolType = ToolType.FirstButton;
@@ -575,14 +587,14 @@
             Separator3.Margin = new System.Windows.Forms.Padding( 1 );
             Separator3.Name = "Separator3";
             Separator3.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator3.Size = new System.Drawing.Size( 6, 28 );
+            Separator3.Size = new System.Drawing.Size( 6, 23 );
             // 
             // PreviousButton
             // 
             PreviousButton.AutoToolTip = false;
             PreviousButton.BackColor = System.Drawing.Color.Transparent;
             PreviousButton.BindingSource = BindingSource;
-            PreviousButton.DataFilter = null;
+            PreviousButton.Filter = null;
             PreviousButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             PreviousButton.Field = Field.AccountCode;
             PreviousButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -590,10 +602,10 @@
             PreviousButton.HoverText = "Move Previous";
             PreviousButton.Image = Resources.Images.WebPreviousButton;
             PreviousButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            PreviousButton.Margin = new System.Windows.Forms.Padding( 3 );
+            PreviousButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             PreviousButton.Name = "PreviousButton";
             PreviousButton.Padding = new System.Windows.Forms.Padding( 1 );
-            PreviousButton.Size = new System.Drawing.Size( 23, 24 );
+            PreviousButton.Size = new System.Drawing.Size( 23, 23 );
             PreviousButton.Text = "toolStripButton1";
             PreviousButton.ToolTip = ToolTip;
             PreviousButton.ToolType = ToolType.PreviousButton;
@@ -604,25 +616,25 @@
             Separator4.Margin = new System.Windows.Forms.Padding( 1 );
             Separator4.Name = "Separator4";
             Separator4.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator4.Size = new System.Drawing.Size( 6, 28 );
+            Separator4.Size = new System.Drawing.Size( 6, 23 );
             // 
             // NextButton
             // 
             NextButton.AutoToolTip = false;
             NextButton.BackColor = System.Drawing.Color.Transparent;
             NextButton.BindingSource = BindingSource;
-            NextButton.DataFilter = null;
+            NextButton.Filter = null;
             NextButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             NextButton.Field = Field.AccountCode;
             NextButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             NextButton.ForeColor = System.Drawing.Color.LightGray;
-            NextButton.HoverText = "Move Next";
+            NextButton.HoverText = "Next Record";
             NextButton.Image = Resources.Images.WebNextButton;
             NextButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            NextButton.Margin = new System.Windows.Forms.Padding( 3 );
+            NextButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             NextButton.Name = "NextButton";
             NextButton.Padding = new System.Windows.Forms.Padding( 1 );
-            NextButton.Size = new System.Drawing.Size( 23, 24 );
+            NextButton.Size = new System.Drawing.Size( 23, 23 );
             NextButton.Text = "toolStripButton1";
             NextButton.ToolTip = ToolTip;
             NextButton.ToolType = ToolType.NextButton;
@@ -633,14 +645,14 @@
             Separator5.Margin = new System.Windows.Forms.Padding( 1 );
             Separator5.Name = "Separator5";
             Separator5.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator5.Size = new System.Drawing.Size( 6, 28 );
+            Separator5.Size = new System.Drawing.Size( 6, 23 );
             // 
             // LastButton
             // 
             LastButton.AutoToolTip = false;
             LastButton.BackColor = System.Drawing.Color.Transparent;
             LastButton.BindingSource = BindingSource;
-            LastButton.DataFilter = null;
+            LastButton.Filter = null;
             LastButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             LastButton.Field = Field.AccountCode;
             LastButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -648,12 +660,12 @@
             LastButton.HoverText = "Move Last";
             LastButton.Image = Resources.Images.LastButton;
             LastButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            LastButton.Margin = new System.Windows.Forms.Padding( 3 );
+            LastButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             LastButton.Name = "LastButton";
             LastButton.Padding = new System.Windows.Forms.Padding( 1 );
-            LastButton.Size = new System.Drawing.Size( 23, 24 );
+            LastButton.Size = new System.Drawing.Size( 23, 23 );
             LastButton.Text = "toolStripButton1";
-            LastButton.ToolTip = null;
+            LastButton.ToolTip = ToolTip;
             LastButton.ToolType = ToolType.LastButton;
             // 
             // Separator6
@@ -662,11 +674,11 @@
             Separator6.Margin = new System.Windows.Forms.Padding( 1 );
             Separator6.Name = "Separator6";
             Separator6.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator6.Size = new System.Drawing.Size( 6, 28 );
+            Separator6.Size = new System.Drawing.Size( 6, 23 );
             // 
             // DataLabel
             // 
-            DataLabel.BackColor = System.Drawing.Color.FromArgb(   45  ,   45  ,   45   );
+            DataLabel.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             DataLabel.BindingSource = null;
             DataLabel.DataFilter = null;
             DataLabel.Field = Field.AccountCode;
@@ -676,9 +688,9 @@
             DataLabel.Margin = new System.Windows.Forms.Padding( 1 );
             DataLabel.Name = "DataLabel";
             DataLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            DataLabel.Size = new System.Drawing.Size( 76, 28 );
+            DataLabel.Size = new System.Drawing.Size( 78, 23 );
             DataLabel.Tag = "";
-            DataLabel.Text = "                        Data ";
+            DataLabel.Text = "                        Data: ";
             DataLabel.ToolTip = null;
             // 
             // Separator7
@@ -687,14 +699,14 @@
             Separator7.Margin = new System.Windows.Forms.Padding( 1 );
             Separator7.Name = "Separator7";
             Separator7.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator7.Size = new System.Drawing.Size( 6, 28 );
+            Separator7.Size = new System.Drawing.Size( 6, 23 );
             // 
             // GoButton
             // 
             GoButton.AutoToolTip = false;
             GoButton.BackColor = System.Drawing.Color.Transparent;
             GoButton.BindingSource = BindingSource;
-            GoButton.DataFilter = null;
+            GoButton.Filter = null;
             GoButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             GoButton.Field = Field.AccountCode;
             GoButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -702,10 +714,10 @@
             GoButton.HoverText = "Execute Query";
             GoButton.Image = Resources.Images.GoButton;
             GoButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            GoButton.Margin = new System.Windows.Forms.Padding( 3 );
+            GoButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             GoButton.Name = "GoButton";
             GoButton.Padding = new System.Windows.Forms.Padding( 1 );
-            GoButton.Size = new System.Drawing.Size( 23, 24 );
+            GoButton.Size = new System.Drawing.Size( 23, 23 );
             GoButton.Text = "toolStripButton1";
             GoButton.ToolTip = ToolTip;
             GoButton.ToolType = ToolType.GoButton;
@@ -716,14 +728,14 @@
             Separator8.Margin = new System.Windows.Forms.Padding( 1 );
             Separator8.Name = "Separator8";
             Separator8.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator8.Size = new System.Drawing.Size( 6, 28 );
+            Separator8.Size = new System.Drawing.Size( 6, 23 );
             // 
             // RefreshButton
             // 
             RefreshButton.AutoToolTip = false;
             RefreshButton.BackColor = System.Drawing.Color.Transparent;
             RefreshButton.BindingSource = BindingSource;
-            RefreshButton.DataFilter = null;
+            RefreshButton.Filter = null;
             RefreshButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             RefreshButton.Field = Field.AccountCode;
             RefreshButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -731,10 +743,10 @@
             RefreshButton.HoverText = "Refresh Data";
             RefreshButton.Image = Resources.Images.RefreshButton;
             RefreshButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            RefreshButton.Margin = new System.Windows.Forms.Padding( 3 );
+            RefreshButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             RefreshButton.Name = "RefreshButton";
             RefreshButton.Padding = new System.Windows.Forms.Padding( 1 );
-            RefreshButton.Size = new System.Drawing.Size( 23, 24 );
+            RefreshButton.Size = new System.Drawing.Size( 23, 23 );
             RefreshButton.Text = "toolStripButton1";
             RefreshButton.ToolTip = ToolTip;
             RefreshButton.ToolType = ToolType.RefreshButton;
@@ -745,14 +757,14 @@
             Separator9.Margin = new System.Windows.Forms.Padding( 1 );
             Separator9.Name = "Separator9";
             Separator9.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator9.Size = new System.Drawing.Size( 6, 28 );
+            Separator9.Size = new System.Drawing.Size( 6, 23 );
             // 
             // EditSqlButton
             // 
             EditSqlButton.AutoToolTip = false;
             EditSqlButton.BackColor = System.Drawing.Color.Transparent;
             EditSqlButton.BindingSource = BindingSource;
-            EditSqlButton.DataFilter = null;
+            EditSqlButton.Filter = null;
             EditSqlButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             EditSqlButton.Field = Field.AccountCode;
             EditSqlButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -760,10 +772,10 @@
             EditSqlButton.HoverText = "SQL Ecitor";
             EditSqlButton.Image = Resources.Images.EditSqlButton;
             EditSqlButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            EditSqlButton.Margin = new System.Windows.Forms.Padding( 3 );
+            EditSqlButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             EditSqlButton.Name = "EditSqlButton";
             EditSqlButton.Padding = new System.Windows.Forms.Padding( 1 );
-            EditSqlButton.Size = new System.Drawing.Size( 23, 24 );
+            EditSqlButton.Size = new System.Drawing.Size( 23, 23 );
             EditSqlButton.Text = "toolStripButton1";
             EditSqlButton.ToolTip = ToolTip;
             EditSqlButton.ToolType = ToolType.Ns;
@@ -774,14 +786,14 @@
             Separator11.Margin = new System.Windows.Forms.Padding( 1 );
             Separator11.Name = "Separator11";
             Separator11.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator11.Size = new System.Drawing.Size( 6, 28 );
+            Separator11.Size = new System.Drawing.Size( 6, 23 );
             // 
             // EditDataButton
             // 
             EditDataButton.AutoToolTip = false;
             EditDataButton.BackColor = System.Drawing.Color.Transparent;
             EditDataButton.BindingSource = BindingSource;
-            EditDataButton.DataFilter = null;
+            EditDataButton.Filter = null;
             EditDataButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             EditDataButton.Field = Field.AccountCode;
             EditDataButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -789,10 +801,10 @@
             EditDataButton.HoverText = "Edit Data";
             EditDataButton.Image = Resources.Images.EditButton;
             EditDataButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            EditDataButton.Margin = new System.Windows.Forms.Padding( 3 );
+            EditDataButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             EditDataButton.Name = "EditDataButton";
             EditDataButton.Padding = new System.Windows.Forms.Padding( 1 );
-            EditDataButton.Size = new System.Drawing.Size( 23, 24 );
+            EditDataButton.Size = new System.Drawing.Size( 23, 23 );
             EditDataButton.Text = "toolStripButton1";
             EditDataButton.ToolTip = ToolTip;
             EditDataButton.ToolType = ToolType.TableButton;
@@ -803,14 +815,14 @@
             Separator12.Margin = new System.Windows.Forms.Padding( 1 );
             Separator12.Name = "Separator12";
             Separator12.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator12.Size = new System.Drawing.Size( 6, 28 );
+            Separator12.Size = new System.Drawing.Size( 6, 23 );
             // 
             // TableButton
             // 
             TableButton.AutoToolTip = false;
             TableButton.BackColor = System.Drawing.Color.Transparent;
             TableButton.BindingSource = BindingSource;
-            TableButton.DataFilter = null;
+            TableButton.Filter = null;
             TableButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             TableButton.Field = Field.AccountCode;
             TableButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -818,10 +830,10 @@
             TableButton.HoverText = "View Data Table";
             TableButton.Image = Resources.Images.TableButton;
             TableButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            TableButton.Margin = new System.Windows.Forms.Padding( 3 );
+            TableButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             TableButton.Name = "TableButton";
             TableButton.Padding = new System.Windows.Forms.Padding( 1 );
-            TableButton.Size = new System.Drawing.Size( 23, 24 );
+            TableButton.Size = new System.Drawing.Size( 23, 23 );
             TableButton.Text = "toolStripButton1";
             TableButton.ToolTip = ToolTip;
             TableButton.ToolType = ToolType.Ns;
@@ -832,14 +844,14 @@
             TableSeparator.Margin = new System.Windows.Forms.Padding( 1 );
             TableSeparator.Name = "TableSeparator";
             TableSeparator.Padding = new System.Windows.Forms.Padding( 1 );
-            TableSeparator.Size = new System.Drawing.Size( 6, 28 );
+            TableSeparator.Size = new System.Drawing.Size( 6, 23 );
             // 
             // LookupButton
             // 
             LookupButton.AutoToolTip = false;
             LookupButton.BackColor = System.Drawing.Color.Transparent;
             LookupButton.BindingSource = BindingSource;
-            LookupButton.DataFilter = null;
+            LookupButton.Filter = null;
             LookupButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             LookupButton.Field = Field.AccountCode;
             LookupButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -847,10 +859,10 @@
             LookupButton.HoverText = "Reset Data Source";
             LookupButton.Image = Resources.Images.DataSearchButton;
             LookupButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            LookupButton.Margin = new System.Windows.Forms.Padding( 3 );
+            LookupButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             LookupButton.Name = "LookupButton";
             LookupButton.Padding = new System.Windows.Forms.Padding( 1 );
-            LookupButton.Size = new System.Drawing.Size( 23, 24 );
+            LookupButton.Size = new System.Drawing.Size( 23, 23 );
             LookupButton.Text = "toolStripButton1";
             LookupButton.ToolTip = ToolTip;
             LookupButton.ToolType = ToolType.LookupButton;
@@ -861,14 +873,14 @@
             Separator13.Margin = new System.Windows.Forms.Padding( 1 );
             Separator13.Name = "Separator13";
             Separator13.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator13.Size = new System.Drawing.Size( 6, 28 );
+            Separator13.Size = new System.Drawing.Size( 6, 23 );
             // 
             // SaveButton
             // 
             SaveButton.AutoToolTip = false;
             SaveButton.BackColor = System.Drawing.Color.Transparent;
             SaveButton.BindingSource = BindingSource;
-            SaveButton.DataFilter = null;
+            SaveButton.Filter = null;
             SaveButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             SaveButton.Field = Field.AccountCode;
             SaveButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -876,10 +888,10 @@
             SaveButton.HoverText = "Save Changes";
             SaveButton.Image = Resources.Images.SaveButton;
             SaveButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            SaveButton.Margin = new System.Windows.Forms.Padding( 3 );
+            SaveButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             SaveButton.Name = "SaveButton";
             SaveButton.Padding = new System.Windows.Forms.Padding( 1 );
-            SaveButton.Size = new System.Drawing.Size( 23, 24 );
+            SaveButton.Size = new System.Drawing.Size( 23, 23 );
             SaveButton.Text = "toolStripButton1";
             SaveButton.ToolTip = ToolTip;
             SaveButton.ToolType = ToolType.SaveButton;
@@ -890,11 +902,11 @@
             Separator14.Margin = new System.Windows.Forms.Padding( 1 );
             Separator14.Name = "Separator14";
             Separator14.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator14.Size = new System.Drawing.Size( 6, 28 );
+            Separator14.Size = new System.Drawing.Size( 6, 23 );
             // 
             // FileSystemLabel
             // 
-            FileSystemLabel.BackColor = System.Drawing.Color.FromArgb(   45  ,   45  ,   45   );
+            FileSystemLabel.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             FileSystemLabel.BindingSource = null;
             FileSystemLabel.DataFilter = null;
             FileSystemLabel.Field = Field.AccountCode;
@@ -904,9 +916,9 @@
             FileSystemLabel.Margin = new System.Windows.Forms.Padding( 1 );
             FileSystemLabel.Name = "FileSystemLabel";
             FileSystemLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            FileSystemLabel.Size = new System.Drawing.Size( 75, 28 );
+            FileSystemLabel.Size = new System.Drawing.Size( 77, 23 );
             FileSystemLabel.Tag = "";
-            FileSystemLabel.Text = "                   System";
+            FileSystemLabel.Text = "                   File Sys:";
             FileSystemLabel.ToolTip = null;
             // 
             // Separator15
@@ -915,14 +927,14 @@
             Separator15.Margin = new System.Windows.Forms.Padding( 1 );
             Separator15.Name = "Separator15";
             Separator15.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator15.Size = new System.Drawing.Size( 6, 28 );
+            Separator15.Size = new System.Drawing.Size( 6, 23 );
             // 
             // ClientButton
             // 
             ClientButton.AutoToolTip = false;
             ClientButton.BackColor = System.Drawing.Color.Transparent;
             ClientButton.BindingSource = BindingSource;
-            ClientButton.DataFilter = null;
+            ClientButton.Filter = null;
             ClientButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             ClientButton.Field = Field.AccountCode;
             ClientButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -930,10 +942,10 @@
             ClientButton.HoverText = "External Client";
             ClientButton.Image = Resources.Images.ClientButton;
             ClientButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            ClientButton.Margin = new System.Windows.Forms.Padding( 3 );
+            ClientButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             ClientButton.Name = "ClientButton";
             ClientButton.Padding = new System.Windows.Forms.Padding( 1 );
-            ClientButton.Size = new System.Drawing.Size( 23, 24 );
+            ClientButton.Size = new System.Drawing.Size( 23, 23 );
             ClientButton.Text = "toolStripButton1";
             ClientButton.ToolTip = ToolTip;
             ClientButton.ToolType = ToolType.Ns;
@@ -944,14 +956,14 @@
             ClientSeparator.Margin = new System.Windows.Forms.Padding( 1 );
             ClientSeparator.Name = "ClientSeparator";
             ClientSeparator.Padding = new System.Windows.Forms.Padding( 1 );
-            ClientSeparator.Size = new System.Drawing.Size( 6, 28 );
+            ClientSeparator.Size = new System.Drawing.Size( 6, 23 );
             // 
             // BrowserButton
             // 
             BrowserButton.AutoToolTip = false;
             BrowserButton.BackColor = System.Drawing.Color.Transparent;
             BrowserButton.BindingSource = BindingSource;
-            BrowserButton.DataFilter = null;
+            BrowserButton.Filter = null;
             BrowserButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             BrowserButton.Field = Field.AccountCode;
             BrowserButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -959,42 +971,44 @@
             BrowserButton.HoverText = "Browse File System";
             BrowserButton.Image = Resources.Images.BrowseButton;
             BrowserButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            BrowserButton.Margin = new System.Windows.Forms.Padding( 3 );
+            BrowserButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             BrowserButton.Name = "BrowserButton";
             BrowserButton.Padding = new System.Windows.Forms.Padding( 1 );
-            BrowserButton.Size = new System.Drawing.Size( 23, 24 );
+            BrowserButton.Size = new System.Drawing.Size( 23, 23 );
             BrowserButton.Text = "toolStripButton1";
             BrowserButton.ToolTip = ToolTip;
             BrowserButton.ToolType = ToolType.BrowseButton;
             // 
             // Separator16
             // 
+            Separator16.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             Separator16.ForeColor = System.Drawing.Color.Black;
             Separator16.Margin = new System.Windows.Forms.Padding( 1 );
             Separator16.Name = "Separator16";
             Separator16.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator16.Size = new System.Drawing.Size( 6, 28 );
+            Separator16.Size = new System.Drawing.Size( 6, 23 );
             // 
-            // HomeButton
+            // MainMenuButton
             // 
-            HomeButton.AutoToolTip = false;
-            HomeButton.BackColor = System.Drawing.Color.Transparent;
-            HomeButton.BindingSource = BindingSource;
-            HomeButton.DataFilter = null;
-            HomeButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            HomeButton.Field = Field.AccountCode;
-            HomeButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            HomeButton.ForeColor = System.Drawing.Color.LightGray;
-            HomeButton.HoverText = "Main Menu";
-            HomeButton.Image = Resources.Images.WebMenuButton;
-            HomeButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            HomeButton.Margin = new System.Windows.Forms.Padding( 3 );
-            HomeButton.Name = "HomeButton";
-            HomeButton.Padding = new System.Windows.Forms.Padding( 1 );
-            HomeButton.Size = new System.Drawing.Size( 23, 24 );
-            HomeButton.Text = "toolStripButton1";
-            HomeButton.ToolTip = ToolTip;
-            HomeButton.ToolType = ToolType.HomeButton;
+            MainMenuButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            MainMenuButton.AutoToolTip = false;
+            MainMenuButton.BackColor = System.Drawing.Color.Transparent;
+            MainMenuButton.BindingSource = BindingSource;
+            MainMenuButton.Filter = null;
+            MainMenuButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            MainMenuButton.Field = Field.AccountCode;
+            MainMenuButton.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            MainMenuButton.ForeColor = System.Drawing.Color.LightGray;
+            MainMenuButton.HoverText = "Main Menu";
+            MainMenuButton.Image = Resources.Images.WebMenuButton;
+            MainMenuButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            MainMenuButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            MainMenuButton.Name = "MainMenuButton";
+            MainMenuButton.Padding = new System.Windows.Forms.Padding( 1 );
+            MainMenuButton.Size = new System.Drawing.Size( 23, 23 );
+            MainMenuButton.Text = "toolStripButton1";
+            MainMenuButton.ToolTip = ToolTip;
+            MainMenuButton.ToolType = ToolType.MenuButton;
             // 
             // Separator17
             // 
@@ -1002,69 +1016,114 @@
             Separator17.Margin = new System.Windows.Forms.Padding( 1 );
             Separator17.Name = "Separator17";
             Separator17.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator17.Size = new System.Drawing.Size( 6, 28 );
+            Separator17.Size = new System.Drawing.Size( 6, 23 );
+            // 
+            // MenuSeparator
+            // 
+            MenuSeparator.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            MenuSeparator.ForeColor = System.Drawing.Color.Black;
+            MenuSeparator.Margin = new System.Windows.Forms.Padding( 1 );
+            MenuSeparator.Name = "MenuSeparator";
+            MenuSeparator.Padding = new System.Windows.Forms.Padding( 1 );
+            MenuSeparator.Size = new System.Drawing.Size( 6, 23 );
+            // 
+            // ApplicationLabel
+            // 
+            ApplicationLabel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            ApplicationLabel.BackColor = System.Drawing.Color.Transparent;
+            ApplicationLabel.BindingSource = null;
+            ApplicationLabel.DataFilter = null;
+            ApplicationLabel.Field = Field.AccountCode;
+            ApplicationLabel.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            ApplicationLabel.ForeColor = System.Drawing.Color.Black;
+            ApplicationLabel.HoverText = null;
+            ApplicationLabel.Margin = new System.Windows.Forms.Padding( 1 );
+            ApplicationLabel.Name = "ApplicationLabel";
+            ApplicationLabel.Padding = new System.Windows.Forms.Padding( 1 );
+            ApplicationLabel.Size = new System.Drawing.Size( 95, 23 );
+            ApplicationLabel.Tag = "";
+            ApplicationLabel.Text = "          Application";
+            ApplicationLabel.ToolTip = null;
+            // 
+            // Separator1
+            // 
+            Separator1.ForeColor = System.Drawing.Color.Black;
+            Separator1.Margin = new System.Windows.Forms.Padding( 1 );
+            Separator1.Name = "Separator1";
+            Separator1.Padding = new System.Windows.Forms.Padding( 1 );
+            Separator1.Size = new System.Drawing.Size( 6, 25 );
+            // 
+            // Timer
+            // 
+            Timer.Enabled = true;
+            Timer.Interval = 500;
+            // 
+            // ToolStripTable
+            // 
+            ToolStripTable.ColumnCount = 1;
+            ToolStripTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+            ToolStripTable.Controls.Add( ToolStrip, 0, 0 );
+            ToolStripTable.Dock = System.Windows.Forms.DockStyle.Bottom;
+            ToolStripTable.Location = new System.Drawing.Point( 0, 694 );
+            ToolStripTable.Name = "ToolStripTable";
+            ToolStripTable.RowCount = 1;
+            ToolStripTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+            ToolStripTable.Size = new System.Drawing.Size( 1338, 45 );
+            ToolStripTable.TabIndex = 17;
             // 
             // TabControl
             // 
-            TabControl.ActiveTabColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            TabControl.ActiveTabFont = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            TabControl.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            TabControl.BeforeTouchSize = new System.Drawing.Size( 951, 587 );
+            TabControl.ActiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.ActiveTabFont = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            TabControl.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.BeforeTouchSize = new System.Drawing.Size( 911, 603 );
+            TabControl.BindingSource = null;
             TabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            TabControl.BorderWidth = 1;
             TabControl.CanOverrideStyle = true;
-            TabControl.CloseButtonBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            TabControl.CloseButtonBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.Controls.Add( SqlTab );
             TabControl.Controls.Add( DataTab );
             TabControl.Controls.Add( LookupTab );
             TabControl.Controls.Add( SchemaTab );
-            TabControl.FixedSingleBorderColor = System.Drawing.Color.Transparent;
+            TabControl.Controls.Add( Busy );
             TabControl.FocusOnTabClick = false;
-            TabControl.InactiveCloseButtonForeColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            TabControl.InactiveTabColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            TabControl.ItemSize = new System.Drawing.Size( 158, 20 );
-            TabControl.Location = new System.Drawing.Point( 0, 38 );
-            TabControl.Margin = new System.Windows.Forms.Padding( 1 );
+            TabControl.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            TabControl.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            TabControl.InactiveCloseButtonForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.InactiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.ItemSize = new System.Drawing.Size( 150, 22 );
+            TabControl.Location = new System.Drawing.Point( 38, 35 );
             TabControl.Name = "TabControl";
-            TabControl.Size = new System.Drawing.Size( 951, 587 );
-            TabControl.TabIndex = 16;
-            TabControl.TabPanelBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            TabControl.Size = new System.Drawing.Size( 911, 603 );
+            TabControl.TabIndex = 18;
+            TabControl.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.TabStyle = typeof( Syncfusion.Windows.Forms.Tools.TabRendererMetro );
             TabControl.ThemeName = "TabRendererMetro";
-            TabControl.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            TabControl.ThemeStyle.DisabledBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            TabControl.ThemeStyle.DisabledTabPanelBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            TabControl.ThemeStyle.EditableTabStyle.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            TabControl.ThemeStyle.EditableTabStyle.ForeColor = System.Drawing.Color.LightSteelBlue;
-            TabControl.ThemeStyle.PrimitiveButtonStyle.DisabledNextPageImage = null;
-            TabControl.ThemeStyle.TabPanelBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            TabControl.ThemeStyle.TabStyle.ActiveBackColor = System.Drawing.Color.FromArgb(   22  ,   39  ,   70   );
-            TabControl.ThemeStyle.TabStyle.ActiveBorderColor = System.Drawing.Color.FromArgb(   22  ,   39  ,   70   );
-            TabControl.ThemeStyle.TabStyle.ActiveCloseButtonBackColor = System.Drawing.Color.FromArgb(   22  ,   39  ,   70   );
-            TabControl.ThemeStyle.TabStyle.ActiveCloseButtonForeColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            TabControl.ThemeStyle.TabStyle.ActiveForeColor = System.Drawing.Color.White;
-            TabControl.ThemeStyle.TabStyle.InactiveBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            TabControl.ThemeStyle.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.ThemeStyle.BorderColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.ThemeStyle.BorderFillColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.ThemeStyle.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.ThemeStyle.TabStyle.ActiveBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.ThemeStyle.TabStyle.ActiveFont = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            TabControl.ThemeStyle.TabStyle.ActiveForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            TabControl.ThemeStyle.TabStyle.SeparatorColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.ToolTip = null;
             // 
             // SqlTab
             // 
-            SqlTab.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
             SqlTab.Controls.Add( EditorTable );
             SqlTab.Image = null;
             SqlTab.ImageSize = new System.Drawing.Size( 16, 16 );
-            SqlTab.Location = new System.Drawing.Point( 0, 19 );
-            SqlTab.Margin = new System.Windows.Forms.Padding( 1 );
+            SqlTab.Location = new System.Drawing.Point( 0, 21 );
             SqlTab.Name = "SqlTab";
-            SqlTab.Padding = new System.Windows.Forms.Padding( 1 );
             SqlTab.ShowCloseButton = true;
-            SqlTab.Size = new System.Drawing.Size( 951, 568 );
-            SqlTab.TabBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            SqlTab.TabForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            SqlTab.TabIndex = 8;
+            SqlTab.Size = new System.Drawing.Size( 911, 582 );
+            SqlTab.TabIndex = 1;
             SqlTab.ThemesEnabled = false;
             // 
             // EditorTable
             // 
-            EditorTable.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            EditorTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             EditorTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             EditorTable.CaptionText = "SQL Editor";
             EditorTable.ColumnCount = 1;
@@ -1072,21 +1131,21 @@
             EditorTable.Controls.Add( EditorPanel, 0, 1 );
             EditorTable.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             EditorTable.ForeColor = System.Drawing.Color.DarkGray;
-            EditorTable.Location = new System.Drawing.Point( 30, 4 );
+            EditorTable.Location = new System.Drawing.Point( 12, 5 );
             EditorTable.Name = "EditorTable";
             EditorTable.RowCount = 2;
-            EditorTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 2.15264177F ) );
-            EditorTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 97.84736F ) );
-            EditorTable.Size = new System.Drawing.Size( 919, 561 );
-            EditorTable.TabIndex = 5;
+            EditorTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 1.83486235F ) );
+            EditorTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 98.16514F ) );
+            EditorTable.Size = new System.Drawing.Size( 896, 561 );
+            EditorTable.TabIndex = 6;
             // 
             // EditorPanel
             // 
-            EditorPanel.Anchor =     System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right  ;
+            EditorPanel.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             EditorPanel.BackColor = System.Drawing.Color.Transparent;
-            EditorPanel.BackgroundColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            EditorPanel.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             EditorPanel.BindingSource = null;
-            EditorPanel.BorderColor = System.Drawing.Color.FromArgb(   65  ,   65  ,   65   );
+            EditorPanel.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
             EditorPanel.BorderThickness = 1;
             EditorPanel.Children = null;
             EditorPanel.Controls.Add( Editor );
@@ -1095,10 +1154,10 @@
             EditorPanel.ForeColor = System.Drawing.Color.Transparent;
             EditorPanel.HoverText = null;
             EditorPanel.IsDerivedStyle = true;
-            EditorPanel.Location = new System.Drawing.Point( 3, 30 );
+            EditorPanel.Location = new System.Drawing.Point( 3, 29 );
             EditorPanel.Name = "EditorPanel";
             EditorPanel.Padding = new System.Windows.Forms.Padding( 1 );
-            EditorPanel.Size = new System.Drawing.Size( 913, 528 );
+            EditorPanel.Size = new System.Drawing.Size( 890, 529 );
             EditorPanel.Style = MetroSet_UI.Enums.Style.Custom;
             EditorPanel.StyleManager = null;
             EditorPanel.TabIndex = 0;
@@ -1110,33 +1169,33 @@
             // 
             Editor.AllowZoom = false;
             Editor.AlwaysShowScrollers = true;
-            Editor.Anchor =     System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right  ;
+            Editor.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             Editor.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             Editor.BackColor = System.Drawing.SystemColors.ControlLight;
-            Editor.BookmarkTooltipBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            Editor.BookmarkTooltipBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             Editor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             Editor.CanOverrideStyle = true;
-            Editor.ChangedLinesMarkingLineColor = System.Drawing.Color.FromArgb(   255  ,   238  ,   98   );
+            Editor.ChangedLinesMarkingLineColor = System.Drawing.Color.FromArgb( 255, 238, 98 );
             Editor.CodeSnipptSize = new System.Drawing.Size( 100, 100 );
             Editor.ColumnGuidesMeasuringFont = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             Editor.Configurator = config1;
             Editor.ContextChoiceBackColor = System.Drawing.SystemColors.ControlLight;
-            Editor.ContextChoiceBorderColor = System.Drawing.Color.FromArgb(   233  ,   166  ,   50   );
-            Editor.ContextPromptBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            Editor.ContextTooltipBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            Editor.CurrentLineHighlightColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            Editor.ContextChoiceBorderColor = System.Drawing.Color.FromArgb( 233, 166, 50 );
+            Editor.ContextPromptBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            Editor.ContextTooltipBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            Editor.CurrentLineHighlightColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             Editor.EndOfLineBackColor = System.Drawing.SystemColors.ControlLight;
             Editor.EndOfLineForeColor = System.Drawing.SystemColors.ControlLight;
             Editor.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             Editor.ForeColor = System.Drawing.Color.Black;
             Editor.HighlightCurrentLine = true;
-            Editor.IndentationBlockBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            Editor.IndentationBlockBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             Editor.IndentBlockHighlightingColor = System.Drawing.SystemColors.ActiveCaption;
-            Editor.IndentLineColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            Editor.IndentLineColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             Editor.IndicatorMarginBackColor = System.Drawing.SystemColors.ControlLight;
             Editor.LineNumbersColor = System.Drawing.Color.Black;
             Editor.LineNumbersFont = new System.Drawing.Font( "Hack", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point );
-            Editor.Location = new System.Drawing.Point( 17, 15 );
+            Editor.Location = new System.Drawing.Point( 26, 9 );
             Editor.Name = "Editor";
             Editor.RenderRightToLeft = false;
             Editor.ScrollColorScheme = Syncfusion.Windows.Forms.Office2007ColorScheme.Black;
@@ -1145,7 +1204,7 @@
             Editor.SelectionMarginBackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             Editor.SelectionTextColor = System.Drawing.Color.White;
             Editor.ShowEndOfLine = false;
-            Editor.Size = new System.Drawing.Size( 873, 499 );
+            Editor.Size = new System.Drawing.Size( 843, 507 );
             Editor.StatusBarSettings.CoordsPanel.Width = 150;
             Editor.StatusBarSettings.EncodingPanel.Width = 100;
             Editor.StatusBarSettings.FileNamePanel.Width = 100;
@@ -1175,16 +1234,16 @@
             DataTab.Controls.Add( DataGridTable );
             DataTab.Image = null;
             DataTab.ImageSize = new System.Drawing.Size( 16, 16 );
-            DataTab.Location = new System.Drawing.Point( 0, 19 );
+            DataTab.Location = new System.Drawing.Point( 0, 21 );
             DataTab.Name = "DataTab";
             DataTab.ShowCloseButton = true;
-            DataTab.Size = new System.Drawing.Size( 951, 568 );
-            DataTab.TabIndex = 9;
+            DataTab.Size = new System.Drawing.Size( 911, 582 );
+            DataTab.TabIndex = 5;
             DataTab.ThemesEnabled = false;
             // 
             // DataGridTable
             // 
-            DataGridTable.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            DataGridTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataGridTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             DataGridTable.CaptionText = "Data Grid";
             DataGridTable.ColumnCount = 1;
@@ -1192,20 +1251,20 @@
             DataGridTable.Controls.Add( DataGridPanel, 0, 1 );
             DataGridTable.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             DataGridTable.ForeColor = System.Drawing.Color.DarkGray;
-            DataGridTable.Location = new System.Drawing.Point( 31, 3 );
+            DataGridTable.Location = new System.Drawing.Point( 0, 3 );
             DataGridTable.Name = "DataGridTable";
             DataGridTable.RowCount = 2;
             DataGridTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 1.4678899F ) );
             DataGridTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 98.53211F ) );
-            DataGridTable.Size = new System.Drawing.Size( 908, 561 );
-            DataGridTable.TabIndex = 39;
+            DataGridTable.Size = new System.Drawing.Size( 908, 566 );
+            DataGridTable.TabIndex = 40;
             // 
             // DataGridPanel
             // 
             DataGridPanel.BackColor = System.Drawing.Color.Transparent;
-            DataGridPanel.BackgroundColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            DataGridPanel.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataGridPanel.BindingSource = null;
-            DataGridPanel.BorderColor = System.Drawing.Color.FromArgb(   65  ,   65  ,   65   );
+            DataGridPanel.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
             DataGridPanel.BorderThickness = 1;
             DataGridPanel.Children = null;
             DataGridPanel.Controls.Add( DataGrid );
@@ -1218,7 +1277,7 @@
             DataGridPanel.Location = new System.Drawing.Point( 3, 27 );
             DataGridPanel.Name = "DataGridPanel";
             DataGridPanel.Padding = new System.Windows.Forms.Padding( 1 );
-            DataGridPanel.Size = new System.Drawing.Size( 902, 531 );
+            DataGridPanel.Size = new System.Drawing.Size( 902, 536 );
             DataGridPanel.Style = MetroSet_UI.Enums.Style.Custom;
             DataGridPanel.StyleManager = null;
             DataGridPanel.TabIndex = 47;
@@ -1229,14 +1288,14 @@
             // DataGrid
             // 
             DataGrid.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(   50  ,   50  ,   50   );
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb( 50, 50, 50 );
             dataGridViewCellStyle1.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(   26  ,   79  ,   125   );
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb( 26, 79, 125 );
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
             DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            DataGrid.Anchor =     System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right  ;
-            DataGrid.BackgroundColor = System.Drawing.Color.FromArgb(   45  ,   45  ,   45   );
+            DataGrid.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            DataGrid.BackgroundColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             DataGrid.BindingSource = null;
             DataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             DataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -1245,46 +1304,46 @@
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.SteelBlue;
             dataGridViewCellStyle2.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(   26  ,   79  ,   125   );
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb( 26, 79, 125 );
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DataGrid.DataFilter = null;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(   45  ,   45  ,   45   );
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             dataGridViewCellStyle3.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(   26  ,   79  ,   125   );
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb( 26, 79, 125 );
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             DataGrid.DefaultCellStyle = dataGridViewCellStyle3;
             DataGrid.EnableHeadersVisualStyles = false;
             DataGrid.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            DataGrid.GridColor = System.Drawing.Color.FromArgb(   141  ,   139  ,   138   );
+            DataGrid.GridColor = System.Drawing.Color.FromArgb( 141, 139, 138 );
             DataGrid.HoverText = null;
-            DataGrid.Location = new System.Drawing.Point( 22, 19 );
+            DataGrid.Location = new System.Drawing.Point( 25, 32 );
             DataGrid.MultiSelect = false;
             DataGrid.Name = "DataGrid";
             DataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(   50  ,   50  ,   50   );
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb( 50, 50, 50 );
             dataGridViewCellStyle4.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             DataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             DataGrid.RowHeadersWidth = 20;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(   45  ,   45  ,   45   );
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             dataGridViewCellStyle5.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(   26  ,   79  ,   125   );
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb( 26, 79, 125 );
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
             DataGrid.RowsDefaultCellStyle = dataGridViewCellStyle5;
             DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            DataGrid.Size = new System.Drawing.Size( 857, 499 );
+            DataGrid.Size = new System.Drawing.Size( 851, 469 );
             DataGrid.TabIndex = 0;
             DataGrid.ToolTip = null;
             // 
@@ -1295,38 +1354,38 @@
             LookupTab.Controls.Add( SourceTable );
             LookupTab.Image = null;
             LookupTab.ImageSize = new System.Drawing.Size( 16, 16 );
-            LookupTab.Location = new System.Drawing.Point( 0, 19 );
+            LookupTab.Location = new System.Drawing.Point( 0, 21 );
             LookupTab.Name = "LookupTab";
             LookupTab.ShowCloseButton = true;
-            LookupTab.Size = new System.Drawing.Size( 951, 568 );
-            LookupTab.TabIndex = 10;
+            LookupTab.Size = new System.Drawing.Size( 911, 582 );
+            LookupTab.TabIndex = 4;
             LookupTab.ThemesEnabled = false;
             // 
             // ColumnTable
             // 
-            ColumnTable.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            ColumnTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             ColumnTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             ColumnTable.CaptionText = "Columns";
             ColumnTable.ColumnCount = 1;
             ColumnTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             ColumnTable.Controls.Add( ColumnPanel, 0, 1 );
             ColumnTable.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            ColumnTable.ForeColor = System.Drawing.Color.DarkGray;
-            ColumnTable.Location = new System.Drawing.Point( 487, 7 );
+            ColumnTable.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ColumnTable.Location = new System.Drawing.Point( 465, 11 );
             ColumnTable.Name = "ColumnTable";
             ColumnTable.RowCount = 2;
             ColumnTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 8.465609F ) );
             ColumnTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 91.53439F ) );
             ColumnTable.Size = new System.Drawing.Size( 412, 232 );
-            ColumnTable.TabIndex = 20;
+            ColumnTable.TabIndex = 23;
             // 
             // ColumnPanel
             // 
-            ColumnPanel.Anchor =     System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right  ;
+            ColumnPanel.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             ColumnPanel.BackColor = System.Drawing.Color.Transparent;
-            ColumnPanel.BackgroundColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            ColumnPanel.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             ColumnPanel.BindingSource = null;
-            ColumnPanel.BorderColor = System.Drawing.Color.FromArgb(   65  ,   65  ,   65   );
+            ColumnPanel.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
             ColumnPanel.BorderThickness = 1;
             ColumnPanel.Children = null;
             ColumnPanel.Controls.Add( ColumnListBox );
@@ -1348,15 +1407,15 @@
             // 
             // ColumnListBox
             // 
-            ColumnListBox.Anchor =     System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right  ;
-            ColumnListBox.BackColor = System.Drawing.Color.FromArgb(   30  ,   30  ,   30   );
+            ColumnListBox.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            ColumnListBox.BackColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
             ColumnListBox.BindingSource = null;
-            ColumnListBox.BorderColor = System.Drawing.Color.FromArgb(   64  ,   64  ,   64   );
+            ColumnListBox.BorderColor = System.Drawing.Color.FromArgb( 64, 64, 64 );
             ColumnListBox.DataFilter = null;
-            ColumnListBox.DisabledBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            ColumnListBox.DisabledForeColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            ColumnListBox.DisabledBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            ColumnListBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             ColumnListBox.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            ColumnListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
+            ColumnListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
             ColumnListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
             ColumnListBox.HoverText = null;
             ColumnListBox.IsDerivedStyle = true;
@@ -1368,13 +1427,13 @@
             ColumnListBox.Padding = new System.Windows.Forms.Padding( 1 );
             ColumnListBox.SelectedIndex = -1;
             ColumnListBox.SelectedItem = null;
-            ColumnListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            ColumnListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             ColumnListBox.SelectedItemColor = System.Drawing.Color.White;
             ColumnListBox.SelectedText = null;
             ColumnListBox.SelectedValue = null;
             ColumnListBox.ShowBorder = false;
             ColumnListBox.ShowScrollBar = false;
-            ColumnListBox.Size = new System.Drawing.Size( 377, 167 );
+            ColumnListBox.Size = new System.Drawing.Size( 377, 163 );
             ColumnListBox.Style = MetroSet_UI.Enums.Style.Custom;
             ColumnListBox.StyleManager = null;
             ColumnListBox.TabIndex = 2;
@@ -1385,28 +1444,28 @@
             // 
             // ValueTable
             // 
-            ValueTable.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            ValueTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             ValueTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             ValueTable.CaptionText = "Values ";
             ValueTable.ColumnCount = 1;
             ValueTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             ValueTable.Controls.Add( ValuePanel, 0, 1 );
             ValueTable.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            ValueTable.ForeColor = System.Drawing.Color.DarkGray;
-            ValueTable.Location = new System.Drawing.Point( 490, 245 );
+            ValueTable.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ValueTable.Location = new System.Drawing.Point( 468, 249 );
             ValueTable.Name = "ValueTable";
             ValueTable.RowCount = 2;
             ValueTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 3.90879488F ) );
             ValueTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 96.0912F ) );
             ValueTable.Size = new System.Drawing.Size( 412, 323 );
-            ValueTable.TabIndex = 18;
+            ValueTable.TabIndex = 22;
             // 
             // ValuePanel
             // 
             ValuePanel.BackColor = System.Drawing.Color.Transparent;
-            ValuePanel.BackgroundColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            ValuePanel.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             ValuePanel.BindingSource = null;
-            ValuePanel.BorderColor = System.Drawing.Color.FromArgb(   65  ,   65  ,   65   );
+            ValuePanel.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
             ValuePanel.BorderThickness = 1;
             ValuePanel.Children = null;
             ValuePanel.Controls.Add( ValueListBox );
@@ -1429,14 +1488,14 @@
             // 
             // ValueListBox
             // 
-            ValueListBox.BackColor = System.Drawing.Color.FromArgb(   30  ,   30  ,   30   );
+            ValueListBox.BackColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
             ValueListBox.BindingSource = null;
-            ValueListBox.BorderColor = System.Drawing.Color.FromArgb(   64  ,   64  ,   64   );
+            ValueListBox.BorderColor = System.Drawing.Color.FromArgb( 64, 64, 64 );
             ValueListBox.DataFilter = null;
-            ValueListBox.DisabledBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            ValueListBox.DisabledForeColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            ValueListBox.DisabledBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            ValueListBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             ValueListBox.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            ValueListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
+            ValueListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
             ValueListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
             ValueListBox.HoverText = null;
             ValueListBox.IsDerivedStyle = true;
@@ -1448,7 +1507,7 @@
             ValueListBox.Padding = new System.Windows.Forms.Padding( 1 );
             ValueListBox.SelectedIndex = -1;
             ValueListBox.SelectedItem = null;
-            ValueListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            ValueListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             ValueListBox.SelectedItemColor = System.Drawing.Color.White;
             ValueListBox.SelectedText = null;
             ValueListBox.SelectedValue = null;
@@ -1465,28 +1524,28 @@
             // 
             // SourceTable
             // 
-            SourceTable.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            SourceTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             SourceTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             SourceTable.CaptionText = "Tables";
             SourceTable.ColumnCount = 1;
             SourceTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             SourceTable.Controls.Add( TablePanel, 0, 1 );
             SourceTable.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            SourceTable.ForeColor = System.Drawing.Color.DarkGray;
-            SourceTable.Location = new System.Drawing.Point( 53, 7 );
+            SourceTable.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            SourceTable.Location = new System.Drawing.Point( 31, 11 );
             SourceTable.Name = "SourceTable";
             SourceTable.RowCount = 2;
             SourceTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 4.21545649F ) );
             SourceTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 95.7845459F ) );
             SourceTable.Size = new System.Drawing.Size( 412, 561 );
-            SourceTable.TabIndex = 17;
+            SourceTable.TabIndex = 21;
             // 
             // TablePanel
             // 
             TablePanel.BackColor = System.Drawing.Color.Transparent;
-            TablePanel.BackgroundColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            TablePanel.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TablePanel.BindingSource = null;
-            TablePanel.BorderColor = System.Drawing.Color.FromArgb(   65  ,   65  ,   65   );
+            TablePanel.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
             TablePanel.BorderThickness = 1;
             TablePanel.Children = null;
             TablePanel.Controls.Add( TableListBox );
@@ -1509,14 +1568,14 @@
             // 
             // TableListBox
             // 
-            TableListBox.BackColor = System.Drawing.Color.FromArgb(   30  ,   30  ,   30   );
+            TableListBox.BackColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
             TableListBox.BindingSource = null;
-            TableListBox.BorderColor = System.Drawing.Color.FromArgb(   64  ,   64  ,   64   );
+            TableListBox.BorderColor = System.Drawing.Color.FromArgb( 64, 64, 64 );
             TableListBox.DataFilter = null;
-            TableListBox.DisabledBackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            TableListBox.DisabledForeColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            TableListBox.DisabledBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TableListBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TableListBox.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            TableListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
+            TableListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
             TableListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
             TableListBox.HoverText = null;
             TableListBox.IsDerivedStyle = true;
@@ -1528,7 +1587,7 @@
             TableListBox.Padding = new System.Windows.Forms.Padding( 1 );
             TableListBox.SelectedIndex = -1;
             TableListBox.SelectedItem = null;
-            TableListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            TableListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             TableListBox.SelectedItemColor = System.Drawing.Color.White;
             TableListBox.SelectedText = null;
             TableListBox.SelectedValue = null;
@@ -1545,28 +1604,51 @@
             // 
             // SchemaTab
             // 
-            SchemaTab.Controls.Add( SchemaTable );
-            SchemaTab.Controls.Add( headerPanel1 );
+            SchemaTab.Controls.Add( SchemaHeaderPanel );
             SchemaTab.Image = null;
             SchemaTab.ImageSize = new System.Drawing.Size( 16, 16 );
-            SchemaTab.Location = new System.Drawing.Point( 0, 19 );
+            SchemaTab.Location = new System.Drawing.Point( 0, 21 );
             SchemaTab.Name = "SchemaTab";
             SchemaTab.ShowCloseButton = true;
-            SchemaTab.Size = new System.Drawing.Size( 951, 568 );
-            SchemaTab.TabIndex = 11;
+            SchemaTab.Size = new System.Drawing.Size( 911, 582 );
+            SchemaTab.TabIndex = 3;
             SchemaTab.ThemesEnabled = false;
+            // 
+            // SchemaHeaderPanel
+            // 
+            SchemaHeaderPanel.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            SchemaHeaderPanel.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
+            SchemaHeaderPanel.CaptionText = "Schema";
+            SchemaHeaderPanel.ColumnCount = 3;
+            SchemaHeaderPanel.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
+            SchemaHeaderPanel.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 450F ) );
+            SchemaHeaderPanel.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 193F ) );
+            SchemaHeaderPanel.Controls.Add( SchemaTable, 1, 2 );
+            SchemaHeaderPanel.Controls.Add( headerPanel2, 1, 3 );
+            SchemaHeaderPanel.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            SchemaHeaderPanel.ForeColor = System.Drawing.Color.DarkGray;
+            SchemaHeaderPanel.Location = new System.Drawing.Point( 12, 8 );
+            SchemaHeaderPanel.Name = "SchemaHeaderPanel";
+            SchemaHeaderPanel.RowCount = 5;
+            SchemaHeaderPanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 8.75348F ) );
+            SchemaHeaderPanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 91.24652F ) );
+            SchemaHeaderPanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 220F ) );
+            SchemaHeaderPanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 206F ) );
+            SchemaHeaderPanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 12F ) );
+            SchemaHeaderPanel.Size = new System.Drawing.Size( 880, 496 );
+            SchemaHeaderPanel.TabIndex = 18;
             // 
             // SchemaTable
             // 
-            SchemaTable.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            SchemaTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             SchemaTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             SchemaTable.CaptionText = "Column";
             SchemaTable.ColumnCount = 1;
             SchemaTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             SchemaTable.Controls.Add( SchemaPanel, 0, 1 );
             SchemaTable.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            SchemaTable.ForeColor = System.Drawing.Color.DarkGray;
-            SchemaTable.Location = new System.Drawing.Point( 249, 289 );
+            SchemaTable.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            SchemaTable.Location = new System.Drawing.Point( 240, 60 );
             SchemaTable.Name = "SchemaTable";
             SchemaTable.RowCount = 2;
             SchemaTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 5.15021467F ) );
@@ -1577,9 +1659,9 @@
             // SchemaPanel
             // 
             SchemaPanel.BackColor = System.Drawing.Color.Transparent;
-            SchemaPanel.BackgroundColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            SchemaPanel.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             SchemaPanel.BindingSource = null;
-            SchemaPanel.BorderColor = System.Drawing.Color.FromArgb(   64  ,   64  ,   64   );
+            SchemaPanel.BorderColor = System.Drawing.Color.FromArgb( 64, 64, 64 );
             SchemaPanel.BorderThickness = 1;
             SchemaPanel.Children = null;
             SchemaPanel.Controls.Add( DeleteColumnButton );
@@ -1614,9 +1696,9 @@
             DeleteColumnButton.DisabledBorderColor = System.Drawing.Color.Transparent;
             DeleteColumnButton.DisabledForeColor = System.Drawing.Color.Transparent;
             DeleteColumnButton.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            DeleteColumnButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            DeleteColumnButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
-            DeleteColumnButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+            DeleteColumnButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            DeleteColumnButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            DeleteColumnButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             DeleteColumnButton.HoverText = "Delete Data Column";
             DeleteColumnButton.HoverTextColor = System.Drawing.Color.White;
             DeleteColumnButton.IsDerivedStyle = true;
@@ -1624,11 +1706,11 @@
             DeleteColumnButton.Margin = new System.Windows.Forms.Padding( 0 );
             DeleteColumnButton.Name = "DeleteColumnButton";
             DeleteColumnButton.NormalBorderColor = System.Drawing.Color.Transparent;
-            DeleteColumnButton.NormalColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
-            DeleteColumnButton.NormalTextColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            DeleteColumnButton.NormalColor = System.Drawing.Color.FromArgb( 27, 27, 27 );
+            DeleteColumnButton.NormalTextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             DeleteColumnButton.Padding = new System.Windows.Forms.Padding( 1 );
-            DeleteColumnButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            DeleteColumnButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            DeleteColumnButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            DeleteColumnButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             DeleteColumnButton.PressTextColor = System.Drawing.Color.White;
             DeleteColumnButton.Size = new System.Drawing.Size( 78, 26 );
             DeleteColumnButton.Style = MetroSet_UI.Enums.Style.Custom;
@@ -1648,9 +1730,9 @@
             AddColumnButton.DisabledBorderColor = System.Drawing.Color.Transparent;
             AddColumnButton.DisabledForeColor = System.Drawing.Color.Transparent;
             AddColumnButton.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            AddColumnButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            AddColumnButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
-            AddColumnButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+            AddColumnButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            AddColumnButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            AddColumnButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             AddColumnButton.HoverText = "Add Data Column";
             AddColumnButton.HoverTextColor = System.Drawing.Color.White;
             AddColumnButton.IsDerivedStyle = true;
@@ -1658,11 +1740,11 @@
             AddColumnButton.Margin = new System.Windows.Forms.Padding( 0 );
             AddColumnButton.Name = "AddColumnButton";
             AddColumnButton.NormalBorderColor = System.Drawing.Color.Transparent;
-            AddColumnButton.NormalColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
-            AddColumnButton.NormalTextColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            AddColumnButton.NormalColor = System.Drawing.Color.FromArgb( 27, 27, 27 );
+            AddColumnButton.NormalTextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             AddColumnButton.Padding = new System.Windows.Forms.Padding( 1 );
-            AddColumnButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            AddColumnButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            AddColumnButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            AddColumnButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             AddColumnButton.PressTextColor = System.Drawing.Color.White;
             AddColumnButton.Size = new System.Drawing.Size( 78, 26 );
             AddColumnButton.Style = MetroSet_UI.Enums.Style.Custom;
@@ -1725,13 +1807,13 @@
             AddColumnTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             AddColumnTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             AddColumnTextBox.BindingSource = null;
-            AddColumnTextBox.BorderColor = System.Drawing.Color.FromArgb(   64  ,   64  ,   64   );
+            AddColumnTextBox.BorderColor = System.Drawing.Color.FromArgb( 64, 64, 64 );
             AddColumnTextBox.DataFilter = null;
             AddColumnTextBox.DisabledBackColor = System.Drawing.Color.Transparent;
             AddColumnTextBox.DisabledBorderColor = System.Drawing.Color.Transparent;
             AddColumnTextBox.DisabledForeColor = System.Drawing.Color.Transparent;
             AddColumnTextBox.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            AddColumnTextBox.HoverColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
+            AddColumnTextBox.HoverColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
             AddColumnTextBox.HoverText = "Enter Column Name";
             AddColumnTextBox.Image = null;
             AddColumnTextBox.IsDerivedStyle = true;
@@ -1756,11 +1838,11 @@
             // DataTypeComboBox
             // 
             DataTypeComboBox.AllowDrop = true;
-            DataTypeComboBox.ArrowColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            DataTypeComboBox.ArrowColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             DataTypeComboBox.BackColor = System.Drawing.Color.Transparent;
-            DataTypeComboBox.BackgroundColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            DataTypeComboBox.BackgroundColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             DataTypeComboBox.BindingSource = null;
-            DataTypeComboBox.BorderColor = System.Drawing.Color.FromArgb(   64  ,   64  ,   64   );
+            DataTypeComboBox.BorderColor = System.Drawing.Color.FromArgb( 64, 64, 64 );
             DataTypeComboBox.CausesValidation = false;
             DataTypeComboBox.DataFilter = null;
             DataTypeComboBox.DisabledBackColor = System.Drawing.Color.Transparent;
@@ -1778,7 +1860,7 @@
             DataTypeComboBox.ItemHeight = 24;
             DataTypeComboBox.Location = new System.Drawing.Point( 26, 37 );
             DataTypeComboBox.Name = "DataTypeComboBox";
-            DataTypeComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            DataTypeComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             DataTypeComboBox.SelectedItemForeColor = System.Drawing.Color.White;
             DataTypeComboBox.Size = new System.Drawing.Size( 232, 30 );
             DataTypeComboBox.Style = MetroSet_UI.Enums.Style.Custom;
@@ -1788,30 +1870,30 @@
             DataTypeComboBox.ThemeName = "BudgetExecution";
             DataTypeComboBox.ToolTip = ToolTip;
             // 
-            // headerPanel1
+            // headerPanel2
             // 
-            headerPanel1.BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            headerPanel1.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
-            headerPanel1.CaptionText = "Table";
-            headerPanel1.ColumnCount = 1;
-            headerPanel1.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            headerPanel1.Controls.Add( layout1, 0, 1 );
-            headerPanel1.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            headerPanel1.ForeColor = System.Drawing.Color.DarkGray;
-            headerPanel1.Location = new System.Drawing.Point( 249, 22 );
-            headerPanel1.Name = "headerPanel1";
-            headerPanel1.RowCount = 2;
-            headerPanel1.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 6.179775F ) );
-            headerPanel1.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 93.82022F ) );
-            headerPanel1.Size = new System.Drawing.Size( 426, 214 );
-            headerPanel1.TabIndex = 15;
+            headerPanel2.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            headerPanel2.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
+            headerPanel2.CaptionText = "Table";
+            headerPanel2.ColumnCount = 1;
+            headerPanel2.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+            headerPanel2.Controls.Add( layout1, 0, 1 );
+            headerPanel2.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            headerPanel2.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            headerPanel2.Location = new System.Drawing.Point( 240, 280 );
+            headerPanel2.Name = "headerPanel2";
+            headerPanel2.RowCount = 2;
+            headerPanel2.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 6.179775F ) );
+            headerPanel2.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 93.82022F ) );
+            headerPanel2.Size = new System.Drawing.Size( 426, 200 );
+            headerPanel2.TabIndex = 15;
             // 
             // layout1
             // 
             layout1.BackColor = System.Drawing.Color.Transparent;
-            layout1.BackgroundColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            layout1.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             layout1.BindingSource = null;
-            layout1.BorderColor = System.Drawing.Color.FromArgb(   64  ,   64  ,   64   );
+            layout1.BorderColor = System.Drawing.Color.FromArgb( 64, 64, 64 );
             layout1.BorderThickness = 1;
             layout1.Children = null;
             layout1.Controls.Add( AddTableLabel );
@@ -1826,10 +1908,10 @@
             layout1.ForeColor = System.Drawing.Color.Transparent;
             layout1.HoverText = null;
             layout1.IsDerivedStyle = true;
-            layout1.Location = new System.Drawing.Point( 3, 31 );
+            layout1.Location = new System.Drawing.Point( 3, 30 );
             layout1.Name = "layout1";
             layout1.Padding = new System.Windows.Forms.Padding( 1 );
-            layout1.Size = new System.Drawing.Size( 420, 180 );
+            layout1.Size = new System.Drawing.Size( 420, 167 );
             layout1.Style = MetroSet_UI.Enums.Style.Custom;
             layout1.StyleManager = null;
             layout1.TabIndex = 10;
@@ -1862,7 +1944,7 @@
             // 
             // DeleteTableButton
             // 
-            DeleteTableButton.Anchor =     System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right  ;
+            DeleteTableButton.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             DeleteTableButton.BackColor = System.Drawing.Color.Transparent;
             DeleteTableButton.BindingSource = null;
             DeleteTableButton.DataFilter = null;
@@ -1870,9 +1952,9 @@
             DeleteTableButton.DisabledBorderColor = System.Drawing.Color.Transparent;
             DeleteTableButton.DisabledForeColor = System.Drawing.Color.Transparent;
             DeleteTableButton.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            DeleteTableButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            DeleteTableButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
-            DeleteTableButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+            DeleteTableButton.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            DeleteTableButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            DeleteTableButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             DeleteTableButton.HoverText = "Delete Data Table";
             DeleteTableButton.HoverTextColor = System.Drawing.Color.White;
             DeleteTableButton.IsDerivedStyle = true;
@@ -1881,10 +1963,10 @@
             DeleteTableButton.Name = "DeleteTableButton";
             DeleteTableButton.NormalBorderColor = System.Drawing.Color.Transparent;
             DeleteTableButton.NormalColor = System.Drawing.Color.Transparent;
-            DeleteTableButton.NormalTextColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            DeleteTableButton.NormalTextColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             DeleteTableButton.Padding = new System.Windows.Forms.Padding( 1 );
-            DeleteTableButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            DeleteTableButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            DeleteTableButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            DeleteTableButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             DeleteTableButton.PressTextColor = System.Drawing.Color.White;
             DeleteTableButton.Size = new System.Drawing.Size( 0, 0 );
             DeleteTableButton.Style = MetroSet_UI.Enums.Style.Custom;
@@ -1904,9 +1986,9 @@
             AddTableButton.DisabledBorderColor = System.Drawing.Color.Transparent;
             AddTableButton.DisabledForeColor = System.Drawing.Color.Transparent;
             AddTableButton.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            AddTableButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            AddTableButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
-            AddTableButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+            AddTableButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            AddTableButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            AddTableButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             AddTableButton.HoverText = "Add Data Table";
             AddTableButton.HoverTextColor = System.Drawing.Color.White;
             AddTableButton.IsDerivedStyle = true;
@@ -1914,11 +1996,11 @@
             AddTableButton.Margin = new System.Windows.Forms.Padding( 0 );
             AddTableButton.Name = "AddTableButton";
             AddTableButton.NormalBorderColor = System.Drawing.Color.Transparent;
-            AddTableButton.NormalColor = System.Drawing.Color.FromArgb(   27  ,   27  ,   27   );
-            AddTableButton.NormalTextColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            AddTableButton.NormalColor = System.Drawing.Color.FromArgb( 27, 27, 27 );
+            AddTableButton.NormalTextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             AddTableButton.Padding = new System.Windows.Forms.Padding( 1 );
-            AddTableButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            AddTableButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            AddTableButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            AddTableButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             AddTableButton.PressTextColor = System.Drawing.Color.White;
             AddTableButton.Size = new System.Drawing.Size( 96, 26 );
             AddTableButton.Style = MetroSet_UI.Enums.Style.Custom;
@@ -1955,11 +2037,11 @@
             // TableNameComboBox
             // 
             TableNameComboBox.AllowDrop = true;
-            TableNameComboBox.ArrowColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            TableNameComboBox.ArrowColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             TableNameComboBox.BackColor = System.Drawing.Color.Transparent;
-            TableNameComboBox.BackgroundColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+            TableNameComboBox.BackgroundColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             TableNameComboBox.BindingSource = null;
-            TableNameComboBox.BorderColor = System.Drawing.Color.FromArgb(   64  ,   64  ,   64   );
+            TableNameComboBox.BorderColor = System.Drawing.Color.FromArgb( 64, 64, 64 );
             TableNameComboBox.CausesValidation = false;
             TableNameComboBox.DataFilter = null;
             TableNameComboBox.DisabledBackColor = System.Drawing.Color.Transparent;
@@ -1977,7 +2059,7 @@
             TableNameComboBox.ItemHeight = 24;
             TableNameComboBox.Location = new System.Drawing.Point( 26, 37 );
             TableNameComboBox.Name = "TableNameComboBox";
-            TableNameComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            TableNameComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             TableNameComboBox.SelectedItemForeColor = System.Drawing.Color.White;
             TableNameComboBox.Size = new System.Drawing.Size( 232, 30 );
             TableNameComboBox.Style = MetroSet_UI.Enums.Style.Custom;
@@ -1993,13 +2075,13 @@
             AddTableTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             AddTableTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             AddTableTextBox.BindingSource = null;
-            AddTableTextBox.BorderColor = System.Drawing.Color.FromArgb(   64  ,   64  ,   64   );
+            AddTableTextBox.BorderColor = System.Drawing.Color.FromArgb( 64, 64, 64 );
             AddTableTextBox.DataFilter = null;
             AddTableTextBox.DisabledBackColor = System.Drawing.Color.Transparent;
             AddTableTextBox.DisabledBorderColor = System.Drawing.Color.Transparent;
             AddTableTextBox.DisabledForeColor = System.Drawing.Color.Transparent;
             AddTableTextBox.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            AddTableTextBox.HoverColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
+            AddTableTextBox.HoverColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
             AddTableTextBox.HoverText = "New Column Name";
             AddTableTextBox.Image = null;
             AddTableTextBox.IsDerivedStyle = true;
@@ -2021,30 +2103,97 @@
             AddTableTextBox.UseSystemPasswordChar = false;
             AddTableTextBox.WatermarkText = "";
             // 
+            // Busy
+            // 
+            Busy.Controls.Add( headerPanel1 );
+            Busy.Image = null;
+            Busy.ImageSize = new System.Drawing.Size( 16, 16 );
+            Busy.Location = new System.Drawing.Point( 0, 21 );
+            Busy.Name = "Busy";
+            Busy.ShowCloseButton = true;
+            Busy.Size = new System.Drawing.Size( 911, 582 );
+            Busy.TabIndex = 2;
+            Busy.ThemesEnabled = false;
+            // 
+            // headerPanel1
+            // 
+            headerPanel1.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            headerPanel1.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
+            headerPanel1.CaptionText = "SQL Editor";
+            headerPanel1.ColumnCount = 1;
+            headerPanel1.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+            headerPanel1.Controls.Add( BusyPanel, 0, 1 );
+            headerPanel1.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            headerPanel1.ForeColor = System.Drawing.Color.DarkGray;
+            headerPanel1.Location = new System.Drawing.Point( 7, 8 );
+            headerPanel1.Name = "headerPanel1";
+            headerPanel1.RowCount = 2;
+            headerPanel1.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 1.44665456F ) );
+            headerPanel1.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 98.5533447F ) );
+            headerPanel1.Size = new System.Drawing.Size( 896, 561 );
+            headerPanel1.TabIndex = 7;
+            // 
+            // BusyPanel
+            // 
+            BusyPanel.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            BusyPanel.BackColor = System.Drawing.Color.Transparent;
+            BusyPanel.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            BusyPanel.BindingSource = null;
+            BusyPanel.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
+            BusyPanel.BorderThickness = 1;
+            BusyPanel.Children = null;
+            BusyPanel.Controls.Add( Loader );
+            BusyPanel.DataFilter = null;
+            BusyPanel.Font = new System.Drawing.Font( "Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            BusyPanel.ForeColor = System.Drawing.Color.Transparent;
+            BusyPanel.HoverText = null;
+            BusyPanel.IsDerivedStyle = true;
+            BusyPanel.Location = new System.Drawing.Point( 3, 26 );
+            BusyPanel.Name = "BusyPanel";
+            BusyPanel.Padding = new System.Windows.Forms.Padding( 1 );
+            BusyPanel.Size = new System.Drawing.Size( 890, 532 );
+            BusyPanel.Style = MetroSet_UI.Enums.Style.Custom;
+            BusyPanel.StyleManager = null;
+            BusyPanel.TabIndex = 0;
+            BusyPanel.ThemeAuthor = "Terry D. Eppler";
+            BusyPanel.ThemeName = "BudgetExecution";
+            BusyPanel.ToolTip = null;
+            // 
+            // Loader
+            // 
+            Loader.Dock = System.Windows.Forms.DockStyle.Fill;
+            Loader.Image = Resources.Images.Loading;
+            Loader.Location = new System.Drawing.Point( 1, 1 );
+            Loader.Name = "Loader";
+            Loader.Size = new System.Drawing.Size( 888, 530 );
+            Loader.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            Loader.TabIndex = 0;
+            Loader.TabStop = false;
+            // 
             // SqlEditor
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            BorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            CaptionBarColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            CaptionBarColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionBarHeight = 5;
-            CaptionButtonColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            CaptionButtonHoverColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            CaptionButtonColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionFont = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            CaptionForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            CaptionForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             ClientSize = new System.Drawing.Size( 1338, 739 );
             Controls.Add( TabControl );
-            Controls.Add( ToolStrip );
+            Controls.Add( ToolStripTable );
             Controls.Add( SqlCommandTable );
             Controls.Add( HeaderTable );
             Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             ForeColor = System.Drawing.Color.LightGray;
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            Icon = (System.Drawing.Icon) resources.GetObject( "$this.Icon" ) ;
+            Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
             MaximizeBox = false;
             MaximumSize = new System.Drawing.Size( 1350, 750 );
-            MetroColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             MinimizeBox = false;
             MinimumSize = new System.Drawing.Size( 1350, 750 );
             Name = "SqlEditor";
@@ -2052,9 +2201,9 @@
             SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "SqlEditor";
-            ( (System.ComponentModel.ISupportInitialize) BindingSource  ).EndInit( );
+            ( (System.ComponentModel.ISupportInitialize)BindingSource ).EndInit( );
             HeaderTable.ResumeLayout( false );
-            ( (System.ComponentModel.ISupportInitialize) PictureBox  ).EndInit( );
+            ( (System.ComponentModel.ISupportInitialize)PictureBox ).EndInit( );
             SqlCommandTable.ResumeLayout( false );
             CommandTable.ResumeLayout( false );
             CommandPanel.ResumeLayout( false );
@@ -2062,16 +2211,18 @@
             TextPanel.ResumeLayout( false );
             ToolStrip.ResumeLayout( false );
             ToolStrip.PerformLayout( );
-            ( (System.ComponentModel.ISupportInitialize) TabControl  ).EndInit( );
+            ToolStripTable.ResumeLayout( false );
+            ToolStripTable.PerformLayout( );
+            ( (System.ComponentModel.ISupportInitialize)TabControl ).EndInit( );
             TabControl.ResumeLayout( false );
             SqlTab.ResumeLayout( false );
             EditorTable.ResumeLayout( false );
             EditorPanel.ResumeLayout( false );
-            ( (System.ComponentModel.ISupportInitialize) Editor  ).EndInit( );
+            ( (System.ComponentModel.ISupportInitialize)Editor ).EndInit( );
             DataTab.ResumeLayout( false );
             DataGridTable.ResumeLayout( false );
             DataGridPanel.ResumeLayout( false );
-            ( (System.ComponentModel.ISupportInitialize) DataGrid  ).EndInit( );
+            ( (System.ComponentModel.ISupportInitialize)DataGrid ).EndInit( );
             LookupTab.ResumeLayout( false );
             ColumnTable.ResumeLayout( false );
             ColumnPanel.ResumeLayout( false );
@@ -2080,33 +2231,36 @@
             SourceTable.ResumeLayout( false );
             TablePanel.ResumeLayout( false );
             SchemaTab.ResumeLayout( false );
+            SchemaHeaderPanel.ResumeLayout( false );
             SchemaTable.ResumeLayout( false );
             SchemaPanel.ResumeLayout( false );
-            headerPanel1.ResumeLayout( false );
+            headerPanel2.ResumeLayout( false );
             layout1.ResumeLayout( false );
+            Busy.ResumeLayout( false );
+            headerPanel1.ResumeLayout( false );
+            BusyPanel.ResumeLayout( false );
+            ( (System.ComponentModel.ISupportInitialize)Loader ).EndInit( );
             ResumeLayout( false );
-            PerformLayout( );
         }
 
         #endregion
 
         public System.Windows.Forms.BindingSource BindingSource;
         public SmallTip ToolTip;
-        public ContextMenu ContextMenu;
         public System.Windows.Forms.TableLayoutPanel HeaderTable;
         public Picture PictureBox;
         public Label Title;
         public System.Windows.Forms.TableLayoutPanel SqlCommandTable;
         public HeaderPanel CommandTable;
-        public Layout CommandPanel;
+        public BackPanel CommandPanel;
         public ComboBox CommandComboBox;
         public HeaderPanel SqlStatementTable;
-        public Layout TextPanel;
+        public BackPanel TextPanel;
         public ListBox QueryListBox;
         public ToolStrip ToolStrip;
         public ToolStripButton CloseButton;
         public ToolSeparator Separator1;
-        public ToolStripLabel NavigationLabel;
+        public ToolStripLabel NavigationSpacer;
         public ToolSeparator Separator2;
         public ToolStripButton FirstButton;
         public ToolSeparator Separator3;
@@ -2138,44 +2292,54 @@
         public ToolSeparator ClientSeparator;
         public ToolStripButton BrowserButton;
         public ToolSeparator Separator16;
-        public ToolStripButton HomeButton;
+        public ToolStripButton MainMenuButton;
         public ToolSeparator Separator17;
-        public Syncfusion.Windows.Forms.Tools.TabControlAdv TabControl;
+        public System.Windows.Forms.Timer Timer;
+        public ToolSeparator Separator18;
+        public System.Windows.Forms.TableLayoutPanel ToolStripTable;
+        public TabControl TabControl;
+        public Syncfusion.Windows.Forms.Tools.TabPageAdv Busy;
+        public HeaderPanel headerPanel1;
+        public BackPanel BusyPanel;
+        private System.Windows.Forms.PictureBox Loader;
         public Syncfusion.Windows.Forms.Tools.TabPageAdv SqlTab;
         public HeaderPanel EditorTable;
-        public Layout EditorPanel;
+        public BackPanel EditorPanel;
         public Editor Editor;
-        public Syncfusion.Windows.Forms.Tools.TabPageAdv DataTab;
-        public HeaderPanel DataGridTable;
-        public Layout DataGridPanel;
-        public DataGrid DataGrid;
-        public Syncfusion.Windows.Forms.Tools.TabPageAdv LookupTab;
-        public HeaderPanel ColumnTable;
-        public Layout ColumnPanel;
-        public ListBox ColumnListBox;
-        public HeaderPanel ValueTable;
-        public Layout ValuePanel;
-        public ListBox ValueListBox;
-        public HeaderPanel SourceTable;
-        public Layout TablePanel;
-        public ListBox TableListBox;
         public Syncfusion.Windows.Forms.Tools.TabPageAdv SchemaTab;
+        private HeaderPanel SchemaHeaderPanel;
         public HeaderPanel SchemaTable;
-        public Layout SchemaPanel;
+        public BackPanel SchemaPanel;
         public Button DeleteColumnButton;
         public Button AddColumnButton;
         public Label SelectDataTypeLable;
         public Label AddColumnLabel;
         public TextBox AddColumnTextBox;
         public ComboBox DataTypeComboBox;
-        public HeaderPanel headerPanel1;
-        public Layout layout1;
+        public HeaderPanel headerPanel2;
+        public BackPanel layout1;
         public Label AddTableLabel;
         public Button DeleteTableButton;
         public Button AddTableButton;
         public Label SelectTableLabel;
         public ComboBox TableNameComboBox;
         public TextBox AddTableTextBox;
-        public System.Windows.Forms.Timer Timer;
+        public Syncfusion.Windows.Forms.Tools.TabPageAdv LookupTab;
+        public HeaderPanel ColumnTable;
+        public BackPanel ColumnPanel;
+        public ListBox ColumnListBox;
+        public HeaderPanel ValueTable;
+        public BackPanel ValuePanel;
+        public ListBox ValueListBox;
+        public HeaderPanel SourceTable;
+        public BackPanel TablePanel;
+        public ListBox TableListBox;
+        public Syncfusion.Windows.Forms.Tools.TabPageAdv DataTab;
+        public HeaderPanel DataGridTable;
+        public BackPanel DataGridPanel;
+        public DataGrid DataGrid;
+        public ToolStripLabel StatusLabel;
+        public ToolSeparator MenuSeparator;
+        public ToolStripLabel ApplicationLabel;
     }
 }

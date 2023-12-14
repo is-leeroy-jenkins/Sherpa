@@ -49,7 +49,6 @@ namespace BudgetExecution
     using System.Data.SQLite;
     using System.Data.SqlServerCe;
     using System.Diagnostics.CodeAnalysis;
-    using System.Threading;
 
     /// <inheritdoc/>
     /// <summary> </summary>
@@ -61,6 +60,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MergeConditionalExpression" ) ]
     public class AdapterBase : DbDataAdapter, ISource, IProvider
     {
         /// <summary>
@@ -173,8 +173,10 @@ namespace BudgetExecution
             CommandText = sqlStatement.CommandText;
         }
 
-        /// <summary> Gets the sq lite adapter. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the sq lite adapter.
+        /// </summary>
+        /// <returns></returns>
         private protected SQLiteDataAdapter GetSQLiteAdapter( )
         {
             try
@@ -206,8 +208,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the SQL adapter. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the SQL adapter.
+        /// </summary>
+        /// <returns></returns>
         private protected SqlDataAdapter GetSqlAdapter( )
         {
             try
@@ -239,8 +243,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the OLE database adapter. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the OLE database adapter.
+        /// </summary>
+        /// <returns>
+        /// </returns>
         private protected OleDbDataAdapter GetOleDbAdapter( )
         {
             try
@@ -258,12 +265,12 @@ namespace BudgetExecution
                     _adapter.InsertCommand = _builder.GetInsertCommand( );
                     _adapter.UpdateCommand = _builder.GetUpdateCommand( );
                     _adapter.DeleteCommand = _builder.GetDeleteCommand( );
-                    return _adapter;
+                    return ( _adapter != null )
+                        ? _adapter
+                        : default( OleDbDataAdapter );
                 }
-                else
-                {
-                    return _adapter;
-                }
+
+                return default( OleDbDataAdapter );
             }
             catch( Exception _ex )
             {
@@ -310,7 +317,9 @@ namespace BudgetExecution
         /// <summary>
         /// Fails the specified ex.
         /// </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <param name="ex">
+        /// The ex.
+        /// </param>
         private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
