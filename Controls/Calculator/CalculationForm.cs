@@ -175,7 +175,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the callback.
         /// </summary>
-        private void InitializeCallbacks( )
+        private void RegisterCallbacks()
         {
             try
             {
@@ -302,7 +302,7 @@ namespace BudgetExecution
             {
                 FadeIn( );
                 InitializeLabels( );
-                InitializeCallbacks( );
+                RegisterCallbacks();
                 InitializeTimers( );
                 InitializeCalculator( );
                 Calculator.BorderStyle = Border3DStyle.Adjust;

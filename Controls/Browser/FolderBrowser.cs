@@ -159,7 +159,7 @@ namespace BudgetExecution
                 {
                     InitializeLabels( );
                     InitializeButtons( );
-                    InitializeCallbacks( );
+                    RegisterCallbacks();
                     PopulateListBox( );
                 }
                 catch( Exception _ex )
@@ -189,7 +189,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the callbacks.
         /// </summary>
-        private void InitializeCallbacks( )
+        private void RegisterCallbacks()
         {
             try
             {

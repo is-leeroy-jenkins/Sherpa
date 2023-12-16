@@ -180,7 +180,7 @@ namespace BudgetExecution
         public EditWindow( )
         {
             InitializeComponent( );
-            InitializeCallbacks( );
+            RegisterCallbacks();
 
             // Basic Properties
             Size = new Size( 1340, 648 );
@@ -316,7 +316,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the callbacks.
         /// </summary>
-        private void InitializeCallbacks( )
+        private void RegisterCallbacks()
         {
             // Control Event Wiring
             try

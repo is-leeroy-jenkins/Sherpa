@@ -66,6 +66,11 @@ namespace BudgetExecution
         private Action _statusUpdate;
 
         /// <summary>
+        /// The busy
+        /// </summary>
+        private bool _busy;
+
+        /// <summary>
         /// Gets or sets the time.
         /// </summary>
         /// <value>
@@ -169,6 +174,20 @@ namespace BudgetExecution
         /// </value>
         public DataArgs DataArgs { get; set; }
 
+        /// <summary>
+        /// Gets a value indicating whether this instance is busy.
+        /// </summary>
+        /// <value>
+        /// <c> true </c>
+        /// if this instance is busy; otherwise,
+        /// <c> false </c>
+        /// </value>
+        public bool IsBusy
+        {
+            get { return _busy; }
+            private set { _busy = value; }
+        }
+
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
@@ -179,6 +198,7 @@ namespace BudgetExecution
         {
             InitializeComponent( );
             InitializeDelegates( );
+            RegisterCallbacks();
 
             // Basic Properties
             Size = new Size( 1066, 614 );
@@ -293,7 +313,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the callbacks.
         /// </summary>
-        private void InitializeCallbacks( )
+        private void RegisterCallbacks()
         {
             try
             {
@@ -301,6 +321,7 @@ namespace BudgetExecution
                 SearchButton.Click += OnSearchButtonClicked;
                 ComboBox.SelectedValueChanged += OnComboBoxSelectionChanged;
                 MenuButton.Click += OnMenuButtonClick;
+                Timer.Tick += OnTimerTick;
             }
             catch( Exception _ex )
             {
@@ -342,6 +363,22 @@ namespace BudgetExecution
             {
                 action.Invoke( );
             }
+        }
+
+        /// <summary>
+        /// Begins the initialize.
+        /// </summary>
+        private void BeginInit( )
+        {
+            _busy = true;
+        }
+
+        /// <summary>
+        /// Ends the initialize.
+        /// </summary>
+        private void EndInit( )
+        {
+            _busy = false;
         }
 
         /// <summary>
@@ -577,6 +614,8 @@ namespace BudgetExecution
         {
             try
             {
+                var _now = DateTime.Now;
+                StatusLabel.Text = $"{_now.ToShortDateString( )} - {_now.ToLongTimeString( )}";
             }
             catch( Exception _ex )
             {
@@ -596,7 +635,6 @@ namespace BudgetExecution
             try
             {
                 InitializeTimers( );
-                InitializeCallbacks( );
                 InitializeLabels( );
                 InitializeButtons( );
                 Filter = new Dictionary<string, object>( );
@@ -723,7 +761,7 @@ namespace BudgetExecution
 
                     var _selection = _comboBox.SelectedItem.ToString( );
                     SelectedProgram = _selection?.Substring( 0, 2 );
-                    Filter.Add( "Code", SelectedProgram );
+                    Filter?.Add( "Code", SelectedProgram );
                     DataModel = new DataBuilder( Source, Provider, Filter );
                     DataTable = DataModel.DataTable;
                     BindingSource.DataSource = DataTable;
@@ -760,13 +798,24 @@ namespace BudgetExecution
             {
                 try
                 {
-                    //FormMenu.Show( this, e.Location );
+                    //ContextMenu.Show( this, e.Location );
                 }
                 catch( Exception _ex )
                 {
                     Fail( _ex );
                 }
             }
+        }
+
+        /// <summary>
+        /// Called when [timer tick].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnTimerTick( object sender, EventArgs e )
+        {
+            InvokeIf( _statusUpdate );
         }
 
         /// <summary>

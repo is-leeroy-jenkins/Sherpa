@@ -820,13 +820,13 @@
             SelectButton.DisabledBorderColor = System.Drawing.Color.Transparent;
             SelectButton.DisabledForeColor = System.Drawing.Color.Transparent;
             SelectButton.Font = new System.Drawing.Font( "Roboto", 8.25F );
-            SelectButton.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            SelectButton.HoverBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            SelectButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            SelectButton.HoverBorderColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             SelectButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             SelectButton.HoverText = "Not Yet Implemented!";
             SelectButton.HoverTextColor = System.Drawing.Color.White;
             SelectButton.IsDerivedStyle = true;
-            SelectButton.Location = new System.Drawing.Point( 612, 563 );
+            SelectButton.Location = new System.Drawing.Point( 612, 578 );
             SelectButton.Margin = new System.Windows.Forms.Padding( 0 );
             SelectButton.Name = "SelectButton";
             SelectButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
@@ -836,7 +836,7 @@
             SelectButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             SelectButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             SelectButton.PressTextColor = System.Drawing.Color.White;
-            SelectButton.Size = new System.Drawing.Size( 90, 30 );
+            SelectButton.Size = new System.Drawing.Size( 90, 36 );
             SelectButton.Style = MetroSet_UI.Enums.Style.Custom;
             SelectButton.StyleManager = null;
             SelectButton.TabIndex = 7;
@@ -854,13 +854,13 @@
             RefreshButton.DisabledBorderColor = System.Drawing.Color.Transparent;
             RefreshButton.DisabledForeColor = System.Drawing.Color.Transparent;
             RefreshButton.Font = new System.Drawing.Font( "Roboto", 8.25F );
-            RefreshButton.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            RefreshButton.HoverBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            RefreshButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            RefreshButton.HoverBorderColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             RefreshButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             RefreshButton.HoverText = "Not Yet Implemented!";
             RefreshButton.HoverTextColor = System.Drawing.Color.White;
             RefreshButton.IsDerivedStyle = true;
-            RefreshButton.Location = new System.Drawing.Point( 191, 563 );
+            RefreshButton.Location = new System.Drawing.Point( 191, 578 );
             RefreshButton.Margin = new System.Windows.Forms.Padding( 0 );
             RefreshButton.Name = "RefreshButton";
             RefreshButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
@@ -870,7 +870,7 @@
             RefreshButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             RefreshButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             RefreshButton.PressTextColor = System.Drawing.Color.White;
-            RefreshButton.Size = new System.Drawing.Size( 90, 30 );
+            RefreshButton.Size = new System.Drawing.Size( 90, 36 );
             RefreshButton.Style = MetroSet_UI.Enums.Style.Custom;
             RefreshButton.StyleManager = null;
             RefreshButton.TabIndex = 5;
@@ -889,13 +889,13 @@
             CloseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
             CloseButton.DisabledForeColor = System.Drawing.Color.Transparent;
             CloseButton.Font = new System.Drawing.Font( "Roboto", 8.25F );
-            CloseButton.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            CloseButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             CloseButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             CloseButton.HoverText = "Close Window";
             CloseButton.HoverTextColor = System.Drawing.Color.White;
             CloseButton.IsDerivedStyle = true;
-            CloseButton.Location = new System.Drawing.Point( 1019, 563 );
+            CloseButton.Location = new System.Drawing.Point( 1037, 578 );
             CloseButton.Margin = new System.Windows.Forms.Padding( 0 );
             CloseButton.Name = "CloseButton";
             CloseButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
@@ -905,7 +905,7 @@
             CloseButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             CloseButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             CloseButton.PressTextColor = System.Drawing.Color.White;
-            CloseButton.Size = new System.Drawing.Size( 90, 30 );
+            CloseButton.Size = new System.Drawing.Size( 90, 36 );
             CloseButton.Style = MetroSet_UI.Enums.Style.Custom;
             CloseButton.StyleManager = null;
             CloseButton.TabIndex = 6;
@@ -1013,7 +1013,7 @@
             groupBox9.ThemeName = "BudgetExecution";
             groupBox9.ToolTip = null;
             // 
-            // LookupDialog
+            // LookupWindow
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1024,7 +1024,7 @@
             CaptionButtonColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionFont = new System.Drawing.Font( "Roboto", 9F );
-            ClientSize = new System.Drawing.Size( 1328, 636 );
+            ClientSize = new System.Drawing.Size( 1328, 734 );
             ControlBox = false;
             Controls.Add( SelectButton );
             Controls.Add( TabControl );
@@ -1032,17 +1032,18 @@
             Controls.Add( CloseButton );
             Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
             ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
             MaximizeBox = false;
-            MaximumSize = new System.Drawing.Size( 1340, 648 );
+            MaximumSize = new System.Drawing.Size( 1340, 740 );
             MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             MinimizeBox = false;
-            MinimumSize = new System.Drawing.Size( 1340, 648 );
+            MinimumSize = new System.Drawing.Size( 1340, 740 );
             Name = "LookupWindow";
             ShowIcon = false;
             ShowMaximizeBox = false;
             ShowMinimizeBox = false;
+            SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).EndInit( );
             ( (System.ComponentModel.ISupportInitialize)TabControl ).EndInit( );

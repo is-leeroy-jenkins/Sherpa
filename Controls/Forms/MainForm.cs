@@ -95,7 +95,7 @@ namespace BudgetExecution
         public MainForm( )
         {
             InitializeComponent( );
-            InitializeCallbacks( );
+            RegisterCallbacks();
 
             // Basic Properties
             Name = nameof( MainForm );
@@ -142,7 +142,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the callbacks.
         /// </summary>
-        private void InitializeCallbacks( )
+        private void RegisterCallbacks()
         {
             try
             {

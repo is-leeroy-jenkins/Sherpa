@@ -340,7 +340,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the callbacks.
         /// </summary>
-        private void InitializeCallbacks( )
+        private void RegisterCallbacks( )
         {
             try
             {
@@ -1128,12 +1128,12 @@ namespace BudgetExecution
                 var _textColor = Color.FromArgb( 106, 189, 252 );
                 var _callFont = new Font( "Roboto", 7 );
                 var _numerics = Numerics.ToArray( );
-                for( var i = 0; i < _numerics.Length; i++ )
+                for( var _i = 0; _i < _numerics.Length; _i++ )
                 {
                     var _doubles = new List<double>( );
                     var _series = new ChartSeries( );
-                    var _columnName = _numerics[ i ];
-                    var _index = double.Parse( i.ToString( ) );
+                    var _columnName = _numerics[ _i ];
+                    var _index = double.Parse( _i.ToString( ) );
                     var _value = double.Parse( row[ _columnName ].ToString( ) );
                     _series.Name = _columnName;
                     _series.Text = _series.Name;
@@ -1189,7 +1189,7 @@ namespace BudgetExecution
         {
             try
             {
-                InitializeCallbacks( );
+                RegisterCallbacks( );
                 InitializeChartPalette( );
                 InitializeLabels( );
                 InitializeToolStrip( );

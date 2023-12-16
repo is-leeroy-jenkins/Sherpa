@@ -172,12 +172,12 @@ namespace BudgetExecution
         {
             InitializeComponent( );
             InitializeDelegates( );
-            InitializeCallbacks( );
+            RegisterCallbacks();
 
             // Basic Properties
-            Size = new Size( 1340, 648 );
-            MaximumSize = new Size( 1340, 648 );
-            MinimumSize = new Size( 1340, 648 );
+            Size = new Size( 1340, 740 );
+            MaximumSize = new Size( 1340, 740 );
+            MinimumSize = new Size( 1340, 740 );
             StartPosition = FormStartPosition.CenterParent;
             FormBorderStyle = FormBorderStyle.None;
             BackColor = Color.FromArgb( 20, 20, 20 );
@@ -294,7 +294,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the callbacks.
         /// </summary>
-        private void InitializeCallbacks( )
+        private void RegisterCallbacks()
         {
             try
             {
@@ -486,7 +486,7 @@ namespace BudgetExecution
         {
             try
             {
-                InitializeCallbacks( );
+                RegisterCallbacks();
                 InitializeTabControl( );
                 InitializeLabels( );
                 InitializeButtons( );

@@ -54,7 +54,6 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms.Spreadsheet;
     using Syncfusion.Windows.Forms.Tools;
     using Syncfusion.XlsIO;
-    using Action = System.Action;
     using Timer = System.Windows.Forms.Timer;
 
     /// <summary> </summary>
@@ -73,7 +72,7 @@ namespace BudgetExecution
         /// <summary>
         /// The status update
         /// </summary>
-        private Action _statusUpdate;
+        private System.Action _statusUpdate;
 
         /// <summary>
         /// Gets or sets the time.
@@ -237,7 +236,7 @@ namespace BudgetExecution
         {
             InitializeComponent( );
             InitializeDelegates( );
-            InitializeCallbacks( );
+            RegisterCallbacks();
 
             // Form Properties
             Size = new Size( 1350, 750 );
@@ -344,7 +343,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the callbacks.
         /// </summary>
-        private void InitializeCallbacks( )
+        private void RegisterCallbacks()
         {
             // Event Wiring
             try
@@ -629,7 +628,7 @@ namespace BudgetExecution
         /// Invokes if needed.
         /// </summary>
         /// <param name="action">The action.</param>
-        public void InvokeIf( Action action )
+        public void InvokeIf( System.Action action )
         {
             if( InvokeRequired )
             {
@@ -1040,7 +1039,7 @@ namespace BudgetExecution
                 InitializeToolStrip( );
                 InitializeLabels( );
                 InitializeIcon( );
-                InitializeCallbacks( );
+                RegisterCallbacks();
                 DataArgs = new DataArgs( );
                 Ribbon.Size = new Size( 1338, 128 );
                 Header.ForeColor = Color.FromArgb( 106, 189, 252 );

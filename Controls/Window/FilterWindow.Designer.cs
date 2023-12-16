@@ -2201,13 +2201,13 @@ partial class FilterWindow
         CloseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
         CloseButton.DisabledForeColor = System.Drawing.Color.Transparent;
         CloseButton.Font = new System.Drawing.Font( "Roboto", 8F );
-        CloseButton.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-        CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+        CloseButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+        CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         CloseButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
         CloseButton.HoverText = "Close Window";
         CloseButton.HoverTextColor = System.Drawing.Color.White;
         CloseButton.IsDerivedStyle = true;
-        CloseButton.Location = new System.Drawing.Point( 1108, 550 );
+        CloseButton.Location = new System.Drawing.Point( 1110, 582 );
         CloseButton.Name = "CloseButton";
         CloseButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
         CloseButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
@@ -2233,13 +2233,13 @@ partial class FilterWindow
         SelectButton.DisabledBorderColor = System.Drawing.Color.Transparent;
         SelectButton.DisabledForeColor = System.Drawing.Color.Transparent;
         SelectButton.Font = new System.Drawing.Font( "Roboto", 8F );
-        SelectButton.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-        SelectButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+        SelectButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+        SelectButton.HoverBorderColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         SelectButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
         SelectButton.HoverText = "Choose Selected";
         SelectButton.HoverTextColor = System.Drawing.Color.White;
         SelectButton.IsDerivedStyle = true;
-        SelectButton.Location = new System.Drawing.Point( 789, 550 );
+        SelectButton.Location = new System.Drawing.Point( 783, 582 );
         SelectButton.Name = "SelectButton";
         SelectButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
         SelectButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
@@ -2255,7 +2255,7 @@ partial class FilterWindow
         SelectButton.Text = "Select";
         SelectButton.ThemeAuthor = "Terry D. Eppler";
         SelectButton.ThemeName = "Budget Execution";
-        SelectButton.ToolTip = null;
+        SelectButton.ToolTip = ToolTip;
         // 
         // GroupButton
         // 
@@ -2265,13 +2265,13 @@ partial class FilterWindow
         GroupButton.DisabledBorderColor = System.Drawing.Color.Transparent;
         GroupButton.DisabledForeColor = System.Drawing.Color.Transparent;
         GroupButton.Font = new System.Drawing.Font( "Roboto", 8F );
-        GroupButton.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-        GroupButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+        GroupButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+        GroupButton.HoverBorderColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         GroupButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
         GroupButton.HoverText = "Group Selections";
         GroupButton.HoverTextColor = System.Drawing.Color.White;
         GroupButton.IsDerivedStyle = true;
-        GroupButton.Location = new System.Drawing.Point( 429, 550 );
+        GroupButton.Location = new System.Drawing.Point( 424, 582 );
         GroupButton.Name = "GroupButton";
         GroupButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
         GroupButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
@@ -2287,7 +2287,7 @@ partial class FilterWindow
         GroupButton.Text = "Group";
         GroupButton.ThemeAuthor = "Terry D. Eppler";
         GroupButton.ThemeName = "Budget Execution";
-        GroupButton.ToolTip = null;
+        GroupButton.ToolTip = ToolTip;
         // 
         // ClearButton
         // 
@@ -2297,13 +2297,13 @@ partial class FilterWindow
         ClearButton.DisabledBorderColor = System.Drawing.Color.Transparent;
         ClearButton.DisabledForeColor = System.Drawing.Color.Transparent;
         ClearButton.Font = new System.Drawing.Font( "Roboto", 8F );
-        ClearButton.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-        ClearButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+        ClearButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+        ClearButton.HoverBorderColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         ClearButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
         ClearButton.HoverText = "Clear Selections";
         ClearButton.HoverTextColor = System.Drawing.Color.White;
         ClearButton.IsDerivedStyle = true;
-        ClearButton.Location = new System.Drawing.Point( 115, 550 );
+        ClearButton.Location = new System.Drawing.Point( 115, 582 );
         ClearButton.Name = "ClearButton";
         ClearButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
         ClearButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
@@ -2319,9 +2319,9 @@ partial class FilterWindow
         ClearButton.Text = "Clear";
         ClearButton.ThemeAuthor = "Terry D. Eppler";
         ClearButton.ThemeName = "Budget Execution";
-        ClearButton.ToolTip = null;
+        ClearButton.ToolTip = ToolTip;
         // 
-        // FilterDialog
+        // FilterWindow
         // 
         AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -2334,7 +2334,7 @@ partial class FilterWindow
         CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         CaptionFont = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Bold );
         CaptionForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-        ClientSize = new System.Drawing.Size( 1328, 636 );
+        ClientSize = new System.Drawing.Size( 1328, 734 );
         ControlBox = false;
         Controls.Add( ClearButton );
         Controls.Add( GroupButton );
@@ -2344,13 +2344,13 @@ partial class FilterWindow
         DoubleBuffered = true;
         Font = new System.Drawing.Font( "Roboto", 9F );
         ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-        FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+        FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
         Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
         MaximizeBox = false;
-        MaximumSize = new System.Drawing.Size( 1340, 648 );
+        MaximumSize = new System.Drawing.Size( 1340, 740 );
         MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         MinimizeBox = false;
-        MinimumSize = new System.Drawing.Size( 1340, 648 );
+        MinimumSize = new System.Drawing.Size( 1340, 740 );
         Name = "FilterWindow";
         ShowIcon = false;
         ShowMaximizeBox = false;

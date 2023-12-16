@@ -214,7 +214,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the callbacks.
         /// </summary>
-        private void InitializeCallbacks( )
+        private void RegisterCallbacks()
         {
             try
             {
@@ -310,7 +310,7 @@ namespace BudgetExecution
             try
             {
                 InitializeCarousel( );
-                InitializeCallbacks( );
+                RegisterCallbacks();
                 InitializeLabels( );
                 InitializeTimers( );
                 SetCarouselImages( ImagePath );

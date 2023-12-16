@@ -84,7 +84,7 @@ namespace BudgetExecution
         public ErrorDialog( )
         {
             InitializeComponent( );
-            InitializeCallbacks( );
+            RegisterCallbacks();
 
             // Form Property Values
             BackColor = Color.FromArgb( 20, 20, 20 );
@@ -143,7 +143,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the callbacks.
         /// </summary>
-        private void InitializeCallbacks( )
+        private void RegisterCallbacks()
         {
             CloseButton.Click += OnCloseButtonClick;
         }
