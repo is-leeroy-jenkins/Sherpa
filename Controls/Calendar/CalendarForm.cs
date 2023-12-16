@@ -51,6 +51,7 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Chart;
     using Syncfusion.Windows.Forms.Tools;
+    using Action = System.Action;
     using Timer = System.Windows.Forms.Timer;
 
     /// <summary>
@@ -64,6 +65,11 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     public sealed partial class CalendarForm : MetroForm
     {
+        /// <summary>
+        /// The status update
+        /// </summary>
+        private Action _statusUpdate;
+
         /// <summary>
         /// The busy
         /// </summary>
@@ -187,6 +193,7 @@ namespace BudgetExecution
         public CalendarForm( )
         {
             InitializeComponent( );
+            InitializeDelegates( );
 
             // Basic Properties
             Size = new Size( 1350, 750 );
@@ -253,6 +260,14 @@ namespace BudgetExecution
             {
                 Fail( _ex );
             }
+        }
+
+        /// <summary>
+        /// Initializes the delegates.
+        /// </summary>
+        private void InitializeDelegates( )
+        {
+            _statusUpdate += UpdateStatus;
         }
 
         /// <summary>
@@ -642,6 +657,22 @@ namespace BudgetExecution
                 Label11.Visible = false;
                 Label12.Visible = false;
                 Chart.Refresh( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Updates the status.
+        /// </summary>
+        private void UpdateStatus( )
+        {
+            try
+            {
+                var _now = DateTime.Now;
+                StatusLabel.Text = $"{_now.ToShortDateString( )} - {_now.ToLongTimeString( )}";
             }
             catch( Exception _ex )
             {

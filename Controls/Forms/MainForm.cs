@@ -448,7 +448,7 @@ namespace BudgetExecution
         /// <summary>
         /// Shows the splash message.
         /// </summary>
-        private void ShowSplashMessage( )
+        private void SendMessage( )
         {
             try
             {

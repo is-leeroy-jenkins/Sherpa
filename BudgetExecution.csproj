@@ -238,7 +238,4 @@
     <None Remove="Clients\Baby\storage\i18n_process.css" />
     <None Remove="Controls\TabControl\TabControl.cs~RFa766426.TMP" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controls\MetroTile\" />
-  </ItemGroup>
 </Project>

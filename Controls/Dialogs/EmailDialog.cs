@@ -65,6 +65,11 @@ namespace BudgetExecution
     public partial class EmailDialog : MetroForm
     {
         /// <summary>
+        /// The status update
+        /// </summary>
+        private Action _statusUpdate;
+
+        /// <summary>
         /// Gets or sets the time.
         /// </summary>
         /// <value>
@@ -88,6 +93,7 @@ namespace BudgetExecution
         public EmailDialog( )
         {
             InitializeComponent( );
+            InitializeCallbacks( );
 
             // Basic Properties
             Size = new Size( 981, 742 );
@@ -134,12 +140,33 @@ namespace BudgetExecution
             try
             {
                 ClearButton.ForeColor = Color.FromArgb( 106, 189, 252 );
+                ClearButton.HoverBorderColor = Color.FromArgb( 106, 189, 252 );
+                ClearButton.HoverTextColor = Color.White;
                 CloseButton.ForeColor = Color.FromArgb( 106, 189, 252 );
+                CloseButton.HoverBorderColor = Color.FromArgb( 106, 189, 252 );
+                CloseButton.HoverTextColor = Color.White;
+                MenuButton.ForeColor = Color.FromArgb( 106, 189, 252 );
+                MenuButton.HoverBorderColor = Color.FromArgb( 106, 189, 252 );
+                MenuButton.HoverTextColor = Color.White;
+                FirstTile.HoveredBorderColor = Color.FromArgb( 106, 189, 252 );
+                FirstTile.Title.TextColor = Color.FromArgb( 106, 189, 252 );
+                SecondTile.HoveredBorderColor = Color.FromArgb( 106, 189, 252 );
+                SecondTile.Title.TextColor = Color.FromArgb( 106, 189, 252 );
+                ThirdTile.HoveredBorderColor = Color.FromArgb( 106, 189, 252 );
+                ThirdTile.Title.TextColor = Color.FromArgb( 106, 189, 252 );
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
             }
+        }
+
+        /// <summary>
+        /// Initializes the delegates.
+        /// </summary>
+        private void InitializeDelegates( )
+        {
+            _statusUpdate += UpdateStatus;
         }
 
         /// <summary>
@@ -191,6 +218,24 @@ namespace BudgetExecution
             {
                 Title.ForeColor = Color.FromArgb( 106, 189, 252 );
                 Title.Text = "Email";
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the timers.
+        /// </summary>
+        private void InitializeTimers( )
+        {
+            try
+            {
+                // Timer Properties
+                Timer.Enabled = true;
+                Timer.Interval = 500;
+                Timer.Start( );
             }
             catch( Exception _ex )
             {
@@ -306,6 +351,22 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Updates the status.
+        /// </summary>
+        private void UpdateStatus( )
+        {
+            try
+            {
+                var _now = DateTime.Now;
+                StatusLabel.Text = $"{_now.ToShortDateString( )} - {_now.ToLongTimeString( )}";
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Fades the in.
         /// </summary>
         private void FadeIn( )
@@ -316,7 +377,7 @@ namespace BudgetExecution
                 _timer.Interval = 10;
                 _timer.Tick += ( sender, args ) =>
                 {
-                    if( Opacity == 0d )
+                    if( Opacity == 1d )
                     {
                         _timer.Stop( );
                     }
@@ -343,7 +404,7 @@ namespace BudgetExecution
                 _timer.Interval = 10;
                 _timer.Tick += ( sender, args ) =>
                 {
-                    if( Opacity == 1d )
+                    if( Opacity == 0d )
                     {
                         _timer.Stop( );
                     }
@@ -412,7 +473,7 @@ namespace BudgetExecution
         {
             try
             {
-                InitializeCallbacks( );
+                InitializeTimers( );
                 InitializeButtons( );
                 InitializeRadioButtons( );
                 InitializeLabels( );
