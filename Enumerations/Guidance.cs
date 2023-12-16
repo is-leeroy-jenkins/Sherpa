@@ -46,7 +46,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public enum Guidance
     {
@@ -211,7 +211,7 @@ namespace BudgetExecution
         StaffordAct,
 
         /// <summary>
-        /// The statutory authorities for inter agency agreements
+        /// The statutory authorities for interagency agreements
         /// </summary>
         StatutoryAuthoritiesForInterAgencyAgreements,
 

@@ -45,6 +45,7 @@ namespace BudgetExecution
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.Drawing;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Drawing;
@@ -89,26 +90,26 @@ namespace BudgetExecution
             InitializeComponent( );
 
             // Basic Properties
-            Size = new System.Drawing.Size( 981, 742 );
-            MaximumSize = new System.Drawing.Size( 981, 742 );
-            MinimumSize = new System.Drawing.Size( 981, 742 );
+            Size = new Size( 981, 742 );
+            MaximumSize = new Size( 981, 742 );
+            MinimumSize = new Size( 981, 742 );
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            BorderColor = Color.FromArgb( 0, 120, 212 );
             BorderThickness = 1;
-            BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            Font = new System.Drawing.Font( "Roboto", 9 );
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.FromArgb( 106, 189, 252 );
+            Font = new Font( "Roboto", 9 );
             ShowIcon = false;
             ShowInTaskbar = true;
-            MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            MetroColor = Color.FromArgb( 20, 20, 20 );
             CaptionBarHeight = 5;
             CaptionAlign = HorizontalAlignment.Center;
-            CaptionFont = new System.Drawing.Font( "Roboto", 10, System.Drawing.FontStyle.Regular );
-            CaptionBarColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            CaptionForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            CaptionButtonColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            CaptionFont = new Font( "Roboto", 10, FontStyle.Regular );
+            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
+            CaptionForeColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
             SizeGripStyle = SizeGripStyle.Hide;
             AutoScaleMode = AutoScaleMode.Font;
             DoubleBuffered = true;
@@ -123,15 +124,136 @@ namespace BudgetExecution
 
             // Event Wiring
             Load += OnLoad;
-            CloseButton.Click += OnCloseButtonClick;
-            ClearButton.Click += OnClearButtonClick;
-            FirstTile.Click += OnFirstTileClick;
-            SecondTile.Click += OnSecondTileClick;
-            ThirdTile.Click += OnThirdTileClick;
-            FirstRadioButton.Click += OnFirstRadioButtonSelected;
-            SecondRadioButton.Click += OnSecondRadioButtonSelected;
-            ThirdRadioButton.Click += OnThirdRadioButtonSelected;
-            MenuButton.Click += OnMainMenuButtonClicked;
+        }
+        
+        /// <summary>
+        /// Initializes the buttons.
+        /// </summary>
+        private void InitializeButtons( )
+        {
+            try
+            {
+                ClearButton.ForeColor = Color.FromArgb( 106, 189, 252 );
+                CloseButton.ForeColor = Color.FromArgb( 106, 189, 252 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the callbacks.
+        /// </summary>
+        private void InitializeCallbacks( )
+        {
+            try
+            {
+                CloseButton.Click += OnCloseButtonClick;
+                ClearButton.Click += OnClearButtonClick;
+                FirstTile.Click += OnFirstTileClick;
+                SecondTile.Click += OnSecondTileClick;
+                ThirdTile.Click += OnThirdTileClick;
+                FirstRadioButton.Click += OnFirstRadioButtonSelected;
+                SecondRadioButton.Click += OnSecondRadioButtonSelected;
+                ThirdRadioButton.Click += OnThirdRadioButtonSelected;
+                MenuButton.Click += OnMainMenuButtonClicked;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the radio buttons.
+        /// </summary>
+        private void InitializeRadioButtons( )
+        {
+            try
+            {
+                FirstRadioButton.ForeColor = Color.FromArgb( 106, 189, 252 );
+                SecondRadioButton.ForeColor = Color.FromArgb( 106, 189, 252 );
+                ThirdRadioButton.ForeColor = Color.FromArgb( 106, 189, 252 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the labels.
+        /// </summary>
+        private void InitializeLabels( )
+        {
+            try
+            {
+                Title.ForeColor = Color.FromArgb( 106, 189, 252 );
+                Title.Text = "Email";
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the editor.
+        /// </summary>
+        private void InitializeEditor( )
+        {
+            try
+            {
+                Editor.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+                Editor.AlwaysShowScrollers = true;
+                Editor.BackColor = SystemColors.ControlLight;
+                Editor.ForeColor = Color.Black;
+                Editor.BackgroundColor = new BrushInfo( SystemColors.ControlLight );
+                Editor.BorderStyle = BorderStyle.FixedSingle;
+                Editor.CanOverrideStyle = true;
+                Editor.CanApplyTheme = true;
+                Editor.ColumnGuidesMeasuringFont = new Font( "Roboto", 8 );
+                Editor.ContextChoiceFont = new Font( "Roboto", 8 );
+                Editor.ContextChoiceForeColor = Color.Black;
+                Editor.ContextChoiceBackColor = SystemColors.ControlLight;
+                Editor.ContextPromptBorderColor = Color.FromArgb( 0, 120, 212 );
+                Editor.ContextPromptBackgroundBrush =
+                    new BrushInfo( Color.FromArgb( 233, 166, 50 ) );
+
+                Editor.ContextTooltipBackgroundBrush =
+                    new BrushInfo( Color.FromArgb( 233, 166, 50 ) );
+
+                Editor.ContextTooltipBorderColor = Color.FromArgb( 0, 120, 212 );
+                Editor.EndOfLineBackColor = SystemColors.ControlLight;
+                Editor.EndOfLineForeColor = SystemColors.ControlLight;
+                Editor.HighlightCurrentLine = true;
+                Editor.IndentationBlockBorderColor = Color.FromArgb( 0, 120, 212 );
+                Editor.IndentLineColor = Color.FromArgb( 50, 93, 129 );
+                Editor.IndicatorMarginBackColor = SystemColors.ControlLight;
+                Editor.CurrentLineHighlightColor = Color.FromArgb( 0, 120, 212 );
+                Editor.Font = new Font( "Roboto", 12 );
+                Editor.LineNumbersColor = Color.Black;
+                Editor.LineNumbersFont = new Font( "Roboto", 8, FontStyle.Bold );
+                Editor.ScrollVisualStyle = ScrollBarCustomDrawStyles.Office2016;
+                Editor.ScrollColorScheme = Office2007ColorScheme.Black;
+                Editor.SelectionTextColor = Color.FromArgb( 50, 93, 129 );
+                Editor.ShowEndOfLine = false;
+                Editor.Style = EditControlStyle.Office2016Black;
+                Editor.TabSize = 4;
+                Editor.TextAreaWidth = 400;
+                Editor.WordWrap = true;
+                Editor.WordWrapColumn = 100;
+                Editor.Dock = DockStyle.None;
+                Editor.Anchor = AnchorStyles.Top
+                    | AnchorStyles.Bottom
+                    | AnchorStyles.Left
+                    | AnchorStyles.Right;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -180,113 +302,6 @@ namespace BudgetExecution
                 {
                     Fail( _ex );
                 }
-            }
-        }
-
-        /// <summary>
-        /// Initializes the buttons.
-        /// </summary>
-        private void InitializeButtons( )
-        {
-            try
-            {
-                ClearButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-                CloseButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the radio buttons.
-        /// </summary>
-        private void InitializeRadioButtons( )
-        {
-            try
-            {
-                FirstRadioButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-                SecondRadioButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-                ThirdRadioButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the labels.
-        /// </summary>
-        private void InitializeLabels( )
-        {
-            try
-            {
-                Title.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-                Title.Text = "Email";
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the editor.
-        /// </summary>
-        private void InitializeEditor( )
-        {
-            try
-            {
-                Editor.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-                Editor.AlwaysShowScrollers = true;
-                Editor.BackColor = System.Drawing.SystemColors.ControlLight;
-                Editor.ForeColor = System.Drawing.Color.Black;
-                Editor.BackgroundColor = new BrushInfo( System.Drawing.SystemColors.ControlLight );
-                Editor.BorderStyle = BorderStyle.FixedSingle;
-                Editor.CanOverrideStyle = true;
-                Editor.CanApplyTheme = true;
-                Editor.ColumnGuidesMeasuringFont = new System.Drawing.Font( "Roboto", 8 );
-                Editor.ContextChoiceFont = new System.Drawing.Font( "Roboto", 8 );
-                Editor.ContextChoiceForeColor = System.Drawing.Color.Black;
-                Editor.ContextChoiceBackColor = System.Drawing.SystemColors.ControlLight;
-                Editor.ContextPromptBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-                Editor.ContextPromptBackgroundBrush =
-                    new BrushInfo( System.Drawing.Color.FromArgb( 233, 166, 50 ) );
-
-                Editor.ContextTooltipBackgroundBrush =
-                    new BrushInfo( System.Drawing.Color.FromArgb( 233, 166, 50 ) );
-
-                Editor.ContextTooltipBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-                Editor.EndOfLineBackColor = System.Drawing.SystemColors.ControlLight;
-                Editor.EndOfLineForeColor = System.Drawing.SystemColors.ControlLight;
-                Editor.HighlightCurrentLine = true;
-                Editor.IndentationBlockBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-                Editor.IndentLineColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
-                Editor.IndicatorMarginBackColor = System.Drawing.SystemColors.ControlLight;
-                Editor.CurrentLineHighlightColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-                Editor.Font = new System.Drawing.Font( "Roboto", 12 );
-                Editor.LineNumbersColor = System.Drawing.Color.Black;
-                Editor.LineNumbersFont = new System.Drawing.Font( "Roboto", 8, System.Drawing.FontStyle.Bold );
-                Editor.ScrollVisualStyle = ScrollBarCustomDrawStyles.Office2016;
-                Editor.ScrollColorScheme = Office2007ColorScheme.Black;
-                Editor.SelectionTextColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
-                Editor.ShowEndOfLine = false;
-                Editor.Style = EditControlStyle.Office2016Black;
-                Editor.TabSize = 4;
-                Editor.TextAreaWidth = 400;
-                Editor.WordWrap = true;
-                Editor.WordWrapColumn = 100;
-                Editor.Dock = DockStyle.None;
-                Editor.Anchor = AnchorStyles.Top
-                    | AnchorStyles.Bottom
-                    | AnchorStyles.Left
-                    | AnchorStyles.Right;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
             }
         }
 
@@ -345,14 +360,15 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Notifies this instance.
+        /// Notifies the specified message.
         /// </summary>
-        private void Notify( )
+        /// <param name="message">The message.</param>
+        private void SendNotification( string message )
         {
             try
             {
-                var _message = "THIS IS NOT YET IMPLEMENTED!";
-                var _notification = new SplashMessage( _message );
+                ThrowIf.NullOrEmpty( message, nameof( message ) );
+                var _notification = new SplashMessage( message );
                 _notification.Show( );
             }
             catch( Exception _ex )
@@ -396,6 +412,7 @@ namespace BudgetExecution
         {
             try
             {
+                InitializeCallbacks( );
                 InitializeButtons( );
                 InitializeRadioButtons( );
                 InitializeLabels( );
@@ -420,7 +437,8 @@ namespace BudgetExecution
         {
             try
             {
-                Notify( );
+                var _message = "THIS IS NOT IMPLEMENTED!";
+                SendNotification( _message );
             }
             catch( Exception _ex )
             {
@@ -438,7 +456,8 @@ namespace BudgetExecution
         {
             try
             {
-                Notify( );
+                var _message = "THIS IS NOT IMPLEMENTED!";
+                SendNotification( _message );
             }
             catch( Exception _ex )
             {
@@ -456,7 +475,8 @@ namespace BudgetExecution
         {
             try
             {
-                Notify( );
+                var _message = "THIS IS NOT IMPLEMENTED!";
+                SendNotification( _message );
             }
             catch( Exception _ex )
             {
@@ -528,7 +548,8 @@ namespace BudgetExecution
         {
             try
             {
-                Notify( );
+                var _message = "THIS IS NOT IMPLEMENTED!";
+                SendNotification( _message );
             }
             catch( Exception _ex )
             {
@@ -546,7 +567,8 @@ namespace BudgetExecution
         {
             try
             {
-                Notify( );
+                var _message = "THIS IS NOT IMPLEMENTED!";
+                SendNotification( _message );
             }
             catch( Exception _ex )
             {
@@ -564,7 +586,8 @@ namespace BudgetExecution
         {
             try
             {
-                Notify( );
+                var _message = "THIS IS NOT IMPLEMENTED!";
+                SendNotification( _message );
             }
             catch( Exception _ex )
             {
@@ -582,7 +605,8 @@ namespace BudgetExecution
         {
             try
             {
-                Notify( );
+                var _message = "THIS IS NOT IMPLEMENTED!";
+                SendNotification( _message );
             }
             catch( Exception _ex )
             {
@@ -600,7 +624,8 @@ namespace BudgetExecution
         {
             try
             {
-                Notify( );
+                var _message = "THIS IS NOT IMPLEMENTED!";
+                SendNotification( _message );
             }
             catch( Exception _ex )
             {
