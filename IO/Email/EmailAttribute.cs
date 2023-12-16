@@ -135,9 +135,11 @@ namespace BudgetExecution
         /// <returns><c>true</c> if the value is a valid email address;
         /// otherwise, <c>false</c>.</returns>
         /// <param name="value">The value to validate.</param>
-        public override bool IsValid( object value ) =>
-            ( value == null )
-            || EmailValidator.Validate( (string)value, AllowTopLevelDomains,
-                AllowInternational );
+        public override bool IsValid( object value )
+        {
+            return ( value == null )
+                || EmailValidator.Validate( (string)value, AllowTopLevelDomains,
+                    AllowInternational );
+        }
     }
 }

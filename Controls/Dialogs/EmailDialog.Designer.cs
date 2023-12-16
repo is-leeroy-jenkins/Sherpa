@@ -233,7 +233,7 @@ partial class EmailDialog
         SecondTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
         SecondTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         SecondTile.HoverText = "Open Gmail";
-        SecondTile.Location = new System.Drawing.Point( 51, 97 );
+        SecondTile.Location = new System.Drawing.Point( 51, 92 );
         SecondTile.Margin = new System.Windows.Forms.Padding( 1 );
         SecondTile.MinimumSize = new System.Drawing.Size( 100, 50 );
         SecondTile.Name = "SecondTile";
@@ -806,7 +806,7 @@ partial class EmailDialog
         StatusLabel.StyleManager = null;
         StatusLabel.TabIndex = 3;
         StatusLabel.Text = "Date and Time";
-        StatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+        StatusLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
         StatusLabel.ThemeAuthor = "Terry D. Eppler";
         StatusLabel.ThemeName = "Budget Execution";
         StatusLabel.ToolTip = ToolTip;

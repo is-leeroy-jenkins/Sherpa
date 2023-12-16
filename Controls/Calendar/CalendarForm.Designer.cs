@@ -140,6 +140,7 @@ namespace BudgetExecution
             Label12 = new Label( );
             Label10 = new Label( );
             Timer = new System.Windows.Forms.Timer( components );
+            ContextMenu = new ContextMenu( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
             HeaderTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
@@ -981,6 +982,7 @@ namespace BudgetExecution
             Chart.AllowGapForEmptyPoints = false;
             Chart.AllowGradientPalette = true;
             Chart.AllowUserEditStyles = true;
+            Chart.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             Chart.AutoHighlight = true;
             Chart.ChartArea.AutoScale = true;
             Chart.ChartArea.BorderColor = System.Drawing.Color.Transparent;
@@ -999,7 +1001,6 @@ namespace BudgetExecution
             Chart.Depth = 250F;
             Chart.DisplayChartContextMenu = false;
             Chart.DisplaySeriesContextMenu = false;
-            Chart.Dock = System.Windows.Forms.DockStyle.Fill;
             Chart.EnableMouseRotation = true;
             Chart.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
             Chart.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
@@ -1011,12 +1012,12 @@ namespace BudgetExecution
             Chart.Legend.ItemsAlignment = System.Drawing.StringAlignment.Center;
             Chart.Legend.ItemsShadowColor = System.Drawing.Color.Transparent;
             Chart.Legend.ItemsSize = new System.Drawing.Size( 12, 12 );
-            Chart.Legend.Location = new System.Drawing.Point( 619, 60 );
+            Chart.Legend.Location = new System.Drawing.Point( 591, 60 );
             Chart.Legend.ShowItemsShadow = true;
             Chart.Legend.ShowSymbol = true;
             Chart.Legend.VisibleCheckBox = true;
             Chart.Localize = null;
-            Chart.Location = new System.Drawing.Point( 1, 1 );
+            Chart.Location = new System.Drawing.Point( 15, 7 );
             Chart.Margin = new System.Windows.Forms.Padding( 1 );
             Chart.MouseAction = Syncfusion.Windows.Forms.Chart.ChartMouseAction.Panning;
             Chart.Name = "Chart";
@@ -1032,7 +1033,7 @@ namespace BudgetExecution
             Chart.SeriesHighlight = true;
             Chart.ShowScrollBars = false;
             Chart.ShowToolbar = true;
-            Chart.Size = new System.Drawing.Size( 729, 462 );
+            Chart.Size = new System.Drawing.Size( 701, 446 );
             Chart.Skins = Syncfusion.Windows.Forms.Chart.Skins.Office2016Black;
             Chart.Spacing = 5F;
             Chart.SpacingBetweenPoints = 5F;
@@ -1518,6 +1519,26 @@ namespace BudgetExecution
             Timer.Enabled = true;
             Timer.Interval = 500;
             // 
+            // ContextMenu
+            // 
+            ContextMenu.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ContextMenu.DropShadowEnabled = false;
+            ContextMenu.Font = new System.Drawing.Font( "Roboto", 9F );
+            ContextMenu.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ContextMenu.MetroColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ContextMenu.Name = "ContextMenu";
+            ContextMenu.Size = new System.Drawing.Size( 126, 180 );
+            ContextMenu.Style = Syncfusion.Windows.Forms.Tools.ContextMenuStripEx.ContextMenuStyle.Office2016Black;
+            ContextMenu.ThemeName = "Office2016Black";
+            ContextMenu.ThemeStyle.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ContextMenu.ThemeStyle.BorderColor = System.Drawing.Color.FromArgb( 77, 77, 77 );
+            ContextMenu.ThemeStyle.DisabledForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ContextMenu.ThemeStyle.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ContextMenu.ThemeStyle.HoverBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            ContextMenu.ThemeStyle.HoverForeColor = System.Drawing.Color.White;
+            ContextMenu.ThemeStyle.PressedBackColor = System.Drawing.Color.FromArgb( 204, 204, 204 );
+            ContextMenu.ThemeStyle.PressedForeColor = System.Drawing.Color.Black;
+            // 
             // CalendarForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
@@ -1644,5 +1665,6 @@ namespace BudgetExecution
         public ToolStripLabel Spacer;
         public ToolStripLabel DataLabel;
         public ToolStripLabel NavigationLabel;
+        public ContextMenu ContextMenu;
     }
 }

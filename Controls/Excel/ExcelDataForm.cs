@@ -1308,7 +1308,10 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnTimerTick( object sender, EventArgs e ) => InvokeIf( _statusUpdate );
+        private void OnTimerTick( object sender, EventArgs e )
+        {
+            InvokeIf( _statusUpdate );
+        }
 
         /// <summary>
         /// Raises the Close event.

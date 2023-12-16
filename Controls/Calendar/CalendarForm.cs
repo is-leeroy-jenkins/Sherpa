@@ -194,6 +194,7 @@ namespace BudgetExecution
         {
             InitializeComponent( );
             InitializeDelegates( );
+            InitializeCallbacks( );
 
             // Basic Properties
             Size = new Size( 1350, 750 );
@@ -230,6 +231,7 @@ namespace BudgetExecution
 
             // Event Wiring
             Load += OnLoad;
+            MouseClick += OnRightClick;
         }
 
         /// <summary>
@@ -307,6 +309,7 @@ namespace BudgetExecution
                 TableButton.Click += OnTableButtonClick;
                 RefreshButton.Click += OnRefreshButtonClick;
                 TabControl.SelectedIndexChanged += OnTabChanged;
+                Timer.Tick += OnTimerTick;
             }
             catch( Exception _ex )
             {
@@ -368,6 +371,24 @@ namespace BudgetExecution
             catch( Exception _ex )
             {
                 Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Invokes if.
+        /// </summary>
+        /// <param name="action">
+        /// The action.
+        /// </param>
+        public void InvokeIf( Action action )
+        {
+            if( InvokeRequired )
+            {
+                BeginInvoke( action );
+            }
+            else
+            {
+                action.Invoke( );
             }
         }
 
@@ -959,6 +980,38 @@ namespace BudgetExecution
             {
                 Fail( _ex );
             }
+        }
+
+        /// <summary>
+        /// Called when [right click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnRightClick( object sender, MouseEventArgs e )
+        {
+            if( e.Button == MouseButtons.Right )
+            {
+                try
+                {
+                    ContextMenu.Show( this, e.Location );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [timer tick].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnTimerTick( object sender, EventArgs e )
+        {
+            InvokeIf( _statusUpdate );
         }
 
         /// <summary>
