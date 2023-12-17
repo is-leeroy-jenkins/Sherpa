@@ -75,7 +75,7 @@ namespace BudgetExecution
         {
             InitializeComponent( );
             InitializeDelegates( );
-            InitializeCallbacks( );
+            RegisterCallbacks();
 
             // General Properties
             Size = new System.Drawing.Size( 650, 250 );
@@ -150,7 +150,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the callback.
         /// </summary>
-        private void InitializeCallbacks( )
+        private void RegisterCallbacks()
         {
             try
             {

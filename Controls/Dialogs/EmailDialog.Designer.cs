@@ -49,9 +49,10 @@ partial class EmailDialog
         var config1 = new Syncfusion.Windows.Forms.Edit.Implementation.Config.Config( );
         var resources = new System.ComponentModel.ComponentResourceManager( typeof( EmailDialog ) );
         ThirdTile = new Tile( );
+        ToolTip = new SmallTip( );
         FirstTile = new Tile( );
-        SecondTile = new Tile( );
         BindingSource = new System.Windows.Forms.BindingSource( components );
+        SecondTile = new Tile( );
         EmailTable = new HeaderPanel( );
         TabControl = new TabControl( );
         FirstTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
@@ -71,15 +72,16 @@ partial class EmailDialog
         FirstRadioButton = new RadioButton( );
         ButtonTable = new System.Windows.Forms.TableLayoutPanel( );
         CloseButton = new Button( );
-        ToolTip = new SmallTip( );
         ClearButton = new Button( );
         MenuButton = new Button( );
+        StatusLabel = new Label( );
         EditorTable = new HeaderPanel( );
         Editor = new Editor( );
         TitleTable = new System.Windows.Forms.TableLayoutPanel( );
         PictureBox = new System.Windows.Forms.PictureBox( );
         Title = new Label( );
         Timer = new System.Windows.Forms.Timer( components );
+        ContextMenu = new ContextMenu( );
         ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
         EmailTable.SuspendLayout( );
         ( (System.ComponentModel.ISupportInitialize)TabControl ).BeginInit( );
@@ -122,9 +124,9 @@ partial class EmailDialog
         textItem3.HubTile = ThirdTile;
         textItem3.TextColor = System.Drawing.Color.DarkGray;
         ThirdTile.Footer = textItem3;
-        ThirdTile.ForeColor = System.Drawing.Color.LightSteelBlue;
+        ThirdTile.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         ThirdTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
-        ThirdTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
+        ThirdTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         ThirdTile.HoverText = null;
         ThirdTile.Location = new System.Drawing.Point( 51, 164 );
         ThirdTile.Margin = new System.Windows.Forms.Padding( 1 );
@@ -134,12 +136,32 @@ partial class EmailDialog
         ThirdTile.ShowBannerIcon = true;
         ThirdTile.Size = new System.Drawing.Size( 152, 50 );
         ThirdTile.TabIndex = 1;
-        textItem4.Font = new System.Drawing.Font( "Roboto", 10F );
+        textItem4.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
         textItem4.HubTile = ThirdTile;
-        textItem4.TextColor = System.Drawing.Color.DarkGray;
+        textItem4.TextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         ThirdTile.Title = textItem4;
-        ThirdTile.ToolTip = null;
+        ThirdTile.ToolTip = ToolTip;
         ThirdTile.TurnLiveTileOn = true;
+        // 
+        // ToolTip
+        // 
+        ToolTip.AutoPopDelay = 5000;
+        ToolTip.BackColor = System.Drawing.Color.FromArgb( 5, 5, 5 );
+        ToolTip.BindingSource = null;
+        ToolTip.BorderColor = System.Drawing.SystemColors.Highlight;
+        ToolTip.ForeColor = System.Drawing.Color.White;
+        ToolTip.InitialDelay = 500;
+        ToolTip.IsDerivedStyle = true;
+        ToolTip.Name = null;
+        ToolTip.OwnerDraw = true;
+        ToolTip.ReshowDelay = 100;
+        ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
+        ToolTip.StyleManager = null;
+        ToolTip.ThemeAuthor = "Terry D. Eppler";
+        ToolTip.ThemeName = "Budget Execution";
+        ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
+        ToolTip.TipText = null;
+        ToolTip.TipTitle = null;
         // 
         // FirstTile
         // 
@@ -150,9 +172,9 @@ partial class EmailDialog
         textItem5.TextColor = System.Drawing.Color.DarkGray;
         FirstTile.Banner = textItem5;
         FirstTile.BannerColor = System.Drawing.Color.Transparent;
-        FirstTile.BannerHeight = 30;
+        FirstTile.BannerHeight = 24;
         FirstTile.BannerIcon = Resources.Images.OutlookTile;
-        FirstTile.BindingSource = null;
+        FirstTile.BindingSource = BindingSource;
         textItem6.Font = new System.Drawing.Font( "Roboto", 9F );
         textItem6.HubTile = FirstTile;
         textItem6.TextColor = System.Drawing.Color.DarkGray;
@@ -164,10 +186,10 @@ partial class EmailDialog
         textItem7.HubTile = FirstTile;
         textItem7.TextColor = System.Drawing.Color.DarkGray;
         FirstTile.Footer = textItem7;
-        FirstTile.ForeColor = System.Drawing.Color.LightSteelBlue;
+        FirstTile.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         FirstTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
-        FirstTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
-        FirstTile.HoverText = null;
+        FirstTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+        FirstTile.HoverText = "Open Outlook";
         FirstTile.Location = new System.Drawing.Point( 51, 26 );
         FirstTile.Margin = new System.Windows.Forms.Padding( 1 );
         FirstTile.MinimumSize = new System.Drawing.Size( 100, 50 );
@@ -176,12 +198,12 @@ partial class EmailDialog
         FirstTile.ShowBannerIcon = true;
         FirstTile.Size = new System.Drawing.Size( 152, 50 );
         FirstTile.TabIndex = 2;
-        textItem8.Font = new System.Drawing.Font( "Roboto", 10F );
+        textItem8.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
         textItem8.HubTile = FirstTile;
         textItem8.Text = "Outlook";
-        textItem8.TextColor = System.Drawing.Color.DarkGray;
+        textItem8.TextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         FirstTile.Title = textItem8;
-        FirstTile.ToolTip = null;
+        FirstTile.ToolTip = ToolTip;
         FirstTile.TurnLiveTileOn = true;
         // 
         // SecondTile
@@ -193,9 +215,9 @@ partial class EmailDialog
         textItem9.TextColor = System.Drawing.Color.DarkGray;
         SecondTile.Banner = textItem9;
         SecondTile.BannerColor = System.Drawing.Color.Transparent;
-        SecondTile.BannerHeight = 30;
+        SecondTile.BannerHeight = 24;
         SecondTile.BannerIcon = Resources.Images.GmailTile;
-        SecondTile.BindingSource = null;
+        SecondTile.BindingSource = BindingSource;
         textItem10.Font = new System.Drawing.Font( "Roboto", 9F );
         textItem10.HubTile = SecondTile;
         textItem10.TextColor = System.Drawing.Color.DarkGray;
@@ -207,11 +229,11 @@ partial class EmailDialog
         textItem11.HubTile = SecondTile;
         textItem11.TextColor = System.Drawing.Color.DarkGray;
         SecondTile.Footer = textItem11;
-        SecondTile.ForeColor = System.Drawing.Color.LightSteelBlue;
+        SecondTile.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         SecondTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
-        SecondTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
-        SecondTile.HoverText = null;
-        SecondTile.Location = new System.Drawing.Point( 51, 97 );
+        SecondTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+        SecondTile.HoverText = "Open Gmail";
+        SecondTile.Location = new System.Drawing.Point( 51, 92 );
         SecondTile.Margin = new System.Windows.Forms.Padding( 1 );
         SecondTile.MinimumSize = new System.Drawing.Size( 100, 50 );
         SecondTile.Name = "SecondTile";
@@ -219,12 +241,12 @@ partial class EmailDialog
         SecondTile.ShowBannerIcon = true;
         SecondTile.Size = new System.Drawing.Size( 152, 50 );
         SecondTile.TabIndex = 0;
-        textItem12.Font = new System.Drawing.Font( "Roboto", 10F );
+        textItem12.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
         textItem12.HubTile = SecondTile;
         textItem12.Text = "Gmail";
-        textItem12.TextColor = System.Drawing.Color.DarkGray;
+        textItem12.TextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         SecondTile.Title = textItem12;
-        SecondTile.ToolTip = null;
+        SecondTile.ToolTip = ToolTip;
         SecondTile.TurnLiveTileOn = true;
         // 
         // EmailTable
@@ -648,10 +670,10 @@ partial class EmailDialog
         // ButtonTable
         // 
         ButtonTable.ColumnCount = 10;
-        ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 10F ) );
-        ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 10F ) );
-        ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 10F ) );
-        ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 10F ) );
+        ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 18.9886475F ) );
+        ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 5.159959F ) );
+        ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 5.05675936F ) );
+        ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 10.6295147F ) );
         ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 10F ) );
         ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 10F ) );
         ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 10F ) );
@@ -661,6 +683,7 @@ partial class EmailDialog
         ButtonTable.Controls.Add( CloseButton, 9, 0 );
         ButtonTable.Controls.Add( ClearButton, 5, 0 );
         ButtonTable.Controls.Add( MenuButton, 7, 0 );
+        ButtonTable.Controls.Add( StatusLabel, 0, 0 );
         ButtonTable.Dock = System.Windows.Forms.DockStyle.Bottom;
         ButtonTable.Location = new System.Drawing.Point( 0, 694 );
         ButtonTable.Name = "ButtonTable";
@@ -677,17 +700,17 @@ partial class EmailDialog
         CloseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
         CloseButton.DisabledForeColor = System.Drawing.Color.Transparent;
         CloseButton.Font = new System.Drawing.Font( "Roboto", 8F );
-        CloseButton.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-        CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+        CloseButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+        CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         CloseButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
         CloseButton.HoverText = "Close Application";
         CloseButton.HoverTextColor = System.Drawing.Color.White;
         CloseButton.IsDerivedStyle = true;
-        CloseButton.Location = new System.Drawing.Point( 867, 3 );
+        CloseButton.Location = new System.Drawing.Point( 874, 3 );
         CloseButton.Name = "CloseButton";
         CloseButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
         CloseButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
-        CloseButton.NormalTextColor = System.Drawing.Color.DarkGray;
+        CloseButton.NormalTextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         CloseButton.Padding = new System.Windows.Forms.Padding( 1 );
         CloseButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
         CloseButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
@@ -701,26 +724,6 @@ partial class EmailDialog
         CloseButton.ThemeName = "Budget Execution";
         CloseButton.ToolTip = ToolTip;
         // 
-        // ToolTip
-        // 
-        ToolTip.AutoPopDelay = 5000;
-        ToolTip.BackColor = System.Drawing.Color.FromArgb( 5, 5, 5 );
-        ToolTip.BindingSource = null;
-        ToolTip.BorderColor = System.Drawing.SystemColors.Highlight;
-        ToolTip.ForeColor = System.Drawing.Color.White;
-        ToolTip.InitialDelay = 500;
-        ToolTip.IsDerivedStyle = true;
-        ToolTip.Name = null;
-        ToolTip.OwnerDraw = true;
-        ToolTip.ReshowDelay = 100;
-        ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
-        ToolTip.StyleManager = null;
-        ToolTip.ThemeAuthor = "Terry D. Eppler";
-        ToolTip.ThemeName = "Budget Execution";
-        ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
-        ToolTip.TipText = null;
-        ToolTip.TipTitle = null;
-        // 
         // ClearButton
         // 
         ClearButton.BindingSource = null;
@@ -729,17 +732,17 @@ partial class EmailDialog
         ClearButton.DisabledBorderColor = System.Drawing.Color.Transparent;
         ClearButton.DisabledForeColor = System.Drawing.Color.Transparent;
         ClearButton.Font = new System.Drawing.Font( "Roboto", 8F );
-        ClearButton.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-        ClearButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+        ClearButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+        ClearButton.HoverBorderColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         ClearButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
         ClearButton.HoverText = "Clear Text";
         ClearButton.HoverTextColor = System.Drawing.Color.White;
         ClearButton.IsDerivedStyle = true;
-        ClearButton.Location = new System.Drawing.Point( 483, 3 );
+        ClearButton.Location = new System.Drawing.Point( 486, 3 );
         ClearButton.Name = "ClearButton";
         ClearButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
         ClearButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
-        ClearButton.NormalTextColor = System.Drawing.Color.DarkGray;
+        ClearButton.NormalTextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         ClearButton.Padding = new System.Windows.Forms.Padding( 1 );
         ClearButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
         ClearButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
@@ -761,17 +764,17 @@ partial class EmailDialog
         MenuButton.DisabledBorderColor = System.Drawing.Color.Transparent;
         MenuButton.DisabledForeColor = System.Drawing.Color.Transparent;
         MenuButton.Font = new System.Drawing.Font( "Roboto", 8F );
-        MenuButton.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-        MenuButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+        MenuButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+        MenuButton.HoverBorderColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         MenuButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
         MenuButton.HoverText = "Back To Main Menu";
         MenuButton.HoverTextColor = System.Drawing.Color.White;
         MenuButton.IsDerivedStyle = true;
-        MenuButton.Location = new System.Drawing.Point( 675, 3 );
+        MenuButton.Location = new System.Drawing.Point( 680, 3 );
         MenuButton.Name = "MenuButton";
         MenuButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
         MenuButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
-        MenuButton.NormalTextColor = System.Drawing.Color.DarkGray;
+        MenuButton.NormalTextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         MenuButton.Padding = new System.Windows.Forms.Padding( 1 );
         MenuButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
         MenuButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
@@ -784,6 +787,29 @@ partial class EmailDialog
         MenuButton.ThemeAuthor = "Terry D. Eppler";
         MenuButton.ThemeName = "Budget Execution";
         MenuButton.ToolTip = null;
+        // 
+        // StatusLabel
+        // 
+        StatusLabel.BindingSource = BindingSource;
+        StatusLabel.DataFilter = null;
+        StatusLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+        StatusLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+        StatusLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
+        StatusLabel.HoverText = null;
+        StatusLabel.IsDerivedStyle = true;
+        StatusLabel.Location = new System.Drawing.Point( 3, 3 );
+        StatusLabel.Margin = new System.Windows.Forms.Padding( 3 );
+        StatusLabel.Name = "StatusLabel";
+        StatusLabel.Padding = new System.Windows.Forms.Padding( 1 );
+        StatusLabel.Size = new System.Drawing.Size( 178, 30 );
+        StatusLabel.Style = MetroSet_UI.Enums.Style.Custom;
+        StatusLabel.StyleManager = null;
+        StatusLabel.TabIndex = 3;
+        StatusLabel.Text = "Date and Time";
+        StatusLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+        StatusLabel.ThemeAuthor = "Terry D. Eppler";
+        StatusLabel.ThemeName = "Budget Execution";
+        StatusLabel.ToolTip = ToolTip;
         // 
         // EditorTable
         // 
@@ -879,7 +905,7 @@ partial class EmailDialog
         TitleTable.Name = "TitleTable";
         TitleTable.RowCount = 1;
         TitleTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-        TitleTable.Size = new System.Drawing.Size( 969, 34 );
+        TitleTable.Size = new System.Drawing.Size( 969, 24 );
         TitleTable.TabIndex = 4;
         // 
         // PictureBox
@@ -905,7 +931,7 @@ partial class EmailDialog
         Title.Margin = new System.Windows.Forms.Padding( 3 );
         Title.Name = "Title";
         Title.Padding = new System.Windows.Forms.Padding( 1 );
-        Title.Size = new System.Drawing.Size( 912, 28 );
+        Title.Size = new System.Drawing.Size( 912, 18 );
         Title.Style = MetroSet_UI.Enums.Style.Custom;
         Title.StyleManager = null;
         Title.TabIndex = 1;
@@ -914,6 +940,31 @@ partial class EmailDialog
         Title.ThemeAuthor = "Terry D. Eppler";
         Title.ThemeName = "Budget Execution";
         Title.ToolTip = ToolTip;
+        // 
+        // Timer
+        // 
+        Timer.Enabled = true;
+        Timer.Interval = 500;
+        // 
+        // ContextMenu
+        // 
+        ContextMenu.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+        ContextMenu.DropShadowEnabled = false;
+        ContextMenu.Font = new System.Drawing.Font( "Roboto", 9F );
+        ContextMenu.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+        ContextMenu.MetroColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+        ContextMenu.Name = "ContextMenu";
+        ContextMenu.Size = new System.Drawing.Size( 126, 180 );
+        ContextMenu.Style = Syncfusion.Windows.Forms.Tools.ContextMenuStripEx.ContextMenuStyle.Office2016Black;
+        ContextMenu.ThemeName = "Office2016Black";
+        ContextMenu.ThemeStyle.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+        ContextMenu.ThemeStyle.BorderColor = System.Drawing.Color.FromArgb( 77, 77, 77 );
+        ContextMenu.ThemeStyle.DisabledForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+        ContextMenu.ThemeStyle.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+        ContextMenu.ThemeStyle.HoverBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+        ContextMenu.ThemeStyle.HoverForeColor = System.Drawing.Color.White;
+        ContextMenu.ThemeStyle.PressedBackColor = System.Drawing.Color.FromArgb( 204, 204, 204 );
+        ContextMenu.ThemeStyle.PressedForeColor = System.Drawing.Color.Black;
         // 
         // EmailDialog
         // 
@@ -1006,4 +1057,6 @@ partial class EmailDialog
     public Button MenuButton;
     public SmallTip ToolTip;
     public System.Windows.Forms.Timer Timer;
+    public ContextMenu ContextMenu;
+    public Label StatusLabel;
 }

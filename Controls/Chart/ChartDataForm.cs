@@ -363,7 +363,7 @@ namespace BudgetExecution
         {
             InitializeComponent( );
             InitializeDelegates( );
-            InitializeCallbacks( );
+            RegisterCallbacks( );
 
             // Basic Properties
             Size = new Size( 1350, 750 );
@@ -402,8 +402,11 @@ namespace BudgetExecution
             // Timer Properties
             Time = 0;
             Seconds = 5;
+
+            // Event Wiring
             Load += OnLoad;
             Closing += OnClosing;
+            MouseClick += OnRightClick;
         }
 
         /// <inheritdoc />
@@ -527,7 +530,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the callbacks.
         /// </summary>
-        private void InitializeCallbacks( )
+        private void RegisterCallbacks()
         {
             try
             {
@@ -2727,7 +2730,10 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnTimerTick( object sender, EventArgs e ) => InvokeIf( _statusUpdate );
+        private void OnTimerTick( object sender, EventArgs e )
+        {
+            InvokeIf( _statusUpdate );
+        }
 
         /// <summary>
         /// Raises the Close event.

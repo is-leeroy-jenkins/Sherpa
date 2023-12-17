@@ -484,7 +484,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the callbacks.
         /// </summary>
-        private void InitializeCallbacks( )
+        private void RegisterCallbacks()
         {
             try
             {
@@ -698,7 +698,7 @@ namespace BudgetExecution
                 {
                     InitializeLabels( );
                     InitializeButtons( );
-                    InitializeCallbacks( );
+                    RegisterCallbacks();
                     PopulateListBox( );
                     FoundLabel.Text = "Found : " + FilePaths?.Count( );
                     Title.Text = $"{Extension} File Search";

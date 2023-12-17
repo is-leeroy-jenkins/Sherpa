@@ -186,7 +186,7 @@ namespace BudgetExecution
             MetroColor = Color.FromArgb( 20, 20, 20 );
             CaptionBarHeight = 5;
             CaptionAlign = HorizontalAlignment.Center;
-            CaptionFont = new Font( "Roboto", 12, FontStyle.Regular );
+            CaptionFont = new Font( "Roboto", 10, FontStyle.Regular );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionForeColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
@@ -256,7 +256,7 @@ namespace BudgetExecution
             try
             {
                 // Title Properties
-                Title.Font = new Font( "Roboto", 12 );
+                Title.Font = new Font( "Roboto", 10 );
                 Title.ForeColor = Color.FromArgb( 106, 189, 252 );
                 Title.TextAlign = ContentAlignment.TopLeft;
                 Title.Text = "Guidance Documents";
@@ -281,7 +281,6 @@ namespace BudgetExecution
             {
                 OpenFileDialog.Title = "Search for (*.pdf) Document";
                 OpenFileDialog.CheckPathExists = true;
-                OpenFileDialog.CheckFileExists = true;
             }
             catch( Exception _ex )
             {
@@ -296,7 +295,7 @@ namespace BudgetExecution
         {
             try
             {
-                Picture.Size = new Size( 24, 22 );
+                Picture.Size = new Size( 22, 20 );
                 Picture.SizeMode = PictureBoxSizeMode.StretchImage;
             }
             catch( Exception _ex )
@@ -564,6 +563,7 @@ namespace BudgetExecution
                     SelectedPath = Prefix + _path;
                     Minion.RunEdge( SelectedPath );
                     OpenMainForm( );
+                    Close( );
                 }
             }
             catch( Exception _ex )

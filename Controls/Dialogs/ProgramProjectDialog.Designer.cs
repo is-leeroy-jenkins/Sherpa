@@ -54,6 +54,9 @@ partial class ProgramProjectDialog
         CloseButton = new Button( );
         SearchButton = new Button( );
         Timer = new System.Windows.Forms.Timer( components );
+        ContextMenu = new ContextMenu( );
+        ButtonTable = new System.Windows.Forms.TableLayoutPanel( );
+        StatusLabel = new Label( );
         ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
         DescriptionTable.SuspendLayout( );
         StatuteTable.SuspendLayout( );
@@ -61,6 +64,7 @@ partial class ProgramProjectDialog
         ProgramProjectTable.SuspendLayout( );
         HeaderTable.SuspendLayout( );
         ( (System.ComponentModel.ISupportInitialize)pictureBox1 ).BeginInit( );
+        ButtonTable.SuspendLayout( );
         SuspendLayout( );
         // 
         // StatutoryAuthorityTextBox
@@ -73,7 +77,7 @@ partial class ProgramProjectDialog
         StatutoryAuthorityTextBox.DisabledBorderColor = System.Drawing.Color.FromArgb( 155, 155, 155 );
         StatutoryAuthorityTextBox.DisabledForeColor = System.Drawing.Color.FromArgb( 136, 136, 136 );
         StatutoryAuthorityTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-        StatutoryAuthorityTextBox.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+        StatutoryAuthorityTextBox.Font = new System.Drawing.Font( "Roboto", 9.75F );
         StatutoryAuthorityTextBox.HoverColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
         StatutoryAuthorityTextBox.HoverText = null;
         StatutoryAuthorityTextBox.IsDerivedStyle = true;
@@ -104,7 +108,7 @@ partial class ProgramProjectDialog
         ProgramDescriptionTextBox.DisabledBorderColor = System.Drawing.Color.FromArgb( 155, 155, 155 );
         ProgramDescriptionTextBox.DisabledForeColor = System.Drawing.Color.FromArgb( 136, 136, 136 );
         ProgramDescriptionTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-        ProgramDescriptionTextBox.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+        ProgramDescriptionTextBox.Font = new System.Drawing.Font( "Roboto", 9.75F );
         ProgramDescriptionTextBox.HoverColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
         ProgramDescriptionTextBox.HoverText = null;
         ProgramDescriptionTextBox.IsDerivedStyle = true;
@@ -135,7 +139,7 @@ partial class ProgramProjectDialog
         ProgramAreaNameTextBox.DisabledBorderColor = System.Drawing.Color.FromArgb( 155, 155, 155 );
         ProgramAreaNameTextBox.DisabledForeColor = System.Drawing.Color.FromArgb( 136, 136, 136 );
         ProgramAreaNameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-        ProgramAreaNameTextBox.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+        ProgramAreaNameTextBox.Font = new System.Drawing.Font( "Roboto", 9.75F );
         ProgramAreaNameTextBox.HoverColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
         ProgramAreaNameTextBox.HoverText = null;
         ProgramAreaNameTextBox.IsDerivedStyle = true;
@@ -166,7 +170,7 @@ partial class ProgramProjectDialog
         ProgramProjectNameTextBox.DisabledBorderColor = System.Drawing.Color.FromArgb( 155, 155, 155 );
         ProgramProjectNameTextBox.DisabledForeColor = System.Drawing.Color.FromArgb( 136, 136, 136 );
         ProgramProjectNameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-        ProgramProjectNameTextBox.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+        ProgramProjectNameTextBox.Font = new System.Drawing.Font( "Roboto", 9.75F );
         ProgramProjectNameTextBox.HoverColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
         ProgramProjectNameTextBox.HoverText = null;
         ProgramProjectNameTextBox.IsDerivedStyle = true;
@@ -195,7 +199,7 @@ partial class ProgramProjectDialog
         DescriptionTable.ColumnCount = 1;
         DescriptionTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
         DescriptionTable.Controls.Add( ProgramDescriptionTextBox, 0, 0 );
-        DescriptionTable.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+        DescriptionTable.Font = new System.Drawing.Font( "Roboto", 9.75F );
         DescriptionTable.ForeColor = System.Drawing.Color.DarkGray;
         DescriptionTable.Location = new System.Drawing.Point( 34, 291 );
         DescriptionTable.Name = "DescriptionTable";
@@ -212,7 +216,7 @@ partial class ProgramProjectDialog
         StatuteTable.ColumnCount = 1;
         StatuteTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
         StatuteTable.Controls.Add( StatutoryAuthorityTextBox, 0, 0 );
-        StatuteTable.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+        StatuteTable.Font = new System.Drawing.Font( "Roboto", 9.75F );
         StatuteTable.ForeColor = System.Drawing.Color.DarkGray;
         StatuteTable.Location = new System.Drawing.Point( 34, 78 );
         StatuteTable.Name = "StatuteTable";
@@ -229,7 +233,7 @@ partial class ProgramProjectDialog
         ProgramAreaTable.ColumnCount = 1;
         ProgramAreaTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
         ProgramAreaTable.Controls.Add( ProgramAreaNameTextBox, 0, 0 );
-        ProgramAreaTable.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+        ProgramAreaTable.Font = new System.Drawing.Font( "Roboto", 9.75F );
         ProgramAreaTable.ForeColor = System.Drawing.Color.DarkGray;
         ProgramAreaTable.Location = new System.Drawing.Point( 574, 78 );
         ProgramAreaTable.Name = "ProgramAreaTable";
@@ -246,7 +250,7 @@ partial class ProgramProjectDialog
         ProgramProjectTable.ColumnCount = 1;
         ProgramProjectTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
         ProgramProjectTable.Controls.Add( ProgramProjectNameTextBox, 0, 0 );
-        ProgramProjectTable.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+        ProgramProjectTable.Font = new System.Drawing.Font( "Roboto", 9.75F );
         ProgramProjectTable.ForeColor = System.Drawing.Color.DarkGray;
         ProgramProjectTable.Location = new System.Drawing.Point( 574, 173 );
         ProgramProjectTable.Name = "ProgramProjectTable";
@@ -306,7 +310,7 @@ partial class ProgramProjectDialog
         Header.DataFilter = null;
         Header.Dock = System.Windows.Forms.DockStyle.Fill;
         Header.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-        Header.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+        Header.Font = new System.Drawing.Font( "Roboto", 9.75F );
         Header.HoverText = null;
         Header.IsDerivedStyle = true;
         Header.Location = new System.Drawing.Point( 47, 3 );
@@ -341,7 +345,7 @@ partial class ProgramProjectDialog
         ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
         ComboBox.DropDownWidth = 80;
         ComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-        ComboBox.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+        ComboBox.Font = new System.Drawing.Font( "Roboto", 8F );
         ComboBox.FormattingEnabled = true;
         ComboBox.HoverText = null;
         ComboBox.IntegralHeight = false;
@@ -366,14 +370,14 @@ partial class ProgramProjectDialog
         MenuButton.DisabledBackColor = System.Drawing.Color.Transparent;
         MenuButton.DisabledBorderColor = System.Drawing.Color.Transparent;
         MenuButton.DisabledForeColor = System.Drawing.Color.Transparent;
-        MenuButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+        MenuButton.Font = new System.Drawing.Font( "Roboto", 8F );
         MenuButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-        MenuButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+        MenuButton.HoverBorderColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         MenuButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
-        MenuButton.HoverText = "Back To Main Menu";
+        MenuButton.HoverText = "Back To Menu";
         MenuButton.HoverTextColor = System.Drawing.Color.White;
         MenuButton.IsDerivedStyle = true;
-        MenuButton.Location = new System.Drawing.Point( 578, 565 );
+        MenuButton.Location = new System.Drawing.Point( 570, 3 );
         MenuButton.Name = "MenuButton";
         MenuButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
         MenuButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
@@ -398,14 +402,14 @@ partial class ProgramProjectDialog
         CloseButton.DisabledBackColor = System.Drawing.Color.Transparent;
         CloseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
         CloseButton.DisabledForeColor = System.Drawing.Color.Transparent;
-        CloseButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+        CloseButton.Font = new System.Drawing.Font( "Roboto", 8F );
         CloseButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-        CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+        CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         CloseButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
-        CloseButton.HoverText = "Close Application";
+        CloseButton.HoverText = "Close Projects";
         CloseButton.HoverTextColor = System.Drawing.Color.White;
         CloseButton.IsDerivedStyle = true;
-        CloseButton.Location = new System.Drawing.Point( 936, 565 );
+        CloseButton.Location = new System.Drawing.Point( 934, 3 );
         CloseButton.Name = "CloseButton";
         CloseButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
         CloseButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
@@ -430,14 +434,14 @@ partial class ProgramProjectDialog
         SearchButton.DisabledBackColor = System.Drawing.Color.Transparent;
         SearchButton.DisabledBorderColor = System.Drawing.Color.Transparent;
         SearchButton.DisabledForeColor = System.Drawing.Color.Transparent;
-        SearchButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+        SearchButton.Font = new System.Drawing.Font( "Roboto", 8F );
         SearchButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-        SearchButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+        SearchButton.HoverBorderColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         SearchButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
         SearchButton.HoverText = "Domain Search";
         SearchButton.HoverTextColor = System.Drawing.Color.White;
         SearchButton.IsDerivedStyle = true;
-        SearchButton.Location = new System.Drawing.Point( 251, 565 );
+        SearchButton.Location = new System.Drawing.Point( 257, 3 );
         SearchButton.Name = "SearchButton";
         SearchButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
         SearchButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
@@ -460,6 +464,72 @@ partial class ProgramProjectDialog
         Timer.Enabled = true;
         Timer.Interval = 1000;
         // 
+        // ContextMenu
+        // 
+        ContextMenu.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+        ContextMenu.DropShadowEnabled = false;
+        ContextMenu.Font = new System.Drawing.Font( "Roboto", 9F );
+        ContextMenu.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+        ContextMenu.MetroColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+        ContextMenu.Name = "ContextMenu";
+        ContextMenu.Size = new System.Drawing.Size( 126, 180 );
+        ContextMenu.Style = Syncfusion.Windows.Forms.Tools.ContextMenuStripEx.ContextMenuStyle.Office2016Black;
+        ContextMenu.ThemeName = "Office2016Black";
+        ContextMenu.ThemeStyle.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+        ContextMenu.ThemeStyle.BorderColor = System.Drawing.Color.FromArgb( 77, 77, 77 );
+        ContextMenu.ThemeStyle.DisabledForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+        ContextMenu.ThemeStyle.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+        ContextMenu.ThemeStyle.HoverBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+        ContextMenu.ThemeStyle.HoverForeColor = System.Drawing.Color.White;
+        ContextMenu.ThemeStyle.PressedBackColor = System.Drawing.Color.FromArgb( 204, 204, 204 );
+        ContextMenu.ThemeStyle.PressedForeColor = System.Drawing.Color.Black;
+        // 
+        // ButtonTable
+        // 
+        ButtonTable.ColumnCount = 8;
+        ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 61.4886742F ) );
+        ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 38.5113258F ) );
+        ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 179F ) );
+        ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 134F ) );
+        ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 157F ) );
+        ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 207F ) );
+        ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 102F ) );
+        ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 20F ) );
+        ButtonTable.Controls.Add( StatusLabel, 0, 0 );
+        ButtonTable.Controls.Add( CloseButton, 6, 0 );
+        ButtonTable.Controls.Add( MenuButton, 4, 0 );
+        ButtonTable.Controls.Add( SearchButton, 2, 0 );
+        ButtonTable.Dock = System.Windows.Forms.DockStyle.Bottom;
+        ButtonTable.Location = new System.Drawing.Point( 0, 565 );
+        ButtonTable.Name = "ButtonTable";
+        ButtonTable.RowCount = 1;
+        ButtonTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+        ButtonTable.Size = new System.Drawing.Size( 1054, 38 );
+        ButtonTable.TabIndex = 24;
+        // 
+        // StatusLabel
+        // 
+        StatusLabel.BindingSource = BindingSource;
+        StatusLabel.DataFilter = null;
+        StatusLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+        StatusLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+        StatusLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
+        StatusLabel.HoverText = null;
+        StatusLabel.IsDerivedStyle = true;
+        StatusLabel.Location = new System.Drawing.Point( 3, 3 );
+        StatusLabel.Margin = new System.Windows.Forms.Padding( 3 );
+        StatusLabel.Name = "StatusLabel";
+        StatusLabel.Padding = new System.Windows.Forms.Padding( 1 );
+        StatusLabel.Size = new System.Drawing.Size( 150, 32 );
+        StatusLabel.Style = MetroSet_UI.Enums.Style.Custom;
+        StatusLabel.StyleManager = null;
+        StatusLabel.TabIndex = 0;
+        StatusLabel.Text = "Date and Time";
+        StatusLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+        StatusLabel.ThemeAuthor = "Terry D. Eppler";
+        StatusLabel.ThemeName = "Budget Execution";
+        StatusLabel.ToolTip = ToolTip;
+        // 
         // ProgramProjectDialog
         // 
         AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
@@ -471,7 +541,7 @@ partial class ProgramProjectDialog
         CaptionBarHeight = 5;
         CaptionButtonColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-        CaptionFont = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point );
+        CaptionFont = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Bold );
         CaptionForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         captionImage1.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         captionImage1.Image = Resources.Images.EPA;
@@ -480,16 +550,14 @@ partial class ProgramProjectDialog
         captionImage1.Size = new System.Drawing.Size( 42, 16 );
         CaptionImages.Add( captionImage1 );
         ClientSize = new System.Drawing.Size( 1054, 603 );
-        Controls.Add( SearchButton );
-        Controls.Add( CloseButton );
-        Controls.Add( MenuButton );
+        Controls.Add( ButtonTable );
         Controls.Add( ComboBox );
         Controls.Add( HeaderTable );
         Controls.Add( ProgramProjectTable );
         Controls.Add( ProgramAreaTable );
         Controls.Add( StatuteTable );
         Controls.Add( DescriptionTable );
-        Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+        Font = new System.Drawing.Font( "Roboto", 9F );
         ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
         Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
@@ -512,6 +580,7 @@ partial class ProgramProjectDialog
         ProgramProjectTable.ResumeLayout( false );
         HeaderTable.ResumeLayout( false );
         ( (System.ComponentModel.ISupportInitialize)pictureBox1 ).EndInit( );
+        ButtonTable.ResumeLayout( false );
         ResumeLayout( false );
     }
 
@@ -534,4 +603,7 @@ partial class ProgramProjectDialog
     public Button CloseButton;
     public Button SearchButton;
     public System.Windows.Forms.Timer Timer;
+    private ContextMenu ContextMenu;
+    public System.Windows.Forms.TableLayoutPanel ButtonTable;
+    public Label StatusLabel;
 }

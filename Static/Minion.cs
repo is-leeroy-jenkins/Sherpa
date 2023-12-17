@@ -132,7 +132,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _app = AppSettings[ nameof( Reports ) ];
+                var _app = AppSettings[ "Reports" ];
                 var _startInfo = new ProcessStartInfo( );
                 _startInfo.UseShellExecute = true;
                 _startInfo.LoadUserProfile = true;
@@ -155,7 +155,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _app = AppSettings[ nameof( Reports ) ];
+                var _app = AppSettings[ "Reports" ];
                 var _startInfo = new ProcessStartInfo( );
                 _startInfo.UseShellExecute = true;
                 if( !string.IsNullOrEmpty( _app ) )

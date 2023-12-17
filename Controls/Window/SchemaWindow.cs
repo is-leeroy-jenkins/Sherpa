@@ -244,7 +244,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the callbacks.
         /// </summary>
-        private void InitializeCallbacks( )
+        private void RegisterCallbacks()
         {
             try
             {
@@ -386,7 +386,7 @@ namespace BudgetExecution
         {
             try
             {
-                InitializeCallbacks( );
+                RegisterCallbacks();
                 InitializeButtons( );
                 InitializeTabControl( );
                 InitializeComboBoxes( );

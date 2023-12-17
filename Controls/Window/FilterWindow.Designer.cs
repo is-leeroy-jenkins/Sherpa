@@ -383,7 +383,7 @@ partial class FilterWindow
         TabControl.ActiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         TabControl.ActiveTabFont = new System.Drawing.Font( "Roboto", 8F );
         TabControl.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-        TabControl.BeforeTouchSize = new System.Drawing.Size( 1328, 544 );
+        TabControl.BeforeTouchSize = new System.Drawing.Size( 1349, 544 );
         TabControl.BindingSource = null;
         TabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
         TabControl.CanOverrideStyle = true;
@@ -403,7 +403,7 @@ partial class FilterWindow
         TabControl.ItemSize = new System.Drawing.Size( 100, 30 );
         TabControl.Location = new System.Drawing.Point( 0, 0 );
         TabControl.Name = "TabControl";
-        TabControl.Size = new System.Drawing.Size( 1328, 544 );
+        TabControl.Size = new System.Drawing.Size( 1349, 544 );
         TabControl.TabIndex = 12;
         TabControl.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         TabControl.TabStyle = typeof( Syncfusion.Windows.Forms.Tools.TabRendererMetro );
@@ -431,7 +431,7 @@ partial class FilterWindow
         TableTabPage.Location = new System.Drawing.Point( 0, 29 );
         TableTabPage.Name = "TableTabPage";
         TableTabPage.ShowCloseButton = true;
-        TableTabPage.Size = new System.Drawing.Size( 1328, 515 );
+        TableTabPage.Size = new System.Drawing.Size( 1349, 515 );
         TableTabPage.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         TableTabPage.TabFont = new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Bold );
         TableTabPage.TabForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
@@ -451,7 +451,7 @@ partial class FilterWindow
         SourceHeader.Margin = new System.Windows.Forms.Padding( 3 );
         SourceHeader.Name = "SourceHeader";
         SourceHeader.Padding = new System.Windows.Forms.Padding( 1 );
-        SourceHeader.Size = new System.Drawing.Size( 1328, 30 );
+        SourceHeader.Size = new System.Drawing.Size( 1349, 30 );
         SourceHeader.Style = MetroSet_UI.Enums.Style.Custom;
         SourceHeader.StyleManager = null;
         SourceHeader.TabIndex = 15;
@@ -517,7 +517,7 @@ partial class FilterWindow
         MaintenanceListBox.HoverText = null;
         MaintenanceListBox.IsDerivedStyle = true;
         MaintenanceListBox.ItemHeight = 28;
-        MaintenanceListBox.Location = new System.Drawing.Point( 32, 27 );
+        MaintenanceListBox.Location = new System.Drawing.Point( 25, 27 );
         MaintenanceListBox.Margin = new System.Windows.Forms.Padding( 1 );
         MaintenanceListBox.MultiSelect = true;
         MaintenanceListBox.Name = "MaintenanceListBox";
@@ -530,7 +530,7 @@ partial class FilterWindow
         MaintenanceListBox.SelectedValue = null;
         MaintenanceListBox.ShowBorder = false;
         MaintenanceListBox.ShowScrollBar = false;
-        MaintenanceListBox.Size = new System.Drawing.Size( 210, 286 );
+        MaintenanceListBox.Size = new System.Drawing.Size( 223, 286 );
         MaintenanceListBox.Style = MetroSet_UI.Enums.Style.Custom;
         MaintenanceListBox.StyleManager = null;
         MaintenanceListBox.TabIndex = 1;
@@ -595,7 +595,7 @@ partial class FilterWindow
         ReferenceListBox.HoverText = null;
         ReferenceListBox.IsDerivedStyle = true;
         ReferenceListBox.ItemHeight = 28;
-        ReferenceListBox.Location = new System.Drawing.Point( 32, 27 );
+        ReferenceListBox.Location = new System.Drawing.Point( 22, 27 );
         ReferenceListBox.Margin = new System.Windows.Forms.Padding( 1 );
         ReferenceListBox.MultiSelect = true;
         ReferenceListBox.Name = "ReferenceListBox";
@@ -608,7 +608,7 @@ partial class FilterWindow
         ReferenceListBox.SelectedValue = null;
         ReferenceListBox.ShowBorder = false;
         ReferenceListBox.ShowScrollBar = false;
-        ReferenceListBox.Size = new System.Drawing.Size( 210, 286 );
+        ReferenceListBox.Size = new System.Drawing.Size( 228, 286 );
         ReferenceListBox.Style = MetroSet_UI.Enums.Style.Custom;
         ReferenceListBox.StyleManager = null;
         ReferenceListBox.TabIndex = 1;
@@ -673,7 +673,7 @@ partial class FilterWindow
         TableListBox.HoverText = null;
         TableListBox.IsDerivedStyle = true;
         TableListBox.ItemHeight = 28;
-        TableListBox.Location = new System.Drawing.Point( 32, 27 );
+        TableListBox.Location = new System.Drawing.Point( 20, 27 );
         TableListBox.Margin = new System.Windows.Forms.Padding( 1 );
         TableListBox.MultiSelect = true;
         TableListBox.Name = "TableListBox";
@@ -686,7 +686,7 @@ partial class FilterWindow
         TableListBox.SelectedValue = null;
         TableListBox.ShowBorder = false;
         TableListBox.ShowScrollBar = false;
-        TableListBox.Size = new System.Drawing.Size( 210, 286 );
+        TableListBox.Size = new System.Drawing.Size( 229, 286 );
         TableListBox.Style = MetroSet_UI.Enums.Style.Custom;
         TableListBox.StyleManager = null;
         TableListBox.TabIndex = 1;
@@ -853,7 +853,7 @@ partial class FilterWindow
         FilterTabPage.Location = new System.Drawing.Point( 0, 29 );
         FilterTabPage.Name = "FilterTabPage";
         FilterTabPage.ShowCloseButton = true;
-        FilterTabPage.Size = new System.Drawing.Size( 1328, 515 );
+        FilterTabPage.Size = new System.Drawing.Size( 1349, 515 );
         FilterTabPage.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         FilterTabPage.TabFont = new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Bold );
         FilterTabPage.TabForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
@@ -873,7 +873,7 @@ partial class FilterWindow
         FilterHeader.Margin = new System.Windows.Forms.Padding( 3 );
         FilterHeader.Name = "FilterHeader";
         FilterHeader.Padding = new System.Windows.Forms.Padding( 1 );
-        FilterHeader.Size = new System.Drawing.Size( 1328, 30 );
+        FilterHeader.Size = new System.Drawing.Size( 1349, 30 );
         FilterHeader.Style = MetroSet_UI.Enums.Style.Custom;
         FilterHeader.StyleManager = null;
         FilterHeader.TabIndex = 16;
@@ -1164,7 +1164,7 @@ partial class FilterWindow
         GroupTabPage.Location = new System.Drawing.Point( 0, 29 );
         GroupTabPage.Name = "GroupTabPage";
         GroupTabPage.ShowCloseButton = true;
-        GroupTabPage.Size = new System.Drawing.Size( 1328, 515 );
+        GroupTabPage.Size = new System.Drawing.Size( 1349, 515 );
         GroupTabPage.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         GroupTabPage.TabFont = new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Bold );
         GroupTabPage.TabForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
@@ -1184,7 +1184,7 @@ partial class FilterWindow
         GroupHeader.Margin = new System.Windows.Forms.Padding( 3 );
         GroupHeader.Name = "GroupHeader";
         GroupHeader.Padding = new System.Windows.Forms.Padding( 1 );
-        GroupHeader.Size = new System.Drawing.Size( 1328, 30 );
+        GroupHeader.Size = new System.Drawing.Size( 1349, 30 );
         GroupHeader.Style = MetroSet_UI.Enums.Style.Custom;
         GroupHeader.StyleManager = null;
         GroupHeader.TabIndex = 17;
@@ -1440,7 +1440,7 @@ partial class FilterWindow
         CalendarTabPage.Location = new System.Drawing.Point( 0, 29 );
         CalendarTabPage.Name = "CalendarTabPage";
         CalendarTabPage.ShowCloseButton = true;
-        CalendarTabPage.Size = new System.Drawing.Size( 1328, 515 );
+        CalendarTabPage.Size = new System.Drawing.Size( 1349, 515 );
         CalendarTabPage.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         CalendarTabPage.TabFont = new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Bold );
         CalendarTabPage.TabForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
@@ -1652,7 +1652,7 @@ partial class FilterWindow
         TimeSpanHeader.Margin = new System.Windows.Forms.Padding( 3 );
         TimeSpanHeader.Name = "TimeSpanHeader";
         TimeSpanHeader.Padding = new System.Windows.Forms.Padding( 1 );
-        TimeSpanHeader.Size = new System.Drawing.Size( 1328, 30 );
+        TimeSpanHeader.Size = new System.Drawing.Size( 1349, 30 );
         TimeSpanHeader.Style = MetroSet_UI.Enums.Style.Custom;
         TimeSpanHeader.StyleManager = null;
         TimeSpanHeader.TabIndex = 18;
@@ -1904,7 +1904,7 @@ partial class FilterWindow
         SqlTabPage.Location = new System.Drawing.Point( 0, 29 );
         SqlTabPage.Name = "SqlTabPage";
         SqlTabPage.ShowCloseButton = true;
-        SqlTabPage.Size = new System.Drawing.Size( 1328, 515 );
+        SqlTabPage.Size = new System.Drawing.Size( 1349, 515 );
         SqlTabPage.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         SqlTabPage.TabForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         SqlTabPage.TabIndex = 5;
@@ -2201,13 +2201,13 @@ partial class FilterWindow
         CloseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
         CloseButton.DisabledForeColor = System.Drawing.Color.Transparent;
         CloseButton.Font = new System.Drawing.Font( "Roboto", 8F );
-        CloseButton.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-        CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+        CloseButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+        CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         CloseButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
         CloseButton.HoverText = "Close Window";
         CloseButton.HoverTextColor = System.Drawing.Color.White;
         CloseButton.IsDerivedStyle = true;
-        CloseButton.Location = new System.Drawing.Point( 1108, 550 );
+        CloseButton.Location = new System.Drawing.Point( 1110, 582 );
         CloseButton.Name = "CloseButton";
         CloseButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
         CloseButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
@@ -2233,13 +2233,13 @@ partial class FilterWindow
         SelectButton.DisabledBorderColor = System.Drawing.Color.Transparent;
         SelectButton.DisabledForeColor = System.Drawing.Color.Transparent;
         SelectButton.Font = new System.Drawing.Font( "Roboto", 8F );
-        SelectButton.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-        SelectButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+        SelectButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+        SelectButton.HoverBorderColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         SelectButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
         SelectButton.HoverText = "Choose Selected";
         SelectButton.HoverTextColor = System.Drawing.Color.White;
         SelectButton.IsDerivedStyle = true;
-        SelectButton.Location = new System.Drawing.Point( 789, 550 );
+        SelectButton.Location = new System.Drawing.Point( 783, 582 );
         SelectButton.Name = "SelectButton";
         SelectButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
         SelectButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
@@ -2255,7 +2255,7 @@ partial class FilterWindow
         SelectButton.Text = "Select";
         SelectButton.ThemeAuthor = "Terry D. Eppler";
         SelectButton.ThemeName = "Budget Execution";
-        SelectButton.ToolTip = null;
+        SelectButton.ToolTip = ToolTip;
         // 
         // GroupButton
         // 
@@ -2265,13 +2265,13 @@ partial class FilterWindow
         GroupButton.DisabledBorderColor = System.Drawing.Color.Transparent;
         GroupButton.DisabledForeColor = System.Drawing.Color.Transparent;
         GroupButton.Font = new System.Drawing.Font( "Roboto", 8F );
-        GroupButton.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-        GroupButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+        GroupButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+        GroupButton.HoverBorderColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         GroupButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
         GroupButton.HoverText = "Group Selections";
         GroupButton.HoverTextColor = System.Drawing.Color.White;
         GroupButton.IsDerivedStyle = true;
-        GroupButton.Location = new System.Drawing.Point( 429, 550 );
+        GroupButton.Location = new System.Drawing.Point( 424, 582 );
         GroupButton.Name = "GroupButton";
         GroupButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
         GroupButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
@@ -2287,7 +2287,7 @@ partial class FilterWindow
         GroupButton.Text = "Group";
         GroupButton.ThemeAuthor = "Terry D. Eppler";
         GroupButton.ThemeName = "Budget Execution";
-        GroupButton.ToolTip = null;
+        GroupButton.ToolTip = ToolTip;
         // 
         // ClearButton
         // 
@@ -2297,13 +2297,13 @@ partial class FilterWindow
         ClearButton.DisabledBorderColor = System.Drawing.Color.Transparent;
         ClearButton.DisabledForeColor = System.Drawing.Color.Transparent;
         ClearButton.Font = new System.Drawing.Font( "Roboto", 8F );
-        ClearButton.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-        ClearButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+        ClearButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+        ClearButton.HoverBorderColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         ClearButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
         ClearButton.HoverText = "Clear Selections";
         ClearButton.HoverTextColor = System.Drawing.Color.White;
         ClearButton.IsDerivedStyle = true;
-        ClearButton.Location = new System.Drawing.Point( 115, 550 );
+        ClearButton.Location = new System.Drawing.Point( 115, 582 );
         ClearButton.Name = "ClearButton";
         ClearButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
         ClearButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
@@ -2319,9 +2319,9 @@ partial class FilterWindow
         ClearButton.Text = "Clear";
         ClearButton.ThemeAuthor = "Terry D. Eppler";
         ClearButton.ThemeName = "Budget Execution";
-        ClearButton.ToolTip = null;
+        ClearButton.ToolTip = ToolTip;
         // 
-        // FilterDialog
+        // FilterWindow
         // 
         AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -2334,7 +2334,7 @@ partial class FilterWindow
         CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         CaptionFont = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Bold );
         CaptionForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-        ClientSize = new System.Drawing.Size( 1328, 636 );
+        ClientSize = new System.Drawing.Size( 1349, 724 );
         ControlBox = false;
         Controls.Add( ClearButton );
         Controls.Add( GroupButton );
@@ -2347,10 +2347,10 @@ partial class FilterWindow
         FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
         Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
         MaximizeBox = false;
-        MaximumSize = new System.Drawing.Size( 1340, 648 );
+        MaximumSize = new System.Drawing.Size( 1349, 730 );
         MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         MinimizeBox = false;
-        MinimumSize = new System.Drawing.Size( 1340, 648 );
+        MinimumSize = new System.Drawing.Size( 1349, 730 );
         Name = "FilterWindow";
         ShowIcon = false;
         ShowMaximizeBox = false;

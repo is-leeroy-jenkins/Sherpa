@@ -1,50 +1,51 @@
-﻿//  ******************************************************************************************
-//      Assembly:                Budget Execution
-//      Filename:                EmailDialog.cs
-//      Author:                  Terry D. Eppler
-//      Created:                 05-31-2023
+﻿// ******************************************************************************************
+//     Assembly:                Budget Execution
+//     Author:                  Terry D. Eppler
+//     Created:                 12-16-2023
 // 
-//      Last Modified By:        Terry D. Eppler
-//      Last Modified On:        06-01-2023
-//  ******************************************************************************************
-//  <copyright file="EmailDialog.cs" company="Terry D. Eppler">
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        12-16-2023
+// ******************************************************************************************
+// <copyright file="EmailDialog.cs" company="Terry D. Eppler">
+//    Budget Execution is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2023  Terry Eppler
 // 
-//     This is a Federal Budget, Finance, and Accounting application for the
-//     US Environmental Protection Agency (US EPA).
-//     Copyright ©  2023  Terry Eppler
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
 // 
-//     Permission is hereby granted, free of charge, to any person obtaining a copy
-//     of this software and associated documentation files (the “Software”),
-//     to deal in the Software without restriction,
-//     including without limitation the rights to use,
-//     copy, modify, merge, publish, distribute, sublicense,
-//     and/or sell copies of the Software,
-//     and to permit persons to whom the Software is furnished to do so,
-//     subject to the following conditions:
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
 // 
-//     The above copyright notice and this permission notice shall be included in all
-//     copies or substantial portions of the Software.
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
 // 
-//     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//     FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//     DEALINGS IN THE SOFTWARE.
-// 
-//     You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
-// 
-//  </copyright>
-//  <summary>
-//    EmailDialog.cs
-//  </summary>
-//  ******************************************************************************************
+//    Contact at:   terryeppler@gmail.com or eppler.terry@epa.gov
+// </copyright>
+// <summary>
+//   EmailDialog.cs
+// </summary>
+// ******************************************************************************************
 
 namespace BudgetExecution
 {
     using System;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
+    using System.Drawing;
+    using System.Linq;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Drawing;
@@ -61,8 +62,19 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     public partial class EmailDialog : MetroForm
     {
+        /// <summary>
+        /// The busy
+        /// </summary>
+        private bool _busy;
+
+        /// <summary>
+        /// The status update
+        /// </summary>
+        private Action _statusUpdate;
+
         /// <summary>
         /// Gets or sets the time.
         /// </summary>
@@ -79,6 +91,26 @@ namespace BudgetExecution
         /// </value>
         public int Seconds { get; set; }
 
+        /// <summary>
+        /// Gets a value indicating whether this instance is busy.
+        /// </summary>
+        /// <value>
+        /// <c> true </c>
+        /// if this instance is busy; otherwise,
+        /// <c> false </c>
+        /// </value>
+        public bool IsBusy
+        {
+            get
+            {
+                return _busy;
+            }
+            private set
+            {
+                _busy = value;
+            }
+        }
+
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -87,28 +119,30 @@ namespace BudgetExecution
         public EmailDialog( )
         {
             InitializeComponent( );
+            InitializeDelegates( );
+            RegisterCallbacks();
 
             // Basic Properties
-            Size = new System.Drawing.Size( 981, 742 );
-            MaximumSize = new System.Drawing.Size( 981, 742 );
-            MinimumSize = new System.Drawing.Size( 981, 742 );
+            Size = new Size( 981, 742 );
+            MaximumSize = new Size( 981, 742 );
+            MinimumSize = new Size( 981, 742 );
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            BorderColor = Color.FromArgb( 0, 120, 212 );
             BorderThickness = 1;
-            BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            Font = new System.Drawing.Font( "Roboto", 9 );
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.FromArgb( 106, 189, 252 );
+            Font = new Font( "Roboto", 9 );
             ShowIcon = false;
             ShowInTaskbar = true;
-            MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            MetroColor = Color.FromArgb( 20, 20, 20 );
             CaptionBarHeight = 5;
             CaptionAlign = HorizontalAlignment.Center;
-            CaptionFont = new System.Drawing.Font( "Roboto", 10, System.Drawing.FontStyle.Regular );
-            CaptionBarColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            CaptionForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            CaptionButtonColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            CaptionFont = new Font( "Roboto", 10, FontStyle.Regular );
+            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
+            CaptionForeColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
             SizeGripStyle = SizeGripStyle.Hide;
             AutoScaleMode = AutoScaleMode.Font;
             DoubleBuffered = true;
@@ -123,15 +157,195 @@ namespace BudgetExecution
 
             // Event Wiring
             Load += OnLoad;
-            CloseButton.Click += OnCloseButtonClick;
-            ClearButton.Click += OnClearButtonClick;
-            FirstTile.Click += OnFirstTileClick;
-            SecondTile.Click += OnSecondTileClick;
-            ThirdTile.Click += OnThirdTileClick;
-            FirstRadioButton.Click += OnFirstRadioButtonSelected;
-            SecondRadioButton.Click += OnSecondRadioButtonSelected;
-            ThirdRadioButton.Click += OnThirdRadioButtonSelected;
-            MenuButton.Click += OnMainMenuButtonClicked;
+            MouseClick += OnRightClick;
+        }
+
+        /// <summary>
+        /// Initializes the buttons.
+        /// </summary>
+        private void InitializeButtons( )
+        {
+            try
+            {
+                ClearButton.ForeColor = Color.FromArgb( 106, 189, 252 );
+                ClearButton.HoverBorderColor = Color.FromArgb( 106, 189, 252 );
+                ClearButton.HoverTextColor = Color.White;
+                CloseButton.ForeColor = Color.FromArgb( 106, 189, 252 );
+                CloseButton.HoverBorderColor = Color.FromArgb( 106, 189, 252 );
+                CloseButton.HoverTextColor = Color.White;
+                MenuButton.ForeColor = Color.FromArgb( 106, 189, 252 );
+                MenuButton.HoverBorderColor = Color.FromArgb( 106, 189, 252 );
+                MenuButton.HoverTextColor = Color.White;
+                FirstTile.HoveredBorderColor = Color.FromArgb( 106, 189, 252 );
+                FirstTile.Title.TextColor = Color.FromArgb( 106, 189, 252 );
+                SecondTile.HoveredBorderColor = Color.FromArgb( 106, 189, 252 );
+                SecondTile.Title.TextColor = Color.FromArgb( 106, 189, 252 );
+                ThirdTile.HoveredBorderColor = Color.FromArgb( 106, 189, 252 );
+                ThirdTile.Title.TextColor = Color.FromArgb( 106, 189, 252 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the delegates.
+        /// </summary>
+        private void InitializeDelegates( )
+        {
+            _statusUpdate += UpdateStatus;
+        }
+
+        /// <summary>
+        /// Initializes the callbacks.
+        /// </summary>
+        private void RegisterCallbacks()
+        {
+            try
+            {
+                CloseButton.Click += OnCloseButtonClick;
+                ClearButton.Click += OnClearButtonClick;
+                FirstTile.Click += OnFirstTileClick;
+                SecondTile.Click += OnSecondTileClick;
+                ThirdTile.Click += OnThirdTileClick;
+                FirstRadioButton.Click += OnFirstRadioButtonSelected;
+                SecondRadioButton.Click += OnSecondRadioButtonSelected;
+                ThirdRadioButton.Click += OnThirdRadioButtonSelected;
+                MenuButton.Click += OnMainMenuButtonClicked;
+                Timer.Tick += OnTimerTick;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the radio buttons.
+        /// </summary>
+        private void InitializeRadioButtons( )
+        {
+            try
+            {
+                FirstRadioButton.ForeColor = Color.FromArgb( 106, 189, 252 );
+                SecondRadioButton.ForeColor = Color.FromArgb( 106, 189, 252 );
+                ThirdRadioButton.ForeColor = Color.FromArgb( 106, 189, 252 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the labels.
+        /// </summary>
+        private void InitializeLabels( )
+        {
+            try
+            {
+                Title.ForeColor = Color.FromArgb( 106, 189, 252 );
+                Title.Text = "Email";
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the timers.
+        /// </summary>
+        private void InitializeTimers( )
+        {
+            try
+            {
+                // Timer Properties
+                Timer.Enabled = true;
+                Timer.Interval = 500;
+                Timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the editor.
+        /// </summary>
+        private void InitializeEditor( )
+        {
+            try
+            {
+                Editor.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+                Editor.AlwaysShowScrollers = true;
+                Editor.BackColor = SystemColors.ControlLight;
+                Editor.ForeColor = Color.Black;
+                Editor.BackgroundColor = new BrushInfo( SystemColors.ControlLight );
+                Editor.BorderStyle = BorderStyle.FixedSingle;
+                Editor.CanOverrideStyle = true;
+                Editor.CanApplyTheme = true;
+                Editor.ColumnGuidesMeasuringFont = new Font( "Roboto", 8 );
+                Editor.ContextChoiceFont = new Font( "Roboto", 8 );
+                Editor.ContextChoiceForeColor = Color.Black;
+                Editor.ContextChoiceBackColor = SystemColors.ControlLight;
+                Editor.ContextPromptBorderColor = Color.FromArgb( 0, 120, 212 );
+                Editor.ContextPromptBackgroundBrush =
+                    new BrushInfo( Color.FromArgb( 233, 166, 50 ) );
+
+                Editor.ContextTooltipBackgroundBrush =
+                    new BrushInfo( Color.FromArgb( 233, 166, 50 ) );
+
+                Editor.ContextTooltipBorderColor = Color.FromArgb( 0, 120, 212 );
+                Editor.EndOfLineBackColor = SystemColors.ControlLight;
+                Editor.EndOfLineForeColor = SystemColors.ControlLight;
+                Editor.HighlightCurrentLine = true;
+                Editor.IndentationBlockBorderColor = Color.FromArgb( 0, 120, 212 );
+                Editor.IndentLineColor = Color.FromArgb( 50, 93, 129 );
+                Editor.IndicatorMarginBackColor = SystemColors.ControlLight;
+                Editor.CurrentLineHighlightColor = Color.FromArgb( 0, 120, 212 );
+                Editor.Font = new Font( "Roboto", 12 );
+                Editor.LineNumbersColor = Color.Black;
+                Editor.LineNumbersFont = new Font( "Roboto", 8, FontStyle.Bold );
+                Editor.ScrollVisualStyle = ScrollBarCustomDrawStyles.Office2016;
+                Editor.ScrollColorScheme = Office2007ColorScheme.Black;
+                Editor.SelectionTextColor = Color.FromArgb( 50, 93, 129 );
+                Editor.ShowEndOfLine = false;
+                Editor.Style = EditControlStyle.Office2016Black;
+                Editor.TabSize = 4;
+                Editor.TextAreaWidth = 400;
+                Editor.WordWrap = true;
+                Editor.WordWrapColumn = 100;
+                Editor.Dock = DockStyle.None;
+                Editor.Anchor = AnchorStyles.Top
+                    | AnchorStyles.Bottom
+                    | AnchorStyles.Left
+                    | AnchorStyles.Right;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Invokes if.
+        /// </summary>
+        /// <param name="action">
+        /// The action.
+        /// </param>
+        public void InvokeIf( Action action )
+        {
+            if( InvokeRequired )
+            {
+                BeginInvoke( action );
+            }
+            else
+            {
+                action.Invoke( );
+            }
         }
 
         /// <summary>
@@ -165,6 +379,42 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Gets the controls.
+        /// </summary>
+        /// <returns>
+        /// </returns>
+        private IEnumerable<Control> GetControls( )
+        {
+            var _list = new List<Control>( );
+            var _queue = new Queue( );
+            try
+            {
+                _queue.Enqueue( Controls );
+                while( _queue.Count > 0 )
+                {
+                    var _collection = (Control.ControlCollection)_queue.Dequeue( );
+                    if( _collection?.Count > 0 )
+                    {
+                        foreach( Control _control in _collection )
+                        {
+                            _list.Add( _control );
+                            _queue.Enqueue( _control.Controls );
+                        }
+                    }
+                }
+
+                return _list?.Any( ) == true
+                    ? _list.ToArray( )
+                    : default( Control[ ] );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( Control[ ] );
+            }
+        }
+
+        /// <summary>
         /// Updates the title text.
         /// </summary>
         /// <param name="text">The text.</param>
@@ -184,14 +434,14 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes the buttons.
+        /// Updates the status.
         /// </summary>
-        private void InitializeButtons( )
+        private void UpdateStatus( )
         {
             try
             {
-                ClearButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-                CloseButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+                var _now = DateTime.Now;
+                StatusLabel.Text = $"{_now.ToShortDateString( )} - {_now.ToLongTimeString( )}";
             }
             catch( Exception _ex )
             {
@@ -200,94 +450,19 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes the radio buttons.
+        /// Begins the initialize.
         /// </summary>
-        private void InitializeRadioButtons( )
+        private void BeginInit( )
         {
-            try
-            {
-                FirstRadioButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-                SecondRadioButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-                ThirdRadioButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
+            _busy = true;
         }
 
         /// <summary>
-        /// Initializes the labels.
+        /// Ends the initialize.
         /// </summary>
-        private void InitializeLabels( )
+        private void EndInit( )
         {
-            try
-            {
-                Title.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-                Title.Text = "Email";
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the editor.
-        /// </summary>
-        private void InitializeEditor( )
-        {
-            try
-            {
-                Editor.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-                Editor.AlwaysShowScrollers = true;
-                Editor.BackColor = System.Drawing.SystemColors.ControlLight;
-                Editor.ForeColor = System.Drawing.Color.Black;
-                Editor.BackgroundColor = new BrushInfo( System.Drawing.SystemColors.ControlLight );
-                Editor.BorderStyle = BorderStyle.FixedSingle;
-                Editor.CanOverrideStyle = true;
-                Editor.CanApplyTheme = true;
-                Editor.ColumnGuidesMeasuringFont = new System.Drawing.Font( "Roboto", 8 );
-                Editor.ContextChoiceFont = new System.Drawing.Font( "Roboto", 8 );
-                Editor.ContextChoiceForeColor = System.Drawing.Color.Black;
-                Editor.ContextChoiceBackColor = System.Drawing.SystemColors.ControlLight;
-                Editor.ContextPromptBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-                Editor.ContextPromptBackgroundBrush =
-                    new BrushInfo( System.Drawing.Color.FromArgb( 233, 166, 50 ) );
-
-                Editor.ContextTooltipBackgroundBrush =
-                    new BrushInfo( System.Drawing.Color.FromArgb( 233, 166, 50 ) );
-
-                Editor.ContextTooltipBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-                Editor.EndOfLineBackColor = System.Drawing.SystemColors.ControlLight;
-                Editor.EndOfLineForeColor = System.Drawing.SystemColors.ControlLight;
-                Editor.HighlightCurrentLine = true;
-                Editor.IndentationBlockBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-                Editor.IndentLineColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
-                Editor.IndicatorMarginBackColor = System.Drawing.SystemColors.ControlLight;
-                Editor.CurrentLineHighlightColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-                Editor.Font = new System.Drawing.Font( "Roboto", 12 );
-                Editor.LineNumbersColor = System.Drawing.Color.Black;
-                Editor.LineNumbersFont = new System.Drawing.Font( "Roboto", 8, System.Drawing.FontStyle.Bold );
-                Editor.ScrollVisualStyle = ScrollBarCustomDrawStyles.Office2016;
-                Editor.ScrollColorScheme = Office2007ColorScheme.Black;
-                Editor.SelectionTextColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
-                Editor.ShowEndOfLine = false;
-                Editor.Style = EditControlStyle.Office2016Black;
-                Editor.TabSize = 4;
-                Editor.TextAreaWidth = 400;
-                Editor.WordWrap = true;
-                Editor.WordWrapColumn = 100;
-                Editor.Dock = DockStyle.None;
-                Editor.Anchor = AnchorStyles.Top
-                    | AnchorStyles.Bottom
-                    | AnchorStyles.Left
-                    | AnchorStyles.Right;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
+            _busy = false;
         }
 
         /// <summary>
@@ -301,7 +476,7 @@ namespace BudgetExecution
                 _timer.Interval = 10;
                 _timer.Tick += ( sender, args ) =>
                 {
-                    if( Opacity == 0d )
+                    if( Opacity == 1d )
                     {
                         _timer.Stop( );
                     }
@@ -328,7 +503,7 @@ namespace BudgetExecution
                 _timer.Interval = 10;
                 _timer.Tick += ( sender, args ) =>
                 {
-                    if( Opacity == 1d )
+                    if( Opacity == 0d )
                     {
                         _timer.Stop( );
                     }
@@ -345,14 +520,15 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Notifies this instance.
+        /// Notifies the specified message.
         /// </summary>
-        private void Notify( )
+        /// <param name="message">The message.</param>
+        private void SendNotification( string message )
         {
             try
             {
-                var _message = "THIS IS NOT YET IMPLEMENTED!";
-                var _notification = new SplashMessage( _message );
+                ThrowIf.NullOrEmpty( message, nameof( message ) );
+                var _notification = new SplashMessage( message );
                 _notification.Show( );
             }
             catch( Exception _ex )
@@ -396,6 +572,7 @@ namespace BudgetExecution
         {
             try
             {
+                InitializeTimers( );
                 InitializeButtons( );
                 InitializeRadioButtons( );
                 InitializeLabels( );
@@ -420,7 +597,8 @@ namespace BudgetExecution
         {
             try
             {
-                Notify( );
+                var _message = "THIS IS NOT IMPLEMENTED!";
+                SendNotification( _message );
             }
             catch( Exception _ex )
             {
@@ -438,7 +616,8 @@ namespace BudgetExecution
         {
             try
             {
-                Notify( );
+                var _message = "THIS IS NOT IMPLEMENTED!";
+                SendNotification( _message );
             }
             catch( Exception _ex )
             {
@@ -456,7 +635,8 @@ namespace BudgetExecution
         {
             try
             {
-                Notify( );
+                var _message = "THIS IS NOT IMPLEMENTED!";
+                SendNotification( _message );
             }
             catch( Exception _ex )
             {
@@ -528,7 +708,8 @@ namespace BudgetExecution
         {
             try
             {
-                Notify( );
+                var _message = "THIS IS NOT IMPLEMENTED!";
+                SendNotification( _message );
             }
             catch( Exception _ex )
             {
@@ -546,7 +727,8 @@ namespace BudgetExecution
         {
             try
             {
-                Notify( );
+                var _message = "THIS IS NOT IMPLEMENTED!";
+                SendNotification( _message );
             }
             catch( Exception _ex )
             {
@@ -564,7 +746,8 @@ namespace BudgetExecution
         {
             try
             {
-                Notify( );
+                var _message = "THIS IS NOT IMPLEMENTED!";
+                SendNotification( _message );
             }
             catch( Exception _ex )
             {
@@ -582,7 +765,8 @@ namespace BudgetExecution
         {
             try
             {
-                Notify( );
+                var _message = "THIS IS NOT IMPLEMENTED!";
+                SendNotification( _message );
             }
             catch( Exception _ex )
             {
@@ -600,7 +784,8 @@ namespace BudgetExecution
         {
             try
             {
-                Notify( );
+                var _message = "THIS IS NOT IMPLEMENTED!";
+                SendNotification( _message );
             }
             catch( Exception _ex )
             {
@@ -644,6 +829,38 @@ namespace BudgetExecution
             {
                 Fail( _ex );
             }
+        }
+
+        /// <summary>
+        /// Called when [right click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnRightClick( object sender, MouseEventArgs e )
+        {
+            if( e.Button == MouseButtons.Right )
+            {
+                try
+                {
+                    ContextMenu.Show( this, e.Location );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [timer tick].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnTimerTick( object sender, EventArgs e )
+        {
+            InvokeIf( _statusUpdate );
         }
 
         /// <summary>

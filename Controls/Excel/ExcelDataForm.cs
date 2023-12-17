@@ -1,13 +1,13 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 12-10-2023
+//     Created:                 12-16-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-10-2023
+//     Last Modified On:        12-16-2023
 // ******************************************************************************************
 // <copyright file="ExcelDataForm.cs" company="Terry D. Eppler">
-//    This is a tiny web browser used in Federal Budget, Finance, and Accounting application
+//    Budget Execution is a Federal Budget, Finance, and Accounting application
 //    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
 // 
@@ -57,7 +57,8 @@ namespace BudgetExecution
     using Action = System.Action;
     using Timer = System.Windows.Forms.Timer;
 
-    /// <summary> </summary>
+    /// <summary>
+    /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
@@ -237,7 +238,7 @@ namespace BudgetExecution
         {
             InitializeComponent( );
             InitializeDelegates( );
-            InitializeCallbacks( );
+            RegisterCallbacks( );
 
             // Form Properties
             Size = new Size( 1350, 750 );
@@ -333,7 +334,7 @@ namespace BudgetExecution
         {
             try
             {
-                _statusUpdate += UpdateStatusLabel;
+                _statusUpdate += UpdateStatus;
             }
             catch( Exception _ex )
             {
@@ -344,18 +345,19 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the callbacks.
         /// </summary>
-        private void InitializeCallbacks( )
+        private void RegisterCallbacks( )
         {
             // Event Wiring
             try
             {
                 Spreadsheet.WorkbookLoaded += OnWorkBookLoaded;
                 Header.MouseClick += OnRightClick;
-                FiltersButton.Click += OnRemoveFilterButtonClick;
                 LookupButton.Click += OnLookupButtonClicked;
                 CloseButton.Click += OnCloseButtonClick;
                 BrowseButton.Click += OnBrowserButtonClick;
                 MenuButton.Click += OnMainMenuButtonClicked;
+                ExcelButton.Click += OnExcelButtonClicked;
+                TabControl.SelectedIndexChanged += OnActiveTabChanged;
                 Timer.Tick += OnTimerTick;
             }
             catch( Exception _ex )
@@ -393,7 +395,7 @@ namespace BudgetExecution
         {
             try
             {
-                PictureBox.Size = new Size( 24, 18 );
+                PictureBox.Size = new Size( 22, 18 );
                 PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             }
             catch( Exception _ex )
@@ -428,7 +430,7 @@ namespace BudgetExecution
             {
                 Header.ForeColor = Color.FromArgb( 106, 189, 252 );
                 Header.Font = new Font( "Roboto", 10 );
-                Header.TextAlign = ContentAlignment.TopLeft;
+                Header.TextAlign = ContentAlignment.TopCenter;
             }
             catch( Exception _ex )
             {
@@ -537,7 +539,10 @@ namespace BudgetExecution
             {
                 DataModel = null;
                 DataTable = null;
-                Spreadsheet.ActiveSheet.ClearData( );
+                if( Spreadsheet.ActiveSheet.UsedCells.Length > 0 )
+                {
+                    Spreadsheet.ActiveSheet.ClearData( );
+                }
             }
             catch( Exception _ex )
             {
@@ -641,7 +646,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Captures the state. </summary>
+        /// <summary>
+        /// Captures the state.
+        /// </summary>
         private void CaptureState( )
         {
             try
@@ -660,7 +667,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fades the in. </summary>
+        /// <summary>
+        /// Fades the in.
+        /// </summary>
         private void FadeIn( )
         {
             try
@@ -685,7 +694,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fades the out and close. </summary>
+        /// <summary>
+        /// Fades the out and close.
+        /// </summary>
         private void FadeOut( )
         {
             try
@@ -710,13 +721,15 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Notifies this instance. </summary>
-        private void Notify( )
+        /// <summary>
+        /// Notifies this instance.
+        /// </summary>
+        private void SendMessage( string message )
         {
             try
             {
-                var _message = "THIS IS NOT YET IMPLEMENTED!!";
-                var _notify = new SplashMessage( _message );
+                ThrowIf.NullOrEmpty( message, nameof( message ) );
+                var _notify = new SplashMessage( message );
                 _notify.Show( );
             }
             catch( Exception _ex )
@@ -725,7 +738,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the worksheet properties. </summary>
+        /// <summary>
+        /// Sets the worksheet properties.
+        /// </summary>
         private void SetWorksheetConfiguration( )
         {
             try
@@ -745,7 +760,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the table configuration. </summary>
+        /// <summary>
+        /// Sets the table configuration.
+        /// </summary>
         private void SetTableConfiguration( )
         {
             try
@@ -765,43 +782,45 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the worksheet properties. </summary>
+        /// <summary>
+        /// Sets the worksheet properties.
+        /// </summary>
         /// <param name="dataTable"> The data table. </param>
         private void InitializeWorksheet( DataTable dataTable )
         {
-            if( dataTable != null )
+            try
             {
-                try
-                {
-                    Spreadsheet.DisplayAlerts = false;
-                    Spreadsheet.Font = new Font( "Roboto", 10 );
-                    Spreadsheet.AllowCellContextMenu = true;
-                    Spreadsheet.CanApplyTheme = true;
-                    Spreadsheet.CanOverrideStyle = true;
-                    Spreadsheet.Margin = new Padding( 1 );
-                    Spreadsheet.Padding = new Padding( 1 );
-                    Spreadsheet.ForeColor = Color.Black;
-                    RowCount = dataTable.Rows.Count;
-                    ColCount = dataTable.Columns.Count;
-                    Spreadsheet.DefaultColumnCount = RowCount;
-                    Spreadsheet.DefaultRowCount = ColCount;
-                    Spreadsheet.AllowZooming = true;
-                    Spreadsheet.AllowFiltering = true;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                ThrowIf.Null( dataTable, nameof( dataTable ) );
+                Spreadsheet.DisplayAlerts = false;
+                Spreadsheet.Font = new Font( "Roboto", 9 );
+                Spreadsheet.AllowCellContextMenu = true;
+                Spreadsheet.CanApplyTheme = true;
+                Spreadsheet.CanOverrideStyle = true;
+                Spreadsheet.Margin = new Padding( 1 );
+                Spreadsheet.Padding = new Padding( 1 );
+                Spreadsheet.ForeColor = Color.Black;
+                RowCount = dataTable.Rows.Count;
+                ColCount = dataTable.Columns.Count;
+                Spreadsheet.DefaultColumnCount = RowCount;
+                Spreadsheet.DefaultRowCount = ColCount;
+                Spreadsheet.AllowZooming = true;
+                Spreadsheet.AllowFiltering = true;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
-        /// <summary> Sets the worksheet properties. </summary>
+        /// <summary>
+        /// Sets the worksheet properties.
+        /// </summary>
         private void InitializeWorksheet( )
         {
             try
             {
                 Spreadsheet.DisplayAlerts = false;
-                Spreadsheet.Font = new Font( "Roboto", 10 );
+                Spreadsheet.Font = new Font( "Roboto", 9 );
                 Spreadsheet.AllowCellContextMenu = true;
                 Spreadsheet.CanApplyTheme = true;
                 Spreadsheet.CanOverrideStyle = true;
@@ -878,7 +897,7 @@ namespace BudgetExecution
 
                     Spreadsheet.ActiveGrid.MetroColorTable.ThumbNormal = _blue;
                     Spreadsheet.ActiveGrid.MetroColorTable.ThumbPushed = _blue;
-                    Spreadsheet.ActiveGrid.Font = new Font( "Roboto", 10 );
+                    Spreadsheet.ActiveGrid.Font = new Font( "Roboto", 9 );
                     Spreadsheet.ActiveGrid.ForeColor = Color.Black;
                     Spreadsheet.ActiveGrid.ColumnCount = RowCount;
                     Spreadsheet.ActiveGrid.RowCount = ColCount;
@@ -920,7 +939,7 @@ namespace BudgetExecution
 
                 Spreadsheet.ActiveGrid.MetroColorTable.ThumbNormal = _blue;
                 Spreadsheet.ActiveGrid.MetroColorTable.ThumbPushed = _blue;
-                Spreadsheet.ActiveGrid.Font = new Font( "Roboto", 10 );
+                Spreadsheet.ActiveGrid.Font = new Font( "Roboto", 9 );
                 Spreadsheet.ActiveGrid.ForeColor = Color.Black;
                 Spreadsheet.ActiveGrid.DefaultColumnWidth = 120;
                 Spreadsheet.ActiveGrid.DefaultRowHeight = 22;
@@ -939,14 +958,6 @@ namespace BudgetExecution
         {
             try
             {
-                var _dialog = new FilterWindow( );
-                _dialog.ShowDialog( this );
-                Provider = _dialog.DataArgs.Provider;
-                Source = _dialog.DataArgs.Source;
-                SelectedTable = _dialog.DataArgs.SelectedTable;
-                DataModel = new DataBuilder( Source, Provider );
-                DataTable = DataModel?.DataTable;
-                FiltersButton.Visible = true;
                 FilterSeparator.Visible = true;
                 SetTableConfiguration( );
                 SetWorksheetConfiguration( );
@@ -1010,7 +1021,7 @@ namespace BudgetExecution
         /// <summary>
         /// Updates the status.
         /// </summary>
-        private void UpdateStatusLabel( )
+        private void UpdateStatus( )
         {
             try
             {
@@ -1025,7 +1036,80 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [load]. </summary>
+        /// <summary>
+        /// Sets the active tab.
+        /// </summary>
+        private void SetActiveTab( )
+        {
+            try
+            {
+                switch( TabControl.SelectedIndex )
+                {
+                    // Data Tab
+                    case 0:
+                    {
+                        ClearSelections( );
+                        ClearCollections( );
+                        DataTab.TabVisible = true;
+                        QueryTab.TabVisible = false;
+                        BusyTab.TabVisible = false;
+                        ExcelButton.Visible = false;
+                        ExcelSeparator.Visible = false;
+                        LookupButton.Visible = true;
+                        LookupSeparator.Visible = true;
+                        break;
+                    }
+                    // Query Tab
+                    case 1:
+                    {
+                        QueryTab.TabVisible = true;
+                        DataTab.TabVisible = false;
+                        BusyTab.TabVisible = false;
+                        ExcelButton.Visible = true;
+                        ExcelSeparator.Visible = true;
+                        LookupButton.Visible = false;
+                        LookupSeparator.Visible = false;
+                        break;
+                    }
+                    // Busy Tab
+                    case 2:
+                    {
+                        ClearSelections( );
+                        ClearCollections( );
+                        BusyTab.TabVisible = true;
+                        QueryTab.TabVisible = false;
+                        DataTab.TabVisible = false;
+                        ExcelButton.Visible = false;
+                        ExcelSeparator.Visible = false;
+                        LookupButton.Visible = false;
+                        LookupSeparator.Visible = false;
+                        break;
+                    }
+                    // Default Case
+                    default:
+                    {
+                        ClearSelections( );
+                        ClearCollections( );
+                        DataTab.TabVisible = true;
+                        QueryTab.TabVisible = false;
+                        BusyTab.TabVisible = false;
+                        ExcelButton.Visible = false;
+                        ExcelSeparator.Visible = false;
+                        LookupButton.Visible = false;
+                        LookupSeparator.Visible = false;
+                        break;
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
         /// The
@@ -1040,15 +1124,16 @@ namespace BudgetExecution
                 InitializeToolStrip( );
                 InitializeLabels( );
                 InitializeIcon( );
-                InitializeCallbacks( );
+                RegisterCallbacks( );
                 DataArgs = new DataArgs( );
                 Ribbon.Size = new Size( 1338, 128 );
                 Header.ForeColor = Color.FromArgb( 106, 189, 252 );
                 Header.Font = new Font( "Roboto", 10 );
-                Header.TextAlign = ContentAlignment.TopLeft;
+                Header.TextAlign = ContentAlignment.TopCenter;
                 Ribbon.Spreadsheet = Spreadsheet;
-                FiltersButton.Visible = false;
                 FilterSeparator.Visible = false;
+                TabControl.SelectedIndex = 0;
+                SetActiveTab( );
                 FadeIn( );
             }
             catch( Exception _ex )
@@ -1057,7 +1142,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [cell enter]. </summary>
+        /// <summary>
+        /// Called when [cell enter].
+        /// </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
         /// The
@@ -1120,7 +1207,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [right click]. </summary>
+        /// <summary>
+        /// Called when [right click].
+        /// </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
         /// The
@@ -1142,7 +1231,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [lookup button clicked]. </summary>
+        /// <summary>
+        /// Called when [lookup button clicked].
+        /// </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
         /// The
@@ -1153,7 +1244,8 @@ namespace BudgetExecution
         {
             try
             {
-                ShowTableDialog( );
+                TabControl.SelectedIndex = 1;
+                SetActiveTab( );
             }
             catch( Exception _ex )
             {
@@ -1161,7 +1253,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [remove filter button clicked]. </summary>
+        /// <summary>
+        /// Called when [remove filter button clicked].
+        /// </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
         /// The
@@ -1180,7 +1274,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [upload button clicked]. </summary>
+        /// <summary>
+        /// Called when [upload button clicked].
+        /// </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
         /// The
@@ -1204,7 +1300,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [work book loaded]. </summary>
+        /// <summary>
+        /// Called when [work book loaded].
+        /// </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
         /// The
@@ -1225,7 +1323,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [exit button click]. </summary>
+        /// <summary>
+        /// Called when [exit button click].
+        /// </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
         /// The
@@ -1244,7 +1344,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [filter button click]. </summary>
+        /// <summary>
+        /// Called when [filter button click].
+        /// </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
         /// The
@@ -1262,7 +1364,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [group button click]. </summary>
+        /// <summary>
+        /// Called when [group button click].
+        /// </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
         /// The
@@ -1282,7 +1386,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [main menu button clicked]. </summary>
+        /// <summary>
+        /// Called when [main menu button clicked].
+        /// </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
         /// The
@@ -1307,14 +1413,19 @@ namespace BudgetExecution
         /// Called when [timer tick].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnTimerTick( object sender, EventArgs e ) => InvokeIf( _statusUpdate );
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnTimerTick( object sender, EventArgs e )
+        {
+            InvokeIf( _statusUpdate );
+        }
 
         /// <summary>
         /// Raises the Close event.
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         public void OnClosing( object sender, EventArgs e )
         {
             try
@@ -1328,8 +1439,52 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Called when [active tab changed].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnActiveTabChanged( object sender, EventArgs e )
+        {
+            try
+            {
+                SetActiveTab( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [lookup button clicked].
+        /// </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnExcelButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                TabControl.SelectedIndex = 0;
+                SetActiveTab( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">
+        /// The ex.
+        /// </param>
         private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

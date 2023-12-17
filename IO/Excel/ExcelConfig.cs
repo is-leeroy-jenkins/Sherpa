@@ -170,7 +170,7 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.NotExists( filePath, nameof( filePath ) );
-                FilePath = System.IO.File.Exists( filePath )
+                FilePath = File.Exists( filePath )
                     ? filePath
                     : string.Empty;
             }
@@ -190,7 +190,7 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.NullOrEmpty( filePath, nameof( filePath ) );
-                FileName = System.IO.File.Exists( filePath )
+                FileName = File.Exists( filePath )
                     ? GetFileNameWithoutExtension( filePath )
                     : string.Empty;
             }

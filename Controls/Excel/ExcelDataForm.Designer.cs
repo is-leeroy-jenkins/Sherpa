@@ -67,10 +67,8 @@
             FilterLabel = new ToolStripLabel( );
             RefreshButtonSeparator = new ToolSeparator( );
             RefreshButton = new ToolStripButton( );
-            DataSourceSeparator = new ToolSeparator( );
+            LookupSeparator = new ToolSeparator( );
             LookupButton = new ToolStripButton( );
-            FilterSeparator = new ToolSeparator( );
-            FiltersButton = new ToolStripButton( );
             SqlSeparator = new ToolSeparator( );
             BackButtonSeparator = new ToolSeparator( );
             CloseButton = new ToolStripButton( );
@@ -78,12 +76,49 @@
             MenuButton = new ToolStripButton( );
             MenuSeparator = new ToolSeparator( );
             ApplicationLabel = new ToolStripLabel( );
+            ExcelButton = new ToolStripButton( );
+            ExcelSeparator = new ToolSeparator( );
+            FilterSeparator = new ToolSeparator( );
+            TabControl = new TabControl( );
+            DataTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
+            QueryTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
+            ProviderTable = new HeaderPanel( );
+            ProviderPanel = new BackPanel( );
+            SqlCeRadioButton = new RadioButton( );
+            SqliteRadioButton = new RadioButton( );
+            AccessRadioButton = new RadioButton( );
+            SqlServerRadioButton = new RadioButton( );
+            ColumnTable = new HeaderPanel( );
+            ColumnPanel = new BackPanel( );
+            ColumnListBox = new ListBox( );
+            ValueTable = new HeaderPanel( );
+            ValuePanel = new BackPanel( );
+            ValueListBox = new ListBox( );
+            SourceTable = new HeaderPanel( );
+            TablePanel = new BackPanel( );
+            TableListBox = new ListBox( );
+            BusyTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
+            Loader = new System.Windows.Forms.PictureBox( );
             ( (System.ComponentModel.ISupportInitialize)Ribbon ).BeginInit( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
             HeaderPanel.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
             ToolStripTable.SuspendLayout( );
             ToolStrip.SuspendLayout( );
+            ( (System.ComponentModel.ISupportInitialize)TabControl ).BeginInit( );
+            TabControl.SuspendLayout( );
+            DataTab.SuspendLayout( );
+            QueryTab.SuspendLayout( );
+            ProviderTable.SuspendLayout( );
+            ProviderPanel.SuspendLayout( );
+            ColumnTable.SuspendLayout( );
+            ColumnPanel.SuspendLayout( );
+            ValueTable.SuspendLayout( );
+            ValuePanel.SuspendLayout( );
+            SourceTable.SuspendLayout( );
+            TablePanel.SuspendLayout( );
+            BusyTab.SuspendLayout( );
+            ( (System.ComponentModel.ISupportInitialize)Loader ).BeginInit( );
             SuspendLayout( );
             // 
             // Ribbon
@@ -93,7 +128,7 @@
             Ribbon.Font = new System.Drawing.Font( "Segoe UI", 8.25F );
             Ribbon.HideMenuButtonToolTip = true;
             Ribbon.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Metro;
-            Ribbon.Location = new System.Drawing.Point( 0, 30 );
+            Ribbon.Location = new System.Drawing.Point( 0, 0 );
             Ribbon.MenuButtonFont = new System.Drawing.Font( "Microsoft Sans Serif", 8.75F );
             Ribbon.MenuButtonText = "FILE";
             Ribbon.MenuButtonWidth = 56;
@@ -144,18 +179,18 @@
             Spreadsheet.FileName = "Book2";
             Spreadsheet.Font = new System.Drawing.Font( "Roboto", 9F );
             Spreadsheet.ForeColor = System.Drawing.Color.Black;
-            Spreadsheet.FormulaBarVisibility = true;
+            Spreadsheet.FormulaBarVisibility = false;
             formulaRangeSelectionController1.AllowMouseSelection = true;
             formulaRangeSelectionController1.AllowSelectionOnEditing = true;
             Spreadsheet.FormulaRangeSelectionController = formulaRangeSelectionController1;
             Spreadsheet.IsCustomTabItemContextMenuEnabled = false;
-            Spreadsheet.Location = new System.Drawing.Point( 0, 158 );
+            Spreadsheet.Location = new System.Drawing.Point( 0, 128 );
             Spreadsheet.Name = "Spreadsheet";
             Spreadsheet.Padding = new System.Windows.Forms.Padding( 1 );
             Spreadsheet.SelectedTabIndex = 0;
             Spreadsheet.SelectedTabItem = null;
             Spreadsheet.ShowBusyIndicator = true;
-            Spreadsheet.Size = new System.Drawing.Size( 1338, 535 );
+            Spreadsheet.Size = new System.Drawing.Size( 1338, 537 );
             Spreadsheet.TabIndex = 1;
             Spreadsheet.TabItemContextMenu = null;
             Spreadsheet.Text = "Spreadsheet";
@@ -235,7 +270,7 @@
             HeaderPanel.Name = "HeaderPanel";
             HeaderPanel.RowCount = 1;
             HeaderPanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            HeaderPanel.Size = new System.Drawing.Size( 1338, 30 );
+            HeaderPanel.Size = new System.Drawing.Size( 1338, 24 );
             HeaderPanel.TabIndex = 3;
             // 
             // Header
@@ -251,12 +286,12 @@
             Header.Margin = new System.Windows.Forms.Padding( 3 );
             Header.Name = "Header";
             Header.Padding = new System.Windows.Forms.Padding( 1 );
-            Header.Size = new System.Drawing.Size( 1294, 24 );
+            Header.Size = new System.Drawing.Size( 1294, 18 );
             Header.Style = MetroSet_UI.Enums.Style.Custom;
             Header.StyleManager = null;
             Header.TabIndex = 1;
             Header.Text = "Budget Execution";
-            Header.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            Header.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             Header.ThemeAuthor = "Terry D. Eppler";
             Header.ThemeName = "Budget Execution";
             Header.ToolTip = ToolTip;
@@ -286,6 +321,7 @@
             ToolStripTable.Controls.Add( ToolStrip, 0, 0 );
             ToolStripTable.Dock = System.Windows.Forms.DockStyle.Bottom;
             ToolStripTable.Location = new System.Drawing.Point( 0, 693 );
+            ToolStripTable.Margin = new System.Windows.Forms.Padding( 1 );
             ToolStripTable.Name = "ToolStripTable";
             ToolStripTable.RowCount = 1;
             ToolStripTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
@@ -328,11 +364,11 @@
             ToolStrip.Image = null;
             ToolStrip.ImageDirectory = null;
             ToolStrip.ImageSize = new System.Drawing.Size( 16, 16 );
-            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { Separator2, StatusLabel, StatusSpacer, StripSeparator, ToolStripTextBox, GoButton, Separator3, Label3, SystemLabel, Separator5, BrowseButton, Separator7, SaveButton, FilterSpacer, FilterLabel, RefreshButtonSeparator, RefreshButton, DataSourceSeparator, LookupButton, FilterSeparator, FiltersButton, SqlSeparator, BackButtonSeparator, CloseButton, Separator10, MenuButton, MenuSeparator, ApplicationLabel } );
+            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { Separator2, StatusLabel, StatusSpacer, StripSeparator, ToolStripTextBox, GoButton, Separator3, Label3, SystemLabel, Separator5, BrowseButton, Separator7, SaveButton, FilterSpacer, FilterLabel, RefreshButtonSeparator, RefreshButton, LookupSeparator, LookupButton, SqlSeparator, BackButtonSeparator, CloseButton, Separator10, MenuButton, MenuSeparator, ApplicationLabel, ExcelButton, ExcelSeparator } );
             ToolStrip.LastButton = null;
             ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
-            ToolStrip.Location = new System.Drawing.Point( 1, 1 );
-            ToolStrip.Margin = new System.Windows.Forms.Padding( 1 );
+            ToolStrip.Location = new System.Drawing.Point( 0, 0 );
+            ToolStrip.Margin = new System.Windows.Forms.Padding( 0 );
             ToolStrip.Name = "ToolStrip";
             ToolStrip.NextButton = null;
             ToolStrip.Office12Mode = false;
@@ -344,7 +380,7 @@
             ToolStrip.Separators = null;
             ToolStrip.ShowCaption = true;
             ToolStrip.ShowLauncher = true;
-            ToolStrip.Size = new System.Drawing.Size( 1336, 43 );
+            ToolStrip.Size = new System.Drawing.Size( 1338, 45 );
             ToolStrip.Stretch = true;
             ToolStrip.TabIndex = 2;
             ToolStrip.TextBox = null;
@@ -367,7 +403,7 @@
             Separator2.Margin = new System.Windows.Forms.Padding( 1 );
             Separator2.Name = "Separator2";
             Separator2.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator2.Size = new System.Drawing.Size( 6, 25 );
+            Separator2.Size = new System.Drawing.Size( 6, 27 );
             // 
             // StatusLabel
             // 
@@ -381,7 +417,7 @@
             StatusLabel.Margin = new System.Windows.Forms.Padding( 1 );
             StatusLabel.Name = "StatusLabel";
             StatusLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            StatusLabel.Size = new System.Drawing.Size( 73, 25 );
+            StatusLabel.Size = new System.Drawing.Size( 73, 27 );
             StatusLabel.Tag = "";
             StatusLabel.Text = "    Date and Time";
             StatusLabel.ToolTip = null;
@@ -393,7 +429,7 @@
             StatusSpacer.ForeColor = System.Drawing.Color.Transparent;
             StatusSpacer.Margin = new System.Windows.Forms.Padding( 0, 1, 0, 1 );
             StatusSpacer.Name = "StatusSpacer";
-            StatusSpacer.Size = new System.Drawing.Size( 77, 25 );
+            StatusSpacer.Size = new System.Drawing.Size( 77, 27 );
             StatusSpacer.Text = "toolStripLabelExt1";
             StatusSpacer.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
@@ -403,7 +439,7 @@
             StripSeparator.Margin = new System.Windows.Forms.Padding( 1 );
             StripSeparator.Name = "StripSeparator";
             StripSeparator.Padding = new System.Windows.Forms.Padding( 1 );
-            StripSeparator.Size = new System.Drawing.Size( 6, 25 );
+            StripSeparator.Size = new System.Drawing.Size( 6, 27 );
             // 
             // ToolStripTextBox
             // 
@@ -416,7 +452,7 @@
             ToolStripTextBox.Margin = new System.Windows.Forms.Padding( 1 );
             ToolStripTextBox.Name = "ToolStripTextBox";
             ToolStripTextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Size = new System.Drawing.Size( 290, 25 );
+            ToolStripTextBox.Size = new System.Drawing.Size( 272, 27 );
             ToolStripTextBox.Tag = "";
             ToolStripTextBox.ToolTip = ToolTip;
             // 
@@ -436,7 +472,7 @@
             GoButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             GoButton.Name = "GoButton";
             GoButton.Padding = new System.Windows.Forms.Padding( 1 );
-            GoButton.Size = new System.Drawing.Size( 23, 25 );
+            GoButton.Size = new System.Drawing.Size( 23, 27 );
             GoButton.Text = "toolStripButton1";
             GoButton.ToolTip = ToolTip;
             GoButton.ToolType = ToolType.GoButton;
@@ -447,7 +483,7 @@
             Separator3.Margin = new System.Windows.Forms.Padding( 1 );
             Separator3.Name = "Separator3";
             Separator3.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator3.Size = new System.Drawing.Size( 6, 25 );
+            Separator3.Size = new System.Drawing.Size( 6, 27 );
             // 
             // Label3
             // 
@@ -455,7 +491,7 @@
             Label3.ForeColor = System.Drawing.Color.Transparent;
             Label3.Margin = new System.Windows.Forms.Padding( 0, 1, 0, 1 );
             Label3.Name = "Label3";
-            Label3.Size = new System.Drawing.Size( 131, 25 );
+            Label3.Size = new System.Drawing.Size( 131, 27 );
             Label3.Text = "this is to provide space";
             // 
             // SystemLabel
@@ -470,7 +506,7 @@
             SystemLabel.Margin = new System.Windows.Forms.Padding( 1 );
             SystemLabel.Name = "SystemLabel";
             SystemLabel.Padding = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
-            SystemLabel.Size = new System.Drawing.Size( 69, 25 );
+            SystemLabel.Size = new System.Drawing.Size( 69, 27 );
             SystemLabel.Tag = "";
             SystemLabel.Text = "    File Sys:       ";
             SystemLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -482,7 +518,7 @@
             Separator5.Margin = new System.Windows.Forms.Padding( 1 );
             Separator5.Name = "Separator5";
             Separator5.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator5.Size = new System.Drawing.Size( 6, 25 );
+            Separator5.Size = new System.Drawing.Size( 6, 27 );
             // 
             // BrowseButton
             // 
@@ -500,7 +536,7 @@
             BrowseButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             BrowseButton.Name = "BrowseButton";
             BrowseButton.Padding = new System.Windows.Forms.Padding( 1 );
-            BrowseButton.Size = new System.Drawing.Size( 23, 25 );
+            BrowseButton.Size = new System.Drawing.Size( 23, 27 );
             BrowseButton.Text = "toolStripButton2";
             BrowseButton.ToolTip = ToolTip;
             BrowseButton.ToolType = ToolType.BrowseButton;
@@ -511,7 +547,7 @@
             Separator7.Margin = new System.Windows.Forms.Padding( 1 );
             Separator7.Name = "Separator7";
             Separator7.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator7.Size = new System.Drawing.Size( 6, 25 );
+            Separator7.Size = new System.Drawing.Size( 6, 27 );
             // 
             // SaveButton
             // 
@@ -529,7 +565,7 @@
             SaveButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             SaveButton.Name = "SaveButton";
             SaveButton.Padding = new System.Windows.Forms.Padding( 1 );
-            SaveButton.Size = new System.Drawing.Size( 23, 25 );
+            SaveButton.Size = new System.Drawing.Size( 23, 27 );
             SaveButton.Text = "toolStripButton1";
             SaveButton.ToolTip = ToolTip;
             SaveButton.ToolType = ToolType.Ns;
@@ -546,7 +582,7 @@
             FilterSpacer.Margin = new System.Windows.Forms.Padding( 1 );
             FilterSpacer.Name = "FilterSpacer";
             FilterSpacer.Padding = new System.Windows.Forms.Padding( 1 );
-            FilterSpacer.Size = new System.Drawing.Size( 85, 25 );
+            FilterSpacer.Size = new System.Drawing.Size( 85, 27 );
             FilterSpacer.Tag = "";
             FilterSpacer.Text = "toolStripLabel1";
             FilterSpacer.ToolTip = null;
@@ -563,7 +599,7 @@
             FilterLabel.Margin = new System.Windows.Forms.Padding( 1 );
             FilterLabel.Name = "FilterLabel";
             FilterLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            FilterLabel.Size = new System.Drawing.Size( 38, 25 );
+            FilterLabel.Size = new System.Drawing.Size( 38, 27 );
             FilterLabel.Tag = "";
             FilterLabel.Text = "     Data:";
             FilterLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -575,7 +611,7 @@
             RefreshButtonSeparator.Margin = new System.Windows.Forms.Padding( 1 );
             RefreshButtonSeparator.Name = "RefreshButtonSeparator";
             RefreshButtonSeparator.Padding = new System.Windows.Forms.Padding( 1 );
-            RefreshButtonSeparator.Size = new System.Drawing.Size( 6, 25 );
+            RefreshButtonSeparator.Size = new System.Drawing.Size( 6, 27 );
             // 
             // RefreshButton
             // 
@@ -593,18 +629,18 @@
             RefreshButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             RefreshButton.Name = "RefreshButton";
             RefreshButton.Padding = new System.Windows.Forms.Padding( 1 );
-            RefreshButton.Size = new System.Drawing.Size( 23, 25 );
+            RefreshButton.Size = new System.Drawing.Size( 23, 27 );
             RefreshButton.Text = "toolStripButton1";
             RefreshButton.ToolTip = ToolTip;
             RefreshButton.ToolType = ToolType.RefreshButton;
             // 
-            // DataSourceSeparator
+            // LookupSeparator
             // 
-            DataSourceSeparator.ForeColor = System.Drawing.Color.Black;
-            DataSourceSeparator.Margin = new System.Windows.Forms.Padding( 1 );
-            DataSourceSeparator.Name = "DataSourceSeparator";
-            DataSourceSeparator.Padding = new System.Windows.Forms.Padding( 1 );
-            DataSourceSeparator.Size = new System.Drawing.Size( 6, 25 );
+            LookupSeparator.ForeColor = System.Drawing.Color.Black;
+            LookupSeparator.Margin = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
+            LookupSeparator.Name = "LookupSeparator";
+            LookupSeparator.Padding = new System.Windows.Forms.Padding( 1 );
+            LookupSeparator.Size = new System.Drawing.Size( 6, 27 );
             // 
             // LookupButton
             // 
@@ -622,39 +658,10 @@
             LookupButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             LookupButton.Name = "LookupButton";
             LookupButton.Padding = new System.Windows.Forms.Padding( 1 );
-            LookupButton.Size = new System.Drawing.Size( 23, 25 );
+            LookupButton.Size = new System.Drawing.Size( 23, 27 );
             LookupButton.Text = "toolStripButton1";
             LookupButton.ToolTip = ToolTip;
             LookupButton.ToolType = ToolType.LookupButton;
-            // 
-            // FilterSeparator
-            // 
-            FilterSeparator.ForeColor = System.Drawing.Color.Black;
-            FilterSeparator.Margin = new System.Windows.Forms.Padding( 1 );
-            FilterSeparator.Name = "FilterSeparator";
-            FilterSeparator.Padding = new System.Windows.Forms.Padding( 1 );
-            FilterSeparator.Size = new System.Drawing.Size( 6, 25 );
-            // 
-            // FiltersButton
-            // 
-            FiltersButton.AutoToolTip = false;
-            FiltersButton.BackColor = System.Drawing.Color.Transparent;
-            FiltersButton.BindingSource = BindingSource;
-            FiltersButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            FiltersButton.Field = Field.AccountCode;
-            FiltersButton.Filter = null;
-            FiltersButton.Font = new System.Drawing.Font( "Roboto", 9F );
-            FiltersButton.ForeColor = System.Drawing.Color.LightGray;
-            FiltersButton.HoverText = "Filter Data Table";
-            FiltersButton.Image = Resources.Images.FilterButton;
-            FiltersButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            FiltersButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
-            FiltersButton.Name = "FiltersButton";
-            FiltersButton.Padding = new System.Windows.Forms.Padding( 1 );
-            FiltersButton.Size = new System.Drawing.Size( 23, 25 );
-            FiltersButton.Text = "toolStripButton1";
-            FiltersButton.ToolTip = ToolTip;
-            FiltersButton.ToolType = ToolType.FilterButton;
             // 
             // SqlSeparator
             // 
@@ -662,7 +669,7 @@
             SqlSeparator.Margin = new System.Windows.Forms.Padding( 1 );
             SqlSeparator.Name = "SqlSeparator";
             SqlSeparator.Padding = new System.Windows.Forms.Padding( 1 );
-            SqlSeparator.Size = new System.Drawing.Size( 6, 25 );
+            SqlSeparator.Size = new System.Drawing.Size( 6, 27 );
             // 
             // BackButtonSeparator
             // 
@@ -671,7 +678,7 @@
             BackButtonSeparator.Margin = new System.Windows.Forms.Padding( 1 );
             BackButtonSeparator.Name = "BackButtonSeparator";
             BackButtonSeparator.Padding = new System.Windows.Forms.Padding( 1 );
-            BackButtonSeparator.Size = new System.Drawing.Size( 6, 25 );
+            BackButtonSeparator.Size = new System.Drawing.Size( 6, 27 );
             // 
             // CloseButton
             // 
@@ -690,7 +697,7 @@
             CloseButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             CloseButton.Name = "CloseButton";
             CloseButton.Padding = new System.Windows.Forms.Padding( 1 );
-            CloseButton.Size = new System.Drawing.Size( 23, 25 );
+            CloseButton.Size = new System.Drawing.Size( 23, 27 );
             CloseButton.Text = "toolStripButton10";
             CloseButton.ToolTip = ToolTip;
             CloseButton.ToolType = ToolType.MenuButton;
@@ -702,7 +709,7 @@
             Separator10.Margin = new System.Windows.Forms.Padding( 1 );
             Separator10.Name = "Separator10";
             Separator10.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator10.Size = new System.Drawing.Size( 6, 25 );
+            Separator10.Size = new System.Drawing.Size( 6, 27 );
             // 
             // MenuButton
             // 
@@ -721,7 +728,7 @@
             MenuButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             MenuButton.Name = "MenuButton";
             MenuButton.Padding = new System.Windows.Forms.Padding( 1 );
-            MenuButton.Size = new System.Drawing.Size( 23, 25 );
+            MenuButton.Size = new System.Drawing.Size( 23, 27 );
             MenuButton.ToolTip = ToolTip;
             MenuButton.ToolType = ToolType.BackButton;
             // 
@@ -732,7 +739,7 @@
             MenuSeparator.Margin = new System.Windows.Forms.Padding( 1 );
             MenuSeparator.Name = "MenuSeparator";
             MenuSeparator.Padding = new System.Windows.Forms.Padding( 1 );
-            MenuSeparator.Size = new System.Drawing.Size( 6, 25 );
+            MenuSeparator.Size = new System.Drawing.Size( 6, 27 );
             // 
             // ApplicationLabel
             // 
@@ -747,10 +754,534 @@
             ApplicationLabel.Margin = new System.Windows.Forms.Padding( 1 );
             ApplicationLabel.Name = "ApplicationLabel";
             ApplicationLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            ApplicationLabel.Size = new System.Drawing.Size( 84, 25 );
+            ApplicationLabel.Size = new System.Drawing.Size( 84, 27 );
             ApplicationLabel.Tag = "";
             ApplicationLabel.Text = "               Application:";
             ApplicationLabel.ToolTip = null;
+            // 
+            // ExcelButton
+            // 
+            ExcelButton.AutoToolTip = false;
+            ExcelButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ExcelButton.BindingSource = BindingSource;
+            ExcelButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            ExcelButton.Field = Field.AccountCode;
+            ExcelButton.Filter = null;
+            ExcelButton.Font = new System.Drawing.Font( "Roboto", 9F );
+            ExcelButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ExcelButton.HoverText = "View Spreadsheet";
+            ExcelButton.Image = Resources.Images.ExcelButton;
+            ExcelButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            ExcelButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            ExcelButton.Name = "ExcelButton";
+            ExcelButton.Padding = new System.Windows.Forms.Padding( 1 );
+            ExcelButton.Size = new System.Drawing.Size( 23, 27 );
+            ExcelButton.Text = "toolStripButton1";
+            ExcelButton.ToolTip = null;
+            ExcelButton.ToolType = ToolType.ExcelButton;
+            // 
+            // ExcelSeparator
+            // 
+            ExcelSeparator.ForeColor = System.Drawing.Color.Black;
+            ExcelSeparator.Margin = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
+            ExcelSeparator.Name = "ExcelSeparator";
+            ExcelSeparator.Padding = new System.Windows.Forms.Padding( 1 );
+            ExcelSeparator.Size = new System.Drawing.Size( 6, 27 );
+            // 
+            // FilterSeparator
+            // 
+            FilterSeparator.ForeColor = System.Drawing.Color.Black;
+            FilterSeparator.Margin = new System.Windows.Forms.Padding( 1 );
+            FilterSeparator.Name = "FilterSeparator";
+            FilterSeparator.Padding = new System.Windows.Forms.Padding( 1 );
+            FilterSeparator.Size = new System.Drawing.Size( 6, 27 );
+            // 
+            // TabControl
+            // 
+            TabControl.ActiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.ActiveTabFont = new System.Drawing.Font( "Roboto", 8F );
+            TabControl.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.BeforeTouchSize = new System.Drawing.Size( 1338, 669 );
+            TabControl.BindingSource = null;
+            TabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            TabControl.CanOverrideStyle = true;
+            TabControl.CloseButtonBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.Controls.Add( DataTab );
+            TabControl.Controls.Add( QueryTab );
+            TabControl.Controls.Add( BusyTab );
+            TabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            TabControl.FocusOnTabClick = false;
+            TabControl.Font = new System.Drawing.Font( "Roboto", 9F );
+            TabControl.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            TabControl.InactiveCloseButtonForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.InactiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.ItemSize = new System.Drawing.Size( 150, 5 );
+            TabControl.Location = new System.Drawing.Point( 0, 24 );
+            TabControl.Name = "TabControl";
+            TabControl.Size = new System.Drawing.Size( 1338, 669 );
+            TabControl.TabIndex = 5;
+            TabControl.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.TabStyle = typeof( Syncfusion.Windows.Forms.Tools.TabRendererMetro );
+            TabControl.ThemeName = "TabRendererMetro";
+            TabControl.ThemeStyle.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.ThemeStyle.BorderColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.ThemeStyle.BorderFillColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.ThemeStyle.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.ThemeStyle.TabStyle.ActiveBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.ThemeStyle.TabStyle.ActiveFont = new System.Drawing.Font( "Roboto", 8F );
+            TabControl.ThemeStyle.TabStyle.ActiveForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            TabControl.ThemeStyle.TabStyle.SeparatorColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TabControl.ToolTip = null;
+            // 
+            // DataTab
+            // 
+            DataTab.Controls.Add( Spreadsheet );
+            DataTab.Controls.Add( Ribbon );
+            DataTab.Image = null;
+            DataTab.ImageSize = new System.Drawing.Size( 16, 16 );
+            DataTab.Location = new System.Drawing.Point( 0, 4 );
+            DataTab.Name = "DataTab";
+            DataTab.ShowCloseButton = true;
+            DataTab.Size = new System.Drawing.Size( 1338, 665 );
+            DataTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            DataTab.TabForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            DataTab.TabIndex = 1;
+            DataTab.Text = "Data";
+            DataTab.ThemesEnabled = false;
+            // 
+            // QueryTab
+            // 
+            QueryTab.Controls.Add( ProviderTable );
+            QueryTab.Controls.Add( ColumnTable );
+            QueryTab.Controls.Add( ValueTable );
+            QueryTab.Controls.Add( SourceTable );
+            QueryTab.Image = null;
+            QueryTab.ImageSize = new System.Drawing.Size( 16, 16 );
+            QueryTab.Location = new System.Drawing.Point( 0, 4 );
+            QueryTab.Name = "QueryTab";
+            QueryTab.ShowCloseButton = true;
+            QueryTab.Size = new System.Drawing.Size( 1338, 665 );
+            QueryTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            QueryTab.TabForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            QueryTab.TabIndex = 5;
+            QueryTab.ThemesEnabled = false;
+            // 
+            // ProviderTable
+            // 
+            ProviderTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            ProviderTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
+            ProviderTable.CaptionText = "Databases";
+            ProviderTable.ColumnCount = 1;
+            ProviderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+            ProviderTable.Controls.Add( ProviderPanel, 0, 1 );
+            ProviderTable.Font = new System.Drawing.Font( "Roboto", 9F );
+            ProviderTable.ForeColor = System.Drawing.Color.DarkGray;
+            ProviderTable.Location = new System.Drawing.Point( 41, 60 );
+            ProviderTable.Name = "ProviderTable";
+            ProviderTable.RowCount = 2;
+            ProviderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 3.25203252F ) );
+            ProviderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 96.74797F ) );
+            ProviderTable.Size = new System.Drawing.Size( 264, 262 );
+            ProviderTable.TabIndex = 21;
+            // 
+            // ProviderPanel
+            // 
+            ProviderPanel.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            ProviderPanel.BackColor = System.Drawing.Color.Transparent;
+            ProviderPanel.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            ProviderPanel.BindingSource = null;
+            ProviderPanel.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
+            ProviderPanel.BorderThickness = 1;
+            ProviderPanel.Children = null;
+            ProviderPanel.Controls.Add( SqlCeRadioButton );
+            ProviderPanel.Controls.Add( SqliteRadioButton );
+            ProviderPanel.Controls.Add( AccessRadioButton );
+            ProviderPanel.Controls.Add( SqlServerRadioButton );
+            ProviderPanel.DataFilter = null;
+            ProviderPanel.Font = new System.Drawing.Font( "Roboto", 8.25F );
+            ProviderPanel.ForeColor = System.Drawing.Color.Transparent;
+            ProviderPanel.HoverText = null;
+            ProviderPanel.IsDerivedStyle = true;
+            ProviderPanel.Location = new System.Drawing.Point( 3, 27 );
+            ProviderPanel.Name = "ProviderPanel";
+            ProviderPanel.Padding = new System.Windows.Forms.Padding( 1 );
+            ProviderPanel.Size = new System.Drawing.Size( 258, 232 );
+            ProviderPanel.Style = MetroSet_UI.Enums.Style.Custom;
+            ProviderPanel.StyleManager = null;
+            ProviderPanel.TabIndex = 5;
+            ProviderPanel.ThemeAuthor = "Terry D. Eppler";
+            ProviderPanel.ThemeName = "BudgetExecution";
+            ProviderPanel.ToolTip = null;
+            // 
+            // SqlCeRadioButton
+            // 
+            SqlCeRadioButton.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            SqlCeRadioButton.BackColor = System.Drawing.Color.Transparent;
+            SqlCeRadioButton.BackgroundColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
+            SqlCeRadioButton.BorderColor = System.Drawing.Color.FromArgb( 155, 155, 155 );
+            SqlCeRadioButton.Checked = false;
+            SqlCeRadioButton.CheckSignColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            SqlCeRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
+            SqlCeRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 85, 85, 85 );
+            SqlCeRadioButton.Font = new System.Drawing.Font( "Roboto", 8F );
+            SqlCeRadioButton.Group = 0;
+            SqlCeRadioButton.HoverText = null;
+            SqlCeRadioButton.IsDerivedStyle = true;
+            SqlCeRadioButton.Location = new System.Drawing.Point( 65, 178 );
+            SqlCeRadioButton.Name = "SqlCeRadioButton";
+            SqlCeRadioButton.Result = null;
+            SqlCeRadioButton.Size = new System.Drawing.Size( 133, 17 );
+            SqlCeRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
+            SqlCeRadioButton.StyleManager = null;
+            SqlCeRadioButton.TabIndex = 4;
+            SqlCeRadioButton.Text = "    SQL Compact";
+            SqlCeRadioButton.ThemeAuthor = "Narwin";
+            SqlCeRadioButton.ThemeName = "MetroDark";
+            SqlCeRadioButton.ToolTip = ToolTip;
+            // 
+            // SqliteRadioButton
+            // 
+            SqliteRadioButton.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            SqliteRadioButton.BackColor = System.Drawing.Color.Transparent;
+            SqliteRadioButton.BackgroundColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
+            SqliteRadioButton.BorderColor = System.Drawing.Color.FromArgb( 155, 155, 155 );
+            SqliteRadioButton.Checked = false;
+            SqliteRadioButton.CheckSignColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            SqliteRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
+            SqliteRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 85, 85, 85 );
+            SqliteRadioButton.Font = new System.Drawing.Font( "Roboto", 8F );
+            SqliteRadioButton.Group = 0;
+            SqliteRadioButton.HoverText = null;
+            SqliteRadioButton.IsDerivedStyle = true;
+            SqliteRadioButton.Location = new System.Drawing.Point( 65, 25 );
+            SqliteRadioButton.Name = "SqliteRadioButton";
+            SqliteRadioButton.Result = null;
+            SqliteRadioButton.Size = new System.Drawing.Size( 115, 17 );
+            SqliteRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
+            SqliteRadioButton.StyleManager = null;
+            SqliteRadioButton.TabIndex = 1;
+            SqliteRadioButton.Text = "    SQLite";
+            SqliteRadioButton.ThemeAuthor = "Narwin";
+            SqliteRadioButton.ThemeName = "MetroDark";
+            SqliteRadioButton.ToolTip = ToolTip;
+            // 
+            // AccessRadioButton
+            // 
+            AccessRadioButton.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            AccessRadioButton.BackColor = System.Drawing.Color.Transparent;
+            AccessRadioButton.BackgroundColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
+            AccessRadioButton.BorderColor = System.Drawing.Color.FromArgb( 155, 155, 155 );
+            AccessRadioButton.Checked = false;
+            AccessRadioButton.CheckSignColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            AccessRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
+            AccessRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 85, 85, 85 );
+            AccessRadioButton.Font = new System.Drawing.Font( "Roboto", 8F );
+            AccessRadioButton.Group = 0;
+            AccessRadioButton.HoverText = null;
+            AccessRadioButton.IsDerivedStyle = true;
+            AccessRadioButton.Location = new System.Drawing.Point( 65, 121 );
+            AccessRadioButton.Name = "AccessRadioButton";
+            AccessRadioButton.Result = null;
+            AccessRadioButton.Size = new System.Drawing.Size( 133, 17 );
+            AccessRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
+            AccessRadioButton.StyleManager = null;
+            AccessRadioButton.TabIndex = 3;
+            AccessRadioButton.Text = "    MS Access";
+            AccessRadioButton.ThemeAuthor = "Narwin";
+            AccessRadioButton.ThemeName = "MetroDark";
+            AccessRadioButton.ToolTip = ToolTip;
+            // 
+            // SqlServerRadioButton
+            // 
+            SqlServerRadioButton.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            SqlServerRadioButton.BackColor = System.Drawing.Color.Transparent;
+            SqlServerRadioButton.BackgroundColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
+            SqlServerRadioButton.BorderColor = System.Drawing.Color.FromArgb( 155, 155, 155 );
+            SqlServerRadioButton.Checked = false;
+            SqlServerRadioButton.CheckSignColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            SqlServerRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
+            SqlServerRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 85, 85, 85 );
+            SqlServerRadioButton.Font = new System.Drawing.Font( "Roboto", 8F );
+            SqlServerRadioButton.Group = 0;
+            SqlServerRadioButton.HoverText = null;
+            SqlServerRadioButton.IsDerivedStyle = true;
+            SqlServerRadioButton.Location = new System.Drawing.Point( 65, 75 );
+            SqlServerRadioButton.Name = "SqlServerRadioButton";
+            SqlServerRadioButton.Result = null;
+            SqlServerRadioButton.Size = new System.Drawing.Size( 133, 17 );
+            SqlServerRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
+            SqlServerRadioButton.StyleManager = null;
+            SqlServerRadioButton.TabIndex = 2;
+            SqlServerRadioButton.Text = "    SQL Server";
+            SqlServerRadioButton.ThemeAuthor = "Narwin";
+            SqlServerRadioButton.ThemeName = "MetroDark";
+            SqlServerRadioButton.ToolTip = ToolTip;
+            // 
+            // ColumnTable
+            // 
+            ColumnTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            ColumnTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
+            ColumnTable.CaptionText = "Columns";
+            ColumnTable.ColumnCount = 1;
+            ColumnTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+            ColumnTable.Controls.Add( ColumnPanel, 0, 1 );
+            ColumnTable.Font = new System.Drawing.Font( "Roboto", 9F );
+            ColumnTable.ForeColor = System.Drawing.Color.DarkGray;
+            ColumnTable.Location = new System.Drawing.Point( 849, 60 );
+            ColumnTable.Name = "ColumnTable";
+            ColumnTable.RowCount = 2;
+            ColumnTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 3.61445785F ) );
+            ColumnTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 96.3855438F ) );
+            ColumnTable.Size = new System.Drawing.Size( 412, 265 );
+            ColumnTable.TabIndex = 20;
+            // 
+            // ColumnPanel
+            // 
+            ColumnPanel.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            ColumnPanel.BackColor = System.Drawing.Color.Transparent;
+            ColumnPanel.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            ColumnPanel.BindingSource = null;
+            ColumnPanel.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
+            ColumnPanel.BorderThickness = 1;
+            ColumnPanel.Children = null;
+            ColumnPanel.Controls.Add( ColumnListBox );
+            ColumnPanel.DataFilter = null;
+            ColumnPanel.Font = new System.Drawing.Font( "Roboto", 8.25F );
+            ColumnPanel.ForeColor = System.Drawing.Color.Transparent;
+            ColumnPanel.HoverText = null;
+            ColumnPanel.IsDerivedStyle = true;
+            ColumnPanel.Location = new System.Drawing.Point( 3, 28 );
+            ColumnPanel.Name = "ColumnPanel";
+            ColumnPanel.Padding = new System.Windows.Forms.Padding( 1 );
+            ColumnPanel.Size = new System.Drawing.Size( 406, 234 );
+            ColumnPanel.Style = MetroSet_UI.Enums.Style.Custom;
+            ColumnPanel.StyleManager = null;
+            ColumnPanel.TabIndex = 8;
+            ColumnPanel.ThemeAuthor = "Terry D. Eppler";
+            ColumnPanel.ThemeName = "BudgetExecution";
+            ColumnPanel.ToolTip = null;
+            // 
+            // ColumnListBox
+            // 
+            ColumnListBox.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            ColumnListBox.BackColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
+            ColumnListBox.BindingSource = null;
+            ColumnListBox.BorderColor = System.Drawing.Color.FromArgb( 64, 64, 64 );
+            ColumnListBox.DataFilter = null;
+            ColumnListBox.DisabledBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            ColumnListBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            ColumnListBox.Font = new System.Drawing.Font( "Roboto", 8.25F );
+            ColumnListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            ColumnListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
+            ColumnListBox.HoverText = null;
+            ColumnListBox.IsDerivedStyle = true;
+            ColumnListBox.ItemHeight = 30;
+            ColumnListBox.Location = new System.Drawing.Point( 16, 13 );
+            ColumnListBox.Margin = new System.Windows.Forms.Padding( 1 );
+            ColumnListBox.MultiSelect = false;
+            ColumnListBox.Name = "ColumnListBox";
+            ColumnListBox.Padding = new System.Windows.Forms.Padding( 1 );
+            ColumnListBox.SelectedIndex = -1;
+            ColumnListBox.SelectedItem = null;
+            ColumnListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            ColumnListBox.SelectedItemColor = System.Drawing.Color.White;
+            ColumnListBox.SelectedText = null;
+            ColumnListBox.SelectedValue = null;
+            ColumnListBox.ShowBorder = false;
+            ColumnListBox.ShowScrollBar = false;
+            ColumnListBox.Size = new System.Drawing.Size( 372, 205 );
+            ColumnListBox.Style = MetroSet_UI.Enums.Style.Custom;
+            ColumnListBox.StyleManager = null;
+            ColumnListBox.TabIndex = 2;
+            ColumnListBox.Text = "listBox1";
+            ColumnListBox.ThemeAuthor = "Terry D. Eppler";
+            ColumnListBox.ThemeName = "BudgetExecution";
+            ColumnListBox.ToolTip = ToolTip;
+            // 
+            // ValueTable
+            // 
+            ValueTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            ValueTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
+            ValueTable.CaptionText = "Values ";
+            ValueTable.ColumnCount = 1;
+            ValueTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+            ValueTable.Controls.Add( ValuePanel, 0, 1 );
+            ValueTable.Font = new System.Drawing.Font( "Roboto", 9F );
+            ValueTable.ForeColor = System.Drawing.Color.DarkGray;
+            ValueTable.Location = new System.Drawing.Point( 849, 352 );
+            ValueTable.Name = "ValueTable";
+            ValueTable.RowCount = 2;
+            ValueTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 3.862661F ) );
+            ValueTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 96.13734F ) );
+            ValueTable.Size = new System.Drawing.Size( 412, 258 );
+            ValueTable.TabIndex = 18;
+            // 
+            // ValuePanel
+            // 
+            ValuePanel.BackColor = System.Drawing.Color.Transparent;
+            ValuePanel.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            ValuePanel.BindingSource = null;
+            ValuePanel.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
+            ValuePanel.BorderThickness = 1;
+            ValuePanel.Children = null;
+            ValuePanel.Controls.Add( ValueListBox );
+            ValuePanel.DataFilter = null;
+            ValuePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            ValuePanel.Font = new System.Drawing.Font( "Roboto", 8.25F );
+            ValuePanel.ForeColor = System.Drawing.Color.Transparent;
+            ValuePanel.HoverText = null;
+            ValuePanel.IsDerivedStyle = true;
+            ValuePanel.Location = new System.Drawing.Point( 3, 28 );
+            ValuePanel.Name = "ValuePanel";
+            ValuePanel.Padding = new System.Windows.Forms.Padding( 1 );
+            ValuePanel.Size = new System.Drawing.Size( 406, 227 );
+            ValuePanel.Style = MetroSet_UI.Enums.Style.Custom;
+            ValuePanel.StyleManager = null;
+            ValuePanel.TabIndex = 9;
+            ValuePanel.ThemeAuthor = "Terry D. Eppler";
+            ValuePanel.ThemeName = "BudgetExecution";
+            ValuePanel.ToolTip = null;
+            // 
+            // ValueListBox
+            // 
+            ValueListBox.BackColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
+            ValueListBox.BindingSource = null;
+            ValueListBox.BorderColor = System.Drawing.Color.FromArgb( 64, 64, 64 );
+            ValueListBox.DataFilter = null;
+            ValueListBox.DisabledBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            ValueListBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            ValueListBox.Font = new System.Drawing.Font( "Roboto", 8.25F );
+            ValueListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            ValueListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
+            ValueListBox.HoverText = null;
+            ValueListBox.IsDerivedStyle = true;
+            ValueListBox.ItemHeight = 30;
+            ValueListBox.Location = new System.Drawing.Point( 15, 13 );
+            ValueListBox.Margin = new System.Windows.Forms.Padding( 1 );
+            ValueListBox.MultiSelect = false;
+            ValueListBox.Name = "ValueListBox";
+            ValueListBox.Padding = new System.Windows.Forms.Padding( 1 );
+            ValueListBox.SelectedIndex = -1;
+            ValueListBox.SelectedItem = null;
+            ValueListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            ValueListBox.SelectedItemColor = System.Drawing.Color.White;
+            ValueListBox.SelectedText = null;
+            ValueListBox.SelectedValue = null;
+            ValueListBox.ShowBorder = false;
+            ValueListBox.ShowScrollBar = false;
+            ValueListBox.Size = new System.Drawing.Size( 375, 201 );
+            ValueListBox.Style = MetroSet_UI.Enums.Style.Custom;
+            ValueListBox.StyleManager = null;
+            ValueListBox.TabIndex = 2;
+            ValueListBox.Text = "listBox1";
+            ValueListBox.ThemeAuthor = "Terry D. Eppler";
+            ValueListBox.ThemeName = "BudgetExecution";
+            ValueListBox.ToolTip = ToolTip;
+            // 
+            // SourceTable
+            // 
+            SourceTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            SourceTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
+            SourceTable.CaptionText = "Tables";
+            SourceTable.ColumnCount = 1;
+            SourceTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+            SourceTable.Controls.Add( TablePanel, 0, 1 );
+            SourceTable.Font = new System.Drawing.Font( "Roboto", 9F );
+            SourceTable.ForeColor = System.Drawing.Color.DarkGray;
+            SourceTable.Location = new System.Drawing.Point( 377, 60 );
+            SourceTable.Name = "SourceTable";
+            SourceTable.RowCount = 2;
+            SourceTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 2.14424944F ) );
+            SourceTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 97.85575F ) );
+            SourceTable.Size = new System.Drawing.Size( 412, 553 );
+            SourceTable.TabIndex = 17;
+            // 
+            // TablePanel
+            // 
+            TablePanel.BackColor = System.Drawing.Color.Transparent;
+            TablePanel.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TablePanel.BindingSource = null;
+            TablePanel.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
+            TablePanel.BorderThickness = 1;
+            TablePanel.Children = null;
+            TablePanel.Controls.Add( TableListBox );
+            TablePanel.DataFilter = null;
+            TablePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            TablePanel.Font = new System.Drawing.Font( "Roboto", 8.25F );
+            TablePanel.ForeColor = System.Drawing.Color.Transparent;
+            TablePanel.HoverText = null;
+            TablePanel.IsDerivedStyle = true;
+            TablePanel.Location = new System.Drawing.Point( 3, 30 );
+            TablePanel.Name = "TablePanel";
+            TablePanel.Padding = new System.Windows.Forms.Padding( 1 );
+            TablePanel.Size = new System.Drawing.Size( 406, 520 );
+            TablePanel.Style = MetroSet_UI.Enums.Style.Custom;
+            TablePanel.StyleManager = null;
+            TablePanel.TabIndex = 7;
+            TablePanel.ThemeAuthor = "Terry D. Eppler";
+            TablePanel.ThemeName = "BudgetExecution";
+            TablePanel.ToolTip = null;
+            // 
+            // TableListBox
+            // 
+            TableListBox.BackColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
+            TableListBox.BindingSource = null;
+            TableListBox.BorderColor = System.Drawing.Color.FromArgb( 64, 64, 64 );
+            TableListBox.DataFilter = null;
+            TableListBox.DisabledBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TableListBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TableListBox.Font = new System.Drawing.Font( "Roboto", 8.25F );
+            TableListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            TableListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
+            TableListBox.HoverText = null;
+            TableListBox.IsDerivedStyle = true;
+            TableListBox.ItemHeight = 30;
+            TableListBox.Location = new System.Drawing.Point( 15, 15 );
+            TableListBox.Margin = new System.Windows.Forms.Padding( 1 );
+            TableListBox.MultiSelect = false;
+            TableListBox.Name = "TableListBox";
+            TableListBox.Padding = new System.Windows.Forms.Padding( 1 );
+            TableListBox.SelectedIndex = -1;
+            TableListBox.SelectedItem = null;
+            TableListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            TableListBox.SelectedItemColor = System.Drawing.Color.White;
+            TableListBox.SelectedText = null;
+            TableListBox.SelectedValue = null;
+            TableListBox.ShowBorder = false;
+            TableListBox.ShowScrollBar = false;
+            TableListBox.Size = new System.Drawing.Size( 375, 492 );
+            TableListBox.Style = MetroSet_UI.Enums.Style.Custom;
+            TableListBox.StyleManager = null;
+            TableListBox.TabIndex = 1;
+            TableListBox.Text = "Tables";
+            TableListBox.ThemeAuthor = "Terry D. Eppler";
+            TableListBox.ThemeName = "BudgetExecution";
+            TableListBox.ToolTip = ToolTip;
+            // 
+            // BusyTab
+            // 
+            BusyTab.Controls.Add( Loader );
+            BusyTab.Image = null;
+            BusyTab.ImageSize = new System.Drawing.Size( 16, 16 );
+            BusyTab.Location = new System.Drawing.Point( 0, 4 );
+            BusyTab.Margin = new System.Windows.Forms.Padding( 1 );
+            BusyTab.Name = "BusyTab";
+            BusyTab.ShowCloseButton = true;
+            BusyTab.Size = new System.Drawing.Size( 1338, 665 );
+            BusyTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            BusyTab.TabIndex = 2;
+            BusyTab.ThemesEnabled = false;
+            // 
+            // Loader
+            // 
+            Loader.Dock = System.Windows.Forms.DockStyle.Fill;
+            Loader.Image = Resources.Images.Loading;
+            Loader.Location = new System.Drawing.Point( 0, 0 );
+            Loader.Name = "Loader";
+            Loader.Size = new System.Drawing.Size( 1338, 665 );
+            Loader.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            Loader.TabIndex = 0;
+            Loader.TabStop = false;
             // 
             // ExcelDataForm
             // 
@@ -766,9 +1297,8 @@
             CaptionForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             ClientSize = new System.Drawing.Size( 1338, 738 );
             ControlBox = false;
-            Controls.Add( Spreadsheet );
+            Controls.Add( TabControl );
             Controls.Add( ToolStripTable );
-            Controls.Add( Ribbon );
             Controls.Add( HeaderPanel );
             DoubleBuffered = true;
             Font = new System.Drawing.Font( "Roboto", 9F );
@@ -794,6 +1324,20 @@
             ToolStripTable.PerformLayout( );
             ToolStrip.ResumeLayout( false );
             ToolStrip.PerformLayout( );
+            ( (System.ComponentModel.ISupportInitialize)TabControl ).EndInit( );
+            TabControl.ResumeLayout( false );
+            DataTab.ResumeLayout( false );
+            QueryTab.ResumeLayout( false );
+            ProviderTable.ResumeLayout( false );
+            ProviderPanel.ResumeLayout( false );
+            ColumnTable.ResumeLayout( false );
+            ColumnPanel.ResumeLayout( false );
+            ValueTable.ResumeLayout( false );
+            ValuePanel.ResumeLayout( false );
+            SourceTable.ResumeLayout( false );
+            TablePanel.ResumeLayout( false );
+            BusyTab.ResumeLayout( false );
+            ( (System.ComponentModel.ISupportInitialize)Loader ).EndInit( );
             ResumeLayout( false );
         }
 
@@ -839,15 +1383,36 @@
         public ToolStripLabel FilterLabel;
         public ToolSeparator RefreshButtonSeparator;
         public ToolStripButton RefreshButton;
-        public ToolSeparator DataSourceSeparator;
+        public ToolSeparator LookupSeparator;
         public ToolStripButton LookupButton;
         public ToolSeparator FilterSeparator;
-        public ToolStripButton FiltersButton;
         public ToolSeparator SqlSeparator;
         public ToolSeparator BackButtonSeparator;
         public ToolSeparator Separator10;
         public ToolStripButton MenuButton;
         public ToolSeparator MenuSeparator;
         private ToolStripLabel ApplicationLabel;
+        public TabControl TabControl;
+        public Syncfusion.Windows.Forms.Tools.TabPageAdv DataTab;
+        public Syncfusion.Windows.Forms.Tools.TabPageAdv BusyTab;
+        private System.Windows.Forms.PictureBox Loader;
+        public Syncfusion.Windows.Forms.Tools.TabPageAdv QueryTab;
+        public HeaderPanel ColumnTable;
+        public BackPanel ColumnPanel;
+        public ListBox ColumnListBox;
+        public HeaderPanel ValueTable;
+        public BackPanel ValuePanel;
+        public ListBox ValueListBox;
+        public HeaderPanel SourceTable;
+        public BackPanel TablePanel;
+        public ListBox TableListBox;
+        public HeaderPanel ProviderTable;
+        public BackPanel ProviderPanel;
+        public RadioButton SqlCeRadioButton;
+        public RadioButton SqliteRadioButton;
+        public RadioButton AccessRadioButton;
+        public RadioButton SqlServerRadioButton;
+        public ToolStripButton ExcelButton;
+        public ToolSeparator ExcelSeparator;
     }
 }

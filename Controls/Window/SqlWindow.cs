@@ -136,7 +136,7 @@ namespace BudgetExecution
         public SqlWindow( )
         {
             InitializeComponent( );
-            InitializeCallbacks( );
+            RegisterCallbacks();
             InitializeDelegates( );
 
             // Basic Properties
@@ -277,7 +277,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the callback.
         /// </summary>
-        private void InitializeCallbacks( )
+        private void RegisterCallbacks()
         {
             try
             {

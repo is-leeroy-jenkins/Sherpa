@@ -51,6 +51,7 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Chart;
     using Syncfusion.Windows.Forms.Tools;
+    using Action = System.Action;
     using Timer = System.Windows.Forms.Timer;
 
     /// <summary>
@@ -64,6 +65,11 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     public sealed partial class CalendarForm : MetroForm
     {
+        /// <summary>
+        /// The status update
+        /// </summary>
+        private Action _statusUpdate;
+
         /// <summary>
         /// The busy
         /// </summary>
@@ -187,6 +193,8 @@ namespace BudgetExecution
         public CalendarForm( )
         {
             InitializeComponent( );
+            InitializeDelegates( );
+            RegisterCallbacks( );
 
             // Basic Properties
             Size = new Size( 1350, 750 );
@@ -223,6 +231,7 @@ namespace BudgetExecution
 
             // Event Wiring
             Load += OnLoad;
+            MouseClick += OnRightClick;
         }
 
         /// <summary>
@@ -256,6 +265,14 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Initializes the delegates.
+        /// </summary>
+        private void InitializeDelegates( )
+        {
+            _statusUpdate += UpdateStatus;
+        }
+
+        /// <summary>
         /// Initializes the tool strip.
         /// </summary>
         private void InitializeToolStrip( )
@@ -280,7 +297,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the callbacks.
         /// </summary>
-        private void InitializeCallbacks( )
+        private void RegisterCallbacks( )
         {
             try
             {
@@ -292,6 +309,7 @@ namespace BudgetExecution
                 TableButton.Click += OnTableButtonClick;
                 RefreshButton.Click += OnRefreshButtonClick;
                 TabControl.SelectedIndexChanged += OnTabChanged;
+                Timer.Tick += OnTimerTick;
             }
             catch( Exception _ex )
             {
@@ -353,6 +371,24 @@ namespace BudgetExecution
             catch( Exception _ex )
             {
                 Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Invokes if.
+        /// </summary>
+        /// <param name="action">
+        /// The action.
+        /// </param>
+        public void InvokeIf( Action action )
+        {
+            if( InvokeRequired )
+            {
+                BeginInvoke( action );
+            }
+            else
+            {
+                action.Invoke( );
             }
         }
 
@@ -650,6 +686,22 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Updates the status.
+        /// </summary>
+        private void UpdateStatus( )
+        {
+            try
+            {
+                var _now = DateTime.Now;
+                StatusLabel.Text = $"{_now.ToShortDateString( )} - {_now.ToLongTimeString( )}";
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Binds the chart.
         /// </summary>
         /// <param name="start">
@@ -754,7 +806,7 @@ namespace BudgetExecution
         {
             try
             {
-                InitializeCallbacks( );
+                RegisterCallbacks( );
                 InitializeToolStrip( );
                 InitializeLabels( );
                 InitializeChart( );
@@ -928,6 +980,38 @@ namespace BudgetExecution
             {
                 Fail( _ex );
             }
+        }
+
+        /// <summary>
+        /// Called when [right click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnRightClick( object sender, MouseEventArgs e )
+        {
+            if( e.Button == MouseButtons.Right )
+            {
+                try
+                {
+                    ContextMenu.Show( this, e.Location );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [timer tick].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnTimerTick( object sender, EventArgs e )
+        {
+            InvokeIf( _statusUpdate );
         }
 
         /// <summary>

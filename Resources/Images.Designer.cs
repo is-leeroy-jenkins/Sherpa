@@ -633,6 +633,16 @@ namespace BudgetExecution.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap FooterImage {
+            get {
+                object obj = ResourceManager.GetObject("FooterImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap GAO {
             get {
                 object obj = ResourceManager.GetObject("GAO", resourceCulture);
@@ -706,6 +716,16 @@ namespace BudgetExecution.Resources {
         public static System.Drawing.Bitmap GuidanceTile {
             get {
                 object obj = ResourceManager.GetObject("GuidanceTile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap HeaderImage {
+            get {
+                object obj = ResourceManager.GetObject("HeaderImage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

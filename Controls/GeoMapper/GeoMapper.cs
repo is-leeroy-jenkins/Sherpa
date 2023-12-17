@@ -115,8 +115,14 @@ namespace BudgetExecution
         /// </value>
         public bool IsBusy
         {
-            get => _busy;
-            private set => _busy = value;
+            get
+            {
+                return _busy;
+            }
+            private set
+            {
+                _busy = value;
+            }
         }
 
         /// <inheritdoc />
@@ -128,6 +134,7 @@ namespace BudgetExecution
         {
             InitializeComponent( );
             InitializeDelegates( );
+            RegisterCallbacks();
 
             // General Properties
             Size = new Size( 1350, 750 );
@@ -174,14 +181,143 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Initializes the labels.
+        /// </summary>
+        private void InitializeLabels( )
+        {
+            try
+            {
+                Title.ForeColor = Color.FromArgb( 106, 189, 252 );
+                Title.TextAlign = ContentAlignment.TopLeft;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the callbacks.
+        /// </summary>
+        private void RegisterCallbacks()
+        {
+            try
+            {
+                CloseButton.Click += OnCloseButtonClicked;
+                MenuButton.Click += OnMenuButtonClicked;
+                Timer.Tick += OnTimerTick;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the delegates.
+        /// </summary>
+        private void InitializeDelegates( )
+        {
+            try
+            {
+                _statusUpdate += UpdateStatus;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the timers.
+        /// </summary>
+        private void InitializeTimers( )
+        {
+            try
+            {
+                // Timer Properties
+                Timer.Enabled = true;
+                Timer.Interval = 500;
+                Timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the tool strip.
+        /// </summary>
+        private void InitializeToolStrip( )
+        {
+            try
+            {
+                ToolStrip.Visible = true;
+                ToolStrip.Text = string.Empty;
+                ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
+                ToolStrip.Office12Mode = true;
+                ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Black;
+                ToolStrip.LauncherStyle = LauncherStyle.Office12;
+                ToolStrip.ImageSize = new Size( 16, 16 );
+                ToolStrip.ImageScalingSize = new Size( 16, 16 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the map.
+        /// </summary>
+        private void InitializeMap( )
+        {
+            try
+            {
+                Map.MapProvider = BingMapProvider.Instance;
+                GMaps.Instance.Mode = AccessMode.ServerAndCache;
+                Map.Position = new PointLatLng( _lat, _long );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Invokes if needed.
+        /// </summary>
+        /// <param name="action">
+        /// The action.
+        /// </param>
+        public void InvokeIf( Action action )
+        {
+            if( InvokeRequired )
+            {
+                BeginInvoke( action );
+            }
+            else
+            {
+                action.Invoke( );
+            }
+        }
+
+        /// <summary>
         /// Begins to initialize.
         /// </summary>
-        private void BeginInit( ) => _busy = true;
+        private void BeginInit( )
+        {
+            _busy = true;
+        }
 
         /// <summary>
         /// Ends the initialized.
         /// </summary>
-        private void EndInit( ) => _busy = false;
+        private void EndInit( )
+        {
+            _busy = false;
+        }
 
         /// <summary>
         /// Gets the controls.
@@ -328,125 +464,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Invokes if needed.
-        /// </summary>
-        /// <param name="action">
-        /// The action.
-        /// </param>
-        public void InvokeIf( Action action )
-        {
-            if( InvokeRequired )
-            {
-                BeginInvoke( action );
-            }
-            else
-            {
-                action.Invoke( );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the labels.
-        /// </summary>
-        private void InitializeLabels( )
-        {
-            try
-            {
-                Title.ForeColor = Color.FromArgb( 106, 189, 252 );
-                Title.TextAlign = ContentAlignment.TopLeft;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the callbacks.
-        /// </summary>
-        private void InitializeCallbacks( )
-        {
-            try
-            {
-                CloseButton.Click += OnCloseButtonClicked;
-                MenuButton.Click += OnMenuButtonClicked;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the delegates.
-        /// </summary>
-        private void InitializeDelegates( )
-        {
-            try
-            {
-                _statusUpdate += UpdateStatus;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the timers.
-        /// </summary>
-        private void InitializeTimers( )
-        {
-            try
-            {
-                // Timer Properties
-                Timer.Enabled = true;
-                Timer.Interval = 500;
-                Timer.Start( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the tool strip.
-        /// </summary>
-        private void InitializeToolStrip( )
-        {
-            try
-            {
-                ToolStrip.Visible = true;
-                ToolStrip.Text = string.Empty;
-                ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
-                ToolStrip.Office12Mode = true;
-                ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Black;
-                ToolStrip.LauncherStyle = LauncherStyle.Office12;
-                ToolStrip.ImageSize = new Size( 16, 16 );
-                ToolStrip.ImageScalingSize = new Size( 16, 16 );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        private void InitializeMap( )
-        {
-            try
-            {
-                Map.MapProvider = BingMapProvider.Instance;
-                GMaps.Instance.Mode = AccessMode.ServerAndCache;
-                Map.Position = new PointLatLng( _lat, _long );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Opens the main form.
         /// </summary>
         private void OpenMainForm( )
@@ -491,7 +508,6 @@ namespace BudgetExecution
         {
             try
             {
-                InitializeCallbacks( );
                 InitializeMap( );
                 InitializeToolStrip( );
                 InitializeLabels( );
@@ -562,6 +578,17 @@ namespace BudgetExecution
                     Fail( _ex );
                 }
             }
+        }
+
+        /// <summary>
+        /// Called when [timer tick].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnTimerTick( object sender, EventArgs e )
+        {
+            InvokeIf( _statusUpdate );
         }
 
         /// <summary>

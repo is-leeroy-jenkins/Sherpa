@@ -32,6 +32,7 @@
 //    DEALINGS IN THE SOFTWARE.
 // 
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//
 // </copyright>
 // <summary>
 //   BudgetWorkbook.cs
@@ -58,7 +59,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    public class BudgetWorkbook : ExcelConfig
+    public class ExcelReport : ExcelConfig
     {
         /// <summary>
         /// The configuration
@@ -83,11 +84,11 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BudgetWorkbook"/> class.
+        /// <see cref="ExcelReport"/> class.
         /// </summary>
-        public BudgetWorkbook( )
+        public ExcelReport( )
         {
-            InternalPath = AppSettings[ nameof( Reports ) ];
+            InternalPath = AppSettings[ "Reports" ];
             FileInfo = new FileInfo( InternalPath );
             Application = new ExcelPackage( FileInfo );
             Workbook = Application.Workbook;
@@ -110,9 +111,9 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.BudgetWorkbook" /> class.
         /// </summary>
         /// <param name="filePath">The file path.</param>
-        public BudgetWorkbook( string filePath )
+        public ExcelReport( string filePath )
         {
-            InternalPath = AppSettings[ nameof( Reports ) ];
+            InternalPath = AppSettings[ "Reports" ];
             FileInfo = new FileInfo( filePath );
             Application = new ExcelPackage( FileInfo );
             Workbook = Application.Workbook;
@@ -138,9 +139,9 @@ namespace BudgetExecution
         /// <param name="dataTable">
         /// The data table.
         /// </param>
-        public BudgetWorkbook( DataTable dataTable )
+        public ExcelReport( DataTable dataTable )
         {
-            InternalPath = AppSettings[ nameof( Reports ) ];
+            InternalPath = AppSettings[ "Reports" ];
             FileInfo = new FileInfo( InternalPath );
             Application = new ExcelPackage( FileInfo );
             Workbook = Application.Workbook;
@@ -289,6 +290,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// 
         /// Initializes the tables.
         /// </summary>
         private void InitializeTables( )
@@ -371,7 +373,7 @@ namespace BudgetExecution
         /// Releases unmanaged and
         /// - optionally - managed resources.
         /// </summary>
-        public virtual void Dispose( )
+        public void Dispose( )
         {
             try
             {

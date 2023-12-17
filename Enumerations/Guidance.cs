@@ -41,56 +41,243 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
 
-    /// <summary> </summary>
+    /// <summary>
+    /// 
+    /// </summary>
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public enum Guidance
     {
-        /// <summary> The funds control manual </summary>
+        /// <summary>
+        /// The advice of allowance fiscal year2021
+        /// </summary>
+        AdviceOfAllowanceFiscalYear2021,
+
+        /// <summary>
+        /// The advice of allowance fiscal year2022
+        /// </summary>
+        AdviceOfAllowanceFiscalYear2022,
+
+        /// <summary>
+        /// The advice of allowance fiscal year2023
+        /// </summary>
+        AdviceOfAllowanceFiscalYear2023,
+
+        /// <summary>
+        /// The budget control act
+        /// </summary>
+        BudgetControlAct,
+
+        /// <summary>
+        /// The clean air act
+        /// </summary>
+        CleanAirAct,
+
+        /// <summary>
+        /// The clean water act
+        /// </summary>
+        CleanWaterAct,
+
+        /// <summary>
+        /// The comprehensive environmental response compensation and liability act
+        /// </summary>
+        ComprehensiveEnvironmentalResponseCompensationAndLiabilityAct,
+
+        /// <summary>
+        /// The data act
+        /// </summary>
+        DataAct,
+
+        /// <summary>
+        /// The emergency response mission assignment guidance
+        /// </summary>
+        EmergencyResponseMissionAssignmentGuidance,
+
+        /// <summary>
+        /// The federal account symbols and titles book
+        /// </summary>
+        FederalAccountSymbolsAndTitlesBook,
+
+        /// <summary>
+        /// The federal government standards for internal controls
+        /// </summary>
+        FederalGovernmentStandardsForInternalControls,
+
+        /// <summary>
+        /// The federal trust fund accounting guide
+        /// </summary>
+        FederalTrustFundAccountingGuide,
+
+        /// <summary>
+        /// The funds control manual
+        /// </summary>
         FundsControlManual,
 
-        /// <summary> The boc manual </summary>
+        /// <summary>
+        /// The government auditing standards
+        /// </summary>
+        GovernmentAuditingStandards,
+
+        /// <summary>
+        /// The government invoicing user guide
+        /// </summary>
+        GovernmentInvoicingUserGuide,
+
+        /// <summary>
+        /// The incident management handbook
+        /// </summary>
+        IncidentManagementHandbook,
+
+        /// <summary>
+        /// The inflation reduction act advice of allowance fiscal year2023
+        /// </summary>
+        InflationReductionActAdviceOfAllowanceFiscalYear2023,
+
+        /// <summary>
+        /// The jobs act advice of allowance fiscal year2022
+        /// </summary>
+        JobsActAdviceOfAllowanceFiscalYear2022,
+
+        /// <summary>
+        /// The jobs act advice of allowance fiscal year2023
+        /// </summary>
+        JobsActAdviceOfAllowanceFiscalYear2023,
+
+        /// <summary>
+        /// The managements responsibility for enterprise risk management and internal control
+        /// </summary>
+        ManagementsResponsibilityForEnterpriseRiskManagementAndInternalControl,
+
+        /// <summary>
+        /// The money and finance
+        /// </summary>
+        MoneyAndFinance,
+
+        /// <summary>
+        /// The object class manual
+        /// </summary>
         ObjectClassManual,
 
-        /// <summary> The cf R31 </summary>
-        Cfr31,
+        /// <summary>
+        /// The oil pollution act
+        /// </summary>
+        OilPollutionAct,
 
-        /// <summary> The omb a11 </summary>
-        Omba11,
-
-        /// <summary> The official travel </summary>
+        /// <summary>
+        /// The official travel
+        /// </summary>
         OfficialTravel,
 
-        /// <summary> The superfund introduction </summary>
-        SuperfundIntroduction,
+        /// <summary>
+        /// The pollution prevention act
+        /// </summary>
+        PollutionPreventionAct,
 
-        /// <summary> The superfund general information </summary>
-        SuperfundGeneralInformation,
+        /// <summary>
+        /// The preparation submission and execution of the budget
+        /// </summary>
+        PreparationSubmissionAndExecutionOfTheBudget,
 
-        /// <summary> The superfund resource management </summary>
+        /// <summary>
+        /// The principles of federal appropriations law volume one
+        /// </summary>
+        PrinciplesOfFederalAppropriationsLawVolumeOne,
+
+        /// <summary>
+        /// The principles of federal appropriations law volume two
+        /// </summary>
+        PrinciplesOfFederalAppropriationsLawVolumeTwo,
+
+        /// <summary>
+        /// The resource conservation and recovery act
+        /// </summary>
+        ResourceConservationAndRecoveryAct,
+
+        /// <summary>
+        /// The safe drinking water act
+        /// </summary>
+        SafeDrinkingWaterAct,
+
+        /// <summary>
+        /// The solid waste disposal act
+        /// </summary>
+        SolidWasteDisposalAct,
+
+        /// <summary>
+        /// The stafford act
+        /// </summary>
+        StaffordAct,
+
+        /// <summary>
+        /// The statutory authorities for interagency agreements
+        /// </summary>
+        StatutoryAuthoritiesForInterAgencyAgreements,
+
+        /// <summary>
+        /// The superfund amendments and reauthorization act
+        /// </summary>
+        SuperfundAmendmentsAndReauthorizationAct,
+
+        /// <summary>
+        /// The superfund budget and resource management
+        /// </summary>
+        SuperfundBudgetAndResourceManagement,
+
+        /// <summary>
+        /// The superfund contracts
+        /// </summary>
+        SuperfundContracts,
+
+        /// <summary>
+        /// The superfund cost recovery process
+        /// </summary>
+        SuperfundCostRecoveryProcess,
+
+        /// <summary>
+        /// The superfund resource management
+        /// </summary>
         SuperfundResourceManagement,
 
-        /// <summary> The superfund cost recovery </summary>
-        SuperfundCostRecovery,
+        /// <summary>
+        /// The superfund direct charging of superfund costs
+        /// </summary>
+        SuperfundDirectChargingOfSuperfundCosts,
 
-        /// <summary> The superfund direct charging </summary>
-        SuperfundDirectCharging,
+        /// <summary>
+        /// The superfund general information
+        /// </summary>
+        SuperfundGeneralInformation,
 
-        /// <summary> The superfund inter agency agreements </summary>
+        /// <summary>
+        /// The superfund inter agency agreements
+        /// </summary>
         SuperfundInterAgencyAgreements,
 
-        /// <summary> The superfund personnel and support costs </summary>
+        /// <summary>
+        /// The superfund introduction
+        /// </summary>
+        SuperfundIntroduction,
+
+        /// <summary>
+        /// The superfund personnel and support costs
+        /// </summary>
         SuperfundPersonnelAndSupportCosts,
 
-        /// <summary> The superfund site specific costs </summary>
-        SuperfundSiteSpecificCosts,
+        /// <summary>
+        /// The superfund site specific cost accounting
+        /// </summary>
+        SuperfundSiteSpecificCostAccounting,
 
-        /// <summary> The superfund site special accounts </summary>
-        SuperfundSiteSpecialAccounts,
+        /// <summary>
+        /// The superfund special accounts
+        /// </summary>
+        SuperfundSpecialAccounts,
 
-        /// <summary> The superfund state contracts </summary>
-        SuperfundStateContracts,
-
-        /// <summary> The superfund cost share </summary>
-        SuperfundCostShare
+        /// <summary>
+        /// The toxic substances control act
+        /// </summary>
+        ToxicSubstancesControlAct
     }
 }
