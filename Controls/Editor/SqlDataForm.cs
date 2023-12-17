@@ -67,7 +67,8 @@ namespace BudgetExecution
     using SystemColors = System.Drawing.SystemColors;
 
     /// <inheritdoc />
-    /// <summary> </summary>
+    /// <summary>
+    /// </summary>
     /// <seealso cref="T:BudgetExecution.EditBase" />
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
@@ -223,7 +224,7 @@ namespace BudgetExecution
         public SqlDataForm( )
         {
             InitializeComponent( );
-            RegisterCallbacks();
+            RegisterCallbacks( );
             InitializeDelegates( );
 
             // Form Properties
@@ -490,15 +491,14 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                Console.WriteLine( _ex );
-                throw;
+                Fail( _ex );
             }
         }
 
         /// <summary>
         /// Initializes the callbacks.
         /// </summary>
-        private void RegisterCallbacks()
+        private void RegisterCallbacks( )
         {
             try
             {
@@ -987,7 +987,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the form icon. </summary>
+        /// <summary>
+        /// Sets the form icon.
+        /// </summary>
         private void SetFormIcon( )
         {
             try
@@ -999,7 +1001,10 @@ namespace BudgetExecution
                     if( _files?.Any( ) == true )
                     {
                         var _name = Provider.ToString( );
-                        var _file = _files?.Where( f => f.Contains( _name ) )?.First( );
+                        var _file = _files
+                            ?.Where( f => f.Contains( _name ) )
+                            ?.First( );
+
                         if( !string.IsNullOrEmpty( _file )
                            && File.Exists( _file ) )
                         {
@@ -1026,7 +1031,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return $"SELECT * FROM {Source} " + $"WHERE {where.ToCriteria( )};";
+                    return $"SELECT * FROM {Source} " 
+                        + $"WHERE {where.ToCriteria( )};";
                 }
                 catch( Exception _ex )
                 {
@@ -1061,7 +1067,8 @@ namespace BudgetExecution
 
                     var _criteria = where.ToCriteria( );
                     var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_names} FROM {SelectedTable} " + $"WHERE {_criteria} "
+                    return $"SELECT {_names} FROM {SelectedTable} " 
+                        + $"WHERE {_criteria} "
                         + $"GROUP BY {_names} ;";
                 }
                 catch( Exception _ex )
@@ -1106,7 +1113,7 @@ namespace BudgetExecution
                     var _criteria = where.ToCriteria( );
                     var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
                     return $"SELECT {_columns} "
-                        + "FROM {Source} "
+                        + $"FROM {Source} "
                         + $"WHERE {_criteria} "
                         + $"GROUP BY {_groups};";
                 }

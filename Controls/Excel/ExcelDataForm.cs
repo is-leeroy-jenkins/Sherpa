@@ -356,6 +356,7 @@ namespace BudgetExecution
                 CloseButton.Click += OnCloseButtonClick;
                 BrowseButton.Click += OnBrowserButtonClick;
                 MenuButton.Click += OnMainMenuButtonClicked;
+                ExcelButton.Click += OnExcelButtonClicked;
                 TabControl.SelectedIndexChanged += OnActiveTabChanged;
                 Timer.Tick += OnTimerTick;
             }
@@ -1044,27 +1045,58 @@ namespace BudgetExecution
             {
                 switch( TabControl.SelectedIndex )
                 {
+                    // Data Tab
                     case 0:
                     {
+                        ClearSelections( );
+                        ClearCollections( );
                         DataTab.TabVisible = true;
+                        QueryTab.TabVisible = false;
                         BusyTab.TabVisible = false;
+                        ExcelButton.Visible = false;
+                        ExcelSeparator.Visible = false;
+                        LookupButton.Visible = true;
+                        LookupSeparator.Visible = true;
                         break;
                     }
+                    // Query Tab
                     case 1:
                     {
+                        QueryTab.TabVisible = true;
                         DataTab.TabVisible = false;
-                        BusyTab.TabVisible = true;
+                        BusyTab.TabVisible = false;
+                        ExcelButton.Visible = true;
+                        ExcelSeparator.Visible = true;
+                        LookupButton.Visible = false;
+                        LookupSeparator.Visible = false;
                         break;
                     }
+                    // Busy Tab
                     case 2:
                     {
+                        ClearSelections( );
                         ClearCollections( );
+                        BusyTab.TabVisible = true;
+                        QueryTab.TabVisible = false;
+                        DataTab.TabVisible = false;
+                        ExcelButton.Visible = false;
+                        ExcelSeparator.Visible = false;
+                        LookupButton.Visible = false;
+                        LookupSeparator.Visible = false;
                         break;
                     }
+                    // Default Case
                     default:
                     {
-                        DataTab.TabVisible = false;
-                        BusyTab.TabVisible = true;
+                        ClearSelections( );
+                        ClearCollections( );
+                        DataTab.TabVisible = true;
+                        QueryTab.TabVisible = false;
+                        BusyTab.TabVisible = false;
+                        ExcelButton.Visible = false;
+                        ExcelSeparator.Visible = false;
+                        LookupButton.Visible = false;
+                        LookupSeparator.Visible = false;
                         break;
                     }
                 }
@@ -1100,6 +1132,8 @@ namespace BudgetExecution
                 Header.TextAlign = ContentAlignment.TopCenter;
                 Ribbon.Spreadsheet = Spreadsheet;
                 FilterSeparator.Visible = false;
+                TabControl.SelectedIndex = 0;
+                SetActiveTab( );
                 FadeIn( );
             }
             catch( Exception _ex )
@@ -1381,7 +1415,10 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnTimerTick( object sender, EventArgs e ) => InvokeIf( _statusUpdate );
+        private void OnTimerTick( object sender, EventArgs e )
+        {
+            InvokeIf( _statusUpdate );
+        }
 
         /// <summary>
         /// Raises the Close event.
@@ -1412,6 +1449,28 @@ namespace BudgetExecution
         {
             try
             {
+                SetActiveTab( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [lookup button clicked].
+        /// </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnExcelButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                TabControl.SelectedIndex = 0;
                 SetActiveTab( );
             }
             catch( Exception _ex )
