@@ -175,9 +175,9 @@ namespace BudgetExecution
             RegisterCallbacks();
 
             // Basic Properties
-            Size = new Size( 1340, 740 );
-            MaximumSize = new Size( 1340, 740 );
-            MinimumSize = new Size( 1340, 740 );
+            Size = new Size( 1349, 730 );
+            MaximumSize = new Size( 1349, 730 );
+            MinimumSize = new Size( 1349, 730 );
             StartPosition = FormStartPosition.CenterParent;
             FormBorderStyle = FormBorderStyle.None;
             BackColor = Color.FromArgb( 20, 20, 20 );

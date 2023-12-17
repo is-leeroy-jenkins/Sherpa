@@ -380,7 +380,9 @@ namespace BudgetExecution
             _busy = false;
         }
 
-        /// <summary> Sets the frame visibility. </summary>
+        /// <summary>
+        /// Sets the frame visibility.
+        /// </summary>
         public void SetFrameVisibility( )
         {
             if( Frames?.Any( ) == true )
@@ -405,8 +407,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the frames. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the frames.
+        /// </summary>
+        /// <returns>
+        /// </returns>
         public IEnumerable<Frame> GetFrames( )
         {
             try

@@ -277,7 +277,7 @@ namespace BudgetExecution
         {
             InitializeComponent( );
             InitializeDelegates( );
-            RegisterCallbacks();
+            RegisterCallbacks( );
 
             // Basic Properties
             Size = new Size( 1350, 750 );
@@ -584,7 +584,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the callbacks.
         /// </summary>
-        private void RegisterCallbacks()
+        private void RegisterCallbacks( )
         {
             // Control Event Wiring
             try

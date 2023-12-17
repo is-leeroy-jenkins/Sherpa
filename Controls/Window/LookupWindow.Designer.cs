@@ -88,7 +88,7 @@
             // 
             TabControl.ActiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            TabControl.BeforeTouchSize = new System.Drawing.Size( 1328, 517 );
+            TabControl.BeforeTouchSize = new System.Drawing.Size( 1349, 517 );
             TabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             TabControl.CanOverrideStyle = true;
             TabControl.CloseButtonBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
@@ -102,7 +102,7 @@
             TabControl.ItemSize = new System.Drawing.Size( 158, 23 );
             TabControl.Location = new System.Drawing.Point( 0, 0 );
             TabControl.Name = "TabControl";
-            TabControl.Size = new System.Drawing.Size( 1328, 517 );
+            TabControl.Size = new System.Drawing.Size( 1349, 517 );
             TabControl.TabIndex = 8;
             TabControl.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.TabStyle = typeof( Syncfusion.Windows.Forms.Tools.TabRendererMetro );
@@ -135,7 +135,7 @@
             LookupTabPage.Location = new System.Drawing.Point( 0, 22 );
             LookupTabPage.Name = "LookupTabPage";
             LookupTabPage.ShowCloseButton = true;
-            LookupTabPage.Size = new System.Drawing.Size( 1328, 495 );
+            LookupTabPage.Size = new System.Drawing.Size( 1349, 495 );
             LookupTabPage.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             LookupTabPage.TabForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             LookupTabPage.TabIndex = 2;
@@ -812,7 +812,6 @@
             // 
             // SelectButton
             // 
-            SelectButton.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             SelectButton.BackColor = System.Drawing.Color.Transparent;
             SelectButton.BindingSource = null;
             SelectButton.DataFilter = null;
@@ -826,7 +825,7 @@
             SelectButton.HoverText = "Not Yet Implemented!";
             SelectButton.HoverTextColor = System.Drawing.Color.White;
             SelectButton.IsDerivedStyle = true;
-            SelectButton.Location = new System.Drawing.Point( 612, 578 );
+            SelectButton.Location = new System.Drawing.Point( 614, 581 );
             SelectButton.Margin = new System.Windows.Forms.Padding( 0 );
             SelectButton.Name = "SelectButton";
             SelectButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
@@ -836,7 +835,7 @@
             SelectButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             SelectButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             SelectButton.PressTextColor = System.Drawing.Color.White;
-            SelectButton.Size = new System.Drawing.Size( 90, 36 );
+            SelectButton.Size = new System.Drawing.Size( 90, 30 );
             SelectButton.Style = MetroSet_UI.Enums.Style.Custom;
             SelectButton.StyleManager = null;
             SelectButton.TabIndex = 7;
@@ -847,7 +846,6 @@
             // 
             // RefreshButton
             // 
-            RefreshButton.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             RefreshButton.BindingSource = null;
             RefreshButton.DataFilter = null;
             RefreshButton.DisabledBackColor = System.Drawing.Color.Transparent;
@@ -860,7 +858,7 @@
             RefreshButton.HoverText = "Not Yet Implemented!";
             RefreshButton.HoverTextColor = System.Drawing.Color.White;
             RefreshButton.IsDerivedStyle = true;
-            RefreshButton.Location = new System.Drawing.Point( 191, 578 );
+            RefreshButton.Location = new System.Drawing.Point( 191, 581 );
             RefreshButton.Margin = new System.Windows.Forms.Padding( 0 );
             RefreshButton.Name = "RefreshButton";
             RefreshButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
@@ -870,7 +868,7 @@
             RefreshButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             RefreshButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             RefreshButton.PressTextColor = System.Drawing.Color.White;
-            RefreshButton.Size = new System.Drawing.Size( 90, 36 );
+            RefreshButton.Size = new System.Drawing.Size( 90, 30 );
             RefreshButton.Style = MetroSet_UI.Enums.Style.Custom;
             RefreshButton.StyleManager = null;
             RefreshButton.TabIndex = 5;
@@ -881,7 +879,6 @@
             // 
             // CloseButton
             // 
-            CloseButton.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             CloseButton.BackColor = System.Drawing.Color.Transparent;
             CloseButton.BindingSource = null;
             CloseButton.DataFilter = null;
@@ -895,7 +892,7 @@
             CloseButton.HoverText = "Close Window";
             CloseButton.HoverTextColor = System.Drawing.Color.White;
             CloseButton.IsDerivedStyle = true;
-            CloseButton.Location = new System.Drawing.Point( 1037, 578 );
+            CloseButton.Location = new System.Drawing.Point( 1037, 581 );
             CloseButton.Margin = new System.Windows.Forms.Padding( 0 );
             CloseButton.Name = "CloseButton";
             CloseButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
@@ -905,7 +902,7 @@
             CloseButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             CloseButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             CloseButton.PressTextColor = System.Drawing.Color.White;
-            CloseButton.Size = new System.Drawing.Size( 90, 36 );
+            CloseButton.Size = new System.Drawing.Size( 90, 30 );
             CloseButton.Style = MetroSet_UI.Enums.Style.Custom;
             CloseButton.StyleManager = null;
             CloseButton.TabIndex = 6;
@@ -1024,7 +1021,7 @@
             CaptionButtonColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionFont = new System.Drawing.Font( "Roboto", 9F );
-            ClientSize = new System.Drawing.Size( 1328, 734 );
+            ClientSize = new System.Drawing.Size( 1349, 730 );
             ControlBox = false;
             Controls.Add( SelectButton );
             Controls.Add( TabControl );
@@ -1035,10 +1032,10 @@
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
             MaximizeBox = false;
-            MaximumSize = new System.Drawing.Size( 1340, 740 );
+            MaximumSize = new System.Drawing.Size( 1349, 730 );
             MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             MinimizeBox = false;
-            MinimumSize = new System.Drawing.Size( 1340, 740 );
+            MinimumSize = new System.Drawing.Size( 1349, 730 );
             Name = "LookupWindow";
             ShowIcon = false;
             ShowMaximizeBox = false;
