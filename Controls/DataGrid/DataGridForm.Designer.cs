@@ -144,6 +144,8 @@
             CommandLabelSeparator = new ToolSeparator( );
             ToolStripTextBox = new ToolStripTextBox( );
             GoButton = new ToolStripButton( );
+            ApplicationSeparator = new ToolSeparator( );
+            ApplicationLabel = new ToolStripLabel( );
             ExitSeparator = new ToolSeparator( );
             ToolSeparator1 = new ToolSeparator( );
             CommandSpacer = new ToolStripLabel( );
@@ -162,8 +164,6 @@
             Loader = new System.Windows.Forms.PictureBox( );
             ToolStripTable = new System.Windows.Forms.TableLayoutPanel( );
             ContextMenu = new ContextMenu( );
-            ApplicationLabel = new ToolStripLabel( );
-            ApplicationSeparator = new ToolSeparator( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
             DataGridPanel.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)DataGrid ).BeginInit( );
@@ -1218,7 +1218,7 @@
             TableListBox.SelectedText = null;
             TableListBox.SelectedValue = null;
             TableListBox.ShowBorder = false;
-            TableListBox.ShowScrollBar = true;
+            TableListBox.ShowScrollBar = false;
             TableListBox.Size = new System.Drawing.Size( 234, 497 );
             TableListBox.Style = MetroSet_UI.Enums.Style.Custom;
             TableListBox.StyleManager = null;
@@ -2287,7 +2287,7 @@
             ToolStripTextBox.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             ToolStripTextBox.Name = "ToolStripTextBox";
             ToolStripTextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Size = new System.Drawing.Size( 282, 25 );
+            ToolStripTextBox.Size = new System.Drawing.Size( 278, 25 );
             ToolStripTextBox.Tag = "";
             ToolStripTextBox.ToolTip = ToolTip;
             // 
@@ -2311,6 +2311,33 @@
             GoButton.Text = "toolStripButton1";
             GoButton.ToolTip = ToolTip;
             GoButton.ToolType = ToolType.GoButton;
+            // 
+            // ApplicationSeparator
+            // 
+            ApplicationSeparator.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            ApplicationSeparator.ForeColor = System.Drawing.Color.Black;
+            ApplicationSeparator.Margin = new System.Windows.Forms.Padding( 1 );
+            ApplicationSeparator.Name = "ApplicationSeparator";
+            ApplicationSeparator.Padding = new System.Windows.Forms.Padding( 1 );
+            ApplicationSeparator.Size = new System.Drawing.Size( 6, 25 );
+            // 
+            // ApplicationLabel
+            // 
+            ApplicationLabel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            ApplicationLabel.BackColor = System.Drawing.Color.Transparent;
+            ApplicationLabel.BindingSource = null;
+            ApplicationLabel.DataFilter = null;
+            ApplicationLabel.Field = Field.AccountCode;
+            ApplicationLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
+            ApplicationLabel.ForeColor = System.Drawing.Color.Black;
+            ApplicationLabel.HoverText = null;
+            ApplicationLabel.Margin = new System.Windows.Forms.Padding( 1 );
+            ApplicationLabel.Name = "ApplicationLabel";
+            ApplicationLabel.Padding = new System.Windows.Forms.Padding( 1 );
+            ApplicationLabel.Size = new System.Drawing.Size( 70, 25 );
+            ApplicationLabel.Tag = "";
+            ApplicationLabel.Text = "        Application:";
+            ApplicationLabel.ToolTip = null;
             // 
             // ExitSeparator
             // 
@@ -2569,33 +2596,6 @@
             ContextMenu.ThemeStyle.HoverForeColor = System.Drawing.Color.White;
             ContextMenu.ThemeStyle.PressedBackColor = System.Drawing.Color.FromArgb( 204, 204, 204 );
             ContextMenu.ThemeStyle.PressedForeColor = System.Drawing.Color.Black;
-            // 
-            // ApplicationLabel
-            // 
-            ApplicationLabel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            ApplicationLabel.BackColor = System.Drawing.Color.Transparent;
-            ApplicationLabel.BindingSource = null;
-            ApplicationLabel.DataFilter = null;
-            ApplicationLabel.Field = Field.AccountCode;
-            ApplicationLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
-            ApplicationLabel.ForeColor = System.Drawing.Color.Black;
-            ApplicationLabel.HoverText = null;
-            ApplicationLabel.Margin = new System.Windows.Forms.Padding( 1 );
-            ApplicationLabel.Name = "ApplicationLabel";
-            ApplicationLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            ApplicationLabel.Size = new System.Drawing.Size( 70, 25 );
-            ApplicationLabel.Tag = "";
-            ApplicationLabel.Text = "        Application:";
-            ApplicationLabel.ToolTip = null;
-            // 
-            // ApplicationSeparator
-            // 
-            ApplicationSeparator.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            ApplicationSeparator.ForeColor = System.Drawing.Color.Black;
-            ApplicationSeparator.Margin = new System.Windows.Forms.Padding( 1 );
-            ApplicationSeparator.Name = "ApplicationSeparator";
-            ApplicationSeparator.Padding = new System.Windows.Forms.Padding( 1 );
-            ApplicationSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
             // DataGridForm
             // 

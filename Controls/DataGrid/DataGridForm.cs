@@ -313,6 +313,7 @@ namespace BudgetExecution
 
             // Set PictureBox Size
             PictureBox.Size = new Size( 20, 20 );
+            TableListBox.ShowScrollBar = false;
 
             // Form Event Wiring
             Load += OnLoad;
