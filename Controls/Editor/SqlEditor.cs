@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
-//     Assembly:             BudgetExecution
+//     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 07-24-2023
+//     Created:                 12-18-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        11-26-2023
+//     Last Modified On:        12-18-2023
 // ******************************************************************************************
-// <copyright file="Terry Eppler.cs" company="Terry D. Eppler">
-//    BudgetExecution is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
+// <copyright file="SqlEditor.cs" company="Terry D. Eppler">
+//    Budget Execution is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,10 +31,10 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
+//    Contact at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   SqlEditor.cs.cs
+//   SqlEditor.cs
 // </summary>
 // ******************************************************************************************
 
@@ -203,8 +203,8 @@ namespace BudgetExecution
         /// </value>
         public bool IsBusy
         {
-            get { return _busy; }
-            private set { _busy = value; }
+            get => _busy;
+            private set => _busy = value;
         }
 
         /// <inheritdoc/>
@@ -627,18 +627,12 @@ namespace BudgetExecution
         /// <summary>
         /// Begins the initialize.
         /// </summary>
-        private void BeginInit( )
-        {
-            _busy = true;
-        }
+        private void BeginInit( ) => _busy = true;
 
         /// <summary>
         /// Ends the initialize.
         /// </summary>
-        private void EndInit( )
-        {
-            _busy = false;
-        }
+        private void EndInit( ) => _busy = false;
 
         /// <summary>
         /// Updates the status.
@@ -1926,10 +1920,7 @@ namespace BudgetExecution
         /// The <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        private void OnClientButtonClick( object sender, EventArgs e )
-        {
-            RunClient( );
-        }
+        private void OnClientButtonClick( object sender, EventArgs e ) => RunClient( );
 
         /// <summary>
         /// Called when [timer tick].
@@ -1940,10 +1931,7 @@ namespace BudgetExecution
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        private void OnTimerTick( object sender, EventArgs e )
-        {
-            InvokeIf( _statusUpdate );
-        }
+        private void OnTimerTick( object sender, EventArgs e ) => InvokeIf( _statusUpdate );
 
         /// <summary>
         /// Raises the Close event.

@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
-//     Assembly:             BudgetExecution
+//     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 07-22-2023
+//     Created:                 12-18-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        11-26-2023
+//     Last Modified On:        12-18-2023
 // ******************************************************************************************
-// <copyright file="Terry Eppler.cs" company="Terry D. Eppler">
-//    BudgetExecution is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
+// <copyright file="CalendarForm.cs" company="Terry D. Eppler">
+//    Budget Execution is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,10 +31,10 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
+//    Contact at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   CalendarForm.cs.cs
+//   CalendarForm.cs
 // </summary>
 // ******************************************************************************************
 
@@ -181,8 +181,8 @@ namespace BudgetExecution
         /// </value>
         public bool IsBusy
         {
-            get { return _busy; }
-            private set { _busy = value; }
+            get => _busy;
+            private set => _busy = value;
         }
 
         /// <inheritdoc />
@@ -267,10 +267,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the delegates.
         /// </summary>
-        private void InitializeDelegates( )
-        {
-            _statusUpdate += UpdateStatus;
-        }
+        private void InitializeDelegates( ) => _statusUpdate += UpdateStatus;
 
         /// <summary>
         /// Initializes the tool strip.
@@ -395,18 +392,12 @@ namespace BudgetExecution
         /// <summary>
         /// Begins the initialize.
         /// </summary>
-        private void BeginInit( )
-        {
-            _busy = true;
-        }
+        private void BeginInit( ) => _busy = true;
 
         /// <summary>
         /// Ends the initialize.
         /// </summary>
-        private void EndInit( )
-        {
-            _busy = false;
-        }
+        private void EndInit( ) => _busy = false;
 
         /// <summary>
         /// Fades the form in.
@@ -763,7 +754,7 @@ namespace BudgetExecution
                 for( var _i = 0d; _i <= _days; _i++ )
                 {
                     var _day = start.AddDays( _i );
-                    if( _day.IsFederalHoliday( ) ) 
+                    if( _day.IsFederalHoliday( ) )
                     {
                         _holiday += 1;
                     }
@@ -924,10 +915,8 @@ namespace BudgetExecution
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        private void OnTableButtonClick( object sender, EventArgs e )
-        {
+        private void OnTableButtonClick( object sender, EventArgs e ) =>
             TabControl.SelectedIndex = 1;
-        }
 
         /// <summary>
         /// Called when [chart button click].
@@ -937,10 +926,8 @@ namespace BudgetExecution
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        private void OnChartButtonClick( object sender, EventArgs e )
-        {
+        private void OnChartButtonClick( object sender, EventArgs e ) =>
             TabControl.SelectedIndex = 0;
-        }
 
         /// <summary>
         /// Called when [selected tab changed].
@@ -950,10 +937,7 @@ namespace BudgetExecution
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        private void OnTabChanged( object sender, EventArgs e )
-        {
-            SetActiveTab( );
-        }
+        private void OnTabChanged( object sender, EventArgs e ) => SetActiveTab( );
 
         /// <summary>
         /// Called when [refresh button click].
@@ -1009,10 +993,7 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnTimerTick( object sender, EventArgs e )
-        {
-            InvokeIf( _statusUpdate );
-        }
+        private void OnTimerTick( object sender, EventArgs e ) => InvokeIf( _statusUpdate );
 
         /// <summary>
         /// Fails the specified ex.

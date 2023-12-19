@@ -283,7 +283,9 @@ namespace BudgetExecution
             Provider = provider;
         }
 
-        /// <summary> Displays the control to the user. </summary>
+        /// <summary>
+        /// Displays the control to the user.
+        /// </summary>
         public new void Show( )
         {
             try
