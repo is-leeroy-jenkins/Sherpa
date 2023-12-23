@@ -1,13 +1,13 @@
 ﻿// ******************************************************************************************
-//     Assembly:              Budget Execution
+//     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 12-9-2023
+//     Created:                 12-23-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-9-2023
+//     Last Modified On:        12-23-2023
 // ******************************************************************************************
 // <copyright file="ValidationBase.cs" company="Terry D. Eppler">
-//    This is a tiny web browser used in Federal Budget, Finance, and Accounting application
+//    Budget Execution is a Federal Budget, Finance, and Accounting application
 //    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
 // 
@@ -124,10 +124,7 @@ namespace BudgetExecution
         /// </param>
         /// <returns>
         /// </returns>
-        private protected static bool IsControl( char c )
-        {
-            return ( c <= 31 ) || ( c == 127 );
-        }
+        private protected static bool IsControl( char c ) => ( c <= 31 ) || ( c == 127 );
 
         /// <summary>
         /// 
@@ -213,7 +210,7 @@ namespace BudgetExecution
                 }
 
                 return c < 128
-                    ? IsLetterOrDigit( c ) || ( AtomCharacters.IndexOf( c ) != -1 )
+                    ? IsLetterOrDigit( c ) || ( AtomCharacters.Contains( c ) )
                     : allowInternational && !char.IsWhiteSpace( c );
             }
             catch( Exception _ex )

@@ -41,7 +41,6 @@
 namespace BudgetExecution
 {
     using System;
-    using System;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
@@ -57,6 +56,8 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertSwitchStatementToSwitchExpression" ) ]
     public class Grid : ExcelCellBase
     {
         /// <summary>
