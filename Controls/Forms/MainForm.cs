@@ -473,7 +473,7 @@ namespace BudgetExecution
             {
                 var _data = new DataBuilder( Source.BudgetContacts );
                 var _table = _data.DataTable;
-                var _grid = new SheetForm( _table );
+                var _grid = new GridForm( _table );
                 _grid.Show( );
             }
             catch( Exception _ex )

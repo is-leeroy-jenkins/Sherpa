@@ -108,7 +108,7 @@ namespace BudgetExecution
             AddColumnTextBox = new TextBox( );
             DataTypeComboBox = new ComboBox( );
             headerPanel1 = new HeaderPanel( );
-            layout1 = new BackPanel( );
+            LayoutPanel = new BackPanel( );
             AddTableLabel = new Label( );
             DeleteTableButton = new Button( );
             AddTableButton = new Button( );
@@ -203,7 +203,7 @@ namespace BudgetExecution
             SchemaTable.SuspendLayout( );
             SchemaPanel.SuspendLayout( );
             headerPanel1.SuspendLayout( );
-            layout1.SuspendLayout( );
+            LayoutPanel.SuspendLayout( );
             BusyTab.SuspendLayout( );
             BusyHeaderPanel.SuspendLayout( );
             BusyPanel.SuspendLayout( );
@@ -1112,7 +1112,7 @@ namespace BudgetExecution
             headerPanel1.CaptionText = "Table";
             headerPanel1.ColumnCount = 1;
             headerPanel1.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            headerPanel1.Controls.Add( layout1, 0, 1 );
+            headerPanel1.Controls.Add( LayoutPanel, 0, 1 );
             headerPanel1.Font = new System.Drawing.Font( "Roboto", 9F );
             headerPanel1.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             headerPanel1.Location = new System.Drawing.Point( 240, 280 );
@@ -1123,36 +1123,36 @@ namespace BudgetExecution
             headerPanel1.Size = new System.Drawing.Size( 426, 200 );
             headerPanel1.TabIndex = 15;
             // 
-            // layout1
+            // LayoutPanel
             // 
-            layout1.BackColor = System.Drawing.Color.Transparent;
-            layout1.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            layout1.BindingSource = null;
-            layout1.BorderColor = System.Drawing.Color.FromArgb( 64, 64, 64 );
-            layout1.BorderThickness = 1;
-            layout1.Children = null;
-            layout1.Controls.Add( AddTableLabel );
-            layout1.Controls.Add( DeleteTableButton );
-            layout1.Controls.Add( AddTableButton );
-            layout1.Controls.Add( SelectTableLabel );
-            layout1.Controls.Add( TableNameComboBox );
-            layout1.Controls.Add( AddTableTextBox );
-            layout1.DataFilter = null;
-            layout1.Dock = System.Windows.Forms.DockStyle.Fill;
-            layout1.Font = new System.Drawing.Font( "Roboto", 9F );
-            layout1.ForeColor = System.Drawing.Color.Transparent;
-            layout1.HoverText = null;
-            layout1.IsDerivedStyle = true;
-            layout1.Location = new System.Drawing.Point( 3, 30 );
-            layout1.Name = "layout1";
-            layout1.Padding = new System.Windows.Forms.Padding( 1 );
-            layout1.Size = new System.Drawing.Size( 420, 167 );
-            layout1.Style = MetroSet_UI.Enums.Style.Custom;
-            layout1.StyleManager = null;
-            layout1.TabIndex = 10;
-            layout1.ThemeAuthor = "Terry D. Eppler";
-            layout1.ThemeName = "BudgetExecution";
-            layout1.ToolTip = null;
+            LayoutPanel.BackColor = System.Drawing.Color.Transparent;
+            LayoutPanel.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            LayoutPanel.BindingSource = null;
+            LayoutPanel.BorderColor = System.Drawing.Color.FromArgb( 64, 64, 64 );
+            LayoutPanel.BorderThickness = 1;
+            LayoutPanel.Children = null;
+            LayoutPanel.Controls.Add( AddTableLabel );
+            LayoutPanel.Controls.Add( DeleteTableButton );
+            LayoutPanel.Controls.Add( AddTableButton );
+            LayoutPanel.Controls.Add( SelectTableLabel );
+            LayoutPanel.Controls.Add( TableNameComboBox );
+            LayoutPanel.Controls.Add( AddTableTextBox );
+            LayoutPanel.DataFilter = null;
+            LayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            LayoutPanel.Font = new System.Drawing.Font( "Roboto", 9F );
+            LayoutPanel.ForeColor = System.Drawing.Color.Transparent;
+            LayoutPanel.HoverText = null;
+            LayoutPanel.IsDerivedStyle = true;
+            LayoutPanel.Location = new System.Drawing.Point( 3, 30 );
+            LayoutPanel.Name = "LayoutPanel";
+            LayoutPanel.Padding = new System.Windows.Forms.Padding( 1 );
+            LayoutPanel.Size = new System.Drawing.Size( 420, 167 );
+            LayoutPanel.Style = MetroSet_UI.Enums.Style.Custom;
+            LayoutPanel.StyleManager = null;
+            LayoutPanel.TabIndex = 10;
+            LayoutPanel.ThemeAuthor = "Terry D. Eppler";
+            LayoutPanel.ThemeName = "BudgetExecution";
+            LayoutPanel.ToolTip = null;
             // 
             // AddTableLabel
             // 
@@ -2495,7 +2495,7 @@ namespace BudgetExecution
             SchemaTable.ResumeLayout( false );
             SchemaPanel.ResumeLayout( false );
             headerPanel1.ResumeLayout( false );
-            layout1.ResumeLayout( false );
+            LayoutPanel.ResumeLayout( false );
             BusyTab.ResumeLayout( false );
             BusyHeaderPanel.ResumeLayout( false );
             BusyPanel.ResumeLayout( false );
@@ -2599,7 +2599,7 @@ namespace BudgetExecution
         public TextBox AddColumnTextBox;
         public ComboBox DataTypeComboBox;
         public HeaderPanel headerPanel1;
-        public BackPanel layout1;
+        public BackPanel LayoutPanel;
         public Label AddTableLabel;
         public Button DeleteTableButton;
         public Button AddTableButton;

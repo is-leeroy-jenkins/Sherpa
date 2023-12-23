@@ -393,7 +393,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the callbacks.
         /// </summary>
-        private void RegisterCallbacks()
+        private void RegisterCallbacks( )
         {
             try
             {
@@ -412,6 +412,7 @@ namespace BudgetExecution
         {
             try
             {
+                _statusUpdate += UpdateStatus;
             }
             catch( Exception _ex )
             {
@@ -543,6 +544,20 @@ namespace BudgetExecution
                 ThrowIf.NullOrEmpty( text, nameof( text ) );
                 var _message = new SplashMessage( text );
                 _message.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Updates the status.
+        /// </summary>
+        private void UpdateStatus( )
+        {
+            try
+            {
             }
             catch( Exception _ex )
             {

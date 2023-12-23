@@ -860,12 +860,12 @@
             PivotChart.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             PivotChart.ChartTypes = Syncfusion.Windows.Forms.PivotChart.PivotChartTypes.Column;
             PivotChart.CustomPalette = new System.Drawing.Color[ ]
-    {
-    System.Drawing.Color.FromArgb(147, 208, 249),
-    System.Drawing.Color.FromArgb(102, 170, 225),
-    System.Drawing.Color.FromArgb(250, 163, 94),
-    System.Drawing.Color.FromArgb(252, 227, 127)
-    };
+            {
+            System.Drawing.Color.FromArgb(147, 208, 249),
+            System.Drawing.Color.FromArgb(102, 170, 225),
+            System.Drawing.Color.FromArgb(250, 163, 94),
+            System.Drawing.Color.FromArgb(252, 227, 127)
+            };
             PivotChart.DeferLayoutUpdate = false;
             PivotChart.Dock = System.Windows.Forms.DockStyle.Fill;
             PivotChart.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );

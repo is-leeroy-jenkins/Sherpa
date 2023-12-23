@@ -60,6 +60,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     public partial class LookupWindow : EditBase
     {
         /// <summary>
@@ -164,6 +165,26 @@ namespace BudgetExecution
         public string SqlQuery { get; set; }
 
         /// <summary>
+        /// Gets a value indicating whether this instance is busy.
+        /// </summary>
+        /// <value>
+        /// <c> true </c>
+        /// if this instance is busy; otherwise,
+        /// <c> false </c>
+        /// </value>
+        public bool IsBusy
+        {
+            get
+            {
+                return _busy;
+            }
+            private set
+            {
+                _busy = value;
+            }
+        }
+
+        /// <summary>
         /// Initializes a new instance of the
         /// <see cref="LookupWindow"/> class.
         /// </summary>
@@ -172,7 +193,7 @@ namespace BudgetExecution
         {
             InitializeComponent( );
             InitializeDelegates( );
-            RegisterCallbacks();
+            RegisterCallbacks( );
 
             // Basic Properties
             Size = new Size( 1349, 730 );
@@ -294,7 +315,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the callbacks.
         /// </summary>
-        private void RegisterCallbacks()
+        private void RegisterCallbacks( )
         {
             try
             {
@@ -486,7 +507,7 @@ namespace BudgetExecution
         {
             try
             {
-                RegisterCallbacks();
+                RegisterCallbacks( );
                 InitializeTabControl( );
                 InitializeLabels( );
                 InitializeButtons( );

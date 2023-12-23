@@ -41,20 +41,18 @@
 //  </summary>
 //  ******************************************************************************************
 
-// ReSharper disable All
-
 namespace BudgetExecution
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
 
-    /// <summary> </summary>
+    /// <summary>
+    /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public partial class ColorDialog : MetroForm
     {
         /// <inheritdoc/>
@@ -97,7 +95,9 @@ namespace BudgetExecution
             Load += OnLoad;
         }
 
-        /// <summary> Called when [load]. </summary>
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
         /// The
@@ -116,7 +116,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [close button clicked]. </summary>
+        /// <summary>
+        /// Called when [close button clicked].
+        /// </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
         /// The
@@ -135,8 +137,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Get ErrorDialog Dialog.
+        /// </summary>
+        /// <param name="ex">
+        /// The ex.
+        /// </param>
         private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

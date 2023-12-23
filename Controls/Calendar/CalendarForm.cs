@@ -181,8 +181,14 @@ namespace BudgetExecution
         /// </value>
         public bool IsBusy
         {
-            get => _busy;
-            private set => _busy = value;
+            get
+            {
+                return _busy;
+            }
+            private set
+            {
+                _busy = value;
+            }
         }
 
         /// <inheritdoc />
@@ -267,7 +273,10 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the delegates.
         /// </summary>
-        private void InitializeDelegates( ) => _statusUpdate += UpdateStatus;
+        private void InitializeDelegates( )
+        {
+            _statusUpdate += UpdateStatus;
+        }
 
         /// <summary>
         /// Initializes the tool strip.
@@ -392,12 +401,18 @@ namespace BudgetExecution
         /// <summary>
         /// Begins the initialize.
         /// </summary>
-        private void BeginInit( ) => _busy = true;
+        private void BeginInit( )
+        {
+            _busy = true;
+        }
 
         /// <summary>
         /// Ends the initialize.
         /// </summary>
-        private void EndInit( ) => _busy = false;
+        private void EndInit( )
+        {
+            _busy = false;
+        }
 
         /// <summary>
         /// Fades the form in.
@@ -915,8 +930,10 @@ namespace BudgetExecution
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        private void OnTableButtonClick( object sender, EventArgs e ) =>
+        private void OnTableButtonClick( object sender, EventArgs e )
+        {
             TabControl.SelectedIndex = 1;
+        }
 
         /// <summary>
         /// Called when [chart button click].
@@ -926,8 +943,10 @@ namespace BudgetExecution
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        private void OnChartButtonClick( object sender, EventArgs e ) =>
+        private void OnChartButtonClick( object sender, EventArgs e )
+        {
             TabControl.SelectedIndex = 0;
+        }
 
         /// <summary>
         /// Called when [selected tab changed].
@@ -937,7 +956,10 @@ namespace BudgetExecution
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        private void OnTabChanged( object sender, EventArgs e ) => SetActiveTab( );
+        private void OnTabChanged( object sender, EventArgs e )
+        {
+            SetActiveTab( );
+        }
 
         /// <summary>
         /// Called when [refresh button click].
@@ -993,7 +1015,10 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnTimerTick( object sender, EventArgs e ) => InvokeIf( _statusUpdate );
+        private void OnTimerTick( object sender, EventArgs e )
+        {
+            InvokeIf( _statusUpdate );
+        }
 
         /// <summary>
         /// Fails the specified ex.

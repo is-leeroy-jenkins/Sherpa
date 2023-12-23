@@ -1782,11 +1782,8 @@ namespace BudgetExecution
         public ToolStripButton FirstButton;
         public ToolStripButton PreviousButton;
         public ToolStripButton NextButton;
-        private ToolSeparator toolSeparator4;
         public ToolStripButton LastButton;
-        private ToolSeparator toolSeparator6;
         public ToolStripButton CloseButton;
-        private ToolSeparator toolSeparator7;
         public ToolStripButton MenuButton;
         public HeaderPanel FirstCalendarTable;
         public BackPanel FirstCalendarPanel;

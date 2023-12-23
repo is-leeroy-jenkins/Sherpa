@@ -203,8 +203,14 @@ namespace BudgetExecution
         /// </value>
         public bool IsBusy
         {
-            get => _busy;
-            private set => _busy = value;
+            get
+            {
+                return _busy;
+            }
+            private set
+            {
+                _busy = value;
+            }
         }
 
         /// <inheritdoc/>
@@ -627,12 +633,18 @@ namespace BudgetExecution
         /// <summary>
         /// Begins the initialize.
         /// </summary>
-        private void BeginInit( ) => _busy = true;
+        private void BeginInit( )
+        {
+            _busy = true;
+        }
 
         /// <summary>
         /// Ends the initialize.
         /// </summary>
-        private void EndInit( ) => _busy = false;
+        private void EndInit( )
+        {
+            _busy = false;
+        }
 
         /// <summary>
         /// Updates the status.
@@ -1920,7 +1932,10 @@ namespace BudgetExecution
         /// The <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        private void OnClientButtonClick( object sender, EventArgs e ) => RunClient( );
+        private void OnClientButtonClick( object sender, EventArgs e )
+        {
+            RunClient( );
+        }
 
         /// <summary>
         /// Called when [timer tick].
@@ -1931,7 +1946,10 @@ namespace BudgetExecution
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        private void OnTimerTick( object sender, EventArgs e ) => InvokeIf( _statusUpdate );
+        private void OnTimerTick( object sender, EventArgs e )
+        {
+            InvokeIf( _statusUpdate );
+        }
 
         /// <summary>
         /// Raises the Close event.

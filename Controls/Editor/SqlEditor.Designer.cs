@@ -120,8 +120,8 @@
             AddColumnLabel = new Label( );
             AddColumnTextBox = new TextBox( );
             DataTypeComboBox = new ComboBox( );
-            headerPanel2 = new HeaderPanel( );
-            layout1 = new BackPanel( );
+            HeaderPanel = new HeaderPanel( );
+            LayoutPanel = new BackPanel( );
             AddTableLabel = new Label( );
             DeleteTableButton = new Button( );
             AddTableButton = new Button( );
@@ -129,7 +129,7 @@
             TableNameComboBox = new ComboBox( );
             AddTableTextBox = new TextBox( );
             Busy = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
-            headerPanel1 = new HeaderPanel( );
+            SqlTabHeaderTable = new HeaderPanel( );
             BusyPanel = new BackPanel( );
             Loader = new System.Windows.Forms.PictureBox( );
             ContextMenu = new ContextMenu( );
@@ -164,10 +164,10 @@
             SchemaHeaderPanel.SuspendLayout( );
             SchemaTable.SuspendLayout( );
             SchemaPanel.SuspendLayout( );
-            headerPanel2.SuspendLayout( );
-            layout1.SuspendLayout( );
+            HeaderPanel.SuspendLayout( );
+            LayoutPanel.SuspendLayout( );
             Busy.SuspendLayout( );
-            headerPanel1.SuspendLayout( );
+            SqlTabHeaderTable.SuspendLayout( );
             BusyPanel.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)Loader ).BeginInit( );
             SuspendLayout( );
@@ -858,7 +858,7 @@
             LookupButton.Filter = null;
             LookupButton.Font = new System.Drawing.Font( "Roboto", 9F );
             LookupButton.ForeColor = System.Drawing.Color.LightGray;
-            LookupButton.HoverText = "Reset Data Source";
+            LookupButton.HoverText = "Reset Data";
             LookupButton.Image = Resources.Images.DataSearchButton;
             LookupButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             LookupButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
@@ -970,7 +970,7 @@
             BrowserButton.Filter = null;
             BrowserButton.Font = new System.Drawing.Font( "Roboto", 9F );
             BrowserButton.ForeColor = System.Drawing.Color.LightGray;
-            BrowserButton.HoverText = "Browse File System";
+            BrowserButton.HoverText = "File System";
             BrowserButton.Image = Resources.Images.BrowseButton;
             BrowserButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             BrowserButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
@@ -1626,7 +1626,7 @@
             SchemaHeaderPanel.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 450F ) );
             SchemaHeaderPanel.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 193F ) );
             SchemaHeaderPanel.Controls.Add( SchemaTable, 1, 2 );
-            SchemaHeaderPanel.Controls.Add( headerPanel2, 1, 3 );
+            SchemaHeaderPanel.Controls.Add( HeaderPanel, 1, 3 );
             SchemaHeaderPanel.Font = new System.Drawing.Font( "Roboto", 9F );
             SchemaHeaderPanel.ForeColor = System.Drawing.Color.DarkGray;
             SchemaHeaderPanel.Location = new System.Drawing.Point( 12, 8 );
@@ -1872,54 +1872,54 @@
             DataTypeComboBox.ThemeName = "BudgetExecution";
             DataTypeComboBox.ToolTip = ToolTip;
             // 
-            // headerPanel2
+            // HeaderPanel
             // 
-            headerPanel2.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            headerPanel2.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
-            headerPanel2.CaptionText = "Table";
-            headerPanel2.ColumnCount = 1;
-            headerPanel2.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            headerPanel2.Controls.Add( layout1, 0, 1 );
-            headerPanel2.Font = new System.Drawing.Font( "Roboto", 9F );
-            headerPanel2.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            headerPanel2.Location = new System.Drawing.Point( 240, 280 );
-            headerPanel2.Name = "headerPanel2";
-            headerPanel2.RowCount = 2;
-            headerPanel2.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 6.179775F ) );
-            headerPanel2.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 93.82022F ) );
-            headerPanel2.Size = new System.Drawing.Size( 426, 200 );
-            headerPanel2.TabIndex = 15;
+            HeaderPanel.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            HeaderPanel.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
+            HeaderPanel.CaptionText = "Table";
+            HeaderPanel.ColumnCount = 1;
+            HeaderPanel.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+            HeaderPanel.Controls.Add( LayoutPanel, 0, 1 );
+            HeaderPanel.Font = new System.Drawing.Font( "Roboto", 9F );
+            HeaderPanel.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            HeaderPanel.Location = new System.Drawing.Point( 240, 280 );
+            HeaderPanel.Name = "HeaderPanel";
+            HeaderPanel.RowCount = 2;
+            HeaderPanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 6.179775F ) );
+            HeaderPanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 93.82022F ) );
+            HeaderPanel.Size = new System.Drawing.Size( 426, 200 );
+            HeaderPanel.TabIndex = 15;
             // 
-            // layout1
+            // LayoutPanel
             // 
-            layout1.BackColor = System.Drawing.Color.Transparent;
-            layout1.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            layout1.BindingSource = null;
-            layout1.BorderColor = System.Drawing.Color.FromArgb( 64, 64, 64 );
-            layout1.BorderThickness = 1;
-            layout1.Children = null;
-            layout1.Controls.Add( AddTableLabel );
-            layout1.Controls.Add( DeleteTableButton );
-            layout1.Controls.Add( AddTableButton );
-            layout1.Controls.Add( SelectTableLabel );
-            layout1.Controls.Add( TableNameComboBox );
-            layout1.Controls.Add( AddTableTextBox );
-            layout1.DataFilter = null;
-            layout1.Dock = System.Windows.Forms.DockStyle.Fill;
-            layout1.Font = new System.Drawing.Font( "Roboto", 9F );
-            layout1.ForeColor = System.Drawing.Color.Transparent;
-            layout1.HoverText = null;
-            layout1.IsDerivedStyle = true;
-            layout1.Location = new System.Drawing.Point( 3, 30 );
-            layout1.Name = "layout1";
-            layout1.Padding = new System.Windows.Forms.Padding( 1 );
-            layout1.Size = new System.Drawing.Size( 420, 167 );
-            layout1.Style = MetroSet_UI.Enums.Style.Custom;
-            layout1.StyleManager = null;
-            layout1.TabIndex = 10;
-            layout1.ThemeAuthor = "Terry D. Eppler";
-            layout1.ThemeName = "BudgetExecution";
-            layout1.ToolTip = null;
+            LayoutPanel.BackColor = System.Drawing.Color.Transparent;
+            LayoutPanel.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            LayoutPanel.BindingSource = null;
+            LayoutPanel.BorderColor = System.Drawing.Color.FromArgb( 64, 64, 64 );
+            LayoutPanel.BorderThickness = 1;
+            LayoutPanel.Children = null;
+            LayoutPanel.Controls.Add( AddTableLabel );
+            LayoutPanel.Controls.Add( DeleteTableButton );
+            LayoutPanel.Controls.Add( AddTableButton );
+            LayoutPanel.Controls.Add( SelectTableLabel );
+            LayoutPanel.Controls.Add( TableNameComboBox );
+            LayoutPanel.Controls.Add( AddTableTextBox );
+            LayoutPanel.DataFilter = null;
+            LayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            LayoutPanel.Font = new System.Drawing.Font( "Roboto", 9F );
+            LayoutPanel.ForeColor = System.Drawing.Color.Transparent;
+            LayoutPanel.HoverText = null;
+            LayoutPanel.IsDerivedStyle = true;
+            LayoutPanel.Location = new System.Drawing.Point( 3, 30 );
+            LayoutPanel.Name = "LayoutPanel";
+            LayoutPanel.Padding = new System.Windows.Forms.Padding( 1 );
+            LayoutPanel.Size = new System.Drawing.Size( 420, 167 );
+            LayoutPanel.Style = MetroSet_UI.Enums.Style.Custom;
+            LayoutPanel.StyleManager = null;
+            LayoutPanel.TabIndex = 10;
+            LayoutPanel.ThemeAuthor = "Terry D. Eppler";
+            LayoutPanel.ThemeName = "BudgetExecution";
+            LayoutPanel.ToolTip = null;
             // 
             // AddTableLabel
             // 
@@ -2107,7 +2107,7 @@
             // 
             // Busy
             // 
-            Busy.Controls.Add( headerPanel1 );
+            Busy.Controls.Add( SqlTabHeaderTable );
             Busy.Image = null;
             Busy.ImageSize = new System.Drawing.Size( 16, 16 );
             Busy.Location = new System.Drawing.Point( 0, 21 );
@@ -2117,23 +2117,23 @@
             Busy.TabIndex = 2;
             Busy.ThemesEnabled = false;
             // 
-            // headerPanel1
+            // SqlTabHeaderTable
             // 
-            headerPanel1.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            headerPanel1.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
-            headerPanel1.CaptionText = "SQL Editor";
-            headerPanel1.ColumnCount = 1;
-            headerPanel1.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            headerPanel1.Controls.Add( BusyPanel, 0, 1 );
-            headerPanel1.Font = new System.Drawing.Font( "Roboto", 9F );
-            headerPanel1.ForeColor = System.Drawing.Color.DarkGray;
-            headerPanel1.Location = new System.Drawing.Point( 7, 8 );
-            headerPanel1.Name = "headerPanel1";
-            headerPanel1.RowCount = 2;
-            headerPanel1.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 1.44665456F ) );
-            headerPanel1.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 98.5533447F ) );
-            headerPanel1.Size = new System.Drawing.Size( 896, 561 );
-            headerPanel1.TabIndex = 7;
+            SqlTabHeaderTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            SqlTabHeaderTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
+            SqlTabHeaderTable.CaptionText = "SQL Editor";
+            SqlTabHeaderTable.ColumnCount = 1;
+            SqlTabHeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+            SqlTabHeaderTable.Controls.Add( BusyPanel, 0, 1 );
+            SqlTabHeaderTable.Font = new System.Drawing.Font( "Roboto", 9F );
+            SqlTabHeaderTable.ForeColor = System.Drawing.Color.DarkGray;
+            SqlTabHeaderTable.Location = new System.Drawing.Point( 7, 8 );
+            SqlTabHeaderTable.Name = "SqlTabHeaderTable";
+            SqlTabHeaderTable.RowCount = 2;
+            SqlTabHeaderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 1.44665456F ) );
+            SqlTabHeaderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 98.5533447F ) );
+            SqlTabHeaderTable.Size = new System.Drawing.Size( 896, 561 );
+            SqlTabHeaderTable.TabIndex = 7;
             // 
             // BusyPanel
             // 
@@ -2256,10 +2256,10 @@
             SchemaHeaderPanel.ResumeLayout( false );
             SchemaTable.ResumeLayout( false );
             SchemaPanel.ResumeLayout( false );
-            headerPanel2.ResumeLayout( false );
-            layout1.ResumeLayout( false );
+            HeaderPanel.ResumeLayout( false );
+            LayoutPanel.ResumeLayout( false );
             Busy.ResumeLayout( false );
-            headerPanel1.ResumeLayout( false );
+            SqlTabHeaderTable.ResumeLayout( false );
             BusyPanel.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize)Loader ).EndInit( );
             ResumeLayout( false );
@@ -2321,7 +2321,7 @@
         public System.Windows.Forms.TableLayoutPanel ToolStripTable;
         public TabControl TabControl;
         public Syncfusion.Windows.Forms.Tools.TabPageAdv Busy;
-        public HeaderPanel headerPanel1;
+        public HeaderPanel SqlTabHeaderTable;
         public BackPanel BusyPanel;
         private System.Windows.Forms.PictureBox Loader;
         public Syncfusion.Windows.Forms.Tools.TabPageAdv SqlTab;
@@ -2338,8 +2338,8 @@
         public Label AddColumnLabel;
         public TextBox AddColumnTextBox;
         public ComboBox DataTypeComboBox;
-        public HeaderPanel headerPanel2;
-        public BackPanel layout1;
+        public HeaderPanel HeaderPanel;
+        public BackPanel LayoutPanel;
         public Label AddTableLabel;
         public Button DeleteTableButton;
         public Button AddTableButton;

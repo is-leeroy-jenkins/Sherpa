@@ -2805,10 +2805,8 @@
         private Syncfusion.Windows.Forms.Tools.TabPageAdv Ready;
         public System.Windows.Forms.TableLayoutPanel ToolStripTable;
         public ToolStripLabel StatusLabel;
-        private ToolSeparator toolSeparator2;
         public ToolStripLabel DataLabel;
         public ToolStripLabel DataSpacer;
-        private ToolStripLabel toolStripLabel2;
         public ToolStripButton LastButton;
         public ToolSeparator LastButtonSeparator;
         public ToolStripButton GoButton;
