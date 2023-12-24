@@ -54,8 +54,6 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms.Spreadsheet;
     using Syncfusion.Windows.Forms.Tools;
     using Syncfusion.XlsIO;
-    using Action = System.Action;
-    using CheckState = MetroSet_UI.Enums.CheckState;
     using Timer = System.Windows.Forms.Timer;
 
     /// <summary>
@@ -75,7 +73,7 @@ namespace BudgetExecution
         /// <summary>
         /// The status update
         /// </summary>
-        private Action _statusUpdate;
+        private System.Action _statusUpdate;
 
         /// <summary>
         /// Gets or sets the time.
@@ -406,7 +404,6 @@ namespace BudgetExecution
         /// </summary>
         private void RegisterCallbacks( )
         {
-            // Event Wiring
             try
             {
                 Spreadsheet.WorkbookLoaded += OnWorkBookLoaded;
@@ -418,9 +415,9 @@ namespace BudgetExecution
                 ExcelButton.Click += OnExcelButtonClicked;
                 TabControl.SelectedIndexChanged += OnActiveTabChanged;
                 Timer.Tick += OnTimerTick;
+                TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
                 FirstListBox.SelectedValueChanged += OnFirstListBoxItemSelected;
                 SecondListBox.SelectedValueChanged += OnSecondListBoxItemSelected;
-                ThirdListBox.SelectedValueChanged += OnThirdListBoxItemSelected;
                 ExecutionRadioButton.CheckedChanged += OnTableRadioButtonSelected;
                 ReferenceRadioButton.CheckedChanged += OnTableRadioButtonSelected;
                 MaintenanceRadioButton.CheckedChanged += OnTableRadioButtonSelected;
@@ -641,7 +638,12 @@ namespace BudgetExecution
         {
             try
             {
-                SelectedTable = string.Empty;
+                ThirdCategory = string.Empty;
+                ThirdValue = string.Empty;
+                SecondCategory = string.Empty;
+                SecondValue = string.Empty;
+                FirstCategory = string.Empty;
+                FirstValue = string.Empty;
             }
             catch( Exception _ex )
             {
@@ -675,6 +677,41 @@ namespace BudgetExecution
                 {
                     SelectedNumerics.Clear( );
                 }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the combo boxes.
+        /// </summary>
+        private void ClearComboBoxes( )
+        {
+            try
+            {
+                FirstComboBox.Items?.Clear( );
+                SecondComboBox.Items?.Clear( );
+                ThirdComboBox.Items?.Clear( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the list boxes.
+        /// </summary>
+        private void ClearListBoxes( )
+        {
+            try
+            {
+                TableListBox.Items?.Clear( );
+                FirstListBox.Items?.Clear( );
+                SecondListBox.Items?.Clear( );
+                ThirdListBox.Items?.Clear( );
             }
             catch( Exception _ex )
             {
@@ -718,7 +755,7 @@ namespace BudgetExecution
         /// Invokes if needed.
         /// </summary>
         /// <param name="action">The action.</param>
-        public void InvokeIf( Action action )
+        public void InvokeIf( System.Action action )
         {
             if( InvokeRequired )
             {
@@ -1109,7 +1146,7 @@ namespace BudgetExecution
         {
             try
             {
-                FirstListBox.Items?.Clear( );
+                TableListBox.Items?.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
                 var _names = _data
@@ -1122,7 +1159,67 @@ namespace BudgetExecution
                 {
                     foreach( var _name in _names )
                     {
-                        FirstListBox.Items?.Add( _name );
+                        TableListBox.Items?.Add( _name );
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Populates the reference tables.
+        /// </summary>
+        private void PopulateReferenceTables( )
+        {
+            try
+            {
+                TableListBox.Items?.Clear( );
+                var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
+                var _data = _model.GetData( );
+                var _names = _data
+                    ?.Where( r => r.Field<string>( "Model" ).Equals( "REFERENCE" ) )
+                    ?.OrderBy( r => r.Field<string>( "Title" ) )
+                    ?.Select( r => r.Field<string>( "Title" ) )
+                    ?.ToList( );
+
+                if( _names?.Any( ) == true )
+                {
+                    foreach( var _name in _names )
+                    {
+                        TableListBox.Items?.Add( _name );
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Populates the maintenance tables.
+        /// </summary>
+        private void PopulateMaintenanceTables( )
+        {
+            try
+            {
+                TableListBox.Items?.Clear( );
+                var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
+                var _data = _model.GetData( );
+                var _names = _data
+                    ?.Where( r => r.Field<string>( "Model" ).Equals( "MAINTENANCE" ) )
+                    ?.OrderBy( r => r.Field<string>( "Title" ) )
+                    ?.Select( r => r.Field<string>( "Title" ) )
+                    ?.ToList( );
+
+                if( _names?.Any( ) == true )
+                {
+                    foreach( var _name in _names )
+                    {
+                        TableListBox.Items?.Add( _name );
                     }
                 }
             }
@@ -1148,7 +1245,7 @@ namespace BudgetExecution
 
                     foreach( var _column in Columns )
                     {
-                        SecondListBox.Items.Add( _column );
+                        FirstListBox.Items.Add( _column );
                     }
                 }
                 catch( Exception _ex )
@@ -1164,14 +1261,122 @@ namespace BudgetExecution
             {
                 try
                 {
+                    if( SecondListBox.Items?.Count > 0 )
+                    {
+                        SecondListBox.Items?.Clear( );
+                    }
+
+                    foreach( var _column in Columns )
+                    {
+                        FirstListBox.Items.Add( _column );
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Populates the first ComboBox items.
+        /// </summary>
+        private void PopulateFirstComboBoxItems( )
+        {
+            if( Fields?.Any( ) == true )
+            {
+                try
+                {
+                    if( FirstComboBox.Items?.Count > 0 )
+                    {
+                        FirstComboBox.Items?.Clear( );
+                    }
+
+                    if( FirstListBox.Items?.Count > 0 )
+                    {
+                        FirstListBox.Items?.Clear( );
+                    }
+
+                    foreach( var _item in Fields )
+                    {
+                        FirstComboBox.Items?.Add( _item );
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Populates the second ComboBox items.
+        /// </summary>
+        private void PopulateSecondComboBoxItems( )
+        {
+            if( Fields?.Any( ) == true )
+            {
+                try
+                {
+                    if( SecondComboBox.Items?.Count > 0 )
+                    {
+                        SecondComboBox.Items?.Clear( );
+                    }
+
+                    if( SecondListBox.Items?.Count > 0 )
+                    {
+                        SecondListBox.Items?.Clear( );
+                    }
+
+                    if( !string.IsNullOrEmpty( FirstValue ) )
+                    {
+                        for( var _i = 0; _i < Fields.Count; _i++ )
+                        {
+                            var _item = Fields[ _i ];
+                            if( !_item.Equals( FirstCategory ) )
+                            {
+                                SecondComboBox.Items?.Add( _item );
+                            }
+                        }
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Populates the third ComboBox items.
+        /// </summary>
+        private void PopulateThirdComboBoxItems( )
+        {
+            if( Fields?.Any( ) == true )
+            {
+                try
+                {
+                    if( ThirdComboBox.Items?.Count > 0 )
+                    {
+                        ThirdComboBox.Items?.Clear( );
+                    }
+
                     if( ThirdListBox.Items?.Count > 0 )
                     {
                         ThirdListBox.Items?.Clear( );
                     }
 
-                    foreach( var _column in Columns )
+                    if( !string.IsNullOrEmpty( FirstValue )
+                       && !string.IsNullOrEmpty( SecondValue ) )
                     {
-                        SecondListBox.Items.Add( _column );
+                        foreach( var _item in Fields )
+                        {
+                            if( !_item.Equals( FirstCategory )
+                               && !_item.Equals( SecondCategory ) )
+                            {
+                                ThirdComboBox.Items?.Add( _item );
+                            }
+                        }
                     }
                 }
                 catch( Exception _ex )
@@ -1838,7 +2043,7 @@ namespace BudgetExecution
         /// Called when [table ListBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        private void OnFirstListBoxItemSelected( object sender )
+        private void OnTableListBoxItemSelected( object sender )
         {
             if( sender is ListBox _listBox )
             {
@@ -1848,17 +2053,29 @@ namespace BudgetExecution
                     ToolStrip.Visible = true;
                     var _title = _listBox.SelectedValue?.ToString( );
                     SelectedTable = _title?.Replace( " ", "" );
-                    if( !string.IsNullOrEmpty( SelectedTable ) )
-                    {
-                        Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
-                        DataModel = new DataBuilder( Source, Provider );
-                        DataTable = DataModel.DataTable;
-                        BindingSource.DataSource = DataModel.DataTable;
-                        ToolStrip.BindingSource = BindingSource;
-                        Fields = DataModel.Fields;
-                        Numerics = DataModel.Numerics;
-                        PopulateSecondListBoxItems( );
-                    }
+                    Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
+                    DataModel = new DataBuilder( Source, Provider );
+                    DataTable = DataModel.DataTable;
+                    BindingSource.DataSource = DataModel.DataTable;
+                    ToolStrip.BindingSource = BindingSource;
+                    Columns = DataModel.ColumnNames;
+                    Fields = DataModel.Fields;
+                    Numerics = DataModel.Numerics;
+                    PopulateSecondListBoxItems( );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        private void OnFirstComboBoxItemSelected( object sender )
+        {
+            if( sender is ComboBox _comboBox )
+            {
+                try
+                {
                 }
                 catch( Exception _ex )
                 {
@@ -1871,19 +2088,33 @@ namespace BudgetExecution
         /// Called when [second ListBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        private void OnSecondListBoxItemSelected( object sender )
+        private void OnFirstListBoxItemSelected( object sender )
         {
             if( sender is ListBox _listBox )
             {
                 try
                 {
-                    ThirdListBox.Items?.Clear( );
+                    SecondListBox.Items?.Clear( );
                     FirstCategory = _listBox.SelectedValue?.ToString( );
                     var _values = DataModel.DataElements[ FirstCategory ];
                     foreach( var _val in _values )
                     {
-                        ThirdListBox.Items.Add( _val );
+                        SecondListBox.Items.Add( _val );
                     }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        private void OnSecondComboBoxItemSelected( object sender )
+        {
+            if( sender is ComboBox _comboBox )
+            {
+                try
+                {
                 }
                 catch( Exception _ex )
                 {
@@ -1896,7 +2127,7 @@ namespace BudgetExecution
         /// Called when [third ListBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        private void OnThirdListBoxItemSelected( object sender )
+        private void OnSecondListBoxItemSelected( object sender )
         {
             if( sender is ListBox _listBox )
             {
@@ -1914,9 +2145,9 @@ namespace BudgetExecution
             }
         }
 
-        private void OnTableRadioButtonSelected( object sender )
+        private void OnThirdComboBoxItemSelected( object sender )
         {
-            if( sender is RadioButton _button )
+            if( sender is ComboBox _comboBox )
             {
                 try
                 {
@@ -1928,12 +2159,80 @@ namespace BudgetExecution
             }
         }
 
+        private void OnThirdListBoxItemSelected( object sender )
+        {
+            if( sender is ListBox _listBox )
+            {
+                try
+                {
+                    ThirdValue = _listBox.SelectedText;
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [table RadioButton selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        private void OnTableRadioButtonSelected( object sender )
+        {
+            if( sender is RadioButton _button )
+            {
+                try
+                {
+                    switch( _button.Tag )
+                    {
+                        case "EXECUTION":
+                        {
+                            PopulateExecutionTables( );
+                            break;
+                        }
+                        case "REFERENCE":
+                        {
+                            PopulateReferenceTables( );
+                            break;
+                        }
+                        case "MAINTENANCE":
+                        {
+                            PopulateMaintenanceTables( );
+                            break;
+                        }
+                        default:
+                        {
+                            PopulateExecutionTables( );
+                            break;
+                        }
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [provider RadioButton selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
         private void OnProviderRadioButtonSelected( object sender )
         {
             if( sender is RadioButton _button )
             {
                 try
                 {
+                    Provider = _button.Tag switch
+                    {
+                        "SQLite" => Provider.SQLite,
+                        "Access" => Provider.Access,
+                        "SqlServer" => Provider.SqlServer,
+                        "SqlCe" => Provider.SqlCe,
+                        _ => Provider.Access
+                    };
                 }
                 catch( Exception _ex )
                 {

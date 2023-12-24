@@ -84,7 +84,7 @@ namespace BudgetExecution
         /// <summary>
         /// The status update
         /// </summary>
-        private System.Action _statusUpdate;
+        private Action _statusUpdate;
 
         /// <summary>
         /// Gets or sets the time.
@@ -1354,9 +1354,9 @@ namespace BudgetExecution
                 Fields = DataModel?.Fields;
                 Numerics = DataModel?.Numerics;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
