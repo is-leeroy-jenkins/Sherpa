@@ -440,6 +440,39 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Initializes the callbacks.
+        /// </summary>
+        private void RegisterCallbacks( )
+        {
+            try
+            {
+                FirstButton.Click += OnFirstButtonClick;
+                PreviousButton.Click += OnPreviousButtonClick;
+                NextButton.Click += OnNextButtonClick;
+                LastButton.Click += OnLastButtonClick;
+                MenuButton.Click += OnMainMenuButtonClicked;
+                ExitButton.Click += OnExitButtonClicked;
+                Timer.Tick += OnTimerTick;
+                QueryTabControl.SelectedIndexChanged += OnActiveTabChanged;
+                TableListBox.SelectedIndexChanged += OnTableListBoxItemSelected;
+                FirstComboBox.SelectedIndexChanged += OnFirstComboBoxItemSelected;
+                FirstListBox.SelectedIndexChanged += OnFirstListBoxItemSelected;
+                SecondComboBox.SelectedIndexChanged += OnSecondComboBoxItemSelected;
+                SecondListBox.SelectedIndexChanged += OnSecondListBoxItemSelected;
+                ThirdComboBox.SelectedIndexChanged += OnThirdComboBoxItemSelected;
+                ThirdListBox.SelectedIndexChanged += OnThirdListBoxItemSelected;
+                GroupButton.Click += OnGroupButtonClicked;
+                FieldListBox.SelectedIndexChanged += OnFieldListBoxSelectedValueChanged;
+                NumericListBox.SelectedIndexChanged += OnNumericListBoxSelectedValueChanged;
+                ToolStripComboBox.SelectedIndexChanged += OnChartSelected;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Initializes the labels.
         /// </summary>
         private void InitializeLabels( )
@@ -525,39 +558,6 @@ namespace BudgetExecution
         private void InitializeDelegates( )
         {
             _statusUpdate += UpdateStatus;
-        }
-
-        /// <summary>
-        /// Initializes the callbacks.
-        /// </summary>
-        private void RegisterCallbacks( )
-        {
-            try
-            {
-                FirstButton.Click += OnFirstButtonClick;
-                PreviousButton.Click += OnPreviousButtonClick;
-                NextButton.Click += OnNextButtonClick;
-                LastButton.Click += OnLastButtonClick;
-                MenuButton.Click += OnMainMenuButtonClicked;
-                ExitButton.Click += OnExitButtonClicked;
-                Timer.Tick += OnTimerTick;
-                QueryTabControl.SelectedIndexChanged += OnActiveTabChanged;
-                TableListBox.SelectedIndexChanged += OnTableListBoxItemSelected;
-                FirstComboBox.SelectedIndexChanged += OnFirstComboBoxItemSelected;
-                FirstListBox.SelectedIndexChanged += OnFirstListBoxItemSelected;
-                SecondComboBox.SelectedIndexChanged += OnSecondComboBoxItemSelected;
-                SecondListBox.SelectedIndexChanged += OnSecondListBoxItemSelected;
-                ThirdComboBox.SelectedIndexChanged += OnThirdComboBoxItemSelected;
-                ThirdListBox.SelectedIndexChanged += OnThirdListBoxItemSelected;
-                GroupButton.Click += OnGroupButtonClicked;
-                FieldListBox.SelectedIndexChanged += OnFieldListBoxSelectedValueChanged;
-                NumericListBox.SelectedIndexChanged += OnNumericListBoxSelectedValueChanged;
-                ToolStripComboBox.SelectedIndexChanged += OnChartSelected;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
         }
 
         /// <summary>
@@ -1165,7 +1165,7 @@ namespace BudgetExecution
             {
                 ThrowIf.Null( where, nameof( where ) );
                 Filter = where;
-                SqlCommand = CreateSqlText( where );
+                SqlCommand = CreateSqlCommand( where );
                 DataModel = new DataBuilder( Source, Provider, SqlCommand );
                 DataTable = DataModel.DataTable;
                 SelectedTable = DataTable.TableName;
@@ -1192,7 +1192,7 @@ namespace BudgetExecution
             {
                 ThrowIf.Null( cols, nameof( cols ) );
                 ThrowIf.Null( where, nameof( where ) );
-                SqlCommand = CreateSqlText( cols, where );
+                SqlCommand = CreateSqlCommand( cols, where );
                 DataModel = new DataBuilder( Source, Provider, SqlCommand );
                 DataTable = DataModel.DataTable;
                 BindingSource.DataSource = DataTable;
@@ -1221,7 +1221,7 @@ namespace BudgetExecution
                 ThrowIf.Null( fields, nameof( fields ) );
                 ThrowIf.Null( numerics, nameof( numerics ) );
                 ThrowIf.Null( where, nameof( where ) );
-                SqlCommand = CreateSqlText( fields, numerics, where );
+                SqlCommand = CreateSqlCommand( fields, numerics, where );
                 DataModel = new DataBuilder( Source, Provider, SqlCommand );
                 DataTable = DataModel.DataTable;
                 BindingSource.DataSource = DataTable;
@@ -1282,7 +1282,7 @@ namespace BudgetExecution
         /// <param name="where">The where.</param>
         /// <returns>
         /// </returns>
-        private string CreateSqlText( IDictionary<string, object> where )
+        private string CreateSqlCommand( IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( SelectedTable )
                && where?.Any( ) == true )
@@ -1310,7 +1310,7 @@ namespace BudgetExecution
         /// <param name="where">The where.</param>
         /// <returns>
         /// </returns>
-        private string CreateSqlText( IEnumerable<string> fields, IEnumerable<string> numerics,
+        private string CreateSqlCommand( IEnumerable<string> fields, IEnumerable<string> numerics,
             IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( SelectedTable )
@@ -1356,7 +1356,7 @@ namespace BudgetExecution
         /// <param name="where">The where.</param>
         /// <returns>
         /// </returns>
-        private string CreateSqlText( IEnumerable<string> columns,
+        private string CreateSqlCommand( IEnumerable<string> columns,
             IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( SelectedTable )
@@ -2283,7 +2283,7 @@ namespace BudgetExecution
                         GroupSeparator.Visible = true;
                     }
 
-                    SqlCommand = CreateSqlText( Filter );
+                    SqlCommand = CreateSqlCommand( Filter );
                     BindData( SqlCommand );
                     UpdateMetrics( );
                     BindChart( );
@@ -2358,7 +2358,7 @@ namespace BudgetExecution
                         ThirdTable.Visible = true;
                     }
 
-                    SqlCommand = CreateSqlText( Filter );
+                    SqlCommand = CreateSqlCommand( Filter );
                     BindData( SqlCommand );
                     UpdateMetrics( );
                     BindChart( );
@@ -2434,7 +2434,7 @@ namespace BudgetExecution
                     Filter[ FirstCategory ] = FirstValue;
                     Filter[ SecondCategory ] = SecondValue;
                     Filter[ ThirdCategory ] = ThirdValue;
-                    SqlCommand = CreateSqlText( Filter );
+                    SqlCommand = CreateSqlCommand( Filter );
                     BindData( SqlCommand );
                     UpdateMetrics( );
                     BindChart( );
