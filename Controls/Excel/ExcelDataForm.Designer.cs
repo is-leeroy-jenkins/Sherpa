@@ -80,8 +80,12 @@
             ExcelSeparator = new ToolSeparator( );
             FilterSeparator = new ToolSeparator( );
             TabControl = new TabControl( );
-            DataTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             QueryTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
+            TableHeaderPanel = new HeaderPanel( );
+            backPanel1 = new BackPanel( );
+            ExecutionRadioButton = new RadioButton( );
+            MaintenanceRadioButton = new RadioButton( );
+            ReferenceRadioButton = new RadioButton( );
             ProviderTable = new HeaderPanel( );
             ProviderPanel = new BackPanel( );
             SqlCeRadioButton = new RadioButton( );
@@ -97,13 +101,9 @@
             SourceTable = new HeaderPanel( );
             TablePanel = new BackPanel( );
             FirstListBox = new ListBox( );
+            DataTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             BusyTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             Loader = new System.Windows.Forms.PictureBox( );
-            TableHeaderPanel = new HeaderPanel( );
-            backPanel1 = new BackPanel( );
-            ExecutionRadioButton = new RadioButton( );
-            MaintenanceRadioButton = new RadioButton( );
-            ReferenceRadioButton = new RadioButton( );
             ( (System.ComponentModel.ISupportInitialize)Ribbon ).BeginInit( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
             HeaderPanel.SuspendLayout( );
@@ -112,8 +112,9 @@
             ToolStrip.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)TabControl ).BeginInit( );
             TabControl.SuspendLayout( );
-            DataTab.SuspendLayout( );
             QueryTab.SuspendLayout( );
+            TableHeaderPanel.SuspendLayout( );
+            backPanel1.SuspendLayout( );
             ProviderTable.SuspendLayout( );
             ProviderPanel.SuspendLayout( );
             ColumnTable.SuspendLayout( );
@@ -122,10 +123,9 @@
             ValuePanel.SuspendLayout( );
             SourceTable.SuspendLayout( );
             TablePanel.SuspendLayout( );
+            DataTab.SuspendLayout( );
             BusyTab.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)Loader ).BeginInit( );
-            TableHeaderPanel.SuspendLayout( );
-            backPanel1.SuspendLayout( );
             SuspendLayout( );
             // 
             // Ribbon
@@ -168,6 +168,7 @@
             // 
             // Spreadsheet
             // 
+            Spreadsheet.ActiveSheet = null;
             Spreadsheet.AllowCellContextMenu = true;
             Spreadsheet.AllowExtendRowColumnCount = true;
             Spreadsheet.AllowFiltering = false;
@@ -183,7 +184,7 @@
             Spreadsheet.DefaultRowCount = 100;
             Spreadsheet.DisplayAlerts = true;
             Spreadsheet.Dock = System.Windows.Forms.DockStyle.Fill;
-            Spreadsheet.FileName = "Book3";
+            Spreadsheet.FileName = "Book2";
             Spreadsheet.Font = new System.Drawing.Font( "Roboto", 9F );
             Spreadsheet.ForeColor = System.Drawing.Color.Black;
             Spreadsheet.FormulaBarVisibility = false;
@@ -459,7 +460,7 @@
             ToolStripTextBox.Margin = new System.Windows.Forms.Padding( 1 );
             ToolStripTextBox.Name = "ToolStripTextBox";
             ToolStripTextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Size = new System.Drawing.Size( 268, 27 );
+            ToolStripTextBox.Size = new System.Drawing.Size( 262, 27 );
             ToolStripTextBox.Tag = "";
             ToolStripTextBox.ToolTip = ToolTip;
             // 
@@ -537,7 +538,7 @@
             BrowseButton.Filter = null;
             BrowseButton.Font = new System.Drawing.Font( "Roboto", 9F );
             BrowseButton.ForeColor = System.Drawing.Color.LightGray;
-            BrowseButton.HoverText = "Upload Local File";
+            BrowseButton.HoverText = "Browse Files";
             BrowseButton.Image = Resources.Images.BrowseButton;
             BrowseButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             BrowseButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
@@ -566,7 +567,7 @@
             SaveButton.Filter = null;
             SaveButton.Font = new System.Drawing.Font( "Roboto", 9F );
             SaveButton.ForeColor = System.Drawing.Color.LightGray;
-            SaveButton.HoverText = null;
+            SaveButton.HoverText = "Save Changes";
             SaveButton.Image = Resources.Images.SaveButton;
             SaveButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             SaveButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
@@ -575,7 +576,7 @@
             SaveButton.Size = new System.Drawing.Size( 23, 27 );
             SaveButton.Text = "toolStripButton1";
             SaveButton.ToolTip = ToolTip;
-            SaveButton.ToolType = ToolType.Ns;
+            SaveButton.ToolType = ToolType.SaveButton;
             // 
             // FilterSpacer
             // 
@@ -630,7 +631,7 @@
             RefreshButton.Filter = null;
             RefreshButton.Font = new System.Drawing.Font( "Roboto", 9F );
             RefreshButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            RefreshButton.HoverText = null;
+            RefreshButton.HoverText = "Reset Data";
             RefreshButton.Image = Resources.Images.WebRefreshButton;
             RefreshButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             RefreshButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
@@ -659,7 +660,7 @@
             LookupButton.Filter = null;
             LookupButton.Font = new System.Drawing.Font( "Roboto", 9F );
             LookupButton.ForeColor = System.Drawing.Color.LightGray;
-            LookupButton.HoverText = "Select Data Table";
+            LookupButton.HoverText = "Lookup Data";
             LookupButton.Image = Resources.Images.DataSearchButton;
             LookupButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             LookupButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
@@ -698,7 +699,7 @@
             CloseButton.Filter = null;
             CloseButton.Font = new System.Drawing.Font( "Roboto", 9F );
             CloseButton.ForeColor = System.Drawing.Color.LightGray;
-            CloseButton.HoverText = "Main Menu";
+            CloseButton.HoverText = "Shut Down";
             CloseButton.Image = Resources.Images.WebCloseButton;
             CloseButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             CloseButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
@@ -729,7 +730,7 @@
             MenuButton.Filter = null;
             MenuButton.Font = new System.Drawing.Font( "Roboto", 9F );
             MenuButton.ForeColor = System.Drawing.Color.LightGray;
-            MenuButton.HoverText = null;
+            MenuButton.HoverText = "Main Menu";
             MenuButton.Image = Resources.Images.WebMenuButton;
             MenuButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             MenuButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
@@ -784,7 +785,7 @@
             ExcelButton.Padding = new System.Windows.Forms.Padding( 1 );
             ExcelButton.Size = new System.Drawing.Size( 23, 27 );
             ExcelButton.Text = "toolStripButton1";
-            ExcelButton.ToolTip = null;
+            ExcelButton.ToolTip = ToolTip;
             ExcelButton.ToolType = ToolType.ExcelButton;
             // 
             // ExcelSeparator
@@ -840,22 +841,6 @@
             TabControl.ThemeStyle.TabStyle.SeparatorColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.ToolTip = null;
             // 
-            // DataTab
-            // 
-            DataTab.Controls.Add( Spreadsheet );
-            DataTab.Controls.Add( Ribbon );
-            DataTab.Image = null;
-            DataTab.ImageSize = new System.Drawing.Size( 16, 16 );
-            DataTab.Location = new System.Drawing.Point( 0, 4 );
-            DataTab.Name = "DataTab";
-            DataTab.ShowCloseButton = true;
-            DataTab.Size = new System.Drawing.Size( 1338, 665 );
-            DataTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            DataTab.TabForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            DataTab.TabIndex = 1;
-            DataTab.Text = "Data";
-            DataTab.ThemesEnabled = false;
-            // 
             // QueryTab
             // 
             QueryTab.Controls.Add( TableHeaderPanel );
@@ -874,11 +859,135 @@
             QueryTab.TabIndex = 5;
             QueryTab.ThemesEnabled = false;
             // 
+            // TableHeaderPanel
+            // 
+            TableHeaderPanel.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            TableHeaderPanel.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
+            TableHeaderPanel.CaptionText = "Data Tables";
+            TableHeaderPanel.ColumnCount = 1;
+            TableHeaderPanel.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+            TableHeaderPanel.Controls.Add( backPanel1, 0, 1 );
+            TableHeaderPanel.Font = new System.Drawing.Font( "Roboto", 9F );
+            TableHeaderPanel.ForeColor = System.Drawing.Color.DarkGray;
+            TableHeaderPanel.Location = new System.Drawing.Point( 41, 60 );
+            TableHeaderPanel.Name = "TableHeaderPanel";
+            TableHeaderPanel.RowCount = 2;
+            TableHeaderPanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 3.25203252F ) );
+            TableHeaderPanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 96.74797F ) );
+            TableHeaderPanel.Size = new System.Drawing.Size( 264, 262 );
+            TableHeaderPanel.TabIndex = 22;
+            // 
+            // backPanel1
+            // 
+            backPanel1.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            backPanel1.BackColor = System.Drawing.Color.Transparent;
+            backPanel1.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            backPanel1.BindingSource = null;
+            backPanel1.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
+            backPanel1.BorderThickness = 1;
+            backPanel1.Children = null;
+            backPanel1.Controls.Add( ExecutionRadioButton );
+            backPanel1.Controls.Add( MaintenanceRadioButton );
+            backPanel1.Controls.Add( ReferenceRadioButton );
+            backPanel1.DataFilter = null;
+            backPanel1.Font = new System.Drawing.Font( "Roboto", 8.25F );
+            backPanel1.ForeColor = System.Drawing.Color.Transparent;
+            backPanel1.HoverText = null;
+            backPanel1.IsDerivedStyle = true;
+            backPanel1.Location = new System.Drawing.Point( 3, 27 );
+            backPanel1.Name = "backPanel1";
+            backPanel1.Padding = new System.Windows.Forms.Padding( 1 );
+            backPanel1.Size = new System.Drawing.Size( 258, 232 );
+            backPanel1.Style = MetroSet_UI.Enums.Style.Custom;
+            backPanel1.StyleManager = null;
+            backPanel1.TabIndex = 5;
+            backPanel1.ThemeAuthor = "Terry D. Eppler";
+            backPanel1.ThemeName = "BudgetExecution";
+            backPanel1.ToolTip = null;
+            // 
+            // ExecutionRadioButton
+            // 
+            ExecutionRadioButton.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            ExecutionRadioButton.BackColor = System.Drawing.Color.Transparent;
+            ExecutionRadioButton.BackgroundColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
+            ExecutionRadioButton.BorderColor = System.Drawing.Color.FromArgb( 155, 155, 155 );
+            ExecutionRadioButton.Checked = true;
+            ExecutionRadioButton.CheckSignColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            ExecutionRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Checked;
+            ExecutionRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 85, 85, 85 );
+            ExecutionRadioButton.Font = new System.Drawing.Font( "Roboto", 8F );
+            ExecutionRadioButton.Group = 0;
+            ExecutionRadioButton.HoverText = null;
+            ExecutionRadioButton.IsDerivedStyle = true;
+            ExecutionRadioButton.Location = new System.Drawing.Point( 65, 60 );
+            ExecutionRadioButton.Name = "ExecutionRadioButton";
+            ExecutionRadioButton.Result = null;
+            ExecutionRadioButton.Size = new System.Drawing.Size( 159, 17 );
+            ExecutionRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
+            ExecutionRadioButton.StyleManager = null;
+            ExecutionRadioButton.TabIndex = 1;
+            ExecutionRadioButton.Text = "    Execution Tables";
+            ExecutionRadioButton.ThemeAuthor = "Terry D. Eppler";
+            ExecutionRadioButton.ThemeName = "Budget Execution";
+            ExecutionRadioButton.ToolTip = ToolTip;
+            // 
+            // MaintenanceRadioButton
+            // 
+            MaintenanceRadioButton.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            MaintenanceRadioButton.BackColor = System.Drawing.Color.Transparent;
+            MaintenanceRadioButton.BackgroundColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
+            MaintenanceRadioButton.BorderColor = System.Drawing.Color.FromArgb( 155, 155, 155 );
+            MaintenanceRadioButton.Checked = false;
+            MaintenanceRadioButton.CheckSignColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            MaintenanceRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
+            MaintenanceRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 85, 85, 85 );
+            MaintenanceRadioButton.Font = new System.Drawing.Font( "Roboto", 8F );
+            MaintenanceRadioButton.Group = 0;
+            MaintenanceRadioButton.HoverText = null;
+            MaintenanceRadioButton.IsDerivedStyle = true;
+            MaintenanceRadioButton.Location = new System.Drawing.Point( 65, 156 );
+            MaintenanceRadioButton.Name = "MaintenanceRadioButton";
+            MaintenanceRadioButton.Result = null;
+            MaintenanceRadioButton.Size = new System.Drawing.Size( 159, 17 );
+            MaintenanceRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
+            MaintenanceRadioButton.StyleManager = null;
+            MaintenanceRadioButton.TabIndex = 3;
+            MaintenanceRadioButton.Text = "    Maintenance Tables";
+            MaintenanceRadioButton.ThemeAuthor = "Terry D. Eppler";
+            MaintenanceRadioButton.ThemeName = "Budget Execution";
+            MaintenanceRadioButton.ToolTip = ToolTip;
+            // 
+            // ReferenceRadioButton
+            // 
+            ReferenceRadioButton.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            ReferenceRadioButton.BackColor = System.Drawing.Color.Transparent;
+            ReferenceRadioButton.BackgroundColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
+            ReferenceRadioButton.BorderColor = System.Drawing.Color.FromArgb( 155, 155, 155 );
+            ReferenceRadioButton.Checked = false;
+            ReferenceRadioButton.CheckSignColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            ReferenceRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
+            ReferenceRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 85, 85, 85 );
+            ReferenceRadioButton.Font = new System.Drawing.Font( "Roboto", 8F );
+            ReferenceRadioButton.Group = 0;
+            ReferenceRadioButton.HoverText = null;
+            ReferenceRadioButton.IsDerivedStyle = true;
+            ReferenceRadioButton.Location = new System.Drawing.Point( 65, 110 );
+            ReferenceRadioButton.Name = "ReferenceRadioButton";
+            ReferenceRadioButton.Result = null;
+            ReferenceRadioButton.Size = new System.Drawing.Size( 159, 17 );
+            ReferenceRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
+            ReferenceRadioButton.StyleManager = null;
+            ReferenceRadioButton.TabIndex = 2;
+            ReferenceRadioButton.Text = "    Reference Tables";
+            ReferenceRadioButton.ThemeAuthor = "Terry D. Eppler";
+            ReferenceRadioButton.ThemeName = "Budget Execution";
+            ReferenceRadioButton.ToolTip = ToolTip;
+            // 
             // ProviderTable
             // 
             ProviderTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             ProviderTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
-            ProviderTable.CaptionText = "Databases";
+            ProviderTable.CaptionText = "Data Providers";
             ProviderTable.ColumnCount = 1;
             ProviderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             ProviderTable.Controls.Add( ProviderPanel, 0, 1 );
@@ -979,9 +1088,9 @@
             AccessRadioButton.BackColor = System.Drawing.Color.Transparent;
             AccessRadioButton.BackgroundColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
             AccessRadioButton.BorderColor = System.Drawing.Color.FromArgb( 155, 155, 155 );
-            AccessRadioButton.Checked = false;
+            AccessRadioButton.Checked = true;
             AccessRadioButton.CheckSignColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            AccessRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
+            AccessRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Checked;
             AccessRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 85, 85, 85 );
             AccessRadioButton.Font = new System.Drawing.Font( "Roboto", 8F );
             AccessRadioButton.Group = 0;
@@ -1266,6 +1375,22 @@
             FirstListBox.ThemeName = "BudgetExecution";
             FirstListBox.ToolTip = ToolTip;
             // 
+            // DataTab
+            // 
+            DataTab.Controls.Add( Spreadsheet );
+            DataTab.Controls.Add( Ribbon );
+            DataTab.Image = null;
+            DataTab.ImageSize = new System.Drawing.Size( 16, 16 );
+            DataTab.Location = new System.Drawing.Point( 0, 4 );
+            DataTab.Name = "DataTab";
+            DataTab.ShowCloseButton = true;
+            DataTab.Size = new System.Drawing.Size( 1338, 665 );
+            DataTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            DataTab.TabForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            DataTab.TabIndex = 1;
+            DataTab.Text = "Data";
+            DataTab.ThemesEnabled = false;
+            // 
             // BusyTab
             // 
             BusyTab.Controls.Add( Loader );
@@ -1290,130 +1415,6 @@
             Loader.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             Loader.TabIndex = 0;
             Loader.TabStop = false;
-            // 
-            // TableHeaderPanel
-            // 
-            TableHeaderPanel.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            TableHeaderPanel.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
-            TableHeaderPanel.CaptionText = "Databases";
-            TableHeaderPanel.ColumnCount = 1;
-            TableHeaderPanel.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            TableHeaderPanel.Controls.Add( backPanel1, 0, 1 );
-            TableHeaderPanel.Font = new System.Drawing.Font( "Roboto", 9F );
-            TableHeaderPanel.ForeColor = System.Drawing.Color.DarkGray;
-            TableHeaderPanel.Location = new System.Drawing.Point( 41, 60 );
-            TableHeaderPanel.Name = "TableHeaderPanel";
-            TableHeaderPanel.RowCount = 2;
-            TableHeaderPanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 3.25203252F ) );
-            TableHeaderPanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 96.74797F ) );
-            TableHeaderPanel.Size = new System.Drawing.Size( 264, 262 );
-            TableHeaderPanel.TabIndex = 22;
-            // 
-            // backPanel1
-            // 
-            backPanel1.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
-            backPanel1.BackColor = System.Drawing.Color.Transparent;
-            backPanel1.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            backPanel1.BindingSource = null;
-            backPanel1.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
-            backPanel1.BorderThickness = 1;
-            backPanel1.Children = null;
-            backPanel1.Controls.Add( ExecutionRadioButton );
-            backPanel1.Controls.Add( MaintenanceRadioButton );
-            backPanel1.Controls.Add( ReferenceRadioButton );
-            backPanel1.DataFilter = null;
-            backPanel1.Font = new System.Drawing.Font( "Roboto", 8.25F );
-            backPanel1.ForeColor = System.Drawing.Color.Transparent;
-            backPanel1.HoverText = null;
-            backPanel1.IsDerivedStyle = true;
-            backPanel1.Location = new System.Drawing.Point( 3, 27 );
-            backPanel1.Name = "backPanel1";
-            backPanel1.Padding = new System.Windows.Forms.Padding( 1 );
-            backPanel1.Size = new System.Drawing.Size( 258, 232 );
-            backPanel1.Style = MetroSet_UI.Enums.Style.Custom;
-            backPanel1.StyleManager = null;
-            backPanel1.TabIndex = 5;
-            backPanel1.ThemeAuthor = "Terry D. Eppler";
-            backPanel1.ThemeName = "BudgetExecution";
-            backPanel1.ToolTip = null;
-            // 
-            // ExecutionRadioButton
-            // 
-            ExecutionRadioButton.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
-            ExecutionRadioButton.BackColor = System.Drawing.Color.Transparent;
-            ExecutionRadioButton.BackgroundColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
-            ExecutionRadioButton.BorderColor = System.Drawing.Color.FromArgb( 155, 155, 155 );
-            ExecutionRadioButton.Checked = false;
-            ExecutionRadioButton.CheckSignColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            ExecutionRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
-            ExecutionRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 85, 85, 85 );
-            ExecutionRadioButton.Font = new System.Drawing.Font( "Roboto", 8F );
-            ExecutionRadioButton.Group = 0;
-            ExecutionRadioButton.HoverText = null;
-            ExecutionRadioButton.IsDerivedStyle = true;
-            ExecutionRadioButton.Location = new System.Drawing.Point( 65, 60 );
-            ExecutionRadioButton.Name = "ExecutionRadioButton";
-            ExecutionRadioButton.Result = null;
-            ExecutionRadioButton.Size = new System.Drawing.Size( 159, 17 );
-            ExecutionRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
-            ExecutionRadioButton.StyleManager = null;
-            ExecutionRadioButton.TabIndex = 1;
-            ExecutionRadioButton.Text = "    Execution Tables";
-            ExecutionRadioButton.ThemeAuthor = "Terry D. Eppler";
-            ExecutionRadioButton.ThemeName = "Budget Execution";
-            ExecutionRadioButton.ToolTip = ToolTip;
-            // 
-            // MaintenanceRadioButton
-            // 
-            MaintenanceRadioButton.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
-            MaintenanceRadioButton.BackColor = System.Drawing.Color.Transparent;
-            MaintenanceRadioButton.BackgroundColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
-            MaintenanceRadioButton.BorderColor = System.Drawing.Color.FromArgb( 155, 155, 155 );
-            MaintenanceRadioButton.Checked = false;
-            MaintenanceRadioButton.CheckSignColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            MaintenanceRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
-            MaintenanceRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 85, 85, 85 );
-            MaintenanceRadioButton.Font = new System.Drawing.Font( "Roboto", 8F );
-            MaintenanceRadioButton.Group = 0;
-            MaintenanceRadioButton.HoverText = null;
-            MaintenanceRadioButton.IsDerivedStyle = true;
-            MaintenanceRadioButton.Location = new System.Drawing.Point( 65, 156 );
-            MaintenanceRadioButton.Name = "MaintenanceRadioButton";
-            MaintenanceRadioButton.Result = null;
-            MaintenanceRadioButton.Size = new System.Drawing.Size( 159, 17 );
-            MaintenanceRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
-            MaintenanceRadioButton.StyleManager = null;
-            MaintenanceRadioButton.TabIndex = 3;
-            MaintenanceRadioButton.Text = "    Maintenance Tables";
-            MaintenanceRadioButton.ThemeAuthor = "Terry D. Eppler";
-            MaintenanceRadioButton.ThemeName = "Budget Execution";
-            MaintenanceRadioButton.ToolTip = ToolTip;
-            // 
-            // ReferenceRadioButton
-            // 
-            ReferenceRadioButton.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
-            ReferenceRadioButton.BackColor = System.Drawing.Color.Transparent;
-            ReferenceRadioButton.BackgroundColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
-            ReferenceRadioButton.BorderColor = System.Drawing.Color.FromArgb( 155, 155, 155 );
-            ReferenceRadioButton.Checked = false;
-            ReferenceRadioButton.CheckSignColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            ReferenceRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
-            ReferenceRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 85, 85, 85 );
-            ReferenceRadioButton.Font = new System.Drawing.Font( "Roboto", 8F );
-            ReferenceRadioButton.Group = 0;
-            ReferenceRadioButton.HoverText = null;
-            ReferenceRadioButton.IsDerivedStyle = true;
-            ReferenceRadioButton.Location = new System.Drawing.Point( 65, 110 );
-            ReferenceRadioButton.Name = "ReferenceRadioButton";
-            ReferenceRadioButton.Result = null;
-            ReferenceRadioButton.Size = new System.Drawing.Size( 159, 17 );
-            ReferenceRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
-            ReferenceRadioButton.StyleManager = null;
-            ReferenceRadioButton.TabIndex = 2;
-            ReferenceRadioButton.Text = "    Reference Tables";
-            ReferenceRadioButton.ThemeAuthor = "Terry D. Eppler";
-            ReferenceRadioButton.ThemeName = "Budget Execution";
-            ReferenceRadioButton.ToolTip = ToolTip;
             // 
             // ExcelDataForm
             // 
@@ -1458,8 +1459,9 @@
             ToolStrip.PerformLayout( );
             ( (System.ComponentModel.ISupportInitialize)TabControl ).EndInit( );
             TabControl.ResumeLayout( false );
-            DataTab.ResumeLayout( false );
             QueryTab.ResumeLayout( false );
+            TableHeaderPanel.ResumeLayout( false );
+            backPanel1.ResumeLayout( false );
             ProviderTable.ResumeLayout( false );
             ProviderPanel.ResumeLayout( false );
             ColumnTable.ResumeLayout( false );
@@ -1468,10 +1470,9 @@
             ValuePanel.ResumeLayout( false );
             SourceTable.ResumeLayout( false );
             TablePanel.ResumeLayout( false );
+            DataTab.ResumeLayout( false );
             BusyTab.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize)Loader ).EndInit( );
-            TableHeaderPanel.ResumeLayout( false );
-            backPanel1.ResumeLayout( false );
             ResumeLayout( false );
         }
 

@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 12-16-2023
+//     Created:                 12-24-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-16-2023
+//     Last Modified On:        12-24-2023
 // ******************************************************************************************
 // <copyright file="ExcelDataForm.cs" company="Terry D. Eppler">
 //    Budget Execution is a Federal Budget, Finance, and Accounting application
@@ -344,6 +344,7 @@ namespace BudgetExecution
 
             // Ribbon Properties
             Ribbon.Spreadsheet = Spreadsheet;
+            TabControl.SelectedIndex = 0;
 
             // Default Provider
             Provider = Provider.Access;
@@ -416,10 +417,17 @@ namespace BudgetExecution
                 MenuButton.Click += OnMainMenuButtonClicked;
                 ExcelButton.Click += OnExcelButtonClicked;
                 TabControl.SelectedIndexChanged += OnActiveTabChanged;
-                FirstListBox.SelectedValueChanged += OnFirstListBoxItemSelected;
                 Timer.Tick += OnTimerTick;
+                FirstListBox.SelectedValueChanged += OnFirstListBoxItemSelected;
                 SecondListBox.SelectedValueChanged += OnSecondListBoxItemSelected;
                 ThirdListBox.SelectedValueChanged += OnThirdListBoxItemSelected;
+                ExecutionRadioButton.CheckedChanged += OnTableRadioButtonSelected;
+                ReferenceRadioButton.CheckedChanged += OnTableRadioButtonSelected;
+                MaintenanceRadioButton.CheckedChanged += OnTableRadioButtonSelected;
+                SqliteRadioButton.CheckedChanged += OnProviderRadioButtonSelected;
+                SqlCeRadioButton.CheckedChanged += OnProviderRadioButtonSelected;
+                SqlServerRadioButton.CheckedChanged += OnProviderRadioButtonSelected;
+                AccessRadioButton.CheckedChanged += OnProviderRadioButtonSelected;
             }
             catch( Exception _ex )
             {
@@ -1225,8 +1233,6 @@ namespace BudgetExecution
                         ExcelSeparator.Visible = true;
                         LookupButton.Visible = false;
                         LookupSeparator.Visible = false;
-                        AccessRadioButton.CheckState = CheckState.Checked;
-                        ExecutionRadioButton.CheckState = CheckState.Checked;
                         break;
                     }
                     // Busy Tab
@@ -1483,7 +1489,6 @@ namespace BudgetExecution
                 Header.TextAlign = ContentAlignment.TopCenter;
                 Ribbon.Spreadsheet = Spreadsheet;
                 FilterSeparator.Visible = false;
-                TabControl.SelectedIndex = 0;
                 SetActiveTab( );
                 FadeIn( );
             }
@@ -1595,6 +1600,8 @@ namespace BudgetExecution
         {
             try
             {
+                ExecutionRadioButton.Checked = true;
+                AccessRadioButton.Checked = true;
                 TabControl.SelectedIndex = 1;
                 SetActiveTab( );
             }
@@ -1766,10 +1773,7 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnTimerTick( object sender, EventArgs e )
-        {
-            InvokeIf( _statusUpdate );
-        }
+        private void OnTimerTick( object sender, EventArgs e ) => InvokeIf( _statusUpdate );
 
         /// <summary>
         /// Raises the Close event.
@@ -1902,6 +1906,34 @@ namespace BudgetExecution
                     Filter[ FirstCategory ] = FirstValue;
                     TabControl.SelectedIndex = 0;
                     SetActiveTab( );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        private void OnTableRadioButtonSelected( object sender )
+        {
+            if( sender is RadioButton _button )
+            {
+                try
+                {
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        private void OnProviderRadioButtonSelected( object sender )
+        {
+            if( sender is RadioButton _button )
+            {
+                try
+                {
                 }
                 catch( Exception _ex )
                 {
