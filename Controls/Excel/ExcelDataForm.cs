@@ -54,6 +54,7 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms.Spreadsheet;
     using Syncfusion.Windows.Forms.Tools;
     using Syncfusion.XlsIO;
+    using Action = System.Action;
     using Timer = System.Windows.Forms.Timer;
 
     /// <summary>
@@ -68,12 +69,13 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MergeIntoPattern" ) ]
     public partial class ExcelDataForm : MetroForm
     {
         /// <summary>
         /// The status update
         /// </summary>
-        private System.Action _statusUpdate;
+        private Action _statusUpdate;
 
         /// <summary>
         /// Gets or sets the time.
@@ -416,8 +418,12 @@ namespace BudgetExecution
                 TabControl.SelectedIndexChanged += OnActiveTabChanged;
                 Timer.Tick += OnTimerTick;
                 TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
+                FirstComboBox.SelectedValueChanged += OnFirstComboBoxItemSelected;
                 FirstListBox.SelectedValueChanged += OnFirstListBoxItemSelected;
+                SecondComboBox.SelectedValueChanged += OnSecondComboBoxItemSelected;
                 SecondListBox.SelectedValueChanged += OnSecondListBoxItemSelected;
+                ThirdComboBox.SelectedValueChanged += OnThirdComboBoxItemSelected;
+                ThirdListBox.SelectedValueChanged += OnThirdListBoxItemSelected;
                 ExecutionRadioButton.CheckedChanged += OnTableRadioButtonSelected;
                 ReferenceRadioButton.CheckedChanged += OnTableRadioButtonSelected;
                 MaintenanceRadioButton.CheckedChanged += OnTableRadioButtonSelected;
@@ -755,7 +761,7 @@ namespace BudgetExecution
         /// Invokes if needed.
         /// </summary>
         /// <param name="action">The action.</param>
-        public void InvokeIf( System.Action action )
+        public void InvokeIf( Action action )
         {
             if( InvokeRequired )
             {
@@ -1065,25 +1071,6 @@ namespace BudgetExecution
                 Spreadsheet.ActiveGrid.DefaultColumnWidth = 120;
                 Spreadsheet.ActiveGrid.DefaultRowHeight = 22;
                 Spreadsheet.ActiveGrid.CurrentCellActivated += OnCellEnter;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Shows the table dialog.
-        /// </summary>
-        private void ShowTableDialog( )
-        {
-            try
-            {
-                FilterSeparator.Visible = true;
-                SetTableConfiguration( );
-                SetWorksheetConfiguration( );
-                SetActiveGridConfiguration( );
-                Refresh( );
             }
             catch( Exception _ex )
             {
@@ -1587,6 +1574,40 @@ namespace BudgetExecution
         /// <summary>
         /// Binds the data.
         /// </summary>
+        private void BindData( )
+        {
+            try
+            {
+                if( string.IsNullOrEmpty( SqlQuery ) )
+                {
+                    DataModel = new DataBuilder( Source, Provider );
+                    DataTable = DataModel?.DataTable;
+                    SelectedTable = DataTable?.TableName;
+                    BindingSource.DataSource = DataTable;
+                    ToolStrip.BindingSource = BindingSource;
+                    Fields = DataModel?.Fields;
+                    Numerics = DataModel?.Numerics;
+                }
+                else
+                {
+                    DataModel = new DataBuilder( Source, Provider, SqlQuery );
+                    DataTable = DataModel?.DataTable;
+                    SelectedTable = DataTable?.TableName;
+                    BindingSource.DataSource = DataTable;
+                    ToolStrip.BindingSource = BindingSource;
+                    Fields = DataModel?.Fields;
+                    Numerics = DataModel?.Numerics;
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Binds the data.
+        /// </summary>
         /// <param name="where">
         /// The where.
         /// </param>
@@ -1687,6 +1708,10 @@ namespace BudgetExecution
                 InitializeToolStrip( );
                 InitializeLabels( );
                 InitializeIcon( );
+                Filter = new Dictionary<string, object>( );
+                SelectedColumns = new List<string>( );
+                SelectedFields = new List<string>( );
+                SelectedNumerics = new List<string>( );
                 DataArgs = new DataArgs( );
                 Ribbon.Size = new Size( 1338, 128 );
                 Header.ForeColor = Color.FromArgb( 106, 189, 252 );
@@ -1694,7 +1719,6 @@ namespace BudgetExecution
                 Header.TextAlign = ContentAlignment.TopCenter;
                 Ribbon.Spreadsheet = Spreadsheet;
                 FilterSeparator.Visible = false;
-                SetActiveTab( );
                 FadeIn( );
             }
             catch( Exception _ex )
@@ -1805,31 +1829,8 @@ namespace BudgetExecution
         {
             try
             {
-                ExecutionRadioButton.Checked = true;
-                AccessRadioButton.Checked = true;
                 TabControl.SelectedIndex = 1;
                 SetActiveTab( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [remove filter button clicked].
-        /// </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        public void OnRemoveFilterButtonClick( object sender, EventArgs e )
-        {
-            try
-            {
-                ShowFilterDialog( );
             }
             catch( Exception _ex )
             {
@@ -2061,7 +2062,7 @@ namespace BudgetExecution
                     Columns = DataModel.ColumnNames;
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
-                    PopulateSecondListBoxItems( );
+                    PopulateFirstComboBoxItems( );
                 }
                 catch( Exception _ex )
                 {
@@ -2070,12 +2071,35 @@ namespace BudgetExecution
             }
         }
 
-        private void OnFirstComboBoxItemSelected( object sender )
+        /// <summary>
+        /// Called when [first ComboBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e"> </param>
+        private void OnFirstComboBoxItemSelected( object sender, EventArgs e )
         {
             if( sender is ComboBox _comboBox )
             {
                 try
                 {
+                    FirstCategory = string.Empty;
+                    FirstValue = string.Empty;
+                    SecondCategory = string.Empty;
+                    SecondValue = string.Empty;
+                    ThirdCategory = string.Empty;
+                    ThirdValue = string.Empty;
+                    FirstListBox.Items?.Clear( );
+                    FirstCategory = _comboBox.SelectedItem?.ToString( );
+                    ClearListBoxes( );
+                    if( !string.IsNullOrEmpty( FirstCategory ) )
+                    {
+                        DataModel = new DataBuilder( Source, Provider );
+                        var _data = DataModel.DataElements[ FirstCategory ];
+                        foreach( var _item in _data )
+                        {
+                            FirstListBox.Items?.Add( _item );
+                        }
+                    }
                 }
                 catch( Exception _ex )
                 {
@@ -2094,13 +2118,14 @@ namespace BudgetExecution
             {
                 try
                 {
-                    SecondListBox.Items?.Clear( );
-                    FirstCategory = _listBox.SelectedValue?.ToString( );
-                    var _values = DataModel.DataElements[ FirstCategory ];
-                    foreach( var _val in _values )
+                    if( Filter.Keys.Count > 0 )
                     {
-                        SecondListBox.Items.Add( _val );
+                        Filter.Clear( );
                     }
+
+                    FirstValue = _listBox.SelectedValue?.ToString( );
+                    Filter.Add( FirstCategory, FirstValue );
+                    PopulateSecondComboBoxItems( );
                 }
                 catch( Exception _ex )
                 {
@@ -2109,12 +2134,36 @@ namespace BudgetExecution
             }
         }
 
-        private void OnSecondComboBoxItemSelected( object sender )
+        /// <summary>
+        /// Called when [second ComboBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e"> </param>
+        private void OnSecondComboBoxItemSelected( object sender, EventArgs e )
         {
             if( sender is ComboBox _comboBox )
             {
                 try
                 {
+                    SqlQuery = string.Empty;
+                    SecondCategory = string.Empty;
+                    SecondValue = string.Empty;
+                    ThirdCategory = string.Empty;
+                    ThirdValue = string.Empty;
+                    if( SecondListBox.Items?.Count > 0 )
+                    {
+                        SecondListBox.Items?.Clear( );
+                    }
+
+                    SecondCategory = _comboBox.SelectedItem?.ToString( );
+                    if( !string.IsNullOrEmpty( SecondCategory ) )
+                    {
+                        var _data = DataModel.DataElements[ SecondCategory ];
+                        foreach( var _item in _data )
+                        {
+                            SecondListBox.Items?.Add( _item );
+                        }
+                    }
                 }
                 catch( Exception _ex )
                 {
@@ -2133,10 +2182,15 @@ namespace BudgetExecution
             {
                 try
                 {
-                    FirstValue = _listBox.SelectedValue?.ToString( );
-                    Filter[ FirstCategory ] = FirstValue;
-                    TabControl.SelectedIndex = 0;
-                    SetActiveTab( );
+                    if( Filter.Keys?.Count > 0 )
+                    {
+                        Filter.Clear( );
+                    }
+
+                    SecondValue = _listBox.SelectedValue?.ToString( );
+                    Filter.Add( FirstCategory, FirstValue );
+                    Filter.Add( SecondCategory, SecondValue );
+                    PopulateThirdComboBoxItems( );
                 }
                 catch( Exception _ex )
                 {
@@ -2145,12 +2199,36 @@ namespace BudgetExecution
             }
         }
 
-        private void OnThirdComboBoxItemSelected( object sender )
+        /// <summary>
+        /// Called when [third ComboBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e"> </param>
+        private void OnThirdComboBoxItemSelected( object sender, EventArgs e )
         {
             if( sender is ComboBox _comboBox )
             {
                 try
                 {
+                    ThirdCategory = string.Empty;
+                    ThirdValue = string.Empty;
+                    if( ThirdListBox.Items?.Count > 0 )
+                    {
+                        ThirdListBox.Items?.Clear( );
+                    }
+
+                    ThirdCategory = _comboBox.SelectedItem?.ToString( );
+                    if( !string.IsNullOrEmpty( ThirdCategory ) )
+                    {
+                        var _data = DataModel?.DataElements[ ThirdCategory ];
+                        if( _data?.Any( ) == true )
+                        {
+                            foreach( var _item in _data )
+                            {
+                                ThirdListBox.Items?.Add( _item );
+                            }
+                        }
+                    }
                 }
                 catch( Exception _ex )
                 {
@@ -2159,13 +2237,31 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Called when [third ListBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
         private void OnThirdListBoxItemSelected( object sender )
         {
             if( sender is ListBox _listBox )
             {
                 try
                 {
-                    ThirdValue = _listBox.SelectedText;
+                    if( Filter.Keys.Count > 0 )
+                    {
+                        Filter.Clear( );
+                    }
+
+                    if( ThirdListBox.Items.Count > 0 )
+                    {
+                        ThirdListBox.Items?.Clear( );
+                    }
+
+                    ThirdValue = _listBox.SelectedValue?.ToString( );
+                    Filter.Add( FirstCategory, FirstValue );
+                    Filter.Add( SecondCategory, SecondValue );
+                    Filter.Add( ThirdCategory, ThirdValue );
+                    TabControl.SelectedIndex = 0;
                 }
                 catch( Exception _ex )
                 {
@@ -2184,6 +2280,7 @@ namespace BudgetExecution
             {
                 try
                 {
+                    ClearListBoxes( );
                     switch( _button.Tag )
                     {
                         case "EXECUTION":
@@ -2225,6 +2322,7 @@ namespace BudgetExecution
             {
                 try
                 {
+                    ClearListBoxes( );
                     Provider = _button.Tag switch
                     {
                         "SQLite" => Provider.SQLite,

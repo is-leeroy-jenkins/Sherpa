@@ -176,7 +176,6 @@
             // 
             // Spreadsheet
             // 
-            Spreadsheet.ActiveSheet = null;
             Spreadsheet.AllowCellContextMenu = true;
             Spreadsheet.AllowExtendRowColumnCount = true;
             Spreadsheet.AllowFiltering = false;
@@ -468,7 +467,7 @@
             ToolStripTextBox.Margin = new System.Windows.Forms.Padding( 1 );
             ToolStripTextBox.Name = "ToolStripTextBox";
             ToolStripTextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Size = new System.Drawing.Size( 252, 27 );
+            ToolStripTextBox.Size = new System.Drawing.Size( 248, 27 );
             ToolStripTextBox.Tag = "";
             ToolStripTextBox.ToolTip = ToolTip;
             // 
@@ -822,9 +821,9 @@
             TabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             TabControl.CanOverrideStyle = true;
             TabControl.CloseButtonBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            TabControl.Controls.Add( QueryTab );
             TabControl.Controls.Add( DataTab );
             TabControl.Controls.Add( BusyTab );
+            TabControl.Controls.Add( QueryTab );
             TabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             TabControl.FocusOnTabClick = false;
             TabControl.Font = new System.Drawing.Font( "Roboto", 9F );
