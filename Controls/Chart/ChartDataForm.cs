@@ -207,10 +207,10 @@ namespace BudgetExecution
         public string SqlCommand { get; set; }
 
         /// <summary>
-        /// Gets or sets the x axis.
+        /// Gets or sets the x-axis.
         /// </summary>
         /// <value>
-        /// The x axis.
+        /// The x-axis.
         /// </value>
         public string xAxis { get; set; }
 
