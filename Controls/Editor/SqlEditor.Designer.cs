@@ -511,7 +511,7 @@
             CloseButton.Size = new System.Drawing.Size( 23, 25 );
             CloseButton.Text = "toolStripButton1";
             CloseButton.ToolTip = ToolTip;
-            CloseButton.ToolType = ToolType.ExitButton;
+            CloseButton.ToolType = ToolType.CloseButton;
             // 
             // Separator18
             // 
@@ -780,7 +780,7 @@
             EditSqlButton.Size = new System.Drawing.Size( 23, 25 );
             EditSqlButton.Text = "toolStripButton1";
             EditSqlButton.ToolTip = ToolTip;
-            EditSqlButton.ToolType = ToolType.Ns;
+            EditSqlButton.ToolType = ToolType.EditSqlButton;
             // 
             // Separator11
             // 
@@ -809,7 +809,7 @@
             EditDataButton.Size = new System.Drawing.Size( 23, 25 );
             EditDataButton.Text = "toolStripButton1";
             EditDataButton.ToolTip = ToolTip;
-            EditDataButton.ToolType = ToolType.TableButton;
+            EditDataButton.ToolType = ToolType.EditRecordButton;
             // 
             // Separator12
             // 
@@ -838,7 +838,7 @@
             TableButton.Size = new System.Drawing.Size( 23, 25 );
             TableButton.Text = "toolStripButton1";
             TableButton.ToolTip = ToolTip;
-            TableButton.ToolType = ToolType.Ns;
+            TableButton.ToolType = ToolType.TableButton;
             // 
             // TableSeparator
             // 
@@ -1036,13 +1036,13 @@
             ApplicationLabel.BindingSource = null;
             ApplicationLabel.DataFilter = null;
             ApplicationLabel.Field = Field.AccountCode;
-            ApplicationLabel.Font = new System.Drawing.Font( "Roboto", 8F );
+            ApplicationLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
             ApplicationLabel.ForeColor = System.Drawing.Color.Black;
             ApplicationLabel.HoverText = null;
             ApplicationLabel.Margin = new System.Windows.Forms.Padding( 1 );
             ApplicationLabel.Name = "ApplicationLabel";
             ApplicationLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            ApplicationLabel.Size = new System.Drawing.Size( 95, 25 );
+            ApplicationLabel.Size = new System.Drawing.Size( 72, 25 );
             ApplicationLabel.Tag = "";
             ApplicationLabel.Text = "          Application";
             ApplicationLabel.ToolTip = null;

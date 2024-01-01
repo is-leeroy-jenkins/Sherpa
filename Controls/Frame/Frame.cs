@@ -89,7 +89,7 @@ namespace BudgetExecution
             Table.ForeColor = Color.FromArgb( 106, 189, 252 );
 
             // TextBox Properties
-            TextBox.ForeColor = Color.FromArgb( 106, 189, 252 );
+            TextBox.ForeColor = Color.White;
             TextBox.BorderColor = Color.FromArgb( 50, 93, 129 );
             TextBox.HoverColor = Color.FromArgb( 0, 120, 212 );
             TextBox.BackColor = Color.FromArgb( 40, 40, 40 );
@@ -99,7 +99,9 @@ namespace BudgetExecution
         /// <summary>
         /// Fails the specified ex.
         /// </summary>
-        /// <param name="ex">The ex.</param>
+        /// <param name="ex">
+        /// The ex.
+        /// </param>
         protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

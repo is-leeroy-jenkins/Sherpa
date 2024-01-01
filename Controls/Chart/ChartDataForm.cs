@@ -124,7 +124,7 @@ namespace BudgetExecution
         /// <value>
         /// The hover text.
         /// </value>
-        public virtual string HoverText { get; set; }
+        public string HoverText { get; set; }
 
         /// <summary>
         /// Gets or sets the selected row.

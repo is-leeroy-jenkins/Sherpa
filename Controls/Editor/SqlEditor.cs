@@ -469,7 +469,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Initializes the PictureBox. </summary>
+        /// <summary>
+        /// Initializes the PictureBox.
+        /// </summary>
         private void InitializeIcon( )
         {
             try
@@ -483,7 +485,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the tool strip properties. </summary>
+        /// <summary>
+        /// Sets the tool strip properties.
+        /// </summary>
         private void InitializeToolStrip( )
         {
             try
@@ -505,7 +509,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Initializes the radio buttons. </summary>
+        /// <summary>
+        /// Initializes the radio buttons.
+        /// </summary>
         private void InitializeButtons( )
         {
             try
@@ -1163,7 +1169,8 @@ namespace BudgetExecution
 
                 var _criteria = where.ToCriteria( );
                 var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
-                return $"SELECT {_names} FROM {SelectedTable} " + $"WHERE {_criteria} "
+                return $"SELECT {_names} FROM {SelectedTable} " 
+                    + $"WHERE {_criteria} "
                     + $"GROUP BY {_names} ;";
             }
             catch( Exception _ex )
@@ -1211,7 +1218,8 @@ namespace BudgetExecution
                 var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
                 var _criteria = where.ToCriteria( );
                 var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                return $"SELECT {_columns} FROM {Source} " + $"WHERE {_criteria} "
+                return $"SELECT {_columns} FROM {Source} " 
+                    + $"WHERE {_criteria} "
                     + $"GROUP BY {_groups};";
             }
             catch( Exception _ex )
@@ -1221,8 +1229,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Creates the command list. </summary>
-        /// <param name="provider"> The provider. </param>
+        /// <summary>
+        /// Creates the command list.
+        /// </summary>
+        /// <param name="provider">
+        /// The provider.
+        /// </param>
         /// <returns> </returns>
         private IList<string> CreateCommandList( Provider provider )
         {

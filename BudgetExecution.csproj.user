@@ -242,7 +242,7 @@
     <Compile Update="Controls\Splash\SplashMessage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\Panel\SplashPanel.cs">
+    <Compile Update="Controls\Splash\SplashPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\TabControl\TabControl.cs">
@@ -260,7 +260,7 @@
     <Compile Update="Controls\Tile\TilePanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="Controls\ToggleButton\ToggleButton.cs">
+    <Compile Update="Controls\Toggle\ToggleButton.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\ToolStrip\ToolButtonBase.cs">

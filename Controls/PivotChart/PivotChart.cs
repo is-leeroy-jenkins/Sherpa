@@ -66,7 +66,6 @@ namespace BudgetExecution
         {
             // Control Properties
             Size = new Size( 550, 350 );
-            Skins = Skins.Office2016Black;
             ShowPivotTableFieldList = false;
             AllowDrillDown = true;
             BackColor = Color.FromArgb( 20, 20, 20 );
@@ -91,9 +90,6 @@ namespace BudgetExecution
                 Color.LimeGreen,
                 Color.Maroon
             };
-
-            ChartControl.Palette = ChartColorPalette.Custom;
-            ChartControl.Skins = Skins.Office2016Black;
         }
 
         /// <summary>

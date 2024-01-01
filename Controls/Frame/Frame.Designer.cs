@@ -45,14 +45,14 @@ partial class Frame
         TextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
         TextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
         TextBox.BindingSource = null;
-        TextBox.BorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
+        TextBox.BorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
         TextBox.DataFilter = null;
-        TextBox.DisabledBackColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
-        TextBox.DisabledBorderColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
-        TextBox.DisabledForeColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
+        TextBox.DisabledBackColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
+        TextBox.DisabledBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
+        TextBox.DisabledForeColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
         TextBox.Dock = System.Windows.Forms.DockStyle.Top;
-        TextBox.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-        TextBox.HoverColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+        TextBox.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
+        TextBox.HoverColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
         TextBox.HoverText = null;
         TextBox.Image = null;
         TextBox.IsDerivedStyle = true;
@@ -63,7 +63,7 @@ partial class Frame
         TextBox.Name = "TextBox";
         TextBox.ReadOnly = false;
         TextBox.SelectionLength = 0;
-        TextBox.Size = new System.Drawing.Size( 118, 26 );
+        TextBox.Size = new System.Drawing.Size( 118, 25 );
         TextBox.Style = MetroSet_UI.Enums.Style.Custom;
         TextBox.StyleManager = null;
         TextBox.TabIndex = 0;
@@ -81,7 +81,7 @@ partial class Frame
         Label.DataFilter = null;
         Label.Dock = System.Windows.Forms.DockStyle.Bottom;
         Label.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-        Label.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+        Label.Font = new System.Drawing.Font( "Roboto", 9F );
         Label.HoverText = null;
         Label.IsDerivedStyle = true;
         Label.Location = new System.Drawing.Point( 3, 3 );
@@ -105,7 +105,7 @@ partial class Frame
         Table.Controls.Add( Label, 0, 0 );
         Table.Controls.Add( TextBox, 0, 1 );
         Table.Dock = System.Windows.Forms.DockStyle.Fill;
-        Table.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+        Table.Font = new System.Drawing.Font( "Roboto", 9F );
         Table.ForeColor = System.Drawing.Color.LightGray;
         Table.Location = new System.Drawing.Point( 0, 0 );
         Table.Name = "Table";
@@ -119,9 +119,9 @@ partial class Frame
         // 
         AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+        BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         Controls.Add( Table );
-        Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+        Font = new System.Drawing.Font( "Roboto", 9F );
         ForeColor = System.Drawing.Color.LightGray;
         Name = "Frame";
         Size = new System.Drawing.Size( 124, 58 );

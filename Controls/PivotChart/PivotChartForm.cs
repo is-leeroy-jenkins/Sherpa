@@ -324,20 +324,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes the labels.
-        /// </summary>
-        private void InitializeLabels( )
-        {
-            try
-            {
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Initializes the callbacks.
         /// </summary>
         private void RegisterCallbacks( )
@@ -372,30 +358,6 @@ namespace BudgetExecution
             try
             {
                 _statusUpdate += UpdateStatus;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the chart palette.
-        /// </summary>
-        private void InitializeChartPalette( )
-        {
-            try
-            {
-                var _palette = new List<Color>( );
-                var _steelBlue = Color.SteelBlue;
-                _palette.Add( _steelBlue );
-                var _slateGray = Color.SlateGray;
-                _palette.Add( _slateGray );
-                var _yellow = Color.FromArgb( 192, 192, 0 );
-                _palette.Add( _yellow );
-                var _maroon = Color.Maroon;
-                _palette.Add( _maroon );
-                PivotChart.CustomPalette = _palette.ToArray( );
             }
             catch( Exception _ex )
             {
@@ -451,6 +413,60 @@ namespace BudgetExecution
                 ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Black;
                 ToolStrip.ImageSize = new Size( 16, 16 );
                 ToolStrip.ImageScalingSize = new Size( 16, 16 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the labels.
+        /// </summary>
+        private void InitializeLabels( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the pivot chart.
+        /// </summary>
+        private void InitializePivotChart( )
+        {
+            try
+            {
+                var _palette = new List<Color>( );
+                var _steelBlue = Color.SteelBlue;
+                _palette.Add( _steelBlue );
+                var _slateGray = Color.SlateGray;
+                _palette.Add( _slateGray );
+                var _yellow = Color.FromArgb( 192, 192, 0 );
+                _palette.Add( _yellow );
+                var _maroon = Color.Maroon;
+                _palette.Add( _maroon );
+                PivotChart.ShowPivotTableFieldList = false;
+                PivotChart.AllowDrillDown = true;
+                PivotChart.BackColor = Color.FromArgb( 45, 45, 45 );
+                PivotChart.ForeColor = Color.FromArgb( 106, 189, 252 );
+                PivotChart.ChartTypes = PivotChartTypes.Column;
+                PivotChart.PrimaryXAxis.Title.Color = Color.FromArgb( 0, 120, 212 );
+                PivotChart.PrimaryXAxis.Title.Font = new Font( "Roboto", 9 );
+                PivotChart.PrimaryYAxis.Title.Color = Color.FromArgb( 0, 120, 212 );
+                PivotChart.PrimaryYAxis.Title.Font = new Font( "Roboto", 9 );
+                PivotChart.LegendFieldSection.Visible = false;
+                PivotChart.ValueFieldSection.Visible = true;
+                PivotChart.FilterFieldSection.Visible = true;
+                PivotChart.AxisFieldSection.ItemBackColor = Color.FromArgb( 50, 93, 129 );
+                PivotChart.AxisFieldSection.ItemForeColor = Color.White;
+                PivotChart.AxisFieldSection.BackInterior = Color.FromArgb( 75, 75, 75 );
+                PivotChart.CustomPalette = _palette.ToArray( );
+                PivotChart.Style3D = true;
             }
             catch( Exception _ex )
             {
@@ -1190,11 +1206,11 @@ namespace BudgetExecution
             try
             {
                 RegisterCallbacks( );
-                InitializeChartPalette( );
                 InitializeLabels( );
                 InitializeToolStrip( );
                 InitializeTimers( );
                 InitializeListBox( );
+                InitializePivotChart( );
                 PopulateExecutionTables( );
                 PopulateComboBox( );
                 ClearLabels( );
