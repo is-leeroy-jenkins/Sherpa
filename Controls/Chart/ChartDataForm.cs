@@ -1504,6 +1504,7 @@ namespace BudgetExecution
                 SecondValue = string.Empty;
                 FirstCategory = string.Empty;
                 FirstValue = string.Empty;
+                SelectedTable = string.Empty;
             }
             catch( Exception _ex )
             {

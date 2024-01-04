@@ -77,6 +77,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
+    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
     public partial class SqlDataForm : EditBase
     {
         /// <summary>
@@ -767,7 +768,11 @@ namespace BudgetExecution
         {
             try
             {
-                Title.Text = string.Empty;
+                var _labels = GetLabels( );
+                foreach( var _lbl in _labels.Values )
+                {
+                    _lbl.Text = string.Empty;
+                }
             }
             catch( Exception _ex )
             {
@@ -869,6 +874,7 @@ namespace BudgetExecution
                 FirstValue = string.Empty;
                 SelectedCommand = string.Empty;
                 SelectedQuery = string.Empty;
+                SelectedTable = string.Empty;
             }
             catch( Exception _ex )
             {
@@ -1327,6 +1333,36 @@ namespace BudgetExecution
             {
                 Fail( _ex );
                 return default( IList<string> );
+            }
+        }
+
+        /// <summary>
+        /// Gets the labels.
+        /// </summary>
+        /// <returns>
+        /// Dictionary
+        /// </returns>
+        private IDictionary<string, Label> GetLabels( )
+        {
+            try
+            {
+                var _labels = new Dictionary<string, Label>( );
+                foreach( var _control in GetControls( ) )
+                {
+                    if( _control.GetType( ) == typeof( Label ) )
+                    {
+                        _labels.Add( _control.Name, _control as Label );
+                    }
+                }
+
+                return _labels?.Any( ) == true
+                    ? _labels
+                    : default( IDictionary<string, Label> );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IDictionary<string, Label> );
             }
         }
 
