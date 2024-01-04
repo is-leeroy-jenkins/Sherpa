@@ -38,16 +38,14 @@
 // </summary>
 // ******************************************************************************************
 
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using OfficeOpenXml;
-
 namespace BudgetExecution
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
-    using System;
+    using System.Collections.Generic;
+    using System.Data;
+    using System.Linq;
+    using OfficeOpenXml;
 
     /// <inheritdoc />
     /// <summary>
@@ -265,7 +263,7 @@ namespace BudgetExecution
             {
                 ThrowIf.NoData( data, nameof( data ) );
                 var _items = data.ToArray( );
-                if( _cells.Count == _items.Length )
+                if( _cells.Count == _items?.Length )
                 {
                     SetValues( _items );
                 }

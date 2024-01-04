@@ -287,51 +287,67 @@ namespace BudgetExecution
                 BrowserTile.Title.Text = "Baby";
                 BrowserTile.Body.Text = string.Empty;
                 BrowserTile.Banner.Text = string.Empty;
+                BrowserTile.HoverText = "Baby Browser";
                 ChromeTile.Title.Text = "Chrome";
                 ChromeTile.Body.Text = string.Empty;
                 ChromeTile.Banner.Text = string.Empty;
+                ChromeTile.HoverText = "Chrome Web Browser";
                 EdgeTile.Title.Text = "Edge";
                 EdgeTile.Body.Text = string.Empty;
                 EdgeTile.Banner.Text = string.Empty;
+                EdgeTile.HoverText = "Edge Browser";
                 FirefoxTile.Title.Text = "Firefox";
                 FirefoxTile.Body.Text = string.Empty;
                 FirefoxTile.Banner.Text = string.Empty;
+                FirefoxTile.HoverText = "Firefox Web Browser";
                 AccessTile.Title.Text = nameof( Access );
                 AccessTile.Body.Text = string.Empty;
                 AccessTile.Banner.Text = string.Empty;
+                AccessTile.HoverText = "Access Database";
                 SQLiteTile.Title.Text = nameof( SQLite );
                 SQLiteTile.Body.Text = string.Empty;
                 SQLiteTile.Banner.Text = string.Empty;
+                SQLiteTile.HoverText = "SQLite Database";
                 SqlCeTile.Title.Text = "SQL Compact";
                 SqlCeTile.Body.Text = string.Empty;
                 SqlCeTile.Banner.Text = string.Empty;
+                SqlCeTile.HoverText = "SQL Compact Edition";
                 SqlServerTile.Title.Text = "SQL Server";
                 SqlServerTile.Body.Text = string.Empty;
                 SqlServerTile.Banner.Text = string.Empty;
+                SqlServerTile.HoverText = "MS SQL Server";
                 LookupTile.Title.Text = "Grids";
                 LookupTile.Body.Text = string.Empty;
                 LookupTile.Banner.Text = string.Empty;
+                LookupTile.HoverText = "Look-Up";
                 SqlEditorTile.Title.Text = "SQL Editor";
                 SqlEditorTile.Body.Text = string.Empty;
                 SqlEditorTile.Banner.Text = string.Empty;
+                SqlEditorTile.HoverText = "SQL Editor";
                 VisualizationTile.Title.Text = "Charts";
                 VisualizationTile.Body.Text = string.Empty;
                 VisualizationTile.Banner.Text = string.Empty;
+                VisualizationTile.HoverText = "Data Visualization";
                 ExcelDataTile.Title.Text = "Excel Data";
                 ExcelDataTile.Body.Text = string.Empty;
                 ExcelDataTile.Banner.Text = string.Empty;
+                ExcelDataTile.HoverText = "Spreadsheet Data";
                 GuidanceTile.Title.Text = nameof( Guidance );
                 GuidanceTile.Body.Text = string.Empty;
                 GuidanceTile.Banner.Text = string.Empty;
+                GuidanceTile.HoverText = "Guidance & Documentation";
                 ProgramProjectTile.Title.Text = "Program Projects";
                 ProgramProjectTile.Body.Text = string.Empty;
                 ProgramProjectTile.Banner.Text = string.Empty;
+                ProgramProjectTile.HoverText = "Program Descriptions";
                 CalendarTile.Title.Text = "Calendar";
                 CalendarTile.Body.Text = string.Empty;
                 CalendarTile.Banner.Text = string.Empty;
+                CalendarTile.HoverText = "Time Series Data";
                 MessageTile.Title.Text = "Email";
                 MessageTile.Body.Text = string.Empty;
                 MessageTile.Banner.Text = string.Empty;
+                MessageTile.HoverText = "Send Email Message";
             }
             catch( Exception _ex )
             {
@@ -473,7 +489,7 @@ namespace BudgetExecution
             {
                 var _data = new DataBuilder( Source.BudgetContacts );
                 var _table = _data.DataTable;
-                var _grid = new SheetForm( _table );
+                var _grid = new GridForm( _table );
                 _grid.Show( );
             }
             catch( Exception _ex )

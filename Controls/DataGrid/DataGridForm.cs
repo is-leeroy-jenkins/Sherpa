@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
-//     Assembly:             BudgetExecution
+//     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 06-19-2023
+//     Created:                 12-18-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-04-2023
+//     Last Modified On:        12-18-2023
 // ******************************************************************************************
-// <copyright file="Terry Eppler.cs" company="Terry D. Eppler">
-//    BudgetExecution is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
+// <copyright file="DataGridForm.cs" company="Terry D. Eppler">
+//    Budget Execution is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,10 +31,10 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
+//    Contact at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   DataGridForm.cs.cs
+//   DataGridForm.cs
 // </summary>
 // ******************************************************************************************
 
@@ -175,6 +175,14 @@ namespace BudgetExecution
         public IDictionary<string, object> Filter { get; set; }
 
         /// <summary>
+        /// Gets or sets the columns.
+        /// </summary>
+        /// <value>
+        /// The columns.
+        /// </value>
+        public IList<string> Columns { get; set; }
+
+        /// <summary>
         /// Gets or sets the fields.
         /// </summary>
         /// <value>
@@ -264,8 +272,14 @@ namespace BudgetExecution
         /// </value>
         public bool IsBusy
         {
-            get { return _busy; }
-            private set { _busy = value; }
+            get
+            {
+                return _busy;
+            }
+            private set
+            {
+                _busy = value;
+            }
         }
 
         /// <inheritdoc />
@@ -313,6 +327,7 @@ namespace BudgetExecution
 
             // Set PictureBox Size
             PictureBox.Size = new Size( 20, 20 );
+            TableListBox.ShowScrollBar = false;
 
             // Form Event Wiring
             Load += OnLoad;
@@ -433,6 +448,54 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Initializes the callbacks.
+        /// </summary>
+        private void RegisterCallbacks( )
+        {
+            // Control Event Wiring
+            try
+            {
+                ExitButton.Click += null;
+                MenuButton.Click += null;
+                EditSqlButton.Click += null;
+                EditRecordButton.Click += null;
+                RefreshDataButton.Click += null;
+                RemoveFiltersButton.Click += null;
+                GroupButton.Click += null;
+                SelectionTabControl.SelectedIndexChanged += OnActiveTabChanged;
+                TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
+                FirstComboBox.SelectedValueChanged += OnFirstComboBoxItemSelected;
+                FirstListBox.SelectedValueChanged += OnFirstListBoxItemSelected;
+                SecondComboBox.SelectedValueChanged += OnSecondComboBoxItemSelected;
+                SecondListBox.SelectedValueChanged += OnSecondListBoxItemSelected;
+                ThirdComboBox.SelectedValueChanged += OnThirdComboBoxItemSelected;
+                ThirdListBox.SelectedValueChanged += OnThirdListBoxItemSelected;
+                FieldListBox.SelectedValueChanged += OnFieldListBoxSelectedValueChanged;
+                NumericListBox.SelectedValueChanged += OnNumericListBoxSelectedValueChanged;
+                TableComboBox.SelectedValueChanged += OnTableComboBoxItemSelected;
+                AccessRadioButton.CheckedChanged += OnRadioButtonChecked;
+                SQLiteRadioButton.CheckedChanged += OnRadioButtonChecked;
+                SqlServerRadioButton.CheckedChanged += OnRadioButtonChecked;
+                SqlCeRadioButton.CheckedChanged += OnRadioButtonChecked;
+                ExitButton.Click += OnExitButtonClicked;
+                MenuButton.Click += OnMainMenuButtonClicked;
+                RemoveFiltersButton.Click += OnRemoveFilterButtonClicked;
+                RefreshDataButton.Click += OnRefreshDataButtonClicked;
+                GroupButton.Click += OnGroupButtonClicked;
+                FirstCalendar.SelectionChanged += OnStartDateSelected;
+                SecondCalendar.SelectionChanged += OnEndDateSelected;
+                EditSqlButton.Click += OnSqlButtonClick;
+                EditRecordButton.Click += OnEditRecordButtonClicked;
+                EditColumnButton.Click += OnEditColumnButtonClicked;
+                Timer.Tick += OnTimerTick;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Initializes the tab control.
         /// </summary>
         private void InitializeTabControl( )
@@ -521,20 +584,20 @@ namespace BudgetExecution
         {
             try
             {
-                SQLiteRadioButton.Tag = nameof( SQLite );
-                SQLiteRadioButton.Text = nameof( SQLite );
+                SQLiteRadioButton.Tag = "SQLite";
+                SQLiteRadioButton.Text = "SQLite";
                 SQLiteRadioButton.ForeColor = Color.FromArgb( 106, 189, 252 );
                 SQLiteRadioButton.HoverText = "SQLite Provider";
-                AccessRadioButton.Tag = nameof( Access );
-                AccessRadioButton.Text = nameof( Access );
+                AccessRadioButton.Tag = "Access";
+                AccessRadioButton.Text = "Access";
                 AccessRadioButton.ForeColor = Color.FromArgb( 106, 189, 252 );
                 AccessRadioButton.HoverText = "MS Access Provider";
                 AccessRadioButton.Checked = true;
-                SqlCeRadioButton.Tag = nameof( SqlCe );
+                SqlCeRadioButton.Tag = "SqlCe";
                 SqlCeRadioButton.Text = "SQL CE";
                 SqlCeRadioButton.ForeColor = Color.FromArgb( 106, 189, 252 );
                 SqlCeRadioButton.HoverText = "SQL Compact Provider";
-                SqlServerRadioButton.Tag = nameof( SqlServer );
+                SqlServerRadioButton.Tag = "SqlServer";
                 SqlServerRadioButton.Text = "MS SQL";
                 SqlServerRadioButton.ForeColor = Color.FromArgb( 106, 189, 252 );
                 SqlServerRadioButton.HoverText = "Sql Server Provider";
@@ -574,54 +637,6 @@ namespace BudgetExecution
                 Timer.Enabled = true;
                 Timer.Interval = 500;
                 Timer.Start( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the callbacks.
-        /// </summary>
-        private void RegisterCallbacks( )
-        {
-            // Control Event Wiring
-            try
-            {
-                ExitButton.Click += null;
-                MenuButton.Click += null;
-                EditSqlButton.Click += null;
-                EditRecordButton.Click += null;
-                RefreshDataButton.Click += null;
-                RemoveFiltersButton.Click += null;
-                GroupButton.Click += null;
-                SelectionTabControl.SelectedIndexChanged += OnActiveTabChanged;
-                TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
-                FirstComboBox.SelectedValueChanged += OnFirstComboBoxItemSelected;
-                FirstListBox.SelectedValueChanged += OnFirstListBoxItemSelected;
-                SecondComboBox.SelectedValueChanged += OnSecondComboBoxItemSelected;
-                SecondListBox.SelectedValueChanged += OnSecondListBoxItemSelected;
-                ThirdComboBox.SelectedValueChanged += OnThirdComboBoxItemSelected;
-                ThirdListBox.SelectedValueChanged += OnThirdListBoxItemSelected;
-                FieldListBox.SelectedValueChanged += OnFieldListBoxSelectedValueChanged;
-                NumericListBox.SelectedValueChanged += OnNumericListBoxSelectedValueChanged;
-                TableComboBox.SelectedValueChanged += OnTableComboBoxItemSelected;
-                AccessRadioButton.CheckedChanged += OnRadioButtonChecked;
-                SQLiteRadioButton.CheckedChanged += OnRadioButtonChecked;
-                SqlServerRadioButton.CheckedChanged += OnRadioButtonChecked;
-                SqlCeRadioButton.CheckedChanged += OnRadioButtonChecked;
-                ExitButton.Click += OnExitButtonClicked;
-                MenuButton.Click += OnMainMenuButtonClicked;
-                RemoveFiltersButton.Click += OnRemoveFilterButtonClicked;
-                RefreshDataButton.Click += OnRefreshDataButtonClicked;
-                GroupButton.Click += OnGroupButtonClicked;
-                FirstCalendar.SelectionChanged += OnStartDateSelected;
-                SecondCalendar.SelectionChanged += OnEndDateSelected;
-                EditSqlButton.Click += OnSqlButtonClick;
-                EditRecordButton.Click += OnEditRecordButtonClicked;
-                EditColumnButton.Click += OnEditColumnButtonClicked;
-                Timer.Tick += OnTimerTick;
             }
             catch( Exception _ex )
             {
@@ -765,6 +780,36 @@ namespace BudgetExecution
             {
                 Fail( _ex );
                 return default( IEnumerable<RadioButton> );
+            }
+        }
+
+        /// <summary>
+        /// Gets the labels.
+        /// </summary>
+        /// <returns>
+        /// Dictionary
+        /// </returns>
+        private IDictionary<string, Label> GetLabels( )
+        {
+            try
+            {
+                var _labels = new Dictionary<string, Label>( );
+                foreach( var _control in GetControls( ) )
+                {
+                    if( _control.GetType( ) == typeof( Label ) )
+                    {
+                        _labels.Add( _control.Name, _control as Label );
+                    }
+                }
+
+                return _labels?.Any( ) == true
+                    ? _labels
+                    : default( IDictionary<string, Label> );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IDictionary<string, Label> );
             }
         }
 
@@ -942,8 +987,8 @@ namespace BudgetExecution
                 var _data = _model.GetData( );
                 var _names = _data
                     ?.Where( r => r.Field<string>( "Model" ).Equals( "REFERENCE" ) )
-                    ?.OrderBy( r => r.Field<string>( nameof( Title ) ) )
-                    ?.Select( r => r.Field<string>( nameof( Title ) ) )?.ToList( );
+                    ?.OrderBy( r => r.Field<string>( "Title" ) )
+                    ?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
 
                 if( _names?.Any( ) == true )
                 {
@@ -971,8 +1016,8 @@ namespace BudgetExecution
                 var _data = _model.GetData( );
                 var _names = _data
                     ?.Where( r => r.Field<string>( "Model" ).Equals( "MAINTENANCE" ) )
-                    ?.OrderBy( r => r.Field<string>( nameof( Title ) ) )
-                    ?.Select( r => r.Field<string>( nameof( Title ) ) )?.ToList( );
+                    ?.OrderBy( r => r.Field<string>( "Title" ) )
+                    ?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
 
                 if( _names?.Any( ) == true )
                 {
@@ -1000,8 +1045,8 @@ namespace BudgetExecution
                 var _data = _model.GetData( );
                 var _names = _data
                     ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
-                    ?.OrderBy( r => r.Field<string>( nameof( Title ) ) )
-                    ?.Select( r => r.Field<string>( nameof( Title ) ) )
+                    ?.OrderBy( r => r.Field<string>( "Title" ) )
+                    ?.Select( r => r.Field<string>( "Title" ) )
                     ?.ToList( );
 
                 if( _names?.Any( ) == true )
@@ -1170,6 +1215,14 @@ namespace BudgetExecution
         {
             try
             {
+                var _labels = GetLabels( );
+                foreach( var _lbl in _labels.Values )
+                {
+                    if( !string.IsNullOrEmpty( _lbl?.Text ) )
+                    {
+                        _lbl.Text = "";
+                    }
+                }
             }
             catch( Exception _ex )
             {
@@ -1182,7 +1235,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="where">The where.</param>
         /// <returns></returns>
-        private string CreateSqlText( IDictionary<string, object> where )
+        private string CreateSqlCommand( IDictionary<string, object> where )
         {
             if( where?.Any( ) == true )
             {
@@ -1207,7 +1260,7 @@ namespace BudgetExecution
         /// <param name="columns">The columns.</param>
         /// <param name="where">The where.</param>
         /// <returns></returns>
-        private string CreateSqlText( IEnumerable<string> columns,
+        private string CreateSqlCommand( IEnumerable<string> columns,
             IDictionary<string, object> where )
         {
             if( where?.Any( ) == true
@@ -1246,7 +1299,7 @@ namespace BudgetExecution
         /// <param name="numerics">The numerics.</param>
         /// <param name="where">The where.</param>
         /// <returns></returns>
-        private string CreateSqlText( IEnumerable<string> fields, IEnumerable<string> numerics,
+        private string CreateSqlCommand( IEnumerable<string> fields, IEnumerable<string> numerics,
             IDictionary<string, object> where )
         {
             if( where?.Any( ) == true
@@ -1288,6 +1341,28 @@ namespace BudgetExecution
         /// <summary>
         /// Binds the data.
         /// </summary>
+        private void BindData( )
+        {
+            try
+            {
+                DataModel = new DataBuilder( Source, Provider );
+                DataTable = DataModel.DataTable;
+                SelectedTable = DataTable.TableName;
+                BindingSource.DataSource = DataModel.DataTable;
+                ToolStrip.BindingSource = BindingSource;
+                Columns = DataModel?.ColumnNames;
+                Fields = DataModel?.Fields;
+                Numerics = DataModel?.Numerics;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Binds the data.
+        /// </summary>
         /// <param name="where">
         /// The where.
         /// </param>
@@ -1297,7 +1372,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _sql = CreateSqlText( where );
+                    var _sql = CreateSqlCommand( where );
                     DataModel = new DataBuilder( Source, Provider, _sql );
                     DataTable = DataModel?.DataTable;
                     SelectedTable = DataTable?.TableName;
@@ -1328,7 +1403,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _sql = CreateSqlText( cols, where );
+                    var _sql = CreateSqlCommand( cols, where );
                     DataModel = new DataBuilder( Source, Provider, _sql );
                     DataTable = DataModel?.DataTable;
                     SelectedTable = DataTable?.TableName;
@@ -1361,7 +1436,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _sql = CreateSqlText( fields, numerics, where );
+                    var _sql = CreateSqlCommand( fields, numerics, where );
                     DataModel = new DataBuilder( Source, Provider, _sql );
                     DataTable = DataModel?.DataTable;
                     SelectedTable = DataTable?.TableName;
@@ -1774,7 +1849,7 @@ namespace BudgetExecution
 
                     BindData( Filter );
                     UpdateLabelText( );
-                    SqlQuery = CreateSqlText( Filter );
+                    SqlQuery = CreateSqlCommand( Filter );
                     SqlHeader.Text = SqlQuery;
                 }
                 catch( Exception _ex )
@@ -1849,7 +1924,7 @@ namespace BudgetExecution
 
                     BindData( Filter );
                     UpdateLabelText( );
-                    SqlQuery = CreateSqlText( Filter );
+                    SqlQuery = CreateSqlCommand( Filter );
                 }
                 catch( Exception _ex )
                 {
@@ -1924,7 +1999,7 @@ namespace BudgetExecution
                     Filter.Add( ThirdCategory, ThirdValue );
                     BindData( Filter );
                     UpdateLabelText( );
-                    SqlQuery = CreateSqlText( Filter );
+                    SqlQuery = CreateSqlCommand( Filter );
                     SqlHeader.Text = SqlQuery;
                 }
                 catch( Exception _ex )
@@ -2086,7 +2161,7 @@ namespace BudgetExecution
                     SelectedColumns.Add( _selectedItem );
                 }
 
-                SqlQuery = CreateSqlText( SelectedColumns, Filter );
+                SqlQuery = CreateSqlCommand( SelectedColumns, Filter );
                 SqlHeader.Text = SqlQuery;
             }
             catch( Exception _ex )
@@ -2109,7 +2184,7 @@ namespace BudgetExecution
                     SelectedNumerics.Add( _selectedItem );
                 }
 
-                SqlQuery = CreateSqlText( SelectedFields, SelectedNumerics, Filter );
+                SqlQuery = CreateSqlCommand( SelectedFields, SelectedNumerics, Filter );
                 SqlHeader.Text = SqlQuery;
                 BindData( SelectedFields, SelectedNumerics, Filter );
             }

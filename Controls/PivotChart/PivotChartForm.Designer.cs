@@ -75,7 +75,7 @@
             DataTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             AreaTable = new System.Windows.Forms.TableLayoutPanel( );
             ChartAreaPanel = new BackPanel( );
-            PivotChart = new PivotChart( );
+            PivotChart = new Syncfusion.Windows.Forms.PivotChart.PivotChart( );
             ChartSubTablePanel = new BackPanel( );
             ChartSubTable = new System.Windows.Forms.TableLayoutPanel( );
             SqlHeader = new Label( );
@@ -330,7 +330,7 @@
             FirstButton.Filter = null;
             FirstButton.Font = new System.Drawing.Font( "Roboto", 9F );
             FirstButton.ForeColor = System.Drawing.Color.LightGray;
-            FirstButton.HoverText = null;
+            FirstButton.HoverText = "First Record";
             FirstButton.Image = Resources.Images.FirstButton;
             FirstButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             FirstButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
@@ -359,7 +359,7 @@
             PreviousButton.Filter = null;
             PreviousButton.Font = new System.Drawing.Font( "Roboto", 9F );
             PreviousButton.ForeColor = System.Drawing.Color.LightGray;
-            PreviousButton.HoverText = null;
+            PreviousButton.HoverText = "Previous Record";
             PreviousButton.Image = Resources.Images.WebPreviousButton;
             PreviousButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             PreviousButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
@@ -388,7 +388,7 @@
             NextButton.Filter = null;
             NextButton.Font = new System.Drawing.Font( "Roboto", 9F );
             NextButton.ForeColor = System.Drawing.Color.LightGray;
-            NextButton.HoverText = null;
+            NextButton.HoverText = "Next Record";
             NextButton.Image = Resources.Images.WebNextButton;
             NextButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             NextButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
@@ -417,7 +417,7 @@
             LastButton.Filter = null;
             LastButton.Font = new System.Drawing.Font( "Roboto", 9F );
             LastButton.ForeColor = System.Drawing.Color.LightGray;
-            LastButton.HoverText = null;
+            LastButton.HoverText = "Last Record";
             LastButton.Image = Resources.Images.LastButton;
             LastButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             LastButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
@@ -471,7 +471,7 @@
             BrowseButton.Filter = null;
             BrowseButton.Font = new System.Drawing.Font( "Roboto", 9F );
             BrowseButton.ForeColor = System.Drawing.Color.LightGray;
-            BrowseButton.HoverText = "Browse File System";
+            BrowseButton.HoverText = "Browse System";
             BrowseButton.Image = Resources.Images.BrowseButton;
             BrowseButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             BrowseButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
@@ -539,7 +539,7 @@
             CloseButton.Filter = null;
             CloseButton.Font = new System.Drawing.Font( "Roboto", 9F );
             CloseButton.ForeColor = System.Drawing.Color.LightGray;
-            CloseButton.HoverText = null;
+            CloseButton.HoverText = "Exit";
             CloseButton.Image = Resources.Images.WebCloseButton;
             CloseButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             CloseButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
@@ -570,7 +570,7 @@
             MenuButton.Filter = null;
             MenuButton.Font = new System.Drawing.Font( "Roboto", 9F );
             MenuButton.ForeColor = System.Drawing.Color.LightGray;
-            MenuButton.HoverText = null;
+            MenuButton.HoverText = "Main Menu";
             MenuButton.Image = Resources.Images.WebMenuButton;
             MenuButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             MenuButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
@@ -645,7 +645,7 @@
             FilterButton.Filter = null;
             FilterButton.Font = new System.Drawing.Font( "Roboto", 9F );
             FilterButton.ForeColor = System.Drawing.Color.LightGray;
-            FilterButton.HoverText = null;
+            FilterButton.HoverText = "Lookup";
             FilterButton.Image = Resources.Images.FilterButton;
             FilterButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             FilterButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
@@ -856,28 +856,26 @@
             // 
             // PivotChart
             // 
-            PivotChart.AllowDrillDown = true;
-            PivotChart.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            PivotChart.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             PivotChart.ChartTypes = Syncfusion.Windows.Forms.PivotChart.PivotChartTypes.Column;
             PivotChart.CustomPalette = new System.Drawing.Color[ ]
     {
-    System.Drawing.Color.FromArgb(147, 208, 249),
-    System.Drawing.Color.FromArgb(102, 170, 225),
-    System.Drawing.Color.FromArgb(250, 163, 94),
-    System.Drawing.Color.FromArgb(252, 227, 127)
+    System.Drawing.Color.SteelBlue,
+    System.Drawing.Color.SlateGray,
+    System.Drawing.Color.Yellow,
+    System.Drawing.Color.Red
     };
             PivotChart.DeferLayoutUpdate = false;
             PivotChart.Dock = System.Windows.Forms.DockStyle.Fill;
-            PivotChart.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
             PivotChart.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             PivotChart.Location = new System.Drawing.Point( 1, 1 );
             PivotChart.MinimumSize = new System.Drawing.Size( 300, 250 );
             PivotChart.Name = "PivotChart";
             PivotChart.ShowPivotTableFieldList = false;
             PivotChart.Size = new System.Drawing.Size( 1038, 453 );
-            PivotChart.Skins = Syncfusion.Windows.Forms.Chart.Skins.Office2016Black;
+            PivotChart.Skins = Syncfusion.Windows.Forms.Chart.Skins.Metro;
             PivotChart.TabIndex = 0;
-            PivotChart.Text = "PivotChart";
+            PivotChart.Text = "pivotChart1";
             PivotChart.UpdateManager = null;
             // 
             // ChartSubTablePanel
@@ -1675,9 +1673,7 @@
         public ListBox TableListBox;
         public ToolSeparator Separator1;
         public ToolSeparator Separator2;
-        private ToolStripButton toolStripButton1;
         public ToolSeparator Separator3;
-        private ToolStripButton toolStripButton2;
         public ToolSeparator Separator5;
         public ToolSeparator Separator4;
         private ToolStripButton LastButton;
@@ -1708,7 +1704,6 @@
         public TabControl TabControl;
         public Syncfusion.Windows.Forms.Tools.TabPageAdv DataTab;
         public Syncfusion.Windows.Forms.Tools.TabPageAdv BusyTab;
-        public PivotChart PivotChart;
         public System.Windows.Forms.TableLayoutPanel ToolStripTable;
         public System.Windows.Forms.PictureBox Loader;
         public ToolStripLabel ApplicationLabel;
@@ -1729,5 +1724,6 @@
         public ContextMenu ContextMenu;
         public ToolStripDropDown ComboBox;
         public ToolStripButton RefreshButton;
+        public Syncfusion.Windows.Forms.PivotChart.PivotChart PivotChart;
     }
 }

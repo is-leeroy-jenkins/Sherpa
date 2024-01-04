@@ -44,7 +44,6 @@
 namespace BudgetExecution
 {
     using System;
-    using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.IO;
@@ -191,7 +190,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the callbacks.
         /// </summary>
-        private void RegisterCallbacks()
+        private void RegisterCallbacks( )
         {
             try
             {

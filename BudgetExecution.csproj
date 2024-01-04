@@ -80,6 +80,7 @@
     <PackageReference Include="Syncfusion.BulletGraph.Windows" Version="23.1.36" />
     <PackageReference Include="Syncfusion.Calculate.Base" Version="23.1.36" />
     <PackageReference Include="Syncfusion.Chart.Windows" Version="23.1.36" />
+    <PackageReference Include="Syncfusion.Core.WinForms" Version="23.1.36" />
     <PackageReference Include="Syncfusion.Diagram.Windows" Version="23.1.36" />
     <PackageReference Include="Syncfusion.DocIO.WinForms" Version="23.1.36" />
     <PackageReference Include="Syncfusion.Edit.Windows" Version="23.1.36" />

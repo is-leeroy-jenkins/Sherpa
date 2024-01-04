@@ -73,7 +73,7 @@ namespace BudgetExecution
             //Basic Control Properties
             Size = new Size( 600, 400 );
             Font = new Font( "Roboto", 9 );
-            ShowToolbar = true;
+            ShowToolbar = false;
             ShowScrollBars = false;
             EnableMouseRotation = true;
             Padding = new Padding( 1 );
@@ -81,7 +81,6 @@ namespace BudgetExecution
             Anchor = AnchorStyles.Top | AnchorStyles.Left;
             AllowGapForEmptyPoints = false;
             AllowGradientPalette = true;
-            AutoHighlight = false;
             AllowUserEditStyles = true;
             PrintColorMode = ChartPrintColorMode.CheckPrinter;
             CalcRegions = true;
@@ -123,7 +122,6 @@ namespace BudgetExecution
             PrimaryXAxis.ValueType = ChartValueType.Category;
             PrimaryXAxis.TitleFont = new Font( "Roboto", 8 );
             PrimaryXAxis.TitleColor = Color.FromArgb( 106, 189, 252 );
-            PrimaryXAxis.Title = "Records";
             PrimaryYAxis.Font = new Font( "Roboto", 8 );
             PrimaryYAxis.ForeColor = Color.White;
             PrimaryYAxis.AxisLabelPlacement = ChartPlacement.Outside;

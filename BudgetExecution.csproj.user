@@ -158,7 +158,7 @@
     <Compile Update="Controls\GeoMapper\MapControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Controls\GridControl\SheetForm.cs">
+    <Compile Update="Controls\GridControl\GridForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Controls\ImageList\ImageListBase.cs">
@@ -236,13 +236,13 @@
     <Compile Update="Controls\RichTextBox\RichTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="Controls\SplashMessage\SplashForm.cs">
+    <Compile Update="Controls\Splash\SplashForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\SplashMessage\SplashMessage.cs">
+    <Compile Update="Controls\Splash\SplashMessage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\Panel\SplashPanel.cs">
+    <Compile Update="Controls\Splash\SplashPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\TabControl\TabControl.cs">
@@ -260,7 +260,7 @@
     <Compile Update="Controls\Tile\TilePanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="Controls\ToggleButton\ToggleButton.cs">
+    <Compile Update="Controls\Toggle\ToggleButton.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\ToolStrip\ToolButtonBase.cs">

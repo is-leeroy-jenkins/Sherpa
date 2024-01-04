@@ -130,7 +130,7 @@ partial class ColorDialog
         // 
         HeaderTable.ColumnCount = 2;
         HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-        HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 293F ) );
+        HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 300F ) );
         HeaderTable.Controls.Add( Picture, 0, 0 );
         HeaderTable.Controls.Add( Title, 1, 0 );
         HeaderTable.Dock = System.Windows.Forms.DockStyle.Top;
@@ -138,7 +138,7 @@ partial class ColorDialog
         HeaderTable.Name = "HeaderTable";
         HeaderTable.RowCount = 1;
         HeaderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-        HeaderTable.Size = new System.Drawing.Size( 329, 26 );
+        HeaderTable.Size = new System.Drawing.Size( 329, 24 );
         HeaderTable.TabIndex = 6;
         // 
         // Picture
@@ -147,7 +147,7 @@ partial class ColorDialog
         Picture.Image = Resources.Images.Application;
         Picture.Location = new System.Drawing.Point( 3, 3 );
         Picture.Name = "Picture";
-        Picture.Size = new System.Drawing.Size( 30, 20 );
+        Picture.Size = new System.Drawing.Size( 23, 18 );
         Picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
         Picture.TabIndex = 0;
         Picture.TabStop = false;
@@ -161,15 +161,16 @@ partial class ColorDialog
         Title.Font = new System.Drawing.Font( "Roboto", 9.75F );
         Title.HoverText = null;
         Title.IsDerivedStyle = true;
-        Title.Location = new System.Drawing.Point( 39, 3 );
+        Title.Location = new System.Drawing.Point( 32, 3 );
         Title.Margin = new System.Windows.Forms.Padding( 3 );
         Title.Name = "Title";
         Title.Padding = new System.Windows.Forms.Padding( 1 );
-        Title.Size = new System.Drawing.Size( 287, 20 );
+        Title.Size = new System.Drawing.Size( 294, 18 );
         Title.Style = MetroSet_UI.Enums.Style.Custom;
         Title.StyleManager = null;
         Title.TabIndex = 1;
         Title.Text = "Color Selector";
+        Title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
         Title.ThemeAuthor = "Terry D. Eppler";
         Title.ThemeName = "Budget Execution";
         Title.ToolTip = ToolTip;
@@ -178,10 +179,10 @@ partial class ColorDialog
         // 
         ColorPicker.BeforeTouchSize = new System.Drawing.Size( 266, 269 );
         ColorPicker.BorderStyle = System.Windows.Forms.BorderStyle.None;
-        ColorPicker.ForeColor = System.Drawing.Color.FromArgb( 150, 150, 150 );
+        ColorPicker.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         ColorPicker.Location = new System.Drawing.Point( 30, 53 );
-        ColorPicker.MetroColor = System.Drawing.Color.FromArgb( 1, 115, 199 );
-        ColorPicker.MetroForeColor = System.Drawing.Color.FromArgb( 68, 68, 68 );
+        ColorPicker.MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+        ColorPicker.MetroForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
         ColorPicker.Name = "ColorPicker";
         ColorPicker.ScrollMetroColorTable = metroColorTable1;
         ColorPicker.Size = new System.Drawing.Size( 266, 269 );
@@ -189,8 +190,10 @@ partial class ColorDialog
         ColorPicker.ThemeName = "Office2016Black";
         ColorPicker.ThemeStyle.ColorListStyle.PaletteBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
         ColorPicker.ThemeStyle.ColorListStyle.SelectedItemForeColor = System.Drawing.Color.FromArgb( 80, 80, 80 );
-        ColorPicker.ThemeStyle.ColorPaletteStyle.BorderColor = System.Drawing.Color.FromArgb( 210, 210, 210 );
+        ColorPicker.ThemeStyle.ColorPaletteStyle.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
         ColorPicker.ThemeStyle.ColorPaletteStyle.SelectedBorderColor = System.Drawing.Color.FromArgb( 0, 103, 176 );
+        ColorPicker.ThemeStyle.ColorTabControlStyle.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+        ColorPicker.ThemeStyle.ColorTabControlStyle.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
         ColorPicker.ThemeStyle.ColorTabControlStyle.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         ColorPicker.ThemeStyle.Font = new System.Drawing.Font( "Roboto", 8.25F );
         ColorPicker.VisualStyle = Syncfusion.Windows.Forms.ColorUIStyle.Office2016Black;
@@ -209,7 +212,7 @@ partial class ColorDialog
         SelectButton.HoverText = "Choose Color";
         SelectButton.HoverTextColor = System.Drawing.Color.White;
         SelectButton.IsDerivedStyle = true;
-        SelectButton.Location = new System.Drawing.Point( 80, 364 );
+        SelectButton.Location = new System.Drawing.Point( 109, 364 );
         SelectButton.Name = "SelectButton";
         SelectButton.NormalBorderColor = System.Drawing.Color.Transparent;
         SelectButton.NormalColor = System.Drawing.Color.Transparent;

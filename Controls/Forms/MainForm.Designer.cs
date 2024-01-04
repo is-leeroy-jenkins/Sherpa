@@ -612,7 +612,7 @@ namespace BudgetExecution
             EdgeTile.BannerColor = System.Drawing.Color.Transparent;
             EdgeTile.BannerHeight = 30;
             EdgeTile.BannerIcon = Resources.Images.EdgeTile;
-            EdgeTile.BindingSource = null;
+            EdgeTile.BindingSource = BindingSource;
             textItem42.Font = new System.Drawing.Font( "Roboto", 10F );
             textItem42.HubTile = EdgeTile;
             textItem42.TextColor = System.Drawing.Color.DarkGray;

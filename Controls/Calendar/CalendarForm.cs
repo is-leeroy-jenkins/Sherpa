@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
-//     Assembly:             BudgetExecution
+//     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 07-22-2023
+//     Created:                 12-18-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        11-26-2023
+//     Last Modified On:        12-18-2023
 // ******************************************************************************************
-// <copyright file="Terry Eppler.cs" company="Terry D. Eppler">
-//    BudgetExecution is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
+// <copyright file="CalendarForm.cs" company="Terry D. Eppler">
+//    Budget Execution is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,10 +31,10 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
+//    Contact at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   CalendarForm.cs.cs
+//   CalendarForm.cs
 // </summary>
 // ******************************************************************************************
 
@@ -181,8 +181,14 @@ namespace BudgetExecution
         /// </value>
         public bool IsBusy
         {
-            get { return _busy; }
-            private set { _busy = value; }
+            get
+            {
+                return _busy;
+            }
+            private set
+            {
+                _busy = value;
+            }
         }
 
         /// <inheritdoc />
@@ -763,7 +769,7 @@ namespace BudgetExecution
                 for( var _i = 0d; _i <= _days; _i++ )
                 {
                     var _day = start.AddDays( _i );
-                    if( _day.IsFederalHoliday( ) ) 
+                    if( _day.IsFederalHoliday( ) )
                     {
                         _holiday += 1;
                     }

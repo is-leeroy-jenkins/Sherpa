@@ -1,6 +1,6 @@
 ﻿namespace BudgetExecution
 {
-    partial class SheetForm
+    partial class GridForm
     {
         /// <summary>
         /// Required designer variable.
@@ -34,8 +34,8 @@
             var gridBaseStyle3 = new Syncfusion.Windows.Forms.Grid.GridBaseStyle( );
             var gridBaseStyle4 = new Syncfusion.Windows.Forms.Grid.GridBaseStyle( );
             var gridCellInfo1 = new Syncfusion.Windows.Forms.Grid.GridCellInfo( );
-            var resources = new System.ComponentModel.ComponentResourceManager( typeof( SheetForm ) );
-            Header = new System.Windows.Forms.TableLayoutPanel( );
+            var resources = new System.ComponentModel.ComponentResourceManager( typeof( GridForm ) );
+            HeaderTable = new System.Windows.Forms.TableLayoutPanel( );
             PictureBox = new System.Windows.Forms.PictureBox( );
             Title = new Label( );
             ToolStrip = new ToolStrip( );
@@ -63,34 +63,34 @@
             Timer = new System.Windows.Forms.Timer( components );
             DataSheet = new GridControl( );
             ContextMenu = new ContextMenu( );
-            Header.SuspendLayout( );
+            HeaderTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
             ToolStrip.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
             ( (System.ComponentModel.ISupportInitialize)DataSheet ).BeginInit( );
             SuspendLayout( );
             // 
-            // Header
+            // HeaderTable
             // 
-            Header.ColumnCount = 2;
-            Header.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 3.2884903F ) );
-            Header.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 96.71151F ) );
-            Header.Controls.Add( PictureBox, 0, 0 );
-            Header.Controls.Add( Title, 1, 0 );
-            Header.Dock = System.Windows.Forms.DockStyle.Top;
-            Header.Location = new System.Drawing.Point( 0, 0 );
-            Header.Name = "Header";
-            Header.RowCount = 1;
-            Header.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            Header.Size = new System.Drawing.Size( 1338, 28 );
-            Header.TabIndex = 0;
+            HeaderTable.ColumnCount = 2;
+            HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 3.2884903F ) );
+            HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 96.71151F ) );
+            HeaderTable.Controls.Add( PictureBox, 0, 0 );
+            HeaderTable.Controls.Add( Title, 1, 0 );
+            HeaderTable.Dock = System.Windows.Forms.DockStyle.Top;
+            HeaderTable.Location = new System.Drawing.Point( 0, 0 );
+            HeaderTable.Name = "HeaderTable";
+            HeaderTable.RowCount = 1;
+            HeaderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+            HeaderTable.Size = new System.Drawing.Size( 1338, 24 );
+            HeaderTable.TabIndex = 0;
             // 
             // PictureBox
             // 
             PictureBox.Image = Resources.Images.Application;
             PictureBox.Location = new System.Drawing.Point( 3, 3 );
             PictureBox.Name = "PictureBox";
-            PictureBox.Size = new System.Drawing.Size( 22, 20 );
+            PictureBox.Size = new System.Drawing.Size( 22, 18 );
             PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             PictureBox.TabIndex = 0;
             PictureBox.TabStop = false;
@@ -108,12 +108,11 @@
             Title.Margin = new System.Windows.Forms.Padding( 3 );
             Title.Name = "Title";
             Title.Padding = new System.Windows.Forms.Padding( 1 );
-            Title.Size = new System.Drawing.Size( 1288, 22 );
+            Title.Size = new System.Drawing.Size( 1288, 18 );
             Title.Style = MetroSet_UI.Enums.Style.Custom;
             Title.StyleManager = null;
             Title.TabIndex = 1;
             Title.Text = "Title";
-            Title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             Title.ThemeAuthor = "Terry D. Eppler";
             Title.ThemeName = "Budget Execution";
             Title.ToolTip = null;
@@ -247,7 +246,7 @@
             MenuButton.Filter = null;
             MenuButton.Font = new System.Drawing.Font( "Roboto", 9F );
             MenuButton.ForeColor = System.Drawing.Color.LightGray;
-            MenuButton.HoverText = "Return to Main Menu";
+            MenuButton.HoverText = "Main Menu";
             MenuButton.Image = Resources.Images.WebMenuButton;
             MenuButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             MenuButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
@@ -255,7 +254,7 @@
             MenuButton.Padding = new System.Windows.Forms.Padding( 1 );
             MenuButton.Size = new System.Drawing.Size( 23, 25 );
             MenuButton.ToolTip = ToolTip;
-            MenuButton.ToolType = ToolType.Ns;
+            MenuButton.ToolType = ToolType.MenuButton;
             // 
             // Separator2
             // 
@@ -326,7 +325,7 @@
             FirstButton.Size = new System.Drawing.Size( 23, 25 );
             FirstButton.Text = "toolStripButton1";
             FirstButton.ToolTip = ToolTip;
-            FirstButton.ToolType = ToolType.Ns;
+            FirstButton.ToolType = ToolType.FirstButton;
             // 
             // Separator4
             // 
@@ -355,7 +354,7 @@
             PreviousButton.Size = new System.Drawing.Size( 23, 25 );
             PreviousButton.Text = "toolStripButton2";
             PreviousButton.ToolTip = ToolTip;
-            PreviousButton.ToolType = ToolType.Ns;
+            PreviousButton.ToolType = ToolType.PreviousButton;
             // 
             // Separator5
             // 
@@ -376,7 +375,7 @@
             ToolStripTextBox.Margin = new System.Windows.Forms.Padding( 1 );
             ToolStripTextBox.Name = "ToolStripTextBox";
             ToolStripTextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Size = new System.Drawing.Size( 246, 25 );
+            ToolStripTextBox.Size = new System.Drawing.Size( 244, 25 );
             ToolStripTextBox.Tag = "";
             ToolStripTextBox.ToolTip = ToolTip;
             // 
@@ -407,7 +406,7 @@
             NextButton.Size = new System.Drawing.Size( 23, 25 );
             NextButton.Text = "toolStripButton1";
             NextButton.ToolTip = ToolTip;
-            NextButton.ToolType = ToolType.Ns;
+            NextButton.ToolType = ToolType.NextButton;
             // 
             // Separator7
             // 
@@ -436,7 +435,7 @@
             LastButton.Size = new System.Drawing.Size( 23, 25 );
             LastButton.Text = "toolStripButton2";
             LastButton.ToolTip = ToolTip;
-            LastButton.ToolType = ToolType.Ns;
+            LastButton.ToolType = ToolType.LastButton;
             // 
             // MenuSeparator
             // 
@@ -477,16 +476,8 @@
             // 
             DataSheet.AlphaBlendSelectionColor = System.Drawing.Color.FromArgb( 130, 80, 80, 80 );
             DataSheet.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            gridBaseStyle1.Name = "Header";
-            gridBaseStyle1.StyleInfo.CellType = "Header";
-            gridBaseStyle1.StyleInfo.Font.Bold = true;
-            gridBaseStyle1.StyleInfo.Font.Facename = "Segoe UI";
-            gridBaseStyle1.StyleInfo.Font.Italic = false;
-            gridBaseStyle1.StyleInfo.Font.Size = 9F;
-            gridBaseStyle1.StyleInfo.Font.Strikeout = false;
-            gridBaseStyle1.StyleInfo.Font.Underline = false;
-            gridBaseStyle1.StyleInfo.Font.Unit = System.Drawing.GraphicsUnit.Point;
-            gridBaseStyle1.StyleInfo.VerticalAlignment = Syncfusion.Windows.Forms.Grid.GridVerticalAlignment.Middle;
+            gridBaseStyle1.Name = "Standard";
+            gridBaseStyle1.StyleInfo.Font.Facename = "Tahoma";
             gridBaseStyle2.Name = "Row Header";
             gridBaseStyle2.StyleInfo.BaseStyle = "Header";
             gridBaseStyle2.StyleInfo.Font.Bold = true;
@@ -497,10 +488,18 @@
             gridBaseStyle2.StyleInfo.Font.Underline = false;
             gridBaseStyle2.StyleInfo.Font.Unit = System.Drawing.GraphicsUnit.Point;
             gridBaseStyle2.StyleInfo.HorizontalAlignment = Syncfusion.Windows.Forms.Grid.GridHorizontalAlignment.Center;
-            gridBaseStyle3.Name = "Standard";
-            gridBaseStyle3.StyleInfo.Font.Facename = "Tahoma";
-            gridBaseStyle4.Name = "Column Header";
-            gridBaseStyle4.StyleInfo.BaseStyle = "Header";
+            gridBaseStyle3.Name = "Column Header";
+            gridBaseStyle3.StyleInfo.BaseStyle = "Header";
+            gridBaseStyle3.StyleInfo.Font.Bold = true;
+            gridBaseStyle3.StyleInfo.Font.Facename = "Segoe UI";
+            gridBaseStyle3.StyleInfo.Font.Italic = false;
+            gridBaseStyle3.StyleInfo.Font.Size = 9F;
+            gridBaseStyle3.StyleInfo.Font.Strikeout = false;
+            gridBaseStyle3.StyleInfo.Font.Underline = false;
+            gridBaseStyle3.StyleInfo.Font.Unit = System.Drawing.GraphicsUnit.Point;
+            gridBaseStyle3.StyleInfo.HorizontalAlignment = Syncfusion.Windows.Forms.Grid.GridHorizontalAlignment.Center;
+            gridBaseStyle4.Name = "Header";
+            gridBaseStyle4.StyleInfo.CellType = "Header";
             gridBaseStyle4.StyleInfo.Font.Bold = true;
             gridBaseStyle4.StyleInfo.Font.Facename = "Segoe UI";
             gridBaseStyle4.StyleInfo.Font.Italic = false;
@@ -508,7 +507,7 @@
             gridBaseStyle4.StyleInfo.Font.Strikeout = false;
             gridBaseStyle4.StyleInfo.Font.Underline = false;
             gridBaseStyle4.StyleInfo.Font.Unit = System.Drawing.GraphicsUnit.Point;
-            gridBaseStyle4.StyleInfo.HorizontalAlignment = Syncfusion.Windows.Forms.Grid.GridHorizontalAlignment.Center;
+            gridBaseStyle4.StyleInfo.VerticalAlignment = Syncfusion.Windows.Forms.Grid.GridVerticalAlignment.Middle;
             DataSheet.BaseStylesMap.AddRange( new Syncfusion.Windows.Forms.Grid.GridBaseStyle[ ] { gridBaseStyle1, gridBaseStyle2, gridBaseStyle3, gridBaseStyle4 } );
             DataSheet.CanOverrideStyle = true;
             DataSheet.ColCount = 50;
@@ -531,7 +530,7 @@
             DataSheet.GridCells.AddRange( new Syncfusion.Windows.Forms.Grid.GridCellInfo[ ] { gridCellInfo1 } );
             DataSheet.GridOfficeScrollBars = Syncfusion.Windows.Forms.OfficeScrollBars.Office2016;
             DataSheet.GridVisualStyles = Syncfusion.Windows.Forms.GridVisualStyles.Office2016Black;
-            DataSheet.Location = new System.Drawing.Point( 0, 28 );
+            DataSheet.Location = new System.Drawing.Point( 0, 24 );
             DataSheet.Name = "DataSheet";
             DataSheet.Office2016ScrollBars = true;
             DataSheet.Office2016ScrollBarsColorScheme = Syncfusion.Windows.Forms.ScrollBarOffice2016ColorScheme.Black;
@@ -539,7 +538,7 @@
             DataSheet.RowCount = 100;
             DataSheet.RowHeightEntries.AddRange( new Syncfusion.Windows.Forms.Grid.GridRowHeight[ ] { new Syncfusion.Windows.Forms.Grid.GridRowHeight( 0, 32 ) } );
             DataSheet.SerializeCellsBehavior = Syncfusion.Windows.Forms.Grid.GridSerializeCellsBehavior.SerializeIntoCode;
-            DataSheet.Size = new System.Drawing.Size( 1338, 668 );
+            DataSheet.Size = new System.Drawing.Size( 1338, 672 );
             DataSheet.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             DataSheet.SmartSizeBox = false;
             DataSheet.TabIndex = 2;
@@ -589,7 +588,7 @@
             ContextMenu.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             ContextMenu.MetroColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             ContextMenu.Name = "ContextMenu";
-            ContextMenu.Size = new System.Drawing.Size( 181, 202 );
+            ContextMenu.Size = new System.Drawing.Size( 126, 180 );
             ContextMenu.Style = Syncfusion.Windows.Forms.Tools.ContextMenuStripEx.ContextMenuStyle.Office2016Black;
             ContextMenu.ThemeName = "Office2016Black";
             ContextMenu.ThemeStyle.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
@@ -601,7 +600,7 @@
             ContextMenu.ThemeStyle.PressedBackColor = System.Drawing.Color.FromArgb( 204, 204, 204 );
             ContextMenu.ThemeStyle.PressedForeColor = System.Drawing.Color.Black;
             // 
-            // SheetForm
+            // GridForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -611,26 +610,30 @@
             CaptionBarHeight = 5;
             CaptionButtonColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            CaptionFont = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
             ClientSize = new System.Drawing.Size( 1338, 739 );
+            ControlBox = false;
             Controls.Add( DataSheet );
             Controls.Add( ToolStrip );
-            Controls.Add( Header );
+            Controls.Add( HeaderTable );
+            DoubleBuffered = true;
             Font = new System.Drawing.Font( "Roboto", 9F );
             ForeColor = System.Drawing.Color.White;
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
             MaximizeBox = false;
             MaximumSize = new System.Drawing.Size( 1350, 750 );
             MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             MinimizeBox = false;
             MinimumSize = new System.Drawing.Size( 1350, 750 );
-            Name = "SheetForm";
+            Name = "GridForm";
             ShowIcon = false;
             ShowMaximizeBox = false;
             ShowMinimizeBox = false;
             SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            Text = "SheetForm";
-            Header.ResumeLayout( false );
+            Text = " ";
+            HeaderTable.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).EndInit( );
             ToolStrip.ResumeLayout( false );
             ToolStrip.PerformLayout( );
@@ -641,8 +644,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TableLayoutPanel Header;
         public System.Windows.Forms.PictureBox PictureBox;
         public ToolStrip ToolStrip;
         public System.Windows.Forms.Timer Timer;
@@ -670,5 +671,6 @@
         public ToolSeparator MenuSeparator;
         public ToolStripLabel ApplicationLabel;
         public ContextMenu ContextMenu;
+        public System.Windows.Forms.TableLayoutPanel HeaderTable;
     }
 }

@@ -95,9 +95,17 @@ namespace BudgetExecution
             LastButton = new ToolStripButton( );
             Separator5 = new ToolSeparator( );
             Separator6 = new ToolSeparator( );
-            RefreshButton = new ToolStripButton( );
+            FilterSpacer = new ToolStripLabel( );
+            FilterLabel = new ToolStripLabel( );
+            FilterSeparator = new ToolSeparator( );
             CloseButton = new ToolStripButton( );
+            BrowseButton = new ToolStripButton( );
+            BrowseSeparator = new ToolSeparator( );
+            SaveButton = new ToolStripButton( );
+            SaveSeparator = new ToolSeparator( );
             DataLabel = new ToolStripLabel( );
+            RefreshSeparator = new ToolSeparator( );
+            RefreshButton = new ToolStripButton( );
             NavigationSeparator = new ToolSeparator( );
             TimeSpanInformation = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt( );
             TableButton = new ToolStripButton( );
@@ -106,6 +114,8 @@ namespace BudgetExecution
             ChartButton = new ToolStripButton( );
             ChartSeparator = new ToolSeparator( );
             MenuButton = new ToolStripButton( );
+            ApplicationSeparator = new ToolSeparator( );
+            MenuLabel = new ToolStripLabel( );
             StripSeparator = new ToolSeparator( );
             Separator12 = new ToolSeparator( );
             Separator7 = new ToolSeparator( );
@@ -143,16 +153,6 @@ namespace BudgetExecution
             ContextMenu = new ContextMenu( );
             MenuSeparator = new ToolSeparator( );
             ApplicationLabel = new ToolStripLabel( );
-            ApplicationSeparator = new ToolSeparator( );
-            FilterLabel = new ToolStripLabel( );
-            FilterSeparator = new ToolSeparator( );
-            FilterSpacer = new ToolStripLabel( );
-            RefreshSeparator = new ToolSeparator( );
-            BrowseButton = new ToolStripButton( );
-            BrowseSeparator = new ToolSeparator( );
-            SaveButton = new ToolStripButton( );
-            SaveSeparator = new ToolSeparator( );
-            MenuLabel = new ToolStripLabel( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
             HeaderTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
@@ -510,26 +510,47 @@ namespace BudgetExecution
             Separator6.Padding = new System.Windows.Forms.Padding( 1 );
             Separator6.Size = new System.Drawing.Size( 6, 25 );
             // 
-            // RefreshButton
+            // FilterSpacer
             // 
-            RefreshButton.AutoToolTip = false;
-            RefreshButton.BackColor = System.Drawing.Color.Transparent;
-            RefreshButton.BindingSource = BindingSource;
-            RefreshButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            RefreshButton.Field = Field.AccountCode;
-            RefreshButton.Filter = null;
-            RefreshButton.Font = new System.Drawing.Font( "Roboto", 9F );
-            RefreshButton.ForeColor = System.Drawing.Color.LightGray;
-            RefreshButton.HoverText = "Refresh Data";
-            RefreshButton.Image = Resources.Images.RefreshButton;
-            RefreshButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            RefreshButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
-            RefreshButton.Name = "RefreshButton";
-            RefreshButton.Padding = new System.Windows.Forms.Padding( 1 );
-            RefreshButton.Size = new System.Drawing.Size( 23, 25 );
-            RefreshButton.Text = "toolStripButton1";
-            RefreshButton.ToolTip = ToolTip;
-            RefreshButton.ToolType = ToolType.Ns;
+            FilterSpacer.BackColor = System.Drawing.Color.Transparent;
+            FilterSpacer.BindingSource = null;
+            FilterSpacer.DataFilter = null;
+            FilterSpacer.Field = Field.AccountCode;
+            FilterSpacer.Font = new System.Drawing.Font( "Roboto", 8F );
+            FilterSpacer.ForeColor = System.Drawing.Color.Transparent;
+            FilterSpacer.HoverText = null;
+            FilterSpacer.Margin = new System.Windows.Forms.Padding( 1 );
+            FilterSpacer.Name = "FilterSpacer";
+            FilterSpacer.Padding = new System.Windows.Forms.Padding( 1 );
+            FilterSpacer.Size = new System.Drawing.Size( 85, 25 );
+            FilterSpacer.Tag = "";
+            FilterSpacer.Text = "toolStripLabel1";
+            FilterSpacer.ToolTip = null;
+            // 
+            // FilterLabel
+            // 
+            FilterLabel.BackColor = System.Drawing.Color.Transparent;
+            FilterLabel.BindingSource = null;
+            FilterLabel.DataFilter = null;
+            FilterLabel.Field = Field.AccountCode;
+            FilterLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
+            FilterLabel.ForeColor = System.Drawing.Color.Black;
+            FilterLabel.HoverText = null;
+            FilterLabel.Margin = new System.Windows.Forms.Padding( 1 );
+            FilterLabel.Name = "FilterLabel";
+            FilterLabel.Padding = new System.Windows.Forms.Padding( 1 );
+            FilterLabel.Size = new System.Drawing.Size( 69, 25 );
+            FilterLabel.Tag = "";
+            FilterLabel.Text = "               File Sys:";
+            FilterLabel.ToolTip = null;
+            // 
+            // FilterSeparator
+            // 
+            FilterSeparator.ForeColor = System.Drawing.Color.Black;
+            FilterSeparator.Margin = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
+            FilterSeparator.Name = "FilterSeparator";
+            FilterSeparator.Padding = new System.Windows.Forms.Padding( 1 );
+            FilterSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
             // CloseButton
             // 
@@ -553,6 +574,64 @@ namespace BudgetExecution
             CloseButton.ToolTip = ToolTip;
             CloseButton.ToolType = ToolType.Ns;
             // 
+            // BrowseButton
+            // 
+            BrowseButton.AutoToolTip = false;
+            BrowseButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            BrowseButton.BindingSource = null;
+            BrowseButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            BrowseButton.Field = Field.AccountCode;
+            BrowseButton.Filter = null;
+            BrowseButton.Font = new System.Drawing.Font( "Roboto", 9F );
+            BrowseButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            BrowseButton.HoverText = null;
+            BrowseButton.Image = Resources.Images.BrowseButton;
+            BrowseButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            BrowseButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            BrowseButton.Name = "BrowseButton";
+            BrowseButton.Padding = new System.Windows.Forms.Padding( 1 );
+            BrowseButton.Size = new System.Drawing.Size( 23, 25 );
+            BrowseButton.Text = "toolStripButton1";
+            BrowseButton.ToolTip = null;
+            BrowseButton.ToolType = ToolType.Ns;
+            // 
+            // BrowseSeparator
+            // 
+            BrowseSeparator.ForeColor = System.Drawing.Color.Black;
+            BrowseSeparator.Margin = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
+            BrowseSeparator.Name = "BrowseSeparator";
+            BrowseSeparator.Padding = new System.Windows.Forms.Padding( 1 );
+            BrowseSeparator.Size = new System.Drawing.Size( 6, 25 );
+            // 
+            // SaveButton
+            // 
+            SaveButton.AutoToolTip = false;
+            SaveButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            SaveButton.BindingSource = BindingSource;
+            SaveButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            SaveButton.Field = Field.AccountCode;
+            SaveButton.Filter = null;
+            SaveButton.Font = new System.Drawing.Font( "Roboto", 9F );
+            SaveButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            SaveButton.HoverText = "Save Changes";
+            SaveButton.Image = Resources.Images.SaveButton;
+            SaveButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            SaveButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            SaveButton.Name = "SaveButton";
+            SaveButton.Padding = new System.Windows.Forms.Padding( 1 );
+            SaveButton.Size = new System.Drawing.Size( 23, 25 );
+            SaveButton.Text = "toolStripButton2";
+            SaveButton.ToolTip = ToolTip;
+            SaveButton.ToolType = ToolType.SaveButton;
+            // 
+            // SaveSeparator
+            // 
+            SaveSeparator.ForeColor = System.Drawing.Color.Black;
+            SaveSeparator.Margin = new System.Windows.Forms.Padding( 1 );
+            SaveSeparator.Name = "SaveSeparator";
+            SaveSeparator.Padding = new System.Windows.Forms.Padding( 1 );
+            SaveSeparator.Size = new System.Drawing.Size( 6, 25 );
+            // 
             // DataLabel
             // 
             DataLabel.BackColor = System.Drawing.Color.Transparent;
@@ -569,6 +648,35 @@ namespace BudgetExecution
             DataLabel.Tag = "";
             DataLabel.Text = "                                Data:          ";
             DataLabel.ToolTip = null;
+            // 
+            // RefreshSeparator
+            // 
+            RefreshSeparator.ForeColor = System.Drawing.Color.Black;
+            RefreshSeparator.Margin = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
+            RefreshSeparator.Name = "RefreshSeparator";
+            RefreshSeparator.Padding = new System.Windows.Forms.Padding( 1 );
+            RefreshSeparator.Size = new System.Drawing.Size( 6, 25 );
+            // 
+            // RefreshButton
+            // 
+            RefreshButton.AutoToolTip = false;
+            RefreshButton.BackColor = System.Drawing.Color.Transparent;
+            RefreshButton.BindingSource = BindingSource;
+            RefreshButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            RefreshButton.Field = Field.AccountCode;
+            RefreshButton.Filter = null;
+            RefreshButton.Font = new System.Drawing.Font( "Roboto", 9F );
+            RefreshButton.ForeColor = System.Drawing.Color.LightGray;
+            RefreshButton.HoverText = "Refresh Data";
+            RefreshButton.Image = Resources.Images.RefreshButton;
+            RefreshButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            RefreshButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            RefreshButton.Name = "RefreshButton";
+            RefreshButton.Padding = new System.Windows.Forms.Padding( 1 );
+            RefreshButton.Size = new System.Drawing.Size( 23, 25 );
+            RefreshButton.Text = "toolStripButton1";
+            RefreshButton.ToolTip = ToolTip;
+            RefreshButton.ToolType = ToolType.Ns;
             // 
             // NavigationSeparator
             // 
@@ -634,7 +742,7 @@ namespace BudgetExecution
             ChartButton.Filter = null;
             ChartButton.Font = new System.Drawing.Font( "Roboto", 9F );
             ChartButton.ForeColor = System.Drawing.Color.LightGray;
-            ChartButton.HoverText = "Visualization";
+            ChartButton.HoverText = "Charts";
             ChartButton.Image = Resources.Images.ChartButton;
             ChartButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             ChartButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
@@ -673,7 +781,34 @@ namespace BudgetExecution
             MenuButton.Size = new System.Drawing.Size( 23, 25 );
             MenuButton.Text = "toolStripButton1";
             MenuButton.ToolTip = null;
-            MenuButton.ToolType = ToolType.Ns;
+            MenuButton.ToolType = ToolType.MenuButton;
+            // 
+            // ApplicationSeparator
+            // 
+            ApplicationSeparator.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            ApplicationSeparator.ForeColor = System.Drawing.Color.Black;
+            ApplicationSeparator.Margin = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
+            ApplicationSeparator.Name = "ApplicationSeparator";
+            ApplicationSeparator.Padding = new System.Windows.Forms.Padding( 1 );
+            ApplicationSeparator.Size = new System.Drawing.Size( 6, 25 );
+            // 
+            // MenuLabel
+            // 
+            MenuLabel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            MenuLabel.BackColor = System.Drawing.Color.Transparent;
+            MenuLabel.BindingSource = null;
+            MenuLabel.DataFilter = null;
+            MenuLabel.Field = Field.AccountCode;
+            MenuLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
+            MenuLabel.ForeColor = System.Drawing.Color.Black;
+            MenuLabel.HoverText = null;
+            MenuLabel.Margin = new System.Windows.Forms.Padding( 1 );
+            MenuLabel.Name = "MenuLabel";
+            MenuLabel.Padding = new System.Windows.Forms.Padding( 1 );
+            MenuLabel.Size = new System.Drawing.Size( 54, 25 );
+            MenuLabel.Tag = "";
+            MenuLabel.Text = "Application:";
+            MenuLabel.ToolTip = null;
             // 
             // StripSeparator
             // 
@@ -1580,141 +1715,6 @@ namespace BudgetExecution
             ApplicationLabel.Text = "Application";
             ApplicationLabel.ToolTip = null;
             // 
-            // ApplicationSeparator
-            // 
-            ApplicationSeparator.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            ApplicationSeparator.ForeColor = System.Drawing.Color.Black;
-            ApplicationSeparator.Margin = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
-            ApplicationSeparator.Name = "ApplicationSeparator";
-            ApplicationSeparator.Padding = new System.Windows.Forms.Padding( 1 );
-            ApplicationSeparator.Size = new System.Drawing.Size( 6, 25 );
-            // 
-            // FilterLabel
-            // 
-            FilterLabel.BackColor = System.Drawing.Color.Transparent;
-            FilterLabel.BindingSource = null;
-            FilterLabel.DataFilter = null;
-            FilterLabel.Field = Field.AccountCode;
-            FilterLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
-            FilterLabel.ForeColor = System.Drawing.Color.Black;
-            FilterLabel.HoverText = null;
-            FilterLabel.Margin = new System.Windows.Forms.Padding( 1 );
-            FilterLabel.Name = "FilterLabel";
-            FilterLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            FilterLabel.Size = new System.Drawing.Size( 69, 25 );
-            FilterLabel.Tag = "";
-            FilterLabel.Text = "               File Sys:";
-            FilterLabel.ToolTip = null;
-            // 
-            // FilterSeparator
-            // 
-            FilterSeparator.ForeColor = System.Drawing.Color.Black;
-            FilterSeparator.Margin = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
-            FilterSeparator.Name = "FilterSeparator";
-            FilterSeparator.Padding = new System.Windows.Forms.Padding( 1 );
-            FilterSeparator.Size = new System.Drawing.Size( 6, 25 );
-            // 
-            // FilterSpacer
-            // 
-            FilterSpacer.BackColor = System.Drawing.Color.Transparent;
-            FilterSpacer.BindingSource = null;
-            FilterSpacer.DataFilter = null;
-            FilterSpacer.Field = Field.AccountCode;
-            FilterSpacer.Font = new System.Drawing.Font( "Roboto", 8F );
-            FilterSpacer.ForeColor = System.Drawing.Color.Transparent;
-            FilterSpacer.HoverText = null;
-            FilterSpacer.Margin = new System.Windows.Forms.Padding( 1 );
-            FilterSpacer.Name = "FilterSpacer";
-            FilterSpacer.Padding = new System.Windows.Forms.Padding( 1 );
-            FilterSpacer.Size = new System.Drawing.Size( 85, 25 );
-            FilterSpacer.Tag = "";
-            FilterSpacer.Text = "toolStripLabel1";
-            FilterSpacer.ToolTip = null;
-            // 
-            // RefreshSeparator
-            // 
-            RefreshSeparator.ForeColor = System.Drawing.Color.Black;
-            RefreshSeparator.Margin = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
-            RefreshSeparator.Name = "RefreshSeparator";
-            RefreshSeparator.Padding = new System.Windows.Forms.Padding( 1 );
-            RefreshSeparator.Size = new System.Drawing.Size( 6, 25 );
-            // 
-            // BrowseButton
-            // 
-            BrowseButton.AutoToolTip = false;
-            BrowseButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            BrowseButton.BindingSource = null;
-            BrowseButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            BrowseButton.Field = Field.AccountCode;
-            BrowseButton.Filter = null;
-            BrowseButton.Font = new System.Drawing.Font( "Roboto", 9F );
-            BrowseButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            BrowseButton.HoverText = null;
-            BrowseButton.Image = Resources.Images.BrowseButton;
-            BrowseButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            BrowseButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
-            BrowseButton.Name = "BrowseButton";
-            BrowseButton.Padding = new System.Windows.Forms.Padding( 1 );
-            BrowseButton.Size = new System.Drawing.Size( 23, 25 );
-            BrowseButton.Text = "toolStripButton1";
-            BrowseButton.ToolTip = null;
-            BrowseButton.ToolType = ToolType.Ns;
-            // 
-            // BrowseSeparator
-            // 
-            BrowseSeparator.ForeColor = System.Drawing.Color.Black;
-            BrowseSeparator.Margin = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
-            BrowseSeparator.Name = "BrowseSeparator";
-            BrowseSeparator.Padding = new System.Windows.Forms.Padding( 1 );
-            BrowseSeparator.Size = new System.Drawing.Size( 6, 25 );
-            // 
-            // SaveButton
-            // 
-            SaveButton.AutoToolTip = false;
-            SaveButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            SaveButton.BindingSource = BindingSource;
-            SaveButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            SaveButton.Field = Field.AccountCode;
-            SaveButton.Filter = null;
-            SaveButton.Font = new System.Drawing.Font( "Roboto", 9F );
-            SaveButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            SaveButton.HoverText = "Save Changes";
-            SaveButton.Image = Resources.Images.SaveButton;
-            SaveButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            SaveButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
-            SaveButton.Name = "SaveButton";
-            SaveButton.Padding = new System.Windows.Forms.Padding( 1 );
-            SaveButton.Size = new System.Drawing.Size( 23, 25 );
-            SaveButton.Text = "toolStripButton2";
-            SaveButton.ToolTip = ToolTip;
-            SaveButton.ToolType = ToolType.SaveButton;
-            // 
-            // SaveSeparator
-            // 
-            SaveSeparator.ForeColor = System.Drawing.Color.Black;
-            SaveSeparator.Margin = new System.Windows.Forms.Padding( 1 );
-            SaveSeparator.Name = "SaveSeparator";
-            SaveSeparator.Padding = new System.Windows.Forms.Padding( 1 );
-            SaveSeparator.Size = new System.Drawing.Size( 6, 25 );
-            // 
-            // MenuLabel
-            // 
-            MenuLabel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            MenuLabel.BackColor = System.Drawing.Color.Transparent;
-            MenuLabel.BindingSource = null;
-            MenuLabel.DataFilter = null;
-            MenuLabel.Field = Field.AccountCode;
-            MenuLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
-            MenuLabel.ForeColor = System.Drawing.Color.Black;
-            MenuLabel.HoverText = null;
-            MenuLabel.Margin = new System.Windows.Forms.Padding( 1 );
-            MenuLabel.Name = "MenuLabel";
-            MenuLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            MenuLabel.Size = new System.Drawing.Size( 54, 25 );
-            MenuLabel.Tag = "";
-            MenuLabel.Text = "Application:";
-            MenuLabel.ToolTip = null;
-            // 
             // CalendarForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
@@ -1782,11 +1782,8 @@ namespace BudgetExecution
         public ToolStripButton FirstButton;
         public ToolStripButton PreviousButton;
         public ToolStripButton NextButton;
-        private ToolSeparator toolSeparator4;
         public ToolStripButton LastButton;
-        private ToolSeparator toolSeparator6;
         public ToolStripButton CloseButton;
-        private ToolSeparator toolSeparator7;
         public ToolStripButton MenuButton;
         public HeaderPanel FirstCalendarTable;
         public BackPanel FirstCalendarPanel;

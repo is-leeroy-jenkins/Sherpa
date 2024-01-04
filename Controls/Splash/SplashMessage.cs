@@ -45,7 +45,6 @@ namespace BudgetExecution
 {
     using System;
     using static FormAnimator;
-    using System;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;

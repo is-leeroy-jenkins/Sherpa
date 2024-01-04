@@ -124,7 +124,7 @@ namespace BudgetExecution
         /// <value>
         /// The hover text.
         /// </value>
-        public virtual string HoverText { get; set; }
+        public string HoverText { get; set; }
 
         /// <summary>
         /// Gets or sets the selected row.
@@ -207,10 +207,10 @@ namespace BudgetExecution
         public string SqlCommand { get; set; }
 
         /// <summary>
-        /// Gets or sets the x axis.
+        /// Gets or sets the x-axis.
         /// </summary>
         /// <value>
-        /// The x axis.
+        /// The x-axis.
         /// </value>
         public string xAxis { get; set; }
 
@@ -335,7 +335,8 @@ namespace BudgetExecution
         public DataArgs DataArgs { get; set; }
 
         /// <summary>
-        /// Gets a value indicating whether this instance is busy.
+        /// Gets a value indicating
+        /// whether this instance is busy.
         /// </summary>
         /// <value>
         /// <c> true </c>
@@ -440,6 +441,39 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Initializes the callbacks.
+        /// </summary>
+        private void RegisterCallbacks( )
+        {
+            try
+            {
+                FirstButton.Click += OnFirstButtonClick;
+                PreviousButton.Click += OnPreviousButtonClick;
+                NextButton.Click += OnNextButtonClick;
+                LastButton.Click += OnLastButtonClick;
+                MenuButton.Click += OnMainMenuButtonClicked;
+                ExitButton.Click += OnExitButtonClicked;
+                Timer.Tick += OnTimerTick;
+                QueryTabControl.SelectedIndexChanged += OnActiveTabChanged;
+                TableListBox.SelectedIndexChanged += OnTableListBoxItemSelected;
+                FirstComboBox.SelectedIndexChanged += OnFirstComboBoxItemSelected;
+                FirstListBox.SelectedIndexChanged += OnFirstListBoxItemSelected;
+                SecondComboBox.SelectedIndexChanged += OnSecondComboBoxItemSelected;
+                SecondListBox.SelectedIndexChanged += OnSecondListBoxItemSelected;
+                ThirdComboBox.SelectedIndexChanged += OnThirdComboBoxItemSelected;
+                ThirdListBox.SelectedIndexChanged += OnThirdListBoxItemSelected;
+                GroupButton.Click += OnGroupButtonClicked;
+                FieldListBox.SelectedIndexChanged += OnFieldListBoxSelectedValueChanged;
+                NumericListBox.SelectedIndexChanged += OnNumericListBoxSelectedValueChanged;
+                ToolStripComboBox.SelectedIndexChanged += OnChartSelected;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Initializes the labels.
         /// </summary>
         private void InitializeLabels( )
@@ -528,39 +562,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes the callbacks.
-        /// </summary>
-        private void RegisterCallbacks()
-        {
-            try
-            {
-                FirstButton.Click += OnFirstButtonClick;
-                PreviousButton.Click += OnPreviousButtonClick;
-                NextButton.Click += OnNextButtonClick;
-                LastButton.Click += OnLastButtonClick;
-                MenuButton.Click += OnMainMenuButtonClicked;
-                ExitButton.Click += OnExitButtonClicked;
-                Timer.Tick += OnTimerTick;
-                QueryTabControl.SelectedIndexChanged += OnActiveTabChanged;
-                TableListBox.SelectedIndexChanged += OnTableListBoxItemSelected;
-                FirstComboBox.SelectedIndexChanged += OnFirstComboBoxItemSelected;
-                FirstListBox.SelectedIndexChanged += OnFirstListBoxItemSelected;
-                SecondComboBox.SelectedIndexChanged += OnSecondComboBoxItemSelected;
-                SecondListBox.SelectedIndexChanged += OnSecondListBoxItemSelected;
-                ThirdComboBox.SelectedIndexChanged += OnThirdComboBoxItemSelected;
-                ThirdListBox.SelectedIndexChanged += OnThirdListBoxItemSelected;
-                GroupButton.Click += OnGroupButtonClicked;
-                FieldListBox.SelectedIndexChanged += OnFieldListBoxSelectedValueChanged;
-                NumericListBox.SelectedIndexChanged += OnNumericListBoxSelectedValueChanged;
-                ToolStripComboBox.SelectedIndexChanged += OnChartSelected;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Sets the series.
         /// </summary>
         private void InitializeSeries( ChartSeriesType type = ChartSeriesType.Column )
@@ -597,7 +598,7 @@ namespace BudgetExecution
         {
             try
             {
-                Chart.ShowToolbar = true;
+                Chart.ShowToolbar = false;
                 Chart.ShowScrollBars = false;
                 Chart.EnableMouseRotation = true;
                 Chart.Padding = new Padding( 1 );
@@ -605,7 +606,6 @@ namespace BudgetExecution
                 Chart.Anchor = AnchorStyles.Top | AnchorStyles.Left;
                 Chart.AllowGapForEmptyPoints = false;
                 Chart.AllowGradientPalette = true;
-                Chart.AutoHighlight = false;
                 Chart.AllowUserEditStyles = true;
                 Chart.PrintColorMode = ChartPrintColorMode.CheckPrinter;
                 Chart.CalcRegions = true;
@@ -1165,7 +1165,7 @@ namespace BudgetExecution
             {
                 ThrowIf.Null( where, nameof( where ) );
                 Filter = where;
-                SqlCommand = CreateSqlText( where );
+                SqlCommand = CreateSqlCommand( where );
                 DataModel = new DataBuilder( Source, Provider, SqlCommand );
                 DataTable = DataModel.DataTable;
                 SelectedTable = DataTable.TableName;
@@ -1192,7 +1192,7 @@ namespace BudgetExecution
             {
                 ThrowIf.Null( cols, nameof( cols ) );
                 ThrowIf.Null( where, nameof( where ) );
-                SqlCommand = CreateSqlText( cols, where );
+                SqlCommand = CreateSqlCommand( cols, where );
                 DataModel = new DataBuilder( Source, Provider, SqlCommand );
                 DataTable = DataModel.DataTable;
                 BindingSource.DataSource = DataTable;
@@ -1221,7 +1221,7 @@ namespace BudgetExecution
                 ThrowIf.Null( fields, nameof( fields ) );
                 ThrowIf.Null( numerics, nameof( numerics ) );
                 ThrowIf.Null( where, nameof( where ) );
-                SqlCommand = CreateSqlText( fields, numerics, where );
+                SqlCommand = CreateSqlCommand( fields, numerics, where );
                 DataModel = new DataBuilder( Source, Provider, SqlCommand );
                 DataTable = DataModel.DataTable;
                 BindingSource.DataSource = DataTable;
@@ -1247,6 +1247,7 @@ namespace BudgetExecution
                 SetSeriesPointStyles( _current, ChartType );
                 UpdateSchema( _current );
                 Chart.Title.Text = DataTable.TableName.SplitPascal( );
+                Chart.PrimaryXAxis.Title = GetAxisTitle( );
                 Chart.Refresh( );
             }
             catch( Exception ex )
@@ -1282,7 +1283,7 @@ namespace BudgetExecution
         /// <param name="where">The where.</param>
         /// <returns>
         /// </returns>
-        private string CreateSqlText( IDictionary<string, object> where )
+        private string CreateSqlCommand( IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( SelectedTable )
                && where?.Any( ) == true )
@@ -1310,7 +1311,7 @@ namespace BudgetExecution
         /// <param name="where">The where.</param>
         /// <returns>
         /// </returns>
-        private string CreateSqlText( IEnumerable<string> fields, IEnumerable<string> numerics,
+        private string CreateSqlCommand( IEnumerable<string> fields, IEnumerable<string> numerics,
             IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( SelectedTable )
@@ -1356,7 +1357,7 @@ namespace BudgetExecution
         /// <param name="where">The where.</param>
         /// <returns>
         /// </returns>
-        private string CreateSqlText( IEnumerable<string> columns,
+        private string CreateSqlCommand( IEnumerable<string> columns,
             IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( SelectedTable )
@@ -1940,7 +1941,7 @@ namespace BudgetExecution
                     _series.FancyToolTip.BackColor = _backColor;
                     _series.FancyToolTip.Symbol = ChartSymbolShape.Arrow;
                     _series.FancyToolTip.Visible = true;
-                    _series.PointsToolTipFormat = "{0} - {4}";
+                    _series.PointsToolTipFormat = "{4}";
                     _series.SeriesToolTipFormat = "#,##0";
                     Chart.Series.Add( _series );
                     _index++;
@@ -2005,7 +2006,7 @@ namespace BudgetExecution
                     _series.EnableStyles = true;
                     _series.Type = type;
                     _series.DrawSeriesNameInDepth = false;
-                    _series.PointsToolTipFormat = "{0} - {4}";
+                    _series.PointsToolTipFormat = "{4}";
                     _series.Style.DisplayText = true;
                     _series.Style.DrawTextShape = true;
                     _series.Style.TextColor = Color.White;
@@ -2054,6 +2055,29 @@ namespace BudgetExecution
             catch( Exception _ex )
             {
                 Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Gets the axis title.
+        /// </summary>
+        /// <returns></returns>
+        private string GetAxisTitle( )
+        {
+            try
+            {
+                var _title = string.Empty;
+                foreach( var _item in Filter.Values )
+                {
+                    _title += " " + _item;
+                }
+
+                return _title;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return string.Empty;
             }
         }
 
@@ -2283,7 +2307,7 @@ namespace BudgetExecution
                         GroupSeparator.Visible = true;
                     }
 
-                    SqlCommand = CreateSqlText( Filter );
+                    SqlCommand = CreateSqlCommand( Filter );
                     BindData( SqlCommand );
                     UpdateMetrics( );
                     BindChart( );
@@ -2358,7 +2382,7 @@ namespace BudgetExecution
                         ThirdTable.Visible = true;
                     }
 
-                    SqlCommand = CreateSqlText( Filter );
+                    SqlCommand = CreateSqlCommand( Filter );
                     BindData( SqlCommand );
                     UpdateMetrics( );
                     BindChart( );
@@ -2434,7 +2458,7 @@ namespace BudgetExecution
                     Filter[ FirstCategory ] = FirstValue;
                     Filter[ SecondCategory ] = SecondValue;
                     Filter[ ThirdCategory ] = ThirdValue;
-                    SqlCommand = CreateSqlText( Filter );
+                    SqlCommand = CreateSqlCommand( Filter );
                     BindData( SqlCommand );
                     UpdateMetrics( );
                     BindChart( );

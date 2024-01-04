@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
-//     Assembly:             BudgetExecution
+//     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 07-24-2023
+//     Created:                 12-18-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        11-26-2023
+//     Last Modified On:        12-18-2023
 // ******************************************************************************************
-// <copyright file="Terry Eppler.cs" company="Terry D. Eppler">
-//    BudgetExecution is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
+// <copyright file="SqlEditor.cs" company="Terry D. Eppler">
+//    Budget Execution is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,10 +31,10 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
+//    Contact at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   SqlEditor.cs.cs
+//   SqlEditor.cs
 // </summary>
 // ******************************************************************************************
 
@@ -203,8 +203,14 @@ namespace BudgetExecution
         /// </value>
         public bool IsBusy
         {
-            get { return _busy; }
-            private set { _busy = value; }
+            get
+            {
+                return _busy;
+            }
+            private set
+            {
+                _busy = value;
+            }
         }
 
         /// <inheritdoc/>
@@ -273,6 +279,228 @@ namespace BudgetExecution
         {
             // Provider
             Provider = provider;
+        }
+        
+        /// <summary>
+        /// Initializes the callbacks.
+        /// </summary>
+        private void RegisterCallbacks( )
+        {
+            // Control Event Wiring
+            try
+            {
+                TabControl.SelectedIndexChanged += OnActiveTabChanged;
+                QueryListBox.SelectedValueChanged += OnQueryListBoxItemSelected;
+                RefreshButton.Click += OnRefreshButtonClick;
+                SaveButton.Click += OnSaveButtonClick;
+                GoButton.Click += OnGoButtonClick;
+                CloseButton.Click += OnCloseButtonClick;
+                EditSqlButton.Click += OnEditSqlButtonClick;
+                EditDataButton.Click += OnEditDataButtonClick;
+                TableButton.Click += OnTableButtonClick;
+                LookupButton.Click += OnLookupButtonClick;
+                MainMenuButton.Click += OnMainMenuButtonClicked;
+                ClientButton.Click += OnClientButtonClick;
+                TableListBox.SelectedIndexChanged += OnTableListBoxSelectionChanged;
+                ColumnListBox.SelectedIndexChanged += OnColumnListBoxSelectionChanged;
+                CommandComboBox.SelectedIndexChanged += OnCommandComboBoxItemSelected;
+                Timer.Tick += OnTimerTick;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the editor.
+        /// </summary>
+        private void InitializeEditor( )
+        {
+            try
+            {
+                Editor.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+                Editor.AlwaysShowScrollers = true;
+                Editor.BackColor = SystemColors.ControlLight;
+                Editor.ForeColor = Color.Black;
+                Editor.BackgroundColor = new BrushInfo( SystemColors.ControlLight );
+                Editor.BorderStyle = BorderStyle.FixedSingle;
+                Editor.CanOverrideStyle = true;
+                Editor.CanApplyTheme = true;
+                Editor.ColumnGuidesMeasuringFont = new Font( "Roboto", 8 );
+                Editor.ContextChoiceFont = new Font( "Roboto", 8 );
+                Editor.ContextChoiceForeColor = Color.Black;
+                Editor.ContextChoiceBackColor = SystemColors.ControlLight;
+                Editor.ContextPromptBorderColor = Color.FromArgb( 0, 120, 212 );
+                Editor.ContextPromptBackgroundBrush =
+                    new BrushInfo( Color.FromArgb( 233, 166, 50 ) );
+
+                Editor.ContextTooltipBackgroundBrush =
+                    new BrushInfo( Color.FromArgb( 233, 166, 50 ) );
+
+                Editor.ContextTooltipBorderColor = Color.FromArgb( 0, 120, 212 );
+                Editor.EndOfLineBackColor = SystemColors.ControlLight;
+                Editor.EndOfLineForeColor = SystemColors.ControlLight;
+                Editor.HighlightCurrentLine = true;
+                Editor.IndentationBlockBorderColor = Color.FromArgb( 0, 120, 212 );
+                Editor.IndentLineColor = Color.FromArgb( 50, 93, 129 );
+                Editor.IndicatorMarginBackColor = SystemColors.ControlLight;
+                Editor.CurrentLineHighlightColor = Color.FromArgb( 0, 120, 212 );
+                Editor.Font = new Font( "Roboto", 12 );
+                Editor.LineNumbersColor = Color.Black;
+                Editor.LineNumbersFont = new Font( "Roboto", 8, FontStyle.Bold );
+                Editor.ScrollVisualStyle = ScrollBarCustomDrawStyles.Office2016;
+                Editor.ScrollColorScheme = Office2007ColorScheme.Black;
+                Editor.SelectionTextColor = Color.FromArgb( 50, 93, 129 );
+                Editor.ShowEndOfLine = false;
+                Editor.Style = EditControlStyle.Office2016Black;
+                Editor.TabSize = 4;
+                Editor.TextAreaWidth = 400;
+                Editor.WordWrap = true;
+                Editor.WordWrapColumn = 100;
+                Editor.Dock = DockStyle.None;
+                Editor.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left
+                    | AnchorStyles.Right;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the Title.
+        /// </summary>
+        private void InitializeLabels( )
+        {
+            try
+            {
+                Title.Font = new Font( "Roboto", 10 );
+                Title.ForeColor = Color.FromArgb( 106, 189, 252 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the PictureBox.
+        /// </summary>
+        private void InitializeIcon( )
+        {
+            try
+            {
+                PictureBox.Size = new Size( 24, 22 );
+                PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the tool strip properties.
+        /// </summary>
+        private void InitializeToolStrip( )
+        {
+            try
+            {
+                ToolStrip.Margin = new Padding( 1, 1, 1, 3 );
+                ToolStrip.Visible = true;
+                ToolStrip.Text = string.Empty;
+                ToolStrip.Office12Mode = true;
+                ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
+                ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Black;
+                ToolStrip.LauncherStyle = LauncherStyle.Office12;
+                ToolStrip.ShowCaption = true;
+                ToolStrip.ImageSize = new Size( 16, 16 );
+                ToolStrip.ImageScalingSize = new Size( 16, 16 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the radio buttons.
+        /// </summary>
+        private void InitializeButtons( )
+        {
+            try
+            {
+                switch( Provider )
+                {
+                    case Provider.SQLite:
+                    {
+                        ClientButton.Visible = true;
+                        ClientSeparator.Visible = true;
+                        break;
+                    }
+                    case Provider.Access:
+                    {
+                        ClientButton.Visible = true;
+                        ClientSeparator.Visible = true;
+                        break;
+                    }
+                    case Provider.SqlServer:
+                    {
+                        ClientButton.Visible = false;
+                        ClientSeparator.Visible = false;
+                        break;
+                    }
+                    case Provider.SqlCe:
+                    {
+                        ClientButton.Visible = true;
+                        ClientSeparator.Visible = true;
+                        break;
+                    }
+                    default:
+                    {
+                        ClientButton.Visible = true;
+                        ClientSeparator.Visible = true;
+                        break;
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the delegates.
+        /// </summary>
+        private void InitializeDelegates( )
+        {
+            try
+            {
+                _statusUpdate += UpdateStatus;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the timers.
+        /// </summary>
+        private void InitializeTimers( )
+        {
+            try
+            {
+                Timer.Enabled = true;
+                Timer.Interval = 500;
+                Timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -392,222 +620,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes the editor.
-        /// </summary>
-        private void InitializeEditor( )
-        {
-            try
-            {
-                Editor.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-                Editor.AlwaysShowScrollers = true;
-                Editor.BackColor = SystemColors.ControlLight;
-                Editor.ForeColor = Color.Black;
-                Editor.BackgroundColor = new BrushInfo( SystemColors.ControlLight );
-                Editor.BorderStyle = BorderStyle.FixedSingle;
-                Editor.CanOverrideStyle = true;
-                Editor.CanApplyTheme = true;
-                Editor.ColumnGuidesMeasuringFont = new Font( "Roboto", 8 );
-                Editor.ContextChoiceFont = new Font( "Roboto", 8 );
-                Editor.ContextChoiceForeColor = Color.Black;
-                Editor.ContextChoiceBackColor = SystemColors.ControlLight;
-                Editor.ContextPromptBorderColor = Color.FromArgb( 0, 120, 212 );
-                Editor.ContextPromptBackgroundBrush =
-                    new BrushInfo( Color.FromArgb( 233, 166, 50 ) );
-
-                Editor.ContextTooltipBackgroundBrush =
-                    new BrushInfo( Color.FromArgb( 233, 166, 50 ) );
-
-                Editor.ContextTooltipBorderColor = Color.FromArgb( 0, 120, 212 );
-                Editor.EndOfLineBackColor = SystemColors.ControlLight;
-                Editor.EndOfLineForeColor = SystemColors.ControlLight;
-                Editor.HighlightCurrentLine = true;
-                Editor.IndentationBlockBorderColor = Color.FromArgb( 0, 120, 212 );
-                Editor.IndentLineColor = Color.FromArgb( 50, 93, 129 );
-                Editor.IndicatorMarginBackColor = SystemColors.ControlLight;
-                Editor.CurrentLineHighlightColor = Color.FromArgb( 0, 120, 212 );
-                Editor.Font = new Font( "Roboto", 12 );
-                Editor.LineNumbersColor = Color.Black;
-                Editor.LineNumbersFont = new Font( "Roboto", 8, FontStyle.Bold );
-                Editor.ScrollVisualStyle = ScrollBarCustomDrawStyles.Office2016;
-                Editor.ScrollColorScheme = Office2007ColorScheme.Black;
-                Editor.SelectionTextColor = Color.FromArgb( 50, 93, 129 );
-                Editor.ShowEndOfLine = false;
-                Editor.Style = EditControlStyle.Office2016Black;
-                Editor.TabSize = 4;
-                Editor.TextAreaWidth = 400;
-                Editor.WordWrap = true;
-                Editor.WordWrapColumn = 100;
-                Editor.Dock = DockStyle.None;
-                Editor.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left
-                    | AnchorStyles.Right;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the Title.
-        /// </summary>
-        private void InitializeLabels( )
-        {
-            try
-            {
-                Title.Font = new Font( "Roboto", 10 );
-                Title.ForeColor = Color.FromArgb( 106, 189, 252 );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Initializes the PictureBox. </summary>
-        private void InitializeIcon( )
-        {
-            try
-            {
-                PictureBox.Size = new Size( 24, 22 );
-                PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Sets the tool strip properties. </summary>
-        private void InitializeToolStrip( )
-        {
-            try
-            {
-                ToolStrip.Margin = new Padding( 1, 1, 1, 3 );
-                ToolStrip.Visible = true;
-                ToolStrip.Text = string.Empty;
-                ToolStrip.Office12Mode = true;
-                ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
-                ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Black;
-                ToolStrip.LauncherStyle = LauncherStyle.Office12;
-                ToolStrip.ShowCaption = true;
-                ToolStrip.ImageSize = new Size( 16, 16 );
-                ToolStrip.ImageScalingSize = new Size( 16, 16 );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Initializes the radio buttons. </summary>
-        private void InitializeButtons( )
-        {
-            try
-            {
-                switch( Provider )
-                {
-                    case Provider.SQLite:
-                    {
-                        ClientButton.Visible = true;
-                        ClientSeparator.Visible = true;
-                        break;
-                    }
-                    case Provider.Access:
-                    {
-                        ClientButton.Visible = true;
-                        ClientSeparator.Visible = true;
-                        break;
-                    }
-                    case Provider.SqlServer:
-                    {
-                        ClientButton.Visible = false;
-                        ClientSeparator.Visible = false;
-                        break;
-                    }
-                    case Provider.SqlCe:
-                    {
-                        ClientButton.Visible = true;
-                        ClientSeparator.Visible = true;
-                        break;
-                    }
-                    default:
-                    {
-                        ClientButton.Visible = true;
-                        ClientSeparator.Visible = true;
-                        break;
-                    }
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the callbacks.
-        /// </summary>
-        private void RegisterCallbacks( )
-        {
-            // Control Event Wiring
-            try
-            {
-                TabControl.SelectedIndexChanged += OnActiveTabChanged;
-                QueryListBox.SelectedValueChanged += OnQueryListBoxItemSelected;
-                RefreshButton.Click += OnRefreshButtonClick;
-                SaveButton.Click += OnSaveButtonClick;
-                GoButton.Click += OnGoButtonClick;
-                CloseButton.Click += OnCloseButtonClick;
-                EditSqlButton.Click += OnEditSqlButtonClick;
-                EditDataButton.Click += OnEditDataButtonClick;
-                TableButton.Click += OnTableButtonClick;
-                LookupButton.Click += OnLookupButtonClick;
-                MainMenuButton.Click += OnMainMenuButtonClicked;
-                ClientButton.Click += OnClientButtonClick;
-                TableListBox.SelectedIndexChanged += OnTableListBoxSelectionChanged;
-                ColumnListBox.SelectedIndexChanged += OnColumnListBoxSelectionChanged;
-                CommandComboBox.SelectedIndexChanged += OnCommandComboBoxItemSelected;
-                Timer.Tick += OnTimerTick;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the delegates.
-        /// </summary>
-        private void InitializeDelegates( )
-        {
-            try
-            {
-                _statusUpdate += UpdateStatus;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the timers.
-        /// </summary>
-        private void InitializeTimers( )
-        {
-            try
-            {
-                Timer.Enabled = true;
-                Timer.Interval = 500;
-                Timer.Start( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Invokes if needed.
         /// </summary>
         /// <param name="action">The action.</param>
@@ -719,6 +731,9 @@ namespace BudgetExecution
         {
             try
             {
+                QueryListBox.Items?.Clear( );
+                ColumnListBox.Items?.Clear( );
+                ValueListBox.Items?.Clear( );
             }
             catch( Exception _ex )
             {
@@ -733,6 +748,8 @@ namespace BudgetExecution
         {
             try
             {
+                CommandComboBox.Items?.Clear( );
+                TableNameComboBox.Items?.Clear( );
             }
             catch( Exception _ex )
             {
@@ -747,6 +764,7 @@ namespace BudgetExecution
         {
             try
             {
+                Title.Text = string.Empty;
             }
             catch( Exception _ex )
             {
@@ -763,6 +781,8 @@ namespace BudgetExecution
             {
                 ClearSelections( );
                 ClearCollections( );
+                ClearComboBoxes( );
+                ClearListBoxes( );
                 ClearFilter( );
                 SelectedTable = string.Empty;
                 BindingSource.DataSource = null;
@@ -1157,7 +1177,8 @@ namespace BudgetExecution
 
                 var _criteria = where.ToCriteria( );
                 var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
-                return $"SELECT {_names} FROM {SelectedTable} " + $"WHERE {_criteria} "
+                return $"SELECT {_names} FROM {SelectedTable} " 
+                    + $"WHERE {_criteria} "
                     + $"GROUP BY {_names} ;";
             }
             catch( Exception _ex )
@@ -1205,7 +1226,8 @@ namespace BudgetExecution
                 var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
                 var _criteria = where.ToCriteria( );
                 var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                return $"SELECT {_columns} FROM {Source} " + $"WHERE {_criteria} "
+                return $"SELECT {_columns} FROM {Source} " 
+                    + $"WHERE {_criteria} "
                     + $"GROUP BY {_groups};";
             }
             catch( Exception _ex )
@@ -1215,8 +1237,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Creates the command list. </summary>
-        /// <param name="provider"> The provider. </param>
+        /// <summary>
+        /// Creates the command list.
+        /// </summary>
+        /// <param name="provider">
+        /// The provider.
+        /// </param>
         /// <returns> </returns>
         private IList<string> CreateCommandList( Provider provider )
         {

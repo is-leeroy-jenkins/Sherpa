@@ -59,6 +59,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     public abstract class ExcelConfig
     {
         /// <summary>
@@ -164,7 +165,9 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the file path.
         /// </summary>
-        /// <param name="filePath">The file path.</param>
+        /// <param name="filePath">
+        /// The file path.
+        /// </param>
         public void SetFilePath( string filePath )
         {
             try

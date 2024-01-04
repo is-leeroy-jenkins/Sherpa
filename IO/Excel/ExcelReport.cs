@@ -111,7 +111,8 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.BudgetWorkbook" /> class.
         /// </summary>
         /// <param name="filePath">The file path.</param>
-        public ExcelReport( string filePath )
+        public ExcelReport( string filePath ) 
+            : this( )
         {
             InternalPath = AppSettings[ "Reports" ];
             FileInfo = new FileInfo( filePath );
@@ -123,11 +124,6 @@ namespace BudgetExecution
             Workbook.Properties.Application = "Budget Execution";
             Workbook.Properties.Company = "US EPA";
             Workbook.Properties.Modified = DateTime.Now;
-            InitializeSheetViews( );
-            InitializePrinterSettings( );
-            InitializeCells( );
-            InitializeSelectedRange( );
-            InitializeTables( );
         }
 
         /// <inheritdoc/>
@@ -139,7 +135,8 @@ namespace BudgetExecution
         /// <param name="dataTable">
         /// The data table.
         /// </param>
-        public ExcelReport( DataTable dataTable )
+        public ExcelReport( DataTable dataTable ) 
+            : this( )
         {
             InternalPath = AppSettings[ "Reports" ];
             FileInfo = new FileInfo( InternalPath );
@@ -152,11 +149,6 @@ namespace BudgetExecution
             Workbook.Properties.Company = "US EPA";
             Workbook.Properties.Modified = DateTime.Now;
             Workbook.Worksheets[ 0 ].Cells[ "A1" ].LoadFromDataTable( dataTable );
-            InitializeSheetViews( );
-            InitializePrinterSettings( );
-            InitializeCells( );
-            InitializeSelectedRange( );
-            InitializeTables( );
         }
 
         /// <summary>
@@ -347,7 +339,8 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Releases unmanaged and
+        /// <summary>
+        /// Releases unmanaged and
         /// - optionally - managed resources.
         /// </summary>
         /// <param name="disposing">
@@ -356,7 +349,7 @@ namespace BudgetExecution
         /// <c> false </c>
         /// to release only unmanaged resources.
         /// </param>
-        public void Dispose( bool disposing )
+        private void Dispose( bool disposing )
         {
             try
             {
