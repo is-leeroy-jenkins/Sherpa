@@ -335,7 +335,8 @@ namespace BudgetExecution
         public DataArgs DataArgs { get; set; }
 
         /// <summary>
-        /// Gets a value indicating whether this instance is busy.
+        /// Gets a value indicating
+        /// whether this instance is busy.
         /// </summary>
         /// <value>
         /// <c> true </c>
@@ -597,7 +598,7 @@ namespace BudgetExecution
         {
             try
             {
-                Chart.ShowToolbar = true;
+                Chart.ShowToolbar = false;
                 Chart.ShowScrollBars = false;
                 Chart.EnableMouseRotation = true;
                 Chart.Padding = new Padding( 1 );
@@ -605,7 +606,6 @@ namespace BudgetExecution
                 Chart.Anchor = AnchorStyles.Top | AnchorStyles.Left;
                 Chart.AllowGapForEmptyPoints = false;
                 Chart.AllowGradientPalette = true;
-                Chart.AutoHighlight = false;
                 Chart.AllowUserEditStyles = true;
                 Chart.PrintColorMode = ChartPrintColorMode.CheckPrinter;
                 Chart.CalcRegions = true;
@@ -1247,6 +1247,7 @@ namespace BudgetExecution
                 SetSeriesPointStyles( _current, ChartType );
                 UpdateSchema( _current );
                 Chart.Title.Text = DataTable.TableName.SplitPascal( );
+                Chart.PrimaryXAxis.Title = GetAxisTitle( );
                 Chart.Refresh( );
             }
             catch( Exception ex )
@@ -1940,7 +1941,7 @@ namespace BudgetExecution
                     _series.FancyToolTip.BackColor = _backColor;
                     _series.FancyToolTip.Symbol = ChartSymbolShape.Arrow;
                     _series.FancyToolTip.Visible = true;
-                    _series.PointsToolTipFormat = "{0} - {4}";
+                    _series.PointsToolTipFormat = "{4}";
                     _series.SeriesToolTipFormat = "#,##0";
                     Chart.Series.Add( _series );
                     _index++;
@@ -2005,7 +2006,7 @@ namespace BudgetExecution
                     _series.EnableStyles = true;
                     _series.Type = type;
                     _series.DrawSeriesNameInDepth = false;
-                    _series.PointsToolTipFormat = "{0} - {4}";
+                    _series.PointsToolTipFormat = "{4}";
                     _series.Style.DisplayText = true;
                     _series.Style.DrawTextShape = true;
                     _series.Style.TextColor = Color.White;
@@ -2054,6 +2055,29 @@ namespace BudgetExecution
             catch( Exception _ex )
             {
                 Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Gets the axis title.
+        /// </summary>
+        /// <returns></returns>
+        private string GetAxisTitle( )
+        {
+            try
+            {
+                var _title = string.Empty;
+                foreach( var _item in Filter.Values )
+                {
+                    _title += " " + _item;
+                }
+
+                return _title;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return string.Empty;
             }
         }
 

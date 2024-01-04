@@ -280,116 +280,31 @@ namespace BudgetExecution
             // Provider
             Provider = provider;
         }
-
+        
         /// <summary>
-        /// Displays the control to the user.
+        /// Initializes the callbacks.
         /// </summary>
-        public new void Show( )
+        private void RegisterCallbacks( )
         {
+            // Control Event Wiring
             try
             {
-                Opacity = 0;
-                if( Seconds != 0 )
-                {
-                    Timer = new Timer( );
-                    Timer.Interval = 10;
-                    Timer.Tick += ( sender, args ) =>
-                    {
-                        Time++;
-                        if( Time == Seconds )
-                        {
-                            Timer.Stop( );
-                        }
-                    };
-                }
-
-                base.Show( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Populates the data type ComboBox items.
-        /// </summary>
-        public void PopulateDataTypeComboBoxItems( IEnumerable<string> dataTypes )
-        {
-            try
-            {
-                ThrowIf.Null( dataTypes, nameof( dataTypes ) );
-                DataTypeComboBox.Items?.Clear( );
-                DataTypeComboBox.SelectedText = string.Empty;
-                var _types = dataTypes.ToArray( );
-                for( var _i = 0; _i < _types?.Length; _i++ )
-                {
-                    if( !string.IsNullOrEmpty( _types[ _i ] ) )
-                    {
-                        DataTypeComboBox.Items.Add( _types[ _i ] );
-                    }
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Populates the table ListBox items.
-        /// </summary>
-        public void PopulateTableListBoxItems( )
-        {
-            try
-            {
-                TableListBox.Items?.Clear( );
-                TableListBox.SelectedItem = string.Empty;
-                var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
-                var _data = _model.GetData( );
-                var _names = _data
-                    ?.Select( dr => dr.Field<string>( "TableName" ) )
-                    ?.Distinct( )
-                    ?.ToList( );
-
-                for( var _i = 0; _i < _names?.Count - 1; _i++ )
-                {
-                    var _name = _names[ _i ];
-                    TableListBox.Items?.Add( _name );
-                }
-
-                if( TableListBox.Items?.Count > 0 )
-                {
-                    SourceTable.CaptionText = $"Tables: {TableListBox.Items.Count}";
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Populates the table ComboBox items.
-        /// </summary>
-        public void PopulateTableComboBoxItems( )
-        {
-            try
-            {
-                TableNameComboBox.Items?.Clear( );
-                TableNameComboBox.SelectedItem = string.Empty;
-                var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
-                var _data = _model.GetData( );
-                var _names = _data
-                    ?.Select( dr => dr.Field<string>( "TableName" ) )
-                    ?.Distinct( )
-                    ?.ToList( );
-
-                for( var _i = 0; _i < _names?.Count - 1; _i++ )
-                {
-                    var _name = _names[ _i ];
-                    TableNameComboBox.Items.Add( _name );
-                }
+                TabControl.SelectedIndexChanged += OnActiveTabChanged;
+                QueryListBox.SelectedValueChanged += OnQueryListBoxItemSelected;
+                RefreshButton.Click += OnRefreshButtonClick;
+                SaveButton.Click += OnSaveButtonClick;
+                GoButton.Click += OnGoButtonClick;
+                CloseButton.Click += OnCloseButtonClick;
+                EditSqlButton.Click += OnEditSqlButtonClick;
+                EditDataButton.Click += OnEditDataButtonClick;
+                TableButton.Click += OnTableButtonClick;
+                LookupButton.Click += OnLookupButtonClick;
+                MainMenuButton.Click += OnMainMenuButtonClicked;
+                ClientButton.Click += OnClientButtonClick;
+                TableListBox.SelectedIndexChanged += OnTableListBoxSelectionChanged;
+                ColumnListBox.SelectedIndexChanged += OnColumnListBoxSelectionChanged;
+                CommandComboBox.SelectedIndexChanged += OnCommandComboBoxItemSelected;
+                Timer.Tick += OnTimerTick;
             }
             catch( Exception _ex )
             {
@@ -557,37 +472,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes the callbacks.
-        /// </summary>
-        private void RegisterCallbacks( )
-        {
-            // Control Event Wiring
-            try
-            {
-                TabControl.SelectedIndexChanged += OnActiveTabChanged;
-                QueryListBox.SelectedValueChanged += OnQueryListBoxItemSelected;
-                RefreshButton.Click += OnRefreshButtonClick;
-                SaveButton.Click += OnSaveButtonClick;
-                GoButton.Click += OnGoButtonClick;
-                CloseButton.Click += OnCloseButtonClick;
-                EditSqlButton.Click += OnEditSqlButtonClick;
-                EditDataButton.Click += OnEditDataButtonClick;
-                TableButton.Click += OnTableButtonClick;
-                LookupButton.Click += OnLookupButtonClick;
-                MainMenuButton.Click += OnMainMenuButtonClicked;
-                ClientButton.Click += OnClientButtonClick;
-                TableListBox.SelectedIndexChanged += OnTableListBoxSelectionChanged;
-                ColumnListBox.SelectedIndexChanged += OnColumnListBoxSelectionChanged;
-                CommandComboBox.SelectedIndexChanged += OnCommandComboBoxItemSelected;
-                Timer.Tick += OnTimerTick;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Initializes the delegates.
         /// </summary>
         private void InitializeDelegates( )
@@ -612,6 +496,122 @@ namespace BudgetExecution
                 Timer.Enabled = true;
                 Timer.Interval = 500;
                 Timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Displays the control to the user.
+        /// </summary>
+        public new void Show( )
+        {
+            try
+            {
+                Opacity = 0;
+                if( Seconds != 0 )
+                {
+                    Timer = new Timer( );
+                    Timer.Interval = 10;
+                    Timer.Tick += ( sender, args ) =>
+                    {
+                        Time++;
+                        if( Time == Seconds )
+                        {
+                            Timer.Stop( );
+                        }
+                    };
+                }
+
+                base.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Populates the data type ComboBox items.
+        /// </summary>
+        public void PopulateDataTypeComboBoxItems( IEnumerable<string> dataTypes )
+        {
+            try
+            {
+                ThrowIf.Null( dataTypes, nameof( dataTypes ) );
+                DataTypeComboBox.Items?.Clear( );
+                DataTypeComboBox.SelectedText = string.Empty;
+                var _types = dataTypes.ToArray( );
+                for( var _i = 0; _i < _types?.Length; _i++ )
+                {
+                    if( !string.IsNullOrEmpty( _types[ _i ] ) )
+                    {
+                        DataTypeComboBox.Items.Add( _types[ _i ] );
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Populates the table ListBox items.
+        /// </summary>
+        public void PopulateTableListBoxItems( )
+        {
+            try
+            {
+                TableListBox.Items?.Clear( );
+                TableListBox.SelectedItem = string.Empty;
+                var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
+                var _data = _model.GetData( );
+                var _names = _data
+                    ?.Select( dr => dr.Field<string>( "TableName" ) )
+                    ?.Distinct( )
+                    ?.ToList( );
+
+                for( var _i = 0; _i < _names?.Count - 1; _i++ )
+                {
+                    var _name = _names[ _i ];
+                    TableListBox.Items?.Add( _name );
+                }
+
+                if( TableListBox.Items?.Count > 0 )
+                {
+                    SourceTable.CaptionText = $"Tables: {TableListBox.Items.Count}";
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Populates the table ComboBox items.
+        /// </summary>
+        public void PopulateTableComboBoxItems( )
+        {
+            try
+            {
+                TableNameComboBox.Items?.Clear( );
+                TableNameComboBox.SelectedItem = string.Empty;
+                var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
+                var _data = _model.GetData( );
+                var _names = _data
+                    ?.Select( dr => dr.Field<string>( "TableName" ) )
+                    ?.Distinct( )
+                    ?.ToList( );
+
+                for( var _i = 0; _i < _names?.Count - 1; _i++ )
+                {
+                    var _name = _names[ _i ];
+                    TableNameComboBox.Items.Add( _name );
+                }
             }
             catch( Exception _ex )
             {
@@ -731,6 +731,9 @@ namespace BudgetExecution
         {
             try
             {
+                QueryListBox.Items?.Clear( );
+                ColumnListBox.Items?.Clear( );
+                ValueListBox.Items?.Clear( );
             }
             catch( Exception _ex )
             {
@@ -745,6 +748,8 @@ namespace BudgetExecution
         {
             try
             {
+                CommandComboBox.Items?.Clear( );
+                TableNameComboBox.Items?.Clear( );
             }
             catch( Exception _ex )
             {
@@ -759,6 +764,7 @@ namespace BudgetExecution
         {
             try
             {
+                Title.Text = string.Empty;
             }
             catch( Exception _ex )
             {
@@ -775,6 +781,8 @@ namespace BudgetExecution
             {
                 ClearSelections( );
                 ClearCollections( );
+                ClearComboBoxes( );
+                ClearListBoxes( );
                 ClearFilter( );
                 SelectedTable = string.Empty;
                 BindingSource.DataSource = null;

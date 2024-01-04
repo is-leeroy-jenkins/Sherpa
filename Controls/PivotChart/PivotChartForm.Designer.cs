@@ -75,6 +75,7 @@
             DataTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             AreaTable = new System.Windows.Forms.TableLayoutPanel( );
             ChartAreaPanel = new BackPanel( );
+            PivotChart = new Syncfusion.Windows.Forms.PivotChart.PivotChart( );
             ChartSubTablePanel = new BackPanel( );
             ChartSubTable = new System.Windows.Forms.TableLayoutPanel( );
             SqlHeader = new Label( );
@@ -106,7 +107,6 @@
             TableListBox = new ListBox( );
             ToolStripTable = new System.Windows.Forms.TableLayoutPanel( );
             ContextMenu = new ContextMenu( );
-            PivotChart = new PivotChart( );
             HeaderTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
@@ -854,6 +854,30 @@
             ChartAreaPanel.ThemeName = "Budget Execution";
             ChartAreaPanel.ToolTip = null;
             // 
+            // PivotChart
+            // 
+            PivotChart.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            PivotChart.ChartTypes = Syncfusion.Windows.Forms.PivotChart.PivotChartTypes.Column;
+            PivotChart.CustomPalette = new System.Drawing.Color[ ]
+    {
+    System.Drawing.Color.SteelBlue,
+    System.Drawing.Color.SlateGray,
+    System.Drawing.Color.Yellow,
+    System.Drawing.Color.Red
+    };
+            PivotChart.DeferLayoutUpdate = false;
+            PivotChart.Dock = System.Windows.Forms.DockStyle.Fill;
+            PivotChart.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            PivotChart.Location = new System.Drawing.Point( 1, 1 );
+            PivotChart.MinimumSize = new System.Drawing.Size( 300, 250 );
+            PivotChart.Name = "PivotChart";
+            PivotChart.ShowPivotTableFieldList = false;
+            PivotChart.Size = new System.Drawing.Size( 1038, 453 );
+            PivotChart.Skins = Syncfusion.Windows.Forms.Chart.Skins.Metro;
+            PivotChart.TabIndex = 0;
+            PivotChart.Text = "pivotChart1";
+            PivotChart.UpdateManager = null;
+            // 
             // ChartSubTablePanel
             // 
             ChartSubTablePanel.BackColor = System.Drawing.Color.Transparent;
@@ -1568,31 +1592,6 @@
             ContextMenu.ThemeStyle.PressedBackColor = System.Drawing.Color.FromArgb( 204, 204, 204 );
             ContextMenu.ThemeStyle.PressedForeColor = System.Drawing.Color.Black;
             // 
-            // PivotChart
-            // 
-            PivotChart.AllowDrillDown = true;
-            PivotChart.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            PivotChart.ChartTypes = Syncfusion.Windows.Forms.PivotChart.PivotChartTypes.Column;
-            PivotChart.CustomPalette = new System.Drawing.Color[ ]
-    {
-    System.Drawing.Color.FromArgb(147, 208, 249),
-    System.Drawing.Color.FromArgb(102, 170, 225),
-    System.Drawing.Color.FromArgb(250, 163, 94),
-    System.Drawing.Color.FromArgb(252, 227, 127)
-    };
-            PivotChart.DeferLayoutUpdate = false;
-            PivotChart.Dock = System.Windows.Forms.DockStyle.Fill;
-            PivotChart.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
-            PivotChart.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            PivotChart.Location = new System.Drawing.Point( 1, 1 );
-            PivotChart.MinimumSize = new System.Drawing.Size( 300, 250 );
-            PivotChart.Name = "PivotChart";
-            PivotChart.ShowPivotTableFieldList = false;
-            PivotChart.Size = new System.Drawing.Size( 1038, 453 );
-            PivotChart.TabIndex = 0;
-            PivotChart.Text = "PivotChart";
-            PivotChart.UpdateManager = null;
-            // 
             // PivotChartForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
@@ -1725,6 +1724,6 @@
         public ContextMenu ContextMenu;
         public ToolStripDropDown ComboBox;
         public ToolStripButton RefreshButton;
-        public PivotChart PivotChart;
+        public Syncfusion.Windows.Forms.PivotChart.PivotChart PivotChart;
     }
 }
