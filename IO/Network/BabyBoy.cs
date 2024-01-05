@@ -112,12 +112,14 @@ namespace BudgetExecution
         public Socket Socket { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether this instance is connected.
+        /// Gets or sets a value indicating
+        /// whether this instance is connected.
         /// </summary>
         /// <value>
-        /// <c>true</c> if this instance is connected; otherwise, <c>false</c>.
+        /// <c>true</c> if this instance is connected;
+        /// otherwise, <c>false</c>.
         /// </value>
-        public bool IsConnected { get; set; }
+        public bool IsConnected { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the
