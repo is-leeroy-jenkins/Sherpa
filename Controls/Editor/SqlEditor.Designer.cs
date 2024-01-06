@@ -92,15 +92,15 @@
             Timer = new System.Windows.Forms.Timer( components );
             ToolStripTable = new System.Windows.Forms.TableLayoutPanel( );
             TabControl = new TabControl( );
-            SqlTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
+            SqlTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             EditorTable = new HeaderPanel( );
             EditorPanel = new BackPanel( );
             Editor = new Editor( );
-            DataTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
+            DataTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             DataGridTable = new HeaderPanel( );
             DataGridPanel = new BackPanel( );
             DataGrid = new DataGrid( );
-            LookupTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
+            LookupTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             ColumnTable = new HeaderPanel( );
             ColumnPanel = new BackPanel( );
             ColumnListBox = new ListBox( );
@@ -110,7 +110,7 @@
             SourceTable = new HeaderPanel( );
             TablePanel = new BackPanel( );
             TableListBox = new ListBox( );
-            SchemaTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
+            SchemaTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             SchemaHeaderPanel = new HeaderPanel( );
             SchemaTable = new HeaderPanel( );
             SchemaPanel = new BackPanel( );
@@ -128,7 +128,7 @@
             SelectTableLabel = new Label( );
             TableNameComboBox = new ComboBox( );
             AddTableTextBox = new TextBox( );
-            Busy = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
+            BusyTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             SqlTabHeaderTable = new HeaderPanel( );
             BusyPanel = new BackPanel( );
             Loader = new System.Windows.Forms.PictureBox( );
@@ -145,28 +145,28 @@
             ToolStripTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)TabControl ).BeginInit( );
             TabControl.SuspendLayout( );
-            SqlTab.SuspendLayout( );
+            SqlTabPage.SuspendLayout( );
             EditorTable.SuspendLayout( );
             EditorPanel.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)Editor ).BeginInit( );
-            DataTab.SuspendLayout( );
+            DataTabPage.SuspendLayout( );
             DataGridTable.SuspendLayout( );
             DataGridPanel.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)DataGrid ).BeginInit( );
-            LookupTab.SuspendLayout( );
+            LookupTabPage.SuspendLayout( );
             ColumnTable.SuspendLayout( );
             ColumnPanel.SuspendLayout( );
             ValueTable.SuspendLayout( );
             ValuePanel.SuspendLayout( );
             SourceTable.SuspendLayout( );
             TablePanel.SuspendLayout( );
-            SchemaTab.SuspendLayout( );
+            SchemaTabPage.SuspendLayout( );
             SchemaHeaderPanel.SuspendLayout( );
             SchemaTable.SuspendLayout( );
             SchemaPanel.SuspendLayout( );
             HeaderPanel.SuspendLayout( );
             LayoutPanel.SuspendLayout( );
-            Busy.SuspendLayout( );
+            BusyTabPage.SuspendLayout( );
             SqlTabHeaderTable.SuspendLayout( );
             BusyPanel.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)Loader ).BeginInit( );
@@ -1083,11 +1083,11 @@
             TabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             TabControl.CanOverrideStyle = true;
             TabControl.CloseButtonBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            TabControl.Controls.Add( SqlTab );
-            TabControl.Controls.Add( DataTab );
-            TabControl.Controls.Add( LookupTab );
-            TabControl.Controls.Add( SchemaTab );
-            TabControl.Controls.Add( Busy );
+            TabControl.Controls.Add( SqlTabPage );
+            TabControl.Controls.Add( LookupTabPage );
+            TabControl.Controls.Add( DataTabPage );
+            TabControl.Controls.Add( SchemaTabPage );
+            TabControl.Controls.Add( BusyTabPage );
             TabControl.FocusOnTabClick = false;
             TabControl.Font = new System.Drawing.Font( "Roboto", 9F );
             TabControl.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
@@ -1111,17 +1111,17 @@
             TabControl.ThemeStyle.TabStyle.SeparatorColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.ToolTip = null;
             // 
-            // SqlTab
+            // SqlTabPage
             // 
-            SqlTab.Controls.Add( EditorTable );
-            SqlTab.Image = null;
-            SqlTab.ImageSize = new System.Drawing.Size( 16, 16 );
-            SqlTab.Location = new System.Drawing.Point( 0, 21 );
-            SqlTab.Name = "SqlTab";
-            SqlTab.ShowCloseButton = true;
-            SqlTab.Size = new System.Drawing.Size( 911, 582 );
-            SqlTab.TabIndex = 1;
-            SqlTab.ThemesEnabled = false;
+            SqlTabPage.Controls.Add( EditorTable );
+            SqlTabPage.Image = null;
+            SqlTabPage.ImageSize = new System.Drawing.Size( 16, 16 );
+            SqlTabPage.Location = new System.Drawing.Point( 0, 21 );
+            SqlTabPage.Name = "SqlTabPage";
+            SqlTabPage.ShowCloseButton = true;
+            SqlTabPage.Size = new System.Drawing.Size( 911, 582 );
+            SqlTabPage.TabIndex = 1;
+            SqlTabPage.ThemesEnabled = false;
             // 
             // EditorTable
             // 
@@ -1231,17 +1231,17 @@
             Editor.WordWrapColumn = 80;
             Editor.ZoomFactor = 1F;
             // 
-            // DataTab
+            // DataTabPage
             // 
-            DataTab.Controls.Add( DataGridTable );
-            DataTab.Image = null;
-            DataTab.ImageSize = new System.Drawing.Size( 16, 16 );
-            DataTab.Location = new System.Drawing.Point( 0, 21 );
-            DataTab.Name = "DataTab";
-            DataTab.ShowCloseButton = true;
-            DataTab.Size = new System.Drawing.Size( 911, 582 );
-            DataTab.TabIndex = 5;
-            DataTab.ThemesEnabled = false;
+            DataTabPage.Controls.Add( DataGridTable );
+            DataTabPage.Image = null;
+            DataTabPage.ImageSize = new System.Drawing.Size( 16, 16 );
+            DataTabPage.Location = new System.Drawing.Point( 0, 21 );
+            DataTabPage.Name = "DataTabPage";
+            DataTabPage.ShowCloseButton = true;
+            DataTabPage.Size = new System.Drawing.Size( 911, 582 );
+            DataTabPage.TabIndex = 5;
+            DataTabPage.ThemesEnabled = false;
             // 
             // DataGridTable
             // 
@@ -1349,19 +1349,19 @@
             DataGrid.TabIndex = 0;
             DataGrid.ToolTip = null;
             // 
-            // LookupTab
+            // LookupTabPage
             // 
-            LookupTab.Controls.Add( ColumnTable );
-            LookupTab.Controls.Add( ValueTable );
-            LookupTab.Controls.Add( SourceTable );
-            LookupTab.Image = null;
-            LookupTab.ImageSize = new System.Drawing.Size( 16, 16 );
-            LookupTab.Location = new System.Drawing.Point( 0, 21 );
-            LookupTab.Name = "LookupTab";
-            LookupTab.ShowCloseButton = true;
-            LookupTab.Size = new System.Drawing.Size( 911, 582 );
-            LookupTab.TabIndex = 4;
-            LookupTab.ThemesEnabled = false;
+            LookupTabPage.Controls.Add( ColumnTable );
+            LookupTabPage.Controls.Add( ValueTable );
+            LookupTabPage.Controls.Add( SourceTable );
+            LookupTabPage.Image = null;
+            LookupTabPage.ImageSize = new System.Drawing.Size( 16, 16 );
+            LookupTabPage.Location = new System.Drawing.Point( 0, 21 );
+            LookupTabPage.Name = "LookupTabPage";
+            LookupTabPage.ShowCloseButton = true;
+            LookupTabPage.Size = new System.Drawing.Size( 911, 582 );
+            LookupTabPage.TabIndex = 4;
+            LookupTabPage.ThemesEnabled = false;
             // 
             // ColumnTable
             // 
@@ -1604,17 +1604,17 @@
             TableListBox.ThemeName = "BudgetExecution";
             TableListBox.ToolTip = ToolTip;
             // 
-            // SchemaTab
+            // SchemaTabPage
             // 
-            SchemaTab.Controls.Add( SchemaHeaderPanel );
-            SchemaTab.Image = null;
-            SchemaTab.ImageSize = new System.Drawing.Size( 16, 16 );
-            SchemaTab.Location = new System.Drawing.Point( 0, 21 );
-            SchemaTab.Name = "SchemaTab";
-            SchemaTab.ShowCloseButton = true;
-            SchemaTab.Size = new System.Drawing.Size( 911, 582 );
-            SchemaTab.TabIndex = 3;
-            SchemaTab.ThemesEnabled = false;
+            SchemaTabPage.Controls.Add( SchemaHeaderPanel );
+            SchemaTabPage.Image = null;
+            SchemaTabPage.ImageSize = new System.Drawing.Size( 16, 16 );
+            SchemaTabPage.Location = new System.Drawing.Point( 0, 21 );
+            SchemaTabPage.Name = "SchemaTabPage";
+            SchemaTabPage.ShowCloseButton = true;
+            SchemaTabPage.Size = new System.Drawing.Size( 911, 582 );
+            SchemaTabPage.TabIndex = 3;
+            SchemaTabPage.ThemesEnabled = false;
             // 
             // SchemaHeaderPanel
             // 
@@ -2105,17 +2105,17 @@
             AddTableTextBox.UseSystemPasswordChar = false;
             AddTableTextBox.WatermarkText = "";
             // 
-            // Busy
+            // BusyTabPage
             // 
-            Busy.Controls.Add( SqlTabHeaderTable );
-            Busy.Image = null;
-            Busy.ImageSize = new System.Drawing.Size( 16, 16 );
-            Busy.Location = new System.Drawing.Point( 0, 21 );
-            Busy.Name = "Busy";
-            Busy.ShowCloseButton = true;
-            Busy.Size = new System.Drawing.Size( 911, 582 );
-            Busy.TabIndex = 2;
-            Busy.ThemesEnabled = false;
+            BusyTabPage.Controls.Add( SqlTabHeaderTable );
+            BusyTabPage.Image = null;
+            BusyTabPage.ImageSize = new System.Drawing.Size( 16, 16 );
+            BusyTabPage.Location = new System.Drawing.Point( 0, 21 );
+            BusyTabPage.Name = "BusyTabPage";
+            BusyTabPage.ShowCloseButton = true;
+            BusyTabPage.Size = new System.Drawing.Size( 911, 582 );
+            BusyTabPage.TabIndex = 2;
+            BusyTabPage.ThemesEnabled = false;
             // 
             // SqlTabHeaderTable
             // 
@@ -2237,28 +2237,28 @@
             ToolStripTable.PerformLayout( );
             ( (System.ComponentModel.ISupportInitialize)TabControl ).EndInit( );
             TabControl.ResumeLayout( false );
-            SqlTab.ResumeLayout( false );
+            SqlTabPage.ResumeLayout( false );
             EditorTable.ResumeLayout( false );
             EditorPanel.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize)Editor ).EndInit( );
-            DataTab.ResumeLayout( false );
+            DataTabPage.ResumeLayout( false );
             DataGridTable.ResumeLayout( false );
             DataGridPanel.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize)DataGrid ).EndInit( );
-            LookupTab.ResumeLayout( false );
+            LookupTabPage.ResumeLayout( false );
             ColumnTable.ResumeLayout( false );
             ColumnPanel.ResumeLayout( false );
             ValueTable.ResumeLayout( false );
             ValuePanel.ResumeLayout( false );
             SourceTable.ResumeLayout( false );
             TablePanel.ResumeLayout( false );
-            SchemaTab.ResumeLayout( false );
+            SchemaTabPage.ResumeLayout( false );
             SchemaHeaderPanel.ResumeLayout( false );
             SchemaTable.ResumeLayout( false );
             SchemaPanel.ResumeLayout( false );
             HeaderPanel.ResumeLayout( false );
             LayoutPanel.ResumeLayout( false );
-            Busy.ResumeLayout( false );
+            BusyTabPage.ResumeLayout( false );
             SqlTabHeaderTable.ResumeLayout( false );
             BusyPanel.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize)Loader ).EndInit( );
@@ -2320,15 +2320,15 @@
         public ToolSeparator Separator18;
         public System.Windows.Forms.TableLayoutPanel ToolStripTable;
         public TabControl TabControl;
-        public Syncfusion.Windows.Forms.Tools.TabPageAdv Busy;
+        public Syncfusion.Windows.Forms.Tools.TabPageAdv BusyTabPage;
         public HeaderPanel SqlTabHeaderTable;
         public BackPanel BusyPanel;
         private System.Windows.Forms.PictureBox Loader;
-        public Syncfusion.Windows.Forms.Tools.TabPageAdv SqlTab;
+        public Syncfusion.Windows.Forms.Tools.TabPageAdv SqlTabPage;
         public HeaderPanel EditorTable;
         public BackPanel EditorPanel;
         public Editor Editor;
-        public Syncfusion.Windows.Forms.Tools.TabPageAdv SchemaTab;
+        public Syncfusion.Windows.Forms.Tools.TabPageAdv SchemaTabPage;
         private HeaderPanel SchemaHeaderPanel;
         public HeaderPanel SchemaTable;
         public BackPanel SchemaPanel;
@@ -2346,7 +2346,7 @@
         public Label SelectTableLabel;
         public ComboBox TableNameComboBox;
         public TextBox AddTableTextBox;
-        public Syncfusion.Windows.Forms.Tools.TabPageAdv LookupTab;
+        public Syncfusion.Windows.Forms.Tools.TabPageAdv LookupTabPage;
         public HeaderPanel ColumnTable;
         public BackPanel ColumnPanel;
         public ListBox ColumnListBox;
@@ -2356,7 +2356,7 @@
         public HeaderPanel SourceTable;
         public BackPanel TablePanel;
         public ListBox TableListBox;
-        public Syncfusion.Windows.Forms.Tools.TabPageAdv DataTab;
+        public Syncfusion.Windows.Forms.Tools.TabPageAdv DataTabPage;
         public HeaderPanel DataGridTable;
         public BackPanel DataGridPanel;
         public DataGrid DataGrid;

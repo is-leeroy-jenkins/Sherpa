@@ -53,13 +53,7 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Chart;
     using Syncfusion.Windows.Forms.Tools;
-    using Action = System.Action;
-    using Color = System.Drawing.Color;
-    using DataTable = System.Data.DataTable;
-    using Font = System.Drawing.Font;
-    using FontStyle = System.Drawing.FontStyle;
     using MarkerStyle = Syncfusion.Windows.Forms.Chart.MarkerStyle;
-    using Size = System.Drawing.Size;
 
     /// <summary>
     /// 
@@ -92,7 +86,7 @@ namespace BudgetExecution
         /// <summary>
         /// The status update
         /// </summary>
-        private Action _statusUpdate;
+        private System.Action _statusUpdate;
 
         /// <summary>
         /// Gets or sets the time.
@@ -204,7 +198,7 @@ namespace BudgetExecution
         /// <value>
         /// The SQL query.
         /// </value>
-        public string SqlCommand { get; set; }
+        public string SqlQuery { get; set; }
 
         /// <summary>
         /// Gets or sets the x-axis.
@@ -454,7 +448,8 @@ namespace BudgetExecution
                 MenuButton.Click += OnMainMenuButtonClicked;
                 ExitButton.Click += OnExitButtonClicked;
                 Timer.Tick += OnTimerTick;
-                QueryTabControl.SelectedIndexChanged += OnActiveTabChanged;
+                QueryTabControl.SelectedIndexChanged += OnQueryTabChanged;
+                DataTabControl.SelectedIndexChanged += OnActiveTabChanged;
                 TableListBox.SelectedIndexChanged += OnTableListBoxItemSelected;
                 FirstComboBox.SelectedIndexChanged += OnFirstComboBoxItemSelected;
                 FirstListBox.SelectedIndexChanged += OnFirstListBoxItemSelected;
@@ -713,7 +708,7 @@ namespace BudgetExecution
         /// <param name="action">
         /// The action.
         /// </param>
-        public void InvokeIf( Action action )
+        public void InvokeIf( System.Action action )
         {
             if( InvokeRequired )
             {
@@ -1107,6 +1102,86 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Activates the SQL tab.
+        /// </summary>
+        private void ActivateSourceTab( )
+        {
+            try
+            {
+                QueryTabControl.SelectedIndex = 0;
+                SourceTabPage.TabVisible = true;
+                ReadyTabPage.TabVisible = true;
+                FilterTabPage.TabVisible = false;
+                GroupTabPage.TabVisible = false;
+                BusyTabPage.TabVisible = false;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Activates the lookup tab.
+        /// </summary>
+        private void ActivateFilterTab( )
+        {
+            try
+            {
+                QueryTabControl.SelectedIndex = 1;
+                FilterTabPage.TabVisible = true;
+                ReadyTabPage.TabVisible = true;
+                SourceTabPage.TabVisible = false;
+                GroupTabPage.TabVisible = false;
+                BusyTabPage.TabVisible = false;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Activates the schema tab.
+        /// </summary>
+        private void ActivateGroupTab( )
+        {
+            try
+            {
+                QueryTabControl.SelectedIndex = 2;
+                SourceTabPage.TabVisible = true;
+                ReadyTabPage.TabVisible = true;
+                FilterTabPage.TabVisible = false;
+                GroupTabPage.TabVisible = false;
+                BusyTabPage.TabVisible = false;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Activates the busy tab.
+        /// </summary>
+        private void ActivateBusyTab( )
+        {
+            try
+            {
+                QueryTabControl.SelectedIndex = 4;
+                BusyTabPage.TabVisible = true;
+                ReadyTabPage.TabVisible = false;
+                SourceTabPage.TabVisible = false;
+                FilterTabPage.TabVisible = false;
+                GroupTabPage.TabVisible = false;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Binds the data.
         /// </summary>
         private void BindData( )
@@ -1165,8 +1240,8 @@ namespace BudgetExecution
             {
                 ThrowIf.Null( where, nameof( where ) );
                 Filter = where;
-                SqlCommand = CreateSqlCommand( where );
-                DataModel = new DataBuilder( Source, Provider, SqlCommand );
+                SqlQuery = CreateSqlCommand( where );
+                DataModel = new DataBuilder( Source, Provider, SqlQuery );
                 DataTable = DataModel.DataTable;
                 SelectedTable = DataTable.TableName;
                 BindingSource.DataSource = DataTable;
@@ -1192,8 +1267,8 @@ namespace BudgetExecution
             {
                 ThrowIf.Null( cols, nameof( cols ) );
                 ThrowIf.Null( where, nameof( where ) );
-                SqlCommand = CreateSqlCommand( cols, where );
-                DataModel = new DataBuilder( Source, Provider, SqlCommand );
+                SqlQuery = CreateSqlCommand( cols, where );
+                DataModel = new DataBuilder( Source, Provider, SqlQuery );
                 DataTable = DataModel.DataTable;
                 BindingSource.DataSource = DataTable;
                 ToolStrip.BindingSource = BindingSource;
@@ -1221,8 +1296,8 @@ namespace BudgetExecution
                 ThrowIf.Null( fields, nameof( fields ) );
                 ThrowIf.Null( numerics, nameof( numerics ) );
                 ThrowIf.Null( where, nameof( where ) );
-                SqlCommand = CreateSqlCommand( fields, numerics, where );
-                DataModel = new DataBuilder( Source, Provider, SqlCommand );
+                SqlQuery = CreateSqlCommand( fields, numerics, where );
+                DataModel = new DataBuilder( Source, Provider, SqlQuery );
                 DataTable = DataModel.DataTable;
                 BindingSource.DataSource = DataTable;
                 ToolStrip.BindingSource = BindingSource;
@@ -1269,7 +1344,7 @@ namespace BudgetExecution
                 DataArgs.SelectedTable = SelectedTable;
                 DataArgs.SelectedFields = SelectedFields;
                 DataArgs.SelectedNumerics = SelectedNumerics;
-                DataArgs.SqlQuery = SqlCommand;
+                DataArgs.SqlQuery = SqlQuery;
             }
             catch( Exception _ex )
             {
@@ -1803,7 +1878,7 @@ namespace BudgetExecution
                 {
                     case 0:
                     {
-                        TableTabPage.TabVisible = true;
+                        SourceTabPage.TabVisible = true;
                         FilterTabPage.TabVisible = false;
                         GroupTabPage.TabVisible = false;
                         ToolStripComboBox.Visible = false;
@@ -1813,7 +1888,7 @@ namespace BudgetExecution
                     }
                     case 1:
                     {
-                        TableTabPage.TabVisible = false;
+                        SourceTabPage.TabVisible = false;
                         FilterTabPage.TabVisible = true;
                         GroupTabPage.TabVisible = false;
                         ToolStripComboBox.Visible = true;
@@ -1826,7 +1901,7 @@ namespace BudgetExecution
                     case 2:
                     {
                         GroupTabPage.TabVisible = true;
-                        TableTabPage.TabVisible = false;
+                        SourceTabPage.TabVisible = false;
                         FilterTabPage.TabVisible = false;
                         ToolStripComboBox.Visible = true;
                         ChartLabel.Visible = true;
@@ -1837,7 +1912,7 @@ namespace BudgetExecution
                     }
                     default:
                     {
-                        TableTabPage.TabVisible = true;
+                        SourceTabPage.TabVisible = true;
                         FilterTabPage.TabVisible = false;
                         GroupTabPage.TabVisible = false;
                         ToolStripComboBox.Visible = false;
@@ -1864,20 +1939,20 @@ namespace BudgetExecution
                 {
                     case 0:
                     {
-                        ReadyTab.TabVisible = true;
-                        BusyTab.TabVisible = false;
+                        ReadyTabPage.TabVisible = true;
+                        BusyTabPage.TabVisible = false;
                         break;
                     }
                     case 1:
                     {
-                        BusyTab.TabVisible = true;
-                        ReadyTab.TabVisible = false;
+                        BusyTabPage.TabVisible = true;
+                        ReadyTabPage.TabVisible = false;
                         break;
                     }
                     default:
                     {
-                        ReadyTab.TabVisible = true;
-                        BusyTab.TabVisible = false;
+                        ReadyTabPage.TabVisible = true;
+                        BusyTabPage.TabVisible = false;
                         break;
                     }
                 }
@@ -2174,10 +2249,10 @@ namespace BudgetExecution
                 Text = string.Empty;
                 ToolStrip.Visible = true;
                 QueryTabControl.SelectedIndex = 0;
-                TableTabPage.TabVisible = true;
+                SourceTabPage.TabVisible = true;
                 FilterTabPage.TabVisible = false;
                 GroupTabPage.TabVisible = false;
-                BusyTab.TabVisible = false;
+                BusyTabPage.TabVisible = false;
                 ClearLabels( );
                 PopulateToolStripComboBoxItems( );
                 PopulateExecutionTables( );
@@ -2199,6 +2274,24 @@ namespace BudgetExecution
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
         private void OnActiveTabChanged( object sender, EventArgs e )
+        {
+            try
+            {
+                SetActiveDataTab( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [active tab changed].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnQueryTabChanged( object sender, EventArgs e )
         {
             try
             {
@@ -2309,8 +2402,8 @@ namespace BudgetExecution
                         GroupSeparator.Visible = true;
                     }
 
-                    SqlCommand = CreateSqlCommand( Filter );
-                    BindData( SqlCommand );
+                    SqlQuery = CreateSqlCommand( Filter );
+                    BindData( SqlQuery );
                     UpdateMetrics( );
                     BindChart( );
                 }
@@ -2333,7 +2426,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    SqlCommand = string.Empty;
+                    SqlQuery = string.Empty;
                     SecondCategory = string.Empty;
                     SecondValue = string.Empty;
                     ThirdCategory = string.Empty;
@@ -2384,8 +2477,8 @@ namespace BudgetExecution
                         ThirdTable.Visible = true;
                     }
 
-                    SqlCommand = CreateSqlCommand( Filter );
-                    BindData( SqlCommand );
+                    SqlQuery = CreateSqlCommand( Filter );
+                    BindData( SqlQuery );
                     UpdateMetrics( );
                     BindChart( );
                 }
@@ -2408,7 +2501,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    SqlCommand = string.Empty;
+                    SqlQuery = string.Empty;
                     ThirdCategory = string.Empty;
                     ThirdValue = string.Empty;
                     if( ThirdListBox.Items?.Count > 0 )
@@ -2460,8 +2553,8 @@ namespace BudgetExecution
                     Filter[ FirstCategory ] = FirstValue;
                     Filter[ SecondCategory ] = SecondValue;
                     Filter[ ThirdCategory ] = ThirdValue;
-                    SqlCommand = CreateSqlCommand( Filter );
-                    BindData( SqlCommand );
+                    SqlQuery = CreateSqlCommand( Filter );
+                    BindData( SqlQuery );
                     UpdateMetrics( );
                     BindChart( );
                 }
@@ -2562,7 +2655,7 @@ namespace BudgetExecution
         {
             try
             {
-                SqlCommand = string.Empty;
+                SqlQuery = string.Empty;
                 var _selectedItem = FieldListBox.SelectedItem.ToString( );
                 PopulateNumericListBox( );
                 if( !string.IsNullOrEmpty( _selectedItem ) )
@@ -2634,7 +2727,6 @@ namespace BudgetExecution
         {
             try
             {
-                QueryTabControl.SelectedIndex = 0;
                 SelectedTable = string.Empty;
                 BindingSource.DataSource = null;
                 ClearCollections( );
@@ -2642,6 +2734,8 @@ namespace BudgetExecution
                 ClearComboBoxes( );
                 ClearListBoxes( );
                 UpdateMetrics( );
+                QueryTabControl.SelectedIndex = 0;
+                SetActiveQueryTab( );
             }
             catch( Exception ex )
             {

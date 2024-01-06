@@ -51,8 +51,6 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Chart;
     using Syncfusion.Windows.Forms.Tools;
-    using Action = System.Action;
-    using Timer = System.Windows.Forms.Timer;
 
     /// <summary>
     /// 
@@ -68,7 +66,7 @@ namespace BudgetExecution
         /// <summary>
         /// The status update
         /// </summary>
-        private Action _statusUpdate;
+        private System.Action _statusUpdate;
 
         /// <summary>
         /// The busy
@@ -226,7 +224,7 @@ namespace BudgetExecution
             MetroColor = Color.FromArgb( 20, 20, 20 );
             CaptionBarHeight = 5;
             CaptionAlign = HorizontalAlignment.Center;
-            CaptionFont = new Font( "Roboto", 12, FontStyle.Regular );
+            CaptionFont = new Font( "Roboto", 10, FontStyle.Regular );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionForeColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
@@ -394,7 +392,7 @@ namespace BudgetExecution
         /// <param name="action">
         /// The action.
         /// </param>
-        public void InvokeIf( Action action )
+        public void InvokeIf( System.Action action )
         {
             if( InvokeRequired )
             {

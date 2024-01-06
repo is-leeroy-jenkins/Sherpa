@@ -111,7 +111,7 @@ namespace BudgetExecution
         /// <value>
         /// The form filter.
         /// </value>
-        public IDictionary<string, object> FormFilter { get; set; }
+        public IDictionary<string, object> Filter { get; set; }
 
         /// <summary>
         /// Gets or sets the prefix.
@@ -376,14 +376,15 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Notifies this instance.
+        /// Sends the notification.
         /// </summary>
-        private void Notify( )
+        /// <param name="message">The message.</param>
+        private void SendNotification( string message )
         {
             try
             {
-                var _message = "THIS IS NOT YET IMPLEMENTED!";
-                var _notification = new SplashMessage( _message );
+                ThrowIf.NullOrEmpty( message, nameof( message ) );
+                var _notification = new SplashMessage( message );
                 _notification.Show( );
             }
             catch( Exception _ex )
@@ -413,21 +414,6 @@ namespace BudgetExecution
                 {
                     ListBox.Items?.Add( _name );
                 }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Updates the title text.
-        /// </summary>
-        private void UpdateTitleText( )
-        {
-            try
-            {
-                Notify( );
             }
             catch( Exception _ex )
             {

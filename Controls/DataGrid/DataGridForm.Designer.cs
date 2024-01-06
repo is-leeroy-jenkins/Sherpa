@@ -76,8 +76,8 @@
             Separator1 = new ToolSeparator( );
             Separator25 = new ToolSeparator( );
             toolSeparator24 = new ToolSeparator( );
-            SelectionTabControl = new TabControl( );
-            TableTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
+            QueryTabControl = new TabControl( );
+            SourceTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             SourceTable = new HeaderPanel( );
             TableComboBox = new ComboBox( );
             TablePanel = new BackPanel( );
@@ -158,9 +158,9 @@
             PictureBox = new System.Windows.Forms.PictureBox( );
             Timer = new System.Windows.Forms.Timer( components );
             GridHeaderPanel = new HeaderPanel( );
-            GridTabControl = new TabControl( );
-            Ready = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
-            Busy = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
+            DataTabControl = new TabControl( );
+            ReadyTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
+            BusyTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             Loader = new System.Windows.Forms.PictureBox( );
             ToolStripTable = new System.Windows.Forms.TableLayoutPanel( );
             ContextMenu = new ContextMenu( );
@@ -178,9 +178,9 @@
             FieldPanel.SuspendLayout( );
             FirstTable.SuspendLayout( );
             FirstListBoxPanel.SuspendLayout( );
-            ( (System.ComponentModel.ISupportInitialize)SelectionTabControl ).BeginInit( );
-            SelectionTabControl.SuspendLayout( );
-            TableTabPage.SuspendLayout( );
+            ( (System.ComponentModel.ISupportInitialize)QueryTabControl ).BeginInit( );
+            QueryTabControl.SuspendLayout( );
+            SourceTabPage.SuspendLayout( );
             SourceTable.SuspendLayout( );
             TablePanel.SuspendLayout( );
             FilterTabPage.SuspendLayout( );
@@ -197,10 +197,10 @@
             HeaderTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
             GridHeaderPanel.SuspendLayout( );
-            ( (System.ComponentModel.ISupportInitialize)GridTabControl ).BeginInit( );
-            GridTabControl.SuspendLayout( );
-            Ready.SuspendLayout( );
-            Busy.SuspendLayout( );
+            ( (System.ComponentModel.ISupportInitialize)DataTabControl ).BeginInit( );
+            DataTabControl.SuspendLayout( );
+            ReadyTabPage.SuspendLayout( );
+            BusyTabPage.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)Loader ).BeginInit( );
             ToolStripTable.SuspendLayout( );
             SuspendLayout( );
@@ -1060,57 +1060,57 @@
             toolSeparator24.Padding = new System.Windows.Forms.Padding( 1 );
             toolSeparator24.Size = new System.Drawing.Size( 6, 26 );
             // 
-            // SelectionTabControl
+            // QueryTabControl
             // 
-            SelectionTabControl.ActiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            SelectionTabControl.ActiveTabFont = new System.Drawing.Font( "Roboto", 8F );
-            SelectionTabControl.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            SelectionTabControl.BeforeTouchSize = new System.Drawing.Size( 309, 632 );
-            SelectionTabControl.BindingSource = null;
-            SelectionTabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            SelectionTabControl.BorderWidth = 1;
-            SelectionTabControl.CanOverrideStyle = true;
-            SelectionTabControl.CloseButtonBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            SelectionTabControl.Controls.Add( TableTabPage );
-            SelectionTabControl.Controls.Add( FilterTabPage );
-            SelectionTabControl.Controls.Add( GroupTabPage );
-            SelectionTabControl.Controls.Add( CalendarTabPage );
-            SelectionTabControl.FixedSingleBorderColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            SelectionTabControl.FocusOnTabClick = false;
-            SelectionTabControl.Font = new System.Drawing.Font( "Roboto", 9F );
-            SelectionTabControl.ForeColor = System.Drawing.Color.LightGray;
-            SelectionTabControl.InactiveCloseButtonForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            SelectionTabControl.InactiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            SelectionTabControl.ItemSize = new System.Drawing.Size( 100, 10 );
-            SelectionTabControl.Location = new System.Drawing.Point( 1014, 36 );
-            SelectionTabControl.Name = "SelectionTabControl";
-            SelectionTabControl.Size = new System.Drawing.Size( 309, 632 );
-            SelectionTabControl.TabIndex = 44;
-            SelectionTabControl.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            SelectionTabControl.TabStyle = typeof( Syncfusion.Windows.Forms.Tools.TabRendererMetro );
-            SelectionTabControl.ThemeName = "TabRendererMetro";
-            SelectionTabControl.ThemeStyle.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            SelectionTabControl.ThemeStyle.BorderColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            SelectionTabControl.ThemeStyle.BorderFillColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            SelectionTabControl.ThemeStyle.PrimitiveButtonStyle.DisabledNextPageImage = null;
-            SelectionTabControl.ThemeStyle.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            SelectionTabControl.ThemeStyle.TabStyle.ActiveBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            SelectionTabControl.ThemeStyle.TabStyle.ActiveFont = new System.Drawing.Font( "Roboto", 8F );
-            SelectionTabControl.ThemeStyle.TabStyle.ActiveForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            SelectionTabControl.ThemeStyle.TabStyle.SeparatorColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            SelectionTabControl.ToolTip = ToolTip;
+            QueryTabControl.ActiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            QueryTabControl.ActiveTabFont = new System.Drawing.Font( "Roboto", 8F );
+            QueryTabControl.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            QueryTabControl.BeforeTouchSize = new System.Drawing.Size( 309, 632 );
+            QueryTabControl.BindingSource = null;
+            QueryTabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            QueryTabControl.BorderWidth = 1;
+            QueryTabControl.CanOverrideStyle = true;
+            QueryTabControl.CloseButtonBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            QueryTabControl.Controls.Add( SourceTabPage );
+            QueryTabControl.Controls.Add( FilterTabPage );
+            QueryTabControl.Controls.Add( GroupTabPage );
+            QueryTabControl.Controls.Add( CalendarTabPage );
+            QueryTabControl.FixedSingleBorderColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            QueryTabControl.FocusOnTabClick = false;
+            QueryTabControl.Font = new System.Drawing.Font( "Roboto", 9F );
+            QueryTabControl.ForeColor = System.Drawing.Color.LightGray;
+            QueryTabControl.InactiveCloseButtonForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            QueryTabControl.InactiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            QueryTabControl.ItemSize = new System.Drawing.Size( 100, 10 );
+            QueryTabControl.Location = new System.Drawing.Point( 1014, 36 );
+            QueryTabControl.Name = "QueryTabControl";
+            QueryTabControl.Size = new System.Drawing.Size( 309, 632 );
+            QueryTabControl.TabIndex = 44;
+            QueryTabControl.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            QueryTabControl.TabStyle = typeof( Syncfusion.Windows.Forms.Tools.TabRendererMetro );
+            QueryTabControl.ThemeName = "TabRendererMetro";
+            QueryTabControl.ThemeStyle.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            QueryTabControl.ThemeStyle.BorderColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            QueryTabControl.ThemeStyle.BorderFillColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            QueryTabControl.ThemeStyle.PrimitiveButtonStyle.DisabledNextPageImage = null;
+            QueryTabControl.ThemeStyle.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            QueryTabControl.ThemeStyle.TabStyle.ActiveBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            QueryTabControl.ThemeStyle.TabStyle.ActiveFont = new System.Drawing.Font( "Roboto", 8F );
+            QueryTabControl.ThemeStyle.TabStyle.ActiveForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            QueryTabControl.ThemeStyle.TabStyle.SeparatorColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            QueryTabControl.ToolTip = ToolTip;
             // 
-            // TableTabPage
+            // SourceTabPage
             // 
-            TableTabPage.Controls.Add( SourceTable );
-            TableTabPage.Image = null;
-            TableTabPage.ImageSize = new System.Drawing.Size( 16, 16 );
-            TableTabPage.Location = new System.Drawing.Point( 0, 9 );
-            TableTabPage.Name = "TableTabPage";
-            TableTabPage.ShowCloseButton = true;
-            TableTabPage.Size = new System.Drawing.Size( 309, 623 );
-            TableTabPage.TabIndex = 5;
-            TableTabPage.ThemesEnabled = false;
+            SourceTabPage.Controls.Add( SourceTable );
+            SourceTabPage.Image = null;
+            SourceTabPage.ImageSize = new System.Drawing.Size( 16, 16 );
+            SourceTabPage.Location = new System.Drawing.Point( 0, 9 );
+            SourceTabPage.Name = "SourceTabPage";
+            SourceTabPage.ShowCloseButton = true;
+            SourceTabPage.Size = new System.Drawing.Size( 309, 623 );
+            SourceTabPage.TabIndex = 5;
+            SourceTabPage.ThemesEnabled = false;
             // 
             // SourceTable
             // 
@@ -2287,7 +2287,7 @@
             ToolStripTextBox.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             ToolStripTextBox.Name = "ToolStripTextBox";
             ToolStripTextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Size = new System.Drawing.Size( 278, 25 );
+            ToolStripTextBox.Size = new System.Drawing.Size( 266, 25 );
             ToolStripTextBox.Tag = "";
             ToolStripTextBox.ToolTip = ToolTip;
             // 
@@ -2458,7 +2458,7 @@
             PictureBox.InitialImage = null;
             PictureBox.Location = new System.Drawing.Point( 3, 3 );
             PictureBox.Name = "PictureBox";
-            PictureBox.Size = new System.Drawing.Size( 33, 26 );
+            PictureBox.Size = new System.Drawing.Size( 24, 20 );
             PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             PictureBox.TabIndex = 54;
             PictureBox.TabStop = false;
@@ -2477,7 +2477,7 @@
             GridHeaderPanel.ColumnCount = 1;
             GridHeaderPanel.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
             GridHeaderPanel.Controls.Add( DataLabelTable, 0, 0 );
-            GridHeaderPanel.Controls.Add( GridTabControl, 0, 1 );
+            GridHeaderPanel.Controls.Add( DataTabControl, 0, 1 );
             GridHeaderPanel.Font = new System.Drawing.Font( "Roboto", 9F );
             GridHeaderPanel.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             GridHeaderPanel.Location = new System.Drawing.Point( 3, 60 );
@@ -2489,69 +2489,69 @@
             GridHeaderPanel.Size = new System.Drawing.Size( 1005, 600 );
             GridHeaderPanel.TabIndex = 54;
             // 
-            // GridTabControl
+            // DataTabControl
             // 
-            GridTabControl.ActiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            GridTabControl.ActiveTabFont = new System.Drawing.Font( "Roboto", 8F );
-            GridTabControl.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            GridTabControl.BeforeTouchSize = new System.Drawing.Size( 999, 543 );
-            GridTabControl.BindingSource = null;
-            GridTabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            GridTabControl.CanOverrideStyle = true;
-            GridTabControl.CloseButtonBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            GridTabControl.Controls.Add( Ready );
-            GridTabControl.Controls.Add( Busy );
-            GridTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            GridTabControl.FocusOnTabClick = false;
-            GridTabControl.Font = new System.Drawing.Font( "Roboto", 9F );
-            GridTabControl.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            GridTabControl.InactiveCloseButtonForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            GridTabControl.InactiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            GridTabControl.ItemSize = new System.Drawing.Size( 100, 5 );
-            GridTabControl.Location = new System.Drawing.Point( 3, 54 );
-            GridTabControl.Name = "GridTabControl";
-            GridTabControl.Size = new System.Drawing.Size( 999, 543 );
-            GridTabControl.TabIndex = 0;
-            GridTabControl.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            GridTabControl.TabStyle = typeof( Syncfusion.Windows.Forms.Tools.TabRendererMetro );
-            GridTabControl.ThemeName = "TabRendererMetro";
-            GridTabControl.ThemeStyle.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            GridTabControl.ThemeStyle.BorderColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            GridTabControl.ThemeStyle.BorderFillColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            GridTabControl.ThemeStyle.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            GridTabControl.ThemeStyle.TabStyle.ActiveBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            GridTabControl.ThemeStyle.TabStyle.ActiveFont = new System.Drawing.Font( "Roboto", 8F );
-            GridTabControl.ThemeStyle.TabStyle.ActiveForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            GridTabControl.ThemeStyle.TabStyle.SeparatorColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            GridTabControl.ToolTip = null;
+            DataTabControl.ActiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            DataTabControl.ActiveTabFont = new System.Drawing.Font( "Roboto", 8F );
+            DataTabControl.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            DataTabControl.BeforeTouchSize = new System.Drawing.Size( 999, 543 );
+            DataTabControl.BindingSource = null;
+            DataTabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            DataTabControl.CanOverrideStyle = true;
+            DataTabControl.CloseButtonBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            DataTabControl.Controls.Add( ReadyTabPage );
+            DataTabControl.Controls.Add( BusyTabPage );
+            DataTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            DataTabControl.FocusOnTabClick = false;
+            DataTabControl.Font = new System.Drawing.Font( "Roboto", 9F );
+            DataTabControl.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            DataTabControl.InactiveCloseButtonForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            DataTabControl.InactiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            DataTabControl.ItemSize = new System.Drawing.Size( 100, 5 );
+            DataTabControl.Location = new System.Drawing.Point( 3, 54 );
+            DataTabControl.Name = "DataTabControl";
+            DataTabControl.Size = new System.Drawing.Size( 999, 543 );
+            DataTabControl.TabIndex = 0;
+            DataTabControl.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            DataTabControl.TabStyle = typeof( Syncfusion.Windows.Forms.Tools.TabRendererMetro );
+            DataTabControl.ThemeName = "TabRendererMetro";
+            DataTabControl.ThemeStyle.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            DataTabControl.ThemeStyle.BorderColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            DataTabControl.ThemeStyle.BorderFillColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            DataTabControl.ThemeStyle.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            DataTabControl.ThemeStyle.TabStyle.ActiveBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            DataTabControl.ThemeStyle.TabStyle.ActiveFont = new System.Drawing.Font( "Roboto", 8F );
+            DataTabControl.ThemeStyle.TabStyle.ActiveForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            DataTabControl.ThemeStyle.TabStyle.SeparatorColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            DataTabControl.ToolTip = null;
             // 
-            // Ready
+            // ReadyTabPage
             // 
-            Ready.Controls.Add( DataGridPanel );
-            Ready.Image = null;
-            Ready.ImageSize = new System.Drawing.Size( 16, 16 );
-            Ready.Location = new System.Drawing.Point( 0, 4 );
-            Ready.Name = "Ready";
-            Ready.ShowCloseButton = true;
-            Ready.Size = new System.Drawing.Size( 999, 539 );
-            Ready.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            Ready.TabForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            Ready.TabIndex = 1;
-            Ready.ThemesEnabled = false;
+            ReadyTabPage.Controls.Add( DataGridPanel );
+            ReadyTabPage.Image = null;
+            ReadyTabPage.ImageSize = new System.Drawing.Size( 16, 16 );
+            ReadyTabPage.Location = new System.Drawing.Point( 0, 4 );
+            ReadyTabPage.Name = "ReadyTabPage";
+            ReadyTabPage.ShowCloseButton = true;
+            ReadyTabPage.Size = new System.Drawing.Size( 999, 539 );
+            ReadyTabPage.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            ReadyTabPage.TabForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ReadyTabPage.TabIndex = 1;
+            ReadyTabPage.ThemesEnabled = false;
             // 
-            // Busy
+            // BusyTabPage
             // 
-            Busy.Controls.Add( Loader );
-            Busy.Image = null;
-            Busy.ImageSize = new System.Drawing.Size( 16, 16 );
-            Busy.Location = new System.Drawing.Point( 0, 4 );
-            Busy.Name = "Busy";
-            Busy.ShowCloseButton = true;
-            Busy.Size = new System.Drawing.Size( 999, 539 );
-            Busy.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            Busy.TabForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            Busy.TabIndex = 2;
-            Busy.ThemesEnabled = false;
+            BusyTabPage.Controls.Add( Loader );
+            BusyTabPage.Image = null;
+            BusyTabPage.ImageSize = new System.Drawing.Size( 16, 16 );
+            BusyTabPage.Location = new System.Drawing.Point( 0, 4 );
+            BusyTabPage.Name = "BusyTabPage";
+            BusyTabPage.ShowCloseButton = true;
+            BusyTabPage.Size = new System.Drawing.Size( 999, 539 );
+            BusyTabPage.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            BusyTabPage.TabForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            BusyTabPage.TabIndex = 2;
+            BusyTabPage.ThemesEnabled = false;
             // 
             // Loader
             // 
@@ -2615,7 +2615,7 @@
             Controls.Add( ProviderTable );
             Controls.Add( GridHeaderPanel );
             Controls.Add( HeaderTable );
-            Controls.Add( SelectionTabControl );
+            Controls.Add( QueryTabControl );
             Controls.Add( SqlHeader );
             Font = new System.Drawing.Font( "Roboto", 9F );
             ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
@@ -2648,9 +2648,9 @@
             FieldPanel.ResumeLayout( false );
             FirstTable.ResumeLayout( false );
             FirstListBoxPanel.ResumeLayout( false );
-            ( (System.ComponentModel.ISupportInitialize)SelectionTabControl ).EndInit( );
-            SelectionTabControl.ResumeLayout( false );
-            TableTabPage.ResumeLayout( false );
+            ( (System.ComponentModel.ISupportInitialize)QueryTabControl ).EndInit( );
+            QueryTabControl.ResumeLayout( false );
+            SourceTabPage.ResumeLayout( false );
             SourceTable.ResumeLayout( false );
             TablePanel.ResumeLayout( false );
             FilterTabPage.ResumeLayout( false );
@@ -2668,10 +2668,10 @@
             HeaderTable.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).EndInit( );
             GridHeaderPanel.ResumeLayout( false );
-            ( (System.ComponentModel.ISupportInitialize)GridTabControl ).EndInit( );
-            GridTabControl.ResumeLayout( false );
-            Ready.ResumeLayout( false );
-            Busy.ResumeLayout( false );
+            ( (System.ComponentModel.ISupportInitialize)DataTabControl ).EndInit( );
+            DataTabControl.ResumeLayout( false );
+            ReadyTabPage.ResumeLayout( false );
+            BusyTabPage.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize)Loader ).EndInit( );
             ToolStripTable.ResumeLayout( false );
             ToolStripTable.PerformLayout( );
@@ -2699,7 +2699,7 @@
         public Label GridLabel4;
         public System.Windows.Forms.TableLayoutPanel DataLabelTable;
         public Label GridLabel2;
-        public TabControl SelectionTabControl;
+        public TabControl QueryTabControl;
         public Syncfusion.Windows.Forms.Tools.TabPageAdv FilterTabPage;
         public ComboBox SecondComboBox;
         public BackPanel SecondListBoxPanel;
@@ -2722,7 +2722,7 @@
         public BackPanel FirstCalendarPanel;
         public BackPanel NumericPanel;
         public ListBox NumericListBox;
-        public Syncfusion.Windows.Forms.Tools.TabPageAdv TableTabPage;
+        public Syncfusion.Windows.Forms.Tools.TabPageAdv SourceTabPage;
         public ToolSeparator ToolStripSeparator;
         public ToolSeparator TextBoxSeparator;
         public ToolStripButton FirstButton;
@@ -2799,10 +2799,9 @@
         public ToolStripTextBox ToolStripTextBox;
         public ToolSeparator ToolSeparator1;
         private HeaderPanel GridHeaderPanel;
-        private TabControl GridTabControl;
-        private Syncfusion.Windows.Forms.Tools.TabPageAdv Busy;
+        private TabControl DataTabControl;
         public System.Windows.Forms.PictureBox Loader;
-        private Syncfusion.Windows.Forms.Tools.TabPageAdv Ready;
+        private Syncfusion.Windows.Forms.Tools.TabPageAdv ReadyTab;
         public System.Windows.Forms.TableLayoutPanel ToolStripTable;
         public ToolStripLabel StatusLabel;
         public ToolStripLabel DataLabel;
@@ -2813,5 +2812,7 @@
         private ContextMenu ContextMenu;
         public ToolSeparator ApplicationSeparator;
         public ToolStripLabel ApplicationLabel;
+        public Syncfusion.Windows.Forms.Tools.TabPageAdv BusyTabPage;
+        public Syncfusion.Windows.Forms.Tools.TabPageAdv ReadyTabPage;
     }
 }

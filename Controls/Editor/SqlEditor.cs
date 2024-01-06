@@ -728,6 +728,125 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Activates the SQL tab.
+        /// </summary>
+        private void ActivateSqlTab( )
+        {
+            try
+            {
+                TabControl.SelectedIndex = 0;
+                SqlTabPage.TabVisible = true;
+                LookupTabPage.TabVisible = false;
+                DataTabPage.TabVisible = false;
+                SchemaTabPage.TabVisible = false;
+                BusyTabPage.TabVisible = false;
+                Title.Text = GetTitleText( ) + "| SQL Editor";
+                Title.TextAlign = ContentAlignment.TopLeft;
+                Commands = CreateCommandList( Provider );
+                PopulateSqlComboBox( Commands );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Activates the lookup tab.
+        /// </summary>
+        private void ActivateLookupTab( )
+        {
+            try
+            {
+                TabControl.SelectedIndex = 1;
+                LookupTabPage.TabVisible = true;
+                SqlTabPage.TabVisible = false;
+                DataTabPage.TabVisible = false;
+                SchemaTabPage.TabVisible = false;
+                BusyTabPage.TabVisible = false;
+                PopulateTableListBoxItems( );
+                Title.Text = GetTitleText( ) + "| Data Look-Up";
+                TableListBox.SelectedValue = string.Empty;
+                ColumnListBox.SelectedValue = string.Empty;
+                ValueListBox.SelectedValue = string.Empty;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Activates the data tab.
+        /// </summary>
+        private void ActivateDataTab( )
+        {
+            try
+            {
+                TabControl.SelectedIndex = 2;
+                DataTabPage.TabVisible = true;
+                SqlTabPage.TabVisible = false;
+                LookupTabPage.TabVisible = false;
+                SchemaTabPage.TabVisible = false;
+                BusyTabPage.TabVisible = false;
+                Title.Text = GetTitleText( )
+                    + $"| {Source.ToString( ).SplitPascal( )} Data Table";
+
+                PopulateTableListBoxItems( );
+                Commands = CreateCommandList( Provider );
+                PopulateSqlComboBox( Commands );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Activates the schema tab.
+        /// </summary>
+        private void ActivateSchemaTab( )
+        {
+            try
+            {
+                TabControl.SelectedIndex = 3;
+                SchemaTabPage.TabVisible = true;
+                SqlTabPage.TabVisible = false;
+                LookupTabPage.TabVisible = false;
+                DataTabPage.TabVisible = false;
+                BusyTabPage.TabVisible = false;
+                PopulateTableComboBoxItems( );
+                DataTypes = GetDataTypes( Provider );
+                PopulateDataTypeComboBoxItems( DataTypes );
+                Title.Text = GetTitleText( ) + "| Schema Editor";
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Activates the busy tab.
+        /// </summary>
+        private void ActivateBusyTab( )
+        {
+            try
+            {
+                TabControl.SelectedIndex = 4;
+                BusyTabPage.TabVisible = true;
+                SqlTabPage.TabVisible = false;
+                LookupTabPage.TabVisible = false;
+                DataTabPage.TabVisible = false;
+                SchemaTabPage.TabVisible = false;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Clears the list boxes.
         /// </summary>
         private void ClearListBoxes( )
@@ -905,7 +1024,7 @@ namespace BudgetExecution
         /// </summary>
         /// <returns>
         /// </returns>
-        private string GetTitlePrefix( )
+        private string GetTitleText( )
         {
             try
             {
@@ -935,70 +1054,31 @@ namespace BudgetExecution
                 case 0:
                 {
                     // SQL Tab
-                    SqlTab.TabVisible = true;
-                    DataTab.TabVisible = false;
-                    LookupTab.TabVisible = false;
-                    SchemaTab.TabVisible = false;
-                    Busy.TabVisible = false;
-                    Title.Text = GetTitlePrefix( ) + "| SQL Editor";
-                    Title.TextAlign = ContentAlignment.TopLeft;
-                    Commands = CreateCommandList( Provider );
-                    PopulateSqlComboBox( Commands );
+                    ActivateSqlTab( );
                     break;
                 }
                 case 1:
                 {
                     // Data Tab
-                    DataTab.TabVisible = true;
-                    LookupTab.TabVisible = false;
-                    SchemaTab.TabVisible = false;
-                    SqlTab.TabVisible = false;
-                    Busy.TabVisible = false;
-                    Title.Text = GetTitlePrefix( )
-                        + $"| {Source.ToString( ).SplitPascal( )} Data Table";
-
-                    PopulateTableListBoxItems( );
-                    Commands = CreateCommandList( Provider );
-                    PopulateSqlComboBox( Commands );
+                    ActivateDataTab( );
                     break;
                 }
                 case 2:
                 {
                     // Lookup Tab
-                    LookupTab.TabVisible = true;
-                    DataTab.TabVisible = false;
-                    SchemaTab.TabVisible = false;
-                    SqlTab.TabVisible = false;
-                    Busy.TabVisible = false;
-                    PopulateTableListBoxItems( );
-                    Title.Text = GetTitlePrefix( ) + "| Data Look-Up";
-                    TableListBox.SelectedValue = string.Empty;
-                    ColumnListBox.SelectedValue = string.Empty;
-                    ValueListBox.SelectedValue = string.Empty;
+                    ActivateLookupTab( );
                     break;
                 }
                 case 3:
                 {
                     // Schema Tab
-                    SchemaTab.TabVisible = true;
-                    DataTab.TabVisible = false;
-                    LookupTab.TabVisible = false;
-                    SqlTab.TabVisible = false;
-                    Busy.TabVisible = false;
-                    PopulateTableComboBoxItems( );
-                    DataTypes = GetDataTypes( Provider );
-                    PopulateDataTypeComboBoxItems( DataTypes );
-                    Title.Text = GetTitlePrefix( ) + "| Schema Editor";
+                    ActivateSchemaTab( );
                     break;
                 }
                 case 4:
                 {
                     // Busy Tab
-                    Busy.TabVisible = true;
-                    SchemaTab.TabVisible = false;
-                    DataTab.TabVisible = false;
-                    LookupTab.TabVisible = false;
-                    SqlTab.TabVisible = false;
+                    ActivateBusyTab( );
                     break;
                 }
             }
