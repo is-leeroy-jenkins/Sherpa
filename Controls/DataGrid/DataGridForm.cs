@@ -2309,7 +2309,7 @@ namespace BudgetExecution
                 try
                 {
                     SetIcon( _button.ToolType );
-                    var _dialog = new EditWindow( Source, Provider );
+                    var _dialog = new EditScreen( Source, Provider );
                     _dialog?.ShowDialog( this );
                     SetFormIcon( );
                 }
@@ -2333,7 +2333,7 @@ namespace BudgetExecution
                 try
                 {
                     SetIcon( _button.ToolType );
-                    var _dialog = new SchemaWindow( _button.ToolType, BindingSource );
+                    var _dialog = new SchemaScreeen( _button.ToolType, BindingSource );
                     _dialog?.ShowDialog( this );
                     SetFormIcon( );
                 }
@@ -2378,7 +2378,7 @@ namespace BudgetExecution
                 try
                 {
                     SetIcon( _button.ToolType );
-                    var _sqlDialog = new SqlWindow( Source, Provider );
+                    var _sqlDialog = new SqlScreen( Source, Provider );
                     _sqlDialog.ShowDialog( this );
                     SetFormIcon( );
                 }

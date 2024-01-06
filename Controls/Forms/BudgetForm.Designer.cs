@@ -33,6 +33,7 @@
             BindingSource = new System.Windows.Forms.BindingSource( components );
             Header = new System.Windows.Forms.TableLayoutPanel( );
             PictureBox = new System.Windows.Forms.PictureBox( );
+            Style = new MetroSet_UI.Components.StyleManager( );
             Timer = new System.Windows.Forms.Timer( components );
             toolStripMenuItemExt1 = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt( );
             toolStripMenuItemExt2 = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt( );
@@ -41,7 +42,6 @@
             toolStripMenuItemExt5 = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt( );
             toolStripMenuItemExt6 = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt( );
             toolStripMenuItemExt7 = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt( );
-            Style = new MetroSet_UI.Components.StyleManager( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
             Header.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
@@ -49,9 +49,10 @@
             // 
             // Header
             // 
-            Header.ColumnCount = 2;
+            Header.ColumnCount = 3;
             Header.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 2.316891F ) );
             Header.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 97.6831055F ) );
+            Header.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 151F ) );
             Header.Controls.Add( PictureBox, 0, 0 );
             Header.Dock = System.Windows.Forms.DockStyle.Top;
             Header.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
@@ -67,10 +68,18 @@
             PictureBox.Image = (System.Drawing.Image)resources.GetObject( "PictureBox.Image" );
             PictureBox.Location = new System.Drawing.Point( 3, 3 );
             PictureBox.Name = "PictureBox";
-            PictureBox.Size = new System.Drawing.Size( 22, 18 );
+            PictureBox.Size = new System.Drawing.Size( 21, 18 );
             PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             PictureBox.TabIndex = 0;
             PictureBox.TabStop = false;
+            // 
+            // Style
+            // 
+            Style.CustomTheme = "C:\\Users\\terry\\AppData\\Roaming\\Microsoft\\Windows\\Templates\\ThemeFile.xml";
+            Style.MetroForm = this;
+            Style.Style = MetroSet_UI.Enums.Style.Custom;
+            Style.ThemeAuthor = "Terry D. Eppler";
+            Style.ThemeName = "Budget Execution";
             // 
             // toolStripMenuItemExt1
             // 
@@ -113,14 +122,6 @@
             toolStripMenuItemExt7.Name = "toolStripMenuItemExt7";
             toolStripMenuItemExt7.Size = new System.Drawing.Size( 198, 22 );
             toolStripMenuItemExt7.Text = "toolStripMenuItemExt7";
-            // 
-            // Style
-            // 
-            Style.CustomTheme = "C:\\Users\\terry\\AppData\\Roaming\\Microsoft\\Windows\\Templates\\ThemeFile.xml";
-            Style.MetroForm = this;
-            Style.Style = MetroSet_UI.Enums.Style.Custom;
-            Style.ThemeAuthor = "Terry D. Eppler";
-            Style.ThemeName = "Budget Execution";
             // 
             // BudgetForm
             // 

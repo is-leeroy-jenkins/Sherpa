@@ -92,13 +92,13 @@
     <Compile Update="Controls\Dialogs\ColumnConfiguration.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\Window\SchemaWindow.cs">
+    <Compile Update="Controls\Screens\SchemaScreeen.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Controls\Delay\DelayDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\Window\EditWindow.cs">
+    <Compile Update="Controls\Screens\EditScreen.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Controls\Dialogs\EmailDialog.cs">
@@ -107,13 +107,13 @@
     <Compile Update="Controls\Dialogs\ErrorDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\Window\FilterWindow.cs">
+    <Compile Update="Controls\Screens\FilterScreen.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Controls\Dialogs\GuidanceDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\Window\LookupWindow.cs">
+    <Compile Update="Controls\Screens\LookupScreen.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Controls\Dialogs\MessageDialog.cs">
@@ -122,7 +122,7 @@
     <Compile Update="Controls\Dialogs\ProgramProjectDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Controls\Window\SqlWindow.cs">
+    <Compile Update="Controls\Screens\SqlScreen.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Controls\Dialogs\TextDialog.cs">

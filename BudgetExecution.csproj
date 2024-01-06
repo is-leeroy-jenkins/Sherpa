@@ -57,6 +57,7 @@
     <Content Include="Resources\Pictures\Forms\Application.ico" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="DocumentFormat.OpenXml" Version="3.0.0" />
     <PackageReference Include="EPPlus" Version="7.0.2" />
     <PackageReference Include="GMap.NET.WinForms" Version="2.1.7" />
     <PackageReference Include="Google.Apis" Version="1.64.0" />
@@ -124,9 +125,6 @@
     <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
     <PackageReference Include="System.Xml.XDocument" Version="4.3.0" />
     <PackageReference Include="WinForms.DataVisualization" Version="1.9.1" />
-    <PackageReference Include="WinFormsMapControl" Version="1.1.0" />
-    <PackageReference Include="Zeroit.Framework.BasicCharts" Version="1.0.0" />
-    <PackageReference Include="Zeroit.Framework.Metro" Version="1.0.0" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="C1.Win.4.8">
@@ -189,6 +187,9 @@
     </Reference>
     <Reference Include="WinFormsExcel">
       <HintPath>Libraries\WinFormsExcel.dll</HintPath>
+    </Reference>
+    <Reference Include="Zeroit.Framework.BasicCharts">
+      <HintPath>Libraries\Zeroit.Framework.BasicCharts.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

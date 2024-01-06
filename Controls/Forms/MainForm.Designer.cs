@@ -117,13 +117,13 @@ namespace BudgetExecution
             SqlCeTile = new Tile( );
             ChromeTile = new Tile( );
             EdgeTile = new Tile( );
+            BindingSource = new System.Windows.Forms.BindingSource( components );
             FirefoxTile = new Tile( );
             CalendarTile = new Tile( );
             SqlEditorTile = new Tile( );
             ProgramProjectTile = new Tile( );
             MessageTile = new Tile( );
             MapTile = new Tile( );
-            BindingSource = new System.Windows.Forms.BindingSource( components );
             TestButton = new Button( );
             ExitButton = new Button( );
             BrowserTable = new HeaderPanel( );
@@ -916,7 +916,7 @@ namespace BudgetExecution
             TestButton.HoverText = null;
             TestButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             TestButton.IsDerivedStyle = true;
-            TestButton.Location = new System.Drawing.Point( 1248, 12 );
+            TestButton.Location = new System.Drawing.Point( 1060, 4 );
             TestButton.Name = "TestButton";
             TestButton.NormalBorderColor = System.Drawing.Color.Transparent;
             TestButton.NormalColor = System.Drawing.Color.Transparent;
@@ -948,7 +948,7 @@ namespace BudgetExecution
             ExitButton.HoverText = null;
             ExitButton.HoverTextColor = System.Drawing.Color.White;
             ExitButton.IsDerivedStyle = true;
-            ExitButton.Location = new System.Drawing.Point( 1248, 700 );
+            ExitButton.Location = new System.Drawing.Point( 1257, 709 );
             ExitButton.Name = "ExitButton";
             ExitButton.NormalBorderColor = System.Drawing.Color.Transparent;
             ExitButton.NormalColor = System.Drawing.Color.Transparent;

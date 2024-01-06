@@ -54,13 +54,13 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
+    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
+    [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
     public partial class MainForm : MetroForm
     {
         /// <summary>
@@ -95,7 +95,7 @@ namespace BudgetExecution
         public MainForm( )
         {
             InitializeComponent( );
-            RegisterCallbacks();
+            RegisterCallbacks( );
 
             // Basic Properties
             Name = nameof( MainForm );
@@ -142,7 +142,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the callbacks.
         /// </summary>
-        private void RegisterCallbacks()
+        private void RegisterCallbacks( )
         {
             try
             {
@@ -432,7 +432,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _editor = new EditWindow( );
+                var _editor = new EditScreen( );
                 _editor.Owner = this;
                 _editor.Show( );
                 Hide( );
@@ -450,7 +450,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _editor = new LookupWindow( );
+                var _editor = new LookupScreen( );
                 _editor.Owner = this;
                 _editor.Show( );
                 Hide( );

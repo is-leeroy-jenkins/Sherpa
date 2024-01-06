@@ -119,7 +119,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.Null( unit, "unit" );
+                ThrowIf.Null( unit, nameof( unit ) );
                 if( ( unit.Code?.Equals( Code ) == true )
                    && unit.Name.Equals( Name ) )
                 {
@@ -152,7 +152,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NoItems( dict, "dict" );
+                ThrowIf.Null( dict, nameof( dict ) );
                 var _name = dict.Keys?.First( );
                 var _value = dict[ _name ];
                 return _value.Equals( Code ) && _name.Equals( Name );
@@ -170,12 +170,15 @@ namespace BudgetExecution
         /// <param name="primary">The primary.</param>
         /// <param name="secondary">The secondary.</param>
         /// <returns>
-        ///   <c>true</c> if the specified primary is match; otherwise, <c>false</c>.
+        ///   <c>true</c> if the specified primary is match;
+        /// otherwise, <c>false</c>.
         /// </returns>
         public virtual bool IsMatch( IDataUnit primary, IDataUnit secondary )
         {
             try
             {
+                ThrowIf.Null( primary, nameof( primary ) );
+                ThrowIf.Null( secondary, nameof( secondary ) );
                 if( primary.Code.Equals( secondary.Code )
                    && primary.Name.Equals( secondary.Name ) )
                 {
@@ -201,6 +204,8 @@ namespace BudgetExecution
         {
             try
             {
+                ThrowIf.Null( dataRow, nameof( dataRow ) );
+                ThrowIf.NullOrEmpty( primaryKey, nameof( primaryKey ) );
                 return !string.IsNullOrEmpty( primaryKey ) && ( dataRow != null )
                     ? int.Parse( dataRow[ $"{primaryKey}" ].ToString( ) ?? string.Empty )
                     : -1;
@@ -219,13 +224,15 @@ namespace BudgetExecution
         /// <returns></returns>
         public virtual int GetId( DataRow dataRow )
         {
-            if( dataRow != null )
+            try
             {
+                ThrowIf.Null( dataRow, nameof( dataRow ) );
                 return int.Parse( dataRow[ 0 ].ToString( ) ?? "0" );
             }
-            else
+            catch( Exception _ex )
             {
-                return -1;
+                Fail( _ex );
+                return default( int );
             }
         }
 

@@ -43,6 +43,7 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Windows.Forms;
     using MetroSet_UI.Controls;
 
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
@@ -51,6 +52,9 @@ namespace BudgetExecution
         public ControlBox( )
         {
             Font = new Font( "Roboto", 9 );
+            Size = new Size( 100, 25 );
+            Margin = new Padding( 1 );
+            Padding = new Padding( 0 );
             ForeColor = Color.FromArgb( 106, 189, 252 );
             DisabledForeColor = Color.FromArgb( 20, 20, 20 );
             CloseHoverBackColor = Color.Maroon;

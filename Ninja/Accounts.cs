@@ -48,17 +48,21 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
     /// <summary> </summary>
-    /// <seealso cref="BudgetExecution.PRC"/>
+    /// <seealso cref="T:BudgetExecution.PRC" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameterInConstructor" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class Account : PRC
     {
-        /// <summary> Gets or sets the agency activity. </summary>
+        /// <summary>
+        /// Gets or sets the agency activity.
+        /// </summary>
         /// <value> The agency activity. </value>
         public string AgencyActivity { get; set; }
 
@@ -157,7 +161,9 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.Account"/>
         /// class.
         /// </summary>
-        /// <param name="code"> The code. </param>
+        /// <param name="code">
+        /// The code.
+        /// </param>
         public Account( string code )
         {
             Record = new DataBuilder( Source, GetArgs( code ) )?.Record;
@@ -201,13 +207,16 @@ namespace BudgetExecution
             ProgramAreaName = account.ProgramAreaName;
         }
 
-        /// <summary> Gets the account. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the account.
+        /// </summary>
+        /// <returns>
+        /// </returns>
         public Account GetAccount( )
         {
             try
             {
-                return (Account) MemberwiseClone( );
+                return (Account)MemberwiseClone( );
             }
             catch( Exception _ex )
             {
@@ -216,14 +225,18 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the arguments. </summary>
-        /// <param name="code"> The code. </param>
+        /// <summary>
+        /// Gets the arguments.
+        /// </summary>
+        /// <param name="code">
+        /// The code.
+        /// </param>
         /// <returns> </returns>
         private protected IDictionary<string, object> GetArgs( string code )
         {
             try
             {
-                ThrowIf.NullOrEmpty( code, "code" );
+                ThrowIf.NullOrEmpty( code, nameof( code ) );
                 return new Dictionary<string, object>
                 {
                     [ "Code" ] = code
