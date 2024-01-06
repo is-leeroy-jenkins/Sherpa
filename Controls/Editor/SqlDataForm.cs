@@ -793,9 +793,12 @@ namespace BudgetExecution
                 ClearComboBoxes( );
                 ClearListBoxes( );
                 SelectedTable = string.Empty;
-                BindingSource.DataSource = null;
                 DataModel = null;
                 DataTable = null;
+                BindingSource.DataSource = null;
+                DataGrid.DataSource = null;
+                ToolStrip.BindingSource.DataSource = null;
+                TabControl.SelectedIndex = 0;
             }
             catch( Exception _ex )
             {
@@ -1160,7 +1163,33 @@ namespace BudgetExecution
         /// <summary>
         /// Binds the data.
         /// </summary>
-        /// <param name="where">The where.</param>
+        private void BindData( )
+        {
+            try
+            {
+                DataModel = new DataBuilder( Source, Provider );
+                DataTable = DataModel?.DataTable;
+                SelectedTable = DataTable?.TableName;
+                BindingSource.DataSource = DataTable;
+                DataGrid.DataSource = BindingSource;
+                DataGrid.PascalizeHeaders( );
+                DataGrid.FormatColumns( );
+                ToolStrip.BindingSource = BindingSource;
+                Fields = DataModel?.Fields;
+                Numerics = DataModel?.Numerics;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Binds the data.
+        /// </summary>
+        /// <param name="where">
+        /// The where.
+        /// </param>
         private void BindData( IDictionary<string, object> where )
         {
             if( where?.Any( ) == true )

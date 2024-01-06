@@ -623,7 +623,9 @@ namespace BudgetExecution
         /// <summary>
         /// Invokes if needed.
         /// </summary>
-        /// <param name="action">The action.</param>
+        /// <param name="action">
+        /// The action.
+        /// </param>
         public void InvokeIf( Action action )
         {
             ThrowIf.Null( action, nameof( action ) );
@@ -790,9 +792,11 @@ namespace BudgetExecution
                 ClearListBoxes( );
                 ClearFilter( );
                 SelectedTable = string.Empty;
-                BindingSource.DataSource = null;
                 DataModel = null;
                 DataTable = null;
+                BindingSource.DataSource = null;
+                ToolStrip.BindingSource.DataSource = null;
+                TabControl.SelectedIndex = 0;
             }
             catch( Exception _ex )
             {

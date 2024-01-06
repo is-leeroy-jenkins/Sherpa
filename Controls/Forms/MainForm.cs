@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
-//     Assembly:                BudgetExecution
+//     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 7-18-2023
+//     Created:                 1-6-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-7-2023
+//     Last Modified On:        1-6-2024
 // ******************************************************************************************
 // <copyright file="MainForm.cs" company="Terry D. Eppler">
-//    BudgetExecution is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//    Budget Execution is a Federal Budget, Finance, and Accounting application
+//    for the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -31,7 +31,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
+//    Contact at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   MainForm.cs
@@ -54,13 +54,13 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
-    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
-    [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
-    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public partial class MainForm : MetroForm
     {
         /// <summary>
@@ -231,14 +231,17 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Notifies this instance.
+        /// Sends the notification.
         /// </summary>
-        private void Notify( )
+        /// <param name="message">
+        /// The message.
+        /// </param>
+        private void SendNotification( string message )
         {
             try
             {
-                var _message = "THIS IS NOT YET IMPLEMENTED!!";
-                var _notify = new Notification( _message );
+                ThrowIf.NullOrEmpty( message, nameof( message ) );
+                var _notify = new Notification( message );
                 _notify.Show( );
             }
             catch( Exception _ex )
@@ -288,7 +291,7 @@ namespace BudgetExecution
                 BrowserTile.Body.Text = string.Empty;
                 BrowserTile.Banner.Text = string.Empty;
                 BrowserTile.HoverText = "Baby Browser";
-                ChromeTile.Title.Text = "Chrome";
+                ChromeTile.HoverText = "Chrome";
                 ChromeTile.Body.Text = string.Empty;
                 ChromeTile.Banner.Text = string.Empty;
                 ChromeTile.HoverText = "Chrome Web Browser";
@@ -300,11 +303,11 @@ namespace BudgetExecution
                 FirefoxTile.Body.Text = string.Empty;
                 FirefoxTile.Banner.Text = string.Empty;
                 FirefoxTile.HoverText = "Firefox Web Browser";
-                AccessTile.Title.Text = nameof( Access );
+                AccessTile.Title.Text = "Access";
                 AccessTile.Body.Text = string.Empty;
                 AccessTile.Banner.Text = string.Empty;
                 AccessTile.HoverText = "Access Database";
-                SQLiteTile.Title.Text = nameof( SQLite );
+                SQLiteTile.Title.Text = "SQLite";
                 SQLiteTile.Body.Text = string.Empty;
                 SQLiteTile.Banner.Text = string.Empty;
                 SQLiteTile.HoverText = "SQLite Database";
@@ -332,7 +335,7 @@ namespace BudgetExecution
                 ExcelDataTile.Body.Text = string.Empty;
                 ExcelDataTile.Banner.Text = string.Empty;
                 ExcelDataTile.HoverText = "Spreadsheet Data";
-                GuidanceTile.Title.Text = nameof( Guidance );
+                GuidanceTile.Title.Text = "Guidance";
                 GuidanceTile.Body.Text = string.Empty;
                 GuidanceTile.Banner.Text = string.Empty;
                 GuidanceTile.HoverText = "Guidance & Documentation";
@@ -464,12 +467,12 @@ namespace BudgetExecution
         /// <summary>
         /// Shows the splash message.
         /// </summary>
-        private void SendMessage( )
+        private void SendMessage( string message )
         {
             try
             {
-                var _message = "THIS IS A SPLASH MESSAGE TEST!!";
-                var _splash = new SplashMessage( _message );
+                ThrowIf.NullOrEmpty( message, nameof( message ) );
+                var _splash = new SplashMessage( message );
                 _splash.Owner = this;
                 _splash.TopMost = true;
                 _splash.Show( );
@@ -701,7 +704,7 @@ namespace BudgetExecution
         /// <summary>
         /// Fades the in.
         /// </summary>
-        private protected virtual void FadeIn( )
+        private protected void FadeIn( )
         {
             try
             {
@@ -728,7 +731,7 @@ namespace BudgetExecution
         /// <summary>
         /// Fades the out.
         /// </summary>
-        private protected virtual void FadeOut( )
+        private protected void FadeOut( )
         {
             try
             {
@@ -900,9 +903,11 @@ namespace BudgetExecution
         /// <summary>
         /// Called when [browser tile click].
         /// </summary>
-        /// <param name="sender">The sender.</param>
+        /// <param name="sender">The sender.
+        /// </param>
         /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// instance containing the event data.
+        /// </param>
         private void OnBrowserTileClick( object sender, EventArgs e )
         {
             Minion.RunBudgetBrowser( );
@@ -911,9 +916,11 @@ namespace BudgetExecution
         /// <summary>
         /// Called when [SQL ce tile click].
         /// </summary>
-        /// <param name="sender">The sender.</param>
+        /// <param name="sender">The sender.
+        /// </param>
         /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// instance containing the event data.
+        /// </param>
         private void OnSqlCeTileClick( object sender, EventArgs e )
         {
             try
@@ -932,9 +939,11 @@ namespace BudgetExecution
         /// <summary>
         /// Called when [sq lite tile click].
         /// </summary>
-        /// <param name="sender">The sender.</param>
+        /// <param name="sender">The sender.
+        /// </param>
         /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// instance containing the event data.
+        /// </param>
         private void OnSQLiteTileClick( object sender, EventArgs e )
         {
             try
@@ -953,9 +962,11 @@ namespace BudgetExecution
         /// <summary>
         /// Called when [SQL server tile click].
         /// </summary>
-        /// <param name="sender">The sender.</param>
+        /// <param name="sender">The sender.
+        /// </param>
         /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// instance containing the event data.
+        /// </param>
         private void OnSqlServerTileClick( object sender, EventArgs e )
         {
             OpenSqlServerEditor( );
@@ -964,9 +975,11 @@ namespace BudgetExecution
         /// <summary>
         /// Called when [access tile click].
         /// </summary>
-        /// <param name="sender">The sender.</param>
+        /// <param name="sender">The sender.
+        /// </param>
         /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// instance containing the event data.
+        /// </param>
         private void OnAccessTileClick( object sender, EventArgs e )
         {
             try
@@ -985,9 +998,11 @@ namespace BudgetExecution
         /// <summary>
         /// Called when [excel data tile click].
         /// </summary>
-        /// <param name="sender">The sender.</param>
+        /// <param name="sender">The sender.
+        /// </param>
         /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// instance containing the event data.
+        /// </param>
         private void OnExcelDataTileClick( object sender, EventArgs e )
         {
             OpenExcelDataForm( );
@@ -996,9 +1011,11 @@ namespace BudgetExecution
         /// <summary>
         /// Called when [lookup tile click].
         /// </summary>
-        /// <param name="sender">The sender.</param>
+        /// <param name="sender">The sender.
+        /// </param>
         /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// instance containing the event data.
+        /// </param>
         private void OnLookupTileClick( object sender, EventArgs e )
         {
             OpenDataGridForm( );
@@ -1007,9 +1024,11 @@ namespace BudgetExecution
         /// <summary>
         /// Called when [SQL editor tile click].
         /// </summary>
-        /// <param name="sender">The sender.</param>
+        /// <param name="sender">The sender.
+        /// </param>
         /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// instance containing the event data.
+        /// </param>
         private void OnSqlEditorTileClick( object sender, EventArgs e )
         {
             OpenSqlEditor( );
@@ -1018,9 +1037,11 @@ namespace BudgetExecution
         /// <summary>
         /// Called when [visualization tile click].
         /// </summary>
-        /// <param name="sender">The sender.</param>
+        /// <param name="sender">The sender.
+        /// </param>
         /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// instance containing the event data.
+        /// </param>
         private void OnVisualizationTileClick( object sender, EventArgs e )
         {
             OpenChartDataForm( );
@@ -1029,9 +1050,11 @@ namespace BudgetExecution
         /// <summary>
         /// Called when [pivot tile click].
         /// </summary>
-        /// <param name="sender">The sender.</param>
+        /// <param name="sender">The sender.
+        /// </param>
         /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// instance containing the event data.
+        /// </param>
         private void OnPivotTileClick( object sender, EventArgs e )
         {
             OpenPivotChartForm( );
@@ -1040,9 +1063,11 @@ namespace BudgetExecution
         /// <summary>
         /// Called when [program project tile click].
         /// </summary>
-        /// <param name="sender">The sender.</param>
+        /// <param name="sender">The sender.
+        /// </param>
         /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// instance containing the event data.
+        /// </param>
         private void OnProgramProjectTileClick( object sender, EventArgs e )
         {
             ShowProgramProjectDialog( );
@@ -1051,9 +1076,11 @@ namespace BudgetExecution
         /// <summary>
         /// Called when [calculator tile click].
         /// </summary>
-        /// <param name="sender">The sender.</param>
+        /// <param name="sender">The sender.
+        /// </param>
         /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// instance containing the event data.
+        /// </param>
         private void OnCalculatorTileClick( object sender, EventArgs e )
         {
             OpenCalculationForm( );
@@ -1062,9 +1089,11 @@ namespace BudgetExecution
         /// <summary>
         /// Called when [guidance tile click].
         /// </summary>
-        /// <param name="sender">The sender.</param>
+        /// <param name="sender">The sender.
+        /// </param>
         /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// instance containing the event data.
+        /// </param>
         private void OnGuidanceTileClick( object sender, EventArgs e )
         {
             ShowGuidanceDialog( );
@@ -1073,9 +1102,11 @@ namespace BudgetExecution
         /// <summary>
         /// Called when [calendar tile click].
         /// </summary>
-        /// <param name="sender">The sender.</param>
+        /// <param name="sender">The sender.
+        /// </param>
         /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// instance containing the event data.
+        /// </param>
         private void OnCalendarTileClick( object sender, EventArgs e )
         {
             OpenFiscalYearForm( );
@@ -1084,9 +1115,11 @@ namespace BudgetExecution
         /// <summary>
         /// Called when [test button click].
         /// </summary>
-        /// <param name="sender">The sender.</param>
+        /// <param name="sender">The sender.
+        /// </param>
         /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// instance containing the event data.
+        /// </param>
         private void OnTestButtonClick( object sender, EventArgs e )
         {
             ShowSheetForm( );
@@ -1107,9 +1140,11 @@ namespace BudgetExecution
         /// <summary>
         /// Called when [exit button click].
         /// </summary>
-        /// <param name="sender">The sender.</param>
+        /// <param name="sender">The sender.
+        /// </param>
         /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// instance containing the event data.
+        /// </param>
         private void OnExitButtonClick( object sender, EventArgs e )
         {
             try
@@ -1126,9 +1161,12 @@ namespace BudgetExecution
         /// <summary>
         /// Called when [map tile click].
         /// </summary>
-        /// <param name="sender">The sender.</param>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
         /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// instance containing the event data.
+        /// </param>
         private void OnMapTileClick( object sender, EventArgs e )
         {
             OpenGeoMapper( );

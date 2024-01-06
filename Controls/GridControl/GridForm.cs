@@ -44,9 +44,11 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Linq;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
@@ -89,6 +91,30 @@ namespace BudgetExecution
         /// The seconds.
         /// </value>
         public int Seconds { get; set; }
+
+        /// <summary>
+        /// Gets or sets the SQL query.
+        /// </summary>
+        /// <value>
+        /// The SQL query.
+        /// </value>
+        public string SqlQuery { get; set; }
+
+        /// <summary>
+        /// Gets or sets the SQL query.
+        /// </summary>
+        /// <value>
+        /// The SQL query.
+        /// </value>
+        public string SelectedTable { get; set; }
+
+        /// <summary>
+        /// Gets or sets the form filter.
+        /// </summary>
+        /// <value>
+        /// The form filter.
+        /// </value>
+        public IDictionary<string, object> Filter { get; set; }
 
         /// <summary>
         /// Gets or sets the data table.
@@ -175,6 +201,7 @@ namespace BudgetExecution
             : this( )
         {
             DataTable = dataTable;
+            SelectedTable = dataTable.TableName;
             DataSheet.ColCount = dataTable.Columns.Count;
             DataSheet.RowCount = dataTable.Rows.Count;
         }
@@ -190,7 +217,7 @@ namespace BudgetExecution
                 if( Seconds != 0 )
                 {
                     Timer = new Timer( );
-                    Timer.Interval = 10;
+                    Timer.Interval = 1000;
                     Timer.Tick += ( sender, args ) =>
                     {
                         Time++;
@@ -364,12 +391,12 @@ namespace BudgetExecution
         /// <summary>
         /// Notifies this instance.
         /// </summary>
-        private void Notify( )
+        private void SendNotification( string message )
         {
             try
             {
-                var _message = "THIS IS NOT YET IMPLEMENTED!!";
-                var _notify = new Notification( _message );
+                ThrowIf.NullOrEmpty( message, nameof( message ) );
+                var _notify = new Notification( message );
                 _notify.Show( );
             }
             catch( Exception _ex )
@@ -483,6 +510,42 @@ namespace BudgetExecution
             else
             {
                 action.Invoke( );
+            }
+        }
+
+        /// <summary>
+        /// Clears the data.
+        /// </summary>
+        public void ClearData( )
+        {
+            try
+            {
+                ClearFilter( );
+                DataTable = null;
+                BindingSource.DataSource = null;
+                ToolStrip.BindingSource.DataSource = null;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the filter.
+        /// </summary>
+        private void ClearFilter( )
+        {
+            try
+            {
+                if( Filter?.Any( ) == true )
+                {
+                    Filter.Clear( );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 

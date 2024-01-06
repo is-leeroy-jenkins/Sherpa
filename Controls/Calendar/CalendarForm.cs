@@ -172,6 +172,14 @@ namespace BudgetExecution
         public DataArgs DataArgs { get; set; }
 
         /// <summary>
+        /// Gets or sets the selected dates.
+        /// </summary>
+        /// <value>
+        /// The selected dates.
+        /// </value>
+        public IList<DateTime> SelectedDates { get; set; }
+
+        /// <summary>
         /// Gets a value indicating whether this instance is busy.
         /// </summary>
         /// <value>
@@ -515,6 +523,60 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Clears the selections.
+        /// </summary>
+        private void ClearSelections( )
+        {
+            try
+            {
+                SelectedStart = string.Empty;
+                SelectedEnd = string.Empty;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the collections.
+        /// </summary>
+        private void ClearCollections( )
+        {
+            try
+            {
+                SelectedDates?.Clear( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the data.
+        /// </summary>
+        private void ClearData( )
+        {
+            try
+            {
+                DataArgs = new DataArgs( );
+                Holidays = null;
+                FiscalYears = null;
+                BindingSource.DataSource = null;
+                DataGrid.BindingSource.DataSource = null;
+                ToolStrip.BindingSource.DataSource = null;
+                ClearSelections( );
+                ClearCollections( );
+                TabControl.SelectedIndex = 0;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Gets the controls.
         /// </summary>
         /// <returns>
@@ -820,6 +882,7 @@ namespace BudgetExecution
                 ClearLabels( );
                 FadeIn( );
                 DataArgs = new DataArgs( );
+                SelectedDates = new List<DateTime>( );
                 TabControl.SelectedIndex = 0;
             }
             catch( Exception _ex )

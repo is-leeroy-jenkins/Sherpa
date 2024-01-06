@@ -54,8 +54,6 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms.Spreadsheet;
     using Syncfusion.Windows.Forms.Tools;
     using Syncfusion.XlsIO;
-    using Action = System.Action;
-    using Timer = System.Windows.Forms.Timer;
 
     /// <summary>
     /// </summary>
@@ -75,7 +73,7 @@ namespace BudgetExecution
         /// <summary>
         /// The status update
         /// </summary>
-        private Action _statusUpdate;
+        private System.Action _statusUpdate;
 
         /// <summary>
         /// Gets or sets the time.
@@ -358,7 +356,9 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.ExcelDataForm"/>
         /// class.
         /// </summary>
-        /// <param name="filePath"> The file path. </param>
+        /// <param name="filePath">
+        /// The file path.
+        /// </param>
         public ExcelDataForm( string filePath )
             : this( )
         {
@@ -374,7 +374,9 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.ExcelDataForm"/>
         /// class.
         /// </summary>
-        /// <param name="bindingSource"> The binding source. </param>
+        /// <param name="bindingSource">
+        /// The binding source.
+        /// </param>
         public ExcelDataForm( BindingSource bindingSource )
             : this( )
         {
@@ -626,10 +628,12 @@ namespace BudgetExecution
             {
                 DataModel = null;
                 DataTable = null;
-                if( Spreadsheet.ActiveSheet.UsedCells.Length > 0 )
-                {
-                    Spreadsheet.ActiveSheet.ClearData( );
-                }
+                BindingSource.DataSource = null;
+                ToolStrip.BindingSource.DataSource = null;
+                ClearCollections( );
+                ClearSelections( );
+                Spreadsheet.ActiveSheet?.ClearData( );
+                TabControl.SelectedIndex = 0;
             }
             catch( Exception _ex )
             {
@@ -760,8 +764,10 @@ namespace BudgetExecution
         /// <summary>
         /// Invokes if needed.
         /// </summary>
-        /// <param name="action">The action.</param>
-        public void InvokeIf( Action action )
+        /// <param name="action">
+        /// The action.
+        /// </param>
+        public void InvokeIf( System.Action action )
         {
             if( InvokeRequired )
             {
@@ -918,6 +924,8 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( dataTable, nameof( dataTable ) );
+                RowCount = dataTable.Rows.Count;
+                ColCount = dataTable.Columns.Count;
                 Spreadsheet.DisplayAlerts = false;
                 Spreadsheet.Font = new Font( "Roboto", 9 );
                 Spreadsheet.AllowCellContextMenu = true;
@@ -926,8 +934,6 @@ namespace BudgetExecution
                 Spreadsheet.Margin = new Padding( 1 );
                 Spreadsheet.Padding = new Padding( 1 );
                 Spreadsheet.ForeColor = Color.Black;
-                RowCount = dataTable.Rows.Count;
-                ColCount = dataTable.Columns.Count;
                 Spreadsheet.DefaultColumnCount = RowCount;
                 Spreadsheet.DefaultRowCount = ColCount;
                 Spreadsheet.AllowZooming = true;
@@ -946,6 +952,9 @@ namespace BudgetExecution
         {
             try
             {
+                var _sheet = Spreadsheet?.Workbook?.ActiveSheet;
+                RowCount = _sheet.Rows.Length;
+                ColCount = _sheet.Columns.Length;
                 Spreadsheet.DisplayAlerts = false;
                 Spreadsheet.Font = new Font( "Roboto", 9 );
                 Spreadsheet.AllowCellContextMenu = true;
@@ -956,9 +965,6 @@ namespace BudgetExecution
                 Spreadsheet.ForeColor = Color.Black;
                 Spreadsheet.AllowZooming = true;
                 Spreadsheet.AllowFiltering = true;
-                var _sheet = Spreadsheet?.Workbook?.ActiveSheet;
-                RowCount = _sheet.Rows.Length;
-                ColCount = _sheet.Columns.Length;
                 Spreadsheet.DefaultColumnCount = ColCount;
                 Spreadsheet.DefaultRowCount = RowCount;
             }
@@ -1578,26 +1584,13 @@ namespace BudgetExecution
         {
             try
             {
-                if( string.IsNullOrEmpty( SqlQuery ) )
-                {
-                    DataModel = new DataBuilder( Source, Provider );
-                    DataTable = DataModel?.DataTable;
-                    SelectedTable = DataTable?.TableName;
-                    BindingSource.DataSource = DataTable;
-                    ToolStrip.BindingSource = BindingSource;
-                    Fields = DataModel?.Fields;
-                    Numerics = DataModel?.Numerics;
-                }
-                else
-                {
-                    DataModel = new DataBuilder( Source, Provider, SqlQuery );
-                    DataTable = DataModel?.DataTable;
-                    SelectedTable = DataTable?.TableName;
-                    BindingSource.DataSource = DataTable;
-                    ToolStrip.BindingSource = BindingSource;
-                    Fields = DataModel?.Fields;
-                    Numerics = DataModel?.Numerics;
-                }
+                DataModel = new DataBuilder( Source, Provider, SqlQuery );
+                DataTable = DataModel?.DataTable;
+                SelectedTable = DataTable?.TableName;
+                BindingSource.DataSource = DataTable;
+                ToolStrip.BindingSource = BindingSource;
+                Fields = DataModel?.Fields;
+                Numerics = DataModel?.Numerics;
             }
             catch( Exception _ex )
             {
@@ -1979,7 +1972,10 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnTimerTick( object sender, EventArgs e ) => InvokeIf( _statusUpdate );
+        private void OnTimerTick( object sender, EventArgs e )
+        {
+            InvokeIf( _statusUpdate );
+        }
 
         /// <summary>
         /// Raises the Close event.

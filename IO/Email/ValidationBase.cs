@@ -124,7 +124,10 @@ namespace BudgetExecution
         /// </param>
         /// <returns>
         /// </returns>
-        private protected static bool IsControl( char c ) => ( c <= 31 ) || ( c == 127 );
+        private protected static bool IsControl( char c )
+        {
+            return ( c <= 31 ) || ( c == 127 );
+        }
 
         /// <summary>
         /// 

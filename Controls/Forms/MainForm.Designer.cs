@@ -426,7 +426,7 @@ namespace BudgetExecution
             textItem24.Text = "Access  ";
             textItem24.TextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             AccessTile.Title = textItem24;
-            AccessTile.ToolTip = null;
+            AccessTile.ToolTip = ToolTip;
             AccessTile.TurnLiveTileOn = true;
             // 
             // SQLiteTile

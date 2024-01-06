@@ -1435,9 +1435,10 @@ namespace BudgetExecution
                 ClearCollections( );
                 ClearFilter( );
                 SelectedTable = string.Empty;
-                BindingSource.DataSource = null;
                 DataModel = null;
                 DataTable = null;
+                BindingSource.DataSource = null;
+                ToolStrip.BindingSource.DataSource = null;
             }
             catch( Exception _ex )
             {
