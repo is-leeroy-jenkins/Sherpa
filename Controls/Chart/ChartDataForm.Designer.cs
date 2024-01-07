@@ -32,9 +32,9 @@
             AreaTable = new System.Windows.Forms.TableLayoutPanel( );
             ChartPanel = new BackPanel( );
             DataTabControl = new TabControl( );
-            ReadyTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
+            ReadyTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             Chart = new Chart( );
-            BusyTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
+            BusyTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             Loader = new System.Windows.Forms.PictureBox( );
             SchemaTable = new System.Windows.Forms.TableLayoutPanel( );
             Label22 = new Label( );
@@ -106,7 +106,7 @@
             RefreshDataSeparator = new ToolSeparator( );
             GroupSeparator = new ToolSeparator( );
             QueryTabControl = new TabControl( );
-            TableTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
+            SourceTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             SourcePanel = new HeaderPanel( );
             TableListBoxPanel = new BackPanel( );
             TableListBox = new ListBox( );
@@ -141,15 +141,15 @@
             ChartPanel.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)DataTabControl ).BeginInit( );
             DataTabControl.SuspendLayout( );
-            ReadyTab.SuspendLayout( );
-            BusyTab.SuspendLayout( );
+            ReadyTabPage.SuspendLayout( );
+            BusyTabPage.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)Loader ).BeginInit( );
             SchemaTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
             ToolStrip.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)QueryTabControl ).BeginInit( );
             QueryTabControl.SuspendLayout( );
-            TableTabPage.SuspendLayout( );
+            SourceTabPage.SuspendLayout( );
             SourcePanel.SuspendLayout( );
             TableListBoxPanel.SuspendLayout( );
             FilterTabPage.SuspendLayout( );
@@ -244,8 +244,8 @@
             DataTabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             DataTabControl.CanOverrideStyle = true;
             DataTabControl.CloseButtonBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            DataTabControl.Controls.Add( ReadyTab );
-            DataTabControl.Controls.Add( BusyTab );
+            DataTabControl.Controls.Add( ReadyTabPage );
+            DataTabControl.Controls.Add( BusyTabPage );
             DataTabControl.FocusOnTabClick = false;
             DataTabControl.Font = new System.Drawing.Font( "Roboto", 9F );
             DataTabControl.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
@@ -270,21 +270,21 @@
             DataTabControl.ThemeStyle.TabStyle.SeparatorColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataTabControl.ToolTip = null;
             // 
-            // ReadyTab
+            // ReadyTabPage
             // 
-            ReadyTab.Controls.Add( Chart );
-            ReadyTab.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            ReadyTab.Image = null;
-            ReadyTab.ImageSize = new System.Drawing.Size( 16, 16 );
-            ReadyTab.Location = new System.Drawing.Point( 0, 17 );
-            ReadyTab.Name = "ReadyTab";
-            ReadyTab.ShowCloseButton = true;
-            ReadyTab.Size = new System.Drawing.Size( 1023, 480 );
-            ReadyTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            ReadyTab.TabForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            ReadyTab.TabIndex = 1;
-            ReadyTab.Text = " ";
-            ReadyTab.ThemesEnabled = false;
+            ReadyTabPage.Controls.Add( Chart );
+            ReadyTabPage.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ReadyTabPage.Image = null;
+            ReadyTabPage.ImageSize = new System.Drawing.Size( 16, 16 );
+            ReadyTabPage.Location = new System.Drawing.Point( 0, 17 );
+            ReadyTabPage.Name = "ReadyTabPage";
+            ReadyTabPage.ShowCloseButton = true;
+            ReadyTabPage.Size = new System.Drawing.Size( 1023, 480 );
+            ReadyTabPage.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            ReadyTabPage.TabForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ReadyTabPage.TabIndex = 1;
+            ReadyTabPage.Text = " ";
+            ReadyTabPage.ThemesEnabled = false;
             // 
             // Chart
             // 
@@ -370,20 +370,20 @@
             Chart.ToolBar.Visible = true;
             Chart.VisualTheme = "";
             // 
-            // BusyTab
+            // BusyTabPage
             // 
-            BusyTab.Controls.Add( Loader );
-            BusyTab.Image = null;
-            BusyTab.ImageSize = new System.Drawing.Size( 16, 16 );
-            BusyTab.Location = new System.Drawing.Point( 0, 17 );
-            BusyTab.Name = "BusyTab";
-            BusyTab.ShowCloseButton = true;
-            BusyTab.Size = new System.Drawing.Size( 1023, 480 );
-            BusyTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            BusyTab.TabForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            BusyTab.TabIndex = 2;
-            BusyTab.Text = " ";
-            BusyTab.ThemesEnabled = false;
+            BusyTabPage.Controls.Add( Loader );
+            BusyTabPage.Image = null;
+            BusyTabPage.ImageSize = new System.Drawing.Size( 16, 16 );
+            BusyTabPage.Location = new System.Drawing.Point( 0, 17 );
+            BusyTabPage.Name = "BusyTabPage";
+            BusyTabPage.ShowCloseButton = true;
+            BusyTabPage.Size = new System.Drawing.Size( 1023, 480 );
+            BusyTabPage.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            BusyTabPage.TabForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            BusyTabPage.TabIndex = 2;
+            BusyTabPage.Text = " ";
+            BusyTabPage.ThemesEnabled = false;
             // 
             // Loader
             // 
@@ -1682,7 +1682,7 @@
             QueryTabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             QueryTabControl.CanOverrideStyle = true;
             QueryTabControl.CloseButtonBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            QueryTabControl.Controls.Add( TableTabPage );
+            QueryTabControl.Controls.Add( SourceTabPage );
             QueryTabControl.Controls.Add( FilterTabPage );
             QueryTabControl.Controls.Add( GroupTabPage );
             QueryTabControl.FocusOnTabClick = false;
@@ -1709,20 +1709,20 @@
             QueryTabControl.ThemeStyle.TabStyle.SeparatorColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             QueryTabControl.ToolTip = null;
             // 
-            // TableTabPage
+            // SourceTabPage
             // 
-            TableTabPage.Controls.Add( SourcePanel );
-            TableTabPage.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            TableTabPage.Image = null;
-            TableTabPage.ImageSize = new System.Drawing.Size( 16, 16 );
-            TableTabPage.Location = new System.Drawing.Point( 0, 29 );
-            TableTabPage.Name = "TableTabPage";
-            TableTabPage.ShowCloseButton = true;
-            TableTabPage.Size = new System.Drawing.Size( 271, 658 );
-            TableTabPage.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            TableTabPage.TabForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            TableTabPage.TabIndex = 4;
-            TableTabPage.ThemesEnabled = false;
+            SourceTabPage.Controls.Add( SourcePanel );
+            SourceTabPage.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            SourceTabPage.Image = null;
+            SourceTabPage.ImageSize = new System.Drawing.Size( 16, 16 );
+            SourceTabPage.Location = new System.Drawing.Point( 0, 29 );
+            SourceTabPage.Name = "SourceTabPage";
+            SourceTabPage.ShowCloseButton = true;
+            SourceTabPage.Size = new System.Drawing.Size( 271, 658 );
+            SourceTabPage.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            SourceTabPage.TabForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            SourceTabPage.TabIndex = 4;
+            SourceTabPage.ThemesEnabled = false;
             // 
             // SourcePanel
             // 
@@ -2482,8 +2482,8 @@
             ChartPanel.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize)DataTabControl ).EndInit( );
             DataTabControl.ResumeLayout( false );
-            ReadyTab.ResumeLayout( false );
-            BusyTab.ResumeLayout( false );
+            ReadyTabPage.ResumeLayout( false );
+            BusyTabPage.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize)Loader ).EndInit( );
             SchemaTable.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).EndInit( );
@@ -2491,7 +2491,7 @@
             ToolStrip.PerformLayout( );
             ( (System.ComponentModel.ISupportInitialize)QueryTabControl ).EndInit( );
             QueryTabControl.ResumeLayout( false );
-            TableTabPage.ResumeLayout( false );
+            SourceTabPage.ResumeLayout( false );
             SourcePanel.ResumeLayout( false );
             TableListBoxPanel.ResumeLayout( false );
             FilterTabPage.ResumeLayout( false );
@@ -2576,7 +2576,7 @@
         public System.Windows.Forms.PictureBox PictureBox;
         public System.Windows.Forms.TableLayoutPanel AreaTable;
         public BackPanel ChartPanel;
-        public Syncfusion.Windows.Forms.Tools.TabPageAdv TableTabPage;
+        public Syncfusion.Windows.Forms.Tools.TabPageAdv SourceTabPage;
         public HeaderPanel SourcePanel;
         public BackPanel TableListBoxPanel;
         public ListBox TableListBox;
@@ -2599,8 +2599,8 @@
         public Label Label6;
         public Label Label8;
         public TabControl DataTabControl;
-        public Syncfusion.Windows.Forms.Tools.TabPageAdv BusyTab;
-        public Syncfusion.Windows.Forms.Tools.TabPageAdv ReadyTab;
+        public Syncfusion.Windows.Forms.Tools.TabPageAdv BusyTabPage;
+        public Syncfusion.Windows.Forms.Tools.TabPageAdv ReadyTabPage;
         public System.Windows.Forms.TableLayoutPanel ChartHeaderTable;
         public System.Windows.Forms.TableLayoutPanel ToolStripTable;
         public System.Windows.Forms.PictureBox Loader;

@@ -462,7 +462,7 @@ namespace BudgetExecution
                 RefreshDataButton.Click += null;
                 RemoveFiltersButton.Click += null;
                 GroupButton.Click += null;
-                QueryTabControl.SelectedIndexChanged += OnQueryTabChanged;
+                QueryTabControl.SelectedIndexChanged += OnQueryTabSelectedIndexChanged;
                 TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
                 FirstComboBox.SelectedValueChanged += OnFirstComboBoxItemSelected;
                 FirstListBox.SelectedValueChanged += OnFirstListBoxItemSelected;
@@ -479,8 +479,8 @@ namespace BudgetExecution
                 SqlCeRadioButton.CheckedChanged += OnRadioButtonChecked;
                 ExitButton.Click += OnExitButtonClicked;
                 MenuButton.Click += OnMainMenuButtonClicked;
-                RemoveFiltersButton.Click += OnRemoveFilterButtonClicked;
-                RefreshDataButton.Click += OnRefreshDataButtonClicked;
+                RemoveFiltersButton.Click += OnResetDataFilterButtonClicked;
+                RefreshDataButton.Click += OnResetDataSourceButtonClicked;
                 GroupButton.Click += OnGroupButtonClicked;
                 FirstCalendar.SelectionChanged += OnStartDateSelected;
                 SecondCalendar.SelectionChanged += OnEndDateSelected;
@@ -1064,101 +1064,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Activates the source tab.
-        /// </summary>
-        private void ActivateSourceTab( )
-        {
-            try
-            {
-                ClearListBoxes( );
-                QueryTabControl.SelectedIndex = 0;
-                SourceTabPage.TabVisible = true;
-                FilterTabPage.TabVisible = false;
-                GroupTabPage.TabVisible = false;
-                CalendarTabPage.TabVisible = false;
-                ProviderTable.Visible = true;
-                SetFormIcon( );
-                TableComboBox.SelectionStart = 0;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Activates the filter tab.
-        /// </summary>
-        private void ActivateFilterTab( )
-        {
-            try
-            {
-                ClearListBoxes( );
-                QueryTabControl.SelectedIndex = 1;
-                FilterTabPage.TabVisible = true;
-                SourceTabPage.TabVisible = false;
-                GroupTabPage.TabVisible = false;
-                CalendarTabPage.TabVisible = false;
-                DataLabelTable.Visible = true;
-                ProviderTable.Visible = false;
-                PopulateFirstComboBoxItems( );
-                ResetListBoxVisibility( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Activates the group tab.
-        /// </summary>
-        private void ActivateGroupTab( )
-        {
-            try
-            {
-                ClearListBoxes( );
-                QueryTabControl.SelectedIndex = 2;
-                GroupTabPage.TabVisible = true;
-                FilterTabPage.TabVisible = false;
-                SourceTabPage.TabVisible = false;
-                CalendarTabPage.TabVisible = false;
-                DataLabelTable.Visible = true;
-                ProviderTable.Visible = false;
-                PopulateFieldListBox( );
-                PopulateNumericListBox( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Activates the calendar tab.
-        /// </summary>
-        private void ActivateCalendarTab( )
-        {
-            try
-            {
-                ClearListBoxes( );
-                QueryTabControl.SelectedIndex = 3;
-                CalendarTabPage.TabVisible = true;
-                GroupTabPage.TabVisible = false;
-                FilterTabPage.TabVisible = false;
-                SourceTabPage.TabVisible = false;
-                DataLabelTable.Visible = true;
-                ProviderTable.Visible = false;
-                FirstCalendarTable.CaptionText = $"Start Date: {FirstCalendar.SelectedDate}";
-                SecondCalendarTable.CaptionText = $"End Date: {SecondCalendar.SelectedDate}";
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Captures the state.
         /// </summary>
         private void CaptureState( )
@@ -1189,9 +1094,6 @@ namespace BudgetExecution
                 ClearSelections( );
                 ClearCollections( );
                 ClearFilter( );
-                SelectedTable = string.Empty;
-                DataModel = null;
-                DataTable = null;
                 BindingSource.DataSource = null;
                 DataGrid.DataSource = null;
                 ToolStrip.BindingSource.DataSource = null;
@@ -1436,12 +1338,125 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Activates the source tab.
+        /// </summary>
+        private void ActivateSourceTab( )
+        {
+            try
+            {
+                ClearListBoxes( );
+                ClearComboBoxes( );
+                SourceTabPage.TabVisible = true;
+                FilterTabPage.TabVisible = false;
+                GroupTabPage.TabVisible = false;
+                CalendarTabPage.TabVisible = false;
+                ProviderTable.Visible = true;
+                SetFormIcon( );
+                TableComboBox.SelectionStart = 0;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Activates the filter tab.
+        /// </summary>
+        private void ActivateFilterTab( )
+        {
+            try
+            {
+                ClearListBoxes( );
+                ClearComboBoxes( );
+                FilterTabPage.TabVisible = true;
+                SourceTabPage.TabVisible = false;
+                GroupTabPage.TabVisible = false;
+                CalendarTabPage.TabVisible = false;
+                DataLabelTable.Visible = true;
+                ProviderTable.Visible = false;
+                PopulateFirstComboBoxItems( );
+                ResetListBoxVisibility( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Activates the group tab.
+        /// </summary>
+        private void ActivateGroupTab( )
+        {
+            try
+            {
+                ClearListBoxes( );
+                GroupTabPage.TabVisible = true;
+                FilterTabPage.TabVisible = false;
+                SourceTabPage.TabVisible = false;
+                CalendarTabPage.TabVisible = false;
+                DataLabelTable.Visible = true;
+                ProviderTable.Visible = false;
+                PopulateFieldListBox( );
+                PopulateNumericListBox( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Activates the calendar tab.
+        /// </summary>
+        private void ActivateCalendarTab( )
+        {
+            try
+            {
+                ClearListBoxes( );
+                CalendarTabPage.TabVisible = true;
+                GroupTabPage.TabVisible = false;
+                FilterTabPage.TabVisible = false;
+                SourceTabPage.TabVisible = false;
+                ProviderTable.Visible = false;
+                DataLabelTable.Visible = true;
+                FirstCalendarTable.CaptionText = $"Start Date: {FirstCalendar.SelectedDate}";
+                SecondCalendarTable.CaptionText = $"End Date: {SecondCalendar.SelectedDate}";
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Activates the busy tab.
+        /// </summary>
+        private void ActivateBusyTab( )
+        {
+            try
+            {
+                BusyTabPage.TabVisible = true;
+                GroupTabPage.TabVisible = false;
+                FilterTabPage.TabVisible = false;
+                SourceTabPage.TabVisible = false;
+                ProviderTable.Visible = false;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Binds the data.
         /// </summary>
         private void BindData( )
         {
             try
             {
+                IsBusy = true;
                 DataModel = new DataBuilder( Source, Provider );
                 DataTable = DataModel.DataTable;
                 SelectedTable = DataTable.TableName;
@@ -1450,6 +1465,7 @@ namespace BudgetExecution
                 Columns = DataModel?.ColumnNames;
                 Fields = DataModel?.Fields;
                 Numerics = DataModel?.Numerics;
+                IsBusy = false;
             }
             catch( Exception _ex )
             {
@@ -1469,6 +1485,7 @@ namespace BudgetExecution
             {
                 try
                 {
+                    IsBusy = true;
                     var _sql = CreateSqlCommand( where );
                     DataModel = new DataBuilder( Source, Provider, _sql );
                     DataTable = DataModel?.DataTable;
@@ -1480,6 +1497,7 @@ namespace BudgetExecution
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel?.Fields;
                     Numerics = DataModel?.Numerics;
+                    IsBusy = false;
                 }
                 catch( Exception _ex )
                 {
@@ -1500,6 +1518,7 @@ namespace BudgetExecution
             {
                 try
                 {
+                    IsBusy = true;
                     var _sql = CreateSqlCommand( cols, where );
                     DataModel = new DataBuilder( Source, Provider, _sql );
                     DataTable = DataModel?.DataTable;
@@ -1511,6 +1530,7 @@ namespace BudgetExecution
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel?.Fields;
                     Numerics = DataModel?.Numerics;
+                    IsBusy = false;
                 }
                 catch( Exception _ex )
                 {
@@ -1533,6 +1553,7 @@ namespace BudgetExecution
             {
                 try
                 {
+                    IsBusy = true;
                     var _sql = CreateSqlCommand( fields, numerics, where );
                     DataModel = new DataBuilder( Source, Provider, _sql );
                     DataTable = DataModel?.DataTable;
@@ -1544,6 +1565,7 @@ namespace BudgetExecution
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel?.Fields;
                     Numerics = DataModel?.Numerics;
+                    IsBusy = false;
                 }
                 catch( Exception _ex )
                 {
@@ -1589,7 +1611,7 @@ namespace BudgetExecution
         /// Sets the icon.
         /// </summary>
         /// <param name="type">The type.</param>
-        private void SetIcon( ToolType type )
+        private void SetScreenIcon( ToolType type )
         {
             try
             {
@@ -1826,7 +1848,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    Filter.Clear( );
+                    Filter?.Clear( );
                     ToolStrip.Visible = true;
                     var _title = _listBox.SelectedValue?.ToString( );
                     SelectedTable = _title?.Replace( " ", "" );
@@ -2158,7 +2180,7 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnRemoveFilterButtonClicked( object sender, EventArgs e )
+        private void OnResetDataFilterButtonClicked( object sender, EventArgs e )
         {
             try
             {
@@ -2171,12 +2193,12 @@ namespace BudgetExecution
                     DataTable = DataModel.DataTable;
                     BindingSource.DataSource = DataTable;
                     DataGrid.DataSource = BindingSource;
-                    DataGrid.PascalizeHeaders( );
-                    DataGrid.FormatColumns( );
                     ToolStrip.BindingSource = BindingSource;
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
                     QueryTabControl.SelectedIndex = 1;
+                    DataGrid.PascalizeHeaders( );
+                    DataGrid.FormatColumns( );
                     PopulateFirstComboBoxItems( );
                     UpdateLabelText( );
                 }
@@ -2285,10 +2307,12 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnQueryTabChanged( object sender, EventArgs e )
+        private void OnQueryTabSelectedIndexChanged( object sender, EventArgs e )
         {
             try
             {
+                ReadyTabPage.TabVisible = true;
+                BusyTabPage.TabVisible = false;
                 switch( QueryTabControl.SelectedIndex )
                 {
                     case 0:
@@ -2311,6 +2335,11 @@ namespace BudgetExecution
                         ActivateCalendarTab( );
                         break;
                     }
+                    default:
+                    {
+                        ActivateSourceTab( );
+                        break;
+                    }
                 }
             }
             catch( Exception _ex )
@@ -2329,7 +2358,7 @@ namespace BudgetExecution
         {
             try
             {
-                if( Filter.Count > 0 )
+                if( Filter?.Any( ) == true )
                 {
                     ActivateGroupTab( );
                 }
@@ -2350,7 +2379,10 @@ namespace BudgetExecution
         {
             try
             {
-                ActivateCalendarTab( );
+                if( !string.IsNullOrEmpty( SelectedTable ) )
+                {
+                    ActivateCalendarTab( );
+                }
             }
             catch( Exception _ex )
             {
@@ -2370,7 +2402,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    SetIcon( _button.ToolType );
+                    SetScreenIcon( _button.ToolType );
                     var _dialog = new EditScreen( Source, Provider );
                     _dialog?.ShowDialog( this );
                     SetFormIcon( );
@@ -2394,7 +2426,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    SetIcon( _button.ToolType );
+                    SetScreenIcon( _button.ToolType );
                     var _dialog = new SchemaScreeen( _button.ToolType, BindingSource );
                     _dialog?.ShowDialog( this );
                     SetFormIcon( );
@@ -2439,7 +2471,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    SetIcon( _button.ToolType );
+                    SetScreenIcon( _button.ToolType );
                     var _sqlDialog = new SqlScreen( Source, Provider );
                     _sqlDialog.ShowDialog( this );
                     SetFormIcon( );
@@ -2495,12 +2527,12 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnRefreshDataButtonClicked( object sender, EventArgs e )
+        private void OnResetDataSourceButtonClicked( object sender, EventArgs e )
         {
             try
             {
                 ClearData( );
-                ActivateSourceTab( );
+                QueryTabControl.SelectedIndex = 0;
             }
             catch( Exception _ex )
             {

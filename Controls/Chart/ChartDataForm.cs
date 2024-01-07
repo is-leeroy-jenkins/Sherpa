@@ -1108,12 +1108,17 @@ namespace BudgetExecution
         {
             try
             {
+                ClearListBoxes( );
+                ClearComboBoxes( );
                 QueryTabControl.SelectedIndex = 0;
                 SourceTabPage.TabVisible = true;
                 ReadyTabPage.TabVisible = true;
                 FilterTabPage.TabVisible = false;
                 GroupTabPage.TabVisible = false;
                 BusyTabPage.TabVisible = false;
+                ToolStripComboBox.Visible = false;
+                ChartLabel.Visible = false;
+                PopulateExecutionTables( );
             }
             catch( Exception _ex )
             {
@@ -1128,12 +1133,20 @@ namespace BudgetExecution
         {
             try
             {
+                ClearFilter( );
+                ClearListBoxes( );
+                ClearComboBoxes( );
                 QueryTabControl.SelectedIndex = 1;
                 FilterTabPage.TabVisible = true;
                 ReadyTabPage.TabVisible = true;
                 SourceTabPage.TabVisible = false;
                 GroupTabPage.TabVisible = false;
                 BusyTabPage.TabVisible = false;
+                ToolStripComboBox.Visible = true;
+                ChartLabel.Visible = true;
+                Filter?.Clear( );
+                PopulateFirstComboBoxItems( );
+                ResetFilterTableVisibility( );
             }
             catch( Exception _ex )
             {
@@ -1148,12 +1161,19 @@ namespace BudgetExecution
         {
             try
             {
+                ClearCollections( );
+                ClearListBoxes( );
+                ClearComboBoxes( );
                 QueryTabControl.SelectedIndex = 2;
                 SourceTabPage.TabVisible = true;
                 ReadyTabPage.TabVisible = true;
                 FilterTabPage.TabVisible = false;
                 GroupTabPage.TabVisible = false;
                 BusyTabPage.TabVisible = false;
+                ToolStripComboBox.Visible = true;
+                ChartLabel.Visible = true;
+                PopulateFieldListBox( );
+                ResetGroupTableVisibility( );
             }
             catch( Exception _ex )
             {
@@ -1188,6 +1208,7 @@ namespace BudgetExecution
         {
             try
             {
+                IsBusy = true;
                 DataModel = new DataBuilder( Source, Provider );
                 DataTable = DataModel.DataTable;
                 SelectedTable = DataTable.TableName;
@@ -1196,6 +1217,7 @@ namespace BudgetExecution
                 Columns = DataModel?.ColumnNames;
                 Fields = DataModel?.Fields;
                 Numerics = DataModel?.Numerics;
+                IsBusy = false;
             }
             catch( Exception ex )
             {
@@ -1214,6 +1236,7 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.NullOrEmpty( sqlText, nameof( sqlText ) );
+                IsBusy = true;
                 DataModel = new DataBuilder( Source, Provider, sqlText );
                 DataTable = DataModel.DataTable;
                 BindingSource.DataSource = DataModel.DataTable;
@@ -1221,6 +1244,7 @@ namespace BudgetExecution
                 Columns = DataModel?.ColumnNames;
                 Fields = DataModel?.Fields;
                 Numerics = DataModel?.Numerics;
+                IsBusy = false;
             }
             catch( Exception ex )
             {
@@ -1239,6 +1263,7 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( where, nameof( where ) );
+                IsBusy = true;
                 Filter = where;
                 SqlQuery = CreateSqlCommand( where );
                 DataModel = new DataBuilder( Source, Provider, SqlQuery );
@@ -1249,6 +1274,7 @@ namespace BudgetExecution
                 Columns = DataModel?.ColumnNames;
                 Fields = DataModel?.Fields;
                 Numerics = DataModel?.Numerics;
+                IsBusy = false;
             }
             catch( Exception ex )
             {
@@ -1267,6 +1293,7 @@ namespace BudgetExecution
             {
                 ThrowIf.Null( cols, nameof( cols ) );
                 ThrowIf.Null( where, nameof( where ) );
+                IsBusy = true;
                 SqlQuery = CreateSqlCommand( cols, where );
                 DataModel = new DataBuilder( Source, Provider, SqlQuery );
                 DataTable = DataModel.DataTable;
@@ -1275,6 +1302,7 @@ namespace BudgetExecution
                 Columns = DataModel?.ColumnNames;
                 Fields = DataModel?.Fields;
                 Numerics = DataModel?.Numerics;
+                IsBusy = false;
             }
             catch( Exception ex )
             {
@@ -1296,6 +1324,7 @@ namespace BudgetExecution
                 ThrowIf.Null( fields, nameof( fields ) );
                 ThrowIf.Null( numerics, nameof( numerics ) );
                 ThrowIf.Null( where, nameof( where ) );
+                IsBusy = true;
                 SqlQuery = CreateSqlCommand( fields, numerics, where );
                 DataModel = new DataBuilder( Source, Provider, SqlQuery );
                 DataTable = DataModel.DataTable;
@@ -1304,6 +1333,7 @@ namespace BudgetExecution
                 Columns = DataModel?.ColumnNames;
                 Fields = DataModel?.Fields;
                 Numerics = DataModel?.Numerics;
+                IsBusy = false;
             }
             catch( Exception ex )
             {
@@ -1878,46 +1908,22 @@ namespace BudgetExecution
                 {
                     case 0:
                     {
-                        SourceTabPage.TabVisible = true;
-                        FilterTabPage.TabVisible = false;
-                        GroupTabPage.TabVisible = false;
-                        ToolStripComboBox.Visible = false;
-                        ChartLabel.Visible = false;
-                        PopulateExecutionTables( );
+                        ActivateSourceTab( );
                         break;
                     }
                     case 1:
                     {
-                        SourceTabPage.TabVisible = false;
-                        FilterTabPage.TabVisible = true;
-                        GroupTabPage.TabVisible = false;
-                        ToolStripComboBox.Visible = true;
-                        ChartLabel.Visible = true;
-                        Filter?.Clear( );
-                        PopulateFirstComboBoxItems( );
-                        ResetFilterTableVisibility( );
+                        ActivateFilterTab( );
                         break;
                     }
                     case 2:
                     {
-                        GroupTabPage.TabVisible = true;
-                        SourceTabPage.TabVisible = false;
-                        FilterTabPage.TabVisible = false;
-                        ToolStripComboBox.Visible = true;
-                        ChartLabel.Visible = true;
-                        ClearCollections( );
-                        PopulateFieldListBox( );
-                        ResetGroupTableVisibility( );
+                        ActivateGroupTab( );
                         break;
                     }
                     default:
                     {
-                        SourceTabPage.TabVisible = true;
-                        FilterTabPage.TabVisible = false;
-                        GroupTabPage.TabVisible = false;
-                        ToolStripComboBox.Visible = false;
-                        ChartLabel.Visible = false;
-                        PopulateExecutionTables( );
+                        ActivateSourceTab( );
                         break;
                     }
                 }
@@ -2727,15 +2733,13 @@ namespace BudgetExecution
         {
             try
             {
-                SelectedTable = string.Empty;
-                BindingSource.DataSource = null;
+                ClearData( );
                 ClearCollections( );
                 ClearSelections( );
                 ClearComboBoxes( );
                 ClearListBoxes( );
                 UpdateMetrics( );
-                QueryTabControl.SelectedIndex = 0;
-                SetActiveQueryTab( );
+                ActivateSourceTab( );
             }
             catch( Exception ex )
             {
@@ -2753,8 +2757,7 @@ namespace BudgetExecution
         {
             try
             {
-                QueryTabControl.SelectedIndex = 2;
-                SetActiveQueryTab( );
+                ActivateGroupTab( );
             }
             catch( Exception ex )
             {
@@ -2774,6 +2777,7 @@ namespace BudgetExecution
             {
                 if( !string.IsNullOrEmpty( SelectedTable ) )
                 {
+                    ClearData( );
                     ClearCollections( );
                     ClearSelections( );
                     ClearListBoxes( );
