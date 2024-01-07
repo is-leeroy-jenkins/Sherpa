@@ -277,6 +277,29 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Initializes the callbacks.
+        /// </summary>
+        private void RegisterCallbacks( )
+        {
+            try
+            {
+                CloseButton.Click += OnCloseButtonClick;
+                MenuButton.Click += OnMainMenuButtonClicked;
+                FirstCalendar.SelectionChanged += OnFirstCalendarSelectionChanged;
+                SecondCalendar.SelectionChanged += OnSecondCalendarSelectionChanged;
+                ChartButton.Click += OnChartButtonClick;
+                TableButton.Click += OnTableButtonClick;
+                RefreshButton.Click += OnRefreshButtonClick;
+                TabControl.SelectedIndexChanged += OnTabChanged;
+                Timer.Tick += OnTimerTick;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Initializes the delegates.
         /// </summary>
         private void InitializeDelegates( )
@@ -299,29 +322,6 @@ namespace BudgetExecution
                 ToolStrip.LauncherStyle = LauncherStyle.Office12;
                 ToolStrip.ImageSize = new Size( 16, 16 );
                 ToolStrip.ImageScalingSize = new Size( 16, 16 );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the callbacks.
-        /// </summary>
-        private void RegisterCallbacks( )
-        {
-            try
-            {
-                CloseButton.Click += OnCloseButtonClick;
-                MenuButton.Click += OnMainMenuButtonClicked;
-                FirstCalendar.SelectionChanged += OnFirstCalendarSelectionChanged;
-                SecondCalendar.SelectionChanged += OnSecondCalendarSelectionChanged;
-                ChartButton.Click += OnChartButtonClick;
-                TableButton.Click += OnTableButtonClick;
-                RefreshButton.Click += OnRefreshButtonClick;
-                TabControl.SelectedIndexChanged += OnTabChanged;
-                Timer.Tick += OnTimerTick;
             }
             catch( Exception _ex )
             {

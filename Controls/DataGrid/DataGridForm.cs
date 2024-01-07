@@ -1456,16 +1456,32 @@ namespace BudgetExecution
         {
             try
             {
-                IsBusy = true;
-                DataModel = new DataBuilder( Source, Provider );
-                DataTable = DataModel.DataTable;
-                SelectedTable = DataTable.TableName;
-                BindingSource.DataSource = DataModel.DataTable;
-                ToolStrip.BindingSource = BindingSource;
-                Columns = DataModel?.ColumnNames;
-                Fields = DataModel?.Fields;
-                Numerics = DataModel?.Numerics;
-                IsBusy = false;
+                if( string.IsNullOrEmpty( SqlQuery ) )
+                {
+                    BeginInit( );
+                    DataModel = new DataBuilder( Source, Provider );
+                    DataTable = DataModel.DataTable;
+                    SelectedTable = DataTable.TableName;
+                    BindingSource.DataSource = DataModel.DataTable;
+                    ToolStrip.BindingSource = BindingSource;
+                    Columns = DataModel?.ColumnNames;
+                    Fields = DataModel?.Fields;
+                    Numerics = DataModel?.Numerics;
+                    EndInit( );
+                }
+                else
+                {
+                    BeginInit( );
+                    DataModel = new DataBuilder( Source, Provider, SqlQuery );
+                    DataTable = DataModel.DataTable;
+                    SelectedTable = DataTable.TableName;
+                    BindingSource.DataSource = DataModel.DataTable;
+                    ToolStrip.BindingSource = BindingSource;
+                    Columns = DataModel?.ColumnNames;
+                    Fields = DataModel?.Fields;
+                    Numerics = DataModel?.Numerics;
+                    EndInit( );
+                }
             }
             catch( Exception _ex )
             {
@@ -1481,28 +1497,26 @@ namespace BudgetExecution
         /// </param>
         private void BindData( IDictionary<string, object> where )
         {
-            if( where?.Any( ) == true )
+            try
             {
-                try
-                {
-                    IsBusy = true;
-                    var _sql = CreateSqlCommand( where );
-                    DataModel = new DataBuilder( Source, Provider, _sql );
-                    DataTable = DataModel?.DataTable;
-                    SelectedTable = DataTable?.TableName;
-                    BindingSource.DataSource = DataTable;
-                    DataGrid.DataSource = BindingSource;
-                    DataGrid.PascalizeHeaders( );
-                    DataGrid.FormatColumns( );
-                    ToolStrip.BindingSource = BindingSource;
-                    Fields = DataModel?.Fields;
-                    Numerics = DataModel?.Numerics;
-                    IsBusy = false;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                ThrowIf.Null( where, nameof( where ) );
+                BeginInit( );
+                var _sql = CreateSqlCommand( where );
+                DataModel = new DataBuilder( Source, Provider, _sql );
+                DataTable = DataModel?.DataTable;
+                SelectedTable = DataTable?.TableName;
+                BindingSource.DataSource = DataTable;
+                DataGrid.DataSource = BindingSource;
+                DataGrid.PascalizeHeaders( );
+                DataGrid.FormatColumns( );
+                ToolStrip.BindingSource = BindingSource;
+                Fields = DataModel?.Fields;
+                Numerics = DataModel?.Numerics;
+                EndInit( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -1513,29 +1527,27 @@ namespace BudgetExecution
         /// <param name="where">The where.</param>
         private void BindData( IEnumerable<string> cols, IDictionary<string, object> where )
         {
-            if( where?.Any( ) == true
-               && cols?.Any( ) == true )
+            try
             {
-                try
-                {
-                    IsBusy = true;
-                    var _sql = CreateSqlCommand( cols, where );
-                    DataModel = new DataBuilder( Source, Provider, _sql );
-                    DataTable = DataModel?.DataTable;
-                    SelectedTable = DataTable?.TableName;
-                    BindingSource.DataSource = DataTable;
-                    DataGrid.DataSource = BindingSource;
-                    DataGrid.PascalizeHeaders( );
-                    DataGrid.FormatColumns( );
-                    ToolStrip.BindingSource = BindingSource;
-                    Fields = DataModel?.Fields;
-                    Numerics = DataModel?.Numerics;
-                    IsBusy = false;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                ThrowIf.Null( cols, nameof( cols ) );
+                ThrowIf.Null( where, nameof( where ) );
+                BeginInit( );
+                var _sql = CreateSqlCommand( cols, where );
+                DataModel = new DataBuilder( Source, Provider, _sql );
+                DataTable = DataModel?.DataTable;
+                SelectedTable = DataTable?.TableName;
+                BindingSource.DataSource = DataTable;
+                DataGrid.DataSource = BindingSource;
+                DataGrid.PascalizeHeaders( );
+                DataGrid.FormatColumns( );
+                ToolStrip.BindingSource = BindingSource;
+                Fields = DataModel?.Fields;
+                Numerics = DataModel?.Numerics;
+                EndInit( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -1548,29 +1560,28 @@ namespace BudgetExecution
         private void BindData( IEnumerable<string> fields, IEnumerable<string> numerics,
             IDictionary<string, object> where )
         {
-            if( where?.Any( ) == true
-               && fields?.Any( ) == true )
+            try
             {
-                try
-                {
-                    IsBusy = true;
-                    var _sql = CreateSqlCommand( fields, numerics, where );
-                    DataModel = new DataBuilder( Source, Provider, _sql );
-                    DataTable = DataModel?.DataTable;
-                    SelectedTable = DataTable?.TableName;
-                    BindingSource.DataSource = DataTable;
-                    DataGrid.DataSource = BindingSource;
-                    DataGrid.PascalizeHeaders( );
-                    DataGrid.FormatColumns( );
-                    ToolStrip.BindingSource = BindingSource;
-                    Fields = DataModel?.Fields;
-                    Numerics = DataModel?.Numerics;
-                    IsBusy = false;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                ThrowIf.Null( fields, nameof( fields ) );
+                ThrowIf.Null( numerics, nameof( numerics ) );
+                ThrowIf.Null( where, nameof( where ) );
+                BeginInit( );
+                var _sql = CreateSqlCommand( fields, numerics, where );
+                DataModel = new DataBuilder( Source, Provider, _sql );
+                DataTable = DataModel?.DataTable;
+                SelectedTable = DataTable?.TableName;
+                BindingSource.DataSource = DataTable;
+                DataGrid.DataSource = BindingSource;
+                DataGrid.PascalizeHeaders( );
+                DataGrid.FormatColumns( );
+                ToolStrip.BindingSource = BindingSource;
+                Fields = DataModel?.Fields;
+                Numerics = DataModel?.Numerics;
+                EndInit( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -2015,11 +2026,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    if( Filter.Keys?.Count > 0 )
-                    {
-                        Filter.Clear( );
-                    }
-
+                    ClearFilter( );
                     SecondValue = _listBox.SelectedValue?.ToString( );
                     Filter.Add( FirstCategory, FirstValue );
                     Filter.Add( SecondCategory, SecondValue );
@@ -2188,14 +2195,7 @@ namespace BudgetExecution
                 {
                     ClearSelections( );
                     ClearCollections( );
-                    DataGrid.DataSource = null;
-                    DataModel = new DataBuilder( Source, Provider );
-                    DataTable = DataModel.DataTable;
-                    BindingSource.DataSource = DataTable;
-                    DataGrid.DataSource = BindingSource;
-                    ToolStrip.BindingSource = BindingSource;
-                    Fields = DataModel.Fields;
-                    Numerics = DataModel.Numerics;
+                    BindData( );
                     QueryTabControl.SelectedIndex = 1;
                     DataGrid.PascalizeHeaders( );
                     DataGrid.FormatColumns( );
@@ -2532,6 +2532,7 @@ namespace BudgetExecution
             try
             {
                 ClearData( );
+                UpdateLabelText( );
                 QueryTabControl.SelectedIndex = 0;
             }
             catch( Exception _ex )

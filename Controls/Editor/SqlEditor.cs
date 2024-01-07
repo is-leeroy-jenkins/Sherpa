@@ -1117,6 +1117,50 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Binds the data.
+        /// </summary>
+        private void BindData( )
+        {
+            try
+            {
+                if( string.IsNullOrEmpty( SqlQuery ) )
+                {
+                    BeginInit( );
+                    DataModel = new DataBuilder( Source, Provider );
+                    DataTable = DataModel?.DataTable;
+                    SelectedTable = DataTable?.TableName;
+                    BindingSource.DataSource = DataTable;
+                    DataGrid.DataSource = BindingSource;
+                    DataGrid.PascalizeHeaders( );
+                    DataGrid.FormatColumns( );
+                    ToolStrip.BindingSource = BindingSource;
+                    Fields = DataModel?.Fields;
+                    Numerics = DataModel?.Numerics;
+                    EndInit( );
+                }
+                else
+                {
+                    BeginInit( );
+                    DataModel = new DataBuilder( Source, Provider, SqlQuery );
+                    DataTable = DataModel?.DataTable;
+                    SelectedTable = DataTable?.TableName;
+                    BindingSource.DataSource = DataTable;
+                    DataGrid.DataSource = BindingSource;
+                    DataGrid.PascalizeHeaders( );
+                    DataGrid.FormatColumns( );
+                    ToolStrip.BindingSource = BindingSource;
+                    Fields = DataModel?.Fields;
+                    Numerics = DataModel?.Numerics;
+                    EndInit( );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Resets the data.
         /// </summary>
         /// <param name="where">
@@ -1127,6 +1171,7 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.NoItems( where, nameof( where ) );
+                BeginInit( );
                 var _sql = CreateSqlText( where );
                 DataModel = new DataBuilder( Source, Provider, _sql );
                 DataTable = DataModel?.DataTable;
@@ -1138,6 +1183,7 @@ namespace BudgetExecution
                 ToolStrip.BindingSource = BindingSource;
                 Fields = DataModel?.Fields;
                 Numerics = DataModel?.Numerics;
+                EndInit( );
             }
             catch( Exception _ex )
             {
@@ -1160,6 +1206,7 @@ namespace BudgetExecution
             {
                 ThrowIf.Null( columns, nameof( columns ) );
                 ThrowIf.Null( where, nameof( where ) );
+                IsBusy = true;
                 var _sql = CreateSqlText( columns, where );
                 DataModel = new DataBuilder( Source, Provider, _sql );
                 DataTable = DataModel?.DataTable;
@@ -1171,6 +1218,7 @@ namespace BudgetExecution
                 ToolStrip.BindingSource = BindingSource;
                 Fields = DataModel?.Fields;
                 Numerics = DataModel?.Numerics;
+                IsBusy = false;
             }
             catch( Exception _ex )
             {
@@ -1198,6 +1246,7 @@ namespace BudgetExecution
                 ThrowIf.Null( fields, nameof( fields ) );
                 ThrowIf.Null( numerics, nameof( numerics ) );
                 ThrowIf.NoItems( where, nameof( where ) );
+                IsBusy = true;
                 var _sql = CreateSqlText( fields, numerics, where );
                 DataModel = new DataBuilder( Source, Provider, _sql );
                 DataTable = DataModel?.DataTable;
@@ -1209,6 +1258,28 @@ namespace BudgetExecution
                 ToolStrip.BindingSource = BindingSource;
                 Fields = DataModel?.Fields;
                 Numerics = DataModel?.Numerics;
+                IsBusy = false;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Captures the state.
+        /// </summary>
+        private void CaptureState( )
+        {
+            try
+            {
+                DataArgs.Provider = Provider;
+                DataArgs.Source = Source;
+                DataArgs.Filter = Filter;
+                DataArgs.SelectedTable = SelectedTable;
+                DataArgs.SelectedFields = SelectedFields;
+                DataArgs.SelectedNumerics = SelectedNumerics;
+                DataArgs.SqlQuery = SqlQuery;
             }
             catch( Exception _ex )
             {

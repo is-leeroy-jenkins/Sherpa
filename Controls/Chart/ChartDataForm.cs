@@ -1208,16 +1208,32 @@ namespace BudgetExecution
         {
             try
             {
-                IsBusy = true;
-                DataModel = new DataBuilder( Source, Provider );
-                DataTable = DataModel.DataTable;
-                SelectedTable = DataTable.TableName;
-                BindingSource.DataSource = DataModel.DataTable;
-                ToolStrip.BindingSource = BindingSource;
-                Columns = DataModel?.ColumnNames;
-                Fields = DataModel?.Fields;
-                Numerics = DataModel?.Numerics;
-                IsBusy = false;
+                if( string.IsNullOrEmpty( SqlQuery ) )
+                {
+                    BeginInit( );
+                    DataModel = new DataBuilder( Source, Provider );
+                    DataTable = DataModel.DataTable;
+                    SelectedTable = DataTable.TableName;
+                    BindingSource.DataSource = DataModel.DataTable;
+                    ToolStrip.BindingSource = BindingSource;
+                    Columns = DataModel?.ColumnNames;
+                    Fields = DataModel?.Fields;
+                    Numerics = DataModel?.Numerics;
+                    EndInit( );
+                }
+                else
+                {
+                    BeginInit( );
+                    DataModel = new DataBuilder( Source, Provider, SqlQuery );
+                    DataTable = DataModel.DataTable;
+                    SelectedTable = DataTable.TableName;
+                    BindingSource.DataSource = DataModel.DataTable;
+                    ToolStrip.BindingSource = BindingSource;
+                    Columns = DataModel?.ColumnNames;
+                    Fields = DataModel?.Fields;
+                    Numerics = DataModel?.Numerics;
+                    EndInit( );
+                }
             }
             catch( Exception ex )
             {
@@ -1236,7 +1252,7 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.NullOrEmpty( sqlText, nameof( sqlText ) );
-                IsBusy = true;
+                BeginInit( );
                 DataModel = new DataBuilder( Source, Provider, sqlText );
                 DataTable = DataModel.DataTable;
                 BindingSource.DataSource = DataModel.DataTable;
@@ -1244,7 +1260,7 @@ namespace BudgetExecution
                 Columns = DataModel?.ColumnNames;
                 Fields = DataModel?.Fields;
                 Numerics = DataModel?.Numerics;
-                IsBusy = false;
+                EndInit( );
             }
             catch( Exception ex )
             {
@@ -1263,7 +1279,7 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( where, nameof( where ) );
-                IsBusy = true;
+                BeginInit( );
                 Filter = where;
                 SqlQuery = CreateSqlCommand( where );
                 DataModel = new DataBuilder( Source, Provider, SqlQuery );
@@ -1274,7 +1290,7 @@ namespace BudgetExecution
                 Columns = DataModel?.ColumnNames;
                 Fields = DataModel?.Fields;
                 Numerics = DataModel?.Numerics;
-                IsBusy = false;
+                EndInit( );
             }
             catch( Exception ex )
             {
@@ -1293,7 +1309,7 @@ namespace BudgetExecution
             {
                 ThrowIf.Null( cols, nameof( cols ) );
                 ThrowIf.Null( where, nameof( where ) );
-                IsBusy = true;
+                BeginInit( );
                 SqlQuery = CreateSqlCommand( cols, where );
                 DataModel = new DataBuilder( Source, Provider, SqlQuery );
                 DataTable = DataModel.DataTable;
@@ -1302,7 +1318,7 @@ namespace BudgetExecution
                 Columns = DataModel?.ColumnNames;
                 Fields = DataModel?.Fields;
                 Numerics = DataModel?.Numerics;
-                IsBusy = false;
+                EndInit( );
             }
             catch( Exception ex )
             {
@@ -1324,7 +1340,7 @@ namespace BudgetExecution
                 ThrowIf.Null( fields, nameof( fields ) );
                 ThrowIf.Null( numerics, nameof( numerics ) );
                 ThrowIf.Null( where, nameof( where ) );
-                IsBusy = true;
+                BeginInit( );
                 SqlQuery = CreateSqlCommand( fields, numerics, where );
                 DataModel = new DataBuilder( Source, Provider, SqlQuery );
                 DataTable = DataModel.DataTable;
@@ -1333,7 +1349,7 @@ namespace BudgetExecution
                 Columns = DataModel?.ColumnNames;
                 Fields = DataModel?.Fields;
                 Numerics = DataModel?.Numerics;
-                IsBusy = false;
+                EndInit( );
             }
             catch( Exception ex )
             {

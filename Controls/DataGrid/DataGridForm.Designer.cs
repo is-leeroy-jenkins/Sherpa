@@ -2287,7 +2287,7 @@
             ToolStripTextBox.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             ToolStripTextBox.Name = "ToolStripTextBox";
             ToolStripTextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Size = new System.Drawing.Size( 266, 25 );
+            ToolStripTextBox.Size = new System.Drawing.Size( 254, 25 );
             ToolStripTextBox.Tag = "";
             ToolStripTextBox.ToolTip = ToolTip;
             // 
@@ -2767,7 +2767,6 @@
         public ComboBox TableComboBox;
         public BackPanel TablePanel;
         public ListBox TableListBox;
-        public Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt toolStripMenuItemExt1;
         public RadioButton SqlServerRadioButton;
         public RadioButton AccessRadioButton;
         public RadioButton SQLiteRadioButton;

@@ -59,12 +59,6 @@ namespace BudgetExecution
     using static System.IO.Directory;
     using static System.IO.Path;
     using CheckState = MetroSet_UI.Enums.CheckState;
-    using Color = System.Drawing.Color;
-    using Font = System.Drawing.Font;
-    using FontStyle = System.Drawing.FontStyle;
-    using Image = System.Drawing.Image;
-    using Size = System.Drawing.Size;
-    using SystemColors = System.Drawing.SystemColors;
 
     /// <inheritdoc />
     /// <summary>
@@ -212,8 +206,14 @@ namespace BudgetExecution
         /// </value>
         public bool IsBusy
         {
-            get { return _busy; }
-            private set { _busy = value; }
+            get
+            {
+                return _busy;
+            }
+            private set
+            {
+                _busy = value;
+            }
         }
 
         /// <summary>
@@ -735,7 +735,6 @@ namespace BudgetExecution
         {
             try
             {
-                TabControl.SelectedIndex = 0;
                 SqlTabPage.TabVisible = true;
                 LookupTabPage.TabVisible = false;
                 DataTabPage.TabVisible = false;
@@ -759,7 +758,6 @@ namespace BudgetExecution
         {
             try
             {
-                TabControl.SelectedIndex = 1;
                 LookupTabPage.TabVisible = true;
                 SqlTabPage.TabVisible = false;
                 DataTabPage.TabVisible = false;
@@ -784,7 +782,6 @@ namespace BudgetExecution
         {
             try
             {
-                TabControl.SelectedIndex = 2;
                 DataTabPage.TabVisible = true;
                 SqlTabPage.TabVisible = false;
                 LookupTabPage.TabVisible = false;
@@ -810,7 +807,6 @@ namespace BudgetExecution
         {
             try
             {
-                TabControl.SelectedIndex = 3;
                 SchemaTabPage.TabVisible = true;
                 SqlTabPage.TabVisible = false;
                 LookupTabPage.TabVisible = false;
@@ -834,7 +830,6 @@ namespace BudgetExecution
         {
             try
             {
-                TabControl.SelectedIndex = 4;
                 BusyTabPage.TabVisible = true;
                 SqlTabPage.TabVisible = false;
                 LookupTabPage.TabVisible = false;
@@ -1242,16 +1237,36 @@ namespace BudgetExecution
         {
             try
             {
-                DataModel = new DataBuilder( Source, Provider );
-                DataTable = DataModel?.DataTable;
-                SelectedTable = DataTable?.TableName;
-                BindingSource.DataSource = DataTable;
-                DataGrid.DataSource = BindingSource;
-                DataGrid.PascalizeHeaders( );
-                DataGrid.FormatColumns( );
-                ToolStrip.BindingSource = BindingSource;
-                Fields = DataModel?.Fields;
-                Numerics = DataModel?.Numerics;
+                if( string.IsNullOrEmpty( SqlQuery ) )
+                {
+                    BeginInit( );
+                    DataModel = new DataBuilder( Source, Provider );
+                    DataTable = DataModel?.DataTable;
+                    SelectedTable = DataTable?.TableName;
+                    BindingSource.DataSource = DataTable;
+                    DataGrid.DataSource = BindingSource;
+                    DataGrid.PascalizeHeaders( );
+                    DataGrid.FormatColumns( );
+                    ToolStrip.BindingSource = BindingSource;
+                    Fields = DataModel?.Fields;
+                    Numerics = DataModel?.Numerics;
+                    EndInit( );
+                }
+                else
+                {
+                    BeginInit( );
+                    DataModel = new DataBuilder( Source, Provider, SqlQuery );
+                    DataTable = DataModel?.DataTable;
+                    SelectedTable = DataTable?.TableName;
+                    BindingSource.DataSource = DataTable;
+                    DataGrid.DataSource = BindingSource;
+                    DataGrid.PascalizeHeaders( );
+                    DataGrid.FormatColumns( );
+                    ToolStrip.BindingSource = BindingSource;
+                    Fields = DataModel?.Fields;
+                    Numerics = DataModel?.Numerics;
+                    EndInit( );
+                }
             }
             catch( Exception _ex )
             {
@@ -1267,26 +1282,26 @@ namespace BudgetExecution
         /// </param>
         private void BindData( IDictionary<string, object> where )
         {
-            if( where?.Any( ) == true )
+            try
             {
-                try
-                {
-                    var _sql = CreateSqlText( where );
-                    DataModel = new DataBuilder( Source, Provider, _sql );
-                    DataTable = DataModel?.DataTable;
-                    SelectedTable = DataTable?.TableName;
-                    BindingSource.DataSource = DataTable;
-                    DataGrid.DataSource = BindingSource;
-                    DataGrid.PascalizeHeaders( );
-                    DataGrid.FormatColumns( );
-                    ToolStrip.BindingSource = BindingSource;
-                    Fields = DataModel?.Fields;
-                    Numerics = DataModel?.Numerics;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                ThrowIf.Null( where, nameof( where ) );
+                BeginInit( );
+                var _sql = CreateSqlText( where );
+                DataModel = new DataBuilder( Source, Provider, _sql );
+                DataTable = DataModel?.DataTable;
+                SelectedTable = DataTable?.TableName;
+                BindingSource.DataSource = DataTable;
+                DataGrid.DataSource = BindingSource;
+                DataGrid.PascalizeHeaders( );
+                DataGrid.FormatColumns( );
+                ToolStrip.BindingSource = BindingSource;
+                Fields = DataModel?.Fields;
+                Numerics = DataModel?.Numerics;
+                EndInit( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -1297,27 +1312,27 @@ namespace BudgetExecution
         /// <param name="where">The where.</param>
         private void BindData( IEnumerable<string> cols, IDictionary<string, object> where )
         {
-            if( where?.Any( ) == true
-               && cols?.Any( ) == true )
+            try
             {
-                try
-                {
-                    var _sql = CreateSqlText( cols, where );
-                    DataModel = new DataBuilder( Source, Provider, _sql );
-                    DataTable = DataModel?.DataTable;
-                    SelectedTable = DataTable?.TableName;
-                    BindingSource.DataSource = DataTable;
-                    DataGrid.DataSource = BindingSource;
-                    DataGrid.PascalizeHeaders( );
-                    DataGrid.FormatColumns( );
-                    ToolStrip.BindingSource = BindingSource;
-                    Fields = DataModel?.Fields;
-                    Numerics = DataModel?.Numerics;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                ThrowIf.Null( cols, nameof( cols ) );
+                ThrowIf.Null( where, nameof( where ) );
+                BeginInit( );
+                var _sql = CreateSqlText( cols, where );
+                DataModel = new DataBuilder( Source, Provider, _sql );
+                DataTable = DataModel?.DataTable;
+                SelectedTable = DataTable?.TableName;
+                BindingSource.DataSource = DataTable;
+                DataGrid.DataSource = BindingSource;
+                DataGrid.PascalizeHeaders( );
+                DataGrid.FormatColumns( );
+                ToolStrip.BindingSource = BindingSource;
+                Fields = DataModel?.Fields;
+                Numerics = DataModel?.Numerics;
+                EndInit( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -1330,27 +1345,49 @@ namespace BudgetExecution
         private void BindData( IEnumerable<string> fields, IEnumerable<string> numerics,
             IDictionary<string, object> where )
         {
-            if( where?.Any( ) == true
-               && fields?.Any( ) == true )
+            try
             {
-                try
-                {
-                    var _sql = CreateSqlText( fields, numerics, where );
-                    DataModel = new DataBuilder( Source, Provider, _sql );
-                    DataTable = DataModel?.DataTable;
-                    SelectedTable = DataTable?.TableName;
-                    BindingSource.DataSource = DataTable;
-                    DataGrid.DataSource = BindingSource;
-                    DataGrid.PascalizeHeaders( );
-                    DataGrid.FormatColumns( );
-                    ToolStrip.BindingSource = BindingSource;
-                    Fields = DataModel?.Fields;
-                    Numerics = DataModel?.Numerics;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                ThrowIf.Null( fields, nameof( fields ) );
+                ThrowIf.Null( numerics, nameof( numerics ) );
+                ThrowIf.Null( where, nameof( where ) );
+                BeginInit( );
+                var _sql = CreateSqlText( fields, numerics, where );
+                DataModel = new DataBuilder( Source, Provider, _sql );
+                DataTable = DataModel?.DataTable;
+                SelectedTable = DataTable?.TableName;
+                BindingSource.DataSource = DataTable;
+                DataGrid.DataSource = BindingSource;
+                DataGrid.PascalizeHeaders( );
+                DataGrid.FormatColumns( );
+                ToolStrip.BindingSource = BindingSource;
+                Fields = DataModel?.Fields;
+                Numerics = DataModel?.Numerics;
+                EndInit( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Captures the state.
+        /// </summary>
+        private void CaptureState( )
+        {
+            try
+            {
+                DataArgs.Provider = Provider;
+                DataArgs.Source = Source;
+                DataArgs.Filter = Filter;
+                DataArgs.SelectedTable = SelectedTable;
+                DataArgs.SelectedFields = SelectedFields;
+                DataArgs.SelectedNumerics = SelectedNumerics;
+                DataArgs.SqlQuery = SqlQuery;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
