@@ -64,6 +64,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertIfStatementToNullCoalescingAssignment" ) ]
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     public abstract class DataAccess : ISource, IProvider
     {
         /// <summary>
@@ -79,7 +80,7 @@ namespace BudgetExecution
         /// <summary>
         /// The data columns
         /// </summary>
-        private protected IList<string> _dataColumns;
+        private protected IList<DataColumn> _dataColumns;
 
         /// <summary>
         /// The data set
@@ -95,6 +96,11 @@ namespace BudgetExecution
         /// The dates
         /// </summary>
         private protected IList<string> _dates;
+
+        /// <summary>
+        /// The map
+        /// </summary>
+        private protected IDictionary<string, object> _map;
 
         /// <summary>
         /// The duration
@@ -146,7 +152,17 @@ namespace BudgetExecution
         /// <value>
         /// The map.
         /// </value>
-        public IDictionary<string, object> Map { get; set; }
+        public IDictionary<string, object> Map
+        {
+            get
+            {
+                return _map;
+            }
+            private set
+            {
+                _map = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the SQL statement.

@@ -59,14 +59,16 @@ namespace BudgetExecution
     public class DataModel : ModelBase
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataModel"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="DataModel"/> class.
         /// </summary>
         public DataModel( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataModel"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="DataModel"/> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
@@ -79,14 +81,14 @@ namespace BudgetExecution
             SqlStatement = new SqlStatement( source, provider, SQL.SELECTALL );
             _dataTable = GetDataTable( );
             _elements = CreateSeries( _dataTable );
-            DataColumns = GetDataColumns( );
-            ColumnNames = GetColumnNames( );
+            _dataColumns = GetDataColumns( );
+            _columnNames = GetColumnNames( );
             Keys = GetPrimaryKeys( );
             Fields = GetFields( );
             Numerics = GetNumerics( );
             Dates = GetDates( );
             _record = GetData( )?.FirstOrDefault( );
-            Map = _record?.ToDictionary( );
+            _map = _record?.ToDictionary( );
             EndInit( );
         }
 
@@ -105,15 +107,15 @@ namespace BudgetExecution
             SqlStatement = new SqlStatement( source, provider, where );
             _dataTable = GetDataTable( );
             _elements = CreateSeries( _dataTable );
-            DataColumns = GetDataColumns( );
-            ColumnNames = GetColumnNames( );
+            _dataColumns = GetDataColumns( );
+            _columnNames = GetColumnNames( );
             Keys = GetPrimaryKeys( );
             Fields = GetFields( );
             Numerics = GetNumerics( );
             Dates = GetDates( );
             _elements = CreateSeries( _dataTable );
             _record = GetData( )?.FirstOrDefault( );
-            Map = _record?.ToDictionary( );
+            _map = _record?.ToDictionary( );
             EndInit( );
         }
 
@@ -134,15 +136,15 @@ namespace BudgetExecution
             ConnectionFactory = new ConnectionFactory( source, provider );
             SqlStatement = new SqlStatement( source, provider, updates, where, commandType );
             _dataTable = GetDataTable( );
-            DataColumns = GetDataColumns( );
-            ColumnNames = GetColumnNames( );
+            _dataColumns = GetDataColumns( );
+            _columnNames = GetColumnNames( );
             Keys = GetPrimaryKeys( );
             Fields = GetFields( );
             Numerics = GetNumerics( );
             Dates = GetDates( );
             _elements = CreateSeries( _dataTable );
             _record = GetData( )?.FirstOrDefault( );
-            Map = _record?.ToDictionary( );
+            _map = _record?.ToDictionary( );
             EndInit( );
         }
 
@@ -163,15 +165,15 @@ namespace BudgetExecution
             ConnectionFactory = new ConnectionFactory( source, provider );
             SqlStatement = new SqlStatement( source, provider, columns, where, commandType );
             _dataTable = GetDataTable( );
-            DataColumns = GetDataColumns( );
-            ColumnNames = GetColumnNames( );
+            _dataColumns = GetDataColumns( );
+            _columnNames = GetColumnNames( );
             Keys = GetPrimaryKeys( );
             Fields = GetFields( );
             Numerics = GetNumerics( );
             Dates = GetDates( );
             _elements = CreateSeries( _dataTable );
             _record = GetData( )?.FirstOrDefault( );
-            Map = _record?.ToDictionary( );
+            _map = _record?.ToDictionary( );
             EndInit( );
         }
 
@@ -196,20 +198,21 @@ namespace BudgetExecution
                 commandType );
 
             _dataTable = GetDataTable( );
-            DataColumns = GetDataColumns( );
-            ColumnNames = GetColumnNames( );
+            _dataColumns = GetDataColumns( );
+            _columnNames = GetColumnNames( );
             Keys = GetPrimaryKeys( );
             Fields = GetFields( );
             Numerics = GetNumerics( );
             Dates = GetDates( );
             _elements = CreateSeries( _dataTable );
             _record = GetData( )?.FirstOrDefault( );
-            Map = _record?.ToDictionary( );
+            _map = _record?.ToDictionary( );
             EndInit( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataModel"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="DataModel"/> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="where">The where.</param>
@@ -221,20 +224,21 @@ namespace BudgetExecution
             ConnectionFactory = new ConnectionFactory( source, Provider.Access );
             SqlStatement = new SqlStatement( source, Provider.Access, where );
             _dataTable = GetDataTable( );
-            DataColumns = GetDataColumns( );
-            ColumnNames = GetColumnNames( );
+            _dataColumns = GetDataColumns( );
+            _columnNames = GetColumnNames( );
             Keys = GetPrimaryKeys( );
             Fields = GetFields( );
             Numerics = GetNumerics( );
             Dates = GetDates( );
             _elements = CreateSeries( _dataTable );
             _record = GetData( )?.FirstOrDefault( );
-            Map = _record?.ToDictionary( );
+            _map = _record?.ToDictionary( );
             EndInit( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataModel"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="DataModel"/> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
@@ -247,20 +251,21 @@ namespace BudgetExecution
             ConnectionFactory = new ConnectionFactory( source, provider );
             SqlStatement = new SqlStatement( source, provider, sqlText );
             _dataTable = GetDataTable( );
-            DataColumns = GetDataColumns( );
-            ColumnNames = GetColumnNames( );
+            _dataColumns = GetDataColumns( );
+            _columnNames = GetColumnNames( );
             Fields = GetFields( );
             Numerics = GetNumerics( );
             Keys = GetPrimaryKeys( );
             Dates = GetDates( );
             _elements = CreateSeries( _dataTable );
             _record = GetData( )?.FirstOrDefault( );
-            Map = _record?.ToDictionary( );
+            _map = _record?.ToDictionary( );
             EndInit( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataModel"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="DataModel"/> class.
         /// </summary>
         /// <param name="fullPath">The full path.</param>
         /// <param name="sqlText">The SQL text.</param>
@@ -273,20 +278,21 @@ namespace BudgetExecution
             Provider = ConnectionFactory.Provider;
             SqlStatement = new SqlStatement( Source, Provider, sqlText, commandType );
             _dataTable = GetDataTable( );
-            DataColumns = GetDataColumns( );
-            ColumnNames = GetColumnNames( );
+            _dataColumns = GetDataColumns( );
+            _columnNames = GetColumnNames( );
             Keys = GetPrimaryKeys( );
             Fields = GetFields( );
             Numerics = GetNumerics( );
             Dates = GetDates( );
             _elements = CreateSeries( _dataTable );
             _record = GetData( )?.FirstOrDefault( );
-            Map = _record?.ToDictionary( );
+            _map = _record?.ToDictionary( );
             EndInit( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataModel"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="DataModel"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
         public DataModel( IQuery query )
@@ -297,15 +303,15 @@ namespace BudgetExecution
             ConnectionFactory = query.ConnectionFactory;
             SqlStatement = query.SqlStatement;
             _dataTable = GetDataTable( );
-            DataColumns = GetDataColumns( );
-            ColumnNames = GetColumnNames( );
+            _dataColumns = GetDataColumns( );
+            _columnNames = GetColumnNames( );
             Keys = GetPrimaryKeys( );
             Fields = GetFields( );
             Numerics = GetNumerics( );
             Dates = GetDates( );
             _elements = CreateSeries( _dataTable );
             _record = GetData( )?.FirstOrDefault( );
-            Map = _record?.ToDictionary( );
+            _map = _record?.ToDictionary( );
             EndInit( );
         }
 
@@ -319,9 +325,12 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NoData( dataRows, nameof( dataRows ) );
+                ThrowIf.Null( dataRows, nameof( dataRows ) );
                 ThrowIf.NullOrEmpty( column, nameof( column ) );
-                var _query = dataRows?.Select( v => v.Field<string>( column ) )?.Distinct( );
+                var _query = dataRows
+                    ?.Select( v => v.Field<string>( column ) )
+                    ?.Distinct( );
+
                 return _query?.Any( ) == true
                     ? _query
                     : default( IEnumerable<string> );
@@ -345,7 +354,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NoData( dataRows, nameof( dataRows ) );
+                ThrowIf.Null( dataRows, nameof( dataRows ) );
                 ThrowIf.NullOrEmpty( name, nameof( name ) );
                 ThrowIf.NullOrEmpty( value, nameof( value ) );
                 var _query = dataRows
@@ -368,7 +377,8 @@ namespace BudgetExecution
         /// Creates the table from worksheet.
         /// </summary>
         /// <param name="filePath">The file path.</param>
-        /// <param name="header">if set to <c>true</c> [header].</param>
+        /// <param name="header">if set to
+        /// <c>true</c> [header].</param>
         /// <returns></returns>
         public static DataTable CreateTableFromWorksheet( string filePath, bool header = true )
         {

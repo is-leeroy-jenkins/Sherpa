@@ -44,7 +44,8 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
 
-    /// <summary> </summary>
+    /// <summary>
+    /// summary>
     public interface IDataModel
     {
         /// <summary>
@@ -70,14 +71,6 @@ namespace BudgetExecution
         /// The connection factory.
         /// </value>
         IConnectionFactory ConnectionFactory { get; set; }
-
-        /// <summary>
-        /// Gets or sets the map.
-        /// </summary>
-        /// <value>
-        /// The map.
-        /// </value>
-        IDictionary<string, object> Map { get; set; }
 
         /// <summary>
         /// Gets or sets the SQL statement.
