@@ -99,7 +99,8 @@ namespace BudgetExecution
         public string Extension { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether this instance has parent.
+        /// Gets or sets a value indicating
+        /// whether this instance has parent.
         /// </summary>
         /// <value>
         /// <c>true</c>
