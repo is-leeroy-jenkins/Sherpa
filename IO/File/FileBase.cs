@@ -45,13 +45,20 @@ namespace BudgetExecution
     using System.IO;
     using System.Security.AccessControl;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.PathBase" />
+    /// <seealso cref="T:BudgetExecution.PathBase" />
     [ SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
-    public abstract class FileBase : PathBase
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    public abstract class FileBase : DataPath
     {
+        /// <summary>
+        /// The exists
+        /// </summary>
+        private protected bool _fileExists;
+
         /// <summary>
         /// Moves the specified file path.
         /// </summary>
@@ -97,11 +104,9 @@ namespace BudgetExecution
         {
             try
             {
-                var _file = Path.GetFullPath( Buffer );
-                if( !string.IsNullOrEmpty( _file )
-                   && File.Exists( _file ) )
+                if( File.Exists( _fullPath ) )
                 {
-                    File.Delete( _file );
+                    File.Delete( _fullPath );
                 }
             }
             catch( IOException _ex )
@@ -111,33 +116,15 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the file security.
-        /// </summary>
-        /// <returns></returns>
-        public FileSecurity GetFileSecurity( )
-        {
-            try
-            {
-                return FileSecurity ?? default( FileSecurity );
-            }
-            catch( IOException _ex )
-            {
-                Fail( _ex );
-                return default( FileSecurity );
-            }
-        }
-
-        /// <summary>
         /// Gets the base stream.
         /// </summary>
         /// <returns></returns>
-        public FileStream GetBaseStream( )
+        private protected FileStream GetBaseStream( )
         {
             try
             {
-                var _path = Path.GetFullPath( Buffer );
-                return !string.IsNullOrEmpty( _path ) && File.Exists( _path )
-                    ? new FileInfo( _path )?.Create( )
+                return File.Exists( _fullPath )
+                    ? new FileInfo( _fullPath )?.Create( )
                     : default( FileStream );
             }
             catch( Exception _ex )
@@ -147,19 +134,20 @@ namespace BudgetExecution
             }
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Converts to string.
         /// </summary>
         /// <returns>
-        /// A <see cref="System.String" />
+        /// A <see cref="T:System.String" />
         /// that represents this instance.
         /// </returns>
         public override string ToString( )
         {
             try
             {
-                return !string.IsNullOrEmpty( Buffer )
-                    ? Path.GetFullPath( Buffer )
+                return !string.IsNullOrEmpty( Input )
+                    ? Path.GetFullPath( Input )
                     : string.Empty;
             }
             catch( Exception _ex )

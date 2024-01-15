@@ -198,7 +198,7 @@ namespace BudgetExecution
         {
             InitializeComponent( );
             InitializeDelegates( );
-            RegisterCallbacks();
+            RegisterCallbacks( );
 
             // Basic Properties
             Size = new Size( 1066, 614 );

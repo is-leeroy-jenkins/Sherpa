@@ -46,7 +46,6 @@ namespace BudgetExecution
     using System.Linq;
     using System.Text.RegularExpressions;
     using System.Diagnostics.CodeAnalysis;
-    using System.Security.AccessControl;
     using System.Windows.Forms;
     using static System.IO.Directory;
 
@@ -57,109 +56,141 @@ namespace BudgetExecution
     /// <seealso cref="T:BudgetExecution.IFile" />
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
-    public class DataFile : FileBase, IFile
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    public class DataFile : FileBase
     {
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DataFile"/> class.
+        /// Gets the size.
         /// </summary>
-        public DataFile( )
+        /// <value>
+        /// The size.
+        /// </value>
+        public long Size
         {
+            get
+            {
+                return _fileExists
+                    ? File.Open( _fullPath, FileMode.Open ).Length
+                    : 0L;
+            }
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DataFile"/> class.
+        /// Gets or sets the extension.
         /// </summary>
-        /// <param name="input">The input.</param>
-        public DataFile( string input )
+        /// <value>
+        /// The extension.
+        /// </value>
+        public string Extension
         {
-            Buffer = input;
-            AbsolutePath = Path.GetFullPath( input );
-            Name = Path.GetFileNameWithoutExtension( input );
-            FullPath = Path.GetFullPath( input );
-            Extension = Path.GetExtension( input );
-            Length = input.Length;
-            Attributes = File.GetAttributes( input );
-            FileSecurity = new FileSecurity( input, AccessControlSections.All );
-            Created = File.GetCreationTime( input );
-            Modified = File.GetLastWriteTime( input );
+            get
+            {
+                return _hasExtension
+                    ? Path.GetExtension( _fullPath )
+                    : string.Empty;
+            }
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DataFile"/> class.
+        /// Gets or sets the name.
         /// </summary>
-        /// <param name="file">The file.</param>
-        public DataFile( DataFile file )
+        /// <value>
+        /// The name.
+        /// </value>
+        public string FileName
         {
-            Buffer = file.Buffer;
-            AbsolutePath = file.AbsolutePath;
-            Name = file.Name;
-            FullPath = file.FullPath;
-            Extension = file.Extension;
-            Length = file.Length;
-            Attributes = file.Attributes;
-            FileSecurity = file.FileSecurity;
-            Created = file.Created;
-            Modified = file.Modified;
+            get
+            {
+                return !string.IsNullOrEmpty( _fileName )
+                    ? _fileName
+                    : string.Empty;
+            }
         }
 
         /// <summary>
-        /// Deconstructs the specified buffer.
+        /// Gets the name of the parent.
         /// </summary>
-        /// <param name="buffer">The buffer.</param>
-        /// <param name="absolutePath">The abs path.</param>
-        /// <param name="name">The name.</param>
-        /// <param name="fullPath">The full path.</param>
-        /// <param name="extension">The ext.</param>
-        /// <param name="length">The length.</param>
-        /// <param name="attributes">The attrs.</param>
-        /// <param name="fileSecurity">The file security.</param>
-        /// <param name="createDate">The created.</param>
-        /// <param name="modifyDate">The modified.</param>
-        public void Deconstruct( out string buffer, out string absolutePath, out string name,
-            out string fullPath, out string extension, out long length,
-            out FileAttributes attributes, out FileSecurity fileSecurity, 
-            out DateTime createDate, out DateTime modifyDate )
+        /// <value>
+        /// The name of the parent.
+        /// </value>
+        public string ParentName
         {
-            buffer = Buffer;
-            absolutePath = AbsolutePath;
-            name = Name;
-            fullPath = FullPath;
-            extension = Extension;
-            length = Length;
-            attributes = Attributes;
-            fileSecurity = FileSecurity;
-            createDate = Created;
-            modifyDate = Modified;
+            get
+            {
+                return _hasParent
+                    ? Path.GetDirectoryName( _fullPath )
+                    : string.Empty;
+            }
+        }
+
+        /// <summary>
+        /// Gets the parent path.
+        /// </summary>
+        /// <value>
+        /// The parent path.
+        /// </value>
+        public string ParentPath
+        {
+            get
+            {
+                return _hasParent
+                    ? Directory.GetParent( _fullPath )?.FullName
+                    : string.Empty;
+            }
         }
 
         /// <inheritdoc />
         /// <summary>
-        /// Transfers the specified folder.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.DataFile" /> class.
         /// </summary>
-        /// <param name="folder">
-        /// The folder.
-        /// </param>
-        public void Transfer( DirectoryInfo folder )
+        public DataFile( ) 
         {
-            try
-            {
-                ThrowIf.Null( folder, nameof( folder ) );
-                var _files = folder?.GetFiles( );
-                if( _files?.Any( ) == true )
-                {
-                    foreach( var _fileInfo in _files )
-                    {
-                        Directory.Move( _fileInfo.FullName, folder.Name );
-                    }
-                }
-            }
-            catch( IOException _ex )
-            {
-                Fail( _ex );
-            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.DataFile" /> class.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        public DataFile( string input ) 
+        {
+            _buffer = input;
+            _fileName = Path.GetFileNameWithoutExtension( input );
+            _fileExists = File.Exists( input );
+            _hasExtension = Path.HasExtension( input );
+            _fullPath = Path.GetFullPath( input );
+            _absolutePath = Path.GetFullPath( input );
+            _fileAttributes = File.GetAttributes( input );
+            _created = File.GetCreationTime( input );
+            _modified = File.GetLastWriteTime( input );
+            _hasParent = !string.IsNullOrEmpty( Directory.GetParent( input )?.Name );
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.DataFile" /> class.
+        /// </summary>
+        /// <param name="file">The file.</param>
+        public DataFile( DataFile file )
+        {
+            _buffer = file.Input;
+            _fileName = file.FileName;
+            _fileExists = File.Exists( file.FullPath );
+            _hasExtension = Path.HasExtension( file.FullPath );
+            _fullPath = file.FullPath;
+            _absolutePath = file.AbsolutePath;
+            _fileAttributes = file.FileAttributes;
+            _created = file.Created;
+            _modified = file.Modified;
+            _hasParent = ( !string.IsNullOrEmpty( Directory.GetParent( file.FullPath )?.Name ) );
         }
 
         /// <inheritdoc />
@@ -173,36 +204,41 @@ namespace BudgetExecution
         /// </returns>
         public bool Contains( string search )
         {
-            try
+            if( _fileExists )
             {
-                ThrowIf.NullOrEmpty( search, nameof( search ) );
-                using var _stream = File.Open( search, FileMode.Open );
-                using var _reader = new StreamReader( _stream );
-                if( _reader != null )
+                try
                 {
-                    var _text = _reader?.ReadLine( );
-                    var _result = false;
-                    while( _text == string.Empty )
+                    ThrowIf.NullOrEmpty( search, nameof( search ) );
+                    using var _stream = File.Open( _buffer, FileMode.Open );
+                    using var _reader = new StreamReader( _stream );
+                    if( _reader != null )
                     {
-                        if( Regex.IsMatch( _text, search ) )
+                        var _text = _reader?.ReadLine( );
+                        var _result = false;
+                        while( !string.IsNullOrEmpty( _text ) )
                         {
-                            _result = true;
-                            break;
+                            if( Regex.IsMatch( _text, search ) )
+                            {
+                                _result = true;
+                                break;
+                            }
+
+                            _text = _reader.ReadLine( );
                         }
 
-                        _text = _reader.ReadLine( );
+                        return _result;
                     }
 
-                    return _result;
+                    return false;
                 }
+                catch( IOException _ex )
+                {
+                    Fail( _ex );
+                    return false;
+                }
+            }
 
-                return false;
-            }
-            catch( IOException _ex )
-            {
-                Fail( _ex );
-                return false;
-            }
+            return false;
         }
 
         /// <inheritdoc />
@@ -213,14 +249,11 @@ namespace BudgetExecution
         /// <returns></returns>
         public IEnumerable<FileInfo> Search( string pattern )
         {
-            try
+            if( _fileExists )
             {
-                ThrowIf.NullOrEmpty( pattern, nameof( pattern ) );
-                var _input = Path.GetFullPath( Buffer );
-                if( !string.IsNullOrEmpty( _input )
-                   && File.Exists( _input ) )
+                try
                 {
-                    IEnumerable<string> _enumerable = GetDirectories( _input, pattern );
+                    IEnumerable<string> _enumerable = GetDirectories( _buffer, pattern );
                     var _list = new List<FileInfo>( );
                     foreach( var _file in _enumerable )
                     {
@@ -231,57 +264,14 @@ namespace BudgetExecution
                         ? _list
                         : default( List<FileInfo> );
                 }
+                catch( IOException _ex )
+                {
+                    Fail( _ex );
+                    return default( IEnumerable<FileInfo> );
+                }
+            }
 
-                return default( IEnumerable<FileInfo> );
-            }
-            catch( IOException _ex )
-            {
-                Fail( _ex );
-                return default( IEnumerable<FileInfo> );
-            }
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets the parent directory.
-        /// </summary>
-        /// <returns></returns>
-        public string GetParentDirectory( )
-        {
-            try
-            {
-                return HasParent
-                    ? GetParent( Buffer )?.FullName
-                    : string.Empty;
-            }
-            catch( IOException _ex )
-            {
-                Fail( _ex );
-                return string.Empty;
-            }
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Converts to string.
-        /// </summary>
-        /// <returns>
-        /// A <see cref="T:System.String" />
-        /// that represents this instance.
-        /// </returns>
-        public override string ToString( )
-        {
-            try
-            {
-                return !string.IsNullOrEmpty( FullPath )
-                    ? FullPath
-                    : string.Empty;
-            }
-            catch( IOException _ex )
-            {
-                Fail( _ex );
-                return string.Empty;
-            }
+            return default( IEnumerable<FileInfo> );
         }
 
         /// <summary>
@@ -328,35 +318,13 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Saves the dialog.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public static string SaveDialog( )
-        {
-            try
-            {
-                var _dialog = new SaveFileDialog( );
-                _dialog.CheckFileExists = true;
-                _dialog.CheckPathExists = true;
-                return !string.IsNullOrEmpty( _dialog.FileName )
-                    ? _dialog.FileName
-                    : string.Empty;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return string.Empty;
-            }
-        }
-
-        /// <summary>
         /// Saves this instance.
         /// </summary>
         /// <returns>
         /// </returns>
-        public string Save( )
+        public void Save( )
         {
+            FileStream _baseStream = null;
             try
             {
                 var _dialog = new SaveFileDialog( );
@@ -365,11 +333,37 @@ namespace BudgetExecution
                 _dialog.CheckFileExists = true;
                 _dialog.CheckPathExists = true;
                 _dialog.ShowDialog( );
-                return !string.IsNullOrEmpty( _dialog.FileName )
-                    ? _dialog.FileName
-                    : string.Empty;
+                _baseStream = File.Create( _dialog.FileName );
+                _baseStream.Close( );
             }
             catch( Exception _ex )
+            {
+                Fail( _ex );
+                _baseStream?.Close( );
+            }
+            finally
+            {
+                _baseStream?.Close( );
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Converts to string.
+        /// </summary>
+        /// <returns>
+        /// A <see cref="T:System.String" />
+        /// that represents this instance.
+        /// </returns>
+        public override string ToString( )
+        {
+            try
+            {
+                return !string.IsNullOrEmpty( _fullPath )
+                    ? _fullPath
+                    : string.Empty;
+            }
+            catch( IOException _ex )
             {
                 Fail( _ex );
                 return string.Empty;

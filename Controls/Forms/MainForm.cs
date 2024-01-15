@@ -164,7 +164,7 @@ namespace BudgetExecution
                 BrowserTile.Click += OnBrowserTileClick;
                 MessageTile.Click += OnMessageTileClick;
                 SqlServerTile.Click += OnSqlServerTileClick;
-                TestButton.Click += OnPivotTileClick;
+                TestButton.Click += OnTestButtonClick;
                 AccessTile.Click += OnAccessTileClick;
                 MapTile.Click += OnMapTileClick;
             }
@@ -494,6 +494,42 @@ namespace BudgetExecution
                 var _table = _data.DataTable;
                 var _grid = new GridForm( _table );
                 _grid.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        private void ShowPathMessage( )
+        {
+            try
+            {
+                var _location = @"C:\Users\terry\Desktop\dev\export\Test.txt";
+                var _file = new DataFile( _location );
+                var _extenstion = _file.Extension;
+                var _name = _file.FileName;
+                var _path = _file.FullPath;
+                var _parentName = _file.ParentName;
+                var _dirPath = _file.ParentPath;
+                var _created = _file.Created;
+                var _modified = _file.Modified;
+                var _size = _file.Size;
+                var _nl = Environment.NewLine;
+                var _text = "File Name: " + _name + _nl + _nl +
+                    "File Path: " + _path + _nl + _nl +
+                    "Parent Name: " + _parentName + _nl + _nl +
+                    "Parent Path: " + _dirPath + _nl + _nl +
+                    "File Extension:  " + _extenstion + _nl + _nl +
+                    "File Size: " + _size + _nl + _nl +
+                    "File Created: " + _created.ToLongDateString( ) + _nl + _nl +
+                    "File Modified: " + _modified.ToLongDateString( ) + _nl + _nl;
+
+                var _message = new MessageDialog( _text );
+                _message.Owner = this;
+                _message.StartPosition = FormStartPosition.CenterScreen;
+                _message.Show( );
+                _message.Focus( );
             }
             catch( Exception _ex )
             {
@@ -1122,7 +1158,7 @@ namespace BudgetExecution
         /// </param>
         private void OnTestButtonClick( object sender, EventArgs e )
         {
-            ShowSheetForm( );
+            ShowPathMessage( );
         }
 
         /// <summary>

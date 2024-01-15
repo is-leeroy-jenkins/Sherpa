@@ -48,55 +48,13 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "ReplaceAutoPropertyWithComputedProperty" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     public abstract class PathBase
     {
         /// <summary>
-        /// Gets or sets the buffer.
+        /// The has extension
         /// </summary>
-        /// <value>
-        /// The buffer.
-        /// </value>
-        public string Buffer { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name.
-        /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Gets or sets the full path.
-        /// </summary>
-        /// <value>
-        /// The full path.
-        /// </value>
-        public string FullPath { get; set; }
-
-        /// <summary>
-        /// Gets or sets the absolute path.
-        /// </summary>
-        /// <value>
-        /// The absolute path.
-        /// </value>
-        public string AbsolutePath { get; set; }
-
-        /// <summary>
-        /// Gets or sets the modified.
-        /// </summary>
-        /// <value>
-        /// The modified.
-        /// </value>
-        public DateTime Modified { get; set; }
-
-        /// <summary>
-        /// Gets or sets the extension.
-        /// </summary>
-        /// <value>
-        /// The extension.
-        /// </value>
-        public string Extension { get; set; }
+        private protected bool _hasExtension;
 
         /// <summary>
         /// Gets or sets a value indicating
@@ -108,15 +66,67 @@ namespace BudgetExecution
         /// otherwise,
         /// <c>false</c>.
         /// </value>
-        public bool HasParent { get; set; }
+        private protected bool _hasParent;
 
         /// <summary>
-        /// Gets or sets the parent folder.
+        /// The directory separator
+        /// </summary>
+        private protected char _folderSeparator;
+
+        /// <summary>
+        /// The path separator
+        /// </summary>
+        private protected char _pathSeparator;
+
+        /// <summary>
+        /// The drive separator
+        /// </summary>
+        private protected char _driveSeparator;
+
+        /// <summary>
+        /// Gets or sets the buffer.
         /// </summary>
         /// <value>
-        /// The parent folder.
+        /// The buffer.
         /// </value>
-        public string ParentFolder { get; set; }
+        private protected string _buffer;
+
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
+        private protected string _fileName;
+
+        /// <summary>
+        /// Gets or sets the full path.
+        /// </summary>
+        /// <value>
+        /// The full path.
+        /// </value>
+        private protected string _fullPath;
+
+        /// <summary>
+        /// Gets or sets the absolute path.
+        /// </summary>
+        /// <value>
+        /// The absolute path.
+        /// </value>
+        private protected string _absolutePath;
+
+        /// <summary>
+        /// The relative path
+        /// </summary>
+        private protected string _relativePath;
+
+        /// <summary>
+        /// Gets or sets the modified.
+        /// </summary>
+        /// <value>
+        /// The modified.
+        /// </value>
+        private protected DateTime _modified;
 
         /// <summary>
         /// Gets or sets the created.
@@ -124,7 +134,7 @@ namespace BudgetExecution
         /// <value>
         /// The created.
         /// </value>
-        public DateTime Created { get; set; }
+        private protected DateTime _created;
 
         /// <summary>
         /// Gets or sets the length.
@@ -132,7 +142,7 @@ namespace BudgetExecution
         /// <value>
         /// The length.
         /// </value>
-        public long Length { get; set; }
+        private protected long _length;
 
         /// <summary>
         /// Gets or sets the attributes.
@@ -140,7 +150,7 @@ namespace BudgetExecution
         /// <value>
         /// The attributes.
         /// </value>
-        public FileAttributes Attributes { get; set; }
+        private protected FileAttributes _fileAttributes;
 
         /// <summary>
         /// Gets or sets the file security.
@@ -148,39 +158,17 @@ namespace BudgetExecution
         /// <value>
         /// The file security.
         /// </value>
-        public FileSecurity FileSecurity { get; set; }
+        private protected FileSecurity _fileSecurity;
 
         /// <summary>
-        /// Gets the dir sep.
+        /// The invalid path chars
         /// </summary>
-        /// <value>
-        /// The dir sep.
-        /// </value>
-        public char DirSep { get; } = Path.DirectorySeparatorChar;
+        private protected char[ ] _invalidPathChars;
 
         /// <summary>
-        /// Gets the path sep.
+        /// The invalid name chars
         /// </summary>
-        /// <value>
-        /// The path sep.
-        /// </value>
-        public char PathSep { get; } = Path.PathSeparator;
-
-        /// <summary>
-        /// Gets the invalid path chars.
-        /// </summary>
-        /// <value>
-        /// The invalid path chars.
-        /// </value>
-        public char[ ] InvalidPathChars { get; } = Path.GetInvalidPathChars( );
-
-        /// <summary>
-        /// Gets the invalid name chars.
-        /// </summary>
-        /// <value>
-        /// The invalid name chars.
-        /// </value>
-        public char[ ] InvalidNameChars { get; } = Path.GetInvalidFileNameChars( );
+        private protected char[ ] _invalidNameChars;
 
         /// <summary>
         /// Fails the specified ex.

@@ -47,94 +47,71 @@ namespace BudgetExecution
     using System.Linq;
     using System.Security.AccessControl;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
-    public abstract class FolderBase
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    public abstract class FolderBase : DataFile
     {
         /// <summary>
-        /// Gets or sets the buffer.
+        /// The folder exists
         /// </summary>
-        /// <value>
-        /// The buffer.
-        /// </value>
-        public string Buffer { get; set; }
+        private protected bool _folderExists;
 
         /// <summary>
-        /// Gets or sets the name.
+        /// The sub files
         /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
-        public string Name { get; set; }
+        private protected bool _hasSubFiles;
 
         /// <summary>
-        /// Gets or sets the full name.
+        /// The sub folders
         /// </summary>
-        /// <value>
-        /// The full name.
-        /// </value>
-        public string FullName { get; set; }
+        private protected bool _hasSubFolders;
 
         /// <summary>
-        /// Gets or sets the full path.
+        /// The folder name
         /// </summary>
-        /// <value>
-        /// The full path.
-        /// </value>
-        public string FullPath { get; set; }
+        private protected string _folderName;
 
         /// <summary>
-        /// Gets or sets the modified.
+        /// The parent name
         /// </summary>
-        /// <value>
-        /// The modified.
-        /// </value>
-        public DateTime Modified { get; set; }
+        private protected string _parentName;
+        
+        /// <summary>
+        /// The parent folder
+        /// </summary>
+        private protected DirectoryInfo _parentFolder;
 
         /// <summary>
-        /// Gets or sets the parent.
+        /// The security
         /// </summary>
-        /// <value>
-        /// The parent.
-        /// </value>
-        public DirectoryInfo Parent { get; set; }
+        private protected DirectorySecurity _folderSecurity;
 
         /// <summary>
-        /// Gets or sets the created.
+        /// Gets the special folders.
         /// </summary>
-        /// <value>
-        /// The created.
-        /// </value>
-        public DateTime Created { get; set; }
-
-        /// <summary>
-        /// Gets or sets the sub files.
-        /// </summary>
-        /// <value>
-        /// The sub files.
-        /// </value>
-        public IEnumerable<string> SubFiles { get; set; }
-
-        /// <summary>
-        /// Gets or sets the sub folders.
-        /// </summary>
-        /// <value>
-        /// The sub folders.
-        /// </value>
-        public IEnumerable<string> SubFolders { get; set; }
-
-        /// <summary>
-        /// Gets or sets the security.
-        /// </summary>
-        /// <value>
-        /// The security.
-        /// </value>
-        public DirectorySecurity Security { get; set; }
+        /// <returns></returns>
+        public IEnumerable<string> GetSpecialFolderNames( )
+        {
+            try
+            {
+                var _folders = Enum.GetNames( typeof( Environment.SpecialFolder ) );
+                return _folders?.Any( ) == true
+                    ? _folders
+                    : default( string[ ] );
+            }
+            catch( IOException _ex )
+            {
+                Fail( _ex );
+                return default( IEnumerable<string> );
+            }
+        }
 
         /// <summary>
         /// Gets the sub file data.
@@ -142,18 +119,19 @@ namespace BudgetExecution
         /// <returns></returns>
         public IDictionary<string, FileInfo> GetSubFileData( )
         {
-            if( !string.IsNullOrEmpty( FullPath ) )
+            if( _hasSubFiles )
             {
                 try
                 {
                     var _data = new Dictionary<string, FileInfo>( );
-                    foreach( var _path in SubFiles )
+                    var _subPaths = Directory.GetFiles( _fullPath );
+                    foreach( var _path in _subPaths )
                     {
                         if( File.Exists( _path ) )
                         {
                             var _name = Path.GetFileNameWithoutExtension( _path );
-                            var _file = new FileInfo( _path );
-                            _data.Add( _name, _file );
+                            var _subFile = new FileInfo( _path );
+                            _data.Add( _name, _subFile );
                         }
                     }
 
@@ -172,69 +150,42 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the special folders.
-        /// </summary>
-        /// <returns></returns>
-        public IEnumerable<string> GetSpecialFolders( )
-        {
-            try
-            {
-                var _folders = Enum.GetNames( typeof( Environment.SpecialFolder ) );
-                return _folders?.Any( ) == true
-                    ? _folders
-                    : default( string[ ] );
-            }
-            catch( IOException _ex )
-            {
-                Fail( _ex );
-                return default( IEnumerable<string> );
-            }
-        }
-
-        /// <summary>
         /// Gets the subdirectory data.
         /// </summary>
         /// <returns></returns>
         public IDictionary<string, DirectoryInfo> GetSubDirectoryData( )
         {
-            try
+            if( _hasSubFolders )
             {
-                var _data = new Dictionary<string, DirectoryInfo>( );
-                foreach( var _file in SubFolders )
+                try
                 {
-                    if( Directory.Exists( _file ) )
+                    var _data = new Dictionary<string, DirectoryInfo>( );
+                    var _subFolders = Directory.GetDirectories( _fullPath );
+                    foreach( var _path in _subFolders )
                     {
-                        var _name = Path.GetDirectoryName( _file );
-                        var _folder = new DirectoryInfo( _file );
-                        if( _name != null )
+                        if( Directory.Exists( _path ) )
                         {
-                            _data.Add( _name, _folder );
+                            var _name = Path.GetDirectoryName( _path );
+                            var _directory = new DirectoryInfo( _path );
+                            if( _name != null )
+                            {
+                                _data.Add( _name, _directory );
+                            }
                         }
                     }
+
+                    return _data?.Any( ) != true
+                        ? _data
+                        : default( IDictionary<string, DirectoryInfo> );
                 }
-
-                return _data?.Any( ) != true
-                    ? _data
-                    : default( IDictionary<string, DirectoryInfo> );
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                    return default( IDictionary<string, DirectoryInfo> );
+                }
             }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( IDictionary<string, DirectoryInfo> );
-            }
-        }
 
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">
-        /// The ex.
-        /// </param>
-        private protected static void Fail( Exception ex )
-        {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
+            return default( IDictionary<string, DirectoryInfo> );
         }
     }
 }

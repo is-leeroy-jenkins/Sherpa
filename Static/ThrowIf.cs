@@ -219,16 +219,6 @@ namespace BudgetExecution
 
                     break;
                 }
-                case DataFile _file:
-                {
-                    if( _file == null )
-                    {
-                        var _message = @$"The '{paramName}' is null!";
-                        throw new ArgumentNullException( _message );
-                    }
-
-                    break;
-                }
                 case SqlStatement _sqlStatement:
                 {
                     if( _sqlStatement == null )

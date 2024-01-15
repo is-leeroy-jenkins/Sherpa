@@ -54,8 +54,27 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MergeIntoPattern" ) ]
     public partial class MessageDialog : MetroForm
     {
+        private string _data;
+
+        private string _caption;
+
+        /// <summary>
+        /// Gets or sets the caption.
+        /// </summary>
+        /// <value>
+        /// The caption.
+        /// </value>
+        public string Caption { get; set; }
+
+        /// <summary>
+        /// Gets or sets the text associated with this control.
+        /// </summary>
+        public string Data { get; set; }
+
         /// <summary>
         /// Gets or sets the time.
         /// </summary>
@@ -80,45 +99,38 @@ namespace BudgetExecution
         public MessageDialog( )
         {
             InitializeComponent( );
+            RegisterCallbacks( );
+
+            // Form Properties
             Size = new Size( 700, 400 );
             MinimumSize = new Size( 700, 400 );
             MaximumSize = new Size( 700, 400 );
-            BorderColor = Color.FromArgb( 0, 120, 212 );
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            BorderThickness = 1;
             BackColor = Color.FromArgb( 20, 20, 20 );
-            StartPosition = FormStartPosition.CenterScreen;
-            CaptionBarHeight = 5;
-            CaptionForeColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.FromArgb( 106, 189, 252 );
+            Font = new Font( "Roboto", 9 );
+            BorderColor = Color.FromArgb( 0, 120, 212 );
+            BorderThickness = 1;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            StartPosition = FormStartPosition.CenterParent;
+            ShowIcon = false;
+            ShowInTaskbar = true;
+            MetroColor = Color.FromArgb( 20, 20, 20 );
+            CaptionAlign = HorizontalAlignment.Center;
+            CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
+            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
+            CaptionForeColor = Color.FromArgb( 106, 189, 252 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
-            DoubleBuffered = true;
-            AutoScaleMode = AutoScaleMode.Font;
+            CaptionBarHeight = 5;
             ShowMouseOver = false;
-            ShowMaximizeBox = false;
-            ShowMinimizeBox = false;
             MinimizeBox = false;
             MaximizeBox = false;
-            Enabled = true;
-            Visible = true;
-
-            // Title Properties
-            Title.ForeColor = Color.FromArgb( 106, 189, 252 );
-
-            // Control Properties
-            CloseButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            CloseButton.Text = nameof( Close );
-            CloseButton.ForeColor = Color.FromArgb( 106, 189, 252 );
-            CloseButton.BackColor = Color.FromArgb( 20, 20, 20 );
-            TextBox.BackColor = Color.FromArgb( 40, 40, 40 );
-            CloseButton.Focus( );
 
             // Timer Properties
             Time = 0;
             Seconds = 5;
 
-            //Event Wiring
-            CloseButton.Click += OnCloseButtonClick;
+            // Wire Events
             Load += OnLoad;
         }
 
@@ -131,8 +143,8 @@ namespace BudgetExecution
         public MessageDialog( string text )
             : this( )
         {
-            TextBox.Text = Environment.NewLine + text;
-            CloseButton.Focus( );
+            _data = text;
+            TextBox.Text = Data;
         }
 
         /// <inheritdoc />
@@ -145,8 +157,102 @@ namespace BudgetExecution
         public MessageDialog( string text, string caption )
             : this( text )
         {
-            Title.Text = caption;
-            CloseButton.Focus( );
+            _caption = caption;
+            Title.Text = Caption;
+        }
+
+        /// <summary>
+        /// Registers the callbacks.
+        /// </summary>
+        private void RegisterCallbacks( )
+        {
+            try
+            {
+                BrowseButton.Click += OnBrowseButtonClick;
+                SaveButton.Click += OnSaveButtonClick;
+                SelectButton.Click += OnSelectButtonClick;
+                CloseButton.Click += OnCloseButtonClick;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the buttons.
+        /// </summary>
+        private void InitializeButtons( )
+        {
+            try
+            {
+                BrowseButton.Text = "Browse";
+                BrowseButton.HoverText = "Search File System";
+                BrowseButton.ForeColor = Color.FromArgb( 106, 189, 252 );
+                SaveButton.Text = "Save";
+                SaveButton.HoverText = "Save";
+                SaveButton.ForeColor = Color.FromArgb( 106, 189, 252 );
+                SelectButton.Text = "Ok";
+                SelectButton.HoverText = "Select";
+                SaveButton.ForeColor = Color.FromArgb( 106, 189, 252 );
+                CloseButton.Text = "Close";
+                CloseButton.HoverText = "Close Window";
+                CloseButton.ForeColor = Color.FromArgb( 106, 189, 252 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the Labels for this instance.
+        /// </summary>
+        private void InitializeLabels( )
+        {
+            try
+            {
+                Title.ForeColor = Color.FromArgb( 106, 189, 252 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the timers.
+        /// </summary>
+        private void InitializeTimers( )
+        {
+            try
+            {
+                // Timer Properties
+                Timer.Enabled = true;
+                Timer.Interval = 500;
+                Timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the text.
+        /// </summary>
+        private void InitializeText( )
+        {
+            try
+            {
+                if( !string.IsNullOrEmpty( Data ) )
+                {
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -160,7 +266,7 @@ namespace BudgetExecution
                 if( Seconds != 0 )
                 {
                     Timer = new Timer( );
-                    Timer.Interval = 1000;
+                    Timer.Interval = 10;
                     Timer.Tick += ( sender, args ) =>
                     {
                         Time++;
@@ -195,7 +301,7 @@ namespace BudgetExecution
                         _timer.Stop( );
                     }
 
-                    Opacity += 0.02d;
+                    Opacity += 0.03d;
                 };
 
                 _timer.Start( );
@@ -239,11 +345,13 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private protected virtual void OnLoad( object sender, EventArgs e )
+        private protected void OnLoad( object sender, EventArgs e )
         {
             try
             {
-                Title.ForeColor = Color.FromArgb( 106, 189, 252 );
+                InitializeButtons( );
+                InitializeTimers( );
+                FadeIn( );
             }
             catch( Exception _ex )
             {
@@ -257,15 +365,109 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private protected virtual void OnCloseButtonClick( object sender, EventArgs e )
+        private protected void OnCloseButtonClick( object sender, EventArgs e )
         {
             if( sender is Button _button
-               && !string.IsNullOrEmpty( _button?.Name ) )
+               && _button.Name.Equals( "CloseButton" ) )
             {
                 try
                 {
                     FadeOut( );
                     Close( );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [select button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private protected void OnSelectButtonClick( object sender, EventArgs e )
+        {
+            if( sender is Button _button
+               && _button.Name.Equals( "SelectButton" ) )
+            {
+                try
+                {
+                    FadeOut( );
+                    Close( );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [browse button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private protected void OnBrowseButtonClick( object sender, EventArgs e )
+        {
+            if( sender is Button _button 
+               && _button.Name.Equals( "BrowseButton" ) )
+            {
+                try
+                {
+                    if( _button.Name.Equals( "BrowseButton" ) )
+                    {
+                        OpenDialog.ShowDialog( );
+                        TextBox.Text = "";
+                        var _externalFile = OpenDialog.FileName;
+                        var _dataFile = new DataFile( _externalFile );
+                        var _extenstion = _dataFile.Extension;
+                        var _name = _dataFile.FileName;
+                        var _path = _dataFile.FullPath;
+                        var _parentName = _dataFile.ParentName;
+                        var _dirPath = _dataFile.ParentPath;
+                        var _created = _dataFile.Created;
+                        var _modified = _dataFile.Modified;
+                        var _size = _dataFile.Size;
+                        var _nl = Environment.NewLine;
+                        var _text = "File Name: " + _name + _nl + _nl +
+                            "File Path: " + _path + _nl + _nl +
+                            "Parent Name: " + _parentName + _nl + _nl +
+                            "Parent Path: " + _dirPath + _nl + _nl +
+                            "File Extension:  " + _extenstion + _nl + _nl +
+                            "File Size: " + _size + _nl + _nl +
+                            "File Created: " + _created.ToLongDateString( ) + _nl + _nl +
+                            "File Modified: " + _modified.ToLongDateString( ) + _nl + _nl;
+
+                        TextBox.Text = _text;
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [save button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/>
+        /// instance containing the event data.</param>
+        /// <returns></returns>
+        private protected void OnSaveButtonClick( object sender, EventArgs e )
+        {
+            if( sender is Button _button
+               && _button.Name.Equals( "SaveButton" ) )
+            {
+                try
+                {
+                    var _path = 
+                    SaveDialog.ShowDialog( );
                 }
                 catch( Exception _ex )
                 {
