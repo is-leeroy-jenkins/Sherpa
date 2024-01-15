@@ -41,9 +41,10 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
-    using System.Security.AccessControl;
+    using System.Linq;
 
     /// <inheritdoc />
     /// <summary>
@@ -52,6 +53,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public abstract class FileBase : DataPath
     {
         /// <summary>
@@ -134,27 +136,94 @@ namespace BudgetExecution
             }
         }
 
-        /// <inheritdoc />
         /// <summary>
-        /// Converts to string.
+        /// Reads the lines.
+        /// </summary>
+        /// <returns></returns>
+        private protected IList<string> ReadLines( )
+        {
+            if( _fileExists )
+            {
+                try
+                {
+                    var _list = new List<string>( );
+                    foreach( var _line in File.ReadAllLines( _buffer ) )
+                    {
+                        if( !string.IsNullOrEmpty( _line ) )
+                        {
+                            _list.Add( _line );
+                        }
+                    }
+
+                    return _list?.Any( ) == true
+                        ? _list
+                        : default( List<string> );
+                }
+                catch( IOException _ex )
+                {
+                    Fail( _ex );
+                    return default( IList<string> );
+                }
+            }
+
+            return default( IList<string> );
+        }
+
+        /// <summary>
+        /// Reads the bytes.
         /// </summary>
         /// <returns>
-        /// A <see cref="T:System.String" />
-        /// that represents this instance.
         /// </returns>
-        public override string ToString( )
+        private protected byte[ ] ReadBytes( )
         {
-            try
+            if( _fileExists )
             {
-                return !string.IsNullOrEmpty( Input )
-                    ? Path.GetFullPath( Input )
-                    : string.Empty;
+                try
+                {
+                    var _data = File.ReadAllBytes( _buffer );
+                    return _data.Length > 0
+                        ? _data
+                        : default( byte[ ] );
+                }
+                catch( IOException _ex )
+                {
+                    Fail( _ex );
+                    return default( byte[ ] );
+                }
             }
-            catch( Exception _ex )
+
+            return default( byte[ ] );
+        }
+
+        /// <summary>
+        /// Writes the lines.
+        /// </summary>
+        /// <returns></returns>
+        private protected string WriteLines( )
+        {
+            if( _fileExists )
             {
-                Fail( _ex );
-                return string.Empty;
+                try
+                {
+                    string _text = string.Empty;
+                    var _list = ReadLines( );
+                    for( var _i = 0; _i < _list.Count; _i++ )
+                    {
+                        _text += _list[ _i ];
+                    }
+
+                    return !string.IsNullOrEmpty( _text )
+                        ? _text
+                        : string.Empty;
+                }
+                catch( IOException _ex )
+                {
+                    Fail( _ex );
+                    return string.Empty;
+                }
             }
+
+            return string.Empty;
         }
     }
 }

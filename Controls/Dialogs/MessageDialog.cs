@@ -221,6 +221,24 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Initializes the dialogs.
+        /// </summary>
+        private void InitializeDialogs( )
+        {
+            try
+            {
+                SaveDialog.Title = "Save Changes";
+                SaveDialog.InitialDirectory = Environment.CurrentDirectory;
+                OpenDialog.Title = "Browse File System";
+                OpenDialog.InitialDirectory = Environment.CurrentDirectory;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Initializes the timers.
         /// </summary>
         private void InitializeTimers( )
@@ -245,8 +263,14 @@ namespace BudgetExecution
         {
             try
             {
-                if( !string.IsNullOrEmpty( Data ) )
+                if( !string.IsNullOrEmpty( _data ) )
                 {
+                    TextBox.Text = _data;
+                }
+
+                if( !string.IsNullOrEmpty( _caption ) )
+                {
+                    Title.Text = _caption;
                 }
             }
             catch( Exception _ex )
@@ -351,6 +375,8 @@ namespace BudgetExecution
             {
                 InitializeButtons( );
                 InitializeTimers( );
+                InitializeText( );
+                InitializeDialogs( );
                 FadeIn( );
             }
             catch( Exception _ex )
@@ -423,24 +449,23 @@ namespace BudgetExecution
                         OpenDialog.ShowDialog( );
                         TextBox.Text = "";
                         var _externalFile = OpenDialog.FileName;
-                        var _dataFile = new DataFile( _externalFile );
-                        var _extenstion = _dataFile.Extension;
-                        var _name = _dataFile.FileName;
-                        var _path = _dataFile.FullPath;
-                        var _parentName = _dataFile.ParentName;
-                        var _dirPath = _dataFile.ParentPath;
-                        var _created = _dataFile.Created;
-                        var _modified = _dataFile.Modified;
-                        var _size = _dataFile.Size;
+                        var _file = new DataFile( _externalFile );
+                        var _extenstion = _file.Extension ?? string.Empty;
+                        var _name = _file.FileName ?? string.Empty;
+                        var _path = _file.FullPath ?? string.Empty;
+                        var _dirPath = _file.ParentPath ?? string.Empty;
+                        var _create = _file.Created;
+                        var _modify = _file.Modified;
+                        var _size = ( _file.Size.ToString( "N0" ) ?? "0" ) + " bytes";
                         var _nl = Environment.NewLine;
-                        var _text = "File Name: " + _name + _nl + _nl +
-                            "File Path: " + _path + _nl + _nl +
-                            "Parent Name: " + _parentName + _nl + _nl +
-                            "Parent Path: " + _dirPath + _nl + _nl +
-                            "File Extension:  " + _extenstion + _nl + _nl +
-                            "File Size: " + _size + _nl + _nl +
-                            "File Created: " + _created.ToLongDateString( ) + _nl + _nl +
-                            "File Modified: " + _modified.ToLongDateString( ) + _nl + _nl;
+                        var _tb = char.ToString( '\t' );
+                        var _text = _nl + _tb + "File Name: " + _tb + _name + _nl + _nl +
+                            _tb + "File Path: " + _tb + _path + _nl + _nl +
+                            _tb + "Parent Path: " + _tb + _dirPath + _nl + _nl +
+                            _tb + "File Extension: " + _tb + _extenstion + _nl + _nl +
+                            _tb + "File Size: " + _tb + _size + _nl + _nl +
+                            _tb + "Created On: " + _tb + _create.ToShortDateString( ) + _nl + _nl +
+                            _tb + "Modified On: " + _tb + _modify.ToShortDateString( ) + _nl + _nl;
 
                         TextBox.Text = _text;
                     }
@@ -466,8 +491,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _path = 
                     SaveDialog.ShowDialog( );
+                    var _path = SaveDialog.FileName;
                 }
                 catch( Exception _ex )
                 {

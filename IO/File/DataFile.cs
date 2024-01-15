@@ -81,38 +81,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets or sets the extension.
-        /// </summary>
-        /// <value>
-        /// The extension.
-        /// </value>
-        public string Extension
-        {
-            get
-            {
-                return _hasExtension
-                    ? Path.GetExtension( _fullPath )
-                    : string.Empty;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the name.
-        /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
-        public string FileName
-        {
-            get
-            {
-                return !string.IsNullOrEmpty( _fileName )
-                    ? _fileName
-                    : string.Empty;
-            }
-        }
-
-        /// <summary>
         /// Gets the name of the parent.
         /// </summary>
         /// <value>
@@ -277,8 +245,12 @@ namespace BudgetExecution
         /// <summary>
         /// Creates the specified file path.
         /// </summary>
-        /// <param name="filePath">The file path.</param>
-        /// <returns></returns>
+        /// <param name="filePath">
+        /// The file path.
+        /// </param>
+        /// <returns>
+        /// FileInfo
+        /// </returns>
         public static FileInfo Create( string filePath )
         {
             try
@@ -297,6 +269,7 @@ namespace BudgetExecution
         /// Opens the dialog.
         /// </summary>
         /// <returns>
+        /// string
         /// </returns>
         public static string OpenDialog( )
         {
@@ -324,7 +297,7 @@ namespace BudgetExecution
         /// </returns>
         public void Save( )
         {
-            FileStream _baseStream = null;
+            FileStream _stream = null;
             try
             {
                 var _dialog = new SaveFileDialog( );
@@ -333,17 +306,17 @@ namespace BudgetExecution
                 _dialog.CheckFileExists = true;
                 _dialog.CheckPathExists = true;
                 _dialog.ShowDialog( );
-                _baseStream = File.Create( _dialog.FileName );
-                _baseStream.Close( );
+                _stream = File.Create( _dialog.FileName );
+                _stream.Close( );
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
-                _baseStream?.Close( );
+                _stream?.Close( );
             }
             finally
             {
-                _baseStream?.Close( );
+                _stream?.Close( );
             }
         }
 
@@ -359,8 +332,26 @@ namespace BudgetExecution
         {
             try
             {
-                return !string.IsNullOrEmpty( _fullPath )
-                    ? _fullPath
+                var _file = new DataFile( _buffer );
+                var _extenstion = _file.Extension ?? string.Empty;
+                var _name = _file.FileName ?? string.Empty;
+                var _path = _file.FullPath ?? string.Empty;
+                var _dirPath = _file.ParentPath ?? string.Empty;
+                var _create = _file.Created;
+                var _modify = _file.Modified;
+                var _size = ( _file.Size.ToString( "N0" ) ?? "0" ) + " bytes";
+                var _nl = Environment.NewLine;
+                var _tb = char.ToString( '\t' );
+                var _text = _nl + _tb + "File Name: " + _tb + _name + _nl + _nl +
+                    _tb + "File Path: " + _tb + _path + _nl + _nl +
+                    _tb + "Parent Path: " + _tb + _dirPath + _nl + _nl +
+                    _tb + "File Extension: " + _tb + _extenstion + _nl + _nl +
+                    _tb + "File Size: " + _tb + _size + _nl + _nl +
+                    _tb + "Created On: " + _tb + _create.ToShortDateString( ) + _nl + _nl +
+                    _tb + "Modified On: " + _tb + _modify.ToShortDateString( ) + _nl + _nl;
+
+                return !string.IsNullOrEmpty( _text )
+                    ? _text
                     : string.Empty;
             }
             catch( IOException _ex )

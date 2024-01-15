@@ -111,6 +111,38 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Gets the relative path.
+        /// </summary>
+        /// <value>
+        /// The relative path.
+        /// </value>
+        public string RelativePath
+        {
+            get
+            {
+                return !string.IsNullOrEmpty( _relativePath )
+                    ? _relativePath
+                    : string.Empty;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
+        public string FileName
+        {
+            get
+            {
+                return !string.IsNullOrEmpty( _fileName )
+                    ? _fileName
+                    : string.Empty;
+            }
+        }
+
+        /// <summary>
         /// Gets or sets the modified.
         /// </summary>
         /// <value>
@@ -138,15 +170,29 @@ namespace BudgetExecution
         /// otherwise,
         /// <c>false</c>.
         /// </value>
-        public bool HasParent
+        public DirectoryInfo Parent
         {
             get
             {
-                return _hasParent;
+                return _hasParent
+                    ? Directory.GetParent( _buffer )
+                    : default( DirectoryInfo );
             }
-            private protected set
+        }
+
+        /// <summary>
+        /// Gets the drive.
+        /// </summary>
+        /// <value>
+        /// The drive.
+        /// </value>
+        public string Drive
+        {
+            get
             {
-                _hasParent = value;
+                return _isRooted
+                    ? Path.GetPathRoot( _buffer )
+                    : string.Empty;
             }
         }
 
@@ -183,6 +229,22 @@ namespace BudgetExecution
             private protected set
             {
                 _length = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the extension.
+        /// </summary>
+        /// <value>
+        /// The extension.
+        /// </value>
+        public string Extension
+        {
+            get
+            {
+                return _hasExtension
+                    ? Path.GetExtension( _fullPath )
+                    : string.Empty;
             }
         }
 
@@ -310,12 +372,12 @@ namespace BudgetExecution
             _buffer = input;
             _hasExtension = Path.HasExtension( input );
             _hasParent = !string.IsNullOrEmpty( Directory.GetParent( input )?.Name );
+            _isRooted = Path.IsPathRooted( _buffer );
             _absolutePath = Path.GetFullPath( input );
             _relativePath = Path.GetRelativePath( Environment.CurrentDirectory, input );
             _fileName = Path.GetFileNameWithoutExtension( input );
             _fullPath = Path.GetFullPath( input );
             _length = input.Length;
-            _fileAttributes = File.GetAttributes( input );
             _created = File.GetCreationTime( input );
             _modified = File.GetLastWriteTime( input );
             _invalidPathChars = Path.GetInvalidPathChars( );
@@ -341,7 +403,6 @@ namespace BudgetExecution
             _relativePath = Path.GetRelativePath( Environment.CurrentDirectory, path.FullPath );
             _fullPath = path.FullPath;
             _length = path.Length;
-            _fileAttributes = path.FileAttributes;
             _created = path.Created;
             _modified = path.Modified;
             _invalidPathChars = path.InvalidPathChars;
@@ -359,19 +420,16 @@ namespace BudgetExecution
         /// <param name="name">The name.</param>
         /// <param name="fullPath">The full path.</param>
         /// <param name="length">The length.</param>
-        /// <param name="attributes">The attributes.</param>
         /// <param name="createDate">The created.</param>
         /// <param name="modifyDate">The modified.</param>
         public void Deconstruct( out string buffer, out string absolutePath, out string name,
-            out string fullPath, out long length, out FileAttributes attributes, 
-            out DateTime createDate, out DateTime modifyDate )
+            out string fullPath, out long length, out DateTime createDate, out DateTime modifyDate )
         {
             buffer = _buffer;
             absolutePath = _absolutePath;
             name = _fileName;
             fullPath = _fullPath;
             length = _length;
-            attributes = _fileAttributes;
             createDate = _created;
             modifyDate = _modified;
         }
@@ -388,8 +446,32 @@ namespace BudgetExecution
         {
             try
             {
-                return !string.IsNullOrEmpty( _fullPath )
-                    ? _fullPath
+                var _path = new DataPath( _buffer );
+                var _extenstion = _path.Extension ?? string.Empty;
+                var _name = _path.FileName ?? string.Empty;
+                var _filePath = _path.FullPath ?? string.Empty;
+                var _create = _path.Created;
+                var _modify = _path.Modified;
+                var _len = _path.Length.ToString( "N0" ) ?? string.Empty;
+                var _pathsep = _path.PathSeparator;
+                var _drivesep = _path.DriveSeparator;
+                var _foldersep = _path.FolderSeparator;
+                var _root = _path.Drive;
+                var _nl = Environment.NewLine;
+                var _tb = char.ToString( '\t' );
+                var _text = _nl + _tb + "File Name: " + _tb + _name + _nl + _nl +
+                    _tb + "File Path: " + _tb + _filePath + _nl + _nl +
+                    _tb + "Extension: " + _tb + _extenstion + _nl + _nl +
+                    _tb + "Path Root: " + _tb + _root + _nl + _nl +
+                    _tb + "Path Separator: " + _tb + _pathsep + _nl + _nl +
+                    _tb + "Drive Separator: " + _tb + _drivesep + _nl + _nl +
+                    _tb + "Folder Separator: " + _tb + _foldersep + _nl + _nl +
+                    _tb + "Length: " + _tb + _len + _nl + _nl +
+                    _tb + "Created: " + _tb + _create.ToShortDateString( ) + _nl + _nl +
+                    _tb + "Modified: " + _tb + _modify.ToShortDateString( ) + _nl + _nl;
+
+                return !string.IsNullOrEmpty( _text )
+                    ? _text
                     : string.Empty;
             }
             catch( IOException _ex )

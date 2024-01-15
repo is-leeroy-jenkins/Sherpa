@@ -137,6 +137,11 @@ namespace BudgetExecution
         private protected DateTime _created;
 
         /// <summary>
+        /// The is rooted
+        /// </summary>
+        private protected bool _isRooted;
+
+        /// <summary>
         /// Gets or sets the length.
         /// </summary>
         /// <value>
