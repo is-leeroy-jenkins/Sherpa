@@ -1,45 +1,42 @@
-﻿//  ******************************************************************************************
-//      Assembly:                Budget Execution
-//      Filename:                FileBrowser.cs
-//      Author:                  Terry D. Eppler
-//      Created:                 05-31-2023
+﻿// ******************************************************************************************
+//     Assembly:                Budget Execution
+//     Author:                  Terry D. Eppler
+//     Created:                 1-15-2024
 // 
-//      Last Modified By:        Terry D. Eppler
-//      Last Modified On:        06-01-2023
-//  ******************************************************************************************
-//  <copyright file="FileBrowser.cs" company="Terry D. Eppler">
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        1-15-2024
+// ******************************************************************************************
+// <copyright file="FileBrowser.cs" company="Terry D. Eppler">
+//    Budget Execution is a Federal Budget, Finance, and Accounting application
+//    for analysts with the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
-//     This is a Federal Budget, Finance, and Accounting application for the
-//     US Environmental Protection Agency (US EPA).
-//     Copyright ©  2023  Terry Eppler
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
 // 
-//     Permission is hereby granted, free of charge, to any person obtaining a copy
-//     of this software and associated documentation files (the “Software”),
-//     to deal in the Software without restriction,
-//     including without limitation the rights to use,
-//     copy, modify, merge, publish, distribute, sublicense,
-//     and/or sell copies of the Software,
-//     and to permit persons to whom the Software is furnished to do so,
-//     subject to the following conditions:
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
 // 
-//     The above copyright notice and this permission notice shall be included in all
-//     copies or substantial portions of the Software.
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
 // 
-//     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//     FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//     DEALINGS IN THE SOFTWARE.
-// 
-//     You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
-// 
-//  </copyright>
-//  <summary>
-//    FileBrowser.cs
-//  </summary>
-//  ******************************************************************************************
+//    Contact at:  terryeppler@gmail.com or eppler.terry@epa.gov
+// </copyright>
+// <summary>
+//   FileBrowser.cs
+// </summary>
+// ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -51,7 +48,6 @@ namespace BudgetExecution
     using System.Linq;
     using System.Collections;
     using System.Windows.Forms;
-    using static System.Configuration.ConfigurationManager;
     using static System.Environment;
     using static System.IO.Directory;
     using CheckState = MetroSet_UI.Enums.CheckState;
@@ -64,7 +60,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public partial class FileBrowser
+    public partial class FileBrowser : BrowserBase
     {
         /// <summary>
         /// Gets or sets the time.
@@ -146,6 +142,9 @@ namespace BudgetExecution
         public FileBrowser( )
         {
             InitializeComponent( );
+            RegisterCallbacks( );
+
+            // Browser Properties
             Font = new Font( "Roboto", 9 );
             ForeColor = Color.FromArgb( 106, 189, 252 );
             Margin = new Padding( 3 );
@@ -157,12 +156,7 @@ namespace BudgetExecution
             BorderColor = Color.FromArgb( 0, 120, 212 );
             BorderThickness = 1;
             BackColor = Color.FromArgb( 20, 20, 20 );
-            InitialDirPaths = GetInitialDirPaths( );
             RadioButtons = GetRadioButtons( );
-            FileExtension = "xlsx";
-            Extension = EXT.XLSX;
-            PictureBox.Image = GetImage( );
-            FilePaths = GetListViewPaths( );
             FileList.BackColor = Color.FromArgb( 40, 40, 40 );
             CaptionBarHeight = 5;
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
@@ -172,6 +166,12 @@ namespace BudgetExecution
             ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
+
+            InitialDirPaths = GetInitialDirPaths( );
+            FilePaths = GetListViewPaths( );
+            FileExtension = "xlsx";
+            Extension = EXT.XLSX;
+            PictureBox.Image = GetImage( );
 
             // Event Wiring
             Load += OnLoad;
@@ -216,43 +216,6 @@ namespace BudgetExecution
             {
                 Fail( _ex );
             }
-        }
-
-        /// <summary>
-        /// Gets the image.
-        /// </summary>
-        /// <returns></returns>
-        private protected Image GetImage( )
-        {
-            if( !string.IsNullOrEmpty( FileExtension ) )
-            {
-                try
-                {
-                    var _path = AppSettings[ "Extensions" ];
-                    if( _path != null )
-                    {
-                        var _files = GetFiles( _path );
-                        if( _files?.Any( ) == true )
-                        {
-                            var _extension = FileExtension.TrimStart( '.' ).ToUpper( );
-                            var _file = _files
-                                ?.Where( f => f.Contains( _extension ) )
-                                ?.First( );
-
-                            using var _stream = File.Open( _file, FileMode.Open );
-                            var _img = Image.FromStream( _stream );
-                            return new Bitmap( _img, 22, 22 );
-                        }
-                    }
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( Bitmap );
-                }
-            }
-
-            return default( Bitmap );
         }
 
         /// <summary>
@@ -445,7 +408,7 @@ namespace BudgetExecution
                 }
             }
         }
-        
+
         /// <summary>
         /// Invokes if needed.
         /// </summary>
@@ -461,6 +424,23 @@ namespace BudgetExecution
             else
             {
                 action.Invoke( );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the callbacks.
+        /// </summary>
+        private void RegisterCallbacks( )
+        {
+            try
+            {
+                FileList.SelectedValueChanged += OnPathSelected;
+                BrowseButton.Click += OnBrowseButtonClicked;
+                CloseButton.Click += OnCloseButtonClicked;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -482,15 +462,36 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes the callbacks.
+        /// Initializes the buttons.
         /// </summary>
-        private void RegisterCallbacks()
+        private void InitializeButtons( )
         {
             try
             {
-                CloseButton.Click += OnCloseButtonClicked;
-                FileList.SelectedValueChanged += OnPathSelected;
-                FindButton.Click += OnFindButtonClicked;
+                BrowseButton.Text = "Browse";
+                BrowseButton.HoverText = "Search File System";
+                BrowseButton.ForeColor = Color.FromArgb( 106, 189, 252 );
+                SelectButton.Text = "Ok";
+                SelectButton.HoverText = "Select";
+                CloseButton.Text = "Close";
+                CloseButton.HoverText = "Close Window";
+                CloseButton.ForeColor = Color.FromArgb( 106, 189, 252 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the dialogs.
+        /// </summary>
+        private void InitializeDialogs( )
+        {
+            try
+            {
+                OpenDialog.Title = "Browse File System";
+                OpenDialog.InitialDirectory = Environment.CurrentDirectory;
             }
             catch( Exception _ex )
             {
@@ -506,25 +507,9 @@ namespace BudgetExecution
             try
             {
                 // Timer Properties
-                Time = 0;
-                Seconds = 5;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the buttons.
-        /// </summary>
-        private void InitializeButtons( )
-        {
-            try
-            {
-                CloseButton.ForeColor = Color.FromArgb( 106, 189, 252 );
-                FindButton.ForeColor = Color.FromArgb( 106, 189, 252 );
-                SelectButton.ForeColor = Color.FromArgb( 106, 189, 252 );
+                Timer.Enabled = true;
+                Timer.Interval = 500;
+                Timer.Start( );
             }
             catch( Exception _ex )
             {
@@ -698,7 +683,8 @@ namespace BudgetExecution
                 {
                     InitializeLabels( );
                     InitializeButtons( );
-                    RegisterCallbacks();
+                    InitializeDialogs( );
+                    InitializeTimers( );
                     PopulateListBox( );
                     FoundLabel.Text = "Found : " + FilePaths?.Count( );
                     Title.Text = $"{Extension} File Search";
@@ -739,23 +725,22 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private protected virtual void OnFindButtonClicked( object sender, EventArgs e )
+        private protected virtual void OnBrowseButtonClicked( object sender, EventArgs e )
         {
             if( sender is Button )
             {
                 try
                 {
-                    FileDialog = new OpenFileDialog( );
-                    FileDialog.DefaultExt = FileExtension;
-                    FileDialog.CheckFileExists = true;
-                    FileDialog.CheckPathExists = true;
-                    FileDialog.Multiselect = false;
+                    OpenDialog.DefaultExt = FileExtension;
+                    OpenDialog.CheckFileExists = true;
+                    OpenDialog.CheckPathExists = true;
+                    OpenDialog.Multiselect = false;
                     var _ext = FileExtension.ToLower( );
-                    FileDialog.Filter = $@"File Extension | *{_ext}";
-                    FileDialog.Title = $@"Search Directories for *{_ext} files...";
-                    FileDialog.InitialDirectory = GetFolderPath( SpecialFolder.DesktopDirectory );
-                    FileDialog.ShowDialog( );
-                    var _selectedPath = FileDialog.FileName;
+                    OpenDialog.Filter = $@"File Extension | *{_ext}";
+                    OpenDialog.Title = $@"Search Directories for *{_ext} files...";
+                    OpenDialog.InitialDirectory = GetFolderPath( SpecialFolder.DesktopDirectory );
+                    OpenDialog.ShowDialog( );
+                    var _selectedPath = OpenDialog.FileName;
                     if( !string.IsNullOrEmpty( _selectedPath ) )
                     {
                         SelectedPath = _selectedPath;
@@ -787,17 +772,6 @@ namespace BudgetExecution
                     Fail( _ex );
                 }
             }
-        }
-
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        private void Fail( Exception ex )
-        {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
         }
     }
 }

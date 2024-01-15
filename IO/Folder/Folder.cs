@@ -103,7 +103,7 @@ namespace BudgetExecution
         /// <value>
         /// The sub files.
         /// </value>
-        public IEnumerable<string> SubFileNames
+        public IEnumerable<string> SubFiles
         {
             get
             {
@@ -119,31 +119,13 @@ namespace BudgetExecution
         /// <value>
         /// The sub folders.
         /// </value>
-        public IEnumerable<string> SubFolderNames
+        public IEnumerable<string> SubFolders
         {
             get
             {
                 return _hasSubFolders
                     ? Directory.GetDirectories( _fullPath )
                     : default( IEnumerable<string> );
-            }
-        }
-
-        /// <summary>
-        /// Gets the folder security.
-        /// </summary>
-        /// <value>
-        /// The folder security.
-        /// </value>
-        public DirectorySecurity FolderSecurity
-        {
-            get
-            {
-                return _folderSecurity;
-            }
-            private protected set
-            {
-                _folderSecurity = value;
             }
         }
 
@@ -172,7 +154,6 @@ namespace BudgetExecution
             _hasSubFolders = ( GetDirectories( dirPath )?.Length > 0 );
             _created = Directory.GetCreationTime( dirPath );
             _modified = Directory.GetLastWriteTime( dirPath );
-            _folderSecurity = new DirectorySecurity( dirPath, AccessControlSections.Access );
         }
 
         /// <inheritdoc />
@@ -190,7 +171,6 @@ namespace BudgetExecution
             _hasSubFolders = ( GetDirectories( folder.FullPath )?.Length > 0 );
             _created = folder.Created;
             _modified = folder.Modified;
-            _folderSecurity = folder.FolderSecurity;
         }
 
         /// <summary>
@@ -199,42 +179,101 @@ namespace BudgetExecution
         /// <param name="buffer">The buffer.</param>
         /// <param name="fullPath">The full path.</param>
         /// <param name="folderName">Name of the file.</param>
+        /// <param name="hasSubFiles"> </param>
+        /// <param name="hasSubFolders"> </param>
         /// <param name="created">The created.</param>
         /// <param name="modified">The modified.</param>
-        /// <param name="security">The security.</param>
-        public void Deconstruct( out string buffer, out string fullPath, out string folderName,
-            out DateTime created, out DateTime modified, out DirectorySecurity security )
+        public void Deconstruct( out string buffer, out string fullPath, out string folderName, 
+            out bool hasSubFiles, out bool hasSubFolders, out DateTime created, out DateTime modified )
         {
             buffer = _buffer;
             fullPath = _fullPath;
             folderName = _folderName;
+            hasSubFiles = _hasSubFiles;
+            hasSubFolders = _hasSubFolders;
             created = _created;
             modified = _modified;
-            security = _folderSecurity;
         }
 
         /// <inheritdoc />
         /// <summary>
         /// Transfers the specified folder.
         /// </summary>
-        /// <param name="folder">
+        /// <param name="destination">
         /// The folder.
         /// </param>
-        public void CopyTree( DirectoryInfo folder )
+        public void CopyTree( string destination )
         {
             try
             {
-                ThrowIf.Null( folder, nameof( folder ) );
-                var _files = folder?.GetFiles( );
-                if( _files?.Any( ) == true )
-                {
-                    Directory.Move( _fileName, folder.Name );
-                }
+                ThrowIf.NullOrEmpty( destination, nameof( destination ) );
+                Directory.Move( _buffer, destination );
             }
             catch( IOException _ex )
             {
                 Fail( _ex );
             }
+        }
+
+        /// <summary>
+        /// Walks the paths.
+        /// </summary>
+        /// <returns>
+        /// </returns>
+        private protected IEnumerable<string> WalkPaths( )
+        {
+            if( _hasSubFiles )
+            {
+                try
+                {
+                    var _list = new List<string>( );
+                    var _paths = Directory.GetFiles( _buffer );
+                    foreach( var _filePath in _paths )
+                    {
+                        var _first = GetFiles( _filePath )
+                            ?.Where( f => File.Exists( f ) ) 
+                            ?.Select( f => Path.GetFullPath( f ) )
+                            ?.ToList( );
+
+                        _list.AddRange( _first );
+                        var _folders = GetDirectories( _filePath );
+                        foreach( var _folder in _folders )
+                        {
+                            if( !_folder.Contains( "My " ) )
+                            {
+                                var _second = GetFiles( _folder )
+                                    ?.Where( s => File.Exists( s ) )
+                                    ?.Select( s => Path.GetFullPath( s ) )
+                                    ?.ToList( );
+
+                                _list.AddRange( _second );
+                                var _subfolders = GetDirectories( _folder );
+                                for( var _i = 0; _i < _subfolders.Length; _i++ )
+                                {
+                                    var _path = _subfolders[ _i ];
+                                    var _last = GetFiles( _path )
+                                        ?.Where( l => File.Exists( l ) )
+                                        ?.Select( l => Path.GetFullPath( l ) )
+                                        ?.ToList( );
+
+                                    _list.AddRange( _last );
+                                }
+                            }
+                        }
+                    }
+
+                    return _list?.Any( ) == true
+                        ? _list
+                        : default( IEnumerable<string> );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                    return default( IEnumerable<string> );
+                }
+            }
+
+            return default( IEnumerable<string> );
         }
 
         /// <summary>
@@ -245,7 +284,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Environment.CurrentDirectory;
+                return Environment.CurrentDirectory ?? string.Empty;
             }
             catch( Exception _ex )
             {

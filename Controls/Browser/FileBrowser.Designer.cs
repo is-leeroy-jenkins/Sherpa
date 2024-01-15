@@ -8,7 +8,7 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms;
 
 
-    partial class FileBrowser : MetroForm
+    partial class FileBrowser 
     {
         /// <summary>
         /// Required designer variable.
@@ -54,23 +54,25 @@ namespace BudgetExecution
             WordRadioButton = new RadioButton( );
             PdfRadioButton = new RadioButton( );
             FileList = new ListBox( );
+            BindingSource = new BindingSource( components );
             ToolTip = new SmallTip( );
             FoundLabel = new Label( );
-            FileDialog = new OpenFileDialog( );
             TopTablePanel = new TableLayoutPanel( );
             PictureBox = new Picture( );
-            BindingSource = new BindingSource( components );
             Title = new Label( );
             MessageLabel = new Label( );
             CloseButton = new Button( );
-            FindButton = new Button( );
+            BrowseButton = new Button( );
             SelectButton = new Button( );
             Timer = new System.Windows.Forms.Timer( components );
+            ButtonTable = new TableLayoutPanel( );
+            OpenDialog = new OpenDialog( );
             TextBoxLayout.SuspendLayout( );
             CheckBoxLayout.SuspendLayout( );
+            ( (ISupportInitialize)BindingSource ).BeginInit( );
             TopTablePanel.SuspendLayout( );
             ( (ISupportInitialize)PictureBox ).BeginInit( );
-            ( (ISupportInitialize)BindingSource ).BeginInit( );
+            ButtonTable.SuspendLayout( );
             SuspendLayout( );
             // 
             // TextBoxLayout
@@ -141,7 +143,7 @@ namespace BudgetExecution
             LibraryRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
             LibraryRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 205, 205, 205 );
             LibraryRadioButton.Dock = DockStyle.Fill;
-            LibraryRadioButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            LibraryRadioButton.Font = new System.Drawing.Font( "Roboto", 8F );
             LibraryRadioButton.Group = 0;
             LibraryRadioButton.HoverText = "Library Files";
             LibraryRadioButton.IsDerivedStyle = true;
@@ -167,7 +169,7 @@ namespace BudgetExecution
             PowerPointRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
             PowerPointRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 205, 205, 205 );
             PowerPointRadioButton.Dock = DockStyle.Fill;
-            PowerPointRadioButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            PowerPointRadioButton.Font = new System.Drawing.Font( "Roboto", 8F );
             PowerPointRadioButton.Group = 0;
             PowerPointRadioButton.HoverText = "Power Point Files";
             PowerPointRadioButton.IsDerivedStyle = true;
@@ -193,7 +195,7 @@ namespace BudgetExecution
             ExecutableRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
             ExecutableRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 205, 205, 205 );
             ExecutableRadioButton.Dock = DockStyle.Fill;
-            ExecutableRadioButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            ExecutableRadioButton.Font = new System.Drawing.Font( "Roboto", 8F );
             ExecutableRadioButton.Group = 0;
             ExecutableRadioButton.HoverText = "Executable Files";
             ExecutableRadioButton.IsDerivedStyle = true;
@@ -219,7 +221,7 @@ namespace BudgetExecution
             TextRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
             TextRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 205, 205, 205 );
             TextRadioButton.Dock = DockStyle.Fill;
-            TextRadioButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            TextRadioButton.Font = new System.Drawing.Font( "Roboto", 8F );
             TextRadioButton.Group = 0;
             TextRadioButton.HoverText = "Text Files";
             TextRadioButton.IsDerivedStyle = true;
@@ -245,7 +247,7 @@ namespace BudgetExecution
             SqlCeRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
             SqlCeRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 205, 205, 205 );
             SqlCeRadioButton.Dock = DockStyle.Fill;
-            SqlCeRadioButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            SqlCeRadioButton.Font = new System.Drawing.Font( "Roboto", 8F );
             SqlCeRadioButton.Group = 0;
             SqlCeRadioButton.HoverText = "SQL Compact Files";
             SqlCeRadioButton.IsDerivedStyle = true;
@@ -271,7 +273,7 @@ namespace BudgetExecution
             ExcelRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
             ExcelRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 205, 205, 205 );
             ExcelRadioButton.Dock = DockStyle.Fill;
-            ExcelRadioButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            ExcelRadioButton.Font = new System.Drawing.Font( "Roboto", 8F );
             ExcelRadioButton.Group = 0;
             ExcelRadioButton.HoverText = "Excel Workbooks";
             ExcelRadioButton.IsDerivedStyle = true;
@@ -297,7 +299,7 @@ namespace BudgetExecution
             CsvRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
             CsvRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 205, 205, 205 );
             CsvRadioButton.Dock = DockStyle.Fill;
-            CsvRadioButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            CsvRadioButton.Font = new System.Drawing.Font( "Roboto", 8F );
             CsvRadioButton.Group = 0;
             CsvRadioButton.HoverText = "CSV Files";
             CsvRadioButton.IsDerivedStyle = true;
@@ -323,7 +325,7 @@ namespace BudgetExecution
             AccessRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
             AccessRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 205, 205, 205 );
             AccessRadioButton.Dock = DockStyle.Fill;
-            AccessRadioButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            AccessRadioButton.Font = new System.Drawing.Font( "Roboto", 8F );
             AccessRadioButton.Group = 0;
             AccessRadioButton.HoverText = "Access DB Files";
             AccessRadioButton.IsDerivedStyle = true;
@@ -349,7 +351,7 @@ namespace BudgetExecution
             SQLiteRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
             SQLiteRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 205, 205, 205 );
             SQLiteRadioButton.Dock = DockStyle.Fill;
-            SQLiteRadioButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            SQLiteRadioButton.Font = new System.Drawing.Font( "Roboto", 8F );
             SQLiteRadioButton.Group = 0;
             SQLiteRadioButton.HoverText = "SQLite DB Files";
             SQLiteRadioButton.IsDerivedStyle = true;
@@ -375,7 +377,7 @@ namespace BudgetExecution
             SqlServerRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
             SqlServerRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 205, 205, 205 );
             SqlServerRadioButton.Dock = DockStyle.Fill;
-            SqlServerRadioButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            SqlServerRadioButton.Font = new System.Drawing.Font( "Roboto", 8F );
             SqlServerRadioButton.Group = 0;
             SqlServerRadioButton.HoverText = "SQL Server DB Files";
             SqlServerRadioButton.IsDerivedStyle = true;
@@ -401,7 +403,7 @@ namespace BudgetExecution
             WordRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
             WordRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 205, 205, 205 );
             WordRadioButton.Dock = DockStyle.Fill;
-            WordRadioButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            WordRadioButton.Font = new System.Drawing.Font( "Roboto", 8F );
             WordRadioButton.Group = 0;
             WordRadioButton.HoverText = "Word Documents";
             WordRadioButton.IsDerivedStyle = true;
@@ -427,7 +429,7 @@ namespace BudgetExecution
             PdfRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
             PdfRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 205, 205, 205 );
             PdfRadioButton.Dock = DockStyle.Fill;
-            PdfRadioButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            PdfRadioButton.Font = new System.Drawing.Font( "Roboto", 8F );
             PdfRadioButton.Group = 0;
             PdfRadioButton.HoverText = "PDF Documents";
             PdfRadioButton.IsDerivedStyle = true;
@@ -447,13 +449,13 @@ namespace BudgetExecution
             // FileList
             // 
             FileList.BackColor = System.Drawing.Color.FromArgb( 35, 35, 35 );
-            FileList.BindingSource = null;
-            FileList.BorderColor = System.Drawing.Color.FromArgb( 64, 64, 64 );
+            FileList.BindingSource = BindingSource;
+            FileList.BorderColor = System.Drawing.Color.Gray;
             FileList.DataFilter = null;
             FileList.DisabledBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             FileList.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             FileList.Dock = DockStyle.Fill;
-            FileList.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            FileList.Font = new System.Drawing.Font( "Roboto", 8.25F );
             FileList.HoveredItemBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
             FileList.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
             FileList.HoverText = null;
@@ -505,7 +507,7 @@ namespace BudgetExecution
             FoundLabel.BindingSource = null;
             FoundLabel.DataFilter = null;
             FoundLabel.FlatStyle = FlatStyle.Flat;
-            FoundLabel.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            FoundLabel.Font = new System.Drawing.Font( "Roboto", 8.25F );
             FoundLabel.HoverText = null;
             FoundLabel.IsDerivedStyle = true;
             FoundLabel.Location = new System.Drawing.Point( 4, 4 );
@@ -521,10 +523,6 @@ namespace BudgetExecution
             FoundLabel.ThemeName = "BudgetExecution";
             FoundLabel.ToolTip = null;
             // 
-            // FileDialog
-            // 
-            FileDialog.Filter = "Document FIles | *.PDF | *.DOCX | *.DOC ";
-            // 
             // TopTablePanel
             // 
             TopTablePanel.BackColor = System.Drawing.Color.Transparent;
@@ -536,8 +534,9 @@ namespace BudgetExecution
             TopTablePanel.Dock = DockStyle.Top;
             TopTablePanel.Location = new System.Drawing.Point( 0, 0 );
             TopTablePanel.Name = "TopTablePanel";
-            TopTablePanel.RowCount = 1;
+            TopTablePanel.RowCount = 2;
             TopTablePanel.RowStyles.Add( new RowStyle( SizeType.Percent, 50F ) );
+            TopTablePanel.RowStyles.Add( new RowStyle( SizeType.Absolute, 37F ) );
             TopTablePanel.Size = new System.Drawing.Size( 688, 64 );
             TopTablePanel.TabIndex = 9;
             // 
@@ -546,14 +545,14 @@ namespace BudgetExecution
             PictureBox.BackColor = System.Drawing.Color.Transparent;
             PictureBox.BindingSource = BindingSource;
             PictureBox.DataFilter = null;
-            PictureBox.Dock = DockStyle.Top;
             PictureBox.HoverText = null;
+            PictureBox.Image = Resources.Images.Browse;
             PictureBox.ImageList = null;
             PictureBox.Location = new System.Drawing.Point( 3, 3 );
             PictureBox.Name = "PictureBox";
             PictureBox.Padding = new Padding( 1 );
-            PictureBox.Size = new System.Drawing.Size( 33, 22 );
-            PictureBox.SizeMode = PictureBoxSizeMode.AutoSize;
+            PictureBox.Size = new System.Drawing.Size( 24, 20 );
+            PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             PictureBox.TabIndex = 1;
             PictureBox.TabStop = false;
             PictureBox.ToolTip = ToolTip;
@@ -564,19 +563,19 @@ namespace BudgetExecution
             Title.DataFilter = null;
             Title.Dock = DockStyle.Top;
             Title.FlatStyle = FlatStyle.Flat;
-            Title.Font = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            Title.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
             Title.HoverText = null;
             Title.IsDerivedStyle = true;
             Title.Location = new System.Drawing.Point( 42, 3 );
             Title.Margin = new Padding( 3 );
             Title.Name = "Title";
             Title.Padding = new Padding( 1 );
-            Title.Size = new System.Drawing.Size( 643, 22 );
+            Title.Size = new System.Drawing.Size( 643, 21 );
             Title.Style = MetroSet_UI.Enums.Style.Custom;
             Title.StyleManager = null;
             Title.TabIndex = 0;
             Title.Text = "File Search";
-            Title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            Title.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             Title.ThemeAuthor = "Terry D. Eppler";
             Title.ThemeName = "BudgetExecution";
             Title.ToolTip = null;
@@ -586,7 +585,7 @@ namespace BudgetExecution
             MessageLabel.BindingSource = null;
             MessageLabel.DataFilter = null;
             MessageLabel.FlatStyle = FlatStyle.Flat;
-            MessageLabel.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            MessageLabel.Font = new System.Drawing.Font( "Roboto", 8.25F );
             MessageLabel.HoverText = null;
             MessageLabel.IsDerivedStyle = true;
             MessageLabel.Location = new System.Drawing.Point( 90, 363 );
@@ -609,14 +608,14 @@ namespace BudgetExecution
             CloseButton.DisabledBackColor = System.Drawing.Color.Transparent;
             CloseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
             CloseButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            CloseButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            CloseButton.Font = new System.Drawing.Font( "Roboto", 8F );
             CloseButton.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
             CloseButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             CloseButton.HoverText = null;
             CloseButton.HoverTextColor = System.Drawing.Color.White;
             CloseButton.IsDerivedStyle = true;
-            CloseButton.Location = new System.Drawing.Point( 544, 413 );
+            CloseButton.Location = new System.Drawing.Point( 554, 3 );
             CloseButton.Name = "CloseButton";
             CloseButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             CloseButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
@@ -625,7 +624,7 @@ namespace BudgetExecution
             CloseButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             CloseButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             CloseButton.PressTextColor = System.Drawing.Color.White;
-            CloseButton.Size = new System.Drawing.Size( 90, 30 );
+            CloseButton.Size = new System.Drawing.Size( 110, 30 );
             CloseButton.Style = MetroSet_UI.Enums.Style.Custom;
             CloseButton.StyleManager = null;
             CloseButton.TabIndex = 14;
@@ -634,37 +633,37 @@ namespace BudgetExecution
             CloseButton.ThemeName = "Budget Execution";
             CloseButton.ToolTip = null;
             // 
-            // FindButton
+            // BrowseButton
             // 
-            FindButton.BindingSource = null;
-            FindButton.DataFilter = null;
-            FindButton.DisabledBackColor = System.Drawing.Color.Transparent;
-            FindButton.DisabledBorderColor = System.Drawing.Color.Transparent;
-            FindButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            FindButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            FindButton.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            FindButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
-            FindButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
-            FindButton.HoverText = null;
-            FindButton.HoverTextColor = System.Drawing.Color.White;
-            FindButton.IsDerivedStyle = true;
-            FindButton.Location = new System.Drawing.Point( 53, 413 );
-            FindButton.Name = "FindButton";
-            FindButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
-            FindButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
-            FindButton.NormalTextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            FindButton.Padding = new Padding( 1 );
-            FindButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            FindButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            FindButton.PressTextColor = System.Drawing.Color.White;
-            FindButton.Size = new System.Drawing.Size( 90, 30 );
-            FindButton.Style = MetroSet_UI.Enums.Style.Custom;
-            FindButton.StyleManager = null;
-            FindButton.TabIndex = 15;
-            FindButton.Text = "Browse";
-            FindButton.ThemeAuthor = "Terry D. Eppler";
-            FindButton.ThemeName = "Budget Execution";
-            FindButton.ToolTip = null;
+            BrowseButton.BindingSource = null;
+            BrowseButton.DataFilter = null;
+            BrowseButton.DisabledBackColor = System.Drawing.Color.Transparent;
+            BrowseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
+            BrowseButton.DisabledForeColor = System.Drawing.Color.Transparent;
+            BrowseButton.Font = new System.Drawing.Font( "Roboto", 8F );
+            BrowseButton.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            BrowseButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            BrowseButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
+            BrowseButton.HoverText = null;
+            BrowseButton.HoverTextColor = System.Drawing.Color.White;
+            BrowseButton.IsDerivedStyle = true;
+            BrowseButton.Location = new System.Drawing.Point( 53, 3 );
+            BrowseButton.Name = "BrowseButton";
+            BrowseButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
+            BrowseButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
+            BrowseButton.NormalTextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            BrowseButton.Padding = new Padding( 1 );
+            BrowseButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            BrowseButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            BrowseButton.PressTextColor = System.Drawing.Color.White;
+            BrowseButton.Size = new System.Drawing.Size( 110, 30 );
+            BrowseButton.Style = MetroSet_UI.Enums.Style.Custom;
+            BrowseButton.StyleManager = null;
+            BrowseButton.TabIndex = 15;
+            BrowseButton.Text = "Browse";
+            BrowseButton.ThemeAuthor = "Terry D. Eppler";
+            BrowseButton.ThemeName = "Budget Execution";
+            BrowseButton.ToolTip = null;
             // 
             // SelectButton
             // 
@@ -673,14 +672,14 @@ namespace BudgetExecution
             SelectButton.DisabledBackColor = System.Drawing.Color.Transparent;
             SelectButton.DisabledBorderColor = System.Drawing.Color.Transparent;
             SelectButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            SelectButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            SelectButton.Font = new System.Drawing.Font( "Roboto", 8F );
             SelectButton.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             SelectButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
             SelectButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             SelectButton.HoverText = null;
             SelectButton.HoverTextColor = System.Drawing.Color.White;
             SelectButton.IsDerivedStyle = true;
-            SelectButton.Location = new System.Drawing.Point( 297, 413 );
+            SelectButton.Location = new System.Drawing.Point( 306, 3 );
             SelectButton.Name = "SelectButton";
             SelectButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             SelectButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
@@ -689,14 +688,39 @@ namespace BudgetExecution
             SelectButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             SelectButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             SelectButton.PressTextColor = System.Drawing.Color.White;
-            SelectButton.Size = new System.Drawing.Size( 90, 30 );
+            SelectButton.Size = new System.Drawing.Size( 110, 30 );
             SelectButton.Style = MetroSet_UI.Enums.Style.Custom;
             SelectButton.StyleManager = null;
             SelectButton.TabIndex = 16;
-            SelectButton.Text = "Select";
+            SelectButton.Text = "Ok";
             SelectButton.ThemeAuthor = "Terry D. Eppler";
             SelectButton.ThemeName = "Budget Execution";
             SelectButton.ToolTip = null;
+            // 
+            // ButtonTable
+            // 
+            ButtonTable.ColumnCount = 7;
+            ButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 50F ) );
+            ButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Absolute, 28F ) );
+            ButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Absolute, 253F ) );
+            ButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Absolute, 191F ) );
+            ButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Absolute, 57F ) );
+            ButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Absolute, 117F ) );
+            ButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Absolute, 20F ) );
+            ButtonTable.Controls.Add( CloseButton, 5, 0 );
+            ButtonTable.Controls.Add( SelectButton, 3, 0 );
+            ButtonTable.Controls.Add( BrowseButton, 2, 0 );
+            ButtonTable.Dock = DockStyle.Bottom;
+            ButtonTable.Location = new System.Drawing.Point( 0, 431 );
+            ButtonTable.Name = "ButtonTable";
+            ButtonTable.RowCount = 1;
+            ButtonTable.RowStyles.Add( new RowStyle( SizeType.Percent, 50F ) );
+            ButtonTable.Size = new System.Drawing.Size( 688, 37 );
+            ButtonTable.TabIndex = 17;
+            // 
+            // OpenDialog
+            // 
+            OpenDialog.Filter = null;
             // 
             // FileBrowser
             // 
@@ -710,19 +734,17 @@ namespace BudgetExecution
             CaptionBarHeight = 5;
             CaptionButtonColor = System.Drawing.Color.FromArgb( 64, 64, 64 );
             CaptionButtonHoverColor = System.Drawing.Color.Red;
-            CaptionFont = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            CaptionFont = new System.Drawing.Font( "Roboto", 11.25F );
             CaptionForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             ClientSize = new System.Drawing.Size( 688, 468 );
             ControlBox = false;
-            Controls.Add( SelectButton );
-            Controls.Add( FindButton );
-            Controls.Add( CloseButton );
+            Controls.Add( ButtonTable );
             Controls.Add( MessageLabel );
             Controls.Add( TextBoxLayout );
             Controls.Add( TopTablePanel );
             DoubleBuffered = true;
-            Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            ForeColor = System.Drawing.Color.LightGray;
+            Font = new System.Drawing.Font( "Roboto", 9F );
+            ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
             MaximizeBox = false;
@@ -738,10 +760,10 @@ namespace BudgetExecution
             StartPosition = FormStartPosition.CenterScreen;
             TextBoxLayout.ResumeLayout( false );
             CheckBoxLayout.ResumeLayout( false );
-            TopTablePanel.ResumeLayout( false );
-            TopTablePanel.PerformLayout( );
-            ( (ISupportInitialize)PictureBox ).EndInit( );
             ( (ISupportInitialize)BindingSource ).EndInit( );
+            TopTablePanel.ResumeLayout( false );
+            ( (ISupportInitialize)PictureBox ).EndInit( );
+            ButtonTable.ResumeLayout( false );
             ResumeLayout( false );
         }
 
@@ -749,7 +771,6 @@ namespace BudgetExecution
 
         public TableLayoutPanel TextBoxLayout;
         public TableLayoutPanel CheckBoxLayout;
-        public OpenFileDialog FileDialog;
         public SmallTip ToolTip;
         public TableLayoutPanel TopTablePanel;
         public Label Title;
@@ -771,9 +792,11 @@ namespace BudgetExecution
         public RadioButton WordRadioButton;
         public RadioButton PdfRadioButton;
         public Button CloseButton;
-        public Button FindButton;
+        public Button BrowseButton;
         public Button SelectButton;
         public System.Windows.Forms.Timer Timer;
+        public TableLayoutPanel ButtonTable;
+        public OpenDialog OpenDialog;
     }
 
 }

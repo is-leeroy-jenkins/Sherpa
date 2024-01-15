@@ -116,7 +116,9 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the sub file data.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// Dictionary
+        /// </returns>
         public IDictionary<string, FileInfo> GetSubFileData( )
         {
             if( _hasSubFiles )
@@ -124,8 +126,8 @@ namespace BudgetExecution
                 try
                 {
                     var _data = new Dictionary<string, FileInfo>( );
-                    var _subPaths = Directory.GetFiles( _fullPath );
-                    foreach( var _path in _subPaths )
+                    var _paths = Directory.GetFiles( _fullPath );
+                    foreach( var _path in _paths )
                     {
                         if( File.Exists( _path ) )
                         {

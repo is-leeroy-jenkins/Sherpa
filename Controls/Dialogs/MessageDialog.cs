@@ -56,10 +56,17 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MergeIntoPattern" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
     public partial class MessageDialog : MetroForm
     {
+        /// <summary>
+        /// The data
+        /// </summary>
         private string _data;
 
+        /// <summary>
+        /// The caption
+        /// </summary>
         private string _caption;
 
         /// <summary>
@@ -444,31 +451,28 @@ namespace BudgetExecution
             {
                 try
                 {
-                    if( _button.Name.Equals( "BrowseButton" ) )
-                    {
-                        OpenDialog.ShowDialog( );
-                        TextBox.Text = "";
-                        var _externalFile = OpenDialog.FileName;
-                        var _file = new DataFile( _externalFile );
-                        var _extenstion = _file.Extension ?? string.Empty;
-                        var _name = _file.FileName ?? string.Empty;
-                        var _path = _file.FullPath ?? string.Empty;
-                        var _dirPath = _file.ParentPath ?? string.Empty;
-                        var _create = _file.Created;
-                        var _modify = _file.Modified;
-                        var _size = ( _file.Size.ToString( "N0" ) ?? "0" ) + " bytes";
-                        var _nl = Environment.NewLine;
-                        var _tb = char.ToString( '\t' );
-                        var _text = _nl + _tb + "File Name: " + _tb + _name + _nl + _nl +
-                            _tb + "File Path: " + _tb + _path + _nl + _nl +
-                            _tb + "Parent Path: " + _tb + _dirPath + _nl + _nl +
-                            _tb + "File Extension: " + _tb + _extenstion + _nl + _nl +
-                            _tb + "File Size: " + _tb + _size + _nl + _nl +
-                            _tb + "Created On: " + _tb + _create.ToShortDateString( ) + _nl + _nl +
-                            _tb + "Modified On: " + _tb + _modify.ToShortDateString( ) + _nl + _nl;
+                    OpenDialog.ShowDialog( );
+                    TextBox.Text = "";
+                    var _externalFile = OpenDialog.FileName;
+                    var _file = new DataFile( _externalFile );
+                    var _extenstion = _file.Extension ?? string.Empty;
+                    var _name = _file.FileName ?? string.Empty;
+                    var _path = _file.FullPath ?? string.Empty;
+                    var _dirPath = _file.ParentPath ?? string.Empty;
+                    var _create = _file.Created;
+                    var _modify = _file.Modified;
+                    var _size = ( _file.Size.ToString( "N0" ) ?? "0" ) + " bytes";
+                    var _nl = Environment.NewLine;
+                    var _tb = char.ToString( '\t' );
+                    var _text = _nl + _tb + "File Name: " + _tb + _name + _nl + _nl +
+                        _tb + "File Path: " + _tb + _path + _nl + _nl +
+                        _tb + "Parent Path: " + _tb + _dirPath + _nl + _nl +
+                        _tb + "File Extension: " + _tb + _extenstion + _nl + _nl +
+                        _tb + "File Size: " + _tb + _size + _nl + _nl +
+                        _tb + "Created On: " + _tb + _create.ToShortDateString( ) + _nl + _nl +
+                        _tb + "Modified On: " + _tb + _modify.ToShortDateString( ) + _nl + _nl;
 
-                        TextBox.Text = _text;
-                    }
+                    TextBox.Text = _text;
                 }
                 catch( Exception _ex )
                 {
