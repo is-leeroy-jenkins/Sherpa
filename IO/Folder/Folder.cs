@@ -46,7 +46,6 @@ namespace BudgetExecution
     using System.IO.Compression;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Security.AccessControl;
     using static System.IO.Directory;
 
     /// <inheritdoc />
@@ -63,6 +62,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public class Folder : FolderBase
     {
         /// <summary>
@@ -202,7 +202,7 @@ namespace BudgetExecution
         /// <param name="destination">
         /// The folder.
         /// </param>
-        public void CopyTree( string destination )
+        public void CopyContents( string destination )
         {
             try
             {
@@ -213,67 +213,6 @@ namespace BudgetExecution
             {
                 Fail( _ex );
             }
-        }
-
-        /// <summary>
-        /// Walks the paths.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        private protected IEnumerable<string> WalkPaths( )
-        {
-            if( _hasSubFiles )
-            {
-                try
-                {
-                    var _list = new List<string>( );
-                    var _paths = Directory.GetFiles( _buffer );
-                    foreach( var _filePath in _paths )
-                    {
-                        var _first = GetFiles( _filePath )
-                            ?.Where( f => File.Exists( f ) ) 
-                            ?.Select( f => Path.GetFullPath( f ) )
-                            ?.ToList( );
-
-                        _list.AddRange( _first );
-                        var _folders = GetDirectories( _filePath );
-                        foreach( var _folder in _folders )
-                        {
-                            if( !_folder.Contains( "My " ) )
-                            {
-                                var _second = GetFiles( _folder )
-                                    ?.Where( s => File.Exists( s ) )
-                                    ?.Select( s => Path.GetFullPath( s ) )
-                                    ?.ToList( );
-
-                                _list.AddRange( _second );
-                                var _subfolders = GetDirectories( _folder );
-                                for( var _i = 0; _i < _subfolders.Length; _i++ )
-                                {
-                                    var _path = _subfolders[ _i ];
-                                    var _last = GetFiles( _path )
-                                        ?.Where( l => File.Exists( l ) )
-                                        ?.Select( l => Path.GetFullPath( l ) )
-                                        ?.ToList( );
-
-                                    _list.AddRange( _last );
-                                }
-                            }
-                        }
-                    }
-
-                    return _list?.Any( ) == true
-                        ? _list
-                        : default( IEnumerable<string> );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( IEnumerable<string> );
-                }
-            }
-
-            return default( IEnumerable<string> );
         }
 
         /// <summary>
@@ -297,18 +236,18 @@ namespace BudgetExecution
         /// <summary>
         /// Creates the specified full path.
         /// </summary>
-        /// <param name="fullPath">
+        /// <param name="filePath">
         /// The full path.
         /// </param>
         /// <returns>
         /// DirectoryInfo
         /// </returns>
-        public static new DirectoryInfo Create( string fullPath )
+        public static new DirectoryInfo Create( string filePath )
         {
             try
             {
-                ThrowIf.NullOrEmpty( fullPath, nameof( fullPath ) );
-                return CreateDirectory( fullPath );
+                ThrowIf.NullOrEmpty( filePath, nameof( filePath ) );
+                return CreateDirectory( filePath );
             }
             catch( Exception _ex )
             {
@@ -438,23 +377,44 @@ namespace BudgetExecution
 
         /// <inheritdoc />
         /// <summary>
-        /// Sets the access control.
+        /// Converts to string.
         /// </summary>
-        /// <param name="security">
-        /// The security.</param>
-        public void SetAccessControl( DirectorySecurity security )
+        /// <returns>
+        /// A <see cref="T:System.String" />
+        /// that represents this instance.
+        /// </returns>
+        public override string ToString( )
         {
-            if( security != null )
+            try
             {
-                try
-                {
-                    var _directory = new DirectoryInfo( FullPath );
-                    _directory?.SetAccessControl( security );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                var _folder = new Folder( _buffer );
+                var _name = _folder.FolderName ?? string.Empty;
+                var _path = _folder.FullPath ?? string.Empty;
+                var _dirPath = _folder.ParentPath ?? string.Empty;
+                var _create = _folder.Created;
+                var _modify = _folder.Modified;
+                var _subfiles = _folder.SubFiles?.Count( );
+                var _subfolders = _folder.SubFolders?.Count( );
+                var _size = ( _folder.Size.ToString( "N0" ) ?? "0" ) + " bytes";
+                var _nl = Environment.NewLine;
+                var _tb = char.ToString( '\t' );
+                var _text = _nl + _tb + "Folder Name: " + _tb + _name + _nl + _nl +
+                    _tb + "Folder Path: " + _tb + _path + _nl + _nl +
+                    _tb + "Parent Path: " + _tb + _dirPath + _nl + _nl +
+                    _tb + "Sub-Files: " + _tb + _subfiles + _nl + _nl +
+                    _tb + "Sub-Folders: " + _tb + _subfolders + _nl + _nl +
+                    _tb + "File Size: " + _tb + _size + _nl + _nl +
+                    _tb + "Created On: " + _tb + _create.ToShortDateString( ) + _nl + _nl +
+                    _tb + "Modified On: " + _tb + _modify.ToShortDateString( ) + _nl + _nl;
+
+                return !string.IsNullOrEmpty( _text )
+                    ? _text
+                    : string.Empty;
+            }
+            catch( IOException _ex )
+            {
+                Fail( _ex );
+                return string.Empty;
             }
         }
     }

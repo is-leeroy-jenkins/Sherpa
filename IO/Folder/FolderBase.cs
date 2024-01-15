@@ -56,6 +56,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     public abstract class FolderBase : DataFile
     {
         /// <summary>
@@ -188,6 +189,67 @@ namespace BudgetExecution
             }
 
             return default( IDictionary<string, DirectoryInfo> );
+        }
+
+        /// <summary>
+        /// Walks the paths.
+        /// </summary>
+        /// <returns>
+        /// </returns>
+        private protected IEnumerable<string> WalkPaths( )
+        {
+            if( _hasSubFiles )
+            {
+                try
+                {
+                    var _list = new List<string>( );
+                    var _paths = Directory.GetFiles( _buffer );
+                    foreach( var _filePath in _paths )
+                    {
+                        var _first = Directory.GetFiles( _filePath )
+                            ?.Where( f => File.Exists( f ) )
+                            ?.Select( f => Path.GetFullPath( f ) )
+                            ?.ToList( );
+
+                        _list.AddRange( _first );
+                        var _folders = Directory.GetDirectories( _filePath );
+                        foreach( var _folder in _folders )
+                        {
+                            if( !_folder.Contains( "My " ) )
+                            {
+                                var _second = Directory.GetFiles( _folder )
+                                    ?.Where( s => File.Exists( s ) )
+                                    ?.Select( s => Path.GetFullPath( s ) )
+                                    ?.ToList( );
+
+                                _list.AddRange( _second );
+                                var _subfolders = Directory.GetDirectories( _folder );
+                                for( var _i = 0; _i < _subfolders.Length; _i++ )
+                                {
+                                    var _path = _subfolders[ _i ];
+                                    var _last = Directory.GetFiles( _path )
+                                        ?.Where( l => File.Exists( l ) )
+                                        ?.Select( l => Path.GetFullPath( l ) )
+                                        ?.ToList( );
+
+                                    _list.AddRange( _last );
+                                }
+                            }
+                        }
+                    }
+
+                    return _list?.Any( ) == true
+                        ? _list
+                        : default( IEnumerable<string> );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                    return default( IEnumerable<string> );
+                }
+            }
+
+            return default( IEnumerable<string> );
         }
     }
 }

@@ -508,25 +508,9 @@ namespace BudgetExecution
         {
             try
             {
-                var _location = @"C:\Users\terry\Desktop\dev\export\Test.txt";
-                var _file = new DataFile( _location );
-                var _extenstion = _file.Extension ?? string.Empty;
-                var _name = _file.FileName ?? string.Empty;
-                var _path = _file.FullPath ?? string.Empty;
-                var _dirPath = _file.ParentPath ?? string.Empty;;
-                var _create = _file.Created;
-                var _modify = _file.Modified;
-                var _size = ( _file.Size.ToString( "N0" ) ?? "0" ) + " bytes";
-                var _nl = Environment.NewLine;
-                var _tb = char.ToString( '\t' );
-                var _text = _nl + _tb + "File Name: " + _tb + _name + _nl + _nl +
-                    _tb + "File Path: " + _tb + _path + _nl + _nl +
-                    _tb + "Parent Path: " + _tb + _dirPath + _nl + _nl +
-                    _tb + "File Extension: " + _tb + _extenstion + _nl + _nl +
-                    _tb + "File Size: " + _tb + _size + _nl + _nl +
-                    _tb + "Created On: " + _tb + _create.ToShortDateString( ) + _nl + _nl +
-                    _tb + "Modified On: " + _tb + _modify.ToShortDateString( ) + _nl + _nl;
-
+                var _location = @"C:\Users\terry\Desktop\dev\export";
+                var _folder = new Folder( _location );
+                var _text = _folder?.ToString( );
                 var _message = new MessageDialog( _text );
                 _message.Owner = this;
                 _message.StartPosition = FormStartPosition.CenterScreen;

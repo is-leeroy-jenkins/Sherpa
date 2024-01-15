@@ -44,6 +44,7 @@ namespace BudgetExecution
             CloseButton = new Button( );
             SelectButton = new Button( );
             BrowseButton = new Button( );
+            SaveButton = new Button( );
             MessageTable = new TableLayoutPanel( );
             TextBox = new System.Windows.Forms.RichTextBox( );
             HeaderTable = new TableLayoutPanel( );
@@ -51,7 +52,6 @@ namespace BudgetExecution
             Title = new Label( );
             OpenDialog = new OpenDialog( );
             SaveDialog = new SaveDialog( );
-            SaveButton = new Button( );
             ( (ISupportInitialize)BindingSource ).BeginInit( );
             ButtonTable.SuspendLayout( );
             MessageTable.SuspendLayout( );
@@ -202,6 +202,38 @@ namespace BudgetExecution
             BrowseButton.ThemeName = "Budget Execution";
             BrowseButton.ToolTip = null;
             // 
+            // SaveButton
+            // 
+            SaveButton.BindingSource = null;
+            SaveButton.DataFilter = null;
+            SaveButton.DisabledBackColor = System.Drawing.Color.Transparent;
+            SaveButton.DisabledBorderColor = System.Drawing.Color.Transparent;
+            SaveButton.DisabledForeColor = System.Drawing.Color.Transparent;
+            SaveButton.Font = new System.Drawing.Font( "Roboto", 9F );
+            SaveButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            SaveButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            SaveButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
+            SaveButton.HoverText = null;
+            SaveButton.HoverTextColor = System.Drawing.Color.White;
+            SaveButton.IsDerivedStyle = true;
+            SaveButton.Location = new System.Drawing.Point( 29, 3 );
+            SaveButton.Name = "SaveButton";
+            SaveButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
+            SaveButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
+            SaveButton.NormalTextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            SaveButton.Padding = new Padding( 1 );
+            SaveButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            SaveButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            SaveButton.PressTextColor = System.Drawing.Color.White;
+            SaveButton.Size = new System.Drawing.Size( 103, 29 );
+            SaveButton.Style = MetroSet_UI.Enums.Style.Custom;
+            SaveButton.StyleManager = null;
+            SaveButton.TabIndex = 3;
+            SaveButton.Text = "Save";
+            SaveButton.ThemeAuthor = "Terry D. Eppler";
+            SaveButton.ThemeName = "Budget Execution";
+            SaveButton.ToolTip = null;
+            // 
             // MessageTable
             // 
             MessageTable.ColumnCount = 3;
@@ -251,7 +283,7 @@ namespace BudgetExecution
             PictureBox.Image = Resources.Images.Message;
             PictureBox.Location = new System.Drawing.Point( 3, 3 );
             PictureBox.Name = "PictureBox";
-            PictureBox.Size = new System.Drawing.Size( 24, 20 );
+            PictureBox.Size = new System.Drawing.Size( 22, 18 );
             PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             PictureBox.TabIndex = 0;
             PictureBox.TabStop = false;
@@ -287,38 +319,6 @@ namespace BudgetExecution
             // SaveDialog
             // 
             SaveDialog.Filter = null;
-            // 
-            // SaveButton
-            // 
-            SaveButton.BindingSource = null;
-            SaveButton.DataFilter = null;
-            SaveButton.DisabledBackColor = System.Drawing.Color.Transparent;
-            SaveButton.DisabledBorderColor = System.Drawing.Color.Transparent;
-            SaveButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            SaveButton.Font = new System.Drawing.Font( "Roboto", 9F );
-            SaveButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            SaveButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
-            SaveButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
-            SaveButton.HoverText = null;
-            SaveButton.HoverTextColor = System.Drawing.Color.White;
-            SaveButton.IsDerivedStyle = true;
-            SaveButton.Location = new System.Drawing.Point( 29, 3 );
-            SaveButton.Name = "SaveButton";
-            SaveButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
-            SaveButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
-            SaveButton.NormalTextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            SaveButton.Padding = new Padding( 1 );
-            SaveButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            SaveButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            SaveButton.PressTextColor = System.Drawing.Color.White;
-            SaveButton.Size = new System.Drawing.Size( 103, 29 );
-            SaveButton.Style = MetroSet_UI.Enums.Style.Custom;
-            SaveButton.StyleManager = null;
-            SaveButton.TabIndex = 3;
-            SaveButton.Text = "Save";
-            SaveButton.ThemeAuthor = "Terry D. Eppler";
-            SaveButton.ThemeName = "Budget Execution";
-            SaveButton.ToolTip = null;
             // 
             // MessageDialog
             // 
