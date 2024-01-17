@@ -45,8 +45,8 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
-    using LinqStatistics;
 
+    /// <inheritdoc />
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
@@ -54,8 +54,83 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ReturnTypeCanBeEnumerable.Local" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [ SuppressMessage( "ReSharper", "ReturnTypeCanBeEnumerable.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     public class DataMetric : MetricBase
     {
+        /// <summary>
+        /// Gets the dates.
+        /// </summary>
+        /// <value>
+        /// The dates.
+        /// </value>
+        public IList<string> Dates
+        {
+            get
+            {
+                return _dates;
+            }
+            private protected set
+            {
+                _dates = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the data table.
+        /// </summary>
+        /// <value>
+        /// The data table.
+        /// </value>
+        public DataTable DataTable
+        {
+            get
+            {
+                return _dataTable;
+            }
+            private protected set
+            {
+                _dataTable = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the numerics.
+        /// </summary>
+        /// <value>
+        /// The numerics.
+        /// </value>
+        public IList<string> Numerics
+        {
+            get
+            {
+                return _numerics;
+            }
+            private protected set
+            {
+                _numerics = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the values.
+        /// </summary>
+        /// <value>
+        /// The values.
+        /// </value>
+        public IDictionary<string, double> Values
+        {
+            get
+            {
+                return _values;
+            }
+            private protected set
+            {
+                _values = value;
+            }
+        }
+
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="DataMetric"/>
@@ -73,441 +148,9 @@ namespace BudgetExecution
         /// <param name="dataTable"> The data table. </param>
         public DataMetric( DataTable dataTable )
         {
-            DataTable = dataTable;
-            Numerics = GetNumerics( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DataMetric"/>
-        /// class.
-        /// </summary>
-        /// <param name="dataRow"> The data row. </param>
-        public DataMetric( IEnumerable<DataRow> dataRow )
-        {
-            DataTable = dataRow.CopyToDataTable( );
-            Numerics = GetNumerics( );
-        }
-
-        /// <inheritdoc/>
-        /// <summary> Counts the values. </summary>
-        /// <param name="numeric"> The numeric. </param>
-        /// <returns> </returns>
-        public override int CountValues( string numeric )
-        {
-            if( !string.IsNullOrEmpty( numeric )
-               && Numerics.Contains( numeric ) )
-            {
-                try
-                {
-                    var _select = DataTable.AsEnumerable( )
-                        ?.Select( p => p.Field<double>( numeric ) );
-
-                    return _select?.Any( ) == true
-                        ? _select.Count( )
-                        : -1;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return -1;
-                }
-            }
-
-            return -1;
-        }
-
-        /// <inheritdoc/>
-        /// <summary> Counts the values. </summary>
-        /// <param name="numeric"> The numeric. </param>
-        /// <param name="where"> The where. </param>
-        /// <returns> </returns>
-        public override int CountValues( string numeric, IDictionary<string, object> where )
-        {
-            if( !string.IsNullOrEmpty( numeric )
-               && Numerics.Contains( numeric ) )
-            {
-                try
-                {
-                    var _select = DataTable.Filter( where )
-                        ?.Select( p => p.Field<double>( numeric ) );
-
-                    return _select?.Any( ) == true
-                        ? _select.Count( )
-                        : -1;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return -1;
-                }
-            }
-
-            return -1;
-        }
-
-        /// <inheritdoc/>
-        /// <summary> Calculates the total. </summary>
-        /// <param name="numeric"> The numeric. </param>
-        /// <returns> </returns>
-        public override double CalculateTotal( string numeric )
-        {
-            if( !string.IsNullOrEmpty( numeric )
-               && Numerics.Contains( numeric ) )
-            {
-                try
-                {
-                    var _select = DataTable.AsEnumerable( )
-                        ?.Select( p => p.Field<double>( numeric ) )
-                        ?.Sum( );
-
-                    return _select > 0
-                        ? double.Parse( _select?.ToString( "N1" ) )
-                        : 0.0d;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-
-            return default( double );
-        }
-
-        /// <inheritdoc/>
-        /// <summary> Calculates the total. </summary>
-        /// <param name="numeric"> The numeric. </param>
-        /// <param name="where"> The where. </param>
-        /// <returns> </returns>
-        public override double CalculateTotal( string numeric, IDictionary<string, object> where )
-        {
-            if( !string.IsNullOrEmpty( numeric )
-               && ( where?.Any( ) == true ) )
-            {
-                try
-                {
-                    var _select = DataTable.Filter( where )
-                        ?.Select( p => p.Field<double>( numeric ) )
-                        ?.Sum( );
-
-                    return _select > 0
-                        ? double.Parse( _select?.ToString( "N1" ) )
-                        : 0.0d;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-
-            return default( double );
-        }
-
-        /// <inheritdoc/>
-        /// <summary> Calculates the average. </summary>
-        /// <param name="numeric"> The numeric. </param>
-        /// <returns> </returns>
-        public override double CalculateAverage( string numeric )
-        {
-            if( !string.IsNullOrEmpty( numeric )
-               && Numerics.Contains( numeric ) )
-            {
-                try
-                {
-                    var _query = DataTable.AsEnumerable( )
-                        ?.Select( p => p.Field<double>( numeric ) )
-                        ?.Average( );
-
-                    return _query > 0
-                        ? double.Parse( _query?.ToString( "N1" ) )
-                        : 0.0d;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return 0.0d;
-                }
-            }
-
-            return 0.0d;
-        }
-
-        /// <inheritdoc/>
-        /// <summary> Calculates the average. </summary>
-        /// <param name="numeric"> The numeric. </param>
-        /// <param name="where"> The where. </param>
-        /// <returns> </returns>
-        public override double CalculateAverage( string numeric, IDictionary<string, object> where )
-        {
-            if( !string.IsNullOrEmpty( numeric )
-               && ( where?.Any( ) == true ) )
-            {
-                try
-                {
-                    var _query = DataTable.Filter( where )
-                        ?.Select( p => p.Field<double>( numeric ) )
-                        ?.Average( );
-
-                    return _query > 0
-                        ? double.Parse( _query?.ToString( "N1" ) )
-                        : 0.0d;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return 0.0d;
-                }
-            }
-
-            return 0.0d;
-        }
-
-        /// <inheritdoc/>
-        /// <summary> Calculates the percentage. </summary>
-        /// <param name="numeric"> The numeric. </param>
-        /// <returns> </returns>
-        public override double CalculatePercentage( string numeric )
-        {
-            if( !string.IsNullOrEmpty( numeric )
-               && Numerics.Contains( numeric ) )
-            {
-                try
-                {
-                    var _select = DataTable.AsEnumerable( )
-                        ?.Select( p => p.Field<double>( numeric ) )
-                        ?.Sum( );
-
-                    return _select > 0
-                        ? double.Parse( _select?.ToString( "N1" ) )
-                        : 0.0d;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-
-            return default( double );
-        }
-
-        /// <inheritdoc/>
-        /// <summary> Calculates the percentage. </summary>
-        /// <param name="numeric"> The numeric. </param>
-        /// <param name="where"> The where. </param>
-        /// <returns> </returns>
-        public override double CalculatePercentage( string numeric,
-                                                    IDictionary<string, object> where )
-        {
-            if( !string.IsNullOrEmpty( numeric )
-               && ( where?.Any( ) == true ) )
-            {
-                try
-                {
-                    var _select = DataTable.Filter( where )
-                        ?.Select( p => p.Field<double>( numeric ) )
-                        ?.Sum( );
-
-                    return _select > 0
-                        ? double.Parse( _select?.ToString( "N1" ) )
-                        : 0.0d;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-
-            return default( double );
-        }
-
-        /// <inheritdoc/>
-        /// <summary> Calculates the deviation. </summary>
-        /// <param name="numeric"> The numeric. </param>
-        /// <returns> </returns>
-        public override double CalculateDeviation( string numeric )
-        {
-            if( !string.IsNullOrEmpty( numeric )
-               && Numerics.Contains( numeric ) )
-            {
-                try
-                {
-                    var _query = DataTable.AsEnumerable( )
-                        ?.Select( p => p.Field<double>( numeric ) )
-                        ?.StandardDeviation( );
-
-                    return _query > 0
-                        ? double.Parse( _query?.ToString( "N1" ) )
-                        : 0.0d;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return 0.0d;
-                }
-            }
-
-            return default( double );
-        }
-
-        /// <inheritdoc/>
-        /// <summary> Calculates the deviation. </summary>
-        /// <param name="numeric"> The numeric. </param>
-        /// <param name="where"> The where. </param>
-        /// <returns> </returns>
-        public override double CalculateDeviation( string numeric,
-                                                   IDictionary<string, object> where )
-        {
-            if( !string.IsNullOrEmpty( numeric )
-               && ( where?.Any( ) == true ) )
-            {
-                try
-                {
-                    var _query = DataTable.Filter( where )
-                        ?.Select( p => p.Field<double>( numeric ) )
-                        ?.StandardDeviation( );
-
-                    return _query > 0
-                        ? double.Parse( _query?.ToString( "N1" ) )
-                        : 0.0d;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return 0.0d;
-                }
-            }
-
-            return default( double );
-        }
-
-        /// <inheritdoc/>
-        /// <summary> Calculates the variance. </summary>
-        /// <param name="numeric"> The numeric. </param>
-        /// <returns> </returns>
-        public override double CalculateVariance( string numeric )
-        {
-            if( !string.IsNullOrEmpty( numeric )
-               && Numerics.Contains( numeric ) )
-            {
-                try
-                {
-                    var _query = DataTable.AsEnumerable( )
-                        ?.Select( p => p.Field<double>( numeric ) )
-                        ?.Variance( );
-
-                    return _query > 0
-                        ? double.Parse( _query?.ToString( "N1" ) )
-                        : 0.0d;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return 0.0d;
-                }
-            }
-
-            return -1.0d;
-        }
-
-        /// <inheritdoc/>
-        /// <summary> Calculates the variance. </summary>
-        /// <param name="numeric"> The numeric. </param>
-        /// <param name="where"> The where. </param>
-        /// <returns> </returns>
-        public override double CalculateVariance( string numeric,
-                                                  IDictionary<string, object> where )
-        {
-            if( string.IsNullOrEmpty( numeric )
-               && ( where?.Any( ) == true ) )
-            {
-                try
-                {
-                    var _query = DataTable.Filter( where )
-                        ?.Select( p => p.Field<double>( numeric ) )
-                        ?.Variance( );
-
-                    return _query > 0
-                        ? double.Parse( _query?.ToString( "N1" ) )
-                        : 0.0d;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return 0.0d;
-                }
-            }
-
-            return -1.0d;
-        }
-
-        /// <inheritdoc/>
-        /// <summary> Gets the numeric columns. </summary>
-        /// <returns> </returns>
-        public override IList<string> GetNumerics( )
-        {
-            try
-            {
-                var _numerics = new List<string>( );
-                foreach( DataColumn _col in DataTable.Columns )
-                {
-                    if( ( !_col.ColumnName.EndsWith( "Id" )
-                           && ( _col.Ordinal > 0 )
-                           && ( _col.DataType == typeof( double ) ) )
-                       || ( _col.DataType == typeof( short ) )
-                       || ( _col.DataType == typeof( long ) )
-                       || ( _col.DataType == typeof( decimal ) )
-                       || ( _col.DataType == typeof( float ) ) )
-                    {
-                        _numerics.Add( _col.ColumnName );
-                    }
-                }
-
-                return _numerics?.Any( ) == true
-                    ? _numerics
-                    : default( IList<string> );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( IList<string> );
-            }
-        }
-
-        /// <inheritdoc/>
-        /// <summary> Gets the dates. </summary>
-        /// <returns> </returns>
-        private protected override IList<string> GetDates( )
-        {
-            if( DataTable != null )
-            {
-                try
-                {
-                    var _dates = new List<string>( );
-                    foreach( DataColumn _col in DataTable.Columns )
-                    {
-                        if( ( _col.Ordinal > 0 )
-                           && ( ( _col.DataType == typeof( DateTime ) )
-                               || ( _col.DataType == typeof( DateOnly ) )
-                               || ( _col.DataType == typeof( DateTimeOffset ) )
-                               || _col.ColumnName.EndsWith( nameof( Day ) )
-                               || _col.ColumnName.EndsWith( "Date" ) ) )
-                        {
-                            _dates.Add( _col.ColumnName );
-                        }
-                    }
-
-                    return _dates?.Any( ) == true
-                        ? _dates
-                        : default( IList<string> );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( IList<string> );
-                }
-            }
-
-            return default( IList<string> );
+            _dataTable = dataTable;
+            _numerics = GetNumericColumns( );
+            _dates = GetDateColumns( );
         }
     }
 }

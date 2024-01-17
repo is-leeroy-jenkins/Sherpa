@@ -56,8 +56,17 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     public class DataModel : ModelBase
     {
+        /// <summary>
+        /// Gets the SQL statement.
+        /// </summary>
+        /// <value>
+        /// The SQL statement.
+        /// </value>
         public ISqlStatement SqlStatement
         {
             get
@@ -124,16 +133,16 @@ namespace BudgetExecution
         {
             Source = source;
             Provider = provider;
-            ConnectionFactory = new ConnectionFactory( source, provider );
-            SqlStatement = new SqlStatement( source, provider, SQL.SELECTALL );
+            _connectionFactory = new ConnectionFactory( source, provider );
+            _sqlStatement = new SqlStatement( source, provider, SQL.SELECTALL );
             _dataTable = GetDataTable( );
             _elements = CreateSeries( _dataTable );
             _dataColumns = GetDataColumns( );
             _columnNames = GetColumnNames( );
             _keys = GetPrimaryKeys( );
             _fields = GetFields( );
-            Numerics = GetNumerics( );
-            Dates = GetDates( );
+            _numerics = GetNumerics( );
+            _dates = GetDates( );
             _record = GetData( )?.FirstOrDefault( );
             _map = _record?.ToDictionary( );
         }
@@ -148,17 +157,16 @@ namespace BudgetExecution
         {
             Source = source;
             Provider = provider;
-            ConnectionFactory = new ConnectionFactory( source, provider );
-            SqlStatement = new SqlStatement( source, provider, where );
+            _connectionFactory = new ConnectionFactory( source, provider );
+            _sqlStatement = new SqlStatement( source, provider, where );
             _dataTable = GetDataTable( );
             _elements = CreateSeries( _dataTable );
             _dataColumns = GetDataColumns( );
             _columnNames = GetColumnNames( );
-            Keys = GetPrimaryKeys( );
-            Fields = GetFields( );
-            Numerics = GetNumerics( );
-            Dates = GetDates( );
-            _elements = CreateSeries( _dataTable );
+            _keys = GetPrimaryKeys( );
+            _fields = GetFields( );
+            _numerics = GetNumerics( );
+            _dates = GetDates( );
             _record = GetData( )?.FirstOrDefault( );
             _map = _record?.ToDictionary( );
         }
@@ -176,8 +184,8 @@ namespace BudgetExecution
         {
             Source = source;
             Provider = provider;
-            ConnectionFactory = new ConnectionFactory( source, provider );
-            SqlStatement = new SqlStatement( source, provider, updates, where, commandType );
+            _connectionFactory = new ConnectionFactory( source, provider );
+            _sqlStatement = new SqlStatement( source, provider, updates, where, commandType );
             _dataTable = GetDataTable( );
             _dataColumns = GetDataColumns( );
             _columnNames = GetColumnNames( );
@@ -203,8 +211,8 @@ namespace BudgetExecution
         {
             Source = source;
             Provider = provider;
-            ConnectionFactory = new ConnectionFactory( source, provider );
-            SqlStatement = new SqlStatement( source, provider, columns, where, commandType );
+            _connectionFactory = new ConnectionFactory( source, provider );
+            _sqlStatement = new SqlStatement( source, provider, columns, where, commandType );
             _dataTable = GetDataTable( );
             _dataColumns = GetDataColumns( );
             _columnNames = GetColumnNames( );
@@ -232,8 +240,8 @@ namespace BudgetExecution
         {
             Source = source;
             Provider = provider;
-            ConnectionFactory = new ConnectionFactory( source, provider );
-            SqlStatement = new SqlStatement( source, provider, fields, numerics, where,
+            _connectionFactory = new ConnectionFactory( source, provider );
+            _sqlStatement = new SqlStatement( source, provider, fields, numerics, where,
                 commandType );
 
             _dataTable = GetDataTable( );
@@ -258,8 +266,8 @@ namespace BudgetExecution
         {
             Source = source;
             Provider = Provider.Access;
-            ConnectionFactory = new ConnectionFactory( source, Provider.Access );
-            SqlStatement = new SqlStatement( source, Provider.Access, where );
+            _connectionFactory = new ConnectionFactory( source, Provider.Access );
+            _sqlStatement = new SqlStatement( source, Provider.Access, where );
             _dataTable = GetDataTable( );
             _dataColumns = GetDataColumns( );
             _columnNames = GetColumnNames( );
@@ -283,8 +291,8 @@ namespace BudgetExecution
         {
             Source = source;
             Provider = provider;
-            ConnectionFactory = new ConnectionFactory( source, provider );
-            SqlStatement = new SqlStatement( source, provider, sqlText );
+            _connectionFactory = new ConnectionFactory( source, provider );
+            _sqlStatement = new SqlStatement( source, provider, sqlText );
             _dataTable = GetDataTable( );
             _dataColumns = GetDataColumns( );
             _columnNames = GetColumnNames( );
@@ -309,7 +317,7 @@ namespace BudgetExecution
             ConnectionFactory = new ConnectionFactory( fullPath );
             Source = ConnectionFactory.Source;
             Provider = ConnectionFactory.Provider;
-            SqlStatement = new SqlStatement( Source, Provider, sqlText, commandType );
+            _sqlStatement = new SqlStatement( Source, Provider, sqlText, commandType );
             _dataTable = GetDataTable( );
             _dataColumns = GetDataColumns( );
             _columnNames = GetColumnNames( );
@@ -331,8 +339,8 @@ namespace BudgetExecution
         {
             Source = query.Source;
             Provider = query.Provider;
-            ConnectionFactory = query.ConnectionFactory;
-            SqlStatement = query.SqlStatement;
+            _connectionFactory = query.ConnectionFactory;
+            _sqlStatement = query.SqlStatement;
             _dataTable = GetDataTable( );
             _dataColumns = GetDataColumns( );
             _columnNames = GetColumnNames( );

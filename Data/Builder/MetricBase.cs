@@ -47,442 +47,465 @@ namespace BudgetExecution
     using System.Linq;
     using LinqStatistics;
 
-    /// <summary> </summary>
+    /// <summary>
+    /// 
+    /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
     [ SuppressMessage( "ReSharper", "ReturnTypeCanBeEnumerable.Local" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [ SuppressMessage( "ReSharper", "ReturnTypeCanBeEnumerable.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     public abstract class MetricBase
     {
-        /// <summary> Gets or sets the data table. </summary>
-        /// <value> The data table. </value>
-        public DataTable DataTable { get; set; }
+        /// <summary>
+        /// The dates
+        /// </summary>
+        private protected IList<string> _dates;
 
-        /// <summary> Gets or sets the numerics. </summary>
-        /// <value> The numerics. </value>
-        public IList<string> Numerics { get; set; }
+        /// <summary>
+        /// Gets or sets the data table.
+        /// </summary>
+        /// <value>
+        /// The data table.
+        /// </value>
+        private protected DataTable _dataTable;
 
-        /// <summary> Gets or sets the values. </summary>
-        /// <value> The values. </value>
-        public IDictionary<string, double> Values { get; set; }
+        /// <summary>
+        /// Gets or sets the fields.
+        /// </summary>
+        /// <value>
+        /// The fields.
+        /// </value>
+        private protected IList<string> _fields;
 
-        /// <summary> Counts the values. </summary>
-        /// <param name="numeric"> The numeric. </param>
-        /// <returns> </returns>
-        public virtual int CountValues( string numeric )
+        /// <summary>
+        /// Gets or sets the numerics.
+        /// </summary>
+        /// <value>
+        /// The numerics.
+        /// </value>
+        private protected IList<string> _numerics;
+
+        /// <summary>
+        /// Gets or sets the values.
+        /// </summary>
+        /// <value>
+        /// The values.
+        /// </value>
+        private protected IDictionary<string, double> _values;
+
+        /// <summary>
+        /// Counts the values.
+        /// </summary>
+        /// <param name="numeric">The numeric.</param>
+        /// <returns></returns>
+        public int CountValues( string numeric )
         {
-            if( !string.IsNullOrEmpty( numeric )
-               && Numerics.Contains( numeric ) )
+            try
             {
-                try
-                {
-                    var _select = DataTable.AsEnumerable( )
-                        ?.Select( p => p.Field<double>( numeric ) );
+                ThrowIf.NullOrEmpty( numeric, nameof( numeric ) );
+                var _select = _dataTable?.AsEnumerable( )
+                    ?.Select( p => p.Field<double>( numeric ) );
 
-                    return _select?.Any( ) == true
-                        ? _select.Count( )
-                        : -1;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return -1;
-                }
+                return _select?.Any( ) == true
+                    ? _select.Count( )
+                    : 0;
             }
-
-            return -1;
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return 0;
+            }
         }
 
-        /// <summary> Counts the values. </summary>
-        /// <param name="numeric"> The numeric. </param>
-        /// <param name="where"> The where. </param>
-        /// <returns> </returns>
-        public virtual int CountValues( string numeric, IDictionary<string, object> where )
+        /// <summary>
+        /// Counts the values.
+        /// </summary>
+        /// <param name="numeric">The numeric.</param>
+        /// <param name="where">The where.</param>
+        /// <returns></returns>
+        public int CountValues( string numeric, IDictionary<string, object> where )
         {
-            if( !string.IsNullOrEmpty( numeric )
-               && Numerics.Contains( numeric ) )
+            try
             {
-                try
-                {
-                    var _select = DataTable.Filter( where )
-                        ?.Select( p => p.Field<double>( numeric ) );
+                ThrowIfNullNumeric( numeric );
+                ThrowIf.Null( where, nameof( where ) );
+                var _select = _dataTable?.Filter( where )
+                    ?.Select( p => p.Field<double>( numeric ) );
 
-                    return _select?.Any( ) == true
-                        ? _select.Count( )
-                        : -1;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return -1;
-                }
+                return _select?.Any( ) == true
+                    ? _select.Count( )
+                    : 0;
             }
-
-            return -1;
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return 0;
+            }
         }
 
-        /// <summary> Calculates the total. </summary>
-        /// <param name="numeric"> The numeric. </param>
-        /// <returns> </returns>
-        public virtual double CalculateTotal( string numeric )
+        /// <summary>
+        /// Calculates the total.
+        /// </summary>
+        /// <param name="numeric">The numeric.</param>
+        /// <returns></returns>
+        public double CalculateTotal( string numeric )
         {
-            if( !string.IsNullOrEmpty( numeric )
-               && Numerics.Contains( numeric ) )
+            try
             {
-                try
-                {
-                    var _select = DataTable.AsEnumerable( )
-                        ?.Select( p => p.Field<double>( numeric ) )
-                        ?.Sum( );
+                ThrowIfNullNumeric( numeric );
+                var _select = _dataTable?.AsEnumerable( )
+                    ?.Select( p => p.Field<double>( numeric ) )
+                    ?.Sum( );
 
-                    return _select > 0
-                        ? double.Parse( _select?.ToString( "N1" ) )
-                        : 0.0d;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                return _select > 0
+                    ? double.Parse( _select?.ToString( "N1" ) )
+                    : 0.0d;
             }
-
-            return default( double );
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return 0.0d;
+            }
         }
 
-        /// <summary> Calculates the total. </summary>
-        /// <param name="numeric"> The numeric. </param>
-        /// <param name="where"> The where. </param>
-        /// <returns> </returns>
-        public virtual double CalculateTotal( string numeric, IDictionary<string, object> where )
+        /// <summary>
+        /// Calculates the total.
+        /// </summary>
+        /// <param name="numeric">The numeric.</param>
+        /// <param name="where">The where.</param>
+        /// <returns></returns>
+        public double CalculateTotal( string numeric, IDictionary<string, object> where )
         {
-            if( !string.IsNullOrEmpty( numeric )
-               && ( where?.Any( ) == true ) )
+            try
             {
-                try
-                {
-                    var _select = DataTable.Filter( where )
-                        ?.Select( p => p.Field<double>( numeric ) )
-                        ?.Sum( );
+                ThrowIfNullNumeric( numeric );
+                ThrowIf.Null( where, nameof( where ) );
+                var _select = _dataTable?.Filter( where )
+                    ?.Select( p => p.Field<double>( numeric ) )
+                    ?.Sum( );
 
-                    return _select > 0
-                        ? double.Parse( _select?.ToString( "N1" ) )
-                        : 0.0d;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                return _select > 0
+                    ? double.Parse( _select?.ToString( "N1" ) )
+                    : 0.0d;
             }
-
-            return default( double );
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return 0.0d;
+            }
         }
 
-        /// <summary> Calculates the average. </summary>
-        /// <param name="numeric"> The numeric. </param>
-        /// <returns> </returns>
-        public virtual double CalculateAverage( string numeric )
+        /// <summary>
+        /// Calculates the average.
+        /// </summary>
+        /// <param name="numeric">The numeric.</param>
+        /// <returns></returns>
+        public double CalculateAverage( string numeric )
         {
-            if( !string.IsNullOrEmpty( numeric )
-               && Numerics.Contains( numeric ) )
+            try
             {
-                try
-                {
-                    var _query = DataTable.AsEnumerable( )
-                        ?.Select( p => p.Field<double>( numeric ) )
-                        ?.Average( );
+                ThrowIfNullNumeric( numeric );
+                var _query = _dataTable.AsEnumerable( )
+                    ?.Select( p => p.Field<double>( numeric ) )
+                    ?.Average( );
 
-                    return _query > 0
-                        ? double.Parse( _query?.ToString( "N1" ) )
-                        : 0.0d;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return 0.0d;
-                }
+                return _query > 0
+                    ? double.Parse( _query?.ToString( "N1" ) )
+                    : 0.0d;
             }
-
-            return 0.0d;
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return 0.0d;
+            }
         }
 
-        /// <summary> Calculates the average. </summary>
-        /// <param name="numeric"> The numeric. </param>
-        /// <param name="where"> The where. </param>
-        /// <returns> </returns>
-        public virtual double CalculateAverage( string numeric, IDictionary<string, object> where )
+        /// <summary>
+        /// Calculates the average.
+        /// </summary>
+        /// <param name="numeric">The numeric.</param>
+        /// <param name="where">The where.</param>
+        /// <returns></returns>
+        public double CalculateAverage( string numeric, IDictionary<string, object> where )
         {
-            if( !string.IsNullOrEmpty( numeric )
-               && ( where?.Any( ) == true ) )
+            try
             {
-                try
-                {
-                    var _query = DataTable.Filter( where )
-                        ?.Select( p => p.Field<double>( numeric ) )
-                        ?.Average( );
+                ThrowIfNullNumeric( numeric );
+                ThrowIf.Null( where, nameof( where ) );
+                var _query = _dataTable?.Filter( where )
+                    ?.Select( p => p.Field<double>( numeric ) )
+                    ?.Average( );
 
-                    return _query > 0
-                        ? double.Parse( _query?.ToString( "N1" ) )
-                        : 0.0d;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return 0.0d;
-                }
+                return _query > 0
+                    ? double.Parse( _query?.ToString( "N1" ) )
+                    : 0.0d;
             }
-
-            return 0.0d;
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return 0.0d;
+            }
         }
 
-        /// <summary> Calculates the percentage. </summary>
-        /// <param name="numeric"> The numeric. </param>
-        /// <returns> </returns>
-        public virtual double CalculatePercentage( string numeric )
+        /// <summary>
+        /// Calculates the percentage.
+        /// </summary>
+        /// <param name="numeric">The numeric.</param>
+        /// <returns></returns>
+        public double CalculatePercentage( string numeric )
         {
-            if( !string.IsNullOrEmpty( numeric )
-               && Numerics.Contains( numeric ) )
+            try
             {
-                try
-                {
-                    var _select = DataTable.AsEnumerable( )
-                        ?.Select( p => p.Field<double>( numeric ) )
-                        ?.Sum( );
+                ThrowIfNullNumeric( numeric );
+                var _select = _dataTable?.AsEnumerable( )
+                    ?.Select( p => p.Field<double>( numeric ) )
+                    ?.Sum( );
 
-                    return _select > 0
-                        ? double.Parse( _select?.ToString( "N1" ) )
-                        : 0.0d;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                return _select > 0
+                    ? double.Parse( _select?.ToString( "N1" ) )
+                    : 0.0d;
             }
-
-            return default( double );
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return 0.0d;
+            }
         }
 
-        /// <summary> Calculates the percentage. </summary>
-        /// <param name="numeric"> The numeric. </param>
-        /// <param name="where"> The where. </param>
-        /// <returns> </returns>
-        public virtual double CalculatePercentage( string numeric,
-                                                   IDictionary<string, object> where )
+        /// <summary>
+        /// Calculates the percentage.
+        /// </summary>
+        /// <param name="numeric">The numeric.</param>
+        /// <param name="where">The where.</param>
+        /// <returns></returns>
+        public double CalculatePercentage( string numeric, IDictionary<string, object> where )
         {
-            if( !string.IsNullOrEmpty( numeric )
-               && ( where?.Any( ) == true ) )
+            try
             {
-                try
-                {
-                    var _select = DataTable.Filter( where )
-                        ?.Select( p => p.Field<double>( numeric ) )
-                        ?.Sum( );
+                ThrowIfNullNumeric( numeric );
+                ThrowIf.Null( where, nameof( where ) );
+                var _select = _dataTable?.Filter( where )
+                    ?.Select( p => p.Field<double>( numeric ) )
+                    ?.Sum( );
 
-                    return _select > 0
-                        ? double.Parse( _select?.ToString( "N1" ) )
-                        : 0.0d;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                return _select > 0
+                    ? double.Parse( _select?.ToString( "N1" ) )
+                    : 0.0d;
             }
-
-            return default( double );
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return 0.0d;
+            }
         }
 
-        /// <summary> Calculates the deviation. </summary>
-        /// <param name="numeric"> The numeric. </param>
-        /// <returns> </returns>
-        public virtual double CalculateDeviation( string numeric )
+        /// <summary>
+        /// Calculates the deviation.
+        /// </summary>
+        /// <param name="numeric">The numeric.</param>
+        /// <returns></returns>
+        public double CalculateDeviation( string numeric )
         {
-            if( !string.IsNullOrEmpty( numeric )
-               && Numerics.Contains( numeric ) )
+            try
             {
-                try
-                {
-                    var _query = DataTable.AsEnumerable( )
-                        ?.Select( p => p.Field<double>( numeric ) )
-                        ?.StandardDeviation( );
+                ThrowIfNullNumeric( numeric );
+                var _query = _dataTable?.AsEnumerable( )
+                    ?.Select( p => p.Field<double>( numeric ) )
+                    ?.StandardDeviation( );
 
-                    return _query > 0
-                        ? double.Parse( _query?.ToString( "N1" ) )
-                        : 0.0d;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return 0.0d;
-                }
+                return _query > 0
+                    ? double.Parse( _query?.ToString( "N1" ) )
+                    : 0.0d;
             }
-
-            return default( double );
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return 0.0d;
+            }
         }
 
-        /// <summary> Calculates the deviation. </summary>
-        /// <param name="numeric"> The numeric. </param>
-        /// <param name="where"> The where. </param>
-        /// <returns> </returns>
-        public virtual double CalculateDeviation( string numeric,
-                                                  IDictionary<string, object> where )
+        /// <summary>
+        /// Calculates the deviation.
+        /// </summary>
+        /// <param name="numeric">The numeric.</param>
+        /// <param name="where">The where.</param>
+        /// <returns></returns>
+        public double CalculateDeviation( string numeric, IDictionary<string, object> where )
         {
-            if( !string.IsNullOrEmpty( numeric )
-               && ( where?.Any( ) == true ) )
+            try
             {
-                try
-                {
-                    var _query = DataTable.Filter( where )
-                        ?.Select( p => p.Field<double>( numeric ) )
-                        ?.StandardDeviation( );
+                ThrowIfNullNumeric( numeric );
+                ThrowIf.Null( where, nameof( where ) );
+                var _query = _dataTable?.Filter( where )
+                    ?.Select( p => p.Field<double>( numeric ) )
+                    ?.StandardDeviation( );
 
-                    return _query > 0
-                        ? double.Parse( _query?.ToString( "N1" ) )
-                        : 0.0d;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return 0.0d;
-                }
+                return _query > 0
+                    ? double.Parse( _query?.ToString( "N1" ) )
+                    : 0.0d;
             }
-
-            return default( double );
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return 0.0d;
+            }
         }
 
-        /// <summary> Calculates the variance. </summary>
-        /// <param name="numeric"> The numeric. </param>
-        /// <returns> </returns>
-        public virtual double CalculateVariance( string numeric )
+        /// <summary>
+        /// Calculates the variance.
+        /// </summary>
+        /// <param name="numeric">
+        /// The numeric.
+        /// </param>
+        /// <returns></returns>
+        public double CalculateVariance( string numeric )
         {
-            if( !string.IsNullOrEmpty( numeric )
-               && Numerics.Contains( numeric ) )
+            try
             {
-                try
-                {
-                    var _query = DataTable.AsEnumerable( )
-                        ?.Select( p => p.Field<double>( numeric ) )
-                        ?.Variance( );
+                ThrowIfNullNumeric( numeric );
+                var _query = _dataTable?.AsEnumerable( )
+                    ?.Select( p => p.Field<double>( numeric ) )
+                    ?.Variance( );
 
-                    return _query > 0
-                        ? double.Parse( _query?.ToString( "N1" ) )
-                        : 0.0d;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return 0.0d;
-                }
+                return _query > 0
+                    ? double.Parse( _query?.ToString( "N1" ) )
+                    : 0.0d;
             }
-
-            return -1.0d;
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return 0.0d;
+            }
         }
 
-        /// <summary> Calculates the variance. </summary>
-        /// <param name="numeric"> The numeric. </param>
-        /// <param name="where"> The where. </param>
-        /// <returns> </returns>
-        public virtual double CalculateVariance( string numeric, IDictionary<string, object> where )
+        /// <summary>
+        /// Calculates the variance.
+        /// </summary>
+        /// <param name="numeric">
+        /// The numeric.
+        /// </param>
+        /// <param name="where">
+        /// The where.
+        /// </param>
+        /// <returns></returns>
+        public double CalculateVariance( string numeric, IDictionary<string, object> where )
         {
-            if( ( DataTable != null )
-               && ( Numerics?.Any( ) == true )
-               && !string.IsNullOrEmpty( numeric )
-               && ( where?.Any( ) == true ) )
+            try
             {
-                try
-                {
-                    var _query = DataTable.Filter( where )
-                        ?.Select( p => p.Field<double>( numeric ) )
-                        ?.Variance( );
+                ThrowIfNullNumeric( numeric );
+                ThrowIf.Null( where, nameof( where ) );
+                var _query = _dataTable?.Filter( where )
+                    ?.Select( p => p.Field<double>( numeric ) )
+                    ?.Variance( );
 
-                    return _query > 0
-                        ? double.Parse( _query?.ToString( "N1" ) )
-                        : 0.0d;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return 0.0d;
-                }
+                return _query > 0
+                    ? double.Parse( _query?.ToString( "N1" ) )
+                    : 0.0d;
             }
-
-            return -1.0d;
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return 0.0d;
+            }
         }
 
-        /// <summary> Gets the numeric columns. </summary>
-        /// <returns> </returns>
-        public virtual IList<string> GetNumerics( )
+        /// <summary>
+        /// Gets the numerics.
+        /// </summary>
+        /// <returns></returns>
+        private protected IList<string> GetNumericColumns( )
         {
-            if( DataTable != null )
+            try
             {
-                try
+                var _list = new List<string>( );
+                foreach( DataColumn _col in _dataTable.Columns )
                 {
-                    var _numerics = new List<string>( );
-                    foreach( DataColumn _col in DataTable.Columns )
+                    if( ( !_col.ColumnName.EndsWith( "Id" )
+                           && ( _col.Ordinal > 0 )
+                           && ( _col.DataType == typeof( double ) ) )
+                       || ( _col.DataType == typeof( short ) )
+                       || ( _col.DataType == typeof( long ) )
+                       || ( _col.DataType == typeof( decimal ) )
+                       || ( _col.DataType == typeof( float ) ) )
                     {
-                        if( ( !_col.ColumnName.EndsWith( "Id" )
-                               && ( _col.Ordinal > 0 )
-                               && ( _col.DataType == typeof( double ) ) )
-                           || ( _col.DataType == typeof( short ) )
-                           || ( _col.DataType == typeof( long ) )
-                           || ( _col.DataType == typeof( decimal ) )
-                           || ( _col.DataType == typeof( float ) ) )
-                        {
-                            _numerics.Add( _col.ColumnName );
-                        }
+                        _list.Add( _col.ColumnName );
                     }
+                }
 
-                    return _numerics?.Any( ) == true
-                        ? _numerics
-                        : default( IList<string> );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( IList<string> );
-                }
+                return _list?.Any( ) == true
+                    ? _list
+                    : default( IList<string> );
             }
-
-            return default( IList<string> );
-        }
-
-        /// <summary> Gets the dates. </summary>
-        /// <returns> </returns>
-        private protected virtual IList<string> GetDates( )
-        {
-            if( DataTable != null )
+            catch( Exception _ex )
             {
-                try
-                {
-                    var _dates = new List<string>( );
-                    foreach( DataColumn _col in DataTable.Columns )
-                    {
-                        if( ( _col.Ordinal > 0 )
-                           && ( ( _col.DataType == typeof( DateTime ) )
-                               || ( _col.DataType == typeof( DateOnly ) )
-                               || ( _col.DataType == typeof( DateTimeOffset ) )
-                               || _col.ColumnName.EndsWith( nameof( Day ) )
-                               || _col.ColumnName.EndsWith( "Date" ) ) )
-                        {
-                            _dates.Add( _col.ColumnName );
-                        }
-                    }
-
-                    return _dates?.Any( ) == true
-                        ? _dates
-                        : default( IList<string> );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( IList<string> );
-                }
+                Fail( _ex );
+                return default( IList<string> );
             }
-
-            return default( IList<string> );
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Gets the dates.
+        /// </summary>
+        /// <returns></returns>
+        private protected IList<string> GetDateColumns( )
+        {
+            try
+            {
+                var _dateColumns = new List<string>( );
+                foreach( DataColumn _col in _dataTable.Columns )
+                {
+                    if( ( _col.Ordinal > 0 )
+                       && ( ( _col.DataType == typeof( DateTime ) )
+                           || ( _col.DataType == typeof( DateOnly ) )
+                           || ( _col.DataType == typeof( DateTimeOffset ) )
+                           || _col.ColumnName.EndsWith( "Day" )
+                           || _col.ColumnName.EndsWith( "Date" ) ) )
+                    {
+                        _dateColumns.Add( _col.ColumnName );
+                    }
+                }
+
+                return _dateColumns?.Any( ) == true
+                    ? _dateColumns
+                    : default( IList<string> );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IList<string> );
+            }
+        }
+
+        /// <summary>
+        /// Throws if null numeric.
+        /// </summary>
+        /// <param name="numeric">The numeric.</param>
+        /// <exception cref="System.ArgumentOutOfRangeException">
+        /// </exception>
+        private protected void ThrowIfNullNumeric( string numeric )
+        {
+            try
+            {
+                ThrowIf.NullOrEmpty( numeric, nameof( numeric ) );
+                if( _numerics?.Contains( numeric ) == false )
+                {
+                    var _message = $"{numeric} is not in collection!";
+                    throw new ArgumentOutOfRangeException( numeric, _message );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
