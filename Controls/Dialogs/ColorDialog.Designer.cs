@@ -144,7 +144,7 @@ partial class ColorDialog
         // Picture
         // 
         Picture.Dock = System.Windows.Forms.DockStyle.Fill;
-        Picture.Image = Resources.Images.Application;
+        Picture.Image = Resources.Images.budget;
         Picture.Location = new System.Drawing.Point( 3, 3 );
         Picture.Name = "Picture";
         Picture.Size = new System.Drawing.Size( 23, 18 );
@@ -179,10 +179,10 @@ partial class ColorDialog
         // 
         ColorPicker.BeforeTouchSize = new System.Drawing.Size( 266, 269 );
         ColorPicker.BorderStyle = System.Windows.Forms.BorderStyle.None;
-        ColorPicker.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+        ColorPicker.ForeColor = System.Drawing.Color.FromArgb( 150, 150, 150 );
         ColorPicker.Location = new System.Drawing.Point( 30, 53 );
-        ColorPicker.MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-        ColorPicker.MetroForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+        ColorPicker.MetroColor = System.Drawing.Color.FromArgb( 1, 115, 199 );
+        ColorPicker.MetroForeColor = System.Drawing.Color.FromArgb( 68, 68, 68 );
         ColorPicker.Name = "ColorPicker";
         ColorPicker.ScrollMetroColorTable = metroColorTable1;
         ColorPicker.Size = new System.Drawing.Size( 266, 269 );

@@ -58,6 +58,54 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
     public class DataModel : ModelBase
     {
+        public ISqlStatement SqlStatement
+        {
+            get
+            {
+                return _sqlStatement;
+            }
+            private protected set
+            {
+                _sqlStatement = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the connection factory.
+        /// </summary>
+        /// <value>
+        /// The connection factory.
+        /// </value>
+        public IConnectionFactory ConnectionFactory
+        {
+            get
+            {
+                return _connectionFactory;
+            }
+            private protected set
+            {
+                _connectionFactory = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the keys.
+        /// </summary>
+        /// <value>
+        /// The keys.
+        /// </value>
+        public IList<int> Keys
+        {
+            get
+            {
+                return _keys;
+            }
+            private protected set
+            {
+                _keys = value;
+            }
+        }
+
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="DataModel"/> class.
@@ -74,7 +122,6 @@ namespace BudgetExecution
         /// <param name="provider">The provider.</param>
         public DataModel( Source source, Provider provider = Provider.Access )
         {
-            BeginInit( );
             Source = source;
             Provider = provider;
             ConnectionFactory = new ConnectionFactory( source, provider );
@@ -83,13 +130,12 @@ namespace BudgetExecution
             _elements = CreateSeries( _dataTable );
             _dataColumns = GetDataColumns( );
             _columnNames = GetColumnNames( );
-            Keys = GetPrimaryKeys( );
-            Fields = GetFields( );
+            _keys = GetPrimaryKeys( );
+            _fields = GetFields( );
             Numerics = GetNumerics( );
             Dates = GetDates( );
             _record = GetData( )?.FirstOrDefault( );
             _map = _record?.ToDictionary( );
-            EndInit( );
         }
 
         /// <summary>
@@ -100,7 +146,6 @@ namespace BudgetExecution
         /// <param name="where">The where.</param>
         public DataModel( Source source, Provider provider, IDictionary<string, object> where )
         {
-            BeginInit( );
             Source = source;
             Provider = provider;
             ConnectionFactory = new ConnectionFactory( source, provider );
@@ -116,7 +161,6 @@ namespace BudgetExecution
             _elements = CreateSeries( _dataTable );
             _record = GetData( )?.FirstOrDefault( );
             _map = _record?.ToDictionary( );
-            EndInit( );
         }
 
         /// <summary>
@@ -130,7 +174,6 @@ namespace BudgetExecution
         public DataModel( Source source, Provider provider, IDictionary<string, object> updates,
             IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
         {
-            BeginInit( );
             Source = source;
             Provider = provider;
             ConnectionFactory = new ConnectionFactory( source, provider );
@@ -138,14 +181,13 @@ namespace BudgetExecution
             _dataTable = GetDataTable( );
             _dataColumns = GetDataColumns( );
             _columnNames = GetColumnNames( );
-            Keys = GetPrimaryKeys( );
-            Fields = GetFields( );
-            Numerics = GetNumerics( );
-            Dates = GetDates( );
+            _keys = GetPrimaryKeys( );
+            _fields = GetFields( );
+            _numerics = GetNumerics( );
+            _dates = GetDates( );
             _elements = CreateSeries( _dataTable );
             _record = GetData( )?.FirstOrDefault( );
             _map = _record?.ToDictionary( );
-            EndInit( );
         }
 
         /// <summary>
@@ -159,7 +201,6 @@ namespace BudgetExecution
         public DataModel( Source source, Provider provider, IEnumerable<string> columns,
             IDictionary<string, object> where, SQL commandType = SQL.SELECT )
         {
-            BeginInit( );
             Source = source;
             Provider = provider;
             ConnectionFactory = new ConnectionFactory( source, provider );
@@ -167,14 +208,13 @@ namespace BudgetExecution
             _dataTable = GetDataTable( );
             _dataColumns = GetDataColumns( );
             _columnNames = GetColumnNames( );
-            Keys = GetPrimaryKeys( );
-            Fields = GetFields( );
-            Numerics = GetNumerics( );
-            Dates = GetDates( );
+            _keys = GetPrimaryKeys( );
+            _fields = GetFields( );
+            _numerics = GetNumerics( );
+            _dates = GetDates( );
             _elements = CreateSeries( _dataTable );
             _record = GetData( )?.FirstOrDefault( );
             _map = _record?.ToDictionary( );
-            EndInit( );
         }
 
         /// <summary>
@@ -190,7 +230,6 @@ namespace BudgetExecution
             IEnumerable<string> numerics, IDictionary<string, object> where,
             SQL commandType )
         {
-            BeginInit( );
             Source = source;
             Provider = provider;
             ConnectionFactory = new ConnectionFactory( source, provider );
@@ -200,14 +239,13 @@ namespace BudgetExecution
             _dataTable = GetDataTable( );
             _dataColumns = GetDataColumns( );
             _columnNames = GetColumnNames( );
-            Keys = GetPrimaryKeys( );
-            Fields = GetFields( );
-            Numerics = GetNumerics( );
-            Dates = GetDates( );
+            _keys = GetPrimaryKeys( );
+            _fields = GetFields( );
+            _numerics = GetNumerics( );
+            _dates = GetDates( );
             _elements = CreateSeries( _dataTable );
             _record = GetData( )?.FirstOrDefault( );
             _map = _record?.ToDictionary( );
-            EndInit( );
         }
 
         /// <summary>
@@ -218,7 +256,6 @@ namespace BudgetExecution
         /// <param name="where">The where.</param>
         public DataModel( Source source, IDictionary<string, object> where )
         {
-            BeginInit( );
             Source = source;
             Provider = Provider.Access;
             ConnectionFactory = new ConnectionFactory( source, Provider.Access );
@@ -226,14 +263,13 @@ namespace BudgetExecution
             _dataTable = GetDataTable( );
             _dataColumns = GetDataColumns( );
             _columnNames = GetColumnNames( );
-            Keys = GetPrimaryKeys( );
-            Fields = GetFields( );
-            Numerics = GetNumerics( );
-            Dates = GetDates( );
+            _keys = GetPrimaryKeys( );
+            _fields = GetFields( );
+            _numerics = GetNumerics( );
+            _dates = GetDates( );
             _elements = CreateSeries( _dataTable );
             _record = GetData( )?.FirstOrDefault( );
             _map = _record?.ToDictionary( );
-            EndInit( );
         }
 
         /// <summary>
@@ -245,7 +281,6 @@ namespace BudgetExecution
         /// <param name="sqlText">The SQL text.</param>
         public DataModel( Source source, Provider provider, string sqlText )
         {
-            BeginInit( );
             Source = source;
             Provider = provider;
             ConnectionFactory = new ConnectionFactory( source, provider );
@@ -253,14 +288,13 @@ namespace BudgetExecution
             _dataTable = GetDataTable( );
             _dataColumns = GetDataColumns( );
             _columnNames = GetColumnNames( );
-            Fields = GetFields( );
-            Numerics = GetNumerics( );
-            Keys = GetPrimaryKeys( );
-            Dates = GetDates( );
+            _keys = GetPrimaryKeys( );
+            _fields = GetFields( );
+            _numerics = GetNumerics( );
+            _dates = GetDates( );
             _elements = CreateSeries( _dataTable );
             _record = GetData( )?.FirstOrDefault( );
             _map = _record?.ToDictionary( );
-            EndInit( );
         }
 
         /// <summary>
@@ -272,7 +306,6 @@ namespace BudgetExecution
         /// <param name="commandType">Type of the command.</param>
         public DataModel( string fullPath, string sqlText, SQL commandType = SQL.SELECT )
         {
-            BeginInit( );
             ConnectionFactory = new ConnectionFactory( fullPath );
             Source = ConnectionFactory.Source;
             Provider = ConnectionFactory.Provider;
@@ -280,14 +313,13 @@ namespace BudgetExecution
             _dataTable = GetDataTable( );
             _dataColumns = GetDataColumns( );
             _columnNames = GetColumnNames( );
-            Keys = GetPrimaryKeys( );
-            Fields = GetFields( );
-            Numerics = GetNumerics( );
-            Dates = GetDates( );
+            _keys = GetPrimaryKeys( );
+            _fields = GetFields( );
+            _numerics = GetNumerics( );
+            _dates = GetDates( );
             _elements = CreateSeries( _dataTable );
             _record = GetData( )?.FirstOrDefault( );
             _map = _record?.ToDictionary( );
-            EndInit( );
         }
 
         /// <summary>
@@ -297,7 +329,6 @@ namespace BudgetExecution
         /// <param name="query">The query.</param>
         public DataModel( IQuery query )
         {
-            BeginInit( );
             Source = query.Source;
             Provider = query.Provider;
             ConnectionFactory = query.ConnectionFactory;
@@ -305,14 +336,13 @@ namespace BudgetExecution
             _dataTable = GetDataTable( );
             _dataColumns = GetDataColumns( );
             _columnNames = GetColumnNames( );
-            Keys = GetPrimaryKeys( );
-            Fields = GetFields( );
-            Numerics = GetNumerics( );
-            Dates = GetDates( );
+            _keys = GetPrimaryKeys( );
+            _fields = GetFields( );
+            _numerics = GetNumerics( );
+            _dates = GetDates( );
             _elements = CreateSeries( _dataTable );
             _record = GetData( )?.FirstOrDefault( );
             _map = _record?.ToDictionary( );
-            EndInit( );
         }
 
         /// <summary>

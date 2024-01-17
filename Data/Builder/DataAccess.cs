@@ -65,7 +65,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertIfStatementToNullCoalescingAssignment" ) ]
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
-    public abstract class DataAccess : ISource, IProvider
+    public abstract class DataAccess : DataSchema
     {
         /// <summary>
         /// The busy
@@ -127,24 +127,26 @@ namespace BudgetExecution
         /// </summary>
         private protected DataRow _record;
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets the source.
-        /// </summary>
-        public Source Source { get; set; }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// </summary>
-        public Provider Provider { get; set; }
-
         /// <summary>
         /// Gets or sets the connection factory.
         /// </summary>
         /// <value>
         /// The connection factory.
         /// </value>
-        public IConnectionFactory ConnectionFactory { get; set; }
+        private protected IConnectionFactory _connectionFactory;
+
+        /// <summary>
+        /// Gets or sets the SQL statement.
+        /// </summary>
+        /// <value>
+        /// The SQL statement.
+        /// </value>
+        private protected ISqlStatement _sqlStatement;
+
+        /// <summary>
+        /// The keys
+        /// </summary>
+        private protected IList<int> _keys;
 
         /// <summary>
         /// Gets or sets the map.
@@ -165,14 +167,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets or sets the SQL statement.
-        /// </summary>
-        /// <value>
-        /// The SQL statement.
-        /// </value>
-        public ISqlStatement SqlStatement { get; set; }
-
-        /// <summary>
         /// Gets the data table.
         /// </summary>
         /// <value>
@@ -185,59 +179,31 @@ namespace BudgetExecution
                 return _dataTable;
             }
 
-            private set
+            private protected set
             {
                 _dataTable = value;
             }
         }
 
         /// <summary>
-        /// Gets or sets the data columns.
+        /// Gets a value indicating whether this instance is busy.
         /// </summary>
         /// <value>
-        /// The data columns.
+        /// <c> true </c>
+        /// if this instance is busy; otherwise,
+        /// <c> false </c>
         /// </value>
-        public IList<DataColumn> DataColumns { get; set; }
-
-        /// <summary>
-        /// Gets or sets the column names.
-        /// </summary>
-        /// <value>
-        /// The column names.
-        /// </value>
-        public IList<string> ColumnNames { get; set; }
-
-        /// <summary>
-        /// Gets or sets the keys.
-        /// </summary>
-        /// <value>
-        /// The keys.
-        /// </value>
-        public IList<int> Keys { get; set; }
-
-        /// <summary>
-        /// Gets or sets the fields.
-        /// </summary>
-        /// <value>
-        /// The fields.
-        /// </value>
-        public IList<string> Fields { get; set; }
-
-        /// <summary>
-        /// Gets or sets the dates.
-        /// </summary>
-        /// <value>
-        /// The dates.
-        /// </value>
-        public IList<string> Dates { get; set; }
-
-        /// <summary>
-        /// Gets or sets the numerics.
-        /// </summary>
-        /// <value>
-        /// The numerics.
-        /// </value>
-        public IList<string> Numerics { get; set; }
+        public bool IsBusy
+        {
+            get
+            {
+                return _busy;
+            }
+            private protected set
+            {
+                _busy = value;
+            }
+        }
 
         /// <summary>
         /// Gets the data.
@@ -274,16 +240,18 @@ namespace BudgetExecution
         {
             try
             {
+                BeginInit( );
                 var _clock = Stopwatch.StartNew( );
                 _dataSet = new DataSet( $"{Source}" );
                 _dataTable = new DataTable( $"{Source}" );
                 _dataTable.TableName = Source.ToString( );
                 _dataSet.Tables.Add( _dataTable );
-                using var _query = new Query( SqlStatement );
+                using var _query = new Query( _sqlStatement );
                 using var _adapter = _query.GetAdapter( );
                 _adapter.Fill( _dataSet, _dataTable.TableName );
                 SetColumnCaptions( _dataTable );
                 _duration = _clock.Elapsed;
+                EndInit( );
                 return _dataTable?.Rows?.Count > 0
                     ? _dataTable
                     : default( DataTable );
@@ -305,17 +273,19 @@ namespace BudgetExecution
             var _tcs = new TaskCompletionSource<DataTable>( );
             try
             {
+                BeginInit( );
                 var _clock = Stopwatch.StartNew( );
                 _dataSet = new DataSet( $"{Provider}" );
                 _dataTable = new DataTable( $"{Source}" );
                 _dataTable.TableName = Source.ToString( );
                 _dataSet.Tables.Add( _dataTable );
-                using var _query = new Query( SqlStatement );
+                using var _query = new Query( _sqlStatement );
                 using var _adapter = _query.DataAdapter;
                 _adapter.Fill( _dataSet, _dataTable.TableName );
                 SetColumnCaptions( _dataTable );
                 _tcs.SetResult( _dataTable );
                 _duration = _clock.Elapsed;
+                EndInit( );
                 return _tcs?.Task;
             }
             catch( Exception _ex )
@@ -329,7 +299,9 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the column captions.
         /// </summary>
-        /// <param name="dataTable">The data table.</param>
+        /// <param name="dataTable">
+        /// The data table.
+        /// </param>
         private protected void SetColumnCaptions( DataTable dataTable )
         {
             try
@@ -485,14 +457,19 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Fails the specified ex.
+        /// Begins the initialize.
         /// </summary>
-        /// <param name="ex">The ex.</param>
-        private protected static void Fail( Exception ex )
+        private protected void BeginInit( )
         {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
+            _busy = true;
+        }
+
+        /// <summary>
+        /// Ends the initialize.
+        /// </summary>
+        private protected void EndInit( )
+        {
+            _busy = false;
         }
     }
 }

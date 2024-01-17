@@ -39,22 +39,31 @@
             EditSqlButton = new ToolStripButton( );
             EditColumnButton = new ToolStripButton( );
             FirstButton = new ToolStripButton( );
+            NavigationSeparator = new ToolSeparator( );
+            StatusLabel = new ToolStripLabel( );
+            NavigationLabel = new ToolStripLabel( );
             TextBoxSeparator = new ToolSeparator( );
             FirstSeparator = new ToolSeparator( );
             PreviousButton = new ToolStripButton( );
             PreviousSeparator = new ToolSeparator( );
             NextButton = new ToolStripButton( );
             NextSeparator = new ToolSeparator( );
+            LastButton = new ToolStripButton( );
+            CommandLabelSeparator = new ToolSeparator( );
+            DataSpacer = new ToolStripLabel( );
+            DataLabel = new ToolStripLabel( );
+            DataSeparator = new ToolSeparator( );
             RemoveFiltersButton = new ToolStripButton( );
             EditRecordSeparator = new ToolSeparator( );
             RefreshDataButton = new ToolStripButton( );
             EditColumnSeparator = new ToolSeparator( );
             GroupButton = new ToolStripButton( );
             RefreshDataSeparator = new ToolSeparator( );
-            CommandLabelSeparator = new ToolSeparator( );
             GroupSeparator = new ToolSeparator( );
             ColumnSeparator = new ToolSeparator( );
             EditSqlSeparator = new ToolSeparator( );
+            FileSysSpacer = new ToolStripLabel( );
+            FileSysLabel = new ToolStripLabel( );
             ChartSeparator = new ToolSeparator( );
             ExcelImportButton = new ToolStripButton( );
             ExcelImportSeparator = new ToolSeparator( );
@@ -68,6 +77,7 @@
             MenuButton = new ToolStripButton( );
             MenuSeparator = new ToolSeparator( );
             ExitSeparator = new ToolSeparator( );
+            ApplicationLabel = new ToolStripLabel( );
             BindingSource = new System.Windows.Forms.BindingSource( components );
             Timer = new System.Windows.Forms.Timer( components );
             ToolTip = new SmallTip( );
@@ -124,16 +134,6 @@
             FirstCalendarPanel = new BackPanel( );
             FirstCalendar = new Syncfusion.WinForms.Input.SfCalendar( );
             ContextMenu = new ContextMenu( );
-            StatusLabel = new ToolStripLabel( );
-            NavigationLabel = new ToolStripLabel( );
-            NavigationSeparator = new ToolSeparator( );
-            LastButton = new ToolStripButton( );
-            DataLabel = new ToolStripLabel( );
-            DataSeparator = new ToolSeparator( );
-            DataSpacer = new ToolStripLabel( );
-            FileSysLabel = new ToolStripLabel( );
-            FileSysSpacer = new ToolStripLabel( );
-            ApplicationLabel = new ToolStripLabel( );
             HeaderTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
             ToolStripTable.SuspendLayout( );
@@ -215,10 +215,10 @@
             // 
             // PictureBox
             // 
-            PictureBox.Image = Resources.Images.Application;
+            PictureBox.Image = Resources.Images.budget;
             PictureBox.Location = new System.Drawing.Point( 3, 3 );
             PictureBox.Name = "PictureBox";
-            PictureBox.Size = new System.Drawing.Size( 22, 20 );
+            PictureBox.Size = new System.Drawing.Size( 22, 18 );
             PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             PictureBox.TabIndex = 1;
             PictureBox.TabStop = false;
@@ -387,6 +387,48 @@
             FirstButton.ToolTip = null;
             FirstButton.ToolType = ToolType.FirstButton;
             // 
+            // NavigationSeparator
+            // 
+            NavigationSeparator.ForeColor = System.Drawing.Color.Black;
+            NavigationSeparator.Margin = new System.Windows.Forms.Padding( 5, 1, 3, 1 );
+            NavigationSeparator.Name = "NavigationSeparator";
+            NavigationSeparator.Padding = new System.Windows.Forms.Padding( 1 );
+            NavigationSeparator.Size = new System.Drawing.Size( 6, 25 );
+            // 
+            // StatusLabel
+            // 
+            StatusLabel.BackColor = System.Drawing.Color.Transparent;
+            StatusLabel.BindingSource = null;
+            StatusLabel.DataFilter = null;
+            StatusLabel.Field = Field.AccountCode;
+            StatusLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
+            StatusLabel.ForeColor = System.Drawing.Color.Black;
+            StatusLabel.HoverText = null;
+            StatusLabel.Margin = new System.Windows.Forms.Padding( 1 );
+            StatusLabel.Name = "StatusLabel";
+            StatusLabel.Padding = new System.Windows.Forms.Padding( 1 );
+            StatusLabel.Size = new System.Drawing.Size( 65, 25 );
+            StatusLabel.Tag = "";
+            StatusLabel.Text = "Date and Time";
+            StatusLabel.ToolTip = null;
+            // 
+            // NavigationLabel
+            // 
+            NavigationLabel.BackColor = System.Drawing.Color.Transparent;
+            NavigationLabel.BindingSource = null;
+            NavigationLabel.DataFilter = null;
+            NavigationLabel.Field = Field.AccountCode;
+            NavigationLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
+            NavigationLabel.ForeColor = System.Drawing.Color.Black;
+            NavigationLabel.HoverText = null;
+            NavigationLabel.Margin = new System.Windows.Forms.Padding( 1 );
+            NavigationLabel.Name = "NavigationLabel";
+            NavigationLabel.Padding = new System.Windows.Forms.Padding( 1 );
+            NavigationLabel.Size = new System.Drawing.Size( 89, 25 );
+            NavigationLabel.Tag = "";
+            NavigationLabel.Text = "                   Navigation:";
+            NavigationLabel.ToolTip = null;
+            // 
             // TextBoxSeparator
             // 
             TextBoxSeparator.ForeColor = System.Drawing.Color.Black;
@@ -460,6 +502,77 @@
             NextSeparator.Name = "NextSeparator";
             NextSeparator.Padding = new System.Windows.Forms.Padding( 1 );
             NextSeparator.Size = new System.Drawing.Size( 6, 25 );
+            // 
+            // LastButton
+            // 
+            LastButton.AutoToolTip = false;
+            LastButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            LastButton.BindingSource = null;
+            LastButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            LastButton.Field = Field.AccountCode;
+            LastButton.Filter = null;
+            LastButton.Font = new System.Drawing.Font( "Roboto", 9F );
+            LastButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            LastButton.HoverText = null;
+            LastButton.Image = Resources.Images.LastButton;
+            LastButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            LastButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            LastButton.Name = "LastButton";
+            LastButton.Padding = new System.Windows.Forms.Padding( 1 );
+            LastButton.Size = new System.Drawing.Size( 23, 25 );
+            LastButton.Text = "toolStripButton1";
+            LastButton.ToolTip = null;
+            LastButton.ToolType = ToolType.Ns;
+            // 
+            // CommandLabelSeparator
+            // 
+            CommandLabelSeparator.ForeColor = System.Drawing.Color.Black;
+            CommandLabelSeparator.Margin = new System.Windows.Forms.Padding( 1 );
+            CommandLabelSeparator.Name = "CommandLabelSeparator";
+            CommandLabelSeparator.Padding = new System.Windows.Forms.Padding( 1 );
+            CommandLabelSeparator.Size = new System.Drawing.Size( 6, 25 );
+            // 
+            // DataSpacer
+            // 
+            DataSpacer.BackColor = System.Drawing.Color.Transparent;
+            DataSpacer.BindingSource = null;
+            DataSpacer.DataFilter = null;
+            DataSpacer.Field = Field.AccountCode;
+            DataSpacer.Font = new System.Drawing.Font( "Roboto", 8F );
+            DataSpacer.ForeColor = System.Drawing.Color.Transparent;
+            DataSpacer.HoverText = null;
+            DataSpacer.Margin = new System.Windows.Forms.Padding( 1 );
+            DataSpacer.Name = "DataSpacer";
+            DataSpacer.Padding = new System.Windows.Forms.Padding( 1 );
+            DataSpacer.Size = new System.Drawing.Size( 85, 25 );
+            DataSpacer.Tag = "";
+            DataSpacer.Text = "toolStripLabel1";
+            DataSpacer.ToolTip = null;
+            // 
+            // DataLabel
+            // 
+            DataLabel.BackColor = System.Drawing.Color.Transparent;
+            DataLabel.BindingSource = null;
+            DataLabel.DataFilter = null;
+            DataLabel.Field = Field.AccountCode;
+            DataLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
+            DataLabel.ForeColor = System.Drawing.Color.Black;
+            DataLabel.HoverText = null;
+            DataLabel.Margin = new System.Windows.Forms.Padding( 1 );
+            DataLabel.Name = "DataLabel";
+            DataLabel.Padding = new System.Windows.Forms.Padding( 1 );
+            DataLabel.Size = new System.Drawing.Size( 64, 25 );
+            DataLabel.Tag = "";
+            DataLabel.Text = "                  Data:";
+            DataLabel.ToolTip = null;
+            // 
+            // DataSeparator
+            // 
+            DataSeparator.ForeColor = System.Drawing.Color.Black;
+            DataSeparator.Margin = new System.Windows.Forms.Padding( 1 );
+            DataSeparator.Name = "DataSeparator";
+            DataSeparator.Padding = new System.Windows.Forms.Padding( 1 );
+            DataSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
             // RemoveFiltersButton
             // 
@@ -548,14 +661,6 @@
             RefreshDataSeparator.Padding = new System.Windows.Forms.Padding( 1 );
             RefreshDataSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
-            // CommandLabelSeparator
-            // 
-            CommandLabelSeparator.ForeColor = System.Drawing.Color.Black;
-            CommandLabelSeparator.Margin = new System.Windows.Forms.Padding( 1 );
-            CommandLabelSeparator.Name = "CommandLabelSeparator";
-            CommandLabelSeparator.Padding = new System.Windows.Forms.Padding( 1 );
-            CommandLabelSeparator.Size = new System.Drawing.Size( 6, 25 );
-            // 
             // GroupSeparator
             // 
             GroupSeparator.ForeColor = System.Drawing.Color.Black;
@@ -579,6 +684,40 @@
             EditSqlSeparator.Name = "EditSqlSeparator";
             EditSqlSeparator.Padding = new System.Windows.Forms.Padding( 1 );
             EditSqlSeparator.Size = new System.Drawing.Size( 6, 25 );
+            // 
+            // FileSysSpacer
+            // 
+            FileSysSpacer.BackColor = System.Drawing.Color.Transparent;
+            FileSysSpacer.BindingSource = null;
+            FileSysSpacer.DataFilter = null;
+            FileSysSpacer.Field = Field.AccountCode;
+            FileSysSpacer.Font = new System.Drawing.Font( "Roboto", 8F );
+            FileSysSpacer.ForeColor = System.Drawing.Color.Transparent;
+            FileSysSpacer.HoverText = null;
+            FileSysSpacer.Margin = new System.Windows.Forms.Padding( 1 );
+            FileSysSpacer.Name = "FileSysSpacer";
+            FileSysSpacer.Padding = new System.Windows.Forms.Padding( 1 );
+            FileSysSpacer.Size = new System.Drawing.Size( 85, 25 );
+            FileSysSpacer.Tag = "";
+            FileSysSpacer.Text = "toolStripLabel2";
+            FileSysSpacer.ToolTip = null;
+            // 
+            // FileSysLabel
+            // 
+            FileSysLabel.BackColor = System.Drawing.Color.Transparent;
+            FileSysLabel.BindingSource = null;
+            FileSysLabel.DataFilter = null;
+            FileSysLabel.Field = Field.AccountCode;
+            FileSysLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
+            FileSysLabel.ForeColor = System.Drawing.Color.Black;
+            FileSysLabel.HoverText = null;
+            FileSysLabel.Margin = new System.Windows.Forms.Padding( 1 );
+            FileSysLabel.Name = "FileSysLabel";
+            FileSysLabel.Padding = new System.Windows.Forms.Padding( 1 );
+            FileSysLabel.Size = new System.Drawing.Size( 73, 25 );
+            FileSysLabel.Tag = "";
+            FileSysLabel.Text = "                 File Sys:";
+            FileSysLabel.ToolTip = null;
             // 
             // ChartSeparator
             // 
@@ -766,6 +905,24 @@
             ExitSeparator.Name = "ExitSeparator";
             ExitSeparator.Padding = new System.Windows.Forms.Padding( 1 );
             ExitSeparator.Size = new System.Drawing.Size( 6, 25 );
+            // 
+            // ApplicationLabel
+            // 
+            ApplicationLabel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            ApplicationLabel.BackColor = System.Drawing.Color.Transparent;
+            ApplicationLabel.BindingSource = null;
+            ApplicationLabel.DataFilter = null;
+            ApplicationLabel.Field = Field.AccountCode;
+            ApplicationLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
+            ApplicationLabel.ForeColor = System.Drawing.Color.Black;
+            ApplicationLabel.HoverText = null;
+            ApplicationLabel.Margin = new System.Windows.Forms.Padding( 1 );
+            ApplicationLabel.Name = "ApplicationLabel";
+            ApplicationLabel.Padding = new System.Windows.Forms.Padding( 1 );
+            ApplicationLabel.Size = new System.Drawing.Size( 68, 25 );
+            ApplicationLabel.Tag = "";
+            ApplicationLabel.Text = "       Application:";
+            ApplicationLabel.ToolTip = null;
             // 
             // Timer
             // 
@@ -2146,163 +2303,6 @@
             ContextMenu.ThemeStyle.HoverForeColor = System.Drawing.Color.White;
             ContextMenu.ThemeStyle.PressedBackColor = System.Drawing.Color.FromArgb( 204, 204, 204 );
             ContextMenu.ThemeStyle.PressedForeColor = System.Drawing.Color.Black;
-            // 
-            // StatusLabel
-            // 
-            StatusLabel.BackColor = System.Drawing.Color.Transparent;
-            StatusLabel.BindingSource = null;
-            StatusLabel.DataFilter = null;
-            StatusLabel.Field = Field.AccountCode;
-            StatusLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
-            StatusLabel.ForeColor = System.Drawing.Color.Black;
-            StatusLabel.HoverText = null;
-            StatusLabel.Margin = new System.Windows.Forms.Padding( 1 );
-            StatusLabel.Name = "StatusLabel";
-            StatusLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            StatusLabel.Size = new System.Drawing.Size( 65, 25 );
-            StatusLabel.Tag = "";
-            StatusLabel.Text = "Date and Time";
-            StatusLabel.ToolTip = null;
-            // 
-            // NavigationLabel
-            // 
-            NavigationLabel.BackColor = System.Drawing.Color.Transparent;
-            NavigationLabel.BindingSource = null;
-            NavigationLabel.DataFilter = null;
-            NavigationLabel.Field = Field.AccountCode;
-            NavigationLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
-            NavigationLabel.ForeColor = System.Drawing.Color.Black;
-            NavigationLabel.HoverText = null;
-            NavigationLabel.Margin = new System.Windows.Forms.Padding( 1 );
-            NavigationLabel.Name = "NavigationLabel";
-            NavigationLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            NavigationLabel.Size = new System.Drawing.Size( 89, 25 );
-            NavigationLabel.Tag = "";
-            NavigationLabel.Text = "                   Navigation:";
-            NavigationLabel.ToolTip = null;
-            // 
-            // NavigationSeparator
-            // 
-            NavigationSeparator.ForeColor = System.Drawing.Color.Black;
-            NavigationSeparator.Margin = new System.Windows.Forms.Padding( 5, 1, 3, 1 );
-            NavigationSeparator.Name = "NavigationSeparator";
-            NavigationSeparator.Padding = new System.Windows.Forms.Padding( 1 );
-            NavigationSeparator.Size = new System.Drawing.Size( 6, 25 );
-            // 
-            // LastButton
-            // 
-            LastButton.AutoToolTip = false;
-            LastButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            LastButton.BindingSource = null;
-            LastButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            LastButton.Field = Field.AccountCode;
-            LastButton.Filter = null;
-            LastButton.Font = new System.Drawing.Font( "Roboto", 9F );
-            LastButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            LastButton.HoverText = null;
-            LastButton.Image = Resources.Images.LastButton;
-            LastButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            LastButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
-            LastButton.Name = "LastButton";
-            LastButton.Padding = new System.Windows.Forms.Padding( 1 );
-            LastButton.Size = new System.Drawing.Size( 23, 25 );
-            LastButton.Text = "toolStripButton1";
-            LastButton.ToolTip = null;
-            LastButton.ToolType = ToolType.Ns;
-            // 
-            // DataLabel
-            // 
-            DataLabel.BackColor = System.Drawing.Color.Transparent;
-            DataLabel.BindingSource = null;
-            DataLabel.DataFilter = null;
-            DataLabel.Field = Field.AccountCode;
-            DataLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
-            DataLabel.ForeColor = System.Drawing.Color.Black;
-            DataLabel.HoverText = null;
-            DataLabel.Margin = new System.Windows.Forms.Padding( 1 );
-            DataLabel.Name = "DataLabel";
-            DataLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            DataLabel.Size = new System.Drawing.Size( 64, 25 );
-            DataLabel.Tag = "";
-            DataLabel.Text = "                  Data:";
-            DataLabel.ToolTip = null;
-            // 
-            // DataSeparator
-            // 
-            DataSeparator.ForeColor = System.Drawing.Color.Black;
-            DataSeparator.Margin = new System.Windows.Forms.Padding( 1 );
-            DataSeparator.Name = "DataSeparator";
-            DataSeparator.Padding = new System.Windows.Forms.Padding( 1 );
-            DataSeparator.Size = new System.Drawing.Size( 6, 25 );
-            // 
-            // DataSpacer
-            // 
-            DataSpacer.BackColor = System.Drawing.Color.Transparent;
-            DataSpacer.BindingSource = null;
-            DataSpacer.DataFilter = null;
-            DataSpacer.Field = Field.AccountCode;
-            DataSpacer.Font = new System.Drawing.Font( "Roboto", 8F );
-            DataSpacer.ForeColor = System.Drawing.Color.Transparent;
-            DataSpacer.HoverText = null;
-            DataSpacer.Margin = new System.Windows.Forms.Padding( 1 );
-            DataSpacer.Name = "DataSpacer";
-            DataSpacer.Padding = new System.Windows.Forms.Padding( 1 );
-            DataSpacer.Size = new System.Drawing.Size( 85, 25 );
-            DataSpacer.Tag = "";
-            DataSpacer.Text = "toolStripLabel1";
-            DataSpacer.ToolTip = null;
-            // 
-            // FileSysLabel
-            // 
-            FileSysLabel.BackColor = System.Drawing.Color.Transparent;
-            FileSysLabel.BindingSource = null;
-            FileSysLabel.DataFilter = null;
-            FileSysLabel.Field = Field.AccountCode;
-            FileSysLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
-            FileSysLabel.ForeColor = System.Drawing.Color.Black;
-            FileSysLabel.HoverText = null;
-            FileSysLabel.Margin = new System.Windows.Forms.Padding( 1 );
-            FileSysLabel.Name = "FileSysLabel";
-            FileSysLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            FileSysLabel.Size = new System.Drawing.Size( 73, 25 );
-            FileSysLabel.Tag = "";
-            FileSysLabel.Text = "                 File Sys:";
-            FileSysLabel.ToolTip = null;
-            // 
-            // FileSysSpacer
-            // 
-            FileSysSpacer.BackColor = System.Drawing.Color.Transparent;
-            FileSysSpacer.BindingSource = null;
-            FileSysSpacer.DataFilter = null;
-            FileSysSpacer.Field = Field.AccountCode;
-            FileSysSpacer.Font = new System.Drawing.Font( "Roboto", 8F );
-            FileSysSpacer.ForeColor = System.Drawing.Color.Transparent;
-            FileSysSpacer.HoverText = null;
-            FileSysSpacer.Margin = new System.Windows.Forms.Padding( 1 );
-            FileSysSpacer.Name = "FileSysSpacer";
-            FileSysSpacer.Padding = new System.Windows.Forms.Padding( 1 );
-            FileSysSpacer.Size = new System.Drawing.Size( 85, 25 );
-            FileSysSpacer.Tag = "";
-            FileSysSpacer.Text = "toolStripLabel2";
-            FileSysSpacer.ToolTip = null;
-            // 
-            // ApplicationLabel
-            // 
-            ApplicationLabel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            ApplicationLabel.BackColor = System.Drawing.Color.Transparent;
-            ApplicationLabel.BindingSource = null;
-            ApplicationLabel.DataFilter = null;
-            ApplicationLabel.Field = Field.AccountCode;
-            ApplicationLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
-            ApplicationLabel.ForeColor = System.Drawing.Color.Black;
-            ApplicationLabel.HoverText = null;
-            ApplicationLabel.Margin = new System.Windows.Forms.Padding( 1 );
-            ApplicationLabel.Name = "ApplicationLabel";
-            ApplicationLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            ApplicationLabel.Size = new System.Drawing.Size( 68, 25 );
-            ApplicationLabel.Tag = "";
-            ApplicationLabel.Text = "       Application:";
-            ApplicationLabel.ToolTip = null;
             // 
             // DataViewForm
             // 

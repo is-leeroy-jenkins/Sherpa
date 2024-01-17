@@ -55,36 +55,6 @@ namespace BudgetExecution
     public abstract class ModelBase : DataAccess
     {
         /// <summary>
-        /// Gets a value indicating whether this instance is busy.
-        /// </summary>
-        /// <value>
-        /// <c> true </c>
-        /// if this instance is busy; otherwise,
-        /// <c> false </c>
-        /// </value>
-        public bool IsBusy
-        {
-            get { return _busy; }
-            private set { _busy = value; }
-        }
-
-        /// <summary>
-        /// Begins the initialize.
-        /// </summary>
-        private protected void BeginInit( )
-        {
-            _busy = true;
-        }
-
-        /// <summary>
-        /// Ends the initialize.
-        /// </summary>
-        private protected void EndInit( )
-        {
-            _busy = false;
-        }
-
-        /// <summary>
         /// Gets the ordinals.
         /// </summary>
         /// <returns></returns>

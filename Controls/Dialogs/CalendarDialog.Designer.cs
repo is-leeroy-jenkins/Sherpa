@@ -173,7 +173,7 @@
             HeaderLabel.DataFilter = null;
             HeaderLabel.Dock = DockStyle.Fill;
             HeaderLabel.FlatStyle = FlatStyle.Flat;
-            HeaderLabel.Font = new System.Drawing.Font( "Roboto", 9.75F );
+            HeaderLabel.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
             HeaderLabel.HoverText = null;
             HeaderLabel.IsDerivedStyle = true;
             HeaderLabel.Location = new System.Drawing.Point( 33, 3 );
@@ -242,7 +242,7 @@
             Controls.Add( Header );
             Controls.Add( CloseButton );
             Font = new System.Drawing.Font( "Roboto", 9F );
-            ForeColor = System.Drawing.Color.LightGray;
+            ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
             MaximizeBox = false;

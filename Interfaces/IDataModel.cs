@@ -65,22 +65,6 @@ namespace BudgetExecution
         Provider Provider { get; set; }
 
         /// <summary>
-        /// Gets or sets the connection factory.
-        /// </summary>
-        /// <value>
-        /// The connection factory.
-        /// </value>
-        IConnectionFactory ConnectionFactory { get; set; }
-
-        /// <summary>
-        /// Gets or sets the SQL statement.
-        /// </summary>
-        /// <value>
-        /// The SQL statement.
-        /// </value>
-        ISqlStatement SqlStatement { get; set; }
-
-        /// <summary>
         /// Gets or sets the data columns.
         /// </summary>
         /// <value>

@@ -2287,7 +2287,7 @@
             ToolStripTextBox.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             ToolStripTextBox.Name = "ToolStripTextBox";
             ToolStripTextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Size = new System.Drawing.Size( 254, 25 );
+            ToolStripTextBox.Size = new System.Drawing.Size( 250, 25 );
             ToolStripTextBox.Tag = "";
             ToolStripTextBox.ToolTip = ToolTip;
             // 
@@ -2454,7 +2454,7 @@
             // 
             // PictureBox
             // 
-            PictureBox.Image = Resources.Images.Application;
+            PictureBox.Image = Resources.Images.budget;
             PictureBox.InitialImage = null;
             PictureBox.Location = new System.Drawing.Point( 3, 3 );
             PictureBox.Name = "PictureBox";
