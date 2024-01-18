@@ -1,28 +1,27 @@
-CREATE TABLE AdjustedTrialBalances
+CREATE TABLE IF NOT EXISTS CombinedSchedules 
 (
-	AdjustedTrialBalancesId INT IDENTITY(1,1) NOT NULL,
-	AgencyIdentifier NVARCHAR(255) NULL DEFAULT ('NS'),
-	AllocationTransferAgency NVARCHAR(255) NULL DEFAULT ('NS'),
-	AvailabilityType NVARCHAR(255) NULL DEFAULT ('NS'),
-	MainAccount NVARCHAR(255) NULL DEFAULT ('NS'),
-	SubAccount NVARCHAR(255) NULL DEFAULT ('NS'),
-	TreasurySymbol NVARCHAR(255) NULL DEFAULT ('NS'),
-	BFY NVARCHAR(255) NULL DEFAULT ('NS'),
-	EFY NVARCHAR(255) NULL DEFAULT ('NS'),
-	FundCode NVARCHAR(255) NULL DEFAULT ('NS'),
-	FundName NVARCHAR(255) NULL DEFAULT ('NS'),
-	LedgerAccount NVARCHAR(255) NULL DEFAULT ('NS'),
-	AccountName NVARCHAR(255) NULL DEFAULT ('NS'),
-	BeginningBalance FLOAT NULL DEFAULT (0.0),
-	CreditBalance FLOAT NULL DEFAULT (0.0),
-	DebitBalance FLOAT NULL DEFAULT (0.0),
-	EndingBalance FLOAT NULL DEFAULT (0.0),
-	TreasuryAccountCode NVARCHAR(255) NULL DEFAULT ('NS'),
-	TreasuryAccountName NVARCHAR(255) NULL DEFAULT ('NS'),
-	BudgetAccountCode NVARCHAR(255) NULL DEFAULT ('NS'),
-	BudgetAccountName nvarchar(255) NULL,
-	CONSTRAINT AdjustedTrialBalancesPrimaryKey PRIMARY KEY
-	(
-		AdjustedTrialBalancesId ASC
-	)
+	CombinedSchedulesId	INTEGER NOT NULL UNIQUE,
+	ReportingYear	TEXT(150) DEFAULT NS,
+	MainAccount	TEXT(150) DEFAULT NS,
+	LineNumber	TEXT(150) DEFAULT NS,
+	LineName	TEXT(150) DEFAULT NS,
+	SplitNumber	TEXT(150) DEFAULT NS,
+	PriorYear	DOUBLE DEFAULT 0.0,
+	CurrentYear	DOUBLE DEFAULT 0.0,
+	BudgetYear	DOUBLE DEFAULT 0.0,
+	BudgetYear1	DOUBLE DEFAULT 0.0,
+	BudgetYear2	DOUBLE DEFAULT 0.0,
+	BudgetYear3	DOUBLE DEFAULT 0.0,
+	BudgetYear4	DOUBLE DEFAULT 0.0,
+	BudgetYear5	DOUBLE DEFAULT 0.0,
+	BudgetYear6	DOUBLE DEFAULT 0.0,
+	BudgetYear7	DOUBLE DEFAULT 0.0,
+	BudgetYear8	DOUBLE DEFAULT 0.0,
+	BudgetYear9	DOUBLE DEFAULT 0.0,
+	AccountName	TEXT(150) DEFAULT NS,
+	TreasuryAccount	TEXT(150) DEFAULT NS,
+	Subfunction	TEXT(150) DEFAULT NS,
+	Classification	TEXT(150) DEFAULT NS,
+	BudgetEnforcementCategory	TEXT(150) DEFAULT NS,
+	PRIMARY KEY(CombinedSchedulesId AUTOINCREMENT)
 );

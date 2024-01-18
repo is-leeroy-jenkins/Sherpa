@@ -57,11 +57,11 @@
     <Content Include="Resources\Pictures\Forms\Application.ico" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="DocumentFormat.OpenXml" Version="3.0.0" />
-    <PackageReference Include="EPPlus" Version="7.0.2" />
+    <PackageReference Include="DocumentFormat.OpenXml" Version="3.0.1" />
+    <PackageReference Include="EPPlus" Version="7.0.6" />
     <PackageReference Include="GMap.NET.WinForms" Version="2.1.7" />
-    <PackageReference Include="Google.Apis" Version="1.64.0" />
-    <PackageReference Include="Google.Apis.Core" Version="1.64.0" />
+    <PackageReference Include="Google.Apis" Version="1.66.0" />
+    <PackageReference Include="Google.Apis.Core" Version="1.66.0" />
     <PackageReference Include="Google.Apis.Customsearch.v1" Version="1.49.0.2084" />
     <PackageReference Include="Google.Cloud.ServiceUsage.V1" Version="2.2.0" />
     <PackageReference Include="LiveCharts" Version="0.9.7" />
@@ -77,7 +77,7 @@
     <PackageReference Include="MSChartExtension" Version="3.10.2" />
     <PackageReference Include="NETStandard.Library" Version="2.0.3" />
     <PackageReference Include="Ookii.Dialogs.WinForms" Version="4.0.0" />
-    <PackageReference Include="ScottPlot.WinForms" Version="5.0.9-beta" />
+    <PackageReference Include="ScottPlot.WinForms" Version="5.0.17" />
     <PackageReference Include="Syncfusion.BulletGraph.Windows" Version="23.1.36" />
     <PackageReference Include="Syncfusion.Calculate.Base" Version="23.1.36" />
     <PackageReference Include="Syncfusion.Chart.Windows" Version="23.1.36" />
@@ -120,7 +120,7 @@
     <PackageReference Include="System.Data.SQLite.EF6" Version="1.0.118" />
     <PackageReference Include="System.Data.SQLite.Linq" Version="1.0.118" />
     <PackageReference Include="System.Data.SqlServerCe_unofficial" Version="4.0.8482.1" />
-    <PackageReference Include="System.Drawing.Common" Version="8.0.0" />
+    <PackageReference Include="System.Drawing.Common" Version="8.0.1" />
     <PackageReference Include="System.Linq" Version="4.3.0" />
     <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
     <PackageReference Include="System.Xml.XDocument" Version="4.3.0" />
