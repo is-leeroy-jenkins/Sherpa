@@ -48,18 +48,74 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     public abstract class DataSchema : ISource, IProvider
     {
+        /// <summary>
+        /// The source
+        /// </summary>
+        private protected Source _source;
+
+        /// <summary>
+        /// The provider
+        /// </summary>
+        private protected Provider _provider;
+
+        /// <summary>
+        /// The data columns
+        /// </summary>
+        private protected IList<DataColumn> _dataColumns;
+
+        /// <summary>
+        /// The column names
+        /// </summary>
+        private protected IList<string> _columnNames;
+
+        /// <summary>
+        /// The dates
+        /// </summary>
+        private protected IList<string> _dates;
+
+        /// <summary>
+        /// The fields
+        /// </summary>
+        private protected IList<string> _fields;
+
+        /// <summary>
+        /// The numerics
+        /// </summary>
+        private protected IList<string> _numerics;
+
         /// <inheritdoc />
         /// <summary>
         /// Gets the source.
         /// </summary>
-        public Source Source { get; set; }
+        public Source Source
+        {
+            get
+            {
+                return _source; 
+            }
+            private protected set
+            {
+                _source = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
         /// </summary>
-        public Provider Provider { get; set; }
+        public Provider Provider
+        {
+            get
+            {
+                return _provider;
+            }
+            private protected set
+            {
+                _provider = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the data columns.
@@ -67,7 +123,17 @@ namespace BudgetExecution
         /// <value>
         /// The data columns.
         /// </value>
-        public IList<DataColumn> DataColumns { get; set; }
+        public IList<DataColumn> DataColumns
+        {
+            get
+            {
+                return _dataColumns;
+            }
+            private protected set
+            {
+                _dataColumns = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the column names.
@@ -75,7 +141,17 @@ namespace BudgetExecution
         /// <value>
         /// The column names.
         /// </value>
-        public IList<string> ColumnNames { get; set; }
+        public IList<string> ColumnNames
+        {
+            get
+            {
+                return _columnNames;
+            }
+            private protected set
+            {
+                _columnNames = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the fields.
@@ -83,7 +159,17 @@ namespace BudgetExecution
         /// <value>
         /// The fields.
         /// </value>
-        public IList<string> Fields { get; set; }
+        public IList<string> Fields
+        {
+            get
+            {
+                return _fields;
+            }
+            private protected set
+            {
+                _fields = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the dates.
@@ -91,7 +177,17 @@ namespace BudgetExecution
         /// <value>
         /// The dates.
         /// </value>
-        public IList<string> Dates { get; set; }
+        public IList<string> Dates
+        {
+            get
+            {
+                return _dates;
+            }
+            private protected set
+            {
+                _dates = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the numerics.
@@ -99,7 +195,17 @@ namespace BudgetExecution
         /// <value>
         /// The numerics.
         /// </value>
-        public IList<string> Numerics { get; set; }
+        public IList<string> Numerics
+        {
+            get
+            {
+                return _numerics;
+            }
+            private protected set
+            {
+                _columnNames = value;
+            }
+        }
 
         /// <summary>
         /// Fails the specified ex.

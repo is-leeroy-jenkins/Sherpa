@@ -57,7 +57,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    public class DataMetric : MetricBase
+    public class DataMetric : Measure
     {
         /// <summary>
         /// Gets the dates.
@@ -114,6 +114,24 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Gets the fields.
+        /// </summary>
+        /// <value>
+        /// The fields.
+        /// </value>
+        public IList<string> Fields
+        {
+            get
+            {
+                return _fields;
+            }
+            private protected set
+            {
+                _fields = value;
+            }
+        }
+
+        /// <summary>
         /// Gets or sets the values.
         /// </summary>
         /// <value>
@@ -133,24 +151,49 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="DataMetric"/>
-        /// class.
+        /// <see cref="DataMetric"/> class.
         /// </summary>
-        public DataMetric( )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DataMetric"/>
-        /// class.
-        /// </summary>
-        /// <param name="dataTable"> The data table. </param>
+        /// <param name="dataTable">
+        /// The data table.
+        /// </param>
         public DataMetric( DataTable dataTable )
         {
             _dataTable = dataTable;
+            _fields = GetFields( );
             _numerics = GetNumericColumns( );
             _dates = GetDateColumns( );
+        }
+
+        /// <summary>
+        /// Gets the fields.
+        /// </summary>
+        /// <returns>
+        /// </returns>
+        private protected IList<string> GetFields( )
+        {
+            try
+            {
+                var _list = new List<string>( );
+                var _count = _dataTable?.Columns?.Count;
+                for( var _index = 0; _index < _count; _index++ )
+                {
+                    var _dataColumn = _dataTable.Columns[ _index ];
+                    if( _dataColumn != null 
+                       && _dataColumn.DataType == typeof( string ) )
+                    {
+                        _list.Add( _dataColumn.ColumnName );
+                    }
+                }
+
+                return _list?.Any( ) == true
+                    ? _list
+                    : default( IList<string> );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IList<string> );
+            }
         }
     }
 }

@@ -44,33 +44,18 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
 
+    /// <inheritdoc />
     /// <summary>
-    /// summary>
-    public interface IDataModel
+    /// </summary>
+    public interface IDataModel : ISource, IProvider
     {
-        /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
-        Source Source { get; set; }
-
-        /// <summary>
-        /// Gets or sets the provider.
-        /// </summary>
-        /// <value>
-        /// The provider.
-        /// </value>
-        Provider Provider { get; set; }
-
         /// <summary>
         /// Gets or sets the data columns.
         /// </summary>
         /// <value>
         /// The data columns.
         /// </value>
-        IList<DataColumn> DataColumns { get; set; }
+        IList<DataColumn> DataColumns { get; }
 
         /// <summary>
         /// Gets the record.

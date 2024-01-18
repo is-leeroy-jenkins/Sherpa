@@ -73,16 +73,6 @@ namespace BudgetExecution
         private protected bool _busy;
 
         /// <summary>
-        /// The column names
-        /// </summary>
-        private protected IList<string> _columnNames;
-
-        /// <summary>
-        /// The data columns
-        /// </summary>
-        private protected IList<DataColumn> _dataColumns;
-
-        /// <summary>
         /// The data set
         /// </summary>
         private protected DataSet _dataSet;
@@ -91,11 +81,6 @@ namespace BudgetExecution
         /// The data table
         /// </summary>
         private protected DataTable _dataTable;
-
-        /// <summary>
-        /// The dates
-        /// </summary>
-        private protected IList<string> _dates;
 
         /// <summary>
         /// The map
@@ -111,16 +96,6 @@ namespace BudgetExecution
         /// The elements
         /// </summary>
         private protected IDictionary<string, IEnumerable<string>> _elements;
-
-        /// <summary>
-        /// The fields
-        /// </summary>
-        private protected IList<string> _fields;
-
-        /// <summary>
-        /// The numerics
-        /// </summary>
-        private protected IList<string> _numerics;
 
         /// <summary>
         /// The record

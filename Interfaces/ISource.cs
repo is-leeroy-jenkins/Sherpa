@@ -45,8 +45,12 @@ namespace BudgetExecution
     /// <summary> </summary>
     public interface ISource
     {
-        /// <summary> Gets the source. </summary>
-        /// <returns> </returns>
-        public Source Source { get; set; }
+        /// <summary>
+        /// Gets the source.
+        /// </summary>
+        /// <value>
+        /// The source.
+        /// </value>
+        public Source Source { get; }
     }
 }

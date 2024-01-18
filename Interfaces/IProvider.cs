@@ -42,11 +42,16 @@ namespace BudgetExecution
 {
     using System;
 
-    /// <summary> </summary>
+    /// <summary>
+    /// </summary>
     public interface IProvider
     {
-        /// <summary> </summary>
-        /// <returns> </returns>
-        public Provider Provider { get; set; }
+        /// <summary>
+        /// Gets the provider.
+        /// </summary>
+        /// <value>
+        /// The provider.
+        /// </value>
+        public Provider Provider { get; }
     }
 }

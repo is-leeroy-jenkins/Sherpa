@@ -131,8 +131,8 @@ namespace BudgetExecution
         /// <param name="provider">The provider.</param>
         public DataModel( Source source, Provider provider = Provider.Access )
         {
-            Source = source;
-            Provider = provider;
+            _source = source;
+            _provider = provider;
             _connectionFactory = new ConnectionFactory( source, provider );
             _sqlStatement = new SqlStatement( source, provider, SQL.SELECTALL );
             _dataTable = GetDataTable( );
@@ -155,8 +155,8 @@ namespace BudgetExecution
         /// <param name="where">The where.</param>
         public DataModel( Source source, Provider provider, IDictionary<string, object> where )
         {
-            Source = source;
-            Provider = provider;
+            _source = source;
+            _provider = provider;
             _connectionFactory = new ConnectionFactory( source, provider );
             _sqlStatement = new SqlStatement( source, provider, where );
             _dataTable = GetDataTable( );
@@ -182,8 +182,8 @@ namespace BudgetExecution
         public DataModel( Source source, Provider provider, IDictionary<string, object> updates,
             IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
         {
-            Source = source;
-            Provider = provider;
+            _source = source;
+            _provider = provider;
             _connectionFactory = new ConnectionFactory( source, provider );
             _sqlStatement = new SqlStatement( source, provider, updates, where, commandType );
             _dataTable = GetDataTable( );
@@ -209,8 +209,8 @@ namespace BudgetExecution
         public DataModel( Source source, Provider provider, IEnumerable<string> columns,
             IDictionary<string, object> where, SQL commandType = SQL.SELECT )
         {
-            Source = source;
-            Provider = provider;
+            _source = source;
+            _provider = provider;
             _connectionFactory = new ConnectionFactory( source, provider );
             _sqlStatement = new SqlStatement( source, provider, columns, where, commandType );
             _dataTable = GetDataTable( );
@@ -238,8 +238,8 @@ namespace BudgetExecution
             IEnumerable<string> numerics, IDictionary<string, object> where,
             SQL commandType )
         {
-            Source = source;
-            Provider = provider;
+            _source = source;
+            _provider = provider;
             _connectionFactory = new ConnectionFactory( source, provider );
             _sqlStatement = new SqlStatement( source, provider, fields, numerics, where,
                 commandType );
@@ -264,8 +264,8 @@ namespace BudgetExecution
         /// <param name="where">The where.</param>
         public DataModel( Source source, IDictionary<string, object> where )
         {
-            Source = source;
-            Provider = Provider.Access;
+            _source = source;
+            _provider = Provider.Access;
             _connectionFactory = new ConnectionFactory( source, Provider.Access );
             _sqlStatement = new SqlStatement( source, Provider.Access, where );
             _dataTable = GetDataTable( );
@@ -289,8 +289,8 @@ namespace BudgetExecution
         /// <param name="sqlText">The SQL text.</param>
         public DataModel( Source source, Provider provider, string sqlText )
         {
-            Source = source;
-            Provider = provider;
+            _source = source;
+            _provider = provider;
             _connectionFactory = new ConnectionFactory( source, provider );
             _sqlStatement = new SqlStatement( source, provider, sqlText );
             _dataTable = GetDataTable( );
@@ -315,8 +315,8 @@ namespace BudgetExecution
         public DataModel( string fullPath, string sqlText, SQL commandType = SQL.SELECT )
         {
             ConnectionFactory = new ConnectionFactory( fullPath );
-            Source = ConnectionFactory.Source;
-            Provider = ConnectionFactory.Provider;
+            _source = ConnectionFactory.Source;
+            _provider = ConnectionFactory.Provider;
             _sqlStatement = new SqlStatement( Source, Provider, sqlText, commandType );
             _dataTable = GetDataTable( );
             _dataColumns = GetDataColumns( );
@@ -337,8 +337,8 @@ namespace BudgetExecution
         /// <param name="query">The query.</param>
         public DataModel( IQuery query )
         {
-            Source = query.Source;
-            Provider = query.Provider;
+            _source = query.Source;
+            _provider = query.Provider;
             _connectionFactory = query.ConnectionFactory;
             _sqlStatement = query.SqlStatement;
             _dataTable = GetDataTable( );
