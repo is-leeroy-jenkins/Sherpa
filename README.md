@@ -1,1 +1,1 @@
-#Budget analysis application developed for analysts with the US EPA.
+#Budget analysis tool developed for analysts with the US EPA.
