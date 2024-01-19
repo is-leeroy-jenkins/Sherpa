@@ -31,8 +31,8 @@
         private void InitializeComponent( )
         {
             components = new System.ComponentModel.Container( );
-            var spreadsheetCopyPaste2 = new Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetCopyPaste( );
-            var formulaRangeSelectionController2 = new Syncfusion.Windows.Forms.Spreadsheet.FormulaRangeSelectionController( );
+            var spreadsheetCopyPaste1 = new Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetCopyPaste( );
+            var formulaRangeSelectionController1 = new Syncfusion.Windows.Forms.Spreadsheet.FormulaRangeSelectionController( );
             var resources = new System.ComponentModel.ComponentResourceManager( typeof( ExcelDataForm ) );
             Ribbon = new Syncfusion.Windows.Forms.Spreadsheet.SpreadsheetRibbon( );
             Spreadsheet = new Syncfusion.Windows.Forms.Spreadsheet.Spreadsheet( );
@@ -80,9 +80,6 @@
             ExcelSeparator = new ToolSeparator( );
             FilterSeparator = new ToolSeparator( );
             TabControl = new TabControl( );
-            DataTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
-            BusyTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
-            Loader = new System.Windows.Forms.PictureBox( );
             QueryTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             ThirdFilterTable = new HeaderPanel( );
             backPanel2 = new BackPanel( );
@@ -110,6 +107,9 @@
             SourceTable = new HeaderPanel( );
             TablePanel = new BackPanel( );
             TableListBox = new ListBox( );
+            DataTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
+            BusyTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
+            Loader = new System.Windows.Forms.PictureBox( );
             ( (System.ComponentModel.ISupportInitialize)Ribbon ).BeginInit( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
             HeaderPanel.SuspendLayout( );
@@ -118,9 +118,6 @@
             ToolStrip.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)TabControl ).BeginInit( );
             TabControl.SuspendLayout( );
-            DataTab.SuspendLayout( );
-            BusyTab.SuspendLayout( );
-            ( (System.ComponentModel.ISupportInitialize)Loader ).BeginInit( );
             QueryTab.SuspendLayout( );
             ThirdFilterTable.SuspendLayout( );
             backPanel2.SuspendLayout( );
@@ -134,6 +131,9 @@
             ValuePanel.SuspendLayout( );
             SourceTable.SuspendLayout( );
             TablePanel.SuspendLayout( );
+            DataTab.SuspendLayout( );
+            BusyTab.SuspendLayout( );
+            ( (System.ComponentModel.ISupportInitialize)Loader ).BeginInit( );
             SuspendLayout( );
             // 
             // Ribbon
@@ -184,9 +184,9 @@
             Spreadsheet.AllowZooming = true;
             Spreadsheet.BaseThemeName = "";
             Spreadsheet.CanOverrideStyle = true;
-            spreadsheetCopyPaste2.AllowPasteOptionPopup = true;
-            spreadsheetCopyPaste2.DefaultPasteOption = Syncfusion.Windows.Forms.Spreadsheet.PasteOptions.Paste;
-            Spreadsheet.CopyPaste = spreadsheetCopyPaste2;
+            spreadsheetCopyPaste1.AllowPasteOptionPopup = true;
+            spreadsheetCopyPaste1.DefaultPasteOption = Syncfusion.Windows.Forms.Spreadsheet.PasteOptions.Paste;
+            Spreadsheet.CopyPaste = spreadsheetCopyPaste1;
             Spreadsheet.DefaultColumnCount = 50;
             Spreadsheet.DefaultRowCount = 100;
             Spreadsheet.DisplayAlerts = true;
@@ -195,9 +195,9 @@
             Spreadsheet.Font = new System.Drawing.Font( "Roboto", 9F );
             Spreadsheet.ForeColor = System.Drawing.Color.Black;
             Spreadsheet.FormulaBarVisibility = false;
-            formulaRangeSelectionController2.AllowMouseSelection = true;
-            formulaRangeSelectionController2.AllowSelectionOnEditing = true;
-            Spreadsheet.FormulaRangeSelectionController = formulaRangeSelectionController2;
+            formulaRangeSelectionController1.AllowMouseSelection = true;
+            formulaRangeSelectionController1.AllowSelectionOnEditing = true;
+            Spreadsheet.FormulaRangeSelectionController = formulaRangeSelectionController1;
             Spreadsheet.IsCustomTabItemContextMenuEnabled = false;
             Spreadsheet.Location = new System.Drawing.Point( 0, 128 );
             Spreadsheet.Name = "Spreadsheet";
@@ -467,7 +467,7 @@
             ToolStripTextBox.Margin = new System.Windows.Forms.Padding( 1 );
             ToolStripTextBox.Name = "ToolStripTextBox";
             ToolStripTextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Size = new System.Drawing.Size( 246, 27 );
+            ToolStripTextBox.Size = new System.Drawing.Size( 244, 27 );
             ToolStripTextBox.Tag = "";
             ToolStripTextBox.ToolTip = ToolTip;
             // 
@@ -821,8 +821,8 @@
             TabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             TabControl.CanOverrideStyle = true;
             TabControl.CloseButtonBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            TabControl.Controls.Add( QueryTab );
             TabControl.Controls.Add( DataTab );
+            TabControl.Controls.Add( QueryTab );
             TabControl.Controls.Add( BusyTab );
             TabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             TabControl.FocusOnTabClick = false;
@@ -847,47 +847,6 @@
             TabControl.ThemeStyle.TabStyle.ActiveForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             TabControl.ThemeStyle.TabStyle.SeparatorColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.ToolTip = null;
-            // 
-            // DataTab
-            // 
-            DataTab.Controls.Add( Spreadsheet );
-            DataTab.Controls.Add( Ribbon );
-            DataTab.Image = null;
-            DataTab.ImageSize = new System.Drawing.Size( 16, 16 );
-            DataTab.Location = new System.Drawing.Point( 0, 4 );
-            DataTab.Name = "DataTab";
-            DataTab.ShowCloseButton = true;
-            DataTab.Size = new System.Drawing.Size( 1338, 665 );
-            DataTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            DataTab.TabForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            DataTab.TabIndex = 1;
-            DataTab.Text = "Data";
-            DataTab.ThemesEnabled = false;
-            // 
-            // BusyTab
-            // 
-            BusyTab.Controls.Add( Loader );
-            BusyTab.Image = null;
-            BusyTab.ImageSize = new System.Drawing.Size( 16, 16 );
-            BusyTab.Location = new System.Drawing.Point( 0, 4 );
-            BusyTab.Margin = new System.Windows.Forms.Padding( 1 );
-            BusyTab.Name = "BusyTab";
-            BusyTab.ShowCloseButton = true;
-            BusyTab.Size = new System.Drawing.Size( 1338, 665 );
-            BusyTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            BusyTab.TabIndex = 2;
-            BusyTab.ThemesEnabled = false;
-            // 
-            // Loader
-            // 
-            Loader.Dock = System.Windows.Forms.DockStyle.Fill;
-            Loader.Image = Resources.Images.Loading;
-            Loader.Location = new System.Drawing.Point( 0, 0 );
-            Loader.Name = "Loader";
-            Loader.Size = new System.Drawing.Size( 1338, 665 );
-            Loader.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            Loader.TabIndex = 0;
-            Loader.TabStop = false;
             // 
             // QueryTab
             // 
@@ -1620,6 +1579,47 @@
             TableListBox.ThemeName = "BudgetExecution";
             TableListBox.ToolTip = ToolTip;
             // 
+            // DataTab
+            // 
+            DataTab.Controls.Add( Spreadsheet );
+            DataTab.Controls.Add( Ribbon );
+            DataTab.Image = null;
+            DataTab.ImageSize = new System.Drawing.Size( 16, 16 );
+            DataTab.Location = new System.Drawing.Point( 0, 4 );
+            DataTab.Name = "DataTab";
+            DataTab.ShowCloseButton = true;
+            DataTab.Size = new System.Drawing.Size( 1338, 665 );
+            DataTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            DataTab.TabForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            DataTab.TabIndex = 1;
+            DataTab.Text = "Data";
+            DataTab.ThemesEnabled = false;
+            // 
+            // BusyTab
+            // 
+            BusyTab.Controls.Add( Loader );
+            BusyTab.Image = null;
+            BusyTab.ImageSize = new System.Drawing.Size( 16, 16 );
+            BusyTab.Location = new System.Drawing.Point( 0, 4 );
+            BusyTab.Margin = new System.Windows.Forms.Padding( 1 );
+            BusyTab.Name = "BusyTab";
+            BusyTab.ShowCloseButton = true;
+            BusyTab.Size = new System.Drawing.Size( 1338, 665 );
+            BusyTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            BusyTab.TabIndex = 2;
+            BusyTab.ThemesEnabled = false;
+            // 
+            // Loader
+            // 
+            Loader.Dock = System.Windows.Forms.DockStyle.Fill;
+            Loader.Image = Resources.Images.Loading;
+            Loader.Location = new System.Drawing.Point( 0, 0 );
+            Loader.Name = "Loader";
+            Loader.Size = new System.Drawing.Size( 1338, 665 );
+            Loader.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            Loader.TabIndex = 0;
+            Loader.TabStop = false;
+            // 
             // ExcelDataForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
@@ -1663,9 +1663,6 @@
             ToolStrip.PerformLayout( );
             ( (System.ComponentModel.ISupportInitialize)TabControl ).EndInit( );
             TabControl.ResumeLayout( false );
-            DataTab.ResumeLayout( false );
-            BusyTab.ResumeLayout( false );
-            ( (System.ComponentModel.ISupportInitialize)Loader ).EndInit( );
             QueryTab.ResumeLayout( false );
             ThirdFilterTable.ResumeLayout( false );
             backPanel2.ResumeLayout( false );
@@ -1679,6 +1676,9 @@
             ValuePanel.ResumeLayout( false );
             SourceTable.ResumeLayout( false );
             TablePanel.ResumeLayout( false );
+            DataTab.ResumeLayout( false );
+            BusyTab.ResumeLayout( false );
+            ( (System.ComponentModel.ISupportInitialize)Loader ).EndInit( );
             ResumeLayout( false );
         }
 

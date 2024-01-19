@@ -70,7 +70,7 @@
             Title.DataFilter = null;
             Title.Dock = System.Windows.Forms.DockStyle.Fill;
             Title.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            Title.Font = new System.Drawing.Font( "Roboto", 8F );
+            Title.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
             Title.HoverText = null;
             Title.IsDerivedStyle = true;
             Title.Location = new System.Drawing.Point( 47, 3 );
@@ -136,7 +136,7 @@
             Controls.Add( CloseButton );
             Controls.Add( Header );
             Font = new System.Drawing.Font( "Roboto", 9F );
-            ForeColor = System.Drawing.Color.LightGray;
+            ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
             MaximizeBox = false;
             MaximumSize = new System.Drawing.Size( 1350, 750 );

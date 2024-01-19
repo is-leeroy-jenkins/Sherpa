@@ -59,7 +59,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
-    public class DataModel : ModelBase
+    public class DataModel : DataFrame
     {
         /// <summary>
         /// Gets the SQL statement.
@@ -393,7 +393,6 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( dataRows, nameof( dataRows ) );
-                ThrowIf.NullOrEmpty( name, nameof( name ) );
                 ThrowIf.NullOrEmpty( value, nameof( value ) );
                 var _query = dataRows
                     ?.Where( v => v.Field<string>( $"{name}" ).Equals( value ) )
@@ -423,18 +422,18 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.NullOrEmpty( filePath, nameof( filePath ) );
-                using var _package = new ExcelPackage( );
-                using var _stream = OpenRead( filePath );
-                _package.Load( _stream );
-                var _sheet = _package?.Workbook?.Worksheets?.First( );
-                var _table = new DataTable( _sheet?.Name );
-                if( _sheet?.Cells != null )
+                using var _excelPackage = new ExcelPackage( );
+                using var _fileStream = OpenRead( filePath );
+                _excelPackage.Load( _fileStream );
+                var _worksheet = _excelPackage?.Workbook?.Worksheets?.First( );
+                var _dataTable = new DataTable( _worksheet?.Name );
+                if( _worksheet?.Cells != null )
                 {
-                    var _lastColumn = _sheet.Dimension.End.Column;
-                    var _lastRow = _sheet.Dimension.End.Row;
-                    foreach( var _cell in _sheet?.Cells[ 1, 1, 1, _lastColumn ] )
+                    var _lastColumn = _worksheet.Dimension.End.Column;
+                    var _lastRow = _worksheet.Dimension.End.Row;
+                    foreach( var _cell in _worksheet?.Cells[ 1, 1, 1, _lastColumn ] )
                     {
-                        _table?.Columns?.Add( header
+                        _dataTable?.Columns?.Add( header
                             ? _cell.Text
                             : $"Column {_cell.Start.Column}" );
                     }
@@ -445,16 +444,16 @@ namespace BudgetExecution
 
                     for( var _row = _start; _row <= _lastRow; _row++ )
                     {
-                        var _range = _sheet.Cells[ _row, 1, _row, _lastColumn ];
-                        var _data = _table.Rows?.Add( );
+                        var _range = _worksheet.Cells[ _row, 1, _row, _lastColumn ];
+                        var _data = _dataTable.Rows?.Add( );
                         foreach( var _cell in _range )
                         {
                             _data[ _cell.Start.Column - 1 ] = _cell?.Text;
                         }
                     }
 
-                    return _table?.Rows?.Count > 0
-                        ? _table
+                    return _dataTable?.Rows?.Count > 0
+                        ? _dataTable
                         : default( DataTable );
                 }
             }

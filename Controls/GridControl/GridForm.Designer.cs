@@ -87,7 +87,7 @@
             // 
             // PictureBox
             // 
-            PictureBox.Image = Resources.Images.Application;
+            PictureBox.Image = Resources.Images.budget;
             PictureBox.Location = new System.Drawing.Point( 3, 3 );
             PictureBox.Name = "PictureBox";
             PictureBox.Size = new System.Drawing.Size( 22, 18 );
@@ -376,7 +376,7 @@
             ToolStripTextBox.Margin = new System.Windows.Forms.Padding( 1 );
             ToolStripTextBox.Name = "ToolStripTextBox";
             ToolStripTextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Size = new System.Drawing.Size( 242, 25 );
+            ToolStripTextBox.Size = new System.Drawing.Size( 240, 25 );
             ToolStripTextBox.Tag = "";
             ToolStripTextBox.ToolTip = ToolTip;
             // 
@@ -477,8 +477,8 @@
             // 
             DataSheet.AlphaBlendSelectionColor = System.Drawing.Color.FromArgb( 130, 80, 80, 80 );
             DataSheet.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            gridBaseStyle1.Name = "Column Header";
-            gridBaseStyle1.StyleInfo.BaseStyle = "Header";
+            gridBaseStyle1.Name = "Header";
+            gridBaseStyle1.StyleInfo.CellType = "Header";
             gridBaseStyle1.StyleInfo.Font.Bold = true;
             gridBaseStyle1.StyleInfo.Font.Facename = "Segoe UI";
             gridBaseStyle1.StyleInfo.Font.Italic = false;
@@ -486,11 +486,11 @@
             gridBaseStyle1.StyleInfo.Font.Strikeout = false;
             gridBaseStyle1.StyleInfo.Font.Underline = false;
             gridBaseStyle1.StyleInfo.Font.Unit = System.Drawing.GraphicsUnit.Point;
-            gridBaseStyle1.StyleInfo.HorizontalAlignment = Syncfusion.Windows.Forms.Grid.GridHorizontalAlignment.Center;
+            gridBaseStyle1.StyleInfo.VerticalAlignment = Syncfusion.Windows.Forms.Grid.GridVerticalAlignment.Middle;
             gridBaseStyle2.Name = "Standard";
             gridBaseStyle2.StyleInfo.Font.Facename = "Tahoma";
-            gridBaseStyle3.Name = "Header";
-            gridBaseStyle3.StyleInfo.CellType = "Header";
+            gridBaseStyle3.Name = "Row Header";
+            gridBaseStyle3.StyleInfo.BaseStyle = "Header";
             gridBaseStyle3.StyleInfo.Font.Bold = true;
             gridBaseStyle3.StyleInfo.Font.Facename = "Segoe UI";
             gridBaseStyle3.StyleInfo.Font.Italic = false;
@@ -498,8 +498,8 @@
             gridBaseStyle3.StyleInfo.Font.Strikeout = false;
             gridBaseStyle3.StyleInfo.Font.Underline = false;
             gridBaseStyle3.StyleInfo.Font.Unit = System.Drawing.GraphicsUnit.Point;
-            gridBaseStyle3.StyleInfo.VerticalAlignment = Syncfusion.Windows.Forms.Grid.GridVerticalAlignment.Middle;
-            gridBaseStyle4.Name = "Row Header";
+            gridBaseStyle3.StyleInfo.HorizontalAlignment = Syncfusion.Windows.Forms.Grid.GridHorizontalAlignment.Center;
+            gridBaseStyle4.Name = "Column Header";
             gridBaseStyle4.StyleInfo.BaseStyle = "Header";
             gridBaseStyle4.StyleInfo.Font.Bold = true;
             gridBaseStyle4.StyleInfo.Font.Facename = "Segoe UI";

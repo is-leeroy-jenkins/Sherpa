@@ -44,6 +44,7 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Data;
+    using System.Linq;
 
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
@@ -99,7 +100,7 @@ namespace BudgetExecution
                 ThrowIf.NullOrEmpty( numeric, nameof( numeric ) );
                 if( _numerics?.Contains( numeric ) == false )
                 {
-                    var _message = $"{numeric} is not in collection!";
+                    var _message = $"{numeric} is not in Data Columns!";
                     throw new ArgumentOutOfRangeException( numeric, _message );
                 }
             }
@@ -109,12 +110,6 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Throws if null field.
-        /// </summary>
-        /// <param name="field">The field.</param>
-        /// <exception cref="System.ArgumentOutOfRangeException">
-        /// </exception>
         private protected void ThrowIfNullField( string field )
         {
             try
@@ -122,7 +117,7 @@ namespace BudgetExecution
                 ThrowIf.NullOrEmpty( field, nameof( field ) );
                 if( _fields?.Contains( field ) == false )
                 {
-                    var _message = $"{field} is not in collection!";
+                    var _message = $"{field} is not in Data Columns!";
                     throw new ArgumentOutOfRangeException( field, _message );
                 }
             }
@@ -145,8 +140,35 @@ namespace BudgetExecution
                 ThrowIf.NullOrEmpty( date, nameof( date ) );
                 if( _dates?.Contains( date ) == false )
                 {
-                    var _message = $"{date} is not in collection!";
+                    var _message = $"{date} is not in Data Columns!";
                     throw new ArgumentOutOfRangeException( date, _message );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Throws if null criteria.
+        /// </summary>
+        /// <param name="where">The where.</param>
+        /// <exception cref="System.ArgumentOutOfRangeException">
+        /// </exception>
+        private protected void ThrowIfNullCriteria( IDictionary<string, object> where )
+        {
+            try
+            {
+                ThrowIf.Null( where, nameof( where ) );
+                var _keys = where.Keys.ToList( );
+                foreach( var _column in _keys )
+                {
+                    if( _keys?.Contains( _column ) == false )
+                    {
+                        var _message = $"{_column} is not in Data Columns!";
+                        throw new ArgumentOutOfRangeException( _column, _message );
+                    }
                 }
             }
             catch( Exception _ex )

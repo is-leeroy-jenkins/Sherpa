@@ -46,7 +46,7 @@ namespace BudgetExecution
             Timer = new System.Windows.Forms.Timer( components );
             TopPanel.SuspendLayout( );
             TopTable.SuspendLayout( );
-            ( (System.ComponentModel.ISupportInitialize) Image  ).BeginInit( );
+            ( (System.ComponentModel.ISupportInitialize)Image ).BeginInit( );
             CalculatorPanel.SuspendLayout( );
             CalculatorTable.SuspendLayout( );
             ButtonTable.SuspendLayout( );
@@ -55,7 +55,7 @@ namespace BudgetExecution
             // TopPanel
             // 
             TopPanel.BackColor = System.Drawing.Color.Transparent;
-            TopPanel.BackgroundColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            TopPanel.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TopPanel.BindingSource = null;
             TopPanel.BorderColor = System.Drawing.Color.Transparent;
             TopPanel.BorderThickness = 1;
@@ -63,7 +63,7 @@ namespace BudgetExecution
             TopPanel.Controls.Add( TopTable );
             TopPanel.DataFilter = null;
             TopPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            TopPanel.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            TopPanel.Font = new System.Drawing.Font( "Roboto", 8F );
             TopPanel.ForeColor = System.Drawing.Color.Transparent;
             TopPanel.HoverText = null;
             TopPanel.IsDerivedStyle = true;
@@ -99,7 +99,7 @@ namespace BudgetExecution
             ValueLabel.DataFilter = null;
             ValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             ValueLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            ValueLabel.Font = new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            ValueLabel.Font = new System.Drawing.Font( "Roboto", 12F );
             ValueLabel.HoverText = null;
             ValueLabel.IsDerivedStyle = true;
             ValueLabel.Location = new System.Drawing.Point( 57, 3 );
@@ -136,15 +136,15 @@ namespace BudgetExecution
             // CalculatorPanel
             // 
             CalculatorPanel.BackColor = System.Drawing.Color.Transparent;
-            CalculatorPanel.BackgroundColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            CalculatorPanel.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CalculatorPanel.BindingSource = null;
-            CalculatorPanel.BorderColor = System.Drawing.Color.FromArgb(   65  ,   65  ,   65   );
+            CalculatorPanel.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
             CalculatorPanel.BorderThickness = 1;
             CalculatorPanel.Children = null;
             CalculatorPanel.Controls.Add( Calculator );
             CalculatorPanel.DataFilter = null;
             CalculatorPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            CalculatorPanel.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            CalculatorPanel.Font = new System.Drawing.Font( "Roboto", 8F );
             CalculatorPanel.ForeColor = System.Drawing.Color.Transparent;
             CalculatorPanel.HoverText = null;
             CalculatorPanel.IsDerivedStyle = true;
@@ -169,11 +169,11 @@ namespace BudgetExecution
             Calculator.Culture = new System.Globalization.CultureInfo( "en-US" );
             Calculator.Dock = System.Windows.Forms.DockStyle.Fill;
             Calculator.DoubleValue = 0D;
-            Calculator.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            Calculator.Font = new System.Drawing.Font( "Roboto", 8F );
             Calculator.ForeColor = System.Drawing.Color.White;
             Calculator.LayoutType = Syncfusion.Windows.Forms.Tools.CalculatorLayoutTypes.Financial;
             Calculator.Location = new System.Drawing.Point( 1, 1 );
-            Calculator.MetroColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            Calculator.MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             Calculator.Name = "Calculator";
             Calculator.RightToLeft = System.Windows.Forms.RightToLeft.No;
             Calculator.ShowDisplayArea = false;
@@ -190,10 +190,10 @@ namespace BudgetExecution
             CloseButton.DisabledBackColor = System.Drawing.Color.Transparent;
             CloseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
             CloseButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            CloseButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            CloseButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
-            CloseButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+            CloseButton.Font = new System.Drawing.Font( "Roboto", 8F );
+            CloseButton.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            CloseButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             CloseButton.HoverText = null;
             CloseButton.HoverTextColor = System.Drawing.Color.White;
             CloseButton.IsDerivedStyle = true;
@@ -201,10 +201,10 @@ namespace BudgetExecution
             CloseButton.Name = "CloseButton";
             CloseButton.NormalBorderColor = System.Drawing.Color.Transparent;
             CloseButton.NormalColor = System.Drawing.Color.Transparent;
-            CloseButton.NormalTextColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
+            CloseButton.NormalTextColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
             CloseButton.Padding = new System.Windows.Forms.Padding( 1 );
-            CloseButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            CloseButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            CloseButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            CloseButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             CloseButton.PressTextColor = System.Drawing.Color.White;
             CloseButton.Size = new System.Drawing.Size( 93, 25 );
             CloseButton.Style = MetroSet_UI.Enums.Style.Custom;
@@ -251,29 +251,29 @@ namespace BudgetExecution
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            BorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             BorderThickness = 2;
-            CaptionBarColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            CaptionBarColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionBarHeight = 5;
-            CaptionButtonColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            CaptionButtonColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = System.Drawing.Color.Red;
-            CaptionFont = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            CaptionForeColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            CaptionFont = new System.Drawing.Font( "Roboto", 11.25F );
+            CaptionForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             ClientSize = new System.Drawing.Size( 361, 440 );
             Controls.Add( CalculatorTable );
-            Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            Font = new System.Drawing.Font( "Roboto", 9F );
             ForeColor = System.Drawing.Color.LightSteelBlue;
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            Icon = (System.Drawing.Icon) resources.GetObject( "$this.Icon" ) ;
-            MetroColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
+            MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             Name = "CalculationForm";
             ShowIcon = false;
             SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             TopPanel.ResumeLayout( false );
             TopTable.ResumeLayout( false );
-            ( (System.ComponentModel.ISupportInitialize) Image  ).EndInit( );
+            ( (System.ComponentModel.ISupportInitialize)Image ).EndInit( );
             CalculatorPanel.ResumeLayout( false );
             CalculatorTable.ResumeLayout( false );
             ButtonTable.ResumeLayout( false );

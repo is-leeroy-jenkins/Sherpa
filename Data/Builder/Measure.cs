@@ -94,7 +94,7 @@ namespace BudgetExecution
             try
             {
                 ThrowIfNullNumeric( numeric );
-                ThrowIf.Null( where, nameof( where ) );
+                ThrowIfNullCriteria( where );
                 var _select = _dataTable?.Filter( where )
                     ?.Select( p => p.Field<double>( numeric ) );
 
@@ -145,7 +145,7 @@ namespace BudgetExecution
             try
             {
                 ThrowIfNullNumeric( numeric );
-                ThrowIf.Null( where, nameof( where ) );
+                ThrowIfNullCriteria( where );
                 var _select = _dataTable?.Filter( where )
                     ?.Select( p => p.Field<double>( numeric ) )
                     ?.Sum( );
@@ -197,7 +197,7 @@ namespace BudgetExecution
             try
             {
                 ThrowIfNullNumeric( numeric );
-                ThrowIf.Null( where, nameof( where ) );
+                ThrowIfNullCriteria( where );
                 var _query = _dataTable?.Filter( where )
                     ?.Select( p => p.Field<double>( numeric ) )
                     ?.Average( );
@@ -249,7 +249,7 @@ namespace BudgetExecution
             try
             {
                 ThrowIfNullNumeric( numeric );
-                ThrowIf.Null( where, nameof( where ) );
+                ThrowIfNullCriteria( where );
                 var _select = _dataTable?.Filter( where )
                     ?.Select( p => p.Field<double>( numeric ) )
                     ?.Sum( );
@@ -301,7 +301,7 @@ namespace BudgetExecution
             try
             {
                 ThrowIfNullNumeric( numeric );
-                ThrowIf.Null( where, nameof( where ) );
+                ThrowIfNullCriteria( where );
                 var _query = _dataTable?.Filter( where )
                     ?.Select( p => p.Field<double>( numeric ) )
                     ?.StandardDeviation( );
@@ -359,7 +359,7 @@ namespace BudgetExecution
             try
             {
                 ThrowIfNullNumeric( numeric );
-                ThrowIf.Null( where, nameof( where ) );
+                ThrowIfNullCriteria( where );
                 var _query = _dataTable?.Filter( where )
                     ?.Select( p => p.Field<double>( numeric ) )
                     ?.Variance( );

@@ -52,7 +52,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeAccessorOwnerBody" ) ]
-    public abstract class ModelBase : DataAccess
+    public abstract class DataFrame : DataAccess
     {
         /// <summary>
         /// Gets the ordinals.
