@@ -51,7 +51,8 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class EmailConfig
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Local" ) ]
+    public class EmailConfiguration : MailConfig
     {
         /// <summary>
         /// Gets or sets the recipient.
@@ -59,7 +60,17 @@ namespace BudgetExecution
         /// <value>
         /// The recipient.
         /// </value>
-        public IList<string> Recipient { get; set; }
+        public IList<string> Recipients
+        {
+            get
+            {
+                return _recipients;
+            }
+            private set
+            {
+                _recipients = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the carbon copy.
@@ -67,7 +78,17 @@ namespace BudgetExecution
         /// <value>
         /// The carbon copy.
         /// </value>
-        public IList<string> CarbonCopy { get; set; }
+        public IList<string> Copies
+        {
+            get
+            {
+                return _copies;
+            }
+            private set
+            {
+                _copies = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the sender.
@@ -75,7 +96,17 @@ namespace BudgetExecution
         /// <value>
         /// The sender.
         /// </value>
-        public string Sender { get; set; }
+        public string Sender
+        {
+            get
+            {
+                return _sender;
+            }
+            private set
+            {
+                _sender = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the display name.
@@ -83,7 +114,17 @@ namespace BudgetExecution
         /// <value>
         /// The display name.
         /// </value>
-        public string DisplayName { get; set; }
+        public string DisplayName
+        {
+            get
+            {
+                return _displayName;
+            }
+            private set
+            {
+                _displayName = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the subject.
@@ -91,7 +132,17 @@ namespace BudgetExecution
         /// <value>
         /// The subject.
         /// </value>
-        public string Subject { get; set; }
+        public string Subject
+        {
+            get
+            {
+                return _subject;
+            }
+            private set
+            {
+                _subject = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the priority.
@@ -99,7 +150,17 @@ namespace BudgetExecution
         /// <value>
         /// The priority.
         /// </value>
-        public MailPriority Priority { get; set; }
+        public MailPriority Priority
+        {
+            get
+            {
+                return _priority;
+            }
+            private set
+            {
+                _priority = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the name of the user.
@@ -107,7 +168,17 @@ namespace BudgetExecution
         /// <value>
         /// The name of the user.
         /// </value>
-        public string UserName { get; set; }
+        public string UserName
+        {
+            get
+            {
+                return _userName;
+            }
+            private set
+            {
+                _userName = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the password.
@@ -115,55 +186,65 @@ namespace BudgetExecution
         /// <value>
         /// The password.
         /// </value>
-        public string Password { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="EmailConfig"/> class.
-        /// </summary>
-        public EmailConfig( )
+        public string Password
         {
-            Recipient = new List<string>( );
-            CarbonCopy = new List<string>( );
+            get
+            {
+                return _password;
+            }
+            private set
+            {
+                _password = value;
+            }
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EmailConfig"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="EmailConfiguration"/> class.
+        /// </summary>
+        public EmailConfiguration( )
+        {
+            _recipients = new List<string>( );
+            _copies = new List<string>( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EmailConfiguration"/> class.
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="subject">The subject.</param>
-        /// <param name="user">Name of the user.</param>
-        /// <param name="pass">The pass.</param>
-        /// <param name="recipient">The recipient.</param>
+        /// <param name="userName">Name of the user.</param>
+        /// <param name="secret">The pass.</param>
+        /// <param name="recipients">The recipient.</param>
         /// <param name="copies">The copies.</param>
         /// <param name="priority"> </param>
-        public EmailConfig( string sender, string subject, string user, 
-            string pass, IList<string> recipient, IList<string> copies, 
+        public EmailConfiguration( string sender, string subject, string userName, 
+            string secret, IList<string> recipients, IList<string> copies, 
             MailPriority priority = MailPriority.Normal )
         {
-            Sender = sender;
-            Subject = subject;
-            UserName = user;
-            Password = pass;
-            Priority = priority;
-            Recipient = recipient;
-            CarbonCopy = copies;
+            _sender = sender;
+            _subject = subject;
+            _userName = userName;
+            _password = secret;
+            _priority = priority;
+            _recipients = recipients;
+            _copies = copies;
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="EmailConfig"/> class.
+        /// <see cref="EmailConfiguration"/> class.
         /// </summary>
         /// <param name="config">The configuration.</param>
-        public EmailConfig( EmailConfig config )
+        public EmailConfiguration( EmailConfiguration config )
         {
-            Sender = config.Sender;
-            Subject = config.Subject;
-            UserName = config.UserName;
-            Password = config.Password;
-            Priority = config.Priority;
-            Recipient = config.Recipient;
-            CarbonCopy = config.CarbonCopy;
+            _sender = config.Sender;
+            _subject = config.Subject;
+            _userName = config.UserName;
+            _password = config.Password;
+            _priority = config.Priority;
+            _recipients = config.Recipients;
+            _copies = config.Copies;
         }
 
         /// <summary>
@@ -180,13 +261,13 @@ namespace BudgetExecution
             out string userName, out string pass, out MailPriority priority, 
             out IList<string> recipient, out IList<string> copies )
         {
-            sender = Sender;
-            subject = Subject;
-            userName = UserName;
-            pass = Password;
-            priority = Priority;
-            recipient = Recipient;
-            copies = CarbonCopy;
+            sender = _sender;
+            subject = _subject;
+            userName = _userName;
+            pass = _password;
+            priority = _priority;
+            recipient = _recipients;
+            copies = _copies;
         }
     }
 }

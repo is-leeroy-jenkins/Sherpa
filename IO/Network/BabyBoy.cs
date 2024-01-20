@@ -53,7 +53,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "ReplaceAutoPropertyWithComputedProperty" ) ]
-    public class BabyBoy
+    public class BabyBoy : Baby
     {
         /// <summary>
         /// Gets or sets the bytes.
@@ -61,7 +61,17 @@ namespace BudgetExecution
         /// <value>
         /// The bytes.
         /// </value>
-        public int Bytes { get; set; }
+        public int Bytes
+        {
+            get
+            {
+                return _bytes;
+            }
+            private set
+            {
+                _bytes = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the port.
@@ -69,7 +79,17 @@ namespace BudgetExecution
         /// <value>
         /// The port.
         /// </value>
-        public int Port { get; set; }
+        public int Port
+        {
+            get
+            {
+                return _port;
+            }
+            private set
+            {
+                _port = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the buffer.
@@ -77,7 +97,17 @@ namespace BudgetExecution
         /// <value>
         /// The buffer.
         /// </value>
-        public byte[ ] Data { get; set; }
+        public byte[ ] Data
+        {
+            get
+            {
+                return _data;
+            }
+            private set
+            {
+                _data = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the message.
@@ -85,7 +115,35 @@ namespace BudgetExecution
         /// <value>
         /// The message.
         /// </value>
-        public string Message { get; set; }
+        public string Message
+        {
+            get
+            {
+                return _message;
+            }
+            private set
+            {
+                _message = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the server.
+        /// </summary>
+        /// <value>
+        /// The server.
+        /// </value>
+        public Socket Socket
+        {
+            get
+            {
+                return _socket;
+            }
+            private set
+            {
+                _socket = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the local.
@@ -93,7 +151,17 @@ namespace BudgetExecution
         /// <value>
         /// The local.
         /// </value>
-        public IPEndPoint EndPoint { get; set; }
+        public IPAddress Address
+        {
+            get
+            {
+                return _ipAddress;
+            }
+            private set
+            {
+                _ipAddress = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the local.
@@ -101,25 +169,37 @@ namespace BudgetExecution
         /// <value>
         /// The local.
         /// </value>
-        public IPAddress Address { get; set; }
+        public IPEndPoint EndPoint
+        {
+            get
+            {
+                return _ipEndPoint;
+            }
+            private set
+            {
+                _ipEndPoint = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the client.
-        /// </summary>
-        /// <value>
-        /// The client.
-        /// </value>
-        public Socket Socket { get; set; }
-
-        /// <summary>
-        /// Gets or sets a value indicating
-        /// whether this instance is connected.
+        /// Gets or sets a value indicating whether
+        /// this instance is connected.
         /// </summary>
         /// <value>
         /// <c>true</c> if this instance is connected;
         /// otherwise, <c>false</c>.
         /// </value>
-        public bool IsConnected { get; private set; }
+        public bool IsConnected
+        {
+            get
+            {
+                return _isConnected;
+            }
+            private set
+            {
+                _isConnected = value;
+            }
+        }
 
         /// <summary>
         /// Initializes a new instance of the
@@ -127,13 +207,13 @@ namespace BudgetExecution
         /// </summary>
         public BabyBoy( )
         {
-            Bytes = 1024;
-            Port = 5000;
-            Data = new byte[ Bytes ];
-            Address = IPAddress.Any;
-            EndPoint = new IPEndPoint( Address, Port );
-            Socket = new Socket( AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp );
-            IsConnected = false;
+            _bytes = 1024;
+            _port = 5000;
+            _data = new byte[ Bytes ];
+            _ipAddress = IPAddress.Any;
+            _ipEndPoint = new IPEndPoint( Address, Port );
+            _socket = new Socket( AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp );
+            _isConnected = false;
         }
 
         /// <summary>
@@ -144,13 +224,13 @@ namespace BudgetExecution
         /// <param name="size">Size of the buffer.</param>
         public BabyBoy( string address, int port = 5000, int size = 1024 )
         {
-            Bytes = size;
-            Port = port;
-            Data = new byte[ Bytes ];
-            Address = IPAddress.Parse( address );
-            EndPoint = new IPEndPoint( Address, port );
-            Socket = new Socket( AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp );
-            IsConnected = false;
+            _bytes = size;
+            _port = port;
+            _data = new byte[ Bytes ];
+            _ipAddress = IPAddress.Parse( address );
+            _ipEndPoint = new IPEndPoint( Address, port );
+            _socket = new Socket( AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp );
+            _isConnected = false;
         }
 
         /// <summary>
@@ -161,13 +241,13 @@ namespace BudgetExecution
         /// <param name="size"> </param>
         public BabyBoy( IPAddress address, int port = 5000, int size = 1024 )
         {
-            Bytes = size;
-            Port = port;
-            Data = new byte[ size ];
-            Address = address;
-            EndPoint = new IPEndPoint( address, port );
-            Socket = new Socket( AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp );
-            IsConnected = false;
+            _bytes = size;
+            _port = port;
+            _data = new byte[ size ];
+            _ipAddress = address;
+            _ipEndPoint = new IPEndPoint( address, port );
+            _socket = new Socket( AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp );
+            _isConnected = false;
         }
 
         /// <summary>
@@ -177,13 +257,13 @@ namespace BudgetExecution
         /// <param name="size">Size of the buffer.</param>
         public BabyBoy( IPEndPoint endPoint, int size = 1024 )
         {
-            Bytes = size;
-            Port = endPoint.Port;
-            Data = new byte[ size ];
-            Address = endPoint.Address;
-            EndPoint = endPoint;
-            Socket = new Socket( AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp );
-            IsConnected = false;
+            _bytes = size;
+            _port = endPoint.Port;
+            _data = new byte[ size ];
+            _ipAddress = endPoint.Address;
+            _ipEndPoint = endPoint;
+            _socket = new Socket( AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp );
+            _isConnected = false;
         }
 
         /// <summary>
@@ -193,13 +273,13 @@ namespace BudgetExecution
         /// <param name="client">The client.</param>
         public BabyBoy( BabyBoy client )
         {
-            Bytes = client.Bytes;
-            Port = client.Port;
-            Data = client.Data;
-            Address = client.Address;
-            EndPoint = client.EndPoint;
-            Socket = client.Socket;
-            IsConnected = client.IsConnected;
+            _bytes = client.Bytes;
+            _port = client.Port;
+            _data = client.Data;
+            _ipAddress = client.Address;
+            _ipEndPoint = client.EndPoint;
+            _socket = client.Socket;
+            _isConnected = client.IsConnected;
         }
 
         /// <summary>
@@ -209,16 +289,16 @@ namespace BudgetExecution
         {
             try
             {
-                Message = "You look like a baby!";
-                Data = Encoding.ASCII.GetBytes( Message );
-                Socket.Connect( EndPoint );
-                IsConnected = Socket.Connected;
-                Socket.Send( Data );
-                Notify( Message );
+                _message = "You look like a baby!";
+                _data = Encoding.ASCII.GetBytes( _message );
+                _socket.Connect( _ipEndPoint );
+                _isConnected = _socket.Connected;
+                _socket.Send( _data );
+                SendNotification( _message );
             }
             catch( Exception _ex )
             {
-                Socket?.Dispose( );
+                _socket?.Dispose( );
                 Fail( _ex );
             }
         }
@@ -230,23 +310,23 @@ namespace BudgetExecution
         {
             try
             {
-                Message = "You look like a baby!";
-                Data = Encoding.ASCII.GetBytes( Message );
-                if( Socket.Connected && IsConnected )
+                _message = "You look like a baby!";
+                _data = Encoding.ASCII.GetBytes( _message );
+                if( _socket.Connected )
                 {
-                    Socket.Send( Data );
-                    Notify( Message );
+                    _socket.Send( _data );
+                    SendNotification( _message );
                 }
                 else
                 {
-                    Socket.Connect( EndPoint );
-                    IsConnected = Socket.Connected;
-                    Socket.Send( Data );
+                    _socket.Connect( _ipEndPoint );
+                    _isConnected = _socket.Connected;
+                    _socket.Send( _data );
                 }
             }
             catch( Exception _ex )
             {
-                Socket?.Dispose( );
+                _socket?.Dispose( );
                 Fail( _ex );
             }
         }
@@ -260,22 +340,22 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.NullOrEmpty( message, nameof( message ) );
-                Message = message;
-                Data = Encoding.ASCII.GetBytes( message );
-                if( Socket.Connected && IsConnected )
+                _message = message;
+                _data = Encoding.ASCII.GetBytes( message );
+                if( _socket.Connected )
                 {
-                    Socket.Send( Data );
+                    _socket.Send( _data );
                 }
                 else
                 {
-                    Socket.Connect( EndPoint );
-                    IsConnected = Socket.Connected;
-                    Socket.Send( Data );
+                    _socket.Connect( _ipEndPoint );
+                    _isConnected = _socket.Connected;
+                    _socket.Send( _data );
                 }
             }
             catch( Exception _ex )
             {
-                Socket?.Dispose( );
+                _socket?.Dispose( );
                 Fail( _ex );
             }
         }

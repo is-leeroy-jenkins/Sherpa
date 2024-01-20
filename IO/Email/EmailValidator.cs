@@ -49,7 +49,8 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
-    public class EmailValidator : ValidationBase
+    [ SuppressMessage( "ReSharper", "MergeIntoPattern" ) ]
+    public class EmailValidator : Validation
     {
         /// <summary>
         /// 

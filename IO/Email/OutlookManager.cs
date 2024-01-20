@@ -40,6 +40,7 @@
 
 namespace BudgetExecution
 {
+    using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Net;
     using System.Net.Mail;
@@ -47,8 +48,8 @@ namespace BudgetExecution
     using System.Runtime.InteropServices;
     using System.Text;
     using Microsoft.Office.Interop.Outlook;
+    using System.Net.Mail;
     using Attachment = System.Net.Mail.Attachment;
-    using Exception = System.Exception;
 
     /// <summary>
     /// 
@@ -59,7 +60,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "RedundantAssignment" ) ]
-    public class OutlookManager
+    public class OutlookManager : MailManager
     {
         /// <summary>
         /// Gets or sets the name of the host.
@@ -84,7 +85,7 @@ namespace BudgetExecution
         /// <param name="hostName">Name of the host.</param>
         public OutlookManager( string hostName )
         {
-            HostName = hostName;
+            _hostName = hostName;
         }
 
         /// <summary>
@@ -94,33 +95,33 @@ namespace BudgetExecution
         /// <param name="outlook">The outlook.</param>
         public OutlookManager( OutlookManager outlook )
         {
-            HostName = outlook.HostName;
+            _hostName = outlook.HostName;
         }
 
         /// <summary>
         /// Deconstructs the specified host.
         /// </summary>
-        /// <param name="host">The host.</param>
-        public void Deconstruct( out string host )
+        /// <param name="hostName">The host.</param>
+        public void Deconstruct( out string hostName )
         {
-            host = HostName;
+            hostName = _hostName;
         }
 
         /// <summary>
         /// Sends the email.
         /// </summary>
-        /// <param name="config">The configuration.</param>
+        /// <param name="configuration">The configuration.</param>
         /// <param name="content">The content.</param>
-        public void SendEmail( EmailConfig config, EmailContent content )
+        public void SendEmail( EmailConfiguration configuration, EmailContent content )
         {
             try
             {
-                ThrowIf.Null( config, nameof( config ) );
+                ThrowIf.Null( configuration, nameof( configuration ) );
                 ThrowIf.Null( content, nameof( content ) );
-                var _message = CreateMessage( config, content );
-                SendEmail( _message, config );
+                var _message = CreateMessage( configuration, content );
+                Send( _message, configuration );
             }
-            catch( Exception _ex )
+            catch( System.Exception _ex )
             {
                 Fail( _ex );
             }
@@ -130,22 +131,24 @@ namespace BudgetExecution
         /// Sends the email.
         /// </summary>
         /// <param name="message">The message.</param>
-        /// <param name="config">The configuration.</param>
-        private void SendEmail( MailMessage message, EmailConfig config )
+        /// <param name="configuration">The configuration.</param>
+        private protected void Send( MailMessage message, EmailConfiguration configuration )
         {
             try
             {
                 ThrowIf.Null( message, nameof( message ) );
-                ThrowIf.Null( config, nameof( config ) );
+                ThrowIf.Null( configuration, nameof( configuration ) );
                 var _client = new SmtpClient( );
                 _client.UseDefaultCredentials = false;
-                _client.Credentials = new NetworkCredential( config.UserName, config.Password );
+                _client.Credentials = new NetworkCredential( configuration.UserName, 
+                    configuration.Password );
+
                 _client.Host = HostName;
                 _client.Port = 25;
                 _client.EnableSsl = true;
                 _client.Send( message );
             }
-            catch( Exception _ex )
+            catch( System.Exception _ex )
             {
                 Fail( _ex );
                 message.Dispose( );
@@ -179,7 +182,7 @@ namespace BudgetExecution
                     Marshal.ReleaseComObject( _item );
                 }
             }
-            catch( Exception _ex )
+            catch( System.Exception _ex )
             {
                 Fail( _ex );
             }
@@ -195,80 +198,58 @@ namespace BudgetExecution
         /// <summary>
         /// Creates the message.
         /// </summary>
-        /// <param name="config">The configuration.</param>
+        /// <param name="configuration">The configuration.</param>
         /// <param name="content">The content.</param>
         /// <returns></returns>
-        public MailMessage CreateMessage( EmailConfig config, EmailContent content )
+        public MailMessage CreateMessage( EmailConfiguration configuration, EmailContent content )
         {
             try
             {
-                ThrowIf.Null( config, nameof( config ) );
+                ThrowIf.Null( configuration, nameof( configuration ) );
                 ThrowIf.Null( content, nameof( content ) );
                 var _message = new MailMessage( );
-                for( var _i = 0; _i < config.Recipient.Count; _i++ )
+                for( var _i = 0; _i < configuration.Recipients.Count; _i++ )
                 {
-                    var _to = config.Recipient[ _i ];
+                    var _to = configuration.Recipients[ _i ];
                     if( !string.IsNullOrEmpty( _to ) )
                     {
                         _message.To.Add( _to );
                     }
                 }
 
-                for( var _h = 0; _h < config.CarbonCopy.Count; _h++ )
+                for( var _h = 0; _h < configuration.Copies.Count; _h++ )
                 {
-                    var _cc = config.CarbonCopy[ _h ];
+                    var _cc = configuration.Copies[ _h ];
                     if( !string.IsNullOrEmpty( _cc ) )
                     {
                         _message.CC.Add( _cc );
                     }
                 }
 
-                _message.From = new MailAddress( config.Sender, config.DisplayName, Encoding.UTF8 );
+                _message.From = new MailAddress( configuration.Sender, 
+                    configuration.DisplayName, Encoding.UTF8 );
+
                 _message.IsBodyHtml = content.IsHtml;
                 _message.Body = content.Message;
-                _message.Priority = config.Priority;
-                _message.Subject = config.Subject;
+                _message.Priority = configuration.Priority;
+                _message.Subject = configuration.Subject;
                 _message.BodyEncoding = Encoding.UTF8;
                 _message.SubjectEncoding = Encoding.UTF8;
                 if( content.Attachment != null )
                 {
-                    var _data = new Attachment( content.Attachment,
+                    var _attachment = new Attachment( content.Attachment, 
                         MediaTypeNames.Application.Zip );
 
-                    _message.Attachments.Add( _data );
+                    _message.Attachments.Add( _attachment );
                 }
 
                 return _message;
             }
-            catch( Exception _ex )
+            catch( System.Exception _ex )
             {
                 Fail( _ex );
                 return default( MailMessage );
             }
-        }
-
-        /// <summary>
-        /// Releases the COM object.
-        /// </summary>
-        /// <param name="obj">The object.</param>
-        private static void ReleaseComObject( object obj )
-        {
-            if( obj != null )
-            {
-                Marshal.ReleaseComObject( obj );
-                obj = null;
-            }
-        }
-
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        private protected void Fail( Exception ex )
-        {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
         }
     }
 }

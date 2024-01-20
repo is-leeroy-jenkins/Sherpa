@@ -47,7 +47,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class EmailContent
+    public class EmailContent : MailConfig
     {
         /// <summary>
         /// Gets or sets a value indicating whether this instance is HTML.
@@ -58,7 +58,17 @@ namespace BudgetExecution
         /// <c> false </c>
         /// .
         /// </value>
-        public bool IsHtml { get; set; }
+        public bool IsHtml
+        {
+            get
+            {
+                return _isHtml;
+            }
+            private set
+            {
+                _isHtml = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the message.
@@ -66,7 +76,17 @@ namespace BudgetExecution
         /// <value>
         /// The message.
         /// </value>
-        public string Message { get; set; }
+        public string Message
+        {
+            get
+            {
+                return _message;
+            }
+            private set
+            {
+                _message = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the attachment.
@@ -74,7 +94,17 @@ namespace BudgetExecution
         /// <value>
         /// The attachment.
         /// </value>
-        public string Attachment { get; set; }
+        public string Attachment
+        {
+            get
+            {
+                return _attachment;
+            }
+            private set
+            {
+                _attachment = value;
+            }
+        }
 
         /// <summary>
         /// Initializes a new instance of the
@@ -99,9 +129,9 @@ namespace BudgetExecution
         /// </param>
         public EmailContent( string message, string filePath, bool isHtml = true )
         {
-            Message = message;
-            IsHtml = isHtml;
-            Attachment = filePath;
+            _message = message;
+            _isHtml = isHtml;
+            _attachment = filePath;
         }
 
         /// <summary>
@@ -111,9 +141,9 @@ namespace BudgetExecution
         /// <param name="email">The email.</param>
         public EmailContent( EmailContent email )
         {
-            Message = email.Message;
-            IsHtml = email.IsHtml;
-            Attachment = email.Attachment;
+            _message = email.Message;
+            _isHtml = email.IsHtml;
+            _attachment = email.Attachment;
         }
 
         /// <summary> Deconstructs the specified is HTML. </summary>
@@ -129,9 +159,9 @@ namespace BudgetExecution
         /// </param>
         public void Deconstruct( out bool isHtml, out string message, out string filePath )
         {
-            isHtml = IsHtml;
-            message = Message;
-            filePath = Attachment;
+            isHtml = _isHtml;
+            message = _message;
+            filePath = _attachment;
         }
 
         /// <summary> Converts to string. </summary>
@@ -144,8 +174,8 @@ namespace BudgetExecution
         {
             try
             {
-                return !string.IsNullOrEmpty( Message )
-                    ? Message
+                return !string.IsNullOrEmpty( _message )
+                    ? _message
                     : string.Empty;
             }
             catch( Exception _ex )
@@ -153,17 +183,6 @@ namespace BudgetExecution
                 Fail( _ex );
                 return string.Empty;
             }
-        }
-
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        private void Fail( Exception ex )
-        {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
         }
     }
 }

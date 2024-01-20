@@ -110,6 +110,11 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Throws if null field.
+        /// </summary>
+        /// <param name="field">The field.</param>
+        /// <exception cref="System.ArgumentOutOfRangeException"></exception>
         private protected void ThrowIfNullField( string field )
         {
             try

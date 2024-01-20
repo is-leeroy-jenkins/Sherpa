@@ -42,6 +42,7 @@ namespace BudgetExecution
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.IO;
 
     /// <summary>
     /// 
@@ -49,7 +50,8 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    public abstract class ValidationBase
+    [ SuppressMessage( "ReSharper", "MergeIntoPattern" ) ]
+    public abstract class Validation
     {
         /// <summary>
         /// The atom characters
@@ -70,6 +72,31 @@ namespace BudgetExecution
         /// The maximum local part length
         /// </summary>
         private protected const int MaxLocalPartLength = 64;
+
+        /// <summary>
+        /// The invalid path characters
+        /// </summary>
+        private protected char[ ] InvalidPathCharacters = Path.GetInvalidPathChars( );
+
+        /// <summary>
+        /// The invalid file name characters
+        /// </summary>
+        private protected char[ ] InvalidFileNameCharacters = Path.GetInvalidFileNameChars( );
+
+        /// <summary>
+        /// The path separator
+        /// </summary>
+        private protected char PathSeparator = Path.PathSeparator;
+
+        /// <summary>
+        /// The folder separator
+        /// </summary>
+        private protected char FolderSeparator = Path.DirectorySeparatorChar;
+
+        /// <summary>
+        /// The drive separator
+        /// </summary>
+        private protected char DriveSeparator = Path.VolumeSeparatorChar;
 
         /// <summary>
         /// 

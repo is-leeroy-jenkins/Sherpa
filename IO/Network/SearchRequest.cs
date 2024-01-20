@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 05-16-2023
+//     Created:                 1-20-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        1-20-2024
 // ******************************************************************************************
-// <copyright file="GoogleSearch.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+// <copyright file="SearchRequest.cs" company="Terry D. Eppler">
+//    Budget Execution is a Federal Budget, Finance, and Accounting application
+//    for analysts with the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -31,10 +31,10 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//    Contact at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   GoogleSearch.cs
+//   SearchRequest.cs
 // </summary>
 // ******************************************************************************************
 
@@ -60,7 +60,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class SearchRequest
+    public class SearchRequest : WebSearch
     {
         /// <summary>
         /// Gets the configuration.
@@ -68,7 +68,17 @@ namespace BudgetExecution
         /// <value>
         /// The configuration.
         /// </value>
-        public NameValueCollection Config { get; }
+        public NameValueCollection Config
+        {
+            get
+            {
+                return _config;
+            }
+            private set
+            {
+                _config = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the query.
@@ -76,7 +86,17 @@ namespace BudgetExecution
         /// <value>
         /// The query.
         /// </value>
-        public string Query { get; set; }
+        public string Query
+        {
+            get
+            {
+                return _query;
+            }
+            private set
+            {
+                _query = value;
+            }
+        }
 
         /// <summary>
         /// Initializes a new instance of the
@@ -84,7 +104,7 @@ namespace BudgetExecution
         /// </summary>
         public SearchRequest( )
         {
-            Config = ConfigurationManager.AppSettings;
+            _config = ConfigurationManager.AppSettings;
         }
 
         /// <summary>
@@ -96,8 +116,8 @@ namespace BudgetExecution
         /// </param>
         public SearchRequest( string keywords )
         {
-            Config = ConfigurationManager.AppSettings;
-            Query = keywords;
+            _config = ConfigurationManager.AppSettings;
+            _query = keywords;
         }
 
         /// <summary>
@@ -109,8 +129,8 @@ namespace BudgetExecution
         /// </param>
         public SearchRequest( SearchRequest search )
         {
-            Config = search.Config;
-            Query = search.Query;
+            _config = search.Config;
+            _query = search.Query;
         }
 
         /// <summary>
@@ -120,49 +140,57 @@ namespace BudgetExecution
         /// </returns>
         public List<SearchResult> GetResults( )
         {
-            if( !string.IsNullOrEmpty( Query ) 
-               && Config?.Count > 0 )
+            try
             {
-                try
-                {
-                    var _count = 0;
-                    var _data = new List<SearchResult>( );
-                    var _init = new BaseClientService.Initializer( );
-                    _init.ApiKey = Config[ "ApiKey" ];
-                    var _search = new CustomsearchService( _init );
-                    var _request = _search
-                        ?.Cse
-                        ?.List( );
+                var _count = 0;
+                var _results = new List<SearchResult>( );
+                var _initializer = new BaseClientService.Initializer( );
+                _initializer.ApiKey = _config[ "ApiKey" ];
+                var _customSearch = new CustomsearchService( _initializer );
+                var _searchRequest = _customSearch
+                    ?.Cse
+                    ?.List( );
 
-                    _request.Q = Query;
-                    _request.Cx = Config[ "SearchEngineId" ];
-                    _request.Start = _count;
-                    var _list = _request.Execute( )
+                if( _searchRequest != null )
+                {
+                    _searchRequest.Q = _query;
+                    _searchRequest.Cx = _config[ "SearchEngineId" ];
+                    _searchRequest.Start = _count;
+                    var _list = _searchRequest.Execute( )
                         ?.Items
                         ?.ToList( );
 
-                    for( var _i = 0; _i < _list.Count; _i++ )
+                    if( _list?.Any( ) == true )
                     {
-                        var _results = new SearchResult( );
-                        _results.Content = _list[ _i ].Snippet;
-                        _results.Link = _list[ _i ].Link;
-                        _results.Title = _list[ _i ].Title;
-                        _results.Name = _list[ _i ].HtmlTitle;
-                        _data.Add( _results );
-                    }
+                        for( var _i = 0; _i < _list.Count; _i++ )
+                        {
+                            var _snippet = _list[ _i ].Snippet ?? string.Empty;
+                            var _line = _list[ _i ].Link ?? string.Empty;
+                            var _titles = _list[ _i ].Title ?? string.Empty;
+                            var _htmlTitle = _list[ _i ].HtmlTitle ?? string.Empty;
+                            var _searchResults = new SearchResult( _snippet, _line, _titles, _htmlTitle );
+                            _results.Add( _searchResults );
+                        }
 
-                    return _data?.Any( ) == true
-                        ? _data
-                        : default( List<SearchResult> );
+                        return _results?.Any( ) == true
+                            ? _results
+                            : default( List<SearchResult> );
+                    }
+                    else
+                    {
+                        return default( List<SearchResult> );
+                    }
                 }
-                catch( Exception _ex )
+                else
                 {
-                    Fail( _ex );
                     return default( List<SearchResult> );
                 }
             }
-
-            return default( List<SearchResult> );
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( List<SearchResult> );
+            }
         }
 
         /// <summary>
@@ -176,19 +204,8 @@ namespace BudgetExecution
         /// </param>
         public void Deconstruct( out NameValueCollection config, out string query )
         {
-            config = Config;
-            query = Query;
-        }
-
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        private void Fail( Exception ex )
-        {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
+            config = _config;
+            query = _query;
         }
     }
 }

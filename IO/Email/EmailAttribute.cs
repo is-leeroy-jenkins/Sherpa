@@ -61,18 +61,48 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "GrammarMistakeInComment" ) ]
     public sealed class EmailAttribute : ValidationAttribute
     {
-        /// <inheritdoc />
         /// <summary>
-        /// Instantiates a new instance of <see cref="T:BudgetExecution.EmailAttribute" />.
+        /// Get or set whether or not the validator
+        /// should allow top-level domains.
         /// </summary>
         /// <remarks>
-        /// Creates a new <see cref="T:BudgetExecution.EmailAttribute" />.
+        /// Gets or sets whether or not the validator
+        /// should allow top-level domains.
+        /// </remarks>
+        /// <value><c>true</c> if top-level domains
+        /// should be allowed;
+        /// otherwise, <c>false</c>.</value>
+        private bool AllowTopLevelDomains { get; set; }
+
+        /// <summary>
+        /// Get or set whether or not the validator s
+        /// should allow international characters.
+        /// </summary>
+        /// <remarks>
+        /// Gets or sets whether or not the validator
+        /// should allow international characters.
+        /// </remarks>
+        /// <value><c>true</c> if international characters
+        /// should be allowed; otherwise,
+        /// <c>false</c>.</value>
+        private bool AllowInternational { get; set; }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Instantiates a new instance of
+        /// <see cref="T:BudgetExecution.EmailAttribute" />.
+        /// </summary>
+        /// <remarks>
+        /// Creates a new
+        /// <see cref="T:BudgetExecution.EmailAttribute" />.
         /// </remarks>
         /// <param name="allowTopLevelDomains"><c>true</c>
-        /// if the validator should allow addresses at top-level domains; otherwise,
+        /// if the validator should allow addresses
+        /// at top-level domains; otherwise,
         /// <c>false</c>.</param>
         /// <param name="allowInternational"><c>true</c>
-        /// if the validator should allow international characters; otherwise,
+        /// if the validator should allow
+        /// international characters; otherwise,
         /// <c>false</c>.</param>
         public EmailAttribute( bool allowTopLevelDomains = false, bool allowInternational = false )
         {
@@ -80,37 +110,23 @@ namespace BudgetExecution
             AllowInternational = allowInternational;
         }
 
-        /// <summary>
-        /// Get or set whether or not the validator should allow top-level domains.
-        /// </summary>
-        /// <remarks>
-        /// Gets or sets whether or not the validator should allow top-level domains.
-        /// </remarks>
-        /// <value><c>true</c> if top-level domains should be allowed;
-        /// otherwise, <c>false</c>.</value>
-        private bool AllowTopLevelDomains { get; set; }
-
-        /// <summary>
-        /// Get or set whether or not the validator should allow international characters.
-        /// </summary>
-        /// <remarks>
-        /// Gets or sets whether or not the validator should allow international characters.
-        /// </remarks>
-        /// <value><c>true</c> if international characters should be allowed; otherwise,
-        /// <c>false</c>.</value>
-        // ReSharper disable once MemberCanBePrivate.Global
-        public bool AllowInternational { get; set; }
-
         /// <inheritdoc />
         /// <summary>
         /// Validates the value.
         /// </summary>
         /// <remarks>
-        /// Checks whether or not the email address provided is syntactically correct.
+        /// Checks whether or not the email address
+        /// provided is syntactically correct.
         /// </remarks>
-        /// <returns>The validation result.</returns>
-        /// <param name="value">The value to validate.</param>
-        /// <param name="validationContext">The validation context.</param>
+        /// <returns>
+        /// The validation result.
+        /// </returns>
+        /// <param name="value">
+        /// The value to validate.
+        /// </param>
+        /// <param name="validationContext">
+        /// The validation context.
+        /// </param>
         protected override ValidationResult IsValid( object value,
             ValidationContext validationContext )
         {
@@ -130,7 +146,8 @@ namespace BudgetExecution
         /// Validates the value.
         /// </summary>
         /// <remarks>
-        /// Checks whether or not the email address provided is syntactically correct.
+        /// Checks whether or not the email address
+        /// provided is syntactically correct.
         /// </remarks>
         /// <returns><c>true</c> if the value is a valid email address;
         /// otherwise, <c>false</c>.</returns>

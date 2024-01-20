@@ -48,7 +48,10 @@ namespace BudgetExecution
     /// </summary>
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    public class SearchResult
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Local" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
+    public class SearchResult : WebSearch
     {
         /// <summary>
         /// Gets or sets the link.
@@ -56,7 +59,17 @@ namespace BudgetExecution
         /// <value>
         /// The link.
         /// </value>
-        public string Link { get; set; }
+        public string Link
+        {
+            get
+            {
+                return _link;
+            }
+            private set
+            {
+                _link = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the name.
@@ -64,7 +77,17 @@ namespace BudgetExecution
         /// <value>
         /// The name.
         /// </value>
-        public string Name { get; set; }
+        public string Name
+        {
+            get
+            {
+                return _name;
+            }
+            private set
+            {
+                _name = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the content.
@@ -72,7 +95,17 @@ namespace BudgetExecution
         /// <value>
         /// The content.
         /// </value>
-        public string Content { get; set; }
+        public string Content
+        {
+            get
+            {
+                return _content;
+            }
+            private set
+            {
+                _content = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the title.
@@ -80,7 +113,17 @@ namespace BudgetExecution
         /// <value>
         /// The title.
         /// </value>
-        public string Title { get; set; }
+        public string Title
+        {
+            get
+            {
+                return _title;
+            }
+            private set
+            {
+                _title = value;
+            }
+        }
 
         /// <summary>
         /// Initializes a new instance of the
@@ -100,10 +143,10 @@ namespace BudgetExecution
         /// <param name="title">The title.</param>
         public SearchResult( string link, string name, string content, string title )
         {
-            Link = link;
-            Name = name;
-            Content = content;
-            Title = title;
+            _link = link;
+            _name = name;
+            _content = content;
+            _title = title;
         }
 
         /// <summary>
@@ -113,10 +156,10 @@ namespace BudgetExecution
         /// <param name="result">The result.</param>
         public SearchResult( SearchResult result )
         {
-            Link = result.Link;
-            Name = result.Name;
-            Content = result.Content;
-            Title = result.Title;
+            _link = result.Link;
+            _name = result.Name;
+            _content = result.Content;
+            _title = result.Title;
         }
 
         /// <summary>
@@ -129,21 +172,10 @@ namespace BudgetExecution
         public void Deconstruct( out string link, out string name, 
             out string content, out string title )
         {
-            link = Link;
-            name = Name;
-            content = Content;
-            title = Title;
-        }
-
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        private void Fail( Exception ex )
-        {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
+            link = _link;
+            name = _name;
+            content = _content;
+            title = _title;
         }
     }
 }

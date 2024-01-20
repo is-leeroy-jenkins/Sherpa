@@ -1,45 +1,42 @@
-﻿//  ******************************************************************************************
-//      Assembly:                Budget Execution
-//      Filename:                TcpServer.cs
-//      Author:                  Terry D. Eppler
-//      Created:                 05-31-2023
+﻿// ******************************************************************************************
+//     Assembly:                Budget Execution
+//     Author:                  Terry D. Eppler
+//     Created:                 1-20-2024
 // 
-//      Last Modified By:        Terry D. Eppler
-//      Last Modified On:        06-01-2023
-//  ******************************************************************************************
-//  <copyright file="TcpServer.cs" company="Terry D. Eppler">
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        1-20-2024
+// ******************************************************************************************
+// <copyright file="BabyGirl.cs" company="Terry D. Eppler">
+//    Budget Execution is a Federal Budget, Finance, and Accounting application
+//    for analysts with the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
-//     This is a Federal Budget, Finance, and Accounting application for the
-//     US Environmental Protection Agency (US EPA).
-//     Copyright ©  2023  Terry Eppler
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
 // 
-//     Permission is hereby granted, free of charge, to any person obtaining a copy
-//     of this software and associated documentation files (the “Software”),
-//     to deal in the Software without restriction,
-//     including without limitation the rights to use,
-//     copy, modify, merge, publish, distribute, sublicense,
-//     and/or sell copies of the Software,
-//     and to permit persons to whom the Software is furnished to do so,
-//     subject to the following conditions:
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
 // 
-//     The above copyright notice and this permission notice shall be included in all
-//     copies or substantial portions of the Software.
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
 // 
-//     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//     FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//     DEALINGS IN THE SOFTWARE.
-// 
-//     You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
-// 
-//  </copyright>
-//  <summary>
-//    TcpServer.cs
-//  </summary>
-//  ******************************************************************************************
+//    Contact at:  terryeppler@gmail.com or eppler.terry@epa.gov
+// </copyright>
+// <summary>
+//   BabyGirl.cs
+// </summary>
+// ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -58,7 +55,10 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Local" ) ]
-    public class BabyGirl
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Local" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
+    public class BabyGirl : Baby
     {
         /// <summary>
         /// Gets or sets the bytes.
@@ -66,7 +66,17 @@ namespace BudgetExecution
         /// <value>
         /// The bytes.
         /// </value>
-        public int Bytes { get; set; } 
+        public int Bytes
+        {
+            get
+            {
+                return _bytes;
+            }
+            private set
+            {
+                _bytes = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the port.
@@ -74,7 +84,17 @@ namespace BudgetExecution
         /// <value>
         /// The port.
         /// </value>
-        public int Port { get; set; } 
+        public int Port
+        {
+            get
+            {
+                return _port;
+            }
+            private set
+            {
+                _port = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the buffer.
@@ -82,7 +102,17 @@ namespace BudgetExecution
         /// <value>
         /// The buffer.
         /// </value>
-        public byte[ ] Data { get; set; }
+        public byte[ ] Data
+        {
+            get
+            {
+                return _data;
+            }
+            private set
+            {
+                _data = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the message.
@@ -90,7 +120,17 @@ namespace BudgetExecution
         /// <value>
         /// The message.
         /// </value>
-        public string Message { get; set; }
+        public string Message
+        {
+            get
+            {
+                return _message;
+            }
+            private set
+            {
+                _message = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the server.
@@ -98,7 +138,17 @@ namespace BudgetExecution
         /// <value>
         /// The server.
         /// </value>
-        public Socket Socket { get; set; }
+        public Socket Socket
+        {
+            get
+            {
+                return _socket;
+            }
+            private set
+            {
+                _socket = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the local.
@@ -106,7 +156,17 @@ namespace BudgetExecution
         /// <value>
         /// The local.
         /// </value>
-        public IPAddress Address { get; set; }
+        public IPAddress Address
+        {
+            get
+            {
+                return _ipAddress;
+            }
+            private set
+            {
+                _ipAddress = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the local.
@@ -114,7 +174,17 @@ namespace BudgetExecution
         /// <value>
         /// The local.
         /// </value>
-        public IPEndPoint EndPoint { get; set; }
+        public IPEndPoint EndPoint
+        {
+            get
+            {
+                return _ipEndPoint;
+            }
+            private set
+            {
+                _ipEndPoint = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets a value indicating whether
@@ -124,7 +194,17 @@ namespace BudgetExecution
         /// <c>true</c> if this instance is connected;
         /// otherwise, <c>false</c>.
         /// </value>
-        public bool IsConnected { get; private set; }
+        public bool IsConnected
+        {
+            get
+            {
+                return _isConnected;
+            }
+            private set
+            {
+                _isConnected = value;
+            }
+        }
 
         /// <summary>
         /// Initializes a new instance of the
@@ -132,49 +212,49 @@ namespace BudgetExecution
         /// </summary>
         public BabyGirl( )
         {
-            Bytes = 1024;
-            Port = 5000;
-            Data = new byte[ Bytes ];
-            Address = IPAddress.Any;
-            EndPoint = new IPEndPoint( Address, Port );
-            Socket = new Socket( AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp );
-            IsConnected = false;
+            _bytes = 1024;
+            _port = 5000;
+            _data = new byte[ Bytes ];
+            _ipAddress = IPAddress.Any;
+            _ipEndPoint = new IPEndPoint( _ipAddress, Port );
+            _socket = new Socket( AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp );
+            _isConnected = false;
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BabyBoy"/> class.
+        /// <see cref="BabyGirl"/> class.
         /// </summary>
         /// <param name="address">The ip address.</param>
         /// <param name="port">The port.</param>
         /// <param name="size"> </param>
         public BabyGirl( IPAddress address, int port = 5000, int size = 1024 )
         {
-            Bytes = size;
-            Port = port;
-            Data = new byte[ size ];
-            Address = address;
-            EndPoint = new IPEndPoint( address, port );
-            Socket = new Socket( AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp );
-            IsConnected = false;
+            _bytes = size;
+            _port = port;
+            _data = new byte[ size ];
+            _ipAddress = address;
+            _ipEndPoint = new IPEndPoint( address, port );
+            _socket = new Socket( AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp );
+            _isConnected = false;
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BabyBoy"/> class.
+        /// <see cref="BabyGirl"/> class.
         /// </summary>
         /// <param name="address">The ip address.</param>
         /// <param name="port">The port number.</param>
         /// <param name="size">Size of the buffer.</param>
         public BabyGirl( string address, int port = 5000, int size = 1024 )
         {
-            Bytes = size;
-            Port = port;
-            Data = new byte[ size ];
-            Address = IPAddress.Parse( address );
-            EndPoint = new IPEndPoint( Address, port );
-            Socket = new Socket( AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp );
-            IsConnected = false;
+            _bytes = size;
+            _port = port;
+            _data = new byte[ size ];
+            _ipAddress = IPAddress.Parse( address );
+            _ipEndPoint = new IPEndPoint( _ipAddress, port );
+            _socket = new Socket( AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp );
+            _isConnected = false;
         }
 
         /// <summary>
@@ -184,13 +264,13 @@ namespace BudgetExecution
         /// <param name="girl">The client.</param>
         public BabyGirl( BabyGirl girl )
         {
-            Bytes = girl.Bytes;
-            Port = girl.Port;
-            Data = girl.Data;
-            Address = girl.Address;
-            EndPoint = girl.EndPoint;
-            Socket = girl.Socket;
-            IsConnected = girl.IsConnected;
+            _bytes = girl.Bytes;
+            _port = girl.Port;
+            _data = girl.Data;
+            _ipAddress = girl.Address;
+            _ipEndPoint = girl.EndPoint;
+            _socket = girl.Socket;
+            _isConnected = girl.IsConnected;
         }
 
         /// <summary>
@@ -201,46 +281,29 @@ namespace BudgetExecution
             try
             {
                 var _received = 0;
-                Socket.Bind( EndPoint );
-                Socket.Listen( 10 );
-                Message = "Welcome to the Baby Server!";
-                Notify( Message );
-                Data = Encoding.ASCII.GetBytes( Message );
-                Socket.Send( Data, Data.Length, SocketFlags.None );
+                _socket.Bind( _ipEndPoint );
+                _socket.Listen( 10 );
+                _message = "Welcome to the Baby Server!";
+                SendNotification( _message );
+                _data = Encoding.ASCII.GetBytes( _message );
+                _socket.Send( _data, _data.Length, SocketFlags.None );
                 while( true )
                 {
-                    var _client = Socket.Accept( );
-                    Data = new byte[ Bytes ];
-                    _client.Receive( Data, Bytes, SocketFlags.None );
-                    if( Data.Length == 0 )
+                    var _client = _socket.Accept( );
+                    _data = new byte[ _bytes ];
+                    _client.Receive( _data, _bytes, SocketFlags.None );
+                    if( _data.Length == 0 )
                     {
                         break;
                     }
 
-                    Message = Encoding.ASCII.GetString( Data );
-                    Notify( Message );
+                    _message = Encoding.ASCII.GetString( _data );
+                    SendNotification( _message );
                 }
             }
             catch( Exception _ex )
             {
-                Socket?.Dispose( );
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Notifies this instance.
-        /// </summary>
-        private void Notify( string message )
-        {
-            try
-            {
-                ThrowIf.NullOrEmpty( message, nameof( message ) );
-                var _notify = new SplashMessage( message );
-                _notify.Show( );
-            }
-            catch( Exception _ex )
-            {
+                _socket?.Dispose( );
                 Fail( _ex );
             }
         }
@@ -259,24 +322,13 @@ namespace BudgetExecution
             out IPAddress ipAddress, out IPEndPoint endPoint, out Socket socket,
             out string message )
         {
-            bytes = Bytes;
-            port = Port;
-            data = Data;
-            ipAddress = Address;
-            endPoint = EndPoint;
-            socket = Socket;
-            message = Message;
-        }
-
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        private void Fail( Exception ex )
-        {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
+            bytes = _bytes;
+            port = _port;
+            data = _data;
+            ipAddress = _ipAddress;
+            endPoint = _ipEndPoint;
+            socket = _socket;
+            message = _message;
         }
     }
 }
