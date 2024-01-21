@@ -58,27 +58,31 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     [ SuppressMessage( "ReSharper", "ConvertSwitchStatementToSwitchExpression" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     public class Grid : ExcelCellBase
     {
         /// <summary>
         /// From
         /// </summary>
-        private readonly ( int Row, int Column ) _from;
+        private ( int Row, int Column ) _from;
 
         /// <summary>
         /// The range
         /// </summary>
-        private readonly ExcelRange _range;
+        private ExcelRange _range;
 
         /// <summary>
         /// To
         /// </summary>
-        private readonly ( int Row, int Column ) _to;
+        private protected ( int Row, int Column ) _to;
 
         /// <summary>
         /// The worksheet
         /// </summary>
-        private readonly ExcelWorksheet _worksheet;
+        private ExcelWorksheet _worksheet;
 
         /// <summary>
         /// The cells
@@ -86,17 +90,22 @@ namespace BudgetExecution
         private protected IList<ExcelRangeBase> _cells;
 
         /// <summary>
-        /// The values
-        /// </summary>
-        private protected IList<object> _values;
-
-        /// <summary>
         /// Gets the range.
         /// </summary>
         /// <value>
         /// The range.
         /// </value>
-        public ExcelRange Range { get; private set; }
+        public ExcelRange Range
+        {
+            get
+            {
+                return _range;
+            }
+            private protected set
+            {
+                _range = value;
+            }
+        }
 
         /// <summary>
         /// Gets the worksheet.
@@ -104,7 +113,17 @@ namespace BudgetExecution
         /// <value>
         /// The worksheet.
         /// </value>
-        public ExcelWorksheet Worksheet { get; private set; }
+        public ExcelWorksheet Worksheet
+        {
+            get
+            {
+                return _worksheet;
+            }
+            private protected set
+            {
+                _worksheet = value;
+            }
+        }
 
         /// <summary>
         /// Gets from.
@@ -112,7 +131,17 @@ namespace BudgetExecution
         /// <value>
         /// From.
         /// </value>
-        public (int Row, int Column) From { get; private set; }
+        public (int Row, int Column) From
+        {
+            get
+            {
+                return _from;
+            }
+            private protected set
+            {
+                _from = value;
+            }
+        }
 
         /// <summary>
         /// Gets to.
@@ -120,10 +149,21 @@ namespace BudgetExecution
         /// <value>
         /// To.
         /// </value>
-        public (int Row, int Column) To { get; private set; }
+        public (int Row, int Column) To
+        {
+            get
+            {
+                return _to;
+            }
+            private protected set
+            {
+                _to = value;
+            }
+        }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Grid"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="Grid"/> class.
         /// </summary>
         public Grid( )
         {

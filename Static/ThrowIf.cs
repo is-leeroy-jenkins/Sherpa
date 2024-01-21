@@ -56,7 +56,6 @@ namespace BudgetExecution
     using System.Drawing;
     using Microsoft.Office.Interop.Excel;
     using OfficeOpenXml;
-    using Action = System.Action;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
@@ -99,7 +98,7 @@ namespace BudgetExecution
 
                     break;
                 }
-                case Action _action:
+                case System.Action _action:
                 {
                     if( _action == null )
                     {
@@ -362,6 +361,25 @@ namespace BudgetExecution
         /// <exception cref="System.ArgumentNullException">
         /// ArgumentNullException
         /// </exception>
+        public static void NullOrEmpty( IEnumerable<string> argument, string paramName )
+        {
+            foreach( var _item in argument )
+            {
+                if( string.IsNullOrEmpty( _item ) )
+                {
+                    var _text = "contains a null or empty string!";
+                    var _message = @$"The IEnumerable<string> '{paramName}' " + _text;
+                    throw new ArgumentNullException( _message );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Checks the items.
+        /// </summary>
+        /// <param name="argument">The argument.</param>
+        /// <param name="paramName">Name of the parameter.</param>
+        /// <exception cref="System.ArgumentNullException"></exception>
         public static void NoItems( IDictionary<string, object> argument, string paramName )
         {
             if( argument.Any( ) != true )
@@ -480,7 +498,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Nots the exists.
+        /// Verifies if a file/folder exists.
         /// </summary>
         /// <param name="argument">
         /// The argument.
@@ -495,22 +513,22 @@ namespace BudgetExecution
         {
             if( !File.Exists( argument ) )
             {
-                var _message = @$"The FileInfo '{paramName}' does not exist!";
+                var _message = @$"The File '{paramName}' does not exist!";
                 throw new ArgumentException( _message );
             }
             else if( !new FileInfo( argument ).Exists )
             {
-                var _message = @$"The DirectoryInfo '{paramName}' does not exist!";
+                var _message = @$"The File '{paramName}' does not exist!";
                 throw new ArgumentException( _message );
             }
             else if( !Directory.Exists( argument ) )
             {
-                var _message = @$"The Directory '{paramName}' does not exist!";
+                var _message = @$"The Folder '{paramName}' does not exist!";
                 throw new ArgumentException( _message );
             }
             else if( !new DirectoryInfo( argument ).Exists )
             {
-                var _message = @$"The DirectoryInfo '{paramName}' does not exist!";
+                var _message = @$"The Folder '{paramName}' does not exist!";
                 throw new ArgumentException( _message );
             }
         }
@@ -521,35 +539,45 @@ namespace BudgetExecution
         /// <param name="argument"> The argument. </param>
         /// <param name="paramName"> The argument's name. </param>
         /// <exception cref="System.ArgumentOutOfRangeException"> </exception>
-        public static void Negative( object argument, string paramName )
+        public static void NegativeOrZero( object argument, string paramName )
         {
             switch( argument )
             {
-                case int negative:
+                case int _negative:
                 {
-                    if( negative <= 0 )
+                    if( _negative <= 0 )
                     {
-                        var _message = @$"The integer {paramName} is negative!";
+                        var _message = @$"The integer {paramName} is negative or zero!";
                         throw new ArgumentOutOfRangeException( paramName, _message );
                     }
 
                     break;
                 }
-                case double number:
+                case double _number:
                 {
-                    if( number <= 0 )
+                    if( _number <= 0 )
                     {
-                        var _message = @$"The double {paramName} is negative!";
+                        var _message = @$"The double {paramName} is negative or zero!";
                         throw new ArgumentOutOfRangeException( paramName, _message );
                     }
 
                     break;
                 }
-                case decimal cash:
+                case float _money:
                 {
-                    if( cash <= 0 )
+                    if( _money <= 0 )
                     {
-                        var _message = @$"The decimal {paramName} is negative!";
+                        var _message = @$"The float {paramName} is negative or zero!";
+                        throw new ArgumentOutOfRangeException( paramName, _message );
+                    }
+
+                    break;
+                }
+                case decimal _cash:
+                {
+                    if( _cash <= 0 )
+                    {
+                        var _message = @$"The decimal {paramName} is negative or zero!";
                         throw new ArgumentOutOfRangeException( paramName, _message );
                     }
 

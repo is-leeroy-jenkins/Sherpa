@@ -48,6 +48,7 @@ namespace BudgetExecution
     using System.Drawing;
     using System.IO;
     using OfficeOpenXml;
+    using OfficeOpenXml.Style;
     using static System.IO.Path;
 
     /// <inheritdoc />
@@ -60,7 +61,8 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
-    public abstract class ExcelConfig
+    [ SuppressMessage( "ReSharper", "MergeIntoPattern" ) ]
+    public abstract class ExcelConfig : BasicReport
     {
         /// <summary>
         /// Gets or sets the data connection.
@@ -68,7 +70,17 @@ namespace BudgetExecution
         /// <value>
         /// The data connection.
         /// </value>
-        public OleDbConnection DataConnection { get; set; }
+        public OleDbConnection DataConnection
+        {
+            get
+            {
+                return _dataConnection;
+            }
+            private protected set
+            {
+                _dataConnection = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the data command.
@@ -76,7 +88,17 @@ namespace BudgetExecution
         /// <value>
         /// The data command.
         /// </value>
-        public OleDbCommand DataCommand { get; set; }
+        public OleDbCommand DataCommand
+        {
+            get
+            {
+                return _dataCommand;
+            }
+            private protected set
+            {
+                _dataCommand = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the data adapter.
@@ -84,7 +106,17 @@ namespace BudgetExecution
         /// <value>
         /// The data adapter.
         /// </value>
-        public OleDbDataAdapter DataAdapter { get; set; }
+        public OleDbDataAdapter DataAdapter
+        {
+            get
+            {
+                return _dataAdapter;
+            }
+            private protected set
+            {
+                _dataAdapter = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the file information.
@@ -92,7 +124,17 @@ namespace BudgetExecution
         /// <value>
         /// The file information.
         /// </value>
-        public FileInfo FileInfo { get; set; }
+        public FileInfo FileInfo
+        {
+            get
+            {
+                return _fileInfo;
+            }
+            private protected set
+            {
+                _fileInfo = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the application.
@@ -100,7 +142,17 @@ namespace BudgetExecution
         /// <value>
         /// The application.
         /// </value>
-        public ExcelPackage Application { get; set; }
+        public ExcelPackage Application
+        {
+            get
+            {
+                return _excelPackage;
+            }
+            private protected set
+            {
+                _excelPackage = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the workbook.
@@ -108,7 +160,17 @@ namespace BudgetExecution
         /// <value>
         /// The workbook.
         /// </value>
-        public ExcelWorkbook Workbook { get; set; }
+        public ExcelWorkbook Workbook
+        {
+            get
+            {
+                return _excelWorkbook;
+            }
+            private protected set
+            {
+                _excelWorkbook = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the worksheet.
@@ -116,7 +178,17 @@ namespace BudgetExecution
         /// <value>
         /// The worksheet.
         /// </value>
-        public ExcelWorksheet Worksheet { get; set; }
+        public ExcelWorksheet Worksheet
+        {
+            get
+            {
+                return _excelWorksheet;
+            }
+            private protected set
+            {
+                _excelWorksheet = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the comment.
@@ -124,7 +196,17 @@ namespace BudgetExecution
         /// <value>
         /// The comment.
         /// </value>
-        public IEnumerable<ExcelComment> Comment { get; set; }
+        public IList<ExcelComment> Comments
+        {
+            get
+            {
+                return _comments;
+            }
+            private protected set
+            {
+                _comments = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the data.
@@ -132,7 +214,17 @@ namespace BudgetExecution
         /// <value>
         /// The data.
         /// </value>
-        public IEnumerable<DataRow> Data { get; set; }
+        public IEnumerable<DataRow> Data
+        {
+            get
+            {
+                return _data;
+            }
+            private protected set
+            {
+                _data = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
@@ -141,7 +233,17 @@ namespace BudgetExecution
         /// <value>
         /// The index.
         /// </value>
-        public int Index { get; set; } = 10;
+        public int Index
+        {
+            get
+            {
+                return _index;
+            }
+            private protected set
+            {
+                _index = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
@@ -150,7 +252,17 @@ namespace BudgetExecution
         /// <value>
         /// The file path.
         /// </value>
-        public string FilePath { get; set; }
+        public string FilePath
+        {
+            get
+            {
+                return _filePath;
+            }
+            private protected set
+            {
+                _filePath = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
@@ -159,7 +271,17 @@ namespace BudgetExecution
         /// <value>
         /// The name of the file.
         /// </value>
-        public string FileName { get; set; }
+        public string FileName
+        {
+            get
+            {
+                return _fileName;
+            }
+            private protected set
+            {
+                _fileName = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
@@ -173,7 +295,7 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.NotExists( filePath, nameof( filePath ) );
-                FilePath = File.Exists( filePath )
+                _filePath = File.Exists( filePath )
                     ? filePath
                     : string.Empty;
             }
@@ -193,7 +315,7 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.NullOrEmpty( filePath, nameof( filePath ) );
-                FileName = File.Exists( filePath )
+                _fileName = File.Exists( filePath )
                     ? GetFileNameWithoutExtension( filePath )
                     : string.Empty;
             }
@@ -258,18 +380,18 @@ namespace BudgetExecution
                 ThrowIf.Null( grid, nameof( grid ) );
                 ThrowIf.NullOrEmpty( text, nameof( text ) );
                 using var _range = grid?.Range;
-                var _excelComment = _range?.AddComment( text, "Budget" );
-                if( _excelComment != null )
+                var _comment = _range?.AddComment( text, "Budget" );
+                if( _comment != null )
                 {
-                    _excelComment.From.Row = _range.Start.Row;
-                    _excelComment.From.Column = _range.Start.Column;
-                    _excelComment.To.Row = _range.End.Row;
-                    _excelComment.To.Column = _range.End.Column;
-                    _excelComment.BackgroundColor = Color.FromArgb( 15, 15, 15 );
-                    _excelComment.Font.FontName = "Roboto";
-                    _excelComment.Font.Size = 9;
-                    _excelComment.Font.Color = Color.Black;
-                    _excelComment.Text = text;
+                    _comment.From.Row = _range.Start.Row;
+                    _comment.From.Column = _range.Start.Column;
+                    _comment.To.Row = _range.End.Row;
+                    _comment.To.Column = _range.End.Column;
+                    _comment.BackgroundColor = Color.FromArgb( 15, 15, 15 );
+                    _comment.Font.FontName = "Roboto";
+                    _comment.Font.Size = 9;
+                    _comment.Font.Color = Color.Black;
+                    _comment.Text = text;
                 }
             }
             catch( Exception _ex )
@@ -278,16 +400,49 @@ namespace BudgetExecution
             }
         }
 
-        /// <inheritdoc />
         /// <summary>
-        /// Fails the specified ex.
+        /// Sets the horizontal alignment.
         /// </summary>
-        /// <param name="ex">The ex.</param>
-        private protected void Fail( Exception ex )
+        /// <param name="grid">The grid.</param>
+        /// <param name="align">The alignment.</param>
+        public void SetHorizontalAlignment( Grid grid, ExcelHorizontalAlignment align )
         {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
+            if( ( grid?.Worksheet != null )
+               && ( grid?.Range != null )
+               && Enum.IsDefined( typeof( ExcelHorizontalAlignment ), align ) )
+            {
+                try
+                {
+                    using var _range = grid.Range;
+                    _range.Style.HorizontalAlignment = align;
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Sets the vertical alignment.
+        /// </summary>
+        /// <param name="grid">The grid.</param>
+        /// <param name="align">The alignment.</param>
+        public void SetVerticalAlignment( Grid grid, ExcelVerticalAlignment align )
+        {
+            if( ( grid?.Worksheet != null )
+               && Enum.IsDefined( typeof( ExcelVerticalAlignment ), align ) )
+            {
+                try
+                {
+                    using var _range = grid.Range;
+                    _range.Style.VerticalAlignment = align;
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
         }
     }
 }

@@ -82,12 +82,27 @@ namespace BudgetExecution
         private (int Row, int Column) _anchor;
 
         /// <summary>
+        /// The values
+        /// </summary>
+        private IList<object> _values;
+
+        /// <summary>
         /// Gets the span.
         /// </summary>
         /// <value>
         /// The span.
         /// </value>
-        public int Span { get; private set; }
+        public int Span
+        {
+            get
+            {
+                return _span;
+            }
+            private protected set
+            {
+                _span = value;
+            }
+        }
 
         /// <summary>
         /// Gets the depth.
@@ -95,7 +110,17 @@ namespace BudgetExecution
         /// <value>
         /// The depth.
         /// </value>
-        public int Depth { get; private set; }
+        public int Depth
+        {
+            get
+            {
+                return _depth;
+            }
+            private protected set
+            {
+                _depth = value;
+            }
+        }
 
         /// <summary>
         /// Gets the anchor.
@@ -103,7 +128,17 @@ namespace BudgetExecution
         /// <value>
         /// The anchor.
         /// </value>
-        public (int Row, int Column) Anchor { get; private set; }
+        public (int Row, int Column) Anchor
+        {
+            get
+            {
+                return _anchor;
+            }
+            private protected set
+            {
+                _anchor = value;
+            }
+        }
 
         /// <summary>
         /// Gets the area.
@@ -111,7 +146,17 @@ namespace BudgetExecution
         /// <value>
         /// The area.
         /// </value>
-        public int Area { get; private set; }
+        public int Area
+        {
+            get
+            {
+                return _area;
+            }
+            private protected set
+            {
+                _area = value;
+            }
+        }
 
         /// <summary>
         /// Gets the cells.
@@ -119,7 +164,17 @@ namespace BudgetExecution
         /// <value>
         /// The cells.
         /// </value>
-        public IList<ExcelRangeBase> Cells { get; private set; }
+        public IList<ExcelRangeBase> Cells
+        {
+            get
+            {
+                return _cells;
+            }
+            private protected set
+            {
+                _cells = value;
+            }
+        }
 
         /// <summary>
         /// Gets the values.
@@ -127,7 +182,17 @@ namespace BudgetExecution
         /// <value>
         /// The values.
         /// </value>
-        public IList<object> Values { get; private set; }
+        public IList<object> Values
+        {
+            get
+            {
+                return _values;
+            }
+            private protected set
+            {
+                _values = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>

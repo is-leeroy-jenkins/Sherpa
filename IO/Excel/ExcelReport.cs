@@ -59,45 +59,96 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    public class ExcelReport : ExcelConfig
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
+    public class ExcelReport : Workbook
     {
+        /// <summary>
+        /// Gets or sets the height of the row.
+        /// </summary>
+        /// <value>
+        /// The height of the row.
+        /// </value>
+        public double RowHeight
+        {
+            get
+            {
+                return _rowHeight;
+            }
+            private protected set
+            {
+                _rowHeight = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the width of the column.
+        /// </summary>
+        /// <value>
+        /// The width of the column.
+        /// </value>
+        public double ColumnWidth
+        {
+            get
+            {
+                return _columnWidth;
+            }
+            private protected set
+            {
+                _columnWidth = value;
+            }
+        }
+
         /// <summary>
         /// The configuration
         /// </summary>
-        public string InternalPath { get; }
-        
-        /// <summary>
-        /// Gets or sets the header image.
-        /// </summary>
-        /// <value>
-        /// The header image.
-        /// </value>
-        public Image HeaderImage { get; set; }
+        public string InternalPath
+        {
+            get
+            {
+                return _internalPath; 
+            }
+            private protected set
+            {
+                _internalPath = value;
+            }
+        }
 
-        /// <summary>
-        /// Gets or sets the footer image.
-        /// </summary>
-        /// <value>
-        /// The footer image.
-        /// </value>
-        public Image FooterImage { get; set; }
-
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ExcelReport"/> class.
+        /// <see cref="T:BudgetExecution.ExcelReport" /> class.
         /// </summary>
         public ExcelReport( )
         {
-            InternalPath = AppSettings[ "Reports" ];
-            FileInfo = new FileInfo( InternalPath );
-            Application = new ExcelPackage( FileInfo );
-            Workbook = Application.Workbook;
-            Workbook.View.ShowHorizontalScrollBar = true;
-            Workbook.View.ShowVerticalScrollBar = true;
-            Workbook.Properties.Author = "Terry D. Eppler, PhD.";
-            Workbook.Properties.Application = "Budget Execution";
-            Workbook.Properties.Company = "US EPA";
-            Workbook.Properties.Modified = DateTime.Now;
+            _index = 10;
+            _fontColor = Color.Black;
+            _font = new Font( "Roboto", 8, FontStyle.Regular );
+            _titleFont = new Font( "Roboto", 10, FontStyle.Bold );
+            _rowCount = 55;
+            _columnCount = 12;
+            _rowHeight = 0.22;
+            _columnWidth = 0.75;
+            _headerImageWidth = 1.75;
+            _headerImageHeigth = 0.75;
+            _footerImageWidth = 2.04;
+            _footerImageHeigth = 0.70;
+            _leftMargin = 0.25m;
+            _rightMargin = 0.25m;
+            _headerMargin = 0.25m;
+            _footerMargin = 0.25m;
+            _zoomLevel = 100;
+            _primaryBackColor = Color.FromArgb( 255, 242, 242, 242 );
+            _secondaryBackColor = Color.FromArgb( 255, 221, 235, 247 );
+            _internalPath = AppSettings[ "Reports" ];
+            _fileInfo = new FileInfo( _internalPath );
+            _excelPackage = new ExcelPackage( _fileInfo );
+            _excelWorkbook = _excelPackage.Workbook;
+            _excelWorkbook.View.ShowHorizontalScrollBar = true;
+            _excelWorkbook.View.ShowVerticalScrollBar = true;
+            _excelWorkbook.Properties.Author = "Terry D. Eppler, PhD.";
+            _excelWorkbook.Properties.Application = "Budget Execution";
+            _excelWorkbook.Properties.Company = "US EPA";
+            _excelWorkbook.Properties.Modified = DateTime.Now;
             InitializeSheetViews( );
             InitializePrinterSettings( );
             InitializeCells( );
@@ -114,16 +165,38 @@ namespace BudgetExecution
         public ExcelReport( string filePath ) 
             : this( )
         {
-            InternalPath = AppSettings[ "Reports" ];
-            FileInfo = new FileInfo( filePath );
-            Application = new ExcelPackage( FileInfo );
-            Workbook = Application.Workbook;
-            Workbook.View.ShowHorizontalScrollBar = true;
-            Workbook.View.ShowVerticalScrollBar = true;
-            Workbook.Properties.Author = "Terry D. Eppler, PhD.";
-            Workbook.Properties.Application = "Budget Execution";
-            Workbook.Properties.Company = "US EPA";
-            Workbook.Properties.Modified = DateTime.Now;
+            _index = 1;
+            _fontColor = Color.Black;
+            _font = new Font( "Roboto", 8, FontStyle.Regular );
+            _titleFont = new Font( "Roboto", 10, FontStyle.Bold );
+            _rowHeight = 0.22;
+            _columnWidth = 0.75;
+            _headerImageWidth = 1.75;
+            _headerImageHeigth = 0.75;
+            _footerImageWidth = 2.04;
+            _footerImageHeigth = 0.70;
+            _leftMargin = 0.25m;
+            _rightMargin = 0.25m;
+            _headerMargin = 0.25m;
+            _footerMargin = 0.25m;
+            _zoomLevel = 100;
+            _primaryBackColor = Color.FromArgb( 255, 242, 242, 242 );
+            _secondaryBackColor = Color.FromArgb( 255, 221, 235, 247 );
+            _internalPath = AppSettings[ "Reports" ];
+            _fileInfo = new FileInfo( filePath );
+            _excelPackage = new ExcelPackage( _fileInfo );
+            _excelWorkbook = _excelPackage.Workbook;
+            _excelWorkbook.View.ShowHorizontalScrollBar = true;
+            _excelWorkbook.View.ShowVerticalScrollBar = true;
+            _excelWorkbook.Properties.Author = "Terry D. Eppler, PhD.";
+            _excelWorkbook.Properties.Application = "Budget Execution";
+            _excelWorkbook.Properties.Company = "US EPA";
+            _excelWorkbook.Properties.Modified = DateTime.Now;
+            InitializeSheetViews( );
+            InitializePrinterSettings( );
+            InitializeCells( );
+            InitializeSelectedRange( );
+            InitializeTables( );
         }
 
         /// <inheritdoc/>
@@ -138,17 +211,34 @@ namespace BudgetExecution
         public ExcelReport( DataTable dataTable ) 
             : this( )
         {
-            InternalPath = AppSettings[ "Reports" ];
-            FileInfo = new FileInfo( InternalPath );
-            Application = new ExcelPackage( FileInfo );
-            Workbook = Application.Workbook;
-            Workbook.View.ShowHorizontalScrollBar = true;
-            Workbook.View.ShowVerticalScrollBar = true;
-            Workbook.Properties.Author = "Terry D. Eppler, PhD.";
-            Workbook.Properties.Application = "Budget Execution";
-            Workbook.Properties.Company = "US EPA";
-            Workbook.Properties.Modified = DateTime.Now;
-            Workbook.Worksheets[ 0 ].Cells[ "A1" ].LoadFromDataTable( dataTable );
+            _index = 10;
+            _fontColor = Color.Black;
+            _font = new Font( "Roboto", 8, FontStyle.Regular );
+            _titleFont = new Font( "Roboto", 10, FontStyle.Bold );
+            _rowHeight = 0.22;
+            _columnWidth = 0.75;
+            _headerImageWidth = 1.75;
+            _headerImageHeigth = 0.75;
+            _footerImageWidth = 2.04;
+            _footerImageHeigth = 0.70;
+            _leftMargin = 0.25m;
+            _rightMargin = 0.25m;
+            _headerMargin = 0.25m;
+            _footerMargin = 0.25m;
+            _zoomLevel = 100;
+            _primaryBackColor = Color.FromArgb( 255, 242, 242, 242 );
+            _secondaryBackColor = Color.FromArgb( 255, 221, 235, 247 );
+            _internalPath = AppSettings[ "Reports" ];
+            _fileInfo = new FileInfo( _internalPath );
+            _excelPackage = new ExcelPackage( _fileInfo );
+            _excelWorkbook = _excelPackage.Workbook;
+            _excelWorkbook.View.ShowHorizontalScrollBar = true;
+            _excelWorkbook.View.ShowVerticalScrollBar = true;
+            _excelWorkbook.Properties.Author = "Terry D. Eppler, PhD.";
+            _excelWorkbook.Properties.Application = "Budget Execution";
+            _excelWorkbook.Properties.Company = "US EPA";
+            _excelWorkbook.Properties.Modified = DateTime.Now;
+            _excelWorkbook.Worksheets[ 0 ].Cells[ "A1" ].LoadFromDataTable( dataTable );
         }
 
         /// <summary>
@@ -158,16 +248,16 @@ namespace BudgetExecution
         {
             try
             {
-                var _count = Workbook?.Worksheets?.Count;
+                var _count = _excelWorkbook?.Worksheets?.Count;
                 for( var _i = 0; _i < _count; _i++ )
                 {
-                    Workbook.Worksheets[ _i ].Name = FileInfo.Name;
-                    Workbook.Worksheets[ _i ].View.ShowGridLines = false;
-                    Workbook.Worksheets[ _i ].View.ZoomScale = 100;
-                    Workbook.Worksheets[ _i ].View.PageLayoutView = true;
-                    Workbook.Worksheets[ _i ].View.ShowHeaders = true;
-                    Workbook.Worksheets[ _i ].DefaultRowHeight = 0.22;
-                    Workbook.Worksheets[ _i ].DefaultColWidth = 0.75;
+                    _excelWorkbook.Worksheets[ _i ].Name = _fileInfo.Name;
+                    _excelWorkbook.Worksheets[ _i ].View.ShowGridLines = false;
+                    _excelWorkbook.Worksheets[ _i ].View.ZoomScale = 100;
+                    _excelWorkbook.Worksheets[ _i ].View.PageLayoutView = true;
+                    _excelWorkbook.Worksheets[ _i ].View.ShowHeaders = true;
+                    _excelWorkbook.Worksheets[ _i ].DefaultRowHeight = _rowHeight;
+                    _excelWorkbook.Worksheets[ _i ].DefaultColWidth = _columnWidth;
                 }
             }
             catch( Exception _ex )
@@ -183,18 +273,18 @@ namespace BudgetExecution
         {
             try
             {
-                var _count = Workbook?.Worksheets?.Count;
+                var _count = _excelWorkbook?.Worksheets?.Count;
                 for( var _i = 0; _i < _count; _i++ )
                 {
-                    Workbook.Worksheets[ _i ].PrinterSettings.ShowHeaders = true;
-                    Workbook.Worksheets[ _i ].PrinterSettings.ShowGridLines = false;
-                    Workbook.Worksheets[ _i ].PrinterSettings.LeftMargin = 0.25m;
-                    Workbook.Worksheets[ _i ].PrinterSettings.RightMargin = 0.25m;
-                    Workbook.Worksheets[ _i ].PrinterSettings.TopMargin = 1m;
-                    Workbook.Worksheets[ _i ].PrinterSettings.BottomMargin = 1m;
-                    Workbook.Worksheets[ _i ].PrinterSettings.HorizontalCentered = true;
-                    Workbook.Worksheets[ _i ].PrinterSettings.VerticalCentered = true;
-                    Workbook.Worksheets[ _i ].PrinterSettings.FitToPage = true;
+                    _excelWorkbook.Worksheets[ _i ].PrinterSettings.ShowHeaders = true;
+                    _excelWorkbook.Worksheets[ _i ].PrinterSettings.ShowGridLines = false;
+                    _excelWorkbook.Worksheets[ _i ].PrinterSettings.LeftMargin = _leftMargin;
+                    _excelWorkbook.Worksheets[ _i ].PrinterSettings.RightMargin = _rightMargin;
+                    _excelWorkbook.Worksheets[ _i ].PrinterSettings.TopMargin = _headerMargin;
+                    _excelWorkbook.Worksheets[ _i ].PrinterSettings.BottomMargin = _footerMargin;
+                    _excelWorkbook.Worksheets[ _i ].PrinterSettings.HorizontalCentered = true;
+                    _excelWorkbook.Worksheets[ _i ].PrinterSettings.VerticalCentered = true;
+                    _excelWorkbook.Worksheets[ _i ].PrinterSettings.FitToPage = true;
                 }
             }
             catch( Exception _ex )
@@ -210,15 +300,16 @@ namespace BudgetExecution
         {
             try
             {
-                var _count = Workbook?.Worksheets?.Count;
+                var _count = _excelWorkbook?.Worksheets?.Count;
                 for( var _i = 0; _i < _count; _i++ )
                 {
-                    Workbook.Worksheets[ _i ].HeaderFooter.AlignWithMargins = true;
-                    Workbook.Worksheets[ _i ].HeaderFooter.ScaleWithDocument = true;
-                    Workbook.Worksheets[ _i ].HeaderFooter.Pictures[ 0 ].Width = 1.75;
-                    Workbook.Worksheets[ _i ].HeaderFooter.Pictures[ 0 ].Height = 0.75;
-                    Workbook.Worksheets[ _i ].HeaderFooter.Pictures[ 1 ].Width = 2.04;
-                    Workbook.Worksheets[ _i ].HeaderFooter.Pictures[ 1 ].Height = 0.70;
+                    var _header = _excelWorkbook.Worksheets[ _i ].HeaderFooter;
+                    _header.AlignWithMargins = true;
+                    _header.ScaleWithDocument = true;
+                    _header.Pictures[ 0 ].Width = _headerImageWidth;
+                    _header.Pictures[ 0 ].Height = _headerImageHeigth;
+                    _header.Pictures[ 1 ].Width = _footerImageWidth;
+                    _header.Pictures[ 1 ].Height = _footerImageHeigth;
                 }
             }
             catch( Exception _ex )
@@ -234,17 +325,16 @@ namespace BudgetExecution
         {
             try
             {
-                var _back = Color.FromArgb( 242, 242, 242 );
-                var _text = Color.Black;
-                var _count = Workbook?.Worksheets?.Count;
+                var _count = _rowCount * _columnCount;
                 for( var _i = 0; _i < _count; _i++ )
                 {
-                    Workbook.Worksheets[ _i ].Cells.Style.Font.Name = "Roboto";
-                    Workbook.Worksheets[ _i ].Cells.Style.Font.Size = 9;
-                    Workbook.Worksheets[ _i ].Cells.Style.Font.Bold = false;
-                    Workbook.Worksheets[ _i ].Cells.Style.Font.Italic = false;
-                    Workbook.Worksheets[ _i ].Cells.Style.Fill.SetBackground( _back );
-                    Workbook.Worksheets[ _i ].Cells.Style.Font.Color.SetColor( _text );
+                    var _range = _excelWorkbook.Worksheets[ _i ].Cells;
+                    _range.Style.Font.Name = "Roboto";
+                    _range.Style.Font.Size = 9;
+                    _range.Style.Font.Bold = false;
+                    _range.Style.Font.Italic = false;
+                    _range.Style.Fill.SetBackground( _primaryBackColor );
+                    _range.Style.Font.Color.SetColor( _fontColor );
                 }
             }
             catch( Exception _ex )
@@ -260,19 +350,17 @@ namespace BudgetExecution
         {
             try
             {
-                var _count = Workbook?.Worksheets?.Count;
+                var _count = _excelWorkbook.Worksheets?.Count;
                 for( var _i = 0; _i < _count; _i++ )
                 {
-                    Workbook.Worksheets[ _i ].SelectedRange.Style.Font.Name = "Roboto";
-                    Workbook.Worksheets[ _i ].SelectedRange.Style.Font.Size = 9;
-                    Workbook.Worksheets[ _i ].SelectedRange.Style.Font.Bold = false;
-                    Workbook.Worksheets[ _i ].SelectedRange.Style.Font.Italic = false;
-                    Workbook.Worksheets[ _i ].SelectedRange.EntireRow.CustomHeight = true;
-                    Workbook.Worksheets[ _i ].SelectedRange.Style.VerticalAlignment =
-                        ExcelVerticalAlignment.Center;
-
-                    Workbook.Worksheets[ _i ].SelectedRange.Style.HorizontalAlignment =
-                        ExcelHorizontalAlignment.Center;
+                    var _range = _excelWorkbook.Worksheets[ _i ].SelectedRange;
+                    _range.Style.Font.Name = "Roboto";
+                    _range.Style.Font.Size = 9;
+                    _range.Style.Font.Bold = false;
+                    _range.Style.Font.Italic = false;
+                    _range.EntireRow.CustomHeight = true;
+                    _range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                    _range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
                 }
             }
             catch( Exception _ex )
@@ -289,14 +377,14 @@ namespace BudgetExecution
         {
             try
             {
-                var _count = Workbook?.Worksheets?.Count;
+                var _count = _excelWorkbook?.Worksheets?.Count;
                 for( var _i = 0; _i < _count; _i++ )
                 {
-                    Workbook.Worksheets[ _i ].Tables[ _i ].StyleName = nameof( DataTable );
-                    Workbook.Worksheets[ _i ].Tables[ _i ].ShowTotal = true;
-                    Workbook.Worksheets[ _i ].Tables[ _i ].ShowHeader = true;
-                    Workbook.Worksheets[ _i ].Tables[ _i ].HeaderRowBorderStyle.Bottom.Style =
-                        ExcelBorderStyle.Thin;
+                    var _table = _excelWorkbook.Worksheets[ _i ].Tables[ _i ];
+                    _table.StyleName = nameof( DataTable );
+                    _table.ShowTotal = true;
+                    _table.ShowHeader = true;
+                    _table.HeaderRowBorderStyle.Bottom.Style = ExcelBorderStyle.Thin;
                 }
             }
             catch( Exception _ex )
@@ -332,45 +420,6 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.NullOrEmpty( text, nameof( text ) );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Releases unmanaged and
-        /// - optionally - managed resources.
-        /// </summary>
-        /// <param name="disposing">
-        /// <c> true </c>
-        /// to release both managed and unmanaged resources;
-        /// <c> false </c>
-        /// to release only unmanaged resources.
-        /// </param>
-        private void Dispose( bool disposing )
-        {
-            try
-            {
-                Application?.Dispose( );
-                Workbook?.Dispose( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Releases unmanaged and
-        /// - optionally - managed resources.
-        /// </summary>
-        public void Dispose( )
-        {
-            try
-            {
-                Dispose( true );
             }
             catch( Exception _ex )
             {

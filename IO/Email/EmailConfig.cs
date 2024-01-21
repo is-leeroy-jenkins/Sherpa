@@ -52,7 +52,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Local" ) ]
-    public class EmailConfiguration : MailConfig
+    public class EmailConfig : EmailSettings
     {
         /// <summary>
         /// Gets or sets the recipient.
@@ -200,16 +200,16 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="EmailConfiguration"/> class.
+        /// <see cref="EmailConfig"/> class.
         /// </summary>
-        public EmailConfiguration( )
+        public EmailConfig( )
         {
             _recipients = new List<string>( );
             _copies = new List<string>( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EmailConfiguration"/> class.
+        /// Initializes a new instance of the <see cref="EmailConfig"/> class.
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="subject">The subject.</param>
@@ -218,7 +218,7 @@ namespace BudgetExecution
         /// <param name="recipients">The recipient.</param>
         /// <param name="copies">The copies.</param>
         /// <param name="priority"> </param>
-        public EmailConfiguration( string sender, string subject, string userName, 
+        public EmailConfig( string sender, string subject, string userName, 
             string secret, IList<string> recipients, IList<string> copies, 
             MailPriority priority = MailPriority.Normal )
         {
@@ -233,18 +233,18 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="EmailConfiguration"/> class.
+        /// <see cref="EmailConfig"/> class.
         /// </summary>
-        /// <param name="config">The configuration.</param>
-        public EmailConfiguration( EmailConfiguration config )
+        /// <param name="settings">The configuration.</param>
+        public EmailConfig( EmailConfig settings )
         {
-            _sender = config.Sender;
-            _subject = config.Subject;
-            _userName = config.UserName;
-            _password = config.Password;
-            _priority = config.Priority;
-            _recipients = config.Recipients;
-            _copies = config.Copies;
+            _sender = settings.Sender;
+            _subject = settings.Subject;
+            _userName = settings.UserName;
+            _password = settings.Password;
+            _priority = settings.Priority;
+            _recipients = settings.Recipients;
+            _copies = settings.Copies;
         }
 
         /// <summary>

@@ -47,7 +47,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class EmailContent : MailConfig
+    public class EmailContent : EmailSettings
     {
         /// <summary>
         /// Gets or sets a value indicating whether this instance is HTML.
@@ -117,16 +117,11 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="EmailContent"/>
-        /// class.
+        /// <see cref="EmailContent"/> class.
         /// </summary>
         /// <param name="message"> The content. </param>
         /// <param name="filePath"> Name of the attachment. </param>
-        /// <param name="isHtml">
-        /// if set to
-        /// <c> true </c>
-        /// [is HTML].
-        /// </param>
+        /// <param name="isHtml"> if set to <c> true </c> [is HTML]. </param>
         public EmailContent( string message, string filePath, bool isHtml = true )
         {
             _message = message;
@@ -138,12 +133,12 @@ namespace BudgetExecution
         /// Initializes a new instance of the
         /// <see cref="EmailContent"/> class.
         /// </summary>
-        /// <param name="email">The email.</param>
-        public EmailContent( EmailContent email )
+        /// <param name="content">The email.</param>
+        public EmailContent( EmailContent content )
         {
-            _message = email.Message;
-            _isHtml = email.IsHtml;
-            _attachment = email.Attachment;
+            _message = content.Message;
+            _isHtml = content.IsHtml;
+            _attachment = content.Attachment;
         }
 
         /// <summary> Deconstructs the specified is HTML. </summary>
@@ -157,7 +152,7 @@ namespace BudgetExecution
         /// </param>
         /// <param name="filePath">
         /// </param>
-        public void Deconstruct( out bool isHtml, out string message, out string filePath )
+        public void Deconstruct( out string message, out string filePath, out bool isHtml )
         {
             isHtml = _isHtml;
             message = _message;

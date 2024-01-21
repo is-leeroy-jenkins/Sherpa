@@ -49,7 +49,6 @@ namespace BudgetExecution
     using System.Text;
     using Microsoft.Office.Interop.Outlook;
     using System.Net.Mail;
-    using Attachment = System.Net.Mail.Attachment;
 
     /// <summary>
     /// 
@@ -60,7 +59,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "RedundantAssignment" ) ]
-    public class OutlookManager : MailManager
+    public class Outlook : EmailManager
     {
         /// <summary>
         /// Gets or sets the name of the host.
@@ -68,32 +67,42 @@ namespace BudgetExecution
         /// <value>
         /// The name of the host.
         /// </value>
-        public string HostName { get; set; }
+        public string HostName
+        {
+            get
+            {
+                return _hostName;
+            }
+            private set
+            {
+                _hostName = value;
+            }
+        }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="OutlookManager"/> class.
+        /// <see cref="Outlook"/> class.
         /// </summary>
-        public OutlookManager( )
+        public Outlook( )
         {
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="OutlookManager"/> class.
+        /// <see cref="Outlook"/> class.
         /// </summary>
         /// <param name="hostName">Name of the host.</param>
-        public OutlookManager( string hostName )
+        public Outlook( string hostName )
         {
             _hostName = hostName;
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="OutlookManager"/> class.
+        /// <see cref="Outlook"/> class.
         /// </summary>
         /// <param name="outlook">The outlook.</param>
-        public OutlookManager( OutlookManager outlook )
+        public Outlook( Outlook outlook )
         {
             _hostName = outlook.HostName;
         }
@@ -110,16 +119,16 @@ namespace BudgetExecution
         /// <summary>
         /// Sends the email.
         /// </summary>
-        /// <param name="configuration">The configuration.</param>
+        /// <param name="config">The configuration.</param>
         /// <param name="content">The content.</param>
-        public void SendEmail( EmailConfiguration configuration, EmailContent content )
+        public void SendEmail( EmailConfig config, EmailContent content )
         {
             try
             {
-                ThrowIf.Null( configuration, nameof( configuration ) );
+                ThrowIf.Null( config, nameof( config ) );
                 ThrowIf.Null( content, nameof( content ) );
-                var _message = CreateMessage( configuration, content );
-                Send( _message, configuration );
+                var _message = CreateMessage( config, content );
+                Send( _message, config );
             }
             catch( System.Exception _ex )
             {
@@ -132,7 +141,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="message">The message.</param>
         /// <param name="configuration">The configuration.</param>
-        private protected void Send( MailMessage message, EmailConfiguration configuration )
+        private protected void Send( MailMessage message, EmailConfig configuration )
         {
             try
             {
@@ -198,46 +207,46 @@ namespace BudgetExecution
         /// <summary>
         /// Creates the message.
         /// </summary>
-        /// <param name="configuration">The configuration.</param>
-        /// <param name="content">The content.</param>
+        /// <param name="emailSettings">The configuration.</param>
+        /// <param name="emailContent">The content.</param>
         /// <returns></returns>
-        public MailMessage CreateMessage( EmailConfiguration configuration, EmailContent content )
+        public MailMessage CreateMessage( EmailConfig emailSettings, EmailContent emailContent )
         {
             try
             {
-                ThrowIf.Null( configuration, nameof( configuration ) );
-                ThrowIf.Null( content, nameof( content ) );
+                ThrowIf.Null( emailSettings, nameof( emailSettings ) );
+                ThrowIf.Null( emailContent, nameof( emailContent ) );
                 var _message = new MailMessage( );
-                for( var _i = 0; _i < configuration.Recipients.Count; _i++ )
+                for( var _i = 0; _i < emailSettings.Recipients.Count; _i++ )
                 {
-                    var _to = configuration.Recipients[ _i ];
+                    var _to = emailSettings.Recipients[ _i ];
                     if( !string.IsNullOrEmpty( _to ) )
                     {
                         _message.To.Add( _to );
                     }
                 }
 
-                for( var _h = 0; _h < configuration.Copies.Count; _h++ )
+                for( var _h = 0; _h < emailSettings.Copies.Count; _h++ )
                 {
-                    var _cc = configuration.Copies[ _h ];
+                    var _cc = emailSettings.Copies[ _h ];
                     if( !string.IsNullOrEmpty( _cc ) )
                     {
                         _message.CC.Add( _cc );
                     }
                 }
 
-                _message.From = new MailAddress( configuration.Sender, 
-                    configuration.DisplayName, Encoding.UTF8 );
+                _message.From = new MailAddress( emailSettings.Sender, 
+                    emailSettings.DisplayName, Encoding.UTF8 );
 
-                _message.IsBodyHtml = content.IsHtml;
-                _message.Body = content.Message;
-                _message.Priority = configuration.Priority;
-                _message.Subject = configuration.Subject;
+                _message.IsBodyHtml = emailContent.IsHtml;
+                _message.Body = emailContent.Message;
+                _message.Priority = emailSettings.Priority;
+                _message.Subject = emailSettings.Subject;
                 _message.BodyEncoding = Encoding.UTF8;
                 _message.SubjectEncoding = Encoding.UTF8;
-                if( content.Attachment != null )
+                if( emailContent.Attachment != null )
                 {
-                    var _attachment = new Attachment( content.Attachment, 
+                    var _attachment = new System.Net.Mail.Attachment( emailContent.Attachment, 
                         MediaTypeNames.Application.Zip );
 
                     _message.Attachments.Add( _attachment );

@@ -66,7 +66,7 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.NullOrEmpty( text, nameof( text ) );
-                ThrowIf.Negative( index, nameof( index ) );
+                ThrowIf.NegativeOrZero( index, nameof( index ) );
                 if( !SkipSubDomain( text, ref index, allowInternational, out var _type ) )
                 {
                     return false;
@@ -114,43 +114,53 @@ namespace BudgetExecution
         /// <returns></returns>
         private static bool SkipQuoted( string text, ref int index, bool allowInternational )
         {
-            var _escaped = false;
-            index++;
-            while( index < text.Length )
+            try
             {
-                if( IsControl( text[ index ] )
-                   || ( ( text[ index ] >= 128 ) && !allowInternational ) )
+                ThrowIf.NullOrEmpty( text, nameof( text ) );
+                ThrowIf.NegativeOrZero( index, nameof( index ) );
+                var _escaped = false;
+                index++;
+                while( index < text.Length )
+                {
+                    if( IsControl( text[ index ] )
+                       || ( ( text[ index ] >= 128 ) && !allowInternational ) )
+                    {
+                        return false;
+                    }
+
+                    if( text[ index ] == '\\' )
+                    {
+                        _escaped = !_escaped;
+                    }
+                    else if( !_escaped )
+                    {
+                        if( text[ index ] == '"' )
+                        {
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        _escaped = false;
+                    }
+
+                    index++;
+                }
+
+                if( ( index >= text.Length )
+                   || ( text[ index ] != '"' ) )
                 {
                     return false;
                 }
 
-                if( text[ index ] == '\\' )
-                {
-                    _escaped = !_escaped;
-                }
-                else if( !_escaped )
-                {
-                    if( text[ index ] == '"' )
-                    {
-                        break;
-                    }
-                }
-                else
-                {
-                    _escaped = false;
-                }
-
                 index++;
+                return true;
             }
-
-            if( ( index >= text.Length )
-               || ( text[ index ] != '"' ) )
+            catch( Exception _ex )
             {
+                Fail( _ex );
                 return false;
             }
-
-            index++;
-            return true;
         }
 
         /// <summary>
@@ -164,7 +174,7 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.NullOrEmpty( text, nameof( text ) );
-                ThrowIf.Negative( index, nameof( index ) );
+                ThrowIf.NegativeOrZero( index, nameof( index ) );
                 var _groups = 0;
                 while( ( index < text.Length )
                       && ( _groups < 4 ) )
@@ -236,7 +246,7 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.NullOrEmpty( text, nameof( text ) );
-                ThrowIf.Negative( index, nameof( index ) );
+                ThrowIf.NegativeOrZero( index, nameof( index ) );
                 var _needGroup = false;
                 var _compact = false;
                 var _groups = 0;

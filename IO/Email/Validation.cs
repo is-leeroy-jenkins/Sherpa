@@ -360,7 +360,7 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.NullOrEmpty( text, nameof( text ) );
-                ThrowIf.Negative( index, nameof( index ) );
+                ThrowIf.NegativeOrZero( index, nameof( index ) );
                 var startIndex = index;
                 while( ( index < text.Length )
                       && IsAtom( text[ index ], allowInternational ) )

@@ -58,7 +58,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "HeapView.ObjectAllocation.Evident" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
-    public class ReportFactory : ReportBase
+    public class ReportFactory : BasicReport
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportFactory"/> class.
@@ -78,7 +78,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NoData( data, nameof( data ) );
+                ThrowIf.Null( data, nameof( data ) );
                 ThrowIf.NullOrEmpty( path, nameof( path ) );
                 var _dataSet = new DataSet( );
                 _dataSet?.Tables?.Add( ListToDataTable( data ) );
@@ -101,7 +101,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NoData( (object)dataTable, nameof( dataTable ) );
+                ThrowIf.Null( dataTable, nameof( dataTable ) );
                 ThrowIf.NullOrEmpty( path, nameof( path ) );
                 var _dataSet = new DataSet( );
                 _dataSet.Tables.Add( dataTable );
@@ -126,7 +126,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NoData( (object)dataSet, nameof( dataSet ) );
+                ThrowIf.Null( dataSet, nameof( dataSet ) );
                 ThrowIf.NullOrEmpty( fileName, nameof( fileName ) );
                 using var _document = Create( fileName, SpreadsheetDocumentType.Workbook );
                 WriteExcelFile( dataSet, _document );
@@ -143,17 +143,15 @@ namespace BudgetExecution
         /// Writes the excel file.
         /// </summary>
         /// <param name="dataSet">The data set.</param>
-        /// <param name="spreadSheet">The spread sheet.</param>
+        /// <param name="spreadSheet">The spreadsheet.</param>
         public void WriteExcelFile( DataSet dataSet, SpreadsheetDocument spreadSheet )
         {
             try
             {
-                ThrowIf.NoData( dataSet, nameof( dataSet ) );
+                ThrowIf.Null( dataSet, nameof( dataSet ) );
                 ThrowIf.Null( spreadSheet, nameof( spreadSheet ) );
                 spreadSheet.AddWorkbookPart( );
-                spreadSheet.WorkbookPart.Workbook =
-                    new DocumentFormat.OpenXml.Spreadsheet.Workbook( );
-
+                spreadSheet.WorkbookPart.Workbook = new DocumentFormat.OpenXml.Spreadsheet.Workbook( );
                 spreadSheet.WorkbookPart.Workbook?.Append( new BookViews( new WorkbookView( ) ) );
                 var _styles = spreadSheet.WorkbookPart.AddNewPart<WorkbookStylesPart>( "Styles" );
                 var _stylesheet = new Stylesheet( );
@@ -204,8 +202,8 @@ namespace BudgetExecution
             {
                 ThrowIf.NoData( dataTable, nameof( dataTable ) );
                 ThrowIf.Null( workSheetPart, nameof( workSheetPart ) );
-                var _worksheet = workSheetPart.Worksheet;
-                var _data = _worksheet?.GetFirstChild<SheetData>( );
+                var _sheet = workSheetPart.Worksheet;
+                var _sheetData = _sheet?.GetFirstChild<SheetData>( );
                 var _columns = dataTable.Columns.Count;
                 var _isNumeric = new bool[ _columns ];
                 var _names = new string[ _columns ];
@@ -217,7 +215,7 @@ namespace BudgetExecution
                 uint _rowIndex = 1;
                 var _row = new Row( );
                 _row.RowIndex = _rowIndex;
-                _data?.Append( _row );
+                _sheetData?.Append( _row );
                 for( var _colinx = 0; _colinx < _columns; _colinx++ )
                 {
                     var _column = dataTable.Columns[ _colinx ];
@@ -234,7 +232,7 @@ namespace BudgetExecution
                         RowIndex = _rowIndex
                     };
                     
-                    _data?.Append( _excelRow );
+                    _sheetData?.Append( _excelRow );
                     for( var _i = 0; _i < _columns; _i++ )
                     {
                         var _value = _dataRow?.ItemArray[ _i ]?.ToString( );

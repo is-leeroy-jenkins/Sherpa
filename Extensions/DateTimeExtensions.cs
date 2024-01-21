@@ -55,11 +55,13 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public static class DateTimeExtensions
     {
-        /// <summary> Verifies if the object is a startDate </summary>
-        /// <param name="date"> The date. </param>
+        /// <summary>
+        /// Determines whether this instance is date.
+        /// </summary>
+        /// <param name="date">The date.</param>
         /// <returns>
-        /// The
-        /// <see cref="bool"/>
+        ///   <c>true</c> if the specified date is date;
+        ///   otherwise, <c>false</c>.
         /// </returns>
         public static bool IsDate( this object date )
         {
@@ -74,145 +76,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Returns the weekdays between two dates. </summary>
-        /// <param name="startDate"> The start time. </param>
-        /// <param name="endDate"> The end time. </param>
-        /// <returns> </returns>
-        public static IEnumerable<DateTime> GetWeekdays( this DateTime startDate, DateTime endDate )
-        {
-            try
-            {
-                var _timeSpan = endDate - startDate;
-                int _days;
-                var _weekdays = new List<DateTime>( );
-                for( _days = 0; _days < _timeSpan.Days; _days++ )
-                {
-                    var _dateTime = startDate.AddDays( _days );
-                    if( _dateTime.IsWeekDay( ) )
-                    {
-                        _weekdays.Add( _dateTime );
-                    }
-                }
-
-                return _weekdays?.Any( ) == true
-                    ? _weekdays
-                    : default( IEnumerable<DateTime> );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( IEnumerable<DateTime> );
-            }
-        }
-
-        /// <summary> Gets the week ends until. </summary>
-        /// <param name="startDate"> The start date. </param>
-        /// <param name="endDate"> The end date. </param>
-        /// <returns> </returns>
-        public static IEnumerable<DateTime> GetWeekends( this DateTime startDate, DateTime endDate )
-        {
-            try
-            {
-                var _timeSpan = endDate - startDate;
-                int _days;
-                var _weekends = new List<DateTime>( );
-                for( _days = 0; _days < _timeSpan.Days; _days++ )
-                {
-                    var _dateTime = startDate.AddDays( _days );
-                    if( _dateTime.IsWeekEnd( ) )
-                    {
-                        _weekends.Add( _dateTime );
-                    }
-                }
-
-                return _weekends?.Any( ) == true
-                    ? _weekends
-                    : default( IEnumerable<DateTime> );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( IEnumerable<DateTime> );
-            }
-        }
-
         /// <summary>
-        /// Gets the holidays until.
+        /// Determines whether [is week day].
         /// </summary>
-        /// <param name="startDate">
-        /// The start date.
-        /// </param>
-        /// <param name="endDate">
-        /// The end date.
-        /// </param>
+        /// <param name="dateTime">The date time.</param>
         /// <returns>
-        /// IEnumerable
-        /// </returns>
-        public static IEnumerable<DateTime> GetHolidays( this DateTime startDate, DateTime endDate )
-        {
-            try
-            {
-                var _timeSpan = endDate - startDate;
-                var _days = _timeSpan.TotalDays;
-                var _count = 0;
-                var _holidays = new List<DateTime>( );
-                for( _count = 0; _count < _days; _count++ )
-                {
-                    var _dateTime = startDate.AddDays( _count );
-                    if( _dateTime.IsFederalHoliday( ) )
-                    {
-                        _holidays.Add( _dateTime );
-                    }
-                }
-
-                return _holidays?.Any( ) == true
-                    ? _holidays
-                    : default( IEnumerable<DateTime> );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( IEnumerable<DateTime> );
-            }
-        }
-
-        /// <summary> Gets the workdays </summary>
-        /// <param name="startDate"> The start date. </param>
-        /// <param name="endDate"> The end date. </param>
-        /// <returns> </returns>
-        public static IEnumerable<DateTime> GetWorkdays( this DateTime startDate, DateTime endDate )
-        {
-            try
-            {
-                var _timeSpan = endDate - startDate;
-                int _days;
-                var _workdays = new List<DateTime>( );
-                for( _days = 0; _days < _timeSpan.Days; _days++ )
-                {
-                    var _dateTime = startDate.AddDays( _days );
-                    if( !_dateTime.IsFederalHoliday( )
-                       && !_dateTime.IsWeekEnd( ) )
-                    {
-                        _workdays.Add( _dateTime );
-                    }
-                }
-
-                return _workdays?.Any( ) == true
-                    ? _workdays
-                    : default( IEnumerable<DateTime> );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( IEnumerable<DateTime> );
-            }
-        }
-
-        /// <summary> Checks to see if the startDate is a week day (Mon - Fri) </summary>
-        /// <param name="dateTime"> The date. </param>
-        /// <returns>
-        /// The
-        /// <see cref="bool"/>
+        ///   <c>true</c> if [is week day] [the specified date time];
+        ///   otherwise, <c>false</c>.
         /// </returns>
         public static bool IsWeekDay( this DateTime dateTime )
         {
@@ -228,10 +98,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Checks to see if the startDate is Saturday or Sunday </summary>
+        /// <summary>
+        /// Determines whether [is weekend].
+        /// </summary>
+        /// <param name="dateTime">The date time.</param>
         /// <returns>
-        /// The
-        /// <see cref="bool"/>
+        ///   <c>true</c> if [is weekend] [the specified date time];
+        ///   otherwise, <c>false</c>.
         /// </returns>
         public static bool IsWeekEnd( this DateTime dateTime )
         {
@@ -248,27 +121,230 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Returns the weekdays between two dates.
+        /// </summary>
+        /// <param name="startDate"> The start time. </param>
+        /// <param name="endDate"> The end time. </param>
+        /// <returns> </returns>
+        public static IEnumerable<DateTime> GetWeekdays( this DateTime startDate, DateTime endDate )
+        {
+            try
+            {
+                var _weekdays = new List<DateTime>( );
+                if( endDate > startDate )
+                {
+                    var _timeSpan = endDate - startDate;
+                    int _days;
+                    for( _days = 0; _days < _timeSpan.Days; _days++ )
+                    {
+                        var _dateTime = startDate.AddDays( _days );
+                        if( _dateTime.IsWeekDay( ) )
+                        {
+                            _weekdays.Add( _dateTime );
+                        }
+                    }
+
+                    return _weekdays?.Any( ) == true
+                        ? _weekdays
+                        : default( IEnumerable<DateTime> );
+                }
+                else
+                {
+                    var _timeSpan = startDate - endDate;
+                    int _days;
+                    for( _days = 0; _days < _timeSpan.Days; _days++ )
+                    {
+                        var _dateTime = startDate.AddDays( _days );
+                        if( _dateTime.IsWeekDay( ) )
+                        {
+                            _weekdays.Add( _dateTime );
+                        }
+                    }
+
+                    return _weekdays?.Any( ) == true
+                        ? _weekdays
+                        : default( IEnumerable<DateTime> );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IEnumerable<DateTime> );
+            }
+        }
+
+        /// <summary>
+        /// Gets the weekends.
+        /// </summary>
+        /// <param name="startDate">The start date.</param>
+        /// <param name="endDate">The end date.</param>
+        /// <returns></returns>
+        public static IEnumerable<DateTime> GetWeekends( this DateTime startDate, DateTime endDate )
+        {
+            try
+            {
+                var _weekends = new List<DateTime>( );
+                if( endDate > startDate )
+                {
+                    var _timeSpan = endDate - startDate;
+                    int _days;
+                    for( _days = 0; _days < _timeSpan.Days; _days++ )
+                    {
+                        var _dateTime = startDate.AddDays( _days );
+                        if( _dateTime.IsWeekEnd( ) )
+                        {
+                            _weekends.Add( _dateTime );
+                        }
+                    }
+
+                    return _weekends?.Any( ) == true
+                        ? _weekends
+                        : default( IEnumerable<DateTime> );
+                }
+                else
+                {
+                    var _timeSpan = startDate - endDate;
+                    int _days;
+                    for( _days = 0; _days < _timeSpan.Days; _days++ )
+                    {
+                        var _dateTime = endDate.AddDays( _days );
+                        if( _dateTime.IsWeekEnd( ) )
+                        {
+                            _weekends.Add( _dateTime );
+                        }
+                    }
+
+                    return _weekends?.Any( ) == true
+                        ? _weekends
+                        : default( IEnumerable<DateTime> );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IEnumerable<DateTime> );
+            }
+        }
+
+        /// <summary>
+        /// Gets the holidays.
+        /// </summary>
+        /// <param name="startDate">The start date.</param>
+        /// <param name="endDate">The end date.</param>
+        /// <returns></returns>
+        public static IEnumerable<DateTime> GetHolidays( this DateTime startDate, DateTime endDate )
+        {
+            try
+            {
+                var _holidays = new List<DateTime>( );
+                if( endDate > startDate )
+                {
+                    var _timeSpan = endDate - startDate;
+                    var _days = _timeSpan.TotalDays;
+                    var _count = 0;
+                    for( _count = 0; _count < _days; _count++ )
+                    {
+                        var _dateTime = startDate.AddDays( _count );
+                        if( _dateTime.IsFederalHoliday( ) )
+                        {
+                            _holidays.Add( _dateTime );
+                        }
+                    }
+
+                    return _holidays?.Any( ) == true
+                        ? _holidays
+                        : default( IEnumerable<DateTime> );
+                }
+                else
+                {
+                    var _timeSpan = startDate - endDate;
+                    var _days = _timeSpan.TotalDays;
+                    var _count = 0;
+                    for( _count = 0; _count < _days; _count++ )
+                    {
+                        var _dateTime = endDate.AddDays( _count );
+                        if( _dateTime.IsFederalHoliday( ) )
+                        {
+                            _holidays.Add( _dateTime );
+                        }
+                    }
+
+                    return _holidays?.Any( ) == true
+                        ? _holidays
+                        : default( IEnumerable<DateTime> );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IEnumerable<DateTime> );
+            }
+        }
+
+        /// <summary>
+        /// Gets the workdays.
+        /// </summary>
+        /// <param name="startDate">The start date.</param>
+        /// <param name="endDate">The end date.</param>
+        /// <returns></returns>
+        public static IEnumerable<DateTime> GetWorkdays( this DateTime startDate, DateTime endDate )
+        {
+            try
+            {
+                var _workdays = new List<DateTime>( );
+                if( endDate > startDate )
+                {
+                    var _timeSpan = endDate - startDate;
+                    int _days;
+                    for( _days = 0; _days < _timeSpan.Days; _days++ )
+                    {
+                        var _dateTime = startDate.AddDays( _days );
+                        if( !_dateTime.IsFederalHoliday( )
+                           && !_dateTime.IsWeekEnd( ) )
+                        {
+                            _workdays.Add( _dateTime );
+                        }
+                    }
+
+                    return _workdays?.Any( ) == true
+                        ? _workdays
+                        : default( IEnumerable<DateTime> );
+                }
+                else
+                {
+                    var _timeSpan = startDate - endDate;
+                    int _days;
+                    for( _days = 0; _days < _timeSpan.Days; _days++ )
+                    {
+                        var _dateTime = endDate.AddDays( _days );
+                        if( !_dateTime.IsFederalHoliday( )
+                           && !_dateTime.IsWeekEnd( ) )
+                        {
+                            _workdays.Add( _dateTime );
+                        }
+                    }
+
+                    return _workdays?.Any( ) == true
+                        ? _workdays
+                        : default( IEnumerable<DateTime> );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IEnumerable<DateTime> );
+            }
+        }
+
+        /// <summary>
         /// Determines whether the specified start date is between.
         /// </summary>
-        /// <param name="dateTime">
-        /// The date time.
-        /// </param>
-        /// <param name="startDate">
-        /// The start date.
-        /// </param>
-        /// <param name="endDate">
-        /// The end date.
-        /// </param>
-        /// <param name="compareTime">
-        /// if set to
-        /// <c> true </c>
-        /// [compare time].
-        /// </param>
+        /// <param name="dateTime">The date time.</param>
+        /// <param name="startDate">The start date.</param>
+        /// <param name="endDate">The end date.</param>
+        /// <param name="compareTime">if set to <c>true</c> [compare time].</param>
         /// <returns>
-        /// <c> true </c>
-        /// if the specified start date is between; otherwise,
-        /// <c> false </c>
-        /// .
+        ///   <c>true</c> if the specified start date is between; otherwise, <c>false</c>.
         /// </returns>
         public static bool IsBetween( this DateTime dateTime, DateTime startDate, DateTime endDate,
             bool compareTime = false )
@@ -286,16 +362,18 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Adds the workdays. </summary>
-        /// <param name="startDate"> The start date. </param>
-        /// <param name="days"> The days. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Adds the workdays.
+        /// </summary>
+        /// <param name="startDate">The start date.</param>
+        /// <param name="days">The days.</param>
+        /// <returns></returns>
         public static DateTime AddWorkdays( this DateTime startDate, int days )
         {
             try
             {
                 // start from a weekday 
-                ThrowIf.Negative( days, nameof( days ) );       
+                ThrowIf.NegativeOrZero( days, nameof( days ) );       
                 while( startDate.IsWeekEnd( ) )
                 {
                     startDate = startDate.AddDays( 1.0 );
@@ -319,29 +397,51 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Counts the number of weekdays between two dates. </summary>
-        /// <param name="startDate"> The start time. </param>
-        /// <param name="endDate"> The end time. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Counts the week days.
+        /// </summary>
+        /// <param name="startDate">The start date.</param>
+        /// <param name="endDate">The end date.</param>
+        /// <returns></returns>
         public static int CountWeekDays( this DateTime startDate, DateTime endDate )
         {
             try
             {
-                var _timeSpan = endDate - startDate;
-                var _days = _timeSpan.TotalDays;
                 var _weekDays = 0;
-                for( var _i = 0; _i < _days; _i++ )
+                if( endDate > startDate )
                 {
-                    var _dateTime = startDate.AddDays( _i );
-                    if( _dateTime.IsWeekDay( ) )
+                    var _timeSpan = endDate - startDate;
+                    var _days = _timeSpan.TotalDays;
+                    for( var _i = 0; _i < _days; _i++ )
                     {
-                        _weekDays++;
+                        var _dateTime = startDate.AddDays( _i );
+                        if( _dateTime.IsWeekDay( ) )
+                        {
+                            _weekDays++;
+                        }
                     }
-                }
 
-                return _weekDays > 0
-                    ? _weekDays
-                    : 0;
+                    return _weekDays > 0
+                        ? _weekDays
+                        : 0;
+                }
+                else
+                {
+                    var _timeSpan = startDate - endDate;
+                    var _days = _timeSpan.TotalDays;
+                    for( var _i = 0; _i < _days; _i++ )
+                    {
+                        var _dateTime = endDate.AddDays( _i );
+                        if( _dateTime.IsWeekDay( ) )
+                        {
+                            _weekDays++;
+                        }
+                    }
+
+                    return _weekDays > 0
+                        ? _weekDays
+                        : 0;
+                }
             }
             catch( Exception _ex )
             {
@@ -360,21 +460,41 @@ namespace BudgetExecution
         {
             try
             {
-                var _timeSpan = endDate - startDate;
-                var _days = _timeSpan.TotalDays;
                 var _weekEnds = 0;
-                for( var _i = 0; _i < _days; _i++ )
+                if( endDate > startDate )
                 {
-                    var _dateTime = startDate.AddDays( _i );
-                    if( _dateTime.IsWeekEnd( ) )
+                    var _timeSpan = endDate - startDate;
+                    var _days = _timeSpan.TotalDays;
+                    for( var _i = 0; _i < _days; _i++ )
                     {
-                        _weekEnds++;
+                        var _dateTime = startDate.AddDays( _i );
+                        if( _dateTime.IsWeekEnd( ) )
+                        {
+                            _weekEnds++;
+                        }
                     }
-                }
 
-                return _weekEnds > 0
-                    ? _weekEnds
-                    : 0;
+                    return _weekEnds > 0
+                        ? _weekEnds
+                        : 0;
+                }
+                else
+                {
+                    var _timeSpan = startDate - endDate;
+                    var _days = _timeSpan.TotalDays;
+                    for( var _i = 0; _i < _days; _i++ )
+                    {
+                        var _dateTime = endDate.AddDays( _i );
+                        if( _dateTime.IsWeekEnd( ) )
+                        {
+                            _weekEnds++;
+                        }
+                    }
+
+                    return _weekEnds > 0
+                        ? _weekEnds
+                        : 0;
+                }
             }
             catch( Exception _ex )
             {
@@ -383,30 +503,53 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Counts the workdays. </summary>
-        /// <param name="startDate"> The start date. </param>
-        /// <param name="endDate"> The end date. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Counts the workdays.
+        /// </summary>
+        /// <param name="startDate">The start date.</param>
+        /// <param name="endDate">The end date.</param>
+        /// <returns></returns>
         public static int CountWorkdays( this DateTime startDate, DateTime endDate )
         {
             try
             {
-                var _timeSpan = endDate - startDate;
-                var _days = _timeSpan.TotalDays;
                 var _workdays = 0;
-                for( var _i = 0; _i < _days; _i++ )
+                if( endDate > startDate )
                 {
-                    var _dateTime = startDate.AddDays( _i );
-                    if( !_dateTime.IsFederalHoliday( )
-                       && !_dateTime.IsWeekEnd( ) )
+                    var _timeSpan = endDate - startDate;
+                    var _days = _timeSpan.TotalDays;
+                    for( var _i = 0; _i < _days; _i++ )
                     {
-                        _workdays += 1;
+                        var _dateTime = startDate.AddDays( _i );
+                        if( !_dateTime.IsFederalHoliday( )
+                           && !_dateTime.IsWeekEnd( ) )
+                        {
+                            _workdays += 1;
+                        }
                     }
-                }
 
-                return _workdays > 0
-                    ? _workdays
-                    : 0;
+                    return _workdays > 0
+                        ? _workdays
+                        : 0;
+                }
+                else
+                {
+                    var _timeSpan = startDate - endDate;
+                    var _days = _timeSpan.TotalDays;
+                    for( var _i = 0; _i < _days; _i++ )
+                    {
+                        var _dateTime = endDate.AddDays( _i );
+                        if( !_dateTime.IsFederalHoliday( )
+                           && !_dateTime.IsWeekEnd( ) )
+                        {
+                            _workdays += 1;
+                        }
+                    }
+
+                    return _workdays > 0
+                        ? _workdays
+                        : 0;
+                }
             }
             catch( Exception _ex )
             {
@@ -415,27 +558,47 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Counts the holidays. </summary>
-        /// <param name="startDate"> The start date. </param>
-        /// <param name="endDate"> The end date. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Counts the holidays.
+        /// </summary>
+        /// <param name="startDate">The start date.</param>
+        /// <param name="endDate">The end date.</param>
+        /// <returns></returns>
         public static int CountHolidays( this DateTime startDate, DateTime endDate )
         {
             try
             {
-                var _timeSpan = endDate - startDate;
-                var _days = _timeSpan.TotalDays;
                 var _holidays = 0;
-                for( var _i = 0; _i < _days; _i++ )
+                if( endDate > startDate )
                 {
-                    var _date = startDate.AddDays( _days );
-                    if( _date.IsFederalHoliday( ) )
+                    var _timeSpan = endDate - startDate;
+                    var _days = _timeSpan.TotalDays;
+                    for( var _i = 0; _i < _days; _i++ )
                     {
-                        _holidays++;
+                        var _date = startDate.AddDays( _days );
+                        if( _date.IsFederalHoliday( ) )
+                        {
+                            _holidays++;
+                        }
                     }
-                }
 
-                return _holidays;
+                    return _holidays;
+                }
+                else
+                {
+                    var _timeSpan = startDate - endDate;
+                    var _days = _timeSpan.TotalDays;
+                    for( var _i = 0; _i < _days; _i++ )
+                    {
+                        var _date = endDate.AddDays( _days );
+                        if( _date.IsFederalHoliday( ) )
+                        {
+                            _holidays++;
+                        }
+                    }
+
+                    return _holidays;
+                }
             }
             catch( Exception _ex )
             {
@@ -444,24 +607,23 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> The IsFederalHoliday </summary>
-        /// <param name="dateTime">
-        /// The startDate
-        /// <see cref="DateTime"/>
-        /// </param>
+        /// <summary>
+        /// Determines whether [is federal holiday].
+        /// </summary>
+        /// <param name="dateTime">The date time.</param>
         /// <returns>
-        /// The
-        /// <see cref="bool"/>
+        ///   <c>true</c> if [is federal holiday]
+        ///   [the specified date time]; otherwise, <c>false</c>.
         /// </returns>
         public static bool IsFederalHoliday( this DateTime dateTime )
         {
             // to ease typing
             var _nthDay = (int)Math.Ceiling( dateTime.Day / 7.0d );
-            var _date = dateTime.DayOfWeek;
-            var _thursday = _date == DayOfWeek.Thursday;
-            var _friday = _date == DayOfWeek.Friday;
-            var _monday = _date == DayOfWeek.Monday;
-            var _weekend = ( _date == DayOfWeek.Saturday ) | ( _date == DayOfWeek.Sunday );
+            var _day = dateTime.DayOfWeek;
+            var _thursday = _day == DayOfWeek.Thursday;
+            var _friday = _day == DayOfWeek.Friday;
+            var _monday = _day == DayOfWeek.Monday;
+            var _weekend = ( _day == DayOfWeek.Saturday ) | ( _day == DayOfWeek.Sunday );
             switch( dateTime.Month )
             {
                 // New Years Day (Jan 1, or preceding Friday/following Monday if weekend)
