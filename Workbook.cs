@@ -221,38 +221,16 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Workbook"/> class.
-        /// </summary>
-        public Workbook( )
-        {
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Workbook" /> class.
-        /// </summary>
-        /// <param name="filePath">The file path.</param>
-        public Workbook( string filePath ) 
-            : this( )
-        {
-            _fileInfo = new FileInfo( filePath );
-            _excelPackage = new ExcelPackage( FileInfo );
-            _excelWorkbook = _excelPackage.Workbook;
-        }
-
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="T:BudgetExecution.Workbook" /> class.
         /// </summary>
         /// <param name="dataTable">The data table.</param>
-        public Workbook( DataTable dataTable )
-            : this( )
+        public void InitializeWorksheet( DataTable dataTable )
         {
             _data = dataTable.AsEnumerable( );
-            _excelWorksheet = Workbook.Worksheets.Add( dataTable.TableName );
+            _excelWorksheet = _excelWorkbook.Worksheets.Add( dataTable.TableName );
             _excelWorksheet.View.ShowGridLines = false;
             _excelWorksheet.View.ZoomScale = _zoomLevel;
             _excelWorksheet.View.PageLayoutView = true;
@@ -278,18 +256,16 @@ namespace BudgetExecution
         /// <param name="grid">The grid.</param>
         public void SetHeaderFormat( Grid grid )
         {
-            if( grid?.Worksheet != null )
+            try
             {
-                try
-                {
-                    SetFontColor( grid, _fontColor );
-                    SetBackgroundColor( grid, _primaryBackColor );
-                    SetHorizontalAlignment( grid, ExcelHorizontalAlignment.Left );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                ThrowIf.Null( grid, nameof( grid ) );
+                SetFontColor( grid, _fontColor );
+                SetBackgroundColor( grid, _primaryBackColor );
+                SetHorizontalAlignment( grid, ExcelHorizontalAlignment.Left );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -299,18 +275,16 @@ namespace BudgetExecution
         /// <param name="grid">The grid.</param>
         public void SetHeaderText( Grid grid )
         {
-            if( grid?.Worksheet != null )
+            try
             {
-                try
-                {
-                    using var _range = grid.Range;
-                    var _row = _range.Start.Row;
-                    var _column = _range.Start.Column;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                ThrowIf.Null( grid, nameof( grid ) );
+                using var _range = grid.Range;
+                var _row = _range.Start.Row;
+                var _column = _range.Start.Column;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 

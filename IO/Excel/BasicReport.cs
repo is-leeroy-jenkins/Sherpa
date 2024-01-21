@@ -182,7 +182,7 @@ namespace BudgetExecution
         /// <summary>
         /// The comments
         /// </summary>
-        private protected IList<ExcelComment> _comments;
+        private protected IList<ExcelComment> _excelComments;
 
         /// <summary>
         /// The data

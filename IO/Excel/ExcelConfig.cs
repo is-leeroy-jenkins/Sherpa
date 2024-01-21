@@ -200,11 +200,11 @@ namespace BudgetExecution
         {
             get
             {
-                return _comments;
+                return _excelComments;
             }
             private protected set
             {
-                _comments = value;
+                _excelComments = value;
             }
         }
 
