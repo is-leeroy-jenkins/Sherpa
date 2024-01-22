@@ -11,9 +11,6 @@
     <VerifyUploadedFiles>false</VerifyUploadedFiles>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Update="Controls\Browser\BrowserBase.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Controls\Forms\BudgetWindow.cs">
       <SubType>Form</SubType>
     </Compile>
