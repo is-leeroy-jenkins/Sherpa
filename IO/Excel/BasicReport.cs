@@ -50,6 +50,7 @@ namespace BudgetExecution
     using DocumentFormat.OpenXml;
     using DocumentFormat.OpenXml.Spreadsheet;
     using OfficeOpenXml;
+    using OfficeOpenXml.Drawing;
     using OfficeOpenXml.Style;
     using Color = System.Drawing.Color;
     using Font = System.Drawing.Font;
@@ -62,7 +63,8 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    public abstract class BasicReport 
+    [ SuppressMessage( "ReSharper", "RedundantCheckBeforeAssignment" ) ]
+    public abstract class BasicReport
     {
         /// <summary>
         /// The primary back color
@@ -140,9 +142,19 @@ namespace BudgetExecution
         private protected decimal _headerMargin;
 
         /// <summary>
+        /// The top margin
+        /// </summary>
+        private protected decimal _topMargin;
+
+        /// <summary>
         /// The footer margin
         /// </summary>
         private protected decimal _footerMargin;
+
+        /// <summary>
+        /// The bottom margin
+        /// </summary>
+        private protected decimal _bottomMargin;
 
         /// <summary>
         /// The data connection
@@ -185,9 +197,14 @@ namespace BudgetExecution
         private protected IList<ExcelComment> _excelComments;
 
         /// <summary>
+        /// The theme path
+        /// </summary>
+        private protected string _themePath;
+
+        /// <summary>
         /// The data
         /// </summary>
-        private protected IEnumerable<DataRow> _data;
+        private protected DataTable _dataTable;
 
         /// <summary>
         /// The internal path
@@ -195,9 +212,19 @@ namespace BudgetExecution
         private protected string _internalPath;
 
         /// <summary>
+        /// The save path
+        /// </summary>
+        private protected string _savePath;
+
+        /// <summary>
         /// The image path
         /// </summary>
-        private protected string _imagePath;
+        private protected string _headerPath;
+
+        /// <summary>
+        /// The footer path
+        /// </summary>
+        private protected string _footerPath;
 
         /// <summary>
         /// The file path
@@ -225,37 +252,24 @@ namespace BudgetExecution
         private protected int _columnCount;
 
         /// <summary>
-        /// The header image
-        /// </summary>
-        private protected Image _headerImage;
-
-        /// <summary>
-        /// The footer image
-        /// </summary>
-        private protected Image _footerImage;
-
-        /// <summary>
         /// Sets the color of the background.
         /// </summary>
         /// <param name="grid">The grid.</param>
         /// <param name="color">The color.</param>
         public void SetBackgroundColor( Grid grid, Color color )
         {
-            if( ( grid?.Worksheet != null )
-               && ( grid?.Range != null )
-               && ( color != Color.Empty ) )
+            try
             {
-                try
-                {
-                    using var _range = grid.Range;
-                    _range.Style.Fill.PatternType = ExcelFillStyle.Solid;
-                    _range.Style.Fill.BackgroundColor.SetColor( color );
-                    _range.Style.HorizontalAlignment = ExcelHorizontalAlignment.CenterContinuous;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                ThrowIf.Null( grid, nameof( grid ) );
+                ThrowIf.NullOrEmpty( color, nameof( color ) );
+                using var _range = grid.Range;
+                _range.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                _range.Style.Fill.BackgroundColor.SetColor( color );
+                _range.Style.HorizontalAlignment = ExcelHorizontalAlignment.CenterContinuous;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -266,19 +280,15 @@ namespace BudgetExecution
         /// <param name="font">The font.</param>
         public void SetRangeFont( Grid grid, Font font )
         {
-            if( ( grid?.Worksheet != null )
-               && ( grid?.Range != null )
-               && ( font != null ) )
+            try
             {
-                try
-                {
-                    using var _range = grid.Range;
-                    _range.Style.Font.SetFromFont( font.Name, font.Size );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                ThrowIf.Null( grid, nameof( grid ) );
+                using var _range = grid.Range;
+                _range.Style.Font.SetFromFont( font.Name, font.Size );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -289,20 +299,17 @@ namespace BudgetExecution
         /// <param name="color">The color.</param>
         public void SetFontColor( Grid grid, Color color )
         {
-            if( ( grid?.Worksheet != null )
-               && ( grid?.Range != null )
-               && ( color != Color.Empty ) )
+            try
             {
-                try
-                {
-                    using var _range = grid.Range;
-                    _range.Style.Font.Color.SetColor( color );
-                    _range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                ThrowIf.Null( grid, nameof( grid ) );
+                ThrowIf.NullOrEmpty( color, nameof( color ) );
+                using var _range = grid.Range;
+                _range.Style.Font.Color.SetColor( color );
+                _range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -503,13 +510,18 @@ namespace BudgetExecution
         {
             try
             {
-                _excelPackage?.Dispose( );
-                _excelWorkbook?.Dispose( );
                 _font?.Dispose( );
+                _titleFont?.Dispose( );
                 _dataConnection?.Dispose( );
+                _dataCommand?.Dispose( );
                 _dataAdapter?.Dispose( );
                 _excelWorksheet?.Dispose( );
                 _excelWorkbook?.Dispose( );
+                _excelPackage?.Dispose( );
+                if( _fileInfo != null )
+                {
+                    _fileInfo = null;
+                }
             }
             catch( Exception _ex )
             {

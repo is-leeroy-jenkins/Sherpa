@@ -45,6 +45,7 @@ namespace BudgetExecution
     using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Forms;
+    using OfficeOpenXml;
     using Syncfusion.Licensing;
 
     /// <summary> </summary>
@@ -68,6 +69,7 @@ namespace BudgetExecution
         {
             var _key = ConfigurationManager.AppSettings[ nameof( Syncfusion ) ];
             SyncfusionLicenseProvider.RegisterLicense( _key );
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
             Application.EnableVisualStyles( );
             Application.SetCompatibleTextRenderingDefault( false );
             Windows = new Dictionary<string, Form>( );

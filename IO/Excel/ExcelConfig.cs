@@ -214,15 +214,15 @@ namespace BudgetExecution
         /// <value>
         /// The data.
         /// </value>
-        public IEnumerable<DataRow> Data
+        public DataTable DataTable
         {
             get
             {
-                return _data;
+                return _dataTable;
             }
             private protected set
             {
-                _data = value;
+                _dataTable = value;
             }
         }
 

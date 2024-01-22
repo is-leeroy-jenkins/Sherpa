@@ -44,8 +44,8 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.IO;
     using OfficeOpenXml;
+    using OfficeOpenXml.Drawing;
     using OfficeOpenXml.Style;
 
     /// <inheritdoc />
@@ -57,7 +57,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    public class Workbook : ExcelConfig
+    public abstract class Workbook : ExcelConfig
     {
         /// <summary>
         /// Gets or sets the color of the font.
@@ -185,69 +185,34 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets or sets the header image.
-        /// </summary>
-        /// <value>
-        /// The header image.
-        /// </value>
-        public Image HeaderImage
-        {
-            get
-            {
-                return _headerImage;
-            }
-            private protected set
-            {
-                _headerImage = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the footer image.
-        /// </summary>
-        /// <value>
-        /// The footer image.
-        /// </value>
-        public Image FooterImage
-        {
-            get
-            {
-                return _footerImage;
-            }
-            private protected set
-            {
-                _footerImage = value;
-            }
-        }
-
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="T:BudgetExecution.Workbook" /> class.
         /// </summary>
-        /// <param name="dataTable">The data table.</param>
-        public void InitializeWorksheet( DataTable dataTable )
+        public void InitializeWorksheet( )
         {
-            _data = dataTable.AsEnumerable( );
-            _excelWorksheet = _excelWorkbook.Worksheets.Add( dataTable.TableName );
-            _excelWorksheet.View.ShowGridLines = false;
-            _excelWorksheet.View.ZoomScale = _zoomLevel;
-            _excelWorksheet.View.PageLayoutView = true;
-            _excelWorksheet.View.ShowHeaders = true;
-            _excelWorksheet.DefaultRowHeight = _rowHeight;
-            _excelWorksheet.DefaultColWidth = _columnWidth;
-            _excelWorksheet.PrinterSettings.ShowHeaders = false;
-            _excelWorksheet.PrinterSettings.ShowGridLines = false;
-            _excelWorksheet.PrinterSettings.LeftMargin = _leftMargin;
-            _excelWorksheet.PrinterSettings.RightMargin = _rightMargin;
-            _excelWorksheet.PrinterSettings.TopMargin = _headerMargin;
-            _excelWorksheet.PrinterSettings.BottomMargin = _footerMargin;
-            _excelWorksheet.PrinterSettings.HorizontalCentered = true;
-            _excelWorksheet.PrinterSettings.VerticalCentered = true;
-            _excelWorksheet.PrinterSettings.FitToPage = true;
-            _excelWorksheet.HeaderFooter.AlignWithMargins = true;
-            _excelWorksheet.HeaderFooter.ScaleWithDocument = true;
+            if(_dataTable != null )
+            {
+                _excelWorksheet = _excelWorkbook.Worksheets.Add( _dataTable.TableName );
+                _excelWorksheet.View.ShowGridLines = false;
+                _excelWorksheet.View.ZoomScale = _zoomLevel;
+                _excelWorksheet.View.PageLayoutView = true;
+                _excelWorksheet.View.ShowHeaders = true;
+                _excelWorksheet.DefaultRowHeight = _rowHeight;
+                _excelWorksheet.DefaultColWidth = _columnWidth;
+                _excelWorksheet.PrinterSettings.ShowHeaders = false;
+                _excelWorksheet.PrinterSettings.ShowGridLines = false;
+                _excelWorksheet.PrinterSettings.LeftMargin = _leftMargin;
+                _excelWorksheet.PrinterSettings.RightMargin = _rightMargin;
+                _excelWorksheet.PrinterSettings.TopMargin = _headerMargin;
+                _excelWorksheet.PrinterSettings.BottomMargin = _footerMargin;
+                _excelWorksheet.PrinterSettings.HorizontalCentered = true;
+                _excelWorksheet.PrinterSettings.VerticalCentered = true;
+                _excelWorksheet.PrinterSettings.FitToPage = true;
+                _excelWorksheet.HeaderFooter.AlignWithMargins = true;
+                _excelWorksheet.HeaderFooter.ScaleWithDocument = true;
+            }
         }
 
         /// <summary>
@@ -294,113 +259,96 @@ namespace BudgetExecution
         /// <param name="excelRange">The excel range.</param>
         public void SetDarkColorRow( ExcelRange excelRange )
         {
-            if( excelRange != null )
+            try
             {
-                try
-                {
-                    excelRange.Style.Font.Color.SetColor( _fontColor );
-                    excelRange.Style.Font.SetFromFont( _font.Name, _font.Size );
-                    excelRange.Style.Fill.PatternType = ExcelFillStyle.Solid;
-                    excelRange.Style.Fill.BackgroundColor.SetColor( _secondaryBackColor );
-                    excelRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.CenterContinuous;
-                    excelRange.Style.Border.Bottom.Style = ExcelBorderStyle.Hair;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                excelRange.Style.Font.Color.SetColor( _fontColor );
+                excelRange.Style.Font.SetFromFont( _font.Name, _font.Size );
+                excelRange.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                excelRange.Style.Fill.BackgroundColor.SetColor( _secondaryBackColor );
+                excelRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.CenterContinuous;
+                excelRange.Style.Border.Bottom.Style = ExcelBorderStyle.Hair;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
         /// <summary>
         /// Sets the light color row.
         /// </summary>
-        /// <param name="range">The range.</param>
-        public void SetLightColorRow( ExcelRange range )
+        /// <param name="excelRange">The range.</param>
+        public void SetLightColorRow( ExcelRange excelRange )
         {
-            if( range != null )
+            try
             {
-                try
-                {
-                    range.Style.Font.Color.SetColor( _fontColor );
-                    range.Style.Font.SetFromFont( _font.Name, _font.Size );
-                    range.Style.Fill.PatternType = ExcelFillStyle.Solid;
-                    range.Style.Fill.BackgroundColor.SetColor( _primaryBackColor );
-                    range.Style.HorizontalAlignment = ExcelHorizontalAlignment.CenterContinuous;
-                    range.Style.Border.Bottom.Style = ExcelBorderStyle.Hair;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                ThrowIf.Null( excelRange, nameof( excelRange ) );
+                excelRange.Style.Font.Color.SetColor( _fontColor );
+                excelRange.Style.Font.SetFromFont( _font.Name, _font.Size );
+                excelRange.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                excelRange.Style.Fill.BackgroundColor.SetColor( _primaryBackColor );
+                excelRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.CenterContinuous;
+                excelRange.Style.Border.Bottom.Style = ExcelBorderStyle.Hair;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
         /// <summary>
         /// Sets the color of the alternating row.
         /// </summary>
-        /// <param name="range">The range.</param>
-        public void SetAlternatingRowColor( ExcelRange range )
+        /// <param name="excelRange">The range.</param>
+        public void SetAlternatingRowColor( ExcelRange excelRange )
         {
-            if( ( _excelWorksheet != null )
-               && ( range?.Start?.Row > -1 )
-               && ( range.Start.Column > -1 )
-               && ( range.End?.Row > -1 )
-               && ( range.End.Column > -1 ) )
+            try
             {
-                try
+                ThrowIf.Null( excelRange, nameof( excelRange ) );
+                var _sRow = excelRange.Start.Row;
+                var _sColumn = excelRange.Start.Column;
+                var _eRow = excelRange.End.Row;
+                var _eColumn = excelRange.End.Column;
+                var _excelRange = _excelWorksheet.Cells[ _sRow, _sColumn, _eRow, _eColumn ];
+                for( var _i = _sRow; _i < _eRow; _i++ )
                 {
-                    var _startRow = range.Start.Row;
-                    var _startColumn = range.Start.Column;
-                    var _endRow = range.End.Row;
-                    var _endColumn = range.End.Column;
-                    var _prc = _excelWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
-                    for( var _i = _startRow; _i < _endRow; _i++ )
+                    if( _i % 2 == 0 )
                     {
-                        if( _i % 2 == 0 )
-                        {
-                            SetLightColorRow( _prc );
-                        }
-
-                        if( _i % 2 != 0 )
-                        {
-                            SetDarkColorRow( _prc );
-                        }
+                        SetLightColorRow( _excelRange );
                     }
 
-                    SetNumericRowFormat( range );
+                    if( _i % 2 != 0 )
+                    {
+                        SetDarkColorRow( _excelRange );
+                    }
                 }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+
+                SetNumericRowFormat( excelRange );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
         /// <summary>
         /// Sets the numeric row format.
         /// </summary>
-        /// <param name="range">The range.</param>
-        public void SetNumericRowFormat( ExcelRange range )
+        /// <param name="excelRange">The range.</param>
+        public void SetNumericRowFormat( ExcelRange excelRange )
         {
-            if( ( _excelWorksheet != null )
-               && ( range.Start.Row > -1 )
-               && ( range.Start.Column > -1 )
-               && ( range.End.Row > -1 )
-               && ( range.End.Column > -1 ) )
+            try
             {
-                try
+                ThrowIf.Null( excelRange, nameof( excelRange ) );
+                using( excelRange )
                 {
-                    using( range )
-                    {
-                        range.Style.HorizontalAlignment = ExcelHorizontalAlignment.CenterContinuous;
-                        range.Style.Numberformat.Format = "#,###";
-                    }
+                    excelRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.CenterContinuous;
+                    excelRange.Style.Numberformat.Format = "#,###";
                 }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -410,53 +358,45 @@ namespace BudgetExecution
         /// <param name="grid">The grid.</param>
         public void SetTableFormat( Grid grid )
         {
-            if( grid?.Worksheet != null )
+            try
             {
-                try
-                {
-                    SetHeaderText( grid );
-                    using var _range = grid.Range;
-                    _range.Style.Font.SetFromFont( _titleFont.Name, _titleFont.Size );
-                    _range.Style.Border.BorderAround( ExcelBorderStyle.Thin );
-                    _range.Style.Fill.PatternType = ExcelFillStyle.Solid;
-                    _range.Style.Fill.BackgroundColor.SetColor( Color.White );
-                    _range.Style.HorizontalAlignment = ExcelHorizontalAlignment.CenterContinuous;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                ThrowIf.Null( grid, nameof( grid ) );
+                SetHeaderText( grid );
+                using var _range = grid.Range;
+                _range.Style.Font.SetFromFont( _titleFont.Name, _titleFont.Size );
+                _range.Style.Border.BorderAround( ExcelBorderStyle.Thin );
+                _range.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                _range.Style.Fill.BackgroundColor.SetColor( Color.White );
+                _range.Style.HorizontalAlignment = ExcelHorizontalAlignment.CenterContinuous;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
         /// <summary>
         /// Sets the total row format.
         /// </summary>
-        /// <param name="range">The range.</param>
-        public void SetTotalRowFormat( ExcelRange range )
+        /// <param name="excelRange">The range.</param>
+        public void SetTotalRowFormat( ExcelRange excelRange )
         {
-            if( ( _excelWorksheet != null )
-               && ( range.Start.Row > -1 )
-               && ( range.Start.Column > -1 )
-               && ( range.End.Row > -1 )
-               && ( range.End.Column > -1 ) )
+            try
             {
-                try
-                {
-                    var _total = _excelWorksheet.Cells[ range.Start.Row, range.Start.Column, 
-                        range.Start.Row, range.Start.Column + 6 ];
-                    
-                    var _range = _excelWorksheet.Cells[ range.Start.Row, range.Start.Column + 1, 
-                        range.Start.Row, range.Start.Column + 6 ];
-                    
-                    _total.Style.Fill.PatternType = ExcelFillStyle.Solid;
-                    _total.Style.Fill.BackgroundColor.SetColor( _secondaryBackColor );
-                    _range.Style.Border.Bottom.Style = ExcelBorderStyle.Double;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                ThrowIf.Null( excelRange, nameof( excelRange ) );
+                var _sRow = excelRange.Start.Row;
+                var _sColumn = excelRange.Start.Column;
+                var _eRow = excelRange.End.Row;
+                var _eColumn = excelRange.Start.Column;
+                var _total = _excelWorksheet.Cells[ _sRow, _sColumn, _eRow, _eColumn + 6 ];
+                var _range = _excelWorksheet.Cells[ _sRow, _sColumn + 1, _sRow, _sColumn + 6 ];
+                _total.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                _total.Style.Fill.BackgroundColor.SetColor( _secondaryBackColor );
+                _range.Style.Border.Bottom.Style = ExcelBorderStyle.Double;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
     }

@@ -280,9 +280,19 @@ namespace BudgetExecution
 
                     break;
                 }
-                case Worksheet _worksheet:
+                case ExcelWorksheet _worksheet:
                 {
                     if( _worksheet == null )
+                    {
+                        var _message = @$"The '{paramName}' is null!";
+                        throw new ArgumentNullException( _message );
+                    }
+
+                    break;
+                }
+                case ExcelWorkbook _workbook:
+                {
+                    if( _workbook == null )
                     {
                         var _message = @$"The '{paramName}' is null!";
                         throw new ArgumentNullException( _message );
@@ -313,6 +323,16 @@ namespace BudgetExecution
                 case OpenXmlElement _sheet:
                 {
                     if( _sheet == null )
+                    {
+                        var _message = @$"The '{paramName}' is null!";
+                        throw new ArgumentNullException( _message );
+                    }
+
+                    break;
+                }
+                case ExcelRange _range:
+                {
+                    if( _range == null )
                     {
                         var _message = @$"The '{paramName}' is null!";
                         throw new ArgumentNullException( _message );

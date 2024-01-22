@@ -523,6 +523,21 @@ namespace BudgetExecution
             }
         }
 
+        private void CreateExcelReport( )
+        {
+            try
+            {
+                var _report = new ExcelReport( );
+                _report.Save( );
+                var _message = "The Excel File has been created!";
+                SendMessage( _message );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
         /// <summary>
         /// Opens the fiscal year form.
         /// </summary>
@@ -1144,7 +1159,14 @@ namespace BudgetExecution
         /// </param>
         private void OnTestButtonClick( object sender, EventArgs e )
         {
-            ShowPathMessage( );
+            try
+            {
+                CreateExcelReport( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
