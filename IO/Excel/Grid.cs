@@ -201,17 +201,17 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="Grid"/> class.
         /// </summary>
         /// <param name="excel">The excel.</param>
-        /// <param name="fromRow">From row.</param>
-        /// <param name="fromColumn">From column.</param>
-        /// <param name="toRow">To row.</param>
-        /// <param name="toColumn">To column.</param>
-        public Grid( ExcelPackage excel, int fromRow = 1, int fromColumn = 1, int toRow = 55,
-            int toColumn = 12 )
+        /// <param name="startRow">From row.</param>
+        /// <param name="startColumn">From column.</param>
+        /// <param name="endRow">To row.</param>
+        /// <param name="endColumn">To column.</param>
+        public Grid( ExcelPackage excel, int startRow = 1, int startColumn = 1, int endRow = 55,
+            int endColumn = 12 )
         {
             _worksheet = excel.Workbook?.Worksheets[ 0 ];
-            _from = ( fromRow, fromColumn );
-            _to = ( toRow, toColumn );
-            _range = _worksheet?.Cells[ fromRow, fromColumn, toRow, toColumn ];
+            _from = ( startRow, startColumn );
+            _to = ( endRow, endColumn );
+            _range = _worksheet?.Cells[ startRow, startColumn, endRow, endColumn ];
         }
 
         /// <summary>

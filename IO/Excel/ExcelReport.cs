@@ -315,9 +315,11 @@ namespace BudgetExecution
             try
             {
                 var _stream = new FileStream( _headerPath, FileMode.Open );
-                _excelWorksheet.HeaderFooter.OddHeader.InsertPicture( _stream, 
-                    ePictureType.Png, PictureAlignment.Left );
+                var _header = _excelWorksheet.HeaderFooter.OddHeader.InsertPicture( _stream, 
+                    ePictureType.Bmp, PictureAlignment.Left );
 
+                _header.Width = 1.50d;
+                _header.Height = 0.60d;
                 _excelWorksheet.HeaderFooter.AlignWithMargins = true;
                 _excelWorksheet.HeaderFooter.ScaleWithDocument = true;
             }
@@ -335,9 +337,11 @@ namespace BudgetExecution
             try
             {
                 var _stream = new FileStream( _footerPath, FileMode.Open );
-                _excelWorksheet.HeaderFooter.OddFooter.InsertPicture( _stream, 
-                    ePictureType.Png, PictureAlignment.Right );
+                var _footer = _excelWorksheet.HeaderFooter.OddFooter.InsertPicture( _stream, 
+                    ePictureType.Bmp, PictureAlignment.Right );
 
+                _footer.Width = 1.81d;
+                _footer.Height = 0.56d;
                 _excelWorksheet.HeaderFooter.AlignWithMargins = true;
                 _excelWorksheet.HeaderFooter.ScaleWithDocument = true;
             }

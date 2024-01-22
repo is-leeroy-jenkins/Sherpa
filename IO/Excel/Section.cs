@@ -226,15 +226,15 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.Section" /> class.
         /// </summary>
         /// <param name="excel">The excel.</param>
-        /// <param name="fromRow">From row.</param>
-        /// <param name="fromColumn">From column.</param>
-        /// <param name="toRow">To row.</param>
-        /// <param name="toColumn">To column.</param>
-        public Section( ExcelPackage excel, int fromRow = 1, int fromColumn = 1,
-            int toRow = 55, int toColumn = 12 ) 
-            : base( excel, fromRow, fromColumn, toRow, toColumn )
+        /// <param name="startRow">From row.</param>
+        /// <param name="startColumn">From column.</param>
+        /// <param name="endRow">To row.</param>
+        /// <param name="endColumn">To column.</param>
+        public Section( ExcelPackage excel, int startRow = 1, int startColumn = 1,
+            int endRow = 55, int endColumn = 12 ) 
+            : base( excel, startRow, startColumn, endRow, endColumn )
         {
-            _anchor = ( fromRow, fromColumn );
+            _anchor = ( startRow, startColumn );
             _span = Range.Columns;
             _depth = Range.Rows;
             _area = Range.Rows * Range.Columns;

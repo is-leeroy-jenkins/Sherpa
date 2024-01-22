@@ -41,11 +41,9 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using OfficeOpenXml;
-    using OfficeOpenXml.Drawing;
     using OfficeOpenXml.Style;
 
     /// <inheritdoc />
@@ -192,26 +190,53 @@ namespace BudgetExecution
         /// </summary>
         public void InitializeWorksheet( )
         {
-            if(_dataTable != null )
+            try
             {
-                _excelWorksheet = _excelWorkbook.Worksheets.Add( _dataTable.TableName );
-                _excelWorksheet.View.ShowGridLines = false;
-                _excelWorksheet.View.ZoomScale = _zoomLevel;
-                _excelWorksheet.View.PageLayoutView = true;
-                _excelWorksheet.View.ShowHeaders = true;
-                _excelWorksheet.DefaultRowHeight = _rowHeight;
-                _excelWorksheet.DefaultColWidth = _columnWidth;
-                _excelWorksheet.PrinterSettings.ShowHeaders = false;
-                _excelWorksheet.PrinterSettings.ShowGridLines = false;
-                _excelWorksheet.PrinterSettings.LeftMargin = _leftMargin;
-                _excelWorksheet.PrinterSettings.RightMargin = _rightMargin;
-                _excelWorksheet.PrinterSettings.TopMargin = _headerMargin;
-                _excelWorksheet.PrinterSettings.BottomMargin = _footerMargin;
-                _excelWorksheet.PrinterSettings.HorizontalCentered = true;
-                _excelWorksheet.PrinterSettings.VerticalCentered = true;
-                _excelWorksheet.PrinterSettings.FitToPage = true;
-                _excelWorksheet.HeaderFooter.AlignWithMargins = true;
-                _excelWorksheet.HeaderFooter.ScaleWithDocument = true;
+                if( _dataTable != null )
+                {
+                    _excelWorksheet = _excelWorkbook.Worksheets.Add( _dataTable.TableName );
+                    _excelWorksheet.View.ShowGridLines = false;
+                    _excelWorksheet.View.ZoomScale = _zoomLevel;
+                    _excelWorksheet.View.PageLayoutView = true;
+                    _excelWorksheet.View.ShowHeaders = true;
+                    _excelWorksheet.DefaultRowHeight = _rowHeight;
+                    _excelWorksheet.DefaultColWidth = _columnWidth;
+                    _excelWorksheet.PrinterSettings.ShowHeaders = false;
+                    _excelWorksheet.PrinterSettings.ShowGridLines = false;
+                    _excelWorksheet.PrinterSettings.LeftMargin = _leftMargin;
+                    _excelWorksheet.PrinterSettings.RightMargin = _rightMargin;
+                    _excelWorksheet.PrinterSettings.TopMargin = _headerMargin;
+                    _excelWorksheet.PrinterSettings.BottomMargin = _footerMargin;
+                    _excelWorksheet.PrinterSettings.HorizontalCentered = true;
+                    _excelWorksheet.PrinterSettings.VerticalCentered = true;
+                    _excelWorksheet.PrinterSettings.FitToPage = true;
+                    _excelWorksheet.HeaderFooter.AlignWithMargins = true;
+                    _excelWorksheet.HeaderFooter.ScaleWithDocument = true;
+                }
+                else
+                {
+                    _excelWorksheet.View.ShowGridLines = false;
+                    _excelWorksheet.View.ZoomScale = _zoomLevel;
+                    _excelWorksheet.View.PageLayoutView = true;
+                    _excelWorksheet.View.ShowHeaders = true;
+                    _excelWorksheet.DefaultRowHeight = _rowHeight;
+                    _excelWorksheet.DefaultColWidth = _columnWidth;
+                    _excelWorksheet.PrinterSettings.ShowHeaders = false;
+                    _excelWorksheet.PrinterSettings.ShowGridLines = false;
+                    _excelWorksheet.PrinterSettings.LeftMargin = _leftMargin;
+                    _excelWorksheet.PrinterSettings.RightMargin = _rightMargin;
+                    _excelWorksheet.PrinterSettings.TopMargin = _headerMargin;
+                    _excelWorksheet.PrinterSettings.BottomMargin = _footerMargin;
+                    _excelWorksheet.PrinterSettings.HorizontalCentered = true;
+                    _excelWorksheet.PrinterSettings.VerticalCentered = true;
+                    _excelWorksheet.PrinterSettings.FitToPage = true;
+                    _excelWorksheet.HeaderFooter.AlignWithMargins = true;
+                    _excelWorksheet.HeaderFooter.ScaleWithDocument = true;
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -257,10 +282,11 @@ namespace BudgetExecution
         /// Sets the dark color row.
         /// </summary>
         /// <param name="excelRange">The excel range.</param>
-        public void SetDarkColorRow( ExcelRange excelRange )
+        private protected void SetDarkColorRow( ExcelRange excelRange )
         {
             try
             {
+                ThrowIf.Null( excelRange, nameof( excelRange ) );
                 excelRange.Style.Font.Color.SetColor( _fontColor );
                 excelRange.Style.Font.SetFromFont( _font.Name, _font.Size );
                 excelRange.Style.Fill.PatternType = ExcelFillStyle.Solid;
@@ -278,7 +304,7 @@ namespace BudgetExecution
         /// Sets the light color row.
         /// </summary>
         /// <param name="excelRange">The range.</param>
-        public void SetLightColorRow( ExcelRange excelRange )
+        private protected void SetLightColorRow( ExcelRange excelRange )
         {
             try
             {
@@ -305,12 +331,14 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( excelRange, nameof( excelRange ) );
-                var _sRow = excelRange.Start.Row;
-                var _sColumn = excelRange.Start.Column;
-                var _eRow = excelRange.End.Row;
-                var _eColumn = excelRange.End.Column;
-                var _excelRange = _excelWorksheet.Cells[ _sRow, _sColumn, _eRow, _eColumn ];
-                for( var _i = _sRow; _i < _eRow; _i++ )
+                var _startRow = excelRange.Start.Row;
+                var _startColumn = excelRange.Start.Column;
+                var _endRow = excelRange.End.Row;
+                var _endColumn = excelRange.End.Column;
+                var _excelRange = _excelWorksheet.Cells[ _startRow, _startColumn, 
+                    _endRow, _endColumn ];
+
+                for( var _i = _startRow; _i < _endRow; _i++ )
                 {
                     if( _i % 2 == 0 )
                     {
