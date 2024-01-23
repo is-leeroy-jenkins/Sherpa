@@ -294,7 +294,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NotExists( filePath, nameof( filePath ) );
+                ThrowIf.NullOrEmpty( filePath, nameof( filePath ) );
                 _filePath = File.Exists( filePath )
                     ? filePath
                     : string.Empty;
@@ -407,19 +407,15 @@ namespace BudgetExecution
         /// <param name="align">The alignment.</param>
         public void SetHorizontalAlignment( Grid grid, ExcelHorizontalAlignment align )
         {
-            if( ( grid?.Worksheet != null )
-               && ( grid?.Range != null )
-               && Enum.IsDefined( typeof( ExcelHorizontalAlignment ), align ) )
+            try
             {
-                try
-                {
-                    using var _range = grid.Range;
-                    _range.Style.HorizontalAlignment = align;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                ThrowIf.Null( grid, nameof( grid ) );
+                using var _range = grid.Range;
+                _range.Style.HorizontalAlignment = align;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -430,18 +426,15 @@ namespace BudgetExecution
         /// <param name="align">The alignment.</param>
         public void SetVerticalAlignment( Grid grid, ExcelVerticalAlignment align )
         {
-            if( ( grid?.Worksheet != null )
-               && Enum.IsDefined( typeof( ExcelVerticalAlignment ), align ) )
+            try
             {
-                try
-                {
-                    using var _range = grid.Range;
-                    _range.Style.VerticalAlignment = align;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                ThrowIf.Null( grid, nameof( grid ) );
+                using var _range = grid.Range;
+                _range.Style.VerticalAlignment = align;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
     }

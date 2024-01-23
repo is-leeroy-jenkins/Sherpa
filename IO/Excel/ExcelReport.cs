@@ -63,6 +63,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "RedundantCheckBeforeAssignment" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public class ExcelReport : Workbook
     {
         /// <summary>
@@ -123,7 +124,7 @@ namespace BudgetExecution
         /// </summary>
         public ExcelReport( )
         {
-            _index = 5;
+            _index = 1;
             _fontColor = Color.Black;
             _font = new Font( "Roboto", 9, FontStyle.Regular );
             _titleFont = new Font( "Roboto", 10, FontStyle.Bold );
@@ -138,9 +139,9 @@ namespace BudgetExecution
             _footerMargin = 0m;
             _zoomLevel = 100;
             _rowCount = 55;
-            _columnCount = 12;
-            _primaryBackColor = Color.FromArgb( 255, 242, 242, 242 );
-            _secondaryBackColor = Color.FromArgb( 255, 221, 235, 247 );
+            _columnCount = 11;
+            _primaryBackColor = Color.White;
+            _secondaryBackColor = Color.FromArgb( 221, 235, 247 );
             _headerPath = AppSettings[ "Header" ];
             _footerPath = AppSettings[ "Footer" ];
             _internalPath = AppSettings[ "Reports" ];
@@ -148,12 +149,11 @@ namespace BudgetExecution
             _fileInfo = new FileInfo( _internalPath );
             _excelPackage = new ExcelPackage( _fileInfo );
             _excelWorkbook = _excelPackage.Workbook;
+            _excelWorksheet = _excelWorkbook.Worksheets.Add( "Data" );
+            _excelRange = _excelWorksheet.Cells[ 5, 1, 65, 11 ];
             _excelWorkbook.View.ShowHorizontalScrollBar = true;
             _excelWorkbook.View.ShowVerticalScrollBar = true;
-            _excelWorksheet = _excelWorkbook.Worksheets.Add( "Data" );
             InitializeWorkbookProperties( );
-            InitializeHeaderImage( );
-            InitializeFooterImage( );
             InitializeActiveGrid( );
             InitializeSheetViews( );
             InitializePrinterSettings( );
@@ -185,8 +185,8 @@ namespace BudgetExecution
             _zoomLevel = 100;
             _rowCount = 55;
             _columnCount = 12;
-            _primaryBackColor = Color.FromArgb( 255, 242, 242, 242 );
-            _secondaryBackColor = Color.FromArgb( 255, 221, 235, 247 );
+            _primaryBackColor = Color.White;
+            _secondaryBackColor = Color.FromArgb( 221, 235, 247 );
             _headerPath = AppSettings[ "Header" ];
             _footerPath = AppSettings[ "Footer" ];
             _internalPath = AppSettings[ "Reports" ];
@@ -198,8 +198,6 @@ namespace BudgetExecution
             _excelWorkbook.View.ShowHorizontalScrollBar = true;
             _excelWorkbook.View.ShowVerticalScrollBar = true;
             InitializeWorkbookProperties( );
-            InitializeHeaderImage( );
-            InitializeFooterImage( );
             InitializeActiveGrid( );
             InitializeSheetViews( );
             InitializePrinterSettings( );
@@ -234,8 +232,8 @@ namespace BudgetExecution
             _headerMargin = 0.25m;
             _footerMargin = 0.25m;
             _zoomLevel = 100;
-            _primaryBackColor = Color.FromArgb( 255, 242, 242, 242 );
-            _secondaryBackColor = Color.FromArgb( 255, 221, 235, 247 );
+            _primaryBackColor = Color.White;
+            _secondaryBackColor = Color.FromArgb( 221, 235, 247 );
             _headerPath = AppSettings[ "Header" ];
             _footerPath = AppSettings[ "Footer" ];
             _internalPath = AppSettings[ "Reports" ];
@@ -248,8 +246,6 @@ namespace BudgetExecution
             _excelWorksheet = _excelWorkbook.Worksheets.Add( dataTable.TableName );
             _excelWorkbook.Worksheets[ 0 ].Cells[ "A1" ].LoadFromDataTable( _dataTable );
             InitializeWorkbookProperties( );
-            InitializeHeaderImage( );
-            InitializeFooterImage( );
             InitializeActiveGrid( );
             InitializeSheetViews( );
             InitializePrinterSettings( );
@@ -298,7 +294,6 @@ namespace BudgetExecution
                         eOrientation.Portrait;
 
                     _excelWorkbook.Worksheets[ _i ].PrinterSettings.HorizontalCentered = true;
-                    _excelWorkbook.Worksheets[ _i ].PrinterSettings.FitToPage = true;
                 }
             }
             catch( Exception _ex )
@@ -360,17 +355,17 @@ namespace BudgetExecution
             {
                 for( var _i = 0; _i < _excelWorkbook.Worksheets.Count; _i++ )
                 {
-                    var _range = _excelWorkbook.Worksheets[ _i ].SelectedRange;
-                    _range.Style.Font.Name = "Roboto";
-                    _range.Style.Font.Size = 9;
-                    _range.Style.Font.Bold = false;
-                    _range.Style.Font.Italic = false;
-                    _range.EntireRow.CustomHeight = true;
-                    _range.Style.Fill.SetBackground( _primaryBackColor );
-                    _range.Style.Font.Color.SetColor( _fontColor );
-                    _range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                    _range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                    _excelRange.Style.Font.Name = "Roboto";
+                    _excelRange.Style.Font.Size = 9;
+                    _excelRange.Style.Font.Bold = false;
+                    _excelRange.Style.Font.Italic = false;
+                    _excelRange.EntireRow.CustomHeight = true;
+                    _excelRange.Style.Font.Color.SetColor( _fontColor );
+                    _excelRange.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                    _excelRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
                 }
+
+                SetAlternatingRowColor( _excelRange );
             }
             catch( Exception _ex )
             {

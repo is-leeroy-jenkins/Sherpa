@@ -45,12 +45,10 @@ namespace BudgetExecution
     using System.Data;
     using System.Data.OleDb;
     using System.Diagnostics.CodeAnalysis;
-    using System.Drawing;
     using System.IO;
     using DocumentFormat.OpenXml;
     using DocumentFormat.OpenXml.Spreadsheet;
     using OfficeOpenXml;
-    using OfficeOpenXml.Drawing;
     using OfficeOpenXml.Style;
     using Color = System.Drawing.Color;
     using Font = System.Drawing.Font;
@@ -175,6 +173,11 @@ namespace BudgetExecution
         /// The file information
         /// </summary>
         private protected FileInfo _fileInfo;
+
+        /// <summary>
+        /// The excel range
+        /// </summary>
+        private protected ExcelRange _excelRange;
 
         /// <summary>
         /// The application

@@ -269,8 +269,10 @@ namespace BudgetExecution
             {
                 ThrowIf.Null( grid, nameof( grid ) );
                 using var _range = grid.Range;
-                var _row = _range.Start.Row;
-                var _column = _range.Start.Column;
+                var _startRow = _range.Start.Row;
+                var _startColumn = _range.Start.Column;
+                var _endRow = _range.End.Row;
+                var _endColumn = _range.End.Column;
             }
             catch( Exception _ex )
             {
@@ -314,7 +316,7 @@ namespace BudgetExecution
                 excelRange.Style.Fill.PatternType = ExcelFillStyle.Solid;
                 excelRange.Style.Fill.BackgroundColor.SetColor( _primaryBackColor );
                 excelRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.CenterContinuous;
-                excelRange.Style.Border.Bottom.Style = ExcelBorderStyle.Hair;
+                excelRange.Style.Border.Bottom.Style = ExcelBorderStyle.Dotted;
             }
             catch( Exception _ex )
             {
@@ -335,23 +337,19 @@ namespace BudgetExecution
                 var _startColumn = excelRange.Start.Column;
                 var _endRow = excelRange.End.Row;
                 var _endColumn = excelRange.End.Column;
-                var _excelRange = _excelWorksheet.Cells[ _startRow, _startColumn, 
-                    _endRow, _endColumn ];
-
+                var _range = _excelWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
                 for( var _i = _startRow; _i < _endRow; _i++ )
                 {
                     if( _i % 2 == 0 )
                     {
-                        SetLightColorRow( _excelRange );
+                        SetLightColorRow( _range );
                     }
 
                     if( _i % 2 != 0 )
                     {
-                        SetDarkColorRow( _excelRange );
+                        SetDarkColorRow( _range );
                     }
                 }
-
-                SetNumericRowFormat( excelRange );
             }
             catch( Exception _ex )
             {
