@@ -82,7 +82,7 @@ namespace BudgetExecution
                 ThrowIf.NullOrEmpty( path, nameof( path ) );
                 var _dataSet = new DataSet( );
                 _dataSet?.Tables?.Add( ListToDataTable( data ) );
-                return CreateExcelDocument( _dataSet, path );
+                return CreateDocument( _dataSet, path );
             }
             catch( Exception _ex )
             {
@@ -105,7 +105,7 @@ namespace BudgetExecution
                 ThrowIf.NullOrEmpty( path, nameof( path ) );
                 var _dataSet = new DataSet( );
                 _dataSet.Tables.Add( dataTable );
-                var _document = CreateExcelDocument( _dataSet, path );
+                var _document = CreateDocument( _dataSet, path );
                 _dataSet.Tables.Remove( dataTable );
                 return _document;
             }
@@ -120,16 +120,16 @@ namespace BudgetExecution
         /// Creates the excel document.
         /// </summary>
         /// <param name="dataSet">The data set.</param>
-        /// <param name="fileName">Name of the file.</param>
+        /// <param name="filePath">Name of the file.</param>
         /// <returns></returns>
-        public bool CreateExcelDocument( DataSet dataSet, string fileName )
+        public bool CreateDocument( DataSet dataSet, string filePath )
         {
             try
             {
                 ThrowIf.Null( dataSet, nameof( dataSet ) );
-                ThrowIf.NullOrEmpty( fileName, nameof( fileName ) );
-                using var _document = Create( fileName, SpreadsheetDocumentType.Workbook );
-                WriteExcelFile( dataSet, _document );
+                ThrowIf.NullOrEmpty( filePath, nameof( filePath ) );
+                using var _document = Create( filePath, SpreadsheetDocumentType.Workbook );
+                WriteFile( dataSet, _document );
                 return true;
             }
             catch( Exception _ex )
@@ -144,7 +144,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataSet">The data set.</param>
         /// <param name="spreadSheet">The spreadsheet.</param>
-        public void WriteExcelFile( DataSet dataSet, SpreadsheetDocument spreadSheet )
+        public void WriteFile( DataSet dataSet, SpreadsheetDocument spreadSheet )
         {
             try
             {
@@ -157,14 +157,14 @@ namespace BudgetExecution
                 var _stylesheet = new Stylesheet( );
                 _styles.Stylesheet = _stylesheet;
                 uint _id = 1;
-                foreach( DataTable _dataTable in dataSet.Tables )
+                foreach( DataTable _table in dataSet.Tables )
                 {
                     var _part = spreadSheet?.WorkbookPart?.AddNewPart<WorksheetPart>( );
                     if( _part != null )
                     {
                         _part.Worksheet = new Worksheet( );
                         _part.Worksheet.AppendChild( new SheetData( ) );
-                        WriteDataTableToWorksheet( _dataTable, _part );
+                        WriteTableToWorksheet( _table, _part );
                         _part.Worksheet.Save( );
                         if( _id == 1 )
                         {
@@ -176,7 +176,7 @@ namespace BudgetExecution
                             {
                                 Id = spreadSheet.WorkbookPart.GetIdOfPart( _part ),
                                 SheetId = _id,
-                                Name = _dataTable.TableName
+                                Name = _table.TableName
                             } );
                     }
 
@@ -196,7 +196,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataTable">The data table.</param>
         /// <param name="workSheetPart">The work sheet part.</param>
-        public void WriteDataTableToWorksheet( DataTable dataTable, WorksheetPart workSheetPart )
+        public void WriteTableToWorksheet( DataTable dataTable, WorksheetPart workSheetPart )
         {
             try
             {

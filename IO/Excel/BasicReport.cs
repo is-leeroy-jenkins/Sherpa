@@ -105,26 +105,6 @@ namespace BudgetExecution
         private protected Font _titleFont;
 
         /// <summary>
-        /// The header image width
-        /// </summary>
-        private protected double _headerImageWidth;
-
-        /// <summary>
-        /// The header image 
-        /// </summary>
-        private protected double _headerImageHeigth;
-
-        /// <summary>
-        /// The footer image width
-        /// </summary>
-        private protected double _footerImageWidth;
-
-        /// <summary>
-        /// The footer image 
-        /// </summary>
-        private protected double _footerImageHeigth;
-
-        /// <summary>
         /// The left margin
         /// </summary>
         private protected decimal _leftMargin;
@@ -257,18 +237,17 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the color of the background.
         /// </summary>
-        /// <param name="grid">The grid.</param>
+        /// <param name="grid"> </param>
         /// <param name="color">The color.</param>
-        public void SetBackgroundColor( Grid grid, Color color )
+        public void SetRangeBackgroundColor( Grid grid, Color color )
         {
             try
             {
                 ThrowIf.Null( grid, nameof( grid ) );
                 ThrowIf.NullOrEmpty( color, nameof( color ) );
-                using var _range = grid.Range;
-                _range.Style.Fill.PatternType = ExcelFillStyle.Solid;
-                _range.Style.Fill.BackgroundColor.SetColor( color );
-                _range.Style.HorizontalAlignment = ExcelHorizontalAlignment.CenterContinuous;
+                _excelRange.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                _excelRange.Style.Fill.BackgroundColor.SetColor( color );
+                _excelRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.CenterContinuous;
             }
             catch( Exception _ex )
             {

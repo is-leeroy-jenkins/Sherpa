@@ -142,8 +142,6 @@ namespace BudgetExecution
             _columnCount = 11;
             _primaryBackColor = Color.White;
             _secondaryBackColor = Color.FromArgb( 221, 235, 247 );
-            _headerPath = AppSettings[ "Header" ];
-            _footerPath = AppSettings[ "Footer" ];
             _internalPath = AppSettings[ "Reports" ];
             _savePath = AppSettings[ "Desktop" ] + _fileName;
             _fileInfo = new FileInfo( _internalPath );
@@ -183,12 +181,8 @@ namespace BudgetExecution
             _headerMargin = 0m;
             _footerMargin = 0m;
             _zoomLevel = 100;
-            _rowCount = 55;
-            _columnCount = 12;
             _primaryBackColor = Color.White;
             _secondaryBackColor = Color.FromArgb( 221, 235, 247 );
-            _headerPath = AppSettings[ "Header" ];
-            _footerPath = AppSettings[ "Footer" ];
             _internalPath = AppSettings[ "Reports" ];
             _savePath = AppSettings[ "Desktop" ] + _fileName;
             _fileInfo = new FileInfo( filePath );
@@ -223,10 +217,6 @@ namespace BudgetExecution
             _titleFont = new Font( "Roboto", 10, FontStyle.Regular );
             _rowHeight = 11.25;
             _columnWidth = 8.5;
-            _headerImageWidth = 2.01d;
-            _headerImageHeigth = 0.45d;
-            _footerImageWidth = 2.04d;
-            _footerImageHeigth = 0.45d;
             _leftMargin = 0.25m;
             _rightMargin = 0.25m;
             _headerMargin = 0.25m;
@@ -234,17 +224,16 @@ namespace BudgetExecution
             _zoomLevel = 100;
             _primaryBackColor = Color.White;
             _secondaryBackColor = Color.FromArgb( 221, 235, 247 );
-            _headerPath = AppSettings[ "Header" ];
-            _footerPath = AppSettings[ "Footer" ];
             _internalPath = AppSettings[ "Reports" ];
             _savePath = AppSettings[ "Desktop" ] + _fileName;
             _fileInfo = new FileInfo( _internalPath );
             _excelPackage = new ExcelPackage( _fileInfo );
             _excelWorkbook = _excelPackage.Workbook;
+            _excelWorksheet = _excelWorkbook.Worksheets.Add( dataTable.TableName );
             _excelWorkbook.View.ShowHorizontalScrollBar = true;
             _excelWorkbook.View.ShowVerticalScrollBar = true;
-            _excelWorksheet = _excelWorkbook.Worksheets.Add( dataTable.TableName );
-            _excelWorkbook.Worksheets[ 0 ].Cells[ "A1" ].LoadFromDataTable( _dataTable );
+            _columnCount = dataTable.Columns.Count;
+            _rowCount = dataTable.Rows.Count;
             InitializeWorkbookProperties( );
             InitializeActiveGrid( );
             InitializeSheetViews( );
@@ -309,14 +298,6 @@ namespace BudgetExecution
         {
             try
             {
-                var _stream = new FileStream( _headerPath, FileMode.Open );
-                var _header = _excelWorksheet.HeaderFooter.OddHeader.InsertPicture( _stream, 
-                    ePictureType.Bmp, PictureAlignment.Left );
-
-                _header.Width = 1.50d;
-                _header.Height = 0.60d;
-                _excelWorksheet.HeaderFooter.AlignWithMargins = true;
-                _excelWorksheet.HeaderFooter.ScaleWithDocument = true;
             }
             catch( Exception _ex )
             {
@@ -331,14 +312,6 @@ namespace BudgetExecution
         {
             try
             {
-                var _stream = new FileStream( _footerPath, FileMode.Open );
-                var _footer = _excelWorksheet.HeaderFooter.OddFooter.InsertPicture( _stream, 
-                    ePictureType.Bmp, PictureAlignment.Right );
-
-                _footer.Width = 1.81d;
-                _footer.Height = 0.56d;
-                _excelWorksheet.HeaderFooter.AlignWithMargins = true;
-                _excelWorksheet.HeaderFooter.ScaleWithDocument = true;
             }
             catch( Exception _ex )
             {
@@ -353,8 +326,9 @@ namespace BudgetExecution
         {
             try
             {
-                for( var _i = 0; _i < _excelWorkbook.Worksheets.Count; _i++ )
+                if( _dataTable == null )
                 {
+                    _excelRange = _excelWorksheet.Cells[ 5, 1, 65, 11 ];
                     _excelRange.Style.Font.Name = "Roboto";
                     _excelRange.Style.Font.Size = 9;
                     _excelRange.Style.Font.Bold = false;
@@ -363,13 +337,20 @@ namespace BudgetExecution
                     _excelRange.Style.Font.Color.SetColor( _fontColor );
                     _excelRange.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
                     _excelRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                    SetAlternatingRowColor( _excelRange );
                 }
-
-                SetAlternatingRowColor( _excelRange );
+                else
+                {
+                    _excelWorksheet.Cells[ "A1" ].LoadFromDataTable( _dataTable );
+                }
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
+                if( _excelRange != null )
+                {
+                    _excelRange = null;
+                }
             }
         }
 
