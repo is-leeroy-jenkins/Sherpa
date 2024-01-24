@@ -58,7 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="DocumentFormat.OpenXml" Version="3.0.1" />
-    <PackageReference Include="EPPlus" Version="7.0.7" />
+    <PackageReference Include="EPPlus" Version="7.0.8" />
     <PackageReference Include="GMap.NET.WinForms" Version="2.1.7" />
     <PackageReference Include="Google.Apis" Version="1.66.0" />
     <PackageReference Include="Google.Apis.Core" Version="1.66.0" />
@@ -78,6 +78,10 @@
     <PackageReference Include="NETStandard.Library" Version="2.0.3" />
     <PackageReference Include="Ookii.Dialogs.WinForms" Version="4.0.0" />
     <PackageReference Include="ScottPlot.WinForms" Version="5.0.20" />
+    <PackageReference Include="Syncfusion.Grid.Windows" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Shared.Base" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Spreadsheet.Windows" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Tools.Windows" Version="24.1.41" />
     <PackageReference Include="System.Data.Common" Version="4.3.0" />
     <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
     <PackageReference Include="System.Data.OleDb" Version="8.0.0" />
@@ -212,9 +216,6 @@
     <Reference Include="Syncfusion.Grid.Grouping.Windows">
       <HintPath>Libraries\Syncfusion.Grid.Grouping.Windows.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.Grid.Windows">
-      <HintPath>Libraries\Syncfusion.Grid.Windows.dll</HintPath>
-    </Reference>
     <Reference Include="Syncfusion.GridCommon.WinForms">
       <HintPath>Libraries\Syncfusion.GridCommon.WinForms.dll</HintPath>
     </Reference>
@@ -341,9 +342,6 @@
     <Reference Include="Syncfusion.SfSmithChart.WinForms">
       <HintPath>Libraries\Syncfusion.SfSmithChart.WinForms.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.Shared.Base">
-      <HintPath>Libraries\Syncfusion.Shared.Base.dll</HintPath>
-    </Reference>
     <Reference Include="Syncfusion.Shared.Windows">
       <HintPath>Libraries\Syncfusion.Shared.Windows.dll</HintPath>
     </Reference>
@@ -356,17 +354,11 @@
     <Reference Include="Syncfusion.SpellChecker.Base">
       <HintPath>Libraries\Syncfusion.SpellChecker.Base.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.Spreadsheet.Windows">
-      <HintPath>Libraries\Syncfusion.Spreadsheet.Windows.dll</HintPath>
-    </Reference>
     <Reference Include="Syncfusion.SpreadsheetHelper.Windows">
       <HintPath>Libraries\Syncfusion.SpreadsheetHelper.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Tools.Base">
       <HintPath>Libraries\Syncfusion.Tools.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Tools.Windows">
-      <HintPath>Libraries\Syncfusion.Tools.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.TreeMap.Windows">
       <HintPath>Libraries\Syncfusion.TreeMap.Windows.dll</HintPath>
@@ -430,6 +422,5 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Clients\Baby\storage\i18n_process.css" />
-    <None Remove="Controls\TabControl\TabControl.cs~RFa766426.TMP" />
   </ItemGroup>
 </Project>

@@ -595,6 +595,14 @@ namespace BudgetExecution
         {
             try
             {
+                var _blueText = Color.FromArgb( 106, 189, 252 );
+                var _darkBackground = Color.FromArgb( 20, 20, 20 );
+                var _black = Color.Black;
+                var _white = Color.White;
+                var _transparent = Color.Transparent;
+                var _tipGradient = new[ ] { _blueText, _black };
+                var _chartGradient = new[ ] { _blueText, _darkBackground };
+                var _direction = Syncfusion.Drawing.GradientStyle.ForwardDiagonal;
                 Chart.ShowToolbar = false;
                 Chart.ShowScrollBars = false;
                 Chart.EnableMouseRotation = true;
@@ -636,37 +644,37 @@ namespace BudgetExecution
                 Chart.TextPosition = ChartTextPosition.Top;
                 Chart.Tilt = 3;
                 Chart.RadarStyle = ChartRadarAxisStyle.Polygon;
-                Chart.BackColor = Color.FromArgb( 20, 20, 20 );
-                Chart.ForeColor = Color.FromArgb( 106, 189, 252 );
+                Chart.BackColor = _darkBackground;
+                Chart.ForeColor = _blueText;
                 Chart.PrimaryXAxis.Font = new Font( "Roboto", 8 );
-                Chart.PrimaryXAxis.ForeColor = Color.White;
+                Chart.PrimaryXAxis.ForeColor = _white;
                 Chart.PrimaryXAxis.AxisLabelPlacement = ChartPlacement.Outside;
                 Chart.PrimaryXAxis.ValueType = ChartValueType.Category;
                 Chart.PrimaryXAxis.TitleFont = new Font( "Roboto", 8 );
-                Chart.PrimaryXAxis.TitleColor = Color.FromArgb( 106, 189, 252 );
+                Chart.PrimaryXAxis.TitleColor = _blueText;
                 Chart.PrimaryXAxis.Title = "Records";
                 Chart.PrimaryYAxis.Font = new Font( "Roboto", 8 );
-                Chart.PrimaryYAxis.ForeColor = Color.White;
+                Chart.PrimaryYAxis.ForeColor = _white;
                 Chart.PrimaryYAxis.AxisLabelPlacement = ChartPlacement.Outside;
                 Chart.PrimaryYAxis.ValueType = ChartValueType.Double;
                 Chart.PrimaryYAxis.TitleFont = new Font( "Roboto", 9 );
-                Chart.PrimaryYAxis.TitleColor = Color.FromArgb( 106, 189, 252 );
+                Chart.PrimaryYAxis.TitleColor = _blueText;
                 Chart.PrimaryYAxis.Format = "#,##0";
                 Chart.Tooltip.Font = new Font( "Roboto", 8 );
-                Chart.Tooltip.ForeColor = Color.FromArgb( 106, 189, 252 );
+                Chart.Tooltip.ForeColor = _blueText;
                 Chart.Tooltip.BorderStyle = BorderStyle.FixedSingle;
-                Chart.ToolBar.Border.ForeColor = Color.Black;
+                Chart.ToolBar.Border.ForeColor = _black;
                 Chart.ToolBar.Orientation = ChartOrientation.Horizontal;
-                Chart.ToolBar.ButtonBackColor = Color.FromArgb( 20, 20, 20 );
+                Chart.ToolBar.ButtonBackColor = _darkBackground;
                 Chart.ToolBar.Position = ChartDock.Bottom;
                 Chart.ToolBar.ShowGrip = false;
                 Chart.ToolBar.ShowBorder = false;
-                Chart.ToolBar.BackColor = Color.FromArgb( 20, 20, 20 );
+                Chart.ToolBar.BackColor = _darkBackground;
                 Chart.Title.Font = new Font( "Roboto", 10 );
-                Chart.Title.ForeColor = Color.FromArgb( 106, 189, 252 );
-                Chart.Title.BackColor = Color.Transparent;
-                Chart.Legend.BackColor = Color.Transparent;
-                Chart.Legend.ForeColor = Color.FromArgb( 106, 189, 252 );
+                Chart.Title.ForeColor = _blueText;
+                Chart.Title.BackColor = _transparent;
+                Chart.Legend.BackColor = _transparent;
+                Chart.Legend.ForeColor = _blueText;
                 Chart.Legend.Font = new Font( "Roboto", 7 );
                 Chart.Legend.ShowBorder = false;
                 Chart.Legend.ColumnsCount = 1;
@@ -676,17 +684,8 @@ namespace BudgetExecution
                 Chart.ChartArea.RealSeries3D = true;
                 Chart.ChartArea.Series3D = true;
                 Chart.ChartArea.AutoScale = true;
-                Chart.Tooltip.BackgroundColor = new BrushInfo( Syncfusion.Drawing.GradientStyle.ForwardDiagonal,
-                    new[ ]
-                    {
-                        Color.FromArgb( 106, 189, 252 ), Color.Black
-                    } );
-
-                Chart.ChartArea.BackInterior = new BrushInfo( Syncfusion.Drawing.GradientStyle.ForwardDiagonal,
-                    new[ ]
-                    {
-                        Color.FromArgb( 106, 189, 252 ), Color.FromArgb( 20, 20, 20 )
-                    } );
+                Chart.Tooltip.BackgroundColor = new BrushInfo( _direction, _tipGradient );
+                Chart.ChartArea.BackInterior = new BrushInfo( _direction, _chartGradient );
             }
             catch( Exception _ex )
             {

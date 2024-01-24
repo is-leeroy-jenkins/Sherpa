@@ -43,9 +43,6 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.Windows.Forms;
-    using MetroSet_UI.Child;
-    using Syncfusion.Windows.Forms.Spreadsheet;
 
     /// <inheritdoc />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]

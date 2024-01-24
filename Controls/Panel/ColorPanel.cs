@@ -55,6 +55,7 @@ namespace BudgetExecution
     /// <summary>
     /// </summary>
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class ColorPanel : GradientPanel
     {
         /// <summary>

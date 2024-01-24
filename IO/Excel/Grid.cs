@@ -62,12 +62,17 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
-    public class Grid : ExcelCellBase
+    public class Grid : ExcelCellAddress
     {
         /// <summary>
         /// From
         /// </summary>
         private ( int Row, int Column ) _from;
+
+        /// <summary>
+        /// The excel address
+        /// </summary>
+        private ExcelAddress _excelAddress;
 
         /// <summary>
         /// The range
@@ -175,12 +180,15 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="excel">The excel.</param>
         /// <param name="range">The range.</param>
-        public Grid( ExcelPackage excel, ExcelRange range )
+        public Grid( ExcelPackage excel, ExcelRange range ) 
+            : base( range.Start.Row, range.Start.Column )
         {
             _worksheet = excel.Workbook?.Worksheets[ 0 ];
             _range = range;
             _from = ( range.Start.Row, range.Start.Column );
             _to = ( range.End.Row, range.End.Column );
+            _excelAddress = new ExcelAddress( range.Start.Row, range.Start.Column, 
+                range.End.Row, range.End.Column );
         }
 
         /// <summary>
@@ -195,6 +203,7 @@ namespace BudgetExecution
             _from = ( address.Start.Row, address.Start.Column );
             _to = ( address.End.Row, address.End.Column );
             _range = _worksheet?.Cells[ _from.Row, _from.Column, _to.Row, _to.Column ];
+            _excelAddress = address;
         }
 
         /// <summary>
@@ -212,6 +221,7 @@ namespace BudgetExecution
             _from = ( startRow, startColumn );
             _to = ( endRow, endColumn );
             _range = _worksheet?.Cells[ startRow, startColumn, endRow, endColumn ];
+            _excelAddress = new ExcelAddress( startRow, startColumn, endRow, endColumn );
         }
 
         /// <summary>
@@ -225,6 +235,7 @@ namespace BudgetExecution
             _from = ( cell[ 0 ], cell[ 1 ] );
             _to = ( cell[ 2 ], cell[ 3 ] );
             _range = _worksheet?.Cells[ cell[ 0 ], cell[ 1 ], cell[ 2 ], cell[ 3 ] ];
+            _excelAddress = new ExcelAddress( cell[ 0 ], cell[ 1 ], cell[ 2 ], cell[ 3 ] );
         }
 
         /// <summary>
@@ -239,6 +250,7 @@ namespace BudgetExecution
             _range = _worksheet?.Cells[ from.Row, from.Column, to.Row, to.Column ];
             _from = from;
             _to = to;
+            _excelAddress = new ExcelAddress( from.Row, from.Column, to.Row, to.Column );
         }
 
         /// <summary>
@@ -252,6 +264,7 @@ namespace BudgetExecution
             _range = _worksheet?.Cells[ from.Row, from.Column ];
             _from = from;
             _to = from;
+            _excelAddress = new ExcelAddress( from.Row, from.Column, from.Row, from.Column );
         }
 
         /// <summary>
@@ -275,7 +288,7 @@ namespace BudgetExecution
             try
             {
                 var _list = new List<ExcelRangeBase>( );
-                foreach( var _cell in Range )
+                foreach( var _cell in _range )
                 {
                     _list.Add( _cell.Current );
                 }

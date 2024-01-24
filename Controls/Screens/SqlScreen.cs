@@ -140,7 +140,7 @@ namespace BudgetExecution
         public SqlScreen( )
         {
             InitializeComponent( );
-            RegisterCallbacks();
+            RegisterCallbacks( );
             InitializeDelegates( );
 
             // Basic Properties
@@ -281,7 +281,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the callback.
         /// </summary>
-        private void RegisterCallbacks()
+        private void RegisterCallbacks( )
         {
             try
             {
