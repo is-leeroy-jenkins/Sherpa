@@ -1230,7 +1230,7 @@ namespace BudgetExecution
             CaptionButtonColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionFont = new System.Drawing.Font( "Roboto", 12F );
-            CaptionForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            CaptionForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             ClientSize = new System.Drawing.Size( 1338, 738 );
             ControlBox = false;
             Controls.Add( ResourceTable );
@@ -1241,7 +1241,7 @@ namespace BudgetExecution
             Controls.Add( ExitButton );
             Controls.Add( TestButton );
             Font = new System.Drawing.Font( "Roboto", 9F );
-            ForeColor = System.Drawing.Color.LightGray;
+            ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
             MaximizeBox = false;
             MaximumSize = new System.Drawing.Size( 1350, 750 );

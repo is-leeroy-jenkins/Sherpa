@@ -65,7 +65,7 @@
             // 
             // PictureBox
             // 
-            PictureBox.Image = (System.Drawing.Image)resources.GetObject( "PictureBox.Image" );
+            PictureBox.Image = Resources.Images.budget;
             PictureBox.Location = new System.Drawing.Point( 3, 3 );
             PictureBox.Name = "PictureBox";
             PictureBox.Size = new System.Drawing.Size( 21, 18 );

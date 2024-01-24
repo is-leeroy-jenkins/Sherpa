@@ -31,7 +31,7 @@
             var resources = new System.ComponentModel.ComponentResourceManager( typeof( BudgetWindow ) );
             SuspendLayout( );
             // 
-            // BudgetPanel
+            // BudgetWindow
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
