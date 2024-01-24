@@ -59,6 +59,12 @@ namespace BudgetExecution
     using static System.IO.Directory;
     using static System.IO.Path;
     using CheckState = MetroSet_UI.Enums.CheckState;
+    using Color = System.Drawing.Color;
+    using Font = System.Drawing.Font;
+    using FontStyle = System.Drawing.FontStyle;
+    using Image = System.Drawing.Image;
+    using Size = System.Drawing.Size;
+    using SystemColors = System.Drawing.SystemColors;
 
     /// <inheritdoc />
     /// <summary>

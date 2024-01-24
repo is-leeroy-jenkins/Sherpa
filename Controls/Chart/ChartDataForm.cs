@@ -49,10 +49,12 @@ namespace BudgetExecution
     using System.Drawing.Drawing2D;
     using System.Linq;
     using System.Windows.Forms;
-    using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Chart;
     using Syncfusion.Windows.Forms.Tools;
+    using Syncfusion.WinForms.Core;
+    using Syncfusion.WinForms.Core.Enums;
+    using BrushInfo = Syncfusion.Drawing.BrushInfo;
     using MarkerStyle = Syncfusion.Windows.Forms.Chart.MarkerStyle;
 
     /// <summary>
@@ -653,9 +655,6 @@ namespace BudgetExecution
                 Chart.Tooltip.Font = new Font( "Roboto", 8 );
                 Chart.Tooltip.ForeColor = Color.FromArgb( 106, 189, 252 );
                 Chart.Tooltip.BorderStyle = BorderStyle.FixedSingle;
-                Chart.Tooltip.BackgroundColor = new BrushInfo( GradientStyle.None,
-                    Color.FromArgb( 106, 189, 252 ), Color.Black );
-
                 Chart.ToolBar.Border.ForeColor = Color.Black;
                 Chart.ToolBar.Orientation = ChartOrientation.Horizontal;
                 Chart.ToolBar.ButtonBackColor = Color.FromArgb( 20, 20, 20 );
@@ -677,8 +676,17 @@ namespace BudgetExecution
                 Chart.ChartArea.RealSeries3D = true;
                 Chart.ChartArea.Series3D = true;
                 Chart.ChartArea.AutoScale = true;
-                Chart.ChartArea.BackInterior = new BrushInfo( GradientStyle.None,
-                    Color.FromArgb( 106, 189, 252 ), Color.FromArgb( 20, 20, 20 ) );
+                Chart.Tooltip.BackgroundColor = new BrushInfo( Syncfusion.Drawing.GradientStyle.ForwardDiagonal,
+                    new[ ]
+                    {
+                        Color.FromArgb( 106, 189, 252 ), Color.Black
+                    } );
+
+                Chart.ChartArea.BackInterior = new BrushInfo( Syncfusion.Drawing.GradientStyle.ForwardDiagonal,
+                    new[ ]
+                    {
+                        Color.FromArgb( 106, 189, 252 ), Color.FromArgb( 20, 20, 20 )
+                    } );
             }
             catch( Exception _ex )
             {

@@ -47,15 +47,19 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using System.Drawing;
     using System.IO;
-    using Syncfusion.Drawing;
     using System.Linq;
     using System.Windows.Forms;
+    using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Edit;
     using static System.Configuration.ConfigurationManager;
     using CheckState = MetroSet_UI.Enums.CheckState;
+    using Color = System.Drawing.Color;
+    using Font = System.Drawing.Font;
+    using FontStyle = System.Drawing.FontStyle;
+    using Size = System.Drawing.Size;
+    using SystemColors = System.Drawing.SystemColors;
 
     /// <inheritdoc />
     /// <summary>

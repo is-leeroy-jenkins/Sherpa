@@ -44,11 +44,12 @@ namespace BudgetExecution
     using System.Collections;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
-    using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
     using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms.Tools;
+    using Color = System.Drawing.Color;
+    using Font = System.Drawing.Font;
 
     /// <inheritdoc />
     /// <summary>

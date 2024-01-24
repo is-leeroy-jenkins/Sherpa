@@ -3,12 +3,14 @@
     using System;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
-    using System.Drawing;
     using System.Drawing.Drawing2D;
     using System.Windows.Forms;
     using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
+    using Color = System.Drawing.Color;
+    using Font = System.Drawing.Font;
+    using Size = System.Drawing.Size;
 
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class TreeView : TreeViewAdv
