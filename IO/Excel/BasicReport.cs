@@ -280,7 +280,7 @@ namespace BudgetExecution
                 var _endRow = excelRange.End.Row;
                 var _endColumn = excelRange.End.Column;
                 _excelRange = _excelWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
-                _excelRange.Style.Font.SetFromFont( font );
+                _excelRange.Style.Font.SetFromFont( font.Name, font.Size );
             }
             catch( Exception _ex )
             {
