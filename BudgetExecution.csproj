@@ -110,9 +110,6 @@
     <Reference Include="DataGridMetro">
       <HintPath>Libraries\DataGridMetro.dll</HintPath>
     </Reference>
-    <Reference Include="EPPlus">
-      <HintPath>Libraries\EPPlus.dll</HintPath>
-    </Reference>
     <Reference Include="Expander">
       <HintPath>Libraries\Expander.dll</HintPath>
     </Reference>

@@ -5269,24 +5269,9 @@
             Load the theme color panel with selected theme colors
             </summary>
         </member>
-        <member name="M:Syncfusion.Windows.Tools.Controls.ColorPickerPalette.HighLightThemeColor">
-            <summary>
-            Theme color Highlighted when SelectedBrush/Color of the ColorPickerPalette is changed programmatically. 
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Tools.Controls.ColorPickerPalette.UnSelectPreviousColor">
-            <summary>
-            To unselect the previous color.
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Tools.Controls.ColorPickerPalette.StandardColors">
             <summary>
             Load the Standard color panel with predefined standard colors
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Tools.Controls.ColorPickerPalette.HighlightStdColor">
-            <summary>
-            Standard color Highlighted when SelectedBrush/Color of the ColorPickerPalette is changed programmatically. 
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Tools.Controls.ColorPickerPalette.RecentlyUsed">
@@ -5339,11 +5324,6 @@
             When color is changed,its presence is checked in RecentlyUsedCollection.If not present then added.
             </summary>
             <param name="e">Property change details, such as old value and new value</param>
-        </member>
-        <member name="M:Syncfusion.Windows.Tools.Controls.ColorPickerPalette.ChangeThemeAndStdColor">
-            <summary>
-            When theme or std color changes the selection is changed
-            </summary>
         </member>
         <member name="M:Syncfusion.Windows.Tools.Controls.ColorPickerPalette.standard_visibility_changed(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
             <summary>
@@ -12704,22 +12684,6 @@
             </summary>
             <param name="sender">The sender.</param>
             <param name="args">The <see cref="T:System.Windows.DependencyPropertyChangedEventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="M:Syncfusion.Windows.Shared.TileViewControl.BringIntoView(System.Object)">
-            <summary>
-            Attempts to bring the specified element into view, within any scrollable regions it is contained within. 
-            </summary>
-            <param name="data">An element that should bring into the view.</param>
-        </member>
-        <member name="M:Syncfusion.Windows.Shared.TileViewControl.BringIntoView(System.Int32)">
-            <summary>
-            Bring the item into view, using the specified index.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Shared.TileViewControl.UpdateFirstVisibleIndex(System.Int32)">
-            <summary>
-            Update the FirstVisibleIndex and the scroll for the item into view.
-            </summary>
         </member>
         <member name="M:Syncfusion.Windows.Shared.TileViewControl.IsItemItsOwnContainerOverride(System.Object)">
             <summary>
@@ -54642,16 +54606,6 @@
         <member name="F:Syncfusion.Windows.Shared.HSV.V">
             <summary>
             Brightness parameter.
-            </summary>
-        </member>
-        <member name="T:Syncfusion.Windows.Shared.LicensePopup">
-            <summary>
-            LicensePopup
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Shared.LicensePopup.InitializeComponent">
-            <summary>
-            InitializeComponent
             </summary>
         </member>
         <member name="T:Syncfusion.Windows.Converters.BrushToColorConverter">

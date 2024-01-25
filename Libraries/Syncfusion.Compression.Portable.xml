@@ -2522,12 +2522,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Syncfusion.Drawing.Image.CheckIfTiff">
-            <summary>
-            Checks if tiff.
-            </summary>
-            <returns></returns>
-        </member>
         <member name="M:Syncfusion.Drawing.Image.Initialize">
             <summary>
             Initializes this instance.
@@ -2536,11 +2530,6 @@
         <member name="M:Syncfusion.Drawing.Image.ParseBmpImage">
             <summary>
             Parses the GIF image.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Drawing.Image.ParseTiffImage">
-            <summary>
-            Parses tif image
             </summary>
         </member>
         <member name="M:Syncfusion.Drawing.Image.ParseEmfOrWmfImage">
@@ -13198,36 +13187,12 @@
             <param name="inputCharacter">Represent a input character to check.</param>
             <returns>Returns a FontScriptType of input character.</returns>
         </member>
-        <member name="M:Syncfusion.Office.TextSplitter.GetFontScriptSubType(System.Char)">
-            <summary>
-            Gets the fontscript subtype of an input character.
-            </summary>
-            <param name="inputCharacter">The input character to check.</param>
-            <returns>The fontscript subtype of the input character.</returns>
-        </member>
-        <member name="M:Syncfusion.Office.TextSplitter.GetUnicodeRange(Syncfusion.Office.FontScriptType,System.Boolean)">
-            <summary>
-            Get Unicode range for a given font script type.
-            </summary>
-            <param name="fontScriptType">Represent the font script type.</param>
-            <param name="isStartRange">Represent whether to get start unicode range or not.</param>
-            <returns></returns>
-        </member>
         <member name="M:Syncfusion.Office.TextSplitter.SplitTextByFontScriptType(System.String,System.Collections.Generic.List{Syncfusion.Office.FontScriptType}@)">
             <summary>
             Split the input text based on the FontScriptType.
             </summary>
             <param name="inputText">Represent the input text to split.</param>
             <param name="fontScriptTypes">Represent the FontScriptType of a splitted text.</param>
-            <returns>Retruns the array of splitted text.</returns>
-        </member>
-        <member name="M:Syncfusion.Office.TextSplitter.SplitTextByFontScriptType(System.String,System.Collections.Generic.List{Syncfusion.Office.FontScriptType}@,System.Boolean)">
-            <summary>
-            Split the input text based on the fontscript type.
-            </summary>
-            <param name="inputText">Represent the input text to split.</param>
-            <param name="fontScriptTypes">Represent the fontscript type of a splitted text.</param>
-            <param name="splitTextBasedOnSubType">Represent whether to split textrange based on fontscript subtype.</param>
             <returns>Retruns the array of splitted text.</returns>
         </member>
         <member name="M:Syncfusion.Office.TextSplitter.SplitTextByConsecutiveLtrAndRtl(System.String,System.Boolean,System.Boolean,System.Collections.Generic.List{Syncfusion.Office.CharacterRangeType}@,System.Nullable{System.Boolean}@,System.Boolean@)">
@@ -13342,12 +13307,6 @@
             Gets or Sets a Unicode range of end character which use a fall back font.
             </summary>
         </member>
-        <member name="P:Syncfusion.Office.FallbackFont.ScriptType">
-            <summary>
-            Gets the <see cref="T:Syncfusion.Office.ScriptType"/> of the fallback font.
-            </summary>
-            <remarks>Script type is unknown for the custom Unicode ranges.</remarks>
-        </member>
         <member name="P:Syncfusion.Office.FallbackFont.FontNames">
             <summary>
             Gets or Sets a fall back font names (split by comma).
@@ -13359,79 +13318,6 @@
             </summary>
             <param name="inputText">Represent a input text to check.</param>
             <returns>Returns true, if any character of input text is in-between start and end Unicode range; Otherwise false.</returns>
-        </member>
-        <member name="M:Syncfusion.Office.FallbackFont.GetScriptType">
-            <summary>
-            Get the fallback font script type.
-            </summary>
-            <returns>Returns the script type of a fallback font if is valid range. Otherwise, it is unknown for the custom Unicode ranges.</returns>
-        </member>
-        <member name="M:Syncfusion.Office.FallbackFont.IsArabicUnicodeRange">
-            <summary>
-            Check if the start and end Unicode ranges for Arabic are the same.
-            </summary>
-            <returns>Return true if the specified range are same.</returns>
-        </member>
-        <member name="M:Syncfusion.Office.FallbackFont.IsHebrewUnicodeRange">
-            <summary>
-            Check if the start and end Unicode ranges for Hebrew are the same.
-            </summary>
-            <returns>Return true if the specified ranges are same.</returns>
-        </member>
-        <member name="M:Syncfusion.Office.FallbackFont.IsHindiUnicodeRange">
-            <summary>
-            Check if the start and end Unicode ranges for Hindi are the same.
-            </summary>
-            <returns>Return true if the specified ranges are same.</returns>
-        </member>
-        <member name="M:Syncfusion.Office.FallbackFont.IsKoreanUnicodeRange">
-            <summary>
-            Check if the start and end Unicode ranges for Korean are the same.
-            </summary>
-            <returns>Return true if the specified ranges are same.</returns>
-        </member>
-        <member name="M:Syncfusion.Office.FallbackFont.IsJapaneseUnicodeRange">
-            <summary>
-            Check if the start and end Unicode ranges for Japanese are the same.
-            </summary>
-            <returns>Return true if the specified ranges are same.</returns>
-        </member>
-        <member name="M:Syncfusion.Office.FallbackFont.IsThaiUnicodeRange">
-            <summary>
-            Check if the start and end Unicode ranges for Thai are the same.
-            </summary>
-            <returns>Return true if the specified ranges are same.</returns>
-        </member>
-        <member name="M:Syncfusion.Office.FallbackFont.IsChineseUnicodeRange">
-            <summary>
-            Check if the start and end Unicode ranges for Chinese are the same.
-            </summary>
-            <returns>Return true if the specified ranges are same.</returns>
-        </member>
-        <member name="T:Syncfusion.Office.FallbackFonts">
-            <summary>
-            Represents a collection of <see cref="T:Syncfusion.Office.FallbackFont"/>.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Office.FallbackFonts.Add(Syncfusion.Office.ScriptType,System.String)">
-            <summary>
-            Adds a set of fallback fonts based on given script type.
-            </summary>
-            <param name="scriptType">Represents a <see cref="T:Syncfusion.Office.ScriptType"/>.</param>
-            <param name="fontNames">Represents a fall back font name or names (split by a comma).</param>
-        </member>
-        <member name="M:Syncfusion.Office.FallbackFonts.AddFallbackFont(System.UInt32,System.UInt32,System.String)">
-            <summary>
-            Adds a fallback font to the collection.
-            </summary>
-            <param name=" startUnicodeRange ">Represent a start Unicode range of fallback font.</param>
-            <param name=" endUnicodeRange ">Represent a end Unicode range of fallback font.</param>
-            <param name="fontNames">Represent a fallback font names.</param>
-        </member>
-        <member name="M:Syncfusion.Office.FallbackFonts.InitializeDefault">
-            <summary>
-            Initializes a set of default fallback fonts.
-            </summary>
         </member>
         <member name="T:Syncfusion.Office.LocaleIDs">
             <summary>
@@ -14661,51 +14547,6 @@
         <member name="F:Syncfusion.Office.LocaleIDs.ja_JP">
             <summary>
             Japanese.
-            </summary>
-        </member>
-        <member name="T:Syncfusion.Office.ScriptType">
-            <summary>
-            Specifies the script, or language.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Office.ScriptType.Unknown">
-            <summary>
-            Unknown script type.
-            </summary>   
-        </member>
-        <member name="F:Syncfusion.Office.ScriptType.Hindi">
-            <summary>
-            Hindi.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Office.ScriptType.Korean">
-            <summary>
-            Korean.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Office.ScriptType.Chinese">
-            <summary>
-            Chinese.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Office.ScriptType.Arabic">
-            <summary>
-            Arabic.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Office.ScriptType.Hebrew">
-            <summary>
-            Hebrew.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Office.ScriptType.Japanese">
-            <summary>
-            Japanese.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Office.ScriptType.Thai">
-            <summary>
-            Thai.
             </summary>
         </member>
         <member name="T:Syncfusion.Office.FontScriptType">
@@ -19322,285 +19163,6 @@
             <param name="value">float value</param>
             <returns></returns>
         </member>
-        <member name="T:Syncfusion.Office.LaTeXParser">
-            <summary>
-            Represents the parser for MathML items from LaTeX string.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Office.LaTeXParser.ParseMathPara(System.String,Syncfusion.Office.IOfficeMathParagraph,Syncfusion.Office.DocumentLaTeXConverter)">
-            <summary>
-            Parse OMathPara which holds the MathML item using the LaTeX string.
-            </summary>
-            <param name="laTexString">LaTex string to parse</param>
-            <param name="mathPara">MathPara to store the parsed LaTeX string</param>
-            <param name="documentLaTeXConverter">DocIO LaTeX parser instance</param>
-        </member>
-        <member name="M:Syncfusion.Office.LaTeXParser.ParseMathEquation">
-            <summary>
-            Parse the math para according to the math function type
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Office.LaTeXParser.ParseMathAccent">
-            <summary>
-            Parse Math Accent equation.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Office.LaTeXParser.ParseMathBar">
-            <summary>
-            Parse Math Bar equation.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Office.LaTeXParser.ParseMathBox">
-            <summary>
-            Parse Math Box equation.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Office.LaTeXParser.ParseMathBorderBox">
-            <summary>
-            Parse Math BorderBox equation.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Office.LaTeXParser.ParseMathDelimiter">
-            <summary>
-            Parse math delimiter equation
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Office.LaTeXParser.CheckDelimiterSyntax(System.String@,System.String@,System.String@,System.Collections.Generic.List{System.String}@,System.String@)">
-            <summary>
-            Check whether the LaTeX string has proper delimiter syntax
-            </summary>
-            <param name="beginChar"></param>
-            <param name="endChar"></param>
-            <param name="sepChar"></param>
-            <param name="inBetweenStrings"></param>
-            <returns>Returns true, if the syntax matches; else false</returns>
-        </member>
-        <member name="M:Syncfusion.Office.LaTeXParser.GetDelimiterString(System.String@)">
-            <summary>
-            Get the delimiter string
-            </summary>
-            <returns>Returns the delimiter string to set</returns>
-        </member>
-        <member name="M:Syncfusion.Office.LaTeXParser.ParseMathFraction">
-            <summary>
-            Parse math fraction
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Office.LaTeXParser.ParseMathNoFractionBar(System.String,System.Int32)">
-            <summary>
-            Parse math NoFractionBar FractionType.
-            </summary>
-            <param name="numerator">Numerator of fraction equation</param>
-            <param name="startLaTexPos">LaTex string start position</param>
-        </member>
-        <member name="M:Syncfusion.Office.LaTeXParser.ParseMathFunction">
-            <summary>
-            Parse math Function equation
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Office.LaTeXParser.ParseMathGroupCharacter">
-            <summary>
-            Parse Group Character equation.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Office.LaTeXParser.ParseMathLimit(System.String,System.Int32)">
-            <summary>
-            Parse the math limit.
-            </summary>
-            <param name="equationText">Equation text of math limit</param>
-            <param name="startLaTexPos">The math limit start position</param>
-        </member>
-        <member name="M:Syncfusion.Office.LaTeXParser.ParseMathMatrix">
-            <summary>
-            Parse Math Matrix
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Office.LaTeXParser.CheckMatrixSyntax(System.Collections.Generic.List{System.Collections.Generic.List{System.String}}@,System.Int32@)">
-            <summary>
-            Check the matrix equation syntax
-            </summary>
-            <param name="matrixRows"></param>
-            <param name="maxColCount"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Syncfusion.Office.LaTeXParser.ParseMathNArray">
-            <summary>
-            Parse Math N-Array.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Office.LaTeXParser.ParseMathRadical">
-            <summary>
-            Parse math radical
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Office.LaTeXParser.CheckRadicalSyntax(System.String@,System.String@)">
-            <summary>
-            Check the radical syntax
-            </summary>
-            <param name="degree"></param>
-            <param name="equation"></param>
-        </member>
-        <member name="M:Syncfusion.Office.LaTeXParser.IsValidGroup(System.String@)">
-            <summary>
-            Check whether the current group start have proper group end
-            </summary>
-            <returns>Returns the string between the group start and group end</returns>
-        </member>
-        <member name="M:Syncfusion.Office.LaTeXParser.CheckSquareBracSyntax">
-            <summary>
-            Check whether the current group start have proper group end
-            </summary>
-            <returns>Returns the string between the group start and group end</returns>
-        </member>
-        <member name="M:Syncfusion.Office.LaTeXParser.ParseMathGroupStart">
-            <summary>
-            Parse the group start ("{").
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Office.LaTeXParser.ParseMathSubSuperScript(System.String,System.Int32)">
-            <summary>
-            Parse Math SubSuperscript
-            </summary>
-            <param name="equationString">SubSuperscript equation run element text string value.</param>
-            <param name="startLaTexPos">Group start index position</param>
-        </member>
-        <member name="M:Syncfusion.Office.LaTeXParser.ParseMathLeftSubSuperScript(System.String,System.Int32)">
-            <summary>
-            Parse math LeftSubSuperScript
-            </summary>
-            <param name="groupBetweenText">Script text inside the group</param>
-            <param name="startLaTexPos">Previous position of group start.</param>
-        </member>
-        <member name="M:Syncfusion.Office.LaTeXParser.ParseMathRightSubSuperScript(System.String,System.String,Syncfusion.Office.MathScriptType,System.Int32)">
-            <summary>
-            Parse the math RightSubSuperScript.
-            </summary>
-            <param name="equationString">Equation run element string</param>
-            <param name="scriptString">The script string can be sub or super script.</param>
-            <param name="scriptType">Previous script type</param>
-            <param name="startLaTexPos">LaTex string first start position.</param>
-        </member>
-        <member name="M:Syncfusion.Office.LaTeXParser.SetRunElement(System.String)">
-            <summary>
-            Set the run element for the given string
-            </summary>
-            <param name="runElementString"></param>
-        </member>
-        <member name="M:Syncfusion.Office.LaTeXParser.ResetAndParseMath(System.String,Syncfusion.Office.OfficeMath)">
-            <summary>
-            Reset the global values and parse the math for the given string
-            </summary>
-            <param name="currString"></param>
-            <param name="currMath"></param>
-        </member>
-        <member name="M:Syncfusion.Office.LaTeXParser.GetEquationString">
-            <summary>
-            Get the equation string.
-            </summary>
-            <returns>The equation string. If equation not in proper group or invalid characters return null.</returns>
-        </member>
-        <member name="M:Syncfusion.Office.LaTeXParser.GetLaTexElement">
-            <summary>
-            Get the each LaTex element from LaTex string.
-            </summary>
-            <returns>Returns the each LaTex element</returns>
-        </member>
-        <member name="M:Syncfusion.Office.LaTeXParser.GetSymbol(System.String)">
-            <summary>
-            Get the equal symbol for LatexString.
-            </summary>
-            <param name="latexString">LaTex string to convert symbol</param>
-            <returns>Return the equal symbol for laTexString, if equal symbol not found then return the same laTexString</returns>
-        </member>
-        <member name="M:Syncfusion.Office.LaTeXParser.GetBasicMathCharString(System.String)">
-            <summary>
-            Get the equal basic math symbol for LatexString.
-            </summary>
-            <param name="latexString">LaTex string to convert symbol</param>
-            <returns>Return the equal symbol for laTexString, if equal symbol not found then return null</returns>
-        </member>
-        <member name="M:Syncfusion.Office.LaTeXParser.GetGreekLetterCharString(System.String)">
-            <summary>
-            Get the equal greek letters symbol for LatexString.
-            </summary>
-            <param name="latexString">LaTex string to convert symbol</param>
-            <returns>Return the equal symbol for laTexString, if equal symbol not found then return null</returns>
-        </member>
-        <member name="M:Syncfusion.Office.LaTeXParser.GetLetterLikeSymbolCharString(System.String)">
-            <summary>
-            Get the equal letter-like symbol for LatexString.
-            </summary>
-            <param name="latexString">LaTex string to convert symbol</param>
-            <returns>Return the equal symbol for laTexString, if equal symbol not found then return null</returns>
-        </member>
-        <member name="M:Syncfusion.Office.LaTeXParser.GetOperatorsSymbolCharString(System.String)">
-            <summary>
-            Get the equal basic math symbol for LatexString.
-            </summary>
-            <param name="latexString">LaTex string to convert symbol</param>
-            <returns>Return the equal symbol for laTexString, if equal symbol not found then return null</returns>
-        </member>
-        <member name="M:Syncfusion.Office.LaTeXParser.GetCommonBinaryOperatorCharString(System.String)">
-            <summary>
-            Get the equal common binary opertaors symbol for LatexString.
-            </summary>
-            <param name="latexString">LaTex string to convert symbol</param>
-            <returns>Return the equal symbol for laTexString, if equal symbol not found then return null</returns>
-        </member>
-        <member name="M:Syncfusion.Office.LaTeXParser.GetCommonRelationalOperatorCharString(System.String)">
-            <summary>
-            Get the equal common relational operators symbol for LatexString.
-            </summary>
-            <param name="latexString">LaTex string to convert symbol</param>
-            <returns>Return the equal symbol for laTexString, if equal symbol not found then return null</returns>
-        </member>
-        <member name="M:Syncfusion.Office.LaTeXParser.GetBasicNaryOperatorCharString(System.String)">
-            <summary>
-            Get the equal basic N-ary operators symbol for LatexString.
-            </summary>
-            <param name="latexString">LaTex string to convert symbol</param>
-            <returns>Return the equal symbol for laTexString, if equal symbol not found then return null</returns>
-        </member>
-        <member name="M:Syncfusion.Office.LaTeXParser.GetAdvancedBinaryOperatorsCharString(System.String)">
-            <summary>
-            Get the advanced binary operators symbol for LatexString.
-            </summary>
-            <param name="latexString">LaTex string to convert symbol</param>
-            <returns>Return the equal symbol for laTexString, if equal symbol not found then return null</returns>
-        </member>
-        <member name="M:Syncfusion.Office.LaTeXParser.GetAdvancedRelationalOperatorCharString(System.String)">
-            <summary>
-            Get the equal advanced relational operator symbol for LatexString.
-            </summary>
-            <param name="latexString">LaTex string to convert symbol</param>
-            <returns>Return the equal symbol for laTexString, if equal symbol not found then return null</returns>
-        </member>
-        <member name="M:Syncfusion.Office.LaTeXParser.GetArrowCharString(System.String)">
-            <summary>
-            Get the equal arrows symbol for LatexString.
-            </summary>
-            <param name="latexString">LaTex string to convert symbol</param>
-            <returns>Return the equal symbol for laTexString, if equal symbol not found then return null</returns>
-        </member>
-        <member name="M:Syncfusion.Office.LaTeXParser.GetNegatedCharString(System.String)">
-            <summary>
-            Get the equal negated relations symbol for LatexString.
-            </summary>
-            <param name="latexString">LaTex string to convert symbol</param>
-            <returns>Return the equal symbol for laTexString, if equal symbol not found then return null</returns>
-        </member>
-        <member name="M:Syncfusion.Office.LaTeXParser.GetGeometryCharString(System.String)">
-            <summary>
-            Get the equal geometry symbol for LatexString.
-            </summary>
-            <param name="latexString">LaTex string to convert symbol</param>
-            <returns>Return the equal symbol for laTexString, if equal symbol not found then return null</returns>
-        </member>
-        <member name="T:Syncfusion.Office.DocumentLaTeXConverter">
-            <summary>
-            LaTeX parser to connect the DocIO LaTeX parser and LaTeXParser.
-            </summary>
-        </member>
         <member name="F:Syncfusion.Office.OfficeMathNArray.m_equation">
             <summary>
              Specifies an <see cref="T:Syncfusion.Office.IOfficeMath"/> object that represents the base of the specified equation object.                                         
@@ -19773,13 +19335,6 @@
             <summary>
             Represents the default character format for functions in mathematical equation
             </summary>
-        </member>
-        <member name="M:Syncfusion.Office.OfficeMathParagraph.ConvertLaTeXToMath(System.String,Syncfusion.Office.DocumentLaTeXConverter)">
-            <summary>
-            Converts the LaTeX to MathML.
-            </summary>
-            <param name="laTeX">LaTeX string to convert</param>
-            <param name="documentLaTeXConverter">DocIO LaTeX parser instance</param>
         </member>
         <member name="M:Syncfusion.Office.OfficeMathParagraph.Clone">
             <summary>

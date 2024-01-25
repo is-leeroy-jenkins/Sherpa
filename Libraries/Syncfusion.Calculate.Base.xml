@@ -1215,14 +1215,6 @@
             </summary>
             <param name="formula">formula to execute / compute</param>
         </member>
-        <member name="M:Syncfusion.Calculate.CalcEngine.GetExactResultsFromCellReference(System.String,System.String)">
-            <summary>
-            This method is used to retrieve the exact results from a cell reference based on the cell formula.
-            </summary>
-            <param name="cellReference">This parameter represents the Parameter of IF formulas it can be either logical true or logical false.</param>
-            <param name="result">This parameter represents the result of the IF formulas parameter.</param>
-            <returns>Returns zero if the cell reference does not have any formula; otherwise, it returns the value of the formula in the cell reference.</returns>
-        </member>
         <member name="M:Syncfusion.Calculate.CalcEngine.ComputeFormula(System.String)">
             <summary>
             A method that computes a parsed formula.

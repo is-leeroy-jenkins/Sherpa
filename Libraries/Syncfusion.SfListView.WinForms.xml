@@ -446,11 +446,6 @@
             Stores the exception message for invalid value member.
             </summary>
         </member>
-        <member name="F:Syncfusion.WinForms.ListView.SfComboBox.isKeyDownPressed">
-            <summary>
-            Specifies whether the key pressed or not.
-            </summary>
-        </member>
         <member name="M:Syncfusion.WinForms.ListView.SfComboBox.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.WinForms.ListView.SfComboBox"/> class.
@@ -500,26 +495,6 @@
             <summary>
             Occurs when theme name of the <see cref="T:Syncfusion.WinForms.ListView.SfComboBox"/> has changed.
             </summary>
-        </member>
-        <member name="E:Syncfusion.WinForms.ListView.SfComboBox.SelectionChangeCommitted">
-            <summary>
-            Occurs when the user changes the selected item, and that change is displayed in the ComboBox.
-            </summary>
-            <remarks>
-            <para>This event is triggered in the following cases:</para>
-            <list type="bullet">
-            <item>
-            <term>
-            When the user selects a new item in the list box by clicking or pressing Enter.
-            </term>
-            </item>
-            <item>
-            <term>
-            When the user tabs out of the combo after changing the current text, and validation was successful.
-            </term>
-            </item>
-            </list>
-            </remarks>
         </member>
         <member name="P:Syncfusion.WinForms.ListView.SfComboBox.Text">
             <summary>
@@ -822,11 +797,6 @@
                 Gets or sets the ToolTipItem used to show tooltip when hovering on the cells.
             </summary>
         </member>
-        <member name="P:Syncfusion.WinForms.ListView.SfComboBox.LastCommittedText">
-            <summary>
-            Gets or sets the LastCommittedText, indicating whether the item has been committed.
-            </summary>
-        </member>
         <member name="M:Syncfusion.WinForms.ListView.SfComboBox.ShowDropDown">
             <summary>
             Occurs when drop down is opening
@@ -987,23 +957,6 @@
              Event will be trigged after closing the popup.
             </summary>
             <param name="e"> drop down closed event arguments</param>
-        </member>
-        <member name="M:Syncfusion.WinForms.ListView.SfComboBox.OnSelectionChangeCommitted(System.EventArgs)">
-            <summary>
-            Raises the SelectionChangeCommitted event.
-            </summary>
-            <param name="e">An EventArgs that contains the event data.</param>
-            <remarks><para>Raising an event invokes the event handler 
-            through a delegate. For more information, see Raising 
-            an Event.</para> <para>The OnSelectionChangeCommitted method also 
-            allows derived classes to handle the event without 
-            attaching a delegate. This is the preferred technique 
-            for handling the event in a derived class.</para>
-            <para>Note to Inheritors: When overriding OnSelectionChangeCommitted 
-            in a derived class, be sure to call the base class's 
-            OnSelectionChangeCommitted method so that registered 
-            delegates receive the event.</para>
-            </remarks>
         </member>
         <member name="M:Syncfusion.WinForms.ListView.SfComboBox.GetPreferredHeight">
             <summary>

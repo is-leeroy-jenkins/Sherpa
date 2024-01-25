@@ -71,6 +71,7 @@ namespace BudgetExecution
             {
                 return _fontColor;
             }
+            
             private protected set
             {
                 _fontColor = value;
@@ -89,6 +90,7 @@ namespace BudgetExecution
             {
                 return _font;
             }
+            
             private protected set
             {
                 _font = value;
@@ -107,6 +109,7 @@ namespace BudgetExecution
             {
                 return _titleFont;
             }
+            
             private protected set
             {
                 _titleFont = value;
@@ -228,11 +231,12 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                Fail( _ex );
                 if( _excelRange != null )
                 {
                     _excelRange = null;
                 }
+                
+                Fail( _ex );
             }
         }
 
@@ -259,11 +263,12 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                Fail( _ex );
                 if( _excelRange != null )
                 {
                     _excelRange = null;
                 }
+                
+                Fail( _ex );
             }
         }
 
@@ -295,11 +300,12 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                Fail( _ex );
                 if( _excelRange != null )
                 {
                     _excelRange = null;
                 }
+                
+                Fail( _ex );
             }
         }
 
@@ -324,11 +330,12 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                Fail( _ex );
                 if( _excelRange != null )
                 {
                     _excelRange = null;
                 }
+                
+                Fail( _ex );
             }
         }
 
@@ -354,11 +361,12 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                Fail( _ex );
                 if( _excelRange != null )
                 {
                     _excelRange = null;
                 }
+                
+                Fail( _ex );
             }
         }
     }

@@ -76,6 +76,7 @@ namespace BudgetExecution
             {
                 return _dataConnection;
             }
+            
             private protected set
             {
                 _dataConnection = value;
@@ -94,6 +95,7 @@ namespace BudgetExecution
             {
                 return _dataCommand;
             }
+            
             private protected set
             {
                 _dataCommand = value;
@@ -112,6 +114,7 @@ namespace BudgetExecution
             {
                 return _dataAdapter;
             }
+            
             private protected set
             {
                 _dataAdapter = value;
@@ -130,6 +133,7 @@ namespace BudgetExecution
             {
                 return _fileInfo;
             }
+            
             private protected set
             {
                 _fileInfo = value;
@@ -148,6 +152,7 @@ namespace BudgetExecution
             {
                 return _excelPackage;
             }
+            
             private protected set
             {
                 _excelPackage = value;
@@ -166,6 +171,7 @@ namespace BudgetExecution
             {
                 return _excelWorkbook;
             }
+            
             private protected set
             {
                 _excelWorkbook = value;
@@ -184,6 +190,7 @@ namespace BudgetExecution
             {
                 return _excelWorksheet;
             }
+            
             private protected set
             {
                 _excelWorksheet = value;
@@ -202,6 +209,7 @@ namespace BudgetExecution
             {
                 return _excelComments;
             }
+            
             private protected set
             {
                 _excelComments = value;
@@ -220,6 +228,7 @@ namespace BudgetExecution
             {
                 return _dataTable;
             }
+            
             private protected set
             {
                 _dataTable = value;
@@ -239,6 +248,7 @@ namespace BudgetExecution
             {
                 return _index;
             }
+            
             private protected set
             {
                 _index = value;
@@ -258,6 +268,7 @@ namespace BudgetExecution
             {
                 return _filePath;
             }
+            
             private protected set
             {
                 _filePath = value;
@@ -277,6 +288,7 @@ namespace BudgetExecution
             {
                 return _fileName;
             }
+            
             private protected set
             {
                 _fileName = value;

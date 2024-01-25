@@ -256,11 +256,12 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                Fail( _ex );
                 if( _excelRange != null )
                 {
                     _excelRange = null;
                 }
+                
+                Fail( _ex );
             }
         }
 
@@ -279,15 +280,16 @@ namespace BudgetExecution
                 var _endRow = excelRange.End.Row;
                 var _endColumn = excelRange.End.Column;
                 _excelRange = _excelWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
-                _excelRange.Style.Font.SetFromFont( font.Name, font.Size );
+                _excelRange.Style.Font.SetFromFont( font );
             }
             catch( Exception _ex )
             {
-                Fail( _ex );
                 if( _excelRange != null )
                 {
                     _excelRange = null;
                 }
+                
+                Fail( _ex );
             }
         }
 
@@ -312,11 +314,12 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                Fail( _ex );
                 if( _excelRange != null )
                 {
                     _excelRange = null;
                 }
+                
+                Fail( _ex );
             }
         }
 

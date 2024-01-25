@@ -2043,11 +2043,6 @@
             Holds the mcid value.
             </summary>
         </member>
-        <member name="P:Syncfusion.PdfViewer.Base.TextElement.RotateAngle">
-            <summary>
-            Gets or sets the rotate text angle.
-            </summary>
-        </member>
         <member name="P:Syncfusion.PdfViewer.Base.TextElement.IsExtractTextData">
             <summary>
             Gets or sets the value that indicating the extracting of text data.

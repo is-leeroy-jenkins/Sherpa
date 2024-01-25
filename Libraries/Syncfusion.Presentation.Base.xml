@@ -1729,22 +1729,6 @@
             <param name="oleStream">Determines the stream of OleObject</param>
             <param name="path">Determines the path of the OleObject</param>
         </member>
-        <member name="M:Syncfusion.Presentation.Drawing.Shapes.FindAllInSmartArtShape(Syncfusion.Presentation.ISmartArtNodes,System.Text.RegularExpressions.Regex)">
-            <summary>
-            Finds all the given text from the SmartArt shape using Regex Pattern. 
-            </summary>
-            <param name="mainNodes">Represent main smart art nodes need to find.</param>
-            <param name="pattern">Represents regex pattern used to find.</param>
-            <returns>The <see cref="T:Syncfusion.Presentation.ITextSelection"/> collection that contains all the entries of the found text in the document.</returns>
-        </member>
-        <member name="M:Syncfusion.Presentation.Drawing.Shapes.FindInSmartArtShape(Syncfusion.Presentation.ISmartArtNodes,System.Text.RegularExpressions.Regex)">
-            <summary>
-            Find the first occurrence of the given word using Regex pattern.
-            </summary>
-            <param name="mainNodes">Represent main smart art nodes need to find.</param>
-            <param name="pattern">Represents regex pattern used to find.</param>
-            <returns>The <see cref="T:Syncfusion.Presentation.ITextSelection"/> that contains the found text in the document.</returns>
-        </member>
         <member name="T:Syncfusion.Presentation.Drawing.TextureFill">
             <summary>
             Represents the picture or texture type in fill format.
@@ -5043,12 +5027,6 @@
             <param name="imagePath">Represents the picture image path need to be checked</param>
             <returns>Returns true if the picture is used in the given base slide, otherwise false.</returns>
         </member>
-        <member name="M:Syncfusion.Presentation.SlideImplementation.BaseSlide.GetVmlShapeCount">
-            <summary>
-            Gets VmlShape count.
-            </summary>
-            <returns>Returns Vml shape count if slide has Vml shape else 0.</returns>
-        </member>
         <member name="M:Syncfusion.Presentation.SlideImplementation.LayoutSlides.RemoveLayoutSlideRelations(Syncfusion.Presentation.SlideImplementation.LayoutSlide)">
             <summary>
             Remove a layout slide relation from the master slide and presentation document.
@@ -5828,43 +5806,10 @@
             Returns or sets whether to use the excel data range for chart.
             </summary>
         </member>
-        <member name="M:Syncfusion.Presentation.Charts.PresentationChart.Refresh(System.Boolean)">
+        <member name="M:Syncfusion.Presentation.Charts.PresentationChart.Refresh">
             <summary>
-            Replaces the chart data with the worksheet data.
+            Sets the Worksheet data into the current chart.
             </summary>
-            <param name="updateFormula">
-            Optional Boolean. Set to <b>true</b> to update all the formulas in the Excel sheet. The default value is <b>false</b>.
-            </param>
-            <example>
-            <code lang="CS">
-            //Open a presentation containing charts
-            IPresentation presentation = Presentation.Open("Template.pptx");
-            //Get the slide from presentation
-            ISlide slide = presentation.Slides[0];
-            //Get the chart from slide
-            IPresentationChart chart = slide.Charts[0];
-            //Refreshes the chart object according its excel data.
-            chart.Refresh(true);
-            //Save the presentation
-            presentation.Save("Sample.pptx");
-            //Close the presentation
-            presentation.Close();
-            </code>
-            <code lang="VB.NET">
-            'Open a presentation containing charts
-            Dim presentation As IPresentation = Presentation.Open("Template.pptx")
-            'Get the slide from presentation
-            Dim slide As ISlide = presentation.Slides(0)
-            'Get the chart from slide
-            Dim chart As IPresentationChart = slide.Charts(0)
-            'Refreshes the chart object according its excel data.
-            chart.Refresh(True)
-            'Save the presentation
-            presentation.Save("Sample.pptx")
-            'Close the presentation
-            presentation.Close()
-            </code>
-            </example>
         </member>
         <member name="P:Syncfusion.Presentation.Charts.PresentationChart.ChartDataRangeSet">
             <summary>
@@ -8375,13 +8320,10 @@
             </code>
             </example>
         </member>
-        <member name="M:Syncfusion.Presentation.IPresentationChart.Refresh(System.Boolean)">
+        <member name="M:Syncfusion.Presentation.IPresentationChart.Refresh">
              <summary>
-             Replaces the chart data with the worksheet data.
+             Refreshes the chart object according its excel data.
              </summary>
-             <param name="updateFormula">
-             Optional Boolean. Set to <b>true</b> to update all the formulas in the Excel sheet. The default value is <b>false</b>.
-             </param>
              <example>
              <code lang="CS">
              //Open a presentation containing charts
@@ -8391,7 +8333,7 @@
              //Get the chart from slide
              IPresentationChart chart = slide.Charts[0];
              //Refresh the chart to set worksheet data to current chart
-             chart.Refresh(true);
+             chart.Refresh();
              //Save the presentation
              presentation.Save("Sample.pptx");
              //Close the presentation
@@ -8405,7 +8347,7 @@
             'Get the chart from slide
             Dim chart As IPresentationChart = slide.Charts(0)
             'Refresh the chart to set worksheet data to current chart
-            chart.Refresh(True)
+            chart.Refresh()
             'Save the presentation
             presentation.Save("Sample.pptx")
             'Close the presentation
@@ -17075,12 +17017,6 @@
             </summary>
             <param name="i">Theme count</param>
             <param name="relationCollection">Baseslide Relation collection</param>
-        </member>
-        <member name="M:Syncfusion.Presentation.FileDataHolder.CheckNotesSlideRelation(Syncfusion.Presentation.SlideImplementation.NotesSlide)">
-            <summary>
-            Check and modify the notes slide notes master target.
-            </summary>
-            <param name="notesSlide"></param>
         </member>
         <member name="M:Syncfusion.Presentation.FileDataHolder.WriteChartPreservedStreams(Syncfusion.Presentation.Charts.PresentationChart,System.Int32)">
             <summary>
@@ -27695,55 +27631,6 @@
             </code>
             </example>
         </member>
-        <member name="P:Syncfusion.Presentation.IPresentation.FirstSlideNumber">
-             <summary>
-             Gets or sets the first slide number of the PowerPoint Presentation. The default value is 1.
-             </summary>
-             <remarks>
-             First slide number is the starting slide number of presentation, and this API allows to set the first slide number from 0 to 9999.
-             </remarks>
-             <example>
-             <code lang="CS">
-             //Creates a new PowerPint Presentation.
-             using (IPresentation presentation = Presentation.Create())
-             {
-                //Sets the first slide number of the PowerPoint Presentation.
-                presentation.FirstSlideNumber = 5;
-                //Adds slide to the PowerPoint.
-                ISlide slide1 = presentation.Slides.Add(SlideLayoutType.TitleAndContent);
-                //Adds slide to the PowerPoint.
-                ISlide slide2 = presentation.Slides.Add(SlideLayoutType.TitleAndContent);
-                //Adds slide to the PowerPoint.
-                ISlide slide3 = presentation.Slides.Add(SlideLayoutType.TitleAndContent);
-                //Gets the first slide slidenumber.
-                int firstSlideNumber = slide1.SlideNumber;
-                //Gets the second slide slidenumber.
-                int secondSlideNumber = slide2.SlideNumber;
-                //Saves the PowerPoint Presentation.
-                presentation.Save("Output.pptx");
-             }
-            </code>
-            <code lang="VB.NET">
-             'Creates a PowerPoint instance
-             Using pptxDoc As IPresentation = Presentation.Create()
-                'Sets the first slide number of the PowerPoint Presentation.
-                pptxDoc.FirstSlideNumber = 5
-                'Adds a slide to the PowerPoint presentation
-                Dim slide1 As ISlide = pptxDoc.Slides.Add(SlideLayoutType.TitleAndContent)
-                'Adds a slide to the PowerPoint presentation
-                Dim slide2 As ISlide = pptxDoc.Slides.Add(SlideLayoutType.TitleAndContent)
-                'Adds a slide to the PowerPoint presentation
-                Dim slide3 As ISlide = pptxDoc.Slides.Add(SlideLayoutType.TitleAndContent)
-                'Gets the first slide slidenumber.
-                 Dim firstSlideNumber As Integer = slide1.SlideNumber
-                'Gets the second slide slidenumber.
-                 Dim secondSlideNumber As Integer = slide2.SlideNumber
-                'Saves the Presentation to the file system.
-                 pptxDoc.Save("Output.pptx")
-             End Using
-            </code>
-            </example>
-        </member>
         <member name="T:Syncfusion.Presentation.ISlide">
             <summary>
             Represents the slide in the presentation.
@@ -35998,13 +35885,6 @@
             <param name="reader">XmlReader to extract data from.</param>
             <param name="customProperties">Custom property.</param>
         </member>
-        <member name="M:Syncfusion.Presentation.Parser.ParseSmartArtWholeProperties(System.Xml.XmlReader,Syncfusion.Presentation.SmartArtImplementation.DataModel)">
-            <summary>
-            Parses the smart art whole property.
-            </summary>
-            <param name="reader">Represents the reader object.</param>
-            <param name="dataModel">Represents the Smart Art data model.</param>
-        </member>
         <member name="M:Syncfusion.Presentation.Parser.ParseExtensionList(System.Xml.XmlReader,Syncfusion.Presentation.SmartArtImplementation.SmartArtPoint)">
             <summary>
             Parse the extension list properties
@@ -36525,55 +36405,6 @@
             presentation__1.Save("Sample.pptx")
             'Close the presentation
             presentation__1.Close()
-            </code>
-            </example>
-        </member>
-        <member name="P:Syncfusion.Presentation.Presentation.FirstSlideNumber">
-             <summary>
-             Gets or sets the first slide number of the PowerPoint Presentation. The default value is 1.
-             </summary>
-             <remarks>
-             First slide number is the starting slide number of presentation, and this API allows to set the first slide number from 0 to 9999.
-             </remarks>
-             <example>
-             <code lang="CS">
-             //Creates a new PowerPint Presentation.
-             using (IPresentation presentation = Presentation.Create())
-             {
-                //Sets the first slide number of the PowerPoint Presentation.
-                presentation.FirstSlideNumber = 5;
-                //Adds slide to the PowerPoint.
-                ISlide slide1 = presentation.Slides.Add(SlideLayoutType.TitleAndContent);
-                //Adds slide to the PowerPoint.
-                ISlide slide2 = presentation.Slides.Add(SlideLayoutType.TitleAndContent);
-                //Adds slide to the PowerPoint.
-                ISlide slide3 = presentation.Slides.Add(SlideLayoutType.TitleAndContent);
-                //Gets the first slide slidenumber.
-                int firstSlideNumber = slide1.SlideNumber;
-                //Gets the second slide slidenumber.
-                int secondSlideNumber = slide2.SlideNumber;
-                //Saves the PowerPoint Presentation.
-                presentation.Save("Output.pptx");
-             }
-            </code>
-            <code lang="VB.NET">
-             'Creates a PowerPoint instance
-             Using pptxDoc As IPresentation = Presentation.Create()
-                'Sets the first slide number of the PowerPoint Presentation.
-                pptxDoc.FirstSlideNumber = 5
-                'Adds a slide to the PowerPoint presentation
-                Dim slide1 As ISlide = pptxDoc.Slides.Add(SlideLayoutType.TitleAndContent)
-                'Adds a slide to the PowerPoint presentation
-                Dim slide2 As ISlide = pptxDoc.Slides.Add(SlideLayoutType.TitleAndContent)
-                'Adds a slide to the PowerPoint presentation
-                Dim slide3 As ISlide = pptxDoc.Slides.Add(SlideLayoutType.TitleAndContent)
-                'Gets the first slide slidenumber.
-                 Dim firstSlideNumber As Integer = slide1.SlideNumber
-                'Gets the second slide slidenumber.
-                 Dim secondSlideNumber As Integer = slide2.SlideNumber
-                'Saves the Presentation to the file system.
-                 pptxDoc.Save("Output.pptx")
-             End Using
             </code>
             </example>
         </member>

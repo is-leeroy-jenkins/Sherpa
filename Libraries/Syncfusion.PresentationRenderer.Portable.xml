@@ -334,13 +334,6 @@
             Gets or set the embedded fonts.
             </summary>
         </member>
-        <member name="M:Syncfusion.Presentation.Rendering.GDIRenderer.DrawTiffImage(System.IO.MemoryStream,Syncfusion.Drawing.RectangleF)">
-            <summary>
-            Converts the tiff image stream to png image stream and draw the image.
-            </summary>
-            <param name="stream">Represents the tiff image stream.</param>
-            <param name="bounds">Represents the image bounds.</param>
-        </member>
         <member name="M:Syncfusion.Presentation.Rendering.GDIRenderer.GetFallbackFont(System.IO.Stream,Syncfusion.Drawing.Font,System.String,System.Collections.Generic.List{Syncfusion.Office.FallbackFont})">
             <summary>
             Gets fall back font to preserve the text in converted Image.
@@ -376,13 +369,6 @@
             <summary>
             Gets or set the embedded fonts.
             </summary>
-        </member>
-        <member name="M:Syncfusion.Presentation.Rendering.PDFRenderer.DrawTiffImage(System.IO.MemoryStream,Syncfusion.Drawing.RectangleF)">
-            <summary>
-            Draw the Pdf Tiff image.
-            </summary>
-            <param name="stream">Represents the Tiff image stream.</param>
-            <param name="bounds">Represents the image bounds.</param>
         </member>
         <member name="M:Syncfusion.Presentation.Rendering.PDFRenderer.AddParaTag">
             <summary>
@@ -2234,11 +2220,6 @@
         <member name="P:Syncfusion.Chart.ChartControl.Bar">
             <summary>
             Gets a value indicating whether the chart is Bar. This returns True if type of the first series is ChartSeriesType.Bar.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Chart.ChartControl.IsScatter">
-            <summary>
-            Gets a value indicating whether the chart is Scatter. This returns True if type of the first series is Scatter
             </summary>
         </member>
         <member name="P:Syncfusion.Chart.ChartControl.Polar">
@@ -7065,11 +7046,6 @@
             Represents display unit.
             </summary>
         </member>
-        <member name="F:Syncfusion.Chart.ChartArea.m_graphics">
-            <summary>
-            Represents the graphics object
-            </summary>
-        </member>
         <member name="P:Syncfusion.Chart.ChartArea.IsAxisVisible">
             <summary>
             Get or set the indicate wheather the chart axis has visible or not.
@@ -7588,12 +7564,6 @@
         <member name="M:Syncfusion.Chart.ChartArea.UpdatePlotareaWidth(Syncfusion.Drawing.RectangleF@)">
             <summary>
             Update the bar chart plotarea width.
-            </summary>
-            <param name="rec"></param>
-        </member>
-        <member name="M:Syncfusion.Chart.ChartArea.UpdatePlotareaWidthForScatter(Syncfusion.Drawing.RectangleF@)">
-            <summary>
-            Update the scatter chart plotarea width to ensure that the last label of category axis is not cropped
             </summary>
             <param name="rec"></param>
         </member>
@@ -10501,16 +10471,6 @@
             Temporary Marker converetr object for individual markers changes
             </summary>
         </member>
-        <member name="F:Syncfusion.Chart.ChartSeries.m_index">
-            <summary>
-            Represents the series index
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Chart.ChartSeries.m_serieType">
-            <summary>
-            Represents the series type
-            </summary>
-        </member>
         <member name="P:Syncfusion.Chart.ChartSeries.LabelConverterObject">
             <summary>
             Temporary Label converter object
@@ -10519,16 +10479,6 @@
         <member name="P:Syncfusion.Chart.ChartSeries.MarkerConverterObject">
             <summary>
             Temporary Marker converter object
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Chart.ChartSeries.Index">
-            <summary>
-            Represents the series index
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Chart.ChartSeries.SerieType">
-            <summary>
-            Represents the series type
             </summary>
         </member>
         <member name="M:Syncfusion.Chart.ChartSeries.ShouldSerializePoints">

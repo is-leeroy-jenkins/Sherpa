@@ -78,6 +78,7 @@ namespace BudgetExecution
             {
                 return _rowHeight;
             }
+            
             private protected set
             {
                 _rowHeight = value;
@@ -96,6 +97,7 @@ namespace BudgetExecution
             {
                 return _columnWidth;
             }
+            
             private protected set
             {
                 _columnWidth = value;
@@ -111,6 +113,7 @@ namespace BudgetExecution
             {
                 return _internalPath; 
             }
+            
             private protected set
             {
                 _internalPath = value;
@@ -346,11 +349,12 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                Fail( _ex );
                 if( _excelRange != null )
                 {
                     _excelRange = null;
                 }
+                
+                Fail( _ex );
             }
         }
 
