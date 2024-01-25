@@ -379,7 +379,7 @@ namespace BudgetExecution
             {
                 ThrowIf.Null( grid, nameof( grid ) );
                 ThrowIf.NullOrEmpty( text, nameof( text ) );
-                using var _range = grid?.Range;
+                using var _range = grid?.ExcelRange;
                 var _comment = _range?.AddComment( text, "Budget" );
                 if( _comment != null )
                 {
@@ -410,7 +410,7 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( grid, nameof( grid ) );
-                using var _range = grid.Range;
+                using var _range = grid.ExcelRange;
                 _range.Style.HorizontalAlignment = align;
             }
             catch( Exception _ex )
@@ -429,7 +429,7 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( grid, nameof( grid ) );
-                using var _range = grid.Range;
+                using var _range = grid.ExcelRange;
                 _range.Style.VerticalAlignment = align;
             }
             catch( Exception _ex )

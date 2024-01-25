@@ -67,17 +67,17 @@ namespace BudgetExecution
         /// <summary>
         /// From
         /// </summary>
-        private ( int Row, int Column ) _from;
+        private protected ( int Row, int Column ) _from;
 
         /// <summary>
         /// The excel address
         /// </summary>
-        private ExcelAddress _excelAddress;
+        private protected ExcelAddress _excelAddress;
 
         /// <summary>
         /// The range
         /// </summary>
-        private ExcelRange _range;
+        private protected ExcelRange _excelRange;
 
         /// <summary>
         /// To
@@ -87,7 +87,7 @@ namespace BudgetExecution
         /// <summary>
         /// The worksheet
         /// </summary>
-        private ExcelWorksheet _worksheet;
+        private protected ExcelWorksheet _excelWorksheet;
 
         /// <summary>
         /// The cells
@@ -100,15 +100,33 @@ namespace BudgetExecution
         /// <value>
         /// The range.
         /// </value>
-        public ExcelRange Range
+        public ExcelRange ExcelRange
         {
             get
             {
-                return _range;
+                return _excelRange;
             }
             private protected set
             {
-                _range = value;
+                _excelRange = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the excel address.
+        /// </summary>
+        /// <value>
+        /// The excel address.
+        /// </value>
+        public ExcelAddress ExcelAddress
+        {
+            get
+            {
+                return _excelAddress;
+            }
+            private protected set
+            {
+                _excelAddress = value;
             }
         }
 
@@ -118,15 +136,15 @@ namespace BudgetExecution
         /// <value>
         /// The worksheet.
         /// </value>
-        public ExcelWorksheet Worksheet
+        public ExcelWorksheet ExcelWorksheet
         {
             get
             {
-                return _worksheet;
+                return _excelWorksheet;
             }
             private protected set
             {
-                _worksheet = value;
+                _excelWorksheet = value;
             }
         }
 
@@ -136,7 +154,7 @@ namespace BudgetExecution
         /// <value>
         /// From.
         /// </value>
-        public (int Row, int Column) From
+        public ( int Row, int Column ) From
         {
             get
             {
@@ -154,7 +172,7 @@ namespace BudgetExecution
         /// <value>
         /// To.
         /// </value>
-        public (int Row, int Column) To
+        public ( int Row, int Column ) To
         {
             get
             {
@@ -163,6 +181,18 @@ namespace BudgetExecution
             private protected set
             {
                 _to = value;
+            }
+        }
+
+        public IList<ExcelRangeBase> Cells
+        {
+            get
+            {
+                return _cells;
+            }
+            private protected set
+            {
+                _cells = value;
             }
         }
 
@@ -183,12 +213,14 @@ namespace BudgetExecution
         public Grid( ExcelPackage excel, ExcelRange range ) 
             : base( range.Start.Row, range.Start.Column )
         {
-            _worksheet = excel.Workbook?.Worksheets[ 0 ];
-            _range = range;
+            _excelWorksheet = excel.Workbook.Worksheets[ 0 ];
+            _excelRange = range;
             _from = ( range.Start.Row, range.Start.Column );
             _to = ( range.End.Row, range.End.Column );
             _excelAddress = new ExcelAddress( range.Start.Row, range.Start.Column, 
                 range.End.Row, range.End.Column );
+
+            _cells = GetCells( );
         }
 
         /// <summary>
@@ -199,11 +231,12 @@ namespace BudgetExecution
         /// <param name="address">The address.</param>
         public Grid( ExcelPackage excel, ExcelAddress address )
         {
-            _worksheet = excel.Workbook?.Worksheets[ 0 ];
+            _excelWorksheet = excel.Workbook.Worksheets[ 0 ];
             _from = ( address.Start.Row, address.Start.Column );
             _to = ( address.End.Row, address.End.Column );
-            _range = _worksheet?.Cells[ _from.Row, _from.Column, _to.Row, _to.Column ];
+            _excelRange = _excelWorksheet.Cells[ _from.Row, _from.Column, _to.Row, _to.Column ];
             _excelAddress = address;
+            _cells = GetCells( );
         }
 
         /// <summary>
@@ -217,66 +250,97 @@ namespace BudgetExecution
         public Grid( ExcelPackage excel, int startRow = 1, int startColumn = 1, int endRow = 55,
             int endColumn = 12 )
         {
-            _worksheet = excel.Workbook?.Worksheets[ 0 ];
+            _excelWorksheet = excel.Workbook.Worksheets[ 0 ];
             _from = ( startRow, startColumn );
             _to = ( endRow, endColumn );
-            _range = _worksheet?.Cells[ startRow, startColumn, endRow, endColumn ];
+            _excelRange = _excelWorksheet.Cells[ startRow, startColumn, endRow, endColumn ];
             _excelAddress = new ExcelAddress( startRow, startColumn, endRow, endColumn );
+            _cells = GetCells( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Grid"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="Grid"/> class.
         /// </summary>
         /// <param name="excel">The excel.</param>
         /// <param name="cell">The cell.</param>
         public Grid( ExcelPackage excel, IList<int> cell )
         {
-            _worksheet = excel.Workbook?.Worksheets[ 0 ];
+            _excelWorksheet = excel.Workbook.Worksheets[ 0 ];
             _from = ( cell[ 0 ], cell[ 1 ] );
             _to = ( cell[ 2 ], cell[ 3 ] );
-            _range = _worksheet?.Cells[ cell[ 0 ], cell[ 1 ], cell[ 2 ], cell[ 3 ] ];
+            _excelRange = _excelWorksheet.Cells[ cell[ 0 ], cell[ 1 ], cell[ 2 ], cell[ 3 ] ];
             _excelAddress = new ExcelAddress( cell[ 0 ], cell[ 1 ], cell[ 2 ], cell[ 3 ] );
+            _cells = GetCells( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Grid"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="Grid"/> class.
         /// </summary>
         /// <param name="excel">The excel.</param>
         /// <param name="from">From.</param>
         /// <param name="to">To.</param>
         public Grid( ExcelPackage excel, (int Row, int Column) from, ( int Row, int Column ) to )
         {
-            _worksheet = excel.Workbook?.Worksheets[ 0 ];
-            _range = _worksheet?.Cells[ from.Row, from.Column, to.Row, to.Column ];
+            _excelWorksheet = excel.Workbook.Worksheets[ 0 ];
+            _excelRange = _excelWorksheet.Cells[ from.Row, from.Column, to.Row, to.Column ];
             _from = from;
             _to = to;
             _excelAddress = new ExcelAddress( from.Row, from.Column, to.Row, to.Column );
+            _cells = GetCells( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Grid"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="Grid"/> class.
         /// </summary>
         /// <param name="excel">The excel.</param>
         /// <param name="from">From.</param>
         public Grid( ExcelPackage excel, ( int Row, int Column ) from )
         {
-            _worksheet = excel.Workbook?.Worksheets[ 0 ];
-            _range = _worksheet?.Cells[ from.Row, from.Column ];
+            _excelWorksheet = excel.Workbook.Worksheets[ 0 ];
+            _excelRange = _excelWorksheet.Cells[ from.Row, from.Column ];
             _from = from;
             _to = from;
             _excelAddress = new ExcelAddress( from.Row, from.Column, from.Row, from.Column );
+            _cells = GetCells( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Grid"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="Grid"/> class.
         /// </summary>
         /// <param name="grid">The grid.</param>
         public Grid( Grid grid )
         {
-            _worksheet = grid.Worksheet;
-            _range = grid.Range;
+            _excelWorksheet = grid.ExcelWorksheet;
+            _excelRange = grid.ExcelRange;
             _from = grid.From;
             _to = grid.To;
+            _excelAddress = grid._excelAddress;
+            _cells = GetCells( );
+        }
+
+        /// <summary>
+        /// Deconstructs the specified from.
+        /// </summary>
+        /// <param name="from">From.</param>
+        /// <param name="to">To.</param>
+        /// <param name="excelWorksheet">The excel worksheet.</param>
+        /// <param name="excelRange">The excel range.</param>
+        /// <param name="excelAddress">The excel address.</param>
+        /// <param name="cells"> </param>
+        public void Deconstruct( out (int Row, int Column) from,
+            out (int Row, int Column) to, out ExcelWorksheet excelWorksheet, 
+            out ExcelRange excelRange, out ExcelAddress excelAddress, out IList<ExcelRangeBase> cells )
+        {
+            from = _from;
+            to = _to;
+            excelWorksheet = _excelWorksheet;
+            excelRange = _excelRange;
+            excelAddress = _excelAddress;
+            cells = _cells;
         }
 
         /// <summary>
@@ -288,7 +352,7 @@ namespace BudgetExecution
             try
             {
                 var _list = new List<ExcelRangeBase>( );
-                foreach( var _cell in _range )
+                foreach( var _cell in _excelRange )
                 {
                     _list.Add( _cell.Current );
                 }

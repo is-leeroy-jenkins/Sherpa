@@ -237,14 +237,19 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the color of the background.
         /// </summary>
-        /// <param name="grid"> </param>
+        /// <param name="excelRange"> </param>
         /// <param name="color">The color.</param>
-        public void SetRangeBackgroundColor( Grid grid, Color color )
+        public void SetRangeBackgroundColor( ExcelRange excelRange, Color color )
         {
             try
             {
-                ThrowIf.Null( grid, nameof( grid ) );
+                ThrowIf.Null( excelRange, nameof( excelRange ) );
                 ThrowIf.NullOrEmpty( color, nameof( color ) );
+                var _startRow = excelRange.Start.Row;
+                var _startColumn = excelRange.Start.Column;
+                var _endRow = excelRange.End.Row;
+                var _endColumn = excelRange.End.Column;
+                _excelRange = _excelWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
                 _excelRange.Style.Fill.PatternType = ExcelFillStyle.Solid;
                 _excelRange.Style.Fill.BackgroundColor.SetColor( color );
                 _excelRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.CenterContinuous;
@@ -252,46 +257,66 @@ namespace BudgetExecution
             catch( Exception _ex )
             {
                 Fail( _ex );
+                if( _excelRange != null )
+                {
+                    _excelRange = null;
+                }
             }
         }
 
         /// <summary>
         /// Sets the range font.
         /// </summary>
-        /// <param name="grid">The grid.</param>
+        /// <param name="excelRange"> </param>
         /// <param name="font">The font.</param>
-        public void SetRangeFont( Grid grid, Font font )
+        public void SetRangeFont( ExcelRange excelRange, Font font )
         {
             try
             {
-                ThrowIf.Null( grid, nameof( grid ) );
-                using var _range = grid.Range;
-                _range.Style.Font.SetFromFont( font.Name, font.Size );
+                ThrowIf.Null( excelRange, nameof( excelRange ) );
+                var _startRow = excelRange.Start.Row;
+                var _startColumn = excelRange.Start.Column;
+                var _endRow = excelRange.End.Row;
+                var _endColumn = excelRange.End.Column;
+                _excelRange = _excelWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
+                _excelRange.Style.Font.SetFromFont( font.Name, font.Size );
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
+                if( _excelRange != null )
+                {
+                    _excelRange = null;
+                }
             }
         }
 
         /// <summary>
         /// Sets the color of the font.
         /// </summary>
-        /// <param name="grid">The grid.</param>
+        /// <param name="excelRange"> </param>
         /// <param name="color">The color.</param>
-        public void SetFontColor( Grid grid, Color color )
+        public void SetFontColor( ExcelRange excelRange, Color color )
         {
             try
             {
-                ThrowIf.Null( grid, nameof( grid ) );
+                ThrowIf.Null( excelRange, nameof( excelRange ) );
                 ThrowIf.NullOrEmpty( color, nameof( color ) );
-                using var _range = grid.Range;
-                _range.Style.Font.Color.SetColor( color );
-                _range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                var _startRow = excelRange.Start.Row;
+                var _startColumn = excelRange.Start.Column;
+                var _endRow = excelRange.End.Row;
+                var _endColumn = excelRange.End.Column;
+                _excelRange = _excelWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
+                _excelRange.Style.Font.Color.SetColor( color );
+                _excelRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
+                if( _excelRange != null )
+                {
+                    _excelRange = null;
+                }
             }
         }
 

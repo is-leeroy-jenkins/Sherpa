@@ -159,24 +159,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the cells.
-        /// </summary>
-        /// <value>
-        /// The cells.
-        /// </value>
-        public IList<ExcelRangeBase> Cells
-        {
-            get
-            {
-                return _cells;
-            }
-            private protected set
-            {
-                _cells = value;
-            }
-        }
-
-        /// <summary>
         /// Gets the values.
         /// </summary>
         /// <value>
@@ -214,9 +196,9 @@ namespace BudgetExecution
             : base( excel, range )
         {
             _anchor = ( range.Start.Row, range.Start.Column );
-            _span = Range.Columns;
-            _depth = Range.Rows;
-            _area = Range.Rows * Range.Columns;
+            _span = ExcelRange.Columns;
+            _depth = ExcelRange.Rows;
+            _area = ExcelRange.Rows * ExcelRange.Columns;
             _cells = GetCells( );
         }
 
@@ -235,9 +217,9 @@ namespace BudgetExecution
             : base( excel, startRow, startColumn, endRow, endColumn )
         {
             _anchor = ( startRow, startColumn );
-            _span = Range.Columns;
-            _depth = Range.Rows;
-            _area = Range.Rows * Range.Columns;
+            _span = ExcelRange.Columns;
+            _depth = ExcelRange.Rows;
+            _area = ExcelRange.Rows * ExcelRange.Columns;
             _cells = GetCells( );
         }
 
@@ -252,9 +234,9 @@ namespace BudgetExecution
             : base( excel, cell )
         {
             _anchor = ( cell[ 0 ], cell[ 1 ] );
-            _span = Range.Columns;
-            _depth = Range.Rows;
-            _area = Range.Rows * Range.Columns;
+            _span = ExcelRange.Columns;
+            _depth = ExcelRange.Rows;
+            _area = ExcelRange.Rows * ExcelRange.Columns;
             _cells = GetCells( );
         }
 
@@ -271,10 +253,45 @@ namespace BudgetExecution
             : base( excel, from, to )
         {
             _anchor = ( from.Row, from.Column );
-            _span = Range.Columns;
-            _depth = Range.Rows;
-            _area = Range.Rows * Range.Columns;
+            _span = ExcelRange.Columns;
+            _depth = ExcelRange.Rows;
+            _area = ExcelRange.Rows * ExcelRange.Columns;
             _cells = GetCells( );
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.Section" /> class.
+        /// </summary>
+        /// <param name="section">The section.</param>
+        public Section( Section section )
+        {
+            _anchor = section.Anchor;
+            _span = section.Span;
+            _depth = section.Depth;
+            _area = section.Area;
+            _cells = section.Cells;
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Deconstructs the specified from.
+        /// </summary>
+        /// <param name="from">From.</param>
+        /// <param name="to">To.</param>
+        /// <param name="excelWorksheet">The excel worksheet.</param>
+        /// <param name="excelRange">The excel range.</param>
+        /// <param name="excelAddress">The excel address.</param>
+        public void Deconstruct( out ( int Row, int Column ) from, 
+            out ( int Row, int Column ) to, out ExcelWorksheet excelWorksheet, 
+            out ExcelRange excelRange, out ExcelAddress excelAddress )
+        {
+            from = _from;
+            to = _to;
+            excelWorksheet = _excelWorksheet;
+            excelRange = _excelRange;
+            excelAddress = _excelAddress;
         }
 
         /// <summary>
