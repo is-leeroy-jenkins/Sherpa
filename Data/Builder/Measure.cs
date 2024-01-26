@@ -71,7 +71,6 @@ namespace BudgetExecution
                 ThrowIfNullNumeric( numeric );
                 var _select = _dataTable?.AsEnumerable( )
                     ?.Select( p => p.Field<double>( numeric ) );
-
                 return _select?.Any( ) == true
                     ? _select.Count( )
                     : 0;
