@@ -49,7 +49,6 @@ namespace BudgetExecution
     using System.IO;
     using OfficeOpenXml;
     using OfficeOpenXml.Style;
-    using static System.IO.Path;
 
     /// <inheritdoc />
     /// <summary>
@@ -63,6 +62,8 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MergeIntoPattern" ) ]
     [ SuppressMessage( "ReSharper", "RedundantCheckBeforeAssignment" ) ]
+    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
+    [ SuppressMessage( "ReSharper", "ParameterTypeCanBeEnumerable.Global" ) ]
     public abstract class ExcelConfig : BasicReport
     {
         /// <summary>
@@ -298,48 +299,6 @@ namespace BudgetExecution
 
         /// <inheritdoc />
         /// <summary>
-        /// Sets the file path.
-        /// </summary>
-        /// <param name="filePath">
-        /// The file path.
-        /// </param>
-        public void SetFilePath( string filePath )
-        {
-            try
-            {
-                ThrowIf.NullOrEmpty( filePath, nameof( filePath ) );
-                _filePath = File.Exists( filePath )
-                    ? filePath
-                    : string.Empty;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Sets the name of the file.
-        /// </summary>
-        /// <param name="filePath">The file path.</param>
-        public void SetFileName( string filePath )
-        {
-            try
-            {
-                ThrowIf.NullOrEmpty( filePath, nameof( filePath ) );
-                _fileName = File.Exists( filePath )
-                    ? GetFileNameWithoutExtension( filePath )
-                    : string.Empty;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <inheritdoc />
-        /// <summary>
         /// Gets the connection string.
         /// </summary>
         /// <param name="extension">The extension.</param>
@@ -422,26 +381,25 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the header row format.
+        /// 
         /// </summary>
-        /// <param name="excelRange">The excel range.</param>
-        private protected void SetHeaderRowFormat( ExcelRange excelRange )
+        /// <param name="excelRange"></param>
+        private protected void SetHeaderRow( ExcelRange excelRange )
         {
             try
             {
                 ThrowIf.Null( excelRange, nameof( excelRange ) );
                 var _header = excelRange.Start.Row - 1;
                 var _startColumn = excelRange.Start.Column;
-                var _endRow = excelRange.Start.Row - 1;
                 var _endColumn = excelRange.End.Column;
-                _headerRange = _excelWorksheet.Cells[ _header, _startColumn, _endRow, _endColumn ];
+                _headerRange = _excelWorksheet.Cells[ _header, _startColumn, _header, _endColumn ];
                 _headerRange.Style.Font.Name = "Roboto";
                 _headerRange.Style.Font.Size = 10;
                 _headerRange.Style.Font.Bold = false;
                 _headerRange.Style.Font.Italic = false;
                 _headerRange.Style.Font.Color.SetColor( _fontColor );
-                _headerRange.EntireRow.CustomHeight = true;
-                _headerRange.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                _headerRange.Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                _headerRange.Style.Border.Bottom.Style = ExcelBorderStyle.Dotted;
                 _headerRange.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
                 _headerRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
                 _headerRange.Style.Fill.PatternType = ExcelFillStyle.Solid;
@@ -459,6 +417,44 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Sets the header row format.
+        /// </summary>
+        /// <param name="excelRange">The excel range.</param>
+        /// <param name="names"> </param>
+        private protected void SetTableHeader( ExcelRange excelRange, IList<string> names )
+        {
+            try
+            {
+                ThrowIf.Null( excelRange, nameof( excelRange ) );
+                ThrowIf.Null( names, nameof( names ) );
+                var _header = excelRange.Start.Row - 1;
+                var _startColumn = excelRange.Start.Column;
+                var _endRow = excelRange.End.Row;
+                var _endColumn = excelRange.End.Column;
+                _excelRange = _excelWorksheet.Cells[ _header, _startColumn, 
+                    _header, _endColumn ];
+
+                _excelRange.Style.Font.Name = "Roboto";
+                _excelRange.Style.Font.Size = 9;
+                _excelRange.Style.Font.Bold = false;
+                _excelRange.Style.Font.Italic = false;
+                for( int _i = _startColumn; _i < _endColumn; _i++ )
+                {
+                    _excelRange[ _header, _i ].Value = names[ _i ];
+                }
+            }
+            catch( Exception _ex )
+            {
+                if( _excelRange != null )
+                {
+                    _excelRange = null;
+                }
+
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Sets the footer row format.
         /// </summary>
         /// <param name="excelRange">The excel range.</param>
@@ -469,10 +465,19 @@ namespace BudgetExecution
                 ThrowIf.Null( excelRange, nameof( excelRange ) );
                 var _footer = excelRange.End.Row + 1;
                 var _startColumn = excelRange.Start.Column;
-                var _endRow = excelRange.End.Row + 1;
                 var _endColumn = excelRange.End.Column;
-                _footerRange = _excelWorksheet.Cells[ _footer, _startColumn, _endRow, _endColumn ];
+                _footerRange = _excelWorksheet.Cells[ _footer, _startColumn, _footer, _endColumn ];
+                _footerRange.Style.Font.Name = "Roboto";
+                _footerRange.Style.Font.Size = 9;
+                _footerRange.Style.Font.Bold = false;
+                _footerRange.Style.Font.Italic = false;
+                _footerRange.Style.Font.Color.SetColor( _fontColor );
+                _footerRange.Style.Border.Top.Style = ExcelBorderStyle.Thin;
                 _footerRange.Style.Border.Bottom.Style = ExcelBorderStyle.Double;
+                _footerRange.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                _footerRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                _footerRange.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                _footerRange.Style.Fill.BackgroundColor.SetColor( _primaryBackColor );
             }
             catch( Exception _ex )
             {

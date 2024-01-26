@@ -523,11 +523,15 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Creates the excel report.
+        /// </summary>
         private void CreateExcelReport( )
         {
             try
             {
-                var _report = new ExcelReport( );
+                var _data = new DataBuilder( Source.BudgetContacts, Provider.Access );
+                var _report = new ExcelReport( _data.DataTable );
                 _report.Save( );
                 var _message = "The Excel File has been created!";
                 SendMessage( _message );

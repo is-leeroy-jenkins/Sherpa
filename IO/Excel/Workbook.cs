@@ -191,19 +191,18 @@ namespace BudgetExecution
                 var _startColumn = excelRange.Start.Column;
                 var _endRow = excelRange.End.Row - 1;
                 var _endColumn = excelRange.End.Column;
-                _headerRange = _excelWorksheet.Cells[ _header, _startColumn, _endRow, _endColumn ];
-                var _row = _headerRange.EntireRow.Range;  
+                _headerRange = _excelWorksheet.Cells[ _header, _startColumn,
+                    _endRow, _endColumn ];
+ 
                 foreach( var _item in labels )
                 {
                     if( _startColumn <= _endColumn )
                     {
-                        _row.SetCellValue( _header, _startColumn, _item );
+                        _headerRange.SetCellValue( _header, _startColumn, _item );
                     }
 
                     _startColumn++;
                 }
-
-                SetHeaderRowFormat( _headerRange );
             }
             catch( Exception _ex )
             {
@@ -227,23 +226,22 @@ namespace BudgetExecution
             {
                 ThrowIf.Null( excelRange, nameof( excelRange ) );
                 ThrowIf.Null( labels, nameof( labels ) );
-                var _footer = excelRange.Start.Row - 1;
+                var _footer = excelRange.Start.Row + 1;
                 var _startColumn = excelRange.Start.Column;
-                var _endRow = excelRange.End.Row - 1;
+                var _endRow = excelRange.End.Row + 1;
                 var _endColumn = excelRange.End.Column;
-                _footerRange = _excelWorksheet.Cells[ _footer, _startColumn, _endRow, _endColumn ];
-                var _row = _footerRange.EntireRow.Range;
+                _footerRange = _excelWorksheet.Cells[ _footer, _startColumn, 
+                    _endRow, _endColumn ];
+
                 foreach( var _item in labels )
                 {
                     if( _startColumn <= _endColumn )
                     {
-                        _row.SetCellValue( _footer, _startColumn, _item );
+                        _footerRange.SetCellValue( _footer, _startColumn, _item );
                     }
 
                     _startColumn++;
                 }
-
-                SetFooterRowFormat( _footerRange );
             }
             catch( Exception _ex )
             {
@@ -259,7 +257,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the dark color row.
         /// </summary>
-        /// <param name="excelRange">The excel range.</param>
+        /// <param name="excelRange"> </param>
         private protected void SetDarkRowColor( ExcelRange excelRange )
         {
             try
@@ -270,12 +268,8 @@ namespace BudgetExecution
                 var _endRow = excelRange.End.Row;
                 var _endColumn = excelRange.End.Column;
                 _excelRange = _excelWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
-                _excelRange.Style.Font.Color.SetColor( _fontColor );
-                _excelRange.Style.Font.SetFromFont( _font.Name, _font.Size );
-                _excelRange.Style.Fill.PatternType = ExcelFillStyle.Solid;
-                _excelRange.Style.Fill.BackgroundColor.SetColor( _secondaryBackColor );
-                _excelRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.CenterContinuous;
-                _excelRange.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                _excelRange.EntireRow.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                _excelRange.EntireRow.Style.Fill.BackgroundColor.SetColor( _secondaryBackColor );
             }
             catch( Exception _ex )
             {
@@ -302,12 +296,8 @@ namespace BudgetExecution
                 var _endRow = excelRange.End.Row;
                 var _endColumn = excelRange.End.Column;
                 _excelRange = _excelWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
-                _excelRange.Style.Font.Color.SetColor( _fontColor );
-                _excelRange.Style.Font.SetFromFont( _font.Name, _font.Size );
-                _excelRange.Style.Fill.PatternType = ExcelFillStyle.Solid;
-                _excelRange.Style.Fill.BackgroundColor.SetColor( _primaryBackColor );
-                _excelRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.CenterContinuous;
-                _excelRange.Style.Border.Bottom.Style = ExcelBorderStyle.Dotted;
+                _excelRange.EntireRow.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                _excelRange.EntireRow.Style.Fill.BackgroundColor.SetColor( _primaryBackColor );
             }
             catch( Exception _ex )
             {
@@ -333,16 +323,24 @@ namespace BudgetExecution
                 var _startColumn = excelRange.Start.Column;
                 var _endRow = excelRange.End.Row;
                 var _endColumn = excelRange.End.Column;
-                _excelRange = _excelWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
+                _excelRange = _excelWorksheet.Cells[ _startRow, _startColumn, 
+                    _endRow, _endColumn ];
+
                 for( var _i = _startRow; _i < _endRow; _i++ )
                 {
                     if( _i % 2 == 0 )
                     {
-                        SetLightRowColor( _excelRange );
+                        var _row = _excelWorksheet.Cells[ _i, _startColumn, _i, _endColumn ];
+                        _row.EntireRow.Style.Border.Bottom.Style = ExcelBorderStyle.Dotted;
+                        _row.EntireRow.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                        _row.EntireRow.Style.Fill.BackgroundColor.SetColor( _primaryBackColor );
                     }
                     else
                     {
-                        SetDarkRowColor( _excelRange );
+                        var _row = _excelWorksheet.Cells[ _i, _startColumn, _i, _endColumn ];
+                        _row.EntireRow.Style.Border.Bottom.Style = ExcelBorderStyle.Hair;
+                        _row.EntireRow.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                        _row.EntireRow.Style.Fill.BackgroundColor.SetColor( _secondaryBackColor );
                     }
                 }
             }

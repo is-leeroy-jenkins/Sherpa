@@ -50,6 +50,7 @@ namespace BudgetExecution
     using DocumentFormat.OpenXml.Spreadsheet;
     using OfficeOpenXml;
     using OfficeOpenXml.Style;
+    using OfficeOpenXml.Table;
     using Color = System.Drawing.Color;
     using Font = System.Drawing.Font;
 
@@ -180,6 +181,11 @@ namespace BudgetExecution
         private protected ExcelWorkbook _excelWorkbook;
 
         /// <summary>
+        /// The excel table
+        /// </summary>
+        private protected ExcelTable _excelTable;
+
+        /// <summary>
         /// The worksheet
         /// </summary>
         private protected ExcelWorksheet _excelWorksheet;
@@ -263,64 +269,6 @@ namespace BudgetExecution
                 _excelRange.Style.Fill.PatternType = ExcelFillStyle.Solid;
                 _excelRange.Style.Fill.BackgroundColor.SetColor( color );
                 _excelRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.CenterContinuous;
-            }
-            catch( Exception _ex )
-            {
-                if( _excelRange != null )
-                {
-                    _excelRange = null;
-                }
-
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the range font.
-        /// </summary>
-        /// <param name="excelRange"> </param>
-        /// <param name="font">The font.</param>
-        public void SetRangeFont( ExcelRange excelRange, Font font )
-        {
-            try
-            {
-                ThrowIf.Null( excelRange, nameof( excelRange ) );
-                var _startRow = excelRange.Start.Row;
-                var _startColumn = excelRange.Start.Column;
-                var _endRow = excelRange.End.Row;
-                var _endColumn = excelRange.End.Column;
-                _excelRange = _excelWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
-                _excelRange.Style.Font.SetFromFont( font.Name, font.Size );
-            }
-            catch( Exception _ex )
-            {
-                if( _excelRange != null )
-                {
-                    _excelRange = null;
-                }
-
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the color of the font.
-        /// </summary>
-        /// <param name="excelRange"> </param>
-        /// <param name="color">The color.</param>
-        public void SetRangeFontColor( ExcelRange excelRange, Color color )
-        {
-            try
-            {
-                ThrowIf.Null( excelRange, nameof( excelRange ) );
-                ThrowIf.NullOrEmpty( color, nameof( color ) );
-                var _startRow = excelRange.Start.Row;
-                var _startColumn = excelRange.Start.Column;
-                var _endRow = excelRange.End.Row;
-                var _endColumn = excelRange.End.Column;
-                _excelRange = _excelWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
-                _excelRange.Style.Font.Color.SetColor( color );
-                _excelRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
             }
             catch( Exception _ex )
             {
@@ -535,6 +483,7 @@ namespace BudgetExecution
                 _dataConnection?.Dispose( );
                 _dataCommand?.Dispose( );
                 _dataAdapter?.Dispose( );
+                _excelTable = null;
                 _excelWorksheet?.Dispose( );
                 _excelWorkbook?.Dispose( );
                 _excelPackage?.Dispose( );
