@@ -47,9 +47,7 @@ namespace BudgetExecution
     using System.Drawing;
     using System.IO;
     using OfficeOpenXml;
-    using OfficeOpenXml.Drawing;
     using OfficeOpenXml.Style;
-    using OfficeOpenXml.Table;
     using static System.Configuration.ConfigurationManager;
 
     /// <inheritdoc/>
@@ -389,22 +387,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
-        /// <summary>
-        /// Initializes the table format.
-        /// </summary>
-        private void InitializeTableFormat( ) 
-
-        {
-            try
-            {
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
+        
         /// <summary>
         /// Saves this instance.
         /// </summary>

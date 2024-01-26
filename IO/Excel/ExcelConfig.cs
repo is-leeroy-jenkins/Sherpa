@@ -429,11 +429,8 @@ namespace BudgetExecution
                 ThrowIf.Null( names, nameof( names ) );
                 var _header = excelRange.Start.Row - 1;
                 var _startColumn = excelRange.Start.Column;
-                var _endRow = excelRange.End.Row;
                 var _endColumn = excelRange.End.Column;
-                _excelRange = _excelWorksheet.Cells[ _header, _startColumn, 
-                    _header, _endColumn ];
-
+                _excelRange = _excelWorksheet.Cells[ _header, _startColumn, _header, _endColumn ];
                 _excelRange.Style.Font.Name = "Roboto";
                 _excelRange.Style.Font.Size = 9;
                 _excelRange.Style.Font.Bold = false;
