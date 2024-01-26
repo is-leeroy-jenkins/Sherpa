@@ -46,6 +46,9 @@ namespace BudgetExecution
     using System.Data;
     using System.Linq;
 
+    /// <summary>
+    /// 
+    /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     public abstract class Dimension

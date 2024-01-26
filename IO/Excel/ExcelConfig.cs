@@ -355,9 +355,7 @@ namespace BudgetExecution
                 var _startColumn = excelRange.Start.Column;
                 var _endRow = excelRange.Start.Row - 1;
                 var _endColumn = excelRange.End.Column;
-                _excelRange = _excelWorksheet.Cells[ _startRow, _startColumn,
-                    _endRow, _endColumn ];
-
+                _excelRange = _excelWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
                 var _comment = _excelRange.AddComment( text, "Budget" );
                 _comment.From.Row = _excelRange.Start.Row;
                 _comment.From.Column = _excelRange.Start.Column;

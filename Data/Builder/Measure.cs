@@ -97,7 +97,6 @@ namespace BudgetExecution
                 ThrowIfNullCriteria( where );
                 var _select = _dataTable?.Filter( where )
                     ?.Select( p => p.Field<double>( numeric ) );
-
                 return _select?.Any( ) == true
                     ? _select.Count( )
                     : 0;
