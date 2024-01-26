@@ -270,7 +270,7 @@ namespace BudgetExecution
                 {
                     _excelRange = null;
                 }
-                
+
                 Fail( _ex );
             }
         }
@@ -298,7 +298,7 @@ namespace BudgetExecution
                 {
                     _excelRange = null;
                 }
-                
+
                 Fail( _ex );
             }
         }
@@ -328,7 +328,7 @@ namespace BudgetExecution
                 {
                     _excelRange = null;
                 }
-                
+
                 Fail( _ex );
             }
         }

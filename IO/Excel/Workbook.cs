@@ -187,29 +187,69 @@ namespace BudgetExecution
             {
                 ThrowIf.Null( excelRange, nameof( excelRange ) );
                 ThrowIf.Null( labels, nameof( labels ) );
-                var _startRow = excelRange.Start.Row - 1;
+                var _header = excelRange.Start.Row - 1;
                 var _startColumn = excelRange.Start.Column;
-                var _endRow = excelRange.End.Row;
+                var _endRow = excelRange.End.Row - 1;
                 var _endColumn = excelRange.End.Column;
-                _excelRange = _excelWorksheet.Cells[ _startRow, _startColumn, 
-                    _endRow, _endColumn ];
-
-                var _row = _excelRange.EntireRow.Range;  
+                _headerRange = _excelWorksheet.Cells[ _header, _startColumn, _endRow, _endColumn ];
+                var _row = _headerRange.EntireRow.Range;  
                 foreach( var _item in labels )
                 {
                     if( _startColumn <= _endColumn )
                     {
-                        _row.SetCellValue( _startRow, _startColumn, _item );
+                        _row.SetCellValue( _header, _startColumn, _item );
                     }
 
                     _startColumn++;
                 }
+
+                SetHeaderRowFormat( _headerRange );
             }
             catch( Exception _ex )
             {
-                if( _excelRange != null )
+                if( _headerRange != null )
                 {
-                    _excelRange = null;
+                    _headerRange = null;
+                }
+
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the footer text.
+        /// </summary>
+        /// <param name="excelRange">The excel range.</param>
+        /// <param name="labels">The labels.</param>
+        public void SetFooterRowValues( ExcelRange excelRange, IEnumerable<string> labels )
+        {
+            try
+            {
+                ThrowIf.Null( excelRange, nameof( excelRange ) );
+                ThrowIf.Null( labels, nameof( labels ) );
+                var _footer = excelRange.Start.Row - 1;
+                var _startColumn = excelRange.Start.Column;
+                var _endRow = excelRange.End.Row - 1;
+                var _endColumn = excelRange.End.Column;
+                _footerRange = _excelWorksheet.Cells[ _footer, _startColumn, _endRow, _endColumn ];
+                var _row = _footerRange.EntireRow.Range;
+                foreach( var _item in labels )
+                {
+                    if( _startColumn <= _endColumn )
+                    {
+                        _row.SetCellValue( _footer, _startColumn, _item );
+                    }
+
+                    _startColumn++;
+                }
+
+                SetFooterRowFormat( _footerRange );
+            }
+            catch( Exception _ex )
+            {
+                if( _footerRange != null )
+                {
+                    _footerRange = null;
                 }
 
                 Fail( _ex );
@@ -243,7 +283,7 @@ namespace BudgetExecution
                 {
                     _excelRange = null;
                 }
-                
+
                 Fail( _ex );
             }
         }
@@ -275,7 +315,7 @@ namespace BudgetExecution
                 {
                     _excelRange = null;
                 }
-                
+
                 Fail( _ex );
             }
         }
@@ -312,7 +352,7 @@ namespace BudgetExecution
                 {
                     _excelRange = null;
                 }
-                
+
                 Fail( _ex );
             }
         }
@@ -342,7 +382,7 @@ namespace BudgetExecution
                 {
                     _excelRange = null;
                 }
-                
+
                 Fail( _ex );
             }
         }
@@ -373,7 +413,7 @@ namespace BudgetExecution
                 {
                     _excelRange = null;
                 }
-                
+
                 Fail( _ex );
             }
         }

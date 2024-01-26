@@ -384,51 +384,31 @@ namespace BudgetExecution
         /// <summary>
         /// Adds the comment.
         /// </summary>
-        /// <param name="grid">The grid.</param>
+        /// <param name="excelRange"> </param>
         /// <param name="text">The text.</param>
-        public void AddComment( Grid grid, string text )
+        public void AddComment( ExcelRange excelRange, string text )
         {
             try
             {
-                ThrowIf.Null( grid, nameof( grid ) );
                 ThrowIf.NullOrEmpty( text, nameof( text ) );
-                using var _range = grid?.ExcelRange;
-                var _comment = _range?.AddComment( text, "Budget" );
-                if( _comment != null )
-                {
-                    _comment.From.Row = _range.Start.Row;
-                    _comment.From.Column = _range.Start.Column;
-                    _comment.To.Row = _range.End.Row;
-                    _comment.To.Column = _range.End.Column;
-                    _comment.BackgroundColor = Color.FromArgb( 15, 15, 15 );
-                    _comment.Font.FontName = "Roboto";
-                    _comment.Font.Size = 9;
-                    _comment.Font.Color = Color.Black;
-                    _comment.Text = text;
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the horizontal alignment.
-        /// </summary>
-        /// <param name="excelRange"> </param>
-        /// <param name="align">The alignment.</param>
-        public void SetRangeHorizontalAlignment( ExcelRange excelRange, ExcelHorizontalAlignment align )
-        {
-            try
-            {
                 ThrowIf.Null( excelRange, nameof( excelRange ) );
-                var _startRow = excelRange.Start.Row;
+                var _startRow = excelRange.Start.Row - 1;
                 var _startColumn = excelRange.Start.Column;
-                var _endRow = excelRange.End.Row;
+                var _endRow = excelRange.Start.Row - 1;
                 var _endColumn = excelRange.End.Column;
-                _excelRange = _excelWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
-                _excelRange.Style.HorizontalAlignment = align;
+                _excelRange = _excelWorksheet.Cells[ _startRow, _startColumn,
+                    _endRow, _endColumn ];
+
+                var _comment = _excelRange.AddComment( text, "Budget" );
+                _comment.From.Row = _excelRange.Start.Row;
+                _comment.From.Column = _excelRange.Start.Column;
+                _comment.To.Row = _excelRange.End.Row;
+                _comment.To.Column = _excelRange.End.Column;
+                _comment.BackgroundColor = Color.FromArgb( 15, 15, 15 );
+                _comment.Font.FontName = "Roboto";
+                _comment.Font.Size = 9;
+                _comment.Font.Color = Color.White;
+                _comment.Text = text;
             }
             catch( Exception _ex )
             {
@@ -442,27 +422,63 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the vertical alignment.
+        /// Sets the header row format.
         /// </summary>
-        /// <param name="excelRange"> </param>
-        /// <param name="align">The alignment.</param>
-        public void SetRangeVerticalAlignment( ExcelRange excelRange, ExcelVerticalAlignment align )
+        /// <param name="excelRange">The excel range.</param>
+        private protected void SetHeaderRowFormat( ExcelRange excelRange )
         {
             try
             {
                 ThrowIf.Null( excelRange, nameof( excelRange ) );
-                var _startRow = excelRange.Start.Row;
+                var _header = excelRange.Start.Row - 1;
                 var _startColumn = excelRange.Start.Column;
-                var _endRow = excelRange.End.Row;
+                var _endRow = excelRange.Start.Row - 1;
                 var _endColumn = excelRange.End.Column;
-                _excelRange = _excelWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
-                _excelRange.Style.VerticalAlignment = align;
+                _headerRange = _excelWorksheet.Cells[ _header, _startColumn, _endRow, _endColumn ];
+                _headerRange.Style.Font.Name = "Roboto";
+                _headerRange.Style.Font.Size = 10;
+                _headerRange.Style.Font.Bold = false;
+                _headerRange.Style.Font.Italic = false;
+                _headerRange.Style.Font.Color.SetColor( _fontColor );
+                _headerRange.EntireRow.CustomHeight = true;
+                _headerRange.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                _headerRange.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                _headerRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                _headerRange.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                _headerRange.Style.Fill.BackgroundColor.SetColor( _secondaryBackColor );
             }
             catch( Exception _ex )
             {
-                if( _excelRange != null )
+                if( _headerRange != null )
                 {
-                    _excelRange = null;
+                    _headerRange = null;
+                }
+
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the footer row format.
+        /// </summary>
+        /// <param name="excelRange">The excel range.</param>
+        private protected void SetFooterRowFormat( ExcelRange excelRange )
+        {
+            try
+            {
+                ThrowIf.Null( excelRange, nameof( excelRange ) );
+                var _footer = excelRange.End.Row + 1;
+                var _startColumn = excelRange.Start.Column;
+                var _endRow = excelRange.End.Row + 1;
+                var _endColumn = excelRange.End.Column;
+                _footerRange = _excelWorksheet.Cells[ _footer, _startColumn, _endRow, _endColumn ];
+                _footerRange.Style.Border.Bottom.Style = ExcelBorderStyle.Double;
+            }
+            catch( Exception _ex )
+            {
+                if( _footerRange != null )
+                {
+                    _footerRange = null;
                 }
 
                 Fail( _ex );

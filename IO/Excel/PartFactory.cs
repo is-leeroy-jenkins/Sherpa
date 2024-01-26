@@ -58,12 +58,12 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "HeapView.ObjectAllocation.Evident" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
-    public class ReportFactory : BasicReport
+    public class PartFactory : BasicReport
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ReportFactory"/> class.
+        /// Initializes a new instance of the <see cref="PartFactory"/> class.
         /// </summary>
-        public ReportFactory( )
+        public PartFactory( )
         {
         }
 

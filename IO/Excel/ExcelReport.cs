@@ -135,27 +135,27 @@ namespace BudgetExecution
             _columnWidth = 8.5;
             _leftMargin = 0.25m;
             _rightMargin = 0.25m;
-            _topMargin = 0.25m;
-            _bottomMargin = 0.25m;
-            _headerMargin = 0m;
-            _footerMargin = 0m;
+            _topMargin = 0.5m;
+            _bottomMargin = 0.5m;
+            _headerMargin = 0.5m;
+            _footerMargin = 0.0m;
             _zoomLevel = 100;
             _rowCount = 55;
             _columnCount = 11;
             _primaryBackColor = Color.White;
-            _secondaryBackColor = Color.FromArgb( 221, 235, 247 );
+            _secondaryBackColor = Color.FromArgb( 250, 250, 250 );
             _internalPath = AppSettings[ "Reports" ];
             _savePath = AppSettings[ "Desktop" ] + _fileName;
             _fileInfo = new FileInfo( _internalPath );
             _excelPackage = new ExcelPackage( _fileInfo );
             _excelWorkbook = _excelPackage.Workbook;
             _excelWorksheet = _excelWorkbook.Worksheets.Add( "Data" );
-            _excelRange = _excelWorksheet.Cells[ 5, 1, 65, 11 ];
+            _excelRange = _excelWorksheet.Cells[ 2, 1, 59, 11 ];
             _excelWorkbook.View.ShowHorizontalScrollBar = true;
             _excelWorkbook.View.ShowVerticalScrollBar = true;
             InitializeWorkbookProperties( );
             InitializeActiveGrid( );
-            InitializeSheetViews( );
+            InitializeSheetView( );
             InitializePrinterSettings( );
         }
 
@@ -184,7 +184,7 @@ namespace BudgetExecution
             _footerMargin = 0m;
             _zoomLevel = 100;
             _primaryBackColor = Color.White;
-            _secondaryBackColor = Color.FromArgb( 221, 235, 247 );
+            _secondaryBackColor = Color.FromArgb( 250, 250, 250 );
             _internalPath = AppSettings[ "Reports" ];
             _savePath = AppSettings[ "Desktop" ] + _fileName;
             _fileInfo = new FileInfo( filePath );
@@ -195,7 +195,7 @@ namespace BudgetExecution
             _excelWorkbook.View.ShowVerticalScrollBar = true;
             InitializeWorkbookProperties( );
             InitializeActiveGrid( );
-            InitializeSheetViews( );
+            InitializeSheetView( );
             InitializePrinterSettings( );
         }
 
@@ -211,7 +211,7 @@ namespace BudgetExecution
         public ExcelReport( DataTable dataTable ) 
             : this( )
         {
-            _rowIndex = 10;
+            _rowIndex = 5;
             _dataTable = dataTable;
             _fileName = dataTable.TableName + ".xlsx";
             _fontColor = Color.Black;
@@ -225,7 +225,7 @@ namespace BudgetExecution
             _footerMargin = 0.25m;
             _zoomLevel = 100;
             _primaryBackColor = Color.White;
-            _secondaryBackColor = Color.FromArgb( 221, 235, 247 );
+            _secondaryBackColor = Color.FromArgb( 250, 250, 250 );
             _internalPath = AppSettings[ "Reports" ];
             _savePath = AppSettings[ "Desktop" ] + _fileName;
             _fileInfo = new FileInfo( _internalPath );
@@ -238,14 +238,14 @@ namespace BudgetExecution
             _rowCount = dataTable.Rows.Count;
             InitializeWorkbookProperties( );
             InitializeActiveGrid( );
-            InitializeSheetViews( );
+            InitializeSheetView( );
             InitializePrinterSettings( );
         }
 
         /// <summary>
         /// Initializes the worksheets.
         /// </summary>
-        private void InitializeSheetViews( )
+        private void InitializeSheetView( )
         {
             try
             {
@@ -296,7 +296,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the header footer.
         /// </summary>
-        private void InitializeHeaderImage( )
+        private void InitializeHeader( )
         {
             try
             {
@@ -310,7 +310,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the footer image.
         /// </summary>
-        private void InitializeFooterImage( )
+        private void InitializeFooter( )
         {
             try
             {
@@ -330,7 +330,7 @@ namespace BudgetExecution
             {
                 if( _dataTable == null )
                 {
-                    _excelRange = _excelWorksheet.Cells[ 5, 1, 65, 11 ];
+                    _excelRange = _excelWorksheet.Cells[ 2, 1, 59, 11 ];
                     _excelRange.Style.Font.Name = "Roboto";
                     _excelRange.Style.Font.Size = 9;
                     _excelRange.Style.Font.Bold = false;
@@ -354,7 +354,7 @@ namespace BudgetExecution
                 {
                     _excelRange = null;
                 }
-                
+
                 Fail( _ex );
             }
         }
@@ -378,62 +378,16 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the header row text.
+        /// Initializes the table format.
         /// </summary>
-        /// <param name="excelRange">The excel range.</param>
-        /// <param name="text">The text.</param>
-        private void SetHeaderRowText( ExcelRange excelRange, string text )
+        private void InitializeTableFormat( ) 
+
         {
             try
             {
-                ThrowIf.Null( excelRange, nameof( excelRange ) );
-                ThrowIf.NullOrEmpty( text, nameof( text ) );
-                var _header = excelRange.Start.Row - 1;
-                var _startColumn = excelRange.Start.Column;
-                var _endRow = excelRange.Start.Row - 1;
-                var _endColumn = excelRange.End.Column;
-                _headerRange = _excelWorksheet.Cells[ _header, _startColumn,
-                    _endRow, _endColumn ];
-
-                _headerRange.Merge = true;
-                _headerRange.Value = text;
             }
             catch( Exception _ex )
             {
-                if( _headerRange != null )
-                {
-                    _headerRange = null;
-                }
-
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the footer text.
-        /// </summary>
-        /// <param name="excelRange"> </param>
-        /// <param name="text">The text.</param>
-        public void SetFooterRowText( ExcelRange excelRange, string text )
-        {
-            try
-            {
-                ThrowIf.Null( excelRange, nameof( excelRange ) );
-                ThrowIf.NullOrEmpty( text, nameof( text ) );
-                var _footer = excelRange.Start.Row + 1;
-                var _startColumn = excelRange.Start.Column;
-                var _endRow = excelRange.Start.Row + 1;
-                var _endColumn = excelRange.End.Column;
-                _footerRange = _excelWorksheet.Cells[ _footer, _startColumn, _endRow, _endColumn ];
-                _footerRange.SetCellValue( _footer, _startColumn, text );
-            }
-            catch( Exception _ex )
-            {
-                if( _footerRange != null )
-                {
-                    _footerRange = null;
-                }
-
                 Fail( _ex );
             }
         }
