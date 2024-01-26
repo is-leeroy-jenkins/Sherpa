@@ -181,7 +181,7 @@ namespace BudgetExecution
         /// </param>
         /// <param name="labels">
         /// </param>
-        public void SetHeaderRowText( ExcelRange excelRange, IList<string> labels )
+        public void SetHeaderRowValues( ExcelRange excelRange, IList<string> labels )
         {
             try
             {
@@ -191,7 +191,10 @@ namespace BudgetExecution
                 var _startColumn = excelRange.Start.Column;
                 var _endRow = excelRange.End.Row;
                 var _endColumn = excelRange.End.Column;
-                var _row = excelRange.EntireRow.Range;
+                _excelRange = _excelWorksheet.Cells[ _startRow, _startColumn, 
+                    _endRow, _endColumn ];
+
+                var _row = _excelRange.EntireRow.Range;  
                 foreach( var _item in labels )
                 {
                     if( _startColumn <= _endColumn )
@@ -204,6 +207,11 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
+                if( _excelRange != null )
+                {
+                    _excelRange = null;
+                }
+
                 Fail( _ex );
             }
         }
@@ -227,7 +235,7 @@ namespace BudgetExecution
                 _excelRange.Style.Fill.PatternType = ExcelFillStyle.Solid;
                 _excelRange.Style.Fill.BackgroundColor.SetColor( _secondaryBackColor );
                 _excelRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.CenterContinuous;
-                _excelRange.Style.Border.Bottom.Style = ExcelBorderStyle.Hair;
+                _excelRange.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
             }
             catch( Exception _ex )
             {

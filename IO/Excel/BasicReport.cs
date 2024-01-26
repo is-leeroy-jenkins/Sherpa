@@ -155,6 +155,16 @@ namespace BudgetExecution
         private protected FileInfo _fileInfo;
 
         /// <summary>
+        /// The header range
+        /// </summary>
+        private protected ExcelRange _headerRange;
+
+        /// <summary>
+        /// The footer range
+        /// </summary>
+        private protected ExcelRange _footerRange;
+
+        /// <summary>
         /// The excel range
         /// </summary>
         private protected ExcelRange _excelRange;
@@ -177,7 +187,7 @@ namespace BudgetExecution
         /// <summary>
         /// The comments
         /// </summary>
-        private protected IList<ExcelComment> _excelComments;
+        private protected IList<ExcelComment> _comments;
 
         /// <summary>
         /// The theme path
@@ -222,7 +232,7 @@ namespace BudgetExecution
         /// <summary>
         /// The int
         /// </summary>
-        private protected int _index;
+        private protected int _rowIndex;
 
         /// <summary>
         /// The row count
@@ -298,7 +308,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="excelRange"> </param>
         /// <param name="color">The color.</param>
-        public void SetFontColor( ExcelRange excelRange, Color color )
+        public void SetRangeFontColor( ExcelRange excelRange, Color color )
         {
             try
             {

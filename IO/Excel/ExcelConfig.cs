@@ -62,6 +62,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MergeIntoPattern" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantCheckBeforeAssignment" ) ]
     public abstract class ExcelConfig : BasicReport
     {
         /// <summary>
@@ -165,7 +166,7 @@ namespace BudgetExecution
         /// <value>
         /// The workbook.
         /// </value>
-        public ExcelWorkbook Workbook
+        public ExcelWorkbook ExcelWorkbook
         {
             get
             {
@@ -207,12 +208,12 @@ namespace BudgetExecution
         {
             get
             {
-                return _excelComments;
+                return _comments;
             }
             
             private protected set
             {
-                _excelComments = value;
+                _comments = value;
             }
         }
 
@@ -246,12 +247,12 @@ namespace BudgetExecution
         {
             get
             {
-                return _index;
+                return _rowIndex;
             }
             
             private protected set
             {
-                _index = value;
+                _rowIndex = value;
             }
         }
 
@@ -415,18 +416,27 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the horizontal alignment.
         /// </summary>
-        /// <param name="grid">The grid.</param>
+        /// <param name="excelRange"> </param>
         /// <param name="align">The alignment.</param>
-        public void SetHorizontalAlignment( Grid grid, ExcelHorizontalAlignment align )
+        public void SetRangeHorizontalAlignment( ExcelRange excelRange, ExcelHorizontalAlignment align )
         {
             try
             {
-                ThrowIf.Null( grid, nameof( grid ) );
-                using var _range = grid.ExcelRange;
-                _range.Style.HorizontalAlignment = align;
+                ThrowIf.Null( excelRange, nameof( excelRange ) );
+                var _startRow = excelRange.Start.Row;
+                var _startColumn = excelRange.Start.Column;
+                var _endRow = excelRange.End.Row;
+                var _endColumn = excelRange.End.Column;
+                _excelRange = _excelWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
+                _excelRange.Style.HorizontalAlignment = align;
             }
             catch( Exception _ex )
             {
+                if( _excelRange != null )
+                {
+                    _excelRange = null;
+                }
+
                 Fail( _ex );
             }
         }
@@ -434,18 +444,27 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the vertical alignment.
         /// </summary>
-        /// <param name="grid">The grid.</param>
+        /// <param name="excelRange"> </param>
         /// <param name="align">The alignment.</param>
-        public void SetVerticalAlignment( Grid grid, ExcelVerticalAlignment align )
+        public void SetRangeVerticalAlignment( ExcelRange excelRange, ExcelVerticalAlignment align )
         {
             try
             {
-                ThrowIf.Null( grid, nameof( grid ) );
-                using var _range = grid.ExcelRange;
-                _range.Style.VerticalAlignment = align;
+                ThrowIf.Null( excelRange, nameof( excelRange ) );
+                var _startRow = excelRange.Start.Row;
+                var _startColumn = excelRange.Start.Column;
+                var _endRow = excelRange.End.Row;
+                var _endColumn = excelRange.End.Column;
+                _excelRange = _excelWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
+                _excelRange.Style.VerticalAlignment = align;
             }
             catch( Exception _ex )
             {
+                if( _excelRange != null )
+                {
+                    _excelRange = null;
+                }
+
                 Fail( _ex );
             }
         }

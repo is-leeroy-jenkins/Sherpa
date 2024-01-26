@@ -59,32 +59,33 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Local" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     public class Section : Grid
     {
         /// <summary>
         /// The span
         /// </summary>
-        private int _span;
+        private protected int _span;
 
         /// <summary>
         /// The depth
         /// </summary>
-        private int _depth;
+        private protected int _depth;
 
         /// <summary>
         /// The area
         /// </summary>
-        private int _area;
+        private protected int _area;
 
         /// <summary>
         /// The anchor
         /// </summary>
-        private (int Row, int Column) _anchor;
+        private protected (int Row, int Column) _anchor;
 
         /// <summary>
         /// The values
         /// </summary>
-        private IList<object> _values;
+        private protected IList<object> _values;
 
         /// <summary>
         /// Gets the span.

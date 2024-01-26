@@ -212,9 +212,9 @@ namespace BudgetExecution
                     _names[ _n ] = GetExcelColumnName( _n );
                 }
 
-                uint _rowIndex = 1;
+                uint _index = 1;
                 var _row = new Row( );
-                _row.RowIndex = _rowIndex;
+                _row.RowIndex = _index;
                 _sheetData?.Append( _row );
                 for( var _colinx = 0; _colinx < _columns; _colinx++ )
                 {
@@ -226,10 +226,10 @@ namespace BudgetExecution
 
                 foreach( DataRow _dataRow in dataTable.Rows )
                 {
-                    ++_rowIndex;
+                    ++_index;
                     var _excelRow = new Row
                     {
-                        RowIndex = _rowIndex
+                        RowIndex = _index
                     };
                     
                     _sheetData?.Append( _excelRow );
@@ -241,12 +241,12 @@ namespace BudgetExecution
                             if( double.TryParse( _value, out var _cellNumericValue ) )
                             {
                                 _value = _cellNumericValue.ToString( );
-                                AppendNumericCell( _names[ _i ] + _rowIndex, _value, _excelRow );
+                                AppendNumericCell( _names[ _i ] + _index, _value, _excelRow );
                             }
                         }
                         else
                         {
-                            AppendTextCell( _names[ _i ] + _rowIndex, _value, _excelRow );
+                            AppendTextCell( _names[ _i ] + _index, _value, _excelRow );
                         }
                     }
                 }

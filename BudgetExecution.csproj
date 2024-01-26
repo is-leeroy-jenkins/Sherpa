@@ -20,7 +20,7 @@
     <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
     <Configurations>Debug;Release</Configurations>
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <GenerateDocumentationFile>False</GenerateDocumentationFile>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <BaseIntermediateOutputPath>Obj\</BaseIntermediateOutputPath>
     <BaseOutputPath>Bin\</BaseOutputPath>
     <RunAnalyzersDuringBuild>True</RunAnalyzersDuringBuild>
@@ -29,9 +29,9 @@
     <PackageProjectUrl>https://github.com/KarmaScripter/BudgetExecution</PackageProjectUrl>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <Title>Budget Execution</Title>
-    <PackageIcon></PackageIcon>
+    <PackageIcon>budget.png</PackageIcon>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <ApplicationIcon>Resources\Pictures\Forms\Application.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\Pictures\Forms\budget-execution.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702;2201;1051;CA1200;CA1310;CA1305;1822;CA1716;CA1812;CA1304</NoWarn>
@@ -54,7 +54,7 @@
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="Resources\Pictures\Forms\Application.ico" />
+    <Content Include="Resources\Pictures\Forms\budget-execution.ico" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="DocumentFormat.OpenXml" Version="3.0.1" />
@@ -413,6 +413,10 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="Resources\Pictures\Forms\budget.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>

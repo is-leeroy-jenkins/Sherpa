@@ -47,7 +47,6 @@ namespace BudgetExecution
     using System.Drawing;
     using System.IO;
     using OfficeOpenXml;
-    using OfficeOpenXml.Drawing;
     using OfficeOpenXml.Style;
     using static System.Configuration.ConfigurationManager;
 
@@ -127,7 +126,7 @@ namespace BudgetExecution
         /// </summary>
         public ExcelReport( )
         {
-            _index = 1;
+            _rowIndex = 1;
             _fontColor = Color.Black;
             _font = new Font( "Roboto", 9, FontStyle.Regular );
             _titleFont = new Font( "Roboto", 10, FontStyle.Bold );
@@ -169,7 +168,7 @@ namespace BudgetExecution
         public ExcelReport( string filePath ) 
             : this( )
         {
-            _index = 5;
+            _rowIndex = 5;
             _filePath = filePath;
             _fileName = Path.GetFileName( filePath );
             _fontColor = Color.Black;
@@ -212,7 +211,7 @@ namespace BudgetExecution
         public ExcelReport( DataTable dataTable ) 
             : this( )
         {
-            _index = 10;
+            _rowIndex = 10;
             _dataTable = dataTable;
             _fileName = dataTable.TableName + ".xlsx";
             _fontColor = Color.Black;
@@ -340,7 +339,9 @@ namespace BudgetExecution
                     _excelRange.Style.Font.Color.SetColor( _fontColor );
                     _excelRange.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
                     _excelRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                    SetHeaderRowFormat( _excelRange );
                     SetAlternatingRowColor( _excelRange );
+                    SetFooterRowFormat( _excelRange );
                 }
                 else
                 {
@@ -377,19 +378,33 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the header text.
+        /// Sets the header row text.
         /// </summary>
-        /// <param name="text">
-        /// The grid.
-        /// </param>
-        public void SetHeaderText( string text )
+        /// <param name="excelRange">The excel range.</param>
+        /// <param name="text">The text.</param>
+        private void SetHeaderRowText( ExcelRange excelRange, string text )
         {
             try
             {
+                ThrowIf.Null( excelRange, nameof( excelRange ) );
                 ThrowIf.NullOrEmpty( text, nameof( text ) );
+                var _header = excelRange.Start.Row - 1;
+                var _startColumn = excelRange.Start.Column;
+                var _endRow = excelRange.Start.Row - 1;
+                var _endColumn = excelRange.End.Column;
+                _headerRange = _excelWorksheet.Cells[ _header, _startColumn,
+                    _endRow, _endColumn ];
+
+                _headerRange.Merge = true;
+                _headerRange.Value = text;
             }
             catch( Exception _ex )
             {
+                if( _headerRange != null )
+                {
+                    _headerRange = null;
+                }
+
                 Fail( _ex );
             }
         }
@@ -397,15 +412,28 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the footer text.
         /// </summary>
+        /// <param name="excelRange"> </param>
         /// <param name="text">The text.</param>
-        public void SetFooterText( string text )
+        public void SetFooterRowText( ExcelRange excelRange, string text )
         {
             try
             {
+                ThrowIf.Null( excelRange, nameof( excelRange ) );
                 ThrowIf.NullOrEmpty( text, nameof( text ) );
+                var _footer = excelRange.Start.Row + 1;
+                var _startColumn = excelRange.Start.Column;
+                var _endRow = excelRange.Start.Row + 1;
+                var _endColumn = excelRange.End.Column;
+                _footerRange = _excelWorksheet.Cells[ _footer, _startColumn, _endRow, _endColumn ];
+                _footerRange.SetCellValue( _footer, _startColumn, text );
             }
             catch( Exception _ex )
             {
+                if( _footerRange != null )
+                {
+                    _footerRange = null;
+                }
+
                 Fail( _ex );
             }
         }

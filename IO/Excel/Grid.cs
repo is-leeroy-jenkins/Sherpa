@@ -184,6 +184,12 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Gets the cells.
+        /// </summary>
+        /// <value>
+        /// The cells.
+        /// </value>
         public IList<ExcelRangeBase> Cells
         {
             get
@@ -333,7 +339,8 @@ namespace BudgetExecution
         /// <param name="cells"> </param>
         public void Deconstruct( out (int Row, int Column) from,
             out (int Row, int Column) to, out ExcelWorksheet excelWorksheet, 
-            out ExcelRange excelRange, out ExcelAddress excelAddress, out IList<ExcelRangeBase> cells )
+            out ExcelRange excelRange, out ExcelAddress excelAddress,
+            out IList<ExcelRangeBase> cells )
         {
             from = _from;
             to = _to;

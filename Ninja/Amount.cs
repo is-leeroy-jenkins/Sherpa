@@ -119,7 +119,7 @@ namespace BudgetExecution
         public Amount( DataRow dataRow, string numeric )
         {
             Numeric = numeric;
-            Value = double.Parse( dataRow[ numeric ].ToString( ) ?? string.Empty );
+            Value = double.Parse( dataRow[ numeric ].ToString( ) ?? "0.0" );
             Delta = Initial - Value;
         }
 

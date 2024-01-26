@@ -45,79 +45,114 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
-    /// <inheritdoc/>
-    /// <summary> </summary>
-    /// <seealso cref="T:BudgetExecution.PRC"/>
-    /// <seealso cref="T:BudgetExecution.IStatusOfFunds"/>
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:BudgetExecution.PRC" />
+    /// <seealso cref="T:BudgetExecution.IStatusOfFunds" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public class StatusOfFunds : PRC, IStatusOfFunds
     {
-        /// <inheritdoc/>
-        /// <summary> Gets or sets the amount. </summary>
-        /// <value> The amount. </value>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the amount.
+        /// </summary>
+        /// <value>
+        /// The amount.
+        /// </value>
         public virtual double Amount { get; set; }
 
-        /// <inheritdoc/>
-        /// <summary> Gets or sets the budgeted. </summary>
-        /// <value> The budgeted. </value>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the budgeted.
+        /// </summary>
+        /// <value>
+        /// The budgeted.
+        /// </value>
         public virtual double Budgeted { get; set; }
 
-        /// <inheritdoc/>
-        /// <summary> Gets or sets the posted. </summary>
-        /// <value> The posted. </value>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the posted.
+        /// </summary>
+        /// <value>
+        /// The posted.
+        /// </value>
         public virtual double Posted { get; set; }
 
-        /// <inheritdoc/>
-        /// <summary> Gets or sets the open commitments. </summary>
-        /// <value> The open commitments. </value>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the open commitments.
+        /// </summary>
+        /// <value>
+        /// The open commitments.
+        /// </value>
         public virtual double OpenCommitments { get; set; }
 
-        /// <inheritdoc/>
-        /// <summary> Gets or sets the unliquidated obligations. </summary>
-        /// <value> The unliquidated obligations. </value>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the unliquidated obligations.
+        /// </summary>
+        /// <value>
+        /// The unliquidated obligations.
+        /// </value>
         public virtual double UnliquidatedObligations { get; set; }
 
-        /// <inheritdoc/>
-        /// <summary> Gets or sets the expenditures. </summary>
-        /// <value> The expenditures. </value>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the expenditures.
+        /// </summary>
+        /// <value>
+        /// The expenditures.
+        /// </value>
         public virtual double Expenditures { get; set; }
 
-        /// <inheritdoc/>
-        /// <summary> Gets or sets the obligations. </summary>
-        /// <value> The obligations. </value>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the obligations.
+        /// </summary>
+        /// <value>
+        /// The obligations.
+        /// </value>
         public virtual double Obligations { get; set; }
 
-        /// <inheritdoc/>
-        /// <summary> Gets or sets the used. </summary>
-        /// <value> The used. </value>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the used.
+        /// </summary>
+        /// <value>
+        /// The used.
+        /// </value>
         public virtual double Used { get; set; }
 
-        /// <inheritdoc/>
-        /// <summary> Gets or sets the available. </summary>
-        /// <value> The available. </value>
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the available.
+        /// </summary>
+        /// <value>
+        /// The available.
+        /// </value>
         public virtual double Available { get; set; }
 
-        /// <inheritdoc/>
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.StatusOfFunds"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.StatusOfFunds" /> class.
         /// </summary>
         public StatusOfFunds( )
         {
             Source = Source.StatusOfFunds;
         }
 
-        /// <inheritdoc/>
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.StatusOfFunds"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.StatusOfFunds" /> class.
         /// </summary>
-        /// <param name="query"> The query. </param>
+        /// <param name="query">The query.</param>
         public StatusOfFunds( IQuery query )
             : base( query )
         {
@@ -139,17 +174,17 @@ namespace BudgetExecution
             AccountCode = Record[ "AccountCode" ].ToString( );
             BocCode = Record[ "BocCode" ].ToString( );
             BocName = Record[ "BocName" ].ToString( );
-            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
-            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? "0" );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0.0" );
+            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? "0.0" );
             Posted = double.Parse( Record[ "Posted" ].ToString( ) ?? "0" );
-            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
+            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0.0" );
             UnliquidatedObligations =
-                double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) ?? "0" );
+                double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) ?? "0.0" );
 
-            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
-            Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) ?? "0" );
-            Used = double.Parse( Record[ "Used" ].ToString( ) ?? "0" );
-            Available = double.Parse( Record[ "Available" ].ToString( ) ?? "0" );
+            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0.0" );
+            Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) ?? "0.0" );
+            Used = double.Parse( Record[ "Used" ].ToString( ) ?? "0.0" );
+            Available = double.Parse( Record[ "Available" ].ToString( ) ?? "0.0" );
             ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
             ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
@@ -166,13 +201,12 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
-        /// <inheritdoc/>
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.StatusOfFunds"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.StatusOfFunds" /> class.
         /// </summary>
-        /// <param name="dataBuilder"> The data builder. </param>
+        /// <param name="dataBuilder">The data builder.</param>
         public StatusOfFunds( IDataModel dataBuilder )
             : base( dataBuilder )
         {
@@ -194,17 +228,17 @@ namespace BudgetExecution
             AccountCode = Record[ "AccountCode" ].ToString( );
             BocCode = Record[ "BocCode" ].ToString( );
             BocName = Record[ "BocName" ].ToString( );
-            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
-            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? "0" );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0.0" );
+            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? "0.0" );
             Posted = double.Parse( Record[ "Posted" ].ToString( ) ?? "0" );
-            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
+            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0.0" );
             UnliquidatedObligations =
-                double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) ?? "0" );
+                double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) ?? "0.0" );
 
-            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
-            Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) ?? "0" );
-            Used = double.Parse( Record[ "Used" ].ToString( ) ?? "0" );
-            Available = double.Parse( Record[ "Available" ].ToString( ) ?? "0" );
+            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0.0" );
+            Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) ?? "0.0" );
+            Used = double.Parse( Record[ "Used" ].ToString( ) ?? "0.0" );
+            Available = double.Parse( Record[ "Available" ].ToString( ) ?? "0.0" );
             ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
             ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
@@ -221,13 +255,12 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
-        /// <inheritdoc/>
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.StatusOfFunds"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.StatusOfFunds" /> class.
         /// </summary>
-        /// <param name="dataRow"> The data row. </param>
+        /// <param name="dataRow">The data row.</param>
         public StatusOfFunds( DataRow dataRow )
             : base( dataRow )
         {
@@ -249,17 +282,17 @@ namespace BudgetExecution
             AccountCode = dataRow[ "AccountCode" ].ToString( );
             BocCode = dataRow[ "BocCode" ].ToString( );
             BocName = dataRow[ "BocName" ].ToString( );
-            Amount = double.Parse( dataRow[ "Amount" ].ToString( ) ?? "0" );
-            Budgeted = double.Parse( dataRow[ "Budgeted" ].ToString( ) ?? "0" );
-            Posted = double.Parse( dataRow[ "Posted" ].ToString( ) ?? "0" );
-            OpenCommitments = double.Parse( dataRow[ "OpenCommitments" ].ToString( ) ?? "0" );
+            Amount = double.Parse( dataRow[ "Amount" ].ToString( ) ?? "0.0" );
+            Budgeted = double.Parse( dataRow[ "Budgeted" ].ToString( ) ?? "0.0" );
+            Posted = double.Parse( dataRow[ "Posted" ].ToString( ) ?? "0.0" );
+            OpenCommitments = double.Parse( dataRow[ "OpenCommitments" ].ToString( ) ?? "0.0" );
             UnliquidatedObligations =
-                double.Parse( dataRow[ "UnliquidatedObligations" ].ToString( ) ?? "0" );
+                double.Parse( dataRow[ "UnliquidatedObligations" ].ToString( ) ?? "0.0" );
 
-            Obligations = double.Parse( dataRow[ "Obligations" ].ToString( ) ?? "0" );
+            Obligations = double.Parse( dataRow[ "Obligations" ].ToString( ) ?? "0.0" );
             Expenditures = double.Parse( dataRow[ "Expenditures" ].ToString( ) ?? "0" );
-            Used = double.Parse( dataRow[ "Used" ].ToString( ) ?? "0" );
-            Available = double.Parse( dataRow[ "Available" ].ToString( ) ?? "0" );
+            Used = double.Parse( dataRow[ "Used" ].ToString( ) ?? "0.0" );
+            Available = double.Parse( dataRow[ "Available" ].ToString( ) ?? "0.0" );
             ProgramProjectCode = dataRow[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = dataRow[ "ProgramProjectName" ].ToString( );
             ProgramAreaCode = dataRow[ "ProgramAreaCode" ].ToString( );
@@ -276,13 +309,12 @@ namespace BudgetExecution
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
         }
 
-        /// <inheritdoc/>
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.StatusOfFunds"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.StatusOfFunds" /> class.
         /// </summary>
-        /// <param name="map"> The map. </param>
+        /// <param name="map">The map.</param>
         public StatusOfFunds( IDictionary<string, object> map )
             : base( map )
         {
@@ -303,17 +335,17 @@ namespace BudgetExecution
             AccountCode = Record[ "AccountCode" ].ToString( );
             BocCode = Record[ "BocCode" ].ToString( );
             BocName = Record[ "BocName" ].ToString( );
-            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
-            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? "0" );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0.0" );
+            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? "0.0" );
             Posted = double.Parse( Record[ "Posted" ].ToString( ) ?? "0" );
-            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
+            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0.0" );
             UnliquidatedObligations =
-                double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) ?? "0" );
+                double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) ?? "0.0" );
 
-            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
-            Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) ?? "0" );
-            Used = double.Parse( Record[ "Used" ].ToString( ) ?? "0" );
-            Available = double.Parse( Record[ "Available" ].ToString( ) ?? "0" );
+            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0.0" );
+            Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) ?? "0.0" );
+            Used = double.Parse( Record[ "Used" ].ToString( ) ?? "0.0" );
+            Available = double.Parse( Record[ "Available" ].ToString( ) ?? "0.0" );
             ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
             ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
@@ -330,14 +362,13 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
-        /// <inheritdoc/>
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.StatusOfFunds"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.StatusOfFunds" /> class.
         /// </summary>
-        /// <param name="status"> The status. </param>
-        public StatusOfFunds( IStatusOfFunds status )
+        /// <param name="status">The status.</param>
+        public StatusOfFunds( StatusOfFunds status )
         {
             ID = status.ID;
             BudgetLevel = status.BudgetLevel;
