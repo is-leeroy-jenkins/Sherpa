@@ -358,12 +358,7 @@ namespace BudgetExecution
                     _excelRange.Style.Font.Bold = false;
                     _excelRange.Style.Font.Italic = false;
                     _excelRange.EntireRow.CustomHeight = true;
-                    _excelTable = _excelWorksheet.Tables.Add( _excelRange, _dataTable.TableName );
-                    _excelTable.ShowHeader = true;
-                    _excelTable.TableStyle = TableStyles.Light1;
-                    _excelTable.Columns.Delete( 0, 1 );
-                    _excelTable.TableBorderStyle.BorderAround( ExcelBorderStyle.Hair, 
-                        eThemeSchemeColor.Accent1 );
+                    SetAlternatingRowColor( _excelRange );
                 }
             }
             catch( Exception _ex )
