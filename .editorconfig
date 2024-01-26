@@ -23,6 +23,7 @@ resharper_blank_lines_after_case = 0
 resharper_blank_lines_after_control_transfer_statements = 1
 resharper_blank_lines_around_block_case_section = 0
 resharper_blank_lines_before_control_transfer_statements = 0
+resharper_blank_lines_before_multiline_statements = 0
 resharper_blank_lines_before_single_line_comment = 0
 resharper_continuous_indent_multiplier = 1
 resharper_csharp_alignment_tab_fill_style = use_spaces
