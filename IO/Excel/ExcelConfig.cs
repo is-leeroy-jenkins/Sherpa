@@ -415,6 +415,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
+<<<<<<< Updated upstream
         /// Sets the header row format.
         /// </summary>
         /// <param name="excelRange">The excel range.</param>
@@ -450,6 +451,8 @@ namespace BudgetExecution
         }
 
         /// <summary>
+=======
+>>>>>>> Stashed changes
         /// Sets the footer row format.
         /// </summary>
         /// <param name="excelRange">The excel range.</param>

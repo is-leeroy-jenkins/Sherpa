@@ -127,7 +127,6 @@ namespace BudgetExecution
             {
                 if( _dataTable != null )
                 {
-                    _excelWorksheet = _excelWorkbook.Worksheets.Add( _dataTable.TableName );
                     _excelWorksheet.View.ShowGridLines = false;
                     _excelWorksheet.View.ZoomScale = _zoomLevel;
                     _excelWorksheet.View.PageLayoutView = true;
@@ -191,9 +190,7 @@ namespace BudgetExecution
                 var _startColumn = excelRange.Start.Column;
                 var _endRow = excelRange.End.Row - 1;
                 var _endColumn = excelRange.End.Column;
-                _headerRange = _excelWorksheet.Cells[ _header, _startColumn,
-                    _endRow, _endColumn ];
- 
+                _headerRange = _excelWorksheet.Cells[ _header, _startColumn, _endRow, _endColumn ];
                 foreach( var _item in labels )
                 {
                     if( _startColumn <= _endColumn )
@@ -389,7 +386,7 @@ namespace BudgetExecution
         /// Sets the total row format.
         /// </summary>
         /// <param name="excelRange">The range.</param>
-        public void SetTotalRowFormat( ExcelRange excelRange )
+        public void SetTableFormat( ExcelRange excelRange )
         {
             try
             {
