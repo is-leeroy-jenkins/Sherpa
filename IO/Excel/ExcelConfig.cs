@@ -345,33 +345,33 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="excelRange"> </param>
         /// <param name="text">The text.</param>
-        public void AddComment( ExcelRange excelRange, string text )
+        public void SetComment( ExcelRange excelRange, string text )
         {
             try
             {
                 ThrowIf.NullOrEmpty( text, nameof( text ) );
                 ThrowIf.Null( excelRange, nameof( excelRange ) );
-                var _startRow = excelRange.Start.Row - 1;
+                var _startRow = excelRange.Start.Row;
                 var _startColumn = excelRange.Start.Column;
-                var _endRow = excelRange.Start.Row - 1;
+                var _endRow = excelRange.Start.Row;
                 var _endColumn = excelRange.End.Column;
-                _excelRange = _excelWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
-                var _comment = _excelRange.AddComment( text, "Budget" );
-                _comment.From.Row = _excelRange.Start.Row;
-                _comment.From.Column = _excelRange.Start.Column;
-                _comment.To.Row = _excelRange.End.Row;
-                _comment.To.Column = _excelRange.End.Column;
-                _comment.BackgroundColor = Color.FromArgb( 15, 15, 15 );
+                _commentRange = _excelWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
+                var _comment = _commentRange.AddComment( text, "Budget" );
+                _comment.From.Row = _commentRange.Start.Row;
+                _comment.From.Column = _commentRange.Start.Column;
+                _comment.To.Row = _commentRange.End.Row;
+                _comment.To.Column = _commentRange.End.Column;
+                _comment.BackgroundColor = Color.FromArgb( 40, 40, 40 );
                 _comment.Font.FontName = "Roboto";
-                _comment.Font.Size = 9;
-                _comment.Font.Color = Color.White;
+                _comment.Font.Size = 8;
+                _comment.Font.Color = Color.FromArgb( 106, 189, 252 );;
                 _comment.Text = text;
             }
             catch( Exception _ex )
             {
-                if( _excelRange != null )
+                if( _commentRange != null )
                 {
-                    _excelRange = null;
+                    _commentRange = null;
                 }
 
                 Fail( _ex );
@@ -382,7 +382,7 @@ namespace BudgetExecution
         /// 
         /// </summary>
         /// <param name="excelRange"></param>
-        private protected void SetHeaderRow( ExcelRange excelRange )
+        private protected void FormatHeader( ExcelRange excelRange )
         {
             try
             {
@@ -392,7 +392,7 @@ namespace BudgetExecution
                 var _endColumn = excelRange.End.Column;
                 _headerRange = _excelWorksheet.Cells[ _header, _startColumn, _header, _endColumn ];
                 _headerRange.Style.Font.Name = "Roboto";
-                _headerRange.Style.Font.Size = 10;
+                _headerRange.Style.Font.Size = 8;
                 _headerRange.Style.Font.Bold = false;
                 _headerRange.Style.Font.Italic = false;
                 _headerRange.Style.Font.Color.SetColor( _fontColor );
@@ -415,12 +415,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-<<<<<<< Updated upstream
         /// Sets the header row format.
         /// </summary>
         /// <param name="excelRange">The excel range.</param>
         /// <param name="names"> </param>
-        private protected void SetTableHeader( ExcelRange excelRange, IList<string> names )
+        private protected void SetHeaderValues( ExcelRange excelRange, IList<string> names )
         {
             try
             {
@@ -451,12 +450,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-=======
->>>>>>> Stashed changes
         /// Sets the footer row format.
         /// </summary>
         /// <param name="excelRange">The excel range.</param>
-        private protected void SetFooterRowFormat( ExcelRange excelRange )
+        private protected void FormatFooter( ExcelRange excelRange )
         {
             try
             {
@@ -466,8 +463,8 @@ namespace BudgetExecution
                 var _endColumn = excelRange.End.Column;
                 _footerRange = _excelWorksheet.Cells[ _footer, _startColumn, _footer, _endColumn ];
                 _footerRange.Style.Font.Name = "Roboto";
-                _footerRange.Style.Font.Size = 9;
-                _footerRange.Style.Font.Bold = false;
+                _footerRange.Style.Font.Size = 8;
+                _footerRange.Style.Font.Bold = true;
                 _footerRange.Style.Font.Italic = false;
                 _footerRange.Style.Font.Color.SetColor( _fontColor );
                 _footerRange.Style.Border.Top.Style = ExcelBorderStyle.Thin;

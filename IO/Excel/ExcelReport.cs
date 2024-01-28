@@ -48,6 +48,7 @@ namespace BudgetExecution
     using System.IO;
     using OfficeOpenXml;
     using OfficeOpenXml.Style;
+    using OfficeOpenXml.Table;
     using static System.Configuration.ConfigurationManager;
 
     /// <inheritdoc/>
@@ -127,19 +128,19 @@ namespace BudgetExecution
         /// </summary>
         public ExcelReport( )
         {
-            _rowIndex = 3;
+            _rowIndex = 2;
             _fontColor = Color.Black;
-            _font = new Font( "Roboto", 9, FontStyle.Regular );
-            _titleFont = new Font( "Roboto", 10, FontStyle.Bold );
+            _font = new Font( "Roboto", 8, FontStyle.Regular );
+            _titleFont = new Font( "Roboto", 9 );
             _fileName = "Budget.xlsx";
             _rowHeight = 0.27d;
             _columnWidth = 0.69d;
-            _leftMargin = 0.25m;
-            _rightMargin = 0.25m;
-            _topMargin = .15m;
-            _bottomMargin = .15m;
-            _headerMargin = 0.25m;
-            _footerMargin = 0.25m;
+            _leftMargin = .25m;
+            _rightMargin = .25m;
+            _topMargin = 1m;
+            _bottomMargin = 1m;
+            _headerMargin = 0.4m;
+            _footerMargin = 0.4m;
             _zoomLevel = 100;
             _rowCount = 55;
             _columnCount = 11;
@@ -147,6 +148,7 @@ namespace BudgetExecution
             _secondaryBackColor = Color.FromArgb( 220, 220, 220 );
             _internalPath = AppSettings[ "Reports" ];
             _savePath = AppSettings[ "Desktop" ] + _fileName;
+            _themePath = AppSettings[ "BudgetExecution" ];
             _fileInfo = new FileInfo( _internalPath );
             _excelPackage = new ExcelPackage( _fileInfo );
             _excelPackage.Settings.TextSettings.PrimaryTextMeasurer = new ExcelMeasure( );
@@ -156,11 +158,12 @@ namespace BudgetExecution
             _excelRange = _excelWorksheet.Cells[ 2, 1, 57, 11 ];
             _excelWorkbook.View.ShowHorizontalScrollBar = true;
             _excelWorkbook.View.ShowVerticalScrollBar = true;
+            InitializeTheme( );
             InitializeWorkbookProperties( );
             InitializeActiveGrid( );
             InitializeSheetView( );
             InitializePrinterSettings( );
-            InitializeFooter( );
+            InitializeHeaderFooter( );
         }
 
         /// <inheritdoc />
@@ -172,38 +175,40 @@ namespace BudgetExecution
         public ExcelReport( string filePath ) 
             : this( )
         {
-            _rowIndex = 3;
+            _rowIndex = 2;
             _filePath = filePath;
-            _fileName = Path.GetFileName( filePath );
+            _fileName = Path.GetFileNameWithoutExtension( filePath );
             _fontColor = Color.Black;
-            _font = new Font( "Roboto", 9, FontStyle.Regular );
-            _titleFont = new Font( "Roboto", 10, FontStyle.Bold );
+            _font = new Font( "Roboto", 8, FontStyle.Regular );
+            _titleFont = new Font( "Roboto", 9 );
             _rowHeight = 0.27d;
             _columnWidth = 0.69d;
-            _leftMargin = 0.25m;
-            _rightMargin = 0.25m;
-            _topMargin = .15m;
-            _bottomMargin = .15m;
-            _headerMargin = 0.25m;
-            _footerMargin = 0.25m;
+            _leftMargin = .25m;
+            _rightMargin = .25m;
+            _topMargin = 1m;
+            _bottomMargin = 1m;
+            _headerMargin = 0.4m;
+            _footerMargin = 0.4m;
             _zoomLevel = 100;
             _primaryBackColor = Color.White;
             _secondaryBackColor = Color.FromArgb( 220, 220, 220 );
             _internalPath = AppSettings[ "Reports" ];
-            _savePath = AppSettings[ "Desktop" ] + _fileName;
+            _savePath = AppSettings[ "Desktop" ] + _fileName + ".xlsx";
+            _themePath = AppSettings[ "BudgetExecution" ];
             _fileInfo = new FileInfo( filePath );
             _excelPackage = new ExcelPackage( _fileInfo );
             _excelPackage.Settings.TextSettings.PrimaryTextMeasurer = new ExcelMeasure( );
             _excelPackage.Settings.TextSettings.AutofitScaleFactor = 0.9f;
             _excelWorkbook = _excelPackage.Workbook;
-            _excelWorksheet = _excelWorkbook.Worksheets.Add( "Data" );
+            _excelWorksheet = _excelWorkbook.Worksheets.Add( _fileName );
             _excelWorkbook.View.ShowHorizontalScrollBar = true;
             _excelWorkbook.View.ShowVerticalScrollBar = true;
+            InitializeTheme( );
             InitializeWorkbookProperties( );
             InitializeActiveGrid( );
             InitializeSheetView( );
             InitializePrinterSettings( );
-            InitializeFooter( );
+            InitializeHeaderFooter( );
         }
 
         /// <inheritdoc/>
@@ -221,21 +226,22 @@ namespace BudgetExecution
             _dataTable = dataTable;
             _fileName = dataTable.TableName + ".xlsx";
             _fontColor = Color.Black;
-            _font = new Font( "Roboto", 9, FontStyle.Regular );
-            _titleFont = new Font( "Roboto", 10, FontStyle.Regular );
+            _font = new Font( "Roboto", 8, FontStyle.Regular );
+            _titleFont = new Font( "Roboto", 9, FontStyle.Regular );
             _rowHeight = 0.27d;
             _columnWidth = 0.69d;
-            _leftMargin = 0.25m;
-            _rightMargin = 0.25m;
-            _topMargin = 0.5m;
-            _bottomMargin = 0.5m;
-            _headerMargin = 0.25m;
-            _footerMargin = 0.25m;
+            _leftMargin = .25m;
+            _rightMargin = .25m;
+            _topMargin = 1m;
+            _bottomMargin = 1m;
+            _headerMargin = 0.4m;
+            _footerMargin = 0.4m;
             _zoomLevel = 100;
             _primaryBackColor = Color.White;
             _secondaryBackColor = Color.FromArgb( 220, 220, 220 );
             _internalPath = AppSettings[ "Reports" ];
             _savePath = AppSettings[ "Desktop" ] + _fileName;
+            _themePath = AppSettings[ "BudgetExecution" ];
             _fileInfo = new FileInfo( _internalPath );
             _excelPackage = new ExcelPackage( _fileInfo );
             _excelPackage.Settings.TextSettings.PrimaryTextMeasurer = new ExcelMeasure( );
@@ -246,11 +252,12 @@ namespace BudgetExecution
             _rowCount = dataTable.Rows.Count;
             _excelWorkbook.View.ShowHorizontalScrollBar = true;
             _excelWorkbook.View.ShowVerticalScrollBar = true;
+            InitializeTheme( );
             InitializeWorkbookProperties( );
             InitializeActiveGrid( );
             InitializeSheetView( );
             InitializePrinterSettings( );
-            InitializeFooter( );
+            InitializeHeaderFooter( );
         }
 
         /// <summary>
@@ -275,6 +282,22 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Initializes the theme.
+        /// </summary>
+        private void InitializeTheme( )
+        {
+            try
+            {
+                var _theme = new FileInfo( _themePath );
+                _excelWorkbook.ThemeManager.Load( _theme );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Initializes the printer settings.
         /// </summary>
         private void InitializePrinterSettings( )
@@ -290,9 +313,7 @@ namespace BudgetExecution
                     _excelWorkbook.Worksheets[ _i ].PrinterSettings.TopMargin = _topMargin;
                     _excelWorkbook.Worksheets[ _i ].PrinterSettings.BottomMargin = _bottomMargin;
                     _excelWorkbook.Worksheets[ _i ].PrinterSettings.Orientation = 
-                        eOrientation.Portrait;
-
-                    _excelWorkbook.Worksheets[ _i ].PrinterSettings.HorizontalCentered = true;
+                        eOrientation.Landscape;
                 }
             }
             catch( Exception _ex )
@@ -304,33 +325,20 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the header footer.
         /// </summary>
-        private void InitializeHeader( )
+        private void InitializeHeaderFooter( )
         {
             try
             {
-                _excelWorksheet.HeaderFooter.OddHeader.RightAlignedText = 
+                _excelWorksheet.HeaderFooter.OddHeader.RightAlignedText =
                     ExcelHeaderFooter.CurrentDate;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
 
-        /// <summary>
-        /// Initializes the footer image.
-        /// </summary>
-        private void InitializeFooter( )
-        {
-            try
-            {
                 _excelWorksheet.HeaderFooter.OddFooter.CenteredText =
-                    ExcelHeaderFooter.PageNumber 
-                    + " of " 
+                    ExcelHeaderFooter.PageNumber
+                    + " of "
                     + ExcelHeaderFooter.NumberOfPages;
 
                 _excelWorksheet.HeaderFooter.OddFooter.LeftAlignedText =
-                    " as of " + ExcelHeaderFooter.CurrentDate;
+                    "As of:" + ExcelHeaderFooter.CurrentDate;
             }
             catch( Exception _ex )
             {
@@ -349,16 +357,16 @@ namespace BudgetExecution
                 {
                     _excelRange = _excelWorksheet.Cells[ 2, 1, 57, 11 ];
                     _excelRange.Style.Font.Name = "Roboto";
-                    _excelRange.Style.Font.Size = 9;
+                    _excelRange.Style.Font.Size = 8;
                     _excelRange.Style.Font.Bold = false;
                     _excelRange.Style.Font.Italic = false;
                     _excelRange.EntireRow.CustomHeight = true;
                     _excelRange.Style.Font.Color.SetColor( _fontColor );
                     _excelRange.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                    _excelRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-                    SetHeaderRow( _excelRange );
+                    _excelRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                    FormatHeader( _excelRange );
                     SetAlternatingRowColor( _excelRange );
-                    SetFooterRowFormat( _excelRange );
+                    FormatFooter( _excelRange );
                 }
                 else
                 {
@@ -366,11 +374,18 @@ namespace BudgetExecution
                         (ExcelRange)_excelWorksheet.Cells[ "A2" ]
                             ?.LoadFromDataTable( _dataTable, true, TableStyles.Light1 );
 
+                    _excelRange.Style.Font.Name = "Roboto";
+                    _excelRange.Style.Font.Size = 8;
+                    _excelRange.Style.Font.Bold = false;
+                    _excelRange.Style.Font.Italic = false;
+                    _excelRange.EntireRow.CustomHeight = true;
+                    _excelRange.Style.Font.Color.SetColor( _fontColor );
+                    _excelRange.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                    _excelRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
                     _excelTable = _excelWorksheet.Tables.GetFromRange( _excelRange );
                     _excelTable.TableStyle = TableStyles.Light1;
                     _excelTable.ShowHeader = true;
-                    _excelRange.AutoFitColumns( );
-                    SetFooterRowFormat( _excelRange );
+                    FormatFooter( _excelRange );
                 }
             }
             catch( Exception _ex )
@@ -401,9 +416,6 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-<<<<<<< Updated upstream
-        
-=======
 
         /// <summary>
         /// Initializes the table format.
@@ -420,7 +432,6 @@ namespace BudgetExecution
             }
         }
 
->>>>>>> Stashed changes
         /// <summary>
         /// Saves this instance.
         /// </summary>

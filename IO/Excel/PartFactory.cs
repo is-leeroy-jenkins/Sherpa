@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 04-22-2023
+//     Created:                 1-28-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        1-28-2024
 // ******************************************************************************************
-// <copyright file="ExcelReport.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+// <copyright file="PartFactory.cs" company="Terry D. Eppler">
+//    Budget Execution is a Federal Budget, Finance, and Accounting application
+//    for analysts with the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -31,10 +31,10 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//    Contact at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   ExcelReport.cs
+//   PartFactory.cs
 // </summary>
 // ******************************************************************************************
 
@@ -43,11 +43,18 @@ namespace BudgetExecution
     using System;
     using System.Collections.Generic;
     using System.Data;
+    using System.Data.OleDb;
     using System.Diagnostics.CodeAnalysis;
-    using DocumentFormat.OpenXml;
+    using System.IO;
+    using System.Linq;
     using DocumentFormat.OpenXml.Packaging;
-    using DocumentFormat.OpenXml.Spreadsheet;
-    using static DocumentFormat.OpenXml.Packaging.SpreadsheetDocument;
+    using OfficeOpenXml;
+    using OfficeOpenXml.Drawing.Chart;
+    using OfficeOpenXml.Drawing.Chart.Style;
+    using OfficeOpenXml.Export.ToDataTable;
+    using OfficeOpenXml.Style;
+    using OfficeOpenXml.Table;
+    using OfficeOpenXml.Table.PivotTable;
 
     /// <inheritdoc />
     /// <summary>
@@ -58,7 +65,10 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "HeapView.ObjectAllocation.Evident" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
-    public class PartFactory : BasicReport
+    [ SuppressMessage( "ReSharper", "RedundantCheckBeforeAssignment" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantAssignment" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertSwitchStatementToSwitchExpression" ) ]
+    public class PartFactory : Workbook
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PartFactory"/> class.
@@ -70,49 +80,51 @@ namespace BudgetExecution
         /// <summary>
         /// Creates the excel document.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="data">The data.</param>
-        /// <param name="path">The path.</param>
         /// <returns></returns>
-        public bool CreateExcelDocument<T>( IEnumerable<T> data, string path )
+        public void CreatPivotTable( ExcelRange excelRange )
         {
             try
             {
-                ThrowIf.Null( data, nameof( data ) );
-                ThrowIf.NullOrEmpty( path, nameof( path ) );
-                var _dataSet = new DataSet( );
-                _dataSet?.Tables?.Add( ListToDataTable( data ) );
-                return CreateDocument( _dataSet, path );
+                ThrowIf.Null( excelRange, nameof( excelRange ) );
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return false;
             }
         }
 
         /// <summary>
-        /// Creates the excel document.
+        /// Creates the excel table.
         /// </summary>
-        /// <param name="dataTable">The data table.</param>
-        /// <param name="path">The path.</param>
-        /// <returns></returns>
-        public bool CreateExcelDocument( DataTable dataTable, string path )
+        private protected void CreateExcelTable( DataTable dataTable )
         {
             try
             {
                 ThrowIf.Null( dataTable, nameof( dataTable ) );
-                ThrowIf.NullOrEmpty( path, nameof( path ) );
-                var _dataSet = new DataSet( );
-                _dataSet.Tables.Add( dataTable );
-                var _document = CreateDocument( _dataSet, path );
-                _dataSet.Tables.Remove( dataTable );
-                return _document;
+                _excelRange = (ExcelRange)_excelWorksheet.Cells[ "A2" ]
+                    ?.LoadFromDataTable( dataTable, true, TableStyles.Light1 );
+
+                _excelRange.Style.Font.Name = "Roboto";
+                _excelRange.Style.Font.Size = 8;
+                _excelRange.Style.Font.Bold = false;
+                _excelRange.Style.Font.Italic = false;
+                _excelRange.EntireRow.CustomHeight = true;
+                _excelRange.Style.Font.Color.SetColor( _fontColor );
+                _excelRange.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                _excelRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                _excelTable = _excelWorksheet.Tables.GetFromRange( _excelRange );
+                _excelTable.TableStyle = TableStyles.Light1;
+                _excelTable.ShowHeader = true;
+                FormatFooter( _excelRange );
             }
             catch( Exception _ex )
             {
+                if( _excelRange != null )
+                {
+                    _excelRange = null;
+                }
+
                 Fail( _ex );
-                return default( bool );
             }
         }
 
@@ -126,11 +138,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.Null( dataSet, nameof( dataSet ) );
-                ThrowIf.NullOrEmpty( filePath, nameof( filePath ) );
-                using var _document = Create( filePath, SpreadsheetDocumentType.Workbook );
-                WriteFile( dataSet, _document );
-                return true;
+                return false;
             }
             catch( Exception _ex )
             {
@@ -148,42 +156,6 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.Null( dataSet, nameof( dataSet ) );
-                ThrowIf.Null( spreadSheet, nameof( spreadSheet ) );
-                spreadSheet.AddWorkbookPart( );
-                spreadSheet.WorkbookPart.Workbook = new DocumentFormat.OpenXml.Spreadsheet.Workbook( );
-                spreadSheet.WorkbookPart.Workbook?.Append( new BookViews( new WorkbookView( ) ) );
-                var _styles = spreadSheet.WorkbookPart.AddNewPart<WorkbookStylesPart>( "Styles" );
-                var _stylesheet = new Stylesheet( );
-                _styles.Stylesheet = _stylesheet;
-                uint _id = 1;
-                foreach( DataTable _table in dataSet.Tables )
-                {
-                    var _part = spreadSheet?.WorkbookPart?.AddNewPart<WorksheetPart>( );
-                    if( _part != null )
-                    {
-                        _part.Worksheet = new Worksheet( );
-                        _part.Worksheet.AppendChild( new SheetData( ) );
-                        WriteTableToWorksheet( _table, _part );
-                        _part.Worksheet.Save( );
-                        if( _id == 1 )
-                        {
-                            spreadSheet?.WorkbookPart?.Workbook?.AppendChild( new Sheets( ) );
-                        }
-
-                        spreadSheet.WorkbookPart?.Workbook?.GetFirstChild<Sheets>( )
-                            ?.AppendChild( new Sheet
-                            {
-                                Id = spreadSheet.WorkbookPart.GetIdOfPart( _part ),
-                                SheetId = _id,
-                                Name = _table.TableName
-                            } );
-                    }
-
-                    _id++;
-                }
-
-                spreadSheet.WorkbookPart?.Workbook?.Save( );
             }
             catch( Exception _ex )
             {
@@ -192,68 +164,52 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Writes the data table to worksheet.
+        /// Creates the pivot data.
         /// </summary>
-        /// <param name="dataTable">The data table.</param>
-        /// <param name="workSheetPart">The work sheet part.</param>
-        public void WriteTableToWorksheet( DataTable dataTable, WorksheetPart workSheetPart )
+        /// <param name="dataRange">The data range.</param>
+        /// <returns></returns>
+        private protected ExcelPivotTable CreatePivotData( ExcelRangeBase dataRange )
+        {
+            var _pivotsheet = _excelWorkbook.Worksheets.Add( "PVT" );
+            _pivotTable = _pivotsheet.PivotTables.Add( _pivotsheet.Cells[ "A2" ], dataRange, "PerCountry" );
+            _pivotTable.RowFields.Add( _pivotTable.Fields[ "Country" ] );
+            var _dataField = _pivotTable.DataFields.Add( _pivotTable.Fields[ "OrderValue" ] );
+            _dataField.Format = "#,##0";
+            _pivotTable.DataOnRows = true;
+            var _chart = _pivotsheet.Drawings.AddPieChart( "PivotChart", ePieChartType.PieExploded3D, _pivotTable );
+            _chart.SetPosition( 1, 0, 4, 0 );
+            _chart.SetSize( 800, 600 );
+            _chart.Legend.Remove( );
+            _chart.Series[ 0 ].DataLabel.ShowCategory = true;
+            _chart.Series[ 0 ].DataLabel.Position = eLabelPosition.OutEnd;
+            _chart.StyleManager.SetChartStyle( ePresetChartStyle.Pie3dChartStyle6 );
+            return _pivotTable;
+        }
+
+        /// <summary>
+        /// Creates the data table.
+        /// </summary>
+        /// <param name="startRow">The start row.</param>
+        /// <param name="endrow">The end row.</param>
+        /// <returns>
+        /// DataTable
+        /// </returns>
+        private protected DataTable CreateDataTable( int startRow, int endrow )
         {
             try
             {
-                ThrowIf.NoData( dataTable, nameof( dataTable ) );
-                ThrowIf.Null( workSheetPart, nameof( workSheetPart ) );
-                var _sheet = workSheetPart.Worksheet;
-                var _sheetData = _sheet?.GetFirstChild<SheetData>( );
-                var _columns = dataTable.Columns.Count;
-                var _isNumeric = new bool[ _columns ];
-                var _names = new string[ _columns ];
-                for( var _n = 0; _n < _columns; _n++ )
-                {
-                    _names[ _n ] = GetExcelColumnName( _n );
-                }
-
-                uint _index = 1;
-                var _row = new Row( );
-                _row.RowIndex = _index;
-                _sheetData?.Append( _row );
-                for( var _colinx = 0; _colinx < _columns; _colinx++ )
-                {
-                    var _column = dataTable.Columns[ _colinx ];
-                    AppendTextCell( _names[ _colinx ] + "1", _column.ColumnName, _row );
-                    _isNumeric[ _colinx ] = _column.DataType.FullName == "System.Decimal"
-                        || _column.DataType.FullName == "System.Int32";
-                }
-
-                foreach( DataRow _dataRow in dataTable.Rows )
-                {
-                    ++_index;
-                    var _excelRow = new Row
-                    {
-                        RowIndex = _index
-                    };
-                    
-                    _sheetData?.Append( _excelRow );
-                    for( var _i = 0; _i < _columns; _i++ )
-                    {
-                        var _value = _dataRow?.ItemArray[ _i ]?.ToString( );
-                        if( _isNumeric[ _i ] )
-                        {
-                            if( double.TryParse( _value, out var _cellNumericValue ) )
-                            {
-                                _value = _cellNumericValue.ToString( );
-                                AppendNumericCell( _names[ _i ] + _index, _value, _excelRow );
-                            }
-                        }
-                        else
-                        {
-                            AppendTextCell( _names[ _i ] + _index, _value, _excelRow );
-                        }
-                    }
-                }
+                var _table = new DataTable( );
+                var _range = _excelWorksheet.Cells[ startRow, endrow ] as ExcelRangeBase;
+                var _options = ToDataTableOptions.Create( );
+                _table = _range?.ToDataTable( _options );
+                return _table?.Rows.Count > 0
+                    ? _table
+                    : default( DataTable );
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
+                return default( DataTable );
             }
         }
     }

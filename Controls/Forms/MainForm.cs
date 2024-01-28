@@ -530,8 +530,9 @@ namespace BudgetExecution
         {
             try
             {
-                var _data = new DataBuilder( Source.BudgetContacts, Provider.Access );
-                var _report = new ExcelReport( _data.DataTable );
+                var _data = new DataBuilder( Source.StatusOfAppropriations, Provider.Access );
+                var _dataTable = _data.DataTable;
+                var _report = new ExcelReport( _dataTable );
                 _report.Save( );
                 var _message = "The Excel File has been created!";
                 SendMessage( _message );
@@ -637,6 +638,9 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Opens the geo mapper.
+        /// </summary>
         private void OpenGeoMapper( )
         {
             try

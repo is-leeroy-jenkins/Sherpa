@@ -51,6 +51,7 @@ namespace BudgetExecution
     using OfficeOpenXml;
     using OfficeOpenXml.Style;
     using OfficeOpenXml.Table;
+    using OfficeOpenXml.Table.PivotTable;
     using Color = System.Drawing.Color;
     using Font = System.Drawing.Font;
 
@@ -156,6 +157,11 @@ namespace BudgetExecution
         private protected FileInfo _fileInfo;
 
         /// <summary>
+        /// The comment range
+        /// </summary>
+        private protected ExcelRange _commentRange;
+
+        /// <summary>
         /// The header range
         /// </summary>
         private protected ExcelRange _headerRange;
@@ -186,6 +192,11 @@ namespace BudgetExecution
         private protected ExcelTable _excelTable;
 
         /// <summary>
+        /// The pivot table
+        /// </summary>
+        private protected ExcelPivotTable _pivotTable;
+
+        /// <summary>
         /// The worksheet
         /// </summary>
         private protected ExcelWorksheet _excelWorksheet;
@@ -214,16 +225,6 @@ namespace BudgetExecution
         /// The save path
         /// </summary>
         private protected string _savePath;
-
-        /// <summary>
-        /// The image path
-        /// </summary>
-        private protected string _headerPath;
-
-        /// <summary>
-        /// The footer path
-        /// </summary>
-        private protected string _footerPath;
 
         /// <summary>
         /// The file path
