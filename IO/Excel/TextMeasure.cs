@@ -52,13 +52,15 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "CommentTypo" ) ]
     [ SuppressMessage( "ReSharper", "ConvertSwitchStatementToSwitchExpression" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class ExcelMeasure : ITextMeasurer
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    public class TextMeasure : ITextMeasurer
     {
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ExcelMeasure"/> class.
+        /// <see cref="TextMeasure"/> class.
         /// </summary>
-        public ExcelMeasure( )
+        public TextMeasure( )
         {
         }
 

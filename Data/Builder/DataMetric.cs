@@ -57,8 +57,9 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    public class DataMetric : Measure
+    public class DataMetric : TableMetric, IDataMetric
     {
+        /// <inheritdoc />
         /// <summary>
         /// Gets the dates.
         /// </summary>
@@ -77,6 +78,7 @@ namespace BudgetExecution
             }
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets or sets the data table.
         /// </summary>
@@ -95,6 +97,7 @@ namespace BudgetExecution
             }
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets or sets the numerics.
         /// </summary>
@@ -113,6 +116,7 @@ namespace BudgetExecution
             }
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets the fields.
         /// </summary>
@@ -159,7 +163,7 @@ namespace BudgetExecution
         public DataMetric( DataTable dataTable )
         {
             _dataTable = dataTable;
-            _fields = GetFields( );
+            _fields = GetTextColumns( );
             _numerics = GetNumericColumns( );
             _dates = GetDateColumns( );
         }
@@ -169,7 +173,7 @@ namespace BudgetExecution
         /// </summary>
         /// <returns>
         /// </returns>
-        private protected IList<string> GetFields( )
+        private protected IList<string> GetTextColumns( )
         {
             try
             {

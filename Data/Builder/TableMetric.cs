@@ -47,8 +47,8 @@ namespace BudgetExecution
     using System.Linq;
     using LinqStatistics;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
@@ -57,7 +57,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [ SuppressMessage( "ReSharper", "ReturnTypeCanBeEnumerable.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    public abstract class Measure : Dimension
+    public abstract class TableMetric : Dimension
     {
         /// <summary>
         /// Counts the values.
@@ -97,6 +97,7 @@ namespace BudgetExecution
                 ThrowIfNullCriteria( where );
                 var _select = _dataTable?.Filter( where )
                     ?.Select( p => p.Field<double>( numeric ) );
+
                 return _select?.Any( ) == true
                     ? _select.Count( )
                     : 0;

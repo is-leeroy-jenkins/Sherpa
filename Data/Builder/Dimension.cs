@@ -54,17 +54,19 @@ namespace BudgetExecution
     public abstract class Dimension
     {
         /// <summary>
+        /// The records
+        /// </summary>
+        private protected int _records;
+
+        /// <summary>
+        /// The columns
+        /// </summary>
+        private protected int _columns;
+
+        /// <summary>
         /// The dates
         /// </summary>
         private protected IList<string> _dates;
-
-        /// <summary>
-        /// Gets or sets the data table.
-        /// </summary>
-        /// <value>
-        /// The data table.
-        /// </value>
-        private protected DataTable _dataTable;
 
         /// <summary>
         /// Gets or sets the fields.
@@ -89,6 +91,14 @@ namespace BudgetExecution
         /// The values.
         /// </value>
         private protected IDictionary<string, double> _values;
+
+        /// <summary>
+        /// Gets or sets the data table.
+        /// </summary>
+        /// <value>
+        /// The data table.
+        /// </value>
+        private protected DataTable _dataTable;
 
         /// <summary>
         /// Throws if null numeric.

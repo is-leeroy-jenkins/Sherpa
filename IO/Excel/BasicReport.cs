@@ -46,9 +46,8 @@ namespace BudgetExecution
     using System.Data.OleDb;
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
-    using DocumentFormat.OpenXml;
-    using DocumentFormat.OpenXml.Spreadsheet;
     using OfficeOpenXml;
+    using OfficeOpenXml.Drawing.Chart;
     using OfficeOpenXml.Style;
     using OfficeOpenXml.Table;
     using OfficeOpenXml.Table.PivotTable;
@@ -192,6 +191,11 @@ namespace BudgetExecution
         private protected ExcelTable _excelTable;
 
         /// <summary>
+        /// The excel chart
+        /// </summary>
+        private protected ExcelPieChart _pieChart;
+
+        /// <summary>
         /// The pivot table
         /// </summary>
         private protected ExcelPivotTable _pivotTable;
@@ -200,6 +204,16 @@ namespace BudgetExecution
         /// The worksheet
         /// </summary>
         private protected ExcelWorksheet _excelWorksheet;
+
+        /// <summary>
+        /// The pivot worksheet
+        /// </summary>
+        private protected ExcelWorksheet _pivotWorksheet;
+
+        /// <summary>
+        /// The chart worksheet
+        /// </summary>
+        private protected ExcelWorksheet _chartWorksheet;
 
         /// <summary>
         /// The comments
@@ -278,139 +292,6 @@ namespace BudgetExecution
                     _excelRange = null;
                 }
 
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Lists to data table.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="data">The data.</param>
-        /// <returns></returns>
-        private protected DataTable ListToDataTable<T>( IEnumerable<T> data )
-        {
-            try
-            {
-                ThrowIf.Null( data, nameof( data ) );
-                var _table = new DataTable( );
-                for( var _i = 0; _i < ( typeof( T )?.GetProperties( ) ).Length; _i++ )
-                {
-                    var _info = ( typeof( T )?.GetProperties( ) )[ _i ];
-                    var _col = new DataColumn( _info.Name, GetNullableType( _info.PropertyType ) );
-                    _table?.Columns?.Add( _col );
-                }
-
-                foreach( var _t in data )
-                {
-                    var _row = _table.NewRow( );
-                    foreach( var _info in typeof( T ).GetProperties( ) )
-                    {
-                        _row[ _info.Name ] = !IsNullableType( _info.PropertyType )
-                            ? _info.GetValue( _t, null )
-                            : _info.GetValue( _t, null ) ?? DBNull.Value;
-                    }
-
-                    _table.Rows.Add( _row );
-                }
-
-                return _table;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( DataTable );
-            }
-        }
-
-        /// <summary>
-        /// Gets the type of the nullable.
-        /// </summary>
-        /// <param name="type">The type.</param>
-        /// <returns></returns>
-        private protected Type GetNullableType( Type type )
-        {
-            try
-            {
-                var _returnType = type;
-                if( type.IsGenericType
-                   && type.GetGenericTypeDefinition( ) == typeof( Nullable<> ) )
-                {
-                    _returnType = Nullable.GetUnderlyingType( type );
-                }
-
-                return _returnType;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( Type );
-            }
-        }
-
-        /// <summary>
-        /// Appends the text cell.
-        /// </summary>
-        /// <param name="cellReference">The cell reference.</param>
-        /// <param name="cellValue">The cell value.</param>
-        /// <param name="excelRow">The excel row.</param>
-        private protected void AppendTextCell( string cellReference, string cellValue,
-            OpenXmlElement excelRow )
-        {
-            try
-            {
-                ThrowIf.NullOrEmpty( cellReference, nameof( cellReference ) );
-                ThrowIf.NullOrEmpty( cellValue, nameof( cellValue ) );
-                ThrowIf.Null( excelRow, nameof( excelRow ) );
-                var _cell = new Cell
-                {
-                    CellReference = cellReference,
-                    DataType = CellValues.String
-                };
-
-                var _cellValue = new CellValue
-                {
-                    Text = cellValue
-                };
-
-                _cell.Append( _cellValue );
-                excelRow.Append( _cell );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Appends the numeric cell.
-        /// </summary>
-        /// <param name="cellReference">The cell reference.</param>
-        /// <param name="cellValue">The cell value.</param>
-        /// <param name="excelRow">The excel row.</param>
-        private protected void AppendNumericCell( string cellReference, string cellValue,
-            OpenXmlElement excelRow )
-        {
-            try
-            {
-                ThrowIf.NullOrEmpty( cellReference, nameof( cellReference ) );
-                ThrowIf.NullOrEmpty( cellValue, nameof( cellValue ) );
-                ThrowIf.Null( excelRow, nameof( excelRow ) );
-                var _cell = new Cell
-                {
-                    CellReference = cellReference
-                };
-
-                var _cellValue = new CellValue
-                {
-                    Text = cellValue
-                };
-
-                _cell.Append( _cellValue );
-                excelRow.Append( _cell );
-            }
-            catch( Exception _ex )
-            {
                 Fail( _ex );
             }
         }

@@ -180,7 +180,7 @@ namespace BudgetExecution
         /// </param>
         /// <param name="labels">
         /// </param>
-        public void SetHeaderRowValues( ExcelRange excelRange, IList<string> labels )
+        public void SetHeaderRowText( ExcelRange excelRange, IList<string> labels )
         {
             try
             {
@@ -217,7 +217,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="excelRange">The excel range.</param>
         /// <param name="labels">The labels.</param>
-        public void SetFooterRowValues( ExcelRange excelRange, IEnumerable<string> labels )
+        public void SetFooterRowText( ExcelRange excelRange, IEnumerable<string> labels )
         {
             try
             {
@@ -255,7 +255,7 @@ namespace BudgetExecution
         /// Sets the dark color row.
         /// </summary>
         /// <param name="excelRange"> </param>
-        private protected void SetDarkRowColor( ExcelRange excelRange )
+        private protected void FormatDarkRow( ExcelRange excelRange )
         {
             try
             {
@@ -283,7 +283,7 @@ namespace BudgetExecution
         /// Sets the light color row.
         /// </summary>
         /// <param name="excelRange">The range.</param>
-        private protected void SetLightRowColor( ExcelRange excelRange )
+        private protected void FormatLightRow( ExcelRange excelRange )
         {
             try
             {
@@ -356,7 +356,7 @@ namespace BudgetExecution
         /// Sets the numeric row format.
         /// </summary>
         /// <param name="excelRange">The range.</param>
-        public void SetNumericRowFormat( ExcelRange excelRange )
+        public void FormatNumericRow( ExcelRange excelRange )
         {
             try
             {
@@ -386,7 +386,7 @@ namespace BudgetExecution
         /// Sets the total row format.
         /// </summary>
         /// <param name="excelRange">The range.</param>
-        public void SetTableFormat( ExcelRange excelRange )
+        public void FormatTable( ExcelRange excelRange )
         {
             try
             {

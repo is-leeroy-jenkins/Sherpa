@@ -34,7 +34,7 @@
 //    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   ExcelConfig.cs.cs
+//   ExcelConfig.cs
 // </summary>
 // ******************************************************************************************
 

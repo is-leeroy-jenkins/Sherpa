@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 05-12-2023
+//     Created:                 1-28-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        1-28-2024
 // ******************************************************************************************
-// <copyright file="IBudgetUnit.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+// <copyright file="IDataMetric.cs" company="Terry D. Eppler">
+//    Budget Execution is a Federal Budget, Finance, and Accounting application
+//    for analysts with the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -31,87 +31,55 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//    Contact at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   IBudgetUnit.cs
+//   IDataMetric.cs
 // </summary>
 // ******************************************************************************************
 
 namespace BudgetExecution
 {
-    using System;
+    using System.Collections.Generic;
+    using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
-    /// <inheritdoc />
     /// <summary>
+    /// 
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.IDataUnit" />
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    public interface IBudgetUnit : IDataUnit
+    public interface IDataMetric
     {
         /// <summary>
-        /// Gets or sets the bfy.
+        /// Gets the dates.
         /// </summary>
         /// <value>
-        /// The bfy.
+        /// The dates.
         /// </value>
-        public string BFY { get; set; }
+        IList<string> Dates { get; }
 
         /// <summary>
-        /// Gets or sets the efy.
+        /// Gets or sets the data table.
         /// </summary>
         /// <value>
-        /// The efy.
+        /// The data table.
         /// </value>
-        public string EFY { get; set; }
+        DataTable DataTable { get; }
 
         /// <summary>
-        /// Gets or sets the fund code.
+        /// Gets or sets the numerics.
         /// </summary>
         /// <value>
-        /// The fund code.
+        /// The numerics.
         /// </value>
-        public string FundCode { get; set; }
+        IList<string> Numerics { get; }
 
         /// <summary>
-        /// Gets or sets the name of the fund.
+        /// Gets the fields.
         /// </summary>
         /// <value>
-        /// The name of the fund.
+        /// The fields.
         /// </value>
-        public string FundName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the treasury account code.
-        /// </summary>
-        /// <value>
-        /// The treasury account code.
-        /// </value>
-        public string TreasuryAccountCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the treasury account.
-        /// </summary>
-        /// <value>
-        /// The name of the treasury account.
-        /// </value>
-        public string TreasuryAccountName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the budget account code.
-        /// </summary>
-        /// <value>
-        /// The budget account code.
-        /// </value>
-        public string BudgetAccountCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the budget account.
-        /// </summary>
-        /// <value>
-        /// The name of the budget account.
-        /// </value>
-        public string BudgetAccountName { get; set; }
+        IList<string> Fields { get; }
     }
 }

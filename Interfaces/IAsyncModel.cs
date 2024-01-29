@@ -41,13 +41,18 @@
 //  </summary>
 //  ******************************************************************************************
 
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Threading.Tasks;
-
 namespace BudgetExecution
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Data;
+    using System.Diagnostics.CodeAnalysis;
+    using System.Threading.Tasks;
+
+    /// <summary>
+    /// 
+    /// </summary>
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public interface IAsyncModel
     {
         /// <inheritdoc/>

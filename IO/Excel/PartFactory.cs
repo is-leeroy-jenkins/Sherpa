@@ -41,13 +41,8 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
     using System.Data;
-    using System.Data.OleDb;
     using System.Diagnostics.CodeAnalysis;
-    using System.IO;
-    using System.Linq;
-    using DocumentFormat.OpenXml.Packaging;
     using OfficeOpenXml;
     using OfficeOpenXml.Drawing.Chart;
     using OfficeOpenXml.Drawing.Chart.Style;
@@ -71,32 +66,17 @@ namespace BudgetExecution
     public class PartFactory : Workbook
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PartFactory"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="PartFactory"/> class.
         /// </summary>
         public PartFactory( )
         {
         }
 
         /// <summary>
-        /// Creates the excel document.
-        /// </summary>
-        /// <returns></returns>
-        public void CreatPivotTable( ExcelRange excelRange )
-        {
-            try
-            {
-                ThrowIf.Null( excelRange, nameof( excelRange ) );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Creates the excel table.
         /// </summary>
-        private protected void CreateExcelTable( DataTable dataTable )
+        private protected ExcelTable CreateExcelTable( DataTable dataTable )
         {
             try
             {
@@ -116,6 +96,7 @@ namespace BudgetExecution
                 _excelTable.TableStyle = TableStyles.Light1;
                 _excelTable.ShowHeader = true;
                 FormatFooter( _excelRange );
+                return _excelTable;
             }
             catch( Exception _ex )
             {
@@ -125,91 +106,167 @@ namespace BudgetExecution
                 }
 
                 Fail( _ex );
+                return default( ExcelTable );
             }
-        }
-
-        /// <summary>
-        /// Creates the excel document.
-        /// </summary>
-        /// <param name="dataSet">The data set.</param>
-        /// <param name="filePath">Name of the file.</param>
-        /// <returns></returns>
-        public bool CreateDocument( DataSet dataSet, string filePath )
-        {
-            try
-            {
-                return false;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return false;
-            }
-        }
-
-        /// <summary>
-        /// Writes the excel file.
-        /// </summary>
-        /// <param name="dataSet">The data set.</param>
-        /// <param name="spreadSheet">The spreadsheet.</param>
-        public void WriteFile( DataSet dataSet, SpreadsheetDocument spreadSheet )
-        {
-            try
-            {
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Creates the pivot data.
-        /// </summary>
-        /// <param name="dataRange">The data range.</param>
-        /// <returns></returns>
-        private protected ExcelPivotTable CreatePivotData( ExcelRangeBase dataRange )
-        {
-            var _pivotsheet = _excelWorkbook.Worksheets.Add( "PVT" );
-            _pivotTable = _pivotsheet.PivotTables.Add( _pivotsheet.Cells[ "A2" ], dataRange, "PerCountry" );
-            _pivotTable.RowFields.Add( _pivotTable.Fields[ "Country" ] );
-            var _dataField = _pivotTable.DataFields.Add( _pivotTable.Fields[ "OrderValue" ] );
-            _dataField.Format = "#,##0";
-            _pivotTable.DataOnRows = true;
-            var _chart = _pivotsheet.Drawings.AddPieChart( "PivotChart", ePieChartType.PieExploded3D, _pivotTable );
-            _chart.SetPosition( 1, 0, 4, 0 );
-            _chart.SetSize( 800, 600 );
-            _chart.Legend.Remove( );
-            _chart.Series[ 0 ].DataLabel.ShowCategory = true;
-            _chart.Series[ 0 ].DataLabel.Position = eLabelPosition.OutEnd;
-            _chart.StyleManager.SetChartStyle( ePresetChartStyle.Pie3dChartStyle6 );
-            return _pivotTable;
         }
 
         /// <summary>
         /// Creates the data table.
         /// </summary>
         /// <param name="startRow">The start row.</param>
-        /// <param name="endrow">The end row.</param>
+        /// <param name="startColumn"> </param>
+        /// <param name="endRow">The end row.</param>
+        /// <param name="endColumn"> </param>
         /// <returns>
         /// DataTable
         /// </returns>
-        private protected DataTable CreateDataTable( int startRow, int endrow )
+        private protected DataTable CreateDataTable( int startRow, int startColumn, 
+            int endRow, int endColumn )
         {
             try
             {
                 var _table = new DataTable( );
-                var _range = _excelWorksheet.Cells[ startRow, endrow ] as ExcelRangeBase;
+                _excelRange = _excelWorksheet.Cells[ startRow, startColumn, endRow, endColumn ];
                 var _options = ToDataTableOptions.Create( );
-                _table = _range?.ToDataTable( _options );
+                _options.DataTableName = _fileName ?? string.Empty;
+                _options.AlwaysAllowNull = true;
+                _options.ColumnNameParsingStrategy = NameParsingStrategy.RemoveSpace;
+                _options.ExcelErrorParsingStrategy =
+                    ExcelErrorParsingStrategy.HandleExcelErrorsAsBlankCells;
+
+                _table = _excelRange?.ToDataTable( _options );
                 return _table?.Rows.Count > 0
                     ? _table
                     : default( DataTable );
             }
             catch( Exception _ex )
             {
+                if( _excelRange != null )
+                {
+                    _excelRange = null;
+                }
+
                 Fail( _ex );
                 return default( DataTable );
+            }
+        }
+
+        /// <summary>
+        /// Creates the pivot table.
+        /// </summary>
+        /// <param name="excelRange">The data range.</param>
+        /// <param name="tableName">Name of the table.</param>
+        /// <param name="rowField"> </param>
+        /// <param name="dataField"> </param>
+        /// <returns>
+        /// ExcelPivotTable
+        /// </returns>
+        private protected ExcelPivotTable CreatePivotTable( ExcelRange excelRange, string tableName, 
+            string rowField, string dataField )
+        {
+            try
+            {
+                ThrowIf.Null( excelRange, nameof( excelRange ) );
+                ThrowIf.NullOrEmpty( tableName, nameof( tableName ) );
+                ThrowIf.NullOrEmpty( rowField, nameof( rowField ) );
+                ThrowIf.NullOrEmpty( dataField, nameof( dataField ) );
+                var _startRow = excelRange.Start.Row;
+                var _startColumn = excelRange.Start.Column;
+                var _endRow = excelRange.End.Row;
+                var _endColumn = excelRange.End.Column;
+                var _anchor = _pivotWorksheet.Cells[ _startRow, _startColumn ];
+                _pivotWorksheet = _excelWorkbook.Worksheets.Add( "Pivot" );
+                _excelRange = _pivotWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
+                _pivotTable = _pivotWorksheet.PivotTables.Add( _anchor, excelRange, tableName );
+                _pivotTable.RowFields.Add( _pivotTable.Fields[ rowField ] );
+                var _dataField = _pivotTable.DataFields.Add( _pivotTable.Fields[ dataField ] );
+                _dataField.Format = "#,##0";
+                _pivotTable.DataOnRows = true;
+                return _pivotTable;
+            }
+            catch( Exception _ex )
+            {
+                if( _pivotWorksheet != null )
+                {
+                    _pivotWorksheet = null;
+                }
+
+                if( _pivotTable != null )
+                {
+                    _pivotTable = null;
+                }
+
+                if( _excelRange != null )
+                {
+                    _excelRange = null;
+                }
+
+                Fail( _ex );
+                return default( ExcelPivotTable );
+            }
+        }
+
+        /// <summary>
+        /// Creates the pie chart.
+        /// </summary>
+        /// <param name="excelRange">The data range.</param>
+        /// <param name="chartName">Name of the table.</param>
+        /// <param name="row"> </param>
+        /// <param name="column"> </param>
+        /// <returns>
+        /// ExcelPieChart
+        /// </returns>
+        private protected ExcelPieChart CreatePieChart( ExcelRange excelRange, string chartName,
+            string row, string column )
+        {
+            try
+            {
+                ThrowIf.Null( excelRange, nameof( excelRange ) );
+                ThrowIf.NullOrEmpty( chartName, nameof( chartName ) );
+                ThrowIf.NullOrEmpty( row, nameof( row ) );
+                ThrowIf.NullOrEmpty( column, nameof( column ) );
+                var _startRow = excelRange.Start.Row;
+                var _startColumn = excelRange.Start.Column;
+                var _endRow = excelRange.End.Row;
+                var _endColumn = excelRange.End.Column;
+                var _anchor = _pivotWorksheet.Cells[ _startRow, _startColumn ];
+                _chartWorksheet = _excelWorkbook.Worksheets.Add( "Chart" );
+                _excelRange = _pivotWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
+                _pivotTable = _chartWorksheet.PivotTables.Add( _anchor, excelRange, chartName );
+                _pivotTable.RowFields.Add( _pivotTable.Fields[ row ] );
+                var _dataField = _pivotTable.DataFields.Add( _pivotTable.Fields[ column ] );
+                _dataField.Format = "#,##0";
+                _pivotTable.DataOnRows = true;
+                _pieChart = _chartWorksheet.Drawings
+                    ?.AddPieChart( "Chart", ePieChartType.PieExploded3D, _pivotTable );
+
+                _pieChart.SetPosition( 1, 0, 4, 0 );
+                _pieChart.SetSize( 800, 600 );
+                _pieChart.Legend.Remove( );
+                _pieChart.Series[ 0 ].DataLabel.ShowCategory = true;
+                _pieChart.Series[ 0 ].DataLabel.Position = eLabelPosition.OutEnd;
+                _pieChart.StyleManager.SetChartStyle( ePresetChartStyle.Pie3dChartStyle6 );
+                return _pieChart;
+            }
+            catch( Exception _ex )
+            {
+                if( _chartWorksheet != null )
+                {
+                    _chartWorksheet = null;
+                }
+
+                if( _pivotTable != null )
+                {
+                    _pivotTable = null;
+                }
+
+                if( _excelRange != null )
+                {
+                    _excelRange = null;
+                }
+
+                Fail( _ex );
+                return default( ExcelPieChart );
             }
         }
     }

@@ -151,14 +151,14 @@ namespace BudgetExecution
             _themePath = AppSettings[ "BudgetExecution" ];
             _fileInfo = new FileInfo( _internalPath );
             _excelPackage = new ExcelPackage( _fileInfo );
-            _excelPackage.Settings.TextSettings.PrimaryTextMeasurer = new ExcelMeasure( );
+            _excelPackage.Settings.TextSettings.PrimaryTextMeasurer = new TextMeasure( );
             _excelPackage.Settings.TextSettings.AutofitScaleFactor = 0.9f;
             _excelWorkbook = _excelPackage.Workbook;
             _excelWorksheet = _excelWorkbook.Worksheets.Add( "Data" );
             _excelRange = _excelWorksheet.Cells[ 2, 1, 57, 11 ];
             _excelWorkbook.View.ShowHorizontalScrollBar = true;
             _excelWorkbook.View.ShowVerticalScrollBar = true;
-            InitializeTheme( );
+            LoadTheme( );
             InitializeWorkbookProperties( );
             InitializeActiveGrid( );
             InitializeSheetView( );
@@ -197,13 +197,13 @@ namespace BudgetExecution
             _themePath = AppSettings[ "BudgetExecution" ];
             _fileInfo = new FileInfo( filePath );
             _excelPackage = new ExcelPackage( _fileInfo );
-            _excelPackage.Settings.TextSettings.PrimaryTextMeasurer = new ExcelMeasure( );
+            _excelPackage.Settings.TextSettings.PrimaryTextMeasurer = new TextMeasure( );
             _excelPackage.Settings.TextSettings.AutofitScaleFactor = 0.9f;
             _excelWorkbook = _excelPackage.Workbook;
-            _excelWorksheet = _excelWorkbook.Worksheets.Add( _fileName );
+            _excelWorksheet = _excelWorkbook.Worksheets[ 0 ];
             _excelWorkbook.View.ShowHorizontalScrollBar = true;
             _excelWorkbook.View.ShowVerticalScrollBar = true;
-            InitializeTheme( );
+            LoadTheme( );
             InitializeWorkbookProperties( );
             InitializeActiveGrid( );
             InitializeSheetView( );
@@ -244,15 +244,15 @@ namespace BudgetExecution
             _themePath = AppSettings[ "BudgetExecution" ];
             _fileInfo = new FileInfo( _internalPath );
             _excelPackage = new ExcelPackage( _fileInfo );
-            _excelPackage.Settings.TextSettings.PrimaryTextMeasurer = new ExcelMeasure( );
+            _excelPackage.Settings.TextSettings.PrimaryTextMeasurer = new TextMeasure( );
             _excelPackage.Settings.TextSettings.AutofitScaleFactor = 0.8f;
             _excelWorkbook = _excelPackage.Workbook;
-            _excelWorksheet = _excelWorkbook.Worksheets.Add( dataTable.TableName.SplitPascal( ) );
+            _excelWorksheet = _excelWorkbook.Worksheets.Add( "Data" );
             _columnCount = dataTable.Columns.Count;
             _rowCount = dataTable.Rows.Count;
             _excelWorkbook.View.ShowHorizontalScrollBar = true;
             _excelWorkbook.View.ShowVerticalScrollBar = true;
-            InitializeTheme( );
+            LoadTheme( );
             InitializeWorkbookProperties( );
             InitializeActiveGrid( );
             InitializeSheetView( );
@@ -284,7 +284,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the theme.
         /// </summary>
-        private void InitializeTheme( )
+        private void LoadTheme( )
         {
             try
             {
