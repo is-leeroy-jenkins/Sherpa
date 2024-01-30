@@ -6692,7 +6692,7 @@
              Gets or sets the length of this axis.
             </summary>
         </member>
-        <member name="P:Syncfusion.Chart.ChartAxis.Dimension">
+        <member name="P:Syncfusion.Chart.ChartAxis.DataShape">
             <summary>
             Gets or sets the cardinal dimension of the axis object. If the text that is rendered by the axis is of a dimension that is more, then
             that dimension will be used and this dimension is ignored.
@@ -7332,7 +7332,7 @@
             </summary>
             <param name="g">The graphics content.</param>
             <param name="chartarea">The chart area.</param>
-            <returns>Dimension.</returns>
+            <returns>DataShape.</returns>
             <internalonly/>
         </member>
         <member name="M:Syncfusion.Chart.ChartAxis.CheckFormatLabel">
@@ -11838,7 +11838,7 @@
             </summary>
             <value>The elements.</value>
         </member>
-        <member name="P:Syncfusion.Chart.ChartDockingManager.WrapLayouter.Dimension">
+        <member name="P:Syncfusion.Chart.ChartDockingManager.WrapLayouter.DataShape">
             <summary>
             Gets or sets the dimension.
             </summary>

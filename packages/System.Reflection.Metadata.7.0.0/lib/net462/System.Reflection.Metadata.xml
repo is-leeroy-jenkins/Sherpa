@@ -2167,11 +2167,11 @@
 		<member name="M:System.Reflection.Metadata.Ecma335.ArrayShapeEncoder.Shape(System.Int32,System.Collections.Immutable.ImmutableArray{System.Int32},System.Collections.Immutable.ImmutableArray{System.Int32})">
 			<summary>Encodes array shape.</summary>
 			<param name="rank">The number of dimensions in the array (shall be 1 or more).</param>
-			<param name="sizes">Dimension sizes. The array may be shorter than
+			<param name="sizes">DataShape sizes. The array may be shorter than
 				<paramref name="rank"/>
 				but not longer.
 			</param>
-			<param name="lowerBounds">Dimension lower bounds, or default(
+			<param name="lowerBounds">DataShape lower bounds, or default(
 				<see cref="T:System.Collections.Immutable.ImmutableArray`1"/>) to set all
 				<paramref name="rank"/>
 				lower bounds to 0. The array may be shorter than

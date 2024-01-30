@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        1-17-2024
 // ******************************************************************************************
-// <copyright file="Dimension.cs" company="Terry D. Eppler">
+// <copyright file="DataShape.cs" company="Terry D. Eppler">
 //    Budget Execution is a Federal Budget, Finance, and Accounting application
 //    for analysts with the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
@@ -34,7 +34,7 @@
 //    Contact at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   Dimension.cs
+//   DataShape.cs
 // </summary>
 // ******************************************************************************************
 
@@ -51,7 +51,7 @@ namespace BudgetExecution
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    public abstract class Dimension
+    public abstract class DataShape
     {
         /// <summary>
         /// The records
