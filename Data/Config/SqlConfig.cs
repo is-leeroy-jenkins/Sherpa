@@ -42,19 +42,53 @@ namespace BudgetExecution
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using OpenTK.Platform.Windows;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class SqlConfig
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        private protected SQL _commandType;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private protected EXT _extension;
+
         /// <summary> Gets or sets the type of the command. </summary>
         /// <value> The type of the command. </value>
-        public SQL CommandType { get; set; }
+        public SQL CommandType
+        {
+            get
+            {
+                return _commandType;
+            }
+
+            private protected set
+            {
+                _commandType = value;
+            }
+        }
 
         /// <summary> Gets or sets the extension. </summary>
         /// <value> The extension. </value>
-        public EXT Extension { get; set; }
+        public EXT Extension
+        {
+            get
+            {
+                return _extension;
+            }
+
+            private protected set
+            {
+                _extension = value;
+            }
+        }
 
         /// <summary>
         /// Initializes a new instance of the
@@ -74,8 +108,8 @@ namespace BudgetExecution
         /// <param name="extension"> The extension. </param>
         public SqlConfig( SQL command, EXT extension )
         {
-            CommandType = command;
-            Extension = extension;
+            _commandType = command;
+            _extension = extension;
         }
 
         /// <summary> Deconstructs the specified command type. </summary>
@@ -83,8 +117,8 @@ namespace BudgetExecution
         /// <param name="extension"> The extension. </param>
         public void Deconstruct( out SQL commandType, out EXT extension )
         {
-            commandType = CommandType;
-            extension = Extension;
+            commandType = _commandType;
+            extension = _extension;
         }
 
         /// <summary> Converts to string. </summary>
@@ -97,7 +131,7 @@ namespace BudgetExecution
         {
             try
             {
-                return $"{CommandType.ToString( )}";
+                return $"{_commandType}";
             }
             catch( Exception _ex )
             {
