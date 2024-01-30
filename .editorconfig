@@ -21,6 +21,7 @@ resharper_align_multiline_parameter = true
 resharper_blank_lines_after_block_statements = 1
 resharper_blank_lines_after_case = 0
 resharper_blank_lines_after_control_transfer_statements = 1
+resharper_blank_lines_after_multiline_statements = 1
 resharper_blank_lines_around_block_case_section = 0
 resharper_blank_lines_before_control_transfer_statements = 0
 resharper_blank_lines_before_multiline_statements = 0
