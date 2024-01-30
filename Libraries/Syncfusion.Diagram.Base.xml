@@ -6811,7 +6811,7 @@
         </member>
         <member name="F:Syncfusion.Windows.Forms.Diagram.DecoratorShape.DimensionLine">
             <summary>
-            DataShape line shape.
+            DataDimension line shape.
             </summary>
         </member>
         <member name="F:Syncfusion.Windows.Forms.Diagram.DecoratorShape.Cross45">
@@ -8104,7 +8104,7 @@
             <param name="graph">The graph.</param>
             <returns>The value.</returns>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Diagram.DirectedTreeLayoutManager.GetSubGraphDimension(System.Int32,System.Int32,Syncfusion.Windows.Forms.Diagram.DataShape,Syncfusion.Windows.Forms.Diagram.Graph)">
+        <member name="M:Syncfusion.Windows.Forms.Diagram.DirectedTreeLayoutManager.GetSubGraphDimension(System.Int32,System.Int32,Syncfusion.Windows.Forms.Diagram.DataDimension,Syncfusion.Windows.Forms.Diagram.Graph)">
             <summary>
             Gets the sub graph dimension.
             </summary>
@@ -8136,17 +8136,17 @@
             The Y coordinate.
             </summary>
         </member>
-        <member name="T:Syncfusion.Windows.Forms.Diagram.DataShape">
+        <member name="T:Syncfusion.Windows.Forms.Diagram.DataDimension">
             <summary>
             Specifies dimension to use.
             </summary>
         </member>
-        <member name="F:Syncfusion.Windows.Forms.Diagram.DataShape.Width">
+        <member name="F:Syncfusion.Windows.Forms.Diagram.DataDimension.Width">
             <summary>
             Width of the layout.
             </summary>
         </member>
-        <member name="F:Syncfusion.Windows.Forms.Diagram.DataShape.Height">
+        <member name="F:Syncfusion.Windows.Forms.Diagram.DataDimension.Height">
             <summary>
             Height of the layout.
             </summary>
@@ -8624,13 +8624,13 @@
             </summary>
             <returns>The graph type.</returns>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Diagram.Graph.Resize(System.Single,System.Single,Syncfusion.Windows.Forms.Diagram.DataShape)">
+        <member name="M:Syncfusion.Windows.Forms.Diagram.Graph.Resize(System.Single,System.Single,Syncfusion.Windows.Forms.Diagram.DataDimension)">
             <summary>
             Resizes graph's specified dimension.
             </summary>
             <param name="fOldValue">Old dimension value.</param>
             <param name="fNewValue">New dimension value.</param>
-            <param name="dimension">DataShape to change.</param>
+            <param name="dimension">DataDimension to change.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Diagram.IGBounds">
             <summary>
@@ -9264,7 +9264,7 @@
             <param name="graph">The graph.</param>
             <returns>The value.</returns>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Diagram.HierarchicLayoutManager.GetSubGraphDimension(System.Int32,System.Int32,Syncfusion.Windows.Forms.Diagram.DataShape,Syncfusion.Windows.Forms.Diagram.Graph)">
+        <member name="M:Syncfusion.Windows.Forms.Diagram.HierarchicLayoutManager.GetSubGraphDimension(System.Int32,System.Int32,Syncfusion.Windows.Forms.Diagram.DataDimension,Syncfusion.Windows.Forms.Diagram.Graph)">
             <summary>
             Gets the sub graph dimension.
             </summary>
@@ -9581,7 +9581,7 @@
             Applies the radial directed tree layout strategy on the diagram.
             </summary>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Diagram.RadialTreeLayoutManager.GetSubGraphDimension(System.Int32,System.Int32,Syncfusion.Windows.Forms.Diagram.DataShape)">
+        <member name="M:Syncfusion.Windows.Forms.Diagram.RadialTreeLayoutManager.GetSubGraphDimension(System.Int32,System.Int32,Syncfusion.Windows.Forms.Diagram.DataDimension)">
             <summary>
             Gets the sub graph dimension.
             </summary>

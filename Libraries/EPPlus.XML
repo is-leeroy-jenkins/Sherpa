@@ -29891,9 +29891,9 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="P:OfficeOpenXml.ExcelWorksheet.DataShape">
+        <member name="P:OfficeOpenXml.ExcelWorksheet.DataDimension">
             <summary>
-            DataShape address for the worksheet. 
+            DataDimension address for the worksheet. 
             Top left cell to Bottom right.
             If the worksheet has no cells, null is returned
             </summary>

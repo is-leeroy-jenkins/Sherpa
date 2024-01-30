@@ -740,7 +740,7 @@
             </summary>
             <param name="g"><see cref="T:System.Drawing.Graphics"/> to render label.</param>
             <param name="position">Location of the label.</param>
-            <param name="dimention">DataShape of the label.</param>
+            <param name="dimention">DataDimension of the label.</param>
             <param name="axis">The axis label belong to.</param>
             <param name="measureDraw"></param>
             <returns>Bound rectangle of the label.</returns>
@@ -771,7 +771,7 @@
             </summary>
             <param name="g">Graphics3D to render label.</param>
             <param name="position">Location of the label.</param>
-            <param name="dimention">DataShape of the label.</param>
+            <param name="dimention">DataDimension of the label.</param>
             <param name="axis">The axis label belong to.</param>
             <param name="measureDraw"></param>
             <returns>Bound rectangle of the label.</returns>
@@ -5361,7 +5361,7 @@
              Gets or sets the sorting labels of X axis.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Chart.ChartAxis.DataShape">
+        <member name="P:Syncfusion.Windows.Forms.Chart.ChartAxis.DataDimension">
             <summary>
             Gets or sets the cardinal dimension of the axis object. If the text that is rendered by the axis is of a dimension that is more, then
             that dimension will be used and this dimension is ignored.
@@ -6227,7 +6227,7 @@
             </summary>
             <param name="g">The graphics content.</param>
             <param name="chartarea">The chart area.</param>
-            <returns>DataShape.</returns>
+            <returns>DataDimension.</returns>
             <internalonly/>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartAxis.CheckFormatLabel">
@@ -8042,7 +8042,7 @@
             </summary>
             <value>The elements.</value>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Chart.ChartDockingManager.WrapLayouter.DataShape">
+        <member name="P:Syncfusion.Windows.Forms.Chart.ChartDockingManager.WrapLayouter.DataDimension">
             <summary>
             Gets or sets the dimension.
             </summary>
@@ -24435,7 +24435,7 @@
             </summary>
             <value></value>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Chart.Scrolling.ChartScrollBar.DataShape">
+        <member name="P:Syncfusion.Windows.Forms.Chart.Scrolling.ChartScrollBar.DataDimension">
             <summary>
             Returns the dimensions of the scroll bar. That is the width for vertical scroll bars and the height for horizontal ones.
             </summary>
@@ -24656,7 +24656,7 @@
             Resets the scroll bar.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Chart.Scrolling.IChartScrollBar.DataShape">
+        <member name="P:Syncfusion.Windows.Forms.Chart.Scrolling.IChartScrollBar.DataDimension">
             <summary>
             Returns the dimensions of the scroll bar. That is the width for vertical scroll bars and the height for horizontal ones.
             </summary>

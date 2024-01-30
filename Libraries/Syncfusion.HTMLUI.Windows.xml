@@ -10465,7 +10465,7 @@
             Calculates the maximum width and maximum min width for the column.
             </summary>
             <param name="column">Array of cells.</param>
-            <param name="dimension">DataShape of the array.</param>
+            <param name="dimension">DataDimension of the array.</param>
             <returns>Size struct, where Width - maximum width, Height - maximum min width.</returns>
         </member>
         <member name="M:Syncfusion.Windows.Forms.HTMLUI.TABLEElementImpl.GetMaxRowHeight(Syncfusion.Windows.Forms.HTMLUI.TDElementImpl[0:,0:],System.Drawing.Size)">
@@ -10473,7 +10473,7 @@
             Calculates the maximum height and maximum min height for the row.
             </summary>
             <param name="row">Array of cells.</param>
-            <param name="dimension">DataShape of the array.</param>
+            <param name="dimension">DataDimension of the array.</param>
             <returns>Size struct, where Width - maximum height, Height - maximum min height.</returns>
         </member>
         <member name="M:Syncfusion.Windows.Forms.HTMLUI.TABLEElementImpl.ArrangeRowInColumn(Syncfusion.Windows.Forms.HTMLUI.TDElementImpl[0:,0:],System.Int32,System.Drawing.Size,System.Single,System.Single,System.Boolean)">
@@ -10482,7 +10482,7 @@
             </summary>
             <param name="column">Array of all cells in the column.</param>
             <param name="rowIndex">Row index</param>
-            <param name="dimension">DataShape of the array.</param>
+            <param name="dimension">DataDimension of the array.</param>
             <param name="rowWidth">Current width of the row.</param>
             <param name="maxWidth">Maximum width of the column.</param>
             <param name="bIsMinWidth">If true - we arrange minimum width, if False - just width of the row.</param>
@@ -10493,7 +10493,7 @@
             </summary>
             <param name="row">Array of all cells in the row.</param>
             <param name="colIndex">Index of the column in the row.</param>
-            <param name="dimension">DataShape of the array.</param>
+            <param name="dimension">DataDimension of the array.</param>
             <param name="colHeight">Current height of the column.</param>
             <param name="maxHeight">Maximum height of the column.</param>
             <param name="bIsMinHeight">If true - we arrange minimum height, if False - just height of the row.</param>

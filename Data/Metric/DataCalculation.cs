@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        07-14-2023
 // ******************************************************************************************
-// <copyright file="DataCalculator.cs" company="Terry D. Eppler">
+// <copyright file="DataCalculation.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   DataCalculator.cs
+//   DataCalculation.cs
 // </summary>
 // ******************************************************************************************
 
@@ -57,7 +57,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [ SuppressMessage( "ReSharper", "ReturnTypeCanBeEnumerable.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    public abstract class DataCalculator : DataShape
+    public abstract class DataCalculation : DataDimension
     {
         /// <summary>
         /// Counts the values.

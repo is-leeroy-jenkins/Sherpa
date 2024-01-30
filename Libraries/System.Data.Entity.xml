@@ -11143,9 +11143,9 @@
 				expression is Edm.Int32.
 			</summary>
 			<param name="spatialValue">An expression that specifies the value from which the
-				DataShape value should be retrieved.
+				DataDimension value should be retrieved.
 			</param>
-			<returns>A new DbFunctionExpression that returns the DataShape value from
+			<returns>A new DbFunctionExpression that returns the DataDimension value from
 				<paramref name="spatialValue"/>.
 			</returns>
 			<exception cref="T:System.ArgumentNullException">
@@ -26681,7 +26681,7 @@
 				<paramref name="other"/>
 			</exception>
 		</member>
-		<member name="P:System.Data.Spatial.DbGeography.DataShape">
+		<member name="P:System.Data.Spatial.DbGeography.DataDimension">
 			<summary>Gets the dimension of the given
 				<see cref="T:System.Data.Spatial.DbGeography"/>
 				value or, if the value is a collections, the largest element dimension.
@@ -27375,7 +27375,7 @@
 				<paramref name="other"/>
 			</exception>
 		</member>
-		<member name="P:System.Data.Spatial.DbGeometry.DataShape">
+		<member name="P:System.Data.Spatial.DbGeometry.DataDimension">
 			<summary>Gets the dimension of the given
 				<see cref="T:System.Data.Spatial.DbGeometry"/>
 				value or, if the value is a collection, the dimension of its largest element.

@@ -47,14 +47,38 @@ namespace BudgetExecution
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     public class DataConfig : ISource, IProvider
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        private Source _source;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private Provider _provider;
+
         /// <inheritdoc/>
         /// <summary>
         /// Gets or sets the provider.
         /// </summary>
         /// <value> The provider. </value>
-        public Provider Provider { get; set; }
+        public Provider Provider
+        {
+            get
+            {
+                return _provider;
+            }
+
+            private protected set
+            {
+                _provider = value;
+            }
+        }
 
         /// <inheritdoc/>
         /// <summary>
@@ -62,7 +86,18 @@ namespace BudgetExecution
         /// </summary>
         /// <value> The source.
         /// </value>
-        public Source Source { get; set; }
+        public Source Source
+        {
+            get
+            {
+                return _source;
+            }
+
+            private protected set
+            {
+                _source = value;
+            }
+        }
 
         /// <summary>
         /// Initializes a new instance of the
@@ -82,8 +117,8 @@ namespace BudgetExecution
         /// <param name="provider"> The provider. </param>
         public DataConfig( Source source, Provider provider )
         {
-            Source = source;
-            Provider = provider;
+            _source = source;
+            _provider = provider;
         }
 
         /// <summary>
@@ -92,8 +127,8 @@ namespace BudgetExecution
         /// <param name="dataArgs">The data arguments.</param>
         public DataConfig( DataConfig dataArgs )
         {
-            Source = dataArgs.Source;
-            Provider = dataArgs.Provider;
+            _source = dataArgs.Source;
+            _provider = dataArgs.Provider;
         }
 
         /// <summary>
@@ -103,8 +138,8 @@ namespace BudgetExecution
         /// <param name="provider">The provider.</param>
         public void Deconstruct( out Source source, out Provider provider )
         {
-            source = Source;
-            provider = Provider;
+            source = _source;
+            provider = _provider;
         }
 
         /// <summary> Converts to string. </summary>
@@ -117,7 +152,7 @@ namespace BudgetExecution
         {
             try
             {
-                return $"{Provider.ToString( )}";
+                return $"{_provider}";
             }
             catch( Exception _ex )
             {
