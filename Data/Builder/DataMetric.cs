@@ -57,7 +57,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    public class DataMetric : TableMetric, IDataMetric
+    public class DataMetric : DataCalculator, IDataMetric
     {
         /// <inheritdoc />
         /// <summary>
