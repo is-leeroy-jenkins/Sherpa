@@ -30272,7 +30272,7 @@
             <code language= "C#" >
                   SfChart chart = new SfChart();
                   Style style = new Style(typeof(Polyline));
-                  style.Setters.Add(new Setter(Polyline.StrokeProperty, Brushes.Green));
+                  style.Setters.Add(new Setter(Polyline.StrokeProperty, Brushes.DarkGreen));
                   style.Setters.Add(new Setter(Polyline.StrokeThicknessProperty, 5.0));
                   DoubleCollection doubleCollection = new DoubleCollection();
                   doubleCollection.Add(2);

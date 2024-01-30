@@ -1769,7 +1769,7 @@
              //Create a redaction object
              PdfRedaction redaction = new PdfRedaction(new RectangleF(40, 40, 50, 20));
              //Set fill color for the redaction bounds
-             redaction.FillColor = System.Drawing.Color.Green;
+             redaction.FillColor = System.Drawing.Color.DarkGreen;
              //Add redaction object into redaction collection of loaded page
              page.Redactions.Add(redaction);
              //Save and Close the document.
@@ -1782,7 +1782,7 @@
              //Create a redaction object
              Dim redaction As PdfRedaction = New PdfRedaction(New RectangleF(40, 40, 50, 20))
              //Set fill color for the redaction bounds
-             redaction.FillColor = Color.Green
+             redaction.FillColor = Color.DarkGreen
              //Add redaction object into collection
              page.Redactions.Add(redaction)
              'Save the document.
@@ -1806,7 +1806,7 @@
              //Set to redact text only
              redaction.TextOnly = true;
              //Set fill color for the redaction bounds
-             redaction.FillColor = System.Drawing.Color.Green;
+             redaction.FillColor = System.Drawing.Color.DarkGreen;
              //Add redaction object into redaction collection of loaded page
              page.Redactions.Add(redaction);
              //Save and Close the document.
@@ -1821,7 +1821,7 @@
              '//Set to redact text only
              redaction.TextOnly = true
              //Set fill color for the redaction bounds
-             redaction.FillColor = Color.Green
+             redaction.FillColor = Color.DarkGreen
              //Add redaction object into collection
              page.Redactions.Add(redaction)
              'Save the document.

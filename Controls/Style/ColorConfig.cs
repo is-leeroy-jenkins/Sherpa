@@ -46,6 +46,7 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using DocumentFormat.OpenXml.Drawing;
 
     /// <summary>
     /// 
@@ -53,6 +54,16 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class ColorConfig
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        public Color DarkGreen { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Color LightGreen { get; }
+
         /// <summary>
         /// Gets the blue.
         /// </summary>
@@ -230,6 +241,8 @@ namespace BudgetExecution
             Maroon = Color.Maroon;
             LightBlue = Color.LightSteelBlue;
             NotificationColor = Color.FromArgb( 0, 73, 112 );
+            DarkGreen = Color.ForestGreen;
+            LightGreen = Color.LimeGreen;
         }
 
         /// <summary>

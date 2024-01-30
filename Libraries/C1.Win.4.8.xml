@@ -1105,7 +1105,7 @@
 		<member name="F:C1.Win.C1Themes.Shared.Ribbon_ThemeColor.Blue">
 			<summary>For internal use.</summary>
 		</member>
-		<member name="F:C1.Win.C1Themes.Shared.Ribbon_ThemeColor.Green">
+		<member name="F:C1.Win.C1Themes.Shared.Ribbon_ThemeColor.DarkGreen">
 			<summary>For internal use.</summary>
 		</member>
 		<member name="F:C1.Win.C1Themes.Shared.Ribbon_ThemeColor.Orange">

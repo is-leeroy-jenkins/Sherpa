@@ -203,9 +203,9 @@
             Teal color.
             </summary>
         </member>
-        <member name="F:Syncfusion.Windows.Forms.Diagram.RichTextBoxAdv.UnderlineColor.Green">
+        <member name="F:Syncfusion.Windows.Forms.Diagram.RichTextBoxAdv.UnderlineColor.DarkGreen">
             <summary>
-            Green color.
+            DarkGreen color.
             </summary>
         </member>
         <member name="F:Syncfusion.Windows.Forms.Diagram.RichTextBoxAdv.UnderlineColor.Purple">

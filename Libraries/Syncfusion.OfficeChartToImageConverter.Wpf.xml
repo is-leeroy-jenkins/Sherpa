@@ -1524,7 +1524,7 @@
             Calculates the color from given rgb and transparency value
             </summary>
             <param name="R">input Red value</param>
-            <param name="G">input Green value</param>
+            <param name="G">input DarkGreen value</param>
             <param name="B">input Blue value</param>
             <param name="transparency">input Transparency value</param>
             <returns>the output color</returns>
@@ -1534,7 +1534,7 @@
             Calculates the color from given rgb value
             </summary>
             <param name="R">input Red value</param>
-            <param name="G">input Green value</param>
+            <param name="G">input DarkGreen value</param>
             <param name="B">input Blue value</param>        
             <returns>the output color</returns>
         </member>

@@ -7460,9 +7460,9 @@
             Gray color enum.
             </summary>
         </member>
-        <member name="F:Syncfusion.Windows.Tools.KnownColor.Green">
+        <member name="F:Syncfusion.Windows.Tools.KnownColor.DarkGreen">
             <summary>
-            Green color enum.
+            DarkGreen color enum.
             </summary>
         </member>
         <member name="F:Syncfusion.Windows.Tools.KnownColor.GreenYellow">
@@ -7590,9 +7590,9 @@
             Lime color enum.
             </summary>
         </member>
-        <member name="F:Syncfusion.Windows.Tools.KnownColor.LimeGreen">
+        <member name="F:Syncfusion.Windows.Tools.KnownColor.LightGreen">
             <summary>
-            LimeGreen color enum.
+            LightGreen color enum.
             </summary>
         </member>
         <member name="F:Syncfusion.Windows.Tools.KnownColor.Linen">
@@ -40545,7 +40545,7 @@
         </member>
         <member name="F:Syncfusion.Windows.Shared.ColorEdit.m_g">
             <summary>
-            Green parameter for RGB model.
+            DarkGreen parameter for RGB model.
             </summary>
         </member>
         <member name="F:Syncfusion.Windows.Shared.ColorEdit.m_b">
@@ -40775,12 +40775,12 @@
         </member>
         <member name="P:Syncfusion.Windows.Shared.ColorEdit.G">
             <summary>
-            Gets or sets the Green parameter for RGB selection mode.
+            Gets or sets the DarkGreen parameter for RGB selection mode.
             </summary>
             <value>
             Type: <see cref="T:System.Single"/>
             <para/>
-            Green.
+            DarkGreen.
             </value>
         </member>
         <member name="P:Syncfusion.Windows.Shared.ColorEdit.B">
@@ -40825,12 +40825,12 @@
         </member>
         <member name="P:Syncfusion.Windows.Shared.ColorEdit.BackgroundG">
             <summary>
-            Gets or sets the background of Green slider for RGB selection mode.
+            Gets or sets the background of DarkGreen slider for RGB selection mode.
             </summary>
             <value>
             Type: <see cref="P:Syncfusion.Windows.Shared.ColorEdit.Brush"/>
             <para/>
-            The background Green.
+            The background DarkGreen.
             </value>
         </member>
         <member name="P:Syncfusion.Windows.Shared.ColorEdit.BackgroundB">
@@ -47162,7 +47162,7 @@
             Gets or sets foreground of the control when it's value is Zero.
             </summary>
             <value>Type: <see cref="T:System.Windows.Media.Brush"/>
-            Default value is Colors.Green.
+            Default value is Colors.DarkGreen.
             </value>
         </member>
         <member name="P:Syncfusion.Windows.Shared.UpDown.UseNullOption">
@@ -49045,7 +49045,7 @@
         </member>
         <member name="P:Syncfusion.Windows.Shared.Resources.Syncfusion_Shared_Wpf.GreenTooltipText">
             <summary>
-              Looks up a localized string similar to Green.
+              Looks up a localized string similar to DarkGreen.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Shared.Resources.Syncfusion_Shared_Wpf.HueTooltipText">

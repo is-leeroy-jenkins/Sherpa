@@ -16314,12 +16314,12 @@
         </member>
         <member name="T:Syncfusion.Windows.Forms.PdfViewer.MetroGreenColors">
             <summary>
-            Provides colors for Green colorscheme of the Metro visual style.
+            Provides colors for DarkGreen colorscheme of the Metro visual style.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.PdfViewer.MetroGreenColors.InitializeColors">
             <summary>
-            Initialize colors for Green colorscheme of the Metro visual style.
+            Initialize colors for DarkGreen colorscheme of the Metro visual style.
             </summary>
         </member>
         <member name="T:Syncfusion.Windows.Forms.PdfViewer.ISupportOffice2007Theme">
@@ -16767,7 +16767,7 @@
             <param name="s">Saturation.</param>
             <param name="v">Brightness.</param>
             <param name="r">Red.</param>
-            <param name="g">Green.</param>
+            <param name="g">DarkGreen.</param>
             <param name="b">Blue.</param>
             <remarks>
             This does not seem to yield accurate results, but very close.
@@ -17250,7 +17250,7 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.PdfViewer.XPThemes.IsOliveGreenThemeOn">
             <summary>
-            Indicates whether the Olive Green theme is on.
+            Indicates whether the Olive DarkGreen theme is on.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.PdfViewer.XPThemes.IsSilverThemeOn">
@@ -17631,7 +17631,7 @@
         <member name="F:Syncfusion.Windows.Forms.PdfViewer.ScrollBarMetroColorScheme.Red">
             <summary></summary>
         </member>
-        <member name="F:Syncfusion.Windows.Forms.PdfViewer.ScrollBarMetroColorScheme.Green">
+        <member name="F:Syncfusion.Windows.Forms.PdfViewer.ScrollBarMetroColorScheme.DarkGreen">
             <summary></summary>
         </member>
         <member name="F:Syncfusion.Windows.Forms.PdfViewer.ScrollBarMetroColorScheme.Managed">

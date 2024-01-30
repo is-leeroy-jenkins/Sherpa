@@ -1802,7 +1802,7 @@
 		<member name="F:PdfSharp.Drawing.XKnownColor.Gray">
 			<summary>A pre-defined color.</summary>
 		</member>
-		<member name="F:PdfSharp.Drawing.XKnownColor.Green">
+		<member name="F:PdfSharp.Drawing.XKnownColor.DarkGreen">
 			<summary>A pre-defined color.</summary>
 		</member>
 		<member name="F:PdfSharp.Drawing.XKnownColor.GreenYellow">
@@ -1880,7 +1880,7 @@
 		<member name="F:PdfSharp.Drawing.XKnownColor.Lime">
 			<summary>A pre-defined color.</summary>
 		</member>
-		<member name="F:PdfSharp.Drawing.XKnownColor.LimeGreen">
+		<member name="F:PdfSharp.Drawing.XKnownColor.LightGreen">
 			<summary>A pre-defined color.</summary>
 		</member>
 		<member name="F:PdfSharp.Drawing.XKnownColor.Linen">
@@ -3039,7 +3039,7 @@
 		<member name="P:PdfSharp.Drawing.XBrushes.Gray">
 			<summary>Gets a pre-defined XBrush object.</summary>
 		</member>
-		<member name="P:PdfSharp.Drawing.XBrushes.Green">
+		<member name="P:PdfSharp.Drawing.XBrushes.DarkGreen">
 			<summary>Gets a pre-defined XBrush object.</summary>
 		</member>
 		<member name="P:PdfSharp.Drawing.XBrushes.GreenYellow">
@@ -3117,7 +3117,7 @@
 		<member name="P:PdfSharp.Drawing.XBrushes.Lime">
 			<summary>Gets a pre-defined XBrush object.</summary>
 		</member>
-		<member name="P:PdfSharp.Drawing.XBrushes.LimeGreen">
+		<member name="P:PdfSharp.Drawing.XBrushes.LightGreen">
 			<summary>Gets a pre-defined XBrush object.</summary>
 		</member>
 		<member name="P:PdfSharp.Drawing.XBrushes.Linen">
@@ -3709,7 +3709,7 @@
 		<member name="P:PdfSharp.Drawing.XColors.Gray">
 			<summary>Gets a predefined color.</summary>
 		</member>
-		<member name="P:PdfSharp.Drawing.XColors.Green">
+		<member name="P:PdfSharp.Drawing.XColors.DarkGreen">
 			<summary>Gets a predefined color.</summary>
 		</member>
 		<member name="P:PdfSharp.Drawing.XColors.GreenYellow">
@@ -3787,7 +3787,7 @@
 		<member name="P:PdfSharp.Drawing.XColors.Lime">
 			<summary>Gets a predefined color.</summary>
 		</member>
-		<member name="P:PdfSharp.Drawing.XColors.LimeGreen">
+		<member name="P:PdfSharp.Drawing.XColors.LightGreen">
 			<summary>Gets a predefined color.</summary>
 		</member>
 		<member name="P:PdfSharp.Drawing.XColors.Linen">
@@ -6667,7 +6667,7 @@
 		<member name="P:PdfSharp.Drawing.XPens.Gray">
 			<summary>Gets a pre-defined XPen object.</summary>
 		</member>
-		<member name="P:PdfSharp.Drawing.XPens.Green">
+		<member name="P:PdfSharp.Drawing.XPens.DarkGreen">
 			<summary>Gets a pre-defined XPen object.</summary>
 		</member>
 		<member name="P:PdfSharp.Drawing.XPens.GreenYellow">
@@ -6745,7 +6745,7 @@
 		<member name="P:PdfSharp.Drawing.XPens.Lime">
 			<summary>Gets a pre-defined XPen object.</summary>
 		</member>
-		<member name="P:PdfSharp.Drawing.XPens.LimeGreen">
+		<member name="P:PdfSharp.Drawing.XPens.LightGreen">
 			<summary>Gets a pre-defined XPen object.</summary>
 		</member>
 		<member name="P:PdfSharp.Drawing.XPens.Linen">

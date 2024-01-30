@@ -1294,7 +1294,7 @@
 		<member name="F:C1.Win.C1Themes.Shared.Ribbon_ThemeColor.Blue">
 			<summary>For internal use.</summary>
 		</member>
-		<member name="F:C1.Win.C1Themes.Shared.Ribbon_ThemeColor.Green">
+		<member name="F:C1.Win.C1Themes.Shared.Ribbon_ThemeColor.DarkGreen">
 			<summary>For internal use.</summary>
 		</member>
 		<member name="F:C1.Win.C1Themes.Shared.Ribbon_ThemeColor.Orange">
@@ -20594,7 +20594,7 @@
 				<code>
 					// create style with red background CellStyle cs = _flex.Styles.Add("red");
 					Style.BackColor = Color.Red; // create style with green background cs =
-					_flex.Styles.Add("green"); Style.BackColor = Color.Green; // create style with
+					_flex.Styles.Add("green"); Style.BackColor = Color.DarkGreen; // create style with
 					bold font cs = _flex.Styles.Add("bold"); Style.Font = new Font("Tahoma", 8,
 					FontStyle.Bold); // assign red style to a column _flex.Cols[3].Style =
 					_flex.Styles["red"]; // assign green style to a row _flex.Rows[3].Style =

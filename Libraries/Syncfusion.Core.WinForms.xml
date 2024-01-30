@@ -4507,7 +4507,7 @@
             This example shows how to initialize the <see cref="P:Syncfusion.WinForms.Controls.Styles.ButtonVisualStyle.GradientBrush"/> property.
             <code lang="C#">
             // Initialize the gradient brush value to SfButton.
-            sfButton1.Style.GradientBrush = new Syncfusion.WinForms.Core.BrushInfo(Syncfusion.WinForms.Core.GradientStyle.BackwardDiagonal, new Color[] { Color.Red, Color.Green });
+            sfButton1.Style.GradientBrush = new Syncfusion.WinForms.Core.BrushInfo(Syncfusion.WinForms.Core.GradientStyle.BackwardDiagonal, new Color[] { Color.Red, Color.DarkGreen });
             </code> 
             </example>
         </member>
@@ -4525,7 +4525,7 @@
             This example shows how to initialize the <see cref="P:Syncfusion.WinForms.Controls.Styles.ButtonVisualStyle.PressedGradientBrush"/> property.
             <code lang="C#">
             // Initialize the pressed gradient brush value to SfButton.
-            sfButton1.Style.PressedGradientBrush = new Syncfusion.WinForms.Core.BrushInfo(Syncfusion.WinForms.Core.GradientStyle.BackwardDiagonal, new Color[] { Color.Red, Color.Green });
+            sfButton1.Style.PressedGradientBrush = new Syncfusion.WinForms.Core.BrushInfo(Syncfusion.WinForms.Core.GradientStyle.BackwardDiagonal, new Color[] { Color.Red, Color.DarkGreen });
             </code> 
             </example>
         </member>
@@ -4543,7 +4543,7 @@
             This example shows how to initialize the <see cref="P:Syncfusion.WinForms.Controls.Styles.ButtonVisualStyle.HoverGradientBrush"/> property.
             <code lang="C#">
             // Initialize the hover gradient brush value to SfButton.
-            sfButton1.Style.HoverGradientBrush = new Syncfusion.WinForms.Core.BrushInfo(Syncfusion.WinForms.Core.GradientStyle.BackwardDiagonal, new Color[] { Color.Red, Color.Green });
+            sfButton1.Style.HoverGradientBrush = new Syncfusion.WinForms.Core.BrushInfo(Syncfusion.WinForms.Core.GradientStyle.BackwardDiagonal, new Color[] { Color.Red, Color.DarkGreen });
             </code>
             </example>
         </member>
@@ -4561,7 +4561,7 @@
             This example shows how to initialize the <see cref="P:Syncfusion.WinForms.Controls.Styles.ButtonVisualStyle.FocusedGradientBrush"/> property.
             <code lang="C#">
             // Initialize the focused gradient brush value to SfButton.
-            sfButton1.Style.FocusedGradientBrush = new Syncfusion.WinForms.Core.BrushInfo(Syncfusion.WinForms.Core.GradientStyle.BackwardDiagonal, new Color[] { Color.Red, Color.Green });
+            sfButton1.Style.FocusedGradientBrush = new Syncfusion.WinForms.Core.BrushInfo(Syncfusion.WinForms.Core.GradientStyle.BackwardDiagonal, new Color[] { Color.Red, Color.DarkGreen });
             </code>
             </example>
         </member>
@@ -4579,7 +4579,7 @@
             This example shows how to initialize the <see cref="P:Syncfusion.WinForms.Controls.Styles.ButtonVisualStyle.DisabledGradientBrush"/> property.
             <code lang="C#">
             // Initialize the disabled gradient brush value to SfButton.
-            sfButton1.Style.DisabledGradientBrush = new Syncfusion.WinForms.Core.BrushInfo(Syncfusion.WinForms.Core.GradientStyle.BackwardDiagonal, new Color[] { Color.Red, Color.Green });
+            sfButton1.Style.DisabledGradientBrush = new Syncfusion.WinForms.Core.BrushInfo(Syncfusion.WinForms.Core.GradientStyle.BackwardDiagonal, new Color[] { Color.Red, Color.DarkGreen });
             </code>
             </example>
         </member>

@@ -3184,7 +3184,7 @@
             Returns green channel level of color.
             </summary>
             <param name="color">Integer type color value.</param>
-            <returns>Green channel level of color.</returns>
+            <returns>DarkGreen channel level of color.</returns>
         </member>
         <member name="M:Syncfusion.HTMLUI.Base.Utility.ColorUtil.GetBValue(System.Int32)">
             <summary>

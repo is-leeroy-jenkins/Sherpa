@@ -10789,7 +10789,7 @@
             Gets a predefined <see cref="T:Syncfusion.Presentation.IColor"/> object that has an ARGB value of #FF808080. Read-only.
             </summary>
         </member>
-        <member name="P:Syncfusion.Presentation.ColorObject.Green">
+        <member name="P:Syncfusion.Presentation.ColorObject.DarkGreen">
             <summary>
             Gets a predefined <see cref="T:Syncfusion.Presentation.IColor"/> object that has an ARGB value of #FF008000. Read-only.
             </summary>
@@ -10919,7 +10919,7 @@
             Gets a predefined <see cref="T:Syncfusion.Presentation.IColor"/> object that has an ARGB value of #FF00FF00. Read-only.
             </summary>
         </member>
-        <member name="P:Syncfusion.Presentation.ColorObject.LimeGreen">
+        <member name="P:Syncfusion.Presentation.ColorObject.LightGreen">
             <summary>
             Gets a predefined <see cref="T:Syncfusion.Presentation.IColor"/> object that has an ARGB value of #FF32CD32. Read-only.
             </summary>
@@ -14287,7 +14287,7 @@
             Specifies the ColorMode is red off.
             </summary>
         </member>
-        <member name="F:Syncfusion.Presentation.ColorMode.Green">
+        <member name="F:Syncfusion.Presentation.ColorMode.DarkGreen">
             <summary>
             Specifies the ColorMode is green.
             </summary>
@@ -28601,7 +28601,7 @@
              //Create instance to hold color properties of font
              IColor color = font.Color;
              //Set font color for text part
-             color = ColorObject.Green;
+             color = ColorObject.DarkGreen;
              //Save the presentation
              presentation.Save("Sample.pptx");
              //Close the presentation
@@ -28621,7 +28621,7 @@
             'Create instance to hold color properties of font
             Dim color As IColor = font.Color
             'Set font color for text part
-            color = ColorObject.Green
+            color = ColorObject.DarkGreen
             'Save the presentation
             presentation__1.Save("Sample.pptx")
             'Close the presentation

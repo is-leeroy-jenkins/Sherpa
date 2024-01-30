@@ -531,7 +531,7 @@
         </member>
         <member name="P:Zeroit.Framework.BasicCharts.ChartOption.Cursor2Color">
             <summary>
-            Cursor 2 Color, default is <see cref="P:System.Drawing.Color.Green"/> 
+            Cursor 2 Color, default is <see cref="P:System.Drawing.Color.DarkGreen"/> 
             </summary>
         </member>
         <member name="P:Zeroit.Framework.BasicCharts.ChartOption.Cursor1DashStyle">

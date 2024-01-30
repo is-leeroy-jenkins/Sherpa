@@ -7474,7 +7474,7 @@
             sfCalendar1.BlackoutDates =new DateTime[] {new DateTime(2017, 12, 15),new DateTime(2017, 11, 30)};
             // Add dates to SpecialDates array.
             sfCalendar1.SpecialDates =new SpecialDate[] {new SpecialDate() { BackColor = Color.Red, ForeColor = Color.White, Value = new DateTime(2017, 12, 13)} ,
-                                                new SpecialDate() { BackColor = Color.Green, ForeColor = Color.White, Value = new DateTime(2017, 11, 27) } };
+                                                new SpecialDate() { BackColor = Color.DarkGreen, ForeColor = Color.White, Value = new DateTime(2017, 11, 27) } };
             // Configure the calendar to display in 7 weeks in month view.
             sfCalendar1.NumberOfWeeksInView = 7;
             //  Set week to begin on Monday.

@@ -26878,7 +26878,7 @@
             </summary>
             <param name="alpha">Alpha component value</param>
             <param name="red">Red component value</param>
-            <param name="green">Green component value</param>
+            <param name="green">DarkGreen component value</param>
             <param name="blue">Blue component value</param>
         </member>
         <member name="M:OfficeOpenXml.Style.ExcelColor.LookupColor">

@@ -10061,7 +10061,7 @@
         </member>
         <member name="P:Syncfusion.Chart.ChartFinancialConfigItem.PriceUpColor">
             <summary>
-            Specifies the color with which price-up should be indicated. Default is Green.
+            Specifies the color with which price-up should be indicated. Default is DarkGreen.
             </summary>
         </member>
         <member name="P:Syncfusion.Chart.ChartFinancialConfigItem.PriceDownColor">
@@ -12579,12 +12579,12 @@
         </member>
         <member name="F:Syncfusion.Chart.ChartColorPalette.GreenYellowStyle">
             <summary>
-            Palette that contains mixed Green and yellow colors.
+            Palette that contains mixed DarkGreen and yellow colors.
             </summary>
         </member>
         <member name="F:Syncfusion.Chart.ChartColorPalette.PinkVioletStyle">
             <summary>
-            Palette that contains pink Green and violet colors.
+            Palette that contains pink DarkGreen and violet colors.
             </summary>
         </member>
         <member name="F:Syncfusion.Chart.ChartColorPalette.Metro">
@@ -12692,7 +12692,7 @@
         </member>
         <member name="M:Syncfusion.Chart.ChartColorModel.InitializeGreenYellowStyle">
             <summary>
-            Initializes the Green-Yellow palette.
+            Initializes the DarkGreen-Yellow palette.
             </summary>
         </member>
         <member name="M:Syncfusion.Chart.ChartColorModel.InitializePinkVioletStyle">
@@ -36997,7 +36997,7 @@
             Calculates the color from given rgb and transparency value
             </summary>
             <param name="R">input Red value</param>
-            <param name="G">input Green value</param>
+            <param name="G">input DarkGreen value</param>
             <param name="B">input Blue value</param>
             <param name="transparency">input Transparency value</param>
             <returns>the output color</returns>
@@ -37007,7 +37007,7 @@
             Calculates the color from given rgb value
             </summary>
             <param name="R">input Red value</param>
-            <param name="G">input Green value</param>
+            <param name="G">input DarkGreen value</param>
             <param name="B">input Blue value</param>        
             <returns>the output color</returns>
         </member>

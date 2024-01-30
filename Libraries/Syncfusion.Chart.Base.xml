@@ -2534,7 +2534,7 @@
         </member>
         <member name="P:Syncfusion.Windows.Forms.Chart.ChartFinancialConfigItem.PriceUpColor">
             <summary>
-            Specifies the color with which price-up should be indicated. Default is Green.
+            Specifies the color with which price-up should be indicated. Default is DarkGreen.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Chart.ChartFinancialConfigItem.PriceDownColor">
@@ -9158,12 +9158,12 @@
         </member>
         <member name="F:Syncfusion.Windows.Forms.Chart.ChartColorPalette.GreenYellowStyle">
             <summary>
-            Palette that contains mixed Green and yellow colors.
+            Palette that contains mixed DarkGreen and yellow colors.
             </summary>
         </member>
         <member name="F:Syncfusion.Windows.Forms.Chart.ChartColorPalette.PinkVioletStyle">
             <summary>
-            Palette that contains pink Green and violet colors.
+            Palette that contains pink DarkGreen and violet colors.
             </summary>
         </member>
         <member name="F:Syncfusion.Windows.Forms.Chart.ChartColorPalette.Metro">
@@ -9276,7 +9276,7 @@
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartColorModel.InitializeGreenYellowStyle">
             <summary>
-            Initializes the Green-Yellow palette.
+            Initializes the DarkGreen-Yellow palette.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Chart.ChartColorModel.InitializePinkVioletStyle">

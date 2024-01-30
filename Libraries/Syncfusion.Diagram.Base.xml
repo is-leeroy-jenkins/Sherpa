@@ -12751,9 +12751,9 @@
             Value of Blue channel.
             </summary>
         </member>
-        <member name="F:Syncfusion.Windows.Forms.Diagram.ColorDataEx.Green">
+        <member name="F:Syncfusion.Windows.Forms.Diagram.ColorDataEx.DarkGreen">
             <summary>
-            Value of Green channel.
+            Value of DarkGreen channel.
             </summary>
         </member>
         <member name="F:Syncfusion.Windows.Forms.Diagram.ColorDataEx.Red">
@@ -12776,9 +12776,9 @@
             Value of Blue channel.
             </summary>
         </member>
-        <member name="F:Syncfusion.Windows.Forms.Diagram.ColorData.Green">
+        <member name="F:Syncfusion.Windows.Forms.Diagram.ColorData.DarkGreen">
             <summary>
-            Value of Green channel.
+            Value of DarkGreen channel.
             </summary>
         </member>
         <member name="F:Syncfusion.Windows.Forms.Diagram.ColorData.Red">
@@ -12796,9 +12796,9 @@
             Value of Blue channel.
             </summary>
         </member>
-        <member name="F:Syncfusion.Windows.Forms.Diagram.ColorData16.Green">
+        <member name="F:Syncfusion.Windows.Forms.Diagram.ColorData16.DarkGreen">
             <summary>
-            Value of Green channel.
+            Value of DarkGreen channel.
             </summary>
         </member>
         <member name="F:Syncfusion.Windows.Forms.Diagram.ColorData16.Red">

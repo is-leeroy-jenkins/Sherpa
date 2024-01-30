@@ -690,8 +690,8 @@
                <para>[To be supplied.]</para>
             </devdoc>
         </member>
-        <member name="P:Syncfusion.Drawing.Color.Green">
-            <!-- Failed to insert some or all of included XML --><include file="doc\Color.uex" path="docs/doc[@for=&quot;Color.Green&quot;]/*" />
+        <member name="P:Syncfusion.Drawing.Color.DarkGreen">
+            <!-- Failed to insert some or all of included XML --><include file="doc\Color.uex" path="docs/doc[@for=&quot;Color.DarkGreen&quot;]/*" />
             <devdoc>
                <para>[To be supplied.]</para>
             </devdoc>
@@ -846,8 +846,8 @@
                <para>[To be supplied.]</para>
             </devdoc>
         </member>
-        <member name="P:Syncfusion.Drawing.Color.LimeGreen">
-            <!-- Failed to insert some or all of included XML --><include file="doc\Color.uex" path="docs/doc[@for=&quot;Color.LimeGreen&quot;]/*" />
+        <member name="P:Syncfusion.Drawing.Color.LightGreen">
+            <!-- Failed to insert some or all of included XML --><include file="doc\Color.uex" path="docs/doc[@for=&quot;Color.LightGreen&quot;]/*" />
             <devdoc>
                <para>[To be supplied.]</para>
             </devdoc>
