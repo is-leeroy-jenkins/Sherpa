@@ -206,6 +206,16 @@ namespace BudgetExecution
         private protected ExcelPieChart _pieChart;
 
         /// <summary>
+        /// 
+        /// </summary>
+        private protected ExcelBarChart _barChart;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private protected ExcelAreaChart _areaChart;
+        
+        /// <summary>
         /// The pivot table
         /// </summary>
         private protected ExcelPivotTable _pivotTable;

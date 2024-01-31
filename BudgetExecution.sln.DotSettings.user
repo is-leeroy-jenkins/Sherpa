@@ -131,5 +131,6 @@
 	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
   &lt;Assembly Path="C:\Users\terry\source\repos\BudgetExecution\Clients\Baby\net6.0-windows\Syncfusion.Shared.Windows.dll" /&gt;&#xD;
   &lt;Assembly Path="C:\Users\terry\source\repos\BudgetExecution\Clients\Baby\net6.0-windows\Syncfusion.Tools.Windows.dll" /&gt;&#xD;
+  &lt;Assembly Path="C:\Users\teppler\.nuget\packages\epplus\7.0.8\lib\net6.0\EPPlus.dll" /&gt;&#xD;
 &lt;/AssemblyExplorer&gt;</s:String>
 	<s:Boolean x:Key="/Default/Environment/Hierarchy/Build/SolutionBuilderNext/ShouldRestoreNugetPackages/@EntryValue">True</s:Boolean></wpf:ResourceDictionary>
