@@ -158,7 +158,6 @@ namespace BudgetExecution
             _dataRange = _dataWorksheet.Cells[ 2, 1, 57, 11 ];
             _excelWorkbook.View.ShowHorizontalScrollBar = true;
             _excelWorkbook.View.ShowVerticalScrollBar = true;
-            LoadTheme( );
             InitializeWorkbookProperties( );
             InitializeActiveGrid( );
             InitializeSheetView( );
@@ -203,7 +202,6 @@ namespace BudgetExecution
             _dataWorksheet = _excelWorkbook.Worksheets[ 0 ];
             _excelWorkbook.View.ShowHorizontalScrollBar = true;
             _excelWorkbook.View.ShowVerticalScrollBar = true;
-            LoadTheme( );
             InitializeWorkbookProperties( );
             InitializeActiveGrid( );
             InitializeSheetView( );
@@ -252,7 +250,6 @@ namespace BudgetExecution
             _rowCount = dataTable.Rows.Count;
             _excelWorkbook.View.ShowHorizontalScrollBar = true;
             _excelWorkbook.View.ShowVerticalScrollBar = true;
-            LoadTheme( );
             InitializeWorkbookProperties( );
             InitializeActiveGrid( );
             InitializeSheetView( );
@@ -274,22 +271,6 @@ namespace BudgetExecution
                     _excelWorkbook.Worksheets[ _i ].View.ShowHeaders = true;
                     _excelWorkbook.Worksheets[ _i ].View.ZoomScale = _zoomLevel;
                 }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the theme.
-        /// </summary>
-        private void LoadTheme( )
-        {
-            try
-            {
-                var _theme = new FileInfo( _themePath );
-                _excelWorkbook.ThemeManager.Load( _theme );
             }
             catch( Exception _ex )
             {
@@ -410,21 +391,6 @@ namespace BudgetExecution
                 _excelWorkbook.Properties.Application = "Budget Execution";
                 _excelWorkbook.Properties.Company = "US EPA";
                 _excelWorkbook.Properties.Modified = DateTime.Now;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the table format.
-        /// </summary>
-        private void SetTableFormat( ExcelTable excelTable ) 
-
-        {
-            try
-            {
             }
             catch( Exception _ex )
             {

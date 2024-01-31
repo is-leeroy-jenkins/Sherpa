@@ -229,6 +229,38 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public ExcelRange HeaderRange
+        {
+            get
+            {
+                return _headerRange;
+            }
+
+            private protected set
+            {
+                _headerRange = value;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ExcelRange CommentRange
+        {
+            get
+            {
+                return _commentRange;
+            }
+
+            private protected set
+            {
+                _commentRange = value;
+            }
+        }
+
+        /// <summary>
         /// Gets or sets the worksheet.
         /// </summary>
         /// <value>
