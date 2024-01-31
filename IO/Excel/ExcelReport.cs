@@ -148,7 +148,6 @@ namespace BudgetExecution
             _secondaryBackColor = Color.FromArgb( 220, 220, 220 );
             _internalPath = AppSettings[ "Reports" ];
             _savePath = AppSettings[ "Desktop" ] + _fileName;
-            _themePath = AppSettings[ "BudgetExecution" ];
             _fileInfo = new FileInfo( _internalPath );
             _excelPackage = new ExcelPackage( _fileInfo );
             _excelPackage.Settings.TextSettings.PrimaryTextMeasurer = new TextSize( );
@@ -193,7 +192,6 @@ namespace BudgetExecution
             _secondaryBackColor = Color.FromArgb( 220, 220, 220 );
             _internalPath = AppSettings[ "Reports" ];
             _savePath = AppSettings[ "Desktop" ] + _fileName + ".xlsx";
-            _themePath = AppSettings[ "BudgetExecution" ];
             _fileInfo = new FileInfo( filePath );
             _excelPackage = new ExcelPackage( _fileInfo );
             _excelPackage.Settings.TextSettings.PrimaryTextMeasurer = new TextSize( );
@@ -239,7 +237,6 @@ namespace BudgetExecution
             _secondaryBackColor = Color.FromArgb( 220, 220, 220 );
             _internalPath = AppSettings[ "Reports" ];
             _savePath = AppSettings[ "Desktop" ] + _fileName;
-            _themePath = AppSettings[ "BudgetExecution" ];
             _fileInfo = new FileInfo( _internalPath );
             _excelPackage = new ExcelPackage( _fileInfo );
             _excelPackage.Settings.TextSettings.PrimaryTextMeasurer = new TextSize( );
