@@ -42,6 +42,7 @@ namespace BudgetExecution
 {
     using System;
     using System.Data;
+    using System.Drawing;
     using System.Diagnostics.CodeAnalysis;
     using OfficeOpenXml;
     using OfficeOpenXml.Drawing.Chart;
@@ -267,6 +268,47 @@ namespace BudgetExecution
 
                 Fail( _ex );
                 return default( ExcelPieChart );
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Adds the comment.
+        /// </summary>
+        /// <param name="excelRange"> </param>
+        /// <param name="text">The text.</param>
+        public void CreateComment( ExcelRange excelRange, string text )
+        {
+            try
+            {
+                ThrowIf.NullOrEmpty( text, nameof( text ) );
+                ThrowIf.Null( excelRange, nameof( excelRange ) );
+                var _startRow = excelRange.Start.Row;
+                var _startColumn = excelRange.Start.Column;
+                var _endRow = excelRange.Start.Row;
+                var _endColumn = excelRange.End.Column;
+                _commentRange =
+                    _dataWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
+
+                var _comment = _commentRange.AddComment( text, "Budget" );
+                _comment.From.Row = _commentRange.Start.Row;
+                _comment.From.Column = _commentRange.Start.Column;
+                _comment.To.Row = _commentRange.End.Row;
+                _comment.To.Column = _commentRange.End.Column;
+                _comment.BackgroundColor = Color.FromArgb( 40, 40, 40 );
+                _comment.Font.FontName = "Roboto";
+                _comment.Font.Size = 8;
+                _comment.Font.Color = Color.FromArgb( 106, 189, 252 );
+                _comment.Text = text;
+            }
+            catch( Exception _ex )
+            {
+                if( _commentRange != null )
+                {
+                    _commentRange = null;
+                }
+
+                Fail( _ex );
             }
         }
     }
