@@ -81,7 +81,7 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( dataTable, nameof( dataTable ) );
-                _dataRange = (ExcelRange)_excelWorksheet.Cells[ "A2" ]
+                _dataRange = (ExcelRange)_dataWorksheet.Cells[ "A2" ]
                     ?.LoadFromDataTable( dataTable, true, TableStyles.Light1 );
 
                 _dataRange.Style.Font.Name = "Roboto";
@@ -92,7 +92,7 @@ namespace BudgetExecution
                 _dataRange.Style.Font.Color.SetColor( _fontColor );
                 _dataRange.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
                 _dataRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
-                _excelTable = _excelWorksheet.Tables.GetFromRange( _dataRange );
+                _excelTable = _dataWorksheet.Tables.GetFromRange( _dataRange );
                 _excelTable.TableStyle = TableStyles.Light1;
                 _excelTable.ShowHeader = true;
                 FormatFooter( _dataRange );
@@ -126,7 +126,7 @@ namespace BudgetExecution
             try
             {
                 var _table = new DataTable( );
-                _dataRange = _excelWorksheet.Cells[ startRow, startColumn, endRow, endColumn ];
+                _dataRange = _dataWorksheet.Cells[ startRow, startColumn, endRow, endColumn ];
                 var _options = ToDataTableOptions.Create( );
                 _options.DataTableName = _fileName ?? string.Empty;
                 _options.AlwaysAllowNull = true;

@@ -181,24 +181,104 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public ExcelRange PivotRange
+        {
+            get
+            {
+                return _pivotRange;
+            }
+
+            private protected set
+            {
+                _pivotRange = value;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ExcelRange ChartRange
+        {
+            get
+            {
+                return _chartRange;
+            }
+
+            private protected set
+            {
+                _chartRange = value;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ExcelRange DataRange
+        {
+            get
+            {
+                return _dataRange;
+            }
+
+            private protected set
+            {
+                _dataRange = value;
+            }
+        }
+
+        /// <summary>
         /// Gets or sets the worksheet.
         /// </summary>
         /// <value>
         /// The worksheet.
         /// </value>
-        public ExcelWorksheet Worksheet
+        public ExcelWorksheet DataWorksheet
         {
             get
             {
-                return _excelWorksheet;
+                return _dataWorksheet;
             }
             
             private protected set
             {
-                _excelWorksheet = value;
+                _dataWorksheet = value;
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public ExcelWorksheet ChartWorksheet
+        {
+            get
+            {
+                return _chartWorksheet;
+            }
+
+            private protected set
+            {
+                _chartWorksheet = value;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ExcelWorksheet PivotWorksheet
+        {
+            get
+            {
+                return _pivotWorksheet;
+            }
+
+            private protected set
+            {
+                _pivotWorksheet = value;
+            }
+        }
+        
         /// <summary>
         /// Gets or sets the comment.
         /// </summary>
@@ -355,7 +435,7 @@ namespace BudgetExecution
                 var _startColumn = excelRange.Start.Column;
                 var _endRow = excelRange.Start.Row;
                 var _endColumn = excelRange.End.Column;
-                _commentRange = _excelWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
+                _commentRange = _dataWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
                 var _comment = _commentRange.AddComment( text, "Budget" );
                 _comment.From.Row = _commentRange.Start.Row;
                 _comment.From.Column = _commentRange.Start.Column;
@@ -390,7 +470,7 @@ namespace BudgetExecution
                 var _header = excelRange.Start.Row - 1;
                 var _startColumn = excelRange.Start.Column;
                 var _endColumn = excelRange.End.Column;
-                _headerRange = _excelWorksheet.Cells[ _header, _startColumn, _header, _endColumn ];
+                _headerRange = _dataWorksheet.Cells[ _header, _startColumn, _header, _endColumn ];
                 _headerRange.Style.Font.Name = "Roboto";
                 _headerRange.Style.Font.Size = 8;
                 _headerRange.Style.Font.Bold = false;
@@ -428,7 +508,7 @@ namespace BudgetExecution
                 var _header = excelRange.Start.Row - 1;
                 var _startColumn = excelRange.Start.Column;
                 var _endColumn = excelRange.End.Column;
-                _dataRange = _excelWorksheet.Cells[ _header, _startColumn, _header, _endColumn ];
+                _dataRange = _dataWorksheet.Cells[ _header, _startColumn, _header, _endColumn ];
                 _dataRange.Style.Font.Name = "Roboto";
                 _dataRange.Style.Font.Size = 9;
                 _dataRange.Style.Font.Bold = false;
@@ -461,7 +541,7 @@ namespace BudgetExecution
                 var _footer = excelRange.End.Row + 1;
                 var _startColumn = excelRange.Start.Column;
                 var _endColumn = excelRange.End.Column;
-                _footerRange = _excelWorksheet.Cells[ _footer, _startColumn, _footer, _endColumn ];
+                _footerRange = _dataWorksheet.Cells[ _footer, _startColumn, _footer, _endColumn ];
                 _footerRange.Style.Font.Name = "Roboto";
                 _footerRange.Style.Font.Size = 8;
                 _footerRange.Style.Font.Bold = true;

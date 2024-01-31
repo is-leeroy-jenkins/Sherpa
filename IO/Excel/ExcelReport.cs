@@ -154,8 +154,8 @@ namespace BudgetExecution
             _excelPackage.Settings.TextSettings.PrimaryTextMeasurer = new TextSize( );
             _excelPackage.Settings.TextSettings.AutofitScaleFactor = 0.9f;
             _excelWorkbook = _excelPackage.Workbook;
-            _excelWorksheet = _excelWorkbook.Worksheets.Add( "Data" );
-            _dataRange = _excelWorksheet.Cells[ 2, 1, 57, 11 ];
+            _dataWorksheet = _excelWorkbook.Worksheets.Add( "Data" );
+            _dataRange = _dataWorksheet.Cells[ 2, 1, 57, 11 ];
             _excelWorkbook.View.ShowHorizontalScrollBar = true;
             _excelWorkbook.View.ShowVerticalScrollBar = true;
             LoadTheme( );
@@ -200,7 +200,7 @@ namespace BudgetExecution
             _excelPackage.Settings.TextSettings.PrimaryTextMeasurer = new TextSize( );
             _excelPackage.Settings.TextSettings.AutofitScaleFactor = 0.9f;
             _excelWorkbook = _excelPackage.Workbook;
-            _excelWorksheet = _excelWorkbook.Worksheets[ 0 ];
+            _dataWorksheet = _excelWorkbook.Worksheets[ 0 ];
             _excelWorkbook.View.ShowHorizontalScrollBar = true;
             _excelWorkbook.View.ShowVerticalScrollBar = true;
             LoadTheme( );
@@ -247,7 +247,7 @@ namespace BudgetExecution
             _excelPackage.Settings.TextSettings.PrimaryTextMeasurer = new TextSize( );
             _excelPackage.Settings.TextSettings.AutofitScaleFactor = 0.8f;
             _excelWorkbook = _excelPackage.Workbook;
-            _excelWorksheet = _excelWorkbook.Worksheets.Add( "Data" );
+            _dataWorksheet = _excelWorkbook.Worksheets.Add( "Data" );
             _columnCount = dataTable.Columns.Count;
             _rowCount = dataTable.Rows.Count;
             _excelWorkbook.View.ShowHorizontalScrollBar = true;
@@ -329,15 +329,15 @@ namespace BudgetExecution
         {
             try
             {
-                _excelWorksheet.HeaderFooter.OddHeader.RightAlignedText =
+                _dataWorksheet.HeaderFooter.OddHeader.RightAlignedText =
                     ExcelHeaderFooter.CurrentDate;
 
-                _excelWorksheet.HeaderFooter.OddFooter.CenteredText =
+                _dataWorksheet.HeaderFooter.OddFooter.CenteredText =
                     ExcelHeaderFooter.PageNumber
                     + " of "
                     + ExcelHeaderFooter.NumberOfPages;
 
-                _excelWorksheet.HeaderFooter.OddFooter.LeftAlignedText =
+                _dataWorksheet.HeaderFooter.OddFooter.LeftAlignedText =
                     "As of:" + ExcelHeaderFooter.CurrentDate;
             }
             catch( Exception _ex )
@@ -355,7 +355,7 @@ namespace BudgetExecution
             {
                 if( _dataTable == null )
                 {
-                    _dataRange = _excelWorksheet.Cells[ 2, 1, 57, 11 ];
+                    _dataRange = _dataWorksheet.Cells[ 2, 1, 57, 11 ];
                     _dataRange.Style.Font.Name = "Roboto";
                     _dataRange.Style.Font.Size = 8;
                     _dataRange.Style.Font.Bold = false;
@@ -371,7 +371,7 @@ namespace BudgetExecution
                 else
                 {
                     _dataRange = 
-                        (ExcelRange)_excelWorksheet.Cells[ "A2" ]
+                        (ExcelRange)_dataWorksheet.Cells[ "A2" ]
                             ?.LoadFromDataTable( _dataTable, true, TableStyles.Light1 );
 
                     _dataRange.Style.Font.Name = "Roboto";
@@ -382,7 +382,7 @@ namespace BudgetExecution
                     _dataRange.Style.Font.Color.SetColor( _fontColor );
                     _dataRange.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
                     _dataRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
-                    _excelTable = _excelWorksheet.Tables.GetFromRange( _dataRange );
+                    _excelTable = _dataWorksheet.Tables.GetFromRange( _dataRange );
                     _excelTable.TableStyle = TableStyles.Light1;
                     _excelTable.ShowHeader = true;
                     FormatFooter( _dataRange );

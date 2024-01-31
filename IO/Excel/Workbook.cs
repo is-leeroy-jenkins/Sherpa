@@ -127,43 +127,43 @@ namespace BudgetExecution
             {
                 if( _dataTable != null )
                 {
-                    _excelWorksheet.View.ShowGridLines = false;
-                    _excelWorksheet.View.ZoomScale = _zoomLevel;
-                    _excelWorksheet.View.PageLayoutView = true;
-                    _excelWorksheet.View.ShowHeaders = true;
-                    _excelWorksheet.DefaultRowHeight = _rowHeight;
-                    _excelWorksheet.DefaultColWidth = _columnWidth;
-                    _excelWorksheet.PrinterSettings.ShowHeaders = false;
-                    _excelWorksheet.PrinterSettings.ShowGridLines = false;
-                    _excelWorksheet.PrinterSettings.LeftMargin = _leftMargin;
-                    _excelWorksheet.PrinterSettings.RightMargin = _rightMargin;
-                    _excelWorksheet.PrinterSettings.TopMargin = _headerMargin;
-                    _excelWorksheet.PrinterSettings.BottomMargin = _footerMargin;
-                    _excelWorksheet.PrinterSettings.HorizontalCentered = true;
-                    _excelWorksheet.PrinterSettings.VerticalCentered = true;
-                    _excelWorksheet.PrinterSettings.FitToPage = true;
-                    _excelWorksheet.HeaderFooter.AlignWithMargins = true;
-                    _excelWorksheet.HeaderFooter.ScaleWithDocument = true;
+                    _dataWorksheet.View.ShowGridLines = false;
+                    _dataWorksheet.View.ZoomScale = _zoomLevel;
+                    _dataWorksheet.View.PageLayoutView = true;
+                    _dataWorksheet.View.ShowHeaders = true;
+                    _dataWorksheet.DefaultRowHeight = _rowHeight;
+                    _dataWorksheet.DefaultColWidth = _columnWidth;
+                    _dataWorksheet.PrinterSettings.ShowHeaders = false;
+                    _dataWorksheet.PrinterSettings.ShowGridLines = false;
+                    _dataWorksheet.PrinterSettings.LeftMargin = _leftMargin;
+                    _dataWorksheet.PrinterSettings.RightMargin = _rightMargin;
+                    _dataWorksheet.PrinterSettings.TopMargin = _headerMargin;
+                    _dataWorksheet.PrinterSettings.BottomMargin = _footerMargin;
+                    _dataWorksheet.PrinterSettings.HorizontalCentered = true;
+                    _dataWorksheet.PrinterSettings.VerticalCentered = true;
+                    _dataWorksheet.PrinterSettings.FitToPage = true;
+                    _dataWorksheet.HeaderFooter.AlignWithMargins = true;
+                    _dataWorksheet.HeaderFooter.ScaleWithDocument = true;
                 }
                 else
                 {
-                    _excelWorksheet.View.ShowGridLines = false;
-                    _excelWorksheet.View.ZoomScale = _zoomLevel;
-                    _excelWorksheet.View.PageLayoutView = true;
-                    _excelWorksheet.View.ShowHeaders = true;
-                    _excelWorksheet.DefaultRowHeight = _rowHeight;
-                    _excelWorksheet.DefaultColWidth = _columnWidth;
-                    _excelWorksheet.PrinterSettings.ShowHeaders = false;
-                    _excelWorksheet.PrinterSettings.ShowGridLines = false;
-                    _excelWorksheet.PrinterSettings.LeftMargin = _leftMargin;
-                    _excelWorksheet.PrinterSettings.RightMargin = _rightMargin;
-                    _excelWorksheet.PrinterSettings.TopMargin = _headerMargin;
-                    _excelWorksheet.PrinterSettings.BottomMargin = _footerMargin;
-                    _excelWorksheet.PrinterSettings.HorizontalCentered = true;
-                    _excelWorksheet.PrinterSettings.VerticalCentered = true;
-                    _excelWorksheet.PrinterSettings.FitToPage = true;
-                    _excelWorksheet.HeaderFooter.AlignWithMargins = true;
-                    _excelWorksheet.HeaderFooter.ScaleWithDocument = true;
+                    _dataWorksheet.View.ShowGridLines = false;
+                    _dataWorksheet.View.ZoomScale = _zoomLevel;
+                    _dataWorksheet.View.PageLayoutView = true;
+                    _dataWorksheet.View.ShowHeaders = true;
+                    _dataWorksheet.DefaultRowHeight = _rowHeight;
+                    _dataWorksheet.DefaultColWidth = _columnWidth;
+                    _dataWorksheet.PrinterSettings.ShowHeaders = false;
+                    _dataWorksheet.PrinterSettings.ShowGridLines = false;
+                    _dataWorksheet.PrinterSettings.LeftMargin = _leftMargin;
+                    _dataWorksheet.PrinterSettings.RightMargin = _rightMargin;
+                    _dataWorksheet.PrinterSettings.TopMargin = _headerMargin;
+                    _dataWorksheet.PrinterSettings.BottomMargin = _footerMargin;
+                    _dataWorksheet.PrinterSettings.HorizontalCentered = true;
+                    _dataWorksheet.PrinterSettings.VerticalCentered = true;
+                    _dataWorksheet.PrinterSettings.FitToPage = true;
+                    _dataWorksheet.HeaderFooter.AlignWithMargins = true;
+                    _dataWorksheet.HeaderFooter.ScaleWithDocument = true;
                 }
             }
             catch( Exception _ex )
@@ -190,7 +190,7 @@ namespace BudgetExecution
                 var _startColumn = excelRange.Start.Column;
                 var _endRow = excelRange.End.Row - 1;
                 var _endColumn = excelRange.End.Column;
-                _headerRange = _excelWorksheet.Cells[ _header, _startColumn, _endRow, _endColumn ];
+                _headerRange = _dataWorksheet.Cells[ _header, _startColumn, _endRow, _endColumn ];
                 foreach( var _item in labels )
                 {
                     if( _startColumn <= _endColumn )
@@ -227,7 +227,7 @@ namespace BudgetExecution
                 var _startColumn = excelRange.Start.Column;
                 var _endRow = excelRange.End.Row + 1;
                 var _endColumn = excelRange.End.Column;
-                _footerRange = _excelWorksheet.Cells[ _footer, _startColumn, 
+                _footerRange = _dataWorksheet.Cells[ _footer, _startColumn, 
                     _endRow, _endColumn ];
 
                 foreach( var _item in labels )
@@ -264,7 +264,7 @@ namespace BudgetExecution
                 var _startColumn = excelRange.Start.Column;
                 var _endRow = excelRange.End.Row;
                 var _endColumn = excelRange.End.Column;
-                _dataRange = _excelWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
+                _dataRange = _dataWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
                 _dataRange.EntireRow.Style.Fill.PatternType = ExcelFillStyle.Solid;
                 _dataRange.EntireRow.Style.Fill.BackgroundColor.SetColor( _secondaryBackColor );
             }
@@ -292,7 +292,7 @@ namespace BudgetExecution
                 var _startColumn = excelRange.Start.Column;
                 var _endRow = excelRange.End.Row;
                 var _endColumn = excelRange.End.Column;
-                _dataRange = _excelWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
+                _dataRange = _dataWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
                 _dataRange.EntireRow.Style.Fill.PatternType = ExcelFillStyle.Solid;
                 _dataRange.EntireRow.Style.Fill.BackgroundColor.SetColor( _primaryBackColor );
             }
@@ -320,21 +320,21 @@ namespace BudgetExecution
                 var _startColumn = excelRange.Start.Column;
                 var _endRow = excelRange.End.Row;
                 var _endColumn = excelRange.End.Column;
-                _dataRange = _excelWorksheet.Cells[ _startRow, _startColumn, 
+                _dataRange = _dataWorksheet.Cells[ _startRow, _startColumn, 
                     _endRow, _endColumn ];
 
                 for( var _i = _startRow; _i < _endRow; _i++ )
                 {
                     if( _i % 2 == 0 )
                     {
-                        var _row = _excelWorksheet.Cells[ _i, _startColumn, _i, _endColumn ];
+                        var _row = _dataWorksheet.Cells[ _i, _startColumn, _i, _endColumn ];
                         _row.EntireRow.Style.Border.Bottom.Style = ExcelBorderStyle.Dotted;
                         _row.EntireRow.Style.Fill.PatternType = ExcelFillStyle.Solid;
                         _row.EntireRow.Style.Fill.BackgroundColor.SetColor( _primaryBackColor );
                     }
                     else
                     {
-                        var _row = _excelWorksheet.Cells[ _i, _startColumn, _i, _endColumn ];
+                        var _row = _dataWorksheet.Cells[ _i, _startColumn, _i, _endColumn ];
                         _row.EntireRow.Style.Border.Bottom.Style = ExcelBorderStyle.Hair;
                         _row.EntireRow.Style.Fill.PatternType = ExcelFillStyle.Solid;
                         _row.EntireRow.Style.Fill.BackgroundColor.SetColor( _secondaryBackColor );
@@ -365,7 +365,7 @@ namespace BudgetExecution
                 var _startColumn = excelRange.Start.Column;
                 var _endRow = excelRange.End.Row;
                 var _endColumn = excelRange.End.Column;
-                _dataRange = _excelWorksheet.Cells[ _startRow, _startColumn,
+                _dataRange = _dataWorksheet.Cells[ _startRow, _startColumn,
                     _endRow, _endColumn ];
 
                 _dataRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.CenterContinuous;
@@ -395,7 +395,7 @@ namespace BudgetExecution
                 var _startColumn = excelRange.Start.Column;
                 var _endRow = excelRange.End.Row;
                 var _endColumn = excelRange.End.Column;
-                _dataRange = _excelWorksheet.Cells[ _startRow, _startColumn, 
+                _dataRange = _dataWorksheet.Cells[ _startRow, _startColumn, 
                     _endRow, _endColumn ];
 
                 _dataRange.Style.Fill.PatternType = ExcelFillStyle.Solid;

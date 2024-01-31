@@ -63,6 +63,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "RedundantCheckBeforeAssignment" ) ]
+    [ SuppressMessage( "ReSharper", "NotAccessedField.Global" ) ]
     public abstract class BasicReport
     {
         /// <summary>
@@ -223,7 +224,7 @@ namespace BudgetExecution
         /// <summary>
         /// The worksheet
         /// </summary>
-        private protected ExcelWorksheet _excelWorksheet;
+        private protected ExcelWorksheet _dataWorksheet;
 
         /// <summary>
         /// The pivot worksheet
@@ -300,7 +301,7 @@ namespace BudgetExecution
                 var _startColumn = excelRange.Start.Column;
                 var _endRow = excelRange.End.Row;
                 var _endColumn = excelRange.End.Column;
-                _dataRange = _excelWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
+                _dataRange = _dataWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
                 _dataRange.Style.Fill.PatternType = ExcelFillStyle.Solid;
                 _dataRange.Style.Fill.BackgroundColor.SetColor( color );
                 _dataRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.CenterContinuous;
@@ -386,7 +387,7 @@ namespace BudgetExecution
                 _dataCommand?.Dispose( );
                 _dataAdapter?.Dispose( );
                 _excelTable = null;
-                _excelWorksheet?.Dispose( );
+                _dataWorksheet?.Dispose( );
                 _excelWorkbook?.Dispose( );
                 _excelPackage?.Dispose( );
                 if( _fileInfo != null )
