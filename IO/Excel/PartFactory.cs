@@ -81,28 +81,28 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( dataTable, nameof( dataTable ) );
-                _excelRange = (ExcelRange)_excelWorksheet.Cells[ "A2" ]
+                _dataRange = (ExcelRange)_excelWorksheet.Cells[ "A2" ]
                     ?.LoadFromDataTable( dataTable, true, TableStyles.Light1 );
 
-                _excelRange.Style.Font.Name = "Roboto";
-                _excelRange.Style.Font.Size = 8;
-                _excelRange.Style.Font.Bold = false;
-                _excelRange.Style.Font.Italic = false;
-                _excelRange.EntireRow.CustomHeight = true;
-                _excelRange.Style.Font.Color.SetColor( _fontColor );
-                _excelRange.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                _excelRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
-                _excelTable = _excelWorksheet.Tables.GetFromRange( _excelRange );
+                _dataRange.Style.Font.Name = "Roboto";
+                _dataRange.Style.Font.Size = 8;
+                _dataRange.Style.Font.Bold = false;
+                _dataRange.Style.Font.Italic = false;
+                _dataRange.EntireRow.CustomHeight = true;
+                _dataRange.Style.Font.Color.SetColor( _fontColor );
+                _dataRange.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                _dataRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                _excelTable = _excelWorksheet.Tables.GetFromRange( _dataRange );
                 _excelTable.TableStyle = TableStyles.Light1;
                 _excelTable.ShowHeader = true;
-                FormatFooter( _excelRange );
+                FormatFooter( _dataRange );
                 return _excelTable;
             }
             catch( Exception _ex )
             {
-                if( _excelRange != null )
+                if( _dataRange != null )
                 {
-                    _excelRange = null;
+                    _dataRange = null;
                 }
 
                 Fail( _ex );
@@ -126,7 +126,7 @@ namespace BudgetExecution
             try
             {
                 var _table = new DataTable( );
-                _excelRange = _excelWorksheet.Cells[ startRow, startColumn, endRow, endColumn ];
+                _dataRange = _excelWorksheet.Cells[ startRow, startColumn, endRow, endColumn ];
                 var _options = ToDataTableOptions.Create( );
                 _options.DataTableName = _fileName ?? string.Empty;
                 _options.AlwaysAllowNull = true;
@@ -134,16 +134,16 @@ namespace BudgetExecution
                 _options.ExcelErrorParsingStrategy =
                     ExcelErrorParsingStrategy.HandleExcelErrorsAsBlankCells;
 
-                _table = _excelRange?.ToDataTable( _options );
+                _table = _dataRange?.ToDataTable( _options );
                 return _table?.Rows.Count > 0
                     ? _table
                     : default( DataTable );
             }
             catch( Exception _ex )
             {
-                if( _excelRange != null )
+                if( _dataRange != null )
                 {
-                    _excelRange = null;
+                    _dataRange = null;
                 }
 
                 Fail( _ex );
@@ -176,7 +176,7 @@ namespace BudgetExecution
                 var _endColumn = excelRange.End.Column;
                 var _anchor = _pivotWorksheet.Cells[ _startRow, _startColumn ];
                 _pivotWorksheet = _excelWorkbook.Worksheets.Add( "Pivot" );
-                _excelRange = _pivotWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
+                _pivotRange = _pivotWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
                 _pivotTable = _pivotWorksheet.PivotTables.Add( _anchor, excelRange, tableName );
                 _pivotTable.RowFields.Add( _pivotTable.Fields[ rowField ] );
                 var _dataField = _pivotTable.DataFields.Add( _pivotTable.Fields[ dataField ] );
@@ -196,9 +196,9 @@ namespace BudgetExecution
                     _pivotTable = null;
                 }
 
-                if( _excelRange != null )
+                if( _pivotRange != null )
                 {
-                    _excelRange = null;
+                    _pivotRange = null;
                 }
 
                 Fail( _ex );
@@ -231,8 +231,8 @@ namespace BudgetExecution
                 var _endColumn = excelRange.End.Column;
                 var _anchor = _pivotWorksheet.Cells[ _startRow, _startColumn ];
                 _chartWorksheet = _excelWorkbook.Worksheets.Add( "Chart" );
-                _excelRange = _pivotWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
-                _pivotTable = _chartWorksheet.PivotTables.Add( _anchor, excelRange, chartName );
+                _chartRange = _chartWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
+                _pivotTable = _chartWorksheet.PivotTables.Add( _anchor, _chartRange, chartName );
                 _pivotTable.RowFields.Add( _pivotTable.Fields[ row ] );
                 var _dataField = _pivotTable.DataFields.Add( _pivotTable.Fields[ column ] );
                 _dataField.Format = "#,##0";
@@ -260,9 +260,9 @@ namespace BudgetExecution
                     _pivotTable = null;
                 }
 
-                if( _excelRange != null )
+                if( _chartRange != null )
                 {
-                    _excelRange = null;
+                    _chartRange = null;
                 }
 
                 Fail( _ex );

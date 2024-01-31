@@ -264,15 +264,15 @@ namespace BudgetExecution
                 var _startColumn = excelRange.Start.Column;
                 var _endRow = excelRange.End.Row;
                 var _endColumn = excelRange.End.Column;
-                _excelRange = _excelWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
-                _excelRange.EntireRow.Style.Fill.PatternType = ExcelFillStyle.Solid;
-                _excelRange.EntireRow.Style.Fill.BackgroundColor.SetColor( _secondaryBackColor );
+                _dataRange = _excelWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
+                _dataRange.EntireRow.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                _dataRange.EntireRow.Style.Fill.BackgroundColor.SetColor( _secondaryBackColor );
             }
             catch( Exception _ex )
             {
-                if( _excelRange != null )
+                if( _dataRange != null )
                 {
-                    _excelRange = null;
+                    _dataRange = null;
                 }
 
                 Fail( _ex );
@@ -292,15 +292,15 @@ namespace BudgetExecution
                 var _startColumn = excelRange.Start.Column;
                 var _endRow = excelRange.End.Row;
                 var _endColumn = excelRange.End.Column;
-                _excelRange = _excelWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
-                _excelRange.EntireRow.Style.Fill.PatternType = ExcelFillStyle.Solid;
-                _excelRange.EntireRow.Style.Fill.BackgroundColor.SetColor( _primaryBackColor );
+                _dataRange = _excelWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
+                _dataRange.EntireRow.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                _dataRange.EntireRow.Style.Fill.BackgroundColor.SetColor( _primaryBackColor );
             }
             catch( Exception _ex )
             {
-                if( _excelRange != null )
+                if( _dataRange != null )
                 {
-                    _excelRange = null;
+                    _dataRange = null;
                 }
 
                 Fail( _ex );
@@ -320,7 +320,7 @@ namespace BudgetExecution
                 var _startColumn = excelRange.Start.Column;
                 var _endRow = excelRange.End.Row;
                 var _endColumn = excelRange.End.Column;
-                _excelRange = _excelWorksheet.Cells[ _startRow, _startColumn, 
+                _dataRange = _excelWorksheet.Cells[ _startRow, _startColumn, 
                     _endRow, _endColumn ];
 
                 for( var _i = _startRow; _i < _endRow; _i++ )
@@ -343,9 +343,9 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                if( _excelRange != null )
+                if( _dataRange != null )
                 {
-                    _excelRange = null;
+                    _dataRange = null;
                 }
 
                 Fail( _ex );
@@ -365,17 +365,17 @@ namespace BudgetExecution
                 var _startColumn = excelRange.Start.Column;
                 var _endRow = excelRange.End.Row;
                 var _endColumn = excelRange.End.Column;
-                _excelRange = _excelWorksheet.Cells[ _startRow, _startColumn,
+                _dataRange = _excelWorksheet.Cells[ _startRow, _startColumn,
                     _endRow, _endColumn ];
 
-                _excelRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.CenterContinuous;
-                _excelRange.Style.Numberformat.Format = "#,###";
+                _dataRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.CenterContinuous;
+                _dataRange.Style.Numberformat.Format = "#,###";
             }
             catch( Exception _ex )
             {
-                if( _excelRange != null )
+                if( _dataRange != null )
                 {
-                    _excelRange = null;
+                    _dataRange = null;
                 }
 
                 Fail( _ex );
@@ -395,18 +395,18 @@ namespace BudgetExecution
                 var _startColumn = excelRange.Start.Column;
                 var _endRow = excelRange.End.Row;
                 var _endColumn = excelRange.End.Column;
-                _excelRange = _excelWorksheet.Cells[ _startRow, _startColumn, 
+                _dataRange = _excelWorksheet.Cells[ _startRow, _startColumn, 
                     _endRow, _endColumn ];
 
-                _excelRange.Style.Fill.PatternType = ExcelFillStyle.Solid;
-                _excelRange.Style.Fill.BackgroundColor.SetColor( _secondaryBackColor );
-                _excelRange.Style.Border.Bottom.Style = ExcelBorderStyle.Double;
+                _dataRange.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                _dataRange.Style.Fill.BackgroundColor.SetColor( _secondaryBackColor );
+                _dataRange.Style.Border.Bottom.Style = ExcelBorderStyle.Double;
             }
             catch( Exception _ex )
             {
-                if( _excelRange != null )
+                if( _dataRange != null )
                 {
-                    _excelRange = null;
+                    _dataRange = null;
                 }
 
                 Fail( _ex );

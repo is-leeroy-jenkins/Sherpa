@@ -151,11 +151,11 @@ namespace BudgetExecution
             _themePath = AppSettings[ "BudgetExecution" ];
             _fileInfo = new FileInfo( _internalPath );
             _excelPackage = new ExcelPackage( _fileInfo );
-            _excelPackage.Settings.TextSettings.PrimaryTextMeasurer = new TextMeasure( );
+            _excelPackage.Settings.TextSettings.PrimaryTextMeasurer = new TextSize( );
             _excelPackage.Settings.TextSettings.AutofitScaleFactor = 0.9f;
             _excelWorkbook = _excelPackage.Workbook;
             _excelWorksheet = _excelWorkbook.Worksheets.Add( "Data" );
-            _excelRange = _excelWorksheet.Cells[ 2, 1, 57, 11 ];
+            _dataRange = _excelWorksheet.Cells[ 2, 1, 57, 11 ];
             _excelWorkbook.View.ShowHorizontalScrollBar = true;
             _excelWorkbook.View.ShowVerticalScrollBar = true;
             LoadTheme( );
@@ -197,7 +197,7 @@ namespace BudgetExecution
             _themePath = AppSettings[ "BudgetExecution" ];
             _fileInfo = new FileInfo( filePath );
             _excelPackage = new ExcelPackage( _fileInfo );
-            _excelPackage.Settings.TextSettings.PrimaryTextMeasurer = new TextMeasure( );
+            _excelPackage.Settings.TextSettings.PrimaryTextMeasurer = new TextSize( );
             _excelPackage.Settings.TextSettings.AutofitScaleFactor = 0.9f;
             _excelWorkbook = _excelPackage.Workbook;
             _excelWorksheet = _excelWorkbook.Worksheets[ 0 ];
@@ -244,7 +244,7 @@ namespace BudgetExecution
             _themePath = AppSettings[ "BudgetExecution" ];
             _fileInfo = new FileInfo( _internalPath );
             _excelPackage = new ExcelPackage( _fileInfo );
-            _excelPackage.Settings.TextSettings.PrimaryTextMeasurer = new TextMeasure( );
+            _excelPackage.Settings.TextSettings.PrimaryTextMeasurer = new TextSize( );
             _excelPackage.Settings.TextSettings.AutofitScaleFactor = 0.8f;
             _excelWorkbook = _excelPackage.Workbook;
             _excelWorksheet = _excelWorkbook.Worksheets.Add( "Data" );
@@ -355,44 +355,44 @@ namespace BudgetExecution
             {
                 if( _dataTable == null )
                 {
-                    _excelRange = _excelWorksheet.Cells[ 2, 1, 57, 11 ];
-                    _excelRange.Style.Font.Name = "Roboto";
-                    _excelRange.Style.Font.Size = 8;
-                    _excelRange.Style.Font.Bold = false;
-                    _excelRange.Style.Font.Italic = false;
-                    _excelRange.EntireRow.CustomHeight = true;
-                    _excelRange.Style.Font.Color.SetColor( _fontColor );
-                    _excelRange.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                    _excelRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
-                    FormatHeader( _excelRange );
-                    SetAlternatingRowColor( _excelRange );
-                    FormatFooter( _excelRange );
+                    _dataRange = _excelWorksheet.Cells[ 2, 1, 57, 11 ];
+                    _dataRange.Style.Font.Name = "Roboto";
+                    _dataRange.Style.Font.Size = 8;
+                    _dataRange.Style.Font.Bold = false;
+                    _dataRange.Style.Font.Italic = false;
+                    _dataRange.EntireRow.CustomHeight = true;
+                    _dataRange.Style.Font.Color.SetColor( _fontColor );
+                    _dataRange.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                    _dataRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                    FormatHeader( _dataRange );
+                    SetAlternatingRowColor( _dataRange );
+                    FormatFooter( _dataRange );
                 }
                 else
                 {
-                    _excelRange = 
+                    _dataRange = 
                         (ExcelRange)_excelWorksheet.Cells[ "A2" ]
                             ?.LoadFromDataTable( _dataTable, true, TableStyles.Light1 );
 
-                    _excelRange.Style.Font.Name = "Roboto";
-                    _excelRange.Style.Font.Size = 8;
-                    _excelRange.Style.Font.Bold = false;
-                    _excelRange.Style.Font.Italic = false;
-                    _excelRange.EntireRow.CustomHeight = true;
-                    _excelRange.Style.Font.Color.SetColor( _fontColor );
-                    _excelRange.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                    _excelRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
-                    _excelTable = _excelWorksheet.Tables.GetFromRange( _excelRange );
+                    _dataRange.Style.Font.Name = "Roboto";
+                    _dataRange.Style.Font.Size = 8;
+                    _dataRange.Style.Font.Bold = false;
+                    _dataRange.Style.Font.Italic = false;
+                    _dataRange.EntireRow.CustomHeight = true;
+                    _dataRange.Style.Font.Color.SetColor( _fontColor );
+                    _dataRange.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                    _dataRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                    _excelTable = _excelWorksheet.Tables.GetFromRange( _dataRange );
                     _excelTable.TableStyle = TableStyles.Light1;
                     _excelTable.ShowHeader = true;
-                    FormatFooter( _excelRange );
+                    FormatFooter( _dataRange );
                 }
             }
             catch( Exception _ex )
             {
-                if( _excelRange != null )
+                if( _dataRange != null )
                 {
-                    _excelRange = null;
+                    _dataRange = null;
                 }
 
                 Fail( _ex );

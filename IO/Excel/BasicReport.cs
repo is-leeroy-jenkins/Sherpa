@@ -173,13 +173,23 @@ namespace BudgetExecution
         /// <summary>
         /// The excel range
         /// </summary>
-        private protected ExcelRange _excelRange;
-
+        private protected ExcelRange _dataRange;
+        
         /// <summary>
         /// The application
         /// </summary>
         private protected ExcelPackage _excelPackage;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        private protected ExcelRange _pivotRange;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private protected ExcelRange _chartRange;
+        
         /// <summary>
         /// The workbook
         /// </summary>
@@ -280,16 +290,16 @@ namespace BudgetExecution
                 var _startColumn = excelRange.Start.Column;
                 var _endRow = excelRange.End.Row;
                 var _endColumn = excelRange.End.Column;
-                _excelRange = _excelWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
-                _excelRange.Style.Fill.PatternType = ExcelFillStyle.Solid;
-                _excelRange.Style.Fill.BackgroundColor.SetColor( color );
-                _excelRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.CenterContinuous;
+                _dataRange = _excelWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
+                _dataRange.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                _dataRange.Style.Fill.BackgroundColor.SetColor( color );
+                _dataRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.CenterContinuous;
             }
             catch( Exception _ex )
             {
-                if( _excelRange != null )
+                if( _dataRange != null )
                 {
-                    _excelRange = null;
+                    _dataRange = null;
                 }
 
                 Fail( _ex );

@@ -54,13 +54,13 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    public class TextMeasure : ITextMeasurer
+    public class TextSize : ITextMeasurer
     {
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="TextMeasure"/> class.
+        /// <see cref="TextSize"/> class.
         /// </summary>
-        public TextMeasure( )
+        public TextSize( )
         {
         }
 

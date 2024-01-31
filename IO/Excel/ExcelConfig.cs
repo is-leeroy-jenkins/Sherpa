@@ -428,21 +428,21 @@ namespace BudgetExecution
                 var _header = excelRange.Start.Row - 1;
                 var _startColumn = excelRange.Start.Column;
                 var _endColumn = excelRange.End.Column;
-                _excelRange = _excelWorksheet.Cells[ _header, _startColumn, _header, _endColumn ];
-                _excelRange.Style.Font.Name = "Roboto";
-                _excelRange.Style.Font.Size = 9;
-                _excelRange.Style.Font.Bold = false;
-                _excelRange.Style.Font.Italic = false;
+                _dataRange = _excelWorksheet.Cells[ _header, _startColumn, _header, _endColumn ];
+                _dataRange.Style.Font.Name = "Roboto";
+                _dataRange.Style.Font.Size = 9;
+                _dataRange.Style.Font.Bold = false;
+                _dataRange.Style.Font.Italic = false;
                 for( int _i = _startColumn; _i < _endColumn; _i++ )
                 {
-                    _excelRange[ _header, _i ].Value = names[ _i ];
+                    _dataRange[ _header, _i ].Value = names[ _i ];
                 }
             }
             catch( Exception _ex )
             {
-                if( _excelRange != null )
+                if( _dataRange != null )
                 {
-                    _excelRange = null;
+                    _dataRange = null;
                 }
 
                 Fail( _ex );
