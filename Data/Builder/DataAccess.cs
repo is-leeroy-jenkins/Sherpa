@@ -220,7 +220,6 @@ namespace BudgetExecution
                 _dataSet = new DataSet( $"{Source}" );
                 _dataTable = new DataTable( $"{Source}" );
                 _dataTable.TableName = Source.ToString( );
-                _dataTable.DisplayExpression = $"{Source}".SplitPascal( );
                 _dataSet.Tables.Add( _dataTable );
                 using var _query = new Query( _sqlStatement );
                 using var _adapter = _query.GetAdapter( );
@@ -254,7 +253,6 @@ namespace BudgetExecution
                 _dataSet = new DataSet( $"{Provider}" );
                 _dataTable = new DataTable( $"{Source}" );
                 _dataTable.TableName = Source.ToString( );
-                _dataTable.DisplayExpression = $"{Source}".SplitPascal( );
                 _dataSet.Tables.Add( _dataTable );
                 using var _query = new Query( _sqlStatement );
                 using var _adapter = _query.DataAdapter;

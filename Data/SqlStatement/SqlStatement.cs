@@ -53,6 +53,252 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public class SqlStatement : SqlBase, ISqlStatement
     {
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the source.
+        /// </summary>
+        /// <value>
+        /// The source.
+        /// </value>
+        public Source Source
+        {
+            get
+            {
+                return _source;
+            }
+            private protected set
+            {
+                _source = value;
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the provider.
+        /// </summary>
+        /// <value>
+        /// The provider.
+        /// </value>
+        public Provider Provider
+        {
+            get
+            {
+                return _provider;
+            }
+            private protected set
+            {
+                _provider = value;
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the type of the command.
+        /// </summary>
+        /// <value>
+        /// The type of the command.
+        /// </value>
+        public SQL CommandType
+        {
+            get
+            {
+                return _commandType;
+            }
+            private protected set
+            {
+                _commandType = value;
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the extension.
+        /// </summary>
+        /// <value>
+        /// The extension.
+        /// </value>
+        public EXT Extension
+        {
+            get
+            {
+                return _extension;
+            }
+            private protected set
+            {   
+                _extension = value;
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the criteria.
+        /// </summary>
+        /// <value>
+        /// The criteria.
+        /// </value>
+        public IDictionary<string, object> Criteria
+        {
+            get
+            {
+                return _criteria;
+            }
+            private protected set
+            {
+                _criteria = value;
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the updates.
+        /// </summary>
+        /// <value>
+        /// The updates.
+        /// </value>
+        public IDictionary<string, object> Updates
+        {
+            get
+            {
+                return _updates;
+            }
+            private protected set
+            {
+                _updates = value;
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the fields.
+        /// </summary>
+        /// <value>
+        /// The fields.
+        /// </value>
+        public IList<string> Fields
+        {
+            get
+            {
+                return _fields;
+            }
+            private protected set
+            {
+                _fields = value;
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the numerics.
+        /// </summary>
+        /// <value>
+        /// The numerics.
+        /// </value>
+        public IList<string> Numerics
+        {
+            get
+            {
+                return _numerics;
+            }
+            private protected set
+            {
+                _numerics = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the groups.
+        /// </summary>
+        /// <value>
+        /// The groups.
+        /// </value>
+        public IList<string> Groups
+        {
+            get
+            {
+                return _groups;
+            }
+            private protected set
+            {
+                _groups = value;
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the name of the table.
+        /// </summary>
+        /// <value>
+        /// The name of the table.
+        /// </value>
+        public string TableName
+        {
+            get
+            {
+                return _tableName;
+            }
+            private protected set
+            {
+                _tableName = value;
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the database path.
+        /// </summary>
+        /// <value>
+        /// The database path.
+        /// </value>
+        public string DbPath
+        {
+            get
+            {
+                return _dbPath;
+            }
+            private protected set
+            {
+                _dbPath = value;
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the name of the file.
+        /// </summary>
+        /// <value>
+        /// The name of the file.
+        /// </value>
+        public string FileName
+        {
+            get
+            {
+                return _fileName;
+            }
+            private protected set
+            {
+                _fileName = value;
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the command text.
+        /// </summary>
+        /// <value>
+        /// The command text.
+        /// </value>
+        public string CommandText
+        {
+            get
+            {
+                return _commandText;
+            }
+            private protected set
+            {
+                _commandText = value;
+            }
+        }
+
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the

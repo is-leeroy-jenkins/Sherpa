@@ -41,6 +41,7 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Collections.Generic;
     using System.Data.Common;
     using System.Diagnostics.CodeAnalysis;
 
@@ -50,8 +51,173 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    public class AdapterFactory : AdapterBase
+    public class AdapterFactory : AdapterBase, ISource, IProvider
     {
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the source.
+        /// </summary>
+        /// <value>
+        /// The source.
+        /// </value>
+        public Source Source
+        {
+            get
+            {
+                return _source;
+            }
+            private protected set
+            {
+                _source = value;
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the provider.
+        /// </summary>
+        /// <value>
+        /// The provider.
+        /// </value>
+        public Provider Provider
+        {
+            get
+            {
+                return _provider;
+            }
+            private protected set
+            {
+                _provider = value;
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the type of the command.
+        /// </summary>
+        /// <value>
+        /// The type of the command.
+        /// </value>
+        public SQL CommandType
+        {
+            get
+            {
+                return _commandType;
+            }
+            private protected set
+            {
+                _commandType = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the data connection.
+        /// </summary>
+        /// <value>
+        /// The data connection.
+        /// </value>
+        public virtual DbConnection DataConnection
+        {
+            get
+            {
+                return _dataConnection;
+            }
+            private protected set
+            {
+                _dataConnection = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the SQL statement.
+        /// </summary>
+        /// <value>
+        /// The SQL statement.
+        /// </value>
+        public virtual ISqlStatement SqlStatement
+        {
+            get
+            {
+                return _sqlStatement;
+            }
+            private protected set
+            {
+                _sqlStatement = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the connection factory.
+        /// </summary>
+        /// <value>
+        /// The connection factory.
+        /// </value>
+        public virtual IConnectionFactory ConnectionFactory
+        {
+            get
+            {
+                return _connectionFactory;
+            }
+            private protected set
+            {
+                _connectionFactory = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the commands.
+        /// </summary>
+        /// <value>
+        /// The commands.
+        /// </value>
+        public virtual IDictionary<string, DbCommand> Commands
+        {
+            get
+            {
+                return _commands;
+            }
+            private protected set
+            {
+                _commands = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the command factory.
+        /// </summary>
+        /// <value> The command factory.
+        /// </value>
+        public virtual ICommandFactory CommandFactory
+        {
+            get
+            {
+                return _commandFactory;
+            }
+            private protected set
+            {
+                _commandFactory = value;
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the command text.
+        /// </summary>
+        /// <value>
+        /// The command text.
+        /// </value>
+        public string CommandText
+        {
+            get
+            {
+                return _commandText;
+            }
+            private protected set
+            {
+                _commandText = value;
+            }
+        }
+
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the

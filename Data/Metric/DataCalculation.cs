@@ -354,12 +354,12 @@ namespace BudgetExecution
         /// The where.
         /// </param>
         /// <returns></returns>
-        public double CalculateVariance( string numeric, IDictionary<string, object> where )
+        public double CalculateVariance( IDictionary<string, object> where, string numeric )
         {
             try
             {
-                ThrowIfNullNumeric( numeric );
                 ThrowIfNullCriteria( where );
+                ThrowIfNullNumeric( numeric );
                 var _query = _dataTable?.Filter( where )
                     ?.Select( p => p.Field<double>( numeric ) )
                     ?.Variance( );
@@ -383,7 +383,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _columns = new List<string>( );
+                var _names = new List<string>( );
                 foreach( DataColumn _dataColumn in _dataTable.Columns )
                 {
                     if( ( !_dataColumn.ColumnName.EndsWith( "Id" )
@@ -394,12 +394,12 @@ namespace BudgetExecution
                        || ( _dataColumn.DataType == typeof( decimal ) )
                        || ( _dataColumn.DataType == typeof( float ) ) )
                     {
-                        _columns.Add( _dataColumn.ColumnName );
+                        _names.Add( _dataColumn.ColumnName );
                     }
                 }
 
-                return _columns?.Any( ) == true
-                    ? _columns
+                return _names?.Any( ) == true
+                    ? _names
                     : default( IList<string> );
             }
             catch( Exception _ex )
@@ -417,7 +417,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _columns = new List<string>( );
+                var _names = new List<string>( );
                 foreach( DataColumn _dataColumn in _dataTable.Columns )
                 {
                     if( ( _dataColumn.Ordinal > 0 )
@@ -427,12 +427,12 @@ namespace BudgetExecution
                            || _dataColumn.ColumnName.EndsWith( "Day" )
                            || _dataColumn.ColumnName.EndsWith( "Date" ) ) )
                     {
-                        _columns.Add( _dataColumn.ColumnName );
+                        _names.Add( _dataColumn.ColumnName );
                     }
                 }
 
-                return _columns?.Any( ) == true
-                    ? _columns
+                return _names?.Any( ) == true
+                    ? _names
                     : default( IList<string> );
             }
             catch( Exception _ex )

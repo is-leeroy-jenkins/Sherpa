@@ -49,111 +49,73 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     public abstract class SqlBase
     {
         /// <summary>
-        /// Gets or sets the source.
+        /// The source
         /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
-        public Source Source { get; set; }
+        private protected Source _source;
 
         /// <summary>
-        /// Gets or sets the provider.
+        /// The provider
         /// </summary>
-        /// <value>
-        /// The provider.
-        /// </value>
-        public Provider Provider { get; set; }
+        private protected Provider _provider;
 
         /// <summary>
-        /// Gets or sets the type of the command.
+        /// The command type
         /// </summary>
-        /// <value>
-        /// The type of the command.
-        /// </value>
-        public SQL CommandType { get; set; }
+        private protected SQL _commandType;
 
         /// <summary>
-        /// Gets or sets the extension.
+        /// The extension
         /// </summary>
-        /// <value>
-        /// The extension.
-        /// </value>
-        public EXT Extension { get; set; }
+        private protected EXT _extension;
 
         /// <summary>
-        /// Gets or sets the criteria.
+        /// The criteria
         /// </summary>
-        /// <value>
-        /// The criteria.
-        /// </value>
-        public IDictionary<string, object> Criteria { get; set; }
+        private protected IDictionary<string, object> _criteria;
 
         /// <summary>
-        /// Gets or sets the updates.
+        /// The updates
         /// </summary>
-        /// <value>
-        /// The updates.
-        /// </value>
-        public IDictionary<string, object> Updates { get; set; }
+        private protected IDictionary<string, object> _updates;
 
         /// <summary>
-        /// Gets or sets the fields.
+        /// The fields
         /// </summary>
-        /// <value>
-        /// The fields.
-        /// </value>
-        public IList<string> Fields { get; set; }
+        private protected IList<string> _fields;
 
         /// <summary>
-        /// Gets or sets the numerics.
+        /// The numerics
         /// </summary>
-        /// <value>
-        /// The numerics.
-        /// </value>
-        public IList<string> Numerics { get; set; }
+        private protected IList<string> _numerics;
 
         /// <summary>
-        /// Gets or sets the groups.
+        /// The groups
         /// </summary>
-        /// <value>
-        /// The groups.
-        /// </value>
-        public IList<string> Groups { get; set; }
+        private protected IList<string> _groups;
 
         /// <summary>
-        /// Gets or sets the name of the table.
+        /// The table name
         /// </summary>
-        /// <value>
-        /// The name of the table.
-        /// </value>
-        public string TableName { get; set; }
+        private protected string _tableName;
 
         /// <summary>
-        /// Gets or sets the database path.
+        /// The file name
         /// </summary>
-        /// <value>
-        /// The database path.
-        /// </value>
-        public string DbPath { get; set; }
+        private protected string _fileName;
 
         /// <summary>
-        /// Gets or sets the name of the file.
+        /// The database path
         /// </summary>
-        /// <value>
-        /// The name of the file.
-        /// </value>
-        public string FileName { get; set; }
+        private protected string _dbPath;
 
         /// <summary>
-        /// Gets or sets the command text.
+        /// The command text
         /// </summary>
-        /// <value>
-        /// The command text.
-        /// </value>
-        public string CommandText { get; set; }
+        private protected string _commandText;
 
         /// <summary>
         /// Initializes a new instance of the
@@ -162,10 +124,10 @@ namespace BudgetExecution
         /// </summary>
         protected SqlBase( )
         {
-            Criteria = new Dictionary<string, object>( );
-            Fields = new List<string>( );
-            Numerics = new List<string>( );
-            Groups = new List<string>( );
+            _criteria = new Dictionary<string, object>( );
+            _fields = new List<string>( );
+            _numerics = new List<string>( );
+            _groups = new List<string>( );
         }
 
         /// <inheritdoc/>
@@ -180,12 +142,12 @@ namespace BudgetExecution
         protected SqlBase( Source source, Provider provider, SQL commandType = SQL.SELECTALL )
             : this( )
         {
-            DbPath = new ConnectionFactory( source, provider ).ClientPath;
-            CommandType = commandType;
-            Source = source;
-            Provider = provider;
-            TableName = source.ToString( );
-            CommandText = $"SELECT * FROM {source}";
+            _dbPath = new ConnectionFactory( source, provider ).ClientPath;
+            _commandType = commandType;
+            _source = source;
+            _provider = provider;
+            _tableName = source.ToString( );
+            _commandText = $"SELECT * FROM {source}";
         }
 
         /// <inheritdoc/>
@@ -201,12 +163,12 @@ namespace BudgetExecution
         protected SqlBase( Source source, Provider provider, string sqlText, SQL commandType )
             : this( )
         {
-            DbPath = new ConnectionFactory( source, provider ).ClientPath;
-            CommandType = commandType;
-            Source = source;
-            Provider = provider;
-            TableName = source.ToString( );
-            CommandText = sqlText;
+            _dbPath = new ConnectionFactory( source, provider ).ClientPath;
+            _commandType = commandType;
+            _source = source;
+            _provider = provider;
+            _tableName = source.ToString( );
+            _commandText = sqlText;
         }
 
         /// <inheritdoc/>
@@ -223,13 +185,13 @@ namespace BudgetExecution
             SQL commandType = SQL.SELECTALL )
             : this( )
         {
-            DbPath = new ConnectionFactory( source, provider ).ClientPath;
-            CommandType = commandType;
-            Source = source;
-            Provider = provider;
-            TableName = source.ToString( );
-            Criteria = where;
-            CommandText = $@"SELECT * FROM {source} WHERE {where.ToCriteria( )}";
+            _dbPath = new ConnectionFactory( source, provider ).ClientPath;
+            _commandType = commandType;
+            _source = source;
+            _provider = provider;
+            _tableName = source.ToString( );
+            _criteria = where;
+            _commandText = $@"SELECT * FROM {source} WHERE {where.ToCriteria( )}";
         }
 
         /// <inheritdoc/>
@@ -247,15 +209,15 @@ namespace BudgetExecution
             IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
             : this( )
         {
-            DbPath = new ConnectionFactory( source, provider ).ClientPath;
-            CommandType = commandType;
-            Source = source;
-            Provider = provider;
-            TableName = source.ToString( );
-            Updates = updates;
-            Criteria = where;
-            Fields = updates.Keys.ToList( );
-            CommandText = GetCommandText( );
+            _dbPath = new ConnectionFactory( source, provider ).ClientPath;
+            _commandType = commandType;
+            _source = source;
+            _provider = provider;
+            _tableName = source.ToString( );
+            _updates = updates;
+            _criteria = where;
+            _fields = updates.Keys.ToList( );
+            _commandText = GetCommandText( );
         }
 
         /// <inheritdoc/>
@@ -273,14 +235,14 @@ namespace BudgetExecution
             IDictionary<string, object> where, SQL commandType = SQL.SELECT )
             : this( )
         {
-            DbPath = new ConnectionFactory( source, provider ).ClientPath;
-            CommandType = commandType;
-            Source = source;
-            Provider = provider;
-            TableName = source.ToString( );
-            Criteria = where;
-            Fields = columns.ToList( );
-            CommandText = GetCommandText( );
+            _dbPath = new ConnectionFactory( source, provider ).ClientPath;
+            _commandType = commandType;
+            _source = source;
+            _provider = provider;
+            _tableName = source.ToString( );
+            _criteria = where;
+            _fields = columns.ToList( );
+            _commandText = GetCommandText( );
         }
 
         /// <inheritdoc/>
@@ -300,15 +262,15 @@ namespace BudgetExecution
             SQL commandType = SQL.SELECT )
             : this( )
         {
-            DbPath = new ConnectionFactory( source, provider ).ClientPath;
-            CommandType = commandType;
-            Source = source;
-            Provider = provider;
-            TableName = source.ToString( );
-            Criteria = having;
-            Fields = fields.ToList( );
-            Numerics = numerics.ToList( );
-            CommandText = GetCommandText( );
+            _dbPath = new ConnectionFactory( source, provider ).ClientPath;
+            _commandType = commandType;
+            _source = source;
+            _provider = provider;
+            _tableName = source.ToString( );
+            _criteria = having;
+            _fields = fields.ToList( );
+            _numerics = numerics.ToList( );
+            _commandText = GetCommandText( );
         }
 
         /// <summary>
@@ -320,7 +282,7 @@ namespace BudgetExecution
         {
             try
             {
-                switch( CommandType )
+                switch( _commandType )
                 {
                     case SQL.SELECT:
                     case SQL.SELECTALL:
@@ -358,58 +320,58 @@ namespace BudgetExecution
         /// <returns></returns>
         private protected string GetSelectStatement( )
         {
-            if( ( Fields?.Any( ) == true )
-               && ( Criteria?.Any( ) == true )
-               && ( Numerics?.Any( ) == true ) )
+            if( ( _fields?.Any( ) == true )
+               && ( _criteria?.Any( ) == true )
+               && ( _numerics?.Any( ) == true ) )
             {
                 var _cols = string.Empty;
                 var _aggr = string.Empty;
-                foreach( var _name in Fields )
+                foreach( var _name in _fields )
                 {
-                    _cols += $"{_name}, ";
+                    _cols += @$"{_name}, ";
                 }
 
-                foreach( var _metric in Numerics )
+                foreach( var _metric in _numerics )
                 {
-                    _aggr += $"SUM({_metric}) AS {_metric}, ";
+                    _aggr += @$"SUM({_metric}) AS {_metric}, ";
                 }
 
-                var _criteria = Criteria.ToCriteria( );
-                var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
-                return $"SELECT {_columns} FROM {Source} "
-                    + $"WHERE {_criteria} "
-                    + $"GROUP BY {_groups};";
+                var _where = _criteria.ToCriteria( );
+                var _names = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
+                var _group = _cols.TrimEnd( ", ".ToCharArray( ) );
+                return $"SELECT {_names} FROM {_source} "
+                    + $"WHERE {_where} "
+                    + $"GROUP BY {_group};";
             }
 
-            if( ( Fields?.Any( ) == true )
-               && ( Criteria?.Any( ) == true )
-               && ( Numerics?.Any( ) == false ) )
+            if( ( _fields?.Any( ) == true )
+               && ( _criteria?.Any( ) == true )
+               && ( _numerics?.Any( ) == false ) )
             {
                 var _cols = string.Empty;
-                foreach( var _name in Fields )
+                foreach( var _name in _fields )
                 {
                     _cols += $"{_name}, ";
                 }
 
-                var _criteria = Criteria.ToCriteria( );
+                var _where = _criteria.ToCriteria( );
                 var _columns = _cols.TrimEnd( ", ".ToCharArray( ) );
-                return $"SELECT {_columns} FROM {Source} "
-                    + $"WHERE {_criteria} "
+                return $"SELECT {_columns} FROM {_source} "
+                    + $"WHERE {_where} "
                     + $"GROUP BY {_columns};";
             }
-            else if( ( Fields?.Any( ) == false )
-                    && ( Criteria?.Any( ) == true )
-                    && ( Numerics?.Any( ) == false ) )
+            else if( ( _fields?.Any( ) == false )
+                    && ( _criteria?.Any( ) == true )
+                    && ( _numerics?.Any( ) == false ) )
             {
-                var _criteria = Criteria.ToCriteria( );
-                return $"SELECT * FROM {Source} WHERE {_criteria};";
+                var _where = _criteria.ToCriteria( );
+                return $"SELECT * FROM {_source} WHERE {_where};";
             }
-            else if( ( Fields?.Any( ) == false )
-                    && ( Criteria?.Any( ) == false )
-                    && ( Numerics?.Any( ) == false ) )
+            else if( ( _fields?.Any( ) == false )
+                    && ( _criteria?.Any( ) == false )
+                    && ( _numerics?.Any( ) == false ) )
             {
-                return $"SELECT * FROM {Source};";
+                return $"SELECT * FROM {_source};";
             }
 
             return default( string );
@@ -424,24 +386,24 @@ namespace BudgetExecution
             try
             {
                 var _update = string.Empty;
-                if( Updates.Count == 1 )
+                if( _updates.Count == 1 )
                 {
-                    foreach( var _kvp in Updates )
+                    foreach( var _kvp in _updates )
                     {
                         _update += $"{_kvp.Key} = '{_kvp.Value}'";
                     }
                 }
-                else if( Updates.Count > 1 )
+                else if( _updates.Count > 1 )
                 {
-                    foreach( var _kvp in Updates )
+                    foreach( var _kvp in _updates )
                     {
                         _update += $"{_kvp.Key} = '{_kvp.Value}', ";
                     }
                 }
 
-                var _criteria = Criteria.ToCriteria( );
+                var _where = _criteria.ToCriteria( );
                 var _values = _update.TrimEnd( ", ".ToCharArray( ) );
-                return $"UPDATE {Source} SET {_values} WHERE {_criteria};";
+                return $"UPDATE {_source} SET {_values} WHERE {_where};";
             }
             catch( Exception _ex )
             {
@@ -460,17 +422,17 @@ namespace BudgetExecution
             {
                 var _columns = string.Empty;
                 var _values = string.Empty;
-                if( Updates.Count == 1 )
+                if( _updates.Count == 1 )
                 {
-                    foreach( var _kvp in Updates )
+                    foreach( var _kvp in _updates )
                     {
                         _columns += $"{_kvp.Key}";
                         _values += $"{_kvp.Value}";
                     }
                 }
-                else if( Updates.Count > 1 )
+                else if( _updates.Count > 1 )
                 {
-                    foreach( var _kvp in Updates )
+                    foreach( var _kvp in _updates )
                     {
                         _columns += $"{_kvp.Key}, ";
                         _values += $"{_kvp.Value}, ";
@@ -480,7 +442,7 @@ namespace BudgetExecution
                 var _columnValues = $"({_columns.TrimEnd( ", ".ToCharArray( ) )})"
                     + $" VALUES ({_values.TrimEnd( ", ".ToCharArray( ) )})";
 
-                return $"INSERT INTO {Source} {_columnValues};";
+                return $"INSERT INTO {_source} {_columnValues};";
             }
             catch( Exception _ex )
             {
@@ -495,10 +457,10 @@ namespace BudgetExecution
         {
             try
             {
-                var _criteria = Criteria.ToCriteria( );
-                return !string.IsNullOrEmpty( _criteria )
-                    ? $"DELETE * FROM {Source} WHERE {_criteria};"
-                    : $"DELETE * FROM {Source};";
+                var _where = _criteria.ToCriteria( );
+                return !string.IsNullOrEmpty( _where )
+                    ? $"DELETE * FROM {_source} WHERE {_where};"
+                    : $"DELETE * FROM {_source};";
             }
             catch( Exception _ex )
             {

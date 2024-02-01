@@ -61,63 +61,59 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MergeConditionalExpression" ) ]
-    public class AdapterBase : DbDataAdapter, ISource, IProvider
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    public class AdapterBase : DbDataAdapter
     {
         /// <summary>
-        /// Gets or sets the data connection.
+        /// The source
         /// </summary>
-        /// <value>
-        /// The data connection.
-        /// </value>
-        public virtual DbConnection DataConnection { get; set; }
+        private protected Source _source;
 
         /// <summary>
-        /// Gets or sets the SQL statement.
+        /// The provider
         /// </summary>
-        /// <value>
-        /// The SQL statement.
-        /// </value>
-        public virtual ISqlStatement SqlStatement { get; set; }
+        private protected Provider _provider;
 
         /// <summary>
-        /// Gets or sets the connection factory.
+        /// The command type
         /// </summary>
-        /// <value>
-        /// The connection factory.
-        /// </value>
-        public virtual IConnectionFactory ConnectionFactory { get; set; }
+        private protected SQL _commandType;
 
         /// <summary>
-        /// Gets or sets the commands.
+        /// The data connection
         /// </summary>
-        /// <value>
-        /// The commands.
-        /// </value>
-        public virtual IDictionary<string, DbCommand> Commands { get; set; }
+        private protected DbConnection _dataConnection;
 
         /// <summary>
-        /// Gets or sets the command factory.
+        /// The SQL statement
         /// </summary>
-        /// <value> The command factory.
-        /// </value>
-        public virtual ICommandFactory CommandFactory { get; set; }
+        private protected ISqlStatement _sqlStatement;
 
         /// <summary>
-        /// Gets or sets the command text.
+        /// The connection factory
         /// </summary>
-        /// <value> The command text. </value>
-        public virtual string CommandText { get; set; }
+        private protected IConnectionFactory _connectionFactory;
 
-        /// <inheritdoc/>
         /// <summary>
+        /// The criteria
         /// </summary>
-        public virtual Provider Provider { get; set; }
+        private protected IDictionary<string, object> _criteria;
 
-        /// <inheritdoc/>
         /// <summary>
-        /// Gets the source.
+        /// The commands
         /// </summary>
-        public virtual Source Source { get; set; }
+        private protected IDictionary<string, DbCommand> _commands;
+
+        /// <summary>
+        /// The command factory
+        /// </summary>
+        private protected ICommandFactory _commandFactory;
+
+        /// <summary>
+        /// The command text
+        /// </summary>
+        private protected string _commandText;
 
         /// <inheritdoc/>
         /// <summary>
@@ -145,14 +141,14 @@ namespace BudgetExecution
         protected AdapterBase( ICommandFactory commandFactory )
             : this( )
         {
-            Source = commandFactory.Source;
-            Provider = commandFactory.Provider;
-            CommandFactory = commandFactory;
-            ConnectionFactory =
+            _source = commandFactory.Source;
+            _provider = commandFactory.Provider;
+            _commandFactory = commandFactory;
+            _connectionFactory =
                 new ConnectionFactory( commandFactory.Source, commandFactory.Provider );
 
-            DataConnection = ConnectionFactory.GetConnection( );
-            CommandText = CommandFactory.GetCommand( ).CommandText;
+            _dataConnection = _connectionFactory.GetConnection( );
+            _commandText = _commandFactory.GetCommand( ).CommandText;
         }
 
         /// <inheritdoc/>
@@ -165,30 +161,30 @@ namespace BudgetExecution
         protected AdapterBase( ISqlStatement sqlStatement )
             : this( )
         {
-            Source = sqlStatement.Source;
-            Provider = sqlStatement.Provider;
-            SqlStatement = sqlStatement;
-            ConnectionFactory = new ConnectionFactory( sqlStatement.Source, sqlStatement.Provider );
-            DataConnection = ConnectionFactory.GetConnection( );
-            CommandText = sqlStatement.CommandText;
+            _source = sqlStatement.Source;
+            _provider = sqlStatement.Provider;
+            _sqlStatement = sqlStatement;
+            _connectionFactory = new ConnectionFactory( sqlStatement.Source, sqlStatement.Provider );
+            _dataConnection = _connectionFactory.GetConnection( );
+            _commandText = sqlStatement.CommandText;
         }
 
         /// <summary>
-        /// Gets the sq lite adapter.
+        /// Gets the sql lite adapter.
         /// </summary>
         /// <returns></returns>
         private protected SQLiteDataAdapter GetSQLiteAdapter( )
         {
             try
             {
-                var _connection = DataConnection as SQLiteConnection;
-                var _adapter = new SQLiteDataAdapter( CommandText, _connection );
+                var _connection = _dataConnection as SQLiteConnection;
+                var _adapter = new SQLiteDataAdapter( _commandText, _connection );
                 _adapter.ContinueUpdateOnError = true;
                 _adapter.AcceptChangesDuringFill = true;
                 _adapter.AcceptChangesDuringUpdate = true;
                 _adapter.ReturnProviderSpecificTypes = true;
-                if( CommandText.StartsWith( "SELECT *" )
-                   || CommandText.StartsWith( "SELECT ALL" ) )
+                if( _commandText.StartsWith( "SELECT *" )
+                   || _commandText.StartsWith( "SELECT ALL" ) )
                 {
                     var _builder = new SQLiteCommandBuilder( _adapter );
                     _adapter.InsertCommand = _builder.GetInsertCommand( );
@@ -216,14 +212,14 @@ namespace BudgetExecution
         {
             try
             {
-                var _connection = DataConnection as SqlConnection;
-                var _adapter = new SqlDataAdapter( CommandText, _connection );
+                var _connection = _dataConnection as SqlConnection;
+                var _adapter = new SqlDataAdapter( _commandText, _connection );
                 _adapter.ContinueUpdateOnError = true;
                 _adapter.AcceptChangesDuringFill = true;
                 _adapter.AcceptChangesDuringUpdate = true;
                 _adapter.ReturnProviderSpecificTypes = true;
-                if( CommandText.StartsWith( "SELECT *" )
-                   || CommandText.StartsWith( "SELECT ALL" ) )
+                if( _commandText.StartsWith( "SELECT *" )
+                   || _commandText.StartsWith( "SELECT ALL" ) )
                 {
                     var _builder = new SqlCommandBuilder( _adapter );
                     _adapter.InsertCommand = _builder.GetInsertCommand( );
@@ -252,14 +248,14 @@ namespace BudgetExecution
         {
             try
             {
-                var _connection = DataConnection as OleDbConnection;
-                var _adapter = new OleDbDataAdapter( CommandText, _connection );
+                var _connection = _dataConnection as OleDbConnection;
+                var _adapter = new OleDbDataAdapter( _commandText, _connection );
                 _adapter.ContinueUpdateOnError = true;
                 _adapter.AcceptChangesDuringFill = true;
                 _adapter.AcceptChangesDuringUpdate = true;
                 _adapter.ReturnProviderSpecificTypes = true;
-                if( CommandText.StartsWith( "SELECT *" )
-                   || CommandText.StartsWith( "SELECT ALL" ) )
+                if( _commandText.StartsWith( "SELECT *" )
+                   || _commandText.StartsWith( "SELECT ALL" ) )
                 {
                     var _builder = new OleDbCommandBuilder( _adapter );
                     _adapter.InsertCommand = _builder.GetInsertCommand( );
@@ -287,14 +283,14 @@ namespace BudgetExecution
         {
             try
             {
-                var _connection = DataConnection as SqlCeConnection;
-                var _adapter = new SqlCeDataAdapter( CommandText, _connection );
+                var _connection = _dataConnection as SqlCeConnection;
+                var _adapter = new SqlCeDataAdapter( _commandText, _connection );
                 _adapter.ContinueUpdateOnError = true;
                 _adapter.AcceptChangesDuringFill = true;
                 _adapter.AcceptChangesDuringUpdate = true;
                 _adapter.ReturnProviderSpecificTypes = true;
-                if( CommandText.StartsWith( "SELECT *" )
-                   || CommandText.StartsWith( "SELECT ALL" ) )
+                if( _commandText.StartsWith( "SELECT *" )
+                   || _commandText.StartsWith( "SELECT ALL" ) )
                 {
                     var _builder = new SqlCeCommandBuilder( _adapter );
                     _adapter.InsertCommand = _builder.GetInsertCommand( );

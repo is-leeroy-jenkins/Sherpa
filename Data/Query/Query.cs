@@ -42,6 +42,7 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
+    using System.Data.Common;
     using System.Diagnostics.CodeAnalysis;
 
     /// <inheritdoc/>
@@ -50,8 +51,199 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ValueParameterNotUsed" ) ]
     public class Query : QueryBase, IQuery
     {
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the source.
+        /// </summary>
+        /// <value>
+        /// The source.
+        /// </value>
+        public virtual Source Source
+        {
+            get
+            {
+                return _source;
+            }
+            private protected set
+            {
+                _source = value;
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the provider.
+        /// </summary>
+        /// <value>
+        /// The provider.
+        /// </value>
+        public virtual Provider Provider
+        {
+            get
+            {
+                return _provider;
+            }
+            private protected set
+            {
+                _provider = value;
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the type of the command.
+        /// </summary>
+        /// <value>
+        /// The type of the command.
+        /// </value>
+        public virtual SQL CommandType
+        {
+            get
+            {
+                return _commandType;
+            }
+            private protected set
+            {
+                _commandType = value;
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the criteria.
+        /// </summary>
+        /// <value>
+        /// The criteria.
+        /// </value>
+        public virtual IDictionary<string, object> Criteria
+        {
+            get
+            {
+                return _criteria;
+            }
+            private protected set
+            {
+                _criteria = value;
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the SQL statement.
+        /// </summary>
+        /// <value>
+        /// The SQL statement.
+        /// </value>
+        public virtual ISqlStatement SqlStatement
+        {
+            get
+            {
+                return _sqlStatement;
+            }
+            private protected set
+            {
+                _sqlStatement = value;
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the connection factory.
+        /// </summary>
+        /// <value>
+        /// The connection factory.
+        /// </value>
+        public virtual IConnectionFactory ConnectionFactory
+        {
+            get
+            {
+                return _connectionFactory;
+            }
+            private protected set
+            {
+                _connectionFactory = value;
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the data connection.
+        /// </summary>
+        /// <value>
+        /// The data connection.
+        /// </value>
+        public virtual DbConnection DataConnection
+        {
+            get
+            {
+                return _dataConnection;
+            }
+            private protected set
+            {
+                _dataConnection = value;
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the data adapter.
+        /// </summary>
+        /// <value>
+        /// The data adapter.
+        /// </value>
+        public virtual DbDataAdapter DataAdapter
+        {
+            get
+            {
+                return _dataAdapter;
+            }
+            private protected set
+            {
+                _dataAdapter = value;
+            }
+        }
+
+        /// <summary> Gets or sets a value indicating
+        /// whether this instance is disposed. </summary>
+        /// <value>
+        /// <c> true </c>
+        /// if this instance is disposed; otherwise,
+        /// <c> false </c>
+        /// .
+        /// </value>
+        public virtual bool IsDisposed
+        {
+            get
+            {
+                return _isDisposed;
+            }
+            private protected set
+            {
+                _isDisposed = true;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the data reader.
+        /// </summary>
+        /// <value>
+        /// The data reader.
+        /// </value>
+        public virtual DbDataReader DataReader
+        {
+            get
+            {
+                return _dataReader;
+            }
+            private protected set
+            {
+                _dataReader = value;
+            }
+        }
+
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the

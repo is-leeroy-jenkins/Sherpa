@@ -43,52 +43,111 @@ namespace BudgetExecution
     using System;
     using System.Collections.Generic;
 
-    /// <summary> </summary>
+    /// <summary>
+    /// 
+    /// </summary>
     public interface ISqlStatement
     {
-        /// <summary> The extension </summary>
-        EXT Extension { get; set; }
+        /// <summary>
+        /// Gets the extension.
+        /// </summary>
+        /// <value>
+        /// The extension.
+        /// </value>
+        EXT Extension { get; }
 
-        /// <summary> The source </summary>
-        Source Source { get; set; }
+        /// <summary>
+        /// Gets the source.
+        /// </summary>
+        /// <value>
+        /// The source.
+        /// </value>
+        Source Source { get; }
 
-        /// <summary> The provider </summary>
-        Provider Provider { get; set; }
+        /// <summary>
+        /// Gets the provider.
+        /// </summary>
+        /// <value>
+        /// The provider.
+        /// </value>
+        Provider Provider { get; }
 
-        /// <summary> The command type </summary>
-        SQL CommandType { get; set; }
+        /// <summary>
+        /// Gets the type of the command.
+        /// </summary>
+        /// <value>
+        /// The type of the command.
+        /// </value>
+        SQL CommandType { get; }
 
-        /// <summary> Gets or sets the command text. </summary>
-        /// <value> The command text. </value>
-        string CommandText { get; set; }
+        /// <summary>
+        /// Gets the command text.
+        /// </summary>
+        /// <value>
+        /// The command text.
+        /// </value>
+        string CommandText { get; }
 
-        /// <summary> The arguments </summary>
-        IDictionary<string, object> Criteria { get; set; }
+        /// <summary>
+        /// Gets the criteria.
+        /// </summary>
+        /// <value>
+        /// The criteria.
+        /// </value>
+        IDictionary<string, object> Criteria { get; }
 
-        /// <summary> Gets or sets the updates. </summary>
-        /// <value> The updates. </value>
-        IDictionary<string, object> Updates { get; set; }
+        /// <summary>
+        /// Gets the updates.
+        /// </summary>
+        /// <value>
+        /// The updates.
+        /// </value>
+        IDictionary<string, object> Updates { get; }
 
-        /// <summary> Gets or sets the columns. </summary>
-        /// <value> The columns. </value>
-        IList<string> Fields { get; set; }
+        /// <summary>
+        /// Gets the fields.
+        /// </summary>
+        /// <value>
+        /// The fields.
+        /// </value>
+        IList<string> Fields { get; }
 
-        /// <summary> Gets or sets the numerics. </summary>
-        /// <value> The numerics. </value>
-        IList<string> Numerics { get; set; }
+        /// <summary>
+        /// Gets the numerics.
+        /// </summary>
+        /// <value>
+        /// The numerics.
+        /// </value>
+        IList<string> Numerics { get; }
 
-        /// <summary> Gets or sets the name of the table. </summary>
-        /// <value> The name of the table. </value>
-        string TableName { get; set; }
+        /// <summary>
+        /// Gets the name of the table.
+        /// </summary>
+        /// <value>
+        /// The name of the table.
+        /// </value>
+        string TableName { get; }
 
-        /// <summary> The provider path </summary>
-        string DbPath { get; set; }
+        /// <summary>
+        /// Gets the database path.
+        /// </summary>
+        /// <value>
+        /// The database path.
+        /// </value>
+        string DbPath { get; }
 
-        /// <summary> The file name </summary>
-        string FileName { get; set; }
+        /// <summary>
+        /// Gets the name of the file.
+        /// </summary>
+        /// <value>
+        /// The name of the file.
+        /// </value>
+        string FileName { get; }
 
-        /// <summary> Gets the command text. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the command text.
+        /// </summary>
+        /// <returns></returns>
         string GetCommandText( );
     }
 }
