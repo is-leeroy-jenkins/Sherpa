@@ -45,8 +45,8 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
@@ -63,6 +63,16 @@ namespace BudgetExecution
         /// The provider
         /// </summary>
         private protected Provider _provider;
+
+        /// <summary>
+        /// The data set
+        /// </summary>
+        private protected DataSet _dataSet;
+
+        /// <summary>
+        /// The data table
+        /// </summary>
+        private protected DataTable _dataTable;
 
         /// <summary>
         /// The data columns
@@ -117,6 +127,25 @@ namespace BudgetExecution
             private protected set
             {
                 _provider = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the data table.
+        /// </summary>
+        /// <value>
+        /// The data table.
+        /// </value>
+        public DataTable DataTable
+        {
+            get
+            {
+                return _dataTable;
+            }
+
+            private protected set
+            {
+                _dataTable = value;
             }
         }
 

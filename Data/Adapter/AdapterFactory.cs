@@ -116,7 +116,7 @@ namespace BudgetExecution
         /// <value>
         /// The data connection.
         /// </value>
-        public virtual DbConnection DataConnection
+        public DbConnection DataConnection
         {
             get
             {
@@ -134,7 +134,7 @@ namespace BudgetExecution
         /// <value>
         /// The SQL statement.
         /// </value>
-        public virtual ISqlStatement SqlStatement
+        public ISqlStatement SqlStatement
         {
             get
             {
@@ -152,7 +152,7 @@ namespace BudgetExecution
         /// <value>
         /// The connection factory.
         /// </value>
-        public virtual IConnectionFactory ConnectionFactory
+        public IConnectionFactory ConnectionFactory
         {
             get
             {
@@ -170,7 +170,7 @@ namespace BudgetExecution
         /// <value>
         /// The commands.
         /// </value>
-        public virtual IDictionary<string, DbCommand> Commands
+        public IDictionary<string, DbCommand> Commands
         {
             get
             {
@@ -187,7 +187,7 @@ namespace BudgetExecution
         /// </summary>
         /// <value> The command factory.
         /// </value>
-        public virtual ICommandFactory CommandFactory
+        public ICommandFactory CommandFactory
         {
             get
             {
@@ -246,13 +246,13 @@ namespace BudgetExecution
         /// <returns> DbDataAdapter </returns>
         public DbDataAdapter GetAdapter( )
         {
-            if( Enum.IsDefined( typeof( Provider ), Provider )
-               && ( DataConnection != null )
-               && !string.IsNullOrEmpty( CommandText ) )
+            if( Enum.IsDefined( typeof( Provider ), _provider )
+               && ( _dataConnection != null )
+               && !string.IsNullOrEmpty( _commandText ) )
             {
                 try
                 {
-                    switch( Provider )
+                    switch( _provider )
                     {
                         case Provider.SQLite:
                         {

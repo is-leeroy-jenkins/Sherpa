@@ -252,62 +252,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the dark color row.
-        /// </summary>
-        /// <param name="excelRange"> </param>
-        private protected void FormatDarkRow( ExcelRange excelRange )
-        {
-            try
-            {
-                ThrowIf.Null( excelRange, nameof( excelRange ) );
-                var _startRow = excelRange.Start.Row;
-                var _startColumn = excelRange.Start.Column;
-                var _endRow = excelRange.End.Row;
-                var _endColumn = excelRange.End.Column;
-                _dataRange = _dataWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
-                _dataRange.EntireRow.Style.Fill.PatternType = ExcelFillStyle.Solid;
-                _dataRange.EntireRow.Style.Fill.BackgroundColor.SetColor( _secondaryBackColor );
-            }
-            catch( Exception _ex )
-            {
-                if( _dataRange != null )
-                {
-                    _dataRange = null;
-                }
-
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the light color row.
-        /// </summary>
-        /// <param name="excelRange">The range.</param>
-        private protected void FormatLightRow( ExcelRange excelRange )
-        {
-            try
-            {
-                ThrowIf.Null( excelRange, nameof( excelRange ) );
-                var _startRow = excelRange.Start.Row;
-                var _startColumn = excelRange.Start.Column;
-                var _endRow = excelRange.End.Row;
-                var _endColumn = excelRange.End.Column;
-                _dataRange = _dataWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
-                _dataRange.EntireRow.Style.Fill.PatternType = ExcelFillStyle.Solid;
-                _dataRange.EntireRow.Style.Fill.BackgroundColor.SetColor( _primaryBackColor );
-            }
-            catch( Exception _ex )
-            {
-                if( _dataRange != null )
-                {
-                    _dataRange = null;
-                }
-
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Sets the color of the alternating row.
         /// </summary>
         /// <param name="excelRange">The range.</param>

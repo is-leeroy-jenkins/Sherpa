@@ -174,8 +174,6 @@ namespace BudgetExecution
             : this( )
         {
             _rowIndex = 2;
-            _filePath = filePath;
-            _fileName = Path.GetFileNameWithoutExtension( filePath );
             _fontColor = Color.Black;
             _font = new Font( "Roboto", 8, FontStyle.Regular );
             _titleFont = new Font( "Roboto", 9 );
@@ -192,6 +190,8 @@ namespace BudgetExecution
             _secondaryBackColor = Color.FromArgb( 220, 220, 220 );
             _internalPath = AppSettings[ "Reports" ];
             _savePath = AppSettings[ "Desktop" ] + _fileName + ".xlsx";
+            _filePath = filePath;
+            _fileName = Path.GetFileNameWithoutExtension( filePath );
             _fileInfo = new FileInfo( filePath );
             _excelPackage = new ExcelPackage( _fileInfo );
             _excelPackage.Settings.TextSettings.PrimaryTextMeasurer = new TextSize( );
@@ -219,8 +219,6 @@ namespace BudgetExecution
         public ExcelReport( DataTable dataTable ) 
         {
             _rowIndex = 2;
-            _dataTable = dataTable;
-            _fileName = dataTable.TableName + ".xlsx";
             _fontColor = Color.Black;
             _font = new Font( "Roboto", 8, FontStyle.Regular );
             _titleFont = new Font( "Roboto", 9, FontStyle.Regular );
@@ -236,7 +234,9 @@ namespace BudgetExecution
             _primaryBackColor = Color.White;
             _secondaryBackColor = Color.FromArgb( 220, 220, 220 );
             _internalPath = AppSettings[ "Reports" ];
-            _savePath = AppSettings[ "Desktop" ] + _fileName;
+            _dataTable = dataTable;
+            _fileName = dataTable.TableName + ".xlsx";
+            _savePath = AppSettings[ "Desktop" ] + dataTable.TableName + ".xlsx";
             _fileInfo = new FileInfo( _internalPath );
             _excelPackage = new ExcelPackage( _fileInfo );
             _excelPackage.Settings.TextSettings.PrimaryTextMeasurer = new TextSize( );

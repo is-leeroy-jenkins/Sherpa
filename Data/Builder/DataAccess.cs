@@ -73,16 +73,6 @@ namespace BudgetExecution
         private protected bool _busy;
 
         /// <summary>
-        /// The data set
-        /// </summary>
-        private protected DataSet _dataSet;
-
-        /// <summary>
-        /// The data table
-        /// </summary>
-        private protected DataTable _dataTable;
-
-        /// <summary>
         /// The map
         /// </summary>
         private protected IDictionary<string, object> _map;
@@ -138,25 +128,6 @@ namespace BudgetExecution
             private set
             {
                 _map = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the data table.
-        /// </summary>
-        /// <value>
-        /// The data table.
-        /// </value>
-        public DataTable DataTable
-        {
-            get
-            {
-                return _dataTable;
-            }
-
-            private protected set
-            {
-                _dataTable = value;
             }
         }
 
@@ -217,9 +188,9 @@ namespace BudgetExecution
             {
                 BeginInit( );
                 var _clock = Stopwatch.StartNew( );
-                _dataSet = new DataSet( $"{Source}" );
-                _dataTable = new DataTable( $"{Source}" );
-                _dataTable.TableName = Source.ToString( );
+                _dataSet = new DataSet( $"{_source}" );
+                _dataTable = new DataTable( $"{_source}" );
+                _dataTable.TableName = _source.ToString( );
                 _dataSet.Tables.Add( _dataTable );
                 using var _query = new Query( _sqlStatement );
                 using var _adapter = _query.GetAdapter( );
@@ -250,9 +221,9 @@ namespace BudgetExecution
             {
                 BeginInit( );
                 var _clock = Stopwatch.StartNew( );
-                _dataSet = new DataSet( $"{Provider}" );
-                _dataTable = new DataTable( $"{Source}" );
-                _dataTable.TableName = Source.ToString( );
+                _dataSet = new DataSet( $"{_provider}" );
+                _dataTable = new DataTable( $"{_source}" );
+                _dataTable.TableName = _source.ToString( );
                 _dataSet.Tables.Add( _dataTable );
                 using var _query = new Query( _sqlStatement );
                 using var _adapter = _query.DataAdapter;
