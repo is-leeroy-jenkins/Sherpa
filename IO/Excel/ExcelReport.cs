@@ -307,16 +307,27 @@ namespace BudgetExecution
         {
             try
             {
-                _dataWorksheet.HeaderFooter.OddHeader.RightAlignedText =
-                    ExcelHeaderFooter.CurrentDate;
-
+                var _rows = _dataTable.Rows.Count.ToString( "N0" );
+                var _cols = _dataTable.Columns.Count.ToString( );
+                _dataWorksheet.HeaderFooter.OddFooter.RightAlignedText =
+                    "Records:" + '\t' 
+                    + "  " 
+                    + _rows.PadLeft( 10 )
+                    + Environment.NewLine
+                    + "Columns:" + '\t' 
+                    + "  " 
+                    + _cols.PadLeft( 10 );
+                
                 _dataWorksheet.HeaderFooter.OddFooter.CenteredText =
+                    "Page" + '\r' + '\n' +
                     ExcelHeaderFooter.PageNumber
                     + " of "
                     + ExcelHeaderFooter.NumberOfPages;
 
                 _dataWorksheet.HeaderFooter.OddFooter.LeftAlignedText =
-                    "As of:" + ExcelHeaderFooter.CurrentDate;
+                    "Data as of:" 
+                    + Environment.NewLine 
+                    + DateTime.Today.ToLongDateString( );
             }
             catch( Exception _ex )
             {
@@ -352,9 +363,8 @@ namespace BudgetExecution
                         (ExcelRange)_dataWorksheet.Cells[ "A2" ]
                             ?.LoadFromDataTable( _dataTable, true, TableStyles.Light1 );
 
-                    _dataWorksheet.HeaderFooter.OddHeader.CenteredText =
-                        _dataTable.TableName.SplitPascal( );
-
+                    var _title = _dataTable.TableName.SplitPascal( ) ?? "Budget Execution";
+                    _dataWorksheet.HeaderFooter.OddHeader.CenteredText = _title;
                     _dataRange.Style.Font.Name = "Roboto";
                     _dataRange.Style.Font.Size = 8;
                     _dataRange.Style.Font.Bold = false;
