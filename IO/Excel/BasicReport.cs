@@ -57,7 +57,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
@@ -172,27 +172,27 @@ namespace BudgetExecution
         private protected ExcelRange _footerRange;
 
         /// <summary>
-        /// The excel range
+        /// The data range
         /// </summary>
         private protected ExcelRange _dataRange;
-        
+
         /// <summary>
-        /// The application
+        /// The excel package
         /// </summary>
         private protected ExcelPackage _excelPackage;
 
         /// <summary>
-        /// 
+        /// The pivot range
         /// </summary>
         private protected ExcelRange _pivotRange;
 
         /// <summary>
-        /// 
+        /// The chart range
         /// </summary>
         private protected ExcelRange _chartRange;
-        
+
         /// <summary>
-        /// The workbook
+        /// The excel workbook
         /// </summary>
         private protected ExcelWorkbook _excelWorkbook;
 
@@ -202,27 +202,27 @@ namespace BudgetExecution
         private protected ExcelTable _excelTable;
 
         /// <summary>
-        /// The excel chart
+        /// The pie chart
         /// </summary>
         private protected ExcelPieChart _pieChart;
 
         /// <summary>
-        /// 
+        /// The bar chart
         /// </summary>
         private protected ExcelBarChart _barChart;
 
         /// <summary>
-        /// 
+        /// The area chart
         /// </summary>
         private protected ExcelAreaChart _areaChart;
-        
+
         /// <summary>
         /// The pivot table
         /// </summary>
         private protected ExcelPivotTable _pivotTable;
 
         /// <summary>
-        /// The worksheet
+        /// The data worksheet
         /// </summary>
         private protected ExcelWorksheet _dataWorksheet;
 
@@ -247,7 +247,7 @@ namespace BudgetExecution
         private protected string _themePath;
 
         /// <summary>
-        /// The data
+        /// The data table
         /// </summary>
         private protected DataTable _dataTable;
 
@@ -272,7 +272,7 @@ namespace BudgetExecution
         private protected string _fileName;
 
         /// <summary>
-        /// The int
+        /// The row index
         /// </summary>
         private protected int _rowIndex;
 
@@ -287,9 +287,9 @@ namespace BudgetExecution
         private protected int _columnCount;
 
         /// <summary>
-        /// Sets the color of the background.
+        /// Sets the color of the range background.
         /// </summary>
-        /// <param name="excelRange"> </param>
+        /// <param name="excelRange">The excel range.</param>
         /// <param name="color">The color.</param>
         public void SetRangeBackgroundColor( ExcelRange excelRange, Color color )
         {
@@ -348,8 +348,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="type">The type.</param>
         /// <returns>
-        ///   <c>true</c> if [is nullable type] [the specified type];
-        ///   otherwise, <c>false</c>.
+        ///   <c>true</c> if [is nullable type] [the specified type]; otherwise, <c>false</c>.
         /// </returns>
         private protected bool IsNullableType( Type type )
         {
@@ -368,15 +367,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Releases unmanaged and
-        /// - optionally - managed resources.
+        /// Releases unmanaged and - optionally - managed resources.
         /// </summary>
-        /// <param name="disposing">
-        /// <c> true </c>
-        /// to release both managed and unmanaged resources;
-        /// <c> false </c>
-        /// to release only unmanaged resources.
-        /// </param>
+        /// <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
         private void Dispose( bool disposing )
         {
             try
@@ -402,8 +395,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Releases unmanaged and
-        /// - optionally - managed resources.
+        /// Releases unmanaged and - optionally - managed resources.
         /// </summary>
         public void Dispose( )
         {

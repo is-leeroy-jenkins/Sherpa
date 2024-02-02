@@ -121,7 +121,7 @@ namespace BudgetExecution
         /// Initializes a new instance of the
         /// <see cref="T:BudgetExecution.Workbook" /> class.
         /// </summary>
-        public void InitializeWorksheetFormat( )
+        public void FormatDataWorksheet( )
         {
             try
             {
@@ -144,6 +144,8 @@ namespace BudgetExecution
                     _dataWorksheet.PrinterSettings.FitToPage = true;
                     _dataWorksheet.HeaderFooter.AlignWithMargins = true;
                     _dataWorksheet.HeaderFooter.ScaleWithDocument = true;
+                    _dataWorksheet.HeaderFooter.OddHeader.CenteredText = 
+                        _dataTable.TableName.SplitPascal( );
                 }
                 else
                 {

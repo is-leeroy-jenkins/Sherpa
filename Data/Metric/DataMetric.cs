@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        06-01-2023
 // ******************************************************************************************
-// <copyright file="DataMeasure.cs" company="Terry D. Eppler">
+// <copyright file="DataMetric.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   DataMeasure.cs
+//   DataMetric.cs
 // </summary>
 // ******************************************************************************************
 
@@ -57,7 +57,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    public class DataMeasure : DataCalculation, IDataMetric
+    public class DataMetric : DataCalculation, IDataMetric
     {
         /// <inheritdoc />
         /// <summary>
@@ -155,12 +155,12 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="DataMeasure"/> class.
+        /// <see cref="DataMetric"/> class.
         /// </summary>
         /// <param name="dataTable">
         /// The data table.
         /// </param>
-        public DataMeasure( DataTable dataTable )
+        public DataMetric( DataTable dataTable )
         {
             _dataTable = dataTable;
             _fields = GetTextColumns( );

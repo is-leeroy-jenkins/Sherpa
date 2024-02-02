@@ -157,7 +157,7 @@ namespace BudgetExecution
             _dataRange = _dataWorksheet.Cells[ 2, 1, 57, 11 ];
             _excelWorkbook.View.ShowHorizontalScrollBar = true;
             _excelWorkbook.View.ShowVerticalScrollBar = true;
-            InitializeWorkbookProperties( );
+            InitializeWorkbook( );
             InitializeActiveGrid( );
             InitializeSheetView( );
             InitializePrinterSettings( );
@@ -200,7 +200,7 @@ namespace BudgetExecution
             _dataWorksheet = _excelWorkbook.Worksheets[ 0 ];
             _excelWorkbook.View.ShowHorizontalScrollBar = true;
             _excelWorkbook.View.ShowVerticalScrollBar = true;
-            InitializeWorkbookProperties( );
+            InitializeWorkbook( );
             InitializeActiveGrid( );
             InitializeSheetView( );
             InitializePrinterSettings( );
@@ -247,7 +247,7 @@ namespace BudgetExecution
             _rowCount = dataTable.Rows.Count;
             _excelWorkbook.View.ShowHorizontalScrollBar = true;
             _excelWorkbook.View.ShowVerticalScrollBar = true;
-            InitializeWorkbookProperties( );
+            InitializeWorkbook( );
             InitializeActiveGrid( );
             InitializeSheetView( );
             InitializePrinterSettings( );
@@ -380,7 +380,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the workbook properties.
         /// </summary>
-        private void InitializeWorkbookProperties( )
+        private void InitializeWorkbook( )
         {
             try
             {

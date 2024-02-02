@@ -62,3 +62,5 @@ dkms.conf
 *.db
 Clients/WebBrower/net6.0-windows/runtimes/win-x64/native/libcef.dll
 .vs/Supercharger/BudgetExecution/codemap.dat
+*.accdb
+*.db
