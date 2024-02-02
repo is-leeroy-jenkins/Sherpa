@@ -348,7 +348,8 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="type">The type.</param>
         /// <returns>
-        ///   <c>true</c> if [is nullable type] [the specified type]; otherwise, <c>false</c>.
+        ///   <c>true</c> if [is nullable type]
+        /// [the specified type]; otherwise, <c>false</c>.
         /// </returns>
         private protected bool IsNullableType( Type type )
         {
@@ -367,9 +368,12 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Releases unmanaged and - optionally - managed resources.
+        /// Releases unmanaged and
+        /// - optionally - managed resources.
         /// </summary>
-        /// <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        /// <param name="disposing"><c>true</c> to release both
+        /// managed and unmanaged resources; <c>false</c>
+        /// to release only unmanaged resources.</param>
         private void Dispose( bool disposing )
         {
             try

@@ -144,7 +144,7 @@ namespace BudgetExecution
                     _dataWorksheet.PrinterSettings.FitToPage = true;
                     _dataWorksheet.HeaderFooter.AlignWithMargins = true;
                     _dataWorksheet.HeaderFooter.ScaleWithDocument = true;
-                    _dataWorksheet.HeaderFooter.OddHeader.CenteredText = 
+                    _dataWorksheet.HeaderFooter.FirstHeader.CenteredText =
                         _dataTable.TableName.SplitPascal( );
                 }
                 else

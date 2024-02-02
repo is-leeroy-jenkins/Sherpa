@@ -352,6 +352,9 @@ namespace BudgetExecution
                         (ExcelRange)_dataWorksheet.Cells[ "A2" ]
                             ?.LoadFromDataTable( _dataTable, true, TableStyles.Light1 );
 
+                    _dataWorksheet.HeaderFooter.OddHeader.CenteredText =
+                        _dataTable.TableName.SplitPascal( );
+
                     _dataRange.Style.Font.Name = "Roboto";
                     _dataRange.Style.Font.Size = 8;
                     _dataRange.Style.Font.Bold = false;
