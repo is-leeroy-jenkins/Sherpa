@@ -252,6 +252,11 @@ namespace BudgetExecution
         private protected DataTable _dataTable;
 
         /// <summary>
+        /// The data metric
+        /// </summary>
+        private protected DataMetric _dataMetric;
+
+        /// <summary>
         /// The internal path
         /// </summary>
         private protected string _internalPath;

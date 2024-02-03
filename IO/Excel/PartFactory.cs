@@ -41,6 +41,7 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Collections.Generic;
     using System.Data;
     using System.Drawing;
     using System.Diagnostics.CodeAnalysis;
@@ -64,16 +65,9 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "RedundantCheckBeforeAssignment" ) ]
     [ SuppressMessage( "ReSharper", "RedundantAssignment" ) ]
     [ SuppressMessage( "ReSharper", "ConvertSwitchStatementToSwitchExpression" ) ]
-    public class PartFactory : Workbook
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    public abstract class PartFactory : Workbook
     {
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="PartFactory"/> class.
-        /// </summary>
-        public PartFactory( )
-        {
-        }
-
         /// <summary>
         /// Creates the excel table.
         /// </summary>
@@ -160,25 +154,24 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="excelRange">The data range.</param>
         /// <param name="tableName">Name of the table.</param>
-        /// <param name="rowField"> </param>
-        /// <param name="dataField"> </param>
+        /// <param name="rows"> </param>
+        /// <param name="data"> </param>
         /// <returns>
         /// ExcelPivotTable
         /// </returns>
         private protected ExcelPivotTable CreatePivotTable( ExcelRange excelRange, string tableName, 
-            string rowField, string dataField )
+            IList<string> rows, IList<string> data )
         {
             try
             {
                 ThrowIf.Null( excelRange, nameof( excelRange ) );
                 ThrowIf.NullOrEmpty( tableName, nameof( tableName ) );
-                ThrowIf.NullOrEmpty( rowField, nameof( rowField ) );
-                ThrowIf.NullOrEmpty( dataField, nameof( dataField ) );
+                ThrowIf.NullOrEmpty( rows, nameof( rows ) );
+                ThrowIf.NullOrEmpty( data, nameof( data ) );
                 var _startRow = excelRange.Start.Row;
                 var _startColumn = excelRange.Start.Column;
                 var _endRow = excelRange.End.Row;
                 var _endColumn = excelRange.End.Column;
-                var _anchor = _pivotWorksheet.Cells[ _startRow, _startColumn ];
                 _pivotWorksheet = _excelWorkbook.Worksheets.Add( "Pivot" );
                 _pivotRange = _pivotWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
                 _pivotRange.Style.Font.Name = "Roboto";
@@ -189,13 +182,42 @@ namespace BudgetExecution
                 _pivotRange.Style.Font.Color.SetColor( _fontColor );
                 _pivotRange.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
                 _pivotRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
-                _pivotTable = _pivotWorksheet.PivotTables.Add( _anchor, excelRange, tableName );
-                _pivotTable.RowFields.Add( _pivotTable.Fields[ rowField ] );
-                var _dataField = _pivotTable.DataFields.Add( _pivotTable.Fields[ dataField ] );
-                _dataField.Format = "#,##0";
+                _pivotTable = _pivotWorksheet.PivotTables.Add( _pivotWorksheet.Cells[ "C2" ], 
+                    _excelTable, tableName );
+
+                for( var _i = 0; _i < rows.Count; _i++ )
+                {
+                    var _field = rows[ _i ];
+                    if( !string.IsNullOrEmpty( _field ) )
+                    {
+                        var _row = _pivotTable.Fields[ _field ];
+                        if( _row != null )
+                        {
+                            _pivotTable.RowFields.Add( _row );
+                        }
+                    }
+                }
+
+                for( var _i = 0; _i < data.Count; _i++ )
+                {
+                    var _item = data[ _i ];
+                    if( !string.IsNullOrEmpty( _item ) )
+                    {
+                        var _row = _pivotTable.Fields[ _item ];
+                        if( _row != null )
+                        {
+                            var _dataField = _pivotTable.DataFields.Add( _row );
+                            _dataField.Format = "#,##0";
+                        }
+                    }
+                }
+
                 _pivotTable.DataOnRows = true;
                 var _title = _dataTable.TableName.SplitPascal( ) ?? "Budget Execution";
                 _pivotWorksheet.HeaderFooter.OddHeader.CenteredText = _title;
+                _pivotTable.EnableDrill = true;
+                _pivotTable.ShowDrill = true;
+                _pivotTable.PivotTableStyle = PivotTableStyles.Light15;
                 return _pivotTable;
             }
             catch( Exception _ex )

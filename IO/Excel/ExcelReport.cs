@@ -239,6 +239,7 @@ namespace BudgetExecution
             _rowCount = dataTable.Rows.Count;
             _fileName = dataTable.TableName + ".xlsx";
             _savePath = AppSettings[ "Desktop" ] + dataTable.TableName + ".xlsx";
+            _dataMetric = new DataMetric( dataTable );
             _fileInfo = new FileInfo( _internalPath );
             _excelPackage = new ExcelPackage( _fileInfo );
             _excelPackage.Settings.TextSettings.PrimaryTextMeasurer = new TextSize( );
@@ -360,6 +361,9 @@ namespace BudgetExecution
                 else
                 {
                     _excelTable = CreateExcelTable( _dataTable );
+                    var _fields = _dataMetric?.Fields;
+                    var _numerics = _dataMetric?.Numerics;
+                    _pivotTable = CreatePivotTable( _dataRange, "PivotData", _fields, _numerics );
                 }
             }
             catch( Exception _ex )
