@@ -181,11 +181,21 @@ namespace BudgetExecution
                 var _anchor = _pivotWorksheet.Cells[ _startRow, _startColumn ];
                 _pivotWorksheet = _excelWorkbook.Worksheets.Add( "Pivot" );
                 _pivotRange = _pivotWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
+                _pivotRange.Style.Font.Name = "Roboto";
+                _pivotRange.Style.Font.Size = 8;
+                _pivotRange.Style.Font.Bold = false;
+                _pivotRange.Style.Font.Italic = false;
+                _pivotRange.EntireRow.CustomHeight = true;
+                _pivotRange.Style.Font.Color.SetColor( _fontColor );
+                _pivotRange.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                _pivotRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
                 _pivotTable = _pivotWorksheet.PivotTables.Add( _anchor, excelRange, tableName );
                 _pivotTable.RowFields.Add( _pivotTable.Fields[ rowField ] );
                 var _dataField = _pivotTable.DataFields.Add( _pivotTable.Fields[ dataField ] );
                 _dataField.Format = "#,##0";
                 _pivotTable.DataOnRows = true;
+                var _title = _dataTable.TableName.SplitPascal( ) ?? "Budget Execution";
+                _pivotWorksheet.HeaderFooter.OddHeader.CenteredText = _title;
                 return _pivotTable;
             }
             catch( Exception _ex )
