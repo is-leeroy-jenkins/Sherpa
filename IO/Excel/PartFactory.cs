@@ -85,6 +85,8 @@ namespace BudgetExecution
                 _dataRange = (ExcelRange)_dataWorksheet.Cells[ "A2" ]
                     ?.LoadFromDataTable( dataTable, true, TableStyles.Light1 );
 
+                var _title = _dataTable.TableName.SplitPascal( ) ?? "Budget Execution";
+                _dataWorksheet.HeaderFooter.OddHeader.CenteredText = _title;
                 _dataRange.Style.Font.Name = "Roboto";
                 _dataRange.Style.Font.Size = 8;
                 _dataRange.Style.Font.Bold = false;
@@ -96,6 +98,7 @@ namespace BudgetExecution
                 _excelTable = _dataWorksheet.Tables.GetFromRange( _dataRange );
                 _excelTable.TableStyle = TableStyles.Light1;
                 _excelTable.ShowHeader = true;
+                _excelTable.Columns.Delete( 0, 1 );
                 FormatFooter( _dataRange );
                 return _excelTable;
             }
@@ -268,6 +271,130 @@ namespace BudgetExecution
 
                 Fail( _ex );
                 return default( ExcelPieChart );
+            }
+        }
+
+        /// <summary>
+        /// Creates the bar chart.
+        /// </summary>
+        /// <param name="excelRange">The excel range.</param>
+        /// <param name="chartName">Name of the chart.</param>
+        /// <param name="row">The row.</param>
+        /// <param name="column">The column.</param>
+        /// <returns></returns>
+        private protected ExcelBarChart CreateBarChart( ExcelRange excelRange, string chartName,
+            string row, string column )
+        {
+            try
+            {
+                ThrowIf.Null( excelRange, nameof( excelRange ) );
+                ThrowIf.NullOrEmpty( chartName, nameof( chartName ) );
+                ThrowIf.NullOrEmpty( row, nameof( row ) );
+                ThrowIf.NullOrEmpty( column, nameof( column ) );
+                var _startRow = excelRange.Start.Row;
+                var _startColumn = excelRange.Start.Column;
+                var _endRow = excelRange.End.Row;
+                var _endColumn = excelRange.End.Column;
+                var _anchor = _pivotWorksheet.Cells[ _startRow, _startColumn ];
+                _chartWorksheet = _excelWorkbook.Worksheets.Add( "Chart" );
+                _chartRange = _chartWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
+                _pivotTable = _chartWorksheet.PivotTables.Add( _anchor, _chartRange, chartName );
+                _pivotTable.RowFields.Add( _pivotTable.Fields[ row ] );
+                var _dataField = _pivotTable.DataFields.Add( _pivotTable.Fields[ column ] );
+                _dataField.Format = "#,##0";
+                _pivotTable.DataOnRows = true;
+                _barChart = _chartWorksheet.Drawings
+                    ?.AddBarChart( "Chart", eBarChartType.BarClustered3D, _pivotTable );
+
+                _barChart.SetPosition( 1, 0, 4, 0 );
+                _barChart.SetSize( 800, 600 );
+                _barChart.Legend.Remove( );
+                _barChart.Series[ 0 ].DataLabel.ShowCategory = true;
+                _barChart.Series[ 0 ].DataLabel.Position = eLabelPosition.OutEnd;
+                _barChart.StyleManager.SetChartStyle( ePresetChartStyle.BarChartStyle1 );
+                return _barChart;
+            }
+            catch( Exception _ex )
+            {
+                if( _chartWorksheet != null )
+                {
+                    _chartWorksheet = null;
+                }
+
+                if( _pivotTable != null )
+                {
+                    _pivotTable = null;
+                }
+
+                if( _chartRange != null )
+                {
+                    _chartRange = null;
+                }
+
+                Fail( _ex );
+                return default( ExcelBarChart );
+            }
+        }
+
+        /// <summary>
+        /// Creates the area chart.
+        /// </summary>
+        /// <param name="excelRange">The excel range.</param>
+        /// <param name="chartName">Name of the chart.</param>
+        /// <param name="row">The row.</param>
+        /// <param name="column">The column.</param>
+        /// <returns></returns>
+        private protected ExcelAreaChart CreateAreaChart( ExcelRange excelRange, string chartName,
+            string row, string column )
+        {
+            try
+            {
+                ThrowIf.Null( excelRange, nameof( excelRange ) );
+                ThrowIf.NullOrEmpty( chartName, nameof( chartName ) );
+                ThrowIf.NullOrEmpty( row, nameof( row ) );
+                ThrowIf.NullOrEmpty( column, nameof( column ) );
+                var _startRow = excelRange.Start.Row;
+                var _startColumn = excelRange.Start.Column;
+                var _endRow = excelRange.End.Row;
+                var _endColumn = excelRange.End.Column;
+                var _anchor = _pivotWorksheet.Cells[ _startRow, _startColumn ];
+                _chartWorksheet = _excelWorkbook.Worksheets.Add( "Chart" );
+                _chartRange = _chartWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
+                _pivotTable = _chartWorksheet.PivotTables.Add( _anchor, _chartRange, chartName );
+                _pivotTable.RowFields.Add( _pivotTable.Fields[ row ] );
+                var _dataField = _pivotTable.DataFields.Add( _pivotTable.Fields[ column ] );
+                _dataField.Format = "#,##0";
+                _pivotTable.DataOnRows = true;
+                _areaChart = _chartWorksheet.Drawings
+                    ?.AddAreaChart( "Chart", eAreaChartType.AreaStacked3D, _pivotTable );
+
+                _areaChart.SetPosition( 1, 0, 4, 0 );
+                _areaChart.SetSize( 800, 600 );
+                _areaChart.Legend.Remove( );
+                _areaChart.Series[ 0 ].DataLabel.ShowCategory = true;
+                _areaChart.Series[ 0 ].DataLabel.Position = eLabelPosition.OutEnd;
+                _areaChart.StyleManager.SetChartStyle( ePresetChartStyle.Area3dChartStyle1 );
+                return _areaChart;
+            }
+            catch( Exception _ex )
+            {
+                if( _chartWorksheet != null )
+                {
+                    _chartWorksheet = null;
+                }
+
+                if( _pivotTable != null )
+                {
+                    _pivotTable = null;
+                }
+
+                if( _chartRange != null )
+                {
+                    _chartRange = null;
+                }
+
+                Fail( _ex );
+                return default( ExcelAreaChart );
             }
         }
 

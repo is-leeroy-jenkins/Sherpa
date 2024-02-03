@@ -34,7 +34,7 @@
 //    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   ExcelConfig.cs
+//   SheetConfig.cs
 // </summary>
 // ******************************************************************************************
 
@@ -45,7 +45,6 @@ namespace BudgetExecution
     using System.Data;
     using System.Data.OleDb;
     using System.Diagnostics.CodeAnalysis;
-    using System.Drawing;
     using System.IO;
     using OfficeOpenXml;
     using OfficeOpenXml.Style;
@@ -64,7 +63,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "RedundantCheckBeforeAssignment" ) ]
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     [ SuppressMessage( "ReSharper", "ParameterTypeCanBeEnumerable.Global" ) ]
-    public abstract class ExcelConfig : BasicReport
+    public abstract class SheetConfig : BasicReport
     {
         /// <summary>
         /// Gets or sets the data connection.

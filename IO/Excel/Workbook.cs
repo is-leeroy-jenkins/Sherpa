@@ -57,7 +57,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "RedundantCheckBeforeAssignment" ) ]
-    public abstract class Workbook : ExcelConfig
+    public abstract class Workbook : SheetConfig
     {
         /// <summary>
         /// Gets or sets the color of the font.
@@ -190,7 +190,7 @@ namespace BudgetExecution
                 ThrowIf.Null( labels, nameof( labels ) );
                 var _header = excelRange.Start.Row - 1;
                 var _startColumn = excelRange.Start.Column;
-                var _endRow = excelRange.End.Row - 1;
+                var _endRow = excelRange.Start.Row - 1;
                 var _endColumn = excelRange.End.Column;
                 _headerRange = _dataWorksheet.Cells[ _header, _startColumn, _endRow, _endColumn ];
                 foreach( var _item in labels )

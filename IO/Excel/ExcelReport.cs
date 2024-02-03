@@ -53,7 +53,7 @@ namespace BudgetExecution
 
     /// <inheritdoc/>
     /// <summary> </summary>
-    /// <seealso cref="T:BudgetExecution.ExcelConfig"/>
+    /// <seealso cref="T:BudgetExecution.SheetConfig"/>
     [ SuppressMessage( "ReSharper", "MergeIntoPattern" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
@@ -65,7 +65,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "RedundantCheckBeforeAssignment" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
-    public class ExcelReport : Workbook
+    public class ExcelReport : PartFactory
     {
         /// <summary>
         /// Gets or sets the height of the row.
@@ -142,10 +142,10 @@ namespace BudgetExecution
             _headerMargin = 0.4m;
             _footerMargin = 0.4m;
             _zoomLevel = 100;
-            _rowCount = 55;
-            _columnCount = 11;
             _primaryBackColor = Color.White;
             _secondaryBackColor = Color.FromArgb( 220, 220, 220 );
+            _rowCount = 55;
+            _columnCount = 11;
             _internalPath = AppSettings[ "Reports" ];
             _savePath = AppSettings[ "Desktop" ] + _fileName;
             _fileInfo = new FileInfo( _internalPath );
@@ -235,6 +235,8 @@ namespace BudgetExecution
             _secondaryBackColor = Color.FromArgb( 220, 220, 220 );
             _internalPath = AppSettings[ "Reports" ];
             _dataTable = dataTable;
+            _columnCount = dataTable.Columns.Count;
+            _rowCount = dataTable.Rows.Count;
             _fileName = dataTable.TableName + ".xlsx";
             _savePath = AppSettings[ "Desktop" ] + dataTable.TableName + ".xlsx";
             _fileInfo = new FileInfo( _internalPath );
@@ -243,8 +245,6 @@ namespace BudgetExecution
             _excelPackage.Settings.TextSettings.AutofitScaleFactor = 0.8f;
             _excelWorkbook = _excelPackage.Workbook;
             _dataWorksheet = _excelWorkbook.Worksheets.Add( "Data" );
-            _columnCount = dataTable.Columns.Count;
-            _rowCount = dataTable.Rows.Count;
             _excelWorkbook.View.ShowHorizontalScrollBar = true;
             _excelWorkbook.View.ShowVerticalScrollBar = true;
             InitializeWorkbook( );
@@ -312,11 +312,11 @@ namespace BudgetExecution
                 _dataWorksheet.HeaderFooter.OddFooter.RightAlignedText =
                     "Records:" + '\t' 
                     + "  " 
-                    + _rows.PadLeft( 10 )
+                    + _rows.PadLeft( 16 )
                     + Environment.NewLine
                     + "Columns:" + '\t' 
                     + "  " 
-                    + _cols.PadLeft( 10 );
+                    + _cols.PadLeft( 19 );
                 
                 _dataWorksheet.HeaderFooter.OddFooter.CenteredText =
                     "Page" + '\r' + '\n' +
@@ -359,24 +359,7 @@ namespace BudgetExecution
                 }
                 else
                 {
-                    _dataRange = 
-                        (ExcelRange)_dataWorksheet.Cells[ "A2" ]
-                            ?.LoadFromDataTable( _dataTable, true, TableStyles.Light1 );
-
-                    var _title = _dataTable.TableName.SplitPascal( ) ?? "Budget Execution";
-                    _dataWorksheet.HeaderFooter.OddHeader.CenteredText = _title;
-                    _dataRange.Style.Font.Name = "Roboto";
-                    _dataRange.Style.Font.Size = 8;
-                    _dataRange.Style.Font.Bold = false;
-                    _dataRange.Style.Font.Italic = false;
-                    _dataRange.EntireRow.CustomHeight = true;
-                    _dataRange.Style.Font.Color.SetColor( _fontColor );
-                    _dataRange.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                    _dataRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
-                    _excelTable = _dataWorksheet.Tables.GetFromRange( _dataRange );
-                    _excelTable.TableStyle = TableStyles.Light1;
-                    _excelTable.ShowHeader = true;
-                    FormatFooter( _dataRange );
+                    _excelTable = CreateExcelTable( _dataTable );
                 }
             }
             catch( Exception _ex )

@@ -57,7 +57,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
@@ -385,6 +385,8 @@ namespace BudgetExecution
                 _dataAdapter?.Dispose( );
                 _excelTable = null;
                 _dataWorksheet?.Dispose( );
+                _chartWorksheet?.Dispose( );
+                _pivotWorksheet?.Dispose( );
                 _excelWorkbook?.Dispose( );
                 _excelPackage?.Dispose( );
                 if( _fileInfo != null )
