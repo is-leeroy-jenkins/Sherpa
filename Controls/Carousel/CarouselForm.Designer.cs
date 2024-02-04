@@ -78,7 +78,7 @@
             ImageList.FilePaths = null;
             ImageList.HoverText = null;
             ImageList.Image = null;
-            ImageList.ImageSource = ImageDirectory.Ns;
+            ImageList.ImageSource = ImageDirectory.Empty;
             ImageList.ToolTip = null;
             // 
             // Header

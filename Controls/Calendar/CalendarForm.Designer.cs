@@ -572,7 +572,7 @@ namespace BudgetExecution
             CloseButton.Size = new System.Drawing.Size( 23, 25 );
             CloseButton.Text = "toolStripButton2";
             CloseButton.ToolTip = ToolTip;
-            CloseButton.ToolType = ToolType.Ns;
+            CloseButton.ToolType = ToolType.NS;
             // 
             // BrowseButton
             // 
@@ -593,7 +593,7 @@ namespace BudgetExecution
             BrowseButton.Size = new System.Drawing.Size( 23, 25 );
             BrowseButton.Text = "toolStripButton1";
             BrowseButton.ToolTip = null;
-            BrowseButton.ToolType = ToolType.Ns;
+            BrowseButton.ToolType = ToolType.NS;
             // 
             // BrowseSeparator
             // 
@@ -676,7 +676,7 @@ namespace BudgetExecution
             RefreshButton.Size = new System.Drawing.Size( 23, 25 );
             RefreshButton.Text = "toolStripButton1";
             RefreshButton.ToolTip = ToolTip;
-            RefreshButton.ToolType = ToolType.Ns;
+            RefreshButton.ToolType = ToolType.NS;
             // 
             // NavigationSeparator
             // 
@@ -713,7 +713,7 @@ namespace BudgetExecution
             TableButton.Size = new System.Drawing.Size( 23, 25 );
             TableButton.Text = "toolStripButton1";
             TableButton.ToolTip = ToolTip;
-            TableButton.ToolType = ToolType.Ns;
+            TableButton.ToolType = ToolType.NS;
             // 
             // Separator8
             // 
@@ -751,7 +751,7 @@ namespace BudgetExecution
             ChartButton.Size = new System.Drawing.Size( 23, 25 );
             ChartButton.Text = "toolStripButton2";
             ChartButton.ToolTip = ToolTip;
-            ChartButton.ToolType = ToolType.Ns;
+            ChartButton.ToolType = ToolType.NS;
             // 
             // ChartSeparator
             // 

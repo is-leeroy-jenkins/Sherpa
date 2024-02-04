@@ -42,49 +42,79 @@ namespace BudgetExecution
 {
     using System;
 
-    /// <summary> Defines the NPM </summary>
+    /// <summary>
+    /// 
+    /// </summary>
     public enum NPM
     {
-        /// <summary> Defines the NoData </summary>
-        Ns = 0,
+        /// <summary>
+        /// The empty
+        /// </summary>
+        Empty = 0,
 
-        /// <summary> Defines the A </summary>
+        /// <summary>
+        /// a
+        /// </summary>
         A,
 
-        /// <summary> Defines the B </summary>
+        /// <summary>
+        /// The b
+        /// </summary>
         B,
 
-        /// <summary> Defines the C </summary>
+        /// <summary>
+        /// The c
+        /// </summary>
         C,
 
-        /// <summary> Defines the D </summary>
+        /// <summary>
+        /// The d
+        /// </summary>
         D,
 
-        /// <summary> Defines the E </summary>
+        /// <summary>
+        /// The e
+        /// </summary>
         E,
 
-        /// <summary> Defines the F </summary>
+        /// <summary>
+        /// The f
+        /// </summary>
         F,
 
-        /// <summary> Defines the G </summary>
+        /// <summary>
+        /// The g
+        /// </summary>
         G,
 
-        /// <summary> Defines the H </summary>
+        /// <summary>
+        /// The h
+        /// </summary>
         H,
 
-        /// <summary> Defines the J </summary>
+        /// <summary>
+        /// The j
+        /// </summary>
         J,
 
-        /// <summary> Defines the L </summary>
+        /// <summary>
+        /// The l
+        /// </summary>
         L,
 
-        /// <summary> Defines the M </summary>
+        /// <summary>
+        /// The m
+        /// </summary>
         M,
 
-        /// <summary> The w </summary>
+        /// <summary>
+        /// The w
+        /// </summary>
         W,
 
-        /// <summary> Defines the Y </summary>
+        /// <summary>
+        /// The y
+        /// </summary>
         Y
     }
 }

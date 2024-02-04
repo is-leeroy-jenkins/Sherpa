@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 04-22-2023
+//     Created:                 2-3-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        2-3-2024
 // ******************************************************************************************
-// <copyright file="BudgetWorkbook.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+// <copyright file="ExcelReport.cs" company="Terry D. Eppler">
+//    Budget Execution is a Federal Budget, Finance, and Accounting application
+//    for analysts with the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -31,11 +31,10 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
-//
+//    Contact at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   BudgetWorkbook.cs
+//   ExcelReport.cs
 // </summary>
 // ******************************************************************************************
 
@@ -48,7 +47,6 @@ namespace BudgetExecution
     using System.IO;
     using OfficeOpenXml;
     using OfficeOpenXml.Style;
-    using OfficeOpenXml.Table;
     using static System.Configuration.ConfigurationManager;
 
     /// <inheritdoc/>
@@ -79,7 +77,7 @@ namespace BudgetExecution
             {
                 return _rowHeight;
             }
-            
+
             private protected set
             {
                 _rowHeight = value;
@@ -98,7 +96,7 @@ namespace BudgetExecution
             {
                 return _columnWidth;
             }
-            
+
             private protected set
             {
                 _columnWidth = value;
@@ -112,9 +110,9 @@ namespace BudgetExecution
         {
             get
             {
-                return _internalPath; 
+                return _internalPath;
             }
-            
+
             private protected set
             {
                 _internalPath = value;
@@ -170,7 +168,7 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.BudgetWorkbook" /> class.
         /// </summary>
         /// <param name="filePath">The file path.</param>
-        public ExcelReport( string filePath ) 
+        public ExcelReport( string filePath )
             : this( )
         {
             _rowIndex = 2;
@@ -216,7 +214,7 @@ namespace BudgetExecution
         /// <param name="dataTable">
         /// The data table.
         /// </param>
-        public ExcelReport( DataTable dataTable ) 
+        public ExcelReport( DataTable dataTable )
         {
             _rowIndex = 2;
             _fontColor = Color.Black;
@@ -291,7 +289,7 @@ namespace BudgetExecution
                     _excelWorkbook.Worksheets[ _i ].PrinterSettings.FooterMargin = _footerMargin;
                     _excelWorkbook.Worksheets[ _i ].PrinterSettings.TopMargin = _topMargin;
                     _excelWorkbook.Worksheets[ _i ].PrinterSettings.BottomMargin = _bottomMargin;
-                    _excelWorkbook.Worksheets[ _i ].PrinterSettings.Orientation = 
+                    _excelWorkbook.Worksheets[ _i ].PrinterSettings.Orientation =
                         eOrientation.Landscape;
                 }
             }
@@ -311,14 +309,14 @@ namespace BudgetExecution
                 var _rows = _dataTable.Rows.Count.ToString( "N0" );
                 var _cols = _dataTable.Columns.Count.ToString( );
                 _dataWorksheet.HeaderFooter.OddFooter.RightAlignedText =
-                    "Records:" + '\t' 
-                    + "  " 
+                    "Records:" + '\t'
+                    + "  "
                     + _rows.PadLeft( 16 )
                     + Environment.NewLine
-                    + "Columns:" + '\t' 
-                    + "  " 
+                    + "Columns:" + '\t'
+                    + "  "
                     + _cols.PadLeft( 19 );
-                
+
                 _dataWorksheet.HeaderFooter.OddFooter.CenteredText =
                     "Page" + '\r' + '\n' +
                     ExcelHeaderFooter.PageNumber
@@ -326,8 +324,8 @@ namespace BudgetExecution
                     + ExcelHeaderFooter.NumberOfPages;
 
                 _dataWorksheet.HeaderFooter.OddFooter.LeftAlignedText =
-                    "Data as of:" 
-                    + Environment.NewLine 
+                    "Data as of:"
+                    + Environment.NewLine
                     + DateTime.Today.ToLongDateString( );
             }
             catch( Exception _ex )

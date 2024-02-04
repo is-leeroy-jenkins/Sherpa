@@ -464,7 +464,7 @@
             PreviousButton.Size = new System.Drawing.Size( 23, 25 );
             PreviousButton.Text = "toolStripButton2";
             PreviousButton.ToolTip = null;
-            PreviousButton.ToolType = ToolType.Ns;
+            PreviousButton.ToolType = ToolType.NS;
             // 
             // PreviousSeparator
             // 
@@ -522,7 +522,7 @@
             LastButton.Size = new System.Drawing.Size( 23, 25 );
             LastButton.Text = "toolStripButton1";
             LastButton.ToolTip = null;
-            LastButton.ToolType = ToolType.Ns;
+            LastButton.ToolType = ToolType.NS;
             // 
             // CommandLabelSeparator
             // 

@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 1-28-2024
+//     Created:                 2-3-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        1-28-2024
+//     Last Modified On:        2-3-2024
 // ******************************************************************************************
 // <copyright file="PartFactory.cs" company="Terry D. Eppler">
 //    Budget Execution is a Federal Budget, Finance, and Accounting application
@@ -118,7 +118,7 @@ namespace BudgetExecution
         /// <returns>
         /// DataTable
         /// </returns>
-        private protected DataTable CreateDataTable( int startRow, int startColumn, 
+        private protected DataTable CreateDataTable( int startRow, int startColumn,
             int endRow, int endColumn )
         {
             try
@@ -159,8 +159,8 @@ namespace BudgetExecution
         /// <returns>
         /// ExcelPivotTable
         /// </returns>
-        private protected ExcelPivotTable CreatePivotTable( ExcelRange excelRange, string tableName, 
-            IList<string> rows, IList<string> data )
+        private protected ExcelPivotTable CreatePivotTable( ExcelRange excelRange,
+            string tableName, IList<string> rows, IList<string> data )
         {
             try
             {
@@ -182,7 +182,7 @@ namespace BudgetExecution
                 _pivotRange.Style.Font.Color.SetColor( _fontColor );
                 _pivotRange.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
                 _pivotRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
-                _pivotTable = _pivotWorksheet.PivotTables.Add( _pivotWorksheet.Cells[ "C2" ], 
+                _pivotTable = _pivotWorksheet.PivotTables.Add( _pivotWorksheet.Cells[ "C2" ],
                     _excelTable, tableName );
 
                 for( var _i = 0; _i < rows.Count; _i++ )

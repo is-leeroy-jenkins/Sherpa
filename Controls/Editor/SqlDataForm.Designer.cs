@@ -2266,7 +2266,7 @@ namespace BudgetExecution
             ClientButton.Size = new System.Drawing.Size( 30, 25 );
             ClientButton.Text = "toolStripButton1";
             ClientButton.ToolTip = ToolTip;
-            ClientButton.ToolType = ToolType.Ns;
+            ClientButton.ToolType = ToolType.NS;
             // 
             // ClientSeparator
             // 

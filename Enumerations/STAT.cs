@@ -42,25 +42,39 @@ namespace BudgetExecution
 {
     using System;
 
-    /// <summary> Defines the STAT </summary>
+    /// <summary>
+    /// 
+    /// </summary>
     public enum STAT
     {
-        /// <summary> Defines the Total </summary>
+        /// <summary>
+        /// The total
+        /// </summary>
         Total = 1,
 
-        /// <summary> Defines the Count </summary>
+        /// <summary>
+        /// The count
+        /// </summary>
         Count = 2,
 
-        /// <summary> Defines the Average </summary>
+        /// <summary>
+        /// The average
+        /// </summary>
         Average = 3,
 
-        /// <summary> Defines the Percentage </summary>
+        /// <summary>
+        /// The percentage
+        /// </summary>
         Percentage = 4,
 
-        /// <summary> The standard deviation </summary>
+        /// <summary>
+        /// The deviation
+        /// </summary>
         Deviation = 5,
 
-        /// <summary> The variance </summary>
+        /// <summary>
+        /// The variance
+        /// </summary>
         Variance = 6
     }
 }

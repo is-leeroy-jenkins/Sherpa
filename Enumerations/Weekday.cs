@@ -1,15 +1,15 @@
-﻿// ************************************************************************************************
+﻿// ******************************************************************************************
 //     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:              27-10-2023
+//     Created:                 2-3-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        27-10-2023
-// ************************************************************************************************
-// <copyright file="Weekday.cs.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//     Last Modified On:        2-3-2024
+// ******************************************************************************************
+// <copyright file="Weekday.cs" company="Terry D. Eppler">
+//    Budget Execution is a Federal Budget, Finance, and Accounting application
+//    for analysts with the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -31,41 +31,45 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    Contact at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   Eppler, Terry.cs
+//   Weekday.cs
 // </summary>
-// ************************************************************************************************
+// ******************************************************************************************
+
 namespace BudgetExecution
 {
+    using System.Diagnostics.CodeAnalysis;
+
     /// <summary>
     /// 
     /// </summary>
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public enum Weekday
     {
         /// <summary>
-        /// 
+        /// The monday
         /// </summary>
         Monday,
-        
+
         /// <summary>
-        /// 
+        /// The tuesday
         /// </summary>
-        Tuesday, 
-        
+        Tuesday,
+
         /// <summary>
-        /// 
+        /// The wednesday
         /// </summary>
         Wednesday,
-        
+
         /// <summary>
-        /// 
+        /// The thursday
         /// </summary>
         Thursday,
-        
+
         /// <summary>
-        /// 
+        /// The friday
         /// </summary>
         Friday
     }

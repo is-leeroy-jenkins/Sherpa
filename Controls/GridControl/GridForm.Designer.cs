@@ -205,7 +205,7 @@
             CloseButton.Padding = new System.Windows.Forms.Padding( 1 );
             CloseButton.Size = new System.Drawing.Size( 23, 25 );
             CloseButton.ToolTip = ToolTip;
-            CloseButton.ToolType = ToolType.Ns;
+            CloseButton.ToolType = ToolType.NS;
             // 
             // ToolTip
             // 

@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 2-3-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        2-3-2024
 // ******************************************************************************************
 // <copyright file="Status.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//    Budget Execution is a Federal Budget, Finance, and Accounting application
+//    for analysts with the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -31,7 +31,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//    Contact at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   Status.cs
@@ -42,16 +42,24 @@ namespace BudgetExecution
 {
     using System;
 
-    /// <summary> </summary>
+    /// <summary>
+    /// 
+    /// </summary>
     public enum Status
     {
-        /// <summary> The loading </summary>
+        /// <summary>
+        /// The loading
+        /// </summary>
         Loading = 1,
 
-        /// <summary> The processing </summary>
+        /// <summary>
+        /// The processing
+        /// </summary>
         Processing = 2,
 
-        /// <summary> The waiting </summary>
+        /// <summary>
+        /// The waiting
+        /// </summary>
         Waiting = 3
     }
 }

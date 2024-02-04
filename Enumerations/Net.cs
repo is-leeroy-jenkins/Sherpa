@@ -41,17 +41,27 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
 
-    /// <summary> Defines the Net enumeration </summary>
+    /// <summary>
+    /// 
+    /// </summary>
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public enum NET
     {
-        /// <summary> Defines the Zero </summary>
+        /// <summary>
+        /// The zero
+        /// </summary>
         Zero = 1,
 
-        /// <summary> Defines the Increase </summary>
+        /// <summary>
+        /// The increase
+        /// </summary>
         Increase = 2,
 
-        /// <summary> Defines the Decrease </summary>
+        /// <summary>
+        /// The decrease
+        /// </summary>
         Decrease = 3
     }
 }

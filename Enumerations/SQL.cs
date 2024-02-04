@@ -43,38 +43,60 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
 
-    /// <summary> </summary>
-    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    [SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     public enum SQL
     {
-        /// <summary> The select </summary>
+        /// <summary>
+        /// The select
+        /// </summary>
         SELECT,
 
-        /// <summary> The selectall </summary>
+        /// <summary>
+        /// The selectall
+        /// </summary>
         SELECTALL,
 
-        /// <summary> The insert </summary>
+        /// <summary>
+        /// The insert
+        /// </summary>
         INSERT,
 
-        /// <summary> The update </summary>
+        /// <summary>
+        /// The update
+        /// </summary>
         UPDATE,
 
-        /// <summary> The delete </summary>
+        /// <summary>
+        /// The delete
+        /// </summary>
         DELETE,
 
-        /// <summary> The createdatabase </summary>
+        /// <summary>
+        /// The createdatabase
+        /// </summary>
         CREATEDATABASE,
 
-        /// <summary> The createtable </summary>
+        /// <summary>
+        /// The createtable
+        /// </summary>
         CREATETABLE,
 
-        /// <summary> The createview </summary>
+        /// <summary>
+        /// The createview
+        /// </summary>
         CREATEVIEW,
 
-        /// <summary> The drop </summary>
+        /// <summary>
+        /// The drop
+        /// </summary>
         DROP,
 
-        /// <summary> The altertable </summary>
+        /// <summary>
+        /// The altertable
+        /// </summary>
         ALTERTABLE
     }
 }

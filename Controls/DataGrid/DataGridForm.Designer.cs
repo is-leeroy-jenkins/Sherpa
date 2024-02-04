@@ -1717,7 +1717,7 @@
             PreviousButton.Size = new System.Drawing.Size( 23, 25 );
             PreviousButton.Text = "toolStripButton2";
             PreviousButton.ToolTip = ToolTip;
-            PreviousButton.ToolType = ToolType.Ns;
+            PreviousButton.ToolType = ToolType.NS;
             // 
             // PreviousSeparator
             // 

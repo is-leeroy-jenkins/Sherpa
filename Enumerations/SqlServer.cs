@@ -51,6 +51,7 @@ namespace BudgetExecution
     /// </summary>
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public enum SqlServer
     {
         /// <summary>

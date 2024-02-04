@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 2-3-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        2-3-2024
 // ******************************************************************************************
-// <copyright file="ImageDirectory.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+// <copyright file="ColorScheme.cs" company="Terry D. Eppler">
+//    Budget Execution is a Federal Budget, Finance, and Accounting application
+//    for analysts with the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -31,155 +31,140 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//    Contact at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   ImageDirectory.cs
+//   ColorScheme.cs
 // </summary>
 // ******************************************************************************************
 
 namespace BudgetExecution
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
+    using System.Drawing;
 
     /// <summary>
     /// 
     /// </summary>
-    public enum ImageDirectory
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    public abstract class ColorScheme
     {
         /// <summary>
-        /// The ns
+        /// The dark green
         /// </summary>
-        Empty = 0,
+        private protected Color _darkGreen;
 
         /// <summary>
-        /// The badger images
+        /// The light green
         /// </summary>
-        BadgerImages,
+        private protected Color _lightGreen;
 
         /// <summary>
-        /// The closebox images
+        /// The blue
         /// </summary>
-        CloseboxImages,
+        private protected Color _blue;
 
         /// <summary>
-        /// The data images
+        /// The red
         /// </summary>
-        DataImages,
+        private protected Color _red;
 
         /// <summary>
-        /// The database images
+        /// The gray
         /// </summary>
-        DatabaseImages,
+        private protected Color _gray;
 
         /// <summary>
-        /// The dialog images
+        /// The white
         /// </summary>
-        DialogImages,
+        private protected Color _white;
 
         /// <summary>
-        /// The division images
+        /// The black
         /// </summary>
-        DivisionImages,
+        private protected Color _black;
 
         /// <summary>
-        /// The email images
+        /// The transparent
         /// </summary>
-        EmailImages,
+        private protected Color _transparent;
 
         /// <summary>
-        /// The employee images
+        /// The hover gray
         /// </summary>
-        EmployeeImages,
+        private protected Color _hoverGray;
 
         /// <summary>
-        /// The epa images
+        /// The hover blue
         /// </summary>
-        EpaImages,
+        private protected Color _hoverBlue;
 
         /// <summary>
-        /// The extension images
+        /// The steel blue
         /// </summary>
-        ExtensionImages,
+        private protected Color _steelBlue;
 
         /// <summary>
-        /// The file images
+        /// The maroon
         /// </summary>
-        FileImages,
+        private protected Color _maroon;
 
         /// <summary>
-        /// The filter images
+        /// The light blue
         /// </summary>
-        FilterImages,
+        private protected Color _lightBlue;
 
         /// <summary>
-        /// The folder images
+        /// The dark interior
         /// </summary>
-        FolderImages,
+        private protected Color _darkInterior;
 
         /// <summary>
-        /// The fund images
+        /// The dark border
         /// </summary>
-        FundImages,
+        private protected Color _darkBorder;
 
         /// <summary>
-        /// The identification images
+        /// The dark background
         /// </summary>
-        IdentificationImages,
+        private protected Color _darkBackground;
 
         /// <summary>
-        /// The interface images
+        /// The hover dark blue
         /// </summary>
-        InterfaceImages,
+        private protected Color _hoverDarkBlue;
 
         /// <summary>
-        /// The loader images
+        /// The dodger blue
         /// </summary>
-        LoaderImages,
+        private protected Color _dodgerBlue;
 
         /// <summary>
-        /// The math images
+        /// The metro blue
         /// </summary>
-        MathImages,
+        private protected Color _metroBlue;
 
         /// <summary>
-        /// The navigation images
+        /// The blue highlight
         /// </summary>
-        NavigationImages,
+        private protected Color _blueHighlight;
 
         /// <summary>
-        /// The ninja images
+        /// The notification color
         /// </summary>
-        NinjaImages,
+        private protected Color _notificationColor;
 
         /// <summary>
-        /// The notification images
+        /// Fails the specified ex.
         /// </summary>
-        NotificationImages,
-
-        /// <summary>
-        /// The object class images
-        /// </summary>
-        ObjectClassImages,
-
-        /// <summary>
-        /// The office images
-        /// </summary>
-        OfficeImages,
-
-        /// <summary>
-        /// The obligation images
-        /// </summary>
-        ObligationImages,
-
-        /// <summary>
-        /// The provider images
-        /// </summary>
-        ProviderImages,
-
-        /// <summary>
-        /// The tool strip images
-        /// </summary>
-        ToolStripImages
+        /// <param name="ex">The ex.</param>
+        private protected void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
+        }
     }
 }
