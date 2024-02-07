@@ -102,6 +102,7 @@
             TableListBoxLayout = new BackPanel( );
             TableListBox = new ListBox( );
             Timer = new System.Windows.Forms.Timer( components );
+            PivotGrid = new Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl( components );
             HeaderTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
             ToolStripTable.SuspendLayout( );
@@ -113,6 +114,7 @@
             TabControl.SuspendLayout( );
             PivotTab.SuspendLayout( );
             AreaTable.SuspendLayout( );
+            PivotPanel.SuspendLayout( );
             ChartSubTablePanel.SuspendLayout( );
             ChartSubTable.SuspendLayout( );
             MetricsTable.SuspendLayout( );
@@ -839,6 +841,7 @@
             PivotPanel.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
             PivotPanel.BorderThickness = 1;
             PivotPanel.Children = null;
+            PivotPanel.Controls.Add( PivotGrid );
             PivotPanel.DataFilter = null;
             PivotPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             PivotPanel.Font = new System.Drawing.Font( "Roboto", 8F );
@@ -1468,6 +1471,20 @@
             Timer.Enabled = true;
             Timer.Interval = 500;
             // 
+            // PivotGrid
+            // 
+            PivotGrid.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            PivotGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            PivotGrid.EditManager = null;
+            PivotGrid.GridVisualStyles = Syncfusion.Windows.Forms.GridVisualStyles.Office2016Black;
+            PivotGrid.Location = new System.Drawing.Point( 1, 1 );
+            PivotGrid.Name = "PivotGrid";
+            PivotGrid.Size = new System.Drawing.Size( 1020, 470 );
+            PivotGrid.TabIndex = 0;
+            PivotGrid.Text = "pivotGridControl1";
+            PivotGrid.ThemeName = "Office2016Black";
+            PivotGrid.UpdateManager = null;
+            // 
             // PivotGridForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
@@ -1515,6 +1532,7 @@
             TabControl.ResumeLayout( false );
             PivotTab.ResumeLayout( false );
             AreaTable.ResumeLayout( false );
+            PivotPanel.ResumeLayout( false );
             ChartSubTablePanel.ResumeLayout( false );
             ChartSubTable.ResumeLayout( false );
             MetricsTable.ResumeLayout( false );
@@ -1599,5 +1617,6 @@
         public ToolStripLabel StatusSpacer1;
         public ToolStripLabel Navigation;
         private PivotGrid pivotGrid1;
+        public Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl PivotGrid;
     }
 }

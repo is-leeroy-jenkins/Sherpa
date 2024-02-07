@@ -80,8 +80,26 @@
     <PackageReference Include="NETStandard.Library" Version="2.0.3" />
     <PackageReference Include="Ookii.Dialogs.WinForms" Version="4.0.0" />
     <PackageReference Include="ScottPlot.WinForms" Version="5.0.20" />
+    <PackageReference Include="Syncfusion.Chart.Base" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Chart.Windows" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Edit.Windows" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Gauge.Windows" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Grid.Grouping.Windows" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Grid.Windows" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Grouping.Base" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Licensing" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Pdf.WinForms" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.PdfViewer.Windows" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.PivotChart.Windows" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.PivotTable.WinForms" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SfDataGrid.WinForms" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Shared.Base" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Shared.Windows" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Spreadsheet.Windows" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.SpreadsheetHelper.Windows" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Tools.Base" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Tools.Windows" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.XlsIO.WinForms" Version="24.1.41" />
     <PackageReference Include="System.Data.Common" Version="4.3.0" />
     <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
     <PackageReference Include="System.Data.OleDb" Version="8.0.0" />
@@ -146,129 +164,6 @@
     <Reference Include="SQLite.Designer">
       <HintPath>Libraries\SQLite.Designer.dll</HintPath>
       <Private>True</Private>
-    </Reference>
-    <Reference Include="Syncfusion.BulletGraph.Windows">
-      <HintPath>Libraries\Syncfusion.BulletGraph.Windows.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Calculate.Base">
-      <HintPath>Libraries\Syncfusion.Calculate.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Calculate.Windows">
-      <HintPath>Libraries\Syncfusion.Calculate.Windows.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Chart.Base">
-      <HintPath>Libraries\Syncfusion.Chart.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Chart.Windows">
-      <HintPath>Libraries\Syncfusion.Chart.Windows.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Core.WinForms">
-      <HintPath>Libraries\Syncfusion.Core.WinForms.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Data.WinForms">
-      <HintPath>Libraries\Syncfusion.Data.WinForms.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Edit.Windows">
-      <HintPath>Libraries\Syncfusion.Edit.Windows.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Gauge.Windows">
-      <HintPath>Libraries\Syncfusion.Gauge.Windows.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Grid.Base">
-      <HintPath>Libraries\Syncfusion.Grid.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Grid.Grouping.Base">
-      <HintPath>Libraries\Syncfusion.Grid.Grouping.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Grid.Grouping.Windows">
-      <HintPath>Libraries\Syncfusion.Grid.Grouping.Windows.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Grid.Windows">
-      <HintPath>Libraries\Syncfusion.Grid.Windows.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.GridCommon.WinForms">
-      <HintPath>Libraries\Syncfusion.GridCommon.WinForms.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Grouping.Base">
-      <HintPath>Libraries\Syncfusion.Grouping.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Grouping.Windows">
-      <HintPath>Libraries\Syncfusion.Grouping.Windows.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.HTMLUI.Base">
-      <HintPath>Libraries\Syncfusion.HTMLUI.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.HTMLUI.Windows">
-      <HintPath>Libraries\Syncfusion.HTMLUI.Windows.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Licensing">
-      <HintPath>Libraries\Syncfusion.Licensing.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Maps.Windows">
-      <HintPath>Libraries\Syncfusion.Maps.Windows.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Office2016Theme.WinForms">
-      <HintPath>Libraries\Syncfusion.Office2016Theme.WinForms.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Office2019Theme.WinForms">
-      <HintPath>Libraries\Syncfusion.Office2019Theme.WinForms.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Pdf.Base">
-      <HintPath>Libraries\Syncfusion.Pdf.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Pdf.Windows">
-      <HintPath>Libraries\Syncfusion.Pdf.Windows.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.PdfViewer.Windows">
-      <HintPath>Libraries\Syncfusion.PdfViewer.Windows.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.PivotAnalysis.Base">
-      <HintPath>Libraries\Syncfusion.PivotAnalysis.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.PivotAnalysis.Windows">
-      <HintPath>Libraries\Syncfusion.PivotAnalysis.Windows.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.PivotChart.Windows">
-      <HintPath>Libraries\Syncfusion.PivotChart.Windows.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.PivotConverter.Windows">
-      <HintPath>Libraries\Syncfusion.PivotConverter.Windows.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfBarcode.Windows">
-      <HintPath>Libraries\Syncfusion.SfBarcode.Windows.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfDataGrid.WinForms">
-      <HintPath>Libraries\Syncfusion.SfDataGrid.WinForms.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfDataGridConverter.WinForms">
-      <HintPath>Libraries\Syncfusion.SfDataGridConverter.WinForms.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfInput.WinForms">
-      <HintPath>Libraries\Syncfusion.SfInput.WinForms.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfListView.WinForms">
-      <HintPath>Libraries\Syncfusion.SfListView.WinForms.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfSmithChart.WinForms">
-      <HintPath>Libraries\Syncfusion.SfSmithChart.WinForms.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Shared.Windows">
-      <HintPath>Libraries\Syncfusion.Shared.Windows.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Spreadsheet.Windows">
-      <HintPath>Libraries\Syncfusion.Spreadsheet.Windows.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Tools.Base">
-      <HintPath>Libraries\Syncfusion.Tools.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.XlsIO.Base">
-      <HintPath>Libraries\Syncfusion.XlsIO.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.XlsIO.Windows">
-      <HintPath>Libraries\Syncfusion.XlsIO.Windows.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Runtime.Remoting">
-      <HintPath>Libraries\System.Runtime.Remoting.dll</HintPath>
     </Reference>
     <Reference Include="WinFormsExcel">
       <HintPath>Libraries\WinFormsExcel.dll</HintPath>

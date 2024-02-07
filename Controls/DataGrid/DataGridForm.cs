@@ -217,87 +217,277 @@ namespace BudgetExecution
         private DataArgs _dataArgs;
 
         /// <summary>
-        /// Gets or sets the time.
+        /// Gets the time.
         /// </summary>
         /// <value>
         /// The time.
         /// </value>
-        public int Time { get; set; }
+        public int Time
+        {
+            get
+            {
+                return _time;
+            }
+            private set
+            {
+                _time = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the seconds.
+        /// Gets the seconds.
         /// </summary>
         /// <value>
         /// The seconds.
         /// </value>
-        public int Seconds { get; set; }
+        public int Seconds
+        {
+            get
+            {
+                return _seconds;
+            }
+            private set
+            {
+                _seconds = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the selected table.
+        /// Gets the count.
+        /// </summary>
+        /// <value>
+        /// The count.
+        /// </value>
+        public int Count
+        {
+            get
+            {
+                return _count;
+            }
+            private set
+            {
+                _count = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the hover text.
+        /// </summary>
+        /// <value>
+        /// The hover text.
+        /// </value>
+        public virtual string HoverText
+        {
+            get
+            {
+                return _hoverText;
+            }
+            private set
+            {
+                _hoverText = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the selected table.
         /// </summary>
         /// <value>
         /// The selected table.
         /// </value>
-        public string SelectedTable { get; set; }
+        public string SelectedTable
+        {
+            get
+            {
+                return _selectedTable;
+            }
+            private set
+            {
+                _selectedTable = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the first category.
+        /// Gets the first category.
         /// </summary>
         /// <value>
         /// The first category.
         /// </value>
-        public string FirstCategory { get; set; }
+        public string FirstCategory
+        {
+            get
+            {
+                return _firstCategory;
+            }
+            private set
+            {
+                _firstCategory = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the first value.
+        /// Gets the first value.
         /// </summary>
         /// <value>
         /// The first value.
         /// </value>
-        public string FirstValue { get; set; }
+        public string FirstValue
+        {
+            get
+            {
+                return _firstValue;
+            }
+            private set
+            {
+                _firstValue = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the second category.
+        /// Gets the second category.
         /// </summary>
         /// <value>
         /// The second category.
         /// </value>
-        public string SecondCategory { get; set; }
+        public string SecondCategory
+        {
+            get
+            {
+                return _secondCategory;
+            }
+            private set
+            {
+                _secondCategory = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the second value.
+        /// Gets the second value.
         /// </summary>
         /// <value>
         /// The second value.
         /// </value>
-        public string SecondValue { get; set; }
+        public string SecondValue
+        {
+            get
+            {
+                return _secondValue;
+            }
+            private set
+            {
+                _secondValue = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the third category.
+        /// Gets the third category.
         /// </summary>
         /// <value>
         /// The third category.
         /// </value>
-        public string ThirdCategory { get; set; }
+        public string ThirdCategory
+        {
+            get
+            {
+                return _thirdCategory;
+            }
+            private set
+            {
+                _thirdCategory = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the third value.
+        /// Gets the third value.
         /// </summary>
         /// <value>
         /// The third value.
         /// </value>
-        public string ThirdValue { get; set; }
+        public string ThirdValue
+        {
+            get
+            {
+                return _thirdValue;
+            }
+            private set
+            {
+                _thirdValue = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the SQL query.
+        /// Gets the fourth category.
         /// </summary>
         /// <value>
-        /// The SQL query.
+        /// The fourth category.
         /// </value>
-        public string SqlQuery { get; set; }
+        public string FourthCategory
+        {
+            get
+            {
+                return _fourthCategory;
+            }
+            private set
+            {
+                _fourthCategory = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the data model.
+        /// Gets the fourth value.
+        /// </summary>
+        /// <value>
+        /// The fourth value.
+        /// </value>
+        public string FourthValue
+        {
+            get
+            {
+                return _fourthValue;
+            }
+            private set
+            {
+                _fourthValue = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the SQL command.
+        /// </summary>
+        /// <value>
+        /// The SQL command.
+        /// </value>
+        public string SqlQuery
+        {
+            get
+            {
+                return _sqlQuery;
+            }
+            private set
+            {
+                _sqlQuery = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the columns.
+        /// </summary>
+        /// <value>
+        /// The columns.
+        /// </value>
+        public IList<string> Columns
+        {
+            get
+            {
+                return _columns;
+            }
+            private set
+            {
+                _columns = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the data model.
         /// </summary>
         /// <value>
         /// The data model.
@@ -315,10 +505,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets or sets the data row.
+        /// Gets the data table.
         /// </summary>
         /// <value>
-        /// The data row.
+        /// The data table.
         /// </value>
         public DataTable DataTable
         {
@@ -333,10 +523,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets or sets the form filter.
+        /// Gets the filter.
         /// </summary>
         /// <value>
-        /// The form filter.
+        /// The filter.
         /// </value>
         public IDictionary<string, object> Filter
         {
@@ -351,7 +541,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets or sets the fields.
+        /// Gets the fields.
         /// </summary>
         /// <value>
         /// The fields.
@@ -369,7 +559,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets or sets the numerics.
+        /// Gets the numerics.
         /// </summary>
         /// <value>
         /// The numerics.
@@ -387,25 +577,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets or sets the fields.
-        /// </summary>
-        /// <value>
-        /// The fields.
-        /// </value>
-        public IList<string> Columns
-        {
-            get
-            {
-                return _columns;
-            }
-            private set
-            {
-                _columns = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the selected columns.
+        /// Gets the selected columns.
         /// </summary>
         /// <value>
         /// The selected columns.
@@ -423,7 +595,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets or sets the selected fields.
+        /// Gets the selected fields.
         /// </summary>
         /// <value>
         /// The selected fields.
@@ -441,7 +613,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets or sets the selected numerics.
+        /// Gets the selected numerics.
         /// </summary>
         /// <value>
         /// The selected numerics.
@@ -459,7 +631,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets or sets the source.
+        /// Gets the source.
         /// </summary>
         /// <value>
         /// The source.
@@ -477,7 +649,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets or sets the provider.
+        /// Gets the provider.
         /// </summary>
         /// <value>
         /// The provider.
@@ -495,7 +667,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets or sets the data arguments.
+        /// Gets the data arguments.
         /// </summary>
         /// <value>
         /// The data arguments.
@@ -594,13 +766,13 @@ namespace BudgetExecution
         public DataGridForm( BindingSource bindingSource )
             : this( )
         {
-            SelectedTable = ( (DataTable)bindingSource.DataSource ).TableName;
-            Source = DataBuilder.GetSource( SelectedTable );
-            DataModel = new DataBuilder( Source, Provider );
-            DataTable = DataModel.DataTable;
-            BindingSource.DataSource = DataModel?.DataTable;
-            Fields = DataModel?.Fields;
-            Numerics = DataModel?.Numerics;
+            _selectedTable = ( (DataTable)bindingSource.DataSource ).TableName;
+            _source = DataBuilder.GetSource( _selectedTable );
+            _dataModel = new DataBuilder( _source, _provider );
+            _dataTable = _dataModel.DataTable;
+            _fields = _dataModel?.Fields;
+            _numerics = _dataModel?.Numerics;
+            BindingSource.DataSource = _dataModel?.DataTable;
             DataGrid.DataSource = BindingSource?.DataSource;
             ToolStrip.BindingSource = BindingSource;
         }
@@ -615,14 +787,14 @@ namespace BudgetExecution
         public DataGridForm( Source source, Provider provider )
             : this( )
         {
-            Source = source;
-            Provider = provider;
-            DataModel = new DataBuilder( source, provider );
-            DataTable = DataModel?.DataTable;
-            SelectedTable = DataTable?.TableName;
-            BindingSource.DataSource = DataTable;
-            Fields = DataModel?.Fields;
-            Numerics = DataModel?.Numerics;
+            _source = source;
+            _provider = provider;
+            _dataModel = new DataBuilder( source, provider );
+            _dataTable = _dataModel?.DataTable;
+            _selectedTable = _dataTable?.TableName;
+            _fields = _dataModel?.Fields;
+            _numerics = _dataModel?.Numerics;
+            BindingSource.DataSource = _dataTable;
             DataGrid.DataSource = BindingSource?.DataSource;
             ToolStrip.BindingSource = BindingSource;
         }
@@ -638,15 +810,15 @@ namespace BudgetExecution
         public DataGridForm( Source source, Provider provider, IDictionary<string, object> where )
             : this( )
         {
-            Source = source;
-            Provider = provider;
-            Filter = where;
-            DataModel = new DataBuilder( source, provider, where );
-            DataTable = DataModel?.DataTable;
-            SelectedTable = DataTable?.TableName;
-            BindingSource.DataSource = DataTable;
-            Fields = DataModel?.Fields;
-            Numerics = DataModel?.Numerics;
+            _source = source;
+            _provider = provider;
+            _filter = where;
+            _dataModel = new DataBuilder( source, provider, where );
+            _dataTable = _dataModel?.DataTable;
+            _selectedTable = _dataTable?.TableName;
+            _fields = _dataModel?.Fields;
+            _numerics = _dataModel?.Numerics;
+            BindingSource.DataSource = _dataTable;
             DataGrid.DataSource = BindingSource?.DataSource;
             ToolStrip.BindingSource = BindingSource;
         }
@@ -675,14 +847,14 @@ namespace BudgetExecution
             try
             {
                 Opacity = 0;
-                if( Seconds != 0 )
+                if( _seconds != 0 )
                 {
                     var _timer = new Timer( );
                     _timer.Interval = 1000;
                     _timer.Tick += ( sender, args ) =>
                     {
-                        Time++;
-                        if( Time == Seconds )
+                        _time++;
+                        if( _time == _seconds )
                         {
                             _timer.Stop( );
                         }
@@ -1068,7 +1240,7 @@ namespace BudgetExecution
         /// </summary>
         private void PopulateFirstComboBoxItems( )
         {
-            if( Fields?.Any( ) == true )
+            if( _fields?.Any( ) == true )
             {
                 try
                 {
@@ -1099,7 +1271,7 @@ namespace BudgetExecution
         /// </summary>
         private void PopulateSecondComboBoxItems( )
         {
-            if( Fields?.Any( ) == true )
+            if( _fields?.Any( ) == true )
             {
                 try
                 {
@@ -1136,7 +1308,7 @@ namespace BudgetExecution
         /// </summary>
         private void PopulateThirdComboBoxItems( )
         {
-            if( Fields?.Any( ) == true )
+            if( _fields?.Any( ) == true )
             {
                 try
                 {
