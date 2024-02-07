@@ -156,11 +156,6 @@
             variable for visual style.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.VisualStyle">
-            <summary>
-            Specifies the visual style.
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Gauge.DigitalGauge.SetVisualStyle(Syncfusion.Windows.Forms.Gauge.ThemeStyle)">
             <summary>
             Sets the visual styles
@@ -185,59 +180,9 @@
             <param name="depth">value to draw inner frame</param>
             <returns>graphics path</returns>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.BackgroundImage">
-            <summary>
-            Specifies the background image for the control
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.BackgroundImageLayout">
-            <summary>
-            Specifies the image layout for the background image.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.ForeColor">
-            <summary>
-            Gets or sets the foreground color which used to display the text.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.BackColor">
-            <summary>
-            Gets or sets the background color.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.BackgroundGradientStartColor">
-            <summary>
-            Gets or sets the gradient start color for the background.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.BackgroundGradientEndColor">
-            <summary>
-            Gets or sets the gradient end color for the background.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.OuterFrameGradientStartColor">
-            <summary>
-            Gets or sets the gradient start color for the outer frame.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.OuterFrameGradientEndColor">
-            <summary>
-            Gets or sets the gradient end color for the outer frame.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.FrameBorderColor">
-            <summary>
-            Gets or sets the Frame Border color.
-            </summary>
-        </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.DigitalGauge.m_ThemeBrushColorTable">
             <summary>
             Holds DigitalGauge ColorTable
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.ThemeBrushColorTable">
-            <summary>
-            Gets/Sets the DigitalGauge ThemeBrush ColorTable
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Gauge.DigitalGauge.ShouldSerializeThemeBrushColorTable">
@@ -255,11 +200,6 @@
             Holds the ThemeBrush Variable
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.ThemeBrush">
-            <summary>
-            Gets the ThemeBrush ColorTable for DigitalGauge control
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Gauge.DigitalGauge.ThemeBrush_ListChanged(System.Object,System.ComponentModel.ListChangedEventArgs)">
             <summary>
             To update the ColorTable customization
@@ -268,48 +208,6 @@
         <member name="M:Syncfusion.Windows.Forms.Gauge.DigitalGauge.UpdateColorTableCustomization">
             <summary>
             This function helps to update the ColorTableCustomization
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.CharacterCount">
-            <summary>
-            Gets or sets the number of characters to be displayed.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.Value">
-            <summary>
-            Gets or sets the value to be displayed.
-            </summary>
-        </member>
-        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.Depth" -->
-        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.RoundCornerRadius">
-            <summary>
-            Gets or sets the value for the rounded corner radius.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.SegmentSpacing">
-            <summary>
-            Gets or sets the value for spacing between each string being displayed in the Gauge.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.OverrideFontSize">
-            <summary>
-            Gets or sets the value to override control's font size.
-            </summary>
-            <remarks>Size mentioned in the Control's Font will be applied only when this is disabled, else the font size will be assigned based on control's size</remarks>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.ShowInvisibleSegments">
-            <summary>
-            Show or hide the disabled segments.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.CharacterType">
-            <summary>
-            Gets or sets the value to choose the segment type.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.Text">
-            <summary>
-            Override text
             </summary>
         </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.DigitalGauge.style">
@@ -421,21 +319,6 @@
             Calculates the Columns of the <see cref="!:BoundListView"/>.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.DataSource">
-            <summary>
-            Specifies the data source for the control.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.DataMember">
-            <summary>
-            Specifies the secondary list of Datasource, to display it
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.DataManager">
-            <summary>
-            Gets the CurrencyManager of the bound list.
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Gauge.DigitalGauge.SetDataConnection(System.Object,System.Windows.Forms.BindingMemberInfo,System.Boolean)">
             <summary>
             Sets the data connection
@@ -450,11 +333,6 @@
             </summary>
             <param name="sender"></param>
             <param name="e"></param>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.DisplayRecordIndex">
-            <summary>
-            Gets or sets the display record index
-            </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Gauge.DigitalGauge.PopulateGauge">
             <summary>
@@ -619,6 +497,128 @@
         <member name="M:Syncfusion.Windows.Forms.Gauge.DigitalGauge.ResetVisualStyle">
             <summary>
             Resets the <see cref="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.VisualStyle"/> property to it's default value.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.VisualStyle">
+            <summary>
+            Specifies the visual style.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.BackgroundImage">
+            <summary>
+            Specifies the background image for the control
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.BackgroundImageLayout">
+            <summary>
+            Specifies the image layout for the background image.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.ForeColor">
+            <summary>
+            Gets or sets the foreground color which used to display the text.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.BackColor">
+            <summary>
+            Gets or sets the background color.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.BackgroundGradientStartColor">
+            <summary>
+            Gets or sets the gradient start color for the background.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.BackgroundGradientEndColor">
+            <summary>
+            Gets or sets the gradient end color for the background.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.OuterFrameGradientStartColor">
+            <summary>
+            Gets or sets the gradient start color for the outer frame.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.OuterFrameGradientEndColor">
+            <summary>
+            Gets or sets the gradient end color for the outer frame.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.FrameBorderColor">
+            <summary>
+            Gets or sets the Frame Border color.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.ThemeBrushColorTable">
+            <summary>
+            Gets/Sets the DigitalGauge ThemeBrush ColorTable
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.ThemeBrush">
+            <summary>
+            Gets the ThemeBrush ColorTable for DigitalGauge control
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.CharacterCount">
+            <summary>
+            Gets or sets the number of characters to be displayed.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.Value">
+            <summary>
+            Gets or sets the value to be displayed.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.Depth" -->
+        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.RoundCornerRadius">
+            <summary>
+            Gets or sets the value for the rounded corner radius.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.SegmentSpacing">
+            <summary>
+            Gets or sets the value for spacing between each string being displayed in the Gauge.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.OverrideFontSize">
+            <summary>
+            Gets or sets the value to override control's font size.
+            </summary>
+            <remarks>Size mentioned in the Control's Font will be applied only when this is disabled, else the font size will be assigned based on control's size</remarks>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.ShowInvisibleSegments">
+            <summary>
+            Show or hide the disabled segments.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.CharacterType">
+            <summary>
+            Gets or sets the value to choose the segment type.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.Text">
+            <summary>
+            Override text
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.DataSource">
+            <summary>
+            Specifies the data source for the control.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.DataMember">
+            <summary>
+            Specifies the secondary list of Datasource, to display it
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.DataManager">
+            <summary>
+            Gets the CurrencyManager of the bound list.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGauge.DisplayRecordIndex">
+            <summary>
+            Gets or sets the display record index
             </summary>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Gauge.SevenSegmentHelper">
@@ -1123,16 +1123,16 @@
              Initializes a new instance of the DigitalGaugeDesigner class
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGaugeDesigner.ActionLists">
-            <summary>
-            Gets a value indicating the designer action
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Gauge.DigitalGaugeDesigner.Initialize(System.ComponentModel.IComponent)">
             <summary>
             Overridden Initialize method.
             </summary>
             <param name="component">Componnent object</param>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGaugeDesigner.ActionLists">
+            <summary>
+            Gets a value indicating the designer action
+            </summary>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Gauge.DigitalGaugeActionList">
             <summary>
@@ -1144,6 +1144,11 @@
             Initializes a new instance of the DigitalGaugeActionList class.
             </summary>
             <param name="component"> Represents component</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.DigitalGaugeActionList.InitializeActionList">
+            <summary>
+            Overrridden InitializeActionList.
+            </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGaugeActionList.CharacterType">
             <summary>
@@ -1170,11 +1175,6 @@
             Gets or sets the value to show / hide the disabled segments.
             </summary>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.DigitalGaugeActionList.InitializeActionList">
-            <summary>
-            Overrridden InitializeActionList.
-            </summary>
-        </member>
         <member name="T:Syncfusion.Windows.Forms.Gauge.DigitalGaugeAccessibility">
             <summary>
              Provides information about a control that can be used by an accessibility application.
@@ -1190,6 +1190,36 @@
             Constructor
             </summary>
             <param name="m_DigitalGauge">The HTMLUIControl instance.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.DigitalGaugeAccessibility.GetChildCount">
+            <summary>
+            Retrieves the number of children in the accessible object.
+            </summary>
+            <returns>Number of Child.</returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.DigitalGaugeAccessibility.GetChild(System.Int32)">
+            <summary>
+            Retrieves the accessible child corresponding to the index.
+            </summary>
+            <param name="index">Index</param>
+            <returns>Child specified to the index</returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.DigitalGaugeAccessibility.GetFocused">
+            <summary>
+            Retrieves the object that has the focus.
+            </summary>
+            <returns>>An RibbonControlAdvAccessibility that specifies the currently focused child.
+            This method returns the calling object if the object itself is focused. Returns null if no object has focus.</returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.DigitalGaugeAccessibility.HitTest(System.Int32,System.Int32)">
+            <summary>
+            Retrieves the child object at the specified screen coordinates.
+            </summary>
+            <param name="x">The horizontal screen coordinate.</param>
+            <param name="y">The vertical screen coordinate.</param>
+            <returns>An RibbonControlAdvAccessibility that represents the child object at the given screen coordinates.
+            This method returns the calling object if the object itself is at the location specified.
+            Returns null if no object is at the tested location.</returns>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGaugeAccessibility.Bounds">
             <summary>
@@ -1230,40 +1260,10 @@
             </summary>
             <returns>An RibbonControlAdvAccessibility that represents the parent of an accessible object, or null if there is no parent object.</returns>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.DigitalGaugeAccessibility.GetChildCount">
-            <summary>
-            Retrieves the number of children in the accessible object.
-            </summary>
-            <returns>Number of Child.</returns>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.DigitalGaugeAccessibility.GetChild(System.Int32)">
-            <summary>
-            Retrieves the accessible child corresponding to the index.
-            </summary>
-            <param name="index">Index</param>
-            <returns>Child specified to the index</returns>
-        </member>
         <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGaugeAccessibility.Value">
             <summary>
             Gets or sets the value of an accessible object.
             </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.DigitalGaugeAccessibility.GetFocused">
-            <summary>
-            Retrieves the object that has the focus.
-            </summary>
-            <returns>>An RibbonControlAdvAccessibility that specifies the currently focused child.
-            This method returns the calling object if the object itself is focused. Returns null if no object has focus.</returns>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.DigitalGaugeAccessibility.HitTest(System.Int32,System.Int32)">
-            <summary>
-            Retrieves the child object at the specified screen coordinates.
-            </summary>
-            <param name="x">The horizontal screen coordinate.</param>
-            <param name="y">The vertical screen coordinate.</param>
-            <returns>An RibbonControlAdvAccessibility that represents the child object at the given screen coordinates.
-            This method returns the calling object if the object itself is at the location specified.
-            Returns null if no object is at the tested location.</returns>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Gauge.ThemeStyle">
             <summary>
@@ -1924,11 +1924,6 @@
             Holds DigitalGauge ColorTable
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGauge.ThemeBrushColorTable">
-            <summary>
-            Gets/Sets the DigitalGauge ThemeBrush ColorTable
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.ShouldSerializeThemeBrushColorTable">
             <summary>
             Indicate whether to serialize the ThemeBrush ColorTable
@@ -1942,11 +1937,6 @@
         <member name="F:Syncfusion.Windows.Forms.Gauge.LinearGauge.m_ThemeBrush">
             <summary>
             Holds the ThemeBrush Variable
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGauge.ThemeBrush">
-            <summary>
-            Gets the ThemeBrush ColorTable for LinearGauge control
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.ThemeBrush_ListChanged(System.Object,System.ComponentModel.ListChangedEventArgs)">
@@ -1983,6 +1973,316 @@
             This function helps to update the ColorTableCustomization
             </summary>
         </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.UpdateSize(Syncfusion.Windows.Forms.Gauge.LinearFrameType)">
+            <summary>
+            Update the size of the control based on LinearFrame Type
+            </summary>
+            <param name="linearFrameType"></param>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Gauge.LinearGauge.m_ShowNeedle">
+            <summary>
+            Variable for ShowNeedle bool property.
+            </summary>       
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.ChangeFrame">
+            <summary>
+            Used to change the frame
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.RepaintControl">
+            <summary>
+            Repaints the control
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.Dispose(System.Boolean)">
+            <summary>
+            Dispose function overrides 
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Overrides base.OnPaint
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Gauge.LinearGauge.sliderPath">
+            <summary>
+            Initialize the Slider path.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Gauge.LinearGauge.m_pointerMoving">
+            <summary>
+            Initialize the whether the pointer value moving or not.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Gauge.LinearGauge.m_ValueChange">
+            <summary>
+            Initialize the value change.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Gauge.LinearGauge.m_AllowUserInteraction">
+            <summary>
+            Specifies the Gauge Needle to drag and drop on required position.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Gauge.LinearGauge.m_PointerSize">
+            <summary>
+            Initialize the pointer size.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Gauge.LinearGauge.m_channelHeight">
+            <summary>
+            Initialize the channelheight.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Gauge.LinearGauge.m_BeforeWidth">
+             <summary>
+            Variable to store beforewidth value.
+             </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Gauge.LinearGauge.m_AfterWidth">
+            <summary>
+            Variable to store afterwidth value.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.ResetIncrementValue">
+            <summary>
+            Resets the <see cref="P:Syncfusion.Windows.Forms.Gauge.LinearGauge.IncrementValue"/> property to it's default value.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.ShouldSerializeIncrementValue">
+            <summary>
+            Indicates whether the current value of the <see cref="P:Syncfusion.Windows.Forms.Gauge.LinearGauge.IncrementValue"/> property is to be serialized.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.ResetReadOnly">
+            <summary>
+            Resets the <see cref="P:Syncfusion.Windows.Forms.Gauge.LinearGauge.ReadOnly"/> property to it's default value.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.ShouldSerializeReadOnly">
+            <summary>
+            Indicates whether the current value of the <see cref="P:Syncfusion.Windows.Forms.Gauge.LinearGauge.ReadOnly"/> property is to be serialized.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.OnMouseMove(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Raises the MouseMove event
+            </summary>
+            <param name="e">The MouseEventArgs that contains the event data.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.OnMouseDown(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Raises the MouseDown event
+            </summary>
+            <param name="e">The MouseEventArgs that contains the event data.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.OnMouseUp(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Raises the MouseUp event
+            </summary>
+            <param name="e">The MouseEventArgs that contains the event data.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.OnMouseCaptureChanged(System.EventArgs)">
+            <summary>
+            Handles release of mouse capture.
+            </summary>
+            <param name="e">EventArgs that contains the event data.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.ScrollTo(System.Single)">
+            <summary>
+            To change the position of the pointer value
+            </summary>
+            <param name="pos">The position which needs to scroll the Gauge Value.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.GetValidValue(System.Single)">
+            <summary>
+            To validate the pointer value
+            </summary>
+            <param name="value">The value which needs to be validated.</param>
+            <returns>Returns the valid angle.</returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.TranslateClientLocation(System.Drawing.Point)">
+            <summary>
+            Modifies given mouse location according to LinearFrameType.
+            </summary>
+            <param name="pMouseLocation"> Mouse location which is to be modified. </param>
+            <returns> Non-modified mouse location if orientation is horizontal,
+            modified mouse location - otherwise. </returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.UpdateRenderer(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Updates the Renderer
+            </summary>
+            <param name="e">PaintEventArgs that contains the EventData</param>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Gauge.LinearGauge.renderer">
+            <summary>
+            Gets or sets the Custom Renderer.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Gauge.LinearGauge._GaugeRanges">
+            <summary>
+            Collection of Ranges.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.OnBindingContextChanged(System.EventArgs)">
+            <summary>
+            Raises the System.Windows.Forms.Control.BindingContextChanged event.
+            </summary>
+            <param name="e">EventArgs that contains the EventData</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.EnsureDataBinding">
+            <summary>
+            Tries to get a new CurrencyManager for new DataBinding
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.dataManager_ListChanged(System.Object,System.ComponentModel.ListChangedEventArgs)">
+            <summary>
+            Datasources get updated
+            </summary>
+            <param name="sender">Object</param>
+            <param name="e">ListChangedEventArgs which contains Eventdata</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.UpdateAllData">
+            <summary>
+            Updates all Items.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.AddItem(System.Int32)">
+            <summary>
+            Adds new item.
+            </summary>
+            <param name="index">The index of the item.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.UpdateItem(System.Int32)">
+            <summary>
+            Updates the data of the item with the DataSource.
+            </summary>
+            <param name="index">The index of the item.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.GetListViewItem(System.Int32)">
+            <summary>
+            Returns a <see cref="T:System.Windows.Forms.ListViewItem"/> which contains the row-data at given index.
+            </summary>
+            <param name="index">The index of the row.</param>
+            <returns>A item which contains the data.</returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.CollectListViewItem(System.Int32)">
+            <summary>
+            Returns string value of the ListViewItem at given index.
+            </summary>
+            <param name="index">The index of the row.</param>
+            <returns>string value of the data</returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.DeleteItem(System.Int32)">
+            <summary>
+            Delete the item at the given index.
+            </summary>
+            <param name="index">The index of the item.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.CalculateColumns">
+            <summary>
+            Calculates the Colums of the <see cref="!:BoundListView"/>.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.SetDataConnection(System.Object,System.Windows.Forms.BindingMemberInfo,System.Boolean)">
+            <summary>
+            Sets the data connection
+            </summary>
+            <param name="newDataSource">DataSource</param>
+            <param name="newDisplayMember">DisplayMember</param>
+            <param name="force">Bool</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.DataSourceDisposed(System.Object,System.EventArgs)">
+            <summary>
+            Disposes the data source
+            </summary>
+            <param name="sender">Object</param>
+            <param name="e">EventArgs that contains EventData</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.PopulateGauge">
+            <summary>
+            Populates the Gauge with value.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Gauge.LinearGauge.themeStyle">
+            <summary>
+            It contains the value of the <see cref="P:Syncfusion.Windows.Forms.Gauge.LinearGauge.ThemeStyle"/> property.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.OnThemeNameChanged(System.String)">
+            <summary>
+            Helps to apply the ThemeName settings in control
+            </summary>
+            <param name="themeName">ThemeName</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.GetControlName(System.String)">
+            <summary>
+            Helps to apply the ControlName settings in control
+            </summary>
+            <param name="themeName">ThemeName</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.OnCanOverrideStyleChanged(System.Boolean)">
+            <summary>
+            Helps to apply the CanOverriderStyle settings in control
+            </summary>
+            <param name="CanOverriderStyle">CanOverriderStyle</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.OnCanApplyThemeChanged(System.Boolean)">
+            <summary>
+            Helps to apply the CanApplyTheme settings in control
+            </summary>
+            <param name="CanApplyTheme">CanApplyTheme</param>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Gauge.LinearGauge.minorTicksPixels">
+            <summary>
+            Calculates the Minor Ticks Pixels.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.OnDraw(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Helps to update the renderer settings of LinearGauge
+            </summary>
+            <param name="e">PaintEventArgs</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.DrawFrame(System.Drawing.Graphics)">
+            <summary>
+            Used to draw Background Frames.
+            </summary>
+            <param name="Graphics">Graphics</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.DrawLines(System.Drawing.Graphics)">
+            <summary>
+             Used to draw the Tick lines.
+            </summary>
+            <param name="Graphics">Graphics</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.DrawRanges(System.Drawing.Graphics)">
+            <summary>
+            Used to draw the range lines.
+            </summary>
+            <param name="Graphics">Graphics</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.DrawPointer(System.Drawing.Graphics)">
+            <summary>
+            Used to draw the Pointers. 
+            </summary>
+            <param name="Graphics">Graphics</param>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGauge.ThemeBrushColorTable">
+            <summary>
+            Gets/Sets the DigitalGauge ThemeBrush ColorTable
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGauge.ThemeBrush">
+            <summary>
+            Gets the ThemeBrush ColorTable for LinearGauge control
+            </summary>
+        </member>
         <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGauge.Font">
             <summary>
             Overrides the base class font property.
@@ -1992,12 +2292,6 @@
             <summary>
             Gets or sets the value indicating the LinearFrameType.
             </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.UpdateSize(Syncfusion.Windows.Forms.Gauge.LinearFrameType)">
-            <summary>
-            Update the size of the control based on LinearFrame Type
-            </summary>
-            <param name="linearFrameType"></param>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGauge.PointerPlacement">
             <summary>
@@ -2114,11 +2408,6 @@
             Gets or sets the color for numeric labels.
             </summary>
         </member>
-        <member name="F:Syncfusion.Windows.Forms.Gauge.LinearGauge.m_ShowNeedle">
-            <summary>
-            Variable for ShowNeedle bool property.
-            </summary>       
-        </member>
         <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGauge.VisualStyle">
             <summary>
             Specifies the VisualStyle.
@@ -2144,138 +2433,17 @@
             Gets or sets the Value to be displayed.
             </summary>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.ChangeFrame">
-            <summary>
-            Used to change the frame
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.RepaintControl">
-            <summary>
-            Repaints the control
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.Dispose(System.Boolean)">
-            <summary>
-            Dispose function overrides 
-            </summary>
-            <param name="disposing"></param>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.OnPaint(System.Windows.Forms.PaintEventArgs)">
-            <summary>
-            Overrides base.OnPaint
-            </summary>
-            <param name="e"></param>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Gauge.LinearGauge.sliderPath">
-            <summary>
-            Initialize the Slider path.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Gauge.LinearGauge.m_pointerMoving">
-            <summary>
-            Initialize the whether the pointer value moving or not.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Gauge.LinearGauge.m_ValueChange">
-            <summary>
-            Initialize the value change.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Gauge.LinearGauge.m_AllowUserInteraction">
-            <summary>
-            Specifies the Gauge Needle to drag and drop on required position.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Gauge.LinearGauge.m_PointerSize">
-            <summary>
-            Initialize the pointer size.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Gauge.LinearGauge.m_channelHeight">
-            <summary>
-            Initialize the channelheight.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Gauge.LinearGauge.m_BeforeWidth">
-             <summary>
-            Variable to store beforewidth value.
-             </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Gauge.LinearGauge.m_AfterWidth">
-            <summary>
-            Variable to store afterwidth value.
-            </summary>
-        </member>
         <!-- Badly formed XML comment ignored for member "P:Syncfusion.Windows.Forms.Gauge.LinearGauge.IncrementValue" -->
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.ResetIncrementValue">
-            <summary>
-            Resets the <see cref="P:Syncfusion.Windows.Forms.Gauge.LinearGauge.IncrementValue"/> property to it's default value.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.ShouldSerializeIncrementValue">
-            <summary>
-            Indicates whether the current value of the <see cref="P:Syncfusion.Windows.Forms.Gauge.LinearGauge.IncrementValue"/> property is to be serialized.
-            </summary>
-            <returns></returns>
-        </member>
         <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGauge.ReadOnly">
             <summary>
             Gets or sets whether Linear Gauge value can be updated using mouse selection.
             </summary>
             <remarks> The Gauge value will be updated on drag and drop operation and mouse click on required Gauge value</remarks>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.ResetReadOnly">
-            <summary>
-            Resets the <see cref="P:Syncfusion.Windows.Forms.Gauge.LinearGauge.ReadOnly"/> property to it's default value.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.ShouldSerializeReadOnly">
-            <summary>
-            Indicates whether the current value of the <see cref="P:Syncfusion.Windows.Forms.Gauge.LinearGauge.ReadOnly"/> property is to be serialized.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.OnMouseMove(System.Windows.Forms.MouseEventArgs)">
-            <summary>
-            Raises the MouseMove event
-            </summary>
-            <param name="e">The MouseEventArgs that contains the event data.</param>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.OnMouseDown(System.Windows.Forms.MouseEventArgs)">
-            <summary>
-            Raises the MouseDown event
-            </summary>
-            <param name="e">The MouseEventArgs that contains the event data.</param>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.OnMouseUp(System.Windows.Forms.MouseEventArgs)">
-            <summary>
-            Raises the MouseUp event
-            </summary>
-            <param name="e">The MouseEventArgs that contains the event data.</param>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.OnMouseCaptureChanged(System.EventArgs)">
-            <summary>
-            Handles release of mouse capture.
-            </summary>
-            <param name="e">EventArgs that contains the event data.</param>
-        </member>
         <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGauge.DisplayRectangleInternal">
             <summary>
             Gets display rectangle. 
             </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.ScrollTo(System.Single)">
-            <summary>
-            To change the position of the pointer value
-            </summary>
-            <param name="pos">The position which needs to scroll the Gauge Value.</param>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.GetValidValue(System.Single)">
-            <summary>
-            To validate the pointer value
-            </summary>
-            <param name="value">The value which needs to be validated.</param>
-            <returns>Returns the valid angle.</returns>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGauge.PointerBounds">
             <summary>
@@ -2285,25 +2453,6 @@
         <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGauge.ChannelBounds">
             <summary>
             Gets bounds of channel.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.TranslateClientLocation(System.Drawing.Point)">
-            <summary>
-            Modifies given mouse location according to LinearFrameType.
-            </summary>
-            <param name="pMouseLocation"> Mouse location which is to be modified. </param>
-            <returns> Non-modified mouse location if orientation is horizontal,
-            modified mouse location - otherwise. </returns>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.UpdateRenderer(System.Windows.Forms.PaintEventArgs)">
-            <summary>
-            Updates the Renderer
-            </summary>
-            <param name="e">PaintEventArgs that contains the EventData</param>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Gauge.LinearGauge.renderer">
-            <summary>
-            Gets or sets the Custom Renderer.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGauge.Renderer">
@@ -2316,45 +2465,6 @@
             Returns the GaugeRanges of the control.
             </summary>
         </member>
-        <member name="F:Syncfusion.Windows.Forms.Gauge.LinearGauge._GaugeRanges">
-            <summary>
-            Collection of Ranges.
-            </summary>
-        </member>
-        <member name="T:Syncfusion.Windows.Forms.Gauge.LinearGauge.LinearThresholdValueChangedEventArgs">
-            <summary>
-            Event argument for <see cref="!:ValueInRangeChanged"/> event.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGauge.LinearThresholdValueChangedEventArgs.Range">
-            <summary>
-            Affected GaugeRange
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGauge.LinearThresholdValueChangedEventArgs.Value">
-            <summary>
-            Gauge Value
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGauge.LinearThresholdValueChangedEventArgs.InRange">
-            <summary>
-            True if value is within current range.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.LinearThresholdValueChangedEventArgs.#ctor(Syncfusion.Windows.Forms.Gauge.LinearRange,System.Single,System.Boolean)">
-            <summary>
-            Constructor
-            </summary>
-            <param name="range"> Gauge range </param>
-            <param name="value">Gauge value</param>
-            <param name="inRange">Value indicating whether the GaugeValue is within current range or not</param>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.LinearThresholdValueChangedEventArgs.#ctor(System.Single)">
-            <summary>
-            constructor
-            </summary>
-            <param name="value">Gauge value</param>
-        </member>
         <member name="E:Syncfusion.Windows.Forms.Gauge.LinearGauge.ValueChanged">
             <summary>
             Occurs when the Gauge value is changed.
@@ -2365,69 +2475,9 @@
             Occurs if the value is entering or leaving defined range.
             </summary>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.OnBindingContextChanged(System.EventArgs)">
-            <summary>
-            Raises the System.Windows.Forms.Control.BindingContextChanged event.
-            </summary>
-            <param name="e">EventArgs that contains the EventData</param>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.EnsureDataBinding">
-            <summary>
-            Tries to get a new CurrencyManager for new DataBinding
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.dataManager_ListChanged(System.Object,System.ComponentModel.ListChangedEventArgs)">
-            <summary>
-            Datasources get updated
-            </summary>
-            <param name="sender">Object</param>
-            <param name="e">ListChangedEventArgs which contains Eventdata</param>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.UpdateAllData">
-            <summary>
-            Updates all Items.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.AddItem(System.Int32)">
-            <summary>
-            Adds new item.
-            </summary>
-            <param name="index">The index of the item.</param>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.UpdateItem(System.Int32)">
-            <summary>
-            Updates the data of the item with the DataSource.
-            </summary>
-            <param name="index">The index of the item.</param>
-        </member>
         <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGauge.IsDesignMode">
             <summary>
             Gets a value that indicates whether the LinearGauge is currently in design mode.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.GetListViewItem(System.Int32)">
-            <summary>
-            Returns a <see cref="T:System.Windows.Forms.ListViewItem"/> which contains the row-data at given index.
-            </summary>
-            <param name="index">The index of the row.</param>
-            <returns>A item which contains the data.</returns>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.CollectListViewItem(System.Int32)">
-            <summary>
-            Returns string value of the ListViewItem at given index.
-            </summary>
-            <param name="index">The index of the row.</param>
-            <returns>string value of the data</returns>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.DeleteItem(System.Int32)">
-            <summary>
-            Delete the item at the given index.
-            </summary>
-            <param name="index">The index of the item.</param>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.CalculateColumns">
-            <summary>
-            Calculates the Colums of the <see cref="!:BoundListView"/>.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGauge.DataSource">
@@ -2450,34 +2500,9 @@
             Indicates the property to display for the items in this control.
             </summary>        
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.SetDataConnection(System.Object,System.Windows.Forms.BindingMemberInfo,System.Boolean)">
-            <summary>
-            Sets the data connection
-            </summary>
-            <param name="newDataSource">DataSource</param>
-            <param name="newDisplayMember">DisplayMember</param>
-            <param name="force">Bool</param>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.DataSourceDisposed(System.Object,System.EventArgs)">
-            <summary>
-            Disposes the data source
-            </summary>
-            <param name="sender">Object</param>
-            <param name="e">EventArgs that contains EventData</param>
-        </member>
         <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGauge.DisplayRecordIndex">
             <summary>
             Gets or Sets the display record index
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.PopulateGauge">
-            <summary>
-            Populates the Gauge with value.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Gauge.LinearGauge.themeStyle">
-            <summary>
-            It contains the value of the <see cref="P:Syncfusion.Windows.Forms.Gauge.LinearGauge.ThemeStyle"/> property.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGauge.ThemeStyle">
@@ -2488,88 +2513,48 @@
             This ThemeStyle settings will be applied only when the VisualStyleBased theme has been applied to the control.
             </remarks>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.OnThemeNameChanged(System.String)">
-            <summary>
-            Helps to apply the ThemeName settings in control
-            </summary>
-            <param name="themeName">ThemeName</param>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.GetControlName(System.String)">
-            <summary>
-            Helps to apply the ControlName settings in control
-            </summary>
-            <param name="themeName">ThemeName</param>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.OnCanOverrideStyleChanged(System.Boolean)">
-            <summary>
-            Helps to apply the CanOverriderStyle settings in control
-            </summary>
-            <param name="CanOverriderStyle">CanOverriderStyle</param>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.OnCanApplyThemeChanged(System.Boolean)">
-            <summary>
-            Helps to apply the CanApplyTheme settings in control
-            </summary>
-            <param name="CanApplyTheme">CanApplyTheme</param>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Gauge.LinearGauge.minorTicksPixels">
-            <summary>
-            Calculates the Minor Ticks Pixels.
-            </summary>
-        </member>
         <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGauge.MinorTicksPixels">
             <summary>
             Calculates the Minor Ticks Pixels.
             </summary>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.OnDraw(System.Windows.Forms.PaintEventArgs)">
-            <summary>
-            Helps to update the renderer settings of LinearGauge
-            </summary>
-            <param name="e">PaintEventArgs</param>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.DrawFrame(System.Drawing.Graphics)">
-            <summary>
-            Used to draw Background Frames.
-            </summary>
-            <param name="Graphics">Graphics</param>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.DrawLines(System.Drawing.Graphics)">
-            <summary>
-             Used to draw the Tick lines.
-            </summary>
-            <param name="Graphics">Graphics</param>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.DrawRanges(System.Drawing.Graphics)">
-            <summary>
-            Used to draw the range lines.
-            </summary>
-            <param name="Graphics">Graphics</param>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.DrawPointer(System.Drawing.Graphics)">
-            <summary>
-            Used to draw the Pointers. 
-            </summary>
-            <param name="Graphics">Graphics</param>
-        </member>
-        <member name="T:Syncfusion.Windows.Forms.Gauge.LinearThresholdValueChangedEventArgs">
+        <member name="T:Syncfusion.Windows.Forms.Gauge.LinearGauge.LinearThresholdValueChangedEventArgs">
             <summary>
             Event argument for <see cref="!:ValueInRangeChanged"/> event.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearThresholdValueChangedEventArgs.Range">
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.LinearThresholdValueChangedEventArgs.#ctor(Syncfusion.Windows.Forms.Gauge.LinearRange,System.Single,System.Boolean)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="range"> Gauge range </param>
+            <param name="value">Gauge value</param>
+            <param name="inRange">Value indicating whether the GaugeValue is within current range or not</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGauge.LinearThresholdValueChangedEventArgs.#ctor(System.Single)">
+            <summary>
+            constructor
+            </summary>
+            <param name="value">Gauge value</param>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGauge.LinearThresholdValueChangedEventArgs.Range">
             <summary>
             Affected GaugeRange
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearThresholdValueChangedEventArgs.Value">
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGauge.LinearThresholdValueChangedEventArgs.Value">
             <summary>
             Gauge Value
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearThresholdValueChangedEventArgs.InRange">
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGauge.LinearThresholdValueChangedEventArgs.InRange">
             <summary>
             True if value is within current range.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.Windows.Forms.Gauge.LinearThresholdValueChangedEventArgs">
+            <summary>
+            Event argument for <see cref="!:ValueInRangeChanged"/> event.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Gauge.LinearThresholdValueChangedEventArgs.#ctor(Syncfusion.Windows.Forms.Gauge.LinearRange,System.Single,System.Boolean)">
@@ -2586,6 +2571,21 @@
             </summary>
             <param name="value">Gauge value</param>
         </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearThresholdValueChangedEventArgs.Range">
+            <summary>
+            Affected GaugeRange
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearThresholdValueChangedEventArgs.Value">
+            <summary>
+            Gauge Value
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearThresholdValueChangedEventArgs.InRange">
+            <summary>
+            True if value is within current range.
+            </summary>
+        </member>
         <member name="T:Syncfusion.Windows.Forms.Gauge.LinearGaugeDesigner">
             <summary>
             Designer class.
@@ -2601,16 +2601,16 @@
              Initializes a new instance of the LinearGaugeDesigner class
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeDesigner.ActionLists">
-            <summary>
-            Gets the value indicating designer action.
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGaugeDesigner.Initialize(System.ComponentModel.IComponent)">
             <summary>
             Overridden Initialize method.
             </summary>
             <param name="component">Componnent object</param>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeDesigner.ActionLists">
+            <summary>
+            Gets the value indicating designer action.
+            </summary>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Gauge.LinearGaugeActionList">
             <summary>
@@ -2622,6 +2622,11 @@
             Initializes a new instance of the LinearGaugeActionList class.
             </summary>
             <param name="component"> Represents component</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGaugeActionList.InitializeActionList">
+            <summary>
+            Overrridden InitializeActionList.
+            </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeActionList.MaximumValue">
             <summary>
@@ -2641,11 +2646,6 @@
         <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeActionList.MajorDifference">
             <summary>
             Gets or sets the value to Gauge major line difference
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGaugeActionList.InitializeActionList">
-            <summary>
-            Overrridden InitializeActionList.
             </summary>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Gauge.ILinearGaugeRenderer">
@@ -2699,21 +2699,6 @@
             Calculates the Minor Ticks Pixels.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeRenderer.MinorTicksPixels">
-            <summary>
-            Calculates the Minor Ticks Pixels.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeRenderer.startpoint">
-            <summary>
-            Initialize the startpoint
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeRenderer.LinearGauge">
-            <summary>
-             Gets the LinearGauge
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGaugeRenderer.#ctor(Syncfusion.Windows.Forms.Gauge.LinearGauge)">
             <summary>
             Initialize the new instance of the LinearGaugeRenderer class
@@ -2749,6 +2734,21 @@
             Updates the Render
             </summary>
             <param name="PaintEventArgs">PaintEventArgs</param>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeRenderer.MinorTicksPixels">
+            <summary>
+            Calculates the Minor Ticks Pixels.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeRenderer.startpoint">
+            <summary>
+            Initialize the startpoint
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeRenderer.LinearGauge">
+            <summary>
+             Gets the LinearGauge
+            </summary>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Gauge.BlueThemeLinearGaugeRenderer">
             <summary>
@@ -2854,6 +2854,36 @@
             </summary>
             <param name="m_LinearGauge">The HTMLUIControl instance.</param>
         </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGaugeAccessibility.GetChildCount">
+            <summary>
+            Retrieves the number of children in the accessible object.
+            </summary>
+            <returns>Number of Child.</returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGaugeAccessibility.GetChild(System.Int32)">
+            <summary>
+            Retrieves the accessible child corresponding to the index.
+            </summary>
+            <param name="index">Index</param>
+            <returns>Child specified to the index</returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGaugeAccessibility.GetFocused">
+            <summary>
+            Retrieves the object that has the focus.
+            </summary>
+            <returns>>An RibbonControlAdvAccessibility that specifies the currently focused child.
+            This method returns the calling object if the object itself is focused. Returns null if no object has focus.</returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGaugeAccessibility.HitTest(System.Int32,System.Int32)">
+            <summary>
+            Retrieves the child object at the specified screen coordinates.
+            </summary>
+            <param name="x">The horizontal screen coordinate.</param>
+            <param name="y">The vertical screen coordinate.</param>
+            <returns>An RibbonControlAdvAccessibility that represents the child object at the given screen coordinates.
+            This method returns the calling object if the object itself is at the location specified.
+            Returns null if no object is at the tested location.</returns>
+        </member>
         <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeAccessibility.Bounds">
             <summary>
             Bounds of the Control
@@ -2893,40 +2923,10 @@
             </summary>
             <returns>An RibbonControlAdvAccessibility that represents the parent of an accessible object, or null if there is no parent object.</returns>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGaugeAccessibility.GetChildCount">
-            <summary>
-            Retrieves the number of children in the accessible object.
-            </summary>
-            <returns>Number of Child.</returns>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGaugeAccessibility.GetChild(System.Int32)">
-            <summary>
-            Retrieves the accessible child corresponding to the index.
-            </summary>
-            <param name="index">Index</param>
-            <returns>Child specified to the index</returns>
-        </member>
         <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeAccessibility.Value">
             <summary>
             Gets or sets the value of an accessible object.
             </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGaugeAccessibility.GetFocused">
-            <summary>
-            Retrieves the object that has the focus.
-            </summary>
-            <returns>>An RibbonControlAdvAccessibility that specifies the currently focused child.
-            This method returns the calling object if the object itself is focused. Returns null if no object has focus.</returns>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGaugeAccessibility.HitTest(System.Int32,System.Int32)">
-            <summary>
-            Retrieves the child object at the specified screen coordinates.
-            </summary>
-            <param name="x">The horizontal screen coordinate.</param>
-            <param name="y">The vertical screen coordinate.</param>
-            <returns>An RibbonControlAdvAccessibility that represents the child object at the given screen coordinates.
-            This method returns the calling object if the object itself is at the location specified.
-            Returns null if no object is at the tested location.</returns>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Gauge.LinearGaugeVisualStyle">
             <summary>
@@ -2955,83 +2955,6 @@
             </summary>
             <param name="identity">A <see cref="T:Syncfusion.Windows.Forms.Gauge.LinearGaugeStyleInfoIdentity"/> that holds the identity for this <see cref="T:Syncfusion.Windows.Forms.Gauge.LinearGaugeStyleInfoStore"/>.</param>
             <param name="store">The store.</param>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeVisualStyle.DefaultStyle">
-            <summary>
-            Gets the default LinearGaugeStyleInfo value.
-            </summary>
-        </member>
-        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Windows.Forms.Gauge.LinearGaugeVisualStyle.BackgroundGradientStartColor" -->
-        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Windows.Forms.Gauge.LinearGaugeVisualStyle.BackgroundGradientEndColor" -->
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeVisualStyle.OuterFrameGradientStartColor">
-            <summary>
-            Gets or sets the start color which is used to draw the OuterFrame of <see cref="T:Syncfusion.Windows.Forms.Gauge.LinearGauge"/> 
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeVisualStyle.OuterFrameGradientEndColor">
-            <summary>
-            Gets or sets the end color which is used to draw the OuterFrame of <see cref="T:Syncfusion.Windows.Forms.Gauge.LinearGauge"/> 
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeVisualStyle.InnerFrameGradientStartColor">
-            <summary>
-            Gets or sets the start color which is used to draw the InnerFrame of <see cref="T:Syncfusion.Windows.Forms.Gauge.LinearGauge"/> 
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeVisualStyle.InnerFrameGradientEndColor">
-            <summary>
-            Gets or sets the end color which is used to draw the InnerFrame of <see cref="T:Syncfusion.Windows.Forms.Gauge.LinearGauge"/> 
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeVisualStyle.ScaleColor">
-            <summary>
-            Gets or sets ScaleColor of the <see cref="T:Syncfusion.Windows.Forms.Gauge.LinearGauge"/> control.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeVisualStyle.MajorTickMarkColor">
-            <summary>
-            Gets or sets the MajorTickMarkColor of the <see cref="T:Syncfusion.Windows.Forms.Gauge.LinearGauge"/> control in the default state.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeVisualStyle.MinorTickMarkColor">
-            <summary>
-            Gets or sets MinorTickMarkColor of the <see cref="T:Syncfusion.Windows.Forms.Gauge.LinearGauge"/> control in the default state.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeVisualStyle.NeedleColor">
-            <summary>
-            Gets or sets the NeedleColor of the <see cref="T:Syncfusion.Windows.Forms.Gauge.LinearGauge"/> control. 
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeVisualStyle.LabelFont">
-            <summary>
-            Gets or sets <see cref="T:System.Drawing.Font"/> value of the <see cref="T:Syncfusion.Windows.Forms.Gauge.LinearGauge"/> control. 
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeVisualStyle.LabelForeColor">
-            <summary>
-            Gets or sets value of GaugeForeColor of the <see cref="T:Syncfusion.Windows.Forms.Gauge.LinearGauge"/> control.
-            </summary>        
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeVisualStyle.ValueIndicatorColor">
-            <summary>
-            Gets or sets the value indicator color of the <see cref="T:Syncfusion.Windows.Forms.Gauge.LinearGauge"/> control.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeVisualStyle.ValueIndicatorHeight">
-            <summary>
-            Gets or sets a value that specifies the thickness to draw the value pointer in <see cref="T:Syncfusion.Windows.Forms.Gauge.LinearGauge"/>.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeVisualStyle.ShowBackgroundFrame">
-            <summary>
-            Gets or sets a value that indicates whether the frame of <see cref="T:Syncfusion.Windows.Forms.Gauge.LinearGauge"/> should be visible.        
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeVisualStyle.ChannelHeight">
-            <summary>
-            Gets or sets a value that specifies the thickness to draw the Scale in <see cref="T:Syncfusion.Windows.Forms.Gauge.LinearGauge"/>.
-            </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGaugeVisualStyle.GetDefaultStyle">
             <summary>
@@ -3135,6 +3058,83 @@
             </summary>
             <returns><b>True</b> if the property was modified; Otherwise <b>False</b>.</returns>
         </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeVisualStyle.DefaultStyle">
+            <summary>
+            Gets the default LinearGaugeStyleInfo value.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Windows.Forms.Gauge.LinearGaugeVisualStyle.BackgroundGradientStartColor" -->
+        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Windows.Forms.Gauge.LinearGaugeVisualStyle.BackgroundGradientEndColor" -->
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeVisualStyle.OuterFrameGradientStartColor">
+            <summary>
+            Gets or sets the start color which is used to draw the OuterFrame of <see cref="T:Syncfusion.Windows.Forms.Gauge.LinearGauge"/> 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeVisualStyle.OuterFrameGradientEndColor">
+            <summary>
+            Gets or sets the end color which is used to draw the OuterFrame of <see cref="T:Syncfusion.Windows.Forms.Gauge.LinearGauge"/> 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeVisualStyle.InnerFrameGradientStartColor">
+            <summary>
+            Gets or sets the start color which is used to draw the InnerFrame of <see cref="T:Syncfusion.Windows.Forms.Gauge.LinearGauge"/> 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeVisualStyle.InnerFrameGradientEndColor">
+            <summary>
+            Gets or sets the end color which is used to draw the InnerFrame of <see cref="T:Syncfusion.Windows.Forms.Gauge.LinearGauge"/> 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeVisualStyle.ScaleColor">
+            <summary>
+            Gets or sets ScaleColor of the <see cref="T:Syncfusion.Windows.Forms.Gauge.LinearGauge"/> control.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeVisualStyle.MajorTickMarkColor">
+            <summary>
+            Gets or sets the MajorTickMarkColor of the <see cref="T:Syncfusion.Windows.Forms.Gauge.LinearGauge"/> control in the default state.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeVisualStyle.MinorTickMarkColor">
+            <summary>
+            Gets or sets MinorTickMarkColor of the <see cref="T:Syncfusion.Windows.Forms.Gauge.LinearGauge"/> control in the default state.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeVisualStyle.NeedleColor">
+            <summary>
+            Gets or sets the NeedleColor of the <see cref="T:Syncfusion.Windows.Forms.Gauge.LinearGauge"/> control. 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeVisualStyle.LabelFont">
+            <summary>
+            Gets or sets <see cref="T:System.Drawing.Font"/> value of the <see cref="T:Syncfusion.Windows.Forms.Gauge.LinearGauge"/> control. 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeVisualStyle.LabelForeColor">
+            <summary>
+            Gets or sets value of GaugeForeColor of the <see cref="T:Syncfusion.Windows.Forms.Gauge.LinearGauge"/> control.
+            </summary>        
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeVisualStyle.ValueIndicatorColor">
+            <summary>
+            Gets or sets the value indicator color of the <see cref="T:Syncfusion.Windows.Forms.Gauge.LinearGauge"/> control.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeVisualStyle.ValueIndicatorHeight">
+            <summary>
+            Gets or sets a value that specifies the thickness to draw the value pointer in <see cref="T:Syncfusion.Windows.Forms.Gauge.LinearGauge"/>.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeVisualStyle.ShowBackgroundFrame">
+            <summary>
+            Gets or sets a value that indicates whether the frame of <see cref="T:Syncfusion.Windows.Forms.Gauge.LinearGauge"/> should be visible.        
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeVisualStyle.ChannelHeight">
+            <summary>
+            Gets or sets a value that specifies the thickness to draw the Scale in <see cref="T:Syncfusion.Windows.Forms.Gauge.LinearGauge"/>.
+            </summary>
+        </member>
         <member name="T:Syncfusion.Windows.Forms.Gauge.LinearGaugeStyleInfoStore">
             <summary>
             Represents the class holds the plain data for a style object excluding identity information.
@@ -3232,7 +3232,7 @@
         </member>
         <member name="M:Syncfusion.Windows.Forms.Gauge.LinearGaugeStyleInfoStore.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
             <summary>
-            Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.Gauge.LinearGaugeStyleInfoStore" /> class.
+            Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.Gauge.LinearGaugeStyleInfoStore"/> class.
             </summary>
             <param name="info">Populates the SerializationInfo store with the name, type, and value of each piece of information it wants to serialize</param>
             <param name="context">Describes the source and destination of a given serialized stream, and provides an additional caller-defined context.</param>
@@ -3287,19 +3287,9 @@
             This property helps to holds Background Gradient Start Color.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeThemeBrush.BackgroundGradientStartColor">
-            <summary>
-            Gets/Sets the Background Gradient Start Color.
-            </summary>
-        </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.RadialGaugeThemeBrush.m_BackgroundGradientEndColor">
             <summary>
             This property helps to holds Background Gradient End Color.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeThemeBrush.BackgroundGradientEndColor">
-            <summary>
-            Gets/Sets the Background Gradient End Color.
             </summary>
         </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.RadialGaugeThemeBrush.m_OuterFrameGradientStartColor">
@@ -3307,19 +3297,9 @@
             This property helps to holds Outer Frame Gradient Start Color.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeThemeBrush.OuterFrameGradientStartColor">
-            <summary>
-            Gets/Sets the Outer Frame Gradient Start Color.
-            </summary>
-        </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.RadialGaugeThemeBrush.m_OuterFrameGradientEndColor">
             <summary>
             This property helps to holds Outer Frame Gradient Start Color.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeThemeBrush.OuterFrameGradientEndColor">
-            <summary>
-            Gets/Sets the Outer Frame Gradient End Color.
             </summary>
         </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.RadialGaugeThemeBrush.m_InnerFrameGradientStartColor">
@@ -3327,19 +3307,9 @@
             This property helps to holds Inner Frame Gradient Start Color.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeThemeBrush.InnerFrameGradientStartColor">
-            <summary>
-            Gets/Sets the Inner Frame Gradient Start Color.
-            </summary>
-        </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.RadialGaugeThemeBrush.m_InnerFrameGradientEndColor">
             <summary>
             This property helps to holds Inner Frame Gradient End Color.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeThemeBrush.InnerFrameGradientEndColor">
-            <summary>
-            Gets/Sets the Inner Frame Gradient End Color.
             </summary>
         </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.RadialGaugeThemeBrush.m_ArcColor">
@@ -3347,19 +3317,9 @@
             This property helps to holds Gauge Arc Color.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeThemeBrush.ArcColor">
-            <summary>
-            Gets/Sets the Gauge Arc Color.
-            </summary>
-        </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.RadialGaugeThemeBrush.m_MajorTickMarkColor">
             <summary>
             This property helps to holds Major Tick Mark Color.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeThemeBrush.MajorTickMarkColor">
-            <summary>
-            Gets/Sets the Major Tick Mark Color.
             </summary>
         </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.RadialGaugeThemeBrush.m_MinorTickMarkColor">
@@ -3367,19 +3327,9 @@
             This property helps to holds Minor Tick Mark Color.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeThemeBrush.MinorTickMarkColor">
-            <summary>
-            Gets/Sets the Minor Tick Mark Color.
-            </summary>
-        </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.RadialGaugeThemeBrush.m_InterLinesColor">
             <summary>
             This property helps to holds Inter Lines Color.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeThemeBrush.InterLinesColor">
-            <summary>
-            Gets/Sets the Inter Lines Color.
             </summary>
         </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.RadialGaugeThemeBrush.m_NeedleColor">
@@ -3387,19 +3337,9 @@
             This property helps to holds Needle Pointer Color.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeThemeBrush.NeedleColor">
-            <summary>
-            Gets/Sets the Needle Pointer Color.
-            </summary>
-        </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.RadialGaugeThemeBrush.m_ScaleLabelColor">
             <summary>
             This property helps to holds Scale Label Color.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeThemeBrush.ScaleLabelColor">
-            <summary>
-            Gets/Sets the Scale Label Color.
             </summary>
         </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.RadialGaugeThemeBrush.m_LabelColor">
@@ -3407,14 +3347,79 @@
             This property helps to holds Gauge Label Color.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeThemeBrush.LabelColor">
-            <summary>
-            Gets/Sets the Gauge Label Color.
-            </summary>
-        </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.RadialGaugeThemeBrush.gaugeFillColor">
             <summary>
             This property helps to holds the color to fill the Gauge arc.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Gauge.RadialGaugeThemeBrush.m_ValueColor">
+            <summary>
+            This property helps to holds Gauge Value Color.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeThemeBrush.BackgroundGradientStartColor">
+            <summary>
+            Gets/Sets the Background Gradient Start Color.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeThemeBrush.BackgroundGradientEndColor">
+            <summary>
+            Gets/Sets the Background Gradient End Color.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeThemeBrush.OuterFrameGradientStartColor">
+            <summary>
+            Gets/Sets the Outer Frame Gradient Start Color.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeThemeBrush.OuterFrameGradientEndColor">
+            <summary>
+            Gets/Sets the Outer Frame Gradient End Color.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeThemeBrush.InnerFrameGradientStartColor">
+            <summary>
+            Gets/Sets the Inner Frame Gradient Start Color.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeThemeBrush.InnerFrameGradientEndColor">
+            <summary>
+            Gets/Sets the Inner Frame Gradient End Color.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeThemeBrush.ArcColor">
+            <summary>
+            Gets/Sets the Gauge Arc Color.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeThemeBrush.MajorTickMarkColor">
+            <summary>
+            Gets/Sets the Major Tick Mark Color.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeThemeBrush.MinorTickMarkColor">
+            <summary>
+            Gets/Sets the Minor Tick Mark Color.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeThemeBrush.InterLinesColor">
+            <summary>
+            Gets/Sets the Inter Lines Color.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeThemeBrush.NeedleColor">
+            <summary>
+            Gets/Sets the Needle Pointer Color.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeThemeBrush.ScaleLabelColor">
+            <summary>
+            Gets/Sets the Scale Label Color.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeThemeBrush.LabelColor">
+            <summary>
+            Gets/Sets the Gauge Label Color.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeThemeBrush.FillColor">
@@ -3424,11 +3429,6 @@
             <remarks>
             The fill color will be applied to the GaugeArc when the <see cref="T:Syncfusion.Windows.Forms.Gauge.FrameType"/> is <see cref="F:Syncfusion.Windows.Forms.Gauge.FrameType.Fill"/> 
             </remarks>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Gauge.RadialGaugeThemeBrush.m_ValueColor">
-            <summary>
-            This property helps to holds Gauge Value Color.
-            </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeThemeBrush.ValueColor">
             <summary>
@@ -3445,19 +3445,9 @@
             This property helps to holds Background Gradient Start Color.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeThemeBrush.BackgroundGradientStartColor">
-            <summary>
-            Gets/Sets the Background Gradient Start Color.
-            </summary>
-        </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.LinearGaugeThemeBrush.m_BackgroundGradientEndColor">
             <summary>
             This property helps to holds Background Gradient End Color.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeThemeBrush.BackgroundGradientEndColor">
-            <summary>
-            Gets/Sets the Background Gradient End Color.
             </summary>
         </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.LinearGaugeThemeBrush.m_OuterFrameGradientStartColor">
@@ -3465,19 +3455,9 @@
             This property helps to holds Outer Frame Gradient Start Color.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeThemeBrush.OuterFrameGradientStartColor">
-            <summary>
-            Gets/Sets the Outer Frame Gradient Start Color.
-            </summary>
-        </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.LinearGaugeThemeBrush.m_OuterFrameGradientEndColor">
             <summary>
             This property helps to holds Outer Frame Gradient Start Color.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeThemeBrush.OuterFrameGradientEndColor">
-            <summary>
-            Gets/Sets the Outer Frame Gradient End Color.
             </summary>
         </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.LinearGaugeThemeBrush.m_InnerFrameGradientStartColor">
@@ -3485,19 +3465,9 @@
             This property helps to holds Inner Frame Gradient Start Color.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeThemeBrush.InnerFrameGradientStartColor">
-            <summary>
-            Gets/Sets the Inner Frame Gradient Start Color.
-            </summary>
-        </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.LinearGaugeThemeBrush.m_InnerFrameGradientEndColor">
             <summary>
             This property helps to holds Inner Frame Gradient End Color.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeThemeBrush.InnerFrameGradientEndColor">
-            <summary>
-            Gets/Sets the Inner Frame Gradient End Color.
             </summary>
         </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.LinearGaugeThemeBrush.m_MajorTickMarkColor">
@@ -3505,19 +3475,9 @@
             This property helps to holds Major Tick Mark Color.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeThemeBrush.MajorTickMarkColor">
-            <summary>
-            Gets/Sets the Major Tick Mark Color.
-            </summary>
-        </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.LinearGaugeThemeBrush.m_MinorTickMarkColor">
             <summary>
             This property helps to holds Minor Tick Mark Color.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeThemeBrush.MinorTickMarkColor">
-            <summary>
-            Gets/Sets the Minor Tick Mark Color.
             </summary>
         </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.LinearGaugeThemeBrush.m_NeedleColor">
@@ -3525,19 +3485,9 @@
             This property helps to holds Needle Pointer Color.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeThemeBrush.NeedleColor">
-            <summary>
-            Gets/Sets the Needle Pointer Color.
-            </summary>
-        </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.LinearGaugeThemeBrush.m_ValueIndicatorColor">
             <summary>
             This property helps to holds Value Indicator Color.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeThemeBrush.ValueIndicatorColor">
-            <summary>
-            Gets/Sets the Value Indicator Color.
             </summary>
         </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.LinearGaugeThemeBrush.m_BaseColor">
@@ -3545,14 +3495,64 @@
             This property helps to holds Ranges Scale Color.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeThemeBrush.ScaleColor">
-            <summary>
-            Gets/Sets the Ranges Scale Color.
-            </summary>
-        </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.LinearGaugeThemeBrush.m_ScaleLabelColor">
             <summary>
             This property helps to holds Scale Label Color.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeThemeBrush.BackgroundGradientStartColor">
+            <summary>
+            Gets/Sets the Background Gradient Start Color.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeThemeBrush.BackgroundGradientEndColor">
+            <summary>
+            Gets/Sets the Background Gradient End Color.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeThemeBrush.OuterFrameGradientStartColor">
+            <summary>
+            Gets/Sets the Outer Frame Gradient Start Color.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeThemeBrush.OuterFrameGradientEndColor">
+            <summary>
+            Gets/Sets the Outer Frame Gradient End Color.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeThemeBrush.InnerFrameGradientStartColor">
+            <summary>
+            Gets/Sets the Inner Frame Gradient Start Color.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeThemeBrush.InnerFrameGradientEndColor">
+            <summary>
+            Gets/Sets the Inner Frame Gradient End Color.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeThemeBrush.MajorTickMarkColor">
+            <summary>
+            Gets/Sets the Major Tick Mark Color.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeThemeBrush.MinorTickMarkColor">
+            <summary>
+            Gets/Sets the Minor Tick Mark Color.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeThemeBrush.NeedleColor">
+            <summary>
+            Gets/Sets the Needle Pointer Color.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeThemeBrush.ValueIndicatorColor">
+            <summary>
+            Gets/Sets the Value Indicator Color.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeThemeBrush.ScaleColor">
+            <summary>
+            Gets/Sets the Ranges Scale Color.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Gauge.LinearGaugeThemeBrush.ScaleLabelColor">
@@ -3570,19 +3570,9 @@
             This property helps to holds Background Gradient Start Color.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGaugeThemeBrush.BackgroundGradientStartColor">
-            <summary>
-            Gets/Sets the Background Gradient Start Color.
-            </summary>
-        </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.DigitalGaugeThemeBrush.m_BackgroundGradientEndColor">
             <summary>
             This property helps to holds Background Gradient End Color.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGaugeThemeBrush.BackgroundGradientEndColor">
-            <summary>
-            Gets/Sets the Background Gradient End Color.
             </summary>
         </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.DigitalGaugeThemeBrush.m_OuterFrameGradientStartColor">
@@ -3590,19 +3580,9 @@
             This property helps to holds Outer Frame Gradient Start Color.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGaugeThemeBrush.OuterFrameGradientStartColor">
-            <summary>
-            Gets/Sets the Outer Frame Gradient Start Color.
-            </summary>
-        </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.DigitalGaugeThemeBrush.m_OuterFrameGradientEndColor">
             <summary>
             This property helps to holds Outer Frame Gradient Start Color.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGaugeThemeBrush.OuterFrameGradientEndColor">
-            <summary>
-            Gets/Sets the Outer Frame Gradient End Color.
             </summary>
         </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.DigitalGaugeThemeBrush.m_FrameBorderColor">
@@ -3610,24 +3590,44 @@
             This property helps to holds Inner Frame Gradient Start Color.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGaugeThemeBrush.FrameBorderColor">
-            <summary>
-            Gets/Sets the Frame Border Color.
-            </summary>
-        </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.DigitalGaugeThemeBrush.m_ForeColor">
             <summary>
             This property helps to holds the Text Color
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGaugeThemeBrush.ForeColor">
-            <summary>
-            Gets/Sets the Text Color
-            </summary>
-        </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.DigitalGaugeThemeBrush.m_InactiveTextColor">
             <summary>
             This property helps to holds the Inactive Text Color
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGaugeThemeBrush.BackgroundGradientStartColor">
+            <summary>
+            Gets/Sets the Background Gradient Start Color.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGaugeThemeBrush.BackgroundGradientEndColor">
+            <summary>
+            Gets/Sets the Background Gradient End Color.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGaugeThemeBrush.OuterFrameGradientStartColor">
+            <summary>
+            Gets/Sets the Outer Frame Gradient Start Color.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGaugeThemeBrush.OuterFrameGradientEndColor">
+            <summary>
+            Gets/Sets the Outer Frame Gradient End Color.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGaugeThemeBrush.FrameBorderColor">
+            <summary>
+            Gets/Sets the Frame Border Color.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGaugeThemeBrush.ForeColor">
+            <summary>
+            Gets/Sets the Text Color
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Gauge.DigitalGaugeThemeBrush.InactiveTextColor">
@@ -3893,7 +3893,7 @@
         <!-- Badly formed XML comment ignored for member "M:Syncfusion.Windows.Forms.Gauge.RadialGauge.SuspendLayout" -->
         <member name="M:Syncfusion.Windows.Forms.Gauge.RadialGauge.ResumeLayout(System.Boolean)">
             <summary>
-            Resumes usual layout logic, optionally forcing an immediate layout of pending layout requests <see cref = "T:Syncfusion.Windows.Forms.Gauge.RadialGauge" />.
+            Resumes usual layout logic, optionally forcing an immediate layout of pending layout requests <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGauge"/>.
             </summary>
             <param name="performLayout"> true to execute pending layout requests; otherwise, false. </param>
             <remarks>
@@ -3901,25 +3901,6 @@
             The <see cref="M:System.Windows.Forms.Control.SuspendLayout"/> and <see cref="M:System.Windows.Forms.Control.ResumeLayout"/> methods are used in tandem to suppress multiple Layout events while you adjust multiple attributes of the control.For example, you would typically call the SuspendLayout method, then set the <see cref="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.MaximumValue"/>, <see cref="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.MinimumValue"/>, <see cref="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.Ranges"/>, <see cref="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.MinorDifference"/>,  <see cref="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.MajorDifference"/> properties of the <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGauge"/>, and then call the <see cref="M:System.Windows.Forms.Control.ResumeLayout"/> method to enable the changes to take effect. 
             There must be no pending calls to <see cref="M:System.Windows.Forms.Control.SuspendLayout"/> for <see cref="M:System.Windows.Forms.Control.ResumeLayout"/> to be successfully called.
             </remarks>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.FillColor">
-            <summary>
-            Gets or sets a color to fill the GaugeArc based on the <see cref="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.Value"/> of RadialGauge
-            </summary>
-            <remarks>
-            The fill color will be applied to the GaugeArc when the <see cref="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.FrameType"/> is <see cref="F:Syncfusion.Windows.Forms.Gauge.FrameType.Fill"/> 
-            </remarks>
-        </member>
-        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Windows.Forms.Gauge.RadialGauge.FrameThickness" -->
-        <member name="E:Syncfusion.Windows.Forms.Gauge.RadialGauge.ValueChanged">
-            <summary>
-            This event is raised when the Gauge value is changed.
-            </summary>
-        </member>
-        <member name="E:Syncfusion.Windows.Forms.Gauge.RadialGauge.ThresholdValueChanged">
-            <summary>
-            This event is raised if the value is entering or leaving defined range.
-            </summary>
         </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.RadialGauge.listChangedHandler">
             <summary>
@@ -4071,22 +4052,12 @@
             </summary>
             <param name="e"></param>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.NeedleStyle">
-            <summary>
-            Gets or sets the value indicating the NeedleStyle.
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Gauge.RadialGauge.RepaintControl">
             <summary>
             Repaints the control
             </summary>
         </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.RadialGauge.renderer">
-            <summary>
-            Gets or sets the Custom Renderer.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.Renderer">
             <summary>
             Gets or sets the Custom Renderer.
             </summary>
@@ -4116,44 +4087,9 @@
             Gets or sets a value that indicates whether to show or hide the ticks in the <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGauge"/> control.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.ShowTicks">
-            <summary>
-            Gets or sets a value that indicates whether to show or hide the ticks in the <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGauge"/> control.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.GaugeValueFont">
-            <summary>
-            Specifies font for GaugeValue.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.GaugeLableFont">
-            <summary>
-            Specifies font for GaugeLabel.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.GaugeValueColor">
-            <summary>
-            Gets or sets the color for GaugeValue.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.GaugeLableColor">
-            <summary>
-            Gets or sets the color for GaugeLabel.
-            </summary>
-        </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.RadialGauge.showGaugeValue">
             <summary>
             Gets or sets the value to show or hide Gauge value.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.GaugeLabel">
-            <summary>
-            Gets or sets the value to GaugeLabel.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.Text">
-            <summary>
-            Override text
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Gauge.RadialGauge.ShouldSerializeBackColor">
@@ -4536,16 +4472,6 @@
             Resets the <see cref="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.TransparentBackGround"/> property to it's default value.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.VisualStyle">
-            <summary>
-            Specifies the visual style.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.EnableCustomNeedles">
-            <summary>
-            Gets or sets whether custom needles can be drawn.
-            </summary>
-        </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.RadialGauge.isValueLabelHandled">
             <summary>
             Field to store whether the label is handled or not
@@ -4579,21 +4505,6 @@
         <member name="F:Syncfusion.Windows.Forms.Gauge.RadialGauge.InnerRect">
             <summary>
             Gets or sets a bounds of the inner frame
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.IsValueLabelHandled">
-            <summary>
-            Gets or sets a value indicating whether Value label drawing is handled by the user or not
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.IsGaugeLabelHandled">
-            <summary>
-            Gets or sets a value indicating whether Gauge label drawing is handled by the user or not
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.IsScaleLabelHandled">
-            <summary>
-            Gets or sets a value indicating whether Scale label drawing is handled by the user or not
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Gauge.RadialGauge.EnableDPICalculation">
@@ -4652,12 +4563,6 @@
             <param name="point1">Start point of the rectangle</param>
             <param name="point2">End point of the rectangle</param>
             <returns></returns>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.ReadOnly">
-            <summary>
-            Gets or sets whether Gauge value can be updated using mouse selection.
-            </summary>
-            <remarks> The Gauge value will be updated on drag and drop operation and while mouse clicking on required Gauge value</remarks>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Gauge.RadialGauge.ResetReadOnly">
             <summary>
@@ -4724,16 +4629,6 @@
             Initializes the FrameType variable.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.FrameType">
-            <summary>
-            Specifies the Gauge FrameStyle.
-            </summary>
-        </member>
-        <member name="E:Syncfusion.Windows.Forms.Gauge.RadialGauge.DrawLabel">
-            <summary>
-            Occurs when drawing custom labels in <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGauge"/>.
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Gauge.RadialGauge.OnDrawLabel(Syncfusion.Windows.Forms.Gauge.DrawLabelEventArgs)">
             <summary>
             Event will be triggers when drawing the custom labels in <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGauge"/>.
@@ -4745,11 +4640,6 @@
             Used to change the frame
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.StartAngle">
-            <summary>
-            Specifies the angle at which to start drawing the arc.Applicable only for FullCircle Frametype.
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Gauge.RadialGauge.ShouldSerializeStartAngle">
             <summary>
             Serializes the StartAngle.
@@ -4759,11 +4649,6 @@
         <member name="M:Syncfusion.Windows.Forms.Gauge.RadialGauge.ResetStartAngle">
             <summary>
             Resets the StartAngle.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.SweepAngle">
-            <summary>
-            Specifies the arc length. Applicable only for FullCircle Frametype.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Gauge.RadialGauge.ShouldSerializeSweepAngle">
@@ -4782,11 +4667,6 @@
             Holds RadialGauge ColorTable
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.ThemeBrushColorTable">
-            <summary>
-            Gets/Sets the RadialGauge ThemeBrush ColorTable
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Gauge.RadialGauge.ShouldSerializeThemeBrushColorTable">
             <summary>
             Indicate whether to serialize the ThemeBrush ColorTable
@@ -4802,11 +4682,6 @@
             Holds the ThemeBrush Variable
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.ThemeBrush">
-            <summary>
-            Gets the ThemeBrush for RadialGauge control
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Gauge.RadialGauge.ThemeBrush_ListChanged(System.Object,System.ComponentModel.ListChangedEventArgs)">
             <summary>
             To update the ColorTable customization
@@ -4817,124 +4692,14 @@
             This function helps to update the ColorTableCustomization
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.BackgroundGradientStartColor">
-            <summary>
-            Gets or sets the start color of the gradient inner background.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.BackgroundGradientEndColor">
-            <summary>
-            Gets or sets the end color of the gradient inner background.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.OuterFrameGradientStartColor">
-            <summary>
-            Gets or sets the gradient start color of the outer frame.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.OuterFrameGradientEndColor">
-            <summary>
-            Gets or sets the gradient end color of the outer frame.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.InnerFrameGradientStartColor">
-            <summary>
-            Gets or sets the gradient start color for the inner frame.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.InnerFrameGradientEndColor">
-            <summary>
-            Gets or sets the gradient end color of the inner frame.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.MajorTickMarkColor">
-            <summary>
-            Gets or sets the value indicating MajorTickMarkColor.
-            </summary>
-        </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.RadialGauge.arcThickness">
             <summary>
             Gets or sets a value that specifies the thickness to draw the arc in <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGauge"/>.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.ArcThickness">
-            <summary>
-            Gets or sets a value that specifies the thickness to draw the arc in <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGauge"/>.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.MinorTickMarkColor">
-            <summary>
-            Gets or sets the value indicating the MinorTickMarkColor.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.InterLinesColor">
-            <summary>
-            Gets or sets the value indicating the Inter Lines color.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.GaugeArcColor">
-            <summary>
-            Gets or sets the value indicating the GaugeArcColor.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.NeedleColor">
-            <summary>
-            Gets or sets the value indicating the NeedleColor.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.ScaleLabelColor">
-            <summary>
-            Gets or sets the color for numeric labels
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.MajorTickMarkHeight">
-            <summary>
-            Gets or sets the value indicating the MajorTickMarkHeight.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.MinorTickMarkHeight">
-            <summary>
-            Gets or sets the value indicating the MinorTickMarkHeight.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.MinorInnerLinesHeight">
-            <summary>
-            Gets or sets the value indicating MinorInnerLinesHeight.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.MajorDifference">
-            <summary>
-            Gets or sets the value indicating major line difference.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.MinorDifference">
-            <summary>
-             Gets or sets the value indicating minor line difference.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.BackColor">
-            <summary>
-            Gets or Sets the BackColor
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.MinimumSize">
-            <summary>
-            Gets or sets the MinimumSize
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.BackgroundColor">
-            <summary>
-            Gets or sets the BackgroundColor
-            </summary>
-        </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.RadialGauge.m_ScaleNumbersRadius">
             <summary>
             Initializes the ScaleNumberRadius variable.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.ScaleNumbersRadius">
-            <summary>
-            Gets the ScaleNumberRadius to draw TickMarks
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Gauge.RadialGauge.GetInnerWidth">
@@ -4949,35 +4714,14 @@
             </summary>
             <returns>Returns the width</returns>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.GaugeRadius">
-            <summary>
-            Gets the GaugeRadius
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.TickRadius">
-            <summary>
-            Gets a radius value to place the Ticks over the gauge
-            </summary>
-        </member>
-        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Windows.Forms.Gauge.RadialGauge.FullCircleRadius" -->
         <member name="F:Syncfusion.Windows.Forms.Gauge.RadialGauge.textOrientation">
             <summary>
             Initializes the TextOrientation variable.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.TextOrientation">
-            <summary>
-            Gets or sets the value indicating the TextOrientation.
-            </summary>
-        </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.RadialGauge.m_tickposition">
             <summary>
             Initializes the TickPosition variable.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.TickPlacement">
-            <summary>
-            Gets or sets the value indicating tick line placement.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Gauge.RadialGauge.DrawPointer">
@@ -4990,34 +4734,9 @@
             Initializes the numberplacement variable.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.LabelPlacement">
-            <summary>
-            Gets or sets the value indicating the display position of Label.
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Gauge.RadialGauge.SetNumberPosition">
             <summary>
             Used to set the label position
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.MinimumValue">
-            <summary>
-            Gets or sets the MinimumValue to be displayed.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.MaximumValue">
-            <summary>
-            Gets or sets the MaximumValue to be displayed.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.Value">
-            <summary>
-            Gets or sets the Value.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.Ranges">
-            <summary>
-            Gets the Gauge range collection.
             </summary>
         </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.RadialGauge._GaugeRanges">
@@ -5026,11 +4745,6 @@
             </summary>
         </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.RadialGauge.m_NeedleCollection">
-            <summary>
-            Gets the Gauge custom needle collection.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.NeedleCollection">
             <summary>
             Gets the Gauge custom needle collection.
             </summary>
@@ -5070,11 +4784,6 @@
             </summary>
             <param name="index">The index of the item.</param>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.IsDesignMode">
-            <summary>
-            Gets a value that indicates whether the LinearGauge is currently in design mode.
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Gauge.RadialGauge.GetListViewItem(System.Int32)">
             <summary>
             Returns a <see cref="T:System.Windows.Forms.ListViewItem"/> which contains the row-data at given index.
@@ -5100,21 +4809,6 @@
             Calculates the Colums of the <see cref="!:BoundListView"/>.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.DataSource">
-            <summary>
-            Gets or sets the DataSource that you want to display the data.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.DataMember">
-            <summary>
-            Specifies a secondary list of Datasource, to display it.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.DataManager">
-            <summary>
-            Gets the CurrencyManager of the bound list.
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Gauge.RadialGauge.SetDataConnection(System.Object,System.Windows.Forms.BindingMemberInfo,System.Boolean)">
             <summary>
             Sets the data connection
@@ -5135,11 +4829,6 @@
             Flag to indicate whether the ArcThicnkess property is changed or not
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.DisplayRecordIndex">
-            <summary>
-            Gets or sets the DisplayRecordIndex.
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Gauge.RadialGauge.PopulateGauge">
             <summary>
             Populates the Gauge with items
@@ -5150,23 +4839,10 @@
             Field to store the maximum value text
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.MaximumValueText">
-            <summary>
-            Gets or sets a value of maximum value text which is displayed as Maximum Value 
-            </summary>
-        </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.RadialGauge.themeStyle">
             <summary>
             It contains the value of the <see cref="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.ThemeStyle"/> property.
             </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.ThemeStyle">
-            <summary>
-            Gets or sets the <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle"/> value used to customize the appearance of the <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGauge"/>.
-            </summary>
-            <remarks>
-            This ThemeStyle settings will be applied only when the VisualStyleBased theme has been applied to the control.
-            </remarks>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Gauge.RadialGauge.OnThemeNameChanged(System.String)">
             <summary>
@@ -5292,24 +4968,333 @@
             <param name="ArcColor">Color used to fill the GaugeArc.</param>
             <param name="fillColor">Color used to fill the GaugeArc based on the current value of RadialGauge.</param>
         </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.FillColor">
+            <summary>
+            Gets or sets a color to fill the GaugeArc based on the <see cref="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.Value"/> of RadialGauge
+            </summary>
+            <remarks>
+            The fill color will be applied to the GaugeArc when the <see cref="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.FrameType"/> is <see cref="!:FrameType.Fill"/> 
+            </remarks>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Windows.Forms.Gauge.RadialGauge.FrameThickness" -->
+        <member name="E:Syncfusion.Windows.Forms.Gauge.RadialGauge.ValueChanged">
+            <summary>
+            This event is raised when the Gauge value is changed.
+            </summary>
+        </member>
+        <member name="E:Syncfusion.Windows.Forms.Gauge.RadialGauge.ThresholdValueChanged">
+            <summary>
+            This event is raised if the value is entering or leaving defined range.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.NeedleStyle">
+            <summary>
+            Gets or sets the value indicating the NeedleStyle.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.Renderer">
+            <summary>
+            Gets or sets the Custom Renderer.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.ShowTicks">
+            <summary>
+            Gets or sets a value that indicates whether to show or hide the ticks in the <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGauge"/> control.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.GaugeValueFont">
+            <summary>
+            Specifies font for GaugeValue.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.GaugeLableFont">
+            <summary>
+            Specifies font for GaugeLabel.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.GaugeValueColor">
+            <summary>
+            Gets or sets the color for GaugeValue.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.GaugeLableColor">
+            <summary>
+            Gets or sets the color for GaugeLabel.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.GaugeLabel">
+            <summary>
+            Gets or sets the value to GaugeLabel.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.Text">
+            <summary>
+            Override text
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.VisualStyle">
+            <summary>
+            Specifies the visual style.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.EnableCustomNeedles">
+            <summary>
+            Gets or sets whether custom needles can be drawn.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.IsValueLabelHandled">
+            <summary>
+            Gets or sets a value indicating whether Value label drawing is handled by the user or not
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.IsGaugeLabelHandled">
+            <summary>
+            Gets or sets a value indicating whether Gauge label drawing is handled by the user or not
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.IsScaleLabelHandled">
+            <summary>
+            Gets or sets a value indicating whether Scale label drawing is handled by the user or not
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.ReadOnly">
+            <summary>
+            Gets or sets whether Gauge value can be updated using mouse selection.
+            </summary>
+            <remarks> The Gauge value will be updated on drag and drop operation and while mouse clicking on required Gauge value</remarks>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.FrameType">
+            <summary>
+            Specifies the Gauge FrameStyle.
+            </summary>
+        </member>
+        <member name="E:Syncfusion.Windows.Forms.Gauge.RadialGauge.DrawLabel">
+            <summary>
+            Occurs when drawing custom labels in <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGauge"/>.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.StartAngle">
+            <summary>
+            Specifies the angle at which to start drawing the arc.Applicable only for FullCircle Frametype.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.SweepAngle">
+            <summary>
+            Specifies the arc length. Applicable only for FullCircle Frametype.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.ThemeBrushColorTable">
+            <summary>
+            Gets/Sets the RadialGauge ThemeBrush ColorTable
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.ThemeBrush">
+            <summary>
+            Gets the ThemeBrush for RadialGauge control
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.BackgroundGradientStartColor">
+            <summary>
+            Gets or sets the start color of the gradient inner background.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.BackgroundGradientEndColor">
+            <summary>
+            Gets or sets the end color of the gradient inner background.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.OuterFrameGradientStartColor">
+            <summary>
+            Gets or sets the gradient start color of the outer frame.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.OuterFrameGradientEndColor">
+            <summary>
+            Gets or sets the gradient end color of the outer frame.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.InnerFrameGradientStartColor">
+            <summary>
+            Gets or sets the gradient start color for the inner frame.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.InnerFrameGradientEndColor">
+            <summary>
+            Gets or sets the gradient end color of the inner frame.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.MajorTickMarkColor">
+            <summary>
+            Gets or sets the value indicating MajorTickMarkColor.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.ArcThickness">
+            <summary>
+            Gets or sets a value that specifies the thickness to draw the arc in <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGauge"/>.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.MinorTickMarkColor">
+            <summary>
+            Gets or sets the value indicating the MinorTickMarkColor.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.InterLinesColor">
+            <summary>
+            Gets or sets the value indicating the Inter Lines color.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.GaugeArcColor">
+            <summary>
+            Gets or sets the value indicating the GaugeArcColor.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.NeedleColor">
+            <summary>
+            Gets or sets the value indicating the NeedleColor.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.ScaleLabelColor">
+            <summary>
+            Gets or sets the color for numeric labels
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.MajorTickMarkHeight">
+            <summary>
+            Gets or sets the value indicating the MajorTickMarkHeight.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.MinorTickMarkHeight">
+            <summary>
+            Gets or sets the value indicating the MinorTickMarkHeight.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.MinorInnerLinesHeight">
+            <summary>
+            Gets or sets the value indicating MinorInnerLinesHeight.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.MajorDifference">
+            <summary>
+            Gets or sets the value indicating major line difference.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.MinorDifference">
+            <summary>
+             Gets or sets the value indicating minor line difference.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.BackColor">
+            <summary>
+            Gets or Sets the BackColor
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.MinimumSize">
+            <summary>
+            Gets or sets the MinimumSize
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.BackgroundColor">
+            <summary>
+            Gets or sets the BackgroundColor
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.ScaleNumbersRadius">
+            <summary>
+            Gets the ScaleNumberRadius to draw TickMarks
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.GaugeRadius">
+            <summary>
+            Gets the GaugeRadius
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.TickRadius">
+            <summary>
+            Gets a radius value to place the Ticks over the gauge
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Windows.Forms.Gauge.RadialGauge.FullCircleRadius" -->
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.TextOrientation">
+            <summary>
+            Gets or sets the value indicating the TextOrientation.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.TickPlacement">
+            <summary>
+            Gets or sets the value indicating tick line placement.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.LabelPlacement">
+            <summary>
+            Gets or sets the value indicating the display position of Label.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.MinimumValue">
+            <summary>
+            Gets or sets the MinimumValue to be displayed.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.MaximumValue">
+            <summary>
+            Gets or sets the MaximumValue to be displayed.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.Value">
+            <summary>
+            Gets or sets the Value.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.Ranges">
+            <summary>
+            Gets the Gauge range collection.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.NeedleCollection">
+            <summary>
+            Gets the Gauge custom needle collection.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.IsDesignMode">
+            <summary>
+            Gets a value that indicates whether the LinearGauge is currently in design mode.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.DataSource">
+            <summary>
+            Gets or sets the DataSource that you want to display the data.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.DataMember">
+            <summary>
+            Specifies a secondary list of Datasource, to display it.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.DataManager">
+            <summary>
+            Gets the CurrencyManager of the bound list.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.DisplayRecordIndex">
+            <summary>
+            Gets or sets the DisplayRecordIndex.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.MaximumValueText">
+            <summary>
+            Gets or sets a value of maximum value text which is displayed as Maximum Value 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGauge.ThemeStyle">
+            <summary>
+            Gets or sets the <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle"/> value used to customize the appearance of the <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGauge"/>.
+            </summary>
+            <remarks>
+            This ThemeStyle settings will be applied only when the VisualStyleBased theme has been applied to the control.
+            </remarks>
+        </member>
         <member name="T:Syncfusion.Windows.Forms.Gauge.ThresholdValueChangedEventArgs">
             <summary>
             Event argument for <see cref="!:ValueInRangeChanged"/> event.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.ThresholdValueChangedEventArgs.Range">
-            <summary>
-            Affected Gauge Range
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.ThresholdValueChangedEventArgs.Value">
-            <summary>
-            Gauge Value
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.ThresholdValueChangedEventArgs.InRange">
-            <summary>
-            True if value is within current range.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Gauge.ThresholdValueChangedEventArgs.#ctor(Syncfusion.Windows.Forms.Gauge.Range,System.Single,System.Boolean)">
@@ -5326,6 +5311,21 @@
             </summary>
             <param name="value">Gauge value</param>
         </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.ThresholdValueChangedEventArgs.Range">
+            <summary>
+            Affected Gauge Range
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.ThresholdValueChangedEventArgs.Value">
+            <summary>
+            Gauge Value
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.ThresholdValueChangedEventArgs.InRange">
+            <summary>
+            True if value is within current range.
+            </summary>
+        </member>
         <member name="T:Syncfusion.Windows.Forms.Gauge.RadialGaugeDesigner">
             <summary>
             Desginer class for RadialGauge
@@ -5341,16 +5341,16 @@
              Initializes a new instance of the RadialGaugeDesigner class
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeDesigner.ActionLists">
-            <summary>
-            Gets a value indicating the designer action
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Gauge.RadialGaugeDesigner.Initialize(System.ComponentModel.IComponent)">
             <summary>
             Overridden Initialize method.
             </summary>
             <param name="component">Componnent object</param>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeDesigner.ActionLists">
+            <summary>
+            Gets a value indicating the designer action
+            </summary>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Gauge.RadialGaugeActionList">
             <summary>
@@ -5362,6 +5362,11 @@
             Initializes the new instance of the RadialGaugeActionList class.
             </summary>
             <param name="component"> Represents component</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.RadialGaugeActionList.InitializeActionList">
+            <summary>
+            Overrridden InitializeActionList.
+            </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeActionList.MaximumValue">
             <summary>
@@ -5386,11 +5391,6 @@
         <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeActionList.MajorDifference">
             <summary>
             Gets or sets the value to Gauge major line Difference
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.RadialGaugeActionList.InitializeActionList">
-            <summary>
-            Overrridden InitializeActionList.
             </summary>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Gauge.IRadialGaugeRenderer">
@@ -5491,11 +5491,6 @@
             Used to set bounds for the Font
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeRenderer.RadialGauge">
-            <summary>
-             Gets the RadialGauge
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Gauge.RadialGaugeRenderer.#ctor(Syncfusion.Windows.Forms.Gauge.RadialGauge)">
             <summary>
             Constructor of the Renderer class
@@ -5592,6 +5587,11 @@
             <param name="ArcColor">Color used to fill the gauge arc</param>
             <param name="fillColor">Color used to fill the gauge arc based on the current value of RadialGauge</param>
         </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeRenderer.RadialGauge">
+            <summary>
+             Gets the RadialGauge
+            </summary>
+        </member>
         <member name="T:Syncfusion.Windows.Forms.Gauge.BlueThemeRenderer">
             <summary>
             BlueThemeRenderer class
@@ -5646,6 +5646,36 @@
             </summary>
             <param name="m_RadialGauge">The RadialGauge instance.</param>
         </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.RadialGaugeAccessibility.GetChildCount">
+            <summary>
+            Retrieves the number of children in the accessible object.
+            </summary>
+            <returns>Number of Child.</returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.RadialGaugeAccessibility.GetChild(System.Int32)">
+            <summary>
+            Retrieves the accessible child corresponding to the index.
+            </summary>
+            <param name="index">Index</param>
+            <returns>Child specified to the index</returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.RadialGaugeAccessibility.GetFocused">
+            <summary>
+            Retrieves the object that has the focus.
+            </summary>
+            <returns>&gt;An <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGaugeAccessibility"/> that specifies the currently focused child.
+            This method returns the calling object if the object itself is focused. Returns null if no object has focus.</returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.RadialGaugeAccessibility.HitTest(System.Int32,System.Int32)">
+            <summary>
+            Retrieves the child object at the specified screen coordinates.
+            </summary>
+            <param name="x">The horizontal screen coordinate.</param>
+            <param name="y">The vertical screen coordinate.</param>
+            <returns>An <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGaugeAccessibility"/> that represents the child object at the given screen coordinates.
+            This method returns the calling object if the object itself is at the location specified.
+            Returns null if no object is at the tested location.</returns>
+        </member>
         <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeAccessibility.Bounds">
             <summary>
             Bounds of the Control
@@ -5685,40 +5715,10 @@
             </summary>
             <returns>An <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGaugeAccessibility"/> that represents the parent of an accessible object, or null if there is no parent object.</returns>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.RadialGaugeAccessibility.GetChildCount">
-            <summary>
-            Retrieves the number of children in the accessible object.
-            </summary>
-            <returns>Number of Child.</returns>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.RadialGaugeAccessibility.GetChild(System.Int32)">
-            <summary>
-            Retrieves the accessible child corresponding to the index.
-            </summary>
-            <param name="index">Index</param>
-            <returns>Child specified to the index</returns>
-        </member>
         <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeAccessibility.Value">
             <summary>
             Gets or sets the value of an accessible object.
             </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.RadialGaugeAccessibility.GetFocused">
-            <summary>
-            Retrieves the object that has the focus.
-            </summary>
-            <returns>>An <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGaugeAccessibility"/> that specifies the currently focused child.
-            This method returns the calling object if the object itself is focused. Returns null if no object has focus.</returns>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.RadialGaugeAccessibility.HitTest(System.Int32,System.Int32)">
-            <summary>
-            Retrieves the child object at the specified screen coordinates.
-            </summary>
-            <param name="x">The horizontal screen coordinate.</param>
-            <param name="y">The vertical screen coordinate.</param>
-            <returns>An <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGaugeAccessibility"/> that represents the child object at the given screen coordinates.
-            This method returns the calling object if the object itself is at the location specified.
-            Returns null if no object is at the tested location.</returns>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Gauge.Office2016ColorfulThemeRenderer">
             <summary>
@@ -5865,71 +5865,6 @@
             <param name="identity">A <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGaugeStyleInfoIdentity"/> that holds the identity for this <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGaugeStyleInfoStore"/>.</param>
             <param name="store">The store.</param>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle.DefaultStyle">
-            <summary>
-            Gets the default RadialGaugeStyleInfo value.
-            </summary>
-        </member>
-        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle.InnerFrameThickness" -->
-        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle.BackgroundGradientStartColor" -->
-        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle.BackgroundGradientEndColor" -->
-        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle.LabelFont" -->
-        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle.LabelForeColor" -->
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle.OuterFrameGradientStartColor">
-            <summary>
-            Gets or sets the start color which is used to draw the OuterFrame of <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGauge"/> 
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle.OuterFrameGradientEndColor">
-            <summary>
-            Gets or sets the end color which is used to draw the OuterFrame of <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGauge"/> 
-            </summary>
-        </member>
-        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle.ValueFont" -->
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle.NeedleColor">
-            <summary>
-            Gets or sets the color used to draw the needle in <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGauge"/>
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle.ArcColor">
-            <summary>
-            Gets or sets the color used to draw the inner arc in <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGauge"/>.
-            </summary>
-        </member>
-        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle.ValueForeColor" -->
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle.FillColor">
-            <summary>
-            Gets or sets the color used to fill the gauge arc based on the current value of the <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGauge"/>.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle.InnerFrameGradientStartColor">
-            <summary>
-            Gets or sets the start color which is used to draw the InnerFrame of <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGauge"/> 
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle.InnerFrameGradientEndColor">
-            <summary>
-            Gets or sets the end color which is used to draw the InnerFrame of <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGauge"/> 
-            </summary>
-        </member>
-        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle.MajorTickMarkColor" -->
-        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle.MinorTickMarkColor" -->
-        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle.InnerTickMarkColor" -->
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle.ScaleLabelForeColor">
-            <summary>
-            Gets or sets the fore color which is used to draw the scale label in <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGauge"/>.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle.ArcThickness">
-            <summary>
-            Gets or sets a value that specifies the thickness to draw the arc in <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGauge"/>.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle.ShowBackgroundFrame">
-            <summary>
-            Gets or sets a value that indicates whether the frame of <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGauge"/> should be visible.        
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle.GetDefaultStyle">
             <summary>
             Gets the default style value of the <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle"/> class.
@@ -6056,6 +5991,71 @@
             </summary>
             <returns><b>True</b> if the property was modified; Otherwise <b>False</b>.</returns>
         </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle.DefaultStyle">
+            <summary>
+            Gets the default RadialGaugeStyleInfo value.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle.InnerFrameThickness" -->
+        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle.BackgroundGradientStartColor" -->
+        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle.BackgroundGradientEndColor" -->
+        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle.LabelFont" -->
+        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle.LabelForeColor" -->
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle.OuterFrameGradientStartColor">
+            <summary>
+            Gets or sets the start color which is used to draw the OuterFrame of <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGauge"/> 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle.OuterFrameGradientEndColor">
+            <summary>
+            Gets or sets the end color which is used to draw the OuterFrame of <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGauge"/> 
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle.ValueFont" -->
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle.NeedleColor">
+            <summary>
+            Gets or sets the color used to draw the needle in <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGauge"/>
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle.ArcColor">
+            <summary>
+            Gets or sets the color used to draw the inner arc in <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGauge"/>.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle.ValueForeColor" -->
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle.FillColor">
+            <summary>
+            Gets or sets the color used to fill the gauge arc based on the current value of the <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGauge"/>.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle.InnerFrameGradientStartColor">
+            <summary>
+            Gets or sets the start color which is used to draw the InnerFrame of <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGauge"/> 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle.InnerFrameGradientEndColor">
+            <summary>
+            Gets or sets the end color which is used to draw the InnerFrame of <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGauge"/> 
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle.MajorTickMarkColor" -->
+        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle.MinorTickMarkColor" -->
+        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle.InnerTickMarkColor" -->
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle.ScaleLabelForeColor">
+            <summary>
+            Gets or sets the fore color which is used to draw the scale label in <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGauge"/>.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle.ArcThickness">
+            <summary>
+            Gets or sets a value that specifies the thickness to draw the arc in <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGauge"/>.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RadialGaugeVisualStyle.ShowBackgroundFrame">
+            <summary>
+            Gets or sets a value that indicates whether the frame of <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGauge"/> should be visible.        
+            </summary>
+        </member>
         <member name="T:Syncfusion.Windows.Forms.Gauge.RadialGaugeStyleInfoStore">
             <summary>
             Represents the class holds the plain data for a style object excluding identity information.
@@ -6173,7 +6173,7 @@
         </member>
         <member name="M:Syncfusion.Windows.Forms.Gauge.RadialGaugeStyleInfoStore.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
             <summary>
-            Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGaugeStyleInfoStore" /> class.
+            Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.Gauge.RadialGaugeStyleInfoStore"/> class.
             </summary>
             <param name="info">Populates the SerializationInfo store with the name, type, and value of each piece of information it wants to serialize</param>
             <param name="context">Describes the source and destination of a given serialized stream, and provides an additional caller-defined context.</param>
@@ -6228,16 +6228,6 @@
             <param name="height"></param>
             <param name="rangePlacement"></param>        
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.Range.Name">
-            <summary>
-            Gets or Sets the instance range name
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.Range.InRange">
-            <summary>
-            Gets or Sets the instance range name
-            </summary>
-        </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.Range.Owner">
             <summary>
             
@@ -6254,16 +6244,6 @@
             Specifies the notify owner of the Range
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.Range.Color">
-            <summary>
-            Gets or Sets the color of the Range.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.Range.StartValue">
-            <summary>
-            Gets or Sets the start value of the Range.
-            </summary>
-        </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.Range.isStartValueChanged">
             <summary>
             Field to notify whether the start value of the range is changed or not
@@ -6272,6 +6252,37 @@
         <member name="F:Syncfusion.Windows.Forms.Gauge.Range.isEndValueChanged">
             <summary>
             Field to notify whether the end value of the range is changed or not
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.Range.GetHeight">
+            <summary>
+            Method to retrive the start width of the value range in Linear gauge
+            </summary>
+            <returns>Returns start width value</returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.Range.ResetStartValue">
+            <summary>
+            Resets to its default value
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.Range.Name">
+            <summary>
+            Gets or Sets the instance range name
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.Range.InRange">
+            <summary>
+            Gets or Sets the instance range name
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.Range.Color">
+            <summary>
+            Gets or Sets the color of the Range.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.Range.StartValue">
+            <summary>
+            Gets or Sets the start value of the Range.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Gauge.Range.EndValue">
@@ -6289,17 +6300,6 @@
             Gets or Sets the outer radius of the range
             </summary>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.Range.GetHeight">
-            <summary>
-            Method to retrive the start width of the value range in Linear gauge
-            </summary>
-            <returns>Returns start width value</returns>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.Range.ResetStartValue">
-            <summary>
-            Resets to its default value
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Gauge.LinearRange.#ctor(System.Drawing.Color,System.Single,System.Single,System.Int32,Syncfusion.Windows.Forms.Gauge.TickPlacement,System.Int32,System.Int32)">
             <summary>
             Affected GaugeRange
@@ -6309,16 +6309,6 @@
             <param name="endValue"></param>
             <param name="height"></param>
             <param name="rangePlacement"></param>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearRange.Name">
-            <summary>
-            Gets or Sets the instance range name
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearRange.InRange">
-            <summary>
-            Gets or Sets the instance range name
-            </summary>
         </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.LinearRange.Owner">
             <summary>
@@ -6336,16 +6326,6 @@
             Specifies the notify owner of the Range
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearRange.Color">
-            <summary>
-            Gets or Sets the color of the Range.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearRange.StartValue">
-            <summary>
-            Gets or Sets the start value of the Range.
-            </summary>
-        </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.LinearRange.isStartValueChanged">
             <summary>
             Field to notify whether the start value of the range is changed or not
@@ -6356,27 +6336,7 @@
             Field to notify whether the end value of the range is changed or not
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearRange.EndValue">
-            <summary>
-            Gets or Sets the end  value of the Range.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearRange.Height">
-            <summary>
-            Gets or Sets the inner radius of the range
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearRange.RangePlacement">
-            <summary>
-            Gets or Sets the outer radius of the range
-            </summary>
-        </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.LinearRange._StartWidth">
-            <summary>
-            Gets or Sets the Start width of the range
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearRange.StartWidth">
             <summary>
             Gets or Sets the Start width of the range
             </summary>
@@ -6398,11 +6358,6 @@
             </summary>
         </member>
         <member name="F:Syncfusion.Windows.Forms.Gauge.LinearRange._EndWidth">
-            <summary>
-            Gets or Sets the End width of the range
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearRange.EndWidth">
             <summary>
             Gets or Sets the End width of the range
             </summary>
@@ -6430,6 +6385,62 @@
             Resets to its default value
             </summary>
         </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearRange.Name">
+            <summary>
+            Gets or Sets the instance range name
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearRange.InRange">
+            <summary>
+            Gets or Sets the instance range name
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearRange.Color">
+            <summary>
+            Gets or Sets the color of the Range.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearRange.StartValue">
+            <summary>
+            Gets or Sets the start value of the Range.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearRange.EndValue">
+            <summary>
+            Gets or Sets the end  value of the Range.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearRange.Height">
+            <summary>
+            Gets or Sets the inner radius of the range
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearRange.RangePlacement">
+            <summary>
+            Gets or Sets the outer radius of the range
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearRange.StartWidth">
+            <summary>
+            Gets or Sets the Start width of the range
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearRange.EndWidth">
+            <summary>
+            Gets or Sets the End width of the range
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.Needle.SetOwner(Syncfusion.Windows.Forms.Gauge.RadialGauge)">
+            <summary>
+            Specifies the owner of the Range
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Gauge.Needle.NotifyOwner">
+            <summary>
+            Specifies the notify owner of the Range
+            </summary>
+        </member>
         <member name="P:Syncfusion.Windows.Forms.Gauge.Needle.NeedleColor">
             <summary>
             Gets/Sets Needle Color of Gauge
@@ -6445,17 +6456,6 @@
             Gets/Sets the needle value of Gauge
             </summary>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.Needle.SetOwner(Syncfusion.Windows.Forms.Gauge.RadialGauge)">
-            <summary>
-            Specifies the owner of the Range
-            </summary>
-            <param name="value"></param>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Gauge.Needle.NotifyOwner">
-            <summary>
-            Specifies the notify owner of the Range
-            </summary>
-        </member>
         <member name="P:Syncfusion.Windows.Forms.Gauge.Needle.Name">
             <summary>
             Gets or Sets the instance range name
@@ -6466,13 +6466,6 @@
             Constructor for Rangecollection
             </summary>
             <param name="sender"></param>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.RangeCollection.Item(System.Int32)">
-            <summary>
-            Gets the index of for the Range
-            </summary>
-            <param name="index"></param>
-            <returns></returns>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Gauge.RangeCollection.Contains(Syncfusion.Windows.Forms.Gauge.Range)">
             <summary>
@@ -6540,18 +6533,18 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.RangeCollection.Item(System.Int32)">
+            <summary>
+            Gets the index of for the Range
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
         <member name="M:Syncfusion.Windows.Forms.Gauge.NeedleCollection.#ctor(Syncfusion.Windows.Forms.Gauge.RadialGauge)">
             <summary>
             Constructor for Needlecollection
             </summary>
             <param name="sender"></param>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.NeedleCollection.Item(System.Int32)">
-            <summary>
-            Gets the index of for the Needle
-            </summary>
-            <param name="index"></param>
-            <returns></returns>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Gauge.NeedleCollection.Contains(Syncfusion.Windows.Forms.Gauge.Needle)">
             <summary>
@@ -6619,18 +6612,18 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.NeedleCollection.Item(System.Int32)">
+            <summary>
+            Gets the index of for the Needle
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
         <member name="M:Syncfusion.Windows.Forms.Gauge.LinearRangeCollection.#ctor(Syncfusion.Windows.Forms.Gauge.LinearGauge)">
             <summary>
             Constructor for LinearRangecollection
             </summary>
             <param name="sender"></param>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearRangeCollection.Item(System.Int32)">
-            <summary>
-            Gets the index of for the Range
-            </summary>
-            <param name="index"></param>
-            <returns></returns>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Gauge.LinearRangeCollection.Contains(Syncfusion.Windows.Forms.Gauge.LinearRange)">
             <summary>
@@ -6696,6 +6689,13 @@
             <summary>
             Gets the unique name
             </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Gauge.LinearRangeCollection.Item(System.Int32)">
+            <summary>
+            Gets the index of for the Range
+            </summary>
+            <param name="index"></param>
             <returns></returns>
         </member>
     </members>

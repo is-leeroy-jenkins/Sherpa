@@ -136,17 +136,17 @@
             </summary>
             <remarks></remarks>
         </member>
-        <member name="P:Syncfusion.UI.Xaml.Maps.ShapeFileDbfField.Name">
-            <summary>
-            Gets or sets the name value.
-            </summary>
-        </member>
         <member name="M:Syncfusion.UI.Xaml.Maps.ShapeFileDbfField.ReadFields(System.IO.BinaryReader)">
             <summary>
             To read the fields in the binary reader.
             </summary>
             <param name="reader">The binary reader.</param>
             <returns>The bool value.</returns>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Maps.ShapeFileDbfField.Name">
+            <summary>
+            Gets or sets the name value.
+            </summary>
         </member>
         <member name="T:Syncfusion.UI.Xaml.Maps.ShapeFileDbfHeader">
             <summary>
@@ -286,11 +286,6 @@
             </summary>
             <remarks></remarks>
         </member>
-        <member name="P:Syncfusion.UI.Xaml.Maps.ShapeFileDbfReader.DbfData">
-            <summary>
-            Gets or sets the Dbf data of the shape file layer.
-            </summary>
-        </member>
         <member name="M:Syncfusion.UI.Xaml.Maps.ShapeFileDbfReader.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:DbfReader.ShapeFileDbfReader">ShapeFileDbfReader</see> class. 
@@ -322,6 +317,11 @@
             </summary>
             <param name="reader">The binary reader.</param>
             <returns>The Dbf value.</returns>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Maps.ShapeFileDbfReader.DbfData">
+            <summary>
+            Gets or sets the Dbf data of the shape file layer.
+            </summary>
         </member>
         <member name="T:Syncfusion.UI.Xaml.Maps.ShapeFileDbfValues">
             <summary>
@@ -393,6 +393,12 @@
             Constructor ShapeFileHeader
             </summary>
         </member>
+        <member name="M:Syncfusion.UI.Xaml.Maps.ShapeFileHeader.ToString">
+            <summary>
+            Converts values to ToString
+            </summary>
+            <returns></returns>
+        </member>
         <member name="P:Syncfusion.UI.Xaml.Maps.ShapeFileHeader.Length">
             <summary>
             Indicate the fixed-length of this header in bytes.
@@ -426,30 +432,9 @@
             contains only one type of shape.
             </summary>
         </member>
-        <member name="M:Syncfusion.UI.Xaml.Maps.ShapeFileHeader.ToString">
-            <summary>
-            Converts values to ToString
-            </summary>
-            <returns></returns>
-        </member>
         <member name="T:Syncfusion.UI.Xaml.Maps.ShapeFileReader">
             <summary>
             Class ShapeFileReader
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Maps.ShapeFileReader.Records">
-            <summary>
-            Records stores the list of shapefile values
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Maps.ShapeFileReader.Header">
-            <summary>
-             Header property determines the header value 
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Maps.ShapeFileReader.shapefilename">
-            <summary>
-            Gets or sets the file name of the shape.
             </summary>
         </member>
         <member name="M:Syncfusion.UI.Xaml.Maps.ShapeFileReader.#ctor">
@@ -527,6 +512,21 @@
             <param name="uri">The layer uri.</param>
             <param name="dbfReader">The shape file db reader.</param>
         </member>
+        <member name="P:Syncfusion.UI.Xaml.Maps.ShapeFileReader.Records">
+            <summary>
+            Records stores the list of shapefile values
+            </summary>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Maps.ShapeFileReader.Header">
+            <summary>
+             Header property determines the header value 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Maps.ShapeFileReader.shapefilename">
+            <summary>
+            Gets or sets the file name of the shape.
+            </summary>
+        </member>
         <member name="T:Syncfusion.UI.Xaml.Maps.BoundingBox">
             <summary>
             Class represents the bounding box.
@@ -536,6 +536,15 @@
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.UI.Xaml.Maps.BoundingBox"/> class.
             </summary>
+        </member>
+        <member name="M:Syncfusion.UI.Xaml.Maps.BoundingBox.#ctor(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.UI.Xaml.Maps.BoundingBox"/> class.
+            </summary>
+            <param name="minx">The minimum x position.</param>
+            <param name="miny">The minimum y position.</param>
+            <param name="maxx">The maximum x position.</param>
+            <param name="maxy">The maximum y position.</param>
         </member>
         <member name="P:Syncfusion.UI.Xaml.Maps.BoundingBox.MinX">
             <summary>
@@ -560,15 +569,6 @@
             Gets the maximum y-position of the bounding
             box for the shape (expressed in degrees latitude).
             </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Maps.BoundingBox.#ctor(System.Double,System.Double,System.Double,System.Double)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Syncfusion.UI.Xaml.Maps.BoundingBox"/> class.
-            </summary>
-            <param name="minx">The minimum x position.</param>
-            <param name="miny">The minimum y position.</param>
-            <param name="maxx">The maximum x position.</param>
-            <param name="maxy">The maximum y position.</param>
         </member>
         <member name="T:Syncfusion.UI.Xaml.Maps.Helpers">
             <summary>
@@ -602,6 +602,25 @@
             Constructor for the ShapeFileRecord class.
             </summary>
         </member>
+        <member name="M:Syncfusion.UI.Xaml.Maps.ShapeFileRecord.GetPartsCount">
+            <summary>
+            Indicates the number of parts for this shape.
+            A part is a connected set of points, analogous to
+            a PathFigure in WPF.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.UI.Xaml.Maps.ShapeFileRecord.GetPointsCount">
+            <summary>
+            Specifies the total number of points defining
+            this shape record.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.UI.Xaml.Maps.ShapeFileRecord.ToString">
+            <summary>
+            Output some of the fields of the shapefile record.
+            </summary>
+            <returns>A string representation of the record.</returns>
+        </member>
         <member name="P:Syncfusion.UI.Xaml.Maps.ShapeFileRecord.MidPoint">
             <summary>
             specifies the Mid point between two variables
@@ -627,19 +646,6 @@
             Gets or Sets BoundingBox value
             </summary>
         </member>
-        <member name="M:Syncfusion.UI.Xaml.Maps.ShapeFileRecord.GetPartsCount">
-            <summary>
-            Indicates the number of parts for this shape.
-            A part is a connected set of points, analogous to
-            a PathFigure in WPF.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Maps.ShapeFileRecord.GetPointsCount">
-            <summary>
-            Specifies the total number of points defining
-            this shape record.
-            </summary>
-        </member>
         <member name="P:Syncfusion.UI.Xaml.Maps.ShapeFileRecord.Parts">
             <summary>      
             A collection of indices for the points array.
@@ -660,206 +666,6 @@
             with this shape record.
             </summary>
         </member>
-        <member name="M:Syncfusion.UI.Xaml.Maps.ShapeFileRecord.ToString">
-            <summary>
-            Output some of the fields of the shapefile record.
-            </summary>
-            <returns>A string representation of the record.</returns>
-        </member>
-        <member name="T:Syncfusion.UI.Xaml.Maps.BubbleMarkerSetting">
-            <summary>
-            Class which represent the bubble marker setting.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Maps.BubbleMarkerSetting.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:Syncfusion.UI.Xaml.Maps.BubbleMarkerSetting"/> class.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Maps.BubbleMarkerSetting.ColorMappings">
-            <summary>
-            Gets or sets the color mapping of the bubble marker.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Maps.BubbleMarkerSetting.AutoFillColors">
-            <summary>
-            Gets or sets a value indicating whether the bubble marker color is auto fill.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Maps.BubbleMarkerSetting.ValuePath">
-            <summary>
-            Gets or sets the path of the bubble marker value.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Maps.BubbleMarkerSetting.ColorValuePath">
-            <summary>
-            Gets or sets the path of the bubble marker color value.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Maps.BubbleMarkerSetting.MinSize">
-            <summary>
-            Gets or sets the minimum size of the bubble marker.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Maps.BubbleMarkerSetting.MaxSize">
-            <summary>
-            Gets or sets the maximum size of the bubble marker.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Maps.BubbleMarkerSetting.Fill">
-            <summary>
-            Gets or sets the fill color of the bubble marker.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Maps.BubbleMarkerSetting.Index">
-            <summary>
-            Gets or sets the index position value of the bubble marker.
-            </summary>
-        </member>
-        <member name="T:Syncfusion.UI.Xaml.Maps.RangeColorMapping">
-            <summary>
-            Class which represents the range color mapping.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Maps.RangeColorMapping.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:Syncfusion.UI.Xaml.Maps.RangeColorMapping"/> class.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Maps.RangeColorMapping.Range">
-            <summary>
-            Gets or sets the value of the range.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Maps.RangeColorMapping.From">
-            <summary>
-            Gets or sets the from value of the range.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Maps.RangeColorMapping.To">
-            <summary>
-            Gets or sets the to value of the range.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Maps.RangeColorMapping.GradientColors">
-            <summary>
-            Gets or sets the gradient colors of the range.
-            </summary>
-        </member>
-        <member name="T:Syncfusion.UI.Xaml.Maps.ColorMapping">
-            <summary>
-            Class which represents the color mapping.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Maps.ColorMapping.Color">
-            <summary>
-            Gets or sets a color value.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Maps.ColorMapping.Validate(System.Object)">
-            <summary>
-            To validate the color mapping.
-            </summary>
-            <param name="value">The object value.</param>
-            <returns>The bool value as false.</returns>
-        </member>
-        <member name="T:Syncfusion.UI.Xaml.Maps.EqualColorMapping">
-            <summary>
-            Class which represent the equal color mapping.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Maps.EqualColorMapping.Value">
-            <summary>
-            Gets or sets object value.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Maps.EqualColorMapping.Validate(System.Object)">
-            <summary>
-            To validate the color mapping.
-            </summary>
-            <param name="value">The object value.</param>
-            <returns>The bool value.</returns>
-        </member>
-        <member name="T:Syncfusion.UI.Xaml.Maps.ShapeSetting">
-            <summary>
-            Class which represents the shape setting.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Maps.ShapeSetting.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:Syncfusion.UI.Xaml.Maps.ShapeSetting"/> class.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Maps.ShapeSetting.SelectedShapeColor">
-            <summary>
-            Gets or sets the selected shape color value as string.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Maps.ShapeSetting.ShapeFill">
-            <summary>
-            Gets or sets the shape fill color value as string.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Maps.ShapeSetting.ShapeStroke">
-            <summary>
-            Gets or sets the shape stroke color value as string.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Maps.ShapeSetting.ShapeStrokeThickness">
-            <summary>
-            Gets or sets the shape stroke thickness value.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Maps.ShapeSetting.TextForeground">
-            <summary>
-            Gets or sets the foreground color of the text.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Maps.ShapeSetting.ShapeColorValuePath">
-            <summary>
-            Gets or sets the path of the shape color value.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Maps.ShapeSetting.ShapeValuePath">
-            <summary>
-            Gets or sets the path of the shape value.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Maps.ShapeSetting.FillSetting">
-            <summary>
-            Gets or sets the fill setting value of the shape.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Maps.ShapeSetting.ColorPalette">
-            <summary>
-            Gets or sets the color palette type.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Maps.ShapeSetting.ShapeDisplayValuePath">
-            <summary>
-            Gets or sets the path of the shape display value. 
-            </summary>
-        </member>
-        <member name="T:Syncfusion.UI.Xaml.Maps.ShapeFillSetting">
-            <summary>
-            Class which represents the shape fill setting.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.UI.Xaml.Maps.ShapeFillSetting.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:Syncfusion.UI.Xaml.Maps.ShapeFillSetting"/> class.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Maps.ShapeFillSetting.ColorMappings">
-            <summary>
-            Gets or sets the color mapping value.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.UI.Xaml.Maps.ShapeFillSetting.AutoFillColors">
-            <summary>
-            Gets or sets a value indicating whether the auto fill color is enable or not.
-            </summary>
-        </member>
         <member name="T:Syncfusion.Windows.Forms.Maps.MapEngine">
             <summary>
             Class which represents map engine 
@@ -868,26 +674,6 @@
         <member name="F:Syncfusion.Windows.Forms.Maps.MapEngine.screenRatio">
             <summary>
             Gets or sets the screen ratio of the map.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Maps.MapEngine.MinX">
-            <summary>
-            Gets or sets the minimum x-position of the map.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Maps.MapEngine.MinY">
-            <summary>
-            Gets or sets the minimum y-position of the map.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Maps.MapEngine.MaxX">
-            <summary>
-            Gets or sets the maximum x-position of the map.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Maps.MapEngine.MaxY">
-            <summary>
-            Gets or sets the maximum y-position of the map.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Maps.MapEngine.#ctor(Syncfusion.Windows.Forms.Maps.ShapeFileLayer,System.Object,Syncfusion.Windows.Forms.Maps.DataMappings,System.Drawing.Size,System.Drawing.Size,System.Boolean)">
@@ -1157,6 +943,26 @@
             <param name="record">The shape file record.</param>
             <param name="layer">The shape file layer.</param>
             <returns>The mid point.</returns>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Maps.MapEngine.MinX">
+            <summary>
+            Gets or sets the minimum x-position of the map.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Maps.MapEngine.MinY">
+            <summary>
+            Gets or sets the minimum y-position of the map.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Maps.MapEngine.MaxX">
+            <summary>
+            Gets or sets the maximum x-position of the map.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Maps.MapEngine.MaxY">
+            <summary>
+            Gets or sets the maximum y-position of the map.
+            </summary>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Maps.MapScreenRatio">
             <summary>
@@ -1713,21 +1519,11 @@
             Class which represent the type info.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Maps.TypeInfo.Type">
-            <summary>
-            Gets or sets the type.
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Maps.TypeInfo.#ctor(System.Type)">
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.Maps.TypeInfo"/> class.
             </summary>
             <param name="type">The type.</param>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Maps.TypeInfo.Assembly">
-            <summary>
-            Gets or sets the assembly.
-            </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Maps.TypeInfo.GetDeclaredProperty(System.String)">
             <summary>
@@ -1735,6 +1531,16 @@
             </summary>
             <param name="name">The property name.</param>
             <returns>The declared property.</returns>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Maps.TypeInfo.Type">
+            <summary>
+            Gets or sets the type.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Maps.TypeInfo.Assembly">
+            <summary>
+            Gets or sets the assembly.
+            </summary>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Maps.LegendSettings">
             <summary>
@@ -2091,6 +1897,200 @@
             Gets or sets the index position of the shape in the map.
             </summary>
         </member>
+        <member name="T:Syncfusion.UI.Xaml.Maps.BubbleMarkerSetting">
+            <summary>
+            Class which represent the bubble marker setting.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.UI.Xaml.Maps.BubbleMarkerSetting.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.UI.Xaml.Maps.BubbleMarkerSetting"/> class.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Maps.BubbleMarkerSetting.ColorMappings">
+            <summary>
+            Gets or sets the color mapping of the bubble marker.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Maps.BubbleMarkerSetting.AutoFillColors">
+            <summary>
+            Gets or sets a value indicating whether the bubble marker color is auto fill.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Maps.BubbleMarkerSetting.ValuePath">
+            <summary>
+            Gets or sets the path of the bubble marker value.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Maps.BubbleMarkerSetting.ColorValuePath">
+            <summary>
+            Gets or sets the path of the bubble marker color value.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Maps.BubbleMarkerSetting.MinSize">
+            <summary>
+            Gets or sets the minimum size of the bubble marker.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Maps.BubbleMarkerSetting.MaxSize">
+            <summary>
+            Gets or sets the maximum size of the bubble marker.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Maps.BubbleMarkerSetting.Fill">
+            <summary>
+            Gets or sets the fill color of the bubble marker.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Maps.BubbleMarkerSetting.Index">
+            <summary>
+            Gets or sets the index position value of the bubble marker.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.UI.Xaml.Maps.RangeColorMapping">
+            <summary>
+            Class which represents the range color mapping.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.UI.Xaml.Maps.ColorMapping">
+            <summary>
+            Class which represents the color mapping.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.UI.Xaml.Maps.ColorMapping.Validate(System.Object)">
+            <summary>
+            To validate the color mapping.
+            </summary>
+            <param name="value">The object value.</param>
+            <returns>The bool value as false.</returns>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Maps.ColorMapping.Color">
+            <summary>
+            Gets or sets a color value.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.UI.Xaml.Maps.RangeColorMapping.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.UI.Xaml.Maps.RangeColorMapping"/> class.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Maps.RangeColorMapping.Range">
+            <summary>
+            Gets or sets the value of the range.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Maps.RangeColorMapping.From">
+            <summary>
+            Gets or sets the from value of the range.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Maps.RangeColorMapping.To">
+            <summary>
+            Gets or sets the to value of the range.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Maps.RangeColorMapping.GradientColors">
+            <summary>
+            Gets or sets the gradient colors of the range.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.UI.Xaml.Maps.EqualColorMapping">
+            <summary>
+            Class which represent the equal color mapping.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.UI.Xaml.Maps.EqualColorMapping.Validate(System.Object)">
+            <summary>
+            To validate the color mapping.
+            </summary>
+            <param name="value">The object value.</param>
+            <returns>The bool value.</returns>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Maps.EqualColorMapping.Value">
+            <summary>
+            Gets or sets object value.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.UI.Xaml.Maps.ShapeSetting">
+            <summary>
+            Class which represents the shape setting.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.UI.Xaml.Maps.ShapeSetting.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.UI.Xaml.Maps.ShapeSetting"/> class.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Maps.ShapeSetting.SelectedShapeColor">
+            <summary>
+            Gets or sets the selected shape color value as string.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Maps.ShapeSetting.ShapeFill">
+            <summary>
+            Gets or sets the shape fill color value as string.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Maps.ShapeSetting.ShapeStroke">
+            <summary>
+            Gets or sets the shape stroke color value as string.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Maps.ShapeSetting.ShapeStrokeThickness">
+            <summary>
+            Gets or sets the shape stroke thickness value.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Maps.ShapeSetting.TextForeground">
+            <summary>
+            Gets or sets the foreground color of the text.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Maps.ShapeSetting.ShapeColorValuePath">
+            <summary>
+            Gets or sets the path of the shape color value.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Maps.ShapeSetting.ShapeValuePath">
+            <summary>
+            Gets or sets the path of the shape value.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Maps.ShapeSetting.FillSetting">
+            <summary>
+            Gets or sets the fill setting value of the shape.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Maps.ShapeSetting.ColorPalette">
+            <summary>
+            Gets or sets the color palette type.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Maps.ShapeSetting.ShapeDisplayValuePath">
+            <summary>
+            Gets or sets the path of the shape display value. 
+            </summary>
+        </member>
+        <member name="T:Syncfusion.UI.Xaml.Maps.ShapeFillSetting">
+            <summary>
+            Class which represents the shape fill setting.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.UI.Xaml.Maps.ShapeFillSetting.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.UI.Xaml.Maps.ShapeFillSetting"/> class.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Maps.ShapeFillSetting.ColorMappings">
+            <summary>
+            Gets or sets the color mapping value.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.UI.Xaml.Maps.ShapeFillSetting.AutoFillColors">
+            <summary>
+            Gets or sets a value indicating whether the auto fill color is enable or not.
+            </summary>
+        </member>
         <member name="T:Syncfusion.Windows.Forms.Maps.ShapeFileLayer">
             <summary>
             Class which represents the shape file layer.
@@ -2274,96 +2274,6 @@
         <member name="M:Syncfusion.Windows.Forms.Maps.Maps.CreateAccessibilityInstance">
             <summary>
             To specify wheather to enable zoom on selection or not
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Maps.Maps.EnableZoomOnSelection">
-            <summary>
-            Gets or sets a value indicating whether to zoom on selection.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Maps.Maps.ZoomValue">
-            <summary>
-            Gets the current zoom value of maps.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Maps.Maps.ZoomLevel">
-            <summary>
-            To specify the Zoomlevel
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Maps.Maps.MaxZoomLevel">
-            <summary>
-            To specify the maximum Zoominglevel
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Maps.Maps.ZoomFactor">
-            <summary>
-            To specify the zooming factor
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Maps.Maps.Layers">
-            <summary>
-            Gets or sets the layer collection of shape file layer.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Maps.Maps.SelectedMapShapes">
-            <summary>
-            Gets the selected map shapes.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Maps.Maps.BaseMapIndex">
-            <summary>
-            Gets or sets a value to specify the BaseMapIndex.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Maps.Maps.OnSelectionChanged">
-            <summary>
-            Gets or sets a value on selection changed.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Maps.Maps.MapBackgroundBrush">
-            <summary>
-            Gets or sets the background color for the map.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Maps.Maps.Shapes">
-            <summary>
-            Gets or sets the shapes collection of the map.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Maps.Maps.Bubbles">
-            <summary>
-            Gets or sets the bubble collection of the map.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Maps.Maps.MapPoints">
-            <summary>
-            Gets or sets the points collection of the map.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Maps.Maps.MapItems">
-            <summary>
-            Gets or sets the items collection of the map.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Maps.Maps.MapItemsShape">
-            <summary>
-            Gets or sets the items shape of the map.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Maps.Maps.Annotations">
-            <summary>
-            Gets or sets annotation collection of the map.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Maps.Maps.MapItemFont">
-            <summary>
-            Gets or sets items font style of the map.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Maps.Maps.MapItemStroke">
-            <summary>
-            Gets or sets the item stroke of the map.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Maps.Maps.#ctor">
@@ -2564,11 +2474,6 @@
             <param name="shapePoint">The shape point value.</param>
             <returns>The screen(pixel) point.</returns>
         </member>
-        <member name="E:Syncfusion.Windows.Forms.Maps.Maps.PropertyChanged">
-            <summary>
-            Raised when property value gets changed..
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Maps.Maps.OnPropertyChanged(System.String)">
             <summary>
             Called when the property value gets changed.
@@ -2582,35 +2487,11 @@
             <param name="sender">The map.</param>
             <param name="e">The event arguments.</param>
         </member>
-        <member name="T:Syncfusion.Windows.Forms.Maps.Maps.ShapeSelectedEventHandler">
-            <summary>
-            Raised when the shape selected in the map.
-            </summary>
-            <param name="sender">The map.</param>
-            <param name="e">the shape selected event arguments.</param>
-        </member>
-        <member name="E:Syncfusion.Windows.Forms.Maps.Maps.ShapeSelected">
-            <summary>
-            Raised when the shape selected in the map.
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Maps.Maps.RaiseShapeSelectedEvent(Syncfusion.Windows.Forms.Maps.ShapeSelectedEventArgs)">
             <summary>
             Raise shape selected event on the shape selection in the map.
             </summary>
             <param name="e">The shape selected event arguments.</param>
-        </member>
-        <member name="T:Syncfusion.Windows.Forms.Maps.Maps.AnnotationDrawingEventHandler">
-            <summary>
-            Raised when the annotation gets drawn.
-            </summary>
-            <param name="sender">The map.</param>
-            <param name="e">The annotation drawing event arguments.</param>
-        </member>
-        <member name="E:Syncfusion.Windows.Forms.Maps.Maps.AnnotationDrawing">
-            <summary>
-            Raised when the annotation gets drawn.
-            </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Maps.Maps.RaiseAnnotationDrawingEvent(Syncfusion.Windows.Forms.Maps.AnnotationDrawingEventArgs)">
             <summary>
@@ -2618,35 +2499,11 @@
             </summary>
             <param name="e">The annotation drawing event arguments.</param>
         </member>
-        <member name="T:Syncfusion.Windows.Forms.Maps.Maps.MapItemEventHandler">
-            <summary>
-            Raised when the map item gets drawn.
-            </summary>
-            <param name="sender">The map.</param>
-            <param name="e">The map item drawing event arguments.</param>
-        </member>
-        <member name="E:Syncfusion.Windows.Forms.Maps.Maps.MapItemDrawing">
-            <summary>
-            Raised when the map item gets drawn.
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Maps.Maps.RaiseMapItemDrawingEvent(Syncfusion.Windows.Forms.Maps.MapItemDrawingEventArgs)">
             <summary>
             Raised map item drawing event when the map item gets drawn.
             </summary>
             <param name="e">The map item drawing event arguments.</param>
-        </member>
-        <member name="T:Syncfusion.Windows.Forms.Maps.Maps.TooltipDrawingEventHandler">
-            <summary>
-            Raised when the tooltip gets drawn.
-            </summary>
-            <param name="sender">The map.</param>
-            <param name="e">The map item drawing event arguments.</param>
-        </member>
-        <member name="E:Syncfusion.Windows.Forms.Maps.Maps.TooltipDrawing">
-            <summary>
-            Raised tooltip drawing event when the tooltip gets drawn.
-            </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Maps.Maps.RaiseTooltipDrawingEvent(Syncfusion.Windows.Forms.Maps.TooltipDrawingEventArgs)">
             <summary>
@@ -2680,21 +2537,6 @@
             <summary>
              It contains the value of the <see cref="P:Syncfusion.Windows.Forms.Maps.Maps.IsVisualStyleEnabled"/> property.
             </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Maps.Maps.IsVisualStyleEnabled">
-            <summary>
-            Gets a value indicating whether the visual style based theme is applied to the control and
-            also indicates whether the theme files are referred from external assemblies or not.
-            </summary>
-            <value>Return true, if the visual style based theme is applied to the control. Otherwise returns false.</value>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Maps.Maps.ThemeStyle">
-            <summary>
-            Gets or sets the <see cref="T:Syncfusion.Windows.Forms.Maps.MapsVisualStyle"/> value used to customize the appearance of the <see cref="T:Syncfusion.Windows.Forms.Maps.Maps"/>.
-            </summary>
-            <remarks>
-            This ThemeStyle settings will be applied only when the VisualStyleBased theme has been applied to the control.
-            </remarks>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Maps.Maps.OnThemeNameChanged(System.String)">
             <summary>
@@ -2744,6 +2586,164 @@
             Helps to draw bubble <see cref="T:Syncfusion.Windows.Forms.Maps.Maps"/> control.
             </summary>
         </member>
+        <member name="P:Syncfusion.Windows.Forms.Maps.Maps.EnableZoomOnSelection">
+            <summary>
+            Gets or sets a value indicating whether to zoom on selection.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Maps.Maps.ZoomValue">
+            <summary>
+            Gets the current zoom value of maps.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Maps.Maps.ZoomLevel">
+            <summary>
+            To specify the Zoomlevel
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Maps.Maps.MaxZoomLevel">
+            <summary>
+            To specify the maximum Zoominglevel
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Maps.Maps.ZoomFactor">
+            <summary>
+            To specify the zooming factor
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Maps.Maps.Layers">
+            <summary>
+            Gets or sets the layer collection of shape file layer.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Maps.Maps.SelectedMapShapes">
+            <summary>
+            Gets the selected map shapes.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Maps.Maps.BaseMapIndex">
+            <summary>
+            Gets or sets a value to specify the BaseMapIndex.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Maps.Maps.OnSelectionChanged">
+            <summary>
+            Gets or sets a value on selection changed.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Maps.Maps.MapBackgroundBrush">
+            <summary>
+            Gets or sets the background color for the map.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Maps.Maps.Shapes">
+            <summary>
+            Gets or sets the shapes collection of the map.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Maps.Maps.Bubbles">
+            <summary>
+            Gets or sets the bubble collection of the map.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Maps.Maps.MapPoints">
+            <summary>
+            Gets or sets the points collection of the map.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Maps.Maps.MapItems">
+            <summary>
+            Gets or sets the items collection of the map.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Maps.Maps.MapItemsShape">
+            <summary>
+            Gets or sets the items shape of the map.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Maps.Maps.Annotations">
+            <summary>
+            Gets or sets annotation collection of the map.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Maps.Maps.MapItemFont">
+            <summary>
+            Gets or sets items font style of the map.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Maps.Maps.MapItemStroke">
+            <summary>
+            Gets or sets the item stroke of the map.
+            </summary>
+        </member>
+        <member name="E:Syncfusion.Windows.Forms.Maps.Maps.PropertyChanged">
+            <summary>
+            Raised when property value gets changed..
+            </summary>
+        </member>
+        <member name="E:Syncfusion.Windows.Forms.Maps.Maps.ShapeSelected">
+            <summary>
+            Raised when the shape selected in the map.
+            </summary>
+        </member>
+        <member name="E:Syncfusion.Windows.Forms.Maps.Maps.AnnotationDrawing">
+            <summary>
+            Raised when the annotation gets drawn.
+            </summary>
+        </member>
+        <member name="E:Syncfusion.Windows.Forms.Maps.Maps.MapItemDrawing">
+            <summary>
+            Raised when the map item gets drawn.
+            </summary>
+        </member>
+        <member name="E:Syncfusion.Windows.Forms.Maps.Maps.TooltipDrawing">
+            <summary>
+            Raised tooltip drawing event when the tooltip gets drawn.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Maps.Maps.IsVisualStyleEnabled">
+            <summary>
+            Gets a value indicating whether the visual style based theme is applied to the control and
+            also indicates whether the theme files are referred from external assemblies or not.
+            </summary>
+            <value>Return true, if the visual style based theme is applied to the control. Otherwise returns false.</value>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Maps.Maps.ThemeStyle">
+            <summary>
+            Gets or sets the <see cref="T:Syncfusion.Windows.Forms.Maps.MapsVisualStyle"/> value used to customize the appearance of the <see cref="T:Syncfusion.Windows.Forms.Maps.Maps"/>.
+            </summary>
+            <remarks>
+            This ThemeStyle settings will be applied only when the VisualStyleBased theme has been applied to the control.
+            </remarks>
+        </member>
+        <member name="T:Syncfusion.Windows.Forms.Maps.Maps.ShapeSelectedEventHandler">
+            <summary>
+            Raised when the shape selected in the map.
+            </summary>
+            <param name="sender">The map.</param>
+            <param name="e">the shape selected event arguments.</param>
+        </member>
+        <member name="T:Syncfusion.Windows.Forms.Maps.Maps.AnnotationDrawingEventHandler">
+            <summary>
+            Raised when the annotation gets drawn.
+            </summary>
+            <param name="sender">The map.</param>
+            <param name="e">The annotation drawing event arguments.</param>
+        </member>
+        <member name="T:Syncfusion.Windows.Forms.Maps.Maps.MapItemEventHandler">
+            <summary>
+            Raised when the map item gets drawn.
+            </summary>
+            <param name="sender">The map.</param>
+            <param name="e">The map item drawing event arguments.</param>
+        </member>
+        <member name="T:Syncfusion.Windows.Forms.Maps.Maps.TooltipDrawingEventHandler">
+            <summary>
+            Raised when the tooltip gets drawn.
+            </summary>
+            <param name="sender">The map.</param>
+            <param name="e">The map item drawing event arguments.</param>
+        </member>
         <member name="T:Syncfusion.Windows.Forms.Maps.MapsDesigner">
             <summary>
             Class which represents the map designer(smart tag).
@@ -2759,16 +2759,16 @@
             Initializes a new instance of the MapsDesigner class
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Maps.MapsDesigner.ActionLists">
-            <summary>
-            Override method to calculate the action lists.
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Maps.MapsDesigner.Initialize(System.ComponentModel.IComponent)">
             <summary>
             Overridden Initialize method.
             </summary>
             <param name="component">Component object.</param>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Maps.MapsDesigner.ActionLists">
+            <summary>
+            Override method to calculate the action lists.
+            </summary>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Maps.MapsActionList">
             <summary>
@@ -2780,6 +2780,11 @@
             Initializes a new instance of the MapsActionList class.
             </summary>
             <param name="component">The component.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Maps.MapsActionList.InitializeActionList">
+            <summary>
+            Overrridden InitializeActionList.
+            </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Maps.MapsActionList.Name">
             <summary>
@@ -2806,11 +2811,6 @@
             Gets or Sets MaxZoomLevel
             </summary>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Maps.MapsActionList.InitializeActionList">
-            <summary>
-            Overrridden InitializeActionList.
-            </summary>
-        </member>
         <member name="T:Syncfusion.Windows.Forms.Maps.MapsAccessibility">
             <summary>
             Accessibility class to provide Coded UI support.
@@ -2821,6 +2821,14 @@
             Constructor.
             </summary>
             <param name="maps">Maps</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Maps.MapsAccessibility.HitTest(System.Int32,System.Int32)">
+            <summary>
+            Retrieves the child object at the specified screen coordinates.
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <returns></returns>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Maps.MapsAccessibility.Bounds">
             <summary>
@@ -2856,14 +2864,6 @@
             <summary>
             Gets the parent of an accessible object.
             </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Maps.MapsAccessibility.HitTest(System.Int32,System.Int32)">
-            <summary>
-            Retrieves the child object at the specified screen coordinates.
-            </summary>
-            <param name="x"></param>
-            <param name="y"></param>
-            <returns></returns>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Maps.ShapeSelectedEventArgs">
             <summary>
@@ -2975,6 +2975,43 @@
             Gets or sets the handle event value.
             </summary>
         </member>
+        <member name="T:Syncfusion.MapsWindowsAssembly">
+            <exclude/>
+            <summary>
+            This class holds the name of the Syncfusion.Maps.Windows assembly and provides a helper
+            routine that helps with resolving types when loading a serialization stream and when
+            the framework probes for assemblies by reflection.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.MapsWindowsAssembly.Name">
+            <summary>
+            The full name of this assembly without version information: "Syncfusion.Maps.Windows"
+            </summary>
+        </member>
+        <member name="F:Syncfusion.MapsWindowsAssembly.Assembly">
+            <summary>
+            A reference to the <see cref="T:System.Reflection.Assembly"/> for the Maps assembly.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.MapsWindowsAssembly.RootNamespace">
+            <summary>
+            The root namespace of this assembly. Used internally for locating resources within the assembly.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.MapsWindowsAssembly.#cctor">
+            <summary>
+            Initializes the <see cref="T:Syncfusion.MapsWindowsAssembly"/> class.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.MapsWindowsAssembly.AssemblyResolver(System.Object,System.ResolveEventArgs)">
+            <summary>
+            This delegate helps with resolving types and can be used as an eventhandler
+            for a <see cref="E:System.AppDomain.AssemblyResolve"/> event.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The event data with information about the type.</param>
+            <returns>A reference to the assembly where the type is located.</returns>      
+        </member>
         <member name="T:Syncfusion.Windows.Forms.Maps.AssemblyInfo">
             <summary>
             AssemblyInformation for internal use.
@@ -3030,22 +3067,6 @@
             All changes in this style object will be saved in the
             <see cref="T:Syncfusion.Windows.Forms.Maps.MapsStyleInfoStore"/> object.</param>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Maps.BubbleStyleInfo.DefaultStyle">
-            <summary>
-            Gets the default style value for the <see cref="T:Syncfusion.Windows.Forms.Maps.BubbleStyleInfo"/>.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Maps.BubbleStyleInfo.BubbleColor">
-            <summary>
-            Gets or sets the Bubble color value of the <see cref="!:QualitativeBubble"/>.
-            </summary>       
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Maps.BubbleStyleInfo.Store">
-            <summary>
-             Gets the <see cref="T:Syncfusion.Windows.Forms.Maps.MapsStyleInfoStore" /> object that holds all the data for
-             this style object.
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Maps.BubbleStyleInfo.MakeCopy(Syncfusion.Styles.StyleInfoBase,Syncfusion.Styles.StyleInfoProperty)">
             <summary>
             Makes an exact copy of the current object.
@@ -3076,6 +3097,22 @@
             Determines whether Bubble color has been modified and its contents should be serialized at design-time.
             </summary>
             <returns>True if contents were changed; False otherwise.</returns>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Maps.BubbleStyleInfo.DefaultStyle">
+            <summary>
+            Gets the default style value for the <see cref="T:Syncfusion.Windows.Forms.Maps.BubbleStyleInfo"/>.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Maps.BubbleStyleInfo.BubbleColor">
+            <summary>
+            Gets or sets the Bubble color value of the <see cref="!:QualitativeBubble"/>.
+            </summary>       
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Maps.BubbleStyleInfo.Store">
+            <summary>
+             Gets the <see cref="T:Syncfusion.Windows.Forms.Maps.MapsStyleInfoStore"/> object that holds all the data for
+             this style object.
+            </summary>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Maps.MapsStyleInfoStore">
             <summary>
@@ -3138,21 +3175,21 @@
             </summary>
         </member>
         <!-- Badly formed XML comment ignored for member "M:Syncfusion.Windows.Forms.Maps.MapsStyleInfoStore.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" -->
-        <member name="P:Syncfusion.Windows.Forms.Maps.MapsStyleInfoStore.StaticDataStore">
-            <summary>
-            Gets the static data value of the <see cref="T:Syncfusion.Windows.Forms.Maps.MapsStyleInfoStore"/> class.
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Maps.MapsStyleInfoStore.GetStaticData">
             <summary>
             Initializes the <see cref="T:Syncfusion.Styles.StaticData"/>, if <see cref="F:Syncfusion.Windows.Forms.Maps.MapsStyleInfoStore.staticData"/> is null.
             </summary>
             <returns><see cref="T:Syncfusion.Styles.StaticData"/></returns>
         </member>
+        <member name="P:Syncfusion.Windows.Forms.Maps.MapsStyleInfoStore.StaticDataStore">
+            <summary>
+            Gets the static data value of the <see cref="T:Syncfusion.Windows.Forms.Maps.MapsStyleInfoStore"/> class.
+            </summary>
+        </member>
         <member name="T:Syncfusion.Windows.Forms.Maps.MapsStyleInfoSubObjectIdentity">
             <summary>
                 Represents a class that provides style identity information for nested objects of the
-                <see cref="T:Syncfusion.Styles.StyleInfoPropertyGrid" /> class.
+                <see cref="T:Syncfusion.Styles.StyleInfoPropertyGrid"/> class.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Maps.MapsStyleInfoSubObjectIdentity.#ctor(Syncfusion.Styles.StyleInfoBase,Syncfusion.Styles.StyleInfoProperty)">
@@ -3195,71 +3232,6 @@
             </summary>
             <param name="identity">A <see cref="T:Syncfusion.Windows.Forms.Maps.MapsStyleInfoIdentity"/> that holds the identity for this <see cref="T:Syncfusion.Windows.Forms.Maps.MapsStyleInfoStore"/>.</param>
             <param name="store"> Holds instance of a <see cref="T:Syncfusion.Windows.Forms.Maps.MapsStyleInfoStore"/> class </param>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Maps.MapsVisualStyle.DefaultStyle">
-            <summary>
-            Gets the default style value for the <see cref="T:Syncfusion.Windows.Forms.Maps.Maps"/> control.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Maps.MapsVisualStyle.MapBackgroundColor">
-            <summary>
-            Gets or sets the background color of the <see cref="T:Syncfusion.Windows.Forms.Maps.Maps"/> control.
-            </summary>
-            <value>The <see cref="T:System.Drawing.Brush"/> value is used to fill the background of the Maps.</value>
-            <remarks>
-            This color has filled to background of the Maps only when set the
-            <see cref="P:Syncfusion.Windows.Forms.Maps.Maps.MapBackgroundBrush"/> property.
-            </remarks>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Maps.MapsVisualStyle.BubbleColor">
-            <summary>
-            Gets or sets the bubble color of the <see cref="T:Syncfusion.Windows.Forms.Maps.Maps"/> control.
-            </summary>
-            <value>The <see cref="T:System.Drawing.Color"/> value is used to fill the bubble of the Maps.</value>
-            <remarks>
-            This color has filled to bubble of the Maps only when set the
-            <see cref="P:Syncfusion.Windows.Forms.Maps.Bubble.Fill"/> property.
-            </remarks>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Maps.MapsVisualStyle.BubbleStyle">
-            <summary>
-            Gets or sets the bubble style.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Maps.MapsVisualStyle.ShapeFillColor">
-            <summary>
-            Gets or sets the shape color of the <see cref="T:Syncfusion.Windows.Forms.Maps.Maps"/> control.
-            </summary>
-            <value>The <see cref="T:System.Drawing.Brush"/> value is used to fill the shape of the Maps.</value>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Maps.MapsVisualStyle.ShapeStrokeColor">
-            <summary>
-            Gets or sets the shape stroke color of the <see cref="T:Syncfusion.Windows.Forms.Maps.Maps"/> control.
-            </summary>
-            <value>The <see cref="T:System.Drawing.Color"/> value is used to fill the shape stroke of the Maps.</value>
-        </member>
-        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Windows.Forms.Maps.MapsVisualStyle.ShapeStrokeThickness" -->
-        <member name="P:Syncfusion.Windows.Forms.Maps.MapsVisualStyle.DatalabelColor">
-            <summary>
-            Gets or sets the data label of the <see cref="T:Syncfusion.Windows.Forms.Maps.Maps"/> control.
-            </summary>
-            <value>The <see cref="T:System.Drawing.Brush"/> value is used to fill the data label of the Maps.</value>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Maps.MapsVisualStyle.SelectedShapeFillColor">
-            <summary>
-            Gets or sets the selected shape fill color of the <see cref="T:Syncfusion.Windows.Forms.Maps.Maps"/> control.
-            </summary>
-            <value>The <see cref="T:System.Drawing.Color"/> value is used to fill the selected shape of the Maps.</value>
-            <remarks>
-            This color has filled to selected shape of the Maps only when set the
-            <see cref="!:Syncfusion.Windows.Forms.Maps.Maps.SelectedShapeFillColor"/> property.
-            </remarks>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Maps.MapsVisualStyle.Font">
-            <summary>
-            Gets or sets the <see cref="T:System.Drawing.Font"/> value of the 
-            <see cref="T:Syncfusion.Windows.Forms.Maps.Maps"/> control. 
-            </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Maps.MapsVisualStyle.CreateSubObjectIdentity(Syncfusion.Styles.StyleInfoProperty)">
             <summary>
@@ -3332,6 +3304,71 @@
             </summary>
             <returns><b>True</b> if the property was modified; Otherwise <b>False</b>.</returns>
         </member>
+        <member name="P:Syncfusion.Windows.Forms.Maps.MapsVisualStyle.DefaultStyle">
+            <summary>
+            Gets the default style value for the <see cref="T:Syncfusion.Windows.Forms.Maps.Maps"/> control.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Maps.MapsVisualStyle.MapBackgroundColor">
+            <summary>
+            Gets or sets the background color of the <see cref="T:Syncfusion.Windows.Forms.Maps.Maps"/> control.
+            </summary>
+            <value>The <see cref="T:System.Drawing.Brush"/> value is used to fill the background of the Maps.</value>
+            <remarks>
+            This color has filled to background of the Maps only when set the
+            <see cref="P:Syncfusion.Windows.Forms.Maps.Maps.MapBackgroundBrush"/> property.
+            </remarks>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Maps.MapsVisualStyle.BubbleColor">
+            <summary>
+            Gets or sets the bubble color of the <see cref="T:Syncfusion.Windows.Forms.Maps.Maps"/> control.
+            </summary>
+            <value>The <see cref="T:System.Drawing.Color"/> value is used to fill the bubble of the Maps.</value>
+            <remarks>
+            This color has filled to bubble of the Maps only when set the
+            <see cref="P:Syncfusion.Windows.Forms.Maps.Bubble.Fill"/> property.
+            </remarks>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Maps.MapsVisualStyle.BubbleStyle">
+            <summary>
+            Gets or sets the bubble style.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Maps.MapsVisualStyle.ShapeFillColor">
+            <summary>
+            Gets or sets the shape color of the <see cref="T:Syncfusion.Windows.Forms.Maps.Maps"/> control.
+            </summary>
+            <value>The <see cref="T:System.Drawing.Brush"/> value is used to fill the shape of the Maps.</value>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Maps.MapsVisualStyle.ShapeStrokeColor">
+            <summary>
+            Gets or sets the shape stroke color of the <see cref="T:Syncfusion.Windows.Forms.Maps.Maps"/> control.
+            </summary>
+            <value>The <see cref="T:System.Drawing.Color"/> value is used to fill the shape stroke of the Maps.</value>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:Syncfusion.Windows.Forms.Maps.MapsVisualStyle.ShapeStrokeThickness" -->
+        <member name="P:Syncfusion.Windows.Forms.Maps.MapsVisualStyle.DatalabelColor">
+            <summary>
+            Gets or sets the data label of the <see cref="T:Syncfusion.Windows.Forms.Maps.Maps"/> control.
+            </summary>
+            <value>The <see cref="T:System.Drawing.Brush"/> value is used to fill the data label of the Maps.</value>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Maps.MapsVisualStyle.SelectedShapeFillColor">
+            <summary>
+            Gets or sets the selected shape fill color of the <see cref="T:Syncfusion.Windows.Forms.Maps.Maps"/> control.
+            </summary>
+            <value>The <see cref="T:System.Drawing.Color"/> value is used to fill the selected shape of the Maps.</value>
+            <remarks>
+            This color has filled to selected shape of the Maps only when set the
+            <see cref="!:Syncfusion.Windows.Forms.Maps.Maps.SelectedShapeFillColor"/> property.
+            </remarks>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Maps.MapsVisualStyle.Font">
+            <summary>
+            Gets or sets the <see cref="T:System.Drawing.Font"/> value of the 
+            <see cref="T:Syncfusion.Windows.Forms.Maps.Maps"/> control. 
+            </summary>
+        </member>
         <member name="T:Syncfusion.Windows.Forms.Maps.MapsStyleInfoIdentity">
             <summary>
             Implements the class that provide the identity information of <see cref="T:Syncfusion.Windows.Forms.Maps.MapsVisualStyle"/> 
@@ -3370,7 +3407,7 @@
         <member name="T:Syncfusion.Windows.Forms.Maps.MapsInfoSubObjectIdentity">
             <summary>
                 Represents a class that provides style identity information for nested objects of the
-                <see cref="T:Syncfusion.Windows.Forms.Maps.MapsVisualStyle" /> class.
+                <see cref="T:Syncfusion.Windows.Forms.Maps.MapsVisualStyle"/> class.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Maps.MapsInfoSubObjectIdentity.#ctor(Syncfusion.Styles.StyleInfoBase,Syncfusion.Styles.StyleInfoProperty)">
@@ -3384,43 +3421,6 @@
             The <see cref="T:Syncfusion.Styles.StyleInfoProperty"/> descriptor for this expandable
                 sub-object.
             </param>
-        </member>
-        <member name="T:Syncfusion.MapsWindowsAssembly">
-            <exclude/>
-            <summary>
-            This class holds the name of the Syncfusion.Maps.Windows assembly and provides a helper
-            routine that helps with resolving types when loading a serialization stream and when
-            the framework probes for assemblies by reflection.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.MapsWindowsAssembly.Name">
-            <summary>
-            The full name of this assembly without version information: "Syncfusion.Maps.Windows"
-            </summary>
-        </member>
-        <member name="F:Syncfusion.MapsWindowsAssembly.Assembly">
-            <summary>
-            A reference to the <see cref="T:System.Reflection.Assembly"/> for the Maps assembly.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.MapsWindowsAssembly.RootNamespace">
-            <summary>
-            The root namespace of this assembly. Used internally for locating resources within the assembly.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.MapsWindowsAssembly.#cctor">
-            <summary>
-            Initializes the <see cref="T:Syncfusion.MapsWindowsAssembly"/> class.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.MapsWindowsAssembly.AssemblyResolver(System.Object,System.ResolveEventArgs)">
-            <summary>
-            This delegate helps with resolving types and can be used as an eventhandler
-            for a <see cref="E:System.AppDomain.AssemblyResolve"/> event.
-            </summary>
-            <param name="sender">The source of the event.</param>
-            <param name="e">The event data with information about the type.</param>
-            <returns>A reference to the assembly where the type is located.</returns>      
         </member>
     </members>
 </doc>

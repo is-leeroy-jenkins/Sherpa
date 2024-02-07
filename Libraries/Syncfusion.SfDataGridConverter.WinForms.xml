@@ -12,16 +12,6 @@
             It provides the set of public and virtual methods to customize the rows and columns while exporting.
             </remarks>
         </member>
-        <member name="P:Syncfusion.WinForms.DataGridConverter.DataGridToExcelConverter.ExcelRowIndex">
-            <summary>
-            Gets or sets the row index of ExcelSheet which keeps track of the Excel row index while exporting.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.DataGridConverter.DataGridToExcelConverter.ExcelColumnIndex">
-            <summary>
-            Gets or sets the column index of ExcelSheet which keeps track of the Excel column index while exporting.
-            </summary>
-        </member>
         <!-- Badly formed XML comment ignored for member "M:Syncfusion.WinForms.DataGridConverter.DataGridToExcelConverter.ExportToExcel(Syncfusion.WinForms.DataGrid.SfDataGrid,Syncfusion.Data.ICollectionViewAdv,Syncfusion.WinForms.DataGridConverter.ExcelExportingOptions)" -->
         <!-- Badly formed XML comment ignored for member "M:Syncfusion.WinForms.DataGridConverter.DataGridToExcelConverter.ExportToExcel(Syncfusion.WinForms.DataGrid.SfDataGrid,Syncfusion.Data.ICollectionViewAdv,Syncfusion.XlsIO.IWorksheet,Syncfusion.WinForms.DataGridConverter.ExcelExportingOptions)" -->
         <!-- Badly formed XML comment ignored for member "M:Syncfusion.WinForms.DataGridConverter.DataGridToExcelConverter.ExportToExcel(Syncfusion.WinForms.DataGrid.SfDataGrid,System.Collections.ObjectModel.ObservableCollection{System.Object},Syncfusion.WinForms.DataGridConverter.ExcelExportingOptions)" -->
@@ -212,6 +202,16 @@
             <param name="belowSummary">Row is in below summary row or not</param>
             <returns>Returns ExportCellType</returns>
         </member>
+        <member name="P:Syncfusion.WinForms.DataGridConverter.DataGridToExcelConverter.ExcelRowIndex">
+            <summary>
+            Gets or sets the row index of ExcelSheet which keeps track of the Excel row index while exporting.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.DataGridConverter.DataGridToExcelConverter.ExcelColumnIndex">
+            <summary>
+            Gets or sets the column index of ExcelSheet which keeps track of the Excel column index while exporting.
+            </summary>
+        </member>
         <member name="T:Syncfusion.WinForms.DataGridConverter.DataGridExcelExportExtension">
             <summary>
             Provides the extensions for exporting SfDataGrid into Excel.
@@ -265,6 +265,59 @@
             <summary>
             list of columns that should be excluded while exporting
             </summary>
+        </member>
+        <member name="M:Syncfusion.WinForms.DataGridConverter.ExcelExportingOptions.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.WinForms.DataGridConverter.ExcelExportingOptions"/> class.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.WinForms.DataGridConverter.ExcelExportingOptions.RaiseExportingEvent(Syncfusion.WinForms.DataGridConverter.Events.DataGridExcelExportingEventArgs)">
+            <summary>
+            Raises the <see cref="E:Syncfusion.WinForms.DataGridConverter.ExcelExportingOptions.Exporting"/> event.
+            </summary>
+            <param name="e">
+            The <see cref="!:GridExcelExportingEventArgs"/> that contains the event data.
+            </param>
+        </member>
+        <member name="M:Syncfusion.WinForms.DataGridConverter.ExcelExportingOptions.RaiseCellExportingEvent(Syncfusion.WinForms.DataGridConverter.Events.DataGridCellExcelExportingEventArgs)">
+            <summary>
+             Raises the <see cref="E:Syncfusion.WinForms.DataGridConverter.ExcelExportingOptions.CellExporting"/> event.
+            </summary>
+            <param name="e">
+            The <see cref="!:GridCellExcelExportingEventArgs"/> that contains the event data.
+            </param>
+        </member>
+        <member name="M:Syncfusion.WinForms.DataGridConverter.ExcelExportingOptions.RaiseChildExportingEvent(Syncfusion.WinForms.DataGridConverter.Events.DataGridChildExportingEventArgs)">
+            <summary>
+             Raises the <see cref="E:Syncfusion.WinForms.DataGridConverter.ExcelExportingOptions.ChildExporting"/> event.
+            </summary>
+            <param name="e">
+            The <see cref="!:GridChildExportingEventHandler"/> that contains the event data.
+            </param>
+        </member>
+        <member name="M:Syncfusion.WinForms.DataGridConverter.ExcelExportingOptions.CanExporting">
+            <summary>
+            Determines whether the <see cref="E:Syncfusion.WinForms.DataGridConverter.ExcelExportingOptions.Exporting"/> event is needs to be raised.
+            </summary>
+            <returns>
+            Returns true when the Exporting event is hooked; Otherwise returns false.
+            </returns>
+        </member>
+        <member name="M:Syncfusion.WinForms.DataGridConverter.ExcelExportingOptions.CanCellExporting">
+            <summary>
+            Determines whether the <see cref="E:Syncfusion.WinForms.DataGridConverter.ExcelExportingOptions.CellExporting"/> event is needs to be raised.
+            </summary>
+            <returns>
+            Returns true when the CellExporting event is hooked; Otherwise returns false.
+            </returns>
+        </member>
+        <member name="M:Syncfusion.WinForms.DataGridConverter.ExcelExportingOptions.CanChildExporting">
+            <summary>
+            Determines whether the <see cref="E:Syncfusion.WinForms.DataGridConverter.ExcelExportingOptions.ChildExporting"/> event is needs to be raised.
+            </summary>
+            <returns>
+            Returns true when the ChildExporting event is hooked; Otherwise returns false.
+            </returns>
         </member>
         <member name="P:Syncfusion.WinForms.DataGridConverter.ExcelExportingOptions.CoveredCells">
             <summary>
@@ -432,59 +485,6 @@
             <summary>
             Gets or sets the row index of SfDataGrid which keeps track of the row index while exporting.
             </summary>
-        </member>
-        <member name="M:Syncfusion.WinForms.DataGridConverter.ExcelExportingOptions.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:Syncfusion.WinForms.DataGridConverter.ExcelExportingOptions"/> class.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.WinForms.DataGridConverter.ExcelExportingOptions.RaiseExportingEvent(Syncfusion.WinForms.DataGridConverter.Events.DataGridExcelExportingEventArgs)">
-            <summary>
-            Raises the <see cref="E:Syncfusion.WinForms.DataGridConverter.ExcelExportingOptions.Exporting"/> event.
-            </summary>
-            <param name="e">
-            The <see cref="!:GridExcelExportingEventArgs"/> that contains the event data.
-            </param>
-        </member>
-        <member name="M:Syncfusion.WinForms.DataGridConverter.ExcelExportingOptions.RaiseCellExportingEvent(Syncfusion.WinForms.DataGridConverter.Events.DataGridCellExcelExportingEventArgs)">
-            <summary>
-             Raises the <see cref="E:Syncfusion.WinForms.DataGridConverter.ExcelExportingOptions.CellExporting"/> event.
-            </summary>
-            <param name="e">
-            The <see cref="!:GridCellExcelExportingEventArgs"/> that contains the event data.
-            </param>
-        </member>
-        <member name="M:Syncfusion.WinForms.DataGridConverter.ExcelExportingOptions.RaiseChildExportingEvent(Syncfusion.WinForms.DataGridConverter.Events.DataGridChildExportingEventArgs)">
-            <summary>
-             Raises the <see cref="E:Syncfusion.WinForms.DataGridConverter.ExcelExportingOptions.ChildExporting"/> event.
-            </summary>
-            <param name="e">
-            The <see cref="!:GridChildExportingEventHandler"/> that contains the event data.
-            </param>
-        </member>
-        <member name="M:Syncfusion.WinForms.DataGridConverter.ExcelExportingOptions.CanExporting">
-            <summary>
-            Determines whether the <see cref="E:Syncfusion.WinForms.DataGridConverter.ExcelExportingOptions.Exporting" /> event is needs to be raised.
-            </summary>
-            <returns>
-            Returns true when the Exporting event is hooked; Otherwise returns false.
-            </returns>
-        </member>
-        <member name="M:Syncfusion.WinForms.DataGridConverter.ExcelExportingOptions.CanCellExporting">
-            <summary>
-            Determines whether the <see cref="E:Syncfusion.WinForms.DataGridConverter.ExcelExportingOptions.CellExporting" /> event is needs to be raised.
-            </summary>
-            <returns>
-            Returns true when the CellExporting event is hooked; Otherwise returns false.
-            </returns>
-        </member>
-        <member name="M:Syncfusion.WinForms.DataGridConverter.ExcelExportingOptions.CanChildExporting">
-            <summary>
-            Determines whether the <see cref="E:Syncfusion.WinForms.DataGridConverter.ExcelExportingOptions.ChildExporting" /> event is needs to be raised.
-            </summary>
-            <returns>
-            Returns true when the ChildExporting event is hooked; Otherwise returns false.
-            </returns>
         </member>
         <member name="T:Syncfusion.WinForms.DataGridConverter.ExportMode">
             <summary>
@@ -664,163 +664,6 @@
             <remarks>
             The level of the DataGrid is 0 for the parent DataGrid, 1 for the first level nested DataGrid, and so on.
             </remarks>
-        </member>
-        <member name="T:Syncfusion.WinForms.DataGridConverter.Events.DataGridPdfExportingEventHandler">
-            <summary>
-            Represents the method that handles the PDF exporting.
-            </summary>
-            <param name="sender">
-            The source of the event.
-            </param>
-            <param name="args">
-            A <see cref="T:Syncfusion.WinForms.DataGridConverter.Events.DataGridPdfExportingEventArgs"/> that contains the event data.
-            </param>
-        </member>
-        <member name="T:Syncfusion.WinForms.DataGridConverter.Events.DataGridCellPdfExportingEventHandler">
-            <summary>
-            Represents the method that will handle the GridCell exporting.
-            </summary>
-            <param name="sender">
-            The source of the event.
-            </param>
-            <param name="args">
-            A <see cref="T:Syncfusion.WinForms.DataGridConverter.Events.DataGridCellPdfExportingEventArgs"/> that contains the event data.
-            </param>
-        </member>
-        <member name="T:Syncfusion.WinForms.DataGridConverter.Events.PdfHeaderFooterEventHandler">
-            <summary>
-            Represents the method that handles the header and footer exporting.
-            </summary>
-            <param name="sender">
-            The source of the event.
-            </param>
-            <param name="args">
-            A <see cref="!:Syncfusion.UI.Xaml.Grid.Converter.PdfHeaderFooterEventArgs"/> that contains the event data.
-            </param>
-        </member>
-        <member name="T:Syncfusion.WinForms.DataGridConverter.Events.DataGridPdfExportingEventArgs">
-            <summary>
-            Provides data for <see cref="!:Syncfusion.WinForms.DataGridConverter.Events.GridPdfExportingEventhandler"/> .
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.DataGridConverter.Events.DataGridPdfExportingEventArgs.PdfGrid">
-            <summary>
-            Gets a value that specifies the PdfGrid.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.DataGridConverter.Events.DataGridPdfExportingEventArgs.CellType">
-            <summary>
-            Gets a value that specifies the export CellType.
-            </summary>
-            <value>
-            One of the <see cref="!:Syncfusion.UI.Xaml.Grid.Converter.ExportCellType"/> enumeration that specifies the export CellType.
-            The default mode is <see cref="!:Syncfusion.UI.Xaml.Grid.Converter.ExportCellType.HeaderCell"/>. 
-            </value>
-        </member>
-        <member name="P:Syncfusion.WinForms.DataGridConverter.Events.DataGridPdfExportingEventArgs.CellStyle">
-            <summary>
-            Gets or sets a value that specifies the CellStyle.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.DataGridConverter.Events.DataGridPdfExportingEventArgs.Level">
-            <summary>
-            Gets a value that specifies the level of the currently exporting DataGrid. It is 0 for Parent dataGrid, 1 for First Level Nested DataGrid, and so on.
-            </summary>
-        </member>
-        <member name="T:Syncfusion.WinForms.DataGridConverter.Events.DataGridCellPdfExportingEventArgs">
-            <summary>
-            Provides data for <see cref="!:Syncfusion.WinForms.DataGridConverter.Events.GridCellPdfExportingEventhandler"/> .
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.DataGridConverter.Events.DataGridCellPdfExportingEventArgs.PdfGridCell">
-            <summary>
-            Gets a value that specifies the PdfGridCell.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.DataGridConverter.Events.DataGridCellPdfExportingEventArgs.CellType">
-            <summary>
-            Gets a value that specifies the export CellType.
-            </summary>
-            <value>
-            One of the <see cref="!:Syncfusion.UI.Xaml.Grid.Converter.ExportCellType"/> enumeration that specifies the export CellType.
-            The default mode is <see cref="!:Syncfusion.UI.Xaml.Grid.Converter.ExportCellType.HeaderCell"/>. 
-            </value>  
-        </member>
-        <member name="P:Syncfusion.WinForms.DataGridConverter.Events.DataGridCellPdfExportingEventArgs.CellValue">
-            <summary>
-            Gets or sets a value that specifies the CellValue.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.DataGridConverter.Events.DataGridCellPdfExportingEventArgs.NodeEntry">
-            <summary>
-            Gets a value that specifies the NodeEntry.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.DataGridConverter.Events.DataGridCellPdfExportingEventArgs.ColumnName">
-            <summary>
-            Gets a value that specifies the ColumnName.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.DataGridConverter.Events.DataGridCellPdfExportingEventArgs.Level">
-            <summary>
-            Gets a value that specifies the level of the currently exporting DataGrid. It is 0 for Parent dataGrid, 1 for First Level Nested DataGrid, and so on.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.DataGridConverter.Events.DataGridCellPdfExportingEventArgs.PropertyAccessProvider">
-            <summary>
-            Gets a value that specifies the PropertyAccessProvider.
-            </summary>
-        </member>
-        <member name="T:Syncfusion.WinForms.DataGridConverter.Events.DataGridChildPdfExportingEventhandler">
-            <summary>
-            Represents the method that handles the <see cref="T:Syncfusion.WinForms.DataGrid.DetailsViewDataGrid"/> exporting.
-            </summary>
-            <param name="sender">
-            The source of the event.
-            </param>
-            <param name="args">
-            A <see cref="!:Syncfusion.WinForms.DataGridConverter.ChildGridPdfExportingEventArgs"/> that contains the event data.
-            </param>
-        </member>
-        <member name="T:Syncfusion.WinForms.DataGridConverter.Events.DataGridChildPdfExportingEventArgs">
-            <summary>
-            Provides data for <see cref="!:Syncfusion.WinForms.DataGridConverter.ChildGridPdfExportingEventhandler"/> .
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.DataGridConverter.Events.DataGridChildPdfExportingEventArgs.NodeEntry">
-            <summary>
-            Gets a value that specifies the NodeEntry.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.DataGridConverter.Events.DataGridChildPdfExportingEventArgs.RelationalColumn">
-            <summary>
-            Gets a value that specifies the RelationalColumn.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.DataGridConverter.Events.DataGridChildPdfExportingEventArgs.Level">
-            <summary>
-            Gets a value that specifies the level of the currently exporting DataGrid. It is 0 for Parent dataGrid, 1 for First Level Nested DataGrid, and so on.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.DataGridConverter.Events.DataGridChildPdfExportingEventArgs.PdfExportingOptions">
-            <summary>
-            Gets or sets a value that specifies the <see cref="!:Syncfusion.UI.Xaml.Grid.Converter.PdfExportingOptions"/>.
-            </summary>
-        </member>
-        <member name="T:Syncfusion.WinForms.DataGridConverter.Events.PdfHeaderFooterEventArgs">
-            <summary>
-            Provides data for <see cref="!:Syncfusion.UI.Xaml.Grid.Converter.PdfHeaderFooterEventHandler"/>. 
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.DataGridConverter.Events.PdfHeaderFooterEventArgs.PdfPage">
-            <summary>
-            Specified the PdfPage 
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.DataGridConverter.Events.PdfHeaderFooterEventArgs.PdfDocumentTemplate">
-            <summary>
-            Gets a value that specifies the PdfDocumentTemplate.
-            </summary>
         </member>
         <member name="M:Syncfusion.WinForms.DataGridConverter.DataGridExportingHelper.CreateCollectionView(Syncfusion.WinForms.DataGrid.SfDataGrid,System.Object,System.String,Syncfusion.Data.IPropertyAccessProvider)">
             <summary>
@@ -1122,6 +965,70 @@
             User can pass the instance of this class as an argument to the ExportToPdf and ExportToPdfGrid methods.
             </summary>
         </member>
+        <member name="M:Syncfusion.WinForms.DataGridConverter.PdfExportingOptions.RaiseExportingEvent(Syncfusion.WinForms.DataGridConverter.Events.DataGridPdfExportingEventArgs)">
+            <summary>
+            Raises the <see cref="E:Syncfusion.WinForms.DataGridConverter.PdfExportingOptions.Exporting"/> event.
+            </summary>
+            <param name="e">
+            The <see cref="!:GridPdfExportingEventArgs"/> that contains the event data.
+            </param>
+        </member>
+        <member name="M:Syncfusion.WinForms.DataGridConverter.PdfExportingOptions.RaiseCellExportingEvent(Syncfusion.WinForms.DataGridConverter.Events.DataGridCellPdfExportingEventArgs)">
+            <summary>
+             Raises the <see cref="E:Syncfusion.WinForms.DataGridConverter.PdfExportingOptions.CellExporting"/> event.
+            </summary> 
+            <param name="e">
+            The <see cref="!:GridCellPdfExportingEventArgs"/> that contains the event data.
+            </param>
+        </member>
+        <member name="M:Syncfusion.WinForms.DataGridConverter.PdfExportingOptions.RaiseHeaderFooterExportingEvent(Syncfusion.WinForms.DataGridConverter.Events.PdfHeaderFooterEventArgs)">
+            <summary>
+             Raises the <see cref="E:Syncfusion.WinForms.DataGridConverter.PdfExportingOptions.HeaderFooterExporting"/> event.
+            </summary> 
+            <param name="e">
+            The <see cref="T:Syncfusion.WinForms.DataGridConverter.Events.PdfHeaderFooterEventArgs"/> that contains the event data.
+            </param>
+        </member>
+        <member name="M:Syncfusion.WinForms.DataGridConverter.PdfExportingOptions.RaiseChildExportingEvent(Syncfusion.WinForms.DataGridConverter.Events.DataGridChildPdfExportingEventArgs)">
+            <summary>
+             Raises the <see cref="E:Syncfusion.WinForms.DataGridConverter.PdfExportingOptions.ChildExporting"/> event.
+            </summary>
+            <param name="e">
+            The <see cref="!:ChildGridPdfExportingEventArgs"/> that contains the event data.
+            </param>
+        </member>
+        <member name="M:Syncfusion.WinForms.DataGridConverter.PdfExportingOptions.CanExporting">
+            <summary>
+            Determines whether the <see cref="E:Syncfusion.WinForms.DataGridConverter.PdfExportingOptions.Exporting"/> event is needs to be raised.
+            </summary>
+            <returns>
+            Returns true when the Exporting event is hooked; Otherwise returns false.
+            </returns>
+        </member>
+        <member name="M:Syncfusion.WinForms.DataGridConverter.PdfExportingOptions.CanCellExporting">
+            <summary>
+            Determines whether the <see cref="E:Syncfusion.WinForms.DataGridConverter.PdfExportingOptions.CellExporting"/> event is needs to be raised.
+            </summary>
+            <returns>
+            Returns true when the CellExporting event is hooked; Otherwise returns false.
+            </returns>
+        </member>
+        <member name="M:Syncfusion.WinForms.DataGridConverter.PdfExportingOptions.CanHeaderFooterExportingExporting">
+            <summary>
+            Determines whether the <see cref="E:Syncfusion.WinForms.DataGridConverter.PdfExportingOptions.HeaderFooterExporting"/> event is needs to be raised.
+            </summary>
+            <returns>
+            Returns true when the HeaderFooterExporting event is hooked; Otherwise returns false.
+            </returns>
+        </member>
+        <member name="M:Syncfusion.WinForms.DataGridConverter.PdfExportingOptions.CanChildExporting">
+            <summary>
+            Determines whether the <see cref="E:Syncfusion.WinForms.DataGridConverter.PdfExportingOptions.ChildExporting"/> event is needs to be raised.
+            </summary>
+            <returns>
+            Returns true when the ChildExporting event is hooked; Otherwise returns false.
+            </returns>
+        </member>
         <member name="P:Syncfusion.WinForms.DataGridConverter.PdfExportingOptions.Columns">
             <summary>
             Gets list of columns which includes excluding of ExcludeColumns.
@@ -1284,69 +1191,162 @@
              Occurs while exporting the details view child cell into Pdf.
             </summary>
         </member>
-        <member name="M:Syncfusion.WinForms.DataGridConverter.PdfExportingOptions.RaiseExportingEvent(Syncfusion.WinForms.DataGridConverter.Events.DataGridPdfExportingEventArgs)">
+        <member name="T:Syncfusion.WinForms.DataGridConverter.Events.DataGridPdfExportingEventHandler">
             <summary>
-            Raises the <see cref="E:Syncfusion.WinForms.DataGridConverter.PdfExportingOptions.Exporting"/> event.
+            Represents the method that handles the PDF exporting.
             </summary>
-            <param name="e">
-            The <see cref="!:GridPdfExportingEventArgs"/> that contains the event data.
+            <param name="sender">
+            The source of the event.
+            </param>
+            <param name="args">
+            A <see cref="T:Syncfusion.WinForms.DataGridConverter.Events.DataGridPdfExportingEventArgs"/> that contains the event data.
             </param>
         </member>
-        <member name="M:Syncfusion.WinForms.DataGridConverter.PdfExportingOptions.RaiseCellExportingEvent(Syncfusion.WinForms.DataGridConverter.Events.DataGridCellPdfExportingEventArgs)">
+        <member name="T:Syncfusion.WinForms.DataGridConverter.Events.DataGridCellPdfExportingEventHandler">
             <summary>
-             Raises the <see cref="E:Syncfusion.WinForms.DataGridConverter.PdfExportingOptions.CellExporting"/> event.
-            </summary> 
-            <param name="e">
-            The <see cref="!:GridCellPdfExportingEventArgs"/> that contains the event data.
+            Represents the method that will handle the GridCell exporting.
+            </summary>
+            <param name="sender">
+            The source of the event.
+            </param>
+            <param name="args">
+            A <see cref="T:Syncfusion.WinForms.DataGridConverter.Events.DataGridCellPdfExportingEventArgs"/> that contains the event data.
             </param>
         </member>
-        <member name="M:Syncfusion.WinForms.DataGridConverter.PdfExportingOptions.RaiseHeaderFooterExportingEvent(Syncfusion.WinForms.DataGridConverter.Events.PdfHeaderFooterEventArgs)">
+        <member name="T:Syncfusion.WinForms.DataGridConverter.Events.PdfHeaderFooterEventHandler">
             <summary>
-             Raises the <see cref="E:Syncfusion.WinForms.DataGridConverter.PdfExportingOptions.HeaderFooterExporting"/> event.
-            </summary> 
-            <param name="e">
-            The <see cref="T:Syncfusion.WinForms.DataGridConverter.Events.PdfHeaderFooterEventArgs"/> that contains the event data.
+            Represents the method that handles the header and footer exporting.
+            </summary>
+            <param name="sender">
+            The source of the event.
+            </param>
+            <param name="args">
+            A <see cref="!:Syncfusion.UI.Xaml.Grid.Converter.PdfHeaderFooterEventArgs"/> that contains the event data.
             </param>
         </member>
-        <member name="M:Syncfusion.WinForms.DataGridConverter.PdfExportingOptions.RaiseChildExportingEvent(Syncfusion.WinForms.DataGridConverter.Events.DataGridChildPdfExportingEventArgs)">
+        <member name="T:Syncfusion.WinForms.DataGridConverter.Events.DataGridPdfExportingEventArgs">
             <summary>
-             Raises the <see cref="E:Syncfusion.WinForms.DataGridConverter.PdfExportingOptions.ChildExporting"/> event.
+            Provides data for <see cref="!:Syncfusion.WinForms.DataGridConverter.Events.GridPdfExportingEventhandler"/> .
             </summary>
-            <param name="e">
-            The <see cref="!:ChildGridPdfExportingEventArgs"/> that contains the event data.
+        </member>
+        <member name="P:Syncfusion.WinForms.DataGridConverter.Events.DataGridPdfExportingEventArgs.PdfGrid">
+            <summary>
+            Gets a value that specifies the PdfGrid.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.DataGridConverter.Events.DataGridPdfExportingEventArgs.CellType">
+            <summary>
+            Gets a value that specifies the export CellType.
+            </summary>
+            <value>
+            One of the <see cref="!:Syncfusion.UI.Xaml.Grid.Converter.ExportCellType"/> enumeration that specifies the export CellType.
+            The default mode is <see cref="!:Syncfusion.UI.Xaml.Grid.Converter.ExportCellType.HeaderCell"/>. 
+            </value>
+        </member>
+        <member name="P:Syncfusion.WinForms.DataGridConverter.Events.DataGridPdfExportingEventArgs.CellStyle">
+            <summary>
+            Gets or sets a value that specifies the CellStyle.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.DataGridConverter.Events.DataGridPdfExportingEventArgs.Level">
+            <summary>
+            Gets a value that specifies the level of the currently exporting DataGrid. It is 0 for Parent dataGrid, 1 for First Level Nested DataGrid, and so on.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.WinForms.DataGridConverter.Events.DataGridCellPdfExportingEventArgs">
+            <summary>
+            Provides data for <see cref="!:Syncfusion.WinForms.DataGridConverter.Events.GridCellPdfExportingEventhandler"/> .
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.DataGridConverter.Events.DataGridCellPdfExportingEventArgs.PdfGridCell">
+            <summary>
+            Gets a value that specifies the PdfGridCell.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.DataGridConverter.Events.DataGridCellPdfExportingEventArgs.CellType">
+            <summary>
+            Gets a value that specifies the export CellType.
+            </summary>
+            <value>
+            One of the <see cref="!:Syncfusion.UI.Xaml.Grid.Converter.ExportCellType"/> enumeration that specifies the export CellType.
+            The default mode is <see cref="!:Syncfusion.UI.Xaml.Grid.Converter.ExportCellType.HeaderCell"/>. 
+            </value>  
+        </member>
+        <member name="P:Syncfusion.WinForms.DataGridConverter.Events.DataGridCellPdfExportingEventArgs.CellValue">
+            <summary>
+            Gets or sets a value that specifies the CellValue.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.DataGridConverter.Events.DataGridCellPdfExportingEventArgs.NodeEntry">
+            <summary>
+            Gets a value that specifies the NodeEntry.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.DataGridConverter.Events.DataGridCellPdfExportingEventArgs.ColumnName">
+            <summary>
+            Gets a value that specifies the ColumnName.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.DataGridConverter.Events.DataGridCellPdfExportingEventArgs.Level">
+            <summary>
+            Gets a value that specifies the level of the currently exporting DataGrid. It is 0 for Parent dataGrid, 1 for First Level Nested DataGrid, and so on.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.DataGridConverter.Events.DataGridCellPdfExportingEventArgs.PropertyAccessProvider">
+            <summary>
+            Gets a value that specifies the PropertyAccessProvider.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.WinForms.DataGridConverter.Events.DataGridChildPdfExportingEventhandler">
+            <summary>
+            Represents the method that handles the <see cref="T:Syncfusion.WinForms.DataGrid.DetailsViewDataGrid"/> exporting.
+            </summary>
+            <param name="sender">
+            The source of the event.
+            </param>
+            <param name="args">
+            A <see cref="!:Syncfusion.WinForms.DataGridConverter.ChildGridPdfExportingEventArgs"/> that contains the event data.
             </param>
         </member>
-        <member name="M:Syncfusion.WinForms.DataGridConverter.PdfExportingOptions.CanExporting">
+        <member name="T:Syncfusion.WinForms.DataGridConverter.Events.DataGridChildPdfExportingEventArgs">
             <summary>
-            Determines whether the <see cref="E:Syncfusion.WinForms.DataGridConverter.PdfExportingOptions.Exporting" /> event is needs to be raised.
+            Provides data for <see cref="!:Syncfusion.WinForms.DataGridConverter.ChildGridPdfExportingEventhandler"/> .
             </summary>
-            <returns>
-            Returns true when the Exporting event is hooked; Otherwise returns false.
-            </returns>
         </member>
-        <member name="M:Syncfusion.WinForms.DataGridConverter.PdfExportingOptions.CanCellExporting">
+        <member name="P:Syncfusion.WinForms.DataGridConverter.Events.DataGridChildPdfExportingEventArgs.NodeEntry">
             <summary>
-            Determines whether the <see cref="E:Syncfusion.WinForms.DataGridConverter.PdfExportingOptions.CellExporting" /> event is needs to be raised.
+            Gets a value that specifies the NodeEntry.
             </summary>
-            <returns>
-            Returns true when the CellExporting event is hooked; Otherwise returns false.
-            </returns>
         </member>
-        <member name="M:Syncfusion.WinForms.DataGridConverter.PdfExportingOptions.CanHeaderFooterExportingExporting">
+        <member name="P:Syncfusion.WinForms.DataGridConverter.Events.DataGridChildPdfExportingEventArgs.RelationalColumn">
             <summary>
-            Determines whether the <see cref="E:Syncfusion.WinForms.DataGridConverter.PdfExportingOptions.HeaderFooterExporting" /> event is needs to be raised.
+            Gets a value that specifies the RelationalColumn.
             </summary>
-            <returns>
-            Returns true when the HeaderFooterExporting event is hooked; Otherwise returns false.
-            </returns>
         </member>
-        <member name="M:Syncfusion.WinForms.DataGridConverter.PdfExportingOptions.CanChildExporting">
+        <member name="P:Syncfusion.WinForms.DataGridConverter.Events.DataGridChildPdfExportingEventArgs.Level">
             <summary>
-            Determines whether the <see cref="E:Syncfusion.WinForms.DataGridConverter.PdfExportingOptions.ChildExporting" /> event is needs to be raised.
+            Gets a value that specifies the level of the currently exporting DataGrid. It is 0 for Parent dataGrid, 1 for First Level Nested DataGrid, and so on.
             </summary>
-            <returns>
-            Returns true when the ChildExporting event is hooked; Otherwise returns false.
-            </returns>
+        </member>
+        <member name="P:Syncfusion.WinForms.DataGridConverter.Events.DataGridChildPdfExportingEventArgs.PdfExportingOptions">
+            <summary>
+            Gets or sets a value that specifies the <see cref="!:Syncfusion.UI.Xaml.Grid.Converter.PdfExportingOptions"/>.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.WinForms.DataGridConverter.Events.PdfHeaderFooterEventArgs">
+            <summary>
+            Provides data for <see cref="!:Syncfusion.UI.Xaml.Grid.Converter.PdfHeaderFooterEventHandler"/>. 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.DataGridConverter.Events.PdfHeaderFooterEventArgs.PdfPage">
+            <summary>
+            Specified the PdfPage 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.DataGridConverter.Events.PdfHeaderFooterEventArgs.PdfDocumentTemplate">
+            <summary>
+            Gets a value that specifies the PdfDocumentTemplate.
+            </summary>
         </member>
     </members>
 </doc>

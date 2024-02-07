@@ -50,11 +50,6 @@
             Represents the interface for the IPropertyAccessor.
             </summary>
         </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.IPropertyAccessor.GetMethod">
-            <summary>
-            Gets the get method for the <see cref="T:Syncfusion.WinForms.SmithChart.IPropertyAccessor"/>
-            </summary>
-        </member>
         <member name="M:Syncfusion.WinForms.SmithChart.IPropertyAccessor.GetValue(System.Object)">
             <summary>
             The Method of GetValue.
@@ -68,6 +63,11 @@
             </summary>
             <param name="instance">The Instance</param>
             <param name="value">The Value</param>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.IPropertyAccessor.GetMethod">
+            <summary>
+            Gets the get method for the <see cref="T:Syncfusion.WinForms.SmithChart.IPropertyAccessor"/>
+            </summary>
         </member>
         <member name="T:Syncfusion.WinForms.SmithChart.FastReflectionCaches">
             <summary>
@@ -125,16 +125,6 @@
             </summary>
             <param name="propertyInfo">The Property Information</param>
         </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.PropertyAccessor.PropertyInfo">
-            <summary>
-            Gets or private sets the PropertyInfo.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.PropertyAccessor.GetMethod">
-            <summary>
-            Gets the get method of the property accessor.
-            </summary>
-        </member>
         <member name="M:Syncfusion.WinForms.SmithChart.PropertyAccessor.GetValue(System.Object)">
             <summary>
             Gets The Value. 
@@ -175,6 +165,16 @@
             </summary>
             <param name="propertyInfo">The Property Information</param>
         </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.PropertyAccessor.PropertyInfo">
+            <summary>
+            Gets or private sets the PropertyInfo.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.PropertyAccessor.GetMethod">
+            <summary>
+            Gets the get method of the property accessor.
+            </summary>
+        </member>
         <member name="T:Syncfusion.WinForms.SmithChart.MethodInvoker">
             <summary>
             Represents the method invoker.
@@ -190,11 +190,6 @@
             Initializes a new instance of the <see cref="T:Syncfusion.WinForms.SmithChart.MethodInvoker"/> class.
             </summary>
             <param name="methodInfo">The Method Information</param>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.MethodInvoker.MethodInfo">
-            <summary>
-            Gets or private sets the MethodInfo.
-            </summary>
         </member>
         <member name="M:Syncfusion.WinForms.SmithChart.MethodInvoker.Invoke(System.Object,System.Object[])">
             <summary>
@@ -218,6 +213,11 @@
             </summary>
             <param name="methodInfo">The method Information</param>
             <returns>The Invoke Delegate</returns>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.MethodInvoker.MethodInfo">
+            <summary>
+            Gets or private sets the MethodInfo.
+            </summary>
         </member>
         <member name="T:Syncfusion.WinForms.SmithChart.FastReflectionCache`2">
             <summary>
@@ -269,7 +269,7 @@
             <param name="key">The Key</param>
             <returns>The Method Invoker</returns>
         </member>
-        <member name="M:Syncfusion.WinForms.SmithChart.MethodInvokerFactory.Syncfusion#WinForms#SmithChart#IFastReflectionFactory{System#Reflection#MethodInfo,Syncfusion#WinForms#SmithChart#IMethodInvoker}#Create(System.Reflection.MethodInfo)">
+        <member name="M:Syncfusion.WinForms.SmithChart.MethodInvokerFactory.Syncfusion#WinForms#SmithChart#IFastReflectionFactory{System#Reflection#MethodInfo@Syncfusion#WinForms#SmithChart#IMethodInvoker}#Create(System.Reflection.MethodInfo)">
             <summary>
             Creates the method invoker.
             </summary>
@@ -398,156 +398,6 @@
             Initializes a new instance of the <see cref="T:Syncfusion.WinForms.SmithChart.ChartLegend"/> class.
             </summary>
             <param name="chart">smith chart instance</param>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.Visible">
-            <summary>
-            Gets or sets a value indicating whether legend is visible or not.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.IconType">
-            <summary>
-            Gets or sets the legend icon type.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.ToggleSeriesVisible">
-            <summary>
-            Gets or sets a value indicating whether series is visible or not based on the toggle state of legend items.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.Width">
-            <summary>
-            Gets or sets value that represents arrange width of legend layout. 
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.Height">
-            <summary>
-            Gets or sets value that represents arrange height of legend layout. 
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.IconHeight">
-            <summary>
-            Gets or sets the integer value that represents the icon's height. 
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.IconWidth">
-            <summary>
-            Gets or sets integer value that represents icon's width. 
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.DockPosition">
-            <summary>
-            Gets or sets the dock style for legend placement in the smith chart.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.OffsetX">
-            <summary>
-            Gets or sets integer value that represents the floating x position of legend. 
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.OffsetY">
-            <summary>
-            Gets or sets the integer value that represents the the floating y position of legend. 
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.Alignment">
-            <summary>
-            Gets or sets the alignment value that represents legend panel position in chart.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.WrapItems">
-            <summary>
-            Gets or sets a value indicating whether to wrap legend items or not. 
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.Style">
-            <summary>
-            Gets or sets the style for customizing legends.
-            </summary>    
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.ItemSpacing">
-            <summary>
-            Gets or sets spacing for the legend items.
-            </summary>       
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.Spacing">
-            <summary>
-            Gets or sets spacing between legend border and its items.
-            </summary>       
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.BorderVisible">
-            <summary>
-            Gets or sets a value indicating whether the legend border is visible or not.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.RowCount">
-            <summary>
-            Gets or sets the legend items row count.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.ColumnCount">
-            <summary>
-            Gets or sets the legend items column count.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.LabelFont">
-            <summary>
-            Gets the font for legend item label.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.ForeColor">
-            <summary>
-            Gets the foreground color for legend item label.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.BackColor">
-            <summary>
-            Gets the back color for chart legend.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.BorderColor">
-            <summary>
-            Gets the border color for chart legend.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.BorderWidth">
-            <summary>
-            Gets the width for the legend border.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.IsAreaRectCalculated">
-            <summary>
-            Gets or sets a value indicating whether area rectangle is calculated or not.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.InternalLegendAlignment">
-            <summary>
-            Gets or sets the legend alignment. Used internally when RTL is enabled.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.Bounds">
-            <summary>
-            Gets or sets the bounds for smith chart legend control.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.LegendLayout">
-            <summary>
-            Gets or sets the panel for displaying the legend items.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.Chart">
-            <summary>
-            Gets or sets the <see cref="T:Syncfusion.WinForms.SmithChart.SfSmithChart"/> instance.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.AvailableRectangle">
-            <summary>
-            Gets or sets the available area with the exception of chart title bounds.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.LegendControl">
-            <summary>
-            Gets or sets the legend control.
-            </summary>
         </member>
         <member name="M:Syncfusion.WinForms.SmithChart.ChartLegend.Dispose">
             <summary>
@@ -705,6 +555,156 @@
             </summary>
             <param name="percentage">percentage value to calculate legend bounds from the available size</param>
         </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.Visible">
+            <summary>
+            Gets or sets a value indicating whether legend is visible or not.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.IconType">
+            <summary>
+            Gets or sets the legend icon type.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.ToggleSeriesVisible">
+            <summary>
+            Gets or sets a value indicating whether series is visible or not based on the toggle state of legend items.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.Width">
+            <summary>
+            Gets or sets value that represents arrange width of legend layout. 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.Height">
+            <summary>
+            Gets or sets value that represents arrange height of legend layout. 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.IconHeight">
+            <summary>
+            Gets or sets the integer value that represents the icon's height. 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.IconWidth">
+            <summary>
+            Gets or sets integer value that represents icon's width. 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.DockPosition">
+            <summary>
+            Gets or sets the dock style for legend placement in the smith chart.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.OffsetX">
+            <summary>
+            Gets or sets integer value that represents the floating x position of legend. 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.OffsetY">
+            <summary>
+            Gets or sets the integer value that represents the the floating y position of legend. 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.Alignment">
+            <summary>
+            Gets or sets the alignment value that represents legend panel position in chart.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.WrapItems">
+            <summary>
+            Gets or sets a value indicating whether to wrap legend items or not. 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.Style">
+            <summary>
+            Gets or sets the style for customizing legends.
+            </summary>    
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.ItemSpacing">
+            <summary>
+            Gets or sets spacing for the legend items.
+            </summary>       
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.Spacing">
+            <summary>
+            Gets or sets spacing between legend border and its items.
+            </summary>       
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.BorderVisible">
+            <summary>
+            Gets or sets a value indicating whether the legend border is visible or not.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.RowCount">
+            <summary>
+            Gets or sets the legend items row count.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.ColumnCount">
+            <summary>
+            Gets or sets the legend items column count.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.LabelFont">
+            <summary>
+            Gets the font for legend item label.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.ForeColor">
+            <summary>
+            Gets the foreground color for legend item label.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.BackColor">
+            <summary>
+            Gets the back color for chart legend.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.BorderColor">
+            <summary>
+            Gets the border color for chart legend.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.BorderWidth">
+            <summary>
+            Gets the width for the legend border.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.IsAreaRectCalculated">
+            <summary>
+            Gets or sets a value indicating whether area rectangle is calculated or not.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.InternalLegendAlignment">
+            <summary>
+            Gets or sets the legend alignment. Used internally when RTL is enabled.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.Bounds">
+            <summary>
+            Gets or sets the bounds for smith chart legend control.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.LegendLayout">
+            <summary>
+            Gets or sets the panel for displaying the legend items.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.Chart">
+            <summary>
+            Gets or sets the <see cref="T:Syncfusion.WinForms.SmithChart.SfSmithChart"/> instance.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.AvailableRectangle">
+            <summary>
+            Gets or sets the available area with the exception of chart title bounds.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartLegend.LegendControl">
+            <summary>
+            Gets or sets the legend control.
+            </summary>
+        </member>
         <member name="T:Syncfusion.WinForms.SmithChart.LegendControl">
             <summary>
             Represents the legend control holding the legend items.
@@ -715,16 +715,16 @@
             Initializes a new instance of the <see cref="T:Syncfusion.WinForms.SmithChart.LegendControl"/> class.
             </summary>
         </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.LegendControl.Legend">
-            <summary>
-            Gets or sets the instance of <see cref="T:Syncfusion.WinForms.SmithChart.ChartLegend"/> class.
-            </summary>
-        </member>
         <member name="M:Syncfusion.WinForms.SmithChart.LegendControl.OnPaint(System.Windows.Forms.PaintEventArgs)">
             <summary>
             Overrides the <see cref="E:System.Windows.Forms.Control.Paint"/> event.
             </summary>
             <param name="e">A <see cref="T:System.Windows.Forms.PaintEventArgs"/> that contains the event data.</param>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.LegendControl.Legend">
+            <summary>
+            Gets or sets the instance of <see cref="T:Syncfusion.WinForms.SmithChart.ChartLegend"/> class.
+            </summary>
         </member>
         <member name="T:Syncfusion.WinForms.SmithChart.LegendItem">
             <summary>
@@ -740,6 +740,41 @@
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.WinForms.SmithChart.LegendItem"/> class. 
             </summary>
+        </member>
+        <member name="M:Syncfusion.WinForms.SmithChart.LegendItem.Measure">
+            <summary>
+            Measures the size of the legend item.
+            </summary>
+            <returns>Legend item bounds.</returns>
+        </member>
+        <member name="M:Syncfusion.WinForms.SmithChart.LegendItem.CreateElements">
+            <summary>
+            Creates the legend icon for the corresponding legend item.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.WinForms.SmithChart.LegendItem.OnMouseClick(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Raised when mouse click is done on the legend items.
+            </summary>
+            <param name="e">mouse event arguments.</param>
+        </member>
+        <member name="M:Syncfusion.WinForms.SmithChart.LegendItem.OnMouseEnter(System.EventArgs)">
+            <summary>
+            Raises the mouse enter event.
+            </summary>
+            <param name="e">event arguments</param>
+        </member>
+        <member name="M:Syncfusion.WinForms.SmithChart.LegendItem.OnMouseLeave(System.EventArgs)">
+            <summary>
+            Raises the mouse leave event.
+            </summary>
+            <param name="e">event arguments.</param>
+        </member>
+        <member name="M:Syncfusion.WinForms.SmithChart.LegendItem.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Overrides the <see cref="E:System.Windows.Forms.Control.Paint"/> event.
+            </summary>
+            <param name="e">A <see cref="T:System.Windows.Forms.PaintEventArgs"/> that contains the event data.</param>
         </member>
         <member name="P:Syncfusion.WinForms.SmithChart.LegendItem.Row">
             <summary>
@@ -786,41 +821,6 @@
             Gets or sets the instance of the <see cref="P:Syncfusion.WinForms.SmithChart.LegendItem.LegendSymbol"/> class.
             </summary>
         </member>
-        <member name="M:Syncfusion.WinForms.SmithChart.LegendItem.Measure">
-            <summary>
-            Measures the size of the legend item.
-            </summary>
-            <returns>Legend item bounds.</returns>
-        </member>
-        <member name="M:Syncfusion.WinForms.SmithChart.LegendItem.CreateElements">
-            <summary>
-            Creates the legend icon for the corresponding legend item.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.WinForms.SmithChart.LegendItem.OnMouseClick(System.Windows.Forms.MouseEventArgs)">
-            <summary>
-            Raised when mouse click is done on the legend items.
-            </summary>
-            <param name="e">mouse event arguments.</param>
-        </member>
-        <member name="M:Syncfusion.WinForms.SmithChart.LegendItem.OnMouseEnter(System.EventArgs)">
-            <summary>
-            Raises the mouse enter event.
-            </summary>
-            <param name="e">event arguments</param>
-        </member>
-        <member name="M:Syncfusion.WinForms.SmithChart.LegendItem.OnMouseLeave(System.EventArgs)">
-            <summary>
-            Raises the mouse leave event.
-            </summary>
-            <param name="e">event arguments.</param>
-        </member>
-        <member name="M:Syncfusion.WinForms.SmithChart.LegendItem.OnPaint(System.Windows.Forms.PaintEventArgs)">
-            <summary>
-            Overrides the <see cref="E:System.Windows.Forms.Control.Paint"/> event.
-            </summary>
-            <param name="e">A <see cref="T:System.Windows.Forms.PaintEventArgs"/> that contains the event data.</param>
-        </member>
         <member name="T:Syncfusion.WinForms.SmithChart.LegendLayout">
             <summary>
             Represents the panel holding the legend.
@@ -829,11 +829,6 @@
         <member name="M:Syncfusion.WinForms.SmithChart.LegendLayout.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.WinForms.SmithChart.LegendLayout"/> class.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.LegendLayout.Legend">
-            <summary>
-            Gets or sets the instance of <see cref="T:Syncfusion.WinForms.SmithChart.ChartLegend"/> class.
             </summary>
         </member>
         <member name="M:Syncfusion.WinForms.SmithChart.LegendLayout.OnUpdateVisibilityOnLegend(Syncfusion.WinForms.SmithChart.ChartSeries)">
@@ -890,10 +885,23 @@
             <param name="itemIndex">legend item index</param>
             <param name="chartSeries">series for which legend item has to be created.</param>
         </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.LegendLayout.Legend">
+            <summary>
+            Gets or sets the instance of <see cref="T:Syncfusion.WinForms.SmithChart.ChartLegend"/> class.
+            </summary>
+        </member>
         <member name="T:Syncfusion.WinForms.SmithChart.LegendSymbol">
             <summary>
             Represents the Icon in the legend item.
             </summary>
+        </member>
+        <member name="M:Syncfusion.WinForms.SmithChart.LegendSymbol.DrawLegendIcon(Syncfusion.WinForms.SmithChart.LegendItem,System.Drawing.RectangleF,System.Drawing.Graphics)">
+            <summary>
+            Draws the legend icon.
+            </summary>
+            <param name="item">Legend item for which icon has to be drawn.</param>
+            <param name="rect">Bounds of the icon.</param>
+            <param name="g">graphics object</param>
         </member>
         <member name="P:Syncfusion.WinForms.SmithChart.LegendSymbol.LegendItem">
             <summary>
@@ -905,16 +913,8 @@
             Gets or sets the color for icon in the legend item.
             </summary>
         </member>
-        <member name="M:Syncfusion.WinForms.SmithChart.LegendSymbol.DrawLegendIcon(Syncfusion.WinForms.SmithChart.LegendItem,System.Drawing.RectangleF,System.Drawing.Graphics)">
-            <summary>
-            Draws the legend icon.
-            </summary>
-            <param name="item">Legend item for which icon has to be drawn.</param>
-            <param name="rect">Bounds of the icon.</param>
-            <param name="g">graphics object</param>
-        </member>
         <member name="T:Syncfusion.WinForms.SmithChart.SmithChartLocalizationResourceAccessor">
-            <inheritdoc cref="T:Syncfusion.Windows.Forms.LocalizationResourceAccessor" />
+            <inheritdoc cref="T:Syncfusion.Windows.Forms.LocalizationResourceAccessor"/>
         </member>
         <member name="F:Syncfusion.WinForms.SmithChart.SmithChartLocalizationResourceAccessor.Instance">
             <summary>
@@ -922,10 +922,10 @@
             </summary>
         </member>
         <member name="M:Syncfusion.WinForms.SmithChart.SmithChartLocalizationResourceAccessor.GetControlAssembly">
-            <inheritdoc cref="M:Syncfusion.Windows.Forms.LocalizationResourceAccessor.GetControlAssembly" />
+            <inheritdoc cref="M:Syncfusion.Windows.Forms.LocalizationResourceAccessor.GetControlAssembly"/>
         </member>
         <member name="M:Syncfusion.WinForms.SmithChart.SmithChartLocalizationResourceAccessor.GetControlAssemblyDefaultNamespace">
-            <inheritdoc cref="M:Syncfusion.Windows.Forms.LocalizationResourceAccessor.GetControlAssemblyDefaultNamespace" /> 
+            <inheritdoc cref="M:Syncfusion.Windows.Forms.LocalizationResourceAccessor.GetControlAssemblyDefaultNamespace"/> 
         </member>
         <member name="T:Syncfusion.WinForms.SmithChart.SR">
             <exclude/>
@@ -1020,21 +1020,6 @@
              Gets or sets the table of custom colors to be used.
             </summary>
         </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartColorModel.CustomColors">
-            <summary>
-             Gets or sets the table of custom colors to be used.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartColorModel.Palette">
-            <summary>
-             Gets or sets the color palette to be used. 
-            </summary> 
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartColorModel.SmithChart">
-            <summary>
-            Gets or sets the smith chart associated.
-            </summary>
-        </member>
         <member name="M:Syncfusion.WinForms.SmithChart.ChartColorModel.GetColor(System.Int32)">
             <summary>
              Gets the color (from the palette) corresponding to the specified index value.
@@ -1047,7 +1032,7 @@
             Gets the palette.
             </summary>
             <param name="palette">The palette.</param>
-            <returns><see cref="T:System.Drawing.Color"/> array></returns>
+            <returns><see cref="T:System.Drawing.Color"/> array&gt;</returns>
         </member>
         <member name="M:Syncfusion.WinForms.SmithChart.ChartColorModel.GetSkyBlueStyle">
             <summary>
@@ -1097,6 +1082,21 @@
             </summary>
             <returns>Color array for <see cref="F:Syncfusion.WinForms.SmithChart.ChartColorPalette.Metro"/></returns>
         </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartColorModel.CustomColors">
+            <summary>
+             Gets or sets the table of custom colors to be used.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartColorModel.Palette">
+            <summary>
+             Gets or sets the color palette to be used. 
+            </summary> 
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartColorModel.SmithChart">
+            <summary>
+            Gets or sets the smith chart associated.
+            </summary>
+        </member>
         <member name="T:Syncfusion.WinForms.SmithChart.DataLabel">
             <summary>
             Displays the series points values.
@@ -1130,46 +1130,6 @@
         <member name="M:Syncfusion.WinForms.SmithChart.DataLabel.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.WinForms.SmithChart.DataLabel"/> class.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.DataLabel.Visible">
-            <summary>
-            Gets or sets a value indicating whether the visibility of data labels.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.DataLabel.BackColor">
-            <summary>
-            Gets or sets the brush to apply to <see cref="T:Syncfusion.WinForms.SmithChart.DataLabel"/> background color.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.DataLabel.ForeColor">
-            <summary>
-            Gets or sets the color to apply to <see cref="T:Syncfusion.WinForms.SmithChart.DataLabel"/> fore color.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.DataLabel.BorderColor">
-            <summary>
-            Gets or sets the brush to apply <see cref="T:Syncfusion.WinForms.SmithChart.DataLabel"/> border color.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.DataLabel.LabelFont">
-            <summary>
-            Gets or sets the font for data label.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.DataLabel.Series">
-            <summary>
-            Gets or sets the <see cref="T:Syncfusion.WinForms.SmithChart.ChartSeries"/> class.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.DataLabel.ConnectorLines">
-            <summary>
-            Gets or sets the collection of <see cref="T:Syncfusion.WinForms.SmithChart.DataLabel"/> connector line.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.DataLabel.LabelRegions">
-            <summary>
-            Gets or sets the DataLabel region and information.
             </summary>
         </member>
         <member name="M:Syncfusion.WinForms.SmithChart.DataLabel.Dispose">
@@ -1221,6 +1181,46 @@
             Releases the unmanaged resources used by the <see cref="T:Syncfusion.WinForms.SmithChart.ChartAxis"/> 
             </summary>
             <param name="disposing">true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.DataLabel.Visible">
+            <summary>
+            Gets or sets a value indicating whether the visibility of data labels.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.DataLabel.BackColor">
+            <summary>
+            Gets or sets the brush to apply to <see cref="T:Syncfusion.WinForms.SmithChart.DataLabel"/> background color.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.DataLabel.ForeColor">
+            <summary>
+            Gets or sets the color to apply to <see cref="T:Syncfusion.WinForms.SmithChart.DataLabel"/> fore color.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.DataLabel.BorderColor">
+            <summary>
+            Gets or sets the brush to apply <see cref="T:Syncfusion.WinForms.SmithChart.DataLabel"/> border color.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.DataLabel.LabelFont">
+            <summary>
+            Gets or sets the font for data label.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.DataLabel.Series">
+            <summary>
+            Gets or sets the <see cref="T:Syncfusion.WinForms.SmithChart.ChartSeries"/> class.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.DataLabel.ConnectorLines">
+            <summary>
+            Gets or sets the collection of <see cref="T:Syncfusion.WinForms.SmithChart.DataLabel"/> connector line.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.DataLabel.LabelRegions">
+            <summary>
+            Gets or sets the DataLabel region and information.
+            </summary>
         </member>
         <member name="T:Syncfusion.WinForms.SmithChart.DataLabelRegion">
             <summary>
@@ -1402,6 +1402,98 @@
             Initializes a new instance of the ChartSeries class.
             </summary>
         </member>
+        <member name="M:Syncfusion.WinForms.SmithChart.ChartSeries.GeneratePoints">
+            <summary>
+            Generate Resistance and Reactance points separately from ItemSource or points
+            </summary>
+        </member>
+        <member name="M:Syncfusion.WinForms.SmithChart.ChartSeries.UpdateMarker(System.Drawing.Graphics)">
+            <summary>
+            Draws the specified marker for indicating the series points.
+            </summary>
+            <param name="g">paint event args</param>
+        </member>
+        <member name="M:Syncfusion.WinForms.SmithChart.ChartSeries.ValueToPoint">
+            <summary>
+            Converts the data point value to its corresponding screen coordinates.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.WinForms.SmithChart.ChartSeries.Points_CollectionChanged(System.Object,System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+            <summary>
+            Refreshes the chart when the series points collection is changed.
+            </summary>
+            <param name="sender">sender object</param>
+            <param name="e">collection chnaged event arguments</param>
+        </member>
+        <member name="M:Syncfusion.WinForms.SmithChart.ChartSeries.OnDataSourceChanged(System.Object,System.Object)">
+            <summary>
+            Hooks or Unhooks the data source collection changed.
+            </summary>
+            <param name="oldValue">data source old value</param>
+            <param name="newValue">data source new value</param>
+        </member>
+        <member name="M:Syncfusion.WinForms.SmithChart.ChartSeries.OnDataCollectionChanged(System.Object,System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+            <summary>
+            Called when data source is changed.
+            </summary>
+            <param name="sender">sender object</param>
+            <param name="e">collection changed event arguments</param>
+        </member>
+        <member name="M:Syncfusion.WinForms.SmithChart.ChartSeries.SortActualPoints">
+            <summary>
+            Sorts the Series Points 
+            </summary>
+        </member>
+        <member name="M:Syncfusion.WinForms.SmithChart.ChartSeries.GetTuple(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Sorts the chart series data source.
+            </summary>
+            <param name="xValues">Resistance value collections</param>
+        </member>
+        <member name="M:Syncfusion.WinForms.SmithChart.ChartSeries.Sort``2(System.Collections.Generic.List{System.Tuple{System.Double,System.Double}})">
+            <summary>
+            Sorts the resistance and reactance values. 
+            </summary>
+            <typeparam name="T">X Values</typeparam>
+            <typeparam name="T1">Y Values</typeparam>
+            <param name="list">The Values List</param>
+        </member>
+        <member name="M:Syncfusion.WinForms.SmithChart.ChartSeries.ActualSort``2(System.Collections.Generic.List{System.Tuple{System.Double,System.Double}})">
+            <summary>
+            Sorting the Reactance value collections
+            </summary>
+            <typeparam name="T">The First Tuple</typeparam>
+            <typeparam name="T1">The Second Tuple</typeparam>
+            <param name="list">The List</param>
+        </member>
+        <member name="M:Syncfusion.WinForms.SmithChart.ChartSeries.SortActualData">
+            <summary>
+            Sorts the data source collection.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.WinForms.SmithChart.ChartSeries.DrawMarker(System.Drawing.Graphics,System.Drawing.RectangleF,System.Drawing.Color,System.Drawing.SolidBrush,System.Drawing.PointF)">
+            <summary>
+            Draws the specified marker for indicating the series points.
+            </summary>
+            <param name="g">graphics object</param>
+            <param name="rect">Rectangle area on which to draw a marker</param>
+            <param name="stroke">stroke for the marker</param>
+            <param name="markerInterior">fill color for the marker</param>
+            <param name="point">location of the marker</param>
+        </member>
+        <member name="M:Syncfusion.WinForms.SmithChart.ChartSeries.Redraw">
+            <summary>
+            Refreshes the chart.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.WinForms.SmithChart.ChartSeries.CalculateScreenCoordinate(System.Double,System.Double)">
+            <summary>
+             Converts the data point value to its corresponding screen coordinates.
+            </summary>
+            <param name="x"> x data point</param>
+            <param name="y"> y data point </param>
+            <returns>The point region</returns>
+        </member>
         <member name="P:Syncfusion.WinForms.SmithChart.ChartSeries.ArrangeByIndex">
             <summary>
             Gets or sets a value indicating whether to render the data based on the provided index order.
@@ -1553,98 +1645,6 @@
             Gets or sets the actual data stored for the given series ItemSource
             </summary>
         </member>
-        <member name="M:Syncfusion.WinForms.SmithChart.ChartSeries.GeneratePoints">
-            <summary>
-            Generate Resistance and Reactance points separately from ItemSource or points
-            </summary>
-        </member>
-        <member name="M:Syncfusion.WinForms.SmithChart.ChartSeries.UpdateMarker(System.Drawing.Graphics)">
-            <summary>
-            Draws the specified marker for indicating the series points.
-            </summary>
-            <param name="g">paint event args</param>
-        </member>
-        <member name="M:Syncfusion.WinForms.SmithChart.ChartSeries.ValueToPoint">
-            <summary>
-            Converts the data point value to its corresponding screen coordinates.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.WinForms.SmithChart.ChartSeries.Points_CollectionChanged(System.Object,System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
-            <summary>
-            Refreshes the chart when the series points collection is changed.
-            </summary>
-            <param name="sender">sender object</param>
-            <param name="e">collection chnaged event arguments</param>
-        </member>
-        <member name="M:Syncfusion.WinForms.SmithChart.ChartSeries.OnDataSourceChanged(System.Object,System.Object)">
-            <summary>
-            Hooks or Unhooks the data source collection changed.
-            </summary>
-            <param name="oldValue">data source old value</param>
-            <param name="newValue">data source new value</param>
-        </member>
-        <member name="M:Syncfusion.WinForms.SmithChart.ChartSeries.OnDataCollectionChanged(System.Object,System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
-            <summary>
-            Called when data source is changed.
-            </summary>
-            <param name="sender">sender object</param>
-            <param name="e">collection changed event arguments</param>
-        </member>
-        <member name="M:Syncfusion.WinForms.SmithChart.ChartSeries.SortActualPoints">
-            <summary>
-            Sorts the Series Points 
-            </summary>
-        </member>
-        <member name="M:Syncfusion.WinForms.SmithChart.ChartSeries.GetTuple(System.Collections.Generic.List{System.Double})">
-            <summary>
-            Sorts the chart series data source.
-            </summary>
-            <param name="xValues">Resistance value collections</param>
-        </member>
-        <member name="M:Syncfusion.WinForms.SmithChart.ChartSeries.Sort``2(System.Collections.Generic.List{System.Tuple{System.Double,System.Double}})">
-            <summary>
-            Sorts the resistance and reactance values. 
-            </summary>
-            <typeparam name="T">X Values</typeparam>
-            <typeparam name="T1">Y Values</typeparam>
-            <param name="list">The Values List</param>
-        </member>
-        <member name="M:Syncfusion.WinForms.SmithChart.ChartSeries.ActualSort``2(System.Collections.Generic.List{System.Tuple{System.Double,System.Double}})">
-            <summary>
-            Sorting the Reactance value collections
-            </summary>
-            <typeparam name="T">The First Tuple</typeparam>
-            <typeparam name="T1">The Second Tuple</typeparam>
-            <param name="list">The List</param>
-        </member>
-        <member name="M:Syncfusion.WinForms.SmithChart.ChartSeries.SortActualData">
-            <summary>
-            Sorts the data source collection.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.WinForms.SmithChart.ChartSeries.DrawMarker(System.Drawing.Graphics,System.Drawing.RectangleF,System.Drawing.Color,System.Drawing.SolidBrush,System.Drawing.PointF)">
-            <summary>
-            Draws the specified marker for indicating the series points.
-            </summary>
-            <param name="g">graphics object</param>
-            <param name="rect">Rectangle area on which to draw a marker</param>
-            <param name="stroke">stroke for the marker</param>
-            <param name="markerInterior">fill color for the marker</param>
-            <param name="point">location of the marker</param>
-        </member>
-        <member name="M:Syncfusion.WinForms.SmithChart.ChartSeries.Redraw">
-            <summary>
-            Refreshes the chart.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.WinForms.SmithChart.ChartSeries.CalculateScreenCoordinate(System.Double,System.Double)">
-            <summary>
-             Converts the data point value to its corresponding screen coordinates.
-            </summary>
-            <param name="x"> x data point</param>
-            <param name="y"> y data point </param>
-            <returns>The point region</returns>
-        </member>
         <member name="T:Syncfusion.WinForms.SmithChart.PointRegion">
             <summary>
             Store the regions of the segment.
@@ -1682,15 +1682,22 @@
         </member>
         <member name="M:Syncfusion.WinForms.SmithChart.ChartPoint.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:Syncfusion.WinForms.SmithChart.ChartPoint" /> class.
+            Initializes a new instance of the <see cref="T:Syncfusion.WinForms.SmithChart.ChartPoint"/> class.
             </summary>
         </member>
         <member name="M:Syncfusion.WinForms.SmithChart.ChartPoint.#ctor(System.Double,System.Double)">
             <summary>
-            Initializes a new instance of the <see cref="T:Syncfusion.WinForms.SmithChart.ChartPoint" /> class.
+            Initializes a new instance of the <see cref="T:Syncfusion.WinForms.SmithChart.ChartPoint"/> class.
             </summary>
             <param name="x">Resistance value</param>
             <param name="y">Reactance value</param>
+        </member>
+        <member name="M:Syncfusion.WinForms.SmithChart.ChartPoint.SetValues(System.Double,System.Double)">
+            <summary>
+            Set the resistance and reactance values.
+            </summary>
+            <param name="x">resistance value</param>
+            <param name="y">reactance value</param>
         </member>
         <member name="P:Syncfusion.WinForms.SmithChart.ChartPoint.Resistance">
             <summary>
@@ -1701,13 +1708,6 @@
             <summary>
             Gets or sets the Reactance value.
             </summary>       
-        </member>
-        <member name="M:Syncfusion.WinForms.SmithChart.ChartPoint.SetValues(System.Double,System.Double)">
-            <summary>
-            Set the resistance and reactance values.
-            </summary>
-            <param name="x">resistance value</param>
-            <param name="y">reactance value</param>
         </member>
         <member name="T:Syncfusion.WinForms.SmithChart.ChartDataPointCollection">
             <summary>
@@ -1721,7 +1721,7 @@
         </member>
         <member name="M:Syncfusion.WinForms.SmithChart.ChartDataPointCollection.#ctor(Syncfusion.WinForms.SmithChart.ChartSeries)">
             <summary>
-            Initializes a new instance of the <see cref="T:Syncfusion.WinForms.SmithChart.ChartDataPointCollection" /> class.
+            Initializes a new instance of the <see cref="T:Syncfusion.WinForms.SmithChart.ChartDataPointCollection"/> class.
             </summary>
             <param name="chartSeries">Represents the chart series.</param>
         </member>
@@ -1797,6 +1797,12 @@
             Gets or sets the dash style for line series.
             </summary>
         </member>
+        <member name="M:Syncfusion.WinForms.SmithChart.LineSeries.DrawLineSeries(System.Drawing.Graphics)">
+            <summary>
+            Draws the smith chart series.
+            </summary>     
+            <param name="graphics">graphics used to draw series</param>
+        </member>
         <member name="P:Syncfusion.WinForms.SmithChart.LineSeries.StrokeWidth">
             <summary>
             Gets or sets the stroke width for line series.
@@ -1806,12 +1812,6 @@
             <summary>
             Gets or sets the dash style for line series.
             </summary>
-        </member>
-        <member name="M:Syncfusion.WinForms.SmithChart.LineSeries.DrawLineSeries(System.Drawing.Graphics)">
-            <summary>
-            Draws the smith chart series.
-            </summary>     
-            <param name="graphics">graphics used to draw series</param>
         </member>
         <member name="T:Syncfusion.WinForms.SmithChart.SmithChartResourceWrapper">
             <summary>
@@ -1945,16 +1945,16 @@
             <param name="info">An object that holds all the data needed to serialize or deserialize this instance.</param>
             <param name="context">Describes the source and destination of the serialized stream specified by info. </param>
         </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SmithChartStyleInfoStore.StaticDataStore">
-            <summary>
-            Gets the static data value of the <see cref="T:Syncfusion.WinForms.SmithChart.SmithChartStyleInfoStore"/> class.
-            </summary>
-        </member>
         <member name="M:Syncfusion.WinForms.SmithChart.SmithChartStyleInfoStore.GetStaticData">
             <summary>
             Initializes the <see cref="!:Syncfusion.WinForms.Core.Styles.StaticData"/>, if <see cref="F:Syncfusion.WinForms.SmithChart.SmithChartStyleInfoStore.staticData"/> is null.
             </summary>
             <returns><see cref="!:Syncfusion.WinForms.Core.Styles.StaticData"/></returns>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SmithChartStyleInfoStore.StaticDataStore">
+            <summary>
+            Gets the static data value of the <see cref="T:Syncfusion.WinForms.SmithChart.SmithChartStyleInfoStore"/> class.
+            </summary>
         </member>
         <member name="T:Syncfusion.WinForms.SmithChart.SmithChartStyleInfoIdentity">
             <summary>
@@ -1994,7 +1994,7 @@
         <member name="T:Syncfusion.WinForms.SmithChart.SmithChartStyleInfoSubObjectIdentity">
             <summary>
                 Represents a class that provides style identity information for nested objects of the
-                <see cref="!:Syncfusion.WinForms.DataGrid.Styles.GridStyleInfo" /> class.
+                <see cref="!:Syncfusion.WinForms.DataGrid.Styles.GridStyleInfo"/> class.
             </summary>
         </member>
         <member name="M:Syncfusion.WinForms.SmithChart.SmithChartStyleInfoSubObjectIdentity.#ctor(Syncfusion.Styles.StyleInfoBase,Syncfusion.Styles.StyleInfoProperty)">
@@ -2024,56 +2024,6 @@
             Initializes a new instance of the <see cref="T:Syncfusion.WinForms.SmithChart.ChartStyle"/> class.
             </summary>
             <param name="identity">A <see cref="T:Syncfusion.WinForms.SmithChart.SmithChartStyleInfoIdentity"/> that holds the identity for this <see cref="T:Syncfusion.WinForms.SmithChart.SmithChartStyleInfoStore"/>.</param>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartStyle.DefaultStyle">
-            <summary>
-            Gets the default style value for the <see cref="T:Syncfusion.WinForms.SmithChart.SfSmithChart"/> control.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartStyle.Font">
-            <summary>
-             Gets or sets the font for smith chart header.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartStyle.ChartAreaBackColor">
-            <summary>
-            Gets or sets the background color for chart area.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartStyle.ChartAreaBorderWidth">
-            <summary>
-            Gets or sets the width for the chart area border.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartStyle.ChartAreaBorderColor">
-            <summary>
-            Gets or sets the border color for the chart area border.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartStyle.BackColor">
-            <summary>
-            Gets or sets the back color for <see cref="T:Syncfusion.WinForms.SmithChart.SfSmithChart"/> control.
-            </summary>     
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartStyle.ForeColor">
-            <summary>
-            Gets or sets the fore color value of the <see cref="T:Syncfusion.WinForms.SmithChart.SfSmithChart"/> control.
-            </summary>  
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartStyle.HorizontalAxisStyle">
-            <summary>
-            Gets or sets the horizontal axis style.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartStyle.RadialAxisStyle">
-            <summary>
-            Gets or sets the radial axis style.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartStyle.LegendStyle">
-            <summary>
-            Gets or sets the legend style.
-            </summary>
         </member>
         <member name="M:Syncfusion.WinForms.SmithChart.ChartStyle.CreateSubObjectIdentity(Syncfusion.Styles.StyleInfoProperty)">
             <summary>
@@ -2128,6 +2078,56 @@
             </summary>
             <returns>Returns the default style value.</returns>
         </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartStyle.DefaultStyle">
+            <summary>
+            Gets the default style value for the <see cref="T:Syncfusion.WinForms.SmithChart.SfSmithChart"/> control.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartStyle.Font">
+            <summary>
+             Gets or sets the font for smith chart header.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartStyle.ChartAreaBackColor">
+            <summary>
+            Gets or sets the background color for chart area.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartStyle.ChartAreaBorderWidth">
+            <summary>
+            Gets or sets the width for the chart area border.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartStyle.ChartAreaBorderColor">
+            <summary>
+            Gets or sets the border color for the chart area border.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartStyle.BackColor">
+            <summary>
+            Gets or sets the back color for <see cref="T:Syncfusion.WinForms.SmithChart.SfSmithChart"/> control.
+            </summary>     
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartStyle.ForeColor">
+            <summary>
+            Gets or sets the fore color value of the <see cref="T:Syncfusion.WinForms.SmithChart.SfSmithChart"/> control.
+            </summary>  
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartStyle.HorizontalAxisStyle">
+            <summary>
+            Gets or sets the horizontal axis style.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartStyle.RadialAxisStyle">
+            <summary>
+            Gets or sets the radial axis style.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartStyle.LegendStyle">
+            <summary>
+            Gets or sets the legend style.
+            </summary>
+        </member>
         <member name="T:Syncfusion.WinForms.SmithChart.LegendStyle">
             <summary>
             Represents the class to define the style for <see cref="T:Syncfusion.WinForms.SmithChart.ChartLegend"/>.
@@ -2178,42 +2178,6 @@
             All changes in this style object will be saved in the
             <see cref="T:Syncfusion.WinForms.SmithChart.SmithChartStyleInfoStore"/> object.</param>
         </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.LegendStyle.DefaultStyle">
-            <summary>
-            Gets the default style value for the <see cref="T:Syncfusion.WinForms.SmithChart.ChartLegend"/>.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.LegendStyle.LabelFont">
-            <summary>
-             Gets or sets the font for legend label.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.LegendStyle.ForeColor">
-            <summary>
-            Gets or sets the fore color value of the <see cref="T:Syncfusion.WinForms.SmithChart.ChartLegend"/>.
-            </summary>       
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.LegendStyle.BackColor">
-            <summary>
-            Gets or sets a value that represents the back color for the <see cref="T:Syncfusion.WinForms.SmithChart.ChartLegend"/>. 
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.LegendStyle.BorderColor">
-            <summary>
-            Gets or sets a value that represents the border color for the legend. 
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.LegendStyle.BorderWidth">
-            <summary>
-            Gets or sets the width for the legend border.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.LegendStyle.Store">
-            <summary>
-             Gets the <see cref="T:Syncfusion.WinForms.SmithChart.SmithChartStyleInfoStore" /> object that holds all the data for
-             this style object.
-            </summary>
-        </member>
         <member name="M:Syncfusion.WinForms.SmithChart.LegendStyle.MakeCopy(Syncfusion.Styles.StyleInfoBase,Syncfusion.Styles.StyleInfoProperty)">
             <summary>
             Makes an exact copy of the current object.
@@ -2250,6 +2214,42 @@
             Determines whether ForeColor has been modified and its contents should be serialized at design-time.
             </summary>
             <returns>True if contents were changed; False otherwise.</returns>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.LegendStyle.DefaultStyle">
+            <summary>
+            Gets the default style value for the <see cref="T:Syncfusion.WinForms.SmithChart.ChartLegend"/>.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.LegendStyle.LabelFont">
+            <summary>
+             Gets or sets the font for legend label.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.LegendStyle.ForeColor">
+            <summary>
+            Gets or sets the fore color value of the <see cref="T:Syncfusion.WinForms.SmithChart.ChartLegend"/>.
+            </summary>       
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.LegendStyle.BackColor">
+            <summary>
+            Gets or sets a value that represents the back color for the <see cref="T:Syncfusion.WinForms.SmithChart.ChartLegend"/>. 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.LegendStyle.BorderColor">
+            <summary>
+            Gets or sets a value that represents the border color for the legend. 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.LegendStyle.BorderWidth">
+            <summary>
+            Gets or sets the width for the legend border.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.LegendStyle.Store">
+            <summary>
+             Gets the <see cref="T:Syncfusion.WinForms.SmithChart.SmithChartStyleInfoStore"/> object that holds all the data for
+             this style object.
+            </summary>
         </member>
         <member name="T:Syncfusion.WinForms.SmithChart.AxisStyle">
             <summary>
@@ -2300,72 +2300,6 @@
             <see cref="T:Syncfusion.WinForms.SmithChart.AxisStyle"/>.
             All changes in this style object will be saved in the
             <see cref="T:Syncfusion.WinForms.SmithChart.SmithChartStyleInfoStore"/> object.</param>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.AxisStyle.Default">
-            <summary>
-            Gets the default style value for the <see cref="T:Syncfusion.WinForms.SmithChart.ChartAxis"/>.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.AxisStyle.AxisLineColor">
-            <summary>
-            Gets or sets the axis line color
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.AxisStyle.AxisLineWidth">
-            <summary>
-            Gets or sets a width for chart axes lines.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.AxisStyle.MajorGridlinesColor">
-            <summary>
-            Gets or sets a color for major gridlines.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.AxisStyle.MinorGridlinesColor">
-            <summary>
-            Gets or sets a color for minor gridlines.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.AxisStyle.LabelFont">
-            <summary>
-            Gets or sets the font that is to be used for the axis label text.
-            </summary>  
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.AxisStyle.ForeColor">
-            <summary>
-            Gets or sets the color for axis labels.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.AxisStyle.MinorGridlinesWidth">
-            <summary>
-            Gets or sets a width for minor gridlines.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.AxisStyle.MajorGridlinesWidth">
-            <summary>
-            Gets or sets a width for major gridlines.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.AxisStyle.MinorGridlinesDashStyle">
-            <summary>
-            Gets or sets a dash style for minor gridlines. 
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.AxisStyle.MajorGridlinesDashStyle">
-            <summary>
-            Gets or sets a dash style for major gridlines. 
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.AxisStyle.AxisLineDashStyle">
-            <summary>
-            Gets or sets a dash style for axes lines. 
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.AxisStyle.Store">
-            <summary>
-             Gets the <see cref="T:Syncfusion.WinForms.SmithChart.SmithChartStyleInfoStore" /> object that holds all the data for
-             this style object.
-            </summary>
         </member>
         <member name="M:Syncfusion.WinForms.SmithChart.AxisStyle.MakeCopy(Syncfusion.Styles.StyleInfoBase,Syncfusion.Styles.StyleInfoProperty)">
             <summary>
@@ -2458,6 +2392,72 @@
             </summary>
             <returns>True if contents were changed; False otherwise.</returns>
         </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.AxisStyle.Default">
+            <summary>
+            Gets the default style value for the <see cref="T:Syncfusion.WinForms.SmithChart.ChartAxis"/>.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.AxisStyle.AxisLineColor">
+            <summary>
+            Gets or sets the axis line color
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.AxisStyle.AxisLineWidth">
+            <summary>
+            Gets or sets a width for chart axes lines.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.AxisStyle.MajorGridlinesColor">
+            <summary>
+            Gets or sets a color for major gridlines.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.AxisStyle.MinorGridlinesColor">
+            <summary>
+            Gets or sets a color for minor gridlines.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.AxisStyle.LabelFont">
+            <summary>
+            Gets or sets the font that is to be used for the axis label text.
+            </summary>  
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.AxisStyle.ForeColor">
+            <summary>
+            Gets or sets the color for axis labels.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.AxisStyle.MinorGridlinesWidth">
+            <summary>
+            Gets or sets a width for minor gridlines.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.AxisStyle.MajorGridlinesWidth">
+            <summary>
+            Gets or sets a width for major gridlines.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.AxisStyle.MinorGridlinesDashStyle">
+            <summary>
+            Gets or sets a dash style for minor gridlines. 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.AxisStyle.MajorGridlinesDashStyle">
+            <summary>
+            Gets or sets a dash style for major gridlines. 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.AxisStyle.AxisLineDashStyle">
+            <summary>
+            Gets or sets a dash style for axes lines. 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.AxisStyle.Store">
+            <summary>
+             Gets the <see cref="T:Syncfusion.WinForms.SmithChart.SmithChartStyleInfoStore"/> object that holds all the data for
+             this style object.
+            </summary>
+        </member>
         <member name="T:Syncfusion.WinForms.SmithChart.TooltipOptions">
             <summary>
             Provides the customization options for tooltip.
@@ -2495,8 +2495,19 @@
         </member>
         <member name="M:Syncfusion.WinForms.SmithChart.TooltipOptions.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:Syncfusion.WinForms.SmithChart.TooltipOptions" /> class
+            Initializes a new instance of the <see cref="T:Syncfusion.WinForms.SmithChart.TooltipOptions"/> class
             </summary>
+        </member>
+        <member name="M:Syncfusion.WinForms.SmithChart.TooltipOptions.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.WinForms.SmithChart.TooltipOptions.Dispose(System.Boolean)">
+            <summary>
+            Releases the unmanaged resources used by the <see cref="T:Syncfusion.WinForms.SmithChart.TooltipOptions"/> 
+            </summary>
+            <param name="disposing">true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
         </member>
         <member name="P:Syncfusion.WinForms.SmithChart.TooltipOptions.ForeColor">
             <summary>
@@ -2527,17 +2538,6 @@
             <summary>
              Gets or sets a value indicating whether to show shadow should for the tooltip.
             </summary>
-        </member>
-        <member name="M:Syncfusion.WinForms.SmithChart.TooltipOptions.Dispose">
-            <summary>
-            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.WinForms.SmithChart.TooltipOptions.Dispose(System.Boolean)">
-            <summary>
-            Releases the unmanaged resources used by the <see cref="T:Syncfusion.WinForms.SmithChart.TooltipOptions"/> 
-            </summary>
-            <param name="disposing">true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
         </member>
         <member name="T:Syncfusion.WinForms.SmithChart.Resources.Syncfusion_SfSmithChart_WinForms">
             <summary>
@@ -2690,6 +2690,28 @@
             </summary>
             <param name="chart">instance of <see cref="T:Syncfusion.WinForms.SmithChart.SfSmithChart"/></param>
         </member>
+        <member name="M:Syncfusion.WinForms.SmithChart.ChartAxis.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.WinForms.SmithChart.ChartAxis.OnAxisLabelCreated(Syncfusion.WinForms.SmithChart.ChartAxisLabelEventArgs)">
+            <summary>
+            Axis Label created event, to customize the axis label.
+            </summary>
+            <param name="args">Axis label event arguments</param>
+        </member>
+        <member name="M:Syncfusion.WinForms.SmithChart.ChartAxis.Redraw">
+            <summary>
+            Refreshes the chart.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.WinForms.SmithChart.ChartAxis.Dispose(System.Boolean)">
+            <summary>
+            Releases the unmanaged resources used by the <see cref="T:Syncfusion.WinForms.SmithChart.ChartAxis"/> 
+            </summary>
+            <param name="disposing">true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
+        </member>
         <member name="E:Syncfusion.WinForms.SmithChart.ChartAxis.LabelCreated">
             <summary>
             Customizing the ChartAxis label text and styles.
@@ -2814,28 +2836,6 @@
             <summary>
             Gets or sets <see cref="T:Syncfusion.WinForms.SmithChart.ChartAxis"/> minor grid lines arc segments points and information.
             </summary>
-        </member>
-        <member name="M:Syncfusion.WinForms.SmithChart.ChartAxis.Dispose">
-            <summary>
-            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.WinForms.SmithChart.ChartAxis.OnAxisLabelCreated(Syncfusion.WinForms.SmithChart.ChartAxisLabelEventArgs)">
-            <summary>
-            Axis Label created event, to customize the axis label.
-            </summary>
-            <param name="args">Axis label event arguments</param>
-        </member>
-        <member name="M:Syncfusion.WinForms.SmithChart.ChartAxis.Redraw">
-            <summary>
-            Refreshes the chart.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.WinForms.SmithChart.ChartAxis.Dispose(System.Boolean)">
-            <summary>
-            Releases the unmanaged resources used by the <see cref="T:Syncfusion.WinForms.SmithChart.ChartAxis"/> 
-            </summary>
-            <param name="disposing">true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
         </member>
         <member name="T:Syncfusion.WinForms.SmithChart.ChartAxisLabelEventArgs">
             <summary>
@@ -3372,196 +3372,6 @@
             Initializes a new instance of the <see cref="T:Syncfusion.WinForms.SmithChart.SfSmithChart"/> class.
             </summary>
         </member>
-        <member name="E:Syncfusion.WinForms.SmithChart.SfSmithChart.ThemeChanged">
-            <summary>
-            Occurs when theme name of the <see cref="T:Syncfusion.WinForms.SmithChart.SfSmithChart"/> has changed.
-            </summary>
-        </member>
-        <member name="E:Syncfusion.WinForms.SmithChart.SfSmithChart.TooltipOpening">
-            <summary>
-            Occurs before the point's tooltip open and used to customize the tooltip text and styles.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.AccessibilityEnabled">
-            <summary>
-            Gets or sets a value indicating whether the control should enable its Accessibility support.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.TooltipOptions">
-            <summary>
-            Gets or sets the customization options for tooltip.
-            </summary> 
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.Legend">
-            <summary>
-            Gets or sets the legend for smith chart. Please refer to <see cref="T:Syncfusion.WinForms.SmithChart.ChartLegend"/> for more information.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.Style">
-            <summary>
-            Gets or sets the <see cref="T:Syncfusion.WinForms.SmithChart.ChartStyle"/> value used to customize the appearance of the smith chart.
-            </summary>  
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.Series">
-            <summary>
-            Gets or sets the collection of series.
-            </summary> 
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.TitleAlignment">
-            <summary>
-            Gets or sets the chart title alignment horizontally.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.RenderingMode">
-            <summary>
-            Gets or sets the rendering type of the chart.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.HorizontalAxis">
-            <summary>
-            Gets or sets the style for the horizontal axis.
-            </summary>     
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.RadialAxis">
-            <summary>
-            Gets or sets the style for the radial axis.
-            </summary>      
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.Radius">
-            <summary>
-            Gets or sets the Circle radius Coefficient value to shrink the circle. It's range is from 0.1 to 1 and default value is 0.95.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.ColorModel">
-            <summary>
-            Gets or sets the palette for chart.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.Text">
-            <summary>
-            Gets or sets the text for the chart control.
-            </summary>       
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.Font">
-            <summary>
-            Gets or sets the font for the smith chart text.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.ForeColor">
-            <summary>
-            Gets or sets the fore color for the control text.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.BackColor">
-            <summary>
-            Gets or sets the back color for the chart.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.SmoothingMode">
-            <summary>
-            Gets the smoothing mode for smith chart rendering.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.ChartAreaBorderColor">
-            <summary>
-            Gets the border color for the chart area border.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.ChartAreaBorderWidth">
-            <summary>
-            Gets the width for the chart area border.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.ChartAreaBackColor">
-            <summary>
-            Gets the background color for chart area.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.InternalTitleAlignment">
-            <summary>
-            Gets or sets the title alignment. Used internally when RTL is enabled.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.InternalRenderingType">
-            <summary>
-            Gets or sets the rendering type. Used internally when RTL is enabled.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.ControlRect">
-            <summary>
-            Gets or sets the ControlArea <see cref="T:System.Drawing.RectangleF"/> region.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.ChartAreaRect">
-            <summary>
-            Gets or sets the ChartArea <see cref="T:System.Drawing.RectangleF"/> region.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.ChartTitleRect">
-            <summary>
-            Gets or sets the ChartHeader <see cref="T:System.Drawing.RectangleF"/> region.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.CircleLeftX">
-            <summary>
-            Gets or sets chart area circle X Position after calculating Coefficient.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.CircleTopY">
-            <summary>
-            Gets or sets chart area circle Y Position after calculating Coefficient.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.ChartAreaLeftX">
-            <summary>
-            Gets or sets chart area X position.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.ChartAreaTopY">
-            <summary>
-            Gets or sets chat area Y position.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.AreaRadius">
-            <summary>
-            Gets or sets chart area circle radius value.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.CenterX">
-            <summary>
-            Gets or sets chart area circle centerX position.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.CenterY">
-            <summary>
-            Gets or sets chart area circle centerX position.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.MinRect">
-            <summary>
-            Gets or sets chart area minimum width or height.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.RadialAxisCircleCollection">
-            <summary>
-            Gets or sets the radial axis major grid line points.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.HorizontalAxisCircleCollection">
-            <summary>
-            Gets or sets the horizontal axis major grid line points.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.IsImpedance">
-            <summary>
-            Gets or sets a value indicating whether rendering type is Impedance or not.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.VisibleSeries">
-            <summary>
-            Gets or sets the visible series collection.
-            </summary>
-        </member>
         <member name="M:Syncfusion.WinForms.SmithChart.SfSmithChart.OnThemeNameChanged(System.String)">
             <summary>
             Helps to apply the ThemeName customization
@@ -3822,6 +3632,196 @@
             <param name="fileName">The filename with extension that specifies the image will be saved in the mentioned name and image format.</param>
             <param name="imageFormat">Specifies the type of format to save the image.</param>
         </member>
+        <member name="E:Syncfusion.WinForms.SmithChart.SfSmithChart.ThemeChanged">
+            <summary>
+            Occurs when theme name of the <see cref="T:Syncfusion.WinForms.SmithChart.SfSmithChart"/> has changed.
+            </summary>
+        </member>
+        <member name="E:Syncfusion.WinForms.SmithChart.SfSmithChart.TooltipOpening">
+            <summary>
+            Occurs before the point's tooltip open and used to customize the tooltip text and styles.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.AccessibilityEnabled">
+            <summary>
+            Gets or sets a value indicating whether the control should enable its Accessibility support.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.TooltipOptions">
+            <summary>
+            Gets or sets the customization options for tooltip.
+            </summary> 
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.Legend">
+            <summary>
+            Gets or sets the legend for smith chart. Please refer to <see cref="T:Syncfusion.WinForms.SmithChart.ChartLegend"/> for more information.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.Style">
+            <summary>
+            Gets or sets the <see cref="T:Syncfusion.WinForms.SmithChart.ChartStyle"/> value used to customize the appearance of the smith chart.
+            </summary>  
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.Series">
+            <summary>
+            Gets or sets the collection of series.
+            </summary> 
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.TitleAlignment">
+            <summary>
+            Gets or sets the chart title alignment horizontally.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.RenderingMode">
+            <summary>
+            Gets or sets the rendering type of the chart.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.HorizontalAxis">
+            <summary>
+            Gets or sets the style for the horizontal axis.
+            </summary>     
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.RadialAxis">
+            <summary>
+            Gets or sets the style for the radial axis.
+            </summary>      
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.Radius">
+            <summary>
+            Gets or sets the Circle radius Coefficient value to shrink the circle. It's range is from 0.1 to 1 and default value is 0.95.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.ColorModel">
+            <summary>
+            Gets or sets the palette for chart.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.Text">
+            <summary>
+            Gets or sets the text for the chart control.
+            </summary>       
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.Font">
+            <summary>
+            Gets or sets the font for the smith chart text.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.ForeColor">
+            <summary>
+            Gets or sets the fore color for the control text.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.BackColor">
+            <summary>
+            Gets or sets the back color for the chart.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.SmoothingMode">
+            <summary>
+            Gets the smoothing mode for smith chart rendering.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.ChartAreaBorderColor">
+            <summary>
+            Gets the border color for the chart area border.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.ChartAreaBorderWidth">
+            <summary>
+            Gets the width for the chart area border.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.ChartAreaBackColor">
+            <summary>
+            Gets the background color for chart area.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.InternalTitleAlignment">
+            <summary>
+            Gets or sets the title alignment. Used internally when RTL is enabled.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.InternalRenderingType">
+            <summary>
+            Gets or sets the rendering type. Used internally when RTL is enabled.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.ControlRect">
+            <summary>
+            Gets or sets the ControlArea <see cref="T:System.Drawing.RectangleF"/> region.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.ChartAreaRect">
+            <summary>
+            Gets or sets the ChartArea <see cref="T:System.Drawing.RectangleF"/> region.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.ChartTitleRect">
+            <summary>
+            Gets or sets the ChartHeader <see cref="T:System.Drawing.RectangleF"/> region.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.CircleLeftX">
+            <summary>
+            Gets or sets chart area circle X Position after calculating Coefficient.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.CircleTopY">
+            <summary>
+            Gets or sets chart area circle Y Position after calculating Coefficient.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.ChartAreaLeftX">
+            <summary>
+            Gets or sets chart area X position.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.ChartAreaTopY">
+            <summary>
+            Gets or sets chat area Y position.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.AreaRadius">
+            <summary>
+            Gets or sets chart area circle radius value.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.CenterX">
+            <summary>
+            Gets or sets chart area circle centerX position.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.CenterY">
+            <summary>
+            Gets or sets chart area circle centerX position.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.MinRect">
+            <summary>
+            Gets or sets chart area minimum width or height.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.RadialAxisCircleCollection">
+            <summary>
+            Gets or sets the radial axis major grid line points.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.HorizontalAxisCircleCollection">
+            <summary>
+            Gets or sets the horizontal axis major grid line points.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.IsImpedance">
+            <summary>
+            Gets or sets a value indicating whether rendering type is Impedance or not.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChart.VisibleSeries">
+            <summary>
+            Gets or sets the visible series collection.
+            </summary>
+        </member>
         <member name="T:Syncfusion.WinForms.SmithChart.NativeMethods">
             <summary>
             Represents a class that provides the native methods for Painting.
@@ -3859,11 +3859,6 @@
             Initializes a new instance of the <see cref="T:Syncfusion.WinForms.SmithChart.RadialAxis"/> class.
             </summary>
             <param name="chart">instance of smith chart"</param>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.RadialAxis.RadialAxisLabels">
-            <summary>
-            Gets or sets the collection of <see cref="T:Syncfusion.WinForms.SmithChart.RadialAxis"/> Major GridLines values.
-            </summary>
         </member>
         <member name="M:Syncfusion.WinForms.SmithChart.RadialAxis.MeasureAxis">
             <summary>
@@ -3936,6 +3931,78 @@
             <param name="centerValue">Center value</param>
             <returns>Returns minor grid line arc intersect circle.</returns>
         </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.RadialAxis.RadialAxisLabels">
+            <summary>
+            Gets or sets the collection of <see cref="T:Syncfusion.WinForms.SmithChart.RadialAxis"/> Major GridLines values.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.WinForms.SmithChart.SfSmithChartDesigner">
+            <summary>
+            Represents a class that supports the actions performed in the designer window of smith chart.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.WinForms.SmithChart.SfSmithChartDesigner.actionLists">
+            <summary>
+            Gets the list of actions performed in the grid's designer window.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.WinForms.SmithChart.SfSmithChartDesigner.BuildActionLists">
+            <summary>
+            Builds the action lists in the smith chart.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChartDesigner.ActionLists">
+            <summary>
+            Gets the list of actions performed in the smith chart's designer window.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.WinForms.SmithChart.SmithChartDesignerActionList">
+            <summary>
+            Defines a class that supports the actions performed in the designer window of the smith chart.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.WinForms.SmithChart.SmithChartDesignerActionList.smithChart">
+            <summary>
+            Gets or sets the <see cref="T:Syncfusion.WinForms.SmithChart.SfSmithChart"/> and assign the smart tag.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.WinForms.SmithChart.SmithChartDesignerActionList.#ctor(System.ComponentModel.IComponent)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.WinForms.SmithChart.SmithChartDesignerActionList"/> class. 
+            </summary>
+            <param name="component">represents the control</param>
+        </member>
+        <member name="M:Syncfusion.WinForms.SmithChart.SmithChartDesignerActionList.GetSortedActionItems">
+            <summary>
+            Returns the collection of <see cref="T:System.ComponentModel.Design.DesignerActionItem"/> objects contained in the list.
+            </summary>
+            <returns>
+            A <see cref="T:System.ComponentModel.Design.DesignerActionItem"/> array that contains the items in this list.
+            </returns>
+            Override
+        </member>
+        <member name="M:Syncfusion.WinForms.SmithChart.SmithChartDesignerActionList.GetPropertyByName(System.String)">
+            <summary>
+            Get the property in the <see cref="T:Syncfusion.WinForms.SmithChart.SfSmithChart"/>
+            </summary>
+            <param name="propName">Property name of the <see cref="T:Syncfusion.WinForms.SmithChart.SfSmithChart"/></param>
+            <returns>PropertyDescriptor of the given property.</returns>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SmithChartDesignerActionList.RenderingMode">
+            <summary>
+            Gets or sets the rendering mode for smith chart.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SmithChartDesignerActionList.Text">
+            <summary>
+            Gets or sets the text for the chart control.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SmithChartDesignerActionList.RightToLeft">
+            <summary>
+            Gets or sets the text for the chart control.
+            </summary>
+        </member>
         <member name="T:Syncfusion.WinForms.SmithChart.SfSmithChartAccessibilityObject">
             <summary>
             Represents the class that provides the accessibility object for the Smith Chart.
@@ -3951,31 +4018,6 @@
             Initializes a new instance of the <see cref="T:Syncfusion.WinForms.SmithChart.SfSmithChartAccessibilityObject"/> class.
             </summary>
             <param name="smithChart">Smith Chart control</param>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChartAccessibilityObject.Role">
-            <summary>
-            Gets the AccessibleRole of the <see cref="T:Syncfusion.WinForms.SmithChart.SfSmithChart"/> control.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChartAccessibilityObject.Name">
-            <summary>
-            Gets the AccessibleName of the <see cref="T:Syncfusion.WinForms.SmithChart.SfSmithChart"/> control.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChartAccessibilityObject.Bounds">
-            <summary>
-            Gets the bounds of the <see cref="T:Syncfusion.WinForms.SmithChart.SfSmithChart"/> control.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChartAccessibilityObject.Parent">
-            <summary>
-            Gets the accessibility object of the <see cref="T:Syncfusion.WinForms.SmithChart.SfSmithChart"/> parent.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChartAccessibilityObject.Description">
-            <summary>
-            Gets the AccessibleDescription of the <see cref="T:Syncfusion.WinForms.SmithChart.SfSmithChart"/> control.
-            </summary>
         </member>
         <member name="M:Syncfusion.WinForms.SmithChart.SfSmithChartAccessibilityObject.GetChildCount">
             <summary>
@@ -4007,6 +4049,31 @@
             Gets the accessibility object for chart legend.
             </summary>  
             <returns>chart legend accessibility object</returns>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChartAccessibilityObject.Role">
+            <summary>
+            Gets the AccessibleRole of the <see cref="T:Syncfusion.WinForms.SmithChart.SfSmithChart"/> control.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChartAccessibilityObject.Name">
+            <summary>
+            Gets the AccessibleName of the <see cref="T:Syncfusion.WinForms.SmithChart.SfSmithChart"/> control.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChartAccessibilityObject.Bounds">
+            <summary>
+            Gets the bounds of the <see cref="T:Syncfusion.WinForms.SmithChart.SfSmithChart"/> control.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChartAccessibilityObject.Parent">
+            <summary>
+            Gets the accessibility object of the <see cref="T:Syncfusion.WinForms.SmithChart.SfSmithChart"/> parent.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SfSmithChartAccessibilityObject.Description">
+            <summary>
+            Gets the AccessibleDescription of the <see cref="T:Syncfusion.WinForms.SmithChart.SfSmithChart"/> control.
+            </summary>
         </member>
         <member name="T:Syncfusion.WinForms.SmithChart.ChartTitleAccessibleObject">
             <summary>
@@ -4060,26 +4127,6 @@
             </summary>
             <param name="chart">smith chart instance</param>       
         </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartAreaAccessibleObject.Role">
-            <summary>
-            Gets the AccessibleRole of chart area.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartAreaAccessibleObject.Name">
-            <summary>
-            Gets the AccessibleName of chart area.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartAreaAccessibleObject.Description">
-            <summary>
-            Gets the Accessible Description of chart area.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.ChartAreaAccessibleObject.Bounds">
-            <summary>
-            Gets the bounds of chart area.
-            </summary>
-        </member>
         <member name="M:Syncfusion.WinForms.SmithChart.ChartAreaAccessibleObject.GetChildCount">
             <summary>
             Overridden to update the child count of chart.
@@ -4099,6 +4146,26 @@
             </summary>
             <param name="index">The index of the child control.</param>
             <returns>accessibility object of the series</returns>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartAreaAccessibleObject.Role">
+            <summary>
+            Gets the AccessibleRole of chart area.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartAreaAccessibleObject.Name">
+            <summary>
+            Gets the AccessibleName of chart area.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartAreaAccessibleObject.Description">
+            <summary>
+            Gets the Accessible Description of chart area.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.ChartAreaAccessibleObject.Bounds">
+            <summary>
+            Gets the bounds of chart area.
+            </summary>
         </member>
         <member name="T:Syncfusion.WinForms.SmithChart.SeriesAccessibleObject">
             <summary>
@@ -4127,21 +4194,6 @@
             <param name="chart">smith chart instance</param>
             <param name="index">corresponding index</param>
         </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SeriesAccessibleObject.Role">
-            <summary>
-            Gets the AccessibleRole of the series.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SeriesAccessibleObject.Name">
-            <summary>
-            Gets the AccessibleName of the series.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.SeriesAccessibleObject.Description">
-            <summary>
-            Gets the AccessibleDescription of the series.
-            </summary>
-        </member>
         <member name="M:Syncfusion.WinForms.SmithChart.SeriesAccessibleObject.GetChildCount">
             <summary>
             Overridden to update the counts of series data point.
@@ -4161,6 +4213,21 @@
             </summary>
             <param name="index">corresponding data point index</param>
             <returns>Returns the child object at the given index.</returns>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SeriesAccessibleObject.Role">
+            <summary>
+            Gets the AccessibleRole of the series.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SeriesAccessibleObject.Name">
+            <summary>
+            Gets the AccessibleName of the series.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.SeriesAccessibleObject.Description">
+            <summary>
+            Gets the AccessibleDescription of the series.
+            </summary>
         </member>
         <member name="T:Syncfusion.WinForms.SmithChart.SeriesDataPointAccessibleObject">
             <summary>
@@ -4226,26 +4293,6 @@
             </summary>
             <param name="chart">smith chart instance</param>       
         </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.LegendAccessibleObject.Role">
-            <summary>
-            Gets the AccessibleRole of the legend.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.LegendAccessibleObject.Name">
-            <summary>
-            Gets the AccessibleName of the legend.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.LegendAccessibleObject.Description">
-            <summary>
-            Gets the AccessibleDescription of the legend.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.LegendAccessibleObject.Bounds">
-            <summary>
-            Gets the bounds of the legend.
-            </summary>
-        </member>
         <member name="M:Syncfusion.WinForms.SmithChart.LegendAccessibleObject.GetChildCount">
             <summary>
             Overridden to get the child count of the <see cref="T:Syncfusion.WinForms.SmithChart.ChartLegend"/>.
@@ -4265,6 +4312,26 @@
             </summary>
             <param name="index">The index of the child control.</param>
             <returns>accessibility object of the legend item</returns>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.LegendAccessibleObject.Role">
+            <summary>
+            Gets the AccessibleRole of the legend.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.LegendAccessibleObject.Name">
+            <summary>
+            Gets the AccessibleName of the legend.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.LegendAccessibleObject.Description">
+            <summary>
+            Gets the AccessibleDescription of the legend.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.LegendAccessibleObject.Bounds">
+            <summary>
+            Gets the bounds of the legend.
+            </summary>
         </member>
         <member name="T:Syncfusion.WinForms.SmithChart.LegendItemAccessibleObject">
             <summary>
@@ -4402,17 +4469,17 @@
             </summary>
             <param name="type">The Type</param>
         </member>
-        <member name="P:Syncfusion.WinForms.SmithChart.TypeInfo.Type">
-            <summary>
-            Gets or sets the type.
-            </summary>
-        </member>
         <member name="M:Syncfusion.WinForms.SmithChart.TypeInfo.GetDeclaredProperty(System.String)">
             <summary>
             Gets the declared property.
             </summary>
             <param name="name">The Name</param>
             <returns>The property information.</returns>
+        </member>
+        <member name="P:Syncfusion.WinForms.SmithChart.TypeInfo.Type">
+            <summary>
+            Gets or sets the type.
+            </summary>
         </member>
     </members>
 </doc>

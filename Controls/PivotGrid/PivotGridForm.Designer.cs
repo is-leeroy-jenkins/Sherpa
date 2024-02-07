@@ -74,7 +74,6 @@
             PivotTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             AreaTable = new System.Windows.Forms.TableLayoutPanel( );
             PivotPanel = new BackPanel( );
-            pivotGrid1 = new PivotGrid( );
             ChartSubTablePanel = new BackPanel( );
             ChartSubTable = new System.Windows.Forms.TableLayoutPanel( );
             CommandLabel2 = new Label( );
@@ -98,6 +97,7 @@
             MetricsLabel12 = new Label( );
             BusyTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             Loader = new System.Windows.Forms.PictureBox( );
+            pivotGrid1 = new PivotGrid( );
             SourcePanel = new HeaderPanel( );
             TableListBoxLayout = new BackPanel( );
             TableListBox = new ListBox( );
@@ -856,20 +856,6 @@
             PivotPanel.ThemeName = "Budget Execution";
             PivotPanel.ToolTip = null;
             // 
-            // pivotGrid1
-            // 
-            pivotGrid1.Anchor =  System.Windows.Forms.AnchorStyles.Bottom  |  System.Windows.Forms.AnchorStyles.Right ;
-            pivotGrid1.CanOverrideStyle = true;
-            pivotGrid1.EditManager = null;
-            pivotGrid1.Font = new System.Drawing.Font( "Roboto", 9F );
-            pivotGrid1.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            pivotGrid1.Location = new System.Drawing.Point( 0, 0 );
-            pivotGrid1.Name = "pivotGrid1";
-            pivotGrid1.Size = new System.Drawing.Size( 900, 500 );
-            pivotGrid1.TabIndex = 0;
-            pivotGrid1.ThemeName = "Office2016Black";
-            pivotGrid1.UpdateManager = null;
-            // 
             // ChartSubTablePanel
             // 
             ChartSubTablePanel.BackColor = System.Drawing.Color.Transparent;
@@ -1383,6 +1369,20 @@
             Loader.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             Loader.TabIndex = 0;
             Loader.TabStop = false;
+            // 
+            // pivotGrid1
+            // 
+            pivotGrid1.Anchor =  System.Windows.Forms.AnchorStyles.Bottom  |  System.Windows.Forms.AnchorStyles.Right ;
+            pivotGrid1.CanOverrideStyle = true;
+            pivotGrid1.EditManager = null;
+            pivotGrid1.Font = new System.Drawing.Font( "Roboto", 9F );
+            pivotGrid1.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            pivotGrid1.Location = new System.Drawing.Point( 0, 0 );
+            pivotGrid1.Name = "pivotGrid1";
+            pivotGrid1.Size = new System.Drawing.Size( 900, 500 );
+            pivotGrid1.TabIndex = 0;
+            pivotGrid1.ThemeName = "Office2016Black";
+            pivotGrid1.UpdateManager = null;
             // 
             // SourcePanel
             // 

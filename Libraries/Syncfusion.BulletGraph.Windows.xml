@@ -4,11 +4,6 @@
         <name>Syncfusion.BulletGraph.Windows</name>
     </assembly>
     <members>
-        <member name="P:Syncfusion.Windows.Forms.BulletGraph.BulletGraph.Font">
-            <summary>
-            Gets or sets the <see cref="T:System.Drawing.Font" /> value for the control. 
-            </summary>
-        </member>
         <member name="F:Syncfusion.Windows.Forms.BulletGraph.BulletGraph.components">
             <summary>
             Required designer variable.
@@ -35,21 +30,6 @@
             <summary>
              It contains the value of the <see cref="P:Syncfusion.Windows.Forms.BulletGraph.BulletGraph.IsVisualStyleEnabled"/> property.
             </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.BulletGraph.BulletGraph.IsVisualStyleEnabled">
-            <summary>
-            Gets a value indicating whether the visual style based theme is applied to the control and
-            also indicates whether the theme files are referred from external assemblies or not.
-            </summary>
-            <value>Return true, if the visual style based theme is applied to the control. Otherwise returns false.</value>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.BulletGraph.BulletGraph.ThemeStyle">
-            <summary>
-            Gets or sets the <see cref="T:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle"/> value used to customize the appearance of the <see cref="T:Syncfusion.Windows.Forms.BulletGraph.BulletGraph"/>.
-            </summary>
-            <remarks>
-            This ThemeStyle settings will be applied only when the VisualStyleBased theme has been applied to the control.
-            </remarks>
         </member>
         <member name="M:Syncfusion.Windows.Forms.BulletGraph.BulletGraph.OnThemeNameChanged(System.String)">
             <summary>
@@ -94,6 +74,26 @@
             Helps to draw measured symbols for <see cref="T:Syncfusion.Windows.Forms.BulletGraph.BulletGraph"/> control.
             </summary>
         </member>
+        <member name="P:Syncfusion.Windows.Forms.BulletGraph.BulletGraph.Font">
+            <summary>
+            Gets or sets the <see cref="T:System.Drawing.Font"/> value for the control. 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.BulletGraph.BulletGraph.IsVisualStyleEnabled">
+            <summary>
+            Gets a value indicating whether the visual style based theme is applied to the control and
+            also indicates whether the theme files are referred from external assemblies or not.
+            </summary>
+            <value>Return true, if the visual style based theme is applied to the control. Otherwise returns false.</value>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.BulletGraph.BulletGraph.ThemeStyle">
+            <summary>
+            Gets or sets the <see cref="T:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle"/> value used to customize the appearance of the <see cref="T:Syncfusion.Windows.Forms.BulletGraph.BulletGraph"/>.
+            </summary>
+            <remarks>
+            This ThemeStyle settings will be applied only when the VisualStyleBased theme has been applied to the control.
+            </remarks>
+        </member>
         <member name="T:Syncfusion.Windows.Forms.BulletGraph.BulletGraphCaptionPosition">
             <summary>
             Enumerates the values for position of caption in the bullet graph.
@@ -124,6 +124,11 @@
              Represents the label of quantitative scale in the bullet graph.
             </summary>
         </member>
+        <member name="F:Syncfusion.Windows.Forms.BulletGraph.BulletGraphLabel.labelValue">
+            <summary>
+            Gets or sets label value as double.
+            </summary>
+        </member>
         <member name="P:Syncfusion.Windows.Forms.BulletGraph.BulletGraphLabel.LabelStroke">
             <summary>
             Gets or sets the label stroke color of the bullet graph.
@@ -134,14 +139,14 @@
             Gets or sets the label value of the bullet graph.
             </summary>
         </member>
-        <member name="F:Syncfusion.Windows.Forms.BulletGraph.BulletGraphLabel.labelValue">
-            <summary>
-            Gets or sets label value as double.
-            </summary>
-        </member>
         <member name="T:Syncfusion.Windows.Forms.BulletGraph.BulletGraphTick">
             <summary>
              Represents the tick of quantitative scale in the bullet graph.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.BulletGraph.BulletGraphTick.tickValue">
+            <summary>
+            Gets or sets the tick value as double.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.BulletGraph.BulletGraphTick.TickLength">
@@ -157,11 +162,6 @@
         <member name="P:Syncfusion.Windows.Forms.BulletGraph.BulletGraphTick.TickStrokeThickness">
             <summary>
             Gets or sets tick stroke thickness of the bullet graph.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.BulletGraph.BulletGraphTick.tickValue">
-            <summary>
-            Gets or sets the tick value as double.
             </summary>
         </member>
         <member name="T:Syncfusion.Windows.Forms.BulletGraph.BulletGraphStyleHelper">
@@ -232,6 +232,43 @@
             <param name="labelLocation">The location of the label</param>
             <returns>Returns the calculated range location.</returns>
         </member>
+        <member name="T:Syncfusion.BulletGraphWindowsAssembly">
+            <exclude/>
+            <summary>
+            This class holds the name of the Syncfusion.BulletGraph.Windows assembly and provides a helper
+            routine that helps with resolving types when loading a serialization stream and when
+            the framework probes for assemblies by reflection.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.BulletGraphWindowsAssembly.Name">
+            <summary>
+            The full name of this assembly without version information: "Syncfusion.BulletGraph.Windows"
+            </summary>
+        </member>
+        <member name="F:Syncfusion.BulletGraphWindowsAssembly.Assembly">
+            <summary>
+            A reference to the <see cref="T:System.Reflection.Assembly"/> for the BulletGraph assembly.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.BulletGraphWindowsAssembly.RootNamespace">
+            <summary>
+            The root namespace of this assembly. Used internally for locating resources within the assembly.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.BulletGraphWindowsAssembly.#cctor">
+            <summary>
+            Initializes the <see cref="T:Syncfusion.BulletGraphWindowsAssembly"/> class.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.BulletGraphWindowsAssembly.AssemblyResolver(System.Object,System.ResolveEventArgs)">
+            <summary>
+            This delegate helps with resolving types and can be used as an event handler
+            for a <see cref="E:System.AppDomain.AssemblyResolve"/> event.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The event data with information about the type.</param>
+            <returns>A reference to the assembly where the type is located.</returns>      
+        </member>
         <member name="T:Syncfusion.Windows.Forms.BulletGraph.AssemblyInfo">
             <summary>
             AssemblyInformation for internal use.
@@ -240,6 +277,16 @@
         <member name="T:Syncfusion.Windows.Forms.BulletGraph.QualitativeRange">
             <summary>
              Represents the qualitative range of the bullet graph.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.BulletGraph.QualitativeRange.rangeWidth">
+            <summary>
+            Gets or sets the range width.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.BulletGraph.QualitativeRange.rangeRect">
+            <summary>
+            Gets or sets the range rectangle bounding box.
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.BulletGraph.QualitativeRange.RangeStart">
@@ -265,16 +312,6 @@
         <member name="P:Syncfusion.Windows.Forms.BulletGraph.QualitativeRange.RangeCaption">
             <summary>
             Gets or sets the range caption.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.BulletGraph.QualitativeRange.rangeWidth">
-            <summary>
-            Gets or sets the range width.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.BulletGraph.QualitativeRange.rangeRect">
-            <summary>
-            Gets or sets the range rectangle bounding box.
             </summary>
         </member>
         <member name="T:Syncfusion.Windows.Forms.BulletGraph.QualitativeRangeCollection">
@@ -373,21 +410,21 @@
             </summary>
         </member>
         <!-- Badly formed XML comment ignored for member "M:Syncfusion.Windows.Forms.BulletGraph.BulletGraphStyleInfoStore.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" -->
-        <member name="P:Syncfusion.Windows.Forms.BulletGraph.BulletGraphStyleInfoStore.StaticDataStore">
-            <summary>
-            Gets the static data value of the <see cref="T:Syncfusion.Windows.Forms.BulletGraph.BulletGraphStyleInfoStore"/> class.
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.BulletGraph.BulletGraphStyleInfoStore.GetStaticData">
             <summary>
             Initializes the <see cref="T:Syncfusion.Styles.StaticData"/>, if <see cref="F:Syncfusion.Windows.Forms.BulletGraph.BulletGraphStyleInfoStore.staticData"/> is null.
             </summary>
             <returns><see cref="T:Syncfusion.Styles.StaticData"/></returns>
         </member>
+        <member name="P:Syncfusion.Windows.Forms.BulletGraph.BulletGraphStyleInfoStore.StaticDataStore">
+            <summary>
+            Gets the static data value of the <see cref="T:Syncfusion.Windows.Forms.BulletGraph.BulletGraphStyleInfoStore"/> class.
+            </summary>
+        </member>
         <member name="T:Syncfusion.Windows.Forms.BulletGraph.BulletGraphStyleInfoSubObjectIdentity">
             <summary>
                 Represents a class that provides style identity information for nested objects of the
-                <see cref="T:Syncfusion.Styles.StyleInfoPropertyGrid" /> class.
+                <see cref="T:Syncfusion.Styles.StyleInfoPropertyGrid"/> class.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.BulletGraph.BulletGraphStyleInfoSubObjectIdentity.#ctor(Syncfusion.Styles.StyleInfoBase,Syncfusion.Styles.StyleInfoProperty)">
@@ -430,6 +467,83 @@
             </summary>
             <param name="identity">A <see cref="T:Syncfusion.Windows.Forms.BulletGraph.BulletGraphStyleInfoIdentity"/> that holds the identity for this <see cref="T:Syncfusion.Windows.Forms.BulletGraph.BulletGraphStyleInfoStore"/>.</param>
             <param name="store"> Holds instance of a <see cref="T:Syncfusion.Windows.Forms.BulletGraph.BulletGraphStyleInfoStore"/> class </param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.CreateSubObjectIdentity(Syncfusion.Styles.StyleInfoProperty)">
+            <summary>
+            Overridden to create a product-specific identity object for the sub object.
+            </summary>
+            <param name="sip">
+            StyleInfoProperty descriptor for this sub object.
+            </param>
+            <returns>
+            Identity for the sub object.
+            </returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.GetDefaultStyle">
+            <summary>
+            Gets the default style value of the <see cref="P:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.DefaultStyle"/> class.
+            </summary>
+            <returns>Returns the default style value.</returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.ShouldSerializeCaptionColor">
+            <summary>
+            Determines a value indicating whether to serialize <see cref="P:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.CaptionColor"/> property.
+            </summary>
+            <returns><b>True</b> if the property was modified; Otherwise <b>False</b>.</returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.ShouldSerializeLabelColor">
+            <summary>
+            Determines a value indicating whether to serialize <see cref="P:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.LabelColor"/> property.
+            </summary>
+            <returns><b>True</b> if the property was modified; Otherwise <b>False</b>.</returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.ShouldSerializeFeaturedMeasuredSymbolColor">
+            <summary>
+            Determines a value indicating whether to serialize <see cref="P:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.FeaturedMeasuredSymbolColor"/> property.
+            </summary>
+            <returns><b>True</b> if the property was modified; Otherwise <b>False</b>.</returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.ShouldSerializeComparativeMeasureSymbolColor">
+            <summary>
+            Determines a value indicating whether to serialize <see cref="P:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.ComparativeMeasureSymbolColor"/> property.
+            </summary>
+            <returns><b>True</b> if the property was modified; Otherwise <b>False</b>.</returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.ShouldSerializeMinorTickColor">
+            <summary>
+            Determines a value indicating whether to serialize <see cref="P:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.MinorTickColor"/> property.
+            </summary>
+            <returns><b>True</b> if the property was modified; Otherwise <b>False</b>.</returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.ShouldSerializeMajorTickColor">
+            <summary>
+            Determines a value indicating whether to serialize <see cref="P:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.MajorTickColor"/> property.
+            </summary>
+            <returns><b>True</b> if the property was modified; Otherwise <b>False</b>.</returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.ShouldSerializeBackColor">
+            <summary>
+            Determines a value indicating whether to serialize <see cref="P:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.BackColor"/> property.
+            </summary>
+            <returns><b>True</b> if the property was modified; Otherwise <b>False</b>.</returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.ShouldSerializeRangeColor">
+            <summary>
+            Determines a value indicating whether to serialize <see cref="P:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.RangeColor"/> property.
+            </summary>
+            <returns><b>True</b> if the property was modified; Otherwise <b>False</b>.</returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.ShouldSerializeFont">
+            <summary>
+            Determines a value indicating whether to serialize <see cref="P:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.Font"/> property.
+            </summary>
+            <returns><b>True</b> if the property was modified; Otherwise <b>False</b>.</returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.ShouldSerializeRangeStyle">
+            <summary>
+            Determines a value indicating whether to serialize <see cref="P:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.RangeStyle"/> property.
+            </summary>
+            <returns><b>True</b> if the property was modified; Otherwise <b>False</b>.</returns>
         </member>
         <member name="P:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.DefaultStyle">
             <summary>
@@ -577,87 +691,10 @@
             <see cref="P:Syncfusion.Windows.Forms.BulletGraph.BulletGraph.MajorTickStrokeThickness"/> property.
             </remarks>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.CreateSubObjectIdentity(Syncfusion.Styles.StyleInfoProperty)">
-            <summary>
-            Overridden to create a product-specific identity object for the sub object.
-            </summary>
-            <param name="sip">
-            StyleInfoProperty descriptor for this sub object.
-            </param>
-            <returns>
-            Identity for the sub object.
-            </returns>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.GetDefaultStyle">
-            <summary>
-            Gets the default style value of the <see cref="P:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.DefaultStyle"/> class.
-            </summary>
-            <returns>Returns the default style value.</returns>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.ShouldSerializeCaptionColor">
-            <summary>
-            Determines a value indicating whether to serialize <see cref="P:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.CaptionColor"/> property.
-            </summary>
-            <returns><b>True</b> if the property was modified; Otherwise <b>False</b>.</returns>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.ShouldSerializeLabelColor">
-            <summary>
-            Determines a value indicating whether to serialize <see cref="P:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.LabelColor"/> property.
-            </summary>
-            <returns><b>True</b> if the property was modified; Otherwise <b>False</b>.</returns>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.ShouldSerializeFeaturedMeasuredSymbolColor">
-            <summary>
-            Determines a value indicating whether to serialize <see cref="P:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.FeaturedMeasuredSymbolColor"/> property.
-            </summary>
-            <returns><b>True</b> if the property was modified; Otherwise <b>False</b>.</returns>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.ShouldSerializeComparativeMeasureSymbolColor">
-            <summary>
-            Determines a value indicating whether to serialize <see cref="P:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.ComparativeMeasureSymbolColor"/> property.
-            </summary>
-            <returns><b>True</b> if the property was modified; Otherwise <b>False</b>.</returns>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.ShouldSerializeMinorTickColor">
-            <summary>
-            Determines a value indicating whether to serialize <see cref="P:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.MinorTickColor"/> property.
-            </summary>
-            <returns><b>True</b> if the property was modified; Otherwise <b>False</b>.</returns>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.ShouldSerializeMajorTickColor">
-            <summary>
-            Determines a value indicating whether to serialize <see cref="P:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.MajorTickColor"/> property.
-            </summary>
-            <returns><b>True</b> if the property was modified; Otherwise <b>False</b>.</returns>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.ShouldSerializeBackColor">
-            <summary>
-            Determines a value indicating whether to serialize <see cref="P:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.BackColor"/> property.
-            </summary>
-            <returns><b>True</b> if the property was modified; Otherwise <b>False</b>.</returns>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.ShouldSerializeRangeColor">
-            <summary>
-            Determines a value indicating whether to serialize <see cref="P:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.RangeColor"/> property.
-            </summary>
-            <returns><b>True</b> if the property was modified; Otherwise <b>False</b>.</returns>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.ShouldSerializeFont">
-            <summary>
-            Determines a value indicating whether to serialize <see cref="P:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.Font"/> property.
-            </summary>
-            <returns><b>True</b> if the property was modified; Otherwise <b>False</b>.</returns>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.ShouldSerializeRangeStyle">
-            <summary>
-            Determines a value indicating whether to serialize <see cref="P:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle.RangeStyle"/> property.
-            </summary>
-            <returns><b>True</b> if the property was modified; Otherwise <b>False</b>.</returns>
-        </member>
         <member name="T:Syncfusion.Windows.Forms.BulletGraph.BulletGraphInfoSubObjectIdentity">
             <summary>
                 Represents a class that provides style identity information for nested objects of the
-                <see cref="T:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle" /> class.
+                <see cref="T:Syncfusion.Windows.Forms.BulletGraph.BulletGraphVisualStyle"/> class.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.BulletGraph.BulletGraphInfoSubObjectIdentity.#ctor(Syncfusion.Styles.StyleInfoBase,Syncfusion.Styles.StyleInfoProperty)">
@@ -757,22 +794,6 @@
             All changes in this style object will be saved in the
             <see cref="T:Syncfusion.Windows.Forms.BulletGraph.BulletGraphStyleInfoStore"/> object.</param>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.BulletGraph.RangeStyleInfo.DefaultStyle">
-            <summary>
-            Gets the default style value for the <see cref="T:Syncfusion.Windows.Forms.BulletGraph.RangeStyleInfo"/>.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.BulletGraph.RangeStyleInfo.RangeColor">
-            <summary>
-            Gets or sets the range color value of the <see cref="T:Syncfusion.Windows.Forms.BulletGraph.QualitativeRange"/>.
-            </summary>       
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.BulletGraph.RangeStyleInfo.Store">
-            <summary>
-             Gets the <see cref="T:Syncfusion.Windows.Forms.BulletGraph.BulletGraphStyleInfoStore" /> object that holds all the data for
-             this style object.
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.BulletGraph.RangeStyleInfo.MakeCopy(Syncfusion.Styles.StyleInfoBase,Syncfusion.Styles.StyleInfoProperty)">
             <summary>
             Makes an exact copy of the current object.
@@ -804,42 +825,21 @@
             </summary>
             <returns>True if contents were changed; False otherwise.</returns>
         </member>
-        <member name="T:Syncfusion.BulletGraphWindowsAssembly">
-            <exclude/>
+        <member name="P:Syncfusion.Windows.Forms.BulletGraph.RangeStyleInfo.DefaultStyle">
             <summary>
-            This class holds the name of the Syncfusion.BulletGraph.Windows assembly and provides a helper
-            routine that helps with resolving types when loading a serialization stream and when
-            the framework probes for assemblies by reflection.
+            Gets the default style value for the <see cref="T:Syncfusion.Windows.Forms.BulletGraph.RangeStyleInfo"/>.
             </summary>
         </member>
-        <member name="F:Syncfusion.BulletGraphWindowsAssembly.Name">
+        <member name="P:Syncfusion.Windows.Forms.BulletGraph.RangeStyleInfo.RangeColor">
             <summary>
-            The full name of this assembly without version information: "Syncfusion.BulletGraph.Windows"
-            </summary>
+            Gets or sets the range color value of the <see cref="T:Syncfusion.Windows.Forms.BulletGraph.QualitativeRange"/>.
+            </summary>       
         </member>
-        <member name="F:Syncfusion.BulletGraphWindowsAssembly.Assembly">
+        <member name="P:Syncfusion.Windows.Forms.BulletGraph.RangeStyleInfo.Store">
             <summary>
-            A reference to the <see cref="T:System.Reflection.Assembly"/> for the BulletGraph assembly.
+             Gets the <see cref="T:Syncfusion.Windows.Forms.BulletGraph.BulletGraphStyleInfoStore"/> object that holds all the data for
+             this style object.
             </summary>
-        </member>
-        <member name="F:Syncfusion.BulletGraphWindowsAssembly.RootNamespace">
-            <summary>
-            The root namespace of this assembly. Used internally for locating resources within the assembly.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.BulletGraphWindowsAssembly.#cctor">
-            <summary>
-            Initializes the <see cref="T:Syncfusion.BulletGraphWindowsAssembly"/> class.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.BulletGraphWindowsAssembly.AssemblyResolver(System.Object,System.ResolveEventArgs)">
-            <summary>
-            This delegate helps with resolving types and can be used as an event handler
-            for a <see cref="E:System.AppDomain.AssemblyResolve"/> event.
-            </summary>
-            <param name="sender">The source of the event.</param>
-            <param name="e">The event data with information about the type.</param>
-            <returns>A reference to the assembly where the type is located.</returns>      
         </member>
     </members>
 </doc>

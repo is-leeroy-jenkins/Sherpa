@@ -52,7 +52,6 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
-    using Action = System.Action;
     using Application = System.Windows.Forms.Application;
     using Control = System.Windows.Forms.Control;
     using Image = System.Drawing.Image;
@@ -74,6 +73,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     public partial class DataGridForm : MetroForm
     {
         /// <summary>
@@ -84,7 +84,137 @@ namespace BudgetExecution
         /// <summary>
         /// The status update
         /// </summary>
-        private Action _statusUpdate;
+        private System.Action _statusUpdate;
+
+        /// <summary>
+        /// The time
+        /// </summary>
+        private int _time;
+
+        /// <summary>
+        /// The seconds
+        /// </summary>
+        private int _seconds;
+
+        /// <summary>
+        /// The count
+        /// </summary>
+        private int _count;
+
+        /// <summary>
+        /// The hover text
+        /// </summary>
+        private string _hoverText;
+
+        /// <summary>
+        /// The selected table
+        /// </summary>
+        private string _selectedTable;
+
+        /// <summary>
+        /// The first category
+        /// </summary>
+        private string _firstCategory;
+
+        /// <summary>
+        /// The first value
+        /// </summary>
+        private string _firstValue;
+
+        /// <summary>
+        /// The second category
+        /// </summary>
+        private string _secondCategory;
+
+        /// <summary>
+        /// The second value
+        /// </summary>
+        private string _secondValue;
+
+        /// <summary>
+        /// The third category
+        /// </summary>
+        private string _thirdCategory;
+
+        /// <summary>
+        /// The third value
+        /// </summary>
+        private string _thirdValue;
+
+        /// <summary>
+        /// The fourth category
+        /// </summary>
+        private string _fourthCategory;
+
+        /// <summary>
+        /// The fourth value
+        /// </summary>
+        private string _fourthValue;
+
+        /// <summary>
+        /// The SQL command
+        /// </summary>
+        private string _sqlQuery;
+
+        /// <summary>
+        /// The yvalues
+        /// </summary>
+        private IList<string> _columns;
+
+        /// <summary>
+        /// The data model
+        /// </summary>
+        private DataBuilder _dataModel;
+
+        /// <summary>
+        /// The data table
+        /// </summary>
+        private DataTable _dataTable;
+
+        /// <summary>
+        /// The filter
+        /// </summary>
+        private IDictionary<string, object> _filter;
+
+        /// <summary>
+        /// The fields
+        /// </summary>
+        private IList<string> _fields;
+
+        /// <summary>
+        /// The numerics
+        /// </summary>
+        private IList<string> _numerics;
+
+        /// <summary>
+        /// The selected columns
+        /// </summary>
+        private IList<string> _selectedColumns;
+
+        /// <summary>
+        /// The selected fields
+        /// </summary>
+        private IList<string> _selectedFields;
+
+        /// <summary>
+        /// The selected numerics
+        /// </summary>
+        private IList<string> _selectedNumerics;
+
+        /// <summary>
+        /// The source
+        /// </summary>
+        private Source _source;
+
+        /// <summary>
+        /// The provider
+        /// </summary>
+        private Provider _provider;
+
+        /// <summary>
+        /// The data arguments
+        /// </summary>
+        private DataArgs _dataArgs;
 
         /// <summary>
         /// Gets or sets the time.
@@ -167,20 +297,58 @@ namespace BudgetExecution
         public string SqlQuery { get; set; }
 
         /// <summary>
+        /// Gets or sets the data model.
+        /// </summary>
+        /// <value>
+        /// The data model.
+        /// </value>
+        public DataBuilder DataModel
+        {
+            get
+            {
+                return _dataModel;
+            }
+            private set
+            {
+                _dataModel = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the data row.
+        /// </summary>
+        /// <value>
+        /// The data row.
+        /// </value>
+        public DataTable DataTable
+        {
+            get
+            {
+                return _dataTable;
+            }
+            private set
+            {
+                _dataTable = value;
+            }
+        }
+
+        /// <summary>
         /// Gets or sets the form filter.
         /// </summary>
         /// <value>
         /// The form filter.
         /// </value>
-        public IDictionary<string, object> Filter { get; set; }
-
-        /// <summary>
-        /// Gets or sets the columns.
-        /// </summary>
-        /// <value>
-        /// The columns.
-        /// </value>
-        public IList<string> Columns { get; set; }
+        public IDictionary<string, object> Filter
+        {
+            get
+            {
+                return _filter;
+            }
+            private set
+            {
+                _filter = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the fields.
@@ -188,7 +356,17 @@ namespace BudgetExecution
         /// <value>
         /// The fields.
         /// </value>
-        public IList<string> Fields { get; set; }
+        public IList<string> Fields
+        {
+            get
+            {
+                return _fields;
+            }
+            private set
+            {
+                _fields = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the numerics.
@@ -196,7 +374,35 @@ namespace BudgetExecution
         /// <value>
         /// The numerics.
         /// </value>
-        public IList<string> Numerics { get; set; }
+        public IList<string> Numerics
+        {
+            get
+            {
+                return _numerics;
+            }
+            private set
+            {
+                _numerics = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the fields.
+        /// </summary>
+        /// <value>
+        /// The fields.
+        /// </value>
+        public IList<string> Columns
+        {
+            get
+            {
+                return _columns;
+            }
+            private set
+            {
+                _columns = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the selected columns.
@@ -204,7 +410,17 @@ namespace BudgetExecution
         /// <value>
         /// The selected columns.
         /// </value>
-        public IList<string> SelectedColumns { get; set; }
+        public IList<string> SelectedColumns
+        {
+            get
+            {
+                return _selectedColumns;
+            }
+            private set
+            {
+                _selectedColumns = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the selected fields.
@@ -212,7 +428,17 @@ namespace BudgetExecution
         /// <value>
         /// The selected fields.
         /// </value>
-        public IList<string> SelectedFields { get; set; }
+        public IList<string> SelectedFields
+        {
+            get
+            {
+                return _selectedFields;
+            }
+            private set
+            {
+                _selectedFields = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the selected numerics.
@@ -220,7 +446,17 @@ namespace BudgetExecution
         /// <value>
         /// The selected numerics.
         /// </value>
-        public IList<string> SelectedNumerics { get; set; }
+        public IList<string> SelectedNumerics
+        {
+            get
+            {
+                return _selectedNumerics;
+            }
+            private set
+            {
+                _selectedNumerics = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the source.
@@ -228,7 +464,17 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public Source Source { get; set; }
+        public Source Source
+        {
+            get
+            {
+                return _source;
+            }
+            private set
+            {
+                _source = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the provider.
@@ -236,23 +482,17 @@ namespace BudgetExecution
         /// <value>
         /// The provider.
         /// </value>
-        public Provider Provider { get; set; }
-
-        /// <summary>
-        /// Gets or sets the data table.
-        /// </summary>
-        /// <value>
-        /// The data table.
-        /// </value>
-        public DataTable DataTable { get; set; }
-
-        /// <summary>
-        /// Gets or sets the data model.
-        /// </summary>
-        /// <value>
-        /// The data model.
-        /// </value>
-        public DataBuilder DataModel { get; set; }
+        public Provider Provider
+        {
+            get
+            {
+                return _provider;
+            }
+            private set
+            {
+                _provider = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the data arguments.
@@ -260,7 +500,17 @@ namespace BudgetExecution
         /// <value>
         /// The data arguments.
         /// </value>
-        public DataArgs DataArgs { get; set; }
+        public DataArgs DataArgs
+        {
+            get
+            {
+                return _dataArgs;
+            }
+            private set
+            {
+                _dataArgs = value;
+            }
+        }
 
         /// <summary>
         /// Gets a value indicating whether this instance is busy.
@@ -405,7 +655,7 @@ namespace BudgetExecution
         /// Invokes if needed.
         /// </summary>
         /// <param name="action">The action.</param>
-        public void InvokeIf( Action action )
+        public void InvokeIf( System.Action action )
         {
             if( InvokeRequired )
             {

@@ -24,12 +24,6 @@
             Event occurs when current progress changed.
             </summary>
         </member>
-        <member name="P:Syncfusion.ExcelToPdfConverter.CurrentProgressChangedEventArgs.CurrentProgressChanged">
-            <summary>
-            Gets the current progress changed.
-            </summary>
-            <value>The current progress changed.</value>
-        </member>
         <member name="M:Syncfusion.ExcelToPdfConverter.CurrentProgressChangedEventArgs.#ctor(System.Int32,System.Int32,System.Object)">
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.ExcelToPdfConverter.CurrentProgressChangedEventArgs"/> class.
@@ -38,10 +32,23 @@
             <param name="activeSheetIndex">Index of the active sheet.</param>
             <param name="source">The source.</param>
         </member>
+        <member name="P:Syncfusion.ExcelToPdfConverter.CurrentProgressChangedEventArgs.CurrentProgressChanged">
+            <summary>
+            Gets the current progress changed.
+            </summary>
+            <value>The current progress changed.</value>
+        </member>
         <member name="T:Syncfusion.ExcelToPdfConverter.SheetBeforeDrawnEventArgs">
             <summary>
             Event occurs before sheet is drawn.
             </summary>
+        </member>
+        <member name="M:Syncfusion.ExcelToPdfConverter.SheetBeforeDrawnEventArgs.#ctor(System.Int32,System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.ExcelToPdfConverter.SheetBeforeDrawnEventArgs"/> class.
+            </summary>
+            <param name="currentSheet">The current sheet.</param>
+            <param name="source">The source.</param>
         </member>
         <member name="P:Syncfusion.ExcelToPdfConverter.SheetBeforeDrawnEventArgs.CurrentSheet">
             <summary>
@@ -55,23 +62,10 @@
             </summary>
             <value><c>true</c> if skip; otherwise, <c>false</c>.</value>
         </member>
-        <member name="M:Syncfusion.ExcelToPdfConverter.SheetBeforeDrawnEventArgs.#ctor(System.Int32,System.Object)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Syncfusion.ExcelToPdfConverter.SheetBeforeDrawnEventArgs"/> class.
-            </summary>
-            <param name="currentSheet">The current sheet.</param>
-            <param name="source">The source.</param>
-        </member>
         <member name="T:Syncfusion.ExcelToPdfConverter.SheetAfterDrawnEventArgs">
             <summary>
             Event occurs after sheet is drawn.
             </summary>
-        </member>
-        <member name="P:Syncfusion.ExcelToPdfConverter.SheetAfterDrawnEventArgs.AfterSheet">
-            <summary>
-            Gets the current sheet.
-            </summary>
-            <value>The current sheet.</value>
         </member>
         <member name="M:Syncfusion.ExcelToPdfConverter.SheetAfterDrawnEventArgs.#ctor(System.Int32,System.Object)">
             <summary>
@@ -79,6 +73,12 @@
             </summary>
             <param name="afterSheet">The after sheet.</param>
             <param name="source">The source.</param>
+        </member>
+        <member name="P:Syncfusion.ExcelToPdfConverter.SheetAfterDrawnEventArgs.AfterSheet">
+            <summary>
+            Gets the current sheet.
+            </summary>
+            <value>The current sheet.</value>
         </member>
         <member name="T:Syncfusion.ExcelToPdfConverter.NamespaceDoc">
             <summary>
@@ -573,112 +573,47 @@
             Represents the substitute pdf font.
             </summary>
         </member>
-        <member name="P:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.SystemFontsName">
-            <summary>
-            Get system font name collection.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.Warning">
-            <summary>
-            Represents the warning detail about unsupported and substituted elements in Excel to PDF conversion.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.IsHFRTFProcess">
-            <summary>
-            Represents Header Footer RTF Process.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.LeftWidth">
-            <summary>
-            Represents Left width.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.RightWidth">
-            <summary>
-            Represents Right width.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.ExcelToPdfSettings">
-            <summary>
-            Represents Excel to pdf converter settings.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.HfImageBounds">
-            <summary>
-            Represents Header Footer Image bounds.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.AlternativePdfFont">
-            <summary>
-            Get or set the alternate pdf font while applying substitute font.
-            </summary>
-        </member>
         <member name="M:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.#ctor">
             <summary>
-                Initializes a new instance of the <see cref="T:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter" /> class.
+                Initializes a new instance of the <see cref="T:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter"/> class.
             </summary>
         </member>
         <member name="M:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.#ctor(Syncfusion.XlsIO.IWorkbook)">
             <summary>
-                Initializes a new instance of the <see cref="T:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter" /> class with the specified workbook.
+                Initializes a new instance of the <see cref="T:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter"/> class with the specified workbook.
             </summary>
             <param name="workbook">The workbook.</param>
         </member>
         <member name="M:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.#ctor(Syncfusion.XlsIO.IWorksheet)">
             <summary>
-            Initializes a new instance of the <see cref="T:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter" /> class with the specified worksheet.
+            Initializes a new instance of the <see cref="T:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter"/> class with the specified worksheet.
             </summary>
             <param name="worksheet">The worksheet.</param>
         </member>
         <member name="M:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.#ctor(Syncfusion.XlsIO.IChart)">
             <summary>
-                Initializes a new instance of the <see cref="T:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter" /> class with the specified chart.
+                Initializes a new instance of the <see cref="T:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter"/> class with the specified chart.
             </summary>
             <param name="chart">The chart.</param>
         </member>
         <member name="M:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.#ctor(System.String)">
             <summary>
-                Initializes a new instance of the <see cref="T:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter" /> class with the specified file name.
+                Initializes a new instance of the <see cref="T:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter"/> class with the specified file name.
             </summary>
             <param name="filePath">The file path.</param>
         </member>
         <member name="M:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.#ctor(System.IO.Stream)">
             <summary>
-                Initializes a new instance of the <see cref="T:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter" /> class with the specified stream.
+                Initializes a new instance of the <see cref="T:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter"/> class with the specified stream.
             </summary>
             <param name="stream">The workbook stream.</param>
         </member>
         <member name="M:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.GetLayoutOptions(Syncfusion.XlsIO.Implementation.PageSetupBaseImpl)">
             <summary>
-                Gets the <see cref="T:Syncfusion.ExcelToPdfConverter.LayoutOptions" /> LayoutOptions based on PageSetup.
+                Gets the <see cref="T:Syncfusion.ExcelToPdfConverter.LayoutOptions"/> LayoutOptions based on PageSetup.
             </summary>
             <param name="pageSetup">Current Page setup.</param>
             <returns>Returns the LayoutOptions.</returns>
-        </member>
-        <member name="T:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.MergeMethod">
-            <summary>
-                Delegate for Merged cell rendering.
-            </summary>
-        </member>
-        <member name="T:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.CellMethod">
-            <summary>
-                Delegate for background cell rendering.
-            </summary>
-        </member>
-        <member name="E:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.CurrentProgressChanged">
-            <summary>
-                Occurs when current progress changed.
-            </summary>
-        </member>
-        <member name="E:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.SheetBeforeDrawn">
-            <summary>
-                Occurs before the sheet is drawn.
-            </summary>
-        </member>
-        <member name="E:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.SheetAfterDrawn">
-            <summary>
-                Occurs after the sheet is drawn.
-            </summary>
         </member>
         <member name="M:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.RaiseWarning(System.String,Syncfusion.XlsIO.WarningType)">
             <summary>
@@ -936,10 +871,10 @@
         </member>
         <member name="M:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.OnSheetBeforeDrawn(Syncfusion.ExcelToPdfConverter.SheetBeforeDrawnEventArgs)">
             <summary>
-                Raises the <see cref="E:SheetBeforeDrawn" /> event.
+                Raises the <see cref="E:SheetBeforeDrawn"/> event.
             </summary>
             <param name="args">
-                The <see cref="T:Syncfusion.ExcelToPdfConverter.SheetBeforeDrawnEventArgs" /> instance containing the
+                The <see cref="T:Syncfusion.ExcelToPdfConverter.SheetBeforeDrawnEventArgs"/> instance containing the
                 event data.
             </param>
         </member>
@@ -969,42 +904,6 @@
                 <c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only
                 unmanaged resources.
             </param>
-        </member>
-        <member name="P:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.ChartToImageConverter">
-            <summary>
-                Represents the chart to image converter instance.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.IsPrintTitleRowPage">
-            <summary>
-                Gets a value indicating whether this instance is print title row page.
-            </summary>
-            <value>
-                <c>true</c> if this instance is print title row page; otherwise, <c>false</c>.
-            </value>
-        </member>
-        <member name="P:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.IsPrintTitleColumnPage">
-            <summary>
-                Gets a value indicating whether this instance is print title column page.
-            </summary>
-            <value>
-                <c>true</c> if this instance is print title column page; otherwise, <c>false</c>.
-            </value>
-        </member>
-        <member name="P:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.RowHeightGetter">
-            <summary>
-                Gets the row height getter.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.ColumnWidthGetter">
-            <summary>
-                Gets the column width getter.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.Pdf_UnitConverter">
-            <summary>
-                PDF Unit Converter.
-            </summary>
         </member>
         <member name="M:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.DrawSheet(Syncfusion.XlsIO.IWorksheet,Syncfusion.XlsIO.IRange[])">
             <summary>
@@ -1999,6 +1898,16 @@
             <param name="startX">The x value.</param>
             <param name="startY">The y value.</param>
         </member>
+        <member name="M:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.GetImageHasStyleProperties(Syncfusion.XlsIO.Implementation.Shapes.BitmapShapeImpl,System.Drawing.RectangleF,System.Single,System.Single)">
+            <summary>
+            Get Image has external properties or not.
+            </summary>
+            <param name="bitmapShape">BitmapShape</param>
+            <param name="pictureRect">Image rectangle</param>
+            <param name="width">Image width</param>
+            <param name="height">Image height</param>
+            <returns>True if image has external properties style, otherwise false</returns>
+        </member>
         <member name="M:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.ApplyImageTransparency(System.Drawing.Imaging.ImageAttributes,System.Single)">
             <summary>
             Apply Image transparency.
@@ -2949,6 +2858,15 @@
             <param name="fontName">The name of the font.</param>
             <returns></returns>
         </member>
+        <member name="M:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.GetFallbackFont(System.String,System.String,System.Collections.Generic.List{Syncfusion.Office.FallbackFont})">
+            <summary>
+            Gets fall back font extension to preserve the text in converted Image.
+            </summary>
+            <param name="fontName">Represent fontName.</param>
+            <param name="testString">Represent testString.</param>
+            <param name="FallbackFonts">Represent FallbackFonts.</param>
+            <returns>Returns a fall back font instance, if it has; otherwise returns original Font.</returns>
+        </member>
         <member name="M:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.CheckForUnicodeSymbols(System.String)">
             <summary>
             Check unicode symbols for unicode string
@@ -3132,6 +3050,107 @@
             <param name="image">Input Image</param>
             <returns>Returns whether the image is transparent or not</returns>
         </member>
+        <member name="P:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.SystemFontsName">
+            <summary>
+            Get system font name collection.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.Warning">
+            <summary>
+            Represents the warning detail about unsupported and substituted elements in Excel to PDF conversion.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.IsHFRTFProcess">
+            <summary>
+            Represents Header Footer RTF Process.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.LeftWidth">
+            <summary>
+            Represents Left width.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.RightWidth">
+            <summary>
+            Represents Right width.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.ExcelToPdfSettings">
+            <summary>
+            Represents Excel to pdf converter settings.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.HfImageBounds">
+            <summary>
+            Represents Header Footer Image bounds.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.AlternativePdfFont">
+            <summary>
+            Get or set the alternate pdf font while applying substitute font.
+            </summary>
+        </member>
+        <member name="E:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.CurrentProgressChanged">
+            <summary>
+                Occurs when current progress changed.
+            </summary>
+        </member>
+        <member name="E:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.SheetBeforeDrawn">
+            <summary>
+                Occurs before the sheet is drawn.
+            </summary>
+        </member>
+        <member name="E:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.SheetAfterDrawn">
+            <summary>
+                Occurs after the sheet is drawn.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.ChartToImageConverter">
+            <summary>
+                Represents the chart to image converter instance.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.IsPrintTitleRowPage">
+            <summary>
+                Gets a value indicating whether this instance is print title row page.
+            </summary>
+            <value>
+                <c>true</c> if this instance is print title row page; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.IsPrintTitleColumnPage">
+            <summary>
+                Gets a value indicating whether this instance is print title column page.
+            </summary>
+            <value>
+                <c>true</c> if this instance is print title column page; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.RowHeightGetter">
+            <summary>
+                Gets the row height getter.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.ColumnWidthGetter">
+            <summary>
+                Gets the column width getter.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.Pdf_UnitConverter">
+            <summary>
+                PDF Unit Converter.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.MergeMethod">
+            <summary>
+                Delegate for Merged cell rendering.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter.CellMethod">
+            <summary>
+                Delegate for background cell rendering.
+            </summary>
+        </member>
         <member name="T:Syncfusion.ExcelToPdfConverter.ExcelToPDFConverterException">
             <summary>
             Returns the <see cref="T:System.Exception"/> when trying to convert the Excel document to a PDF document.
@@ -3250,8 +3269,16 @@
         </member>
         <member name="M:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.#ctor">
             <summary>
-                Initializes a new instance of the <see cref="T:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings" /> class.
+                Initializes a new instance of the <see cref="T:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings"/> class.
             </summary>
+        </member>
+        <member name="M:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.GetExcelSheetSize(Syncfusion.XlsIO.ExcelPaperSize,Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings)">
+            <summary>
+                Gets the size of the excel sheet.
+            </summary>
+            <param name="paperSize">Size of the paper.</param>
+            <param name="settings">Excel to PDF converter settings.</param>>
+            <returns>The Size of the output pdf page.</returns>
         </member>
         <member name="P:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.RenderBySheet">
             <summary>
@@ -3473,14 +3500,6 @@
             Gets or sets value to indicate whether the PDF rendering to be done by form fields or not.
             </summary>
         </member>
-        <member name="M:Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings.GetExcelSheetSize(Syncfusion.XlsIO.ExcelPaperSize,Syncfusion.ExcelToPdfConverter.ExcelToPdfConverterSettings)">
-            <summary>
-                Gets the size of the excel sheet.
-            </summary>
-            <param name="paperSize">Size of the paper.</param>
-            <param name="settings">Excel to PDF converter settings.</param>>
-            <returns>The Size of the output pdf page.</returns>
-        </member>
         <member name="T:Syncfusion.ExcelToPdfConverter.HeaderFooter">
             <summary>
                 The class has the functions and properties to manipulate the Header and footers of the output page.
@@ -3503,8 +3522,14 @@
         </member>
         <member name="M:Syncfusion.ExcelToPdfConverter.HeaderFooter.#ctor">
             <summary>
-                Initializes a new instance of the <see cref="T:Syncfusion.ExcelToPdfConverter.HeaderFooter" /> class.
+                Initializes a new instance of the <see cref="T:Syncfusion.ExcelToPdfConverter.HeaderFooter"/> class.
             </summary>
+        </member>
+        <member name="M:Syncfusion.ExcelToPdfConverter.HeaderFooter.Clone">
+            <summary>
+            Clone corresponding headerFooter
+            </summary>
+            <returns></returns>
         </member>
         <member name="P:Syncfusion.ExcelToPdfConverter.HeaderFooter.TemplateSize">
             <summary>
@@ -3523,12 +3548,6 @@
                 Gets or sets the header footer sections.
             </summary>
             <value>The header footer sections.</value>
-        </member>
-        <member name="M:Syncfusion.ExcelToPdfConverter.HeaderFooter.Clone">
-            <summary>
-            Clone corresponding headerFooter
-            </summary>
-            <returns></returns>
         </member>
         <member name="T:Syncfusion.ExcelToPdfConverter.HeaderFooterSection">
             <summary>
@@ -3570,6 +3589,12 @@
             True, if header/footer having page count, false otherwise.
              </summary>
         </member>
+        <member name="M:Syncfusion.ExcelToPdfConverter.HeaderFooterSection.Clone">
+            <summary>
+            Clone corresponding HeaderFooterSection.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="P:Syncfusion.ExcelToPdfConverter.HeaderFooterSection.IsPageCount">
             <summary>
             Gets and Sets to indicate if header or footer having page count. 
@@ -3610,12 +3635,6 @@
                 Represents the Header Footer Section text alignmet
             </summary>
         </member>
-        <member name="M:Syncfusion.ExcelToPdfConverter.HeaderFooterSection.Clone">
-            <summary>
-            Clone corresponding HeaderFooterSection.
-            </summary>
-            <returns></returns>
-        </member>
         <member name="T:Syncfusion.ExcelToPdfConverter.HeaderFooterFontColorSettings">
             <summary>
                 The class has the properties and functions for the HF color and font settings.
@@ -3653,8 +3672,16 @@
         </member>
         <member name="M:Syncfusion.ExcelToPdfConverter.HeaderFooterFontColorSettings.#ctor">
             <summary>
-                Initializes a new instance of the <see cref="T:Syncfusion.ExcelToPdfConverter.HeaderFooterFontColorSettings" /> class.
+                Initializes a new instance of the <see cref="T:Syncfusion.ExcelToPdfConverter.HeaderFooterFontColorSettings"/> class.
             </summary>
+        </member>
+        <member name="M:Syncfusion.ExcelToPdfConverter.HeaderFooterFontColorSettings.Clone">
+            <summary>
+                Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>
+                A new object that is a copy of this instance.
+            </returns>
         </member>
         <member name="P:Syncfusion.ExcelToPdfConverter.HeaderFooterFontColorSettings.Font">
             <summary>
@@ -3693,14 +3720,6 @@
                 Gets or sets the color of the font.
             </summary>
             <value>The color of the font.</value>
-        </member>
-        <member name="M:Syncfusion.ExcelToPdfConverter.HeaderFooterFontColorSettings.Clone">
-            <summary>
-                Creates a new object that is a copy of the current instance.
-            </summary>
-            <returns>
-                A new object that is a copy of this instance.
-            </returns>
         </member>
         <member name="T:Syncfusion.ExcelToPdfConverter.GridLinesDisplayStyle">
             <summary>
@@ -3890,99 +3909,14 @@
         </member>
         <member name="M:Syncfusion.ExcelToPdfConverter.TableStyleRenderer.#ctor">
             <summary>
-                Initializes a new instance of the <see cref="T:Syncfusion.ExcelToPdfConverter.TableStyleRenderer" /> class.
+                Initializes a new instance of the <see cref="T:Syncfusion.ExcelToPdfConverter.TableStyleRenderer"/> class.
             </summary>
         </member>
         <member name="M:Syncfusion.ExcelToPdfConverter.TableStyleRenderer.#ctor(Syncfusion.XlsIO.IListObjects)">
             <summary>
-                Initializes a new instance of the <see cref="T:Syncfusion.ExcelToPdfConverter.TableStyleRenderer" /> class.
+                Initializes a new instance of the <see cref="T:Syncfusion.ExcelToPdfConverter.TableStyleRenderer"/> class.
             </summary>
             <param name="sheetListObjects">The sheet list objects.</param>
-        </member>
-        <member name="T:Syncfusion.ExcelToPdfConverter.TableStyleRenderer.BorderStyle">
-            <summary>
-                Enumeration of the Border Styles.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.ExcelToPdfConverter.TableStyleRenderer.BorderStyle.None">
-            <summary>
-                Represents that no ExcelBorderIndex is set.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.ExcelToPdfConverter.TableStyleRenderer.BorderStyle.Top">
-            <summary>
-                Represents that Top ExcelBorderIndex is set.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.ExcelToPdfConverter.TableStyleRenderer.BorderStyle.Bottom">
-            <summary>
-                Represents that Bottom ExcelBorderIndex is set.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.ExcelToPdfConverter.TableStyleRenderer.BorderStyle.Left">
-            <summary>
-                Represents that Left ExcelBorderIndex is set.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.ExcelToPdfConverter.TableStyleRenderer.BorderStyle.Right">
-            <summary>
-                Represents that Right ExcelBorderIndex is set.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.ExcelToPdfConverter.TableStyleRenderer.BorderStyle.TopBottom">
-            <summary>
-                Represents that both Top and Bottom ExcelBorderIndex is set.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.ExcelToPdfConverter.TableStyleRenderer.BorderStyle.LeftRight">
-            <summary>
-                Represents that both Left and Right ExcelBorderIndex is set.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.ExcelToPdfConverter.TableStyleRenderer.BorderStyle.All">
-            <summary>
-                Represents that all ExcelBorderIndex is set.
-            </summary>
-        </member>
-        <member name="T:Syncfusion.ExcelToPdfConverter.TableStyleRenderer.SolidStyle">
-            <summary>
-                Enumeration of the Solid style in Borders
-            </summary>
-        </member>
-        <member name="F:Syncfusion.ExcelToPdfConverter.TableStyleRenderer.SolidStyle.None">
-            <summary>
-                Represents the No Solidstyle.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.ExcelToPdfConverter.TableStyleRenderer.SolidStyle.Top">
-            <summary>
-                Represents the solid style for the Top ExcelBorderIndex.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.ExcelToPdfConverter.TableStyleRenderer.SolidStyle.Bottom">
-            <summary>
-                Represents the solid style for the Bottom ExcelBorderIndex.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.ExcelToPdfConverter.TableStyleRenderer.SolidStyle.Right">
-            <summary>
-                Represents the solid style for the Right ExcelBorderIndex.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.ExcelToPdfConverter.TableStyleRenderer.SolidStyle.Left">
-            <summary>
-                Represents the solid style for the Left ExcelBorderIndex.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.ExcelToPdfConverter.TableStyleRenderer.SolidStyle.TopBottom">
-            <summary>
-                Represents the solid style for both Top and Bottom ExcelBorderIndex.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.ExcelToPdfConverter.TableStyleRenderer.SolidStyle.LeftRight">
-            <summary>
-                Represents the solid style for both Right and Left ExcelBorderIndex.
-            </summary>
         </member>
         <member name="M:Syncfusion.ExcelToPdfConverter.TableStyleRenderer.ApplyStyles(Syncfusion.XlsIO.IWorksheet,System.Collections.Generic.Dictionary{Syncfusion.XlsIO.IRange,System.Drawing.Color}@)">
             <summary>
@@ -4253,6 +4187,91 @@
                 Returns true if the built in style is within the this.lastColumn and first column list else false will be returned.
             </returns>
         </member>
+        <member name="T:Syncfusion.ExcelToPdfConverter.TableStyleRenderer.BorderStyle">
+            <summary>
+                Enumeration of the Border Styles.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.ExcelToPdfConverter.TableStyleRenderer.BorderStyle.None">
+            <summary>
+                Represents that no ExcelBorderIndex is set.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.ExcelToPdfConverter.TableStyleRenderer.BorderStyle.Top">
+            <summary>
+                Represents that Top ExcelBorderIndex is set.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.ExcelToPdfConverter.TableStyleRenderer.BorderStyle.Bottom">
+            <summary>
+                Represents that Bottom ExcelBorderIndex is set.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.ExcelToPdfConverter.TableStyleRenderer.BorderStyle.Left">
+            <summary>
+                Represents that Left ExcelBorderIndex is set.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.ExcelToPdfConverter.TableStyleRenderer.BorderStyle.Right">
+            <summary>
+                Represents that Right ExcelBorderIndex is set.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.ExcelToPdfConverter.TableStyleRenderer.BorderStyle.TopBottom">
+            <summary>
+                Represents that both Top and Bottom ExcelBorderIndex is set.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.ExcelToPdfConverter.TableStyleRenderer.BorderStyle.LeftRight">
+            <summary>
+                Represents that both Left and Right ExcelBorderIndex is set.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.ExcelToPdfConverter.TableStyleRenderer.BorderStyle.All">
+            <summary>
+                Represents that all ExcelBorderIndex is set.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.ExcelToPdfConverter.TableStyleRenderer.SolidStyle">
+            <summary>
+                Enumeration of the Solid style in Borders
+            </summary>
+        </member>
+        <member name="F:Syncfusion.ExcelToPdfConverter.TableStyleRenderer.SolidStyle.None">
+            <summary>
+                Represents the No Solidstyle.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.ExcelToPdfConverter.TableStyleRenderer.SolidStyle.Top">
+            <summary>
+                Represents the solid style for the Top ExcelBorderIndex.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.ExcelToPdfConverter.TableStyleRenderer.SolidStyle.Bottom">
+            <summary>
+                Represents the solid style for the Bottom ExcelBorderIndex.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.ExcelToPdfConverter.TableStyleRenderer.SolidStyle.Right">
+            <summary>
+                Represents the solid style for the Right ExcelBorderIndex.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.ExcelToPdfConverter.TableStyleRenderer.SolidStyle.Left">
+            <summary>
+                Represents the solid style for the Left ExcelBorderIndex.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.ExcelToPdfConverter.TableStyleRenderer.SolidStyle.TopBottom">
+            <summary>
+                Represents the solid style for both Top and Bottom ExcelBorderIndex.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.ExcelToPdfConverter.TableStyleRenderer.SolidStyle.LeftRight">
+            <summary>
+                Represents the solid style for both Right and Left ExcelBorderIndex.
+            </summary>
+        </member>
         <member name="T:Syncfusion.ExcelToPdfConverter.PageSetupOption">
             <summary>
             </summary>
@@ -4279,14 +4298,14 @@
         </member>
         <member name="M:Syncfusion.ExcelToPdfConverter.PageSetupOption.#ctor(Syncfusion.XlsIO.Implementation.WorksheetImpl,Syncfusion.XlsIO.IRange)">
             <summary>
-                Initializes a new instance of the <see cref="T:Syncfusion.ExcelToPdfConverter.PageSetupOption" /> class.
+                Initializes a new instance of the <see cref="T:Syncfusion.ExcelToPdfConverter.PageSetupOption"/> class.
             </summary>
             <param name="sheet">The sheet.</param>
             <param name="actualUsedRange">The actual used range</param>
         </member>
         <member name="M:Syncfusion.ExcelToPdfConverter.PageSetupOption.#ctor(Syncfusion.XlsIO.Implementation.WorksheetImpl,Syncfusion.XlsIO.IRange,Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter)">
             <summary>
-                Initializes a new instance of the <see cref="T:Syncfusion.ExcelToPdfConverter.PageSetupOption" /> class.
+                Initializes a new instance of the <see cref="T:Syncfusion.ExcelToPdfConverter.PageSetupOption"/> class.
             </summary>
             <param name="sheet">The sheet.</param>
             <param name="actualUsedRange">Used range.</param>
@@ -4297,118 +4316,12 @@
                 Empty constructor
             </summary>
         </member>
-        <member name="P:Syncfusion.ExcelToPdfConverter.PageSetupOption.FitPagesWide">
-            
-            Fit pages wide
-             
-        </member>
-        <member name="P:Syncfusion.ExcelToPdfConverter.PageSetupOption.FitPagesTall">
-            
-            Fit pages tall
-             
-        </member>
-        <member name="P:Syncfusion.ExcelToPdfConverter.PageSetupOption.HorizontalBreaks">
-            <summary>
-            Horizontal breaks.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.ExcelToPdfConverter.PageSetupOption.VerticalBreaks">
-            <summary>
-            Vertical breaks.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.ExcelToPdfConverter.PageSetupOption.PrintTitleFirstRow">
-            <summary>
-                Gets the print title first row.
-            </summary>
-            <value>The print title first row.</value>
-        </member>
-        <member name="P:Syncfusion.ExcelToPdfConverter.PageSetupOption.PrintTitleFirstColumn">
-            <summary>
-                Gets the print title first column.
-            </summary>
-            <value>The print title first column.</value>
-        </member>
-        <member name="P:Syncfusion.ExcelToPdfConverter.PageSetupOption.PrintTitleLastRow">
-            <summary>
-                Gets the print title last row.
-            </summary>
-            <value>The print title last row.</value>
-        </member>
-        <member name="P:Syncfusion.ExcelToPdfConverter.PageSetupOption.PrintTitleLastColumn">
-            <summary>
-                Gets the print title last column.
-            </summary>
-            <value>The print title last column.</value>
-        </member>
         <member name="M:Syncfusion.ExcelToPdfConverter.PageSetupOption.IsPrintTitleValid(System.String[])">
             <summary>
             Validates row or column name wih the provided cell names.
             </summary>
             <param name="cellNames">The cell names to find column or row of.</param>
             <returns>True if print titles are valid. Otherwise False.</returns>
-        </member>
-        <member name="P:Syncfusion.ExcelToPdfConverter.PageSetupOption.HasPrintTitleRows">
-            <summary>
-                Gets a value indicating whether this instance has print title rows.
-            </summary>
-            <value>
-                <c>true</c> if this instance has print title rows; otherwise, <c>false</c>.
-            </value>
-        </member>
-        <member name="P:Syncfusion.ExcelToPdfConverter.PageSetupOption.HasPrintTitleColumns">
-            <summary>
-                Gets a value indicating whether this instance has print title columns.
-            </summary>
-            <value>
-                <c>true</c> if this instance has print title columns; otherwise, <c>false</c>.
-            </value>
-        </member>
-        <member name="P:Syncfusion.ExcelToPdfConverter.PageSetupOption.HasPrintArea">
-            <summary>
-                Gets a value indicating whether this instance has print area.
-            </summary>
-            <value>
-                <c>true</c> if this instance has print area; otherwise, <c>false</c>.
-            </value>
-        </member>
-        <member name="P:Syncfusion.ExcelToPdfConverter.PageSetupOption.TitleRowHeight">
-            <summary>
-                Gets the height of the title row.
-            </summary>
-            <value>The height of the title row.</value>
-        </member>
-        <member name="P:Syncfusion.ExcelToPdfConverter.PageSetupOption.TitleColumnWidth">
-            <summary>
-                Gets the width of the title column.
-            </summary>
-            <value>The width of the title column.</value>
-        </member>
-        <member name="P:Syncfusion.ExcelToPdfConverter.PageSetupOption.RowIndexes">
-            <summary>
-                Gets the row indexes.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.ExcelToPdfConverter.PageSetupOption.ColumnIndexes">
-            <summary>
-                Gets the column indexes.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.ExcelToPdfConverter.PageSetupOption.PrintAreas">
-            <summary>
-                Gets the print areas.
-            </summary>
-            <value>The print areas.</value>
-        </member>
-        <member name="P:Syncfusion.ExcelToPdfConverter.PageSetupOption.Worksheet">
-            <summary>
-                Gets the worksheet.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.ExcelToPdfConverter.PageSetupOption.PageSetup">
-            <summary>
-                Gets the page setup of the worksheet.
-            </summary>
         </member>
         <member name="M:Syncfusion.ExcelToPdfConverter.PageSetupOption.ParseTitleRows">
             <summary>
@@ -4500,6 +4413,112 @@
             </summary>
             <param name="veriRange">The veri range.</param>
             <param name="finalColumn">The final column.</param>
+        </member>
+        <member name="P:Syncfusion.ExcelToPdfConverter.PageSetupOption.FitPagesWide">
+            
+            Fit pages wide
+             
+        </member>
+        <member name="P:Syncfusion.ExcelToPdfConverter.PageSetupOption.FitPagesTall">
+            
+            Fit pages tall
+             
+        </member>
+        <member name="P:Syncfusion.ExcelToPdfConverter.PageSetupOption.HorizontalBreaks">
+            <summary>
+            Horizontal breaks.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.ExcelToPdfConverter.PageSetupOption.VerticalBreaks">
+            <summary>
+            Vertical breaks.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.ExcelToPdfConverter.PageSetupOption.PrintTitleFirstRow">
+            <summary>
+                Gets the print title first row.
+            </summary>
+            <value>The print title first row.</value>
+        </member>
+        <member name="P:Syncfusion.ExcelToPdfConverter.PageSetupOption.PrintTitleFirstColumn">
+            <summary>
+                Gets the print title first column.
+            </summary>
+            <value>The print title first column.</value>
+        </member>
+        <member name="P:Syncfusion.ExcelToPdfConverter.PageSetupOption.PrintTitleLastRow">
+            <summary>
+                Gets the print title last row.
+            </summary>
+            <value>The print title last row.</value>
+        </member>
+        <member name="P:Syncfusion.ExcelToPdfConverter.PageSetupOption.PrintTitleLastColumn">
+            <summary>
+                Gets the print title last column.
+            </summary>
+            <value>The print title last column.</value>
+        </member>
+        <member name="P:Syncfusion.ExcelToPdfConverter.PageSetupOption.HasPrintTitleRows">
+            <summary>
+                Gets a value indicating whether this instance has print title rows.
+            </summary>
+            <value>
+                <c>true</c> if this instance has print title rows; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Syncfusion.ExcelToPdfConverter.PageSetupOption.HasPrintTitleColumns">
+            <summary>
+                Gets a value indicating whether this instance has print title columns.
+            </summary>
+            <value>
+                <c>true</c> if this instance has print title columns; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Syncfusion.ExcelToPdfConverter.PageSetupOption.HasPrintArea">
+            <summary>
+                Gets a value indicating whether this instance has print area.
+            </summary>
+            <value>
+                <c>true</c> if this instance has print area; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Syncfusion.ExcelToPdfConverter.PageSetupOption.TitleRowHeight">
+            <summary>
+                Gets the height of the title row.
+            </summary>
+            <value>The height of the title row.</value>
+        </member>
+        <member name="P:Syncfusion.ExcelToPdfConverter.PageSetupOption.TitleColumnWidth">
+            <summary>
+                Gets the width of the title column.
+            </summary>
+            <value>The width of the title column.</value>
+        </member>
+        <member name="P:Syncfusion.ExcelToPdfConverter.PageSetupOption.RowIndexes">
+            <summary>
+                Gets the row indexes.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.ExcelToPdfConverter.PageSetupOption.ColumnIndexes">
+            <summary>
+                Gets the column indexes.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.ExcelToPdfConverter.PageSetupOption.PrintAreas">
+            <summary>
+                Gets the print areas.
+            </summary>
+            <value>The print areas.</value>
+        </member>
+        <member name="P:Syncfusion.ExcelToPdfConverter.PageSetupOption.Worksheet">
+            <summary>
+                Gets the worksheet.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.ExcelToPdfConverter.PageSetupOption.PageSetup">
+            <summary>
+                Gets the page setup of the worksheet.
+            </summary>
         </member>
         <member name="M:Syncfusion.ExcelToPdfConverter.ExcelToPdfLayoutSetting.#ctor(Syncfusion.ExcelToPdfConverter.ExcelToPdfConverter)">
             <summary>

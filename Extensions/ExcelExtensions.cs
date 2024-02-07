@@ -48,14 +48,13 @@ namespace BudgetExecution
     using System.Linq;
     using OfficeOpenXml;
     using OfficeOpenXml.Style;
-    using Syncfusion.Linq;
+    using Syncfusion.Data.Extensions;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public static class ExcelExtensions
     {
-
         /// <summary> Converts to data set. </summary>
         /// <param name="excelPackage"> The excelPackage. </param>
         /// <param name="header">
@@ -343,7 +342,7 @@ namespace BudgetExecution
         /// <param name="range"> The range. </param>
         /// <param name="borderStyle"> </param>
         public static void AllBorder( this ExcelRange range,
-                                      ExcelBorderStyle borderStyle = ExcelBorderStyle.Thin )
+            ExcelBorderStyle borderStyle = ExcelBorderStyle.Thin )
         {
             try
             {
@@ -360,7 +359,7 @@ namespace BudgetExecution
         /// <param name="color"> The color. </param>
         /// <param name="fillStyle"> </param>
         public static void BackgroundColor( this ExcelRange range, Color color,
-                                            ExcelFillStyle fillStyle = ExcelFillStyle.Solid )
+            ExcelFillStyle fillStyle = ExcelFillStyle.Solid )
         {
             if( color != Color.Empty )
             {

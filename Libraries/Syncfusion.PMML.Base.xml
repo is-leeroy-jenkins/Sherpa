@@ -49,6 +49,76 @@
             Represent the evaluator for Association Rule Model
             </summary>
         </member>
+        <member name="T:Syncfusion.PMML.PMMLEvaluator">
+            <summary>
+            Represents the base methods and properties for all Model Evaluators.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.PMMLEvaluator.GetResult(System.Object,Syncfusion.PMML.IModelOptions)">
+            <summary>
+            Returns predicted result.
+            Evaluates the given input against the scoring procedure of the PMML model and returns the predicted result.
+            </summary>
+            <param name="obj">anonymous object</param>
+            <param name="modelOptions">model options values, always null</param>
+            <returns>Returns the predicted result</returns>
+        </member>
+        <member name="M:Syncfusion.PMML.PMMLEvaluator.GetResult(System.Collections.Generic.Dictionary{System.String,System.Object},Syncfusion.PMML.IModelOptions)">
+            <summary>
+            Returns predicted result.
+            Evaluates the given input against the scoring procedure of the PMML model and returns the predicted result.
+            </summary>
+            <param name="obj">Dictionary object</param>
+            <param name="modelOptions">model options values, always null</param>
+            <returns>Returns the predicted result</returns>
+        </member>
+        <member name="M:Syncfusion.PMML.PMMLEvaluator.GetResult(System.Dynamic.ExpandoObject,Syncfusion.PMML.IModelOptions)">
+            <summary>
+            Returns predicted result.
+            Evaluates the given input against the scoring procedure of the PMML model and returns the predicted result.
+            </summary>
+            <param name="obj">ExpandoObject data</param>
+            <param name="modelOptions">model options values, always null</param>
+            <returns>Returns the predicted result</returns>
+        </member>
+        <member name="M:Syncfusion.PMML.PMMLEvaluator.Dispose">
+            <summary>
+            Releases the memory occupied by objects
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PMML.PMMLEvaluator.PredictedResult">
+            <summary>
+            Gets / Sets the predicted result
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PMML.PMMLEvaluator.Helper">
+            <summary>
+            Get/Set the helper
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PMML.PMMLEvaluator.PMMLDocument">
+            <summary>
+            Get / Set the PMMLDocument.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PMML.PMMLEvaluator.PMMLModel">
+            <summary>
+            Gets the PMMLModel
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PMML.PMMLEvaluator.CultureInfo">
+            <summary>
+            Gets or Sets the Culture Info for PMML Evaluator to evaluate the input data.
+            </summary>
+            <remarks>
+            By default, Culture used by the current thread is set.
+            </remarks>
+        </member>
+        <member name="P:Syncfusion.PMML.PMMLEvaluator.FieldValuePair">
+            <summary>
+            Get/Set the FieldValuePair(string,object)
+            </summary>
+        </member>
         <member name="M:Syncfusion.PMML.AssociationRulesModelEvaluator.#ctor(Syncfusion.PMML.PMMLDocument)">
             <summary>
             Creates an Instance for AssociationRuleModelEvaluator
@@ -524,16 +594,6 @@
             Represents the evaluator of Naive Bayes model
             </summary>
         </member>
-        <member name="P:Syncfusion.PMML.NaiveBayesModelEvaluator.PrecomputedBayesInputResult">
-            <summary>
-            Gets the partial computed formula for BayesInput 
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.NaiveBayesModelEvaluator.BayesOutput">
-            <summary>
-            Gets the collection of BayesOutput values from Pmml Document
-            </summary>
-        </member>
         <member name="M:Syncfusion.PMML.NaiveBayesModelEvaluator.#ctor(Syncfusion.PMML.PMMLDocument)">
             <summary>
             Create instance for Naive Bayes Model Evaluator.
@@ -617,6 +677,16 @@
             <summary>
             Overrides PMMLEvaluator
             Clears the variable's contents
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PMML.NaiveBayesModelEvaluator.PrecomputedBayesInputResult">
+            <summary>
+            Gets the partial computed formula for BayesInput 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PMML.NaiveBayesModelEvaluator.BayesOutput">
+            <summary>
+            Gets the collection of BayesOutput values from Pmml Document
             </summary>
         </member>
         <member name="M:Syncfusion.PMML.NearestNeighborModelEvaluator.#ctor(Syncfusion.PMML.PMMLDocument)">
@@ -1017,76 +1087,6 @@
             Represents the classes, methods and properties for Syncfusion.PMML.Base library
             </summary>
         </member>
-        <member name="T:Syncfusion.PMML.PMMLEvaluator">
-            <summary>
-            Represents the base methods and properties for all Model Evaluators.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.PMMLEvaluator.PredictedResult">
-            <summary>
-            Gets / Sets the predicted result
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.PMMLEvaluator.Helper">
-            <summary>
-            Get/Set the helper
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.PMMLEvaluator.PMMLDocument">
-            <summary>
-            Get / Set the PMMLDocument.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.PMMLEvaluator.PMMLModel">
-            <summary>
-            Gets the PMMLModel
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.PMMLEvaluator.CultureInfo">
-            <summary>
-            Gets or Sets the Culture Info for PMML Evaluator to evaluate the input data.
-            </summary>
-            <remarks>
-            By default, Culture used by the current thread is set.
-            </remarks>
-        </member>
-        <member name="P:Syncfusion.PMML.PMMLEvaluator.FieldValuePair">
-            <summary>
-            Get/Set the FieldValuePair(string,object)
-            </summary>
-        </member>
-        <member name="M:Syncfusion.PMML.PMMLEvaluator.GetResult(System.Object,Syncfusion.PMML.IModelOptions)">
-            <summary>
-            Returns predicted result.
-            Evaluates the given input against the scoring procedure of the PMML model and returns the predicted result.
-            </summary>
-            <param name="obj">anonymous object</param>
-            <param name="modelOptions">model options values, always null</param>
-            <returns>Returns the predicted result</returns>
-        </member>
-        <member name="M:Syncfusion.PMML.PMMLEvaluator.GetResult(System.Collections.Generic.Dictionary{System.String,System.Object},Syncfusion.PMML.IModelOptions)">
-            <summary>
-            Returns predicted result.
-            Evaluates the given input against the scoring procedure of the PMML model and returns the predicted result.
-            </summary>
-            <param name="obj">Dictionary object</param>
-            <param name="modelOptions">model options values, always null</param>
-            <returns>Returns the predicted result</returns>
-        </member>
-        <member name="M:Syncfusion.PMML.PMMLEvaluator.GetResult(System.Dynamic.ExpandoObject,Syncfusion.PMML.IModelOptions)">
-            <summary>
-            Returns predicted result.
-            Evaluates the given input against the scoring procedure of the PMML model and returns the predicted result.
-            </summary>
-            <param name="obj">ExpandoObject data</param>
-            <param name="modelOptions">model options values, always null</param>
-            <returns>Returns the predicted result</returns>
-        </member>
-        <member name="M:Syncfusion.PMML.PMMLEvaluator.Dispose">
-            <summary>
-            Releases the memory occupied by objects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.PMMLEvaluatorFactory">
             <summary>
             Represents method to instantiate respective PMML Evaluator
@@ -1148,6 +1148,49 @@
             Represents the predicted result and its probabilities
             </summary>
         </member>
+        <member name="M:Syncfusion.PMML.PredictedResult.GetPredictedProbability(System.String)">
+            <summary>
+            Gets the predicted probability for the input category
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Syncfusion.PMML.PredictedResult.GetOutputFieldResults">
+            <summary>
+            Get the result values for all Output fields
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Syncfusion.PMML.PredictedResult.GetPredictedProbabilities">
+            <summary>
+            Get the predicted probabilities for all categories as Key value pair
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Syncfusion.PMML.PredictedResult.GetPredictedCategories">
+            <summary>
+            Method to get Predicted Field Names
+            </summary>
+            <returns>predictedFields</returns>
+        </member>
+        <member name="M:Syncfusion.PMML.PredictedResult.GetRecommendations">
+            <summary>
+            Method to get the Recommended items
+            </summary>
+            <returns>RecommendedItems</returns>
+        </member>
+        <member name="M:Syncfusion.PMML.PredictedResult.GetExclusiveRecommendations">
+            <summary>
+            Method to get the Exclusive Recommended items
+            </summary>
+            <returns>Exclusive Recommended Items</returns>
+        </member>
+        <member name="M:Syncfusion.PMML.PredictedResult.GetRuleAssociations">
+            <summary>
+            Method to get the Rules Associated Items
+            </summary>
+            <returns>Rules associated items</returns>
+        </member>
         <member name="P:Syncfusion.PMML.PredictedResult.PredictedField">
             <summary>
             Gets the Predicted field (Column) name
@@ -1187,53 +1230,10 @@
             Represents the category and its calculated probability as key value pair.
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.PredictedResult.GetPredictedProbability(System.String)">
-            <summary>
-            Gets the predicted probability for the input category
-            </summary>
-            <param name="value"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Syncfusion.PMML.PredictedResult.GetOutputFieldResults">
-            <summary>
-            Get the result values for all Output fields
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Syncfusion.PMML.PredictedResult.GetPredictedProbabilities">
-            <summary>
-            Get the predicted probabilities for all categories as Key value pair
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Syncfusion.PMML.PredictedResult.GetPredictedCategories">
-            <summary>
-            Method to get Predicted Field Names
-            </summary>
-            <returns>predictedFields</returns>
-        </member>
         <member name="P:Syncfusion.PMML.PredictedResult.PredictedRecommendations">
             <summary>
             Gets the PredictedRecommendations
             </summary>
-        </member>
-        <member name="M:Syncfusion.PMML.PredictedResult.GetRecommendations">
-            <summary>
-            Method to get the Recommended items
-            </summary>
-            <returns>RecommendedItems</returns>
-        </member>
-        <member name="M:Syncfusion.PMML.PredictedResult.GetExclusiveRecommendations">
-            <summary>
-            Method to get the Exclusive Recommended items
-            </summary>
-            <returns>Exclusive Recommended Items</returns>
-        </member>
-        <member name="M:Syncfusion.PMML.PredictedResult.GetRuleAssociations">
-            <summary>
-            Method to get the Rules Associated Items
-            </summary>
-            <returns>Rules associated items</returns>
         </member>
         <member name="T:Syncfusion.PMML.PredictedDataType">
             <summary>
@@ -1260,17 +1260,17 @@
             Represents the association rule model results
             </summary>
         </member>
-        <member name="P:Syncfusion.PMML.AssociationModelResult.Confidences">
-            <summary>
-            Gets the recommended items confidence value
-            </summary>
-        </member>
         <member name="M:Syncfusion.PMML.AssociationModelResult.GetConfidences(Syncfusion.PMML.RecommendationType)">
             <summary>
             Method to get the confidence values of recommendation
             </summary>
             <param name="recommendationType">recommendation type</param>
             <returns>confidence values of recommendation</returns>
+        </member>
+        <member name="P:Syncfusion.PMML.AssociationModelResult.Confidences">
+            <summary>
+            Gets the recommended items confidence value
+            </summary>
         </member>
         <member name="T:Syncfusion.PMML.LinearRegression">
             <summary>
@@ -1828,6 +1828,26 @@
             Represents the methods and properties for AssociationRuleModel element and its attributes
             </summary>
         </member>
+        <member name="T:Syncfusion.PMML.Model">
+            <summary>
+            Represents the properties for Model element and its attributes
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PMML.Model.ModelName">
+            <summary>
+            Gets the Model Name
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PMML.Model.MiningFieldFunction">
+            <summary>
+            Gets the MiningFieldFunction value
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PMML.Model.AlgorithmName">
+            <summary>
+            Gets the Algorithm Name
+            </summary>
+        </member>
         <member name="P:Syncfusion.PMML.AssociationRulesModel.Output">
             <summary>
             Get the Output
@@ -1953,6 +1973,11 @@
             Represents the methods and properties of Cluster element and its attributes
             </summary>
         </member>
+        <member name="M:Syncfusion.PMML.Cluster.Dispose">
+            <summary>
+            Disposes the objects
+            </summary>
+        </member>
         <member name="P:Syncfusion.PMML.Cluster.Array">
             <summary>
             Gets the "Array" value
@@ -1976,11 +2001,6 @@
         <member name="P:Syncfusion.PMML.Cluster.Size">
             <summary>
             Gets the "size" value
-            </summary>
-        </member>
-        <member name="M:Syncfusion.PMML.Cluster.Dispose">
-            <summary>
-            Disposes the objects
             </summary>
         </member>
         <member name="T:Syncfusion.PMML.KohonenMap">
@@ -2058,6 +2078,23 @@
             Represents the methods and properties of ClusteringModel element and its attributes
             </summary>
         </member>
+        <member name="M:Syncfusion.PMML.ClusteringModel.GetClusters">
+            <summary>
+            Returns list of "Cluster" value
+            </summary>
+            <returns>Cloned list of "Cluster"</returns>
+        </member>
+        <member name="M:Syncfusion.PMML.ClusteringModel.GetClusteringFields">
+            <summary>
+            Returns list of "ClusteringField" value
+            </summary>
+            <returns>Cloned list of "ClusteringField"</returns>
+        </member>
+        <member name="M:Syncfusion.PMML.ClusteringModel.Dispose">
+            <summary>
+            Disposes the objects
+            </summary>
+        </member>
         <member name="P:Syncfusion.PMML.ClusteringModel.MiningSchema">
             <summary>
             Gets the "MiningSchema" value
@@ -2088,18 +2125,6 @@
             Gets and sets the list of "Cluster" value
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.ClusteringModel.GetClusters">
-            <summary>
-            Returns list of "Cluster" value
-            </summary>
-            <returns>Cloned list of "Cluster"</returns>
-        </member>
-        <member name="M:Syncfusion.PMML.ClusteringModel.GetClusteringFields">
-            <summary>
-            Returns list of "ClusteringField" value
-            </summary>
-            <returns>Cloned list of "ClusteringField"</returns>
-        </member>
         <member name="P:Syncfusion.PMML.ClusteringModel.NumberOfClusters">
             <summary>
             Gets the "numberOfClusters" value
@@ -2115,14 +2140,14 @@
             Gets and sets the "isScorable" value
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.ClusteringModel.Dispose">
-            <summary>
-            Disposes the objects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.ComparisonMeasure">
             <summary>
             Represents the methods and properties of ComparisonMeasure element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.ComparisonMeasure.Dispose">
+            <summary>
+            Disposes the objects
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.ComparisonMeasure.ComparisonMeasureType">
@@ -2183,11 +2208,6 @@
         <member name="P:Syncfusion.PMML.ComparisonMeasure.CompareFunction">
             <summary>
             Gets and sets the "compareFunction" value
-            </summary>
-        </member>
-        <member name="M:Syncfusion.PMML.ComparisonMeasure.Dispose">
-            <summary>
-            Disposes the objects
             </summary>
         </member>
         <member name="T:Syncfusion.PMML.MissingValueWeights">
@@ -2365,11 +2385,6 @@
             Represents the methods and properties for InstanceFields element
             </summary>
         </member>
-        <member name="P:Syncfusion.PMML.InstanceFields.InstanceField">
-            <summary>
-            Gets and sets the list of "InstanceField" value
-            </summary>
-        </member>
         <member name="M:Syncfusion.PMML.InstanceFields.GetInstanceFields">
             <summary>
             Returns list of "InstanceField" value
@@ -2379,6 +2394,11 @@
         <member name="M:Syncfusion.PMML.InstanceFields.Dispose">
             <summary>
             Disposes the objects
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PMML.InstanceFields.InstanceField">
+            <summary>
+            Gets and sets the list of "InstanceField" value
             </summary>
         </member>
         <member name="T:Syncfusion.PMML.InstanceField">
@@ -2401,11 +2421,6 @@
             Represents the methods and properties for KNNInputs element
             </summary>
         </member>
-        <member name="P:Syncfusion.PMML.KNNInputs.KNNInput">
-            <summary>
-            Gets and sets the list of "m_KNNInput" value
-            </summary>
-        </member>
         <member name="M:Syncfusion.PMML.KNNInputs.GetKNNInputs">
             <summary>
             Returns list of "KNNInput" value
@@ -2415,6 +2430,11 @@
         <member name="M:Syncfusion.PMML.KNNInputs.Dispose">
             <summary>
             Disposes the objects
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PMML.KNNInputs.KNNInput">
+            <summary>
+            Gets and sets the list of "m_KNNInput" value
             </summary>
         </member>
         <member name="T:Syncfusion.PMML.KNNInput">
@@ -2440,6 +2460,11 @@
         <member name="T:Syncfusion.PMML.NearestNeighborModel">
             <summary>
             Represents the methods and properties for NearestNeighborModel element
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.NearestNeighborModel.Dispose">
+            <summary>
+            Disposes the objects
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.NearestNeighborModel.MiningSchema">
@@ -2507,14 +2532,14 @@
             Gets and sets the "isScorable" value
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.NearestNeighborModel.Dispose">
-            <summary>
-            Disposes the objects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.TrainingInstances">
             <summary>
             Represents the methods and properties for TrainingInstances elements and attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.TrainingInstances.Dispose">
+            <summary>
+            Disposes the objects
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.TrainingInstances.InstanceFields">
@@ -2542,11 +2567,6 @@
             Gets the "fieldCount" value
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.TrainingInstances.Dispose">
-            <summary>
-            Disposes the objects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.Connection">
             <summary>
             Represents the methods and properties for Connection element and its attributes
@@ -2567,14 +2587,14 @@
             Represents the methods and properties for NeuralInput element and its attributes
             </summary>
         </member>
-        <member name="P:Syncfusion.PMML.NeuralInput.DerivedField">
-            <summary>
-            Gets the "DerivedField" value
-            </summary>
-        </member>
         <member name="M:Syncfusion.PMML.NeuralInput.Dispose">
             <summary>
             Disposes the objects
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PMML.NeuralInput.DerivedField">
+            <summary>
+            Gets the "DerivedField" value
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.NeuralInput.Id">
@@ -2585,11 +2605,6 @@
         <member name="T:Syncfusion.PMML.NeuralInputs">
             <summary>
             Represents the methods and properties for NeuralInputs element and its attributes
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.NeuralInputs.NeuralInput">
-            <summary>
-            Gets and sets the list of "NeuralInput" value
             </summary>
         </member>
         <member name="M:Syncfusion.PMML.NeuralInputs.GetNeuralInput">
@@ -2603,6 +2618,11 @@
             Disposes the objects
             </summary>
         </member>
+        <member name="P:Syncfusion.PMML.NeuralInputs.NeuralInput">
+            <summary>
+            Gets and sets the list of "NeuralInput" value
+            </summary>
+        </member>
         <member name="P:Syncfusion.PMML.NeuralInputs.NumberOfInputs">
             <summary>
             Gets the "numberOfInputs" value
@@ -2611,11 +2631,6 @@
         <member name="T:Syncfusion.PMML.NeuralLayer">
             <summary>
             Represents the methods and properties for NeuralLayer element and its attributes
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.NeuralLayer.Neuron">
-            <summary>
-            Gets and sets the list of "Neuron" value
             </summary>
         </member>
         <member name="M:Syncfusion.PMML.NeuralLayer.GetNeuron">
@@ -2627,6 +2642,11 @@
         <member name="M:Syncfusion.PMML.NeuralLayer.Dispose">
             <summary>
             Disposes the objects
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PMML.NeuralLayer.Neuron">
+            <summary>
+            Gets and sets the list of "Neuron" value
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.NeuralLayer.Threshold">
@@ -2664,6 +2684,17 @@
             Represents the methods and properties for NeuralNetworkModel element and its attributes
             </summary>
         </member>
+        <member name="M:Syncfusion.PMML.NeuralNetworkModel.GetNeuralLayer">
+            <summary>
+            Returns list of "NeuralLayer" value
+            </summary>
+            <returns>Cloned list of "NeuralLayer"</returns>
+        </member>
+        <member name="M:Syncfusion.PMML.NeuralNetworkModel.Dispose">
+            <summary>
+            Disposes the objects
+            </summary>
+        </member>
         <member name="P:Syncfusion.PMML.NeuralNetworkModel.Extension">
             <summary>
             Gets and sets the "Extension" elements value
@@ -2694,20 +2725,9 @@
             Gets and sets the list of "NeuralLayer" value
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.NeuralNetworkModel.GetNeuralLayer">
-            <summary>
-            Returns list of "NeuralLayer" value
-            </summary>
-            <returns>Cloned list of "NeuralLayer"</returns>
-        </member>
         <member name="P:Syncfusion.PMML.NeuralNetworkModel.NeuralOutputs">
             <summary>
             Gets the "NeuralOutputs" value
-            </summary>
-        </member>
-        <member name="M:Syncfusion.PMML.NeuralNetworkModel.Dispose">
-            <summary>
-            Disposes the objects
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.NeuralNetworkModel.NormalizationMethod">
@@ -2750,14 +2770,14 @@
             Represents the methods and properties for NeuralOutput element and its attributes
             </summary>
         </member>
-        <member name="P:Syncfusion.PMML.NeuralOutput.DerivedField">
-            <summary>
-            Gets the "DerivedField" value
-            </summary>
-        </member>
         <member name="M:Syncfusion.PMML.NeuralOutput.Dispose">
             <summary>
             Disposes the objects
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PMML.NeuralOutput.DerivedField">
+            <summary>
+            Gets the "DerivedField" value
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.NeuralOutput.OutputNeuron">
@@ -2768,11 +2788,6 @@
         <member name="T:Syncfusion.PMML.NeuralOutputs">
             <summary>
             Represents the methods and properties for NeuralOutputs element collection
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.NeuralOutputs.NeuralOutput">
-            <summary>
-            Gets and sets the list of "NeuralOutput" value
             </summary>
         </member>
         <member name="M:Syncfusion.PMML.NeuralOutputs.GetNeuralOutput">
@@ -2786,6 +2801,11 @@
             Disposes the objects
             </summary>
         </member>
+        <member name="P:Syncfusion.PMML.NeuralOutputs.NeuralOutput">
+            <summary>
+            Gets and sets the list of "NeuralOutput" value
+            </summary>
+        </member>
         <member name="P:Syncfusion.PMML.NeuralOutputs.NumberOfOutputs">
             <summary>
             Gets the "numberOfOutputs" value
@@ -2794,11 +2814,6 @@
         <member name="T:Syncfusion.PMML.Neuron">
             <summary>
             Represents the methods and properties for Neuron element and its attributes
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.Neuron.Connection">
-            <summary>
-            Gets and sets the list of "Connection" value
             </summary>
         </member>
         <member name="M:Syncfusion.PMML.Neuron.GetConnection">
@@ -2810,6 +2825,11 @@
         <member name="M:Syncfusion.PMML.Neuron.Dispose">
             <summary>
             Disposes the objects
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PMML.Neuron.Connection">
+            <summary>
+            Gets and sets the list of "Connection" value
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.Neuron.Id">
@@ -2835,6 +2855,11 @@
         <member name="T:Syncfusion.PMML.RuleSet">
             <summary>
             Represents the properties and methods for RuleSet element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.RuleSet.Dispose">
+            <summary>
+             Dispose the objects
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.RuleSet.RecordCount">
@@ -2867,11 +2892,6 @@
             Gets the simple rule
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.RuleSet.Dispose">
-            <summary>
-             Dispose the objects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.RuleSelectionMethod">
             <summary>
             Represents the properties for RuleSelectionMethod element and its attributes
@@ -2885,6 +2905,11 @@
         <member name="T:Syncfusion.PMML.RuleSetModel">
             <summary>
             Represents the methods and properties for RuleSetModel element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.RuleSetModel.Dispose">
+            <summary>
+            Dispose the objects
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.RuleSetModel.IsScorable">
@@ -2937,14 +2962,24 @@
             Gets the Rule set element
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.RuleSetModel.Dispose">
-            <summary>
-            Dispose the objects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.SimpleRule">
             <summary>
             Represents the methods and properties for SimpleRule element and its attributes
+            </summary>
+        </member>
+        <member name="T:Syncfusion.PMML.Predicate">
+            <summary>
+            Represents the properties for Predicate element and its attributes
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PMML.Predicate.Field">
+            <summary>
+            Gets the field values
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.SimpleRule.Dispose">
+            <summary>
+             Dispose the objects
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.SimpleRule.ID">
@@ -3007,19 +3042,9 @@
             Gets and sets the extension
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.SimpleRule.Dispose">
-            <summary>
-             Dispose the objects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.AntecedentSequence">
             <summary>
             Represents the methods and properties for AntecedentSequence element and its attributes
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.AntecedentSequence.SequenceReference">
-            <summary>
-            Gets and Sets the sequence reference class values
             </summary>
         </member>
         <member name="M:Syncfusion.PMML.AntecedentSequence.Dispose">
@@ -3027,14 +3052,14 @@
             Dispose the opjects
             </summary>
         </member>
+        <member name="P:Syncfusion.PMML.AntecedentSequence.SequenceReference">
+            <summary>
+            Gets and Sets the sequence reference class values
+            </summary>
+        </member>
         <member name="T:Syncfusion.PMML.ConsequentSequence">
             <summary>
             Represents the methods and properties for ConsequentSequence element and its attributes
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.ConsequentSequence.SequenceReference">
-            <summary>
-            Gets and Sets the sequence reference class values
             </summary>
         </member>
         <member name="M:Syncfusion.PMML.ConsequentSequence.Dispose">
@@ -3042,9 +3067,19 @@
             Dispose the opjects
             </summary>
         </member>
+        <member name="P:Syncfusion.PMML.ConsequentSequence.SequenceReference">
+            <summary>
+            Gets and Sets the sequence reference class values
+            </summary>
+        </member>
         <member name="T:Syncfusion.PMML.Constraints">
             <summary>
             Represents the methods and properties for Constraints element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.Constraints.Dispose">
+            <summary>
+            Dispose the opjects
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.Constraints.MinimumSupport">
@@ -3127,14 +3162,14 @@
             Gets and Sets the extension class values
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.Constraints.Dispose">
-            <summary>
-            Dispose the opjects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.Delimiter">
             <summary>
             Represents the methods and properties for Delimiter element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.Delimiter.Dispose">
+            <summary>
+            Dispose the opjects
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.Delimiter.Delimiters">
@@ -3152,14 +3187,14 @@
             Gets and Sets the extension class values
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.Delimiter.Dispose">
-            <summary>
-            Dispose the opjects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.Sequence">
             <summary>
             Represents the methods and properties for Sequence element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.Sequence.Dispose">
+            <summary>
+            Dispose the opjects
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.Sequence.Occurrence">
@@ -3202,14 +3237,14 @@
             Gets and Sets the extension class values
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.Sequence.Dispose">
-            <summary>
-            Dispose the opjects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.SequenceModel">
             <summary>
             Represents the methods and properties for SequenceModel element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.SequenceModel.Dispose">
+            <summary>
+            Disposes the objects
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.SequenceModel.IsScorable">
@@ -3293,14 +3328,14 @@
             Gets the mining schema values
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.SequenceModel.Dispose">
-            <summary>
-            Disposes the objects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.SequenceReference">
             <summary>
             Represents the methods and properties for SequenceReference element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.SequenceReference.Dispose">
+            <summary>
+            Dispose the opjects
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.SequenceReference.SeqId">
@@ -3313,14 +3348,14 @@
             Gets and Sets the extension class values
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.SequenceReference.Dispose">
-            <summary>
-            Dispose the opjects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.SequenceRule">
             <summary>
             Represents the methods and properties for SequenceRule element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.SequenceRule.Dispose">
+            <summary>
+            Dispose the opjects
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.SequenceRule.Id">
@@ -3378,14 +3413,14 @@
             Gets and Sets the extension class values
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.SequenceRule.Dispose">
-            <summary>
-            Dispose the opjects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.SetPredicate">
             <summary>
             Represents the methods and properties for SetPredicate element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.SetPredicate.Dispose">
+            <summary>
+            Dispose the opjects
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.SetPredicate.Id">
@@ -3413,14 +3448,14 @@
             Gets and Sets the extension class values
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.SetPredicate.Dispose">
-            <summary>
-            Dispose the opjects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.SetReference">
             <summary>
             Represents the methods and properties for SetReference element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.SetReference.Dispose">
+            <summary>
+            Dispose the opjects
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.SetReference.SetId">
@@ -3433,14 +3468,14 @@
             Gets and Sets the extension class values
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.SetReference.Dispose">
-            <summary>
-            Dispose the opjects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.Time">
             <summary>
             Represents the methods and properties for Time element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.Time.Dispose">
+            <summary>
+            Dispose the opjects
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.Time.Minimum">
@@ -3466,11 +3501,6 @@
         <member name="P:Syncfusion.PMML.Time.Extension">
             <summary>
             Gets and Sets the extension class values
-            </summary>
-        </member>
-        <member name="M:Syncfusion.PMML.Time.Dispose">
-            <summary>
-            Dispose the opjects
             </summary>
         </member>
         <member name="T:Syncfusion.PMML.XNode">
@@ -4338,6 +4368,11 @@
             Represents the methods and properties for Extension element and its attributes
             </summary>
         </member>
+        <member name="M:Syncfusion.PMML.Extension.Dispose">
+            <summary>
+            Disposes the objects
+            </summary>
+        </member>
         <member name="P:Syncfusion.PMML.Extension.BayesInput">
             <summary>
             Gets and sets the "BayesInput" elements value
@@ -4388,11 +4423,6 @@
             Gets and sets the "extender" attibute value
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.Extension.Dispose">
-            <summary>
-            Disposes the objects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.Header">
             <summary>
             Represents the properties for Header element and its attributes
@@ -4428,31 +4458,36 @@
             Represents the properties and methods for CovariateList element and its attributes
             </summary>
         </member>
-        <member name="P:Syncfusion.PMML.CovariateList.Predictors">
-            <summary>
-            Gets and sets list of "Predictor" value
-            </summary>
-        </member>
         <member name="M:Syncfusion.PMML.CovariateList.GetPredictors">
             <summary>
             It returns list of Predictors
             </summary>
             <returns>predictors</returns>
         </member>
-        <member name="P:Syncfusion.PMML.CovariateList.Extension">
-            <summary>
-            Gets and sets the extension
-            </summary>
-        </member>
         <member name="M:Syncfusion.PMML.CovariateList.Dispose">
             <summary>
             Disposes the objects
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PMML.CovariateList.Predictors">
+            <summary>
+            Gets and sets list of "Predictor" value
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PMML.CovariateList.Extension">
+            <summary>
+            Gets and sets the extension
             </summary>
         </member>
         <member name="T:Syncfusion.PMML.Predictor">
             <summary>
             Represents the properties for Predictor element and its attributes
             </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.Predictor.Dispose">
+             <summary>
+            Disposes the objects
+             </summary>
         </member>
         <member name="P:Syncfusion.PMML.Predictor.Name">
             <summary>
@@ -4479,14 +4514,14 @@
             Gets matrix values
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.Predictor.Dispose">
-             <summary>
-            Disposes the objects
-             </summary>
-        </member>
         <member name="T:Syncfusion.PMML.Categories">
             <summary>
             Represents the properties of categories
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.Categories.Dispose">
+            <summary>
+            Disposes the Garbage values
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.Categories.Extension">
@@ -4499,14 +4534,14 @@
             Gets the category
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.Categories.Dispose">
-            <summary>
-            Disposes the Garbage values
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.Category">
             <summary>
             Represents the properties of category
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.Category.Dispose">
+            <summary>
+            Disposes the objects
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.Category.Extension">
@@ -4519,24 +4554,9 @@
             Gets values for category
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.Category.Dispose">
-            <summary>
-            Disposes the objects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.FactorElements">
             <summary>
             Represents the properties and methods for FactorElements and its attributes
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.FactorElements.Extension">
-            <summary>
-            Gets and sets the extension
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.FactorElements.Predictors">
-            <summary>
-            Gets and sets the predictors
             </summary>
         </member>
         <member name="M:Syncfusion.PMML.FactorElements.GetPredictors">
@@ -4550,9 +4570,30 @@
             Disposes the objects
             </summary>
         </member>
+        <member name="P:Syncfusion.PMML.FactorElements.Extension">
+            <summary>
+            Gets and sets the extension
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PMML.FactorElements.Predictors">
+            <summary>
+            Gets and sets the predictors
+            </summary>
+        </member>
         <member name="T:Syncfusion.PMML.GeneralRegressionModel">
             <summary>
             Represents the properties and methods for GeneralRegressionModel element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.GeneralRegressionModel.GetCoefficients">
+            <summary>
+            Its returns the coefficients
+            </summary>
+            <returns>Coefficients</returns>
+        </member>
+        <member name="M:Syncfusion.PMML.GeneralRegressionModel.Dispose">
+            <summary>
+            Disposes the objects
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.GeneralRegressionModel.MiningSchema">
@@ -4609,12 +4650,6 @@
             <summary>
             Gets and sets the coefficients
             </summary>
-        </member>
-        <member name="M:Syncfusion.PMML.GeneralRegressionModel.GetCoefficients">
-            <summary>
-            Its returns the coefficients
-            </summary>
-            <returns>Coefficients</returns>
         </member>
         <member name="P:Syncfusion.PMML.GeneralRegressionModel.BaseCumHazardTables">
             <summary>
@@ -4681,11 +4716,6 @@
             Gets the TargetVariableName 
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.GeneralRegressionModel.Dispose">
-            <summary>
-            Disposes the objects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.ClusteringModelQuality">
             <summary>
              Represents the properties for ClusteringModelQuality element and its attributes
@@ -4711,6 +4741,11 @@
             Represents the properties for ConfusionMatrix element and its attributes
             </summary>
         </member>
+        <member name="M:Syncfusion.PMML.ConfusionMatrix.Dispose">
+            <summary>
+            Disposes the objects
+            </summary>
+        </member>
         <member name="P:Syncfusion.PMML.ConfusionMatrix.ClassLabels">
             <summary>
             Gets and sets the class labels
@@ -4726,19 +4761,9 @@
             Gets and sets the matrix values
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.ConfusionMatrix.Dispose">
-            <summary>
-            Disposes the objects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.ClassLabels">
             <summary>
             Represents the properties for ClassLabels element and its attributes
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.ClassLabels.Extension">
-            <summary>
-            Gets and sets the extension
             </summary>
         </member>
         <member name="M:Syncfusion.PMML.ClassLabels.Dispose">
@@ -4746,9 +4771,19 @@
             Disposes the objects
             </summary>
         </member>
+        <member name="P:Syncfusion.PMML.ClassLabels.Extension">
+            <summary>
+            Gets and sets the extension
+            </summary>
+        </member>
         <member name="T:Syncfusion.PMML.Correlations">
             <summary>
             Represents the properties and methods for Correlations element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.Correlations.Dispose">
+            <summary>
+            Disposes the objects
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.Correlations.Extension">
@@ -4771,24 +4806,9 @@
             Gets and sets the correlation methods
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.Correlations.Dispose">
-            <summary>
-            Disposes the objects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.CorrelationFields">
             <summary>
             Represents the properties for CorrelationFields element and its attributes
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.CorrelationFields.Extension">
-            <summary>
-            Gets and sets the extension
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.CorrelationFields.StringArray">
-            <summary>
-            Gets and sets the string array values
             </summary>
         </member>
         <member name="M:Syncfusion.PMML.CorrelationFields.GetStringArray">
@@ -4802,14 +4822,19 @@
             Disposes the objects
             </summary>
         </member>
+        <member name="P:Syncfusion.PMML.CorrelationFields.Extension">
+            <summary>
+            Gets and sets the extension
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PMML.CorrelationFields.StringArray">
+            <summary>
+            Gets and sets the string array values
+            </summary>
+        </member>
         <member name="T:Syncfusion.PMML.CorrelationValues">
             <summary>
             Represents the properties for CorrelationValues element and its attributes
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.CorrelationValues.Extension">
-            <summary>
-            Gets and sets the extension
             </summary>
         </member>
         <member name="M:Syncfusion.PMML.CorrelationValues.Dispose">
@@ -4817,14 +4842,14 @@
             Disposes the objects
             </summary>
         </member>
+        <member name="P:Syncfusion.PMML.CorrelationValues.Extension">
+            <summary>
+            Gets and sets the extension
+            </summary>
+        </member>
         <member name="T:Syncfusion.PMML.CorrelationMethods">
             <summary>
             Represents the properties for CorrelationMethods element and its attributes
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.CorrelationMethods.Extension">
-            <summary>
-            Gets and sets the extension
             </summary>
         </member>
         <member name="M:Syncfusion.PMML.CorrelationMethods.Dispose">
@@ -4832,10 +4857,20 @@
             Disposes the objects
             </summary>
         </member>
+        <member name="P:Syncfusion.PMML.CorrelationMethods.Extension">
+            <summary>
+            Gets and sets the extension
+            </summary>
+        </member>
         <member name="T:Syncfusion.PMML.LiftData">
             <summary>
             Represents the methods and properties for LiftData element and its attributes
             </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.LiftData.Dispose">
+             <summary>
+            Disposes  the objects
+             </summary>
         </member>
         <member name="P:Syncfusion.PMML.LiftData.ModelLiftGraph">
             <summary>
@@ -4872,14 +4907,14 @@
             Gets and sets the ranking quality
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.LiftData.Dispose">
-             <summary>
-            Disposes  the objects
-             </summary>
-        </member>
         <member name="T:Syncfusion.PMML.ModelLiftGraph">
             <summary>
             Represents the properties for ModelLiftGraph element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.ModelLiftGraph.Dispose">
+            <summary>
+            Disposes the objects
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.ModelLiftGraph.Extension">
@@ -4892,14 +4927,14 @@
             Gets and sets the lift graph value
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.ModelLiftGraph.Dispose">
-            <summary>
-            Disposes the objects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.OptimumLiftGraph">
             <summary>
              Represents the properties for OptimumLiftgraph element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.OptimumLiftGraph.Dispose">
+            <summary>
+            Disposes the objects
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.OptimumLiftGraph.Extension">
@@ -4912,14 +4947,14 @@
             Gets and sets the lift graph value
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.OptimumLiftGraph.Dispose">
-            <summary>
-            Disposes the objects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.RandomLiftGraph">
             <summary>
              Represents the properties for RandomLiftGraph element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.RandomLiftGraph.Dispose">
+            <summary>
+            Disposes the objects
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.RandomLiftGraph.Extension">
@@ -4932,14 +4967,14 @@
             Gets and sets the lift graph value
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.RandomLiftGraph.Dispose">
-            <summary>
-            Disposes the objects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.LiftGraph">
             <summary>
              Represents the methods and properties for LiftGraph element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.LiftGraph.Dispose">
+            <summary>
+            Disposes the objects
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.LiftGraph.XCoordinates">
@@ -4967,19 +5002,9 @@
             Gets and sets the boundary value means
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.LiftGraph.Dispose">
-            <summary>
-            Disposes the objects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.XCoordinates">
             <summary>
              Represents the properties for XCoordinates element and its attributes
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.XCoordinates.Extension">
-            <summary>
-            Gets and sets the extension
             </summary>
         </member>
         <member name="M:Syncfusion.PMML.XCoordinates.Dispose">
@@ -4987,14 +5012,14 @@
             Disposes the objects
             </summary>
         </member>
+        <member name="P:Syncfusion.PMML.XCoordinates.Extension">
+            <summary>
+            Gets and sets the extension
+            </summary>
+        </member>
         <member name="T:Syncfusion.PMML.YCoordinates">
             <summary>
              Represents the properties for YCoordinates element and its attributes
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.YCoordinates.Extension">
-            <summary>
-            Gets and sets the extension
             </summary>
         </member>
         <member name="M:Syncfusion.PMML.YCoordinates.Dispose">
@@ -5002,14 +5027,14 @@
             Disposes the objects
             </summary>
         </member>
+        <member name="P:Syncfusion.PMML.YCoordinates.Extension">
+            <summary>
+            Gets and sets the extension
+            </summary>
+        </member>
         <member name="T:Syncfusion.PMML.BoundaryValues">
             <summary>
              Represents the properties for BoundaryValues element and its attributes
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.BoundaryValues.Extension">
-            <summary>
-            Gets and sets the extension
             </summary>
         </member>
         <member name="M:Syncfusion.PMML.BoundaryValues.Dispose">
@@ -5017,14 +5042,14 @@
             Disposes the objects
             </summary>
         </member>
+        <member name="P:Syncfusion.PMML.BoundaryValues.Extension">
+            <summary>
+            Gets and sets the extension
+            </summary>
+        </member>
         <member name="T:Syncfusion.PMML.BoundaryValueMeans">
             <summary>
              Represents the properties for BoundaryValueMeans element and its attributes
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.BoundaryValueMeans.Extension">
-            <summary>
-            Gets and sets the extension
             </summary>
         </member>
         <member name="M:Syncfusion.PMML.BoundaryValueMeans.Dispose">
@@ -5032,10 +5057,20 @@
             Disposes the objects
             </summary>
         </member>
+        <member name="P:Syncfusion.PMML.BoundaryValueMeans.Extension">
+            <summary>
+            Gets and sets the extension
+            </summary>
+        </member>
         <member name="T:Syncfusion.PMML.Matrix">
             <summary>
              Represents the properties for Matrix element and its attributes
             </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.Matrix.Dispose">
+             <summary>
+            Disposes the objects
+             </summary>
         </member>
         <member name="P:Syncfusion.PMML.Matrix.MatCell">
             <summary>
@@ -5067,11 +5102,6 @@
             Gets and sets the kind
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.Matrix.Dispose">
-             <summary>
-            Disposes the objects
-             </summary>
-        </member>
         <member name="T:Syncfusion.PMML.MatCell">
             <summary>
               Represents the properties for MatCell element and its attributes
@@ -5092,6 +5122,23 @@
             Represents the properties and methods for ModelExaplanation element and its attributes
             </summary>
         </member>
+        <member name="M:Syncfusion.PMML.ModelExplanation.GetPredictiveModelQuality">
+            <summary>
+            It returns List of predictive  Model Quality
+            </summary>
+            <returns>Predictive model quality</returns>
+        </member>
+        <member name="M:Syncfusion.PMML.ModelExplanation.GetClusteringModelQuality">
+            <summary>
+            It returns List of Clustering Model Quality
+            </summary>
+            <returns> Clustering model quality</returns>
+        </member>
+        <member name="M:Syncfusion.PMML.ModelExplanation.Dispose">
+             <summary>
+            Disposes the objects
+             </summary>
+        </member>
         <member name="P:Syncfusion.PMML.ModelExplanation.Extension">
             <summary>
             Gets and sets the extension
@@ -5102,36 +5149,24 @@
             Gets and sets the predictive model quality
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.ModelExplanation.GetPredictiveModelQuality">
-            <summary>
-            It returns List of predictive  Model Quality
-            </summary>
-            <returns>Predictive model quality</returns>
-        </member>
         <member name="P:Syncfusion.PMML.ModelExplanation.ClusteringModelQuality">
             <summary>
             Gets and sets the clustering model quality
             </summary>
-        </member>
-        <member name="M:Syncfusion.PMML.ModelExplanation.GetClusteringModelQuality">
-            <summary>
-            It returns List of Clustering Model Quality
-            </summary>
-            <returns> Clustering model quality</returns>
         </member>
         <member name="P:Syncfusion.PMML.ModelExplanation.Correlations">
             <summary>
             Gets and sets the correlations
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.ModelExplanation.Dispose">
-             <summary>
-            Disposes the objects
-             </summary>
-        </member>
         <member name="T:Syncfusion.PMML.PredictiveModelQuality">
             <summary>
             Represents the methods and properties for PredictiveModelQuality element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.PredictiveModelQuality.Dispose">
+            <summary>
+            Disposes the objects
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.PredictiveModelQuality.MeanError">
@@ -5234,14 +5269,14 @@
             Gets and sets the roc
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.PredictiveModelQuality.Dispose">
-            <summary>
-            Disposes the objects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.ROC">
             <summary>
             Represents the methods and properties for ROC element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.ROC.Dispose">
+            <summary>
+            Disposes the objects
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.ROC.Extension">
@@ -5274,14 +5309,14 @@
             Gets and sets the negative target field display value
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.ROC.Dispose">
-            <summary>
-            Disposes the objects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.ROCGraph">
             <summary>
             Represents the properties for ROCGraph element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.ROCGraph.Dispose">
+            <summary>
+            Disposes the objects
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.ROCGraph.XCoordinates">
@@ -5304,15 +5339,15 @@
             Gets and sets the BoundaryValues
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.ROCGraph.Dispose">
-            <summary>
-            Disposes the objects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.ModelVerification">
              <summary>
             Represents the methods and properties for ModelVerification element and its attributes
              </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.ModelVerification.Dispose">
+            <summary>
+            Disposes the objects
+            </summary>
         </member>
         <member name="P:Syncfusion.PMML.ModelVerification.RecordCount">
             <summary>
@@ -5339,15 +5374,15 @@
             Gets and sets  the inline table
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.ModelVerification.Dispose">
-            <summary>
-            Disposes the objects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.VerificationFields">
             <summary>
             Represents the properties of verfication fields
             </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.VerificationFields.Dispose">
+             <summary>
+            Disposes the objects
+             </summary>
         </member>
         <member name="P:Syncfusion.PMML.VerificationFields.Extension">
             <summary>
@@ -5359,14 +5394,14 @@
             Gets and sets the verfication field
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.VerificationFields.Dispose">
-             <summary>
-            Disposes the objects
-             </summary>
-        </member>
         <member name="T:Syncfusion.PMML.VerificationField">
             <summary>
             Represents the properties of verification field
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.VerificationField.Dispose">
+            <summary>
+            Disposes the objects
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.VerificationField.Extension">
@@ -5394,14 +5429,14 @@
             Gets and sets the zero threshold
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.VerificationField.Dispose">
-            <summary>
-            Disposes the objects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.Parameter">
             <summary>
             Represents the properties for Paramter element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.Parameter.Dispose">
+            <summary>
+            Disposes the objects
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.Parameter.Extension">
@@ -5424,19 +5459,9 @@
             Gets the parameter reference point
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.Parameter.Dispose">
-            <summary>
-            Disposes the objects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.ParameterList">
             <summary>
             Represents the properties and methods for ParameterList element collection
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.ParameterList.Parameters">
-            <summary>
-            Gets and sets the parameters
             </summary>
         </member>
         <member name="M:Syncfusion.PMML.ParameterList.GetParameters">
@@ -5445,24 +5470,24 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="P:Syncfusion.PMML.ParameterList.Extension">
-            <summary>
-            Gets and sets the extension
-            </summary>
-        </member>
         <member name="M:Syncfusion.PMML.ParameterList.Dispose">
             <summary>
             Disposes the objects
             </summary>
         </member>
+        <member name="P:Syncfusion.PMML.ParameterList.Parameters">
+            <summary>
+            Gets and sets the parameters
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PMML.ParameterList.Extension">
+            <summary>
+            Gets and sets the extension
+            </summary>
+        </member>
         <member name="T:Syncfusion.PMML.ParamMatrix">
             <summary>
             Represents the properties and methods for ParamMatrix element and its attributes
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.ParamMatrix.ParamMatrixCellList">
-            <summary>
-            Gets and sets the parammatrix cell list
             </summary>
         </member>
         <member name="M:Syncfusion.PMML.ParamMatrix.GetParamMatrixCellList">
@@ -5471,19 +5496,29 @@
             </summary>
             <returns>ParamMatrixCellList</returns>
         </member>
-        <member name="P:Syncfusion.PMML.ParamMatrix.Extension">
-            <summary>
-            Gets and sets the extension
-            </summary>
-        </member>
         <member name="M:Syncfusion.PMML.ParamMatrix.Dispose">
             <summary>
             Disposes the objects
             </summary>
         </member>
+        <member name="P:Syncfusion.PMML.ParamMatrix.ParamMatrixCellList">
+            <summary>
+            Gets and sets the parammatrix cell list
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PMML.ParamMatrix.Extension">
+            <summary>
+            Gets and sets the extension
+            </summary>
+        </member>
         <member name="T:Syncfusion.PMML.ParamMatrixCell">
             <summary>
             Represents the properties for ParamatrixCell element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.ParamMatrixCell.Dispose">
+            <summary>
+            Disposes the objects
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.ParamMatrixCell.ParameterName">
@@ -5511,14 +5546,14 @@
             Gets and sets the extension
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.ParamMatrixCell.Dispose">
-            <summary>
-            Disposes the objects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.PredictorToParameterCell">
             <summary>
             Represents the properties for PredictorToParameterCell element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.PredictorToParameterCell.Dispose">
+            <summary>
+            Disposes the objects
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.PredictorToParameterCell.Value">
@@ -5546,19 +5581,9 @@
             Gets and sets the extension
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.PredictorToParameterCell.Dispose">
-            <summary>
-            Disposes the objects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.PredictorToParameterMatrix">
             <summary>
             Represents the properties and methods for PredictorToParameterMatrix element and its attributes
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.PredictorToParameterMatrix.PredictorToParameterCells">
-            <summary>
-            Gets and sets the predictor to parameter cells
             </summary>
         </member>
         <member name="M:Syncfusion.PMML.PredictorToParameterMatrix.GetPredictorToParameterCells">
@@ -5567,19 +5592,29 @@
             </summary>
             <returns> Predictor To ParameterCells</returns>
         </member>
-        <member name="P:Syncfusion.PMML.PredictorToParameterMatrix.Extension">
-            <summary>
-            Gets and sets the extension
-            </summary>
-        </member>
         <member name="M:Syncfusion.PMML.PredictorToParameterMatrix.Dispose">
             <summary>
             Disposes the objects
             </summary>
         </member>
+        <member name="P:Syncfusion.PMML.PredictorToParameterMatrix.PredictorToParameterCells">
+            <summary>
+            Gets and sets the predictor to parameter cells
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PMML.PredictorToParameterMatrix.Extension">
+            <summary>
+            Gets and sets the extension
+            </summary>
+        </member>
         <member name="T:Syncfusion.PMML.MiningModel">
             <summary>
             Represents the methods and properties for MiningModel element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.MiningModel.Dispose">
+            <summary>
+            Disposes the objects
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.MiningModel.Extension">
@@ -5612,14 +5647,26 @@
             Gets the "Targets" value
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.MiningModel.Dispose">
-            <summary>
-            Disposes the objects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.Segment">
             <summary>
             Represents the methods and properties for Segment element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.Segment.GetSimplePredicates">
+            <summary>
+            Returns the List of SimplePredicate objects
+            </summary>
+            <returns>List of Clone objects</returns>
+        </member>
+        <member name="M:Syncfusion.PMML.Segment.GetSimpleSetPredicates">
+            <summary>
+            Returns the list of SimpleSet Predicates' objects
+            </summary>
+            <returns>List of Clone objects</returns>
+        </member>
+        <member name="M:Syncfusion.PMML.Segment.Dispose">
+            <summary>
+            Disposes the objects
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.Segment.CompoundPredicate">
@@ -5632,22 +5679,10 @@
              Gets and Sets the values of class SimplePredicates
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.Segment.GetSimplePredicates">
-            <summary>
-            Returns the List of SimplePredicate objects
-            </summary>
-            <returns>List of Clone objects</returns>
-        </member>
         <member name="P:Syncfusion.PMML.Segment.SimpleSetPredicates">
             <summary>
              Gets and Sets the values of class SimpleSetPredicates
             </summary>
-        </member>
-        <member name="M:Syncfusion.PMML.Segment.GetSimpleSetPredicates">
-            <summary>
-            Returns the list of SimpleSet Predicates' objects
-            </summary>
-            <returns>List of Clone objects</returns>
         </member>
         <member name="P:Syncfusion.PMML.Segment.True">
             <summary>
@@ -5724,24 +5759,9 @@
             Gets and sets the "SupportVectorMachineModel" elements value
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.Segment.Dispose">
-            <summary>
-            Disposes the objects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.Segmentation">
             <summary>
             Represents the methods and properties for Segmentation element and its attributes
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.Segmentation.MultipleModelMethod">
-            <summary>
-            Gets and sets the "multipleModelMethod" value
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.Segmentation.Segment">
-            <summary>
-            Gets and sets the list of "Segment" value
             </summary>
         </member>
         <member name="M:Syncfusion.PMML.Segmentation.GetSegment">
@@ -5755,29 +5775,30 @@
             Disposes the objects
             </summary>
         </member>
-        <member name="T:Syncfusion.PMML.Model">
+        <member name="P:Syncfusion.PMML.Segmentation.MultipleModelMethod">
             <summary>
-            Represents the properties for Model element and its attributes
+            Gets and sets the "multipleModelMethod" value
             </summary>
         </member>
-        <member name="P:Syncfusion.PMML.Model.ModelName">
+        <member name="P:Syncfusion.PMML.Segmentation.Segment">
             <summary>
-            Gets the Model Name
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.Model.MiningFieldFunction">
-            <summary>
-            Gets the MiningFieldFunction value
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.Model.AlgorithmName">
-            <summary>
-            Gets the Algorithm Name
+            Gets and sets the list of "Segment" value
             </summary>
         </member>
         <member name="T:Syncfusion.PMML.BayesInput">
             <summary>
             Represents the methods and properties for BayesInput element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.BayesInput.GetPairCounts">
+            <summary>
+            Returns the List of PairCounts values
+            </summary>
+            <returns>List of Pair Counts</returns>
+        </member>
+        <member name="M:Syncfusion.PMML.BayesInput.Dispose">
+            <summary>
+            Disposes the Elements Value
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.BayesInput.TargetValueStats">
@@ -5790,12 +5811,6 @@
             Gets and Sets the list of "PairCounts" elements value
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.BayesInput.GetPairCounts">
-            <summary>
-            Returns the List of PairCounts values
-            </summary>
-            <returns>List of Pair Counts</returns>
-        </member>
         <member name="P:Syncfusion.PMML.BayesInput.DerivedField">
             <summary>
             Gets the "DerivedField" elements value
@@ -5806,19 +5821,9 @@
             Gets the "FieldName" attribute value
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.BayesInput.Dispose">
-            <summary>
-            Disposes the Elements Value
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.BayesInputs">
             <summary>
             Represents the methods and properties for BayesInput element collection
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.BayesInputs.Extension">
-            <summary>
-            Gets and Sets the list of "Extension" elements value
             </summary>
         </member>
         <member name="M:Syncfusion.PMML.BayesInputs.GetExtension">
@@ -5826,11 +5831,6 @@
             Returns the List of Extension values
             </summary>
             <returns>List of Extension values</returns>
-        </member>
-        <member name="P:Syncfusion.PMML.BayesInputs.BayesInput">
-            <summary>
-            Gets and Sets the list of "BayesInput" elements value
-            </summary>
         </member>
         <member name="M:Syncfusion.PMML.BayesInputs.GetBayesInput">
             <summary>
@@ -5843,14 +5843,19 @@
             Disposes the Elements Value
             </summary>
         </member>
+        <member name="P:Syncfusion.PMML.BayesInputs.Extension">
+            <summary>
+            Gets and Sets the list of "Extension" elements value
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PMML.BayesInputs.BayesInput">
+            <summary>
+            Gets and Sets the list of "BayesInput" elements value
+            </summary>
+        </member>
         <member name="T:Syncfusion.PMML.Discretize">
             <summary>
             Represents the methods and properties for Discretize element and its attributes
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.Discretize.DiscretizeBin">
-            <summary>
-            Gets and Sets the list of "DiscretizeBin" elements value
             </summary>
         </member>
         <member name="M:Syncfusion.PMML.Discretize.GetDiscretizeBin">
@@ -5858,6 +5863,16 @@
             Returns the List of DiscretizeBin values
             </summary>
             <returns>List of DiscretizeBin values</returns>
+        </member>
+        <member name="M:Syncfusion.PMML.Discretize.Dispose">
+            <summary>
+            Disposes the Elements Value
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PMML.Discretize.DiscretizeBin">
+            <summary>
+            Gets and Sets the list of "DiscretizeBin" elements value
+            </summary>
         </member>
         <member name="P:Syncfusion.PMML.Discretize.Field">
             <summary>
@@ -5879,14 +5894,14 @@
             Gets the "defaultvalue" Attribute value
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.Discretize.Dispose">
-            <summary>
-            Disposes the Elements Value
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.DiscretizeBin">
             <summary>
             Represents the methods and properties for DiscretizeBin element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.DiscretizeBin.Dispose">
+            <summary>
+            Disposes the Elements Value
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.DiscretizeBin.Interval">
@@ -5897,11 +5912,6 @@
         <member name="P:Syncfusion.PMML.DiscretizeBin.BinValue">
             <summary>
             Gets the "binValue" attributes value
-            </summary>
-        </member>
-        <member name="M:Syncfusion.PMML.DiscretizeBin.Dispose">
-            <summary>
-            Disposes the Elements Value
             </summary>
         </member>
         <member name="T:Syncfusion.PMML.GaussianDistribution">
@@ -5924,6 +5934,11 @@
             Represents the methods and properties for Interval element and its attributes
             </summary>
         </member>
+        <member name="M:Syncfusion.PMML.Interval.Dispose">
+            <summary>
+            Disposes the objects
+            </summary>
+        </member>
         <member name="P:Syncfusion.PMML.Interval.Extension">
             <summary>
             Gets the "Extension" element value
@@ -5944,14 +5959,14 @@
             Gets the "rightMargin" attribute value
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.Interval.Dispose">
-            <summary>
-            Disposes the objects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.PairCounts">
             <summary>
             Represents the methods and properties for PairCounts element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.PairCounts.Dispose">
+            <summary>
+            Disposes the Elements Value
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.PairCounts.TargetValueCounts">
@@ -5962,11 +5977,6 @@
         <member name="P:Syncfusion.PMML.PairCounts.Value">
             <summary>
             Gets the "value" attribute value
-            </summary>
-        </member>
-        <member name="M:Syncfusion.PMML.PairCounts.Dispose">
-            <summary>
-            Disposes the Elements Value
             </summary>
         </member>
         <member name="T:Syncfusion.PMML.TargetValueCount">
@@ -5989,11 +5999,6 @@
             Represents the methods and properties for TargetValueCount element collection
             </summary>
         </member>
-        <member name="P:Syncfusion.PMML.TargetValueCounts.TargetValueCount">
-            <summary>
-            Gets and Sets the list of "TargetValueCount" elements value
-            </summary>
-        </member>
         <member name="M:Syncfusion.PMML.TargetValueCounts.GetTargetValueCount">
             <summary>
             Returns the List of TargetValueCount values
@@ -6005,9 +6010,19 @@
             Disposes the Elements Value
             </summary>
         </member>
+        <member name="P:Syncfusion.PMML.TargetValueCounts.TargetValueCount">
+            <summary>
+            Gets and Sets the list of "TargetValueCount" elements value
+            </summary>
+        </member>
         <member name="T:Syncfusion.PMML.TargetValueStat">
             <summary>
             Represents the methods and properties for TargetValueStat element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.TargetValueStat.Dispose">
+            <summary>
+            Disposes the Elements Value
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.TargetValueStat.GaussianDistribution">
@@ -6020,19 +6035,9 @@
             Gets the "value" attribute
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.TargetValueStat.Dispose">
-            <summary>
-            Disposes the Elements Value
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.TargetValueStats">
             <summary>
             Represents the methods and properties for TargetValueStats element collection
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.TargetValueStats.TargetValueStat">
-            <summary>
-            Gets and Sets the list of "TargetValueStat" elements value
             </summary>
         </member>
         <member name="M:Syncfusion.PMML.TargetValueStats.GetTargetValueStat">
@@ -6046,9 +6051,19 @@
             Disposes the Elements Value
             </summary>
         </member>
+        <member name="P:Syncfusion.PMML.TargetValueStats.TargetValueStat">
+            <summary>
+            Gets and Sets the list of "TargetValueStat" elements value
+            </summary>
+        </member>
         <member name="T:Syncfusion.PMML.BayesOutput">
             <summary>
             Represents the methods and properties for BayesOutput element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.BayesOutput.Dispose">
+            <summary>
+            Disposes the Elements Value
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.BayesOutput.TargetValueCounts">
@@ -6061,14 +6076,14 @@
             Gets the "fieldName" attribute Value
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.BayesOutput.Dispose">
-            <summary>
-            Disposes the Elements Value
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.NaiveBayesModel">
             <summary>
             Represents the methods and properties for NaiveBayesModel element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.NaiveBayesModel.Dispose">
+            <summary>
+            Disposes the Elements Value
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.NaiveBayesModel.LocalTransformations">
@@ -6102,14 +6117,14 @@
             Gets the "threshold" attribute value
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.NaiveBayesModel.Dispose">
-            <summary>
-            Disposes the Elements Value
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.Anova">
             <summary>
             Represents the methods and properties for Anova element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.Anova.Dispose">
+            <summary>
+            Disposes the Elements values
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.Anova.Target">
@@ -6127,14 +6142,14 @@
             Gets and sets the "Extension" value
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.Anova.Dispose">
-            <summary>
-            Disposes the Elements values
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.AnovaRow">
             <summary>
             Represents the methods and properties for AnovaRow element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.AnovaRow.Dispose">
+            <summary>
+            Disposes the Elements values
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.AnovaRow.Type">
@@ -6172,14 +6187,14 @@
             Gets and Sets the "Extension" value
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.AnovaRow.Dispose">
-            <summary>
-            Disposes the Elements values
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.ContStats">
             <summary>
             Represents the properties for ContStats element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.ContStats.Dispose">
+            <summary>
+            Disposes the Elements values
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.ContStats.Interval">
@@ -6207,19 +6222,9 @@
             Gets and Sets "TotalValuesSum" value
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.ContStats.Dispose">
-            <summary>
-            Disposes the Elements values
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.FrequenciesType">
             <summary>
             Represents the properties for FrequenceType element and its attributes
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.FrequenciesType.Array">
-            <summary>
-            Gets and Sets "Array" value
             </summary>
         </member>
         <member name="M:Syncfusion.PMML.FrequenciesType.Dispose">
@@ -6227,9 +6232,19 @@
             Disposes the Elements values
             </summary>
         </member>
+        <member name="P:Syncfusion.PMML.FrequenciesType.Array">
+            <summary>
+            Gets and Sets "Array" value
+            </summary>
+        </member>
         <member name="T:Syncfusion.PMML.DiscrStats">
             <summary>
             Represents the properties for DiscrStats element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.DiscrStats.Dispose">
+            <summary>
+            Disposes the Elements Value
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.DiscrStats.Array">
@@ -6247,14 +6262,14 @@
             Gets and Sets "ModalValue" value
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.DiscrStats.Dispose">
-            <summary>
-            Disposes the Elements Value
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.ModelStats">
             <summary>
             Represents the methods and properties for ModelStats element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.ModelStats.Dispose">
+            <summary>
+            Disposes the Elements Value
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.ModelStats.Extension">
@@ -6272,14 +6287,14 @@
             Gets and Sets "MultivariateStats" value
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.ModelStats.Dispose">
-            <summary>
-            Disposes the Elements Value
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.MultivariateStats">
             <summary>
             Represents the properties for MultivariateStats element collection
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.MultivariateStats.Dispose">
+            <summary>
+            Disposes the Elements Value
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.MultivariateStats.TargetCategory">
@@ -6297,14 +6312,14 @@
             Gets and Sets the "MultivariateStat" value
              </summary>
         </member>
-        <member name="M:Syncfusion.PMML.MultivariateStats.Dispose">
-            <summary>
-            Disposes the Elements Value
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.MultivariateStat">
             <summary>
             Represents the properties for MultivariateStat element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.MultivariateStat.Dispose">
+            <summary>
+            Disposes the Elements Value
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.MultivariateStat.Extension">
@@ -6392,14 +6407,20 @@
             Gets and Sets the ConfidenceUpperBound value
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.MultivariateStat.Dispose">
-            <summary>
-            Disposes the Elements Value
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.RegressionModel">
             <summary>
             Represents the methods and properties for RegressionModel element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.RegressionModel.GetRegressionTable">
+            <summary>
+            Returns the list if RegressionTable values
+            </summary>
+            <returns>List if Regression Table values</returns>
+        </member>
+        <member name="M:Syncfusion.PMML.RegressionModel.Dispose">
+            <summary>
+            Disposes the Elements values
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.RegressionModel.FunctionName">
@@ -6467,20 +6488,9 @@
             Gets and Sets the list of "RegressionTables" value
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.RegressionModel.GetRegressionTable">
-            <summary>
-            Returns the list if RegressionTable values
-            </summary>
-            <returns>List if Regression Table values</returns>
-        </member>
         <member name="P:Syncfusion.PMML.RegressionModel.ModelVerification">
             <summary>
             Gets and Sets the "ModelVerification" value
-            </summary>
-        </member>
-        <member name="M:Syncfusion.PMML.RegressionModel.Dispose">
-            <summary>
-            Disposes the Elements values
             </summary>
         </member>
         <member name="T:Syncfusion.PMML.CategoricalPredictor">
@@ -6528,26 +6538,11 @@
             Represents the methods and properties for RegressionTable element and its attributes
             </summary>
         </member>
-        <member name="P:Syncfusion.PMML.RegressionTable.PredictorTerms">
-            <summary>
-            Gets and Sets the "PredictorTerm" value
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.RegressionTable.NumericPredictors">
-            <summary>
-            Gets and Sets the "NumericPredictor" value
-            </summary>
-        </member>
         <member name="M:Syncfusion.PMML.RegressionTable.GetNumericPredictor">
             <summary>
             Returns the list of Numerical Predictor Value
             </summary>
             <returns>List of Numerical Predictor Value</returns>
-        </member>
-        <member name="P:Syncfusion.PMML.RegressionTable.CategoricalPredictors">
-            <summary>
-            Gets and Sets the "CategoricalPredictor" value
-            </summary>
         </member>
         <member name="M:Syncfusion.PMML.RegressionTable.GetCategoricalPredictors">
             <summary>
@@ -6558,6 +6553,21 @@
         <member name="M:Syncfusion.PMML.RegressionTable.Dispose">
             <summary>
             Disposes the Elements Value
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PMML.RegressionTable.PredictorTerms">
+            <summary>
+            Gets and Sets the "PredictorTerm" value
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PMML.RegressionTable.NumericPredictors">
+            <summary>
+            Gets and Sets the "NumericPredictor" value
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PMML.RegressionTable.CategoricalPredictors">
+            <summary>
+            Gets and Sets the "CategoricalPredictor" value
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.RegressionTable.Intercept">
@@ -6600,6 +6610,11 @@
             Represents the properties for UnivariateStats element and its attributes
             </summary>
         </member>
+        <member name="M:Syncfusion.PMML.UnivariateStats.Dispose">
+            <summary>
+            Disposes the Elements values
+            </summary>
+        </member>
         <member name="P:Syncfusion.PMML.UnivariateStats.Field">
             <summary>
             Gets and Sets the "field" value
@@ -6640,14 +6655,14 @@
             Gets and Sets the "Anova" value
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.UnivariateStats.Dispose">
-            <summary>
-            Disposes the Elements values
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.Counts">
             <summary>
             Represents the properties for Count element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.Counts.Dispose">
+            <summary>
+            Disposes the Elements values
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.Counts.Extension">
@@ -6675,14 +6690,14 @@
             Gets and Sets the "Cardinality" value
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.Counts.Dispose">
-            <summary>
-            Disposes the Elements values
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.NumericInfo">
             <summary>
             Represents the properties for NumericInfo element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.NumericInfo.Dispose">
+            <summary>
+            Disposes the Elements values
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.NumericInfo.Extension">
@@ -6725,14 +6740,14 @@
             Gets and Sets the "InterQuartile range" value
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.NumericInfo.Dispose">
-            <summary>
-            Disposes the Elements values
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.Quantile">
             <summary>
             Represents the properties for Quantile element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.Quantile.Dispose">
+            <summary>
+            Disposes the Elements values
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.Quantile.Extension">
@@ -6750,19 +6765,9 @@
             Gets and Sets the "QuantileValue" field value
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.Quantile.Dispose">
-            <summary>
-            Disposes the Elements values
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.Coefficients">
             <summary>
             Represents the methods and properties for Coefficients element collection
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.Coefficients.Coefficient">
-            <summary>
-            Gets and sets list of "Coefficient" values 
             </summary>
         </member>
         <member name="M:Syncfusion.PMML.Coefficients.GetCoefficient">
@@ -6770,6 +6775,16 @@
             Returns list of "Coefficient" values 
             </summary>
             <returns>Cloned list of "Coefficient" values </returns>
+        </member>
+        <member name="M:Syncfusion.PMML.Coefficients.Dispose">
+            <summary>
+            Disposes the objects
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PMML.Coefficients.Coefficient">
+            <summary>
+            Gets and sets list of "Coefficient" values 
+            </summary>
         </member>
         <member name="P:Syncfusion.PMML.Coefficients.AbsoluteValue">
             <summary>
@@ -6779,11 +6794,6 @@
         <member name="P:Syncfusion.PMML.Coefficients.NumberOfCoefficients">
             <summary>
             Gets and sets the "numberOfCoefficients" value 
-            </summary>
-        </member>
-        <member name="M:Syncfusion.PMML.Coefficients.Dispose">
-            <summary>
-            Disposes the objects
             </summary>
         </member>
         <member name="T:Syncfusion.PMML.Coefficient">
@@ -6871,6 +6881,11 @@
             Represents the methods and properties for SupportVectorMachine element and its attributes
             </summary>
         </member>
+        <member name="M:Syncfusion.PMML.SupportVectorMachine.Dispose">
+            <summary>
+            Disposes the objects
+            </summary>
+        </member>
         <member name="P:Syncfusion.PMML.SupportVectorMachine.Extension">
             <summary>
             Gets the "Extension" values
@@ -6896,14 +6911,20 @@
             Gets the "alternateTargetCategory" value
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.SupportVectorMachine.Dispose">
-            <summary>
-            Disposes the objects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.SupportVectorMachineModel">
             <summary>
             Represents the methods and properties for SupportVectorMachineModel element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.SupportVectorMachineModel.GetSupportVectorMachine">
+            <summary>
+            Returns list of "SupportVectorMachine" value
+            </summary>
+            <returns>Cloned list of "SupportVectorMachine"</returns>
+        </member>
+        <member name="M:Syncfusion.PMML.SupportVectorMachineModel.Dispose">
+            <summary>
+            Disposes the objects
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.SupportVectorMachineModel.KernelType">
@@ -6961,12 +6982,6 @@
             Gets and sets the list of "SupportVectorMachine" value
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.SupportVectorMachineModel.GetSupportVectorMachine">
-            <summary>
-            Returns list of "SupportVectorMachine" value
-            </summary>
-            <returns>Cloned list of "SupportVectorMachine"</returns>
-        </member>
         <member name="P:Syncfusion.PMML.SupportVectorMachineModel.SvmRepresentation">
             <summary>
             Gets and sets the "svmRepresentation" value
@@ -6982,19 +6997,9 @@
             Gets and sets the "classificationMethod" value
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.SupportVectorMachineModel.Dispose">
-            <summary>
-            Disposes the objects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.SupportVectors">
             <summary>
             Represents the methods and properties for SupportVector element collection
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.SupportVectors.SupportVector">
-            <summary>
-            Gets and sets the list of "SupportVector" value
             </summary>
         </member>
         <member name="M:Syncfusion.PMML.SupportVectors.GetSupportVector">
@@ -7002,6 +7007,16 @@
             Returns list of "SupportVector" value
             </summary>
             <returns>Cloned list of "SupportVector"</returns>
+        </member>
+        <member name="M:Syncfusion.PMML.SupportVectors.Dispose">
+            <summary>
+            Disposes the objects
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PMML.SupportVectors.SupportVector">
+            <summary>
+            Gets and sets the list of "SupportVector" value
+            </summary>
         </member>
         <member name="P:Syncfusion.PMML.SupportVectors.NumberofAttributes">
             <summary>
@@ -7011,11 +7026,6 @@
         <member name="P:Syncfusion.PMML.SupportVectors.NumberofSupportvectors">
             <summary>
             Gets and sets the "numberofSupportvectors" value
-            </summary>
-        </member>
-        <member name="M:Syncfusion.PMML.SupportVectors.Dispose">
-            <summary>
-            Disposes the objects
             </summary>
         </member>
         <member name="T:Syncfusion.PMML.SupportVector">
@@ -7073,14 +7083,14 @@
             Represents the properties for Targets element and its attributes
             </summary>
         </member>
-        <member name="P:Syncfusion.PMML.Targets.Target">
-            <summary>
-            Gets the "Target" values
-            </summary>
-        </member>
         <member name="M:Syncfusion.PMML.Targets.Dispose">
             <summary>
             Disposes the objects
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PMML.Targets.Target">
+            <summary>
+            Gets the "Target" values
             </summary>
         </member>
         <member name="T:Syncfusion.PMML.RealSparseArray">
@@ -7113,6 +7123,17 @@
             Represents the methods and properties for VectorDictionary element and its attributes
             </summary>
         </member>
+        <member name="M:Syncfusion.PMML.VectorDictionary.GetVectorInstance">
+            <summary>
+            Returns List of "VectorInstance" value
+            </summary>
+            <returns>Cloned list of "VectorInstance" value</returns>
+        </member>
+        <member name="M:Syncfusion.PMML.VectorDictionary.Dispose">
+            <summary>
+            Disposes the objects
+            </summary>
+        </member>
         <member name="P:Syncfusion.PMML.VectorDictionary.VectorFields">
             <summary>
             Gets the "VectorFields" value
@@ -7123,25 +7144,19 @@
             Gets and sets the list of "VectorInstance" value
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.VectorDictionary.GetVectorInstance">
-            <summary>
-            Returns List of "VectorInstance" value
-            </summary>
-            <returns>Cloned list of "VectorInstance" value</returns>
-        </member>
         <member name="P:Syncfusion.PMML.VectorDictionary.NumberOfVectors">
             <summary>
             Gets and sets the "numberOfVectors" value
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.VectorDictionary.Dispose">
-            <summary>
-            Disposes the objects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.VectorInstance">
             <summary>
             Represents the properties for VectorInstance element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.VectorInstance.Dispose">
+            <summary>
+            Disposes the objects
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.VectorInstance.RealSparseArray">
@@ -7154,19 +7169,9 @@
             Gets the "id" value
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.VectorInstance.Dispose">
-            <summary>
-            Disposes the objects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.VectorFields">
             <summary>
             Represents the methods and properties for VectorFields element collection
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.VectorFields.FieldReference">
-            <summary>
-            Gets and sets the list of "FieldRef" value
             </summary>
         </member>
         <member name="M:Syncfusion.PMML.VectorFields.GetFieldReference">
@@ -7175,14 +7180,19 @@
             </summary>
             <returns>Cloned list of "FieldRef" value</returns>
         </member>
-        <member name="P:Syncfusion.PMML.VectorFields.NumberOfFields">
-            <summary>
-            Gets and sets the "numberOfFields" value
-            </summary>
-        </member>
         <member name="M:Syncfusion.PMML.VectorFields.Dispose">
             <summary>
             Disposes the objects
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PMML.VectorFields.FieldReference">
+            <summary>
+            Gets and sets the list of "FieldRef" value
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PMML.VectorFields.NumberOfFields">
+            <summary>
+            Gets and sets the "numberOfFields" value
             </summary>
         </member>
         <member name="T:Syncfusion.PMML.FieldReference">
@@ -7205,6 +7215,17 @@
             Represents the properties and methods for ArrayClass element and its attributes
             </summary>
         </member>
+        <member name="M:Syncfusion.PMML.ArrayClass.GetElements">
+            <summary>
+            Returns the Array of objects
+            </summary>
+            <returns>Array of Clone objects</returns>
+        </member>
+        <member name="M:Syncfusion.PMML.ArrayClass.Dispose">
+            <summary>
+            Disposes the objects
+            </summary>
+        </member>
         <member name="P:Syncfusion.PMML.ArrayClass.ElementsCount">
             <summary>
             Gets the number of elements present
@@ -7220,30 +7241,9 @@
             Gets and sets the String values of the attribute
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.ArrayClass.GetElements">
-            <summary>
-            Returns the Array of objects
-            </summary>
-            <returns>Array of Clone objects</returns>
-        </member>
-        <member name="M:Syncfusion.PMML.ArrayClass.Dispose">
-            <summary>
-            Disposes the objects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.CompoundPredicate">
             <summary>
             Represents the properties and methods for CompoundPredicate element and its attributes
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.CompoundPredicate.BooleanOperator">
-            <summary>
-            Gets the boolean operator
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.CompoundPredicate.SimplePredicates">
-            <summary>
-            Gets the Simple Predicates
             </summary>
         </member>
         <member name="M:Syncfusion.PMML.CompoundPredicate.GetSimplePredicates">
@@ -7252,21 +7252,11 @@
             </summary>
             <returns>List of Clone objects</returns>
         </member>
-        <member name="P:Syncfusion.PMML.CompoundPredicate.SimpleSetPredicates">
-            <summary>
-            Gets the SimpleSet Predicates
-            </summary>
-        </member>
         <member name="M:Syncfusion.PMML.CompoundPredicate.GetSimpleSetPredicates">
             <summary>
             Returns the List of SimpleSet Predicates' objects
             </summary>
             <returns>List of Clone objects</returns>
-        </member>
-        <member name="P:Syncfusion.PMML.CompoundPredicate.Predicates">
-            <summary>
-            Gets and Sets the Predicates
-            </summary>
         </member>
         <member name="M:Syncfusion.PMML.CompoundPredicate.GetPredicates">
             <summary>
@@ -7279,19 +7269,34 @@
             Disposes the objects
             </summary>
         </member>
-        <member name="T:Syncfusion.PMML.Predicate">
+        <member name="P:Syncfusion.PMML.CompoundPredicate.BooleanOperator">
             <summary>
-            Represents the properties for Predicate element and its attributes
+            Gets the boolean operator
             </summary>
         </member>
-        <member name="P:Syncfusion.PMML.Predicate.Field">
+        <member name="P:Syncfusion.PMML.CompoundPredicate.SimplePredicates">
             <summary>
-            Gets the field values
+            Gets the Simple Predicates
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PMML.CompoundPredicate.SimpleSetPredicates">
+            <summary>
+            Gets the SimpleSet Predicates
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PMML.CompoundPredicate.Predicates">
+            <summary>
+            Gets and Sets the Predicates
             </summary>
         </member>
         <member name="T:Syncfusion.PMML.DecisionTree">
             <summary>
             Represents the methods and properties for DecisionTree element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.DecisionTree.Dispose">
+            <summary>
+            Disposes the objects
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.DecisionTree.SplitCharacteristic">
@@ -7364,14 +7369,14 @@
             Gets and Sets the ModelVerification class values
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.DecisionTree.Dispose">
-            <summary>
-            Disposes the objects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.EmbeddedModel">
             <summary>
             Represents the properties and methods for Regression Model and Decision Tree
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.EmbeddedModel.Dispose">
+            <summary>
+            Disposes the objects
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.EmbeddedModel.RegressionModel">
@@ -7384,19 +7389,9 @@
             Gets and Sets the Decision Tree Class values
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.EmbeddedModel.Dispose">
-            <summary>
-            Disposes the objects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.False">
             <summary>
             Represents the methods and properties for False element and its attributes
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.False.Extension">
-            <summary>
-            Gets and Sets the extension class values
             </summary>
         </member>
         <member name="M:Syncfusion.PMML.False.Dispose">
@@ -7404,10 +7399,44 @@
             Disposes the objects
             </summary>
         </member>
+        <member name="P:Syncfusion.PMML.False.Extension">
+            <summary>
+            Gets and Sets the extension class values
+            </summary>
+        </member>
         <member name="T:Syncfusion.PMML.Node">
              <summary>
             Represents the properties and methods for Node element and its attributes
              </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.Node.GetChildNodes">
+            <summary>
+            Returns the List of Node objects
+            </summary>
+            <returns>List of Clone objects</returns>
+        </member>
+        <member name="M:Syncfusion.PMML.Node.GetSimplePredicates">
+            <summary>
+            Returns the List of SimplePredicate objects
+            </summary>
+            <returns>List of Clone objects</returns>
+        </member>
+        <member name="M:Syncfusion.PMML.Node.GetSimpleSetPredicates">
+            <summary>
+            Returns the list of SimpleSet Predicates' objects
+            </summary>
+            <returns>List of Clone objects</returns>
+        </member>
+        <member name="M:Syncfusion.PMML.Node.GetScoreDistributions">
+            <summary>
+            Returns the list of ScoreDistributions' objects
+            </summary>
+            <returns>List of Clone objects</returns>
+        </member>
+        <member name="M:Syncfusion.PMML.Node.Dispose">
+            <summary>
+            Disposes the objects
+            </summary>
         </member>
         <member name="P:Syncfusion.PMML.Node.Id">
             <summary>
@@ -7434,12 +7463,6 @@
              Gets and Sets the values of class Node
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.Node.GetChildNodes">
-            <summary>
-            Returns the List of Node objects
-            </summary>
-            <returns>List of Clone objects</returns>
-        </member>
         <member name="P:Syncfusion.PMML.Node.CompoundPredicate">
             <summary>
              Gets the values of class CompoundPredicate
@@ -7450,33 +7473,15 @@
              Gets and Sets the values of class SimplePredicates
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.Node.GetSimplePredicates">
-            <summary>
-            Returns the List of SimplePredicate objects
-            </summary>
-            <returns>List of Clone objects</returns>
-        </member>
         <member name="P:Syncfusion.PMML.Node.SimpleSetPredicates">
             <summary>
              Gets and Sets the values of class SimpleSetPredicates
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.Node.GetSimpleSetPredicates">
-            <summary>
-            Returns the list of SimpleSet Predicates' objects
-            </summary>
-            <returns>List of Clone objects</returns>
-        </member>
         <member name="P:Syncfusion.PMML.Node.ScoreDistributions">
             <summary>
              Gets and Sets the values of class ScoreDistributions
             </summary>
-        </member>
-        <member name="M:Syncfusion.PMML.Node.GetScoreDistributions">
-            <summary>
-            Returns the list of ScoreDistributions' objects
-            </summary>
-            <returns>List of Clone objects</returns>
         </member>
         <member name="P:Syncfusion.PMML.Node.Partition">
             <summary>
@@ -7503,14 +7508,14 @@
             Gets and Sets the values of class False
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.Node.Dispose">
-            <summary>
-            Disposes the objects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.Partition">
             <summary>
             Represents the properties and methods for Partition element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.Partition.Dispose">
+            <summary>
+            Disposes the objects
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.Partition.Name">
@@ -7533,14 +7538,14 @@
              Gets and sets the value of class PartitionFieldStats
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.Partition.Dispose">
-            <summary>
-            Disposes the objects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.PartitionFieldStats">
              <summary>
             Represents the methods and properties for PatitionFildStats element and its attributes
+             </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.PartitionFieldStats.Dispose">
+             <summary>
+            Disposes the objects
              </summary>
         </member>
         <member name="P:Syncfusion.PMML.PartitionFieldStats.Field">
@@ -7572,11 +7577,6 @@
             <summary>
             Gets and Sets the FrequenciesType class values
             </summary>
-        </member>
-        <member name="M:Syncfusion.PMML.PartitionFieldStats.Dispose">
-             <summary>
-            Disposes the objects
-             </summary>
         </member>
         <member name="T:Syncfusion.PMML.ScoreDistribution">
              <summary>
@@ -7623,6 +7623,11 @@
             Represents the methods and properties for SimpleSetPredicate element and its attributes
              </summary>
         </member>
+        <member name="M:Syncfusion.PMML.SimpleSetPredicate.Dispose">
+            <summary>
+            Disposes the objects
+            </summary>
+        </member>
         <member name="P:Syncfusion.PMML.SimpleSetPredicate.BooleanOperator">
             <summary>
             Gets the corresponding boolean operator
@@ -7633,15 +7638,15 @@
             Gets the ArrayClass' values
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.SimpleSetPredicate.Dispose">
-            <summary>
-            Disposes the objects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.TreeModel">
              <summary>
             Represents the methods and properties for TreeModel element and its attributes
              </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.TreeModel.Dispose">
+            <summary>
+            Disposes the objects
+            </summary>
         </member>
         <member name="P:Syncfusion.PMML.TreeModel.SplitCharacteristic">
             <summary>
@@ -7713,29 +7718,29 @@
             Gets and Sets the ModelVerification class values
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.TreeModel.Dispose">
-            <summary>
-            Disposes the objects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.True">
              <summary>
             Represents the methods and properties for True element and its attributes
              </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.True.Extension">
-            <summary>
-            Gets and Sets the extension class values
-            </summary>
         </member>
         <member name="M:Syncfusion.PMML.True.Dispose">
             <summary>
             Disposes the objects
             </summary>
         </member>
+        <member name="P:Syncfusion.PMML.True.Extension">
+            <summary>
+            Gets and Sets the extension class values
+            </summary>
+        </member>
         <member name="T:Syncfusion.PMML.DerivedField">
             <summary>
             Represents the properties and methods for DerivedField element and its attributes
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.DerivedField.Dispose">
+            <summary>
+            Disposes the Elements Value
             </summary>
         </member>
         <member name="P:Syncfusion.PMML.DerivedField.FieldReference">
@@ -7788,11 +7793,6 @@
             Gets and sets the derived field data type
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.DerivedField.Dispose">
-            <summary>
-            Disposes the Elements Value
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.FieldColumnPair">
             <summary>
             Represents the properties for FieldColumnPair element and its attributes
@@ -7813,16 +7813,16 @@
             Represents the properties and methods for InlineTable element and its attributes
             </summary>
         </member>
-        <member name="P:Syncfusion.PMML.InlineTable.Rows">
-            <summary>
-            Gets and Sets List of Rows
-            </summary>
-        </member>
         <member name="M:Syncfusion.PMML.InlineTable.GetRows">
             <summary>
             Gets the list of Rows
             </summary>
             <returns></returns>
+        </member>
+        <member name="P:Syncfusion.PMML.InlineTable.Rows">
+            <summary>
+            Gets and Sets List of Rows
+            </summary>
         </member>
         <member name="T:Syncfusion.PMML.LinearNorm">
             <summary>
@@ -7844,16 +7844,6 @@
             Represents the properties and methods for LocalTransformations element and its attibutes
             </summary>
         </member>
-        <member name="P:Syncfusion.PMML.LocalTransformations.DerivedFields">
-            <summary>
-            Gets and Sets Derived fields
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.LocalTransformations.Extension">
-            <summary>
-            Gets and Sets "Extension" Element value
-            </summary>
-        </member>
         <member name="M:Syncfusion.PMML.LocalTransformations.GetDerivedFields">
             <summary>
             Returns list of Derived fields
@@ -7863,6 +7853,16 @@
         <member name="M:Syncfusion.PMML.LocalTransformations.Dispose">
             <summary>
             Disposes the Elements Value
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PMML.LocalTransformations.DerivedFields">
+            <summary>
+            Gets and Sets Derived fields
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PMML.LocalTransformations.Extension">
+            <summary>
+            Gets and Sets "Extension" Element value
             </summary>
         </member>
         <member name="T:Syncfusion.PMML.MapValues">
@@ -8020,11 +8020,6 @@
             Represents the properties and methods for MiningSchema element and its attributes
             </summary>
         </member>
-        <member name="P:Syncfusion.PMML.MiningSchema.MiningFields">
-            <summary>
-            Gets / Sets the Mining fields
-            </summary>
-        </member>
         <member name="M:Syncfusion.PMML.MiningSchema.GetMiningFields">
             <summary>
             Returns list of MiningFields
@@ -8034,6 +8029,11 @@
         <member name="M:Syncfusion.PMML.MiningSchema.Dispose">
             <summary>
             Disposes the Elements Value
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PMML.MiningSchema.MiningFields">
+            <summary>
+            Gets / Sets the Mining fields
             </summary>
         </member>
         <member name="T:Syncfusion.PMML.Decisions">
@@ -8091,7 +8091,6 @@
             Represents the methods and properties for Output element and its attributes
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "P:Syncfusion.PMML.Output.OutputFields" -->
         <member name="M:Syncfusion.PMML.Output.GetOutputFields">
             <summary>
             Returns list of OutputFields
@@ -8103,6 +8102,7 @@
             Disposes the Elements Value
             </summary>
         </member>
+        <!-- Badly formed XML comment ignored for member "P:Syncfusion.PMML.Output.OutputFields" -->
         <member name="T:Syncfusion.PMML.OutputField">
             <summary>
             Represents the methods and properties for OutputField element and its attributes
@@ -8193,6 +8193,73 @@
             Represents the object model for PMML document.
             </summary>
         </member>
+        <member name="M:Syncfusion.PMML.PMMLDocument.#ctor">
+            <summary>
+            Creates an instance for PMMLDocument
+            </summary>
+        </member>
+        <member name="M:Syncfusion.PMML.PMMLDocument.#ctor(System.String)">
+            <summary>
+            Creates an instance for PMMLDocument
+            </summary>
+            <param name="filePath">pmml file path</param>
+        </member>
+        <member name="M:Syncfusion.PMML.PMMLDocument.#ctor(System.IO.Stream)">
+            <summary>
+            Creates an instance for PMMLDocument
+            </summary>
+            <param name="stream">pmml stream</param>
+        </member>
+        <member name="M:Syncfusion.PMML.PMMLDocument.#ctor(System.IO.TextReader)">
+            <summary>
+            Creates an instance for PMMLDocument
+            </summary>
+            <param name="textReader">text reader object</param>
+        </member>
+        <member name="M:Syncfusion.PMML.PMMLDocument.OpenPMMLDocument(System.String)">
+            <summary>
+            Parses pmml document based on file path
+            </summary>
+            <param name="filePath">pmml file path</param>
+        </member>
+        <member name="M:Syncfusion.PMML.PMMLDocument.OpenPMMLDocument(System.String,Syncfusion.PMML.PMMLValidationType)">
+            <summary>
+            Parses pmml document based on file path
+            </summary>
+            <param name="filePath">pmml file path</param>
+            <param name="pmmlValidationType">pmml validation type</param>
+        </member>
+        <member name="M:Syncfusion.PMML.PMMLDocument.OpenPMMLDocument(System.IO.Stream)">
+            <summary>
+            Parses pmml document based on pmml stream
+            </summary>
+            <param name="stream">pmml file path</param>
+        </member>
+        <member name="M:Syncfusion.PMML.PMMLDocument.OpenPMMLDocument(System.IO.Stream,Syncfusion.PMML.PMMLValidationType)">
+            <summary>
+            Parses pmml document based on pmml stream
+            </summary>
+            <param name="stream">pmml file path</param>
+            <param name="pmmlValidationType">pmml validation type</param>
+        </member>
+        <member name="M:Syncfusion.PMML.PMMLDocument.OpenPMMLDocument(System.IO.TextReader)">
+            <summary>
+            Parses pmml document based on text reader object
+            </summary>
+            <param name="textReader">text reader object</param>
+        </member>
+        <member name="M:Syncfusion.PMML.PMMLDocument.OpenPMMLDocument(System.IO.TextReader,Syncfusion.PMML.PMMLValidationType)">
+            <summary>
+            Parses pmml document based on text reader object
+            </summary>
+            <param name="textReader">text reader object</param>
+            <param name="pmmlValidationType">pmml validation type</param>
+        </member>
+        <member name="M:Syncfusion.PMML.PMMLDocument.Dispose">
+            <summary>
+            Releases the memory occupied by objects
+            </summary>
+        </member>
         <member name="P:Syncfusion.PMML.PMMLDocument.Header">
             <summary>
             Gets and sets the "Header" elements value
@@ -8273,82 +8340,10 @@
             Gets and sets the "Extension" elements value
             </summary>
         </member>
-        <member name="M:Syncfusion.PMML.PMMLDocument.#ctor">
-            <summary>
-            Creates an instance for PMMLDocument
-            </summary>
-        </member>
-        <member name="M:Syncfusion.PMML.PMMLDocument.#ctor(System.String)">
-            <summary>
-            Creates an instance for PMMLDocument
-            </summary>
-            <param name="filePath">pmml file path</param>
-        </member>
-        <member name="M:Syncfusion.PMML.PMMLDocument.#ctor(System.IO.Stream)">
-            <summary>
-            Creates an instance for PMMLDocument
-            </summary>
-            <param name="stream">pmml stream</param>
-        </member>
-        <member name="M:Syncfusion.PMML.PMMLDocument.#ctor(System.IO.TextReader)">
-            <summary>
-            Creates an instance for PMMLDocument
-            </summary>
-            <param name="textReader">text reader object</param>
-        </member>
-        <member name="M:Syncfusion.PMML.PMMLDocument.OpenPMMLDocument(System.String)">
-            <summary>
-            Parses pmml document based on file path
-            </summary>
-            <param name="filePath">pmml file path</param>
-        </member>
-        <member name="M:Syncfusion.PMML.PMMLDocument.OpenPMMLDocument(System.String,Syncfusion.PMML.PMMLValidationType)">
-            <summary>
-            Parses pmml document based on file path
-            </summary>
-            <param name="filePath">pmml file path</param>
-            <param name="pmmlValidationType">pmml validation type</param>
-        </member>
-        <member name="M:Syncfusion.PMML.PMMLDocument.OpenPMMLDocument(System.IO.Stream)">
-            <summary>
-            Parses pmml document based on pmml stream
-            </summary>
-            <param name="stream">pmml file path</param>
-        </member>
-        <member name="M:Syncfusion.PMML.PMMLDocument.OpenPMMLDocument(System.IO.Stream,Syncfusion.PMML.PMMLValidationType)">
-            <summary>
-            Parses pmml document based on pmml stream
-            </summary>
-            <param name="stream">pmml file path</param>
-            <param name="pmmlValidationType">pmml validation type</param>
-        </member>
-        <member name="M:Syncfusion.PMML.PMMLDocument.OpenPMMLDocument(System.IO.TextReader)">
-            <summary>
-            Parses pmml document based on text reader object
-            </summary>
-            <param name="textReader">text reader object</param>
-        </member>
-        <member name="M:Syncfusion.PMML.PMMLDocument.OpenPMMLDocument(System.IO.TextReader,Syncfusion.PMML.PMMLValidationType)">
-            <summary>
-            Parses pmml document based on text reader object
-            </summary>
-            <param name="textReader">text reader object</param>
-            <param name="pmmlValidationType">pmml validation type</param>
-        </member>
-        <member name="M:Syncfusion.PMML.PMMLDocument.Dispose">
-            <summary>
-            Releases the memory occupied by objects
-            </summary>
-        </member>
         <member name="T:Syncfusion.PMML.PMMLParser">
             <summary>
             Represents the methods and properties of PMML Parser
             Used to Parse PMML file and assign its values to PMMLDocument instance
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.PMMLParser.PmmlDocument">
-            <summary>
-            Instance to store the values of PMML file
             </summary>
         </member>
         <member name="M:Syncfusion.PMML.PMMLParser.#ctor">
@@ -9746,6 +9741,11 @@
             <param name="knnInputElement">KNNInput XmlReader</param>
             <returns>KNNInput object</returns>
         </member>
+        <member name="P:Syncfusion.PMML.PMMLParser.PmmlDocument">
+            <summary>
+            Instance to store the values of PMML file
+            </summary>
+        </member>
         <member name="T:Syncfusion.PMML.TransformationDictionary">
             <summary>
             Represents the methods and properties for TransformationDictionary element and its attributes
@@ -9755,44 +9755,6 @@
             <summary>
             Class to read the data from CSV file and store it as Indexers.
             </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.Table.RowCount">
-            <summary>
-            Get the RowCount of the Table
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.Table.ColumnCount">
-            <summary>
-            Get the ColumnCount of the Table
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.Table.ColumnNames">
-            <summary>
-            Get and set the ColumnNames of the Table
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PMML.Table.Item(System.Int32,System.Int32)">
-            <summary>
-            Get and Set CellValue based on the Row and Column Index
-            </summary>
-            <param name="rowIndex">RowIndex of Table</param>
-            <param name="columnIndex">ColumnIndex of Table</param>
-            <returns>CellValue</returns>
-        </member>
-        <member name="P:Syncfusion.PMML.Table.Item(System.Int32,System.String)">
-            <summary>
-            Get CellValue based on the RowIndex and ColumnName
-            </summary>
-            <param name="rowIndex">RowIndex of Table</param>
-            <param name="columnIndex">ColumnIndex of Table</param>
-            <returns>CellValue</returns>
-        </member>
-        <member name="P:Syncfusion.PMML.Table.Item(System.Int32)">
-            <summary>
-            Get and Set RowValue based on the  RowIndex
-            </summary>
-            <param name="rowIndex">RowIndex of Table</param>
-            <returns>Row Elements</returns>
         </member>
         <member name="M:Syncfusion.PMML.Table.#ctor(System.IO.Stream,System.Boolean,System.Char)">
             <summary>
@@ -9864,6 +9826,44 @@
             <summary>
             Disposes the class values
             </summary>
+        </member>
+        <member name="P:Syncfusion.PMML.Table.RowCount">
+            <summary>
+            Get the RowCount of the Table
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PMML.Table.ColumnCount">
+            <summary>
+            Get the ColumnCount of the Table
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PMML.Table.ColumnNames">
+            <summary>
+            Get and set the ColumnNames of the Table
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PMML.Table.Item(System.Int32,System.Int32)">
+            <summary>
+            Get and Set CellValue based on the Row and Column Index
+            </summary>
+            <param name="rowIndex">RowIndex of Table</param>
+            <param name="columnIndex">ColumnIndex of Table</param>
+            <returns>CellValue</returns>
+        </member>
+        <member name="P:Syncfusion.PMML.Table.Item(System.Int32,System.String)">
+            <summary>
+            Get CellValue based on the RowIndex and ColumnName
+            </summary>
+            <param name="rowIndex">RowIndex of Table</param>
+            <param name="columnIndex">ColumnIndex of Table</param>
+            <returns>CellValue</returns>
+        </member>
+        <member name="P:Syncfusion.PMML.Table.Item(System.Int32)">
+            <summary>
+            Get and Set RowValue based on the  RowIndex
+            </summary>
+            <param name="rowIndex">RowIndex of Table</param>
+            <returns>Row Elements</returns>
         </member>
     </members>
 </doc>

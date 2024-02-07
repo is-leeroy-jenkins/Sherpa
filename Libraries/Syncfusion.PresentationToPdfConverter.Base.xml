@@ -4,27 +4,6 @@
         <name>Syncfusion.PresentationToPdfConverter.Base</name>
     </assembly>
     <members>
-        <member name="P:Syncfusion.Presentation.Rendering.PDFRenderer.PrivateFonts">
-            <summary>
-            Gets or sets the custom font collection.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Presentation.Rendering.PDFRenderer.RecreateNestedMetafile">
-            <summary>
-            Gets or sets a value that indicates whether to regenerate the nested EMF images present in the Presentation document during PDF conversion. Default value is<b>false</b>.
-            </summary>
-            <value><b>True</b> if it is necessary to regenerate the nested EMF images present in the Presentation document during PDF conversion; otherwise <b>false</b>.</value>
-        </member>
-        <member name="P:Syncfusion.Presentation.Rendering.PDFRenderer.FallbackFonts">
-            <summary>
-            Gets a Fallback font collection of Presentation document.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Presentation.Rendering.PDFRenderer.FontStreams">
-            <summary>
-            Gets or set the embedded fonts.
-            </summary>
-        </member>
         <member name="M:Syncfusion.Presentation.Rendering.PDFRenderer.RecreateNestedMetaImage(System.Drawing.Image@,System.Drawing.RectangleF)">
             <summary>
             Regenerate the nested EMF images if it present in the Presentation document during PDF conversion.
@@ -124,6 +103,27 @@
         <member name="M:Syncfusion.Presentation.Rendering.PDFRenderer.CreateAutoTag(Syncfusion.Pdf.PdfTagType,System.String)">
             <summary>
             Creates and returns the PDF structure element for the required AutoTag
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Presentation.Rendering.PDFRenderer.PrivateFonts">
+            <summary>
+            Gets or sets the custom font collection.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Presentation.Rendering.PDFRenderer.RecreateNestedMetafile">
+            <summary>
+            Gets or sets a value that indicates whether to regenerate the nested EMF images present in the Presentation document during PDF conversion. Default value is<b>false</b>.
+            </summary>
+            <value><b>True</b> if it is necessary to regenerate the nested EMF images present in the Presentation document during PDF conversion; otherwise <b>false</b>.</value>
+        </member>
+        <member name="P:Syncfusion.Presentation.Rendering.PDFRenderer.FallbackFonts">
+            <summary>
+            Gets a Fallback font collection of Presentation document.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Presentation.Rendering.PDFRenderer.FontStreams">
+            <summary>
+            Gets or set the embedded fonts.
             </summary>
         </member>
         <member name="F:Syncfusion.Presentation.Rendering.PDFShapePath._rectBounds">

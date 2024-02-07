@@ -49,6 +49,7 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Grid;
     using Syncfusion.Windows.Forms.Tools;
+    using Syncfusion.WinForms.DataGrid.Styles;
 
     /// <inheritdoc />
     public partial class CalendarControl : UserControl
@@ -85,7 +86,6 @@ namespace BudgetExecution
             Calendar.DayNamesFont = new Font( "Roboto", 10 );
             Calendar.HeaderFont = new Font( "Roboto", 11, FontStyle.Bold );
             Calendar.HeadForeColor = Color.FromArgb( 106, 189, 252 );
-            Calendar.GridLines = GridBorderStyle.None;
             Calendar.AllowMultipleSelection = false;
             Calendar.ClearSelectionOnNone = true;
             Calendar.SelectedDates = new[ ]

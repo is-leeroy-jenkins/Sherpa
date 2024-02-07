@@ -88,26 +88,6 @@
             <param name="stream">Stream of the file</param>
             <param name="password">Pasword for the file</param>
         </member>
-        <member name="P:Syncfusion.PdfToImageConverter.PdfToImageConverter.ReferencePath">
-            <summary>
-            Gets or sets the reference path of the Pdfium library.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PdfToImageConverter.PdfToImageConverter.PageCount">
-            <summary>
-            Gets the page count of the document.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PdfToImageConverter.PdfToImageConverter.DocumentID">
-            <summary>
-            Gets or sets the id of the document
-            </summary>
-        </member>
-        <member name="P:Syncfusion.PdfToImageConverter.PdfToImageConverter.Document">
-            <summary>
-            Gets or sets the pdf document value
-            </summary>
-        </member>
         <member name="M:Syncfusion.PdfToImageConverter.PdfToImageConverter.Dispose">
             <summary>
             Disposes the pdf document.
@@ -350,6 +330,26 @@
             </summary>
             <param name="password">Password of the stream</param>
             <returns>Returns true if the password is unicoded, else false</returns>
+        </member>
+        <member name="P:Syncfusion.PdfToImageConverter.PdfToImageConverter.ReferencePath">
+            <summary>
+            Gets or sets the reference path of the Pdfium library.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PdfToImageConverter.PdfToImageConverter.PageCount">
+            <summary>
+            Gets the page count of the document.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PdfToImageConverter.PdfToImageConverter.DocumentID">
+            <summary>
+            Gets or sets the id of the document
+            </summary>
+        </member>
+        <member name="P:Syncfusion.PdfToImageConverter.PdfToImageConverter.Document">
+            <summary>
+            Gets or sets the pdf document value
+            </summary>
         </member>
         <member name="T:Syncfusion.PdfToImageConverter.TextData">
             <summary>

@@ -61,7 +61,8 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class DataView : SfDataGrid
     {
-        /// <summary>
+        /// <summary
+        /// 
         /// Gets or sets the data filter.
         /// </summary>
         /// <value>

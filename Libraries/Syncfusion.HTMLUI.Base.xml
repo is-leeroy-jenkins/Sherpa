@@ -260,11 +260,6 @@
             Temporary object. Is member for performance needs.
             </summary>
         </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Parser.CSS.CSSParser.SkipBadStyles">
-            <summary>
-            Indicates whether to skip bad styles or throw exceptions (skip if True; make exception if False.)
-            </summary>
-        </member>
         <member name="M:Syncfusion.HTMLUI.Base.Parser.CSS.CSSParser.#ctor">
             <summary>
             Overloaded constructor. Initializes new object.
@@ -475,6 +470,74 @@
             <param name="token">String token.</param>
             <returns>True if we are going to jump on new line.</returns>
         </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Parser.CSS.CSSParser.SkipBadStyles">
+            <summary>
+            Indicates whether to skip bad styles or throw exceptions (skip if True; make exception if False.)
+            </summary>
+        </member>
+        <member name="T:Syncfusion.HTMLUI.Base.HTMLUICSSParser">
+            <summary>
+            This class is responsible for CSS document parsing.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.HTMLUI.Base.HTMLUICSSParser.m_parser">
+            <summary>
+            Converts CSS document into an XML document.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.HTMLUI.Base.HTMLUICSSParser.m_document">
+            <summary>
+            Holds XML document after converting.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.HTMLUICSSParser.#ctor">
+            <summary>
+            Overloaded Constructor. Initializes new object.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.HTMLUICSSParser.#ctor(System.String)">
+            <summary>
+            Initializes new object.
+            </summary>
+            <param name="fileName">Path to file for parsing.</param>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.HTMLUICSSParser.#ctor(Syncfusion.HTMLUI.Base.TokenStream)">
+            <summary>
+            Initializes new object from the stream.
+            </summary>
+            <param name="stream">Token stream object.</param>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.HTMLUICSSParser.Parse(System.String)">
+            <summary>
+            Overloaded Utility method. Converts file to XML.
+            </summary>
+            <param name="fileName">Path to CSS document.</param>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.HTMLUICSSParser.Parse(Syncfusion.HTMLUI.Base.TokenStream)">
+            <summary>
+            Utility method. Converts file to XML.
+            </summary>
+            <param name="stream">Token stream object.</param>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.HTMLUICSSParser.ParseString(System.String)">
+            <summary>
+            Converts CSS string which contains style declaration to XML document.
+            </summary>
+            <param name="styleDeclaration">Declaration of CSS style(s).</param>
+            <returns>Document which contains an XML interpretation of the CSS document.</returns>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.HTMLUICSSParser.ConvertCSSToXML(Syncfusion.HTMLUI.Base.TokenStream)">
+            <summary>
+            Converts to XML.
+            </summary>
+            <param name="stream">Input stream.</param>
+            <returns>The base stream infilled by parser.</returns>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.HTMLUICSSParser.Document">
+            <summary>
+            Gets the XML document.
+            </summary>
+        </member>
         <member name="T:Syncfusion.HTMLUI.Base.Parser.CSS.Token">
             <summary>
             Specifies tokens which represent elements in a CSS document.
@@ -630,6 +693,41 @@
             Not a recognized token.
             </summary>
         </member>
+        <member name="T:Syncfusion.HTMLUI.Base.ParseException">
+            <summary>
+            This exception is thrown by CSS and HTML parsers when finding a problem
+            in a document which cannot be resolved by the parser internally.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.HTMLUI.Base.ParseException.DEF_MESSAGE">
+            <summary>
+            Default text used by this exception when message is not specified by user.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.ParseException.#ctor">
+            <summary>
+            Overloaded constructor.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.ParseException.#ctor(System.String)">
+            <summary>
+            Constructor with a user specified exception message.
+            </summary>
+            <param name="message">Message to be displayed on throwing an exception.</param>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.ParseException.#ctor(System.Exception)">
+            <summary>
+            Create exception based on other exception - Wrap inner exception.
+            </summary>
+            <param name="inner">Inner exception.</param>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.ParseException.#ctor(System.String,System.Exception)">
+            <summary>
+            Create exception class with a user specified message and inner exception.
+            </summary>
+            <param name="message">User specified message.</param>
+            <param name="inner">Exception on which this instance of exception class is based.</param>
+        </member>
         <member name="T:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLConfig">
             <summary>
             This class is used by pre-parser as configuration object.
@@ -675,6 +773,40 @@
             
              </summary>
         </member>
+        <member name="M:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLConfig.#ctor">
+            <summary>
+            Hides default constructor to prevent construction without properties.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLConfig.#ctor(System.IO.Stream,System.IO.Stream)">
+            <summary>
+            Main constructor of configuration object.
+            </summary>
+            <param name="stream1">First config file which holds pre-parser elements rules.</param>
+            <param name="stream2">Second config files which holds entities information.</param>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLConfig.ExtractElements(System.Xml.XmlDocument,System.Xml.XmlDocument,System.Xml.XmlNamespaceManager)">
+            <summary>
+            Extracts from config files pre-parser rules and configuration information.
+            </summary>
+            <param name="document">Config file with pre-parser rules.</param>
+            <param name="document2">Config file with entities rules.</param>
+            <param name="nsm">namespaces</param>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLConfig.ExtractElementInfo(System.Xml.XmlDocument,Syncfusion.HTMLUI.Base.Parser.HTML.HTMLElement,System.Xml.XmlNamespaceManager)">
+            <summary>
+            Extracts from config file element with additional information.
+            </summary>
+            <param name="document">Config file with pre-parser rules.</param>
+            <param name="element">Element with additional info that must be extracted.</param>
+            <param name="nsm">Namespaces.</param>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLConfig.ExtractEntities(System.Xml.XmlDocument)">
+            <summary>
+            Extracts entities from config files.
+            </summary>
+            <param name="document2">Config file with entities rules.</param>
+        </member>
         <member name="P:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLConfig.MainConfig">
             <summary>
             Extracts main config from assembly. Property returns configuration
@@ -710,40 +842,6 @@
             <summary>
             Returns the entities as Read-only.
             </summary>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLConfig.#ctor">
-            <summary>
-            Hides default constructor to prevent construction without properties.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLConfig.#ctor(System.IO.Stream,System.IO.Stream)">
-            <summary>
-            Main constructor of configuration object.
-            </summary>
-            <param name="stream1">First config file which holds pre-parser elements rules.</param>
-            <param name="stream2">Second config files which holds entities information.</param>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLConfig.ExtractElements(System.Xml.XmlDocument,System.Xml.XmlDocument,System.Xml.XmlNamespaceManager)">
-            <summary>
-            Extracts from config files pre-parser rules and configuration information.
-            </summary>
-            <param name="document">Config file with pre-parser rules.</param>
-            <param name="document2">Config file with entities rules.</param>
-            <param name="nsm">namespaces</param>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLConfig.ExtractElementInfo(System.Xml.XmlDocument,Syncfusion.HTMLUI.Base.Parser.HTML.HTMLElement,System.Xml.XmlNamespaceManager)">
-            <summary>
-            Extracts from config file element with additional information.
-            </summary>
-            <param name="document">Config file with pre-parser rules.</param>
-            <param name="element">Element with additional info that must be extracted.</param>
-            <param name="nsm">Namespaces.</param>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLConfig.ExtractEntities(System.Xml.XmlDocument)">
-            <summary>
-            Extracts entities from config files.
-            </summary>
-            <param name="document2">Config file with entities rules.</param>
         </member>
         <member name="T:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLElement">
             <summary>
@@ -790,6 +888,17 @@
             <summary>
             Indicates whether whitespaces must be deleted in element.
             </summary>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLElement.#ctor">
+            <summary>
+            Private constructor to prevent empty class construction.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLElement.#ctor(System.String)">
+            <summary>
+            Main constructor used for element initializing.
+            </summary>
+            <param name="name">Name of the element.</param>
         </member>
         <member name="P:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLElement.Empty">
             <summary>
@@ -855,17 +964,6 @@
             <summary>
             Indicates whether we have to delete whitespaces in element.
             </summary>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLElement.#ctor">
-            <summary>
-            Private constructor to prevent empty class construction.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLElement.#ctor(System.String)">
-            <summary>
-            Main constructor used for element initializing.
-            </summary>
-            <param name="name">Name of the element.</param>
         </member>
         <member name="T:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLTokenizer">
             <summary>
@@ -1028,44 +1126,6 @@
             Temporary buffer for class methods. To remove memory allocation
             code from methods, all temporary objects become class members.
             </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLTokenizer.Encoding">
-            <summary>
-            Gets or sets the encoding of currently opened stream for tokenizing.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLTokenizer.TokenString">
-            <summary>
-            Returns the last extracted token.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLTokenizer.Token">
-            <summary>
-            Returns the last extracted token's type.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLTokenizer.Entities">
-            <summary>
-            Gets or sets the dictionary of entities which must be converted to unicode chars.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLTokenizer.CDataElement">
-            <summary>
-            CData element which must be found by parser for closing CDATA section of
-            stream and start work in proper manner.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLTokenizer.Position">
-            <summary>
-            Parser point. Parser has four states with their own parse algorithms.
-            This property is used for manually switching from one parse algorithm to another.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLTokenizer.IsEof">
-            <summary>
-            Indicates whether the end of file is reached.
-            </summary>
-            <returns>True if end of file.</returns>
         </member>
         <member name="M:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLTokenizer.#ctor">
             <summary>
@@ -1262,69 +1322,48 @@
             <param name="data">Income data.</param>
             <returns>Real data of CDATA block.</returns>
         </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLTokenizer.Encoding">
+            <summary>
+            Gets or sets the encoding of currently opened stream for tokenizing.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLTokenizer.TokenString">
+            <summary>
+            Returns the last extracted token.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLTokenizer.Token">
+            <summary>
+            Returns the last extracted token's type.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLTokenizer.Entities">
+            <summary>
+            Gets or sets the dictionary of entities which must be converted to unicode chars.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLTokenizer.CDataElement">
+            <summary>
+            CData element which must be found by parser for closing CDATA section of
+            stream and start work in proper manner.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLTokenizer.Position">
+            <summary>
+            Parser point. Parser has four states with their own parse algorithms.
+            This property is used for manually switching from one parse algorithm to another.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLTokenizer.IsEof">
+            <summary>
+            Indicates whether the end of file is reached.
+            </summary>
+            <returns>True if end of file.</returns>
+        </member>
         <member name="T:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLToXML">
             <summary>
             Class from HTMLParser (HTML->XHTML).
             </summary>
-        </member>
-        <member name="T:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLToXML.Context">
-            <summary>
-            Helper class for parsing HTML document.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLToXML.Context._element">
-            <summary>
-            HTML element which is parsing.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLToXML.Context._xmlIsland">
-            <summary>
-            True if element is NULL.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLToXML.Context._fullElementName">
-            <summary>
-            Name of the tag.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLToXML.Context.Element">
-            <summary>
-            Returns the HTML element.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLToXML.Context.IsXmlIsland">
-            <summary>
-            Indicates whether element is NULL.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLToXML.Context.FullName">
-            <summary>
-            Returns the name of the element.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLToXML.Context.#ctor">
-            <summary>
-            Hide default constructor from user hands.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLToXML.Context.#ctor(Syncfusion.HTMLUI.Base.Parser.HTML.HTMLElement)">
-            <summary>
-            Constructor with an element instance as argument.
-            </summary>
-            <param name="element">Element object.</param>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLToXML.Context.#ctor(System.String)">
-            <summary>
-            Constructor with the specfied name of the element as argument.
-            </summary>
-            <param name="fullElementName">Name of the element.</param>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLToXML.Context.#ctor(Syncfusion.HTMLUI.Base.Parser.HTML.HTMLElement,System.String)">
-            <summary>
-            Constructor with the name of the element and element instance as argument.
-            </summary>
-            <param name="element">Element object.</param>
-            <param name="fullElementName">Name of the element.</param>
         </member>
         <member name="F:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLToXML.m_bSkipEvents">
             <summary>
@@ -1365,37 +1404,6 @@
         <member name="F:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLToXML.m_prefixes">
             <summary>
             Array of prefixes in the document.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLToXML.QuietMode">
-            <summary>
-            Indicates whether quiet mode is enabled.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLToXML.ContextElement">
-            <summary>
-            Returns the element from the stack.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLToXML.SkipError">
-            <summary>
-            Flag indicates whether to skip bad situations or throw an exception.
-            Default is skip.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLToXML.Prefixes">
-            <summary>
-            Returns an array of prefixes that occurred in the document.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLToXML.Encoding">
-            <summary>
-            Returns the encoding used for data converting.
-            </summary>
-        </member>
-        <member name="E:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLToXML.QuietModeChanged">
-            <summary>
-            Event that is to be raised when mode is changed.
             </summary>
         </member>
         <member name="M:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLToXML.#ctor">
@@ -1489,193 +1497,95 @@
             </summary>
             <param name="value">Name of the tag.</param>
         </member>
-        <member name="T:Syncfusion.HTMLUI.Base.Parser.HTML.ParserPosition">
+        <member name="P:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLToXML.QuietMode">
             <summary>
-            Type indicates where parser is currently.
+            Indicates whether quiet mode is enabled.
             </summary>
         </member>
-        <member name="F:Syncfusion.HTMLUI.Base.Parser.HTML.ParserPosition.Text">
+        <member name="P:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLToXML.ContextElement">
             <summary>
-            Before text token.
+            Returns the element from the stack.
             </summary>
         </member>
-        <member name="F:Syncfusion.HTMLUI.Base.Parser.HTML.ParserPosition.Tag">
+        <member name="P:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLToXML.SkipError">
             <summary>
-            Before tag token.
+            Flag indicates whether to skip bad situations or throw an exception.
+            Default is skip.
             </summary>
         </member>
-        <member name="F:Syncfusion.HTMLUI.Base.Parser.HTML.ParserPosition.Attribute">
+        <member name="P:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLToXML.Prefixes">
             <summary>
-            Before attribute token.
+            Returns an array of prefixes that occurred in the document.
             </summary>
         </member>
-        <member name="F:Syncfusion.HTMLUI.Base.Parser.HTML.ParserPosition.CData">
+        <member name="P:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLToXML.Encoding">
             <summary>
-            Before CData element.
+            Returns the encoding used for data converting.
             </summary>
         </member>
-        <member name="T:Syncfusion.HTMLUI.Base.Parser.HTML.ParserToken">
+        <member name="E:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLToXML.QuietModeChanged">
             <summary>
-             Indicates which type of data is currently being parsed.
+            Event that is to be raised when mode is changed.
             </summary>
         </member>
-        <member name="F:Syncfusion.HTMLUI.Base.Parser.HTML.ParserToken.None">
+        <member name="T:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLToXML.Context">
             <summary>
-            Default value.
+            Helper class for parsing HTML document.
             </summary>
         </member>
-        <member name="F:Syncfusion.HTMLUI.Base.Parser.HTML.ParserToken.Text">
+        <member name="F:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLToXML.Context._element">
             <summary>
-             Token is text.
+            HTML element which is parsing.
             </summary>
         </member>
-        <member name="F:Syncfusion.HTMLUI.Base.Parser.HTML.ParserToken.Space">
+        <member name="F:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLToXML.Context._xmlIsland">
             <summary>
-            Token is whitespace.
+            True if element is NULL.
             </summary>
         </member>
-        <member name="F:Syncfusion.HTMLUI.Base.Parser.HTML.ParserToken.ProcessingInstruction">
+        <member name="F:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLToXML.Context._fullElementName">
             <summary>
-            Token is definition (&lt;!...&gt;).
+            Name of the tag.
             </summary>
         </member>
-        <member name="F:Syncfusion.HTMLUI.Base.Parser.HTML.ParserToken.MarkedSection">
+        <member name="M:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLToXML.Context.#ctor">
             <summary>
-            Token is &lt;![ .. ]&gt;.
+            Hide default constructor from user hands.
             </summary>
         </member>
-        <member name="F:Syncfusion.HTMLUI.Base.Parser.HTML.ParserToken.Comment">
+        <member name="M:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLToXML.Context.#ctor(Syncfusion.HTMLUI.Base.Parser.HTML.HTMLElement)">
             <summary>
-            Token is comment.
+            Constructor with an element instance as argument.
+            </summary>
+            <param name="element">Element object.</param>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLToXML.Context.#ctor(System.String)">
+            <summary>
+            Constructor with the specfied name of the element as argument.
+            </summary>
+            <param name="fullElementName">Name of the element.</param>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLToXML.Context.#ctor(Syncfusion.HTMLUI.Base.Parser.HTML.HTMLElement,System.String)">
+            <summary>
+            Constructor with the name of the element and element instance as argument.
+            </summary>
+            <param name="element">Element object.</param>
+            <param name="fullElementName">Name of the element.</param>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLToXML.Context.Element">
+            <summary>
+            Returns the HTML element.
             </summary>
         </member>
-        <member name="F:Syncfusion.HTMLUI.Base.Parser.HTML.ParserToken.StartTag">
+        <member name="P:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLToXML.Context.IsXmlIsland">
             <summary>
-            Token is &lt;.
+            Indicates whether element is NULL.
             </summary>
         </member>
-        <member name="F:Syncfusion.HTMLUI.Base.Parser.HTML.ParserToken.StartTagEnd">
+        <member name="P:Syncfusion.HTMLUI.Base.Parser.HTML.HTMLToXML.Context.FullName">
             <summary>
-             Token is &gt;.
+            Returns the name of the element.
             </summary>
-        </member>
-        <member name="F:Syncfusion.HTMLUI.Base.Parser.HTML.ParserToken.StartTagClosedEnd">
-            <summary>
-            Token is /&gt;.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.HTMLUI.Base.Parser.HTML.ParserToken.EndTag">
-            <summary>
-            Token is &lt;/.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.HTMLUI.Base.Parser.HTML.ParserToken.Attribute">
-            <summary>
-            Token is attribute name.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.HTMLUI.Base.Parser.HTML.ParserToken.AttributeValue">
-            <summary>
-            Token is attribute value.
-            </summary>
-        </member>
-        <member name="T:Syncfusion.HTMLUI.Base.HTMLUICSSParser">
-            <summary>
-            This class is responsible for CSS document parsing.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.HTMLUI.Base.HTMLUICSSParser.m_parser">
-            <summary>
-            Converts CSS document into an XML document.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.HTMLUI.Base.HTMLUICSSParser.m_document">
-            <summary>
-            Holds XML document after converting.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.HTMLUICSSParser.Document">
-            <summary>
-            Gets the XML document.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.HTMLUICSSParser.#ctor">
-            <summary>
-            Overloaded Constructor. Initializes new object.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.HTMLUICSSParser.#ctor(System.String)">
-            <summary>
-            Initializes new object.
-            </summary>
-            <param name="fileName">Path to file for parsing.</param>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.HTMLUICSSParser.#ctor(Syncfusion.HTMLUI.Base.TokenStream)">
-            <summary>
-            Initializes new object from the stream.
-            </summary>
-            <param name="stream">Token stream object.</param>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.HTMLUICSSParser.Parse(System.String)">
-            <summary>
-            Overloaded Utility method. Converts file to XML.
-            </summary>
-            <param name="fileName">Path to CSS document.</param>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.HTMLUICSSParser.Parse(Syncfusion.HTMLUI.Base.TokenStream)">
-            <summary>
-            Utility method. Converts file to XML.
-            </summary>
-            <param name="stream">Token stream object.</param>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.HTMLUICSSParser.ParseString(System.String)">
-            <summary>
-            Converts CSS string which contains style declaration to XML document.
-            </summary>
-            <param name="styleDeclaration">Declaration of CSS style(s).</param>
-            <returns>Document which contains an XML interpretation of the CSS document.</returns>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.HTMLUICSSParser.ConvertCSSToXML(Syncfusion.HTMLUI.Base.TokenStream)">
-            <summary>
-            Converts to XML.
-            </summary>
-            <param name="stream">Input stream.</param>
-            <returns>The base stream infilled by parser.</returns>
-        </member>
-        <member name="T:Syncfusion.HTMLUI.Base.ParseException">
-            <summary>
-            This exception is thrown by CSS and HTML parsers when finding a problem
-            in a document which cannot be resolved by the parser internally.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.HTMLUI.Base.ParseException.DEF_MESSAGE">
-            <summary>
-            Default text used by this exception when message is not specified by user.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.ParseException.#ctor">
-            <summary>
-            Overloaded constructor.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.ParseException.#ctor(System.String)">
-            <summary>
-            Constructor with a user specified exception message.
-            </summary>
-            <param name="message">Message to be displayed on throwing an exception.</param>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.ParseException.#ctor(System.Exception)">
-            <summary>
-            Create exception based on other exception - Wrap inner exception.
-            </summary>
-            <param name="inner">Inner exception.</param>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.ParseException.#ctor(System.String,System.Exception)">
-            <summary>
-            Create exception class with a user specified message and inner exception.
-            </summary>
-            <param name="message">User specified message.</param>
-            <param name="inner">Exception on which this instance of exception class is based.</param>
         </member>
         <member name="T:Syncfusion.HTMLUI.Base.HTMLUIParser">
             <summary>
@@ -1691,11 +1601,6 @@
         <member name="F:Syncfusion.HTMLUI.Base.HTMLUIParser.m_convertor">
             <summary>
             Converter of HTML document to xHTML document.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.HTMLUIParser.Encoding">
-            <summary>
-            Returns the encoding used by this parser.
             </summary>
         </member>
         <member name="M:Syncfusion.HTMLUI.Base.HTMLUIParser.#ctor">
@@ -1808,11 +1713,136 @@
             <param name="manager">Namespace manager.</param>
             <param name="prefixes">Array of prefixes.</param>
         </member>
+        <member name="P:Syncfusion.HTMLUI.Base.HTMLUIParser.Encoding">
+            <summary>
+            Returns the encoding used by this parser.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.HTMLUI.Base.Parser.HTML.ParserPosition">
+            <summary>
+            Type indicates where parser is currently.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.HTMLUI.Base.Parser.HTML.ParserPosition.Text">
+            <summary>
+            Before text token.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.HTMLUI.Base.Parser.HTML.ParserPosition.Tag">
+            <summary>
+            Before tag token.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.HTMLUI.Base.Parser.HTML.ParserPosition.Attribute">
+            <summary>
+            Before attribute token.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.HTMLUI.Base.Parser.HTML.ParserPosition.CData">
+            <summary>
+            Before CData element.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.HTMLUI.Base.Parser.HTML.ParserToken">
+            <summary>
+             Indicates which type of data is currently being parsed.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.HTMLUI.Base.Parser.HTML.ParserToken.None">
+            <summary>
+            Default value.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.HTMLUI.Base.Parser.HTML.ParserToken.Text">
+            <summary>
+             Token is text.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.HTMLUI.Base.Parser.HTML.ParserToken.Space">
+            <summary>
+            Token is whitespace.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.HTMLUI.Base.Parser.HTML.ParserToken.ProcessingInstruction">
+            <summary>
+            Token is definition (&lt;!...&gt;).
+            </summary>
+        </member>
+        <member name="F:Syncfusion.HTMLUI.Base.Parser.HTML.ParserToken.MarkedSection">
+            <summary>
+            Token is &lt;![ .. ]&gt;.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.HTMLUI.Base.Parser.HTML.ParserToken.Comment">
+            <summary>
+            Token is comment.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.HTMLUI.Base.Parser.HTML.ParserToken.StartTag">
+            <summary>
+            Token is &lt;.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.HTMLUI.Base.Parser.HTML.ParserToken.StartTagEnd">
+            <summary>
+             Token is &gt;.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.HTMLUI.Base.Parser.HTML.ParserToken.StartTagClosedEnd">
+            <summary>
+            Token is /&gt;.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.HTMLUI.Base.Parser.HTML.ParserToken.EndTag">
+            <summary>
+            Token is &lt;/.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.HTMLUI.Base.Parser.HTML.ParserToken.Attribute">
+            <summary>
+            Token is attribute name.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.HTMLUI.Base.Parser.HTML.ParserToken.AttributeValue">
+            <summary>
+            Token is attribute value.
+            </summary>
+        </member>
         <member name="T:Syncfusion.HTMLUI.Base.IResourceProvider">
             <summary>
             Interface that declares the functionality for objects
             exposing data of the document.
             </summary>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.IResourceProvider.GetDocumentBody">
+            <summary>
+            Searches for a body of the document and returns data contained in it.
+            </summary>
+            <returns>Data of document's body if found; Null otherwise.</returns>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.IResourceProvider.ResourceExists(System.String,System.String@,Syncfusion.HTMLUI.Base.ResourceType@)">
+            <summary>
+            Indicates whether such resource exists. Checks as local file as remote resource.
+            </summary>
+            <param name="path">Path for searching.</param>
+            <param name="fullPath">Full path to the resource.</param>
+            <param name="type">Type of resource.</param>
+            <returns>True if resource found; False otherwise.</returns>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.IResourceProvider.GetResource(System.String)">
+            <summary>
+            Overloaded. Searches for resource by it's location inside of document.
+            </summary>
+            <param name="path">Path to the resource.</param>
+            <returns>Data of resource if found; Null otherwise.</returns>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.IResourceProvider.GetResource(System.String,Syncfusion.HTMLUI.Base.ResourceType)">
+            <summary>
+            Searches for resource by it's location inside of document.
+            </summary>
+            <param name="fullPath">Full path to the resource.</param>
+            <param name="type">Type of resource.</param>
+            <returns>Data of resource if found; Null otherwise.</returns>
         </member>
         <member name="P:Syncfusion.HTMLUI.Base.IResourceProvider.IsFileName">
             <summary>
@@ -1856,36 +1886,6 @@
             <summary>
             Returns the format of resource provider.
             </summary>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.IResourceProvider.GetDocumentBody">
-            <summary>
-            Searches for a body of the document and returns data contained in it.
-            </summary>
-            <returns>Data of document's body if found; Null otherwise.</returns>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.IResourceProvider.ResourceExists(System.String,System.String@,Syncfusion.HTMLUI.Base.ResourceType@)">
-            <summary>
-            Indicates whether such resource exists. Checks as local file as remote resource.
-            </summary>
-            <param name="path">Path for searching.</param>
-            <param name="fullPath">Full path to the resource.</param>
-            <param name="type">Type of resource.</param>
-            <returns>True if resource found; False otherwise.</returns>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.IResourceProvider.GetResource(System.String)">
-            <summary>
-            Overloaded. Searches for resource by it's location inside of document.
-            </summary>
-            <param name="path">Path to the resource.</param>
-            <returns>Data of resource if found; Null otherwise.</returns>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.IResourceProvider.GetResource(System.String,Syncfusion.HTMLUI.Base.ResourceType)">
-            <summary>
-            Searches for resource by it's location inside of document.
-            </summary>
-            <param name="fullPath">Full path to the resource.</param>
-            <param name="type">Type of resource.</param>
-            <returns>Data of resource if found; Null otherwise.</returns>
         </member>
         <member name="T:Syncfusion.HTMLUI.Base.BufferedStreamEx">
             <summary>
@@ -1933,46 +1933,6 @@
         <member name="F:Syncfusion.HTMLUI.Base.BufferedStreamEx._streamPos">
             <summary>
             Stream position on moment of buffer read.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.BufferedStreamEx.CanRead">
-            <summary>
-            Indicates whether data can be read from wrapped stream.
-            True if data can be read.
-            </summary>
-            <exception cref="T:System.ArgumentNullException">Class instance was disposed.</exception>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.BufferedStreamEx.CanWrite">
-            <summary>
-            Indicates whether data can be written to wrapped stream.
-            </summary>
-            <exception cref="T:System.ArgumentNullException">Class instance was disposed.</exception>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.BufferedStreamEx.CanSeek">
-            <summary>
-            Indicates whether wrapped stream supports seek operations.
-            </summary>
-            <exception cref="T:System.ArgumentNullException">Class instance was disposed.</exception>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.BufferedStreamEx.Length">
-            <summary>
-            Returns the length of wrapped stream. On property value get class Flush not
-            written to stream data.
-            </summary>
-            <exception cref="T:System.ArgumentNullException">Class instance was disposed.</exception>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.BufferedStreamEx.Position">
-            <summary>
-            Returns current position of stream. Position can be different when wrapped
-            stream, because wrapped stream will point on last byte of
-            cached data. On property set not written data flushed to stream.
-            </summary>
-            <exception cref="T:System.ArgumentNullException">Class instance was disposed.</exception>
-            <exception cref="T:System.ArgumentException">Wrapped stream does not support seek operation.</exception>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.BufferedStreamEx.BaseStream">
-            <summary>
-            Returns the reference on stream wrapped by BufferStreamEx.
             </summary>
         </member>
         <member name="M:Syncfusion.HTMLUI.Base.BufferedStreamEx.#ctor">
@@ -2102,6 +2062,46 @@
             If can't seek or can't write into stream.
             </exception>
         </member>
+        <member name="P:Syncfusion.HTMLUI.Base.BufferedStreamEx.CanRead">
+            <summary>
+            Indicates whether data can be read from wrapped stream.
+            True if data can be read.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">Class instance was disposed.</exception>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.BufferedStreamEx.CanWrite">
+            <summary>
+            Indicates whether data can be written to wrapped stream.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">Class instance was disposed.</exception>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.BufferedStreamEx.CanSeek">
+            <summary>
+            Indicates whether wrapped stream supports seek operations.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">Class instance was disposed.</exception>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.BufferedStreamEx.Length">
+            <summary>
+            Returns the length of wrapped stream. On property value get class Flush not
+            written to stream data.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">Class instance was disposed.</exception>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.BufferedStreamEx.Position">
+            <summary>
+            Returns current position of stream. Position can be different when wrapped
+            stream, because wrapped stream will point on last byte of
+            cached data. On property set not written data flushed to stream.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">Class instance was disposed.</exception>
+            <exception cref="T:System.ArgumentException">Wrapped stream does not support seek operation.</exception>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.BufferedStreamEx.BaseStream">
+            <summary>
+            Returns the reference on stream wrapped by BufferStreamEx.
+            </summary>
+        </member>
         <member name="T:Syncfusion.HTMLUI.Base.NewLineStyle">
             <summary>
             Specifies a new line in different OS.
@@ -2162,164 +2162,6 @@
             <summary>
             An array of known encodings.
             </summary>
-        </member>
-        <member name="T:Syncfusion.HTMLUI.Base.TokenStream.StreamTokenEnum">
-            <summary>
-            This class implements enumerator which uses its own algorithm for extracting
-            data from input stream. Algorithm is a little faster than used in
-            TokenStream class, but it does not support multi-symbols tokens splitter.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.HTMLUI.Base.TokenStream.StreamTokenEnum.m_parent">
-            <summary>
-            Parent TokenStream.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.HTMLUI.Base.TokenStream.StreamTokenEnum.m_lPosition">
-            <summary>
-            Current Position Of Reading.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.TokenStream.StreamTokenEnum.#ctor">
-            <summary>
-            Empty Constructor.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.TokenStream.StreamTokenEnum.Finalize">
-            <summary>
-            Destructor. Disposes all resources.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.TokenStream.StreamTokenEnum.#ctor(Syncfusion.HTMLUI.Base.TokenStream)">
-            <summary>
-            Constructor with specified parent.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.TokenStream.StreamTokenEnum.Dispose">
-            <summary>
-            Clears all resources.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.TokenStream.StreamTokenEnum.Current">
-            <summary>
-            Returns current token.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.TokenStream.StreamTokenEnum.Reset">
-            <summary>
-            At the beginning Of Enumeration, clears the buffer.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.TokenStream.StreamTokenEnum.MoveNext">
-            <summary>
-            NOTE : newline - is one token
-            </summary>
-        </member>
-        <member name="T:Syncfusion.HTMLUI.Base.TokenStream.FastChar">
-            <summary>
-            This class is used for multicharacter token search operations. It holds
-            case sensitive information.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.HTMLUI.Base.TokenStream.FastChar.m_ch">
-            <summary>
-            Current character from the Stream.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.HTMLUI.Base.TokenStream.FastChar.m_bHasEnd">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Syncfusion.HTMLUI.Base.TokenStream.FastChar.m_subchars">
-            <summary>
-            Holds the rest of characters in the word.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.TokenStream.FastChar.Char">
-            <summary>
-            Returns one character from the stream.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.TokenStream.FastChar.HasEnd">
-            <summary>
-            Indicates whether SubChars collection contains string end symbol '\uffff'.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.TokenStream.FastChar.SubChars">
-            <summary>
-            Returns sub-chars ( the rest of chars in the word )
-            </summary>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.TokenStream.FastChar.#ctor">
-            <summary>
-            Default constructor diasbled for end user.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.TokenStream.FastChar.#ctor(System.Char)">
-            <summary>
-            Overloaded constructor.
-            </summary>
-            <param name="ch"></param>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.TokenStream.FastChar.#ctor(System.Char,System.Collections.IDictionary)">
-            <summary>
-            Constructor for inheritors.
-            </summary>
-            <param name="ch">char</param>
-            <param name="dict">Collection for sub-chars</param>
-        </member>
-        <member name="T:Syncfusion.HTMLUI.Base.TokenStream.FastInsensChar">
-            <summary>
-            This class is used for multi-symbol token search operation. It holds
-            case insensitive information.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.TokenStream.FastInsensChar.#ctor(System.Char)">
-            <summary>
-            Creates new object.
-            </summary>
-            <param name="ch">Character symbol.</param>
-        </member>
-        <member name="T:Syncfusion.HTMLUI.Base.TokenStream.CaseInsensCharProvider">
-            <summary>
-            Fixes Microsoft bug for Case insensitive types. Microsoft provides only
-            case insensitive hash provider for strings; characters by itself are not supported.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.TokenStream.CaseInsensCharProvider.GetHashCode(System.Object)">
-            <summary>
-            Calculates hash code for character.
-            </summary>
-            <param name="obj">Object for which hash must be calculated</param>
-            <returns></returns>
-        </member>
-        <member name="T:Syncfusion.HTMLUI.Base.TokenStream.CaseInsensCharComparer">
-            <summary>
-            This class provides the functionality for comparing two characters. It fixes Microsoft
-            bug: case insensitive help provided only for strings.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.TokenStream.CaseInsensCharComparer.Compare(System.Object,System.Object)">
-            <summary>
-            Compares two characters by its values - case insensitive
-            </summary>
-            <param name="x">first value</param>
-            <param name="y">second value</param>
-            <returns>0 - if equal; -1 if x is less than y; 1 if x is greater than y</returns>
-        </member>
-        <member name="T:Syncfusion.HTMLUI.Base.TokenStream.ArrayLengthComparer">
-            <summary>
-            This class helps users to sort arrays by Length property value.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.TokenStream.ArrayLengthComparer.Compare(System.Object,System.Object)">
-            <summary>
-            Compares two Array classes by Length property values.
-            </summary>
-            <param name="x">first parameter</param>
-            <param name="y">second parameter</param>
-            <returns>0 - if equal; -1 if x is less than y; 1 if x is greater than y</returns>
         </member>
         <member name="F:Syncfusion.HTMLUI.Base.TokenStream.m_iSkippedBytes">
             <summary>
@@ -2418,79 +2260,6 @@
         <member name="F:Syncfusion.HTMLUI.Base.TokenStream.m_bPeekToken">
             <summary>
             Indicates whether cache contains some data.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.TokenStream.MaxMultiTokenLength">
-            <summary>
-            Returns the maximum size of multi-symbol token.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.TokenStream.MinMultiTokenLength">
-            <summary>
-            Returns the minimum size of multi-symbol token.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.TokenStream.OneCharTokens">
-            <summary>
-            Gets or sets an array of characters which can split tokens in stream.
-            Each symbol from this array will be returned by Stream as token
-            with one char, for more complex constructions must use
-            MultiCharTokens property values.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.TokenStream.MultiCharTokens">
-            <summary>
-            Gets or sets multi-symbol atomic tokens. This property can used by
-            top-level abstractions for extracting special lexems, like: ++, --,
-            +=, -=, !=, ==, *=, etc.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.TokenStream.CaseSensitive">
-            <summary>
-            Indicates whether Multi-character Tokens are case sensitive or not.
-            Default is case sensitive - TRUE.
-            This property greatly reduces performance of TokenStream class
-            an hence used only where it is really needed.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.TokenStream.Encoding">
-            <summary>
-            Gets or sets the encoding that is to be used for file reading.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.TokenStream.Position">
-            <summary>
-            Gets or sets position in stream.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.TokenStream.CanSeek">
-            <summary>
-            Indicates whether TokenStream can Seek.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.TokenStream.CanRead">
-            <summary>
-            Indicates whether TokenStream can Read.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.TokenStream.CanWrite">
-            <summary>
-            Indicates whether TokenStream can Write.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.TokenStream.Length">
-            <summary>
-            Returns the number of symbols in our Stream.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.TokenStream.NewLine">
-            <summary>
-            On end of line, string update recalculates lines in stream.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.TokenStream.EndLineStyle">
-            <summary>
-            Gets or sets End line style ( For different OS ).
             </summary>
         </member>
         <member name="M:Syncfusion.HTMLUI.Base.TokenStream.GetEnumerator">
@@ -2832,6 +2601,237 @@
             <param name="position">Returns position part of calculation.</param>
             <returns>Number of lines in area from current Position till Offset value.</returns>
         </member>
+        <member name="P:Syncfusion.HTMLUI.Base.TokenStream.MaxMultiTokenLength">
+            <summary>
+            Returns the maximum size of multi-symbol token.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.TokenStream.MinMultiTokenLength">
+            <summary>
+            Returns the minimum size of multi-symbol token.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.TokenStream.OneCharTokens">
+            <summary>
+            Gets or sets an array of characters which can split tokens in stream.
+            Each symbol from this array will be returned by Stream as token
+            with one char, for more complex constructions must use
+            MultiCharTokens property values.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.TokenStream.MultiCharTokens">
+            <summary>
+            Gets or sets multi-symbol atomic tokens. This property can used by
+            top-level abstractions for extracting special lexems, like: ++, --,
+            +=, -=, !=, ==, *=, etc.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.TokenStream.CaseSensitive">
+            <summary>
+            Indicates whether Multi-character Tokens are case sensitive or not.
+            Default is case sensitive - TRUE.
+            This property greatly reduces performance of TokenStream class
+            an hence used only where it is really needed.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.TokenStream.Encoding">
+            <summary>
+            Gets or sets the encoding that is to be used for file reading.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.TokenStream.Position">
+            <summary>
+            Gets or sets position in stream.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.TokenStream.CanSeek">
+            <summary>
+            Indicates whether TokenStream can Seek.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.TokenStream.CanRead">
+            <summary>
+            Indicates whether TokenStream can Read.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.TokenStream.CanWrite">
+            <summary>
+            Indicates whether TokenStream can Write.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.TokenStream.Length">
+            <summary>
+            Returns the number of symbols in our Stream.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.TokenStream.NewLine">
+            <summary>
+            On end of line, string update recalculates lines in stream.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.TokenStream.EndLineStyle">
+            <summary>
+            Gets or sets End line style ( For different OS ).
+            </summary>
+        </member>
+        <member name="T:Syncfusion.HTMLUI.Base.TokenStream.StreamTokenEnum">
+            <summary>
+            This class implements enumerator which uses its own algorithm for extracting
+            data from input stream. Algorithm is a little faster than used in
+            TokenStream class, but it does not support multi-symbols tokens splitter.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.HTMLUI.Base.TokenStream.StreamTokenEnum.m_parent">
+            <summary>
+            Parent TokenStream.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.HTMLUI.Base.TokenStream.StreamTokenEnum.m_lPosition">
+            <summary>
+            Current Position Of Reading.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.TokenStream.StreamTokenEnum.#ctor">
+            <summary>
+            Empty Constructor.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.TokenStream.StreamTokenEnum.Finalize">
+            <summary>
+            Destructor. Disposes all resources.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.TokenStream.StreamTokenEnum.#ctor(Syncfusion.HTMLUI.Base.TokenStream)">
+            <summary>
+            Constructor with specified parent.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.TokenStream.StreamTokenEnum.Dispose">
+            <summary>
+            Clears all resources.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.TokenStream.StreamTokenEnum.Reset">
+            <summary>
+            At the beginning Of Enumeration, clears the buffer.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.TokenStream.StreamTokenEnum.MoveNext">
+            <summary>
+            NOTE : newline - is one token
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.TokenStream.StreamTokenEnum.Current">
+            <summary>
+            Returns current token.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.HTMLUI.Base.TokenStream.FastChar">
+            <summary>
+            This class is used for multicharacter token search operations. It holds
+            case sensitive information.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.HTMLUI.Base.TokenStream.FastChar.m_ch">
+            <summary>
+            Current character from the Stream.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.HTMLUI.Base.TokenStream.FastChar.m_bHasEnd">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:Syncfusion.HTMLUI.Base.TokenStream.FastChar.m_subchars">
+            <summary>
+            Holds the rest of characters in the word.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.TokenStream.FastChar.#ctor">
+            <summary>
+            Default constructor diasbled for end user.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.TokenStream.FastChar.#ctor(System.Char)">
+            <summary>
+            Overloaded constructor.
+            </summary>
+            <param name="ch"></param>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.TokenStream.FastChar.#ctor(System.Char,System.Collections.IDictionary)">
+            <summary>
+            Constructor for inheritors.
+            </summary>
+            <param name="ch">char</param>
+            <param name="dict">Collection for sub-chars</param>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.TokenStream.FastChar.Char">
+            <summary>
+            Returns one character from the stream.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.TokenStream.FastChar.HasEnd">
+            <summary>
+            Indicates whether SubChars collection contains string end symbol '\uffff'.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.TokenStream.FastChar.SubChars">
+            <summary>
+            Returns sub-chars ( the rest of chars in the word )
+            </summary>
+        </member>
+        <member name="T:Syncfusion.HTMLUI.Base.TokenStream.FastInsensChar">
+            <summary>
+            This class is used for multi-symbol token search operation. It holds
+            case insensitive information.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.TokenStream.FastInsensChar.#ctor(System.Char)">
+            <summary>
+            Creates new object.
+            </summary>
+            <param name="ch">Character symbol.</param>
+        </member>
+        <member name="T:Syncfusion.HTMLUI.Base.TokenStream.CaseInsensCharProvider">
+            <summary>
+            Fixes Microsoft bug for Case insensitive types. Microsoft provides only
+            case insensitive hash provider for strings; characters by itself are not supported.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.TokenStream.CaseInsensCharProvider.GetHashCode(System.Object)">
+            <summary>
+            Calculates hash code for character.
+            </summary>
+            <param name="obj">Object for which hash must be calculated</param>
+            <returns></returns>
+        </member>
+        <member name="T:Syncfusion.HTMLUI.Base.TokenStream.CaseInsensCharComparer">
+            <summary>
+            This class provides the functionality for comparing two characters. It fixes Microsoft
+            bug: case insensitive help provided only for strings.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.TokenStream.CaseInsensCharComparer.Compare(System.Object,System.Object)">
+            <summary>
+            Compares two characters by its values - case insensitive
+            </summary>
+            <param name="x">first value</param>
+            <param name="y">second value</param>
+            <returns>0 - if equal; -1 if x is less than y; 1 if x is greater than y</returns>
+        </member>
+        <member name="T:Syncfusion.HTMLUI.Base.TokenStream.ArrayLengthComparer">
+            <summary>
+            This class helps users to sort arrays by Length property value.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.TokenStream.ArrayLengthComparer.Compare(System.Object,System.Object)">
+            <summary>
+            Compares two Array classes by Length property values.
+            </summary>
+            <param name="x">first parameter</param>
+            <param name="y">second parameter</param>
+            <returns>0 - if equal; -1 if x is less than y; 1 if x is greater than y</returns>
+        </member>
         <member name="T:Syncfusion.HTMLUI.Base.Utility.ColorUtil">
             <summary>
             Summary description for ColorConvert.
@@ -2941,6 +2941,142 @@
              <summary>
             
              </summary>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.Utility.ColorUtil.#cctor">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.Utility.ColorUtil.CalculateMainColors">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.Utility.ColorUtil.SystemEvents_DisplaySettingsChanged(System.Object,System.EventArgs)">
+             <summary>
+            
+             </summary>
+             <param name="sender">Event sender.</param>
+             <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.Utility.ColorUtil.SystemEvents_PaletteChanged(System.Object,System.EventArgs)">
+             <summary>
+            
+             </summary>
+             <param name="sender">Event sender.</param>
+             <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.Utility.ColorUtil.SystemEvents_UserPreferenceChanged(System.Object,Microsoft.Win32.UserPreferenceChangedEventArgs)">
+             <summary>
+            
+             </summary>
+             <param name="sender">Event sender.</param>
+             <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.Utility.ColorUtil.HSLToRGB(System.Single,System.Single,System.Single,System.Single@,System.Single@,System.Single@)">
+            <summary>
+            HSLs to RGB.
+            </summary>
+            <param name="h">The h.</param>
+            <param name="s">The s.</param>
+            <param name="l">The l.</param>
+            <param name="r">The r.</param>
+            <param name="g">The g.</param>
+            <param name="b">The b.</param>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.Utility.ColorUtil.getRGBValue(System.Single,System.Single,System.Single)">
+             <summary>
+            
+             </summary>
+             <param name="n1"></param>
+             <param name="n2"></param>
+             <param name="hue"></param>
+             <returns></returns>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.Utility.ColorUtil.RGBToHSL(System.Int32,System.Int32,System.Int32,System.Single@,System.Single@,System.Single@)">
+            <summary>
+            RGBs to HSL.
+            </summary>
+            <param name="r">The r.</param>
+            <param name="g">The g.</param>
+            <param name="b">The b.</param>
+            <param name="h">The h.</param>
+            <param name="s">The s.</param>
+            <param name="l">The l.</param>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.Utility.ColorUtil.CalculateColor(System.Drawing.Color,System.Drawing.Color,System.Int32)">
+             <summary>
+            
+             </summary>
+             <param name="front"></param>
+             <param name="back"></param>
+             <param name="alpha"></param>
+             <returns></returns>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.Utility.ColorUtil.IsKnownColor(System.Drawing.Color,System.Drawing.Color@,System.Boolean)">
+            <summary>
+            Determines whether [is known color] [the specified color].
+            </summary>
+            <param name="color">The color.</param>
+            <param name="knownColor">Color of the known.</param>
+            <param name="useTransparent">if set to <c>true</c> [use transparent].</param>
+            <returns>
+            	<c>true</c> if [is known color] [the specified color]; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.Utility.ColorUtil.IsSystemColor(System.Drawing.Color,System.Drawing.Color@)">
+            <summary>
+            Determines whether [is system color] [the specified color].
+            </summary>
+            <param name="color">The color.</param>
+            <param name="knownColor">Color of the known.</param>
+            <returns>
+            	<c>true</c> if [is system color] [the specified color]; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.Utility.ColorUtil.ColorFromRGBString(System.String)">
+            <summary>
+            Colors from RGB string.
+            </summary>
+            <param name="text">The text.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.Utility.ColorUtil.GetRValue(System.Int32)">
+            <summary>
+            Returns the red value of one channel level.
+            </summary>
+            <param name="color">Integer type color value.</param>
+            <returns>Red channel of color.</returns>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.Utility.ColorUtil.GetGValue(System.Int32)">
+            <summary>
+            Returns green channel level of color.
+            </summary>
+            <param name="color">Integer type color value.</param>
+            <returns>Green channel level of color.</returns>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.Utility.ColorUtil.GetBValue(System.Int32)">
+            <summary>
+            Returns the blue channel level of color.
+            </summary>
+            <param name="color">Integer type color value.</param>
+            <returns>Blue channel level of color.</returns>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.Utility.ColorUtil.RGB(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            RGBs the specified r.
+            </summary>
+            <param name="r">The r.</param>
+            <param name="g">The g.</param>
+            <param name="b">The b.</param>
+            <returns>RGB color in integer</returns>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.Utility.ColorUtil.RGB(System.Drawing.Color)">
+            <summary>
+            RGBs the specified CLR.
+            </summary>
+            <param name="clr">The CLR.</param>
+            <returns>RGB color in integer</returns>
         </member>
         <member name="P:Syncfusion.HTMLUI.Base.Utility.ColorUtil.VSNetBackgroundColor">
             <summary>
@@ -3073,142 +3209,6 @@
             Event that is to be raised when colors are changed and all controls must be repainted.
             </summary>
         </member>
-        <member name="M:Syncfusion.HTMLUI.Base.Utility.ColorUtil.#cctor">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.Utility.ColorUtil.CalculateMainColors">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.Utility.ColorUtil.SystemEvents_DisplaySettingsChanged(System.Object,System.EventArgs)">
-             <summary>
-            
-             </summary>
-             <param name="sender">Event sender.</param>
-             <param name="e">Event arguments.</param>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.Utility.ColorUtil.SystemEvents_PaletteChanged(System.Object,System.EventArgs)">
-             <summary>
-            
-             </summary>
-             <param name="sender">Event sender.</param>
-             <param name="e">Event arguments.</param>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.Utility.ColorUtil.SystemEvents_UserPreferenceChanged(System.Object,Microsoft.Win32.UserPreferenceChangedEventArgs)">
-             <summary>
-            
-             </summary>
-             <param name="sender">Event sender.</param>
-             <param name="e">Event arguments.</param>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.Utility.ColorUtil.HSLToRGB(System.Single,System.Single,System.Single,System.Single@,System.Single@,System.Single@)">
-            <summary>
-            HSLs to RGB.
-            </summary>
-            <param name="h">The h.</param>
-            <param name="s">The s.</param>
-            <param name="l">The l.</param>
-            <param name="r">The r.</param>
-            <param name="g">The g.</param>
-            <param name="b">The b.</param>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.Utility.ColorUtil.getRGBValue(System.Single,System.Single,System.Single)">
-             <summary>
-            
-             </summary>
-             <param name="n1"></param>
-             <param name="n2"></param>
-             <param name="hue"></param>
-             <returns></returns>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.Utility.ColorUtil.RGBToHSL(System.Int32,System.Int32,System.Int32,System.Single@,System.Single@,System.Single@)">
-            <summary>
-            RGBs to HSL.
-            </summary>
-            <param name="r">The r.</param>
-            <param name="g">The g.</param>
-            <param name="b">The b.</param>
-            <param name="h">The h.</param>
-            <param name="s">The s.</param>
-            <param name="l">The l.</param>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.Utility.ColorUtil.CalculateColor(System.Drawing.Color,System.Drawing.Color,System.Int32)">
-             <summary>
-            
-             </summary>
-             <param name="front"></param>
-             <param name="back"></param>
-             <param name="alpha"></param>
-             <returns></returns>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.Utility.ColorUtil.IsKnownColor(System.Drawing.Color,System.Drawing.Color@,System.Boolean)">
-            <summary>
-            Determines whether [is known color] [the specified color].
-            </summary>
-            <param name="color">The color.</param>
-            <param name="knownColor">Color of the known.</param>
-            <param name="useTransparent">if set to <c>true</c> [use transparent].</param>
-            <returns>
-            	<c>true</c> if [is known color] [the specified color]; otherwise, <c>false</c>.
-            </returns>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.Utility.ColorUtil.IsSystemColor(System.Drawing.Color,System.Drawing.Color@)">
-            <summary>
-            Determines whether [is system color] [the specified color].
-            </summary>
-            <param name="color">The color.</param>
-            <param name="knownColor">Color of the known.</param>
-            <returns>
-            	<c>true</c> if [is system color] [the specified color]; otherwise, <c>false</c>.
-            </returns>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.Utility.ColorUtil.ColorFromRGBString(System.String)">
-            <summary>
-            Colors from RGB string.
-            </summary>
-            <param name="text">The text.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.Utility.ColorUtil.GetRValue(System.Int32)">
-            <summary>
-            Returns the red value of one channel level.
-            </summary>
-            <param name="color">Integer type color value.</param>
-            <returns>Red channel of color.</returns>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.Utility.ColorUtil.GetGValue(System.Int32)">
-            <summary>
-            Returns green channel level of color.
-            </summary>
-            <param name="color">Integer type color value.</param>
-            <returns>DarkGreen channel level of color.</returns>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.Utility.ColorUtil.GetBValue(System.Int32)">
-            <summary>
-            Returns the blue channel level of color.
-            </summary>
-            <param name="color">Integer type color value.</param>
-            <returns>Blue channel level of color.</returns>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.Utility.ColorUtil.RGB(System.Int32,System.Int32,System.Int32)">
-            <summary>
-            RGBs the specified r.
-            </summary>
-            <param name="r">The r.</param>
-            <param name="g">The g.</param>
-            <param name="b">The b.</param>
-            <returns>RGB color in integer</returns>
-        </member>
-        <member name="M:Syncfusion.HTMLUI.Base.Utility.ColorUtil.RGB(System.Drawing.Color)">
-            <summary>
-            RGBs the specified CLR.
-            </summary>
-            <param name="clr">The CLR.</param>
-            <returns>RGB color in integer</returns>
-        </member>
         <member name="T:Syncfusion.HTMLUI.Base.Utility.DataProvider">
             <summary>
             Base class for all data provider classes.
@@ -3232,41 +3232,6 @@
         <member name="F:Syncfusion.HTMLUI.Base.Utility.DataProvider.m_rootDir">
             <summary>
             Root directory for the document.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.DataProvider.FileName">
-            <summary>
-            Returns the path to the document.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.DataProvider.Uri">
-            <summary>
-            Returns the Uri to the document.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.DataProvider.Stream">
-            <summary>
-            Returns the stream containing the document's data.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.DataProvider.IsFileName">
-            <summary>
-            Indicates whether input HTML document is loaded from file.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.DataProvider.IsUri">
-            <summary>
-            Indicates whether input HTML document is loaded by Uri.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.DataProvider.IsStream">
-            <summary>
-            Indicates whether input HTML document is loaded from stream.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.DataProvider.RootDirectory">
-            <summary>
-            Gets or sets root directory for the document.
             </summary>
         </member>
         <member name="M:Syncfusion.HTMLUI.Base.Utility.DataProvider.#ctor">
@@ -3295,11 +3260,6 @@
         <member name="M:Syncfusion.HTMLUI.Base.Utility.DataProvider.Dispose">
             <summary>
             Clears all objects.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.DataProvider.Format">
-            <summary>
-            Returns the format of the resource provider.
             </summary>
         </member>
         <member name="M:Syncfusion.HTMLUI.Base.Utility.DataProvider.GetDocumentBody">
@@ -3362,6 +3322,46 @@
             </summary>
             <param name="uri">Path to the file.</param>
         </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.DataProvider.FileName">
+            <summary>
+            Returns the path to the document.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.DataProvider.Uri">
+            <summary>
+            Returns the Uri to the document.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.DataProvider.Stream">
+            <summary>
+            Returns the stream containing the document's data.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.DataProvider.IsFileName">
+            <summary>
+            Indicates whether input HTML document is loaded from file.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.DataProvider.IsUri">
+            <summary>
+            Indicates whether input HTML document is loaded by Uri.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.DataProvider.IsStream">
+            <summary>
+            Indicates whether input HTML document is loaded from stream.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.DataProvider.RootDirectory">
+            <summary>
+            Gets or sets root directory for the document.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.DataProvider.Format">
+            <summary>
+            Returns the format of the resource provider.
+            </summary>
+        </member>
         <member name="T:Syncfusion.HTMLUI.Base.Utility.DataSource">
             <summary>
             This class incapsulates source data of the document.
@@ -3386,57 +3386,6 @@
         <member name="F:Syncfusion.HTMLUI.Base.Utility.DataSource.m_defaultDataProvider">
             <summary>
             Default data provider. It may be used for resolving path by links, web forms, etc.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.DataSource.FileName">
-            <summary>
-            Returns the path to the document.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.DataSource.Uri">
-            <summary>
-            Returns the Uri to the document.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.DataSource.Stream">
-            <summary>
-            Returns the stream containing document's data.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.DataSource.RootDirectory">
-            <summary>
-            Gets or sets the current directory for this document.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.DataSource.IsFileName">
-            <summary>
-            Indicates whether input HTML document is loaded from file.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.DataSource.IsUri">
-            <summary>
-            Indicates whether input HTML document is loaded by Uri.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.DataSource.IsStream">
-            <summary>
-            Indicates whether input HTML document is loaded from stream.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.DataSource.Format">
-            <summary>
-            Returns the format of the document's data.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.DataSource.DefaultDataProvider">
-            <summary>
-            Returns the default data provider.
-            </summary>
-            <remarks>It may be used by hyperlinks for path resolving, web forms, etc.</remarks>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.DataSource.DataProvider">
-            <summary>
-            Returns the data provider object.
             </summary>
         </member>
         <member name="M:Syncfusion.HTMLUI.Base.Utility.DataSource.#ctor">
@@ -3561,15 +3510,61 @@
             <param name="curProvider">Current provider.</param>
             <returns>New default data provider.</returns>
         </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.DataSource.FileName">
+            <summary>
+            Returns the path to the document.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.DataSource.Uri">
+            <summary>
+            Returns the Uri to the document.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.DataSource.Stream">
+            <summary>
+            Returns the stream containing document's data.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.DataSource.RootDirectory">
+            <summary>
+            Gets or sets the current directory for this document.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.DataSource.IsFileName">
+            <summary>
+            Indicates whether input HTML document is loaded from file.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.DataSource.IsUri">
+            <summary>
+            Indicates whether input HTML document is loaded by Uri.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.DataSource.IsStream">
+            <summary>
+            Indicates whether input HTML document is loaded from stream.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.DataSource.Format">
+            <summary>
+            Returns the format of the document's data.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.DataSource.DefaultDataProvider">
+            <summary>
+            Returns the default data provider.
+            </summary>
+            <remarks>It may be used by hyperlinks for path resolving, web forms, etc.</remarks>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.DataSource.DataProvider">
+            <summary>
+            Returns the data provider object.
+            </summary>
+        </member>
         <member name="T:Syncfusion.HTMLUI.Base.Utility.HtmlDataProvider">
             <summary>
             Thsi class works with documents in MHT format. It searches resources inside this document
             and returns it on demand.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.HtmlDataProvider.Format">
-            <summary>
-            Returns the format of the resource provider.
             </summary>
         </member>
         <member name="M:Syncfusion.HTMLUI.Base.Utility.HtmlDataProvider.#ctor(System.String)">
@@ -3620,6 +3615,11 @@
             <param name="type">Type of resource.</param>
             <returns>Data of the resource if found; Null otherwise.</returns>
         </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.HtmlDataProvider.Format">
+            <summary>
+            Returns the format of the resource provider.
+            </summary>
+        </member>
         <member name="T:Syncfusion.HTMLUI.Base.Utility.MhtDataProvider">
             <summary>
             Class working with documents in MHT format. It searches resources inside this document
@@ -3659,21 +3659,6 @@
         <member name="F:Syncfusion.HTMLUI.Base.Utility.MhtDataProvider.m_bodyPart">
             <summary>
             Data of the HTML.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.MhtDataProvider.MimeDocument">
-            <summary>
-            Gets object containing document in MHT format.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.MhtDataProvider.Parts">
-            <summary>
-            Gets parts of Mime document.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.MhtDataProvider.Format">
-            <summary>
-            Gets Format of resource provider.
             </summary>
         </member>
         <member name="M:Syncfusion.HTMLUI.Base.Utility.MhtDataProvider.#ctor(System.String)">
@@ -3762,6 +3747,21 @@
             </summary>
             <param name="parts">Dictionary of parts.</param>
             <param name="part">Part object.</param>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.MhtDataProvider.MimeDocument">
+            <summary>
+            Gets object containing document in MHT format.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.MhtDataProvider.Parts">
+            <summary>
+            Gets parts of Mime document.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.MhtDataProvider.Format">
+            <summary>
+            Gets Format of resource provider.
+            </summary>
         </member>
         <member name="T:Syncfusion.HTMLUI.Base.Utility.Canvas3DStyle">
             <summary>
@@ -3878,90 +3878,6 @@
              <summary>
             
              </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.GDIUtils.Dark">
-            <summary>
-            Gets or sets the dark.
-            </summary>
-            <value>The dark.</value>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.GDIUtils.DarkDark">
-            <summary>
-            Gets or sets the dark dark.
-            </summary>
-            <value>The dark dark.</value>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.GDIUtils.Light">
-            <summary>
-            Gets or sets the light.
-            </summary>
-            <value>The light.</value>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.GDIUtils.LightLight">
-            <summary>
-            Gets or sets the light light.
-            </summary>
-            <value>The light light.</value>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.GDIUtils.DarkBrush">
-            <summary>
-            Gets the dark brush.
-            </summary>
-            <value>The dark brush.</value>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.GDIUtils.DarkDarkBrush">
-            <summary>
-            Gets the dark dark brush.
-            </summary>
-            <value>The dark dark brush.</value>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.GDIUtils.LightBrush">
-            <summary>
-            Gets the light brush.
-            </summary>
-            <value>The light brush.</value>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.GDIUtils.LightLightBrush">
-            <summary>
-            Gets the light light brush.
-            </summary>
-            <value>The light light brush.</value>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.GDIUtils.DarkPen">
-            <summary>
-            Gets the dark pen.
-            </summary>
-            <value>The dark pen.</value>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.GDIUtils.DarkDarkPen">
-            <summary>
-            Gets the dark dark pen.
-            </summary>
-            <value>The dark dark pen.</value>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.GDIUtils.LightPen">
-            <summary>
-            Gets the light pen.
-            </summary>
-            <value>The light pen.</value>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.GDIUtils.LightLightPen">
-            <summary>
-            Gets the light light pen.
-            </summary>
-            <value>The light light pen.</value>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.GDIUtils.OneLineFormat">
-            <summary>
-            Gets the one line format.
-            </summary>
-            <value>The one line format.</value>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.GDIUtils.OneLineNoTrimming">
-            <summary>
-            Gets the one line no trimming.
-            </summary>
-            <value>The one line no trimming.</value>
         </member>
         <member name="M:Syncfusion.HTMLUI.Base.Utility.GDIUtils.#ctor">
             <summary>
@@ -4162,6 +4078,125 @@
             <param name="isUp">Direction arrow.</param>
             <param name="brush">Brush which must be used for drawing.</param>
         </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.GDIUtils.Dark">
+            <summary>
+            Gets or sets the dark.
+            </summary>
+            <value>The dark.</value>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.GDIUtils.DarkDark">
+            <summary>
+            Gets or sets the dark dark.
+            </summary>
+            <value>The dark dark.</value>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.GDIUtils.Light">
+            <summary>
+            Gets or sets the light.
+            </summary>
+            <value>The light.</value>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.GDIUtils.LightLight">
+            <summary>
+            Gets or sets the light light.
+            </summary>
+            <value>The light light.</value>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.GDIUtils.DarkBrush">
+            <summary>
+            Gets the dark brush.
+            </summary>
+            <value>The dark brush.</value>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.GDIUtils.DarkDarkBrush">
+            <summary>
+            Gets the dark dark brush.
+            </summary>
+            <value>The dark dark brush.</value>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.GDIUtils.LightBrush">
+            <summary>
+            Gets the light brush.
+            </summary>
+            <value>The light brush.</value>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.GDIUtils.LightLightBrush">
+            <summary>
+            Gets the light light brush.
+            </summary>
+            <value>The light light brush.</value>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.GDIUtils.DarkPen">
+            <summary>
+            Gets the dark pen.
+            </summary>
+            <value>The dark pen.</value>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.GDIUtils.DarkDarkPen">
+            <summary>
+            Gets the dark dark pen.
+            </summary>
+            <value>The dark dark pen.</value>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.GDIUtils.LightPen">
+            <summary>
+            Gets the light pen.
+            </summary>
+            <value>The light pen.</value>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.GDIUtils.LightLightPen">
+            <summary>
+            Gets the light light pen.
+            </summary>
+            <value>The light light pen.</value>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.GDIUtils.OneLineFormat">
+            <summary>
+            Gets the one line format.
+            </summary>
+            <value>The one line format.</value>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.GDIUtils.OneLineNoTrimming">
+            <summary>
+            Gets the one line no trimming.
+            </summary>
+            <value>The one line no trimming.</value>
+        </member>
+        <member name="T:Syncfusion.HTMLUI.Base.ResourceType">
+            <summary>
+            Enumerator which indicates where destination document is.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.HTMLUI.Base.ResourceType.Unknown">
+            <summary>
+            Unknown type.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.HTMLUI.Base.ResourceType.LocalResource">
+            <summary>
+            File is local.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.HTMLUI.Base.ResourceType.RemoteResource">
+            <summary>
+            Document is remote.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.HTMLUI.Base.DataFormat">
+            <summary>
+            Enumerator declares the types of documents supported by HTMLUI.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.HTMLUI.Base.DataFormat.Html">
+            <summary>
+            Document is in HTML format.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.HTMLUI.Base.DataFormat.Mht">
+            <summary>
+            Document is in Mht format.
+            </summary>
+        </member>
         <member name="T:Syncfusion.HTMLUI.Base.Utility.SortedListEx">
             <summary>
             Optimized version of SortedList collection. Instead of keeping two
@@ -4207,52 +4242,6 @@
         <member name="F:Syncfusion.HTMLUI.Base.Utility.SortedListEx.valueList">
             <summary>
             List of values.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.Capacity">
-            <summary>
-            Gets or sets the capacity of internal buffers.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.Count">
-            <summary>
-            Returns the size of the collection. Read-only.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.Keys">
-            <summary>
-            Returns the list of keys. Read-only.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.Values">
-            <summary>
-            Returns the list of values. Read-only.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.IsReadOnly">
-            <summary>
-            Indicates whether list is Read-only.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.IsFixedSize">
-            <summary>
-            Indicates whether the collection has fixed size.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.IsSynchronized">
-            <summary>
-            Indicates whether the collection is synchronized.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.SyncRoot">
-            <summary>
-            Returns the object that can be used to synchronize access to the collection.
-            Read-only.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.Item(System.Object)">
-            <summary>
-            Gets or sets the value associated with the specified key.
             </summary>
         </member>
         <member name="M:Syncfusion.HTMLUI.Base.Utility.SortedListEx.#ctor">
@@ -4489,6 +4478,52 @@
             </summary>
             <param name="min">The minimum capacity to ensure.</param>
         </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.Capacity">
+            <summary>
+            Gets or sets the capacity of internal buffers.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.Count">
+            <summary>
+            Returns the size of the collection. Read-only.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.Keys">
+            <summary>
+            Returns the list of keys. Read-only.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.Values">
+            <summary>
+            Returns the list of values. Read-only.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.IsReadOnly">
+            <summary>
+            Indicates whether list is Read-only.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.IsFixedSize">
+            <summary>
+            Indicates whether the collection has fixed size.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.IsSynchronized">
+            <summary>
+            Indicates whether the collection is synchronized.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.SyncRoot">
+            <summary>
+            Returns the object that can be used to synchronize access to the collection.
+            Read-only.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.Item(System.Object)">
+            <summary>
+            Gets or sets the value associated with the specified key.
+            </summary>
+        </member>
         <member name="F:Syncfusion.HTMLUI.Base.Utility.SortedListEx.SyncSortedListEx._list">
             <summary>
             Wrapped SortedListEx.
@@ -4504,42 +4539,6 @@
             Creates SyncSortedListEx for specified SortedListEx.
             </summary>
             <param name="list">SortedListEx that will be wrapped.</param>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.SyncSortedListEx.Capacity">
-            <summary>
-            Returns the capacity of internal buffers.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.SyncSortedListEx.Count">
-            <summary>
-            Returns the size of the collection. Read-only.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.SyncSortedListEx.SyncRoot">
-            <summary>
-            Returns the object that can be used to synchronize access to the collection.
-            Read-only.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.SyncSortedListEx.IsReadOnly">
-            <summary>
-            Indicates whether the list is Read-only.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.SyncSortedListEx.IsFixedSize">
-            <summary>
-            Indicates whether the collection has fixed size.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.SyncSortedListEx.IsSynchronized">
-            <summary>
-            Indicates whether the collection is synchronized.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.SyncSortedListEx.Item(System.Object)">
-            <summary>
-            Gets or sets the value associated with the specified key.
-            </summary>
         </member>
         <member name="M:Syncfusion.HTMLUI.Base.Utility.SortedListEx.SyncSortedListEx.Add(System.Object,System.Object)">
             <summary>
@@ -4662,6 +4661,42 @@
             Sets the capacity to the actual number of elements.
             </summary>
         </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.SyncSortedListEx.Capacity">
+            <summary>
+            Returns the capacity of internal buffers.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.SyncSortedListEx.Count">
+            <summary>
+            Returns the size of the collection. Read-only.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.SyncSortedListEx.SyncRoot">
+            <summary>
+            Returns the object that can be used to synchronize access to the collection.
+            Read-only.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.SyncSortedListEx.IsReadOnly">
+            <summary>
+            Indicates whether the list is Read-only.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.SyncSortedListEx.IsFixedSize">
+            <summary>
+            Indicates whether the collection has fixed size.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.SyncSortedListEx.IsSynchronized">
+            <summary>
+            Indicates whether the collection is synchronized.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.SyncSortedListEx.Item(System.Object)">
+            <summary>
+            Gets or sets the value associated with the specified key.
+            </summary>
+        </member>
         <member name="F:Syncfusion.HTMLUI.Base.Utility.SortedListEx.SortedListExEnumerator.Keys">
             <summary>
             If it is assumed to getObjectRetType, then Current will return key
@@ -4742,15 +4777,6 @@
             </summary>
             <returns>Copy of the current instance.</returns>
         </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.SortedListExEnumerator.Key">
-            <summary>
-            Returns the key of the current element. Read-only.
-            </summary>
-            <exception cref="T:System.InvalidOperationException">
-            When the current version is not equal to the SortedListEx version
-            or if current is False.
-            </exception>
-        </member>
         <member name="M:Syncfusion.HTMLUI.Base.Utility.SortedListEx.SortedListExEnumerator.MoveNext">
             <summary>
             Advances the enumerator to the next element of the collection.
@@ -4761,6 +4787,24 @@
             </returns>
             <exception cref="T:System.InvalidOperationException">
             When the current version is not equal to the SortedListEx version.
+            </exception>
+        </member>
+        <member name="M:Syncfusion.HTMLUI.Base.Utility.SortedListEx.SortedListExEnumerator.Reset">
+            <summary>
+            Sets the enumerator to its initial position, which is before
+            the first element in the collection.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">
+            When the current version is not equal to the SortedListEx version.
+            </exception>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.SortedListExEnumerator.Key">
+            <summary>
+            Returns the key of the current element. Read-only.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">
+            When the current version is not equal to the SortedListEx version
+            or if current is False.
             </exception>
         </member>
         <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.SortedListExEnumerator.Entry">
@@ -4789,15 +4833,6 @@
             or if current is False.
             </exception>
         </member>
-        <member name="M:Syncfusion.HTMLUI.Base.Utility.SortedListEx.SortedListExEnumerator.Reset">
-            <summary>
-            Sets the enumerator to its initial position, which is before
-            the first element in the collection.
-            </summary>
-            <exception cref="T:System.InvalidOperationException">
-            When the current version is not equal to the SortedListEx version.
-            </exception>
-        </member>
         <member name="F:Syncfusion.HTMLUI.Base.Utility.SortedListEx.KeyList.SortedListEx">
             <summary>
             List for which this collection was created.
@@ -4808,32 +4843,6 @@
             Creates KeyList for the specified SortedListEx.
             </summary>
             <param name="SortedListEx">SortedListEx for which KeyList must be created.</param>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.KeyList.Count">
-            <summary>
-            Returns the size of the collection. Read-only.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.KeyList.IsReadOnly">
-            <summary>
-            Indicates whether the list is Read-only.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.KeyList.IsFixedSize">
-            <summary>
-            Indicates whether the collection has fixed size.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.KeyList.IsSynchronized">
-            <summary>
-            Indicates whether the collection is synchronized.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.KeyList.SyncRoot">
-            <summary>
-            Returns the object that can be used to synchronize access to the collection.
-            Read-only.
-            </summary>
         </member>
         <member name="M:Syncfusion.HTMLUI.Base.Utility.SortedListEx.KeyList.Add(System.Object)">
             <summary>
@@ -4872,11 +4881,6 @@
             <param name="index">The zero-based index at which the value is to be saved.</param>
             <param name="value">The Object to save. Can be NULL.</param>
         </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.KeyList.Item(System.Int32)">
-            <summary>
-            Gets or sets the key at the specified index.
-            </summary>
-        </member>
         <member name="M:Syncfusion.HTMLUI.Base.Utility.SortedListEx.KeyList.GetEnumerator">
             <summary>
             Returns an IEnumerator that can iterate through the list.
@@ -4902,6 +4906,37 @@
             </summary>
             <param name="index">The zero-based index of the element to remove.</param>
         </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.KeyList.Count">
+            <summary>
+            Returns the size of the collection. Read-only.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.KeyList.IsReadOnly">
+            <summary>
+            Indicates whether the list is Read-only.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.KeyList.IsFixedSize">
+            <summary>
+            Indicates whether the collection has fixed size.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.KeyList.IsSynchronized">
+            <summary>
+            Indicates whether the collection is synchronized.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.KeyList.SyncRoot">
+            <summary>
+            Returns the object that can be used to synchronize access to the collection.
+            Read-only.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.KeyList.Item(System.Int32)">
+            <summary>
+            Gets or sets the key at the specified index.
+            </summary>
+        </member>
         <member name="F:Syncfusion.HTMLUI.Base.Utility.SortedListEx.ValueList.SortedListEx">
             <summary>
             List for which this collection was created.
@@ -4921,32 +4956,6 @@
         <member name="M:Syncfusion.HTMLUI.Base.Utility.SortedListEx.ValueList.UpdateValues">
             <summary>
             Re-reads values from the list.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.ValueList.Count">
-            <summary>
-            Returns the size of the collection. Read-only.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.ValueList.IsReadOnly">
-            <summary>
-            Indicates whether the list is Read-only.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.ValueList.IsFixedSize">
-            <summary>
-            Indicates whether the collection has fixed size.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.ValueList.IsSynchronized">
-            <summary>
-            Returns True if the collection is synchronized; otherwise False.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.ValueList.SyncRoot">
-            <summary>
-            Returns the object that can be used to synchronize access to the collection.
-            Read-only.
             </summary>
         </member>
         <member name="M:Syncfusion.HTMLUI.Base.Utility.SortedListEx.ValueList.Add(System.Object)">
@@ -4983,11 +4992,6 @@
             <param name="index">The zero-based index at which the value is to be saved.</param>
             <param name="value">The Object to save. Can be NULL.</param>
         </member>
-        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.ValueList.Item(System.Int32)">
-            <summary>
-            Gets or sets the value at the specified index.
-            </summary>
-        </member>
         <member name="M:Syncfusion.HTMLUI.Base.Utility.SortedListEx.ValueList.GetEnumerator">
             <summary>
             Returns an IEnumerator that can iterate through the list.
@@ -5013,6 +5017,37 @@
             </summary>
             <param name="index">The zero-based index of the element to remove.</param>
         </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.ValueList.Count">
+            <summary>
+            Returns the size of the collection. Read-only.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.ValueList.IsReadOnly">
+            <summary>
+            Indicates whether the list is Read-only.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.ValueList.IsFixedSize">
+            <summary>
+            Indicates whether the collection has fixed size.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.ValueList.IsSynchronized">
+            <summary>
+            Returns True if the collection is synchronized; otherwise False.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.ValueList.SyncRoot">
+            <summary>
+            Returns the object that can be used to synchronize access to the collection.
+            Read-only.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.HTMLUI.Base.Utility.SortedListEx.ValueList.Item(System.Int32)">
+            <summary>
+            Gets or sets the value at the specified index.
+            </summary>
+        </member>
         <member name="T:Syncfusion.HTMLUI.Base.Utility.Utilities">
             <summary>
             Utility class for different static methods.
@@ -5031,16 +5066,6 @@
         <member name="F:Syncfusion.HTMLUI.Base.Utility.Utilities.DEF_REG_NUMBERS">
             <summary>
             Pattern for numbers.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.HTMLUI.Base.Utility.Utilities.m_regSymbols">
-            <summary>
-            RegEx object for retrieving symbols from string.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.HTMLUI.Base.Utility.Utilities.m_RegNumbers">
-            <summary>
-            RegEx object for retrieving numbers from string.
             </summary>
         </member>
         <member name="F:Syncfusion.HTMLUI.Base.Utility.Utilities.DEF_DELIMITER">
@@ -5086,6 +5111,16 @@
         <member name="F:Syncfusion.HTMLUI.Base.Utility.Utilities.DEF_OPTIONS">
             <summary>
             RegEx options.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.HTMLUI.Base.Utility.Utilities.m_regSymbols">
+            <summary>
+            RegEx object for retrieving symbols from string.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.HTMLUI.Base.Utility.Utilities.m_RegNumbers">
+            <summary>
+            RegEx object for retrieving numbers from string.
             </summary>
         </member>
         <member name="F:Syncfusion.HTMLUI.Base.Utility.Utilities.m_regEncoding">
@@ -5335,41 +5370,6 @@
             </summary>
             <param name="builder">String builder object.</param>
             <param name="number">Number to be converted to letter.</param>
-        </member>
-        <member name="T:Syncfusion.HTMLUI.Base.ResourceType">
-            <summary>
-            Enumerator which indicates where destination document is.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.HTMLUI.Base.ResourceType.Unknown">
-            <summary>
-            Unknown type.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.HTMLUI.Base.ResourceType.LocalResource">
-            <summary>
-            File is local.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.HTMLUI.Base.ResourceType.RemoteResource">
-            <summary>
-            Document is remote.
-            </summary>
-        </member>
-        <member name="T:Syncfusion.HTMLUI.Base.DataFormat">
-            <summary>
-            Enumerator declares the types of documents supported by HTMLUI.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.HTMLUI.Base.DataFormat.Html">
-            <summary>
-            Document is in HTML format.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.HTMLUI.Base.DataFormat.Mht">
-            <summary>
-            Document is in Mht format.
-            </summary>
         </member>
     </members>
 </doc>

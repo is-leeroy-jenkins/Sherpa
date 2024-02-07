@@ -108,41 +108,6 @@
             Gets the Button that dismisses the selected item.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.AlertForm.Item(System.Int32)">
-            <summary>
-            Gets the i-th IScheduleAppointment in the alert list.
-            </summary>
-            <param name="i">An integer between 0 and <see cref="P:Syncfusion.Windows.Forms.Schedule.AlertForm.Count"/>.</param>
-            <returns>An IScheduleAppointment.</returns>
-            <remarks>
-            If the indexer is outside the valid number of items in the alert list, null is returned.
-            </remarks>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.AlertForm.Count">
-            <summary>
-            Gets the number of items in the current alert list.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.AlertForm.AlertStrings">
-            <summary>
-            Gets or sets the strings used as part of the alert window.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.AlertForm.CheckTimerIntervalInMinutes">
-            <summary>
-            Gets or sets the time interval (in minutes) between checks for any item needing an alert.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.AlertForm.SnoozeMinutes">
-            <summary>
-            Gets or sets the number of minutes that pressing the Snooze Button will hide the Alert window. 
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.AlertForm.SoundAlert">
-            <summary>
-            Gets or sets a value indicating whether a MeesageBeep should sound when the AlertWindow is shown.
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Schedule.AlertForm.GetMinutesFromDisplayValue(System.String)">
             <summary>
             Gets the integer equivalents of the strings in the Reminder dropdown.
@@ -237,6 +202,41 @@
             <param name="sender">The source grid control.</param>
             <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridQueryCellInfoEventArgs"/> that contains the event data.</param>
         </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.AlertForm.Item(System.Int32)">
+            <summary>
+            Gets the i-th IScheduleAppointment in the alert list.
+            </summary>
+            <param name="i">An integer between 0 and <see cref="P:Syncfusion.Windows.Forms.Schedule.AlertForm.Count"/>.</param>
+            <returns>An IScheduleAppointment.</returns>
+            <remarks>
+            If the indexer is outside the valid number of items in the alert list, null is returned.
+            </remarks>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.AlertForm.Count">
+            <summary>
+            Gets the number of items in the current alert list.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.AlertForm.AlertStrings">
+            <summary>
+            Gets or sets the strings used as part of the alert window.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.AlertForm.CheckTimerIntervalInMinutes">
+            <summary>
+            Gets or sets the time interval (in minutes) between checks for any item needing an alert.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.AlertForm.SnoozeMinutes">
+            <summary>
+            Gets or sets the number of minutes that pressing the Snooze Button will hide the Alert window. 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.AlertForm.SoundAlert">
+            <summary>
+            Gets or sets a value indicating whether a MeesageBeep should sound when the AlertWindow is shown.
+            </summary>
+        </member>
         <member name="T:Syncfusion.Windows.Forms.Schedule.AppointmentForm">
             <summary>
             Displays a form allowing a user to edit information in a <see cref="T:Syncfusion.Schedule.IScheduleAppointment"/>.
@@ -266,23 +266,6 @@
             Switches the controls to RTL mode.
             </summary>
             <param name="controls">The control collections.</param>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.AppointmentForm.IgnoreScheduleRTLSettings">
-            <summary>
-            Gets or sets whether this form will use the RTL settings from 
-            the ScheduleControl to decide whether to mirror the form.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.AppointmentForm.CreateParams">
-            <override/> 
-            <summary>
-            Gets the required creation parameters when the control handle is created.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.AppointmentForm.Font">
-            <summary>
-            Gets or sets the <see cref="T:System.Drawing.Font"/> value for Form. 
-            </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Schedule.AppointmentForm.OnLoad(System.EventArgs)">
             <summary>
@@ -510,6 +493,23 @@
             <param name="minimumTimeSlot">The minimum time slot.</param>
             <param name="format">The number format.</param>
         </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.AppointmentForm.IgnoreScheduleRTLSettings">
+            <summary>
+            Gets or sets whether this form will use the RTL settings from 
+            the ScheduleControl to decide whether to mirror the form.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.AppointmentForm.CreateParams">
+            <override/> 
+            <summary>
+            Gets the required creation parameters when the control handle is created.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.AppointmentForm.Font">
+            <summary>
+            Gets or sets the <see cref="T:System.Drawing.Font"/> value for Form. 
+            </summary>
+        </member>
         <member name="T:Syncfusion.Windows.Forms.Schedule.AppointmentTimeChangedEventHandler">
             <summary>
             Represents the method that will handle the <see cref="E:Syncfusion.Windows.Forms.Schedule.ScheduleControl.AppointmentTimeChanged"/> event.  
@@ -625,6 +625,47 @@
             <summary>Sets the correct Popup location.</summary>
             <returns>The Popup location.</returns>
         </member>
+        <member name="T:Syncfusion.NamespaceDoc">
+            <summary>
+            The Syncfusion namespace contains classes that defines the value and reference data types, events and event handlers, interfaces, attributes and processing the exceptions.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.ScheduleWindowsAssembly">
+            <exclude/>
+             <summary>
+             This class holds the name of the Syncfusion.Grid.Windows assembly and provides a helper 
+             routine that helps with resolving types when loading a serialization stream and when 
+             the framework probes for assemblies by reflection. 
+             </summary>
+        </member>
+        <member name="F:Syncfusion.ScheduleWindowsAssembly.Name">
+            <summary>
+            The full name of this assembly without version information: "Syncfusion.Grid.Windows"
+            </summary>
+        </member>
+        <member name="F:Syncfusion.ScheduleWindowsAssembly.Assembly">
+            <summary>
+            A reference to the <see cref="T:System.Reflection.Assembly"/> for the Grid assembly.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.ScheduleWindowsAssembly.RootNamespace">
+            <summary>
+            The root namespace of this assembly. Used internally for locating resources within the assembly.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.ScheduleWindowsAssembly.AssemblyResolver(System.Object,System.ResolveEventArgs)">
+            <summary>
+            This delegate helps with resolving types and can be used as a eventhandler
+            for a <see cref="E:System.AppDomain.AssemblyResolve"/> event.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The event data with information about the type.</param>
+            <returns>A reference to the assembly where the type is located.</returns>
+            <remarks>
+            Use this handler when reading back types from a serialization stread
+            saved with an earlier version of this assembly.
+            </remarks>
+        </member>
         <member name="T:Syncfusion.Windows.Forms.Schedule.ColorComboBox">
             <summary>
             Implements a dropdown list with colors associated with each list item.
@@ -633,11 +674,6 @@
         <member name="M:Syncfusion.Windows.Forms.Schedule.ColorComboBox.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.Schedule.ColorComboBox"/> class.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ColorComboBox.ShowColor">
-            <summary>
-            Gets or sets a value indicating whether color splotch should be drawn in the dropdown.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Schedule.ColorComboBox.DrawEditPortion(System.Windows.Forms.PaintEventArgs)">
@@ -683,6 +719,11 @@
             Overrides the Leave event.
             </summary>
         </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ColorComboBox.ShowColor">
+            <summary>
+            Gets or sets a value indicating whether color splotch should be drawn in the dropdown.
+            </summary>
+        </member>
         <member name="T:Syncfusion.Windows.Forms.Schedule.MetroAppointmentForm">
             <summary>
             Displays a form allowing a user to edit information in a <see cref="T:Syncfusion.Schedule.IScheduleAppointment"/>.
@@ -703,23 +744,6 @@
             Switches the controls to RTL mode.
             </summary>
             <param name="controls">The control collections.</param>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.MetroAppointmentForm.IgnoreScheduleRTLSettings">
-            <summary>
-            Gets or sets a value indicating whether this form will use the RTL settings from 
-            the ScheduleControl to decide whether to mirror the form.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.MetroAppointmentForm.CreateParams">
-            <override/> 
-            <summary>
-            Gets the required creation parameters when the control handle is created.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.MetroAppointmentForm.Font">
-            <summary>
-            Gets or sets the <see cref="T:System.Drawing.Font"/> value for AppointmentForm. 
-            </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Schedule.MetroAppointmentForm.OnLoad(System.EventArgs)">
             <summary>
@@ -947,6 +971,23 @@
             <param name="minimumTimeSlot">The minimum time slot.</param>
             <param name="format">The number format.</param>
         </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.MetroAppointmentForm.IgnoreScheduleRTLSettings">
+            <summary>
+            Gets or sets a value indicating whether this form will use the RTL settings from 
+            the ScheduleControl to decide whether to mirror the form.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.MetroAppointmentForm.CreateParams">
+            <override/> 
+            <summary>
+            Gets the required creation parameters when the control handle is created.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.MetroAppointmentForm.Font">
+            <summary>
+            Gets or sets the <see cref="T:System.Drawing.Font"/> value for AppointmentForm. 
+            </summary>
+        </member>
         <member name="T:Syncfusion.Windows.Forms.Schedule.EdgeCellModel">
             <summary>
             Implements the data / model part for a edge cell in ScheduleControl.
@@ -1076,6 +1117,19 @@
             Implements the data / model part for the cell in the AllDay panel at the top of the calendar.
             </summary>
         </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.CellEmbeddedGrid.#ctor(Syncfusion.Windows.Forms.Schedule.ScheduleControl)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.Schedule.CellEmbeddedGrid"/> class.
+            </summary>
+            <param name="schedule">The source ScheduleControl.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.CellEmbeddedGrid.InitiateProcessKeyEventArgs(System.Windows.Forms.Message@)">
+            <summary>
+            Raises the appropriate control events.
+            </summary>
+            <param name="m">The <see cref="T:System.Windows.Forms.Message"/> with data of the keyboard event.</param>
+            <returns>True if key was handled; False otherwise.</returns>
+        </member>
         <member name="P:Syncfusion.Windows.Forms.Schedule.CellEmbeddedGrid.Intensity">
             <summary>
             Gets or sets the intensity.
@@ -1091,19 +1145,6 @@
             Gets or sets the top margin.
             </summary>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.CellEmbeddedGrid.#ctor(Syncfusion.Windows.Forms.Schedule.ScheduleControl)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.Schedule.CellEmbeddedGrid"/> class.
-            </summary>
-            <param name="schedule">The source ScheduleControl.</param>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.CellEmbeddedGrid.InitiateProcessKeyEventArgs(System.Windows.Forms.Message@)">
-            <summary>
-            Raises the appropriate control events.
-            </summary>
-            <param name="m">The <see cref="T:System.Windows.Forms.Message"/> with data of the keyboard event.</param>
-            <returns>True if key was handled; False otherwise.</returns>
-        </member>
         <member name="T:Syncfusion.Windows.Forms.Schedule.NavigationCalendar">
             <summary>
             A class to display one or more calendars that can be used to select particular dates 
@@ -1116,11 +1157,6 @@
             As you size this control, additional calendars with subsequent months will be
             displayed, allowing your user to see multiple months in this navigation tool.
             </remarks>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.NavigationCalendar.appearance">
-            <summary>
-            Gets the appearance of the ScheduleControl.
-            </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Schedule.NavigationCalendar.#ctor">
             <summary>
@@ -1154,27 +1190,6 @@
             <param name="sender">The source control.</param>
             <param name="e">The <see cref="T:System.Windows.Forms.PaintEventArgs"/> that contains the event data.</param>
         </member>
-        <member name="E:Syncfusion.Windows.Forms.Schedule.NavigationCalendar.DateValueChanging">
-            <summary>
-            A cancelable event raised before the <see cref="P:Syncfusion.Windows.Forms.Schedule.NavigationCalendar.DateValue"/> property changes.
-            </summary>
-        </member>
-        <member name="E:Syncfusion.Windows.Forms.Schedule.NavigationCalendar.DateValueChanged">
-            <summary>
-            A notification event raised after the <see cref="P:Syncfusion.Windows.Forms.Schedule.NavigationCalendar.DateValue"/> property changed.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.NavigationCalendar.DateValue">
-            <summary>
-            Gets or sets the date value for the navigation control.
-            </summary>
-            <remarks>
-            This value is used to determine the month displayed in
-            the topmost calendar (and hence the other calendars as
-            well.) Before this value changes, the cancelable DateValueChanging
-            is raised.
-            </remarks>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Schedule.NavigationCalendar.SetDateValue(System.DateTime)">
             <summary>
             Sets the value of the DateValue property without raising DateValueChanging
@@ -1204,26 +1219,6 @@
             Raises a notification event that the DateValue has changed.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.NavigationCalendar.BottomRightDate">
-            <summary>
-            Gets the date value in the bottom-rightmost active-month cell of the navigation control.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.NavigationCalendar.TopLeftDate">
-            <summary>
-            Gets the date value in the top-left cell of the navigation control.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.NavigationCalendar.Today">
-            <summary>
-            Gets or sets the DateTime value of the current day.
-            </summary>
-            <remarks>
-            By default, this value is set to DateTime.MinValue. When
-            Today is DateTime.MinValue, the Today is not marked in the
-            navigation calendars.
-            </remarks>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Schedule.NavigationCalendar.OnSizeChanged(System.EventArgs)">
             <summary>
             Overridden to set the position of GridControl in the panel.
@@ -1235,27 +1230,6 @@
             </summary>
             <remarks>Override this method to make this control use an instance of your derived GridControl class.</remarks>
             <returns>The GridControl used to display the calendars.</returns>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.NavigationCalendar.CalenderGrid">
-            <summary>
-            Gets the GridControl that is used to display the calendars.
-            </summary>
-            <returns>The GridControl.</returns>
-            <remarks>
-            Use this method to access the GridControl used for the calendars. For examples,
-            you can get the date in the top-left most cell with this code.
-            </remarks>
-            <example>
-            The following code changes border information for cells:
-            <code lang="C#">
-            		//row 2 is the first row holding dates in the display grid
-                    DateTime dt = (DateTime) this.CalenderGrid[2,1].CellValue;
-            </code>
-            <code lang="VB">
-                    'row 2 is the first row holding dates in the display grid
-                    Dim dt as DateTime = Me.CalenderGrid(2,1).CellValue
-            </code>
-            </example>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Schedule.NavigationCalendar.MondayBeforeDate(System.DateTime)">
             <summary>
@@ -1301,11 +1275,6 @@
             <param name="sender">The source control.</param>
             <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.NavigationCalendar.ShowWeekNumbers">
-            <summary>
-            Gets or sets a value indicating whether week numbers should be displayed to the left of the navigation calendars.
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Schedule.NavigationCalendar.calendar_RightToLeftChanged(System.Object,System.EventArgs)">
             <summary>
             Used to force location to be recomputed.
@@ -1319,26 +1288,6 @@
             </summary>
             <param name="sender">The source control.</param>
             <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridDrawCellEventArgs"/> that contains the event data.</param>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.NavigationCalendar.SelectedDates">
-            <summary>
-            Gets the DateSelections collection, holding the dates selected in the navigation calendars.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.NavigationCalendar.controlKeyDown">
-            <summary>
-            Gets a value indicating whether control or shift is pressed 
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.NavigationCalendar.FirstDayOfWeek">
-            <summary>
-            Gets the first of the week.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.NavigationCalendar.LastDayOfWeek">
-            <summary>
-            Gets the last day of the week.
-            </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Schedule.NavigationCalendar.Model_SelectionChanged(System.Object,Syncfusion.Windows.Forms.Grid.GridSelectionChangedEventArgs)">
              <summary>
@@ -1371,11 +1320,6 @@
         <member name="M:Syncfusion.Windows.Forms.Schedule.NavigationCalendar.EndUpdate">
             <summary>
             Resumes drawing of this NavigationCalendar instance.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.NavigationCalendar.FreezePainting">
-            <summary>
-            Gets or sets a value indicating whether painting has to be suspended.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Schedule.NavigationCalendar.calendar_QueryCoveredRange(System.Object,Syncfusion.Windows.Forms.Grid.GridQueryCoveredRangeEventArgs)">
@@ -1447,6 +1391,103 @@
             Empty ISupportInitialize.EndInit implementation
             </summary>
         </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.NavigationCalendar.appearance">
+            <summary>
+            Gets the appearance of the ScheduleControl.
+            </summary>
+        </member>
+        <member name="E:Syncfusion.Windows.Forms.Schedule.NavigationCalendar.DateValueChanging">
+            <summary>
+            A cancelable event raised before the <see cref="P:Syncfusion.Windows.Forms.Schedule.NavigationCalendar.DateValue"/> property changes.
+            </summary>
+        </member>
+        <member name="E:Syncfusion.Windows.Forms.Schedule.NavigationCalendar.DateValueChanged">
+            <summary>
+            A notification event raised after the <see cref="P:Syncfusion.Windows.Forms.Schedule.NavigationCalendar.DateValue"/> property changed.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.NavigationCalendar.DateValue">
+            <summary>
+            Gets or sets the date value for the navigation control.
+            </summary>
+            <remarks>
+            This value is used to determine the month displayed in
+            the topmost calendar (and hence the other calendars as
+            well.) Before this value changes, the cancelable DateValueChanging
+            is raised.
+            </remarks>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.NavigationCalendar.BottomRightDate">
+            <summary>
+            Gets the date value in the bottom-rightmost active-month cell of the navigation control.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.NavigationCalendar.TopLeftDate">
+            <summary>
+            Gets the date value in the top-left cell of the navigation control.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.NavigationCalendar.Today">
+            <summary>
+            Gets or sets the DateTime value of the current day.
+            </summary>
+            <remarks>
+            By default, this value is set to DateTime.MinValue. When
+            Today is DateTime.MinValue, the Today is not marked in the
+            navigation calendars.
+            </remarks>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.NavigationCalendar.CalenderGrid">
+            <summary>
+            Gets the GridControl that is used to display the calendars.
+            </summary>
+            <returns>The GridControl.</returns>
+            <remarks>
+            Use this method to access the GridControl used for the calendars. For examples,
+            you can get the date in the top-left most cell with this code.
+            </remarks>
+            <example>
+            The following code changes border information for cells:
+            <code lang="C#">
+            		//row 2 is the first row holding dates in the display grid
+                    DateTime dt = (DateTime) this.CalenderGrid[2,1].CellValue;
+            </code>
+            <code lang="VB">
+                    'row 2 is the first row holding dates in the display grid
+                    Dim dt as DateTime = Me.CalenderGrid(2,1).CellValue
+            </code>
+            </example>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.NavigationCalendar.ShowWeekNumbers">
+            <summary>
+            Gets or sets a value indicating whether week numbers should be displayed to the left of the navigation calendars.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.NavigationCalendar.SelectedDates">
+            <summary>
+            Gets the DateSelections collection, holding the dates selected in the navigation calendars.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.NavigationCalendar.controlKeyDown">
+            <summary>
+            Gets a value indicating whether control or shift is pressed 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.NavigationCalendar.FirstDayOfWeek">
+            <summary>
+            Gets the first of the week.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.NavigationCalendar.LastDayOfWeek">
+            <summary>
+            Gets the last day of the week.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.NavigationCalendar.FreezePainting">
+            <summary>
+            Gets or sets a value indicating whether painting has to be suspended.
+            </summary>
+        </member>
         <member name="T:Syncfusion.Windows.Forms.Schedule.DateValueChangingEventHandler">
             <summary>
             Represents a method that handles an event with <see cref="T:Syncfusion.Windows.Forms.Schedule.DateValueEventArgs"/> arguments 
@@ -1510,12 +1551,6 @@
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.Schedule.DateSelections"/> class.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.DateSelections.Item(System.Int32)">
-            <summary>
-            Gets or sets the DateTime value at position i in this collection.
-            </summary>
-            <param name="i">The position used to retrieve the desired DateTime value.</param>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Schedule.DateSelections.Add(System.Object)">
             <summary>
             Adds an object to the collection conditionally.
@@ -1578,11 +1613,6 @@
             SelectionsChanged event.
             </remarks>
         </member>
-        <member name="E:Syncfusion.Windows.Forms.Schedule.DateSelections.SelectionsChanged">
-            <summary>
-            Occurs when items in the collection are added or removed.
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Schedule.DateSelections.BeginUpdate">
             <summary>
             Suspends the collection from raising the <see cref="E:Syncfusion.Windows.Forms.Schedule.DateSelections.SelectionsChanged"/> event.
@@ -1612,6 +1642,17 @@
             Raises the SelectionsChanged event.
             </summary>
         </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.DateSelections.Item(System.Int32)">
+            <summary>
+            Gets or sets the DateTime value at position i in this collection.
+            </summary>
+            <param name="i">The position used to retrieve the desired DateTime value.</param>
+        </member>
+        <member name="E:Syncfusion.Windows.Forms.Schedule.DateSelections.SelectionsChanged">
+            <summary>
+            Occurs when items in the collection are added or removed.
+            </summary>
+        </member>
         <member name="T:Syncfusion.Windows.Forms.Schedule.RecurringEditConfirmationForm">
             <summary>
             Displays a confirmation dialog for editing a recurring appointment.
@@ -1620,23 +1661,6 @@
         <member name="M:Syncfusion.Windows.Forms.Schedule.RecurringEditConfirmationForm.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.Schedule.RecurringEditConfirmationForm"/> class.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.RecurringEditConfirmationForm.Font">
-            <summary>
-            Gets or sets the <see cref="T:System.Drawing.Font"/> value for Form. 
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.RecurringEditConfirmationForm.IgnoreScheduleRTLSettings">
-            <summary>
-            Gets or sets a value indicating whether this form will  use the RTL settings from 
-            the ScheduleControl to decide whether to mirror the form.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.RecurringEditConfirmationForm.CreateParams">
-            <internalonly/>
-            <summary>
-            Gets the required creation parameters when the control handle is created.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Schedule.RecurringEditConfirmationForm.button1_Click(System.Object,System.EventArgs)">
@@ -1666,13 +1690,6 @@
             </summary>
             <param name="sender">The source control.</param>
             <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.RecurringEditConfirmationForm.Result">
-            <summary>
-            Gets the edit action specified by the user in this dialog.
-            </summary>
-            <remarks>This is the return value to indicate what choice the user made 
-            in the dialog.</remarks>
         </member>
         <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringEditConfirmationForm.components">
             <summary>
@@ -1719,6 +1736,30 @@
             Initializes the default strings in recurring edit form.
             </summary>
         </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.RecurringEditConfirmationForm.Font">
+            <summary>
+            Gets or sets the <see cref="T:System.Drawing.Font"/> value for Form. 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.RecurringEditConfirmationForm.IgnoreScheduleRTLSettings">
+            <summary>
+            Gets or sets a value indicating whether this form will  use the RTL settings from 
+            the ScheduleControl to decide whether to mirror the form.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.RecurringEditConfirmationForm.CreateParams">
+            <internalonly/>
+            <summary>
+            Gets the required creation parameters when the control handle is created.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.RecurringEditConfirmationForm.Result">
+            <summary>
+            Gets the edit action specified by the user in this dialog.
+            </summary>
+            <remarks>This is the return value to indicate what choice the user made 
+            in the dialog.</remarks>
+        </member>
         <member name="T:Syncfusion.Windows.Forms.Schedule.RecurringForm">
             <summary>
             Form which displays the recurring appointment information.
@@ -1729,38 +1770,11 @@
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.Schedule.RecurringForm"/> class.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.RecurringForm.Font">
-            <summary>
-            Gets or sets the <see cref="T:System.Drawing.Font"/> value for Form. 
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.RecurringForm.IsRecurringOnOverride">
-            <summary>
-            Gets or sets a value indicating whether recurring has to be overridden.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.RecurringForm.SecondsinAppointment">
-            <summary>
-            Gets or sets a value indicating whether appointment has to support seconds.
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Schedule.RecurringForm.switchRTL(System.Collections.IEnumerable)">
             <summary>
             Switches the controls to RTL mode.
             </summary>
             <param name="controls">The control collections.</param>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.RecurringForm.IgnoreScheduleRTLSettings">
-            <summary>
-            Gets or sets a value indicating whether this form will  use the RTL settings from 
-            the ScheduleControl to decide whether to mirror the form.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.RecurringForm.CreateParams">
-            <override/> 
-            <summary>
-            Gets the required creation parameters when the control handle is created.
-            </summary>
         </member>
         <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.components">
             <summary>
@@ -1825,11 +1839,6 @@
             <param name="tb">The <see cref="T:System.Windows.Forms.TextBox"/>.</param>
             <returns>The integer value of the textbox.</returns>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.RecurringForm.MonthTokens">
-            <summary>
-            Gets or sets the month tokens.
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Schedule.RecurringForm.radioButton5_Click(System.Object,System.EventArgs)">
             <summary>
             Used to perform the showing and hiding the panels.
@@ -1845,46 +1854,6 @@
         <member name="M:Syncfusion.Windows.Forms.Schedule.RecurringForm.HidePanel">
             <summary>
             Hides the panel.
-            </summary>
-        </member>
-        <member name="T:Syncfusion.Windows.Forms.Schedule.RecurringForm.TimeButtons">
-            <summary>
-            Defines the constants that specify the time format of the button.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.TimeButtons.SEC">
-            <summary>
-            Every day.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.TimeButtons.MIN">
-            <summary>
-            Every week day.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.TimeButtons.HR">
-            <summary>
-            Every week end.
-            </summary>
-        </member>
-        <member name="T:Syncfusion.Windows.Forms.Schedule.RecurringForm.DayButtons">
-            <summary>
-            Defines the constants that specify the day recurrence format of the button.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.DayButtons.every">
-            <summary>
-            Every day.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.DayButtons.everyWeekday">
-            <summary>
-            Every week day.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.DayButtons.everyWeekEnd">
-            <summary>
-            Every week end.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Schedule.RecurringForm.dayPanelButtons_Click(System.Object,System.EventArgs)">
@@ -1921,86 +1890,6 @@
             </summary>
             <param name="sender">The source control.</param>
             <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
-        </member>
-        <member name="T:Syncfusion.Windows.Forms.Schedule.RecurringForm.MonthButtons">
-            <summary>
-            Defines the constants that specify the month recurrence format.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.MonthButtons.Day">
-            <summary>
-            The day button.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.MonthButtons.DayOfWeek">
-            <summary>
-            Day of the week button.
-            </summary>
-        </member>
-        <member name="T:Syncfusion.Windows.Forms.Schedule.RecurringForm.PositionCount">
-            <summary>
-             Defines the constants that specify the positions.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.PositionCount.first">
-            <summary>
-            First position.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.PositionCount.second">
-            <summary>
-            Second position.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.PositionCount.third">
-            <summary>
-            Third position.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.PositionCount.fourth">
-            <summary>
-            Fourth position.
-            </summary>
-        </member>
-        <member name="T:Syncfusion.Windows.Forms.Schedule.RecurringForm.MonthDayOfWeek">
-            <summary>
-             Defines the constants that specify the day in a week.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.MonthDayOfWeek.MON">
-            <summary>
-            Monday of the week.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.MonthDayOfWeek.TUE">
-            <summary>
-            Tuesday of the week.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.MonthDayOfWeek.WED">
-            <summary>
-            Wednesday of the week.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.MonthDayOfWeek.THU">
-            <summary>
-            Thursday of the week.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.MonthDayOfWeek.FRI">
-            <summary>
-            Friday of the week.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.MonthDayOfWeek.SAT">
-            <summary>
-            Saturday of the week.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.MonthDayOfWeek.SUN">
-            <summary>
-            Sunday of the week.
-            </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Schedule.RecurringForm.monthPanelButtons_Click(System.Object,System.EventArgs)">
             <summary>
@@ -2114,71 +2003,6 @@
             <param name="sender">The source control.</param>
             <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
-        <member name="T:Syncfusion.Windows.Forms.Schedule.RecurringForm.Months">
-            <summary>
-            Defines the constants that specify the months.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.Months.January">
-            <summary>
-            The month of January.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.Months.February">
-            <summary>
-            The month of February.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.Months.March">
-            <summary>
-            The month of March.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.Months.April">
-            <summary>
-            The month of April.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.Months.May">
-            <summary>
-            The month of May.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.Months.June">
-            <summary>
-            The month of June.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.Months.July">
-            <summary>
-            The month of July.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.Months.August">
-            <summary>
-            The month of August.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.Months.September">
-            <summary>
-            The month of September.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.Months.October">
-            <summary>
-            The month of October.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.Months.November">
-            <summary>
-            The month of November.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.Months.December">
-            <summary>
-            The month of December.
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Schedule.RecurringForm.YearPanelButtons_Click(System.Object,System.EventArgs)">
             <summary>
             Used to set the year button status to day of week or day.
@@ -2235,37 +2059,12 @@
             <param name="sender">The source control.</param>
             <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
-        <member name="T:Syncfusion.Windows.Forms.Schedule.RecurringForm.RangeButtons">
-            <summary>
-            Defines the constants that specify the recurrence ranges.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.RangeButtons.NoEnd">
-            <summary>
-            No end for the recurrence.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.RangeButtons.EndAfter">
-            <summary>
-            End after the specified date.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.RangeButtons.EndBy">
-            <summary>
-            End by the date specified.
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Schedule.RecurringForm.rangeSelectionButton_Click(System.Object,System.EventArgs)">
             <summary>
             Used to set the selection range.
             </summary>
             <param name="sender">The source control.</param>
             <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.RecurringForm.RecurrenceCount">
-            <summary>
-            Gets or sets the recurrence count.
-            </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Schedule.RecurringForm.dateTimePicker1_ValueChanged(System.Object,System.EventArgs)">
             <summary>
@@ -2363,6 +2162,248 @@
             Initializes the ComboBox items in recurring edit form.
             </summary>
         </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.RecurringForm.Font">
+            <summary>
+            Gets or sets the <see cref="T:System.Drawing.Font"/> value for Form. 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.RecurringForm.IsRecurringOnOverride">
+            <summary>
+            Gets or sets a value indicating whether recurring has to be overridden.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.RecurringForm.SecondsinAppointment">
+            <summary>
+            Gets or sets a value indicating whether appointment has to support seconds.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.RecurringForm.IgnoreScheduleRTLSettings">
+            <summary>
+            Gets or sets a value indicating whether this form will  use the RTL settings from 
+            the ScheduleControl to decide whether to mirror the form.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.RecurringForm.CreateParams">
+            <override/> 
+            <summary>
+            Gets the required creation parameters when the control handle is created.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.RecurringForm.MonthTokens">
+            <summary>
+            Gets or sets the month tokens.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.RecurringForm.RecurrenceCount">
+            <summary>
+            Gets or sets the recurrence count.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.Windows.Forms.Schedule.RecurringForm.TimeButtons">
+            <summary>
+            Defines the constants that specify the time format of the button.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.TimeButtons.SEC">
+            <summary>
+            Every day.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.TimeButtons.MIN">
+            <summary>
+            Every week day.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.TimeButtons.HR">
+            <summary>
+            Every week end.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.Windows.Forms.Schedule.RecurringForm.DayButtons">
+            <summary>
+            Defines the constants that specify the day recurrence format of the button.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.DayButtons.every">
+            <summary>
+            Every day.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.DayButtons.everyWeekday">
+            <summary>
+            Every week day.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.DayButtons.everyWeekEnd">
+            <summary>
+            Every week end.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.Windows.Forms.Schedule.RecurringForm.MonthButtons">
+            <summary>
+            Defines the constants that specify the month recurrence format.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.MonthButtons.Day">
+            <summary>
+            The day button.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.MonthButtons.DayOfWeek">
+            <summary>
+            Day of the week button.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.Windows.Forms.Schedule.RecurringForm.PositionCount">
+            <summary>
+             Defines the constants that specify the positions.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.PositionCount.first">
+            <summary>
+            First position.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.PositionCount.second">
+            <summary>
+            Second position.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.PositionCount.third">
+            <summary>
+            Third position.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.PositionCount.fourth">
+            <summary>
+            Fourth position.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.Windows.Forms.Schedule.RecurringForm.MonthDayOfWeek">
+            <summary>
+             Defines the constants that specify the day in a week.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.MonthDayOfWeek.MON">
+            <summary>
+            Monday of the week.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.MonthDayOfWeek.TUE">
+            <summary>
+            Tuesday of the week.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.MonthDayOfWeek.WED">
+            <summary>
+            Wednesday of the week.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.MonthDayOfWeek.THU">
+            <summary>
+            Thursday of the week.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.MonthDayOfWeek.FRI">
+            <summary>
+            Friday of the week.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.MonthDayOfWeek.SAT">
+            <summary>
+            Saturday of the week.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.MonthDayOfWeek.SUN">
+            <summary>
+            Sunday of the week.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.Windows.Forms.Schedule.RecurringForm.Months">
+            <summary>
+            Defines the constants that specify the months.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.Months.January">
+            <summary>
+            The month of January.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.Months.February">
+            <summary>
+            The month of February.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.Months.March">
+            <summary>
+            The month of March.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.Months.April">
+            <summary>
+            The month of April.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.Months.May">
+            <summary>
+            The month of May.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.Months.June">
+            <summary>
+            The month of June.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.Months.July">
+            <summary>
+            The month of July.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.Months.August">
+            <summary>
+            The month of August.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.Months.September">
+            <summary>
+            The month of September.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.Months.October">
+            <summary>
+            The month of October.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.Months.November">
+            <summary>
+            The month of November.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.Months.December">
+            <summary>
+            The month of December.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.Windows.Forms.Schedule.RecurringForm.RangeButtons">
+            <summary>
+            Defines the constants that specify the recurrence ranges.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.RangeButtons.NoEnd">
+            <summary>
+            No end for the recurrence.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.RangeButtons.EndAfter">
+            <summary>
+            End after the specified date.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Schedule.RecurringForm.RangeButtons.EndBy">
+            <summary>
+            End by the date specified.
+            </summary>
+        </member>
         <member name="T:Syncfusion.Windows.Forms.Schedule.ScheduleControl">
             <summary>
             Represents a control that provides the basic scheduling functionality.
@@ -2380,29 +2421,6 @@
         <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.Schedule.ScheduleControl"/> class.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleControl.Calendar">
-            <summary>
-            Gets the  <see cref="T:Syncfusion.Windows.Forms.Schedule.NavigationCalendar"/> associated with <see cref="T:Syncfusion.Windows.Forms.Schedule.ScheduleControl"/>.
-            </summary>
-            <remarks>
-            The NavigationCalendar is a derive GridControl that displays
-            one or more Calendars that let the user select dates to be displayed
-            in the ScheduleControl.
-            If you want to use a derived NavigationCalendar, then you can do so 
-            by overriding CreateNavigationCalendar and returning an instance of 
-            your derived NavigationCalendar.
-            </remarks>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleControl.AllowSecondsInAppointment">
-            <summary>
-            Gets or sets enable seconds support for schedule appointment.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleControl.CaptionPanel">
-            <summary>
-            Gets the Panel, holding the caption above the Calendar. This panel may hold two navigation buttons and <see cref="P:Syncfusion.Windows.Forms.Schedule.ScheduleControl.HeaderLabel"/>.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.CreateNavigationCalendar">
@@ -2549,11 +2567,6 @@
             with respect to SpanOnlyPrimeTime property at runtime.
             </summary>
         </member>
-        <member name="E:Syncfusion.Windows.Forms.Schedule.ScheduleControl.AppointmentTimeChanged">
-            <summary>
-             Occurs whenever schedule appointment time is changed.
-             </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.RaiseAppointmentTimeChanged(Syncfusion.Windows.Forms.Schedule.AppointmentTimeChangedEventArgs)">
             <summary>
             Raises the <see cref="E:Syncfusion.Windows.Forms.Schedule.ScheduleControl.AppointmentTimeChanged"/> event. 
@@ -2573,12 +2586,6 @@
             <param name="sender">The source control.</param>
             <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
-        <member name="E:Syncfusion.Windows.Forms.Schedule.ScheduleControl.ShowingAppointmentForm">
-            <summary>
-            A cancelable event that occurs before the Appointment form is displayed. You can swap the
-            the displayed form through the events arguments.
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.RaiseShowingAppointmentForm(Syncfusion.Windows.Forms.Schedule.ShowingAppointFormEventArgs)">
             <summary>
             Raises the <see cref="E:Syncfusion.Windows.Forms.Schedule.ScheduleControl.ShowingAppointmentForm"/> event. 
@@ -2591,16 +2598,6 @@
             </summary>
             <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Schedule.ShowingAppointFormEventArgs"/> that contains the event data.</param>
         </member>
-        <member name="E:Syncfusion.Windows.Forms.Schedule.ScheduleControl.ItemChanging">
-            <summary>
-            A cancelable event raised before an IScheduleAppointment is modified.
-            </summary>
-        </member>
-        <member name="E:Syncfusion.Windows.Forms.Schedule.ScheduleControl.ItemChanged">
-            <summary>
-            A notification event raised after an IScheduleAppointment is modified.
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.RaiseItemChanging(Syncfusion.Schedule.ScheduleAppointmentCancelEventArgs)">
             <summary>
             Raises an <see cref="E:Syncfusion.Windows.Forms.Schedule.ScheduleControl.ItemChanging"/> event.
@@ -2612,11 +2609,6 @@
             Raises an <see cref="E:Syncfusion.Windows.Forms.Schedule.ScheduleControl.ItemChanged"/> event.
             </summary>
             <param name="e">The event arguments.</param>
-        </member>
-        <member name="E:Syncfusion.Windows.Forms.Schedule.ScheduleControl.ParseDisplayItem">
-            <summary>
-            Occurs when the ScheduleGrid.ParseDisplayItem is called to set the display text for a ScheduleAppointment.
-            </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.RaiseParseDisplayItem(Syncfusion.Windows.Forms.Schedule.ParseDisplayItemEventArgs)">
             <summary>Raises the <see cref="E:Syncfusion.Windows.Forms.Schedule.ScheduleControl.ParseDisplayItem"/> event.</summary>
@@ -2655,6 +2647,225 @@
             Raises an <see cref="E:Syncfusion.Windows.Forms.Schedule.ScheduleControl.ItemChanged"/> event.
             </summary>
             <param name="e">The <see cref="T:Syncfusion.Schedule.ScheduleAppointmentEventArgs"/> that contains the event data.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.ApplyCultureToAppearance(System.Globalization.CultureInfo,Syncfusion.Windows.Forms.Schedule.ScheduleAppearance)">
+            <summary>
+            Applied the culture to the ScheduleControl. This method is called by the ScheduleControl when the ScheduleControl.Culture property is set to
+            move the specific culture settings to the Appearance object.
+            </summary>
+            <param name="currentCultureInfo">The new Culture.</param>
+            <param name="currentAppearance">The Appearance object to be set.</param>
+            <remarks>
+            Override this method to control how your Culture settings will affect the Appearance. The default settings
+            are as below
+            <code lang="C#">
+            currentAppearance.WorkWeekHeaderFormat = currentCultureInfo.DateTimeFormat.ShortDatePattern;
+            currentAppearance.WeekHeaderFormat = currentCultureInfo.DateTimeFormat.MonthDayPattern;
+            currentAppearance.WeekMonthFullFormat = currentCultureInfo.DateTimeFormat.LongDatePattern;
+            </code>
+            <code lang ="VB">
+            currentAppearance.WorkWeekHeaderFormat = currentCultureInfo.DateTimeFormat.ShortDatePattern
+            currentAppearance.WeekHeaderFormat = currentCultureInfo.DateTimeFormat.MonthDayPattern
+            currentAppearance.WeekMonthFullFormat = currentCultureInfo.DateTimeFormat.LongDatePattern
+            </code>
+            </remarks>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.OnSetupContextMenu">
+            <summary>
+            Sets up the context menu associated with the ScheduleControl.
+            </summary>
+            <remarks>Override this method to create your own context menus.</remarks>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.MetroContextMenu">
+            <summary>
+            Gets a Metro ContextMenu implementing standard set of menu items for metro theme
+            </summary>
+            <returns>A ContextMenu.</returns>
+            <remarks>
+            If you use this default implementation of a ContextMenu, you can dynamically
+            cancel the execution of a menu selection by subscribing to the 
+            ScheduleControl.ScheduleAppointmentClick event and setting e.Cancel = true when 
+            e.ClickType is RightClick.
+            </remarks>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.DefaultWindowsFormsContextMenu">
+            <summary>
+            Gets a default ContextMenu implementing standard set of menu items.
+            </summary>
+            <returns>A ContextMenu.</returns>
+            <remarks>
+            If you use this default implementation of a ContextMenu, you can dynamically
+            cancel the execution of a menu selection by subscribing to the 
+            ScheduleControl.ScheduleAppointmentClick event and setting e.Cancel = true when 
+            e.ClickType is RightClick.
+            </remarks>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.PerformSwitchToScheduleViewTypeClick(Syncfusion.Windows.Forms.Schedule.ScheduleViewType)">
+            <summary>
+            Switches the display to the specified ScheduleViewType.
+            </summary>
+            <param name="t">The requested ScheduleViewType.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.SwitchToScheduleViewTypeDay(System.DateTime)">
+            <summary>
+            Switches the display to the specified date with ScheduleViewType.Day.
+            </summary>
+            <param name="date">The requested date.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.PerformDeleteItemClick">
+            <summary>
+            Displays a dialog allowing you to delete an <see cref="T:Syncfusion.Schedule.IScheduleAppointment"/>.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.PerformEditItemClick">
+            <summary>
+            Displays a dialog allowing you to edit an <see cref="T:Syncfusion.Schedule.IScheduleAppointment"/>.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.PerformNewItemClick">
+            <summary>
+            Displays a dialog allowing you to enter a new <see cref="T:Syncfusion.Schedule.IScheduleAppointment"/>.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.PerformNewAllDayItemClick">
+            <summary>
+            Displays a Dialog allowing you to enter a new AllDay <see cref="T:Syncfusion.Schedule.IScheduleAppointment"/>.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.dayItemClick(System.Object,System.EventArgs)">
+            <summary>
+            Used to change the schedule view type to Day.
+            </summary>
+            <param name="sender">The source control.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.workWeekItemClick(System.Object,System.EventArgs)">
+            <summary>
+            Used to change the schedule view type to WorkWeek.
+            </summary>
+            <param name="sender">The source control.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.weekItemClick(System.Object,System.EventArgs)">
+            <summary>
+            Used to change the schedule view type to Week.
+            </summary>
+            <param name="sender">The source control.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.monthItemClick(System.Object,System.EventArgs)">
+            <summary>
+            Used to change the schedule view type to Month.
+            </summary>
+            <param name="sender">The source control.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.newAllDayItemClick(System.Object,System.EventArgs)">
+            <summary>
+            Used to change the schedule view type to AllDay.
+            </summary>
+            <param name="sender">The source control.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.OnScheduleContextMenuClick(Syncfusion.Windows.Forms.Schedule.ScheduleContextMenuClickEventArgs)">
+            <summary>
+            /// Raises the <see cref="E:Syncfusion.Windows.Forms.Schedule.ScheduleControl.ScheduleContextMenuClick"/> event. 
+            </summary>
+            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Schedule.ScheduleContextMenuClickEventArgs"/> that contains the event data.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.newItemClick(System.Object,System.EventArgs)">
+            <summary>
+            Used to perform the new item.
+            </summary>
+            <param name="sender">The source control.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.editItemClick(System.Object,System.EventArgs)">
+            <summary>
+            Used to perform the edit item.
+            </summary>
+            <param name="sender">The source control.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.deleteItemClick(System.Object,System.EventArgs)">
+            <summary>
+            Used to perform the delete item.
+            </summary>
+            <param name="sender">The source control.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.OnScheduleAppointmentClick(Syncfusion.Windows.Forms.Schedule.ScheduleAppointmentClickEventArgs)">
+            <summary>
+            Raises the <see cref="E:Syncfusion.Windows.Forms.Schedule.ScheduleControl.ScheduleAppointmentClick"/> event. 
+            </summary>
+            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Schedule.ScheduleAppointmentClickEventArgs"/> that contains the event data.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.OnAdjustingAppointmentWithMouse(Syncfusion.Windows.Forms.Schedule.AdjustingAppointmentMouseWithEventArgs)">
+            <summary>
+            Raises the <see cref="E:Syncfusion.Windows.Forms.Schedule.ScheduleControl.AdjustingAppointmentWithMouse"/> event.
+            </summary>
+            <remarks>
+            Raises a AdjustingAppointmentWithMouse event that lets you cancel appointment by appointment whether an appointment can be adjusted using the mouse.
+            </remarks>
+            <param name="e">The event arguments.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.OnScheduleGridCreated(Syncfusion.Windows.Forms.Schedule.ScheduleGridCreatedEventArgs)">
+            <summary>
+            Raises the <see cref="E:Syncfusion.Windows.Forms.Schedule.ScheduleControl.ScheduleGridCreated"/> event.
+            </summary>
+            <remarks>
+            Raises a ScheduleGridCreated event that lets you either use a derived ScheduleGridControl or to subscribe to events on the ScheduleGridControl.
+            </remarks>
+            <param name="e">The event arguments.</param>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleControl.Calendar">
+            <summary>
+            Gets the  <see cref="T:Syncfusion.Windows.Forms.Schedule.NavigationCalendar"/> associated with <see cref="T:Syncfusion.Windows.Forms.Schedule.ScheduleControl"/>.
+            </summary>
+            <remarks>
+            The NavigationCalendar is a derive GridControl that displays
+            one or more Calendars that let the user select dates to be displayed
+            in the ScheduleControl.
+            If you want to use a derived NavigationCalendar, then you can do so 
+            by overriding CreateNavigationCalendar and returning an instance of 
+            your derived NavigationCalendar.
+            </remarks>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleControl.AllowSecondsInAppointment">
+            <summary>
+            Gets or sets enable seconds support for schedule appointment.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleControl.CaptionPanel">
+            <summary>
+            Gets the Panel, holding the caption above the Calendar. This panel may hold two navigation buttons and <see cref="P:Syncfusion.Windows.Forms.Schedule.ScheduleControl.HeaderLabel"/>.
+            </summary>
+        </member>
+        <member name="E:Syncfusion.Windows.Forms.Schedule.ScheduleControl.AppointmentTimeChanged">
+            <summary>
+             Occurs whenever schedule appointment time is changed.
+             </summary>
+        </member>
+        <member name="E:Syncfusion.Windows.Forms.Schedule.ScheduleControl.ShowingAppointmentForm">
+            <summary>
+            A cancelable event that occurs before the Appointment form is displayed. You can swap the
+            the displayed form through the events arguments.
+            </summary>
+        </member>
+        <member name="E:Syncfusion.Windows.Forms.Schedule.ScheduleControl.ItemChanging">
+            <summary>
+            A cancelable event raised before an IScheduleAppointment is modified.
+            </summary>
+        </member>
+        <member name="E:Syncfusion.Windows.Forms.Schedule.ScheduleControl.ItemChanged">
+            <summary>
+            A notification event raised after an IScheduleAppointment is modified.
+            </summary>
+        </member>
+        <member name="E:Syncfusion.Windows.Forms.Schedule.ScheduleControl.ParseDisplayItem">
+            <summary>
+            Occurs when the ScheduleGrid.ParseDisplayItem is called to set the display text for a ScheduleAppointment.
+            </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleControl.EnableAlerts">
             <summary>
@@ -2814,28 +3025,6 @@
             </code>
             </example>  
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.ApplyCultureToAppearance(System.Globalization.CultureInfo,Syncfusion.Windows.Forms.Schedule.ScheduleAppearance)">
-            <summary>
-            Applied the culture to the ScheduleControl. This method is called by the ScheduleControl when the ScheduleControl.Culture property is set to
-            move the specific culture settings to the Appearance object.
-            </summary>
-            <param name="currentCultureInfo">The new Culture.</param>
-            <param name="currentAppearance">The Appearance object to be set.</param>
-            <remarks>
-            Override this method to control how your Culture settings will affect the Appearance. The default settings
-            are as below
-            <code lang="C#">
-            currentAppearance.WorkWeekHeaderFormat = currentCultureInfo.DateTimeFormat.ShortDatePattern;
-            currentAppearance.WeekHeaderFormat = currentCultureInfo.DateTimeFormat.MonthDayPattern;
-            currentAppearance.WeekMonthFullFormat = currentCultureInfo.DateTimeFormat.LongDatePattern;
-            </code>
-            <code lang ="VB">
-            currentAppearance.WorkWeekHeaderFormat = currentCultureInfo.DateTimeFormat.ShortDatePattern
-            currentAppearance.WeekHeaderFormat = currentCultureInfo.DateTimeFormat.MonthDayPattern
-            currentAppearance.WeekMonthFullFormat = currentCultureInfo.DateTimeFormat.LongDatePattern
-            </code>
-            </remarks>
-        </member>
         <member name="E:Syncfusion.Windows.Forms.Schedule.ScheduleControl.SetupContextMenu">
             <summary>
             Subscribe to this event to set up your own Context menu for the ScheduleControl.
@@ -2849,68 +3038,6 @@
             settings.
             </remarks>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.OnSetupContextMenu">
-            <summary>
-            Sets up the context menu associated with the ScheduleControl.
-            </summary>
-            <remarks>Override this method to create your own context menus.</remarks>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.MetroContextMenu">
-            <summary>
-            Gets a Metro ContextMenu implementing standard set of menu items for metro theme
-            </summary>
-            <returns>A ContextMenu.</returns>
-            <remarks>
-            If you use this default implementation of a ContextMenu, you can dynamically
-            cancel the execution of a menu selection by subscribing to the 
-            ScheduleControl.ScheduleAppointmentClick event and setting e.Cancel = true when 
-            e.ClickType is RightClick.
-            </remarks>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.DefaultWindowsFormsContextMenu">
-            <summary>
-            Gets a default ContextMenu implementing standard set of menu items.
-            </summary>
-            <returns>A ContextMenu.</returns>
-            <remarks>
-            If you use this default implementation of a ContextMenu, you can dynamically
-            cancel the execution of a menu selection by subscribing to the 
-            ScheduleControl.ScheduleAppointmentClick event and setting e.Cancel = true when 
-            e.ClickType is RightClick.
-            </remarks>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.PerformSwitchToScheduleViewTypeClick(Syncfusion.Windows.Forms.Schedule.ScheduleViewType)">
-            <summary>
-            Switches the display to the specified ScheduleViewType.
-            </summary>
-            <param name="t">The requested ScheduleViewType.</param>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.SwitchToScheduleViewTypeDay(System.DateTime)">
-            <summary>
-            Switches the display to the specified date with ScheduleViewType.Day.
-            </summary>
-            <param name="date">The requested date.</param>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.PerformDeleteItemClick">
-            <summary>
-            Displays a dialog allowing you to delete an <see cref="T:Syncfusion.Schedule.IScheduleAppointment"/>.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.PerformEditItemClick">
-            <summary>
-            Displays a dialog allowing you to edit an <see cref="T:Syncfusion.Schedule.IScheduleAppointment"/>.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.PerformNewItemClick">
-            <summary>
-            Displays a dialog allowing you to enter a new <see cref="T:Syncfusion.Schedule.IScheduleAppointment"/>.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.PerformNewAllDayItemClick">
-            <summary>
-            Displays a Dialog allowing you to enter a new AllDay <see cref="T:Syncfusion.Schedule.IScheduleAppointment"/>.
-            </summary>
-        </member>
         <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleControl.ItemSelected">
             <summary>
             Gets a value indicating whether an ISchedule item has input focus (i.e., has been clicked)
@@ -2919,72 +3046,10 @@
             You can use this property to determine whether menu items should be enabled.
             </remarks>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.dayItemClick(System.Object,System.EventArgs)">
-            <summary>
-            Used to change the schedule view type to Day.
-            </summary>
-            <param name="sender">The source control.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.workWeekItemClick(System.Object,System.EventArgs)">
-            <summary>
-            Used to change the schedule view type to WorkWeek.
-            </summary>
-            <param name="sender">The source control.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.weekItemClick(System.Object,System.EventArgs)">
-            <summary>
-            Used to change the schedule view type to Week.
-            </summary>
-            <param name="sender">The source control.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.monthItemClick(System.Object,System.EventArgs)">
-            <summary>
-            Used to change the schedule view type to Month.
-            </summary>
-            <param name="sender">The source control.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.newAllDayItemClick(System.Object,System.EventArgs)">
-            <summary>
-            Used to change the schedule view type to AllDay.
-            </summary>
-            <param name="sender">The source control.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
-        </member>
         <member name="E:Syncfusion.Windows.Forms.Schedule.ScheduleControl.ScheduleContextMenuClick">
             <summary>
             Occurs when you click or double click an item.
             </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.OnScheduleContextMenuClick(Syncfusion.Windows.Forms.Schedule.ScheduleContextMenuClickEventArgs)">
-            <summary>
-            /// Raises the <see cref="E:Syncfusion.Windows.Forms.Schedule.ScheduleControl.ScheduleContextMenuClick"/> event. 
-            </summary>
-            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Schedule.ScheduleContextMenuClickEventArgs"/> that contains the event data.</param>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.newItemClick(System.Object,System.EventArgs)">
-            <summary>
-            Used to perform the new item.
-            </summary>
-            <param name="sender">The source control.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.editItemClick(System.Object,System.EventArgs)">
-            <summary>
-            Used to perform the edit item.
-            </summary>
-            <param name="sender">The source control.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.deleteItemClick(System.Object,System.EventArgs)">
-            <summary>
-            Used to perform the delete item.
-            </summary>
-            <param name="sender">The source control.</param>
-            <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleControl.FreezePainting">
             <summary>
@@ -2996,25 +3061,10 @@
             Occurs when you click or double click an item.
             </summary>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.OnScheduleAppointmentClick(Syncfusion.Windows.Forms.Schedule.ScheduleAppointmentClickEventArgs)">
-            <summary>
-            Raises the <see cref="E:Syncfusion.Windows.Forms.Schedule.ScheduleControl.ScheduleAppointmentClick"/> event. 
-            </summary>
-            <param name="e">The <see cref="T:Syncfusion.Windows.Forms.Schedule.ScheduleAppointmentClickEventArgs"/> that contains the event data.</param>
-        </member>
         <member name="E:Syncfusion.Windows.Forms.Schedule.ScheduleControl.AdjustingAppointmentWithMouse">
             <summary>
             An event that lets you cancel appointment by appointment whether an appointment can be adjusted using the mouse.
             </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.OnAdjustingAppointmentWithMouse(Syncfusion.Windows.Forms.Schedule.AdjustingAppointmentMouseWithEventArgs)">
-            <summary>
-            Raises the <see cref="E:Syncfusion.Windows.Forms.Schedule.ScheduleControl.AdjustingAppointmentWithMouse"/> event.
-            </summary>
-            <remarks>
-            Raises a AdjustingAppointmentWithMouse event that lets you cancel appointment by appointment whether an appointment can be adjusted using the mouse.
-            </remarks>
-            <param name="e">The event arguments.</param>
         </member>
         <member name="E:Syncfusion.Windows.Forms.Schedule.ScheduleControl.ScheduleGridCreated">
             <summary>
@@ -3027,15 +3077,6 @@
             <para>To catch the initial creation of a ScheduleGrid with this event, you should make sure you subscribe to the event
             before you set the <see cref="P:Syncfusion.Windows.Forms.Schedule.ScheduleControl.ScheduleType"/> property.</para>
             </remarks>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleControl.OnScheduleGridCreated(Syncfusion.Windows.Forms.Schedule.ScheduleGridCreatedEventArgs)">
-            <summary>
-            Raises the <see cref="E:Syncfusion.Windows.Forms.Schedule.ScheduleControl.ScheduleGridCreated"/> event.
-            </summary>
-            <remarks>
-            Raises a ScheduleGridCreated event that lets you either use a derived ScheduleGridControl or to subscribe to events on the ScheduleGridControl.
-            </remarks>
-            <param name="e">The event arguments.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Schedule.FillPanel">
             <summary>
@@ -3107,11 +3148,6 @@
             Implements the office themed button.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.OfficeThemedButton.Drawing">
-            <summary>
-            Gets or sets the visual styles drawing.
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Schedule.OfficeThemedButton.DrawStyledControl(System.Drawing.Graphics,System.Windows.Forms.ButtonState,System.Windows.Forms.CheckState)">
             <summary>
             Overridden to draw the push button.
@@ -3125,6 +3161,11 @@
             Overridden to draw the control text.
             </summary>
             <param name="g">The graphics.</param>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.OfficeThemedButton.Drawing">
+            <summary>
+            Gets or sets the visual styles drawing.
+            </summary>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Schedule.ScheduleAppearance">
             <summary>
@@ -3197,6 +3238,64 @@
             </summary>
             <param name="info">A SerializationInfo object containing the information required to serialize the Appearance object.</param>
             <param name="context">A StreamingContext object containing the source and destination of the serialized stream.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleAppearance.ShouldSerializeTodayBackColor">
+            <summary>
+            Determines whether TodayBackColor has been modified and its contents should be serialized at design-time.
+            </summary>
+            <returns>True if contents were changed; False otherwise.</returns>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Schedule.ScheduleAppearance.timeBigFontSize">
+            <summary>
+            size of the font for the large text in the time col display
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleAppearance.ShouldSerializeNavigationCalendarBackColor">
+            <summary>
+            Determines whether NavigationCalendarBackColor has been modified and its contents should be serialized at design-time.
+            </summary>
+            <returns>True if contents were changed; False otherwise.</returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleAppearance.ShouldSerializeMoreItemArrowColor">
+            <summary>
+            Determines whether MoreItemArrowColor has been modified and its contents should be serialized at design-time.
+            </summary>
+            <returns>True if contents were changed; False otherwise.</returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleAppearance.ShouldSerializeMoreItemArrowBorderColor">
+            <summary>
+            Determines whether MoreItemArrowBorderColor has been modified and its contents should be serialized at design-time.
+            </summary>
+            <returns>True if contents were changed; False otherwise.</returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleAppearance.ShouldSerializeMoreItemArrowHoverColor">
+            <summary>
+            Determines whether MoreItemArrowHoverColor has been modified and its contents should be serialized at design-time.
+            </summary>
+            <returns>True if contents were changed; False otherwise.</returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleAppearance.ShouldSerializeNavigationCalendarTodayBackColor">
+            <summary>
+            Determines whether NavigationCalendarTodayBackColor has been modified and its contents should be serialized at design-time.
+            </summary>
+            <returns>True if contents were changed; False otherwise.</returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleAppearance.ShouldSerializeNavigationCalendarTodayTextColor">
+            <summary>
+            Determines whether NavigationCalendarTodayTextColor has been modified and its contents should be serialized at design-time.
+            </summary>
+            <returns>True if contents were changed; False otherwise.</returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleAppearance.ShouldSerializeSpanTransparencyLevel">
+            <summary>
+            Determines whether SpanTransparencyLevel has been modified and its contents should be serialized at design-time.
+            </summary>
+            <returns>True if contents were changed; False otherwise.</returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleAppearance.ToString">
+            <summary>Gets a string representing the instance of the <see cref="T:Syncfusion.Windows.Forms.Schedule.ScheduleAppearance"/>.</summary>
+            <returns>String representaion of the object.</returns>
+            <override/>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleAppearance.PrimeTimeCellColor">
             <summary>
@@ -3304,12 +3403,6 @@
             Gets or sets the backcolor of the AllDay row in the calendar.
             </summary>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleAppearance.ShouldSerializeTodayBackColor">
-            <summary>
-            Determines whether TodayBackColor has been modified and its contents should be serialized at design-time.
-            </summary>
-            <returns>True if contents were changed; False otherwise.</returns>
-        </member>
         <member name="E:Syncfusion.Windows.Forms.Schedule.ScheduleAppearance.AllDayBackColorChanged">
             <summary>
             A notification event that is raised after AllDayBackColor is modified. 
@@ -3368,11 +3461,6 @@
             <remarks>
                 Internal only
             </remarks>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Schedule.ScheduleAppearance.timeBigFontSize">
-            <summary>
-            size of the font for the large text in the time col display
-            </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleAppearance.TimeBigFontSize">
             <summary>
@@ -3441,12 +3529,6 @@
             Gets or sets the BackColor of the navigation calendar.
             </summary>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleAppearance.ShouldSerializeNavigationCalendarBackColor">
-            <summary>
-            Determines whether NavigationCalendarBackColor has been modified and its contents should be serialized at design-time.
-            </summary>
-            <returns>True if contents were changed; False otherwise.</returns>
-        </member>
         <member name="E:Syncfusion.Windows.Forms.Schedule.ScheduleAppearance.NavigationCalendarBackColorChanged">
             <summary>
             A notification event that is raised after NavigationCalendaBackColor is modified. 
@@ -3508,12 +3590,6 @@
             Gets or sets the color of the MoreItem Arrow Color.
             </summary>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleAppearance.ShouldSerializeMoreItemArrowColor">
-            <summary>
-            Determines whether MoreItemArrowColor has been modified and its contents should be serialized at design-time.
-            </summary>
-            <returns>True if contents were changed; False otherwise.</returns>
-        </member>
         <member name="E:Syncfusion.Windows.Forms.Schedule.ScheduleAppearance.MoreItemArrowBorderColorChanged">
             <summary>
             A notification event that is raised after MoreItemArrowBorderColor is modified. 
@@ -3526,12 +3602,6 @@
             <summary>
             Gets or sets the border color of the more item bitmap.
             </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleAppearance.ShouldSerializeMoreItemArrowBorderColor">
-            <summary>
-            Determines whether MoreItemArrowBorderColor has been modified and its contents should be serialized at design-time.
-            </summary>
-            <returns>True if contents were changed; False otherwise.</returns>
         </member>
         <member name="E:Syncfusion.Windows.Forms.Schedule.ScheduleAppearance.MoreItemArrowHoverColorChanged">
             <summary>
@@ -3546,12 +3616,6 @@
             Gets or sets the hover color of the more items bitmap.
             </summary>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleAppearance.ShouldSerializeMoreItemArrowHoverColor">
-            <summary>
-            Determines whether MoreItemArrowHoverColor has been modified and its contents should be serialized at design-time.
-            </summary>
-            <returns>True if contents were changed; False otherwise.</returns>
-        </member>
         <member name="E:Syncfusion.Windows.Forms.Schedule.ScheduleAppearance.NavigationCalendarTodayBackColorChanged">
             <summary>
             A notification event that is raised after NavigationCalendarTodayBackColor is modified. 
@@ -3561,12 +3625,6 @@
             <summary>
             Gets or sets the back color of the text of Today in the navigation calendar.
             </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleAppearance.ShouldSerializeNavigationCalendarTodayBackColor">
-            <summary>
-            Determines whether NavigationCalendarTodayBackColor has been modified and its contents should be serialized at design-time.
-            </summary>
-            <returns>True if contents were changed; False otherwise.</returns>
         </member>
         <member name="E:Syncfusion.Windows.Forms.Schedule.ScheduleAppearance.NavigationCalendarTodayColorChanged">
             <summary>
@@ -3641,12 +3699,6 @@
             <summary>
             Gets or sets the color of the current date text in the navigation calendar.
             </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleAppearance.ShouldSerializeNavigationCalendarTodayTextColor">
-            <summary>
-            Determines whether NavigationCalendarTodayTextColor has been modified and its contents should be serialized at design-time.
-            </summary>
-            <returns>True if contents were changed; False otherwise.</returns>
         </member>
         <member name="E:Syncfusion.Windows.Forms.Schedule.ScheduleAppearance.NavigationCalendarSelectionColorChanged">
             <summary>
@@ -3742,31 +3794,6 @@
         <member name="E:Syncfusion.Windows.Forms.Schedule.ScheduleAppearance.ThemesEnabledChanged">
             <summary>
             A notification event that is raised after ThemesEnabled is modified. 
-            </summary>
-        </member>
-        <member name="T:Syncfusion.Windows.Forms.Schedule.ScheduleAppearance.MoreItemsArrowDirections">
-            <summary>
-            Defines the constants that specify the position of the more items Arrow Directions.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Schedule.ScheduleAppearance.MoreItemsArrowDirections.Up">
-            <summary>
-            Specifies the arrow direction as Up
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Schedule.ScheduleAppearance.MoreItemsArrowDirections.Right">
-            <summary>
-            Specifies the arrow direction as Right
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Schedule.ScheduleAppearance.MoreItemsArrowDirections.Down">
-            <summary>
-            Specifies the arrow direction as Down
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Schedule.ScheduleAppearance.MoreItemsArrowDirections.Left">
-            <summary>
-            Specifies the arrow direction as Left
             </summary>
         </member>
         <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleAppearance.MoreItemsArrowDirection">
@@ -4217,16 +4244,30 @@
             Gets or sets the alpha level for transparent span.
             </summary>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleAppearance.ShouldSerializeSpanTransparencyLevel">
+        <member name="T:Syncfusion.Windows.Forms.Schedule.ScheduleAppearance.MoreItemsArrowDirections">
             <summary>
-            Determines whether SpanTransparencyLevel has been modified and its contents should be serialized at design-time.
+            Defines the constants that specify the position of the more items Arrow Directions.
             </summary>
-            <returns>True if contents were changed; False otherwise.</returns>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleAppearance.ToString">
-            <summary>Gets a string representing the instance of the <see cref="T:Syncfusion.Windows.Forms.Schedule.ScheduleAppearance"/>.</summary>
-            <returns>String representaion of the object.</returns>
-            <override />
+        <member name="F:Syncfusion.Windows.Forms.Schedule.ScheduleAppearance.MoreItemsArrowDirections.Up">
+            <summary>
+            Specifies the arrow direction as Up
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Schedule.ScheduleAppearance.MoreItemsArrowDirections.Right">
+            <summary>
+            Specifies the arrow direction as Right
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Schedule.ScheduleAppearance.MoreItemsArrowDirections.Down">
+            <summary>
+            Specifies the arrow direction as Down
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Schedule.ScheduleAppearance.MoreItemsArrowDirections.Left">
+            <summary>
+            Specifies the arrow direction as Left
+            </summary>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Schedule.ScheduleGrid">
             <summary>
@@ -4242,11 +4283,6 @@
         <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.Schedule.ScheduleGrid"/> class.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.EnableTouchMode">
-            <summary>
-            Gets or sets the touch mode.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.ShouldSerializeTouchMode">
@@ -4351,11 +4387,6 @@
             <summary>
             Required method for Designer support - do not modify 
             the contents of this method with the code editor.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.SpanManager">
-            <summary>
-            Gets the span manager.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.ClearAllDaySpans">
@@ -4763,29 +4794,6 @@
             <param name="sender">The source control.</param>
             <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.StartDayOfWeekWeekCalendar">
-            <summary>
-            Gets the start day of the week in week calendar.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.StartDayOfWeekMonthCalendar">
-            <summary>
-            Gets the start day of the week in month calendar.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.LastDayOfWeekMonthCalendar">
-            <summary>
-            Gets the last day of the week in month calendar.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.MaxConflicts">
-            <summary>
-            Sets the maximum appointment for ScheduleControl.
-            </summary>
-            <remarks>
-            Used to set 'how many appointment will be shown in schedule'. set minimum value for this if you use maximum value, it will decrease the performance of schedule grid.       
-            </remarks>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.SetupGrid">
             <summary>
             Sets the schedule grid.
@@ -4827,12 +4835,6 @@
         <member name="F:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.style">
             <summary>
             Gets or sets the visual theme.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.MoreItemsBitmap">
-            <summary>
-            Gets the bitmap drawn when day on a Week or Month ScheduleViewType has more items
-            than can be displayed in the grid cell for that day.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.GetBitmap(System.String)">
@@ -4917,28 +4919,11 @@
             </summary>
             <param name="resetData">Indicates whether data should be reset.</param>
         </member>
-        <member name="E:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.GridSetUpCompleted">
-            <summary>
-            Occurs when the GridControl that displays the multiple day panels
-            has completed its formatting and has been populated.
-            </summary>
-            <remarks>
-            This event is an notification event that this GridControl 
-            has been fully initialized. At this point, you can modify any of
-            the GridControl's standard properties, and your change will take precedence
-            over the existing settings.
-            </remarks>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.OnGridSetUpCompleted(System.EventArgs)">
             <summary>
             Raises the <see cref="E:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.GridSetUpCompleted"/> event.
             </summary>
             <param name="e">The <see cref="T:System.EventArgs"/> that contains the event data.</param>
-        </member>
-        <member name="E:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.SetDefaultItemProperties">
-            <summary>
-            Allows you to set the default properties on a new schedule items.
-            </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.OnSetDefaultItemProperties(Syncfusion.Schedule.IScheduleAppointment)">
             <summary>
@@ -5047,11 +5032,6 @@
             holds text used in the Schedule.HeaderLabel
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.ColumnHeaderDate">
-            <summary>
-            Gets or sets the column header date.
-            </summary>
-        </member>
         <member name="F:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.resetTimeRects">
             <summary>
             internal flag indicates whether the space required for displaying the large and small text in the time col needs to be reset.
@@ -5072,11 +5052,6 @@
             holds the currently loaded IScheduleAppointment objects
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.scheduleDataList">
-            <summary>
-            Gets or sets the schedule appointment data collection.
-            </summary>
-        </member>
         <member name="F:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.coveredCells">
             <summary>
             holds the covered cells used in marking schedule items in the day panels.
@@ -5087,34 +5062,9 @@
             The NavigationCalendar used to determine the dates displayed in this ScheduleGrid.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.Calendar">
-            <summary>
-            Gets the NavigationCalendar used to determine the dates displayed.
-            </summary>
-        </member>
         <member name="F:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.schedule">
             <summary>
             The ScheduleControl that hosts this ScheduleGrid.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.Schedule">
-            <summary>
-            Gets the ScheduleControl that hosts this <see cref="T:Syncfusion.Windows.Forms.Schedule.ScheduleGrid"/>.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.DataSource">
-            <summary>
-            Gets or sets the IScheduleDataProvider data source for this ScheduleControl.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.SelectedAppointments">
-            <summary>
-             Gets the IScheduleAppointment selected appointments collections.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.ScheduleType">
-            <summary>
-            Gets or sets the whether a daily, weekly or monthly schedule is displayed.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.Grid_QueryColWidth(System.Object,Syncfusion.Windows.Forms.Grid.GridRowColSizeEventArgs)">
@@ -5365,42 +5315,6 @@
             <param name="token">Token string to convert.</param>
             <returns>The string value.</returns>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.DayItemFormat">
-            <summary>
-            Gets the format of the Day item.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.WeekMonthItemFormat">
-            <summary>
-            Gets the format of the Week/Month item.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.AllDayItemFormat">
-            <summary>
-            Gets the format of the AllDay item.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.DateTimeFormat">
-            <summary>
-            Gets the format string used when formatting any of
-            the tokens from DisplayItemFormatStrings that represents combined 
-            date and time values.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.DateFormat">
-            <summary>
-            Gets the format string used when formatting any of
-            the tokens from DisplayItemFormatStrings that represents a 
-            date only value.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.TimeFormat">
-            <summary>
-            Gets the format string used when formatting any of
-            the tokens from DisplayItemFormatStrings that represents combined 
-            a time only value.
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.GetTimeDisplayText(System.Int32)">
             <summary>
             Gets the time string to be displayed in the time column.
@@ -5480,17 +5394,6 @@
             </summary>
             <returns>A <see cref="T:Syncfusion.Schedule.RecurringAppointmentEditAction"/> value.</returns>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.MinimumGridRowHeight">
-            <summary>
-            Gets or sets the minimum row height in a Day, WorkWeek or Custom view.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.SpanOnlyPrimeTime">
-            <summary>
-            Gets or sets a value indicating whether appointments that span multiple days should
-            only appear during prime time.
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.SetExpectDates(Syncfusion.Schedule.IRecurringScheduleAppointment,System.Boolean)">
             <summary>
             Sets the expected dates when the SpanOnlyPrimeTime is changed at runtime.
@@ -5527,144 +5430,6 @@
             Overridden to set the date value in navigation calendar.
             </summary>
         </member>
-        <member name="T:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.AdvancedToolTip">
-            <summary>
-            Implements the Tooltip in advanced mode for the <see cref="T:Syncfusion.Windows.Forms.Schedule.ScheduleControl"/>.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.AdvancedToolTip.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.AdvancedToolTip"/> class.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.AdvancedToolTip.stringcalc(System.String,System.String@,System.String@)">
-            <summary>
-            Calculates the display of text position inside the category rectangle.
-            </summary>
-            <param name="locationText">Entire subject Text.</param>
-            <param name="str1">Returns the displayable first line text.</param>
-            <param name="str2">Returns the displayable second line text.</param>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.AdvancedToolTip.Item">
-            <summary>
-            Gets or sets the schedule appointment. 
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.AdvancedToolTip.CategoryColor">
-            <summary>
-            Gets or sets the category color.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.AdvancedToolTip.ShowTimeColor">
-            <summary>
-            Gets or Sets the ShowTimeColor.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.AdvancedToolTip.TipBounds">
-            <summary>
-            Gets or sets the location of the Tooltip.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.AdvancedToolTip.BorderColor">
-            <summary>
-            Gets or sets the border color.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.AdvancedToolTip.OnPopup(System.Object,System.Windows.Forms.PopupEventArgs)">
-            <summary>
-            Customizes the AdvancedToolTip size.
-            </summary>
-            <param name="sender">Event source.</param>
-            <param name="e">The <see cref="T:System.Windows.Forms.PopupEventArgs"/> that contains the event data.</param>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.AdvancedToolTip.OnDraw(System.Object,System.Windows.Forms.DrawToolTipEventArgs)">
-            <summary>
-            OnDraw to handle the drawing of metro tooltip.
-            </summary>
-            <param name="sender">Event source.</param>
-            <param name="e">The <see cref="T:System.Windows.Forms.DrawToolTipEventArgs"/> that contains the event data.</param>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.AdvancedToolTip.ArrowHead">
-            <summary>
-            Gets or sets the arrow Head direction while showing the ToolTip.
-            </summary>
-        </member>
-        <member name="T:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.AdvancedToolTip.ArrowHeadDirection">
-            <summary>
-            Defines the constants that specify the ArrowHeadDirection of the ToolTip. 
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.AdvancedToolTip.ArrowHeadDirection.Left">
-            <summary>
-            Specifies the arrow head direction as left
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.AdvancedToolTip.ArrowHeadDirection.Right">
-            <summary>
-            Specifies the arrow head direction as Right
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.AdvancedToolTip.ArrowHeadDirection.Top">
-            <summary>
-            Specifies the arrow head direction as Top
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.AdvancedToolTip.ArrowHeadDirection.Bottom">
-            <summary>
-            Specifies the arrow head direction as Bottom
-            </summary>
-        </member>
-        <member name="T:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.ShowingAdvancedTooltipEventArgs">
-            <summary>
-            Provides data for the <see cref="E:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.ShowingAdvancedToolTip"/> event.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.ShowingAdvancedTooltipEventArgs.#ctor(Syncfusion.Schedule.IScheduleAppointment,System.String,System.Drawing.Color,System.Drawing.Color,System.Drawing.Color)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.ShowingAdvancedTooltipEventArgs"/> class.
-            </summary>
-            <param name="subject">Display Text of subject Rectangle.</param>
-            <param name="categoryColor">Backcolor of Subject Rectangle.</param>
-            <param name="ShowTimeColor">Backcolor of Category Rectangle.</param>
-            <param name="border">>BorderColor of ToolTip Rectangle.</param>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.ShowingAdvancedTooltipEventArgs.Subject">
-            <summary>
-            Gets or sets the DisplayText of the Subject of ToolTip.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.ShowingAdvancedTooltipEventArgs.CategoryBackColor">
-            <summary>
-            Gets or sets the category backcolor.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.ShowingAdvancedTooltipEventArgs.ShowTimeColor">
-            <summary>
-            Gets or sets the ShowTime Rectangle backcolor.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.ShowingAdvancedTooltipEventArgs.BorderColor">
-            <summary>
-            Gets or sets the BorderColor of ToolTip border color.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.ShowingAdvancedTooltipEventArgs.Appointment">
-            <summary>
-            Gets the appointment of the item.
-            </summary>
-        </member>
-        <member name="T:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.ShowingAdvancedToolTipEventHandler">
-            <summary>
-            Represents the method that will handle the <see cref="E:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.ShowingAdvancedToolTip"/> event.
-            </summary>
-            <param name="sender">Represents the root of type hierarchy.</param>
-            <param name="e">The  <see cref="T:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.ShowingAdvancedTooltipEventArgs"/> that contains the event data.</param>
-        </member>
-        <member name="E:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.ShowingAdvancedToolTip">
-            <summary>
-            Occurs when advanced tool tip is shown.
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.OnShowingAdvancedToolTip(Syncfusion.Windows.Forms.Schedule.ScheduleGrid.ShowingAdvancedTooltipEventArgs)">
             <summary>
             Raises the <see cref="E:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.ShowingAdvancedToolTip"/> event.
@@ -5692,11 +5457,6 @@
             as the user hovers the mouse over an item.
             </summary>
             <param name="e">The event arguments.</param>
-        </member>
-        <member name="E:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.ScheduleAppointmentClick">
-            <summary>
-            Occurs when you click/double click an item.
-            </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.OnScheduleAppointmentClick(Syncfusion.Windows.Forms.Schedule.ScheduleAppointmentClickEventArgs)">
             <summary>
@@ -5735,11 +5495,6 @@
             <param name="sender">The source control.</param>
             <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.ItemSelected">
-            <summary>
-            Gets a value indicating whether item is selected.
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.DaysInMonth(System.DateTime)">
             <summary>
             Gets the days in specified month.s
@@ -5766,11 +5521,6 @@
             Gets the start date.
             </summary>
             <returns>The start date.</returns>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.CharLength">
-            <summary>
-            Used internally. Gets or sets the number of bytes used for a single character.
-            </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.SetUpDayOfWeekStrings">
             <summary>
@@ -5859,6 +5609,297 @@
             </summary>
             <param name="forward">Indicates whether move forward.</param>
         </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.EnableTouchMode">
+            <summary>
+            Gets or sets the touch mode.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.SpanManager">
+            <summary>
+            Gets the span manager.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.StartDayOfWeekWeekCalendar">
+            <summary>
+            Gets the start day of the week in week calendar.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.StartDayOfWeekMonthCalendar">
+            <summary>
+            Gets the start day of the week in month calendar.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.LastDayOfWeekMonthCalendar">
+            <summary>
+            Gets the last day of the week in month calendar.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.MaxConflicts">
+            <summary>
+            Sets the maximum appointment for ScheduleControl.
+            </summary>
+            <remarks>
+            Used to set 'how many appointment will be shown in schedule'. set minimum value for this if you use maximum value, it will decrease the performance of schedule grid.       
+            </remarks>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.MoreItemsBitmap">
+            <summary>
+            Gets the bitmap drawn when day on a Week or Month ScheduleViewType has more items
+            than can be displayed in the grid cell for that day.
+            </summary>
+        </member>
+        <member name="E:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.GridSetUpCompleted">
+            <summary>
+            Occurs when the GridControl that displays the multiple day panels
+            has completed its formatting and has been populated.
+            </summary>
+            <remarks>
+            This event is an notification event that this GridControl 
+            has been fully initialized. At this point, you can modify any of
+            the GridControl's standard properties, and your change will take precedence
+            over the existing settings.
+            </remarks>
+        </member>
+        <member name="E:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.SetDefaultItemProperties">
+            <summary>
+            Allows you to set the default properties on a new schedule items.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.ColumnHeaderDate">
+            <summary>
+            Gets or sets the column header date.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.scheduleDataList">
+            <summary>
+            Gets or sets the schedule appointment data collection.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.Calendar">
+            <summary>
+            Gets the NavigationCalendar used to determine the dates displayed.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.Schedule">
+            <summary>
+            Gets the ScheduleControl that hosts this <see cref="T:Syncfusion.Windows.Forms.Schedule.ScheduleGrid"/>.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.DataSource">
+            <summary>
+            Gets or sets the IScheduleDataProvider data source for this ScheduleControl.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.SelectedAppointments">
+            <summary>
+             Gets the IScheduleAppointment selected appointments collections.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.ScheduleType">
+            <summary>
+            Gets or sets the whether a daily, weekly or monthly schedule is displayed.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.DayItemFormat">
+            <summary>
+            Gets the format of the Day item.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.WeekMonthItemFormat">
+            <summary>
+            Gets the format of the Week/Month item.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.AllDayItemFormat">
+            <summary>
+            Gets the format of the AllDay item.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.DateTimeFormat">
+            <summary>
+            Gets the format string used when formatting any of
+            the tokens from DisplayItemFormatStrings that represents combined 
+            date and time values.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.DateFormat">
+            <summary>
+            Gets the format string used when formatting any of
+            the tokens from DisplayItemFormatStrings that represents a 
+            date only value.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.TimeFormat">
+            <summary>
+            Gets the format string used when formatting any of
+            the tokens from DisplayItemFormatStrings that represents combined 
+            a time only value.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.MinimumGridRowHeight">
+            <summary>
+            Gets or sets the minimum row height in a Day, WorkWeek or Custom view.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.SpanOnlyPrimeTime">
+            <summary>
+            Gets or sets a value indicating whether appointments that span multiple days should
+            only appear during prime time.
+            </summary>
+        </member>
+        <member name="E:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.ShowingAdvancedToolTip">
+            <summary>
+            Occurs when advanced tool tip is shown.
+            </summary>
+        </member>
+        <member name="E:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.ScheduleAppointmentClick">
+            <summary>
+            Occurs when you click/double click an item.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.ItemSelected">
+            <summary>
+            Gets a value indicating whether item is selected.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.CharLength">
+            <summary>
+            Used internally. Gets or sets the number of bytes used for a single character.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.AdvancedToolTip">
+            <summary>
+            Implements the Tooltip in advanced mode for the <see cref="T:Syncfusion.Windows.Forms.Schedule.ScheduleControl"/>.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.AdvancedToolTip.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.AdvancedToolTip"/> class.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.AdvancedToolTip.stringcalc(System.String,System.String@,System.String@)">
+            <summary>
+            Calculates the display of text position inside the category rectangle.
+            </summary>
+            <param name="locationText">Entire subject Text.</param>
+            <param name="str1">Returns the displayable first line text.</param>
+            <param name="str2">Returns the displayable second line text.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.AdvancedToolTip.OnPopup(System.Object,System.Windows.Forms.PopupEventArgs)">
+            <summary>
+            Customizes the AdvancedToolTip size.
+            </summary>
+            <param name="sender">Event source.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.PopupEventArgs"/> that contains the event data.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.AdvancedToolTip.OnDraw(System.Object,System.Windows.Forms.DrawToolTipEventArgs)">
+            <summary>
+            OnDraw to handle the drawing of metro tooltip.
+            </summary>
+            <param name="sender">Event source.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.DrawToolTipEventArgs"/> that contains the event data.</param>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.AdvancedToolTip.Item">
+            <summary>
+            Gets or sets the schedule appointment. 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.AdvancedToolTip.CategoryColor">
+            <summary>
+            Gets or sets the category color.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.AdvancedToolTip.ShowTimeColor">
+            <summary>
+            Gets or Sets the ShowTimeColor.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.AdvancedToolTip.TipBounds">
+            <summary>
+            Gets or sets the location of the Tooltip.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.AdvancedToolTip.BorderColor">
+            <summary>
+            Gets or sets the border color.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.AdvancedToolTip.ArrowHead">
+            <summary>
+            Gets or sets the arrow Head direction while showing the ToolTip.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.AdvancedToolTip.ArrowHeadDirection">
+            <summary>
+            Defines the constants that specify the ArrowHeadDirection of the ToolTip. 
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.AdvancedToolTip.ArrowHeadDirection.Left">
+            <summary>
+            Specifies the arrow head direction as left
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.AdvancedToolTip.ArrowHeadDirection.Right">
+            <summary>
+            Specifies the arrow head direction as Right
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.AdvancedToolTip.ArrowHeadDirection.Top">
+            <summary>
+            Specifies the arrow head direction as Top
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.AdvancedToolTip.ArrowHeadDirection.Bottom">
+            <summary>
+            Specifies the arrow head direction as Bottom
+            </summary>
+        </member>
+        <member name="T:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.ShowingAdvancedTooltipEventArgs">
+            <summary>
+            Provides data for the <see cref="E:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.ShowingAdvancedToolTip"/> event.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.ShowingAdvancedTooltipEventArgs.#ctor(Syncfusion.Schedule.IScheduleAppointment,System.String,System.Drawing.Color,System.Drawing.Color,System.Drawing.Color)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.ShowingAdvancedTooltipEventArgs"/> class.
+            </summary>
+            <param name="subject">Display Text of subject Rectangle.</param>
+            <param name="categoryColor">Backcolor of Subject Rectangle.</param>
+            <param name="ShowTimeColor">Backcolor of Category Rectangle.</param>
+            <param name="border">&gt;BorderColor of ToolTip Rectangle.</param>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.ShowingAdvancedTooltipEventArgs.Subject">
+            <summary>
+            Gets or sets the DisplayText of the Subject of ToolTip.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.ShowingAdvancedTooltipEventArgs.CategoryBackColor">
+            <summary>
+            Gets or sets the category backcolor.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.ShowingAdvancedTooltipEventArgs.ShowTimeColor">
+            <summary>
+            Gets or sets the ShowTime Rectangle backcolor.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.ShowingAdvancedTooltipEventArgs.BorderColor">
+            <summary>
+            Gets or sets the BorderColor of ToolTip border color.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.ShowingAdvancedTooltipEventArgs.Appointment">
+            <summary>
+            Gets the appointment of the item.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.ShowingAdvancedToolTipEventHandler">
+            <summary>
+            Represents the method that will handle the <see cref="E:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.ShowingAdvancedToolTip"/> event.
+            </summary>
+            <param name="sender">Represents the root of type hierarchy.</param>
+            <param name="e">The  <see cref="T:Syncfusion.Windows.Forms.Schedule.ScheduleGrid.ShowingAdvancedTooltipEventArgs"/> that contains the event data.</param>
+        </member>
         <member name="T:Syncfusion.Windows.Forms.Schedule.DragHitContext">
             <summary>
             Defines the constants that specify where the mouse is during a appointment drag in a Week or Month view.
@@ -5936,6 +5977,53 @@
             <param name="parent">Schedule grid.</param>
             <param name="item">Recurring appointment.</param>
         </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.TranparentLabel.GetGridBackColor(System.Int32,System.Int32)">
+            <summary>
+            Gets the backcolor of the schedule grid.
+            </summary>
+            <param name="row">Row index of a cell.</param>
+            <param name="col">Column index of a cell.</param>
+            <returns>Backcolor of grid.</returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.TranparentLabel.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <override/>
+            <summary>
+            Overridden to draw the rectangles and customization.
+            </summary>
+            <param name="e">The <see cref="T:System.Windows.Forms.PaintEventArgs"/> that contains the event data.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.TranparentLabel.CheckIfRoom(System.Int32@,System.Int32@,System.Int32@,System.Int32@,System.Int32@,System.Drawing.Point,System.Int32)">
+            <summary>
+            Determines the left and right positions of the bitmap and text.
+            </summary>
+            <param name="doLeftBm">Left of the bitmap value.</param>
+            <param name="doLeftText">Left of the text.</param>
+            <param name="doText">Text value.</param>
+            <param name="doRightText">Right of the text.</param>
+            <param name="doRightBm">Right of the bitmap.</param>
+            <param name="pt">The position.</param>
+            <param name="width1">Width of the text and bitmap.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.TranparentLabel.OnPaintBackground(System.Windows.Forms.PaintEventArgs)">
+            <override/>
+            <summary>
+            Overridden to draw the rectangle.
+            </summary>
+            <param name="pevent">The <see cref="T:System.Windows.Forms.PaintEventArgs"/> that contains the event data.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.TranparentLabel.CreateArrowBitmap(System.Boolean,System.String)">
+            <summary>
+            Creates the arrow marker.
+            </summary>
+            <param name="left">Indicates whether bitmap has to be drawn on left.</param>
+            <param name="label">Text to be drawn.</param>
+            <returns>The bitmap image to draw.</returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.TranparentLabel.OnMouseMove(System.Windows.Forms.MouseEventArgs)">
+            <override/>
+            <summary>Overridden to show the advanced tooltip.</summary>
+            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
+        </member>
         <member name="P:Syncfusion.Windows.Forms.Schedule.TranparentLabel.ScreenSlot">
             <summary>
             Gets or sets the screen slot.
@@ -5990,53 +6078,6 @@
             <summary>
             Gets or sets the ScheduleControl.
             </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.TranparentLabel.GetGridBackColor(System.Int32,System.Int32)">
-            <summary>
-            Gets the backcolor of the schedule grid.
-            </summary>
-            <param name="row">Row index of a cell.</param>
-            <param name="col">Column index of a cell.</param>
-            <returns>Backcolor of grid.</returns>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.TranparentLabel.OnPaint(System.Windows.Forms.PaintEventArgs)">
-            <override/>
-            <summary>
-            Overridden to draw the rectangles and customization.
-            </summary>
-            <param name="e">The <see cref="T:System.Windows.Forms.PaintEventArgs"/> that contains the event data.</param>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.TranparentLabel.CheckIfRoom(System.Int32@,System.Int32@,System.Int32@,System.Int32@,System.Int32@,System.Drawing.Point,System.Int32)">
-            <summary>
-            Determines the left and right positions of the bitmap and text.
-            </summary>
-            <param name="doLeftBm">Left of the bitmap value.</param>
-            <param name="doLeftText">Left of the text.</param>
-            <param name="doText">Text value.</param>
-            <param name="doRightText">Right of the text.</param>
-            <param name="doRightBm">Right of the bitmap.</param>
-            <param name="pt">The position.</param>
-            <param name="width1">Width of the text and bitmap.</param>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.TranparentLabel.OnPaintBackground(System.Windows.Forms.PaintEventArgs)">
-            <override/>
-            <summary>
-            Overridden to draw the rectangle.
-            </summary>
-            <param name="pevent">The <see cref="T:System.Windows.Forms.PaintEventArgs"/> that contains the event data.</param>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.TranparentLabel.CreateArrowBitmap(System.Boolean,System.String)">
-            <summary>
-            Creates the arrow marker.
-            </summary>
-            <param name="left">Indicates whether bitmap has to be drawn on left.</param>
-            <param name="label">Text to be drawn.</param>
-            <returns>The bitmap image to draw.</returns>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.TranparentLabel.OnMouseMove(System.Windows.Forms.MouseEventArgs)">
-            <override/>
-            <summary>Overridden to show the advanced tooltip.</summary>
-            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
         </member>
         <member name="T:Syncfusion.Windows.Forms.Schedule.SpanLayoutManager">
             <summary>Implements the functionality of span layout for ScheduleControl.Only for internal use.</summary>
@@ -6282,7 +6323,7 @@
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.Schedule.ScheduleContextMenuClickEventArgs"/> class.
             </summary>
         </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleContextMenuClickEventArgs.#ctor(System.Windows.Forms.ToolStripMenuItem)">
+        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleContextMenuClickEventArgs.#ctor(System.Windows.Forms.MenuItem)">
             <summary>
              Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.Schedule.ScheduleContextMenuClickEventArgs"/> class.
             </summary>
@@ -6318,26 +6359,6 @@
             Implements the mouse interactions handlers for <see cref="T:Syncfusion.Windows.Forms.Schedule.ScheduleControl"/> .
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleResizeCellsMouseController.navCellWindow">
-            <summary>
-            Gets the navigation cell window.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleResizeCellsMouseController.headerWindow">
-            <summary>
-            Gets the header window.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleResizeCellsMouseController.dragWindow">
-            <summary>
-            Gets the drag window.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleResizeCellsMouseController.oldBoundsWindow">
-            <summary>
-            Gets the old bounds of the window.
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleResizeCellsMouseController.GetAllowFixFocus">
             <override/>
             <summary>
@@ -6364,16 +6385,6 @@
             </summary>
             <param name="flags">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridResizeCellsBehavior"/>.</param>
             <returns>True if resizing behavior is row otherwise false.</returns>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleResizeCellsMouseController.CanResizeRows">
-            <summary>
-            Gets a value indicating whether rows can be resized.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleResizeCellsMouseController.CanResizeCols">
-            <summary>
-            Gets a value indicating whether columns can be resized.
-            </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleResizeCellsMouseController.LeftMouseDown(System.Drawing.Point,System.Windows.Forms.MouseEventArgs,System.Int32,System.Int32,System.Int32)">
             <summary>
@@ -6480,32 +6491,6 @@
             <param name="toColIndex">Column index to end update</param>
             <param name="savedWidths">Saved row heights.</param>
         </member>
-        <member name="T:Syncfusion.Windows.Forms.Schedule.ScheduleResizeCellsMouseController.ResizeCellsHitTestInfo">
-            <summary>
-            Implements the resizing cells hit test information.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleResizeCellsMouseController.ResizeCellsHitTestInfo.#ctor(Syncfusion.Windows.Forms.Schedule.ScheduleResizeCellsMouseController,Syncfusion.Windows.Forms.Grid.GridControlBase,System.Drawing.Point,Syncfusion.Windows.Forms.Grid.GridResizeCellsReason)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.Schedule.ScheduleResizeCellsMouseController.ResizeCellsHitTestInfo"/> class and attaches it to a grid.
-            </summary>
-            <param name="resizeUI">The <see cref="T:Syncfusion.Windows.Forms.Schedule.ScheduleResizeCellsMouseController"/></param>
-            <param name="grid">The grid to test the hit.</param>
-            <param name="point">The location of the hit test.</param>
-            <param name="reason">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridControlBase"/>.</param>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleResizeCellsMouseController.Name">
-            <override/>
-            <summary> 
-            Gets the name of the hit test.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleResizeCellsMouseController.Cursor">
-            <override/>
-            <summary>
-            Gets the cursor on hit test.
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleResizeCellsMouseController.MouseHoverEnter">
             <override/>
             <summary>Overridden to do nothing.</summary>
@@ -6601,6 +6586,62 @@
             <param name="point">The position to check.</param>
             <returns>True if row can be resized otherwise false.</returns>
         </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleResizeCellsMouseController.navCellWindow">
+            <summary>
+            Gets the navigation cell window.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleResizeCellsMouseController.headerWindow">
+            <summary>
+            Gets the header window.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleResizeCellsMouseController.dragWindow">
+            <summary>
+            Gets the drag window.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleResizeCellsMouseController.oldBoundsWindow">
+            <summary>
+            Gets the old bounds of the window.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleResizeCellsMouseController.CanResizeRows">
+            <summary>
+            Gets a value indicating whether rows can be resized.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleResizeCellsMouseController.CanResizeCols">
+            <summary>
+            Gets a value indicating whether columns can be resized.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleResizeCellsMouseController.Name">
+            <override/>
+            <summary> 
+            Gets the name of the hit test.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleResizeCellsMouseController.Cursor">
+            <override/>
+            <summary>
+            Gets the cursor on hit test.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.Windows.Forms.Schedule.ScheduleResizeCellsMouseController.ResizeCellsHitTestInfo">
+            <summary>
+            Implements the resizing cells hit test information.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleResizeCellsMouseController.ResizeCellsHitTestInfo.#ctor(Syncfusion.Windows.Forms.Schedule.ScheduleResizeCellsMouseController,Syncfusion.Windows.Forms.Grid.GridControlBase,System.Drawing.Point,Syncfusion.Windows.Forms.Grid.GridResizeCellsReason)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.Schedule.ScheduleResizeCellsMouseController.ResizeCellsHitTestInfo"/> class and attaches it to a grid.
+            </summary>
+            <param name="resizeUI">The <see cref="T:Syncfusion.Windows.Forms.Schedule.ScheduleResizeCellsMouseController"/></param>
+            <param name="grid">The grid to test the hit.</param>
+            <param name="point">The location of the hit test.</param>
+            <param name="reason">The <see cref="T:Syncfusion.Windows.Forms.Grid.GridControlBase"/>.</param>
+        </member>
         <member name="T:Syncfusion.Windows.Forms.Schedule.ScheduleDragLineWindow">
             <summary>
             Implements the window for performing row or column resizing.
@@ -6609,12 +6650,6 @@
         <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleDragLineWindow.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Forms.Schedule.ScheduleDragLineWindow"/> class.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleDragLineWindow.CreateParams">
-            <override/>        
-            <summary>
-            Gets the required creation parameters when the control handle is created.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Forms.Schedule.ScheduleDragLineWindow.OnPaint(System.Windows.Forms.PaintEventArgs)">
@@ -6636,51 +6671,16 @@
             Hides the window.
             </summary>
         </member>
+        <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleDragLineWindow.CreateParams">
+            <override/>        
+            <summary>
+            Gets the required creation parameters when the control handle is created.
+            </summary>
+        </member>
         <member name="P:Syncfusion.Windows.Forms.Schedule.ScheduleDragLineWindow.Border">
             <summary>
             Gets or sets the border.
             </summary>
-        </member>
-        <member name="T:Syncfusion.NamespaceDoc">
-            <summary>
-            The Syncfusion namespace contains classes that defines the value and reference data types, events and event handlers, interfaces, attributes and processing the exceptions.
-            </summary>
-        </member>
-        <member name="T:Syncfusion.ScheduleWindowsAssembly">
-            <exclude/>
-             <summary>
-             This class holds the name of the Syncfusion.Grid.Windows assembly and provides a helper 
-             routine that helps with resolving types when loading a serialization stream and when 
-             the framework probes for assemblies by reflection. 
-             </summary>
-        </member>
-        <member name="F:Syncfusion.ScheduleWindowsAssembly.Name">
-            <summary>
-            The full name of this assembly without version information: "Syncfusion.Grid.Windows"
-            </summary>
-        </member>
-        <member name="F:Syncfusion.ScheduleWindowsAssembly.Assembly">
-            <summary>
-            A reference to the <see cref="T:System.Reflection.Assembly"/> for the Grid assembly.
-            </summary>
-        </member>
-        <member name="F:Syncfusion.ScheduleWindowsAssembly.RootNamespace">
-            <summary>
-            The root namespace of this assembly. Used internally for locating resources within the assembly.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.ScheduleWindowsAssembly.AssemblyResolver(System.Object,System.ResolveEventArgs)">
-            <summary>
-            This delegate helps with resolving types and can be used as a eventhandler
-            for a <see cref="E:System.AppDomain.AssemblyResolve"/> event.
-            </summary>
-            <param name="sender">The source of the event.</param>
-            <param name="e">The event data with information about the type.</param>
-            <returns>A reference to the assembly where the type is located.</returns>
-            <remarks>
-            Use this handler when reading back types from a serialization stread
-            saved with an earlier version of this assembly.
-            </remarks>
         </member>
     </members>
 </doc>

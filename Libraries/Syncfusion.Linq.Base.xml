@@ -12,6 +12,177 @@
             implements most of the basic details.
             </summary>
         </member>
+        <member name="T:Syncfusion.Windows.Data.ICollectionViewAdv">
+            <summary>
+            ICollectionViewAdv is an extended interface from ICollectionView that implements
+            support for Grouping structure, Summaries, Table Summaries, Filters.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.Data.ICollectionViewAdv.OnCollectionChanged(System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+            <summary>
+            Raises the <see cref="E:CollectionChanged"/> event.
+            </summary>
+            <param name="args">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Data.ICollectionViewAdv.AddListener(System.ComponentModel.ICollectionView)">
+            <summary>
+            Adds the listener.
+            </summary>
+            <param name="collectionView">The collection view.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Data.ICollectionViewAdv.CreateRecordEntry(System.Object)">
+            <summary>
+            Creates the record entry.
+            </summary>
+            <param name="data">The data.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Data.ICollectionViewAdv.GetPropertyAccessProvider">
+            <summary>
+            Gets the property access provider.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Data.ICollectionViewAdv.GetItemProperties">
+            <summary>
+            Gets the item properties.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Data.ICollectionViewAdv.SetCustomExpressionFunc(Syncfusion.Windows.Data.IUnboundExpressionFunc)">
+            <summary>
+            Enable customization for runtime dynamic objects in LINQ queries.
+            </summary>
+            <param name="expressionFunctor"></param>
+        </member>
+        <member name="M:Syncfusion.Windows.Data.ICollectionViewAdv.Suspend">
+            <summary>
+            Suspends this instance.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.Data.ICollectionViewAdv.Resume">
+            <summary>
+            Resumes this instance.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.Data.ICollectionViewAdv.RefreshFiltering">
+            <summary>
+            Refresh toplevel groups --Added for the fix SD8300.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.ICollectionViewAdv.Records">
+            <summary>
+            Gets the records list structure.
+            </summary>
+            <value>The records.</value>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.ICollectionViewAdv.TopLevelGroup">
+            <summary>
+            Gets the top level group.
+            </summary>
+            <value>The top level group.</value>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.ICollectionViewAdv.CaptionSummaryRow">
+            <summary>
+            Gets or sets the caption summary row.
+            </summary>
+            <value>The caption summary row.</value>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.ICollectionViewAdv.Relations">
+            <summary>
+            Gets the relations.
+            </summary>
+            <value>The relations.</value>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.ICollectionViewAdv.SummaryRows">
+            <summary>
+            Gets the summary rows.
+            </summary>
+            <value>The summary rows.</value>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.ICollectionViewAdv.FilterPredicates">
+            <summary>
+            Gets or sets the filter predicates.
+            </summary>
+            <value>The filter predicates.</value>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.ICollectionViewAdv.TableSummaryRows">
+            <summary>
+            Gets the table summary rows.
+            </summary>
+            <value>The table summary rows.</value>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.ICollectionViewAdv.SortComparers">
+            <summary>
+            Gets the sort comparers for the sort description.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.ICollectionViewAdv.GroupComparer">
+            <summary>
+            Defines the custom group comparer to enable customization of the group sort order.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.ICollectionViewAdv.EditItemState">
+            <summary>
+            Gets the state of the edit item.
+            </summary>
+            <value>The state of the edit item.</value>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.ICollectionViewAdv.CurrentEditItemState">
+            <summary>
+            Gets the state of the current edit item.
+            </summary>
+            <value>The state of the current edit item.</value>
+        </member>
+        <member name="E:Syncfusion.Windows.Data.ICollectionViewAdv.RecordPropertyChanged">
+            <summary>
+            Record Property Changed event handler
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.ICollectionViewAdv.PersistGroupsExpandedState">
+            <summary>
+            Enable groupe expand state persistance. This will affect performance if there are large number of groups.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.ICollectionViewAdv.IsGroupsExpanded">
+            <summary>
+            Gets or sets a value indicating whether this instance is groups expanded.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is groups expanded; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:Syncfusion.Windows.Data.IUnboundExpressionFunc">
+            <summary>
+            Returns an Expression to embed in LINQ operation queries implemented by <see cref="T:Syncfusion.Windows.Data.ICollectionViewAdv"/>.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.Data.IUnboundExpressionFunc.GetFunc(System.String)">
+            <summary>
+            Custom Functor to enable runtime customized objects over default operations other than LINQ queries.
+            </summary>
+            <param name="propertyName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Data.IUnboundExpressionFunc.GetTypeFunc(System.String)">
+            <summary>
+            Custom Functor to enable runtime customized objects over default operations other than LINQ queries.
+            </summary>
+            <param name="propertyName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Data.IUnboundExpressionFunc.GetExpressionFunc(System.String)">
+            <summary>
+            Custom expression functor to enable runtime customized objects into LINQ queries.
+            </summary>
+            <param name="propertyName"></param>
+        </member>
+        <member name="M:Syncfusion.Windows.Data.IUnboundExpressionFunc.GetTypeExpressionFunc(System.String)">
+            <summary>
+            Custom expression functor to enable runtime customized objects into LINQ queries.
+            </summary>
+            <param name="propertyName"></param>
+        </member>
         <member name="F:Syncfusion.Windows.Data.CollectionViewAdv.isinApplyFilter">
             <summary>
             Check whether the filter is applied or not.
@@ -22,11 +193,6 @@
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Data.CollectionViewAdv"/> class.
             </summary>
             <param name="source">The source.</param>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.DispatchOwner">
-            <summary>
-            Gets or sets the Dispatcher of the UI object associated with this CollectionViewAdv.
-            </summary>
         </member>
         <member name="M:Syncfusion.Windows.Data.CollectionViewAdv.UpdateCollectionView(System.Object,System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
             <summary>
@@ -47,23 +213,11 @@
             <see cref="T:Syncfusion.Windows.Data.CollectionViewAdv"/> is reclaimed by garbage collection.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.ItemProperties">
-            <summary>
-            Gets the item properties.
-            </summary>
-            <value>The item properties.</value>
-        </member>
         <member name="M:Syncfusion.Windows.Data.CollectionViewAdv.AddListener(System.ComponentModel.ICollectionView)">
             <summary>
             Adds the listener to an external ICollectionView. It will add set the ExternalCollectionView Propety n Wires the CurrentChanged event
             </summary>
             <param name="externalcollectionview">The externalcollectionview.</param>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.ExternalCollectionView">
-            <summary>
-            Gets or sets the external collection view.
-            </summary>
-            <value>The external collection view.</value>
         </member>
         <member name="M:Syncfusion.Windows.Data.CollectionViewAdv.EnsureSourceList">
             <summary>
@@ -80,12 +234,6 @@
             Releases unmanaged and - optionally - managed resources
             </summary>
             <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.Records">
-            <summary>
-            Gets the records list structure.
-            </summary>
-            <value>The records.</value>
         </member>
         <member name="M:Syncfusion.Windows.Data.CollectionViewAdv.EnsureInitialized">
             <summary>
@@ -115,30 +263,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.CanFilter">
-            <summary>
-            Gets a value that indicates whether this view supports filtering via the <see cref="P:System.ComponentModel.ICollectionView.Filter"/> property.
-            </summary>
-            <value></value>
-            <returns>true if this view support filtering; otherwise, false.
-            </returns>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.CanGroup">
-            <summary>
-            Gets a value that indicates whether this view supports grouping via the <see cref="P:System.ComponentModel.ICollectionView.GroupDescriptions"/> property.
-            </summary>
-            <value></value>
-            <returns>true if this view supports grouping; otherwise, false.
-            </returns>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.CanSort">
-            <summary>
-            Gets a value that indicates whether this view supports sorting via the <see cref="P:System.ComponentModel.ICollectionView.SortDescriptions"/> property.
-            </summary>
-            <value></value>
-            <returns>true if this view supports sorting; otherwise, false.
-            </returns>
-        </member>
         <member name="M:Syncfusion.Windows.Data.CollectionViewAdv.Contains(System.Object)">
             <summary>
             Returns a value that indicates whether a given item belongs to this collection view.
@@ -162,49 +286,6 @@
             <param name="record">The record.</param>
             <returns></returns>
         </member>
-        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.Count">
-            <summary>
-            Gets the count.
-            </summary>
-            <value>The count.</value>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.Culture">
-            <summary>
-            Gets or sets the cultural info for any operations of the view that may differ by culture, such as sorting.
-            </summary>
-            <value></value>
-            <returns>
-            The culture to use during sorting.
-            </returns>
-        </member>
-        <member name="E:Syncfusion.Windows.Data.CollectionViewAdv.CurrentChanged">
-            <summary>
-            When implementing this interface, raise this event after the current item has been changed.
-            </summary>
-        </member>
-        <member name="E:Syncfusion.Windows.Data.CollectionViewAdv.CurrentChanging">
-            <summary>
-            When implementing this interface, raise this event before changing the current item. Event handler can cancel this event.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.CurrentItem">
-            <summary>
-            Gets the current item in the view.
-            </summary>
-            <value></value>
-            <returns>
-            The current item of the view or null if there is no current item.
-            </returns>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.CurrentPosition">
-            <summary>
-            Gets the ordinal position of the <see cref="P:System.ComponentModel.ICollectionView.CurrentItem"/> within the view.
-            </summary>
-            <value></value>
-            <returns>
-            The ordinal position of the <see cref="P:System.ComponentModel.ICollectionView.CurrentItem"/> within the view.
-            </returns>
-        </member>
         <member name="M:Syncfusion.Windows.Data.CollectionViewAdv.DeferRefresh">
             <summary>
             Enters a defer cycle that you can use to merge changes to the view and delay automatic refresh.
@@ -219,44 +300,6 @@
             </summary>
             <param name="item">The item.</param>
             <returns></returns>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.Filter">
-            <summary>
-            Gets or sets a callback used to determine if an item is suitable for inclusion in the view.
-            </summary>
-            <value></value>
-            <returns>
-            A method used to determine if an item is suitable for inclusion in the view.
-            </returns>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.IsGrouping">
-            <summary>
-            Gets a value indicating whether this instance is grouping.
-            </summary>
-            <value>
-            	<c>true</c> if this instance is grouping; otherwise, <c>false</c>.
-            </value>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.GroupDescriptions">
-            <summary>
-            Gets a collection of <see cref="T:System.ComponentModel.GroupDescription"/> objects that describe how the items in the collection are grouped in the view.
-            </summary>
-            <value></value>
-            <returns>
-            A collection of <see cref="T:System.ComponentModel.GroupDescription"/> objects that describe how the items in the collection are grouped in the view.
-            </returns>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.GroupList">
-            <summary>
-            Gets the TopLevelGroup as <see cref="T:Syncfusion.Windows.Data.IGroupList"/>.
-            </summary>
-            <value>The group list.</value>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.TopLevelGroup">
-            <summary>
-            Gets the top level group.
-            </summary>
-            <value>The top level group.</value>
         </member>
         <member name="M:Syncfusion.Windows.Data.CollectionViewAdv.GetGroupResult(System.String[])">
             <summary>
@@ -277,15 +320,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.Groups">
-            <summary>
-            Gets the top-level groups.
-            </summary>
-            <value></value>
-            <returns>
-            A read-only collection of the top-level groups or null if there are no groups.
-            </returns>
-        </member>
         <member name="F:Syncfusion.Windows.Data.CollectionViewAdv.isCurrentAfterLast">
             <summary>
             Gets a value that indicates whether the <see cref="P:System.ComponentModel.ICollectionView.CurrentItem"/> of the view is beyond the end of the collection.
@@ -293,24 +327,6 @@
             <value></value>
             <returns>
             Returns true if the <see cref="P:System.ComponentModel.ICollectionView.CurrentItem"/> of the view is beyond the end of the collection; otherwise, false.
-            </returns>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.IsCurrentAfterLast">
-            <summary>
-            Gets a value that indicates whether the <see cref="P:System.ComponentModel.ICollectionView.CurrentItem"/> of the view is beyond the end of the collection.
-            </summary>
-            <value></value>
-            <returns>
-            Returns true if the <see cref="P:System.ComponentModel.ICollectionView.CurrentItem"/> of the view is beyond the end of the collection; otherwise, false.
-            </returns>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.IsCurrentBeforeFirst">
-            <summary>
-            Gets a value that indicates whether the <see cref="P:System.ComponentModel.ICollectionView.CurrentItem"/> of the view is beyond the beginning of the collection.
-            </summary>
-            <value></value>
-            <returns>
-            Returns true if the <see cref="P:System.ComponentModel.ICollectionView.CurrentItem"/> of the view is beyond the beginning of the collection; otherwise, false.
             </returns>
         </member>
         <member name="F:Syncfusion.Windows.Data.CollectionViewAdv.isEmpty">
@@ -369,14 +385,6 @@
             true if the resulting <see cref="P:System.ComponentModel.ICollectionView.CurrentItem"/> is an item within the view; otherwise, false.
             </returns>
         </member>
-        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.IsCurrentInSync">
-            <summary>
-            Gets a value indicating whether this instance is current in sync.
-            </summary>
-            <value>
-            	<c>true</c> if this instance is current in sync; otherwise, <c>false</c>.
-            </value>
-        </member>
         <member name="M:Syncfusion.Windows.Data.CollectionViewAdv.MoveCurrentToPosition(System.Int32)">
             <summary>
             Sets the item at the specified index to be the <see cref="P:System.ComponentModel.ICollectionView.CurrentItem"/> in the view.
@@ -399,14 +407,6 @@
             Recreates the view.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.IsRefreshDeferred">
-            <summary>
-            Gets a value indicating whether this instance is refresh deferred.
-            </summary>
-            <value>
-            	<c>true</c> if this instance is refresh deferred; otherwise, <c>false</c>.
-            </value>
-        </member>
         <member name="M:Syncfusion.Windows.Data.CollectionViewAdv.RefreshOrDefer">
             <summary>
             If the current view is in defer mode, the flags for refresh is set, otherwise it refreshes the view.
@@ -417,42 +417,11 @@
             Override this method to modify actions during refresh.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.SortDescriptions">
-            <summary>
-            Gets a collection of <see cref="T:System.ComponentModel.SortDescription"/> objects that describe how the items in the collection are sorted in the view.
-            </summary>
-            <value></value>
-            <returns>
-            A collection of <see cref="T:System.ComponentModel.SortDescription"/> objects that describe how the items in the collection are sorted in the view.
-            </returns>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.SourceCollection">
-            <summary>
-            Returns the underlying collection.
-            </summary>
-            <value></value>
-            <returns>
-            An <see cref="T:System.Collections.IEnumerable"/> object that is the underlying collection.
-            </returns>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.IsLegacyDataTable">
-            <summary>
-            Gets a value indicating whether this instance is legacy data table.
-            </summary>
-            <value>
-            	<c>true</c> if this instance is legacy data table; otherwise, <c>false</c>.
-            </value>
-        </member>
         <member name="M:Syncfusion.Windows.Data.CollectionViewAdv.ProcessCollectionChanged(System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
             <summary>
             Processes the collection during editing process.
             </summary>
             <param name="args">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.IsInSuspend">
-            <summary>
-            Gets the value if the editing mode is in suspend state. Use this variable for listening changes in other source list changes.
-            </summary>
         </member>
         <member name="M:Syncfusion.Windows.Data.CollectionViewAdv.GetEnumerator">
             <summary>
@@ -478,14 +447,6 @@
             </summary>
             <param name="args">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> instance containing the event data.</param>
         </member>
-        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.IsInEndDefer">
-            <summary>
-            Gets a value indicating whether this instance is in end defer.
-            </summary>
-            <value>
-            	<c>true</c> if this instance is in end defer; otherwise, <c>false</c>.
-            </value>
-        </member>
         <member name="M:Syncfusion.Windows.Data.CollectionViewAdv.RefreshFilters">
             <summary>
             Refreshes the filters.
@@ -504,50 +465,11 @@
             The new item that is added to the collection.
             </returns>
         </member>
-        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.EnablePaging">
-            <summary>
-            This property used to find out the paging is enabled
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.IsViewLevelPaging">
-            <summary>
-            This property used to find out the Paging is ViewLevel or sourcelevel
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.PagedSource">
-            <summary>
-            This property hold the PagedCollectionView object
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.CanAddNew">
-            <summary>
-            Gets a value that indicates whether a new item can be added to the collection.
-            </summary>
-            <value></value>
-            <returns>true if a new item can be added to the collection; otherwise, false.
-            </returns>
-        </member>
         <member name="M:Syncfusion.Windows.Data.CollectionViewAdv.OnCollectionChanged(System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
             <summary>
             Raises the <see cref="E:CollectionChanged"/> event.
             </summary>
             <param name="args">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.CanCancelEdit">
-            <summary>
-            Gets a value that indicates whether the editing of an item can be canceled.
-            </summary>
-            <value></value>
-            <returns>true if editing an item can be canceled; otherwise, false.
-            </returns>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.CanRemove">
-            <summary>
-            Gets a value that indicates whether an item can be removed from the collection.
-            </summary>
-            <value></value>
-            <returns>true if an item can be removed from the collection; otherwise, false.
-            </returns>
         </member>
         <member name="M:Syncfusion.Windows.Data.CollectionViewAdv.CancelEdit">
             <summary>
@@ -581,6 +503,315 @@
             Ends the add transaction and saves the pending new item.
             </summary>
         </member>
+        <member name="M:Syncfusion.Windows.Data.CollectionViewAdv.EditItem(System.Object)">
+            <summary>
+            Begins an edit transaction of the specified item.
+            </summary>
+            <param name="item">The item to edit.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Data.CollectionViewAdv.Remove(System.Object)">
+            <summary>
+            Removes the specified item from the collection.
+            </summary>
+            <param name="record">The record to remove.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Data.CollectionViewAdv.RemoveAt(System.Int32)">
+            <summary>
+            Removes the item at the specified position from the collection.
+            </summary>
+            <param name="index">The position of the item to remove.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Data.CollectionViewAdv.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+            <summary>
+            Raises the <see cref="E:PropertyChanged"/> event.
+            </summary>
+            <param name="e">The <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Data.CollectionViewAdv.GetExpressionFunc(System.String)">
+            <summary>
+            Gets the expression func for complex data sources.
+            </summary>
+            <param name="propertyName">Name of the property.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Data.CollectionViewAdv.GetItemProperties">
+            <summary>
+            Gets the item properties.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Data.CollectionViewAdv.BeginInit">
+            <summary>
+            Signals the object that initialization is starting.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.Data.CollectionViewAdv.EndInit">
+            <summary>
+            Signals the object that initialization is complete.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.Data.CollectionViewAdv.GetPropertyAccessProvider">
+            <summary>
+            Gets the property access provider.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Data.CollectionViewAdv.CreateRecordEntry(System.Object)">
+            <summary>
+            Creates the record entry.
+            </summary>
+            <param name="data">The data.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.DispatchOwner">
+            <summary>
+            Gets or sets the Dispatcher of the UI object associated with this CollectionViewAdv.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.ItemProperties">
+            <summary>
+            Gets the item properties.
+            </summary>
+            <value>The item properties.</value>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.ExternalCollectionView">
+            <summary>
+            Gets or sets the external collection view.
+            </summary>
+            <value>The external collection view.</value>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.Records">
+            <summary>
+            Gets the records list structure.
+            </summary>
+            <value>The records.</value>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.CanFilter">
+            <summary>
+            Gets a value that indicates whether this view supports filtering via the <see cref="P:System.ComponentModel.ICollectionView.Filter"/> property.
+            </summary>
+            <value></value>
+            <returns>true if this view support filtering; otherwise, false.
+            </returns>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.CanGroup">
+            <summary>
+            Gets a value that indicates whether this view supports grouping via the <see cref="P:System.ComponentModel.ICollectionView.GroupDescriptions"/> property.
+            </summary>
+            <value></value>
+            <returns>true if this view supports grouping; otherwise, false.
+            </returns>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.CanSort">
+            <summary>
+            Gets a value that indicates whether this view supports sorting via the <see cref="P:System.ComponentModel.ICollectionView.SortDescriptions"/> property.
+            </summary>
+            <value></value>
+            <returns>true if this view supports sorting; otherwise, false.
+            </returns>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.Count">
+            <summary>
+            Gets the count.
+            </summary>
+            <value>The count.</value>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.Culture">
+            <summary>
+            Gets or sets the cultural info for any operations of the view that may differ by culture, such as sorting.
+            </summary>
+            <value></value>
+            <returns>
+            The culture to use during sorting.
+            </returns>
+        </member>
+        <member name="E:Syncfusion.Windows.Data.CollectionViewAdv.CurrentChanged">
+            <summary>
+            When implementing this interface, raise this event after the current item has been changed.
+            </summary>
+        </member>
+        <member name="E:Syncfusion.Windows.Data.CollectionViewAdv.CurrentChanging">
+            <summary>
+            When implementing this interface, raise this event before changing the current item. Event handler can cancel this event.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.CurrentItem">
+            <summary>
+            Gets the current item in the view.
+            </summary>
+            <value></value>
+            <returns>
+            The current item of the view or null if there is no current item.
+            </returns>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.CurrentPosition">
+            <summary>
+            Gets the ordinal position of the <see cref="P:System.ComponentModel.ICollectionView.CurrentItem"/> within the view.
+            </summary>
+            <value></value>
+            <returns>
+            The ordinal position of the <see cref="P:System.ComponentModel.ICollectionView.CurrentItem"/> within the view.
+            </returns>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.Filter">
+            <summary>
+            Gets or sets a callback used to determine if an item is suitable for inclusion in the view.
+            </summary>
+            <value></value>
+            <returns>
+            A method used to determine if an item is suitable for inclusion in the view.
+            </returns>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.IsGrouping">
+            <summary>
+            Gets a value indicating whether this instance is grouping.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is grouping; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.GroupDescriptions">
+            <summary>
+            Gets a collection of <see cref="T:System.ComponentModel.GroupDescription"/> objects that describe how the items in the collection are grouped in the view.
+            </summary>
+            <value></value>
+            <returns>
+            A collection of <see cref="T:System.ComponentModel.GroupDescription"/> objects that describe how the items in the collection are grouped in the view.
+            </returns>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.GroupList">
+            <summary>
+            Gets the TopLevelGroup as <see cref="T:Syncfusion.Windows.Data.IGroupList"/>.
+            </summary>
+            <value>The group list.</value>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.TopLevelGroup">
+            <summary>
+            Gets the top level group.
+            </summary>
+            <value>The top level group.</value>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.Groups">
+            <summary>
+            Gets the top-level groups.
+            </summary>
+            <value></value>
+            <returns>
+            A read-only collection of the top-level groups or null if there are no groups.
+            </returns>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.IsCurrentAfterLast">
+            <summary>
+            Gets a value that indicates whether the <see cref="P:System.ComponentModel.ICollectionView.CurrentItem"/> of the view is beyond the end of the collection.
+            </summary>
+            <value></value>
+            <returns>
+            Returns true if the <see cref="P:System.ComponentModel.ICollectionView.CurrentItem"/> of the view is beyond the end of the collection; otherwise, false.
+            </returns>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.IsCurrentBeforeFirst">
+            <summary>
+            Gets a value that indicates whether the <see cref="P:System.ComponentModel.ICollectionView.CurrentItem"/> of the view is beyond the beginning of the collection.
+            </summary>
+            <value></value>
+            <returns>
+            Returns true if the <see cref="P:System.ComponentModel.ICollectionView.CurrentItem"/> of the view is beyond the beginning of the collection; otherwise, false.
+            </returns>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.IsCurrentInSync">
+            <summary>
+            Gets a value indicating whether this instance is current in sync.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is current in sync; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.IsRefreshDeferred">
+            <summary>
+            Gets a value indicating whether this instance is refresh deferred.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is refresh deferred; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.SortDescriptions">
+            <summary>
+            Gets a collection of <see cref="T:System.ComponentModel.SortDescription"/> objects that describe how the items in the collection are sorted in the view.
+            </summary>
+            <value></value>
+            <returns>
+            A collection of <see cref="T:System.ComponentModel.SortDescription"/> objects that describe how the items in the collection are sorted in the view.
+            </returns>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.SourceCollection">
+            <summary>
+            Returns the underlying collection.
+            </summary>
+            <value></value>
+            <returns>
+            An <see cref="T:System.Collections.IEnumerable"/> object that is the underlying collection.
+            </returns>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.IsLegacyDataTable">
+            <summary>
+            Gets a value indicating whether this instance is legacy data table.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is legacy data table; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.IsInSuspend">
+            <summary>
+            Gets the value if the editing mode is in suspend state. Use this variable for listening changes in other source list changes.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.IsInEndDefer">
+            <summary>
+            Gets a value indicating whether this instance is in end defer.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is in end defer; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.EnablePaging">
+            <summary>
+            This property used to find out the paging is enabled
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.IsViewLevelPaging">
+            <summary>
+            This property used to find out the Paging is ViewLevel or sourcelevel
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.PagedSource">
+            <summary>
+            This property hold the PagedCollectionView object
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.CanAddNew">
+            <summary>
+            Gets a value that indicates whether a new item can be added to the collection.
+            </summary>
+            <value></value>
+            <returns>true if a new item can be added to the collection; otherwise, false.
+            </returns>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.CanCancelEdit">
+            <summary>
+            Gets a value that indicates whether the editing of an item can be canceled.
+            </summary>
+            <value></value>
+            <returns>true if editing an item can be canceled; otherwise, false.
+            </returns>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.CanRemove">
+            <summary>
+            Gets a value that indicates whether an item can be removed from the collection.
+            </summary>
+            <value></value>
+            <returns>true if an item can be removed from the collection; otherwise, false.
+            </returns>
+        </member>
         <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.CurrentAddItem">
             <summary>
             Gets the item that is being added during the current add transaction.
@@ -604,12 +835,6 @@
             Gets the state of the edit item.
             </summary>
             <value>The state of the edit item.</value>
-        </member>
-        <member name="M:Syncfusion.Windows.Data.CollectionViewAdv.EditItem(System.Object)">
-            <summary>
-            Begins an edit transaction of the specified item.
-            </summary>
-            <param name="item">The item to edit.</param>
         </member>
         <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.IsAddingNew">
             <summary>
@@ -646,28 +871,10 @@
             One of the enumeration values that specifies the position of the new item placeholder in the collection.
             </returns>
         </member>
-        <member name="M:Syncfusion.Windows.Data.CollectionViewAdv.Remove(System.Object)">
-            <summary>
-            Removes the specified item from the collection.
-            </summary>
-            <param name="record">The record to remove.</param>
-        </member>
-        <member name="M:Syncfusion.Windows.Data.CollectionViewAdv.RemoveAt(System.Int32)">
-            <summary>
-            Removes the item at the specified position from the collection.
-            </summary>
-            <param name="index">The position of the item to remove.</param>
-        </member>
         <member name="E:Syncfusion.Windows.Data.CollectionViewAdv.PropertyChanged">
             <summary>
             Occurs when a property value changes.
             </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Data.CollectionViewAdv.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
-            <summary>
-            Raises the <see cref="E:PropertyChanged"/> event.
-            </summary>
-            <param name="e">The <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance containing the event data.</param>
         </member>
         <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.UsesLocalArray">
             <summary>
@@ -706,13 +913,6 @@
             </summary>
             <value>The summary rows.</value>
         </member>
-        <member name="M:Syncfusion.Windows.Data.CollectionViewAdv.GetExpressionFunc(System.String)">
-            <summary>
-            Gets the expression func for complex data sources.
-            </summary>
-            <param name="propertyName">Name of the property.</param>
-            <returns></returns>
-        </member>
         <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.FilterPredicates">
             <summary>
             Gets or sets the filter predicates.
@@ -732,35 +932,6 @@
             <value>
             	<c>true</c> if this instance is dynamic bound; otherwise, <c>false</c>.
             </value>
-        </member>
-        <member name="M:Syncfusion.Windows.Data.CollectionViewAdv.GetItemProperties">
-            <summary>
-            Gets the item properties.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Syncfusion.Windows.Data.CollectionViewAdv.BeginInit">
-            <summary>
-            Signals the object that initialization is starting.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Data.CollectionViewAdv.EndInit">
-            <summary>
-            Signals the object that initialization is complete.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Data.CollectionViewAdv.GetPropertyAccessProvider">
-            <summary>
-            Gets the property access provider.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Syncfusion.Windows.Data.CollectionViewAdv.CreateRecordEntry(System.Object)">
-            <summary>
-            Creates the record entry.
-            </summary>
-            <param name="data">The data.</param>
-            <returns></returns>
         </member>
         <member name="P:Syncfusion.Windows.Data.CollectionViewAdv.GroupComparer">
             <summary>
@@ -788,6 +959,28 @@
             Sorting Disabled when cell property value changed
             </summary>
         </member>
+        <member name="T:Syncfusion.Windows.Data.IPropertyAccessProvider">
+            <summary>
+            Exposes method to Get/Set from the underlying object.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.Data.IPropertyAccessProvider.GetValue(System.Object,System.String)">
+            <summary>
+            Gets the value.
+            </summary>
+            <param name="record">The record.</param>
+            <param name="propName">Name of the prop.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Data.IPropertyAccessProvider.SetValue(System.Object,System.String,System.Object)">
+            <summary>
+            Sets the value.
+            </summary>
+            <param name="record">The record.</param>
+            <param name="propName">Name of the prop.</param>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
         <member name="T:Syncfusion.Windows.Data.DataTableCollectionView">
             <summary>
             Extended CollectionViewAdv to handle DataTable / DataView sources.
@@ -805,12 +998,6 @@
             </summary>
             <param name="sender">The sender.</param>
             <param name="e">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.DataTableCollectionView.ViewSource">
-            <summary>
-            Gets or sets the view source.
-            </summary>
-            <value>The view source.</value>
         </member>
         <member name="M:Syncfusion.Windows.Data.DataTableCollectionView.OnSortDescriptionChanged(System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
             <summary>
@@ -848,6 +1035,12 @@
             <summary>
             Refreshes the filters.
             </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.DataTableCollectionView.ViewSource">
+            <summary>
+            Gets or sets the view source.
+            </summary>
+            <value>The view source.</value>
         </member>
         <member name="T:Syncfusion.Windows.Data.FilterPredicate">
             <summary>
@@ -986,12 +1179,6 @@
             Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Data.GroupDisplayElements.TopLevelGroup">
-            <summary>
-            Gets or sets the top level group.
-            </summary>
-            <value>The top level group.</value>
-        </member>
         <member name="M:Syncfusion.Windows.Data.GroupDisplayElements.IndexOf(Syncfusion.Windows.Data.NodeEntry)">
             <summary>
             Determines the index of a specific item in the <see cref="T:System.Collections.Generic.IList`1"/>.
@@ -1025,12 +1212,6 @@
             <exception cref="T:System.NotSupportedException">
             The <see cref="T:System.Collections.Generic.IList`1"/> is read-only.
             </exception>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.GroupDisplayElements.Item(System.Int32)">
-            <summary>
-            Gets or sets the <see cref="T:Syncfusion.Windows.Data.NodeEntry"/> at the specified index.
-            </summary>
-            <value></value>
         </member>
         <member name="M:Syncfusion.Windows.Data.GroupDisplayElements.Add(Syncfusion.Windows.Data.NodeEntry)">
             <summary>
@@ -1078,23 +1259,6 @@
             Type <paramref name="T"/> cannot be cast automatically to the type of the destination <paramref name="array"/>.
             </exception>
         </member>
-        <member name="P:Syncfusion.Windows.Data.GroupDisplayElements.Count">
-            <summary>
-            Gets the number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1"/>.
-            </summary>
-            <value></value>
-            <returns>
-            The number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1"/>.
-            </returns>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.GroupDisplayElements.IsReadOnly">
-            <summary>
-            Gets a value indicating whether the <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only.
-            </summary>
-            <value></value>
-            <returns>true if the <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only; otherwise, false.
-            </returns>
-        </member>
         <member name="M:Syncfusion.Windows.Data.GroupDisplayElements.Remove(Syncfusion.Windows.Data.NodeEntry)">
             <summary>
             Removes the first occurrence of a specific object from the <see cref="T:System.Collections.Generic.ICollection`1"/>.
@@ -1123,6 +1287,115 @@
             An <see cref="T:System.Collections.IEnumerator"/> object that can be used to iterate through the collection.
             </returns>
         </member>
+        <member name="P:Syncfusion.Windows.Data.GroupDisplayElements.TopLevelGroup">
+            <summary>
+            Gets or sets the top level group.
+            </summary>
+            <value>The top level group.</value>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.GroupDisplayElements.Item(System.Int32)">
+            <summary>
+            Gets or sets the <see cref="T:Syncfusion.Windows.Data.NodeEntry"/> at the specified index.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.GroupDisplayElements.Count">
+            <summary>
+            Gets the number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <value></value>
+            <returns>
+            The number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </returns>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.GroupDisplayElements.IsReadOnly">
+            <summary>
+            Gets a value indicating whether the <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only.
+            </summary>
+            <value></value>
+            <returns>true if the <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only; otherwise, false.
+            </returns>
+        </member>
+        <member name="T:Syncfusion.Windows.Data.GroupEntry">
+            <summary>
+            GroupEntry contains the list of groups for each sub-groups populated for the <see cref="T:Syncfusion.Windows.Data.TopLevelGroup"/> class.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.Windows.Data.NodeEntry">
+            <summary>
+            NodeEntry is the base class for the Grouping data structure used by <see cref="T:Syncfusion.Windows.Data.ICollectionViewAdv"/> interface. It exposes some base level
+            details for the derived constructs to use.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.Data.NodeEntry.#ctor(Syncfusion.Windows.Data.NodeEntry,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.Windows.Data.NodeEntry"/> class.
+            </summary>
+            <param name="node">The node.</param>
+            <param name="level">The level.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Data.NodeEntry.Finalize">
+            <summary>
+            Releases unmanaged resources and performs other cleanup operations before the
+            <see cref="T:Syncfusion.Windows.Data.NodeEntry"/> is reclaimed by garbage collection.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.Data.NodeEntry.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.Data.NodeEntry.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources
+            </summary>
+            <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.NodeEntry.Level">
+            <summary>
+            Gets or sets the level.
+            </summary>
+            <value>The level.</value>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.NodeEntry.Parent">
+            <summary>
+            Gets or sets the parent.
+            </summary>
+            <value>The parent.</value>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.NodeEntry.IsGroups">
+            <summary>
+            Gets or sets a value indicating whether this instance is groups.
+            </summary>
+            <value><c>true</c> if this instance is groups; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.NodeEntry.IsRecords">
+            <summary>
+            Gets or sets a value indicating whether this instance is records.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is records; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:Syncfusion.Windows.Data.GroupEntry.#ctor(Syncfusion.Windows.Data.GroupEntry,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.Windows.Data.GroupEntry"/> class.
+            </summary>
+            <param name="parent">The parent.</param>
+            <param name="level">The level.</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Data.GroupEntry.ToSummaryArray">
+            <summary>
+            returns an array of SummaryDetails for each group.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.GroupEntry.Groups">
+            <summary>
+            Gets or sets the groups.
+            </summary>
+            <value>The groups.</value>
+        </member>
         <member name="M:Syncfusion.Windows.Data.Group.#ctor(Syncfusion.Windows.Data.Group,System.Int32)">
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Data.Group"/> class.
@@ -1136,32 +1409,6 @@
             </summary>
             <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
         </member>
-        <member name="P:Syncfusion.Windows.Data.Group.Parent">
-            <summary>
-            Gets or sets the parent.
-            </summary>
-            <value>The parent.</value>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.Group.Key">
-            <summary>
-            Gets or sets the key for the Group.
-            </summary>
-            <value>The key.</value>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.Group.ItemsCount">
-            <summary>
-            Gets the items count.
-            </summary>
-            <value>The items count.</value>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.Group.IsExpanded">
-            <summary>
-            Gets or sets a value indicating whether this instance is expanded.
-            </summary>
-            <value>
-            	<c>true</c> if this instance is expanded; otherwise, <c>false</c>.
-            </value>
-        </member>
         <member name="M:Syncfusion.Windows.Data.Group.OnGroupExpanded">
             <summary>
             Called when group.IsExpanded = true;.
@@ -1171,22 +1418,6 @@
             <summary>
             Called when group.IsExpanded = false;.
             </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.Group.IsBottomLevel">
-            <summary>
-            Gets or sets a value indicating whether this instance is bottom level. Bottom-Level group will have the list of records for the Group.
-            </summary>
-            <value>
-            	<c>true</c> if this instance is bottom level; otherwise, <c>false</c>.
-            </value>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.Group.IsTopLevelGroup">
-            <summary>
-            Gets a value indicating whether this instance is top level group. Top-Level Group will be the first-level group.
-            </summary>
-            <value>
-            	<c>true</c> if this instance is top level group; otherwise, <c>false</c>.
-            </value>
         </member>
         <member name="M:Syncfusion.Windows.Data.Group.Populate(System.Collections.Generic.IEnumerable{Syncfusion.Linq.GroupResult},System.Boolean)">
             <summary>
@@ -1288,30 +1519,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="P:Syncfusion.Windows.Data.Group.Details">
-            <summary>
-            Gets or sets the details for this group. This could be Groups / Records collection.
-            </summary>
-            <value>The details.</value>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.Group.Records">
-            <summary>
-            Gets the records when Group.Details is list of records.
-            </summary>
-            <value>The records.</value>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.Group.Source">
-            <summary>
-            Gets the source.
-            </summary>
-            <value>The source.</value>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.Group.Groups">
-            <summary>
-            Gets the groups when Group.Details is list of Groups.
-            </summary>
-            <value>The groups.</value>
-        </member>
         <member name="M:Syncfusion.Windows.Data.Group.GetRecordCount">
             <summary>
             Gets the record count.
@@ -1345,6 +1552,72 @@
             <returns>
             An <see cref="T:System.Collections.IEnumerator"/> object that can be used to iterate through the collection.
             </returns>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.Group.Parent">
+            <summary>
+            Gets or sets the parent.
+            </summary>
+            <value>The parent.</value>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.Group.Key">
+            <summary>
+            Gets or sets the key for the Group.
+            </summary>
+            <value>The key.</value>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.Group.ItemsCount">
+            <summary>
+            Gets the items count.
+            </summary>
+            <value>The items count.</value>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.Group.IsExpanded">
+            <summary>
+            Gets or sets a value indicating whether this instance is expanded.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is expanded; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.Group.IsBottomLevel">
+            <summary>
+            Gets or sets a value indicating whether this instance is bottom level. Bottom-Level group will have the list of records for the Group.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is bottom level; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.Group.IsTopLevelGroup">
+            <summary>
+            Gets a value indicating whether this instance is top level group. Top-Level Group will be the first-level group.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is top level group; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.Group.Details">
+            <summary>
+            Gets or sets the details for this group. This could be Groups / Records collection.
+            </summary>
+            <value>The details.</value>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.Group.Records">
+            <summary>
+            Gets the records when Group.Details is list of records.
+            </summary>
+            <value>The records.</value>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.Group.Source">
+            <summary>
+            Gets the source.
+            </summary>
+            <value>The source.</value>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.Group.Groups">
+            <summary>
+            Gets the groups when Group.Details is list of Groups.
+            </summary>
+            <value>The groups.</value>
         </member>
         <member name="E:Syncfusion.Windows.Data.Group.PropertyChanged">
             <summary>
@@ -1384,34 +1657,10 @@
             </summary>
             <param name="group">The group.</param>
         </member>
-        <member name="P:Syncfusion.Windows.Data.DisplayElementEnumerator.Group">
-            <summary>
-            Gets or sets the group.
-            </summary>
-            <value>The group.</value>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.DisplayElementEnumerator.Current">
-            <summary>
-            Gets the element in the collection at the current position of the enumerator.
-            </summary>
-            <value></value>
-            <returns>
-            The element in the collection at the current position of the enumerator.
-            </returns>
-        </member>
         <member name="M:Syncfusion.Windows.Data.DisplayElementEnumerator.Dispose">
             <summary>
             Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
             </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.DisplayElementEnumerator.System#Collections#IEnumerator#Current">
-            <summary>
-            Gets the element in the collection at the current position of the enumerator.
-            </summary>
-            <value></value>
-            <returns>
-            The element in the collection at the current position of the enumerator.
-            </returns>
         </member>
         <member name="M:Syncfusion.Windows.Data.DisplayElementEnumerator.MoveNext">
             <summary>
@@ -1432,29 +1681,29 @@
             The collection was modified after the enumerator was created.
             </exception>
         </member>
-        <member name="T:Syncfusion.Windows.Data.GroupEntry">
+        <member name="P:Syncfusion.Windows.Data.DisplayElementEnumerator.Group">
             <summary>
-            GroupEntry contains the list of groups for each sub-groups populated for the <see cref="T:Syncfusion.Windows.Data.TopLevelGroup"/> class.
+            Gets or sets the group.
             </summary>
+            <value>The group.</value>
         </member>
-        <member name="M:Syncfusion.Windows.Data.GroupEntry.#ctor(Syncfusion.Windows.Data.GroupEntry,System.Int32)">
+        <member name="P:Syncfusion.Windows.Data.DisplayElementEnumerator.Current">
             <summary>
-            Initializes a new instance of the <see cref="T:Syncfusion.Windows.Data.GroupEntry"/> class.
+            Gets the element in the collection at the current position of the enumerator.
             </summary>
-            <param name="parent">The parent.</param>
-            <param name="level">The level.</param>
+            <value></value>
+            <returns>
+            The element in the collection at the current position of the enumerator.
+            </returns>
         </member>
-        <member name="P:Syncfusion.Windows.Data.GroupEntry.Groups">
+        <member name="P:Syncfusion.Windows.Data.DisplayElementEnumerator.System#Collections#IEnumerator#Current">
             <summary>
-            Gets or sets the groups.
+            Gets the element in the collection at the current position of the enumerator.
             </summary>
-            <value>The groups.</value>
-        </member>
-        <member name="M:Syncfusion.Windows.Data.GroupEntry.ToSummaryArray">
-            <summary>
-            returns an array of SummaryDetails for each group.
-            </summary>
-            <returns></returns>
+            <value></value>
+            <returns>
+            The element in the collection at the current position of the enumerator.
+            </returns>
         </member>
         <member name="T:Syncfusion.Windows.Data.GroupEnumerator">
             <summary>
@@ -1467,34 +1716,10 @@
             </summary>
             <param name="group">The group.</param>
         </member>
-        <member name="P:Syncfusion.Windows.Data.GroupEnumerator.Group">
-            <summary>
-            Gets or sets the group.
-            </summary>
-            <value>The group.</value>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.GroupEnumerator.Current">
-            <summary>
-            Gets the element in the collection at the current position of the enumerator.
-            </summary>
-            <value></value>
-            <returns>
-            The element in the collection at the current position of the enumerator.
-            </returns>
-        </member>
         <member name="M:Syncfusion.Windows.Data.GroupEnumerator.Dispose">
             <summary>
             Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
             </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.GroupEnumerator.System#Collections#IEnumerator#Current">
-            <summary>
-            Gets the element in the collection at the current position of the enumerator.
-            </summary>
-            <value></value>
-            <returns>
-            The element in the collection at the current position of the enumerator.
-            </returns>
         </member>
         <member name="M:Syncfusion.Windows.Data.GroupEnumerator.MoveNext">
             <summary>
@@ -1514,6 +1739,30 @@
             <exception cref="T:System.InvalidOperationException">
             The collection was modified after the enumerator was created.
             </exception>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.GroupEnumerator.Group">
+            <summary>
+            Gets or sets the group.
+            </summary>
+            <value>The group.</value>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.GroupEnumerator.Current">
+            <summary>
+            Gets the element in the collection at the current position of the enumerator.
+            </summary>
+            <value></value>
+            <returns>
+            The element in the collection at the current position of the enumerator.
+            </returns>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.GroupEnumerator.System#Collections#IEnumerator#Current">
+            <summary>
+            Gets the element in the collection at the current position of the enumerator.
+            </summary>
+            <value></value>
+            <returns>
+            The element in the collection at the current position of the enumerator.
+            </returns>
         </member>
         <member name="T:Syncfusion.Windows.Data.GroupingExtensions">
             <summary>
@@ -1603,18 +1852,6 @@
             <param name="data">The data.</param>
             <returns></returns>
         </member>
-        <member name="P:Syncfusion.Windows.Data.GroupRecordEntry.UnfilteredRecords">
-            <summary>
-            Gets the unfiltered records.
-            </summary>
-            <value>The unfiltered records.</value>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.GroupRecordEntry.Records">
-            <summary>
-            Gets or sets the records.
-            </summary>
-            <value>The records.</value>
-        </member>
         <member name="M:Syncfusion.Windows.Data.GroupRecordEntry.GetRecordsCount">
             <summary>
             Gets the records count.
@@ -1633,6 +1870,18 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="P:Syncfusion.Windows.Data.GroupRecordEntry.UnfilteredRecords">
+            <summary>
+            Gets the unfiltered records.
+            </summary>
+            <value>The unfiltered records.</value>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.GroupRecordEntry.Records">
+            <summary>
+            Gets or sets the records.
+            </summary>
+            <value>The records.</value>
+        </member>
         <member name="P:Syncfusion.Windows.Data.GroupRecordEntry.Summaries">
             <summary>
             Gets the summaries for the bottom level records.
@@ -1641,7 +1890,7 @@
         </member>
         <member name="T:Syncfusion.Windows.Data.NestedRecordEntry">
             <summary>
-            Contains a list of nested records for each <see cref="T:Syncfusion.Windows.Data.RecordEntry"/> and nested <see cref="T:Syncfusion.Windows.Data.ICollectionViewAdv" /> instance.
+            Contains a list of nested records for each <see cref="T:Syncfusion.Windows.Data.RecordEntry"/> and nested <see cref="T:Syncfusion.Windows.Data.ICollectionViewAdv"/> instance.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Data.NestedRecordEntry.#ctor(Syncfusion.Windows.Data.NodeEntry,System.Int32)">
@@ -1669,65 +1918,9 @@
             </summary>
             <value>The nested records.</value>
         </member>
-        <member name="T:Syncfusion.Windows.Data.NodeEntry">
-            <summary>
-            NodeEntry is the base class for the Grouping data structure used by <see cref="T:Syncfusion.Windows.Data.ICollectionViewAdv" /> interface. It exposes some base level
-            details for the derived constructs to use.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Data.NodeEntry.#ctor(Syncfusion.Windows.Data.NodeEntry,System.Int32)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Syncfusion.Windows.Data.NodeEntry"/> class.
-            </summary>
-            <param name="node">The node.</param>
-            <param name="level">The level.</param>
-        </member>
-        <member name="M:Syncfusion.Windows.Data.NodeEntry.Finalize">
-            <summary>
-            Releases unmanaged resources and performs other cleanup operations before the
-            <see cref="T:Syncfusion.Windows.Data.NodeEntry"/> is reclaimed by garbage collection.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Data.NodeEntry.Dispose">
-            <summary>
-            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Data.NodeEntry.Dispose(System.Boolean)">
-            <summary>
-            Releases unmanaged and - optionally - managed resources
-            </summary>
-            <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.NodeEntry.Level">
-            <summary>
-            Gets or sets the level.
-            </summary>
-            <value>The level.</value>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.NodeEntry.Parent">
-            <summary>
-            Gets or sets the parent.
-            </summary>
-            <value>The parent.</value>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.NodeEntry.IsGroups">
-            <summary>
-            Gets or sets a value indicating whether this instance is groups.
-            </summary>
-            <value><c>true</c> if this instance is groups; otherwise, <c>false</c>.</value>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.NodeEntry.IsRecords">
-            <summary>
-            Gets or sets a value indicating whether this instance is records.
-            </summary>
-            <value>
-            	<c>true</c> if this instance is records; otherwise, <c>false</c>.
-            </value>
-        </member>
         <member name="T:Syncfusion.Windows.Data.RecordEntry">
             <summary>
-            Contains the underlying business object bound to <see cref="T:Syncfusion.Windows.Data.ICollectionViewAdv" /> instance. 
+            Contains the underlying business object bound to <see cref="T:Syncfusion.Windows.Data.ICollectionViewAdv"/> instance. 
             Nested records can be specified / controlled using the PopulateChildView method.
             </summary>
         </member>
@@ -1744,20 +1937,6 @@
             Releases unmanaged and - optionally - managed resources
             </summary>
             <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.RecordEntry.Data">
-            <summary>
-            Gets or sets the data.
-            </summary>
-            <value>The data.</value>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.RecordEntry.IsExpanded">
-            <summary>
-            Gets or sets a value indicating whether this instance is expanded.
-            </summary>
-            <value>
-            	<c>true</c> if this instance is expanded; otherwise, <c>false</c>.
-            </value>
         </member>
         <member name="M:Syncfusion.Windows.Data.RecordEntry.OnExpanded">
             <summary>
@@ -1787,6 +1966,20 @@
             Called when [collapsed].
             </summary>
         </member>
+        <member name="P:Syncfusion.Windows.Data.RecordEntry.Data">
+            <summary>
+            Gets or sets the data.
+            </summary>
+            <value>The data.</value>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.RecordEntry.IsExpanded">
+            <summary>
+            Gets or sets a value indicating whether this instance is expanded.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is expanded; otherwise, <c>false</c>.
+            </value>
+        </member>
         <member name="P:Syncfusion.Windows.Data.RecordEntry.ChildViews">
             <summary>
             Gets or sets the child views.
@@ -1802,7 +1995,7 @@
         </member>
         <member name="T:Syncfusion.Windows.Data.SummaryRecordEntry">
             <summary>
-            Contains the list of Summary aggregates computed using <see cref="T:Syncfusion.Windows.Data.ISummaryRow" /> instance in this class.
+            Contains the list of Summary aggregates computed using <see cref="T:Syncfusion.Windows.Data.ISummaryRow"/> instance in this class.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Data.SummaryRecordEntry.#ctor(Syncfusion.Windows.Data.NodeEntry,System.Int32)">
@@ -1832,7 +2025,7 @@
         </member>
         <member name="T:Syncfusion.Windows.Data.SummaryValue">
             <summary>
-            Instance to cache the summary aggregate values into the <see cref="T:Syncfusion.Windows.Data.SummaryRecordEntry" /> instance.
+            Instance to cache the summary aggregate values into the <see cref="T:Syncfusion.Windows.Data.SummaryRecordEntry"/> instance.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Data.SummaryValue.#ctor">
@@ -1898,7 +2091,7 @@
         </member>
         <member name="P:Syncfusion.Windows.Data.ISummaryColumn.CustomAggregate">
             <summary>
-            Gets or sets the custom aggregate. Should implement <see cref="T:Syncfusion.Windows.Data.ISummaryAggregate" /> interface to delegate the custom summaries.
+            Gets or sets the custom aggregate. Should implement <see cref="T:Syncfusion.Windows.Data.ISummaryAggregate"/> interface to delegate the custom summaries.
             </summary>
             <value>The custom aggregate.</value>
         </member>
@@ -2101,6 +2294,27 @@
             TopLevelGroup is the first-level of the Groups present in <see cref="T:Syncfusion.Windows.Data.ICollectionViewAdv"/>. It maintains the data structure for Grouping with <see cref="T:Syncfusion.Windows.Data.ICollectionViewAdv"/>. Iterate the DisplayElements property to get one-to-one mapping of the index with the TopLevelGroup items. Access all the Bottom-level and other nested level groups with the Groups property.
             </summary>
         </member>
+        <member name="T:Syncfusion.Windows.Data.IGroupRefresh">
+            <summary>
+            Implement this interface to control refresh done with the <see cref="T:Syncfusion.Windows.Data.TopLevelGroup"/> class.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.Data.IGroupRefresh.RefreshSortingOrder">
+            <summary>
+            Refreshes the sorting order.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.Data.IGroupRefresh.RefreshFilters">
+            <summary>
+            Refreshes the filters.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.Data.IGroupRefresh.DeferRefresh">
+            <summary>
+            returns an IDisposable object to specify controlled updates.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Syncfusion.Windows.Data.TopLevelGroup.#ctor(Syncfusion.Windows.Data.CollectionViewAdv)">
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Data.TopLevelGroup"/> class.
@@ -2119,20 +2333,6 @@
             </summary>
             <param name="index">The index.</param>
             <param name="count">The count.</param>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.TopLevelGroup.IsTopLevelGroup">
-            <summary>
-            Gets a value indicating whether this instance is top level group. Top-Level Group will be the first-level group.
-            </summary>
-            <value>
-            	<c>true</c> if this instance is top level group; otherwise, <c>false</c>.
-            </value>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.TopLevelGroup.RelationsCount">
-            <summary>
-            Gets or sets the relations count.
-            </summary>
-            <value>The relations count.</value>
         </member>
         <member name="M:Syncfusion.Windows.Data.TopLevelGroup.Syncfusion#Windows#Data#IGroupRefresh#RefreshSortingOrder">
             <summary>
@@ -2159,18 +2359,6 @@
             returns an IDisposable object to specify controlled updates.
             </summary>
             <returns></returns>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.TopLevelGroup.CollectionView">
-            <summary>
-            Gets the collection view.
-            </summary>
-            <value>The collection view.</value>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.TopLevelGroup.GroupDescriptions">
-            <summary>
-            Gets the group descriptions.
-            </summary>
-            <value>The group descriptions.</value>
         </member>
         <member name="M:Syncfusion.Windows.Data.TopLevelGroup.Add(System.Object,System.Boolean)">
             <summary>
@@ -2217,12 +2405,6 @@
             <param name="record">The record.</param>
             <returns></returns>
         </member>
-        <member name="P:Syncfusion.Windows.Data.TopLevelGroup.DisplayElements">
-            <summary>
-            Gets the display elements.
-            </summary>
-            <value>The display elements.</value>
-        </member>
         <member name="M:Syncfusion.Windows.Data.TopLevelGroup.ResetDisplayElements">
             <summary>
             Resets the display elements.
@@ -2263,14 +2445,6 @@
             </summary>
             <param name="group">The group.</param>
         </member>
-        <member name="P:Syncfusion.Windows.Data.TopLevelGroup.IsLegacyDataTable">
-            <summary>
-            Gets a value indicating whether this instance is legacy data table.
-            </summary>
-            <value>
-            	<c>true</c> if this instance is legacy data table; otherwise, <c>false</c>.
-            </value>
-        </member>
         <member name="M:Syncfusion.Windows.Data.TopLevelGroup.HasDetailsView">
             <summary>
             Determines whether [has details view].
@@ -2279,31 +2453,50 @@
             	<c>true</c> if [has details view]; otherwise, <c>false</c>.
             </returns>
         </member>
+        <member name="P:Syncfusion.Windows.Data.TopLevelGroup.IsTopLevelGroup">
+            <summary>
+            Gets a value indicating whether this instance is top level group. Top-Level Group will be the first-level group.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is top level group; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.TopLevelGroup.RelationsCount">
+            <summary>
+            Gets or sets the relations count.
+            </summary>
+            <value>The relations count.</value>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.TopLevelGroup.CollectionView">
+            <summary>
+            Gets the collection view.
+            </summary>
+            <value>The collection view.</value>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.TopLevelGroup.GroupDescriptions">
+            <summary>
+            Gets the group descriptions.
+            </summary>
+            <value>The group descriptions.</value>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.TopLevelGroup.DisplayElements">
+            <summary>
+            Gets the display elements.
+            </summary>
+            <value>The display elements.</value>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.TopLevelGroup.IsLegacyDataTable">
+            <summary>
+            Gets a value indicating whether this instance is legacy data table.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is legacy data table; otherwise, <c>false</c>.
+            </value>
+        </member>
         <member name="E:Syncfusion.Windows.Data.TopLevelGroup.CollectionChanged">
             <summary>
             Occurs when the collection changes.
             </summary>
-        </member>
-        <member name="T:Syncfusion.Windows.Data.IGroupRefresh">
-            <summary>
-            Implement this interface to control refresh done with the <see cref="T:Syncfusion.Windows.Data.TopLevelGroup"/> class.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Data.IGroupRefresh.RefreshSortingOrder">
-            <summary>
-            Refreshes the sorting order.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Data.IGroupRefresh.RefreshFilters">
-            <summary>
-            Refreshes the filters.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Data.IGroupRefresh.DeferRefresh">
-            <summary>
-            returns an IDisposable object to specify controlled updates.
-            </summary>
-            <returns></returns>
         </member>
         <member name="T:Syncfusion.Windows.Data.CollectionViewHelper">
             <summary>
@@ -2333,11 +2526,6 @@
             for wrapping up in a generic collection.
             </summary>
         </member>
-        <member name="E:Syncfusion.Windows.Data.IListEvents.CollectionChanged">
-            <summary>
-            Occurs when collection is changed.
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Data.IListEvents.WireCollectionChangedHandler(System.Collections.Specialized.INotifyCollectionChanged)">
             <summary>
             Wires the collection changed handler.
@@ -2350,6 +2538,11 @@
             </summary>
             <param name="listSource">The list source.</param>
         </member>
+        <member name="E:Syncfusion.Windows.Data.IListEvents.CollectionChanged">
+            <summary>
+            Occurs when collection is changed.
+            </summary>
+        </member>
         <member name="T:Syncfusion.Windows.Data.SourceListWrapper`1">
             <summary>
             A generic wrapper for normal IBindingList / INotifyCollectionChanged interface.
@@ -2359,11 +2552,6 @@
         <member name="M:Syncfusion.Windows.Data.SourceListWrapper`1.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:Syncfusion.Windows.Data.SourceListWrapper`1"/> class.
-            </summary>
-        </member>
-        <member name="E:Syncfusion.Windows.Data.SourceListWrapper`1.CollectionChanged">
-            <summary>
-            Occurs when collection is changed.
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Data.SourceListWrapper`1.WireCollectionChangedHandler(System.Collections.Specialized.INotifyCollectionChanged)">
@@ -2378,187 +2566,15 @@
             </summary>
             <param name="listSource">The list source.</param>
         </member>
-        <member name="T:Syncfusion.Windows.Data.ICollectionViewAdv">
+        <member name="E:Syncfusion.Windows.Data.SourceListWrapper`1.CollectionChanged">
             <summary>
-            ICollectionViewAdv is an extended interface from ICollectionView that implements
-            support for Grouping structure, Summaries, Table Summaries, Filters.
+            Occurs when collection is changed.
             </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.ICollectionViewAdv.Records">
-            <summary>
-            Gets the records list structure.
-            </summary>
-            <value>The records.</value>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.ICollectionViewAdv.TopLevelGroup">
-            <summary>
-            Gets the top level group.
-            </summary>
-            <value>The top level group.</value>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.ICollectionViewAdv.CaptionSummaryRow">
-            <summary>
-            Gets or sets the caption summary row.
-            </summary>
-            <value>The caption summary row.</value>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.ICollectionViewAdv.Relations">
-            <summary>
-            Gets the relations.
-            </summary>
-            <value>The relations.</value>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.ICollectionViewAdv.SummaryRows">
-            <summary>
-            Gets the summary rows.
-            </summary>
-            <value>The summary rows.</value>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.ICollectionViewAdv.FilterPredicates">
-            <summary>
-            Gets or sets the filter predicates.
-            </summary>
-            <value>The filter predicates.</value>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.ICollectionViewAdv.TableSummaryRows">
-            <summary>
-            Gets the table summary rows.
-            </summary>
-            <value>The table summary rows.</value>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.ICollectionViewAdv.SortComparers">
-            <summary>
-            Gets the sort comparers for the sort description.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.ICollectionViewAdv.GroupComparer">
-            <summary>
-            Defines the custom group comparer to enable customization of the group sort order.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Data.ICollectionViewAdv.OnCollectionChanged(System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
-            <summary>
-            Raises the <see cref="E:CollectionChanged"/> event.
-            </summary>
-            <param name="args">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="M:Syncfusion.Windows.Data.ICollectionViewAdv.AddListener(System.ComponentModel.ICollectionView)">
-            <summary>
-            Adds the listener.
-            </summary>
-            <param name="collectionView">The collection view.</param>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.ICollectionViewAdv.EditItemState">
-            <summary>
-            Gets the state of the edit item.
-            </summary>
-            <value>The state of the edit item.</value>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.ICollectionViewAdv.CurrentEditItemState">
-            <summary>
-            Gets the state of the current edit item.
-            </summary>
-            <value>The state of the current edit item.</value>
-        </member>
-        <member name="M:Syncfusion.Windows.Data.ICollectionViewAdv.CreateRecordEntry(System.Object)">
-            <summary>
-            Creates the record entry.
-            </summary>
-            <param name="data">The data.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Syncfusion.Windows.Data.ICollectionViewAdv.GetPropertyAccessProvider">
-            <summary>
-            Gets the property access provider.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="E:Syncfusion.Windows.Data.ICollectionViewAdv.RecordPropertyChanged">
-            <summary>
-            Record Property Changed event handler
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Data.ICollectionViewAdv.GetItemProperties">
-            <summary>
-            Gets the item properties.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Syncfusion.Windows.Data.ICollectionViewAdv.SetCustomExpressionFunc(Syncfusion.Windows.Data.IUnboundExpressionFunc)">
-            <summary>
-            Enable customization for runtime dynamic objects in LINQ queries.
-            </summary>
-            <param name="expressionFunctor"></param>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.ICollectionViewAdv.PersistGroupsExpandedState">
-            <summary>
-            Enable groupe expand state persistance. This will affect performance if there are large number of groups.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.ICollectionViewAdv.IsGroupsExpanded">
-            <summary>
-            Gets or sets a value indicating whether this instance is groups expanded.
-            </summary>
-            <value>
-            	<c>true</c> if this instance is groups expanded; otherwise, <c>false</c>.
-            </value>
-        </member>
-        <member name="M:Syncfusion.Windows.Data.ICollectionViewAdv.Suspend">
-            <summary>
-            Suspends this instance.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Data.ICollectionViewAdv.Resume">
-            <summary>
-            Resumes this instance.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Data.ICollectionViewAdv.RefreshFiltering">
-            <summary>
-            Refresh toplevel groups --Added for the fix SD8300.
-            </summary>
-        </member>
-        <member name="T:Syncfusion.Windows.Data.IUnboundExpressionFunc">
-            <summary>
-            Returns an Expression to embed in LINQ operation queries implemented by <see cref="T:Syncfusion.Windows.Data.ICollectionViewAdv"/>.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Data.IUnboundExpressionFunc.GetFunc(System.String)">
-            <summary>
-            Custom Functor to enable runtime customized objects over default operations other than LINQ queries.
-            </summary>
-            <param name="propertyName"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Syncfusion.Windows.Data.IUnboundExpressionFunc.GetTypeFunc(System.String)">
-            <summary>
-            Custom Functor to enable runtime customized objects over default operations other than LINQ queries.
-            </summary>
-            <param name="propertyName"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Syncfusion.Windows.Data.IUnboundExpressionFunc.GetExpressionFunc(System.String)">
-            <summary>
-            Custom expression functor to enable runtime customized objects into LINQ queries.
-            </summary>
-            <param name="propertyName"></param>
-        </member>
-        <member name="M:Syncfusion.Windows.Data.IUnboundExpressionFunc.GetTypeExpressionFunc(System.String)">
-            <summary>
-            Custom expression functor to enable runtime customized objects into LINQ queries.
-            </summary>
-            <param name="propertyName"></param>
         </member>
         <member name="T:Syncfusion.Windows.Data.IRecordsList">
             <summary>
             Implements an IList structure to contain the list of RecordEntry.
             </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.IRecordsList.TableSummaries">
-            <summary>
-            Gets the table summaries.
-            </summary>
-            <value>The table summaries.</value>
         </member>
         <member name="M:Syncfusion.Windows.Data.IRecordsList.IndexOfRecord(System.Object)">
             <summary>
@@ -2593,27 +2609,11 @@
             Dispose all items from the <see cref="T:System.Collections.Generic.ICollection`1"/>.
             </summary>
         </member>
-        <member name="T:Syncfusion.Windows.Data.IPropertyAccessProvider">
+        <member name="P:Syncfusion.Windows.Data.IRecordsList.TableSummaries">
             <summary>
-            Exposes method to Get/Set from the underlying object.
+            Gets the table summaries.
             </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Data.IPropertyAccessProvider.GetValue(System.Object,System.String)">
-            <summary>
-            Gets the value.
-            </summary>
-            <param name="record">The record.</param>
-            <param name="propName">Name of the prop.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Syncfusion.Windows.Data.IPropertyAccessProvider.SetValue(System.Object,System.String,System.Object)">
-            <summary>
-            Sets the value.
-            </summary>
-            <param name="record">The record.</param>
-            <param name="propName">Name of the prop.</param>
-            <param name="value">The value.</param>
-            <returns></returns>
+            <value>The table summaries.</value>
         </member>
         <member name="T:Syncfusion.Windows.Data.IParallelizableView">
             <summary>
@@ -2630,6 +2630,37 @@
             <summary>
             Gets the index of the requested page
             </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.Data.IPagedCollectionView.MoveToFirstPage">
+            <summary>
+            Moves to the first page.
+            </summary>
+            <returns>Whether or not the move was successful.</returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Data.IPagedCollectionView.MoveToLastPage">
+            <summary>
+            Moves to the last page.
+            </summary>
+            <returns>Whether or not the move was successful.</returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Data.IPagedCollectionView.MoveToNextPage">
+            <summary>
+            Moves to the page after the current page we are on.
+            </summary>
+            <returns>Whether or not the move was successful.</returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Data.IPagedCollectionView.MoveToPreviousPage">
+            <summary>
+            Moves to the page before the current page we are on.
+            </summary>
+            <returns>Whether or not the move was successful.</returns>
+        </member>
+        <member name="M:Syncfusion.Windows.Data.IPagedCollectionView.MoveToPage(System.Int32)">
+            <summary>
+            Moves to page <paramref name="pageIndex"/>.
+            </summary>
+            <param name="pageIndex">The index of the page to which to move.</param>
+            <returns>Whether or not the move was successful.</returns>
         </member>
         <member name="E:Syncfusion.Windows.Data.IPagedCollectionView.PageChanged">
             <summary>
@@ -2671,37 +2702,6 @@
             Gets the total number of items in the view before paging is applied,
             or -1 if that total number is unknown.
             </summary>
-        </member>
-        <member name="M:Syncfusion.Windows.Data.IPagedCollectionView.MoveToFirstPage">
-            <summary>
-            Moves to the first page.
-            </summary>
-            <returns>Whether or not the move was successful.</returns>
-        </member>
-        <member name="M:Syncfusion.Windows.Data.IPagedCollectionView.MoveToLastPage">
-            <summary>
-            Moves to the last page.
-            </summary>
-            <returns>Whether or not the move was successful.</returns>
-        </member>
-        <member name="M:Syncfusion.Windows.Data.IPagedCollectionView.MoveToNextPage">
-            <summary>
-            Moves to the page after the current page we are on.
-            </summary>
-            <returns>Whether or not the move was successful.</returns>
-        </member>
-        <member name="M:Syncfusion.Windows.Data.IPagedCollectionView.MoveToPreviousPage">
-            <summary>
-            Moves to the page before the current page we are on.
-            </summary>
-            <returns>Whether or not the move was successful.</returns>
-        </member>
-        <member name="M:Syncfusion.Windows.Data.IPagedCollectionView.MoveToPage(System.Int32)">
-            <summary>
-            Moves to page <paramref name="pageIndex"/>.
-            </summary>
-            <param name="pageIndex">The index of the page to which to move.</param>
-            <returns>Whether or not the move was successful.</returns>
         </member>
         <member name="T:Syncfusion.Windows.Data.IFilterDefinition">
             <summary>
@@ -2916,368 +2916,6 @@
             <param name="source">The source for the collection</param>
             <param name="isDataSorted">Determines whether the source is already sorted</param>
             <param name="isDataInGroupOrder">Whether the source is already in the correct order for grouping</param>
-        </member>
-        <member name="T:Syncfusion.Windows.Data.PagedCollectionView.RequestPageMoveDelegate">
-            <summary>
-            Delegate used to asynchronously trigger a page move.
-            </summary>
-            <param name="pageIndex">Requested page index</param>
-        </member>
-        <member name="E:Syncfusion.Windows.Data.PagedCollectionView.CollectionChanged">
-            <summary>
-            Raise this event when the (filtered) view changes
-            </summary>
-        </member>
-        <member name="E:Syncfusion.Windows.Data.PagedCollectionView.System#Collections#Specialized#INotifyCollectionChanged#CollectionChanged">
-            <summary>
-            CollectionChanged event (per INotifyCollectionChanged).
-            </summary>
-        </member>
-        <member name="E:Syncfusion.Windows.Data.PagedCollectionView.CurrentChanged">
-            <summary>
-            Raised when the CurrentItem property changed
-            </summary>
-        </member>
-        <member name="E:Syncfusion.Windows.Data.PagedCollectionView.CurrentChanging">
-            <summary>
-            Raised when the CurrentItem property is changing
-            </summary>
-        </member>
-        <member name="E:Syncfusion.Windows.Data.PagedCollectionView.PageChanged">
-            <summary>
-            Raised when a page index change completed
-            </summary>
-        </member>
-        <member name="E:Syncfusion.Windows.Data.PagedCollectionView.PageChanging">
-            <summary>
-            Raised when a page index change is requested
-            </summary>
-        </member>
-        <member name="E:Syncfusion.Windows.Data.PagedCollectionView.PropertyChanged">
-            <summary>
-            PropertyChanged event.
-            </summary>
-        </member>
-        <member name="E:Syncfusion.Windows.Data.PagedCollectionView.System#ComponentModel#INotifyPropertyChanged#PropertyChanged">
-            <summary>
-            PropertyChanged event (per INotifyPropertyChanged)
-            </summary>
-        </member>
-        <member name="T:Syncfusion.Windows.Data.PagedCollectionView.CollectionViewFlags">
-            <summary>
-            Enum for CollectionViewFlags
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Data.PagedCollectionView.CollectionViewFlags.IsDataInGroupOrder">
-            <summary>
-            Whether the list of items (after applying the sort and filters, if any) 
-            is already in the correct order for grouping. 
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Data.PagedCollectionView.CollectionViewFlags.IsDataSorted">
-            <summary>
-            Whether the source collection is already sorted according to the SortDescriptions collection
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Data.PagedCollectionView.CollectionViewFlags.ShouldProcessCollectionChanged">
-            <summary>
-            Whether we should process the collection changed event
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Data.PagedCollectionView.CollectionViewFlags.IsCurrentBeforeFirst">
-            <summary>
-            Whether the current item is before the first
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Data.PagedCollectionView.CollectionViewFlags.IsCurrentAfterLast">
-            <summary>
-            Whether the current item is after the last
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Data.PagedCollectionView.CollectionViewFlags.NeedsRefresh">
-            <summary>
-            Whether we need to refresh
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Data.PagedCollectionView.CollectionViewFlags.CachedIsEmpty">
-            <summary>
-            Whether we cache the IsEmpty value
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Data.PagedCollectionView.CollectionViewFlags.IsPageChanging">
-            <summary>
-            Indicates whether a page index change is in process or not
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Data.PagedCollectionView.CollectionViewFlags.IsMoveToPageDeferred">
-            <summary>
-            Whether we need to move to another page after EndDefer
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Data.PagedCollectionView.CollectionViewFlags.IsUpdatePageSizeDeferred">
-            <summary>
-            Whether we need to update the PageSize after EndDefer
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.CanAddNew">
-            <summary>
-            Gets a value indicating whether the view supports AddNew.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.CanCancelEdit">
-            <summary>
-            Gets a value indicating whether the view supports the notion of "pending changes" 
-            on the current edit item.  This may vary, depending on the view and the particular
-            item.  For example, a view might return true if the current edit item
-            implements IEditableObject, or if the view has special knowledge about 
-            the item that it can use to support rollback of pending changes.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.CanChangePage">
-            <summary>
-            Gets a value indicating whether the PageIndex value is allowed to change or not.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.CanFilter">
-            <summary>
-            Gets a value indicating whether we support filtering with this ICollectionView.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.CanGroup">
-            <summary>
-            Gets a value indicating whether this view supports grouping.
-            When this returns false, the rest of the interface is ignored.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.CanRemove">
-            <summary>
-            Gets a value indicating whether the view supports Remove and RemoveAt.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.CanSort">
-            <summary>
-            Gets a value indicating whether we support sorting with this ICollectionView.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.Count">
-            <summary>
-            Gets the number of records in the view after 
-            filtering, sorting, and paging.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.Culture">
-            <summary>
-            Gets or sets Culture to use during sorting.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.CurrentAddItem">
-            <summary>
-            Gets the new item when an AddNew transaction is in progress
-            Otherwise it returns null.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.CurrentEditItem">
-            <summary>
-            Gets the affected item when an EditItem transaction is in progress
-            Otherwise it returns null.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.CurrentItem">
-            <summary> 
-            Gets the "current item" for this view 
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.CurrentPosition">
-            <summary>
-            Gets the ordinal position of the CurrentItem within the 
-            (optionally sorted and filtered) view.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.Filter">
-            <summary>
-            Gets or sets the Filter, which is a callback set by the consumer of the ICollectionView
-            and used by the implementation of the ICollectionView to determine if an
-            item is suitable for inclusion in the view.
-            </summary>        
-            <exception cref="T:System.NotSupportedException">
-            Simpler implementations do not support filtering and will throw a NotSupportedException.
-            Use <seealso cref="P:Syncfusion.Windows.Data.PagedCollectionView.CanFilter"/> property to test if filtering is supported before
-            assigning a non-null value.
-            </exception>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.IsAddingNew">
-            <summary>
-            Gets a value indicating whether an "AddNew" transaction is in progress.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.IsCurrentAfterLast">
-            <summary> 
-            Gets a value indicating whether currency is beyond the end (End-Of-File). 
-            </summary>
-            <returns>Whether IsCurrentAfterLast</returns>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.IsCurrentBeforeFirst">
-            <summary> 
-            Gets a value indicating whether currency is before the beginning (Beginning-Of-File). 
-            </summary>
-            <returns>Whether IsCurrentBeforeFirst</returns>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.IsEditingItem">
-            <summary>
-            Gets a value indicating whether an EditItem transaction is in progress.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.IsEmpty">
-            <summary>
-            Gets a value indicating whether the resulting (filtered) view is empty.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.IsPageChanging">
-            <summary>
-            Gets a value indicating whether a page index change is in process or not.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.ItemCount">
-            <summary>
-            Gets the minimum number of items known to be in the source collection
-            that verify the current filter if any
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.NeedsRefresh">
-            <summary>
-            Gets a value indicating whether this view needs to be refreshed.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.NewItemPlaceholderPosition">
-            <summary>
-            Gets or sets whether to include a placeholder for a new item, and if so,
-            where to put it. Only the value NewItemPlaceholderPosition.None is supported.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.PageIndex">
-            <summary>
-            Gets the current page we are on. (zero based)
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.PageSize">
-            <summary>
-            Gets or sets the number of items to display on a page. If the
-            PageSize = 0, then we are not paging, and will display all items
-            in the collection. Otherwise, we will have separate pages for 
-            the items to display.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.SortDescriptions">
-            <summary>
-            Gets the Sort criteria to sort items in collection.
-            </summary>
-            <remarks>
-            <p>
-            Clear a sort criteria by assigning SortDescription.Empty to this property.
-            One or more sort criteria in form of <seealso cref="T:System.ComponentModel.SortDescription"/>
-            can be used, each specifying a property and direction to sort by.
-            </p>
-            </remarks>
-            <exception cref="T:System.NotSupportedException">
-            Simpler implementations do not support sorting and will throw a NotSupportedException.
-            Use <seealso cref="P:Syncfusion.Windows.Data.PagedCollectionView.CanSort"/> property to test if sorting is supported before adding
-            to SortDescriptions.
-            </exception>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.SourceCollection">
-            <summary>
-            Gets the source of the IEnumerable collection we are using for our view.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.TotalItemCount">
-            <summary>
-            Gets the total number of items in the view before paging is applied.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.CanConstructItem">
-            <summary>
-            Gets a value indicating whether we have a valid ItemConstructor of the correct type
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.InternalCount">
-            <summary>
-            Gets the private count without taking paging or
-            placeholders into account
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.InternalList">
-            <summary>
-            Gets the InternalList
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.IsCurrentInSync">
-            <summary>
-            Gets a value indicating whether CurrentItem and CurrentPosition are
-            up-to-date with the state and content of the collection.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.IsCurrentInView">
-            <summary>
-            Gets a value indicating whether the current item is in the view
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.IsGrouping">
-            <summary>
-            Gets a value indicating whether or not we have grouping 
-            taking place in this collection.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.IsRefreshDeferred">
-            <summary>
-            Gets a value indicating whether there
-            is still an outstanding DeferRefresh in
-            use.  If at all possible, derived classes
-            should not call Refresh if IsRefreshDeferred
-            is true.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.NeedToMoveToPreviousPage">
-            <summary>
-            Gets whether the current page is empty and we need
-            to move to a previous page.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.OnLastLocalPage">
-            <summary>
-            Gets a value indicating whether we are on the last local page
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.PageCount">
-            <summary>
-            Gets the number of pages we currently have
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.SourceList">
-            <summary>
-            Gets the SourceCollection as an IList
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.Timestamp">
-            <summary>
-            Gets Timestamp used by the NewItemAwareEnumerator to determine if a
-            collection change has occurred since the enumerator began.  (If so,
-            MoveNext should throw.)
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.UsesLocalArray">
-            <summary>
-            Gets a value indicating whether a private copy of the data 
-            is needed for sorting, filtering, and paging. We want any deriving 
-            classes to also be able to access this value to see whether or not 
-            to use the default source collection, or the internal list.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.Item(System.Int32)">
-            <summary>
-            Return the item at the specified index
-            </summary>
-            <param name="index">Index of the item we want to retrieve</param>
-            <returns>The item at the specified index</returns>
         </member>
         <member name="M:Syncfusion.Windows.Data.PagedCollectionView.AddNew">
             <summary>
@@ -3804,6 +3442,368 @@
             and throw if that is the case.
             </summary>
         </member>
+        <member name="E:Syncfusion.Windows.Data.PagedCollectionView.CollectionChanged">
+            <summary>
+            Raise this event when the (filtered) view changes
+            </summary>
+        </member>
+        <member name="E:Syncfusion.Windows.Data.PagedCollectionView.System#Collections#Specialized#INotifyCollectionChanged#CollectionChanged">
+            <summary>
+            CollectionChanged event (per INotifyCollectionChanged).
+            </summary>
+        </member>
+        <member name="E:Syncfusion.Windows.Data.PagedCollectionView.CurrentChanged">
+            <summary>
+            Raised when the CurrentItem property changed
+            </summary>
+        </member>
+        <member name="E:Syncfusion.Windows.Data.PagedCollectionView.CurrentChanging">
+            <summary>
+            Raised when the CurrentItem property is changing
+            </summary>
+        </member>
+        <member name="E:Syncfusion.Windows.Data.PagedCollectionView.PageChanged">
+            <summary>
+            Raised when a page index change completed
+            </summary>
+        </member>
+        <member name="E:Syncfusion.Windows.Data.PagedCollectionView.PageChanging">
+            <summary>
+            Raised when a page index change is requested
+            </summary>
+        </member>
+        <member name="E:Syncfusion.Windows.Data.PagedCollectionView.PropertyChanged">
+            <summary>
+            PropertyChanged event.
+            </summary>
+        </member>
+        <member name="E:Syncfusion.Windows.Data.PagedCollectionView.System#ComponentModel#INotifyPropertyChanged#PropertyChanged">
+            <summary>
+            PropertyChanged event (per INotifyPropertyChanged)
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.CanAddNew">
+            <summary>
+            Gets a value indicating whether the view supports AddNew.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.CanCancelEdit">
+            <summary>
+            Gets a value indicating whether the view supports the notion of "pending changes" 
+            on the current edit item.  This may vary, depending on the view and the particular
+            item.  For example, a view might return true if the current edit item
+            implements IEditableObject, or if the view has special knowledge about 
+            the item that it can use to support rollback of pending changes.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.CanChangePage">
+            <summary>
+            Gets a value indicating whether the PageIndex value is allowed to change or not.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.CanFilter">
+            <summary>
+            Gets a value indicating whether we support filtering with this ICollectionView.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.CanGroup">
+            <summary>
+            Gets a value indicating whether this view supports grouping.
+            When this returns false, the rest of the interface is ignored.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.CanRemove">
+            <summary>
+            Gets a value indicating whether the view supports Remove and RemoveAt.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.CanSort">
+            <summary>
+            Gets a value indicating whether we support sorting with this ICollectionView.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.Count">
+            <summary>
+            Gets the number of records in the view after 
+            filtering, sorting, and paging.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.Culture">
+            <summary>
+            Gets or sets Culture to use during sorting.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.CurrentAddItem">
+            <summary>
+            Gets the new item when an AddNew transaction is in progress
+            Otherwise it returns null.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.CurrentEditItem">
+            <summary>
+            Gets the affected item when an EditItem transaction is in progress
+            Otherwise it returns null.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.CurrentItem">
+            <summary> 
+            Gets the "current item" for this view 
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.CurrentPosition">
+            <summary>
+            Gets the ordinal position of the CurrentItem within the 
+            (optionally sorted and filtered) view.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.Filter">
+            <summary>
+            Gets or sets the Filter, which is a callback set by the consumer of the ICollectionView
+            and used by the implementation of the ICollectionView to determine if an
+            item is suitable for inclusion in the view.
+            </summary>        
+            <exception cref="T:System.NotSupportedException">
+            Simpler implementations do not support filtering and will throw a NotSupportedException.
+            Use <seealso cref="P:Syncfusion.Windows.Data.PagedCollectionView.CanFilter"/> property to test if filtering is supported before
+            assigning a non-null value.
+            </exception>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.IsAddingNew">
+            <summary>
+            Gets a value indicating whether an "AddNew" transaction is in progress.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.IsCurrentAfterLast">
+            <summary> 
+            Gets a value indicating whether currency is beyond the end (End-Of-File). 
+            </summary>
+            <returns>Whether IsCurrentAfterLast</returns>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.IsCurrentBeforeFirst">
+            <summary> 
+            Gets a value indicating whether currency is before the beginning (Beginning-Of-File). 
+            </summary>
+            <returns>Whether IsCurrentBeforeFirst</returns>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.IsEditingItem">
+            <summary>
+            Gets a value indicating whether an EditItem transaction is in progress.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.IsEmpty">
+            <summary>
+            Gets a value indicating whether the resulting (filtered) view is empty.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.IsPageChanging">
+            <summary>
+            Gets a value indicating whether a page index change is in process or not.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.ItemCount">
+            <summary>
+            Gets the minimum number of items known to be in the source collection
+            that verify the current filter if any
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.NeedsRefresh">
+            <summary>
+            Gets a value indicating whether this view needs to be refreshed.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.NewItemPlaceholderPosition">
+            <summary>
+            Gets or sets whether to include a placeholder for a new item, and if so,
+            where to put it. Only the value NewItemPlaceholderPosition.None is supported.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.PageIndex">
+            <summary>
+            Gets the current page we are on. (zero based)
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.PageSize">
+            <summary>
+            Gets or sets the number of items to display on a page. If the
+            PageSize = 0, then we are not paging, and will display all items
+            in the collection. Otherwise, we will have separate pages for 
+            the items to display.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.SortDescriptions">
+            <summary>
+            Gets the Sort criteria to sort items in collection.
+            </summary>
+            <remarks>
+            <p>
+            Clear a sort criteria by assigning SortDescription.Empty to this property.
+            One or more sort criteria in form of <seealso cref="T:System.ComponentModel.SortDescription"/>
+            can be used, each specifying a property and direction to sort by.
+            </p>
+            </remarks>
+            <exception cref="T:System.NotSupportedException">
+            Simpler implementations do not support sorting and will throw a NotSupportedException.
+            Use <seealso cref="P:Syncfusion.Windows.Data.PagedCollectionView.CanSort"/> property to test if sorting is supported before adding
+            to SortDescriptions.
+            </exception>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.SourceCollection">
+            <summary>
+            Gets the source of the IEnumerable collection we are using for our view.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.TotalItemCount">
+            <summary>
+            Gets the total number of items in the view before paging is applied.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.CanConstructItem">
+            <summary>
+            Gets a value indicating whether we have a valid ItemConstructor of the correct type
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.InternalCount">
+            <summary>
+            Gets the private count without taking paging or
+            placeholders into account
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.InternalList">
+            <summary>
+            Gets the InternalList
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.IsCurrentInSync">
+            <summary>
+            Gets a value indicating whether CurrentItem and CurrentPosition are
+            up-to-date with the state and content of the collection.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.IsCurrentInView">
+            <summary>
+            Gets a value indicating whether the current item is in the view
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.IsGrouping">
+            <summary>
+            Gets a value indicating whether or not we have grouping 
+            taking place in this collection.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.IsRefreshDeferred">
+            <summary>
+            Gets a value indicating whether there
+            is still an outstanding DeferRefresh in
+            use.  If at all possible, derived classes
+            should not call Refresh if IsRefreshDeferred
+            is true.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.NeedToMoveToPreviousPage">
+            <summary>
+            Gets whether the current page is empty and we need
+            to move to a previous page.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.OnLastLocalPage">
+            <summary>
+            Gets a value indicating whether we are on the last local page
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.PageCount">
+            <summary>
+            Gets the number of pages we currently have
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.SourceList">
+            <summary>
+            Gets the SourceCollection as an IList
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.Timestamp">
+            <summary>
+            Gets Timestamp used by the NewItemAwareEnumerator to determine if a
+            collection change has occurred since the enumerator began.  (If so,
+            MoveNext should throw.)
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.UsesLocalArray">
+            <summary>
+            Gets a value indicating whether a private copy of the data 
+            is needed for sorting, filtering, and paging. We want any deriving 
+            classes to also be able to access this value to see whether or not 
+            to use the default source collection, or the internal list.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.Item(System.Int32)">
+            <summary>
+            Return the item at the specified index
+            </summary>
+            <param name="index">Index of the item we want to retrieve</param>
+            <returns>The item at the specified index</returns>
+        </member>
+        <member name="T:Syncfusion.Windows.Data.PagedCollectionView.RequestPageMoveDelegate">
+            <summary>
+            Delegate used to asynchronously trigger a page move.
+            </summary>
+            <param name="pageIndex">Requested page index</param>
+        </member>
+        <member name="T:Syncfusion.Windows.Data.PagedCollectionView.CollectionViewFlags">
+            <summary>
+            Enum for CollectionViewFlags
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Data.PagedCollectionView.CollectionViewFlags.IsDataInGroupOrder">
+            <summary>
+            Whether the list of items (after applying the sort and filters, if any) 
+            is already in the correct order for grouping. 
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Data.PagedCollectionView.CollectionViewFlags.IsDataSorted">
+            <summary>
+            Whether the source collection is already sorted according to the SortDescriptions collection
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Data.PagedCollectionView.CollectionViewFlags.ShouldProcessCollectionChanged">
+            <summary>
+            Whether we should process the collection changed event
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Data.PagedCollectionView.CollectionViewFlags.IsCurrentBeforeFirst">
+            <summary>
+            Whether the current item is before the first
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Data.PagedCollectionView.CollectionViewFlags.IsCurrentAfterLast">
+            <summary>
+            Whether the current item is after the last
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Data.PagedCollectionView.CollectionViewFlags.NeedsRefresh">
+            <summary>
+            Whether we need to refresh
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Data.PagedCollectionView.CollectionViewFlags.CachedIsEmpty">
+            <summary>
+            Whether we cache the IsEmpty value
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Data.PagedCollectionView.CollectionViewFlags.IsPageChanging">
+            <summary>
+            Indicates whether a page index change is in process or not
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Data.PagedCollectionView.CollectionViewFlags.IsMoveToPageDeferred">
+            <summary>
+            Whether we need to move to another page after EndDefer
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Data.PagedCollectionView.CollectionViewFlags.IsUpdatePageSizeDeferred">
+            <summary>
+            Whether we need to update the PageSize after EndDefer
+            </summary>
+        </member>
         <member name="T:Syncfusion.Windows.Data.PagedCollectionView.CultureSensitiveComparer">
             <summary>
             Creates a comparer class that takes in a CultureInfo as a parameter,
@@ -3867,11 +3867,6 @@
             Whether the monitor is entered
             </summary>
         </member>
-        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.SimpleMonitor.Busy">
-            <summary>
-            Gets a value indicating whether we have been entered or not
-            </summary>
-        </member>
         <member name="M:Syncfusion.Windows.Data.PagedCollectionView.SimpleMonitor.Enter">
             <summary>
             Sets a value indicating that we have been entered
@@ -3883,24 +3878,14 @@
             Cleanup method called when done using this class
             </summary>
         </member>
+        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.SimpleMonitor.Busy">
+            <summary>
+            Gets a value indicating whether we have been entered or not
+            </summary>
+        </member>
         <member name="T:Syncfusion.Windows.Data.PagedCollectionView.NewItemAwareEnumerator">
             <summary>
             IEnumerator generated using the new item taken into account
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Data.PagedCollectionView.NewItemAwareEnumerator.Position.BeforeNewItem">
-            <summary>
-            Whether the position is before the new item
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Data.PagedCollectionView.NewItemAwareEnumerator.Position.OnNewItem">
-            <summary>
-            Whether the position is on the new item that is being created
-            </summary>
-        </member>
-        <member name="F:Syncfusion.Windows.Data.PagedCollectionView.NewItemAwareEnumerator.Position.AfterNewItem">
-            <summary>
-            Whether the position is after the new item
             </summary>
         </member>
         <member name="M:Syncfusion.Windows.Data.PagedCollectionView.NewItemAwareEnumerator.#ctor(Syncfusion.Windows.Data.PagedCollectionView,System.Collections.IEnumerator,System.Object)">
@@ -3916,11 +3901,6 @@
             Implements the MoveNext function for IEnumerable
             </summary>
             <returns>Whether we can move to the next item</returns>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.NewItemAwareEnumerator.Current">
-            <summary>
-            Gets the Current value for IEnumerable
-            </summary>
         </member>
         <member name="M:Syncfusion.Windows.Data.PagedCollectionView.NewItemAwareEnumerator.Reset">
             <summary>
@@ -3950,6 +3930,26 @@
         <member name="F:Syncfusion.Windows.Data.PagedCollectionView.NewItemAwareEnumerator._timestamp">
             <summary>
             Timestamp to let us know whether there have been updates to the collection
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.PagedCollectionView.NewItemAwareEnumerator.Current">
+            <summary>
+            Gets the Current value for IEnumerable
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Data.PagedCollectionView.NewItemAwareEnumerator.Position.BeforeNewItem">
+            <summary>
+            Whether the position is before the new item
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Data.PagedCollectionView.NewItemAwareEnumerator.Position.OnNewItem">
+            <summary>
+            Whether the position is on the new item that is being created
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Windows.Data.PagedCollectionView.NewItemAwareEnumerator.Position.AfterNewItem">
+            <summary>
+            Whether the position is after the new item
             </summary>
         </member>
         <member name="T:Syncfusion.Windows.Data.PagedCollectionView.SortFieldComparer">
@@ -3984,6 +3984,9 @@
             <param name="list">List where we want to insert the item</param>
             <returns>Index where we should insert into</returns>
         </member>
+        <member name="T:Syncfusion.ComponentModel.PropertyChangingEventManager">
+            <exclude/>
+        </member>
         <member name="M:Syncfusion.Windows.Data.PropertyInfoExtensions.GetPropertyDescriptor(Syncfusion.Windows.Data.PropertyInfoCollection,System.String)">
             <summary>
             Generate the Property Descriptot for corresponding Property it may be simple or complex property
@@ -3998,18 +4001,6 @@
             Extends CollectionViewAdv to implement LINQ based operations on strongly-typed
             data sources.
             </summary>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.QueryableCollectionView.UsePLINQ">
-            <summary>
-            Gets or sets a value indicating whether [use PLINQ]. 
-            </summary>
-            <value><c>true</c> if [use PLINQ]; otherwise, <c>false</c>.</value>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.QueryableCollectionView.ViewSource">
-            <summary>
-            Gets the underlying view source that holds the current collection in a separate IQueryable view.
-            </summary>
-            <value>The view source.</value>
         </member>
         <member name="M:Syncfusion.Windows.Data.QueryableCollectionView.OnSortDescriptionChanged(System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
             <summary>
@@ -4045,6 +4036,18 @@
             </summary>
             <param name="groupBy">The group by.</param>
             <returns></returns>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.QueryableCollectionView.UsePLINQ">
+            <summary>
+            Gets or sets a value indicating whether [use PLINQ]. 
+            </summary>
+            <value><c>true</c> if [use PLINQ]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.QueryableCollectionView.ViewSource">
+            <summary>
+            Gets the underlying view source that holds the current collection in a separate IQueryable view.
+            </summary>
+            <value>The view source.</value>
         </member>
         <member name="T:Syncfusion.Windows.Data.EnumerableRecordsWrapper">
             <summary>
@@ -4105,18 +4108,6 @@
             </summary>
             <param name="data">The data.</param>
         </member>
-        <member name="P:Syncfusion.Windows.Data.EnumerableRecordsWrapper.View">
-            <summary>
-            Gets the view.
-            </summary>
-            <value>The view.</value>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.EnumerableRecordsWrapper.TableSummaries">
-            <summary>
-            Gets the table summaries.
-            </summary>
-            <value>The table summaries.</value>
-        </member>
         <member name="M:Syncfusion.Windows.Data.EnumerableRecordsWrapper.IndexOfRecord(System.Object)">
             <summary>
             Returns the index for the underlying record.
@@ -4172,12 +4163,6 @@
             The <see cref="T:System.Collections.Generic.IList`1"/> is read-only.
             </exception>
         </member>
-        <member name="P:Syncfusion.Windows.Data.EnumerableRecordsWrapper.Item(System.Int32)">
-            <summary>
-            Gets or sets the <see cref="T:Syncfusion.Windows.Data.RecordEntry"/> at the specified index.
-            </summary>
-            <value></value>
-        </member>
         <member name="M:Syncfusion.Windows.Data.EnumerableRecordsWrapper.Add(Syncfusion.Windows.Data.RecordEntry)">
             <summary>
             Adds an item to the <see cref="T:System.Collections.Generic.ICollection`1"/>.
@@ -4231,23 +4216,6 @@
             Type <paramref name="T"/> cannot be cast automatically to the type of the destination <paramref name="array"/>.
             </exception>
         </member>
-        <member name="P:Syncfusion.Windows.Data.EnumerableRecordsWrapper.Count">
-            <summary>
-            Gets the number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1"/>.
-            </summary>
-            <value></value>
-            <returns>
-            The number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1"/>.
-            </returns>
-        </member>
-        <member name="P:Syncfusion.Windows.Data.EnumerableRecordsWrapper.IsReadOnly">
-            <summary>
-            Gets a value indicating whether the <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only.
-            </summary>
-            <value></value>
-            <returns>true if the <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only; otherwise, false.
-            </returns>
-        </member>
         <member name="M:Syncfusion.Windows.Data.EnumerableRecordsWrapper.Remove(Syncfusion.Windows.Data.RecordEntry)">
             <summary>
             Removes the first occurrence of a specific object from the <see cref="T:System.Collections.Generic.ICollection`1"/>.
@@ -4281,22 +4249,40 @@
             Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
             </summary>
         </member>
-        <member name="M:Syncfusion.Windows.Data.PropertyDescriptorExtensions.SetValue(System.ComponentModel.PropertyDescriptorCollection,System.Object,System.Object,System.String)">
+        <member name="P:Syncfusion.Windows.Data.EnumerableRecordsWrapper.View">
             <summary>
-            Sets the value for the corresponding object available in the PropertyDescriptorCollection
+            Gets the view.
             </summary>
-            <param name="pdc">ItemProperties</param>
-            <param name="record">Record</param>
-            <param name="value">Value</param>
-            <param name="columnName">Mapping name of the column(Includeing complex mapping names)</param>
+            <value>The view.</value>
         </member>
-        <member name="M:Syncfusion.Windows.Data.PropertyDescriptorExtensions.GetPropertyDescriptor(System.ComponentModel.PropertyDescriptorCollection,System.String)">
+        <member name="P:Syncfusion.Windows.Data.EnumerableRecordsWrapper.TableSummaries">
             <summary>
-            Generate the Property Descriptor for corresponding Property it may be simple or complex property
+            Gets the table summaries.
             </summary>
-            <param name="pdc"></param>
-            <param name="columnName"></param>
-            <returns></returns>
+            <value>The table summaries.</value>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.EnumerableRecordsWrapper.Item(System.Int32)">
+            <summary>
+            Gets or sets the <see cref="T:Syncfusion.Windows.Data.RecordEntry"/> at the specified index.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.EnumerableRecordsWrapper.Count">
+            <summary>
+            Gets the number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </summary>
+            <value></value>
+            <returns>
+            The number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1"/>.
+            </returns>
+        </member>
+        <member name="P:Syncfusion.Windows.Data.EnumerableRecordsWrapper.IsReadOnly">
+            <summary>
+            Gets a value indicating whether the <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only.
+            </summary>
+            <value></value>
+            <returns>true if the <see cref="T:System.Collections.Generic.ICollection`1"/> is read-only; otherwise, false.
+            </returns>
         </member>
         <member name="T:Syncfusion.Windows.Common.TypeHelper">
             <summary>
@@ -4369,9 +4355,6 @@
             </summary>
             <param name="propertyPath">Path to split.</param>
             <returns>List of property substrings.</returns>
-        </member>
-        <member name="T:Syncfusion.ComponentModel.PropertyChangingEventManager">
-            <exclude/>
         </member>
         <member name="M:Syncfusion.Linq.Data.DataSetExtensions.EscapeLikeValue(System.String)">
             <summary>
@@ -4739,12 +4722,6 @@
             <param name="nfi">The <see cref="T:System.Globalization.NumberFormatInfo"/> for formatting the value.</param>
             <returns>The string with the formatted text for the value.</returns>
         </member>
-        <member name="P:Syncfusion.Linq.ValueConvert.AllowFormatValueTrimEnd">
-            <summary>
-            Indicates whether <see cref="M:Syncfusion.Linq.ValueConvert.FormatValue(System.Object,System.Type,System.String,System.Globalization.CultureInfo,System.Globalization.NumberFormatInfo)"/> should trim whitespace characters from
-            the end of the formatted text.
-            </summary>
-        </member>
         <member name="M:Syncfusion.Linq.ValueConvert.GetDefaultValue(System.Type)">
             <summary>
             Returns a representative value for any given type. 
@@ -4824,6 +4801,29 @@
             Indicates whether string is null or empty.
             </summary>
             <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Syncfusion.Linq.ValueConvert.AllowFormatValueTrimEnd">
+            <summary>
+            Indicates whether <see cref="M:Syncfusion.Linq.ValueConvert.FormatValue(System.Object,System.Type,System.String,System.Globalization.CultureInfo,System.Globalization.NumberFormatInfo)"/> should trim whitespace characters from
+            the end of the formatted text.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Windows.Data.PropertyDescriptorExtensions.SetValue(System.ComponentModel.PropertyDescriptorCollection,System.Object,System.Object,System.String)">
+            <summary>
+            Sets the value for the corresponding object available in the PropertyDescriptorCollection
+            </summary>
+            <param name="pdc">ItemProperties</param>
+            <param name="record">Record</param>
+            <param name="value">Value</param>
+            <param name="columnName">Mapping name of the column(Includeing complex mapping names)</param>
+        </member>
+        <member name="M:Syncfusion.Windows.Data.PropertyDescriptorExtensions.GetPropertyDescriptor(System.ComponentModel.PropertyDescriptorCollection,System.String)">
+            <summary>
+            Generate the Property Descriptor for corresponding Property it may be simple or complex property
+            </summary>
+            <param name="pdc"></param>
+            <param name="columnName"></param>
             <returns></returns>
         </member>
         <member name="T:Syncfusion.Linq.QueryableExtensions">

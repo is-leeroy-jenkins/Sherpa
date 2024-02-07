@@ -4,6 +4,11 @@
         <name>Syncfusion.Scripting.Windows</name>
     </assembly>
     <members>
+        <member name="M:Syncfusion.Runtime.InteropServices.NativeMethods.GetUserDefaultLCID">
+            <summary>
+            Interop call to get the LCID of the current culture.
+            </summary>
+        </member>
         <member name="M:Syncfusion.Runtime.InteropServices.NativeMethods.Util.GetPInvokeStringLength(System.String)">
             <summary>
             omputes the string size that should be passed to a typical Win32 call.
@@ -16,11 +21,6 @@
             he count of characters or bytes, depending on what the pinvoke
             all wants
             </returns>
-        </member>
-        <member name="M:Syncfusion.Runtime.InteropServices.NativeMethods.GetUserDefaultLCID">
-            <summary>
-            Interop call to get the LCID of the current culture.
-            </summary>
         </member>
         <member name="T:Syncfusion.Scripting.Design.ErrorDescriptor">
             <summary>
@@ -80,16 +80,6 @@
             The tag container which attached to node.
             </summary>
         </member>
-        <member name="P:Syncfusion.Scripting.Design.NodeDoubleClickEventArgs.NodeName">
-            <summary>
-            Gets node name.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Scripting.Design.NodeDoubleClickEventArgs.TagContainer">
-            <summary>
-            Gets node tag container.
-            </summary>
-        </member>
         <member name="M:Syncfusion.Scripting.Design.NodeDoubleClickEventArgs.#ctor">
             <summary>
             Disabled default constructor
@@ -101,6 +91,16 @@
              </summary>
              <param name="name"></param>
              <param name="tag"></param>
+        </member>
+        <member name="P:Syncfusion.Scripting.Design.NodeDoubleClickEventArgs.NodeName">
+            <summary>
+            Gets node name.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Scripting.Design.NodeDoubleClickEventArgs.TagContainer">
+            <summary>
+            Gets node tag container.
+            </summary>
         </member>
         <member name="T:Syncfusion.Scripting.Design.NodeDoubleClickEventHandler">
              <summary>
@@ -157,21 +157,6 @@
             Default height for expand ErrorMessage window.
             </summary>
         </member>
-        <member name="E:Syncfusion.Scripting.Design.ScriptEditControl.ScriptChanged">
-            <summary>
-            Send when script is changed.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Scripting.Design.ScriptEditControl.ScriptText">
-            <summary>
-            Gets or sets script source code.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Scripting.Design.ScriptEditControl.EnableExternalCompile">
-            <summary>
-            Indicates if the ScriptingManager is being used for external compilation of the script.
-            </summary>
-        </member>
         <member name="M:Syncfusion.Scripting.Design.ScriptEditControl.#ctor">
             <summary>
             Default constructor
@@ -218,11 +203,26 @@
             </summary>
             <param name="script">Script to update</param>
         </member>
-        <member name="M:Syncfusion.Scripting.Design.ScriptEditControl.GetButton(System.Windows.Forms.ToolStripItemClickedEventArgs)">
+        <member name="M:Syncfusion.Scripting.Design.ScriptEditControl.GetButton(System.Windows.Forms.ToolBarButtonClickEventArgs)">
             <summary>
             Returns the appropriate button element.
             </summary>
             <returns></returns>
+        </member>
+        <member name="E:Syncfusion.Scripting.Design.ScriptEditControl.ScriptChanged">
+            <summary>
+            Send when script is changed.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Scripting.Design.ScriptEditControl.ScriptText">
+            <summary>
+            Gets or sets script source code.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Scripting.Design.ScriptEditControl.EnableExternalCompile">
+            <summary>
+            Indicates if the ScriptingManager is being used for external compilation of the script.
+            </summary>
         </member>
         <member name="T:Syncfusion.Scripting.Design.ScriptObjectBrowser">
             <summary>
@@ -268,27 +268,6 @@
         <member name="F:Syncfusion.Scripting.Design.ScriptObjectBrowser.m_isDragDropEnd">
             <summary>
             Indicated that drag-and-drop process finished.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Scripting.Design.ScriptObjectBrowser.SelectedObject">
-            <summary>
-            Object used for browse in TreeView.
-            Get or set.
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Scripting.Design.ScriptObjectBrowser.ScriptLanguage">
-            <summary>
-            Sets or gets script
-            </summary>
-        </member>
-        <member name="P:Syncfusion.Scripting.Design.ScriptObjectBrowser.ScriptSite">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="E:Syncfusion.Scripting.Design.ScriptObjectBrowser.NodeDoubleClick">
-            <summary>
-            Send when user is double click by tree node.
             </summary>
         </member>
         <member name="M:Syncfusion.Scripting.Design.ScriptObjectBrowser.Dispose(System.Boolean)">
@@ -414,6 +393,27 @@
             <param name="sender"></param>
             <param name="e"></param>
         </member>
+        <member name="P:Syncfusion.Scripting.Design.ScriptObjectBrowser.SelectedObject">
+            <summary>
+            Object used for browse in TreeView.
+            Get or set.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Scripting.Design.ScriptObjectBrowser.ScriptLanguage">
+            <summary>
+            Sets or gets script
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Scripting.Design.ScriptObjectBrowser.ScriptSite">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:Syncfusion.Scripting.Design.ScriptObjectBrowser.NodeDoubleClick">
+            <summary>
+            Send when user is double click by tree node.
+            </summary>
+        </member>
         <member name="T:Syncfusion.Scripting.Design.ScriptWrapper">
             <summary>
             Summary description for ScriptWrapper.
@@ -522,22 +522,6 @@
             Summary description for ScriptEditForm.
             </summary>
         </member>
-        <member name="F:Syncfusion.Scripting.Design.ScriptEditForm.components">
-            <summary>
-            Required designer variable.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Scripting.Design.ScriptEditForm.Dispose(System.Boolean)">
-            <summary>
-            Clean up any resources being used.
-            </summary>
-        </member>
-        <member name="M:Syncfusion.Scripting.Design.ScriptEditForm.InitializeComponent">
-            <summary>
-            Required method for Designer support - do not modify
-            the contents of this method with the code editor.
-            </summary>
-        </member>
         <member name="T:Syncfusion.Scripting.Design.IScriptEditor">
             <summary>
             Interface to script editors.
@@ -563,6 +547,22 @@
         <member name="P:Syncfusion.Scripting.Design.IScriptEditor.Form">
             <summary>
             The Form object that implements the user interface.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Scripting.Design.ScriptEditForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Scripting.Design.ScriptEditForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Scripting.Design.ScriptEditForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
             </summary>
         </member>
         <member name="T:Syncfusion.Scripting.Design.ScriptUITypeEditor">
