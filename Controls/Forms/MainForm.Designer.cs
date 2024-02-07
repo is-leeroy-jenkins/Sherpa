@@ -1231,7 +1231,7 @@ namespace BudgetExecution
             CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionFont = new System.Drawing.Font( "Roboto", 12F );
             CaptionForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            ClientSize = new System.Drawing.Size( 1338, 738 );
+            ClientSize = new System.Drawing.Size( 1333, 733 );
             ControlBox = false;
             Controls.Add( ResourceTable );
             Controls.Add( DataManagementTable );
@@ -1247,7 +1247,7 @@ namespace BudgetExecution
             MaximumSize = new System.Drawing.Size( 1350, 750 );
             MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             MinimizeBox = false;
-            MinimumSize = new System.Drawing.Size( 1350, 750 );
+            MinimumSize = new System.Drawing.Size( 1340, 740 );
             Name = "MainForm";
             ShowIcon = false;
             ShowMaximizeBox = false;

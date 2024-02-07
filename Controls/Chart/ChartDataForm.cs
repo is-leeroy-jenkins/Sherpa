@@ -78,6 +78,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ArrangeModifiersOrder" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     public partial class ChartDataForm : MetroForm
     {
         /// <summary>
@@ -91,12 +92,172 @@ namespace BudgetExecution
         private System.Action _statusUpdate;
 
         /// <summary>
+        /// The time
+        /// </summary>
+        private int _time;
+
+        /// <summary>
+        /// The seconds
+        /// </summary>
+        private int _seconds;
+
+        /// <summary>
+        /// The count
+        /// </summary>
+        private int _count;
+
+        /// <summary>
+        /// The hover text
+        /// </summary>
+        private string _hoverText;
+
+        /// <summary>
+        /// The selected table
+        /// </summary>
+        private string _selectedTable;
+
+        /// <summary>
+        /// The first category
+        /// </summary>
+        private string _firstCategory;
+
+        /// <summary>
+        /// The first value
+        /// </summary>
+        private string _firstValue;
+
+        /// <summary>
+        /// The second category
+        /// </summary>
+        private string _secondCategory;
+
+        /// <summary>
+        /// The second value
+        /// </summary>
+        private string _secondValue;
+
+        /// <summary>
+        /// The third category
+        /// </summary>
+        private string _thirdCategory;
+
+        /// <summary>
+        /// The third value
+        /// </summary>
+        private string _thirdValue;
+
+        /// <summary>
+        /// The fourth category
+        /// </summary>
+        private string _fourthCategory;
+
+        /// <summary>
+        /// The fourth value
+        /// </summary>
+        private string _fourthValue;
+
+        /// <summary>
+        /// The SQL command
+        /// </summary>
+        private string _sqlQuery;
+
+        /// <summary>
+        /// The xaxis
+        /// </summary>
+        private string _xaxis;
+
+        /// <summary>
+        /// The yvalues
+        /// </summary>
+        private IList<string> _yvalues;
+
+        /// <summary>
+        /// The chart type
+        /// </summary>
+        private ChartSeriesType _chartType;
+
+        /// <summary>
+        /// The stat
+        /// </summary>
+        private STAT _metric;
+
+        /// <summary>
+        /// The data model
+        /// </summary>
+        private DataBuilder _dataModel;
+
+        /// <summary>
+        /// The data table
+        /// </summary>
+        private DataTable _dataTable;
+
+        /// <summary>
+        /// The filter
+        /// </summary>
+        private IDictionary<string, object> _filter;
+
+        /// <summary>
+        /// The fields
+        /// </summary>
+        private IList<string> _fields;
+
+        /// <summary>
+        /// The columns
+        /// </summary>
+        private IList<string> _columns;
+
+        /// <summary>
+        /// The numerics
+        /// </summary>
+        private IList<string> _numerics;
+
+        /// <summary>
+        /// The selected columns
+        /// </summary>
+        private IList<string> _selectedColumns;
+
+        /// <summary>
+        /// The selected fields
+        /// </summary>
+        private IList<string> _selectedFields;
+
+        /// <summary>
+        /// The selected numerics
+        /// </summary>
+        private IList<string> _selectedNumerics;
+
+        /// <summary>
+        /// The source
+        /// </summary>
+        private Source _source;
+
+        /// <summary>
+        /// The provider
+        /// </summary>
+        private Provider _provider;
+
+        /// <summary>
+        /// The data arguments
+        /// </summary>
+        private DataArgs _dataArgs;
+        
+        /// <summary>
         /// Gets or sets the time.
         /// </summary>
         /// <value>
         /// The time.
         /// </value>
-        public int Time { get; set; }
+        public int Time
+        {
+            get
+            {
+                return _time;
+            }
+            private set
+            {
+                _time = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the seconds.
@@ -104,7 +265,17 @@ namespace BudgetExecution
         /// <value>
         /// The seconds.
         /// </value>
-        public int Seconds { get; set; }
+        public int Seconds
+        {
+            get
+            {
+                return _seconds;
+            }
+            private set
+            {
+                _seconds = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the count.
@@ -112,7 +283,17 @@ namespace BudgetExecution
         /// <value>
         /// The count.
         /// </value>
-        public int Count { get; set; }
+        public int Count
+        {
+            get
+            {
+                return _count;
+            }
+            private set
+            {
+                _count = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the hover text.
@@ -120,7 +301,17 @@ namespace BudgetExecution
         /// <value>
         /// The hover text.
         /// </value>
-        public string HoverText { get; set; }
+        public virtual string HoverText
+        {
+            get
+            {
+                return _hoverText;
+            }
+            private set
+            {
+                _hoverText = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the selected row.
@@ -128,7 +319,17 @@ namespace BudgetExecution
         /// <value>
         /// The selected row.
         /// </value>
-        public string SelectedTable { get; set; }
+        public string SelectedTable
+        {
+            get
+            {
+                return _selectedTable;
+            }
+            private set
+            {
+                _selectedTable = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the first category.
@@ -136,7 +337,17 @@ namespace BudgetExecution
         /// <value>
         /// The first category.
         /// </value>
-        public string FirstCategory { get; set; }
+        public string FirstCategory
+        {
+            get
+            {
+                return _firstCategory;
+            }
+            private set
+            {
+                _firstCategory = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the first value.
@@ -144,7 +355,17 @@ namespace BudgetExecution
         /// <value>
         /// The first value.
         /// </value>
-        public string FirstValue { get; set; }
+        public string FirstValue
+        {
+            get
+            {
+                return _firstValue;
+            }
+            private set
+            {
+                _firstValue = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the second category.
@@ -152,7 +373,17 @@ namespace BudgetExecution
         /// <value>
         /// The second category.
         /// </value>
-        public string SecondCategory { get; set; }
+        public string SecondCategory
+        {
+            get
+            {
+                return _secondCategory;
+            }
+            private set
+            {
+                _secondCategory = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the second value.
@@ -160,7 +391,17 @@ namespace BudgetExecution
         /// <value>
         /// The second value.
         /// </value>
-        public string SecondValue { get; set; }
+        public string SecondValue
+        {
+            get
+            {
+                return _secondValue;
+            }
+            private set
+            {
+                _secondValue = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the third category.
@@ -168,7 +409,17 @@ namespace BudgetExecution
         /// <value>
         /// The third category.
         /// </value>
-        public string ThirdCategory { get; set; }
+        public string ThirdCategory
+        {
+            get
+            {
+                return _thirdCategory;
+            }
+            private set
+            {
+                _thirdCategory = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the third value.
@@ -176,7 +427,17 @@ namespace BudgetExecution
         /// <value>
         /// The third value.
         /// </value>
-        public string ThirdValue { get; set; }
+        public string ThirdValue
+        {
+            get
+            {
+                return _thirdValue;
+            }
+            private set
+            {
+                _thirdValue = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the fourth category.
@@ -184,7 +445,17 @@ namespace BudgetExecution
         /// <value>
         /// The fourth category.
         /// </value>
-        public string FourthCategory { get; set; }
+        public string FourthCategory
+        {
+            get
+            {
+                return _fourthCategory;
+            }
+            private set
+            {
+                _fourthCategory = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the fourth value.
@@ -192,7 +463,17 @@ namespace BudgetExecution
         /// <value>
         /// The fourth value.
         /// </value>
-        public string FourthValue { get; set; }
+        public string FourthValue
+        {
+            get
+            {
+                return _fourthValue;
+            }
+            private set
+            {
+                _fourthValue = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the SQL query.
@@ -200,15 +481,35 @@ namespace BudgetExecution
         /// <value>
         /// The SQL query.
         /// </value>
-        public string SqlQuery { get; set; }
+        public string SqlQuery
+        {
+            get
+            {
+                return _sqlQuery;
+            }
+            private set
+            {
+                _sqlQuery = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the x-axis.
+        /// Gets or sets the xaxis.
         /// </summary>
         /// <value>
-        /// The x-axis.
+        /// The xaxis.
         /// </value>
-        public string xAxis { get; set; }
+        public string xAxis
+        {
+            get
+            {
+                return _xaxis;
+            }
+            private set
+            {
+                _xaxis = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the y values.
@@ -216,7 +517,17 @@ namespace BudgetExecution
         /// <value>
         /// The y values.
         /// </value>
-        public IList<string> yValues { get; set; }
+        public IList<string> yValues
+        {
+            get
+            {
+                return _yvalues;
+            }
+            private set
+            {
+                _yvalues = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the data model.
@@ -224,7 +535,17 @@ namespace BudgetExecution
         /// <value>
         /// The data model.
         /// </value>
-        public DataBuilder DataModel { get; set; }
+        public DataBuilder DataModel
+        {
+            get
+            {
+                return _dataModel;
+            }
+            private set
+            {
+                _dataModel = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the data row.
@@ -232,7 +553,17 @@ namespace BudgetExecution
         /// <value>
         /// The data row.
         /// </value>
-        public DataTable DataTable { get; set; }
+        public DataTable DataTable
+        {
+            get
+            {
+                return _dataTable;
+            }
+            private set
+            {
+                _dataTable = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the form filter.
@@ -240,7 +571,71 @@ namespace BudgetExecution
         /// <value>
         /// The form filter.
         /// </value>
-        public IDictionary<string, object> Filter { get; set; }
+        public IDictionary<string, object> Filter
+        {
+            get
+            {
+                return _filter;
+            }
+            private set
+            {
+                _filter = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the Metric.
+        /// </summary>
+        /// <value>
+        ///  STAT
+        /// </value>
+        public STAT Metric
+        {
+            get
+            {
+                return _metric;
+            }
+            private set
+            {
+                _metric = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the type of the chart.
+        /// </summary>
+        /// <value>
+        /// The type of the chart.
+        /// </value>
+        public ChartSeriesType ChartType
+        {
+            get
+            {
+                return _chartType;
+            }
+            private set
+            {
+                _chartType = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the columns.
+        /// </summary>
+        /// <value>
+        /// The columns.
+        /// </value>
+        public IList<string> Columns
+        {
+            get
+            {
+                return _columns;
+            }
+            private set
+            {
+                _columns = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the fields.
@@ -248,15 +643,17 @@ namespace BudgetExecution
         /// <value>
         /// The fields.
         /// </value>
-        public IList<string> Columns { get; set; }
-
-        /// <summary>
-        /// Gets or sets the fields.
-        /// </summary>
-        /// <value>
-        /// The fields.
-        /// </value>
-        public IList<string> Fields { get; set; }
+        public IList<string> Fields
+        {
+            get
+            {
+                return _fields;
+            }
+            private set
+            {
+                _fields = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the numerics.
@@ -264,7 +661,17 @@ namespace BudgetExecution
         /// <value>
         /// The numerics.
         /// </value>
-        public IList<string> Numerics { get; set; }
+        public IList<string> Numerics
+        {
+            get
+            {
+                return _numerics;
+            }
+            private set
+            {
+                _numerics = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the selected columns.
@@ -272,7 +679,17 @@ namespace BudgetExecution
         /// <value>
         /// The selected columns.
         /// </value>
-        public IList<string> SelectedColumns { get; set; }
+        public IList<string> SelectedColumns
+        {
+            get
+            {
+                return _selectedColumns;
+            }
+            private set
+            {
+                _selectedColumns = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the selected fields.
@@ -280,7 +697,17 @@ namespace BudgetExecution
         /// <value>
         /// The selected fields.
         /// </value>
-        public IList<string> SelectedFields { get; set; }
+        public IList<string> SelectedFields
+        {
+            get
+            {
+                return _selectedFields;
+            }
+            private set
+            {
+                _selectedFields = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the selected numerics.
@@ -288,7 +715,17 @@ namespace BudgetExecution
         /// <value>
         /// The selected numerics.
         /// </value>
-        public IList<string> SelectedNumerics { get; set; }
+        public IList<string> SelectedNumerics
+        {
+            get
+            {
+                return _selectedNumerics;
+            }
+            private set
+            {
+                _selectedNumerics = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the source.
@@ -296,7 +733,17 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public Source Source { get; set; }
+        public Source Source
+        {
+            get
+            {
+                return _source;
+            }
+            private set
+            {
+                _source = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the provider.
@@ -304,23 +751,17 @@ namespace BudgetExecution
         /// <value>
         /// The provider.
         /// </value>
-        public Provider Provider { get; set; }
-
-        /// <summary>
-        /// Gets or sets the metric.
-        /// </summary>
-        /// <value>
-        /// The metric.
-        /// </value>
-        public STAT Metric { get; set; }
-
-        /// <summary>
-        /// Gets or sets the type of the chart.
-        /// </summary>
-        /// <value>
-        /// The type of the chart.
-        /// </value>
-        public ChartSeriesType ChartType { get; set; }
+        public Provider Provider
+        {
+            get
+            {
+                return _provider;
+            }
+            private set
+            {
+                _provider = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the data arguments.
@@ -328,7 +769,17 @@ namespace BudgetExecution
         /// <value>
         /// The data arguments.
         /// </value>
-        public DataArgs DataArgs { get; set; }
+        public DataArgs DataArgs
+        {
+            get
+            {
+                return _dataArgs;
+            }
+            private set
+            {
+                _dataArgs = value;
+            }
+        }
 
         /// <summary>
         /// Gets a value indicating
@@ -363,11 +814,11 @@ namespace BudgetExecution
             RegisterCallbacks( );
 
             // Basic Properties
-            Size = new Size( 1350, 750 );
+            Size = new Size( 1345, 745 );
             MaximumSize = new Size( 1350, 750 );
-            MinimumSize = new Size( 1350, 750 );
+            MinimumSize = new Size( 1340, 740 );
             StartPosition = FormStartPosition.CenterScreen;
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.Sizable;
             BorderColor = Color.FromArgb( 0, 120, 212 );
             BorderThickness = 1;
             BackColor = Color.FromArgb( 20, 20, 20 );
@@ -392,13 +843,13 @@ namespace BudgetExecution
             ControlBox = false;
 
             // Initialize Default Provider
-            Provider = Provider.Access;
-            Metric = STAT.Total;
-            ChartType = ChartSeriesType.Column;
+            _provider = Provider.Access;
+            _metric = STAT.Total;
+            _chartType = ChartSeriesType.Column;
 
             // Timer Properties
-            Time = 0;
-            Seconds = 5;
+            _time = 0;
+            _seconds = 5;
 
             // Event Wiring
             Load += OnLoad;
@@ -416,8 +867,8 @@ namespace BudgetExecution
         public ChartDataForm( Source source, Provider provider )
             : this( )
         {
-            Source = source;
-            Provider = provider;
+            _source = source;
+            _provider = provider;
         }
 
         /// <inheritdoc />
@@ -431,9 +882,9 @@ namespace BudgetExecution
         public ChartDataForm( Source source, Provider provider, IDictionary<string, object> where )
             : this( )
         {
-            Source = source;
-            Provider = provider;
-            Filter = where;
+            _source = source;
+            _provider = provider;
+            _filter = where;
         }
 
         /// <summary>
@@ -800,14 +1251,14 @@ namespace BudgetExecution
             try
             {
                 Opacity = 0;
-                if( Seconds != 0 )
+                if( _seconds != 0 )
                 {
                     var _timer = new Timer( );
                     _timer.Interval = 1000;
                     _timer.Tick += ( sender, args ) =>
                     {
-                        Time++;
-                        if( Time == Seconds )
+                        _time++;
+                        if( _time == _seconds )
                         {
                             _timer.Stop( );
                         }
@@ -827,7 +1278,7 @@ namespace BudgetExecution
         /// </summary>
         public void PopulateFirstComboBoxItems( )
         {
-            if( Fields?.Any( ) == true )
+            if( _fields?.Any( ) == true )
             {
                 try
                 {
@@ -858,7 +1309,7 @@ namespace BudgetExecution
         /// </summary>
         public void PopulateSecondComboBoxItems( )
         {
-            if( Fields?.Any( ) == true )
+            if( _fields?.Any( ) == true )
             {
                 try
                 {
@@ -895,7 +1346,7 @@ namespace BudgetExecution
         /// </summary>
         public void PopulateThirdComboBoxItems( )
         {
-            if( Fields?.Any( ) == true )
+            if( _fields?.Any( ) == true )
             {
                 try
                 {
@@ -909,13 +1360,13 @@ namespace BudgetExecution
                         ThirdListBox.Items?.Clear( );
                     }
 
-                    if( !string.IsNullOrEmpty( FirstValue )
-                       && !string.IsNullOrEmpty( SecondValue ) )
+                    if( !string.IsNullOrEmpty( _firstValue )
+                       && !string.IsNullOrEmpty( _secondValue ) )
                     {
-                        foreach( var item in Fields )
+                        foreach( var item in _fields )
                         {
-                            if( !item.Equals( FirstCategory )
-                               && !item.Equals( SecondCategory ) )
+                            if( !item.Equals( _firstCategory )
+                               && !item.Equals( _secondCategory ) )
                             {
                                 ThirdComboBox.Items?.Add( item );
                             }
@@ -1054,7 +1505,7 @@ namespace BudgetExecution
         /// </summary>
         private void PopulateFieldListBox( )
         {
-            if( Fields?.Any( ) == true )
+            if( _fields?.Any( ) == true )
             {
                 try
                 {
@@ -1082,7 +1533,7 @@ namespace BudgetExecution
         /// </summary>
         private void PopulateNumericListBox( )
         {
-            if( Numerics?.Any( ) == true )
+            if( _numerics?.Any( ) == true )
             {
                 try
                 {
@@ -1091,11 +1542,11 @@ namespace BudgetExecution
                         NumericListBox.Items.Clear( );
                     }
 
-                    for( var i = 0; i < Numerics.Count; i++ )
+                    for( var i = 0; i < _numerics.Count; i++ )
                     {
-                        if( !string.IsNullOrEmpty( Numerics[ i ] ) )
+                        if( !string.IsNullOrEmpty( _numerics[ i ] ) )
                         {
-                            NumericListBox.Items.Add( Numerics[ i ] );
+                            NumericListBox.Items.Add( _numerics[ i ] );
                         }
                     }
 
@@ -1151,7 +1602,7 @@ namespace BudgetExecution
                 BusyTabPage.TabVisible = false;
                 ToolStripComboBox.Visible = true;
                 ChartLabel.Visible = true;
-                Filter?.Clear( );
+                _filter?.Clear( );
                 PopulateFirstComboBoxItems( );
                 ResetFilterTableVisibility( );
             }
@@ -1215,30 +1666,30 @@ namespace BudgetExecution
         {
             try
             {
-                if( string.IsNullOrEmpty( SqlQuery ) )
+                if( string.IsNullOrEmpty( _sqlQuery ) )
                 {
                     BeginInit( );
-                    DataModel = new DataBuilder( Source, Provider );
-                    DataTable = DataModel.DataTable;
-                    SelectedTable = DataTable.TableName;
-                    BindingSource.DataSource = DataModel.DataTable;
+                    _dataModel = new DataBuilder( _source, _provider );
+                    _dataTable = _dataModel.DataTable;
+                    _selectedTable = _dataTable.TableName;
+                    _columns = _dataModel?.ColumnNames;
+                    _fields = _dataModel?.Fields;
+                    _numerics = _dataModel?.Numerics;
+                    BindingSource.DataSource = _dataModel.DataTable;
                     ToolStrip.BindingSource = BindingSource;
-                    Columns = DataModel?.ColumnNames;
-                    Fields = DataModel?.Fields;
-                    Numerics = DataModel?.Numerics;
                     EndInit( );
                 }
                 else
                 {
                     BeginInit( );
-                    DataModel = new DataBuilder( Source, Provider, SqlQuery );
-                    DataTable = DataModel.DataTable;
-                    SelectedTable = DataTable.TableName;
-                    BindingSource.DataSource = DataModel.DataTable;
+                    _dataModel = new DataBuilder( _source, _provider, _sqlQuery );
+                    _dataTable = _dataModel.DataTable;
+                    _selectedTable = _dataTable.TableName;
+                    _columns = _dataModel?.ColumnNames;
+                    _fields = _dataModel?.Fields;
+                    _numerics = _dataModel?.Numerics;
+                    BindingSource.DataSource = _dataModel.DataTable;
                     ToolStrip.BindingSource = BindingSource;
-                    Columns = DataModel?.ColumnNames;
-                    Fields = DataModel?.Fields;
-                    Numerics = DataModel?.Numerics;
                     EndInit( );
                 }
             }
@@ -1260,13 +1711,13 @@ namespace BudgetExecution
             {
                 ThrowIf.NullOrEmpty( sqlText, nameof( sqlText ) );
                 BeginInit( );
-                DataModel = new DataBuilder( Source, Provider, sqlText );
-                DataTable = DataModel.DataTable;
-                BindingSource.DataSource = DataModel.DataTable;
+                _dataModel = new DataBuilder( _source, _provider, sqlText );
+                _dataTable = _dataModel.DataTable;
+                _columns = _dataModel?.ColumnNames;
+                _fields = _dataModel?.Fields;
+                _numerics = _dataModel?.Numerics;
+                BindingSource.DataSource = _dataModel.DataTable;
                 ToolStrip.BindingSource = BindingSource;
-                Columns = DataModel?.ColumnNames;
-                Fields = DataModel?.Fields;
-                Numerics = DataModel?.Numerics;
                 EndInit( );
             }
             catch( Exception ex )
@@ -1287,16 +1738,16 @@ namespace BudgetExecution
             {
                 ThrowIf.Null( where, nameof( where ) );
                 BeginInit( );
-                Filter = where;
-                SqlQuery = CreateSqlCommand( where );
-                DataModel = new DataBuilder( Source, Provider, SqlQuery );
-                DataTable = DataModel.DataTable;
-                SelectedTable = DataTable.TableName;
-                BindingSource.DataSource = DataTable;
-                ToolStrip.BindingSource.DataSource = DataModel.DataTable;
-                Columns = DataModel?.ColumnNames;
-                Fields = DataModel?.Fields;
-                Numerics = DataModel?.Numerics;
+                _filter = where;
+                _sqlQuery = CreateSqlCommand( where );
+                _dataModel = new DataBuilder( _source, _provider, _sqlQuery );
+                _dataTable = _dataModel.DataTable;
+                _selectedTable = _dataTable.TableName;
+                _columns = DataModel?.ColumnNames;
+                _fields = DataModel?.Fields;
+                _numerics = DataModel?.Numerics;
+                BindingSource.DataSource = _dataTable;
+                ToolStrip.BindingSource.DataSource = _dataModel.DataTable;
                 EndInit( );
             }
             catch( Exception ex )
@@ -1317,14 +1768,14 @@ namespace BudgetExecution
                 ThrowIf.Null( cols, nameof( cols ) );
                 ThrowIf.Null( where, nameof( where ) );
                 BeginInit( );
-                SqlQuery = CreateSqlCommand( cols, where );
-                DataModel = new DataBuilder( Source, Provider, SqlQuery );
-                DataTable = DataModel.DataTable;
-                BindingSource.DataSource = DataTable;
+                _sqlQuery = CreateSqlCommand( cols, where );
+                _dataModel = new DataBuilder( _source, _provider, _sqlQuery );
+                _dataTable = _dataModel.DataTable;
+                _columns = _dataModel?.ColumnNames;
+                _fields = _dataModel?.Fields;
+                _numerics = _dataModel?.Numerics;
+                BindingSource.DataSource = _dataTable;
                 ToolStrip.BindingSource = BindingSource;
-                Columns = DataModel?.ColumnNames;
-                Fields = DataModel?.Fields;
-                Numerics = DataModel?.Numerics;
                 EndInit( );
             }
             catch( Exception ex )
@@ -1348,14 +1799,14 @@ namespace BudgetExecution
                 ThrowIf.Null( numerics, nameof( numerics ) );
                 ThrowIf.Null( where, nameof( where ) );
                 BeginInit( );
-                SqlQuery = CreateSqlCommand( fields, numerics, where );
-                DataModel = new DataBuilder( Source, Provider, SqlQuery );
-                DataTable = DataModel.DataTable;
-                BindingSource.DataSource = DataTable;
+                _sqlQuery = CreateSqlCommand( fields, numerics, where );
+                _dataModel = new DataBuilder( _source, _provider, _sqlQuery );
+                _dataTable = _dataModel.DataTable;
+                _columns = _dataModel?.ColumnNames;
+                _fields = _dataModel?.Fields;
+                _numerics = _dataModel?.Numerics;
+                BindingSource.DataSource = _dataTable;
                 ToolStrip.BindingSource = BindingSource;
-                Columns = DataModel?.ColumnNames;
-                Fields = DataModel?.Fields;
-                Numerics = DataModel?.Numerics;
                 EndInit( );
             }
             catch( Exception ex )
@@ -1372,7 +1823,7 @@ namespace BudgetExecution
             try
             {
                 var _current = BindingSource.GetCurrentDataRow( );
-                SetSeriesPointStyles( _current, ChartType );
+                SetSeriesPointStyles( _current, _chartType );
                 UpdateSchema( _current );
                 Chart.Title.Text = DataTable.TableName.SplitPascal( );
                 Chart.PrimaryXAxis.Title = GetAxisTitle( );
@@ -1391,13 +1842,13 @@ namespace BudgetExecution
         {
             try
             {
-                DataArgs.Provider = Provider;
-                DataArgs.Source = Source;
-                DataArgs.Filter = Filter;
-                DataArgs.SelectedTable = SelectedTable;
-                DataArgs.SelectedFields = SelectedFields;
-                DataArgs.SelectedNumerics = SelectedNumerics;
-                DataArgs.SqlQuery = SqlQuery;
+                _dataArgs.Provider = _provider;
+                _dataArgs.Source = _source;
+                _dataArgs.Filter = _filter;
+                _dataArgs.SelectedTable = _selectedTable;
+                _dataArgs.SelectedFields = _selectedFields;
+                _dataArgs.SelectedNumerics = _selectedNumerics;
+                _dataArgs.SqlQuery = _sqlQuery;
             }
             catch( Exception _ex )
             {
@@ -1413,11 +1864,11 @@ namespace BudgetExecution
         /// </returns>
         private string CreateSqlCommand( IDictionary<string, object> where )
         {
-            if( !string.IsNullOrEmpty( SelectedTable )
-               && where?.Any( ) == true )
+            if( !string.IsNullOrEmpty( _selectedTable ) )
             {
                 try
                 {
+                    ThrowIf.Null( where, nameof( where ) );
                     return $"SELECT * FROM {SelectedTable} "
                         + $"WHERE {where.ToCriteria( )};";
                 }
@@ -1442,13 +1893,13 @@ namespace BudgetExecution
         private string CreateSqlCommand( IEnumerable<string> fields, IEnumerable<string> numerics,
             IDictionary<string, object> where )
         {
-            if( !string.IsNullOrEmpty( SelectedTable )
-               && where?.Any( ) == true
-               && fields?.Any( ) == true
-               && numerics?.Any( ) == true )
+            if( !string.IsNullOrEmpty( _selectedTable ) )
             {
                 try
                 {
+                    ThrowIf.Null( where, nameof( where ) );
+                    ThrowIf.NullOrEmpty( fields, nameof( fields ) );
+                    ThrowIf.NullOrEmpty( numerics, nameof( numerics ) );
                     var _cols = string.Empty;
                     var _aggr = string.Empty;
                     foreach( var name in fields )
@@ -1463,8 +1914,8 @@ namespace BudgetExecution
 
                     var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
                     var _criteria = where.ToCriteria( );
-                    var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_columns} FROM {SelectedTable} "
+                    var _values = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
+                    return $"SELECT {_values} FROM {_selectedTable} "
                         + $"WHERE {_criteria} "
                         + $"GROUP BY {_groups};";
                 }
@@ -1488,12 +1939,12 @@ namespace BudgetExecution
         private string CreateSqlCommand( IEnumerable<string> columns,
             IDictionary<string, object> where )
         {
-            if( !string.IsNullOrEmpty( SelectedTable )
-               && where?.Any( ) == true
-               && columns?.Any( ) == true )
+            if( !string.IsNullOrEmpty( _selectedTable ) )
             {
                 try
                 {
+                    ThrowIf.Null( where, nameof( where ) );
+                    ThrowIf.NullOrEmpty( columns, nameof( columns ) );
                     var _cols = string.Empty;
                     foreach( var name in columns )
                     {
@@ -1562,9 +2013,9 @@ namespace BudgetExecution
                 ClearSelections( );
                 ClearCollections( );
                 ClearFilter( );
-                SelectedTable = string.Empty;
-                DataModel = null;
-                DataTable = null;
+                _selectedTable = string.Empty;
+                _dataModel = null;
+                _dataTable = null;
                 BindingSource.DataSource = null;
                 ToolStrip.BindingSource.DataSource = null;
             }
@@ -1581,9 +2032,9 @@ namespace BudgetExecution
         {
             try
             {
-                if( Filter?.Any( ) == true )
+                if( _filter?.Any( ) == true )
                 {
-                    Filter.Clear( );
+                    _filter.Clear( );
                 }
             }
             catch( Exception _ex )
@@ -1599,19 +2050,19 @@ namespace BudgetExecution
         {
             try
             {
-                if( SelectedColumns?.Any( ) == true )
+                if( _selectedColumns?.Any( ) == true )
                 {
-                    SelectedColumns.Clear( );
+                    _selectedColumns.Clear( );
                 }
 
-                if( SelectedFields?.Any( ) == true )
+                if( _selectedFields?.Any( ) == true )
                 {
-                    SelectedFields.Clear( );
+                    _selectedFields.Clear( );
                 }
 
-                if( SelectedNumerics?.Any( ) == true )
+                if( _selectedNumerics?.Any( ) == true )
                 {
-                    SelectedNumerics.Clear( );
+                    _selectedNumerics.Clear( );
                 }
             }
             catch( Exception _ex )
@@ -1627,13 +2078,13 @@ namespace BudgetExecution
         {
             try
             {
-                ThirdCategory = string.Empty;
-                ThirdValue = string.Empty;
-                SecondCategory = string.Empty;
-                SecondValue = string.Empty;
-                FirstCategory = string.Empty;
-                FirstValue = string.Empty;
-                SelectedTable = string.Empty;
+                _thirdCategory = string.Empty;
+                _thirdValue = string.Empty;
+                _secondCategory = string.Empty;
+                _secondValue = string.Empty;
+                _firstCategory = string.Empty;
+                _firstValue = string.Empty;
+                _selectedTable = string.Empty;
             }
             catch( Exception _ex )
             {
@@ -1687,24 +2138,24 @@ namespace BudgetExecution
         {
             try
             {
-                if( !string.IsNullOrEmpty( SelectedTable ) )
+                if( !string.IsNullOrEmpty( _selectedTable ) )
                 {
                     ClearLabels( );
-                    var _table = SelectedTable?.SplitPascal( ) ?? string.Empty;
-                    var _records = DataTable.Rows?.Count.ToString( "#,###" ) ?? "0";
-                    var _columns = Columns?.Count;
-                    var _filters = Filter.Keys?.Count;
-                    var _fields = DataModel.Fields?.Count ?? 0;
-                    var _numerics = DataModel.Numerics?.Count ?? 0;
-                    var _selectedFields = SelectedFields?.Count ?? 0;
-                    var _selectedNumerics = SelectedNumerics?.Count ?? 0;
-                    Label1.Text = $"Data Records:  {_records}";
-                    Label2.Text = $"Data Columns:  {_columns}";
-                    Label3.Text = $"Total Fields:  {_fields}";
-                    Label4.Text = $"Total Measures:  {_numerics}";
-                    Label5.Text = $"Active Filters:  {_filters}";
-                    Label6.Text = $"Selected Fields:  {_selectedFields} of {_fields}";
-                    Label7.Text = $"Selected Measures:  {_selectedNumerics} of {_numerics}";
+                    var _table = _selectedTable?.SplitPascal( ) ?? string.Empty;
+                    var _rows = _dataTable.Rows?.Count.ToString( "#,###" ) ?? "0";
+                    var _cols = _dataTable.Columns?.Count;
+                    var _criteria = _filter.Keys?.Count;
+                    var _names = _dataModel.Fields?.Count ?? 0;
+                    var _numbers = _dataModel.Numerics?.Count ?? 0;
+                    var _selectedCols = SelectedFields?.Count ?? 0;
+                    var _selectedNums = SelectedNumerics?.Count ?? 0;
+                    Label1.Text = $"Data Records:  {_rows}";
+                    Label2.Text = $"Data Columns:  {_cols}";
+                    Label3.Text = $"Total Fields:  {_names}";
+                    Label4.Text = $"Total Measures:  {_numbers}";
+                    Label5.Text = $"Active Filters:  {_criteria}";
+                    Label6.Text = $"Selected Fields:  {_selectedCols} of {_names}";
+                    Label7.Text = $"Selected Measures:  {_selectedNums} of {_numbers}";
                 }
                 else
                 {
@@ -1850,7 +2301,7 @@ namespace BudgetExecution
                     var _types = Enum.GetNames( typeof( ChartSeriesType ) );
                     if( _types?.Contains( type ) == true )
                     {
-                        ChartType =
+                        _chartType =
                             (ChartSeriesType)Enum.Parse( typeof( ChartSeriesType ), type );
 
                         var _message = "The Chart Type has been changed!";
@@ -1877,7 +2328,7 @@ namespace BudgetExecution
                     var _measures = Enum.GetNames( typeof( STAT ) );
                     if( _measures?.Contains( stat ) == true )
                     {
-                        Metric = (STAT)Enum.Parse( typeof( STAT ), stat );
+                        _metric = (STAT)Enum.Parse( typeof( STAT ), stat );
                         var _message = "The Chart Statistics have been changed!";
                         SendNotification( _message );
                     }

@@ -316,7 +316,7 @@
             GridLabel1.Margin = new System.Windows.Forms.Padding( 3 );
             GridLabel1.Name = "GridLabel1";
             GridLabel1.Padding = new System.Windows.Forms.Padding( 1 );
-            GridLabel1.Size = new System.Drawing.Size( 162, 19 );
+            GridLabel1.Size = new System.Drawing.Size( 160, 19 );
             GridLabel1.Style = MetroSet_UI.Enums.Style.Custom;
             GridLabel1.StyleManager = null;
             GridLabel1.TabIndex = 33;
@@ -344,7 +344,7 @@
             DataGridPanel.Location = new System.Drawing.Point( 0, 0 );
             DataGridPanel.Name = "DataGridPanel";
             DataGridPanel.Padding = new System.Windows.Forms.Padding( 1 );
-            DataGridPanel.Size = new System.Drawing.Size( 999, 539 );
+            DataGridPanel.Size = new System.Drawing.Size( 994, 535 );
             DataGridPanel.Style = MetroSet_UI.Enums.Style.Custom;
             DataGridPanel.StyleManager = null;
             DataGridPanel.TabIndex = 47;
@@ -410,7 +410,7 @@
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
             DataGrid.RowsDefaultCellStyle = dataGridViewCellStyle5;
             DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            DataGrid.Size = new System.Drawing.Size( 959, 495 );
+            DataGrid.Size = new System.Drawing.Size( 954, 491 );
             DataGrid.TabIndex = 0;
             DataGrid.ToolTip = null;
             // 
@@ -426,11 +426,11 @@
             DataLabelTable.Controls.Add( GridLabel1, 0, 0 );
             DataLabelTable.Controls.Add( GridLabel3, 2, 0 );
             DataLabelTable.Dock = System.Windows.Forms.DockStyle.Bottom;
-            DataLabelTable.Location = new System.Drawing.Point( 3, 23 );
+            DataLabelTable.Location = new System.Drawing.Point( 3, 22 );
             DataLabelTable.Name = "DataLabelTable";
             DataLabelTable.RowCount = 1;
             DataLabelTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            DataLabelTable.Size = new System.Drawing.Size( 999, 25 );
+            DataLabelTable.Size = new System.Drawing.Size( 994, 25 );
             DataLabelTable.TabIndex = 1;
             // 
             // GridLabel2
@@ -442,11 +442,11 @@
             GridLabel2.Font = new System.Drawing.Font( "Roboto", 8.25F );
             GridLabel2.HoverText = null;
             GridLabel2.IsDerivedStyle = true;
-            GridLabel2.Location = new System.Drawing.Point( 171, 3 );
+            GridLabel2.Location = new System.Drawing.Point( 169, 3 );
             GridLabel2.Margin = new System.Windows.Forms.Padding( 3 );
             GridLabel2.Name = "GridLabel2";
             GridLabel2.Padding = new System.Windows.Forms.Padding( 1 );
-            GridLabel2.Size = new System.Drawing.Size( 138, 19 );
+            GridLabel2.Size = new System.Drawing.Size( 135, 19 );
             GridLabel2.Style = MetroSet_UI.Enums.Style.Custom;
             GridLabel2.StyleManager = null;
             GridLabel2.TabIndex = 44;
@@ -465,7 +465,7 @@
             GridLabel4.Font = new System.Drawing.Font( "Roboto", 8.25F );
             GridLabel4.HoverText = null;
             GridLabel4.IsDerivedStyle = true;
-            GridLabel4.Location = new System.Drawing.Point( 441, 3 );
+            GridLabel4.Location = new System.Drawing.Point( 436, 3 );
             GridLabel4.Margin = new System.Windows.Forms.Padding( 3 );
             GridLabel4.Name = "GridLabel4";
             GridLabel4.Padding = new System.Windows.Forms.Padding( 1 );
@@ -488,7 +488,7 @@
             GridLabel3.Font = new System.Drawing.Font( "Roboto", 8.25F );
             GridLabel3.HoverText = null;
             GridLabel3.IsDerivedStyle = true;
-            GridLabel3.Location = new System.Drawing.Point( 315, 3 );
+            GridLabel3.Location = new System.Drawing.Point( 310, 3 );
             GridLabel3.Margin = new System.Windows.Forms.Padding( 3 );
             GridLabel3.Name = "GridLabel3";
             GridLabel3.Padding = new System.Windows.Forms.Padding( 1 );
@@ -983,7 +983,7 @@
             SqlHeader.Margin = new System.Windows.Forms.Padding( 3 );
             SqlHeader.Name = "SqlHeader";
             SqlHeader.Padding = new System.Windows.Forms.Padding( 1 );
-            SqlHeader.Size = new System.Drawing.Size( 929, 0 );
+            SqlHeader.Size = new System.Drawing.Size( 924, 0 );
             SqlHeader.Style = MetroSet_UI.Enums.Style.Light;
             SqlHeader.StyleManager = null;
             SqlHeader.TabIndex = 47;
@@ -2171,7 +2171,7 @@
             ToolStrip.Separators = null;
             ToolStrip.ShowCaption = true;
             ToolStrip.ShowLauncher = true;
-            ToolStrip.Size = new System.Drawing.Size( 1336, 43 );
+            ToolStrip.Size = new System.Drawing.Size( 1331, 43 );
             ToolStrip.TabIndex = 41;
             ToolStrip.TextBox = null;
             ToolStrip.ThemeName = "Office2016DarkGray";
@@ -2287,7 +2287,7 @@
             ToolStripTextBox.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             ToolStripTextBox.Name = "ToolStripTextBox";
             ToolStripTextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Size = new System.Drawing.Size( 250, 25 );
+            ToolStripTextBox.Size = new System.Drawing.Size( 238, 25 );
             ToolStripTextBox.Tag = "";
             ToolStripTextBox.ToolTip = ToolTip;
             // 
@@ -2426,7 +2426,7 @@
             HeaderTable.Name = "HeaderTable";
             HeaderTable.RowCount = 1;
             HeaderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            HeaderTable.Size = new System.Drawing.Size( 1338, 32 );
+            HeaderTable.Size = new System.Drawing.Size( 1333, 32 );
             HeaderTable.TabIndex = 53;
             // 
             // HeaderLabel
@@ -2442,7 +2442,7 @@
             HeaderLabel.Margin = new System.Windows.Forms.Padding( 3 );
             HeaderLabel.Name = "HeaderLabel";
             HeaderLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            HeaderLabel.Size = new System.Drawing.Size( 1293, 26 );
+            HeaderLabel.Size = new System.Drawing.Size( 1288, 26 );
             HeaderLabel.Style = MetroSet_UI.Enums.Style.Custom;
             HeaderLabel.StyleManager = null;
             HeaderLabel.TabIndex = 53;
@@ -2486,7 +2486,7 @@
             GridHeaderPanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 5.99315071F ) );
             GridHeaderPanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 94.00685F ) );
             GridHeaderPanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 20F ) );
-            GridHeaderPanel.Size = new System.Drawing.Size( 1005, 600 );
+            GridHeaderPanel.Size = new System.Drawing.Size( 1000, 595 );
             GridHeaderPanel.TabIndex = 54;
             // 
             // DataTabControl
@@ -2494,7 +2494,7 @@
             DataTabControl.ActiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataTabControl.ActiveTabFont = new System.Drawing.Font( "Roboto", 8F );
             DataTabControl.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            DataTabControl.BeforeTouchSize = new System.Drawing.Size( 999, 543 );
+            DataTabControl.BeforeTouchSize = new System.Drawing.Size( 994, 539 );
             DataTabControl.BindingSource = null;
             DataTabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             DataTabControl.CanOverrideStyle = true;
@@ -2508,9 +2508,9 @@
             DataTabControl.InactiveCloseButtonForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataTabControl.InactiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataTabControl.ItemSize = new System.Drawing.Size( 100, 5 );
-            DataTabControl.Location = new System.Drawing.Point( 3, 54 );
+            DataTabControl.Location = new System.Drawing.Point( 3, 53 );
             DataTabControl.Name = "DataTabControl";
-            DataTabControl.Size = new System.Drawing.Size( 999, 543 );
+            DataTabControl.Size = new System.Drawing.Size( 994, 539 );
             DataTabControl.TabIndex = 0;
             DataTabControl.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataTabControl.TabStyle = typeof( Syncfusion.Windows.Forms.Tools.TabRendererMetro );
@@ -2533,7 +2533,7 @@
             ReadyTabPage.Location = new System.Drawing.Point( 0, 4 );
             ReadyTabPage.Name = "ReadyTabPage";
             ReadyTabPage.ShowCloseButton = true;
-            ReadyTabPage.Size = new System.Drawing.Size( 999, 539 );
+            ReadyTabPage.Size = new System.Drawing.Size( 994, 535 );
             ReadyTabPage.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             ReadyTabPage.TabForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             ReadyTabPage.TabIndex = 1;
@@ -2547,7 +2547,7 @@
             BusyTabPage.Location = new System.Drawing.Point( 0, 4 );
             BusyTabPage.Name = "BusyTabPage";
             BusyTabPage.ShowCloseButton = true;
-            BusyTabPage.Size = new System.Drawing.Size( 999, 539 );
+            BusyTabPage.Size = new System.Drawing.Size( 994, 535 );
             BusyTabPage.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             BusyTabPage.TabForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             BusyTabPage.TabIndex = 2;
@@ -2559,7 +2559,7 @@
             Loader.Image = Resources.Images.Loading;
             Loader.Location = new System.Drawing.Point( 21, 16 );
             Loader.Name = "Loader";
-            Loader.Size = new System.Drawing.Size( 953, 504 );
+            Loader.Size = new System.Drawing.Size( 948, 500 );
             Loader.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             Loader.TabIndex = 0;
             Loader.TabStop = false;
@@ -2570,11 +2570,11 @@
             ToolStripTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             ToolStripTable.Controls.Add( ToolStrip, 0, 0 );
             ToolStripTable.Dock = System.Windows.Forms.DockStyle.Bottom;
-            ToolStripTable.Location = new System.Drawing.Point( 0, 694 );
+            ToolStripTable.Location = new System.Drawing.Point( 0, 689 );
             ToolStripTable.Name = "ToolStripTable";
             ToolStripTable.RowCount = 1;
             ToolStripTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            ToolStripTable.Size = new System.Drawing.Size( 1338, 45 );
+            ToolStripTable.Size = new System.Drawing.Size( 1333, 45 );
             ToolStripTable.TabIndex = 55;
             // 
             // ContextMenu
@@ -2610,7 +2610,7 @@
             CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionFont = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Bold );
             CaptionForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            ClientSize = new System.Drawing.Size( 1338, 739 );
+            ClientSize = new System.Drawing.Size( 1333, 734 );
             Controls.Add( ToolStripTable );
             Controls.Add( ProviderTable );
             Controls.Add( GridHeaderPanel );
@@ -2619,7 +2619,6 @@
             Controls.Add( SqlHeader );
             Font = new System.Drawing.Font( "Roboto", 9F );
             ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
             IconTextRelation = System.Windows.Forms.LeftRightAlignment.Right;
             Margin = new System.Windows.Forms.Padding( 4, 3, 4, 3 );
@@ -2627,7 +2626,7 @@
             MaximumSize = new System.Drawing.Size( 1350, 750 );
             MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             MinimizeBox = false;
-            MinimumSize = new System.Drawing.Size( 1350, 750 );
+            MinimumSize = new System.Drawing.Size( 1340, 740 );
             Name = "DataGridForm";
             ShowIcon = false;
             ShowMaximizeBox = false;

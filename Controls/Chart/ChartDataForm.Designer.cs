@@ -205,7 +205,7 @@
             AreaTable.RowCount = 1;
             AreaTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
             AreaTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 20F ) );
-            AreaTable.Size = new System.Drawing.Size( 1043, 513 );
+            AreaTable.Size = new System.Drawing.Size( 1038, 508 );
             AreaTable.TabIndex = 6;
             // 
             // ChartPanel
@@ -226,7 +226,7 @@
             ChartPanel.Location = new System.Drawing.Point( 3, 3 );
             ChartPanel.Name = "ChartPanel";
             ChartPanel.Padding = new System.Windows.Forms.Padding( 1 );
-            ChartPanel.Size = new System.Drawing.Size( 1037, 507 );
+            ChartPanel.Size = new System.Drawing.Size( 1032, 502 );
             ChartPanel.Style = MetroSet_UI.Enums.Style.Custom;
             ChartPanel.StyleManager = null;
             ChartPanel.TabIndex = 7;
@@ -438,7 +438,7 @@
             SchemaTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 20F ) );
             SchemaTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 20F ) );
             SchemaTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 20F ) );
-            SchemaTable.Size = new System.Drawing.Size( 1041, 106 );
+            SchemaTable.Size = new System.Drawing.Size( 1036, 106 );
             SchemaTable.TabIndex = 4;
             // 
             // Label22
@@ -450,11 +450,11 @@
             Label22.Font = new System.Drawing.Font( "Roboto", 6.75F );
             Label22.HoverText = null;
             Label22.IsDerivedStyle = true;
-            Label22.Location = new System.Drawing.Point( 211, 87 );
+            Label22.Location = new System.Drawing.Point( 210, 87 );
             Label22.Margin = new System.Windows.Forms.Padding( 3 );
             Label22.Name = "Label22";
             Label22.Padding = new System.Windows.Forms.Padding( 1 );
-            Label22.Size = new System.Drawing.Size( 202, 16 );
+            Label22.Size = new System.Drawing.Size( 201, 16 );
             Label22.Style = MetroSet_UI.Enums.Style.Custom;
             Label22.StyleManager = null;
             Label22.TabIndex = 65;
@@ -478,7 +478,7 @@
             Label21.Margin = new System.Windows.Forms.Padding( 3 );
             Label21.Name = "Label21";
             Label21.Padding = new System.Windows.Forms.Padding( 1 );
-            Label21.Size = new System.Drawing.Size( 202, 16 );
+            Label21.Size = new System.Drawing.Size( 201, 16 );
             Label21.Style = MetroSet_UI.Enums.Style.Custom;
             Label21.StyleManager = null;
             Label21.TabIndex = 64;
@@ -498,11 +498,11 @@
             Label23.Font = new System.Drawing.Font( "Roboto", 6.75F );
             Label23.HoverText = null;
             Label23.IsDerivedStyle = true;
-            Label23.Location = new System.Drawing.Point( 419, 87 );
+            Label23.Location = new System.Drawing.Point( 417, 87 );
             Label23.Margin = new System.Windows.Forms.Padding( 3 );
             Label23.Name = "Label23";
             Label23.Padding = new System.Windows.Forms.Padding( 1 );
-            Label23.Size = new System.Drawing.Size( 202, 16 );
+            Label23.Size = new System.Drawing.Size( 201, 16 );
             Label23.Style = MetroSet_UI.Enums.Style.Custom;
             Label23.StyleManager = null;
             Label23.TabIndex = 63;
@@ -522,11 +522,11 @@
             Label25.Font = new System.Drawing.Font( "Roboto", 6.75F );
             Label25.HoverText = null;
             Label25.IsDerivedStyle = true;
-            Label25.Location = new System.Drawing.Point( 835, 87 );
+            Label25.Location = new System.Drawing.Point( 831, 87 );
             Label25.Margin = new System.Windows.Forms.Padding( 3 );
             Label25.Name = "Label25";
             Label25.Padding = new System.Windows.Forms.Padding( 1 );
-            Label25.Size = new System.Drawing.Size( 203, 16 );
+            Label25.Size = new System.Drawing.Size( 202, 16 );
             Label25.Style = MetroSet_UI.Enums.Style.Custom;
             Label25.StyleManager = null;
             Label25.TabIndex = 62;
@@ -546,11 +546,11 @@
             Label24.Font = new System.Drawing.Font( "Roboto", 6.75F );
             Label24.HoverText = null;
             Label24.IsDerivedStyle = true;
-            Label24.Location = new System.Drawing.Point( 627, 87 );
+            Label24.Location = new System.Drawing.Point( 624, 87 );
             Label24.Margin = new System.Windows.Forms.Padding( 3 );
             Label24.Name = "Label24";
             Label24.Padding = new System.Windows.Forms.Padding( 1 );
-            Label24.Size = new System.Drawing.Size( 202, 16 );
+            Label24.Size = new System.Drawing.Size( 201, 16 );
             Label24.Style = MetroSet_UI.Enums.Style.Custom;
             Label24.StyleManager = null;
             Label24.TabIndex = 61;
@@ -570,11 +570,11 @@
             Label18.Font = new System.Drawing.Font( "Roboto", 6.75F );
             Label18.HoverText = null;
             Label18.IsDerivedStyle = true;
-            Label18.Location = new System.Drawing.Point( 419, 66 );
+            Label18.Location = new System.Drawing.Point( 417, 66 );
             Label18.Margin = new System.Windows.Forms.Padding( 3 );
             Label18.Name = "Label18";
             Label18.Padding = new System.Windows.Forms.Padding( 1 );
-            Label18.Size = new System.Drawing.Size( 202, 15 );
+            Label18.Size = new System.Drawing.Size( 201, 15 );
             Label18.Style = MetroSet_UI.Enums.Style.Custom;
             Label18.StyleManager = null;
             Label18.TabIndex = 60;
@@ -598,7 +598,7 @@
             Label17.Margin = new System.Windows.Forms.Padding( 3 );
             Label17.Name = "Label17";
             Label17.Padding = new System.Windows.Forms.Padding( 1 );
-            Label17.Size = new System.Drawing.Size( 202, 15 );
+            Label17.Size = new System.Drawing.Size( 201, 15 );
             Label17.Style = MetroSet_UI.Enums.Style.Custom;
             Label17.StyleManager = null;
             Label17.TabIndex = 59;
@@ -618,11 +618,11 @@
             Label16.Font = new System.Drawing.Font( "Roboto", 6.75F );
             Label16.HoverText = null;
             Label16.IsDerivedStyle = true;
-            Label16.Location = new System.Drawing.Point( 211, 66 );
+            Label16.Location = new System.Drawing.Point( 210, 66 );
             Label16.Margin = new System.Windows.Forms.Padding( 3 );
             Label16.Name = "Label16";
             Label16.Padding = new System.Windows.Forms.Padding( 1 );
-            Label16.Size = new System.Drawing.Size( 202, 15 );
+            Label16.Size = new System.Drawing.Size( 201, 15 );
             Label16.Style = MetroSet_UI.Enums.Style.Custom;
             Label16.StyleManager = null;
             Label16.TabIndex = 58;
@@ -642,11 +642,11 @@
             Label19.Font = new System.Drawing.Font( "Roboto", 6.75F );
             Label19.HoverText = null;
             Label19.IsDerivedStyle = true;
-            Label19.Location = new System.Drawing.Point( 627, 66 );
+            Label19.Location = new System.Drawing.Point( 624, 66 );
             Label19.Margin = new System.Windows.Forms.Padding( 3 );
             Label19.Name = "Label19";
             Label19.Padding = new System.Windows.Forms.Padding( 1 );
-            Label19.Size = new System.Drawing.Size( 202, 15 );
+            Label19.Size = new System.Drawing.Size( 201, 15 );
             Label19.Style = MetroSet_UI.Enums.Style.Custom;
             Label19.StyleManager = null;
             Label19.TabIndex = 56;
@@ -670,7 +670,7 @@
             Label6.Margin = new System.Windows.Forms.Padding( 3 );
             Label6.Name = "Label6";
             Label6.Padding = new System.Windows.Forms.Padding( 1 );
-            Label6.Size = new System.Drawing.Size( 202, 15 );
+            Label6.Size = new System.Drawing.Size( 201, 15 );
             Label6.Style = MetroSet_UI.Enums.Style.Custom;
             Label6.StyleManager = null;
             Label6.TabIndex = 48;
@@ -690,11 +690,11 @@
             Label3.Font = new System.Drawing.Font( "Roboto", 6.75F );
             Label3.HoverText = null;
             Label3.IsDerivedStyle = true;
-            Label3.Location = new System.Drawing.Point( 419, 3 );
+            Label3.Location = new System.Drawing.Point( 417, 3 );
             Label3.Margin = new System.Windows.Forms.Padding( 3 );
             Label3.Name = "Label3";
             Label3.Padding = new System.Windows.Forms.Padding( 1 );
-            Label3.Size = new System.Drawing.Size( 202, 15 );
+            Label3.Size = new System.Drawing.Size( 201, 15 );
             Label3.Style = MetroSet_UI.Enums.Style.Custom;
             Label3.StyleManager = null;
             Label3.TabIndex = 43;
@@ -718,7 +718,7 @@
             Label1.Margin = new System.Windows.Forms.Padding( 3 );
             Label1.Name = "Label1";
             Label1.Padding = new System.Windows.Forms.Padding( 1 );
-            Label1.Size = new System.Drawing.Size( 202, 15 );
+            Label1.Size = new System.Drawing.Size( 201, 15 );
             Label1.Style = MetroSet_UI.Enums.Style.Custom;
             Label1.StyleManager = null;
             Label1.TabIndex = 33;
@@ -738,11 +738,11 @@
             Label2.Font = new System.Drawing.Font( "Roboto", 6.75F );
             Label2.HoverText = null;
             Label2.IsDerivedStyle = true;
-            Label2.Location = new System.Drawing.Point( 211, 3 );
+            Label2.Location = new System.Drawing.Point( 210, 3 );
             Label2.Margin = new System.Windows.Forms.Padding( 3 );
             Label2.Name = "Label2";
             Label2.Padding = new System.Windows.Forms.Padding( 1 );
-            Label2.Size = new System.Drawing.Size( 202, 15 );
+            Label2.Size = new System.Drawing.Size( 201, 15 );
             Label2.Style = MetroSet_UI.Enums.Style.Custom;
             Label2.StyleManager = null;
             Label2.TabIndex = 44;
@@ -762,11 +762,11 @@
             Label4.Font = new System.Drawing.Font( "Roboto", 6.75F );
             Label4.HoverText = null;
             Label4.IsDerivedStyle = true;
-            Label4.Location = new System.Drawing.Point( 627, 3 );
+            Label4.Location = new System.Drawing.Point( 624, 3 );
             Label4.Margin = new System.Windows.Forms.Padding( 3 );
             Label4.Name = "Label4";
             Label4.Padding = new System.Windows.Forms.Padding( 1 );
-            Label4.Size = new System.Drawing.Size( 202, 15 );
+            Label4.Size = new System.Drawing.Size( 201, 15 );
             Label4.Style = MetroSet_UI.Enums.Style.Custom;
             Label4.StyleManager = null;
             Label4.TabIndex = 44;
@@ -786,11 +786,11 @@
             Label7.Font = new System.Drawing.Font( "Roboto", 6.75F );
             Label7.HoverText = null;
             Label7.IsDerivedStyle = true;
-            Label7.Location = new System.Drawing.Point( 211, 24 );
+            Label7.Location = new System.Drawing.Point( 210, 24 );
             Label7.Margin = new System.Windows.Forms.Padding( 3 );
             Label7.Name = "Label7";
             Label7.Padding = new System.Windows.Forms.Padding( 1 );
-            Label7.Size = new System.Drawing.Size( 202, 15 );
+            Label7.Size = new System.Drawing.Size( 201, 15 );
             Label7.Style = MetroSet_UI.Enums.Style.Custom;
             Label7.StyleManager = null;
             Label7.TabIndex = 46;
@@ -810,11 +810,11 @@
             Label8.Font = new System.Drawing.Font( "Roboto", 6.75F );
             Label8.HoverText = null;
             Label8.IsDerivedStyle = true;
-            Label8.Location = new System.Drawing.Point( 419, 24 );
+            Label8.Location = new System.Drawing.Point( 417, 24 );
             Label8.Margin = new System.Windows.Forms.Padding( 3 );
             Label8.Name = "Label8";
             Label8.Padding = new System.Windows.Forms.Padding( 1 );
-            Label8.Size = new System.Drawing.Size( 202, 15 );
+            Label8.Size = new System.Drawing.Size( 201, 15 );
             Label8.Style = MetroSet_UI.Enums.Style.Custom;
             Label8.StyleManager = null;
             Label8.TabIndex = 47;
@@ -834,11 +834,11 @@
             Label5.Font = new System.Drawing.Font( "Roboto", 6.75F );
             Label5.HoverText = null;
             Label5.IsDerivedStyle = true;
-            Label5.Location = new System.Drawing.Point( 835, 3 );
+            Label5.Location = new System.Drawing.Point( 831, 3 );
             Label5.Margin = new System.Windows.Forms.Padding( 3 );
             Label5.Name = "Label5";
             Label5.Padding = new System.Windows.Forms.Padding( 1 );
-            Label5.Size = new System.Drawing.Size( 203, 15 );
+            Label5.Size = new System.Drawing.Size( 202, 15 );
             Label5.Style = MetroSet_UI.Enums.Style.Custom;
             Label5.StyleManager = null;
             Label5.TabIndex = 45;
@@ -858,11 +858,11 @@
             Label9.Font = new System.Drawing.Font( "Roboto", 6.75F );
             Label9.HoverText = null;
             Label9.IsDerivedStyle = true;
-            Label9.Location = new System.Drawing.Point( 627, 24 );
+            Label9.Location = new System.Drawing.Point( 624, 24 );
             Label9.Margin = new System.Windows.Forms.Padding( 3 );
             Label9.Name = "Label9";
             Label9.Padding = new System.Windows.Forms.Padding( 1 );
-            Label9.Size = new System.Drawing.Size( 202, 15 );
+            Label9.Size = new System.Drawing.Size( 201, 15 );
             Label9.Style = MetroSet_UI.Enums.Style.Custom;
             Label9.StyleManager = null;
             Label9.TabIndex = 49;
@@ -882,11 +882,11 @@
             Label10.Font = new System.Drawing.Font( "Roboto", 6.75F );
             Label10.HoverText = null;
             Label10.IsDerivedStyle = true;
-            Label10.Location = new System.Drawing.Point( 835, 24 );
+            Label10.Location = new System.Drawing.Point( 831, 24 );
             Label10.Margin = new System.Windows.Forms.Padding( 3 );
             Label10.Name = "Label10";
             Label10.Padding = new System.Windows.Forms.Padding( 1 );
-            Label10.Size = new System.Drawing.Size( 203, 15 );
+            Label10.Size = new System.Drawing.Size( 202, 15 );
             Label10.Style = MetroSet_UI.Enums.Style.Custom;
             Label10.StyleManager = null;
             Label10.TabIndex = 50;
@@ -910,7 +910,7 @@
             Label11.Margin = new System.Windows.Forms.Padding( 3 );
             Label11.Name = "Label11";
             Label11.Padding = new System.Windows.Forms.Padding( 1 );
-            Label11.Size = new System.Drawing.Size( 202, 15 );
+            Label11.Size = new System.Drawing.Size( 201, 15 );
             Label11.Style = MetroSet_UI.Enums.Style.Custom;
             Label11.StyleManager = null;
             Label11.TabIndex = 51;
@@ -930,11 +930,11 @@
             Label12.Font = new System.Drawing.Font( "Roboto", 6.75F );
             Label12.HoverText = null;
             Label12.IsDerivedStyle = true;
-            Label12.Location = new System.Drawing.Point( 211, 45 );
+            Label12.Location = new System.Drawing.Point( 210, 45 );
             Label12.Margin = new System.Windows.Forms.Padding( 3 );
             Label12.Name = "Label12";
             Label12.Padding = new System.Windows.Forms.Padding( 1 );
-            Label12.Size = new System.Drawing.Size( 202, 15 );
+            Label12.Size = new System.Drawing.Size( 201, 15 );
             Label12.Style = MetroSet_UI.Enums.Style.Custom;
             Label12.StyleManager = null;
             Label12.TabIndex = 52;
@@ -954,11 +954,11 @@
             Label13.Font = new System.Drawing.Font( "Roboto", 6.75F );
             Label13.HoverText = null;
             Label13.IsDerivedStyle = true;
-            Label13.Location = new System.Drawing.Point( 419, 45 );
+            Label13.Location = new System.Drawing.Point( 417, 45 );
             Label13.Margin = new System.Windows.Forms.Padding( 3 );
             Label13.Name = "Label13";
             Label13.Padding = new System.Windows.Forms.Padding( 1 );
-            Label13.Size = new System.Drawing.Size( 202, 15 );
+            Label13.Size = new System.Drawing.Size( 201, 15 );
             Label13.Style = MetroSet_UI.Enums.Style.Custom;
             Label13.StyleManager = null;
             Label13.TabIndex = 53;
@@ -978,11 +978,11 @@
             Label14.Font = new System.Drawing.Font( "Roboto", 6.75F );
             Label14.HoverText = null;
             Label14.IsDerivedStyle = true;
-            Label14.Location = new System.Drawing.Point( 627, 45 );
+            Label14.Location = new System.Drawing.Point( 624, 45 );
             Label14.Margin = new System.Windows.Forms.Padding( 3 );
             Label14.Name = "Label14";
             Label14.Padding = new System.Windows.Forms.Padding( 1 );
-            Label14.Size = new System.Drawing.Size( 202, 15 );
+            Label14.Size = new System.Drawing.Size( 201, 15 );
             Label14.Style = MetroSet_UI.Enums.Style.Custom;
             Label14.StyleManager = null;
             Label14.TabIndex = 54;
@@ -1002,11 +1002,11 @@
             Label15.Font = new System.Drawing.Font( "Roboto", 6.75F );
             Label15.HoverText = null;
             Label15.IsDerivedStyle = true;
-            Label15.Location = new System.Drawing.Point( 835, 45 );
+            Label15.Location = new System.Drawing.Point( 831, 45 );
             Label15.Margin = new System.Windows.Forms.Padding( 3 );
             Label15.Name = "Label15";
             Label15.Padding = new System.Windows.Forms.Padding( 1 );
-            Label15.Size = new System.Drawing.Size( 203, 15 );
+            Label15.Size = new System.Drawing.Size( 202, 15 );
             Label15.Style = MetroSet_UI.Enums.Style.Custom;
             Label15.StyleManager = null;
             Label15.TabIndex = 55;
@@ -1026,11 +1026,11 @@
             Label20.Font = new System.Drawing.Font( "Roboto", 6.75F );
             Label20.HoverText = null;
             Label20.IsDerivedStyle = true;
-            Label20.Location = new System.Drawing.Point( 835, 66 );
+            Label20.Location = new System.Drawing.Point( 831, 66 );
             Label20.Margin = new System.Windows.Forms.Padding( 3 );
             Label20.Name = "Label20";
             Label20.Padding = new System.Windows.Forms.Padding( 1 );
-            Label20.Size = new System.Drawing.Size( 203, 15 );
+            Label20.Size = new System.Drawing.Size( 202, 15 );
             Label20.Style = MetroSet_UI.Enums.Style.Custom;
             Label20.StyleManager = null;
             Label20.TabIndex = 57;
@@ -1113,7 +1113,7 @@
             ToolStrip.Separators = null;
             ToolStrip.ShowCaption = true;
             ToolStrip.ShowLauncher = true;
-            ToolStrip.Size = new System.Drawing.Size( 1336, 43 );
+            ToolStrip.Size = new System.Drawing.Size( 1331, 43 );
             ToolStrip.TabIndex = 42;
             ToolStrip.Text = " ";
             ToolStrip.TextBox = null;
@@ -2354,7 +2354,7 @@
             ChartHeaderPanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 1.26582277F ) );
             ChartHeaderPanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 98.73418F ) );
             ChartHeaderPanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 113F ) );
-            ChartHeaderPanel.Size = new System.Drawing.Size( 1049, 655 );
+            ChartHeaderPanel.Size = new System.Drawing.Size( 1044, 650 );
             ChartHeaderPanel.TabIndex = 49;
             // 
             // MetricPanel
@@ -2372,10 +2372,10 @@
             MetricPanel.ForeColor = System.Drawing.Color.Transparent;
             MetricPanel.HoverText = null;
             MetricPanel.IsDerivedStyle = true;
-            MetricPanel.Location = new System.Drawing.Point( 3, 544 );
+            MetricPanel.Location = new System.Drawing.Point( 3, 539 );
             MetricPanel.Name = "MetricPanel";
             MetricPanel.Padding = new System.Windows.Forms.Padding( 1 );
-            MetricPanel.Size = new System.Drawing.Size( 1043, 108 );
+            MetricPanel.Size = new System.Drawing.Size( 1038, 108 );
             MetricPanel.Style = MetroSet_UI.Enums.Style.Custom;
             MetricPanel.StyleManager = null;
             MetricPanel.TabIndex = 1;
@@ -2396,7 +2396,7 @@
             ChartHeaderTable.Name = "ChartHeaderTable";
             ChartHeaderTable.RowCount = 1;
             ChartHeaderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
-            ChartHeaderTable.Size = new System.Drawing.Size( 1338, 24 );
+            ChartHeaderTable.Size = new System.Drawing.Size( 1333, 24 );
             ChartHeaderTable.TabIndex = 50;
             // 
             // PictureBox
@@ -2420,11 +2420,11 @@
             ToolStripTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             ToolStripTable.Controls.Add( ToolStrip, 0, 0 );
             ToolStripTable.Dock = System.Windows.Forms.DockStyle.Bottom;
-            ToolStripTable.Location = new System.Drawing.Point( 0, 694 );
+            ToolStripTable.Location = new System.Drawing.Point( 0, 689 );
             ToolStripTable.Name = "ToolStripTable";
             ToolStripTable.RowCount = 1;
             ToolStripTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            ToolStripTable.Size = new System.Drawing.Size( 1338, 45 );
+            ToolStripTable.Size = new System.Drawing.Size( 1333, 45 );
             ToolStripTable.TabIndex = 1;
             // 
             // ContextMenu
@@ -2458,20 +2458,19 @@
             CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionFont = new System.Drawing.Font( "Roboto", 9.75F );
             CaptionForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            ClientSize = new System.Drawing.Size( 1338, 739 );
+            ClientSize = new System.Drawing.Size( 1333, 734 );
             Controls.Add( ToolStripTable );
             Controls.Add( ChartHeaderTable );
             Controls.Add( ChartHeaderPanel );
             Controls.Add( QueryTabControl );
             Font = new System.Drawing.Font( "Roboto", 9F );
             ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
             MaximizeBox = false;
             MaximumSize = new System.Drawing.Size( 1350, 750 );
             MetroColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             MinimizeBox = false;
-            MinimumSize = new System.Drawing.Size( 1350, 750 );
+            MinimumSize = new System.Drawing.Size( 1340, 740 );
             Name = "ChartDataForm";
             ShowIcon = false;
             ShowMaximizeBox = false;
