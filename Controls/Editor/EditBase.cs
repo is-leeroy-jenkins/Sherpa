@@ -61,47 +61,144 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertTypeCheckPatternToNullCheck" ) ]
     [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     public partial class EditBase : MetroForm
     {
         /// <summary>
-        /// Gets or sets the selected columns.
+        /// The source
         /// </summary>
-        /// <value>
-        /// The selected columns.
-        /// </value>
-        public IList<string> SelectedColumns { get; set; }
+        private protected Source _source;
 
         /// <summary>
-        /// Gets or sets the selected fields.
+        /// The provider
         /// </summary>
-        /// <value>
-        /// The selected fields.
-        /// </value>
-        public IList<string> SelectedFields { get; set; }
+        private protected Provider _provider;
 
         /// <summary>
-        /// Gets or sets the selected numerics.
+        /// The selected columns
         /// </summary>
-        /// <value>
-        /// The selected numerics.
-        /// </value>
-        public IList<string> SelectedNumerics { get; set; }
+        private protected IList<string> _selectedColumns;
 
         /// <summary>
-        /// Gets or sets the source.
+        /// The selected fields
         /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
-        public Source Source { get; set; }
+        private protected IList<string> _selectedFields;
 
         /// <summary>
-        /// Gets or sets the provider.
+        /// The selected numerics
         /// </summary>
-        /// <value>
-        /// The provider.
-        /// </value>
-        public Provider Provider { get; set; }
+        private protected IList<string> _selectedNumerics;
+
+        /// <summary>
+        /// The selected table
+        /// </summary>
+        private protected string _selectedTable;
+
+        /// <summary>
+        /// The data model
+        /// </summary>
+        private protected DataBuilder _dataModel;
+
+        /// <summary>
+        /// The data table
+        /// </summary>
+        private protected DataTable _dataTable;
+
+        /// <summary>
+        /// The current
+        /// </summary>
+        private protected DataRow _current;
+
+        /// <summary>
+        /// The SQL command
+        /// </summary>
+        private protected string _sqlQuery;
+
+        /// <summary>
+        /// The yvalues
+        /// </summary>
+        private protected IList<string> _columns;
+
+        /// <summary>
+        /// The filter
+        /// </summary>
+        private protected IDictionary<string, object> _filter;
+
+        /// <summary>
+        /// The fields
+        /// </summary>
+        private protected IList<string> _fields;
+
+        /// <summary>
+        /// The data arguments
+        /// </summary>
+        private protected DataArgs _dataArgs;
+
+        /// <summary>
+        /// The numerics
+        /// </summary>
+        private protected IList<string> _numerics;
+
+        /// <summary>
+        /// The dates
+        /// </summary>
+        private protected IList<DateTime> _dates;
+
+        /// <summary>
+        /// The panels
+        /// </summary>
+        private protected IDictionary<string, BackPanel> _panels;
+
+        /// <summary>
+        /// The list boxes
+        /// </summary>
+        private protected IDictionary<string, ListBox> _listBoxes;
+
+        /// <summary>
+        /// The command type
+        /// </summary>
+        private protected SQL _commandType;
+
+        /// <summary>
+        /// The labels
+        /// </summary>
+        private protected IDictionary<string, Label> _labels;
+
+        /// <summary>
+        /// The tab pages
+        /// </summary>
+        private protected IDictionary<string, TabPageAdv> _tabPages;
+
+        /// <summary>
+        /// The radio buttons
+        /// </summary>
+        private protected IDictionary<string, RadioButton> _radioButtons;
+
+        /// <summary>
+        /// The combo boxes
+        /// </summary>
+        private protected IDictionary<string, ComboBox> _comboBoxes;
+
+        /// <summary>
+        /// The text boxes
+        /// </summary>
+        private protected IList<TextBox> _textBoxes;
+
+        /// <summary>
+        /// The data types
+        /// </summary>
+        private protected IList<string> _dataTypes;
+
+        /// <summary>
+        /// The tool
+        /// </summary>
+        private protected ToolType _tool;
+
+        /// <summary>
+        /// The active tab
+        /// </summary>
+        private protected TabPageAdv _activeTab;
 
         /// <summary>
         /// Gets or sets the type of the command.
@@ -109,7 +206,17 @@ namespace BudgetExecution
         /// <value>
         /// The type of the command.
         /// </value>
-        public SQL CommandType { get; set; }
+        public SQL CommandType
+        {
+            get
+            {
+                return _commandType;
+            }
+            private protected set
+            {
+                _commandType = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the type of the tool.
@@ -117,7 +224,17 @@ namespace BudgetExecution
         /// <value>
         /// The type of the tool.
         /// </value>
-        public ToolType Tool { get; set; }
+        public ToolType Tool
+        {
+            get
+            {
+                return _tool;
+            }
+            private protected set
+            {
+                _tool = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the active tab.
@@ -125,47 +242,269 @@ namespace BudgetExecution
         /// <value>
         /// The active tab.
         /// </value>
-        public TabPageAdv ActiveTab { get; set; }
+        public TabPageAdv ActiveTab
+        {
+            get
+            {
+                return _activeTab;
+            }
+            private protected set
+            {
+                _activeTab = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the data model.
+        /// Gets the SQL command.
         /// </summary>
         /// <value>
-        /// The data model.
+        /// The SQL command.
         /// </value>
-        public DataBuilder DataModel { get; set; }
+        public string SqlQuery
+        {
+            get
+            {
+                return _sqlQuery;
+            }
+            private protected set
+            {
+                _sqlQuery = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the data table.
-        /// </summary>
-        /// <value>
-        /// The data table.
-        /// </value>
-        public DataTable DataTable { get; set; }
-
-        /// <summary>
-        /// Gets or sets the columns.
+        /// Gets the columns.
         /// </summary>
         /// <value>
         /// The columns.
         /// </value>
-        public IList<string> Columns { get; set; }
+        public IList<string> Columns
+        {
+            get
+            {
+                return _columns;
+            }
+            private protected set
+            {
+                _columns = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the fields.
+        /// Gets the selected table.
+        /// </summary>
+        /// <value>
+        /// The selected table.
+        /// </value>
+        public string SelectedTable
+        {
+            get
+            {
+                return _selectedTable;
+            }
+            private protected set
+            {
+                _selectedTable = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the data model.
+        /// </summary>
+        /// <value>
+        /// The data model.
+        /// </value>
+        public DataBuilder DataModel
+        {
+            get
+            {
+                return _dataModel;
+            }
+            private protected set
+            {
+                _dataModel = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the data table.
+        /// </summary>
+        /// <value>
+        /// The data table.
+        /// </value>
+        public DataTable DataTable
+        {
+            get
+            {
+                return _dataTable;
+            }
+            private protected set
+            {
+                _dataTable = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the current.
+        /// </summary>
+        /// <value>
+        /// The current.
+        /// </value>
+        public DataRow Current
+        {
+            get
+            {
+                return _current;
+            }
+            private protected set
+            {
+                _current = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the filter.
+        /// </summary>
+        /// <value>
+        /// The filter.
+        /// </value>
+        public IDictionary<string, object> Filter
+        {
+            get
+            {
+                return _filter;
+            }
+            private protected set
+            {
+                _filter = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the fields.
         /// </summary>
         /// <value>
         /// The fields.
         /// </value>
-        public IList<string> Fields { get; set; }
+        public IList<string> Fields
+        {
+            get
+            {
+                return _fields;
+            }
+            private protected set
+            {
+                _fields = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the numeric fields.
+        /// Gets the numerics.
         /// </summary>
         /// <value>
         /// The numerics.
         /// </value>
-        public IList<string> Numerics { get; set; }
+        public IList<string> Numerics
+        {
+            get
+            {
+                return _numerics;
+            }
+            private protected set
+            {
+                _numerics = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the selected columns.
+        /// </summary>
+        /// <value>
+        /// The selected columns.
+        /// </value>
+        public IList<string> SelectedColumns
+        {
+            get
+            {
+                return _selectedColumns;
+            }
+            private protected set
+            {
+                _selectedColumns = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the selected fields.
+        /// </summary>
+        /// <value>
+        /// The selected fields.
+        /// </value>
+        public IList<string> SelectedFields
+        {
+            get
+            {
+                return _selectedFields;
+            }
+            private protected set
+            {
+                _selectedFields = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the selected numerics.
+        /// </summary>
+        /// <value>
+        /// The selected numerics.
+        /// </value>
+        public IList<string> SelectedNumerics
+        {
+            get
+            {
+                return _selectedNumerics;
+            }
+            private protected set
+            {
+                _selectedNumerics = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the source.
+        /// </summary>
+        /// <value>
+        /// The source.
+        /// </value>
+        public Source Source
+        {
+            get
+            {
+                return _source;
+            }
+            private protected set
+            {
+                _source = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the provider.
+        /// </summary>
+        /// <value>
+        /// The provider.
+        /// </value>
+        public Provider Provider
+        {
+            get
+            {
+                return _provider;
+            }
+            private protected set
+            {
+                _provider = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the dates.
@@ -173,23 +512,17 @@ namespace BudgetExecution
         /// <value>
         /// The dates.
         /// </value>
-        public IList<DateTime> Dates { get; set; }
-
-        /// <summary>
-        /// Gets or sets the selected table.
-        /// </summary>
-        /// <value>
-        /// The selected table.
-        /// </value>
-        public string SelectedTable { get; set; }
-
-        /// <summary>
-        /// Gets or sets the form filter.
-        /// </summary>
-        /// <value>
-        /// The form filter.
-        /// </value>
-        public IDictionary<string, object> Filter { get; set; }
+        public IList<DateTime> Dates
+        {
+            get
+            {
+                return _dates;
+            }
+            private protected set
+            {
+                _dates = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the panels.
@@ -197,7 +530,17 @@ namespace BudgetExecution
         /// <value>
         /// The panels.
         /// </value>
-        public IDictionary<string, BackPanel> Panels { get; set; }
+        public IDictionary<string, BackPanel> Panels
+        {
+            get
+            {
+                return _panels;
+            }
+            private protected set
+            {
+                _panels = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the list boxes.
@@ -205,7 +548,17 @@ namespace BudgetExecution
         /// <value>
         /// The list boxes.
         /// </value>
-        public IDictionary<string, ListBox> ListBoxes { get; set; }
+        public IDictionary<string, ListBox> ListBoxes
+        {
+            get
+            {
+                return _listBoxes;
+            }
+            private protected set
+            {
+                _listBoxes = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the labels.
@@ -213,7 +566,17 @@ namespace BudgetExecution
         /// <value>
         /// The labels.
         /// </value>
-        public IEnumerable<Label> Labels { get; set; }
+        public IDictionary<string, Label> Labels
+        {
+            get
+            {
+                return _labels;
+            }
+            private protected set
+            {
+                _labels = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the tab pages.
@@ -221,7 +584,17 @@ namespace BudgetExecution
         /// <value>
         /// The tab pages.
         /// </value>
-        public IDictionary<string, TabPageAdv> TabPages { get; set; }
+        public IDictionary<string, TabPageAdv> TabPages
+        {
+            get
+            {
+                return _tabPages;
+            }
+            private protected set
+            {
+                _tabPages = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the radio buttons.
@@ -229,7 +602,17 @@ namespace BudgetExecution
         /// <value>
         /// The radio buttons.
         /// </value>
-        public IDictionary<string, RadioButton> RadioButtons { get; set; }
+        public IDictionary<string, RadioButton> RadioButtons
+        {
+            get
+            {
+                return _radioButtons;
+            }
+            private protected set
+            {
+                _radioButtons = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the combo boxes.
@@ -237,7 +620,17 @@ namespace BudgetExecution
         /// <value>
         /// The combo boxes.
         /// </value>
-        public IDictionary<string, ComboBox> ComboBoxes { get; set; }
+        public IDictionary<string, ComboBox> ComboBoxes
+        {
+            get
+            {
+                return _comboBoxes;
+            }
+            private protected set
+            {
+                _comboBoxes = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the text boxes.
@@ -245,7 +638,17 @@ namespace BudgetExecution
         /// <value>
         /// The text boxes.
         /// </value>
-        public IEnumerable<TextBox> TextBoxes { get; set; }
+        public IList<TextBox> TextBoxes
+        {
+            get
+            {
+                return _textBoxes;
+            }
+            private protected set
+            {
+                _textBoxes = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the data types.
@@ -253,15 +656,35 @@ namespace BudgetExecution
         /// <value>
         /// The data types.
         /// </value>
-        public IEnumerable<string> DataTypes { get; set; }
+        public IList<string> DataTypes
+        {
+            get
+            {
+                return _dataTypes;
+            }
+            private protected set
+            {
+                _dataTypes = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the state of the view.
+        /// Gets the data arguments.
         /// </summary>
         /// <value>
-        /// The state of the view.
+        /// The data arguments.
         /// </value>
-        public DataArgs DataArgs { get; set; }
+        public DataArgs DataArgs
+        {
+            get
+            {
+                return _dataArgs;
+            }
+            private protected set
+            {
+                _dataArgs = value;
+            }
+        }
 
         /// <inheritdoc/>
         /// <summary>
@@ -282,7 +705,7 @@ namespace BudgetExecution
         /// <returns>
         /// IEnumerable
         /// </returns>
-        private protected IEnumerable<string> GetDataTypes( Provider provider )
+        private protected IList<string> GetDataTypes( Provider provider )
         {
             if( Enum.IsDefined( typeof( Provider ), provider ) )
             {
@@ -294,18 +717,19 @@ namespace BudgetExecution
 
                     var _model = new DataBuilder( Source.SchemaTypes, Provider.Access, _query );
                     var _data = _model.DataTable.GetUniqueColumnValues( "TypeName" );
-                    return _data?.Length > 0
-                        ? _data
-                        : default( IEnumerable<string> );
+                    var _list = _data.ToList( );
+                    return _list.Count > 0
+                        ? _list
+                        : default( IList<string> );
                 }
                 catch( Exception _ex )
                 {
                     Fail( _ex );
-                    return default( IEnumerable<string> );
+                    return default( IList<string> );
                 }
             }
 
-            return default( IEnumerable<string> );
+            return default( IList<string> );
         }
 
         /// <summary>
@@ -395,7 +819,6 @@ namespace BudgetExecution
         {
             try
             {
-                var _tabPages = new Dictionary<string, TabPageAdv>( );
                 foreach( var _control in GetControls( ) )
                 {
                     if( _control.GetType( ) == typeof( TabPageAdv ) )
@@ -425,7 +848,6 @@ namespace BudgetExecution
         {
             try
             {
-                var _radioButtons = new Dictionary<string, RadioButton>( );
                 foreach( var _control in GetControls( ) )
                 {
                     if( _control.GetType( ) == typeof( RadioButton ) )
@@ -455,7 +877,6 @@ namespace BudgetExecution
         {
             try
             {
-                var _comboBoxes = new Dictionary<string, ComboBox>( );
                 foreach( var _control in GetControls( ) )
                 {
                     if( _control.GetType( ) == typeof( ComboBox ) )
@@ -485,7 +906,6 @@ namespace BudgetExecution
         {
             try
             {
-                var _panels = new Dictionary<string, BackPanel>( );
                 foreach( var _control in GetControls( ) )
                 {
                     if( _control.GetType( ) == typeof( BackPanel ) )
@@ -515,7 +935,6 @@ namespace BudgetExecution
         {
             try
             {
-                var _listBoxes = new Dictionary<string, ListBox>( );
                 foreach( var _control in GetControls( ) )
                 {
                     if( _control is ListBox _listBox )

@@ -223,8 +223,8 @@ namespace BudgetExecution
             ShowMaximizeBox = false;
             ShowMinimizeBox = false;
             ControlBox = false;
-            Panels = GetPanels( );
-            RadioButtons = GetRadioButtons( );
+            _panels = GetPanels( );
+            _radioButtons = GetRadioButtons( );
 
             // Wire Events
             Load += OnLoad;
@@ -365,13 +365,13 @@ namespace BudgetExecution
         {
             try
             {
-                DataArgs.Provider = Provider;
-                DataArgs.Source = Source;
-                DataArgs.Filter = Filter;
-                DataArgs.SelectedTable = SelectedTable;
-                DataArgs.SelectedFields = SelectedFields;
-                DataArgs.SelectedNumerics = SelectedNumerics;
-                DataArgs.SqlQuery = SqlQuery;
+                _dataArgs.Provider = _provider;
+                _dataArgs.Source = _source;
+                _dataArgs.Filter = _filter;
+                _dataArgs.SelectedTable = _selectedTable;
+                _dataArgs.SelectedFields = _selectedFields;
+                _dataArgs.SelectedNumerics = _selectedNumerics;
+                _dataArgs.SqlQuery = _sqlQuery;
             }
             catch( Exception _ex )
             {

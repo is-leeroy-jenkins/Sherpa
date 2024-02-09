@@ -58,6 +58,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     public partial class DelayForm : MetroForm
     {
         /// <summary>
@@ -120,8 +121,14 @@ namespace BudgetExecution
         /// </value>
         public bool IsBusy
         {
-            get { return _busy; }
-            private set { _busy = value; }
+            get
+            {
+                return _busy;
+            }
+            private set
+            {
+                _busy = value;
+            }
         }
 
         /// <inheritdoc/>

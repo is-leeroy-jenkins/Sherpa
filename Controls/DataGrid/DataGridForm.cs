@@ -31,7 +31,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    Contact at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//    Contact at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   DataGridForm.cs
@@ -172,6 +172,11 @@ namespace BudgetExecution
         private DataTable _dataTable;
 
         /// <summary>
+        /// The current
+        /// </summary>
+        private DataRow _current;
+
+        /// <summary>
         /// The filter
         /// </summary>
         private IDictionary<string, object> _filter;
@@ -215,6 +220,24 @@ namespace BudgetExecution
         /// The data arguments
         /// </summary>
         private DataArgs _dataArgs;
+
+        /// <summary>
+        /// Gets or sets the current.
+        /// </summary>
+        /// <value>
+        /// The current.
+        /// </value>
+        public DataRow Current
+        {
+            get
+            {
+                return _current;
+            }
+            private set
+            {
+                _current = value;
+            }
+        }
 
         /// <summary>
         /// Gets the time.

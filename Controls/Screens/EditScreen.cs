@@ -62,6 +62,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     public partial class EditScreen : EditBase
     {
         /// <summary>
@@ -70,12 +71,107 @@ namespace BudgetExecution
         private bool _busy;
 
         /// <summary>
+        /// The status update
+        /// </summary>
+        private System.Action _statusUpdate;
+
+        /// <summary>
+        /// The time
+        /// </summary>
+        private int _time;
+
+        /// <summary>
+        /// The seconds
+        /// </summary>
+        private int _seconds;
+
+        /// <summary>
+        /// The count
+        /// </summary>
+        private int _count;
+
+        /// <summary>
+        /// The first category
+        /// </summary>
+        private string _firstCategory;
+
+        /// <summary>
+        /// The first value
+        /// </summary>
+        private string _firstValue;
+
+        /// <summary>
+        /// The second category
+        /// </summary>
+        private string _secondCategory;
+
+        /// <summary>
+        /// The second value
+        /// </summary>
+        private string _secondValue;
+
+        /// <summary>
+        /// The third category
+        /// </summary>
+        private string _thirdCategory;
+
+        /// <summary>
+        /// The third value
+        /// </summary>
+        private string _thirdValue;
+
+        /// <summary>
+        /// The fourth category
+        /// </summary>
+        private string _fourthCategory;
+
+        /// <summary>
+        /// The fourth value
+        /// </summary>
+        private string _fourthValue;
+
+        /// <summary>
+        /// The selected query
+        /// </summary>
+        private string _selectedQuery;
+
+        /// <summary>
+        /// The selected command
+        /// </summary>
+        private string _selectedCommand;
+
+        /// <summary>
+        /// The commands
+        /// </summary>
+        private IList<string> _commands;
+
+        /// <summary>
+        /// The statements
+        /// </summary>
+        private IDictionary<string, object> _statements;
+
+        /// <summary>
+        /// The frames
+        /// </summary>
+        private IList<Frame> _frames;
+
+        /// <summary>
         /// Gets or sets the time.
         /// </summary>
         /// <value>
         /// The time.
         /// </value>
-        public int Time { get; set; }
+        public int Time
+        {
+            get
+            {
+                return _time;
+            }
+            private set
+            {
+                _time = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the seconds.
@@ -83,71 +179,233 @@ namespace BudgetExecution
         /// <value>
         /// The seconds.
         /// </value>
-        public int Seconds { get; set; }
+        public int Seconds
+        {
+            get
+            {
+                return _seconds;
+            }
+            private set
+            {
+                _seconds = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the first category.
+        /// Gets the first category.
         /// </summary>
         /// <value>
         /// The first category.
         /// </value>
-        public string FirstCategory { get; set; }
+        public string FirstCategory
+        {
+            get
+            {
+                return _firstCategory;
+            }
+            private set
+            {
+                _firstCategory = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the first value.
+        /// Gets the first value.
         /// </summary>
         /// <value>
         /// The first value.
         /// </value>
-        public string FirstValue { get; set; }
+        public string FirstValue
+        {
+            get
+            {
+                return _firstValue;
+            }
+            private set
+            {
+                _firstValue = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the second category.
+        /// Gets the second category.
         /// </summary>
         /// <value>
         /// The second category.
         /// </value>
-        public string SecondCategory { get; set; }
+        public string SecondCategory
+        {
+            get
+            {
+                return _secondCategory;
+            }
+            private set
+            {
+                _secondCategory = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the second value.
+        /// Gets the second value.
         /// </summary>
         /// <value>
         /// The second value.
         /// </value>
-        public string SecondValue { get; set; }
+        public string SecondValue
+        {
+            get
+            {
+                return _secondValue;
+            }
+            private set
+            {
+                _secondValue = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the third category.
+        /// Gets the third category.
         /// </summary>
         /// <value>
         /// The third category.
         /// </value>
-        public string ThirdCategory { get; set; }
+        public string ThirdCategory
+        {
+            get
+            {
+                return _thirdCategory;
+            }
+            private set
+            {
+                _thirdCategory = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the third value.
+        /// Gets the third value.
         /// </summary>
         /// <value>
         /// The third value.
         /// </value>
-        public string ThirdValue { get; set; }
+        public string ThirdValue
+        {
+            get
+            {
+                return _thirdValue;
+            }
+            private set
+            {
+                _thirdValue = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the SQL query.
+        /// Gets or sets the selected query.
         /// </summary>
         /// <value>
-        /// The SQL query.
+        /// The selected query.
         /// </value>
-        public string SqlQuery { get; set; }
+        public string SelectedQuery
+        {
+            get
+            {
+                return _selectedQuery;
+            }
+            private set
+            {
+                _selectedQuery = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the current.
+        /// Gets the fourth category.
         /// </summary>
         /// <value>
-        /// The current.
+        /// The fourth category.
         /// </value>
-        public DataRow Current { get; set; }
+        public string FourthCategory
+        {
+            get
+            {
+                return _fourthCategory;
+            }
+            private set
+            {
+                _fourthCategory = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the fourth value.
+        /// </summary>
+        /// <value>
+        /// The fourth value.
+        /// </value>
+        public string FourthValue
+        {
+            get
+            {
+                return _fourthValue;
+            }
+            private set
+            {
+                _fourthValue = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the selected command.
+        /// </summary>
+        /// <value>
+        /// The selected command.
+        /// </value>
+        public string SelectedCommand
+        {
+            get
+            {
+                return _selectedCommand;
+            }
+            private set
+            {
+                _selectedCommand = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the commands.
+        /// </summary>
+        /// <value>
+        /// The commands.
+        /// </value>
+        public IList<string> Commands
+        {
+            get
+            {
+                return _commands;
+            }
+            private set
+            {
+                _commands = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the statements.
+        /// </summary>
+        /// <value>
+        /// The statements.
+        /// </value>
+        public IDictionary<string, object> Statements
+        {
+            get
+            {
+                return _statements;
+            }
+            private set
+            {
+                _statements = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the frames.
@@ -167,8 +425,14 @@ namespace BudgetExecution
         /// </value>
         public bool IsBusy
         {
-            get { return _busy; }
-            private set { _busy = value; }
+            get
+            {
+                return _busy;
+            }
+            private set
+            {
+                _busy = value;
+            }
         }
 
         /// <inheritdoc/>
@@ -183,9 +447,9 @@ namespace BudgetExecution
             RegisterCallbacks( );
 
             // Basic Properties
-            Size = new Size( 1340, 648 );
+            Size = new Size( 1335, 643 );
             MaximumSize = new Size( 1340, 648 );
-            MinimumSize = new Size( 1340, 648 );
+            MinimumSize = new Size( 1330, 638 );
             StartPosition = FormStartPosition.CenterParent;
             FormBorderStyle = FormBorderStyle.None;
             BackColor = Color.FromArgb( 20, 20, 20 );
@@ -210,8 +474,8 @@ namespace BudgetExecution
             ShowMaximizeBox = false;
             ShowMinimizeBox = false;
             ControlBox = false;
-            Frames = GetFrames( );
-            TabPages = GetTabPages( );
+            _frames = GetFrames( );
+            _tabPages = GetTabPages( );
 
             // Form Event Wiring
             Load += OnLoad;
@@ -231,16 +495,15 @@ namespace BudgetExecution
             : this( )
         {
             BindingSource = bindingSource;
-            Filter = new Dictionary<string, object>( );
-            Current = bindingSource.GetCurrentDataRow( );
-            SelectedTable = Current.Table.TableName;
-            Provider = Provider.Access;
-            Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
-            DataModel = new DataBuilder( Source, Provider );
-            DataTable = DataModel.DataTable;
-            Columns = DataModel.ColumnNames;
-            Fields = DataModel?.Fields;
-            Numerics = DataModel?.Numerics;
+            _filter = new Dictionary<string, object>( );
+            _current = bindingSource.GetCurrentDataRow( );
+            _provider = Provider.Access;
+            _source = (Source)Enum.Parse( typeof( Source ), _selectedTable );
+            _dataModel = new DataBuilder( _source, _provider );
+            _dataTable = _dataModel.DataTable;
+            _columns = _dataModel.ColumnNames;
+            _fields = _dataModel?.Fields;
+            _numerics = _dataModel?.Numerics;
         }
 
         /// <inheritdoc/>
@@ -255,17 +518,17 @@ namespace BudgetExecution
         public EditScreen( DataBuilder dataModel )
             : this( )
         {
-            DataModel = dataModel;
-            Provider = dataModel.Provider;
-            Source = dataModel.Source;
-            Filter = new Dictionary<string, object>( );
-            CommandType = dataModel.SqlStatement.CommandType;
+            _dataModel = dataModel;
+            _provider = dataModel.Provider;
+            _source = dataModel.Source;
+            _filter = new Dictionary<string, object>( );
+            _commandType = dataModel.SqlStatement.CommandType;
             BindingSource.DataSource = dataModel.DataTable;
-            DataTable = dataModel.DataTable;
-            Columns = dataModel.DataTable.GetColumnNames( );
-            Current = dataModel.Record;
-            Fields = dataModel?.Fields;
-            Numerics = dataModel?.Numerics;
+            _dataTable = dataModel.DataTable;
+            _columns = dataModel.DataTable.GetColumnNames( );
+            _current = dataModel.Record;
+            _fields = dataModel?.Fields;
+            _numerics = dataModel?.Numerics;
         }
 
         /// <inheritdoc/>
@@ -280,16 +543,17 @@ namespace BudgetExecution
         public EditScreen( Source source, Provider provider, IDictionary<string, object> where )
             : this( )
         {
-            Provider = provider;
-            Source = source;
-            Filter = where;
-            DataModel = new DataBuilder( source, provider );
-            DataTable = DataModel.DataTable;
-            BindingSource.DataSource = DataModel.DataTable;
-            Columns = DataTable.GetColumnNames( );
-            Current = BindingSource.GetCurrentDataRow( );
-            Fields = DataModel?.Fields;
-            Numerics = DataModel?.Numerics;
+            _provider = provider;
+            _source = source;
+            _filter = where;
+            _dataModel = new DataBuilder( source, provider );
+            _dataTable = _dataModel.DataTable;
+            _commandType = _dataModel.SqlStatement.CommandType;
+            BindingSource.DataSource = _dataModel.DataTable;
+            _columns = _dataTable.GetColumnNames( );
+            _current = BindingSource.GetCurrentDataRow( );
+            _fields = _dataModel?.Fields;
+            _numerics = _dataModel?.Numerics;
         }
 
         /// <inheritdoc />
@@ -301,16 +565,17 @@ namespace BudgetExecution
         public EditScreen( Source source, Provider provider = Provider.Access )
             : this( )
         {
-            Provider = provider;
-            Source = source;
-            Filter = new Dictionary<string, object>( );
-            DataModel = new DataBuilder( source, provider );
-            DataTable = DataModel.DataTable;
-            BindingSource.DataSource = DataModel.DataTable;
-            Columns = DataTable.GetColumnNames( );
-            Current = BindingSource.GetCurrentDataRow( );
-            Fields = DataModel?.Fields;
-            Numerics = DataModel?.Numerics;
+            _provider = provider;
+            _source = source;
+            _filter = new Dictionary<string, object>( );
+            _dataModel = new DataBuilder( source, provider );
+            _dataTable = _dataModel.DataTable;
+            _commandType = _dataModel.SqlStatement.CommandType;
+            BindingSource.DataSource = _dataTable;
+            _columns = _dataTable.GetColumnNames( );
+            _current = BindingSource.GetCurrentDataRow( );
+            _fields = _dataModel?.Fields;
+            _numerics = _dataModel?.Numerics;
         }
 
         /// <summary>
@@ -385,15 +650,15 @@ namespace BudgetExecution
         /// </summary>
         public void SetFrameVisibility( )
         {
-            if( Frames?.Any( ) == true )
+            if( _frames?.Any( ) == true )
             {
                 try
                 {
-                    var _cols = Columns.ToArray( );
-                    var _frames = Frames.ToArray( );
-                    for( var _i = 0; _i < _frames.Length; _i++ )
+                    var _cols = _columns.ToArray( );
+                    var _controls = _frames.ToArray( );
+                    for( var _i = 0; _i < _controls.Length; _i++ )
                     {
-                        var _frame = _frames[ _i ];
+                        var _frame = _controls[ _i ];
                         if( _frame.Index >= _cols.Length )
                         {
                             _frame.Visible = false;
@@ -412,11 +677,10 @@ namespace BudgetExecution
         /// </summary>
         /// <returns>
         /// </returns>
-        public IEnumerable<Frame> GetFrames( )
+        public IList<Frame> GetFrames( )
         {
             try
             {
-                var _frames = new List<Frame>( );
                 for( var _i = 0; _i < FrameTable.Controls.Count; _i++ )
                 {
                     var _control = FrameTable.Controls[ _i ];
@@ -431,13 +695,13 @@ namespace BudgetExecution
                 }
 
                 return _frames?.Any( ) == true
-                    ? _frames.OrderBy( f => f.Index ).ToArray( )
-                    : default( IEnumerable<Frame> );
+                    ? _frames.OrderBy( f => f.Index )?.ToArray( )
+                    : default( IList<Frame> );
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return default( IEnumerable<Frame> );
+                return default( IList<Frame> );
             }
         }
 
@@ -565,32 +829,32 @@ namespace BudgetExecution
         /// </summary>
         private void BindRecord( )
         {
-            if( Current != null
-               && Frames?.Any( ) == true
-               && Columns?.Any( ) == true )
+            if( _current != null
+               && _frames?.Any( ) == true
+               && _columns?.Any( ) == true )
             {
                 try
                 {
-                    var _items = Current.ItemArray;
-                    var _frames = Frames.OrderBy( f => f.Index ).ToArray( );
-                    var _cols = Columns.ToArray( );
+                    var _items = _current.ItemArray;
+                    var _controls = _frames.OrderBy( f => f.Index ).ToArray( );
+                    var _cols = _columns.ToArray( );
                     for( var _i = 0; _i < _cols.Length; _i++ )
                     {
-                        _frames[ _i ].Label.Text = _cols[ _i ].SplitPascal( );
+                        _controls[ _i ].Label.Text = _cols[ _i ].SplitPascal( );
                         var _text = _items[ _i ]?.ToString( );
-                        if( Numerics?.Contains( _cols[ _i ] ) == true
+                        if( _numerics?.Contains( _cols[ _i ] ) == true
                            && !string.IsNullOrEmpty( _text ) )
                         {
                             var _value = double.Parse( _text );
-                            _frames[ _i ].TextBox.Font = new Font( "Roboto", 8 );
-                            _frames[ _i ].TextBox.Text = _value.ToString( "N2" );
-                            _frames[ _i ].TextBox.TextAlign = HorizontalAlignment.Right;
+                            _controls[ _i ].TextBox.Font = new Font( "Roboto", 8 );
+                            _controls[ _i ].TextBox.Text = _value.ToString( "N2" );
+                            _controls[ _i ].TextBox.TextAlign = HorizontalAlignment.Right;
                         }
                         else
                         {
-                            _frames[ _i ].TextBox.Font = new Font( "Roboto", 8 );
-                            _frames[ _i ].TextBox.Text = _items[ _i ]?.ToString( );
-                            _frames[ _i ].TextBox.TextAlign = HorizontalAlignment.Left;
+                            _controls[ _i ].TextBox.Font = new Font( "Roboto", 8 );
+                            _controls[ _i ].TextBox.Text = _items[ _i ]?.ToString( );
+                            _controls[ _i ].TextBox.TextAlign = HorizontalAlignment.Left;
                         }
                     }
                 }
@@ -606,9 +870,9 @@ namespace BudgetExecution
         /// </summary>
         private void SetFrameColors( )
         {
-            if( Frames?.Any( ) == true )
+            if( _frames?.Any( ) == true )
             {
-                foreach( var _frame in Frames )
+                foreach( var _frame in _frames )
                 {
                     _frame.Label.ForeColor = Color.FromArgb( 106, 189, 252 );
                     _frame.TextBox.ForeColor = Color.FromArgb( 106, 189, 252 );
@@ -656,10 +920,9 @@ namespace BudgetExecution
                 ClearSelections( );
                 ClearCollections( );
                 ClearFilter( );
-                SelectedTable = string.Empty;
                 BindingSource.DataSource = null;
-                DataModel = null;
-                DataTable = null;
+                _dataModel = null;
+                _dataTable = null;
             }
             catch( Exception _ex )
             {
@@ -674,9 +937,9 @@ namespace BudgetExecution
         {
             try
             {
-                if( Filter?.Any( ) == true )
+                if( _filter?.Any( ) == true )
                 {
-                    Filter.Clear( );
+                    _filter.Clear( );
                 }
             }
             catch( Exception _ex )
@@ -692,19 +955,29 @@ namespace BudgetExecution
         {
             try
             {
-                if( SelectedColumns?.Any( ) == true )
+                if( _selectedColumns?.Any( ) == true )
                 {
-                    SelectedColumns.Clear( );
+                    _selectedColumns.Clear( );
                 }
 
-                if( SelectedFields?.Any( ) == true )
+                if( _selectedFields?.Any( ) == true )
                 {
-                    SelectedFields.Clear( );
+                    _selectedFields.Clear( );
                 }
 
-                if( SelectedNumerics?.Any( ) == true )
+                if( _selectedNumerics?.Any( ) == true )
                 {
-                    SelectedNumerics.Clear( );
+                    _selectedNumerics.Clear( );
+                }
+
+                if( _commands?.Any( ) == true )
+                {
+                    _commands.Clear( );
+                }
+
+                if( _statements?.Any( ) == true )
+                {
+                    _statements.Clear( );
                 }
             }
             catch( Exception _ex )
