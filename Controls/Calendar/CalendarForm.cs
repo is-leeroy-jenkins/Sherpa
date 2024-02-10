@@ -61,6 +61,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     public sealed partial class CalendarForm : MetroForm
     {
         /// <summary>
@@ -69,25 +70,110 @@ namespace BudgetExecution
         private System.Action _statusUpdate;
 
         /// <summary>
+        /// The time
+        /// </summary>
+        private int _time;
+
+        /// <summary>
+        /// The seconds
+        /// </summary>
+        private int _seconds;
+
+        /// <summary>
         /// The busy
         /// </summary>
         private bool _busy;
 
         /// <summary>
-        /// Gets or sets the time.
+        /// The start date
+        /// </summary>
+        private DateTime _startDate;
+
+        /// <summary>
+        /// The end date
+        /// </summary>
+        private DateTime _endDate;
+
+        /// <summary>
+        /// The date string
+        /// </summary>
+        private string _dateString;
+
+        /// <summary>
+        /// The selected start
+        /// </summary>
+        private string _selectedStart;
+
+        /// <summary>
+        /// The selected end
+        /// </summary>
+        private string _selectedEnd;
+
+        /// <summary>
+        /// The data set
+        /// </summary>
+        private DataSet _dataSet;
+
+        /// <summary>
+        /// The holidays
+        /// </summary>
+        private DataTable _holidays;
+
+        /// <summary>
+        /// The fiscal years
+        /// </summary>
+        private DataTable _fiscalYears;
+
+        /// <summary>
+        /// The selected dates
+        /// </summary>
+        private IList<DateTime> _selectedDates;
+
+        /// <summary>
+        /// The data model
+        /// </summary>
+        private DataBuilder _dataModel;
+
+        /// <summary>
+        /// The data arguments
+        /// </summary>
+        private DataArgs _dataArgs;
+
+        /// <summary>
+        /// Gets the time.
         /// </summary>
         /// <value>
         /// The time.
         /// </value>
-        public int Time { get; set; }
+        public int Time
+        {
+            get
+            {
+                return _time;
+            }
+            private set
+            {
+                _time = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the seconds.
+        /// Gets the seconds.
         /// </summary>
         /// <value>
         /// The seconds.
         /// </value>
-        public int Seconds { get; set; }
+        public int Seconds
+        {
+            get
+            {
+                return _seconds;
+            }
+            private set
+            {
+                _seconds = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the date string.
@@ -95,7 +181,17 @@ namespace BudgetExecution
         /// <value>
         /// The date string.
         /// </value>
-        public string DateString { get; set; }
+        public string DateString
+        {
+            get
+            {
+                return _dateString;
+            }
+            private set
+            {
+                _dateString = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the start date.
@@ -103,7 +199,17 @@ namespace BudgetExecution
         /// <value>
         /// The start date.
         /// </value>
-        public DateTime StartDate { get; set; }
+        public DateTime StartDate
+        {
+            get
+            {
+                return _startDate;
+            }
+            private set
+            {
+                _startDate = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the end date.
@@ -111,7 +217,17 @@ namespace BudgetExecution
         /// <value>
         /// The end date.
         /// </value>
-        public DateTime EndDate { get; set; }
+        public DateTime EndDate
+        {
+            get
+            {
+                return _endDate;
+            }
+            private set
+            {
+                _endDate = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the selected start.
@@ -119,7 +235,17 @@ namespace BudgetExecution
         /// <value>
         /// The selected start.
         /// </value>
-        public string SelectedStart { get; set; }
+        public string SelectedStart
+        {
+            get
+            {
+                return _selectedStart;
+            }
+            private set
+            {
+                _selectedStart = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the selected end.
@@ -127,7 +253,17 @@ namespace BudgetExecution
         /// <value>
         /// The selected end.
         /// </value>
-        public string SelectedEnd { get; set; }
+        public string SelectedEnd
+        {
+            get
+            {
+                return _selectedEnd;
+            }
+            private set
+            {
+                _selectedEnd = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the data.
@@ -135,7 +271,17 @@ namespace BudgetExecution
         /// <value>
         /// The data.
         /// </value>
-        public DataSet Data { get; set; }
+        public DataSet Data
+        {
+            get
+            {
+                return _dataSet;
+            }
+            private set
+            {
+                _dataSet = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the holidays.
@@ -143,7 +289,17 @@ namespace BudgetExecution
         /// <value>
         /// The holidays.
         /// </value>
-        public DataTable Holidays { get; set; }
+        public DataTable Holidays
+        {
+            get
+            {
+                return _holidays;
+            }
+            private set
+            {
+                _holidays = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the fiscal years.
@@ -151,7 +307,17 @@ namespace BudgetExecution
         /// <value>
         /// The fiscal years.
         /// </value>
-        public DataTable FiscalYears { get; set; }
+        public DataTable FiscalYears
+        {
+            get
+            {
+                return _fiscalYears;
+            }
+            private set
+            {
+                _fiscalYears = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the data model.
@@ -159,7 +325,17 @@ namespace BudgetExecution
         /// <value>
         /// The data model.
         /// </value>
-        public DataBuilder DataModel { get; set; }
+        public DataBuilder DataModel
+        {
+            get
+            {
+                return _dataModel;
+            }
+            private set
+            {
+                _dataModel = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the data arguments.
@@ -167,7 +343,17 @@ namespace BudgetExecution
         /// <value>
         /// The data arguments.
         /// </value>
-        public DataArgs DataArgs { get; set; }
+        public DataArgs DataArgs
+        {
+            get
+            {
+                return _dataArgs;
+            }
+            private set
+            {
+                _dataArgs = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the selected dates.
@@ -175,7 +361,17 @@ namespace BudgetExecution
         /// <value>
         /// The selected dates.
         /// </value>
-        public IList<DateTime> SelectedDates { get; set; }
+        public IList<DateTime> SelectedDates
+        {
+            get
+            {
+                return _selectedDates;
+            }
+            private set
+            {
+                _selectedDates = value;
+            }
+        }
 
         /// <summary>
         /// Gets a value indicating whether this instance is busy.
@@ -209,11 +405,12 @@ namespace BudgetExecution
             RegisterCallbacks( );
 
             // Basic Properties
-            Size = new Size( 1350, 750 );
+            Size = new Size( 1345, 745 );
             MaximumSize = new Size( 1350, 750 );
-            MinimumSize = new Size( 1350, 750 );
+            MinimumSize = new Size( 1340, 740 );
             StartPosition = FormStartPosition.CenterScreen;
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.Sizable;
+            WindowState = FormWindowState.Maximized;
             BorderColor = Color.FromArgb( 0, 120, 212 );
             BorderThickness = 1;
             BackColor = Color.FromArgb( 20, 20, 20 );
@@ -238,8 +435,8 @@ namespace BudgetExecution
             ControlBox = false;
 
             // Timer Properties
-            Time = 0;
-            Seconds = 5;
+            _time = 0;
+            _seconds = 5;
 
             // Event Wiring
             Load += OnLoad;
@@ -254,14 +451,14 @@ namespace BudgetExecution
             try
             {
                 Opacity = 0;
-                if( Seconds != 0 )
+                if( _seconds != 0 )
                 {
                     Timer = new Timer( );
                     Timer.Interval = 10;
                     Timer.Tick += ( sender, args ) =>
                     {
                         Time++;
-                        if( Time == Seconds )
+                        if( _time == _seconds )
                         {
                             Timer.Stop( );
                         }
@@ -558,9 +755,9 @@ namespace BudgetExecution
         {
             try
             {
-                DataArgs = new DataArgs( );
-                Holidays = null;
-                FiscalYears = null;
+                _dataArgs = new DataArgs( );
+                _holidays = null;
+                _fiscalYears = null;
                 BindingSource.DataSource = null;
                 DataGrid.BindingSource.DataSource = null;
                 ToolStrip.BindingSource.DataSource = null;
@@ -729,7 +926,7 @@ namespace BudgetExecution
                 var _weekdays = start.CountWeekDays( end );
                 var _weekends = start.CountWeekEnds( end );
                 var _workdays = start.CountWorkdays( end );
-                var _holidays = CountHolidays( start, end );
+                var _offDays = CountHolidays( start, end );
                 var _fte = ( _workdays * 8M / 2050M ).ToString( "N3" );
                 Label1.Text = $"Start:  {start.ToShortDateString( )}";
                 Label2.Text = $"End:  {end.ToShortDateString( )}";
@@ -739,7 +936,7 @@ namespace BudgetExecution
                 Label6.Text = $"Weekdays: {_weekdays}";
                 Label7.Text = $"Workdays: {_workdays}";
                 Label8.Text = $"Weekends: {_weekends}";
-                Label9.Text = $"Holidays: {_holidays}";
+                Label9.Text = $"Holidays: {_offDays}";
                 Label10.Visible = false;
                 Label11.Visible = false;
                 Label12.Visible = false;
@@ -785,12 +982,12 @@ namespace BudgetExecution
                 var _weekdays = start.CountWeekDays( end );
                 var _weekends = start.CountWeekEnds( end );
                 var _workdays = start.CountWorkdays( end );
-                var _holidays = CountHolidays( start, end );
+                var _offDays = CountHolidays( start, end );
                 var _data = new Dictionary<string, double>( );
                 _data.Add( "Weekdays", _weekdays );
                 _data.Add( "Workdays", _workdays );
                 _data.Add( "Weekends", _weekends );
-                _data.Add( nameof( Holidays ), _holidays );
+                _data.Add( "Holidays", _offDays );
                 var _text = $"From {_start} To {_end} ";
                 Chart.Titles[ 0 ].Text = _text;
                 var _values = _data.Values.ToArray( );
@@ -879,8 +1076,8 @@ namespace BudgetExecution
                 SetActiveTab( );
                 ClearLabels( );
                 FadeIn( );
-                DataArgs = new DataArgs( );
-                SelectedDates = new List<DateTime>( );
+                _dataArgs = new DataArgs( );
+                _selectedDates = new List<DateTime>( );
                 TabControl.SelectedIndex = 0;
             }
             catch( Exception _ex )
@@ -973,9 +1170,9 @@ namespace BudgetExecution
         {
             try
             {
-                EndDate = DateTime.Parse( SecondCalendar.SelectedDate.ToString( ) );
-                BindChart( StartDate, EndDate );
-                UpdateLabelText( StartDate, EndDate );
+                _endDate = DateTime.Parse( SecondCalendar.SelectedDate.ToString( ) );
+                BindChart( _startDate, _endDate );
+                UpdateLabelText( _startDate, _endDate );
             }
             catch( Exception _ex )
             {
@@ -1035,10 +1232,10 @@ namespace BudgetExecution
             try
             {
                 ClearLabels( );
-                StartDate = DateTime.Today;
-                EndDate = DateTime.Today;
-                FirstCalendar.SelectedDate = StartDate;
-                SecondCalendar.SelectedDate = EndDate;
+                _startDate = DateTime.Today;
+                _endDate = DateTime.Today;
+                FirstCalendar.SelectedDate = _startDate;
+                SecondCalendar.SelectedDate = _endDate;
                 Chart.Series[ 0 ].Points.Clear( );
                 Chart.Titles[ 0 ].Text = string.Empty;
                 TabControl.SelectedIndex = 0;

@@ -113,7 +113,7 @@ namespace BudgetExecution
         private string _hoverText;
 
         /// <summary>
-        /// The selected table
+        /// The selected dataTable
         /// </summary>
         private string _selectedTable;
 
@@ -183,7 +183,7 @@ namespace BudgetExecution
         private DataBuilder _dataModel;
 
         /// <summary>
-        /// The data table
+        /// The data dataTable
         /// </summary>
         private DataTable _dataTable;
 
@@ -328,10 +328,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the selected table.
+        /// Gets the selected dataTable.
         /// </summary>
         /// <value>
-        /// The selected table.
+        /// The selected dataTable.
         /// </value>
         public string SelectedTable
         {
@@ -544,10 +544,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the data table.
+        /// Gets the data dataTable.
         /// </summary>
         /// <value>
-        /// The data table.
+        /// The data dataTable.
         /// </value>
         public DataTable DataTable
         {
@@ -759,6 +759,7 @@ namespace BudgetExecution
             MinimumSize = new Size( 1340, 740 );
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.Sizable;
+            WindowState = FormWindowState.Maximized;
             BorderColor = Color.FromArgb( 0, 120, 212 );
             BorderThickness = 1;
             BackColor = Color.FromArgb( 20, 20, 20 );
@@ -781,6 +782,10 @@ namespace BudgetExecution
             MinimizeBox = false;
             MaximizeBox = false;
             ControlBox = false;
+
+            // Timer Properties
+            _time = 0;
+            _seconds = 5;
 
             // Ribbon Properties
             Ribbon.Spreadsheet = Spreadsheet;
@@ -823,9 +828,9 @@ namespace BudgetExecution
             : this( )
         {
             BindingSource.DataSource = (DataTable)bindingSource.DataSource;
-            DataTable = (DataTable)bindingSource.DataSource;
-            SelectedTable = ( (DataTable)bindingSource.DataSource ).TableName;
-            Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
+            _dataTable = (DataTable)bindingSource.DataSource;
+            _selectedTable = ( (DataTable)bindingSource.DataSource ).TableName;
+            _source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
             Header.Text = $"{SelectedTable.SplitPascal( )} ";
         }
 
@@ -835,13 +840,13 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.ExcelDataForm"/>
         /// class.
         /// </summary>
-        /// <param name="dataTable"> The data table. </param>
+        /// <param name="dataTable"> The data dataTable. </param>
         public ExcelDataForm( DataTable dataTable )
             : this( )
         {
-            DataTable = dataTable;
+            _dataTable = dataTable;
             BindingSource.DataSource = dataTable;
-            Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
+            _source = (Source)Enum.Parse( typeof( Source ), _dataTable.TableName );
             Header.Text = $"{DataTable.TableName.SplitPascal( )} ";
         }
 
@@ -970,7 +975,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes the table.
+        /// Initializes the dataTable.
         /// </summary>
         private void InitializeTable( )
         {
@@ -993,23 +998,23 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes the table.
+        /// Initializes the dataTable.
         /// </summary>
-        /// <param name="table">The table.</param>
-        private void InitializeTable( DataTable table )
+        /// <param name="dataTable">The dataTable.</param>
+        private void InitializeTable( DataTable dataTable )
         {
-            if( table?.Rows?.Count > 0 )
+            if( dataTable?.Rows?.Count > 0 )
             {
                 try
                 {
                     Spreadsheet?.SetActiveSheet( "Sheet1" );
                     Spreadsheet?.RenameSheet( "Sheet1", "Data" );
                     Spreadsheet?.SetZoomFactor( "Data", 100 );
-                    Spreadsheet?.ActiveSheet?.ImportDataTable( table, true, 1, 1 );
+                    Spreadsheet?.ActiveSheet?.ImportDataTable( dataTable, true, 1, 1 );
                     Spreadsheet?.SetGridLinesVisibility( false );
                     var _activeSheet = Spreadsheet?.Workbook?.ActiveSheet;
                     var _usedRange = _activeSheet?.UsedRange;
-                    var _table = _activeSheet?.ListObjects?.Create( table.TableName, _usedRange );
+                    var _table = _activeSheet?.ListObjects?.Create( dataTable.TableName, _usedRange );
                     _usedRange.CellStyle.Font.FontName = "Roboto";
                     _usedRange.CellStyle.Font.Size = 9;
                     _usedRange.CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
@@ -1020,7 +1025,7 @@ namespace BudgetExecution
                     ToolStripTextBox.Text = $"  Rows: {_rowCount}  Columns: {_colCount}";
                     _topRow?.FreezePanes( );
                     _table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium16;
-                    var _title = table?.TableName.SplitPascal( );
+                    var _title = dataTable?.TableName.SplitPascal( );
                     Spreadsheet?.ActiveGrid?.InvalidateCells( );
                     Header.Text = $"{_title} Data Table";
                 }
@@ -1228,13 +1233,13 @@ namespace BudgetExecution
         {
             try
             {
-                DataArgs.Provider = Provider;
-                DataArgs.Source = Source;
-                DataArgs.Filter = Filter;
-                DataArgs.SelectedTable = SelectedTable;
-                DataArgs.SelectedFields = SelectedFields;
-                DataArgs.SelectedNumerics = SelectedNumerics;
-                DataArgs.SqlQuery = SqlQuery;
+                _dataArgs.Provider = _provider;
+                _dataArgs.Source = _source;
+                _dataArgs.Filter = _filter;
+                _dataArgs.SelectedTable = _selectedTable;
+                _dataArgs.SelectedFields = _selectedFields;
+                _dataArgs.SelectedNumerics = _selectedNumerics;
+                _dataArgs.SqlQuery = _sqlQuery;
             }
             catch( Exception _ex )
             {
@@ -1320,9 +1325,9 @@ namespace BudgetExecution
         {
             try
             {
-                if( DataTable != null )
+                if( _dataTable != null )
                 {
-                    InitializeWorksheet( DataTable );
+                    InitializeWorksheet( _dataTable );
                 }
                 else
                 {
@@ -1336,7 +1341,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the table configuration.
+        /// Sets the dataTable configuration.
         /// </summary>
         private void SetTableConfiguration( )
         {
@@ -1360,7 +1365,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the worksheet properties.
         /// </summary>
-        /// <param name="dataTable"> The data table. </param>
+        /// <param name="dataTable"> The data dataTable. </param>
         private void InitializeWorksheet( DataTable dataTable )
         {
             try
@@ -1442,7 +1447,7 @@ namespace BudgetExecution
         /// Sets the grid properties.
         /// </summary>
         /// <param name="dataTable">
-        /// The data table.
+        /// The data dataTable.
         /// </param>
         private void SetGridProperties( DataTable dataTable )
         {
@@ -1529,7 +1534,7 @@ namespace BudgetExecution
         /// <summary>
         /// Shows the filter dialog.
         /// </summary>
-        private void ShowFilterDialog( )
+        private void ShowFilterScreen( )
         {
             try
             {
@@ -1539,7 +1544,7 @@ namespace BudgetExecution
                 _source = _group.DataArgs.Source;
                 _selectedTable = _group.DataArgs.SelectedTable ?? string.Empty;
                 _filter = _group.DataArgs.Filter ?? default( IDictionary<string, object> );
-                _sqlQuery = _group.DataArgs.SqlQuery;
+                _sqlQuery = _group.DataArgs.SqlQuery ?? string.Empty;
                 _selectedColumns = _group.DataArgs.SelectedColumns ?? default( IList<string> );
                 _selectedFields = _group.DataArgs.SelectedFields ?? default( IList<string> );
                 _selectedNumerics = _group.DataArgs.SelectedNumerics ?? default( IList<string> );
@@ -1721,7 +1726,7 @@ namespace BudgetExecution
         /// </summary>
         private void PopulateFirstComboBoxItems( )
         {
-            if( Fields?.Any( ) == true )
+            if( _fields?.Any( ) == true )
             {
                 try
                 {
@@ -1735,7 +1740,7 @@ namespace BudgetExecution
                         FirstListBox.Items?.Clear( );
                     }
 
-                    foreach( var _item in Fields )
+                    foreach( var _item in _fields )
                     {
                         FirstComboBox.Items?.Add( _item );
                     }
@@ -2469,7 +2474,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [table ListBox item selected].
+        /// Called when [dataTable ListBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
         private void OnTableListBoxItemSelected( object sender )
@@ -2699,7 +2704,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [table RadioButton selected].
+        /// Called when [dataTable RadioButton selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
         private void OnTableRadioButtonSelected( object sender )

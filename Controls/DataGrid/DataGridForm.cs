@@ -744,6 +744,7 @@ namespace BudgetExecution
             MinimumSize = new Size( 1340, 740 );
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.Sizable;
+            WindowState = FormWindowState.Maximized;
             BorderColor = Color.FromArgb( 0, 120, 212 );
             BorderThickness = 1;
             BackColor = Color.FromArgb( 20, 20, 20 );
@@ -768,7 +769,11 @@ namespace BudgetExecution
             ControlBox = false;
 
             // Initialize Default Provider
-            Provider = Provider.Access;
+            _provider = Provider.Access;
+
+            // Timer Properties
+            _time = 0;
+            _seconds = 5;
 
             // Set PictureBox Size
             PictureBox.Size = new Size( 20, 20 );

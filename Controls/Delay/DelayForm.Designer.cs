@@ -41,10 +41,10 @@
             // PictureBox
             // 
             PictureBox.BackColor = System.Drawing.Color.Transparent;
-            PictureBox.Location = new System.Drawing.Point( 558, 233 );
+            PictureBox.Location = new System.Drawing.Point( 369, 214 );
             PictureBox.Margin = new System.Windows.Forms.Padding( 4, 3, 4, 3 );
             PictureBox.Name = "PictureBox";
-            PictureBox.Size = new System.Drawing.Size( 364, 278 );
+            PictureBox.Size = new System.Drawing.Size( 565, 335 );
             PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             PictureBox.TabIndex = 0;
             PictureBox.TabStop = false;
@@ -97,30 +97,30 @@
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.Black;
-            BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            BorderColor = System.Drawing.Color.Black;
             CaptionBarColor = System.Drawing.Color.Black;
             CaptionBarHeight = 1;
             CaptionButtonColor = System.Drawing.Color.Black;
             CaptionButtonHoverColor = System.Drawing.Color.Black;
             CaptionFont = new System.Drawing.Font( "Roboto", 11.25F );
             CaptionForeColor = System.Drawing.Color.Black;
-            ClientSize = new System.Drawing.Size( 1350, 750 );
+            ClientSize = new System.Drawing.Size( 1338, 743 );
             Controls.Add( CloseButton );
             Controls.Add( PictureBox );
             Font = new System.Drawing.Font( "Roboto", 9F );
             ForeColor = System.Drawing.Color.Black;
-            FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
             Margin = new System.Windows.Forms.Padding( 4, 3, 4, 3 );
             MaximizeBox = false;
             MaximumSize = new System.Drawing.Size( 1350, 750 );
             MetroColor = System.Drawing.Color.Black;
-            MinimumSize = new System.Drawing.Size( 1350, 750 );
+            MinimumSize = new System.Drawing.Size( 1340, 740 );
             Name = "DelayForm";
             ShowIcon = false;
             SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             Text = "DelayForm";
+            WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).EndInit( );
             ResumeLayout( false );
         }

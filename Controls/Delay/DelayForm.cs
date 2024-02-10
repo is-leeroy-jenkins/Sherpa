@@ -59,6 +59,8 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Local" ) ]
     public partial class DelayForm : MetroForm
     {
         /// <summary>
@@ -70,6 +72,21 @@ namespace BudgetExecution
         /// The status update
         /// </summary>
         private Action _statusUpdate;
+
+        /// <summary>
+        /// The seconds
+        /// </summary>
+        private int _seconds;
+
+        /// <summary>
+        /// The time
+        /// </summary>
+        private int _time;
+
+        /// <summary>
+        /// The status
+        /// </summary>
+        private Status _status;
 
         /// <summary>
         /// Gets or sets the time.
@@ -109,7 +126,17 @@ namespace BudgetExecution
         /// <value>
         /// The status.
         /// </value>
-        public Status Status { get; set; }
+        public Status Status
+        {
+            get
+            {
+                return _status;
+            }
+            private set
+            {
+                _status = value;
+            }
+        }
 
         /// <summary>
         /// Gets a value indicating whether this instance is busy.
@@ -141,15 +168,16 @@ namespace BudgetExecution
         {
             InitializeComponent( );
             InitializeDelegates( );
-            RegisterCallbacks();
+            RegisterCallbacks( );
 
             // Basic Form Properties
-            Size = new Size( 1350, 750 );
+            Size = new Size( 1345, 745 );
             MaximumSize = new Size( 1350, 750 );
-            MinimumSize = new Size( 1350, 750 );
+            MinimumSize = new Size( 1340, 740 );
             Font = new Font( "Roboto", 9 );
             StartPosition = FormStartPosition.CenterScreen;
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.Sizable;
+            WindowState = FormWindowState.Maximized;
             CaptionBarHeight = 5;
             CaptionAlign = HorizontalAlignment.Center;
             CaptionFont = new Font( "Roboto", 10, FontStyle.Regular );
@@ -168,6 +196,10 @@ namespace BudgetExecution
             MinimizeBox = false;
             MaximizeBox = false;
             ControlBox = false;
+
+            // Timer Properties
+            _time = 0;
+            _seconds = 5;
 
             // Form Event Wiring
             Load += OnLoad;
@@ -190,7 +222,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the callbacks.
         /// </summary>
-        private void RegisterCallbacks()
+        private void RegisterCallbacks( ) 
         {
             try
             {
@@ -244,14 +276,14 @@ namespace BudgetExecution
             try
             {
                 Opacity = 0;
-                if( Seconds != 0 )
+                if( _seconds != 0 )
                 {
                     Timer = new Timer( );
                     Timer.Interval = 1000;
                     Timer.Tick += ( sender, args ) =>
                     {
-                        Time++;
-                        if( Time == Seconds )
+                        _time++;
+                        if( _time == _seconds )
                         {
                             Timer.Stop( );
                         }
