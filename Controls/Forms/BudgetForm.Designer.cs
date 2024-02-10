@@ -60,7 +60,7 @@
             Header.Name = "Header";
             Header.RowCount = 1;
             Header.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            Header.Size = new System.Drawing.Size( 1338, 24 );
+            Header.Size = new System.Drawing.Size( 1333, 24 );
             Header.TabIndex = 1;
             // 
             // PictureBox
@@ -135,23 +135,23 @@
             CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionFont = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
             CaptionForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            ClientSize = new System.Drawing.Size( 1338, 738 );
+            ClientSize = new System.Drawing.Size( 1333, 733 );
             ControlBox = false;
             Controls.Add( Header );
             DoubleBuffered = true;
-            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
             MaximizeBox = false;
             MaximumSize = new System.Drawing.Size( 1350, 750 );
             MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             MinimizeBox = false;
-            MinimumSize = new System.Drawing.Size( 1350, 750 );
+            MinimumSize = new System.Drawing.Size( 1340, 740 );
             Name = "BudgetForm";
             ShowIcon = false;
             ShowMaximizeBox = false;
             ShowMinimizeBox = false;
             SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).EndInit( );
             Header.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).EndInit( );

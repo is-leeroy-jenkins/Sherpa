@@ -60,89 +60,147 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Local" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     public partial class BudgetForm : MetroForm
     {
         /// <summary>
+        /// The time
+        /// </summary>
+        private protected int _time;
+
+        /// <summary>
+        /// The seconds
+        /// </summary>
+        private protected int _seconds;
+
+        /// <summary>
+        /// The SQL command
+        /// </summary>
+        private string _sqlQuery;
+
+        /// <summary>
+        /// The source
+        /// </summary>
+        private protected Source _source;
+
+        /// <summary>
+        /// The provider
+        /// </summary>
+        private protected Provider _provider;
+
+        /// <summary>
         /// The busy
         /// </summary>
-        private bool _busy;
+        private protected bool _busy;
 
         /// <summary>
         /// The status update
         /// </summary>
-        private Action _statusUpdate;
+        private protected Action _statusUpdate;
 
         /// <summary>
-        /// Gets or sets the time.
+        /// The selected table
+        /// </summary>
+        private protected string _selectedTable;
+
+        /// <summary>
+        /// The selected columns
+        /// </summary>
+        private protected IList<string> _selectedColumns;
+
+        /// <summary>
+        /// The selected fields
+        /// </summary>
+        private protected IList<string> _selectedFields;
+
+        /// <summary>
+        /// The selected numerics
+        /// </summary>
+        private protected IList<string> _selectedNumerics;
+
+        /// <summary>
+        /// The filter
+        /// </summary>
+        private protected IDictionary<string, object> _filter;
+
+        /// <summary>
+        /// The data arguments
+        /// </summary>
+        private protected DataArgs _dataArgs;
+
+        /// <summary>
+        /// Gets the time.
         /// </summary>
         /// <value>
         /// The time.
         /// </value>
-        public int Time { get; set; }
+        public int Time
+        {
+            get
+            {
+                return _time;
+            }
+            private protected set
+            {
+                _time = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the seconds.
+        /// Gets the seconds.
         /// </summary>
         /// <value>
         /// The seconds.
         /// </value>
-        public int Seconds { get; set; }
+        public int Seconds
+        {
+            get
+            {
+                return _seconds;
+            }
+            private protected set
+            {
+                _seconds = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the source.
+        /// Gets the source.
         /// </summary>
         /// <value>
         /// The source.
         /// </value>
-        public Source Source { get; set; }
+        public Source Source
+        {
+            get
+            {
+                return _source;
+            }
+            private protected set
+            {
+                _source = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the provider.
+        /// Gets the provider.
         /// </summary>
         /// <value>
         /// The provider.
         /// </value>
-        public Provider Provider { get; set; }
-
-        /// <summary>
-        /// Gets or sets the selected table.
-        /// </summary>
-        /// <value>
-        /// The selected table.
-        /// </value>
-        public string SelectedTable { get; set; }
-
-        /// <summary>
-        /// Gets or sets the selected columns.
-        /// </summary>
-        /// <value>
-        /// The selected columns.
-        /// </value>
-        public IList<string> SelectedColumns { get; set; }
-
-        /// <summary>
-        /// Gets or sets the selected fields.
-        /// </summary>
-        /// <value>
-        /// The selected fields.
-        /// </value>
-        public IList<string> SelectedFields { get; set; }
-
-        /// <summary>
-        /// Gets or sets the selected numerics.
-        /// </summary>
-        /// <value>
-        /// The selected numerics.
-        /// </value>
-        public IList<string> SelectedNumerics { get; set; }
-
-        /// <summary>
-        /// Gets or sets the SQL query.
-        /// </summary>
-        /// <value>
-        /// The SQL query.
-        /// </value>
-        public string SqlQuery { get; set; }
+        public Provider Provider
+        {
+            get
+            {
+                return _provider;
+            }
+            private protected set
+            {
+                _provider = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the form filter.
@@ -150,7 +208,17 @@ namespace BudgetExecution
         /// <value>
         /// The form filter.
         /// </value>
-        public IDictionary<string, object> FormFilter { get; set; }
+        public IDictionary<string, object> Filter
+        {
+            get
+            {
+                return _filter;
+            }
+            private protected set
+            {
+                _filter = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the data arguments.
@@ -158,7 +226,89 @@ namespace BudgetExecution
         /// <value>
         /// The data arguments.
         /// </value>
-        public DataArgs DataArgs { get; set; }
+        public DataArgs DataArgs
+        {
+            get
+            {
+                return _dataArgs;
+            }
+            private protected set
+            {
+                _dataArgs = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the selected columns.
+        /// </summary>
+        /// <value>
+        /// The selected columns.
+        /// </value>
+        public IList<string> SelectedColumns
+        {
+            get
+            {
+                return _selectedColumns;
+            }
+            private set
+            {
+                _selectedColumns = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the selected fields.
+        /// </summary>
+        /// <value>
+        /// The selected fields.
+        /// </value>
+        public IList<string> SelectedFields
+        {
+            get
+            {
+                return _selectedFields;
+            }
+            private set
+            {
+                _selectedFields = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the selected numerics.
+        /// </summary>
+        /// <value>
+        /// The selected numerics.
+        /// </value>
+        public IList<string> SelectedNumerics
+        {
+            get
+            {
+                return _selectedNumerics;
+            }
+            private set
+            {
+                _selectedNumerics = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the SQL command.
+        /// </summary>
+        /// <value>
+        /// The SQL command.
+        /// </value>
+        public string SqlQuery
+        {
+            get
+            {
+                return _sqlQuery;
+            }
+            private set
+            {
+                _sqlQuery = value;
+            }
+        }
 
         /// <summary>
         /// Gets a value indicating whether this instance is busy.
@@ -189,11 +339,12 @@ namespace BudgetExecution
         public BudgetForm( )
         {
             InitializeComponent( );
-            Size = new Size( 1350, 750 );
+            Size = new Size( 1345, 745 );
             MaximumSize = new Size( 1350, 750 );
-            MinimumSize = new Size( 1350, 750 );
+            MinimumSize = new Size( 1340, 740 );
             StartPosition = FormStartPosition.CenterScreen;
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.Sizable;
+            WindowState = FormWindowState.Maximized;
             BorderColor = Color.FromArgb( 0, 120, 212 );
             BorderThickness = 1;
             BackColor = Color.FromArgb( 20, 20, 20 );
@@ -218,8 +369,8 @@ namespace BudgetExecution
             ControlBox = false;
 
             // Timer Properties
-            Time = 0;
-            Seconds = 5;
+            _time = 0;
+            _seconds = 5;
 
             // Wire Events
             Load += OnLoad;
@@ -479,13 +630,13 @@ namespace BudgetExecution
         {
             try
             {
-                DataArgs.Provider = Provider;
-                DataArgs.Source = Source;
-                DataArgs.Filter = FormFilter;
-                DataArgs.SelectedTable = SelectedTable;
-                DataArgs.SelectedFields = SelectedFields;
-                DataArgs.SelectedNumerics = SelectedNumerics;
-                DataArgs.SqlQuery = SqlQuery;
+                _dataArgs.Provider = _provider;
+                _dataArgs.Source = _source;
+                _dataArgs.Filter = _filter;
+                _dataArgs.SelectedTable = _selectedTable;
+                _dataArgs.SelectedFields = _selectedFields;
+                _dataArgs.SelectedNumerics = _selectedNumerics;
+                _dataArgs.SqlQuery = _sqlQuery;
             }
             catch( Exception _ex )
             {

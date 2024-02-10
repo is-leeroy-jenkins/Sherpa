@@ -70,6 +70,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MergeIntoPattern" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
     public partial class ExcelDataForm : MetroForm
     {
         /// <summary>

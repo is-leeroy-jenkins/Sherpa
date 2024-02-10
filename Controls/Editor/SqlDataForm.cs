@@ -799,7 +799,7 @@ namespace BudgetExecution
             try
             {
                 Opacity = 0;
-                if( Seconds != 0 )
+                if( _seconds != 0 )
                 {
                     Timer = new Timer( );
                     Timer.Interval = 10;

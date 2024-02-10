@@ -1,45 +1,42 @@
-﻿//  ******************************************************************************************
-//      Assembly:                Budget Execution
-//      Filename:                GridForm.cs
-//      Author:                  Terry D. Eppler
-//      Created:                 05-31-2023
+﻿// ******************************************************************************************
+//     Assembly:                Budget Execution
+//     Author:                  Terry D. Eppler
+//     Created:                 2-10-2024
 // 
-//      Last Modified By:        Terry D. Eppler
-//      Last Modified On:        06-01-2023
-//  ******************************************************************************************
-//  <copyright file="GridForm.cs" company="Terry D. Eppler">
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        2-10-2024
+// ******************************************************************************************
+// <copyright file="GridForm.cs" company="Terry D. Eppler">
+//    Budget Execution is a Federal Budget, Finance, and Accounting application
+//    for analysts with the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
-//     This is a Federal Budget, Finance, and Accounting application for the
-//     US Environmental Protection Agency (US EPA).
-//     Copyright ©  2023  Terry Eppler
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
 // 
-//     Permission is hereby granted, free of charge, to any person obtaining a copy
-//     of this software and associated documentation files (the “Software”),
-//     to deal in the Software without restriction,
-//     including without limitation the rights to use,
-//     copy, modify, merge, publish, distribute, sublicense,
-//     and/or sell copies of the Software,
-//     and to permit persons to whom the Software is furnished to do so,
-//     subject to the following conditions:
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
 // 
-//     The above copyright notice and this permission notice shall be included in all
-//     copies or substantial portions of the Software.
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
 // 
-//     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//     FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//     DEALINGS IN THE SOFTWARE.
-// 
-//     You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
-// 
-//  </copyright>
-//  <summary>
-//    GridForm.cs
-//  </summary>
-//  ******************************************************************************************
+//    Contact at:  terryeppler@gmail.com or eppler.terry@epa.gov
+// </copyright>
+// <summary>
+//   GridForm.cs
+// </summary>
+// ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -52,6 +49,7 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
+    using Action = System.Action;
     using Timer = System.Windows.Forms.Timer;
 
     /// <summary>
@@ -64,6 +62,8 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     public partial class GridForm : MetroForm
     {
         /// <summary>
@@ -72,49 +72,130 @@ namespace BudgetExecution
         private bool _busy;
 
         /// <summary>
-        /// The update status
+        /// The status update
         /// </summary>
-        private System.Action _statusUpdate;
+        private Action _statusUpdate;
 
         /// <summary>
-        /// Gets or sets the time.
+        /// The time
+        /// </summary>
+        private int _time;
+
+        /// <summary>
+        /// The seconds
+        /// </summary>
+        private int _seconds;
+
+        /// <summary>
+        /// The selected table
+        /// </summary>
+        private string _selectedTable;
+
+        /// <summary>
+        /// The SQL query
+        /// </summary>
+        private string _sqlQuery;
+
+        /// <summary>
+        /// The data table
+        /// </summary>
+        private DataTable _dataTable;
+
+        /// <summary>
+        /// The filter
+        /// </summary>
+        private IDictionary<string, object> _filter;
+
+        /// <summary>
+        /// Gets the time.
         /// </summary>
         /// <value>
         /// The time.
         /// </value>
-        public int Time { get; set; }
+        public int Time
+        {
+            get
+            {
+                return _time;
+            }
+            private set
+            {
+                _time = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the seconds.
+        /// Gets the seconds.
         /// </summary>
         /// <value>
         /// The seconds.
         /// </value>
-        public int Seconds { get; set; }
+        public int Seconds
+        {
+            get
+            {
+                return _seconds;
+            }
+            private set
+            {
+                _seconds = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the SQL query.
+        /// Gets or sets the selected query.
         /// </summary>
         /// <value>
-        /// The SQL query.
+        /// The selected query.
         /// </value>
-        public string SqlQuery { get; set; }
+        public string SqlQuery
+        {
+            get
+            {
+                return _sqlQuery;
+            }
+            private set
+            {
+                _sqlQuery = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the SQL query.
+        /// Gets the selected table.
+        /// 
         /// </summary>
         /// <value>
-        /// The SQL query.
+        /// The selected table.
         /// </value>
-        public string SelectedTable { get; set; }
+        public string SelectedTable
+        {
+            get
+            {
+                return _selectedTable;
+            }
+            private set
+            {
+                _selectedTable = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the form filter.
+        /// Gets the filter.
         /// </summary>
         /// <value>
-        /// The form filter.
+        /// The filter.
         /// </value>
-        public IDictionary<string, object> Filter { get; set; }
+        public IDictionary<string, object> Filter
+        {
+            get
+            {
+                return _filter;
+            }
+            private set
+            {
+                _filter = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the data table.
@@ -122,10 +203,21 @@ namespace BudgetExecution
         /// <value>
         /// The data table.
         /// </value>
-        public DataTable DataTable { get; set; }
+        public DataTable DataTable
+        {
+            get
+            {
+                return _dataTable;
+            }
+            private set
+            {
+                _dataTable = value;
+            }
+        }
 
         /// <summary>
-        /// Gets a value indicating whether this instance is busy.
+        /// Gets a value indicating whether
+        /// this instance is busy.
         /// </summary>
         /// <value>
         /// <c> true </c>
@@ -182,8 +274,8 @@ namespace BudgetExecution
             ControlBox = false;
 
             // Timer Properties
-            Time = 0;
-            Seconds = 5;
+            _time = 0;
+            _seconds = 5;
 
             // Event Wiring
             Load += OnLoad;
@@ -200,8 +292,8 @@ namespace BudgetExecution
         public GridForm( DataTable dataTable )
             : this( )
         {
-            DataTable = dataTable;
-            SelectedTable = dataTable.TableName;
+            _dataTable = dataTable;
+            _selectedTable = dataTable.TableName;
             DataSheet.ColCount = dataTable.Columns.Count;
             DataSheet.RowCount = dataTable.Rows.Count;
         }
@@ -214,14 +306,14 @@ namespace BudgetExecution
             try
             {
                 Opacity = 0;
-                if( Seconds != 0 )
+                if( _seconds != 0 )
                 {
                     Timer = new Timer( );
                     Timer.Interval = 1000;
                     Timer.Tick += ( sender, args ) =>
                     {
-                        Time++;
-                        if( Time == Seconds )
+                        _time++;
+                        if( _time == _seconds )
                         {
                             Timer.Stop( );
                         }
@@ -435,13 +527,13 @@ namespace BudgetExecution
         /// </summary>
         private void PopulateHeaders( )
         {
-            if( DataTable?.Rows?.Count > 0 )
+            if( _dataTable?.Rows?.Count > 0 )
             {
                 try
                 {
-                    for( var _c = 1; _c <= ( DataTable.Columns.Count - 1 ); _c++ )
+                    for( var _c = 1; _c <= ( _dataTable.Columns.Count - 1 ); _c++ )
                     {
-                        var _name = DataTable.Columns[ _c ].ColumnName;
+                        var _name = _dataTable.Columns[ _c ].ColumnName;
                         DataSheet.Model[ 0, _c ].CellValue = _name?.SplitPascal( );
                     }
                 }
@@ -457,22 +549,22 @@ namespace BudgetExecution
         /// </summary>
         private void PopulateCells( )
         {
-            if( DataTable?.Rows?.Count > 0 )
+            if( _dataTable?.Rows?.Count > 0 )
             {
                 try
                 {
-                    var _rows = DataTable.Rows.Count - 1;
-                    var _columns = DataTable.Columns.Count - 1;
+                    var _rows = _dataTable.Rows.Count - 1;
+                    var _columns = _dataTable.Columns.Count - 1;
                     for( var _r = 1; _r <= _rows; _r++ )
                     {
                         for( var _c = 1; _c <= _columns; _c++ )
                         {
-                            DataSheet.Model[ _r, _c ].CellValue = $"{DataTable.Rows[ _r ][ _c ]}";
+                            DataSheet.Model[ _r, _c ].CellValue = $"{_dataTable.Rows[ _r ][ _c ]}";
                         }
                     }
 
                     ToolStripTextBox.Text = $"Rows: {_rows} Columns: {_columns}";
-                    ToolStripLabel.Text = "Data Source:  " + DataTable.TableName?.SplitPascal( );
+                    ToolStripLabel.Text = "Data Source:  " + _dataTable.TableName?.SplitPascal( );
                 }
                 catch( Exception _ex )
                 {
@@ -501,7 +593,7 @@ namespace BudgetExecution
         /// Invokes if needed.
         /// </summary>
         /// <param name="action">The action.</param>
-        public void InvokeIf( System.Action action )
+        public void InvokeIf( Action action )
         {
             if( InvokeRequired )
             {
@@ -521,7 +613,7 @@ namespace BudgetExecution
             try
             {
                 ClearFilter( );
-                DataTable = null;
+                _dataTable = null;
                 BindingSource.DataSource = null;
                 ToolStrip.BindingSource.DataSource = null;
             }
@@ -563,9 +655,9 @@ namespace BudgetExecution
                 Text = string.Empty;
                 ToolStrip.Visible = true;
                 Title.TextAlign = ContentAlignment.TopLeft;
-                if( DataTable != null )
+                if( _dataTable != null )
                 {
-                    BindingSource.DataSource = DataTable;
+                    BindingSource.DataSource = _dataTable;
                     ToolStrip.BindingSource = BindingSource;
                     PopulateHeaders( );
                     PopulateCells( );
