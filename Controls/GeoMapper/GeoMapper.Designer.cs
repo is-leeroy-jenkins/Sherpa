@@ -96,7 +96,7 @@
             HeaderTable.Name = "HeaderTable";
             HeaderTable.RowCount = 1;
             HeaderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            HeaderTable.Size = new System.Drawing.Size( 1338, 24 );
+            HeaderTable.Size = new System.Drawing.Size( 1333, 24 );
             HeaderTable.TabIndex = 0;
             // 
             // PictureBox
@@ -123,7 +123,7 @@
             Title.Margin = new System.Windows.Forms.Padding( 3 );
             Title.Name = "Title";
             Title.Padding = new System.Windows.Forms.Padding( 1 );
-            Title.Size = new System.Drawing.Size( 1304, 18 );
+            Title.Size = new System.Drawing.Size( 1299, 18 );
             Title.Style = MetroSet_UI.Enums.Style.Custom;
             Title.StyleManager = null;
             Title.TabIndex = 1;
@@ -139,11 +139,11 @@
             ToolStripTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             ToolStripTable.Controls.Add( ToolStrip, 0, 0 );
             ToolStripTable.Dock = System.Windows.Forms.DockStyle.Bottom;
-            ToolStripTable.Location = new System.Drawing.Point( 0, 693 );
+            ToolStripTable.Location = new System.Drawing.Point( 0, 688 );
             ToolStripTable.Name = "ToolStripTable";
             ToolStripTable.RowCount = 1;
             ToolStripTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            ToolStripTable.Size = new System.Drawing.Size( 1338, 45 );
+            ToolStripTable.Size = new System.Drawing.Size( 1333, 45 );
             ToolStripTable.TabIndex = 1;
             // 
             // ToolStrip
@@ -198,7 +198,7 @@
             ToolStrip.Separators = null;
             ToolStrip.ShowCaption = true;
             ToolStrip.ShowLauncher = true;
-            ToolStrip.Size = new System.Drawing.Size( 1336, 43 );
+            ToolStrip.Size = new System.Drawing.Size( 1331, 43 );
             ToolStrip.TabIndex = 0;
             ToolStrip.TextBox = null;
             ToolStrip.ThemeName = "Office2016DarkGray";
@@ -775,7 +775,7 @@
             MapPanel.ForeColor = System.Drawing.Color.Transparent;
             MapPanel.HoverText = null;
             MapPanel.IsDerivedStyle = true;
-            MapPanel.Location = new System.Drawing.Point( 93, 28 );
+            MapPanel.Location = new System.Drawing.Point( 88, 23 );
             MapPanel.Name = "MapPanel";
             MapPanel.Padding = new System.Windows.Forms.Padding( 1 );
             MapPanel.Size = new System.Drawing.Size( 1149, 604 );
@@ -800,7 +800,7 @@
             MapTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             MapTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 610F ) );
             MapTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 34F ) );
-            MapTable.Size = new System.Drawing.Size( 1338, 669 );
+            MapTable.Size = new System.Drawing.Size( 1333, 664 );
             MapTable.TabIndex = 4;
             // 
             // GeoMapper
@@ -815,7 +815,7 @@
             CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionFont = new System.Drawing.Font( "Roboto", 9.75F );
             CaptionForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            ClientSize = new System.Drawing.Size( 1338, 738 );
+            ClientSize = new System.Drawing.Size( 1333, 733 );
             ControlBox = false;
             Controls.Add( MapTable );
             Controls.Add( ToolStripTable );
@@ -823,19 +823,19 @@
             DoubleBuffered = true;
             Font = new System.Drawing.Font( "Roboto", 8.25F );
             ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
             MaximizeBox = false;
             MaximumSize = new System.Drawing.Size( 1350, 750 );
             MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             MinimizeBox = false;
-            MinimumSize = new System.Drawing.Size( 1350, 750 );
+            MinimumSize = new System.Drawing.Size( 1340, 740 );
             Name = "GeoMapper";
             ShowIcon = false;
             ShowMaximizeBox = false;
             ShowMinimizeBox = false;
             SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            WindowState = System.Windows.Forms.FormWindowState.Maximized;
             HeaderTable.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).EndInit( );
             ToolStripTable.ResumeLayout( false );
@@ -893,6 +893,6 @@
         public ContextMenu ContextMenu;
         public BackPanel MapPanel;
         public MapControl Map;
-        private System.Windows.Forms.TableLayoutPanel MapTable;
+        public System.Windows.Forms.TableLayoutPanel MapTable;
     }
 }

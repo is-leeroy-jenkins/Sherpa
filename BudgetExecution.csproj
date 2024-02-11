@@ -79,7 +79,7 @@
     <PackageReference Include="MSChartExtension" Version="3.10.2" />
     <PackageReference Include="NETStandard.Library" Version="2.0.3" />
     <PackageReference Include="Ookii.Dialogs.WinForms" Version="4.0.0" />
-    <PackageReference Include="ScottPlot.WinForms" Version="5.0.20" />
+    <PackageReference Include="ScottPlot.WinForms" Version="5.0.21" />
     <PackageReference Include="Syncfusion.Chart.Base" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Chart.Windows" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Edit.Windows" Version="24.1.41" />

@@ -1254,6 +1254,7 @@ namespace BudgetExecution
             ShowMinimizeBox = false;
             SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).EndInit( );
             BrowserTable.ResumeLayout( false );
             BrowserPanel.ResumeLayout( false );

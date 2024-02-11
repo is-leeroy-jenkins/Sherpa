@@ -70,6 +70,16 @@ namespace BudgetExecution
     public partial class GeoMapper : MetroForm
     {
         /// <summary>
+        /// The time
+        /// </summary>
+        private int _time;
+
+        /// <summary>
+        /// The seconds
+        /// </summary>
+        private int _seconds;
+
+        /// <summary>
         /// The lat
         /// </summary>
         private readonly double _lat = 38.887161;
@@ -134,12 +144,12 @@ namespace BudgetExecution
         {
             InitializeComponent( );
             InitializeDelegates( );
-            RegisterCallbacks();
+            RegisterCallbacks( );
 
             // General Properties
-            Size = new Size( 1350, 750 );
+            Size = new Size( 1345, 745 );
             MaximumSize = new Size( 1350, 750 );
-            MinimumSize = new Size( 1350, 750 );
+            MinimumSize = new Size( 1340, 740 );
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             BorderColor = Color.FromArgb( 0, 120, 212 );
@@ -165,15 +175,9 @@ namespace BudgetExecution
             MaximizeBox = false;
             ControlBox = false;
 
-            // Map Properties
-            Map.MinZoom = 2;
-            Map.MaxZoom = 18;
-            Map.Zoom = 8;
-            Map.ShowCenter = true;
-
             // Timer Properties
-            Time = 0;
-            Seconds = 5;
+            _time = 0;
+            _seconds = 5;
 
             // Wire Events
             Load += OnLoad;
@@ -199,7 +203,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the callbacks.
         /// </summary>
-        private void RegisterCallbacks()
+        private void RegisterCallbacks( )
         {
             try
             {
@@ -275,6 +279,10 @@ namespace BudgetExecution
         {
             try
             {
+                Map.MinZoom = 2;
+                Map.MaxZoom = 18;
+                Map.Zoom = 8;
+                Map.ShowCenter = true;
                 Map.MapProvider = BingMapProvider.Instance;
                 GMaps.Instance.Mode = AccessMode.ServerAndCache;
                 Map.Position = new PointLatLng( _lat, _long );
@@ -386,14 +394,14 @@ namespace BudgetExecution
             try
             {
                 Opacity = 0;
-                if( Seconds != 0 )
+                if( _seconds != 0 )
                 {
                     Timer = new Timer( );
                     Timer.Interval = 1000;
                     Timer.Tick += ( sender, args ) =>
                     {
-                        Time++;
-                        if( Time == Seconds )
+                        _time++;
+                        if( _time == _seconds )
                         {
                             Timer.Stop( );
                         }

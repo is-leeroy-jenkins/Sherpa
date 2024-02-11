@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
-//     Assembly:             BudgetExecution
+//     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 11-22-2023
+//     Created:                 2-10-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-05-2023
+//     Last Modified On:        2-10-2024
 // ******************************************************************************************
-// <copyright file="Terry Eppler.cs" company="Terry D. Eppler">
-//    BudgetExecution is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+// <copyright file="PivotChartForm.cs" company="Terry D. Eppler">
+//    Budget Execution is a Federal Budget, Finance, and Accounting application
+//    for analysts with the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -31,10 +31,10 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
+//    Contact at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   PivotChartForm.cs.cs
+//   PivotChartForm.cs
 // </summary>
 // ******************************************************************************************
 
@@ -59,19 +59,29 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "UnusedType.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" )]
-    [SuppressMessage( "ReSharper", "ConvertToAutoProperty" )]
-    [SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" )]
-    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
-    [SuppressMessage( "ReSharper", "UseNullPropagation" )]
-    [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
-    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
+    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
+    [ SuppressMessage( "ReSharper", "UseNullPropagation" ) ]
+    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
+    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     public partial class PivotChartForm : MetroForm
     {
+        /// <summary>
+        /// The time
+        /// </summary>
+        private int _time;
+
+        /// <summary>
+        /// The seconds
+        /// </summary>
+        private int _seconds;
+
         /// <summary>
         /// The busy
         /// </summary>
@@ -83,188 +93,574 @@ namespace BudgetExecution
         private Action _statusUpdate;
 
         /// <summary>
-        /// Gets or sets the time.
+        /// The source
+        /// </summary>
+        private Source _source;
+
+        /// <summary>
+        /// The provider
+        /// </summary>
+        private Provider _provider;
+
+        /// <summary>
+        /// The chart type
+        /// </summary>
+        private PivotChartTypes _chartType;
+
+        /// <summary>
+        /// The selected dataTable
+        /// </summary>
+        private string _selectedTable;
+
+        /// <summary>
+        /// The first category
+        /// </summary>
+        private string _firstCategory;
+
+        /// <summary>
+        /// The first value
+        /// </summary>
+        private string _firstValue;
+
+        /// <summary>
+        /// The second category
+        /// </summary>
+        private string _secondCategory;
+
+        /// <summary>
+        /// The second value
+        /// </summary>
+        private string _secondValue;
+
+        /// <summary>
+        /// The third category
+        /// </summary>
+        private string _thirdCategory;
+
+        /// <summary>
+        /// The third value
+        /// </summary>
+        private string _thirdValue;
+
+        /// <summary>
+        /// The fourth category
+        /// </summary>
+        private string _fourthCategory;
+
+        /// <summary>
+        /// The fourth value
+        /// </summary>
+        private string _fourthValue;
+
+        /// <summary>
+        /// The SQL query
+        /// </summary>
+        private string _sqlQuery;
+
+        /// <summary>
+        /// The filter
+        /// </summary>
+        private IDictionary<string, object> _filter;
+
+        /// <summary>
+        /// The fields
+        /// </summary>
+        private IList<string> _fields;
+
+        /// <summary>
+        /// The columns
+        /// </summary>
+        private IList<string> _columns;
+
+        /// <summary>
+        /// The numerics
+        /// </summary>
+        private IList<string> _numerics;
+
+        /// <summary>
+        /// The selected columns
+        /// </summary>
+        private IList<string> _selectedColumns;
+
+        /// <summary>
+        /// The selected fields
+        /// </summary>
+        private IList<string> _selectedFields;
+
+        /// <summary>
+        /// The selected numerics
+        /// </summary>
+        private IList<string> _selectedNumerics;
+
+        /// <summary>
+        /// The data arguments
+        /// </summary>
+        private DataArgs _dataArgs;
+
+        /// <summary>
+        /// The data model
+        /// </summary>
+        private DataBuilder _dataModel;
+
+        /// <summary>
+        /// The data dataTable
+        /// </summary>
+        private DataTable _dataTable;
+
+        /// <summary>
+        /// The current
+        /// </summary>
+        private DataRow _current;
+
+        /// <summary>
+        /// Gets the time.
         /// </summary>
         /// <value>
         /// The time.
         /// </value>
-        public int Time { get; set; }
+        public int Time
+        {
+            get
+            {
+                return _time;
+            }
+            private set
+            {
+                _time = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the seconds.
+        /// Gets the seconds.
         /// </summary>
         /// <value>
         /// The seconds.
         /// </value>
-        public int Seconds { get; set; }
+        public int Seconds
+        {
+            get
+            {
+                return _seconds;
+            }
+            private set
+            {
+                _seconds = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the selected table.
+        /// Gets the selected dataTable.
         /// </summary>
         /// <value>
-        /// The selected table.
+        /// The selected dataTable.
         /// </value>
-        public string SelectedTable { get; set; }
+        public string SelectedTable
+        {
+            get
+            {
+                return _selectedTable;
+            }
+            private set
+            {
+                _selectedTable = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the first category.
+        /// Gets the first category.
         /// </summary>
         /// <value>
         /// The first category.
         /// </value>
-        public string FirstCategory { get; set; }
+        public string FirstCategory
+        {
+            get
+            {
+                return _firstCategory;
+            }
+            private set
+            {
+                _firstCategory = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the first value.
+        /// Gets the first value.
         /// </summary>
         /// <value>
         /// The first value.
         /// </value>
-        public string FirstValue { get; set; }
+        public string FirstValue
+        {
+            get
+            {
+                return _firstValue;
+            }
+            private set
+            {
+                _firstValue = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the second category.
+        /// Gets the second category.
         /// </summary>
         /// <value>
         /// The second category.
         /// </value>
-        public string SecondCategory { get; set; }
+        public string SecondCategory
+        {
+            get
+            {
+                return _secondCategory;
+            }
+            private set
+            {
+                _secondCategory = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the second value.
+        /// Gets the second value.
         /// </summary>
         /// <value>
         /// The second value.
         /// </value>
-        public string SecondValue { get; set; }
+        public string SecondValue
+        {
+            get
+            {
+                return _secondValue;
+            }
+            private set
+            {
+                _secondValue = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the third category.
+        /// Gets the third category.
         /// </summary>
         /// <value>
         /// The third category.
         /// </value>
-        public string ThirdCategory { get; set; }
+        public string ThirdCategory
+        {
+            get
+            {
+                return _thirdCategory;
+            }
+            private set
+            {
+                _thirdCategory = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the third value.
+        /// Gets the third value.
         /// </summary>
         /// <value>
         /// The third value.
         /// </value>
-        public string ThirdValue { get; set; }
+        public string ThirdValue
+        {
+            get
+            {
+                return _thirdValue;
+            }
+            private set
+            {
+                _thirdValue = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the SQL query.
+        /// Gets the fourth category.
+        /// </summary>
+        /// <value>
+        /// The fourth category.
+        /// </value>
+        public string FourthCategory
+        {
+            get
+            {
+                return _fourthCategory;
+            }
+            private set
+            {
+                _fourthCategory = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the fourth value.
+        /// </summary>
+        /// <value>
+        /// The fourth value.
+        /// </value>
+        public string FourthValue
+        {
+            get
+            {
+                return _fourthValue;
+            }
+            private set
+            {
+                _fourthValue = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the SQL query.
         /// </summary>
         /// <value>
         /// The SQL query.
         /// </value>
-        public string SqlQuery { get; set; }
+        public string SqlQuery
+        {
+            get
+            {
+                return _sqlQuery;
+            }
+            private set
+            {
+                _sqlQuery = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the form filter.
+        /// Gets the columns.
         /// </summary>
         /// <value>
-        /// The form filter.
+        /// The columns.
         /// </value>
-        public IDictionary<string, object> Filter { get; set; }
+        public IList<string> Columns
+        {
+            get
+            {
+                return _columns;
+            }
+            private set
+            {
+                _columns = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the fields.
+        /// Gets the filter.
+        /// </summary>
+        /// <value>
+        /// The filter.
+        /// </value>
+        public IDictionary<string, object> Filter
+        {
+            get
+            {
+                return _filter;
+            }
+            private set
+            {
+                _filter = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the fields.
         /// </summary>
         /// <value>
         /// The fields.
         /// </value>
-        public IList<string> Columns { get; set; }
+        public IList<string> Fields
+        {
+            get
+            {
+                return _fields;
+            }
+            private set
+            {
+                _fields = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the fields.
-        /// </summary>
-        /// <value>
-        /// The fields.
-        /// </value>
-        public IList<string> Fields { get; set; }
-
-        /// <summary>
-        /// Gets or sets the numerics.
+        /// Gets the numerics.
         /// </summary>
         /// <value>
         /// The numerics.
         /// </value>
-        public IList<string> Numerics { get; set; }
+        public IList<string> Numerics
+        {
+            get
+            {
+                return _numerics;
+            }
+            private set
+            {
+                _numerics = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the selected columns.
+        /// Gets the selected columns.
         /// </summary>
         /// <value>
         /// The selected columns.
         /// </value>
-        public IList<string> SelectedColumns { get; set; }
+        public IList<string> SelectedColumns
+        {
+            get
+            {
+                return _selectedColumns;
+            }
+            private set
+            {
+                _selectedColumns = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the selected fields.
+        /// Gets the selected fields.
         /// </summary>
         /// <value>
         /// The selected fields.
         /// </value>
-        public IList<string> SelectedFields { get; set; }
+        public IList<string> SelectedFields
+        {
+            get
+            {
+                return _selectedFields;
+            }
+            private set
+            {
+                _selectedFields = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the selected numerics.
+        /// Gets the selected numerics.
         /// </summary>
         /// <value>
         /// The selected numerics.
         /// </value>
-        public IList<string> SelectedNumerics { get; set; }
+        public IList<string> SelectedNumerics
+        {
+            get
+            {
+                return _selectedNumerics;
+            }
+            private set
+            {
+                _selectedNumerics = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the source.
+        /// Gets the source.
         /// </summary>
         /// <value>
         /// The source.
         /// </value>
-        public Source Source { get; set; }
+        public Source Source
+        {
+            get
+            {
+                return _source;
+            }
+            private set
+            {
+                _source = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the provider.
+        /// Gets the provider.
         /// </summary>
         /// <value>
         /// The provider.
         /// </value>
-        public Provider Provider { get; set; }
+        public Provider Provider
+        {
+            get
+            {
+                return _provider;
+            }
+            private set
+            {
+                _provider = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the type of the chart.
-        /// </summary>
-        /// <value>
-        /// The type of the chart.
-        /// </value>
-        public PivotChartTypes ChartType { get; set; }
-
-        /// <summary>
-        /// Gets or sets the data table.
-        /// </summary>
-        /// <value>
-        /// The data table.
-        /// </value>
-        public DataTable DataTable { get; set; }
-
-        /// <summary>
-        /// Gets or sets the data model.
+        /// Gets the data model.
         /// </summary>
         /// <value>
         /// The data model.
         /// </value>
-        public DataBuilder DataModel { get; set; }
+        public DataBuilder DataModel
+        {
+            get
+            {
+                return _dataModel;
+            }
+            private set
+            {
+                _dataModel = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the data arguments.
+        /// Gets the data dataTable.
+        /// </summary>
+        /// <value>
+        /// The data dataTable.
+        /// </value>
+        public DataTable DataTable
+        {
+            get
+            {
+                return _dataTable;
+            }
+            private set
+            {
+                _dataTable = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the data arguments.
         /// </summary>
         /// <value>
         /// The data arguments.
         /// </value>
-        public DataArgs DataArgs { get; set; }
+        public DataArgs DataArgs
+        {
+            get
+            {
+                return _dataArgs;
+            }
+            private set
+            {
+                _dataArgs = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the type of the chart.
+        /// </summary>
+        /// <value>
+        /// The type of the chart.
+        /// </value>
+        public PivotChartTypes ChartType
+        {
+            get
+            {
+                return _chartType;
+            }
+            private set
+            {
+                _chartType = value;
+            }
+        }
 
         /// <summary>
         /// Gets a value indicating whether this instance is busy.
@@ -276,8 +672,14 @@ namespace BudgetExecution
         /// </value>
         public bool IsBusy
         {
-            get { return _busy; }
-            private set { _busy = value; }
+            get
+            {
+                return _busy;
+            }
+            private set
+            {
+                _busy = value;
+            }
         }
 
         /// <inheritdoc />
@@ -291,11 +693,12 @@ namespace BudgetExecution
             InitializeDelegates( );
 
             // Basic Properties
-            Size = new Size( 1350, 750 );
+            Size = new Size( 1345, 745 );
             MaximumSize = new Size( 1350, 750 );
-            MinimumSize = new Size( 1350, 750 );
+            MinimumSize = new Size( 1340, 740 );
             StartPosition = FormStartPosition.CenterScreen;
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.Sizable;
+            WindowState = FormWindowState.Maximized;
             BorderColor = Color.FromArgb( 0, 120, 212 );
             BorderThickness = 1;
             BackColor = Color.FromArgb( 20, 20, 20 );
@@ -318,6 +721,10 @@ namespace BudgetExecution
             MinimizeBox = false;
             MaximizeBox = false;
             ControlBox = false;
+
+            // Timer Properties
+            _time = 0;
+            _seconds = 5;
 
             // Wire Events
             Load += OnLoad;
@@ -497,15 +904,15 @@ namespace BudgetExecution
         {
             try
             {
-                DataModel = new DataBuilder( Source, Provider );
-                DataTable = DataModel.DataTable;
-                SelectedTable = DataTable.TableName;
-                BindingSource.DataSource = DataModel.DataTable;
+                _dataModel = new DataBuilder( _source, _provider );
+                _dataTable = _dataModel.DataTable;
+                _columns = _dataModel?.ColumnNames;
+                _fields = _dataModel?.Fields;
+                _numerics = _dataModel?.Numerics;
+                _selectedTable = _dataTable.TableName;
+                BindingSource.DataSource = _dataModel.DataTable;
                 ToolStrip.BindingSource = BindingSource;
-                Columns = DataModel?.ColumnNames;
-                Fields = DataModel?.Fields;
-                Numerics = DataModel?.Numerics;
-                Title.Text = DataTable.TableName.SplitPascal( );
+                Title.Text = _dataTable.TableName.SplitPascal( );
             }
             catch( Exception _ex )
             {
@@ -525,18 +932,18 @@ namespace BudgetExecution
                     ?.Take( 1000 );
 
                 PivotChart.ItemSource = _dataRows?.CopyToDataTable( );
-                var _current = BindingSource.GetCurrentDataRow( );
-                UpdateSchema( _current );
-                SetSeriesPointStyles( _current );
-                var _fields = Fields.Take( 10 )
+                var _row = BindingSource.GetCurrentDataRow( );
+                UpdateSchema( _row );
+                SetSeriesPointStyles( _row );
+                var _cols = _fields.Take( 10 )
                     ?.ToArray( );
 
-                var _numbers = Numerics.Take( 3 )
+                var _numbers = _numerics.Take( 3 )
                     ?.ToArray( );
 
-                foreach( var _name in _fields )
+                foreach( var _name in _cols )
                 {
-                    if( !_name.Contains( nameof( Name ) ) )
+                    if( !_name.Contains( "Name" ) )
                     {
                         var _item = new PivotItem
                         {
@@ -562,7 +969,7 @@ namespace BudgetExecution
 
                 PivotChart.EnableXZooming = true;
                 PivotChart.PrimaryXAxis.ZoomFactor = .7;
-                PivotChart.PrimaryXAxis.Title.Text = nameof( Fields );
+                PivotChart.PrimaryXAxis.Title.Text = "Fields";
                 PivotChart.PrimaryYAxis.ShowAxisLabelTooltip = true;
                 PivotChart.PrimaryYAxis.Title.Text = "Values";
                 PivotChart.AllowDrillDown = true;
@@ -648,14 +1055,14 @@ namespace BudgetExecution
             try
             {
                 Opacity = 0;
-                if( Seconds != 0 )
+                if( _seconds != 0 )
                 {
                     Timer = new Timer( );
                     Timer.Interval = 1000;
                     Timer.Tick += ( sender, args ) =>
                     {
-                        Time++;
-                        if( Time == Seconds )
+                        _time++;
+                        if( _time == _seconds )
                         {
                             Timer.Stop( );
                         }
@@ -750,13 +1157,13 @@ namespace BudgetExecution
         {
             try
             {
-                DataArgs.Provider = Provider;
-                DataArgs.Source = Source;
-                DataArgs.Filter = Filter;
-                DataArgs.SelectedTable = SelectedTable;
-                DataArgs.SelectedFields = SelectedFields;
-                DataArgs.SelectedNumerics = SelectedNumerics;
-                DataArgs.SqlQuery = SqlQuery;
+                _dataArgs.Provider = _provider;
+                _dataArgs.Source = _source;
+                _dataArgs.Filter = _filter;
+                _dataArgs.SelectedTable = _selectedTable;
+                _dataArgs.SelectedFields = _selectedFields;
+                _dataArgs.SelectedNumerics = _selectedNumerics;
+                _dataArgs.SqlQuery = _sqlQuery;
             }
             catch( Exception _ex )
             {
@@ -802,10 +1209,10 @@ namespace BudgetExecution
                 ClearSelections( );
                 ClearCollections( );
                 ClearFilter( );
-                SelectedTable = string.Empty;
+                _dataModel = null;
+                _dataTable = null;
+                _selectedTable = string.Empty;
                 BindingSource.DataSource = null;
-                DataModel = null;
-                DataTable = null;
             }
             catch( Exception _ex )
             {
@@ -820,9 +1227,9 @@ namespace BudgetExecution
         {
             try
             {
-                if( Filter?.Any( ) == true )
+                if( _filter?.Any( ) == true )
                 {
-                    Filter.Clear( );
+                    _filter.Clear( );
                 }
             }
             catch( Exception _ex )
@@ -838,19 +1245,24 @@ namespace BudgetExecution
         {
             try
             {
-                if( SelectedColumns?.Any( ) == true )
+                if( _filter?.Any( ) == true )
                 {
-                    SelectedColumns.Clear( );
+                    _filter.Clear( );
                 }
 
-                if( SelectedFields?.Any( ) == true )
+                if( _selectedColumns?.Any( ) == true )
                 {
-                    SelectedFields.Clear( );
+                    _selectedColumns.Clear( );
                 }
 
-                if( SelectedNumerics?.Any( ) == true )
+                if( _selectedFields?.Any( ) == true )
                 {
-                    SelectedNumerics.Clear( );
+                    _selectedFields.Clear( );
+                }
+
+                if( _selectedNumerics?.Any( ) == true )
+                {
+                    _selectedNumerics.Clear( );
                 }
             }
             catch( Exception _ex )
@@ -866,12 +1278,12 @@ namespace BudgetExecution
         {
             try
             {
-                ThirdCategory = string.Empty;
-                ThirdValue = string.Empty;
-                SecondCategory = string.Empty;
-                SecondValue = string.Empty;
-                FirstCategory = string.Empty;
-                FirstValue = string.Empty;
+                _thirdCategory = string.Empty;
+                _thirdValue = string.Empty;
+                _secondCategory = string.Empty;
+                _secondValue = string.Empty;
+                _firstCategory = string.Empty;
+                _firstValue = string.Empty;
             }
             catch( Exception _ex )
             {
@@ -1143,12 +1555,12 @@ namespace BudgetExecution
                 var _backColor = Color.Black;
                 var _textColor = Color.FromArgb( 106, 189, 252 );
                 var _callFont = new Font( "Roboto", 7 );
-                var _numerics = Numerics.ToArray( );
-                for( var _i = 0; _i < _numerics.Length; _i++ )
+                var _nums = _numerics.ToArray( );
+                for( var _i = 0; _i < _nums.Length; _i++ )
                 {
                     var _doubles = new List<double>( );
                     var _series = new ChartSeries( );
-                    var _columnName = _numerics[ _i ];
+                    var _columnName = _nums[ _i ];
                     var _index = double.Parse( _i.ToString( ) );
                     var _value = double.Parse( row[ _columnName ].ToString( ) );
                     _series.Name = _columnName;
@@ -1171,7 +1583,7 @@ namespace BudgetExecution
                     _series.Style.Symbol.Shape = ChartSymbolShape.Circle;
                     _series.Style.TextOffset = 20f;
                     _series.FancyToolTip.Style =
-                        Syncfusion.Windows.Forms.Chart.MarkerStyle.SmoothRectangle;
+                        MarkerStyle.SmoothRectangle;
 
                     _series.FancyToolTip.Angle = 45;
                     _series.FancyToolTip.Spacing = 10f;
@@ -1233,7 +1645,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _current = BindingSource.GetCurrentDataRow( );
+                _current = BindingSource.GetCurrentDataRow( );
                 UpdateSchema( _current );
                 PivotChart.Refresh( );
             }
@@ -1302,10 +1714,10 @@ namespace BudgetExecution
             try
             {
                 var _item = TableListBox.SelectedItem.ToString( );
-                SelectedTable = _item?.Replace( " ", "" );
-                if( SelectedTable != null )
+                _selectedTable = _item?.Replace( " ", "" );
+                if( _selectedTable != null )
                 {
-                    Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
+                    _source = (Source)Enum.Parse( typeof( Source ), _selectedTable );
                 }
             }
             catch( Exception _ex )
@@ -1379,10 +1791,10 @@ namespace BudgetExecution
                 try
                 {
                     var _title = _listBox.SelectedValue?.ToString( );
-                    SelectedTable = _title?.Replace( " ", "" );
-                    if( SelectedTable != null )
+                    _selectedTable = _title?.Replace( " ", "" );
+                    if( _selectedTable != null )
                     {
-                        Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
+                        _source = (Source)Enum.Parse( typeof( Source ), _selectedTable );
                         BindData( );
                         BindChart( );
                     }
@@ -1405,7 +1817,7 @@ namespace BudgetExecution
             try
             {
                 BindingSource?.MoveFirst( );
-                var _current = BindingSource.GetCurrentDataRow( );
+                _current = BindingSource.GetCurrentDataRow( );
                 UpdateSchema( _current );
             }
             catch( Exception _ex )
@@ -1425,7 +1837,7 @@ namespace BudgetExecution
             try
             {
                 BindingSource?.MovePrevious( );
-                var _current = BindingSource.GetCurrentDataRow( );
+                _current = BindingSource.GetCurrentDataRow( );
                 UpdateSchema( _current );
             }
             catch( Exception _ex )
@@ -1445,7 +1857,7 @@ namespace BudgetExecution
             try
             {
                 BindingSource?.MoveNext( );
-                var _current = BindingSource.GetCurrentDataRow( );
+                _current = BindingSource.GetCurrentDataRow( );
                 UpdateSchema( _current );
             }
             catch( Exception _ex )
@@ -1465,7 +1877,7 @@ namespace BudgetExecution
             try
             {
                 BindingSource?.MoveLast( );
-                var _current = BindingSource.GetCurrentDataRow( );
+                _current = BindingSource.GetCurrentDataRow( );
                 UpdateSchema( _current );
             }
             catch( Exception _ex )
@@ -1511,6 +1923,11 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Called when [save button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnSaveButtonClick( object sender, EventArgs e )
         {
             try
@@ -1524,6 +1941,11 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Called when [browse button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnBrowseButtonClick( object sender, EventArgs e )
         {
             try
