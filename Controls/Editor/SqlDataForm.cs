@@ -113,11 +113,6 @@ namespace BudgetExecution
         private string _hoverText;
 
         /// <summary>
-        /// The selected table
-        /// </summary>
-        private string _selectedTable;
-
-        /// <summary>
         /// The first category
         /// </summary>
         private string _firstCategory;
@@ -246,25 +241,6 @@ namespace BudgetExecution
             private set
             {
                 _hoverText = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the selected table.
-        /// 
-        /// </summary>
-        /// <value>
-        /// The selected table.
-        /// </value>
-        public string SelectedTable
-        {
-            get
-            {
-                return _selectedTable;
-            }
-            private set
-            {
-                _selectedTable = value;
             }
         }
 
@@ -707,7 +683,7 @@ namespace BudgetExecution
         {
             try
             {
-                switch( Provider )
+                switch( _provider )
                 {
                     case Provider.SQLite:
                     {
@@ -805,8 +781,8 @@ namespace BudgetExecution
                     Timer.Interval = 10;
                     Timer.Tick += ( sender, args ) =>
                     {
-                        Time++;
-                        if( Time == Seconds )
+                        _time++;
+                        if( _time == _seconds )
                         {
                             Timer.Stop( );
                         }
@@ -950,14 +926,21 @@ namespace BudgetExecution
         /// <param name="action">The action.</param>
         public void InvokeIf( System.Action action )
         {
-            ThrowIf.Null( action, nameof( action ) );
-            if( InvokeRequired )
+            try
             {
-                BeginInvoke( action );
+                ThrowIf.Null( action, nameof( action ) );
+                if( InvokeRequired )
+                {
+                    BeginInvoke( action );
+                }
+                else
+                {
+                    action.Invoke( );
+                }
             }
-            else
+            catch( Exception _ex )
             {
-                action.Invoke( );
+                Fail( _ex );
             }
         }
 
@@ -1075,7 +1058,7 @@ namespace BudgetExecution
                 SchemaTabPage.TabVisible = false;
                 BusyTabPage.TabVisible = false;
                 Title.Text = GetTitleText( )
-                    + $"| {Source.ToString( ).SplitPascal( )} Data Table";
+                    + $"| {_source.ToString( ).SplitPascal( )} Data Table";
 
                 PopulateTableListBoxItems( );
                 _commands = CreateCommandList( _provider );
@@ -1102,7 +1085,7 @@ namespace BudgetExecution
                 PopulateTableComboBoxItems( );
                 _dataTypes = GetDataTypes( _provider );
                 PopulateDataTypeComboBoxItems( _dataTypes );
-                Title.Text = GetTitleText( ) + "| Schema Editor";
+                Title.Text = GetTitleText( ) + "| SQL Editor";
             }
             catch( Exception _ex )
             {
@@ -1195,7 +1178,6 @@ namespace BudgetExecution
                 ClearFilter( );
                 ClearComboBoxes( );
                 ClearListBoxes( );
-                _selectedTable = string.Empty;
                 _dataModel = null;
                 _dataTable = null;
                 BindingSource.DataSource = null;
@@ -1280,7 +1262,6 @@ namespace BudgetExecution
                 _firstValue = string.Empty;
                 _selectedCommand = string.Empty;
                 _selectedQuery = string.Empty;
-                _selectedTable = string.Empty;
             }
             catch( Exception _ex )
             {
@@ -1441,12 +1422,12 @@ namespace BudgetExecution
         private string CreateSqlText( IEnumerable<string> columns,
             IDictionary<string, object> where )
         {
-            if( where?.Any( ) == true
-               && columns?.Any( ) == true
-               && !string.IsNullOrEmpty( _selectedTable ) )
+            if( !string.IsNullOrEmpty( _selectedTable ) )
             {
                 try
                 {
+                    ThrowIf.Null( where, nameof( where ) );
+                    ThrowIf.Null( columns, nameof( columns ) );
                     var _cols = string.Empty;
                     foreach( var _name in columns )
                     {
@@ -1479,40 +1460,36 @@ namespace BudgetExecution
         private string CreateSqlText( IEnumerable<string> fields, IEnumerable<string> numerics,
             IDictionary<string, object> where )
         {
-            if( where?.Any( ) == true
-               && fields?.Any( ) == true
-               && numerics?.Any( ) == true )
+            try
             {
-                try
+                ThrowIf.Null( fields, nameof( fields ) );
+                ThrowIf.Null( numerics, nameof( numerics ) );
+                ThrowIf.NoItems( where, nameof( where ) );
+                var _cols = string.Empty;
+                var _aggr = string.Empty;
+                foreach( var _name in fields )
                 {
-                    var _cols = string.Empty;
-                    var _aggr = string.Empty;
-                    foreach( var _name in fields )
-                    {
-                        _cols += $"{_name}, ";
-                    }
-
-                    foreach( var _metric in numerics )
-                    {
-                        _aggr += $"SUM({_metric}) AS {_metric}, ";
-                    }
-
-                    var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
-                    var _criteria = where.ToCriteria( );
-                    var _names = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_names} "
-                        + $"FROM {_source} "
-                        + $"WHERE {_criteria} "
-                        + $"GROUP BY {_groups};";
+                    _cols += $"{_name}, ";
                 }
-                catch( Exception _ex )
+
+                foreach( var _metric in numerics )
                 {
-                    Fail( _ex );
-                    return string.Empty;
+                    _aggr += $"SUM({_metric}) AS {_metric}, ";
                 }
+
+                var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
+                var _criteria = where.ToCriteria( );
+                var _names = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
+                return $"SELECT {_names} "
+                    + $"FROM {_source} "
+                    + $"WHERE {_criteria} "
+                    + $"GROUP BY {_groups};";
             }
-
-            return string.Empty;
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return string.Empty;
+            }
         }
 
         /// <summary>
@@ -1526,8 +1503,7 @@ namespace BudgetExecution
                 {
                     BeginInit( );
                     _dataModel = new DataBuilder( _source, _provider );
-                    _dataTable = DataModel?.DataTable;
-                    _selectedTable = DataTable?.TableName;
+                    _dataTable = _dataModel?.DataTable;
                     _fields = _dataModel?.Fields;
                     _numerics = _dataModel?.Numerics;
                     BindingSource.DataSource = _dataTable;
@@ -1541,8 +1517,7 @@ namespace BudgetExecution
                 {
                     BeginInit( );
                     _dataModel = new DataBuilder( _source, _provider, _sqlQuery );
-                    _dataTable = DataModel?.DataTable;
-                    _selectedTable = DataTable?.TableName;
+                    _dataTable = _dataModel?.DataTable;
                     _fields = _dataModel?.Fields;
                     _numerics = _dataModel?.Numerics;
                     BindingSource.DataSource = _dataTable;
@@ -1574,7 +1549,6 @@ namespace BudgetExecution
                 var _sql = CreateSqlText( where );
                 _dataModel = new DataBuilder( _source, _provider, _sql );
                 _dataTable = _dataModel?.DataTable;
-                _selectedTable = _dataTable?.TableName;
                 _fields = _dataModel?.Fields;
                 _numerics = _dataModel?.Numerics;
                 BindingSource.DataSource = _dataTable;
@@ -1605,7 +1579,6 @@ namespace BudgetExecution
                 var _sql = CreateSqlText( cols, where );
                 _dataModel = new DataBuilder( _source, _provider, _sql );
                 _dataTable = _dataModel?.DataTable;
-                _selectedTable = _dataTable?.TableName;
                 _fields = _dataModel?.Fields;
                 _numerics = _dataModel?.Numerics;
                 BindingSource.DataSource = _dataTable;
@@ -1639,7 +1612,6 @@ namespace BudgetExecution
                 var _sql = CreateSqlText( fields, numerics, where );
                 _dataModel = new DataBuilder( _source, _provider, _sql );
                 _dataTable = _dataModel?.DataTable;
-                SelectedTable = _dataTable?.TableName;
                 _fields = _dataModel?.Fields;
                 _numerics = _dataModel?.Numerics;
                 BindingSource.DataSource = _dataTable;
@@ -1983,7 +1955,7 @@ namespace BudgetExecution
                         GetDataTypes( _provider );
                         _commands = CreateCommandList( _provider );
                         PopulateSqlComboBox( _commands );
-                        PopulateDataTypeComboBoxItems( DataTypes );
+                        PopulateDataTypeComboBoxItems( _dataTypes );
                         Title.Text = GetTitleText( );
                         SetFormIcon( );
                     }
@@ -2400,7 +2372,7 @@ namespace BudgetExecution
                     _source = (Source)Enum.Parse( typeof( Source ), _value );
                     _dataModel = new DataBuilder( _source, Provider.Access );
                     BindingSource.DataSource = _dataModel.DataTable;
-                    var _dataColumns = DataModel.DataColumns;
+                    var _dataColumns = _dataModel.DataColumns;
                     foreach( var _col in _dataColumns )
                     {
                         ColumnListBox.Items?.Add( _col.ColumnName );
@@ -2480,7 +2452,7 @@ namespace BudgetExecution
                     _dataModel = null;
                 }
 
-                if( _dataModel != null )
+                if( _dataTable != null )
                 {
                     _dataTable = null;
                 }

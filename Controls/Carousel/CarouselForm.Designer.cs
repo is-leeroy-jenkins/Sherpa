@@ -35,13 +35,16 @@
             Header = new Label( );
             Timer = new System.Windows.Forms.Timer( components );
             ToolTip = new SmallTip( );
+            ContextMenu = new ContextMenu( );
+            BindingSource = new System.Windows.Forms.BindingSource( components );
+            ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
             SuspendLayout( );
             // 
             // Carousel
             // 
             Carousel.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             Carousel.CanOverrideStyle = true;
-            Carousel.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            Carousel.Font = new System.Drawing.Font( "Roboto", 9F );
             Carousel.ForeColor = System.Drawing.Color.White;
             Carousel.HighlightColor = System.Drawing.Color.SteelBlue;
             Carousel.Images = null;
@@ -61,7 +64,7 @@
             Carousel.TabIndex = 0;
             Carousel.ThemeName = "Metro";
             Carousel.ThemeStyle.BackColor = System.Drawing.Color.Transparent;
-            Carousel.ThemeStyle.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            Carousel.ThemeStyle.Font = new System.Drawing.Font( "Roboto", 9F );
             Carousel.ThemeStyle.ForeColor = System.Drawing.Color.White;
             Carousel.ThemeStyle.HoverImageBorderColor = System.Drawing.Color.SteelBlue;
             Carousel.ThemeStyle.HoverImageBorderThickness = 2;
@@ -86,7 +89,7 @@
             Header.BindingSource = null;
             Header.DataFilter = null;
             Header.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            Header.Font = new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            Header.Font = new System.Drawing.Font( "Roboto", 12F );
             Header.HoverText = null;
             Header.IsDerivedStyle = true;
             Header.Location = new System.Drawing.Point( 361, 96 );
@@ -128,29 +131,59 @@
             ToolTip.TipText = null;
             ToolTip.TipTitle = null;
             // 
+            // ContextMenu
+            // 
+            ContextMenu.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ContextMenu.DropShadowEnabled = false;
+            ContextMenu.Font = new System.Drawing.Font( "Roboto", 9F );
+            ContextMenu.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ContextMenu.MetroColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ContextMenu.Name = "ContextMenu";
+            ContextMenu.Size = new System.Drawing.Size( 126, 180 );
+            ContextMenu.Style = Syncfusion.Windows.Forms.Tools.ContextMenuStripEx.ContextMenuStyle.Office2016Black;
+            ContextMenu.ThemeName = "Office2016Black";
+            ContextMenu.ThemeStyle.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ContextMenu.ThemeStyle.BorderColor = System.Drawing.Color.FromArgb( 77, 77, 77 );
+            ContextMenu.ThemeStyle.DisabledForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ContextMenu.ThemeStyle.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ContextMenu.ThemeStyle.HoverBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            ContextMenu.ThemeStyle.HoverForeColor = System.Drawing.Color.White;
+            ContextMenu.ThemeStyle.PressedBackColor = System.Drawing.Color.FromArgb( 204, 204, 204 );
+            ContextMenu.ThemeStyle.PressedForeColor = System.Drawing.Color.Black;
+            // 
             // CarouselForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            BorderColor = System.Drawing.Color.SteelBlue;
+            BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             CaptionAlign = System.Windows.Forms.HorizontalAlignment.Left;
             CaptionBarColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            CaptionBarHeight = 5;
             CaptionButtonColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            CaptionButtonHoverColor = System.Drawing.Color.White;
-            CaptionFont = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            CaptionForeColor = System.Drawing.Color.LightGray;
-            ClientSize = new System.Drawing.Size( 1388, 713 );
+            CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            CaptionFont = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
+            CaptionForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ClientSize = new System.Drawing.Size( 1333, 733 );
+            ControlBox = false;
             Controls.Add( Header );
             Controls.Add( Carousel );
-            Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            ForeColor = System.Drawing.Color.LightGray;
-            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            DoubleBuffered = true;
+            Font = new System.Drawing.Font( "Roboto", 9F );
+            ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
+            MaximizeBox = false;
+            MaximumSize = new System.Drawing.Size( 1350, 750 );
             MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            MinimumSize = new System.Drawing.Size( 1340, 740 );
             Name = "CarouselForm";
             ShowIcon = false;
+            ShowMaximizeBox = false;
+            ShowMinimizeBox = false;
+            SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            ( (System.ComponentModel.ISupportInitialize)BindingSource ).EndInit( );
             ResumeLayout( false );
         }
 
@@ -161,5 +194,7 @@
         public Label Header;
         public System.Windows.Forms.Timer Timer;
         public SmallTip ToolTip;
+        public ContextMenu ContextMenu;
+        public System.Windows.Forms.BindingSource BindingSource;
     }
 }

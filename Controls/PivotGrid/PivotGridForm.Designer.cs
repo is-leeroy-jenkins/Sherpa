@@ -74,7 +74,6 @@
             PivotTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             AreaTable = new System.Windows.Forms.TableLayoutPanel( );
             PivotPanel = new BackPanel( );
-            PivotGrid = new Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl( components );
             ChartSubTablePanel = new BackPanel( );
             ChartSubTable = new System.Windows.Forms.TableLayoutPanel( );
             CommandLabel2 = new Label( );
@@ -103,6 +102,8 @@
             TableListBoxLayout = new BackPanel( );
             TableListBox = new ListBox( );
             Timer = new System.Windows.Forms.Timer( components );
+            pivotGridControl1 = new Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl( components );
+            ContextMenu = new ContextMenu( );
             HeaderTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
             ToolStripTable.SuspendLayout( );
@@ -841,7 +842,7 @@
             PivotPanel.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
             PivotPanel.BorderThickness = 1;
             PivotPanel.Children = null;
-            PivotPanel.Controls.Add( PivotGrid );
+            PivotPanel.Controls.Add( pivotGridControl1 );
             PivotPanel.DataFilter = null;
             PivotPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             PivotPanel.Font = new System.Drawing.Font( "Roboto", 8F );
@@ -858,20 +859,6 @@
             PivotPanel.ThemeAuthor = "Terry D. Eppler";
             PivotPanel.ThemeName = "Budget Execution";
             PivotPanel.ToolTip = null;
-            // 
-            // PivotGrid
-            // 
-            PivotGrid.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            PivotGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            PivotGrid.EditManager = null;
-            PivotGrid.GridVisualStyles = Syncfusion.Windows.Forms.GridVisualStyles.Office2016Black;
-            PivotGrid.Location = new System.Drawing.Point( 1, 1 );
-            PivotGrid.Name = "PivotGrid";
-            PivotGrid.Size = new System.Drawing.Size( 1020, 470 );
-            PivotGrid.TabIndex = 0;
-            PivotGrid.Text = "pivotGridControl1";
-            PivotGrid.ThemeName = "Office2016Black";
-            PivotGrid.UpdateManager = null;
             // 
             // ChartSubTablePanel
             // 
@@ -1394,6 +1381,7 @@
             pivotGrid1.EditManager = null;
             pivotGrid1.Font = new System.Drawing.Font( "Roboto", 9F );
             pivotGrid1.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            pivotGrid1.GridVisualStyles = Syncfusion.Windows.Forms.GridVisualStyles.Office2016Black;
             pivotGrid1.Location = new System.Drawing.Point( 0, 0 );
             pivotGrid1.Name = "pivotGrid1";
             pivotGrid1.Size = new System.Drawing.Size( 900, 500 );
@@ -1484,6 +1472,40 @@
             // 
             Timer.Enabled = true;
             Timer.Interval = 500;
+            // 
+            // pivotGridControl1
+            // 
+            pivotGridControl1.BackColor = System.Drawing.Color.FromArgb( 90, 90, 90 );
+            pivotGridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            pivotGridControl1.EditManager = null;
+            pivotGridControl1.GridVisualStyles = Syncfusion.Windows.Forms.GridVisualStyles.Office2016Black;
+            pivotGridControl1.Location = new System.Drawing.Point( 1, 1 );
+            pivotGridControl1.Name = "pivotGridControl1";
+            pivotGridControl1.Size = new System.Drawing.Size( 1020, 470 );
+            pivotGridControl1.TabIndex = 0;
+            pivotGridControl1.Text = "pivotGridControl1";
+            pivotGridControl1.ThemeName = "Office2016Black";
+            pivotGridControl1.UpdateManager = null;
+            // 
+            // ContextMenu
+            // 
+            ContextMenu.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ContextMenu.DropShadowEnabled = false;
+            ContextMenu.Font = new System.Drawing.Font( "Roboto", 9F );
+            ContextMenu.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ContextMenu.MetroColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ContextMenu.Name = "ContextMenu";
+            ContextMenu.Size = new System.Drawing.Size( 126, 180 );
+            ContextMenu.Style = Syncfusion.Windows.Forms.Tools.ContextMenuStripEx.ContextMenuStyle.Office2016Black;
+            ContextMenu.ThemeName = "Office2016Black";
+            ContextMenu.ThemeStyle.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ContextMenu.ThemeStyle.BorderColor = System.Drawing.Color.FromArgb( 77, 77, 77 );
+            ContextMenu.ThemeStyle.DisabledForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ContextMenu.ThemeStyle.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ContextMenu.ThemeStyle.HoverBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            ContextMenu.ThemeStyle.HoverForeColor = System.Drawing.Color.White;
+            ContextMenu.ThemeStyle.PressedBackColor = System.Drawing.Color.FromArgb( 204, 204, 204 );
+            ContextMenu.ThemeStyle.PressedForeColor = System.Drawing.Color.Black;
             // 
             // PivotGridForm
             // 
@@ -1616,6 +1638,7 @@
         public ToolStripLabel StatusSpacer1;
         public ToolStripLabel Navigation;
         private PivotGrid pivotGrid1;
-        public Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl PivotGrid;
+        public Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl pivotGridControl1;
+        public ContextMenu ContextMenu;
     }
 }

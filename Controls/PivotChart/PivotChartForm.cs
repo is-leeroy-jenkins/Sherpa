@@ -1140,13 +1140,21 @@ namespace BudgetExecution
         /// </param>
         public void InvokeIf( Action action )
         {
-            if( InvokeRequired )
+            try
             {
-                BeginInvoke( action );
+                ThrowIf.Null( action, nameof( action ) );
+                if( InvokeRequired )
+                {
+                    BeginInvoke( action );
+                }
+                else
+                {
+                    action.Invoke( );
+                }
             }
-            else
+            catch( Exception _ex )
             {
-                action.Invoke( );
+                Fail( _ex );
             }
         }
 
@@ -1245,11 +1253,6 @@ namespace BudgetExecution
         {
             try
             {
-                if( _filter?.Any( ) == true )
-                {
-                    _filter.Clear( );
-                }
-
                 if( _selectedColumns?.Any( ) == true )
                 {
                     _selectedColumns.Clear( );
@@ -1428,8 +1431,8 @@ namespace BudgetExecution
                 var _data = _model.GetData( );
                 var _names = _data
                     ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
-                    ?.OrderBy( r => r.Field<string>( nameof( Title ) ) )
-                    ?.Select( r => r.Field<string>( nameof( Title ) ) )
+                    ?.OrderBy( r => r.Field<string>( "Title" ) )
+                    ?.Select( r => r.Field<string>( "Title" ) )
                     ?.ToList( );
 
                 if( _names?.Any( ) == true )
@@ -1528,9 +1531,8 @@ namespace BudgetExecution
                 ThrowIf.NullOrEmpty( type, nameof( type ) );
                 if( Enum.IsDefined( typeof( PivotChartTypes ), type ) )
                 {
-                    ChartType = (PivotChartTypes)Enum.Parse( typeof( PivotChartTypes ), type );
-                    PivotChart.ChartTypes =
-                        (PivotChartTypes)Enum.Parse( typeof( PivotChartTypes ), type );
+                    _chartType = (PivotChartTypes)Enum.Parse( typeof( PivotChartTypes ), type );
+                    PivotChart.ChartTypes = _chartType;
                 }
             }
             catch( Exception _ex )

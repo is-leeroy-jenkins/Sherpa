@@ -1216,13 +1216,21 @@ namespace BudgetExecution
         /// </param>
         public void InvokeIf( System.Action action )
         {
-            if( InvokeRequired )
+            try
             {
-                BeginInvoke( action );
+                ThrowIf.Null( action, nameof( action ) );
+                if( InvokeRequired )
+                {
+                    BeginInvoke( action );
+                }
+                else
+                {
+                    action.Invoke( );
+                }
             }
-            else
+            catch( Exception _ex )
             {
-                action.Invoke( );
+                Fail( _ex );
             }
         }
 
