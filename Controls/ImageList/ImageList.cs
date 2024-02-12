@@ -97,7 +97,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref="ImageList"/> class.
         /// </summary>
-        /// <param name="imageImageSource">The image image source.</param>
+        /// <param name="imageImageSource">The image source.</param>
         /// <param name="size">The size.</param>
         public ImageList( ImageDirectory imageImageSource, Size size )
         {

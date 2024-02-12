@@ -151,14 +151,11 @@ partial class WebSelector
             // 
             // ImageList
             // 
-            this.ImageList.BindingSource = null;
-            this.ImageList.DataFilter = null;
             this.ImageList.FileNames = null;
             this.ImageList.FilePaths = null;
             this.ImageList.HoverText = null;
             this.ImageList.Image = null;
             this.ImageList.ImageSource = BudgetExecution.ImageDirectory.Empty;
-            this.ImageList.ToolTip = null;
             // 
             // WebSelector
             // 

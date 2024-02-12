@@ -44,10 +44,8 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
     /// <inheritdoc/>
@@ -58,36 +56,12 @@ namespace BudgetExecution
     public abstract class ImageListBase : ImageListAdv
     {
         /// <summary>
-        /// Gets or sets the binding source.
-        /// </summary>
-        /// <value>
-        /// The binding source.
-        /// </value>
-        public virtual BindingSource BindingSource { get; set; }
-
-        /// <summary>
-        /// Gets or sets the tool tip.
-        /// </summary>
-        /// <value>
-        /// The tool tip.
-        /// </value>
-        public virtual SmallTip ToolTip { get; set; }
-
-        /// <summary>
         /// Gets or sets the hover text.
         /// </summary>
         /// <value>
         /// The hover text.
         /// </value>
         public virtual string HoverText { get; set; }
-
-        /// <summary>
-        /// Gets or sets the data filter.
-        /// </summary>
-        /// <value>
-        /// The data filter.
-        /// </value>
-        public virtual IDictionary<string, object> DataFilter { get; set; }
 
         /// <summary>
         /// Res the size images.

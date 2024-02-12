@@ -75,14 +75,11 @@
             // 
             // ImageList
             // 
-            ImageList.BindingSource = null;
-            ImageList.DataFilter = null;
             ImageList.FileNames = null;
             ImageList.FilePaths = null;
             ImageList.HoverText = null;
             ImageList.Image = null;
             ImageList.ImageSource = ImageDirectory.Empty;
-            ImageList.ToolTip = null;
             // 
             // Header
             // 
