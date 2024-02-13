@@ -58,15 +58,51 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     public partial class CalendarDialog : MetroForm
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        private DataBuilder _dataModel;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private string _dateString;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private DataSet _dataSet;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private DataTable _holidays;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private DataTable _fiscalYears;
+
         /// <summary>
         /// Gets or sets the date string.
         /// </summary>
         /// <value>
         /// The date string.
         /// </value>
-        public string DateString { get; set; }
+        public string DateString
+        {
+            get
+            {
+                return _dateString;
+            }
+            private set
+            {
+                _dateString = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the data.
@@ -74,7 +110,17 @@ namespace BudgetExecution
         /// <value>
         /// The data.
         /// </value>
-        public DataSet Data { get; set; }
+        public DataSet Data
+        {
+            get
+            {
+                return _dataSet;
+            }
+            private set
+            {
+                _dataSet = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the holidays.
@@ -82,15 +128,35 @@ namespace BudgetExecution
         /// <value>
         /// The holidays.
         /// </value>
-        public DataTable Holidays { get; set; }
-
+        public DataTable Holidays
+        {
+            get
+            {
+                return _holidays;
+            }
+            private set
+            {
+                _holidays = value;
+            }
+        }
+        
         /// <summary>
         /// Gets or sets the fiscal years.
         /// </summary>
         /// <value>
         /// The fiscal years.
         /// </value>
-        public DataTable FiscalYears { get; set; }
+        public DataTable FiscalYears
+        {
+            get
+            {
+                return _fiscalYears;
+            }
+            private set
+            {
+                _fiscalYears = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the data model.
@@ -98,7 +164,17 @@ namespace BudgetExecution
         /// <value>
         /// The data model.
         /// </value>
-        public DataBuilder DataModel { get; set; }
+        public DataBuilder DataModel
+        {
+            get
+            {
+                return _dataModel;
+            }
+            private set
+            {
+                _dataModel = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
@@ -152,11 +228,15 @@ namespace BudgetExecution
             Load += OnLoad;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dateTime"></param>
         public CalendarDialog( DateTime dateTime )
             : this( )
         {
             Calendar.SelectedDate = dateTime;
-            DateString = Calendar.SelectedDate.ToString( );
+            _dateString = Calendar.SelectedDate.ToString( );
         }
 
         /// <summary>
@@ -249,7 +329,7 @@ namespace BudgetExecution
         {
             try
             {
-                DateString = Calendar.SelectedDate.ToString( );
+                _dateString = Calendar.SelectedDate.ToString( );
                 Close( );
             }
             catch( Exception _ex )

@@ -56,51 +56,51 @@ namespace BudgetExecution
     public interface IStateTransfer : ISource, IProvider
     {
         /// <summary>
-        /// Gets or sets the selected table.
+        /// Gets the selected table.
         /// </summary>
         /// <value>
         /// The selected table.
         /// </value>
-        string SelectedTable { get; set; }
+        string SelectedTable { get; }
 
         /// <summary>
-        /// Gets or sets the selected fields.
+        /// Gets the selected fields.
         /// </summary>
         /// <value>
         /// The selected fields.
         /// </value>
-        IList<string> SelectedFields { get; set; }
+        IList<string> SelectedFields { get; }
 
         /// <summary>
-        /// Gets or sets the selected numerics.
+        /// Gets the selected numerics.
         /// </summary>
         /// <value>
         /// The selected numerics.
         /// </value>
-        IList<string> SelectedNumerics { get; set; }
+        IList<string> SelectedNumerics { get; }
 
         /// <summary>
-        /// Gets or sets the selected dates.
+        /// Gets the selected dates.
         /// </summary>
         /// <value>
         /// The selected dates.
         /// </value>
-        IList<DateTime> SelectedDates { get; set; }
+        IList<DateTime> SelectedDates { get; }
 
         /// <summary>
-        /// Gets or sets the SQL query.
+        /// Gets the SQL query.
         /// </summary>
         /// <value>
         /// The SQL query.
         /// </value>
-        string SqlQuery { get; set; }
+        string SqlQuery { get; }
 
         /// <summary>
-        /// Gets or sets the data filter.
+        /// Gets the data filter.
         /// </summary>
         /// <value>
         /// The data filter.
         /// </value>
-        IDictionary<string, object> Filter { get; set; }
+        IDictionary<string, object> Filter { get; }
     }
 }

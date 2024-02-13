@@ -38,14 +38,12 @@
 // </summary>
 // ******************************************************************************************
 
-using System;
-using System.Collections.Generic;
-using System.Data.Common;
-using System.Diagnostics.CodeAnalysis;
-
 namespace BudgetExecution
 {
     using System;
+    using System.Collections.Generic;
+    using System.Data.Common;
+    using System.Diagnostics.CodeAnalysis;
 
     /// <inheritdoc/>
     /// <summary> </summary>
@@ -163,7 +161,7 @@ namespace BudgetExecution
         {
             try
             {
-                switch( SqlStatement.Provider )
+                switch( _sqlStatement.Provider )
                 {
                     case Provider.SQLite:
                     {

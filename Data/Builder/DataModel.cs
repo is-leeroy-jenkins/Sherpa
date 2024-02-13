@@ -314,10 +314,10 @@ namespace BudgetExecution
         /// <param name="commandType">Type of the command.</param>
         public DataModel( string fullPath, string sqlText, SQL commandType = SQL.SELECT )
         {
-            ConnectionFactory = new ConnectionFactory( fullPath );
-            _source = ConnectionFactory.Source;
-            _provider = ConnectionFactory.Provider;
-            _sqlStatement = new SqlStatement( Source, Provider, sqlText, commandType );
+            _connectionFactory = new ConnectionFactory( fullPath );
+            _source = Source.External;
+            _provider = Provider.Access;
+            _sqlStatement = new SqlStatement( _source, _provider, sqlText, commandType );
             _dataTable = GetDataTable( );
             _dataColumns = GetDataColumns( );
             _columnNames = GetColumnNames( );

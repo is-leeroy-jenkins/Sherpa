@@ -52,15 +52,116 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
     public abstract class ConnectionBase
     {
+        /// <summary>
+        /// The source
+        /// </summary>
+        /// <value>
+        ///  
+        /// </value>
+        private protected Source _source;
+
+        /// <summary>
+        /// The provider
+        /// </summary>
+        /// <value>
+        ///  
+        /// </value>
+        private protected Provider _provider;
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <value>
+        ///  
+        /// </value>
+        private protected DbConnection _connection;
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <value>
+        ///  
+        /// </value>
+        private protected string _clientPath;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <value>
+        ///  
+        /// </value>
+        private protected EXT _extension;
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <value>
+        /// 
+        /// </value>
+        private protected ISqlStatement _sqlStatement;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <value>
+        /// 
+        /// </value>
+        private protected string _pathExtension;
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <value>
+        /// 
+        /// </value>
+        private protected string _filePath;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <value>
+        /// 
+        /// </value>
+        private protected string _fileName;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <value>
+        /// 
+        /// </value>
+        private protected string _tableName;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <value>
+        /// 
+        /// </value>
+        private protected string _connectionString;
+
         /// <summary>
         /// Gets or sets the connection.
         /// </summary>
         /// <value>
         /// The connection.
         /// </value>
-        public DbConnection Connection { get; set; }
+        public DbConnection Connection
+        {
+            get
+            {
+                return _connection;
+            }
+            private protected set
+            {
+                _connection = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the client path.
@@ -68,7 +169,17 @@ namespace BudgetExecution
         /// <value>
         /// The client path.
         /// </value>
-        public string ClientPath { get; set; }
+        public string ClientPath
+        {
+            get
+            {
+                return _clientPath;
+            }
+            private protected set
+            {
+                _clientPath = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the source.
@@ -76,7 +187,17 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public Source Source { get; set; }
+        public Source Source
+        {
+            get
+            {
+                return _source;
+            }
+            private protected set
+            {
+                _source = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the provider.
@@ -84,7 +205,17 @@ namespace BudgetExecution
         /// <value>
         /// The provider.
         /// </value>
-        public Provider Provider { get; set; }
+        public Provider Provider
+        {
+            get
+            {
+                return _provider;
+            }
+            private protected set
+            {
+                _provider = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the extension.
@@ -92,7 +223,17 @@ namespace BudgetExecution
         /// <value>
         /// The extension.
         /// </value>
-        public EXT Extension { get; set; }
+        public EXT Extension
+        {
+            get
+            {
+                return _extension;
+            }
+            private protected set
+            {
+                _extension = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the path extension.
@@ -100,7 +241,17 @@ namespace BudgetExecution
         /// <value>
         /// The path extension.
         /// </value>
-        public string PathExtension { get; set; }
+        public string PathExtension
+        {
+            get
+            {
+                return _pathExtension;
+            }
+            private protected set
+            {
+                _pathExtension = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the file path.
@@ -108,7 +259,17 @@ namespace BudgetExecution
         /// <value>
         /// The file path.
         /// </value>
-        public string FilePath { get; set; }
+        public string FilePath
+        {
+            get
+            {
+                return _filePath;
+            }
+            private protected set
+            {
+                _filePath = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the name of the file.
@@ -116,7 +277,17 @@ namespace BudgetExecution
         /// <value>
         /// The name of the file.
         /// </value>
-        public string FileName { get; set; }
+        public string FileName
+        {
+            get
+            {
+                return _fileName;
+            }
+            private protected set
+            {
+                _fileName = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the name of the table.
@@ -124,7 +295,17 @@ namespace BudgetExecution
         /// <value>
         /// The name of the table.
         /// </value>
-        public string TableName { get; set; }
+        public string TableName
+        {
+            get
+            {
+                return _tableName;
+            }
+            private protected set
+            {
+                _tableName = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the connection string.
@@ -132,7 +313,17 @@ namespace BudgetExecution
         /// <value>
         /// The connection string.
         /// </value>
-        public string ConnectionString { get; set; }
+        public string ConnectionString
+        {
+            get
+            {
+                return _connectionString;
+            }
+            private protected set
+            {
+                _connectionString = value;
+            }
+        }
 
         /// <summary>
         /// Initializes a new instance of the
@@ -153,17 +344,17 @@ namespace BudgetExecution
         protected ConnectionBase( string fullPath )
             : this( )
         {
-            Source = Source.External;
-            FilePath = fullPath;
-            FileName = GetFileNameWithoutExtension( fullPath );
-            TableName = FileName;
-            PathExtension = GetExtension( fullPath )?.Replace( ".", "" );
-            if( !string.IsNullOrEmpty( PathExtension ) )
+            _source = Source.External;
+            _filePath = fullPath;
+            _fileName = GetFileNameWithoutExtension( fullPath );
+            _tableName = _fileName;
+            _pathExtension = GetExtension( fullPath )?.Replace( ".", "" );
+            if( !string.IsNullOrEmpty( _pathExtension ) )
             {
-                Extension = (EXT)Enum.Parse( typeof( EXT ), PathExtension.ToUpper( ) );
-                Provider = (Provider)Enum.Parse( typeof( Provider ), PathExtension.ToUpper( ) );
-                ClientPath = AppSettings[ Extension.ToString( ) ];
-                ConnectionString = CreateConnectionString( Provider );
+                _extension = (EXT)Enum.Parse( typeof( EXT ), _pathExtension.ToUpper( ) );
+                _provider = (Provider)Enum.Parse( typeof( Provider ), _pathExtension.ToUpper( ) );
+                _clientPath = AppSettings[ _extension.ToString( ) ];
+                _connectionString = CreateConnectionString( _provider );
             }
         }
 
@@ -178,17 +369,17 @@ namespace BudgetExecution
         protected ConnectionBase( string fullPath, Provider provider = Provider.Access )
             : this( )
         {
-            Source = Source.External;
-            Provider = provider;
-            FilePath = fullPath;
-            FileName = GetFileNameWithoutExtension( fullPath );
-            TableName = FileName;
-            PathExtension = GetExtension( fullPath )?.Replace( ".", "" );
-            if( !string.IsNullOrEmpty( PathExtension ) )
+            _source = Source.External;
+            _provider = provider;
+            _filePath = fullPath;
+            _fileName = GetFileNameWithoutExtension( fullPath );
+            _tableName = _fileName;
+            _pathExtension = GetExtension( fullPath )?.Replace( ".", "" );
+            if( !string.IsNullOrEmpty( _pathExtension ) )
             {
-                Extension = (EXT)Enum.Parse( typeof( EXT ), PathExtension.ToUpper( ) );
-                ClientPath = AppSettings[ Extension.ToString( ) ];
-                ConnectionString = CreateConnectionString( Provider );
+                _extension = (EXT)Enum.Parse( typeof( EXT ), _pathExtension.ToUpper( ) );
+                _clientPath = AppSettings[ _extension.ToString( ) ];
+                _connectionString = CreateConnectionString( _provider );
             }
         }
 
@@ -203,17 +394,17 @@ namespace BudgetExecution
         protected ConnectionBase( Source source, Provider provider = Provider.Access )
             : this( )
         {
-            Source = source;
-            Provider = provider;
-            TableName = source.ToString( );
-            FilePath = GetDbClientPath( provider );
-            ConnectionString = CreateConnectionString( provider );
-            PathExtension = GetExtension( FilePath )?.Replace( ".", "" );
-            FileName = GetFileNameWithoutExtension( FilePath );
-            if( !string.IsNullOrEmpty( PathExtension ) )
+            _source = source;
+            _provider = provider;
+            _tableName = source.ToString( );
+            _filePath = GetDbClientPath( provider );
+            _connectionString = CreateConnectionString( provider );
+            _pathExtension = GetExtension( _filePath )?.Replace( ".", "" );
+            _fileName = GetFileNameWithoutExtension( _filePath );
+            if( !string.IsNullOrEmpty( _pathExtension ) )
             {
-                Extension = (EXT)Enum.Parse( typeof( EXT ), PathExtension.ToUpper( ) );
-                ClientPath = AppSettings[ Extension.ToString( ) ];
+                _extension = (EXT)Enum.Parse( typeof( EXT ), _pathExtension.ToUpper( ) );
+                _clientPath = AppSettings[ _extension.ToString( ) ];
             }
         }
 
@@ -267,11 +458,11 @@ namespace BudgetExecution
 
                     if( !string.IsNullOrEmpty( _file ) )
                     {
-                        var _extension = (EXT)Enum.Parse( typeof( EXT ), _file );
+                        _extension = (EXT)Enum.Parse( typeof( EXT ), _file );
                         var _names = Enum.GetNames( typeof( EXT ) );
                         if( _names?.Contains( _extension.ToString( ) ) == true )
                         {
-                            var _clientPath = AppSettings[ $"{_extension}" ];
+                            _clientPath = AppSettings[ $"{_extension}" ];
                             return !string.IsNullOrEmpty( _clientPath )
                                 ? _clientPath
                                 : string.Empty;
@@ -295,13 +486,13 @@ namespace BudgetExecution
         private protected virtual string CreateConnectionString( Provider provider )
         {
             if( Enum.IsDefined( typeof( Provider ), provider )
-               && !string.IsNullOrEmpty( FilePath ) )
+               && !string.IsNullOrEmpty( _filePath ) )
             {
                 try
                 {
-                    var _connection = ConnectionStrings[ provider.ToString( ) ]?.ConnectionString;
-                    return !string.IsNullOrEmpty( _connection )
-                        ? _connection?.Replace( $"{FilePath}", FilePath )
+                    _connectionString = ConnectionStrings[ provider.ToString( ) ]?.ConnectionString;
+                    return !string.IsNullOrEmpty( _connectionString )
+                        ? _connectionString?.Replace( $"{_filePath}", _filePath )
                         : string.Empty;
                 }
                 catch( Exception _ex )
@@ -333,9 +524,7 @@ namespace BudgetExecution
                         var _names = Enum.GetNames( typeof( EXT ) );
                         if( _names?.Contains( _ext.ToString( ) ) == true )
                         {
-                            var _connectionString = ConnectionStrings[ $"{_ext}" ]
-                                ?.ConnectionString;
-
+                            _connectionString = ConnectionStrings[ $"{_ext}" ]?.ConnectionString;
                             return !string.IsNullOrEmpty( _connectionString )
                                 ? _connectionString
                                 : string.Empty;

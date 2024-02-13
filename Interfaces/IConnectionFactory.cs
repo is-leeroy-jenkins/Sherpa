@@ -46,47 +46,79 @@ namespace BudgetExecution
     /// <summary> </summary>
     public interface IConnectionFactory
     {
-        /// <summary> Gets or sets the connection. </summary>
-        /// <value> The connection. </value>
-        DbConnection Connection { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        Source Source { get; }
 
-        /// <summary> Gets or sets the database path. </summary>
-        /// <value> The database path. </value>
-        string ClientPath { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        Provider Provider { get; }
 
-        /// <summary> Gets or sets the source. </summary>
-        /// <value> The source. </value>
-        Source Source { get; set; }
+        /// <summary>
+        /// Gets or sets the connection.
+        /// </summary>
+        /// <value>
+        /// The connection.
+        /// </value>
+        DbConnection Connection { get; }
 
-        /// <summary> Gets or sets the provider. </summary>
-        /// <value> The provider. </value>
-        Provider Provider { get; set; }
+        /// <summary>
+        /// Gets or sets the database path.
+        /// </summary>
+        /// <value>
+        /// The database path.
+        /// </value>
+        string ClientPath { get; }
 
         /// <summary> Gets or sets the extension. </summary>
         /// <value> The extension. </value>
-        EXT Extension { get; set; }
+        EXT Extension { get; }
 
-        /// <summary> Gets or sets the path extension. </summary>
-        /// <value> The path extension. </value>
-        string PathExtension { get; set; }
+        /// <summary>
+        /// Gets or sets the path extension.
+        /// </summary>
+        /// <value>
+        /// The path extension.
+        /// </value>
+        string PathExtension { get; }
 
-        /// <summary> Gets or sets the file path. </summary>
-        /// <value> The file path. </value>
-        string FilePath { get; set; }
+        /// <summary>
+        /// Gets or sets the file path.
+        /// </summary>
+        /// <value>
+        /// The file path.
+        /// </value>
+        string FilePath { get; }
 
-        /// <summary> Gets or sets the name of the file. </summary>
-        /// <value> The name of the file. </value>
-        string FileName { get; set; }
+        /// <summary>
+        /// Gets or sets the name of the file.
+        /// </summary>
+        /// <value>
+        /// The name of the file.
+        /// </value>
+        string FileName { get; }
 
-        /// <summary> Gets or sets the name of the table. </summary>
-        /// <value> The name of the table. </value>
-        string TableName { get; set; }
+        /// <summary>
+        /// Gets or sets the name of the table.
+        /// </summary>
+        /// <value>
+        /// The name of the table.
+        /// </value>
+        string TableName { get; }
 
-        /// <summary> Gets or sets the connection string. </summary>
-        /// <value> The connection string. </value>
-        string ConnectionString { get; set; }
+        /// <summary>
+        /// Gets or sets the connection string.
+        /// </summary>
+        /// <value>
+        /// The connection string.
+        /// </value>
+        string ConnectionString { get; }
 
-        /// <summary> Gets the connection. </summary>
+        /// <summary>
+        /// Gets the connection.
+        /// </summary>
         /// <returns> </returns>
         DbConnection GetConnection( );
     }

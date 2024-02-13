@@ -46,6 +46,7 @@ namespace BudgetExecution
     using System;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
+    using Microsoft.Office.Interop.Access;
 
     /// <inheritdoc />
     /// <summary>
@@ -59,22 +60,115 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public class DataArgs : StateData, IStateTransfer
     {
-        /// <inheritdoc />
         /// <summary>
         /// Gets or sets the selected table.
         /// </summary>
         /// <value>
         /// The selected table.
         /// </value>
-        public override string SelectedTable { get; set; }
+        public string SelectedTable
+        {
+            get
+            {
+                return _selectedTable;
+            }
+            set
+            {
+                _selectedTable = value;
+            }
+        }
 
+        /// <summary>
+        /// Gets or sets the SQL query.
+        /// </summary>
+        /// <value>
+        /// The SQL query.
+        /// </value>
+        public string SqlQuery
+        {
+            get
+            {
+                return _sqlQuery;
+            }
+            set
+            {
+                _sqlQuery = value;
+            }
+        }
+
+        /// <inheritdoc/>
+        /// <summary>
+        /// Gets or sets the provider.
+        /// </summary>
+        /// <value>
+        /// The provider.
+        /// </value>
+        public Provider Provider
+        {
+            get
+            {
+                return _provider;
+            }
+            set
+            {
+                _provider = value;
+            }
+        }
+
+        /// <inheritdoc/>
+        /// <summary>
+        /// Gets or sets the source.
+        /// </summary>
+        /// <value>
+        /// The source.
+        /// </value>
+        public Source Source
+        {
+            get
+            {
+                return _source;
+            }
+            set
+            {
+                _source = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the data filter.
+        /// </summary>
+        /// <value>
+        /// The data filter.
+        /// </value>
+        public IDictionary<string, object> Filter
+        {
+            get
+            {
+                return _filter;
+            }
+            set
+            {
+                _filter = value;
+            }
+        }
+        
         /// <summary>
         /// Gets or sets the selected columns.
         /// </summary>
         /// <value>
         /// The selected columns.
         /// </value>
-        public IList<string> SelectedColumns { get; set; }
+        public IList<string> SelectedColumns
+        {
+            get
+            {
+                return _selectedColumns;
+            }
+            set
+            {
+                _selectedColumns = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
@@ -83,7 +177,17 @@ namespace BudgetExecution
         /// <value>
         /// The selected fields.
         /// </value>
-        public IList<string> SelectedFields { get; set; }
+        public IList<string> SelectedFields
+        {
+            get
+            {
+                return _selectedFields;
+            }
+            set
+            {
+                _selectedFields = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
@@ -92,7 +196,17 @@ namespace BudgetExecution
         /// <value>
         /// The selected numerics.
         /// </value>
-        public IList<string> SelectedNumerics { get; set; }
+        public IList<string> SelectedNumerics
+        {
+            get
+            {
+                return _selectedNumerics;
+            }
+            set
+            {
+                _selectedNumerics = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
@@ -101,43 +215,17 @@ namespace BudgetExecution
         /// <value>
         /// The selected dates.
         /// </value>
-        public IList<DateTime> SelectedDates { get; set; }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets or sets the SQL query.
-        /// </summary>
-        /// <value>
-        /// The SQL query.
-        /// </value>
-        public override string SqlQuery { get; set; }
-
-        /// <summary>
-        /// Gets or sets the provider.
-        /// </summary>
-        /// <value>
-        /// The provider.
-        /// </value>
-        /// <inheritdoc />
-        public override Provider Provider { get; set; }
-
-        /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
-        /// <inheritdoc />
-        public override Source Source { get; set; }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets or sets the data filter.
-        /// </summary>
-        /// <value>
-        /// The data filter.
-        /// </value>
-        public override IDictionary<string, object> Filter { get; set; }
+        public IList<DateTime> SelectedDates
+        {
+            get
+            {
+                return _selectedDates;
+            }
+            set
+            {
+                _selectedDates = value;
+            }
+        }
 
         /// <summary>
         /// Initializes a new instance of the
@@ -154,15 +242,15 @@ namespace BudgetExecution
         /// <param name="args">The arguments.</param>
         public DataArgs( DataArgs args )
         {
-            Source = args.Source;
-            Provider = args.Provider;
-            Filter = args.Filter;
-            SelectedTable = args.SelectedTable;
-            SqlQuery = args.SqlQuery;
-            SelectedColumns = args.SelectedColumns;
-            SelectedFields = args.SelectedFields;
-            SelectedNumerics = args.SelectedNumerics;
-            SelectedDates = args.SelectedDates;
+            _source = args.Source;
+            _provider = args.Provider;
+            _filter = args.Filter;
+            _selectedTable = args.SelectedTable;
+            _sqlQuery = args.SqlQuery;
+            _selectedColumns = args.SelectedColumns;
+            _selectedFields = args.SelectedFields;
+            _selectedNumerics = args.SelectedNumerics;
+            _selectedDates = args.SelectedDates;
         }
 
         /// <summary>
@@ -180,14 +268,14 @@ namespace BudgetExecution
             out IDictionary<string, object> filter, out IList<string> columns, 
             out IList<string> fields, out IList<string> numerics, out IList<DateTime> dates )
         {
-            source = Source;
-            provider = Provider;
-            table = SelectedTable;
-            filter = Filter;
-            columns = SelectedColumns;
-            fields = SelectedFields;
-            numerics = SelectedNumerics;
-            dates = SelectedDates;
+            source = _source;
+            provider = _provider;
+            table = _selectedTable;
+            filter = _filter;
+            columns = _selectedColumns;
+            fields = _selectedFields;
+            numerics = _selectedNumerics;
+            dates = _selectedDates;
         }
 
         /// <summary>
@@ -197,15 +285,15 @@ namespace BudgetExecution
         {
             try
             {
-                Source = default( Source );
-                Provider = default( Provider );
-                SelectedTable = string.Empty;
-                Filter = default( IDictionary<string, object> );
-                SqlQuery = string.Empty;
-                SelectedColumns = default( IList<string> );
-                SelectedFields = default( IList<string> );
-                SelectedNumerics = default( IList<string> );
-                SelectedDates = default( IList<DateTime> );
+                _source = default( Source );
+                _provider = default( Provider );
+                _selectedTable = string.Empty;
+                _filter = default( IDictionary<string, object> );
+                _sqlQuery = string.Empty;
+                _selectedColumns = default( IList<string> );
+                _selectedFields = default( IList<string> );
+                _selectedNumerics = default( IList<string> );
+                _selectedDates = default( IList<DateTime> );
             }
             catch( Exception _ex )
             {

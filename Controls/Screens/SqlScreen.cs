@@ -69,6 +69,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     public partial class SqlScreen : EditBase
     {
         /// <summary>
@@ -77,12 +78,34 @@ namespace BudgetExecution
         private Action _statusUpdate;
 
         /// <summary>
-        /// Gets or sets the current.
+        /// 
         /// </summary>
-        /// <value>
-        /// The current.
-        /// </value>
-        public DataRow Current { get; set; }
+        private IList<Frame> _frames;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private string _databaseDirectory;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private string _selectedCommand;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private string _selectedQuery;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private IList<string> _commands;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private IDictionary<string, object> _statements;
 
         /// <summary>
         /// Gets or sets the frames.
@@ -90,7 +113,17 @@ namespace BudgetExecution
         /// <value>
         /// The frames.
         /// </value>
-        public IEnumerable<Frame> Frames { get; set; }
+        public IList<Frame> Frames
+        {
+            get
+            {
+                return _frames;
+            }
+            private set
+            {
+                _frames = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the database directory.
@@ -98,7 +131,17 @@ namespace BudgetExecution
         /// <value>
         /// The database directory.
         /// </value>
-        public string DatabaseDirectory { get; set; }
+        public string DatabaseDirectory
+        {
+            get
+            {
+                return _databaseDirectory;
+            }
+            private set
+            {
+                _databaseDirectory = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the selected command.
@@ -106,7 +149,17 @@ namespace BudgetExecution
         /// <value>
         /// The selected command.
         /// </value>
-        public string SelectedCommand { get; set; }
+        public string SelectedCommand
+        {
+            get
+            {
+                return _selectedCommand;
+            }
+            private set
+            {
+                _selectedCommand = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the selected query.
@@ -114,7 +167,17 @@ namespace BudgetExecution
         /// <value>
         /// The selected query.
         /// </value>
-        public string SelectedQuery { get; set; }
+        public string SelectedQuery
+        {
+            get
+            {
+                return _selectedQuery;
+            }
+            private set
+            {
+                _selectedQuery = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the commands.
@@ -122,7 +185,17 @@ namespace BudgetExecution
         /// <value>
         /// The commands.
         /// </value>
-        public IList<string> Commands { get; set; }
+        public IList<string> Commands
+        {
+            get
+            {
+                return _commands;
+            }
+            private set
+            {
+                _commands = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the statements.
@@ -130,7 +203,17 @@ namespace BudgetExecution
         /// <value>
         /// The statements.
         /// </value>
-        public IDictionary<string, object> Statements { get; set; }
+        public IDictionary<string, object> Statements
+        {
+            get
+            {
+                return _statements;
+            }
+            private set
+            {
+                _statements = value;
+            }
+        }
 
         /// <summary>
         /// Initializes a new instance of the
@@ -188,9 +271,9 @@ namespace BudgetExecution
         public SqlScreen( Source source, Provider provider = Provider.Access )
             : this( )
         {
-            Tool = ToolType.EditSqlButton;
-            Provider = provider;
-            Source = source;
+            _toolType = ToolType.EditSqlButton;
+            _provider = provider;
+            _source = source;
         }
 
         /// <summary>
@@ -341,20 +424,23 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private void BindData( )
         {
             try
             {
-                DataModel = new DataBuilder( Source, Provider );
-                DataTable = DataModel?.DataTable;
-                SelectedTable = DataTable?.TableName;
-                BindingSource.DataSource = DataTable;
-                Fields = DataModel?.Fields;
-                Numerics = DataModel?.Numerics;
-                Columns = DataTable.GetColumnNames( );
-                Current = BindingSource.GetCurrentDataRow( );
-                Commands = CreateCommandList( Provider );
-                PopulateSqlComboBox( Commands );
+                _dataModel = new DataBuilder( _source, _provider );
+                _dataTable = _dataModel?.DataTable;
+                _selectedTable = _dataTable?.TableName;
+                _fields = _dataModel?.Fields;
+                _numerics = _dataModel?.Numerics;
+                _columns = _dataTable.GetColumnNames( );
+                BindingSource.DataSource = _dataTable;
+                _current = BindingSource.GetCurrentDataRow( );
+                _commands = CreateCommandList( _provider );
+                PopulateSqlComboBox( _commands );
             }
             catch( Exception _ex )
             {
@@ -362,21 +448,25 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="where"></param>
         private void BindData( IDictionary<string, object> where )
         {
             try
             {
                 ThrowIf.Null( where, nameof( where ) );
-                DataModel = new DataBuilder( Source, Provider, where );
-                DataTable = DataModel?.DataTable;
-                SelectedTable = DataTable?.TableName;
-                BindingSource.DataSource = DataTable;
-                Fields = DataModel?.Fields;
-                Numerics = DataModel?.Numerics;
-                Columns = DataTable.GetColumnNames( );
-                Current = BindingSource.GetCurrentDataRow( );
-                Commands = CreateCommandList( Provider );
-                PopulateSqlComboBox( Commands );
+                _dataModel = new DataBuilder( _source, _provider, where );
+                _dataTable = _dataModel?.DataTable;
+                _selectedTable = _dataTable?.TableName;
+                _fields = _dataModel?.Fields;
+                _numerics = _dataModel?.Numerics;
+                _columns = _dataTable.GetColumnNames( );
+                BindingSource.DataSource = _dataTable;
+                _current = BindingSource.GetCurrentDataRow( );
+                _commands = CreateCommandList( _provider );
+                PopulateSqlComboBox( _commands );
             }
             catch( Exception _ex )
             {
@@ -392,12 +482,12 @@ namespace BudgetExecution
             try
             {
                 Editor.Text = string.Empty;
-                Commands?.Clear( );
-                Statements?.Clear( );
-                Provider = Provider.Access;
+                _commands?.Clear( );
+                _statements?.Clear( );
+                _provider = Provider.Access;
                 AccessRadioButton.CheckState = CheckState.Checked;
-                Commands = CreateCommandList( Provider );
-                PopulateSqlComboBox( Commands );
+                _commands = CreateCommandList( Provider );
+                PopulateSqlComboBox( _commands );
             }
             catch( Exception _ex )
             {
@@ -417,50 +507,50 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _provider = (Provider)Enum.Parse( typeof( Provider ), provider );
+                    _provider = (Provider)Enum.Parse( typeof( Provider ), provider );
                     if( Enum.IsDefined( typeof( Provider ), _provider ) )
                     {
-                        Commands.Clear( );
+                        _commands.Clear( );
                         switch( _provider )
                         {
                             case Provider.Access:
                             {
-                                Provider = Provider.Access;
+                                _provider = Provider.Access;
                                 AccessRadioButton.CheckState = CheckState.Checked;
-                                Commands = CreateCommandList( Provider );
-                                PopulateSqlComboBox( Commands );
+                                _commands = CreateCommandList( _provider );
+                                PopulateSqlComboBox( _commands );
                                 break;
                             }
                             case Provider.SQLite:
                             {
-                                Provider = Provider.SQLite;
+                                _provider = Provider.SQLite;
                                 SQLiteRadioButton.CheckState = CheckState.Checked;
-                                Commands = CreateCommandList( Provider );
-                                PopulateSqlComboBox( Commands );
+                                _commands = CreateCommandList( _provider );
+                                PopulateSqlComboBox( _commands );
                                 break;
                             }
                             case Provider.SqlCe:
                             {
-                                Provider = Provider.SqlCe;
+                                _provider = Provider.SqlCe;
                                 SqlCeRadioButton.CheckState = CheckState.Checked;
-                                Commands = CreateCommandList( Provider );
-                                PopulateSqlComboBox( Commands );
+                                _commands = CreateCommandList( _provider );
+                                PopulateSqlComboBox( _commands );
                                 break;
                             }
                             case Provider.SqlServer:
                             {
-                                Provider = Provider.SqlServer;
+                                _provider = Provider.SqlServer;
                                 SqlServerRadioButton.CheckState = CheckState.Checked;
-                                Commands = CreateCommandList( Provider );
-                                PopulateSqlComboBox( Commands );
+                                _commands = CreateCommandList( _provider );
+                                PopulateSqlComboBox( _commands );
                                 break;
                             }
                             default:
                             {
-                                Provider = Provider.Access;
-                                SetProvider( Provider.ToString( ) );
-                                Commands = CreateCommandList( Provider );
-                                PopulateSqlComboBox( Commands );
+                                _provider = Provider.Access;
+                                SetProvider( _provider.ToString( ) );
+                                _commands = CreateCommandList( _provider );
+                                PopulateSqlComboBox( _commands );
                                 break;
                             }
                         }
@@ -483,7 +573,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _commands = Enum.GetNames( typeof( SQL ) );
+                    _commands = Enum.GetNames( typeof( SQL ) );
                     SqlComboBox.Items.Clear( );
                     SqlListBox.Items.Clear( );
                     for( var _i = 0; _i < list.Count; _i++ )
@@ -538,7 +628,7 @@ namespace BudgetExecution
                 if( Enum.IsDefined( typeof( Provider ), provider ) )
                 {
                     var _prefix = AppSettings[ "PathPrefix" ];
-                    var _dbpath = AppSettings[ nameof( DatabaseDirectory ) ];
+                    var _dbpath = AppSettings[ "DatabaseDirectory" ];
                     var _path = _prefix + _dbpath + @$"\{provider}\DataModels\";
                     var _names = Directory.GetDirectories( _path );
                     var _list = new List<string>( );
@@ -577,7 +667,7 @@ namespace BudgetExecution
                 if( Enum.IsDefined( typeof( Provider ), provider ) )
                 {
                     var _prefix = AppSettings[ "PathPrefix" ];
-                    var _dbpath = AppSettings[ nameof( DatabaseDirectory ) ];
+                    var _dbpath = AppSettings[ "DatabaseDirectory" ];
                     var _path = _prefix + _dbpath + @$"\{provider}\DataModels\";
                     var _names = Directory.GetDirectories( _path );
                     var _list = new List<string>( );
@@ -615,7 +705,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return $"SELECT * FROM {Source} "
+                    return $"SELECT * FROM {_source} "
                         + $"WHERE {where.ToCriteria( )};";
                 }
                 catch( Exception _ex )
@@ -637,12 +727,12 @@ namespace BudgetExecution
         private string CreateSqlText( IEnumerable<string> columns,
             IDictionary<string, object> where )
         {
-            if( where?.Any( ) == true
-               && columns?.Any( ) == true
-               && !string.IsNullOrEmpty( SelectedTable ) )
+            if( !string.IsNullOrEmpty( _selectedTable ) )
             {
                 try
                 {
+                    ThrowIf.Null( where, nameof( where ) );
+                    ThrowIf.NullOrEmpty( columns, nameof( columns ) );
                     var _cols = string.Empty;
                     foreach( var _name in columns )
                     {
@@ -652,7 +742,7 @@ namespace BudgetExecution
                     var _criteria = where.ToCriteria( );
                     var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
                     return $"SELECT {_names} "
-                        + $"FROM {SelectedTable} "
+                        + $"FROM {_selectedTable} "
                         + $"WHERE {_criteria} "
                         + $"GROUP BY {_names} ;";
                 }
@@ -676,40 +766,36 @@ namespace BudgetExecution
         private string CreateSqlText( IEnumerable<string> fields, IEnumerable<string> numerics,
             IDictionary<string, object> where )
         {
-            if( where?.Any( ) == true
-               && fields?.Any( ) == true
-               && numerics?.Any( ) == true )
+            try
             {
-                try
+                ThrowIf.Null( where, nameof( where ) );
+                ThrowIf.NullOrEmpty( fields, nameof( fields ) );
+                ThrowIf.NullOrEmpty( numerics, nameof( numerics ) );
+                var _cols = string.Empty;
+                var _aggr = string.Empty;
+                foreach( var _name in fields )
                 {
-                    var _cols = string.Empty;
-                    var _aggr = string.Empty;
-                    foreach( var _name in fields )
-                    {
-                        _cols += $"{_name}, ";
-                    }
-
-                    foreach( var _metric in numerics )
-                    {
-                        _aggr += $"SUM({_metric}) AS {_metric}, ";
-                    }
-
-                    var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
-                    var _criteria = where.ToCriteria( );
-                    var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_columns} "
-                        + $"FROM {Source} "
-                        + $"WHERE {_criteria} "
-                        + $"GROUP BY {_groups};";
+                    _cols += $"{_name}, ";
                 }
-                catch( Exception _ex )
+
+                foreach( var _metric in numerics )
                 {
-                    Fail( _ex );
-                    return string.Empty;
+                    _aggr += $"SUM({_metric}) AS {_metric}, ";
                 }
+
+                var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
+                var _criteria = where.ToCriteria( );
+                var _names = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
+                return $"SELECT {_names} "
+                    + $"FROM {_source} "
+                    + $"WHERE {_criteria} "
+                    + $"GROUP BY {_groups};";
             }
-
-            return string.Empty;
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return string.Empty;
+            }
         }
 
         /// <summary>
@@ -757,13 +843,13 @@ namespace BudgetExecution
         {
             try
             {
-                Fields = new List<string>( );
-                Columns = new List<string>( );
-                Dates = new List<DateTime>( );
-                DataArgs = new DataArgs( );
+                _fields = new List<string>( );
+                _columns = new List<string>( );
+                _dates = new List<DateTime>( );
+                _dataArgs = new DataArgs( );
+                _commands = new List<string>( );
+                _statements = new Dictionary<string, object>( );
                 AccessRadioButton.Checked = true;
-                Commands = new List<string>( );
-                Statements = new Dictionary<string, object>( );
                 AccessRadioButton.Click += OnRadioButtonChecked;
                 SQLiteRadioButton.Click += OnRadioButtonChecked;
                 SqlCeRadioButton.Click += OnRadioButtonChecked;
@@ -817,16 +903,16 @@ namespace BudgetExecution
             {
                 try
                 {
-                    SelectedCommand = string.Empty;
+                    _selectedCommand = string.Empty;
                     var _selection = _comboBox.SelectedItem?.ToString( );
                     SqlListBox.Items.Clear( );
                     if( _selection?.Contains( " " ) == true )
                     {
-                        SelectedCommand = _selection.Replace( " ", "" );
+                        _selectedCommand = _selection.Replace( " ", "" );
                         var _prefix = AppSettings[ "PathPrefix" ];
-                        var _dbpath = AppSettings[ nameof( DatabaseDirectory ) ];
+                        var _dbpath = AppSettings[ "DatabaseDirectory" ];
                         var _path = _prefix + _dbpath
-                            + @$"\{Provider}\DataModels\{SelectedCommand}";
+                            + @$"\{_provider}\DataModels\{_selectedCommand}";
 
                         var _files = Directory.GetFiles( _path );
                         for( var _i = 0; _i < _files.Length; _i++ )
@@ -838,11 +924,11 @@ namespace BudgetExecution
                     }
                     else
                     {
-                        SelectedCommand = _comboBox.SelectedItem?.ToString( );
+                        _selectedCommand = _comboBox.SelectedItem?.ToString( );
                         var _prefix = AppSettings[ "PathPrefix" ];
-                        var _dbpath = AppSettings[ nameof( DatabaseDirectory ) ];
+                        var _dbpath = AppSettings[ "DatabaseDirectory" ];
                         var _path = _prefix + _dbpath
-                            + @$"\{Provider}\DataModels\{SelectedCommand}";
+                            + @$"\{_provider}\DataModels\{_selectedCommand}";
 
                         var _names = Directory.GetFiles( _path );
                         for( var _i = 0; _i < _names.Length; _i++ )
@@ -871,16 +957,16 @@ namespace BudgetExecution
                 try
                 {
                     Editor.Text = string.Empty;
-                    SelectedQuery = _listBox.SelectedItem?.ToString( );
-                    if( SelectedQuery?.Contains( " " ) == true
-                       || SelectedCommand?.Contains( " " ) == true )
+                    _selectedQuery = _listBox.SelectedItem?.ToString( );
+                    if( _selectedQuery?.Contains( " " ) == true
+                       || _selectedCommand?.Contains( " " ) == true )
                     {
                         var _prefix = AppSettings[ "PathPrefix" ];
-                        var _dbpath = AppSettings[ nameof( DatabaseDirectory ) ];
-                        var _command = SelectedCommand?.Replace( " ", "" );
-                        var _query = SelectedQuery?.Replace( " ", "" );
+                        var _dbpath = AppSettings[ "DatabaseDirectory" ];
+                        var _command = _selectedCommand?.Replace( " ", "" );
+                        var _query = _selectedQuery?.Replace( " ", "" );
                         var _filePath = _prefix + _dbpath
-                            + @$"\{Provider}\DataModels\{_command}\{_query}.sql";
+                            + @$"\{_provider}\DataModels\{_command}\{_query}.sql";
 
                         var _stream = File.OpenRead( _filePath );
                         var _reader = new StreamReader( _stream );
@@ -890,9 +976,9 @@ namespace BudgetExecution
                     else
                     {
                         var _prefix = AppSettings[ "PathPrefix" ];
-                        var _dbpath = AppSettings[ nameof( DatabaseDirectory ) ];
+                        var _dbpath = AppSettings[ "DatabaseDirectory" ];
                         var _path = _prefix + _dbpath
-                            + @$"\{Provider}\DataModels\{SelectedCommand}\{SelectedQuery}.sql";
+                            + @$"\{_provider}\DataModels\{_selectedCommand}\{_selectedQuery}.sql";
 
                         var _stream = File.OpenRead( _path );
                         var _reader = new StreamReader( _stream );

@@ -58,15 +58,42 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     public partial class SchemaScreeen : EditBase
     {
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <value>
+        /// 
+        /// </value>
+        private string _dataType;
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <value>
+        /// 
+        /// </value>
+        private string _columnName;
+
         /// <summary>
         /// Gets or sets the type of the selected.
         /// </summary>
         /// <value>
         /// The type of the selected.
         /// </value>
-        public string DataType { get; set; }
+        public string DataType
+        {
+            get
+            {
+                return _dataType;
+            }
+            private set
+            {
+                _dataType = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the name of the column.
@@ -74,15 +101,17 @@ namespace BudgetExecution
         /// <value>
         /// The name of the column.
         /// </value>
-        public string ColumnName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the SQL query.
-        /// </summary>
-        /// <value>
-        /// The SQL query.
-        /// </value>
-        public string SqlQuery { get; set; }
+        public string ColumnName
+        {
+            get
+            {
+                return _columnName;
+            }
+            private set
+            {
+                _columnName = value;
+            }
+        }
 
         /// <inheritdoc/>
         /// <summary>
@@ -124,11 +153,11 @@ namespace BudgetExecution
             ControlBox = false;
 
             // Populate Controls
-            TabPages = GetTabPages( );
-            Panels = GetPanels( );
-            ListBoxes = GetListBoxes( );
-            RadioButtons = GetRadioButtons( );
-            ComboBoxes = GetComboBoxes( );
+            _tabPages = GetTabPages( );
+            _panels = GetPanels( );
+            _listBoxes = GetListBoxes( );
+            _radioButtons = GetRadioButtons( );
+            _comboBoxes = GetComboBoxes( );
 
             // Wire Events
             Load += OnLoad;
@@ -144,7 +173,7 @@ namespace BudgetExecution
         public SchemaScreeen( ToolType tool )
             : this( )
         {
-            Tool = tool;
+            _toolType = tool;
         }
 
         /// <inheritdoc/>
@@ -159,10 +188,10 @@ namespace BudgetExecution
             : this( tool )
         {
             BindingSource = bindingSource;
-            DataTable = (DataTable)bindingSource.DataSource;
-            BindingSource.DataSource = DataTable;
-            Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
-            Columns = DataTable.GetColumnNames( );
+            _dataTable = (DataTable)bindingSource.DataSource;
+            BindingSource.DataSource = _dataTable;
+            Source = (Source)Enum.Parse( typeof( Source ), _dataTable.TableName );
+            _columns = _dataTable.GetColumnNames( );
         }
 
         /// <summary>
@@ -318,11 +347,11 @@ namespace BudgetExecution
         /// </summary>
         private void SetActiveTab( )
         {
-            if( Enum.IsDefined( typeof( ToolType ), Tool ) )
+            if( Enum.IsDefined( typeof( ToolType ), _toolType ) )
             {
                 try
                 {
-                    switch( Tool )
+                    switch( _toolType )
                     {
                         case ToolType.AddDatabaseButton:
                         {
@@ -386,17 +415,17 @@ namespace BudgetExecution
         {
             try
             {
-                RegisterCallbacks();
+                RegisterCallbacks( );
                 InitializeButtons( );
                 InitializeTabControl( );
                 InitializeComboBoxes( );
-                DataArgs = new DataArgs( );
-                Fields = new List<string>( );
-                Columns = new List<string>( );
-                Dates = new List<DateTime>( );
+                _dataArgs = new DataArgs( );
+                _fields = new List<string>( );
+                _columns = new List<string>( );
+                _dates = new List<DateTime>( );
                 CloseButton.Text = "Exit";
-                DataTypes = GetDataTypes( Provider );
-                PopulateDataTypeComboBoxItems( DataTypes );
+                _dataTypes = GetDataTypes( _provider );
+                PopulateDataTypeComboBoxItems( _dataTypes );
                 SetActiveTab( );
                 PopulateTableComboBoxItems( );
             }
@@ -421,9 +450,9 @@ namespace BudgetExecution
                     var _name = _button.Tag?.ToString( );
                     if( !string.IsNullOrEmpty( _name ) )
                     {
-                        Provider = (Provider)Enum.Parse( typeof( Provider ), _name );
-                        DataTypes = GetDataTypes( Provider );
-                        PopulateDataTypeComboBoxItems( DataTypes );
+                        _provider = (Provider)Enum.Parse( typeof( Provider ), _name );
+                        _dataTypes = GetDataTypes( _provider );
+                        PopulateDataTypeComboBoxItems( _dataTypes );
                         PopulateTableComboBoxItems( );
                     }
                 }

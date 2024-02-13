@@ -130,7 +130,7 @@ namespace BudgetExecution
         /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        public virtual void OnMouseOver( object sender, EventArgs e )
+        public void OnMouseOver( object sender, EventArgs e )
         {
             var _checkBox = sender as CheckBox;
             try
@@ -167,14 +167,12 @@ namespace BudgetExecution
         /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        public virtual void OnMouseLeave( object sender, EventArgs e )
+        public void OnMouseLeave( object sender, EventArgs e )
         {
             var _checkBox = sender as CheckBox;
             try
             {
-                if( _checkBox != null )
-                {
-                }
+                _checkBox.HoverText = string.Empty;
             }
             catch( Exception _ex )
             {

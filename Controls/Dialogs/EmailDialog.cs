@@ -67,6 +67,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     public partial class EmailDialog : MetroForm
     {
         /// <summary>
@@ -80,12 +81,32 @@ namespace BudgetExecution
         private Action _statusUpdate;
 
         /// <summary>
+        /// 
+        /// </summary>
+        private int _time;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private int _seconds;
+
+        /// <summary>
         /// Gets or sets the time.
         /// </summary>
         /// <value>
         /// The time.
         /// </value>
-        public int Time { get; set; }
+        public int Time
+        {
+            get
+            {
+                return _time;
+            }
+            private set
+            {
+                _time = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the seconds.
@@ -93,7 +114,17 @@ namespace BudgetExecution
         /// <value>
         /// The seconds.
         /// </value>
-        public int Seconds { get; set; }
+        public int Seconds
+        {
+            get
+            {
+                return _seconds;
+            }
+            private set
+            {
+                _seconds = value;
+            }
+        }
 
         /// <summary>
         /// Gets a value indicating whether this instance is busy.
@@ -124,7 +155,7 @@ namespace BudgetExecution
         {
             InitializeComponent( );
             InitializeDelegates( );
-            RegisterCallbacks();
+            RegisterCallbacks( );
 
             // Basic Properties
             Size = new Size( 981, 742 );
@@ -156,8 +187,8 @@ namespace BudgetExecution
             ControlBox = false;
 
             // Timer Properties
-            Time = 0;
-            Seconds = 5;
+            _time = 0;
+            _seconds = 5;
 
             // Event Wiring
             Load += OnLoad;
@@ -204,7 +235,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the callbacks.
         /// </summary>
-        private void RegisterCallbacks()
+        private void RegisterCallbacks( )
         {
             try
             {
@@ -360,14 +391,14 @@ namespace BudgetExecution
             try
             {
                 Opacity = 0;
-                if( Seconds != 0 )
+                if( _seconds != 0 )
                 {
                     Timer = new Timer( );
                     Timer.Interval = 1000;
                     Timer.Tick += ( sender, args ) =>
                     {
-                        Time++;
-                        if( Time == Seconds )
+                        _time++;
+                        if( _time == _seconds )
                         {
                             Timer.Stop( );
                         }

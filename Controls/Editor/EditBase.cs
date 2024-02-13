@@ -193,7 +193,7 @@ namespace BudgetExecution
         /// <summary>
         /// The tool
         /// </summary>
-        private protected ToolType _tool;
+        private protected ToolType _toolType;
 
         /// <summary>
         /// The active tab
@@ -228,11 +228,11 @@ namespace BudgetExecution
         {
             get
             {
-                return _tool;
+                return _toolType;
             }
             private protected set
             {
-                _tool = value;
+                _toolType = value;
             }
         }
 

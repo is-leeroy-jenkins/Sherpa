@@ -45,31 +45,56 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
 
     /// <inheritdoc/>
     /// <summary> </summary>
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     public abstract class StateData : EventArgs
     {
-        /// <summary> Gets or sets the selected table. </summary>
-        /// <value> The selected table. </value>
-        public virtual string SelectedTable { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        private protected string _selectedTable;
 
-        /// <summary> Gets or sets the SQL query. </summary>
-        /// <value> The SQL query. </value>
-        public virtual string SqlQuery { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        private protected string _sqlQuery;
 
-        /// <inheritdoc/>
-        /// <summary> Gets or sets the provider. </summary>
-        /// <value> The provider. </value>
-        public virtual Provider Provider { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        private protected Source _source;
 
-        /// <inheritdoc/>
-        /// <summary> Gets or sets the source. </summary>
-        /// <value> The source. </value>
-        public virtual Source Source { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        private protected Provider _provider;
 
-        /// <summary> Gets or sets the data filter. </summary>
-        /// <value> The data filter. </value>
-        public virtual IDictionary<string, object> Filter { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        private protected IDictionary<string, object> _filter;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private protected IList<string> _selectedFields;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private protected IList<string> _selectedColumns;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private protected IList<string> _selectedNumerics;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private protected IList<DateTime> _selectedDates;
     }
 }

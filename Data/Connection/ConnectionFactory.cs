@@ -65,7 +65,7 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.ConnectionFactory"/>
         /// class.
         /// </summary>
-        public ConnectionFactory( )
+        public ConnectionFactory( ) 
         {
         }
 
@@ -116,7 +116,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _connectionString = ConnectionStrings[ $"{Provider}" ]?.ConnectionString;
+                _connectionString = ConnectionStrings[ $"{_provider}" ]?.ConnectionString;
                 if( !string.IsNullOrEmpty( _connectionString ) )
                 {
                     switch( Provider )

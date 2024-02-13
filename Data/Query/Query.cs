@@ -61,7 +61,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public virtual Source Source
+        public Source Source
         {
             get
             {
@@ -80,7 +80,7 @@ namespace BudgetExecution
         /// <value>
         /// The provider.
         /// </value>
-        public virtual Provider Provider
+        public Provider Provider
         {
             get
             {
@@ -99,7 +99,7 @@ namespace BudgetExecution
         /// <value>
         /// The type of the command.
         /// </value>
-        public virtual SQL CommandType
+        public SQL CommandType
         {
             get
             {
@@ -118,7 +118,7 @@ namespace BudgetExecution
         /// <value>
         /// The criteria.
         /// </value>
-        public virtual IDictionary<string, object> Criteria
+        public IDictionary<string, object> Criteria
         {
             get
             {
@@ -137,7 +137,7 @@ namespace BudgetExecution
         /// <value>
         /// The SQL statement.
         /// </value>
-        public virtual ISqlStatement SqlStatement
+        public ISqlStatement SqlStatement
         {
             get
             {
@@ -156,7 +156,7 @@ namespace BudgetExecution
         /// <value>
         /// The connection factory.
         /// </value>
-        public virtual IConnectionFactory ConnectionFactory
+        public IConnectionFactory ConnectionFactory
         {
             get
             {
@@ -175,7 +175,7 @@ namespace BudgetExecution
         /// <value>
         /// The data connection.
         /// </value>
-        public virtual DbConnection DataConnection
+        public DbConnection DataConnection
         {
             get
             {
@@ -194,7 +194,7 @@ namespace BudgetExecution
         /// <value>
         /// The data adapter.
         /// </value>
-        public virtual DbDataAdapter DataAdapter
+        public DbDataAdapter DataAdapter
         {
             get
             {
@@ -214,7 +214,7 @@ namespace BudgetExecution
         /// <c> false </c>
         /// .
         /// </value>
-        public virtual bool IsDisposed
+        public bool IsDisposed
         {
             get
             {
@@ -232,7 +232,7 @@ namespace BudgetExecution
         /// <value>
         /// The data reader.
         /// </value>
-        public virtual DbDataReader DataReader
+        public DbDataReader DataReader
         {
             get
             {
