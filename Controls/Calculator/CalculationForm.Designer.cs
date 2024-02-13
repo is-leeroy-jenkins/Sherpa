@@ -96,7 +96,6 @@ namespace BudgetExecution
             // ValueLabel
             // 
             ValueLabel.BindingSource = null;
-            ValueLabel.DataFilter = null;
             ValueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             ValueLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             ValueLabel.Font = new System.Drawing.Font( "Roboto", 12F );

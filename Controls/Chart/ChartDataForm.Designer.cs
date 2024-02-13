@@ -444,7 +444,6 @@
             // Label22
             // 
             Label22.BindingSource = null;
-            Label22.DataFilter = null;
             Label22.Dock = System.Windows.Forms.DockStyle.Fill;
             Label22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Label22.Font = new System.Drawing.Font( "Roboto", 6.75F );
@@ -468,7 +467,6 @@
             // Label21
             // 
             Label21.BindingSource = null;
-            Label21.DataFilter = null;
             Label21.Dock = System.Windows.Forms.DockStyle.Fill;
             Label21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Label21.Font = new System.Drawing.Font( "Roboto", 6.75F );
@@ -492,7 +490,6 @@
             // Label23
             // 
             Label23.BindingSource = null;
-            Label23.DataFilter = null;
             Label23.Dock = System.Windows.Forms.DockStyle.Fill;
             Label23.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Label23.Font = new System.Drawing.Font( "Roboto", 6.75F );
@@ -516,7 +513,6 @@
             // Label25
             // 
             Label25.BindingSource = null;
-            Label25.DataFilter = null;
             Label25.Dock = System.Windows.Forms.DockStyle.Fill;
             Label25.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Label25.Font = new System.Drawing.Font( "Roboto", 6.75F );
@@ -540,7 +536,6 @@
             // Label24
             // 
             Label24.BindingSource = null;
-            Label24.DataFilter = null;
             Label24.Dock = System.Windows.Forms.DockStyle.Fill;
             Label24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Label24.Font = new System.Drawing.Font( "Roboto", 6.75F );
@@ -564,7 +559,6 @@
             // Label18
             // 
             Label18.BindingSource = null;
-            Label18.DataFilter = null;
             Label18.Dock = System.Windows.Forms.DockStyle.Fill;
             Label18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Label18.Font = new System.Drawing.Font( "Roboto", 6.75F );
@@ -588,7 +582,6 @@
             // Label17
             // 
             Label17.BindingSource = null;
-            Label17.DataFilter = null;
             Label17.Dock = System.Windows.Forms.DockStyle.Fill;
             Label17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Label17.Font = new System.Drawing.Font( "Roboto", 6.75F );
@@ -612,7 +605,6 @@
             // Label16
             // 
             Label16.BindingSource = null;
-            Label16.DataFilter = null;
             Label16.Dock = System.Windows.Forms.DockStyle.Fill;
             Label16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Label16.Font = new System.Drawing.Font( "Roboto", 6.75F );
@@ -636,7 +628,6 @@
             // Label19
             // 
             Label19.BindingSource = null;
-            Label19.DataFilter = null;
             Label19.Dock = System.Windows.Forms.DockStyle.Fill;
             Label19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Label19.Font = new System.Drawing.Font( "Roboto", 6.75F );
@@ -660,7 +651,6 @@
             // Label6
             // 
             Label6.BindingSource = null;
-            Label6.DataFilter = null;
             Label6.Dock = System.Windows.Forms.DockStyle.Fill;
             Label6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Label6.Font = new System.Drawing.Font( "Roboto", 6.75F );
@@ -684,7 +674,6 @@
             // Label3
             // 
             Label3.BindingSource = null;
-            Label3.DataFilter = null;
             Label3.Dock = System.Windows.Forms.DockStyle.Fill;
             Label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Label3.Font = new System.Drawing.Font( "Roboto", 6.75F );
@@ -708,7 +697,6 @@
             // Label1
             // 
             Label1.BindingSource = null;
-            Label1.DataFilter = null;
             Label1.Dock = System.Windows.Forms.DockStyle.Fill;
             Label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Label1.Font = new System.Drawing.Font( "Roboto", 6.75F );
@@ -732,7 +720,6 @@
             // Label2
             // 
             Label2.BindingSource = null;
-            Label2.DataFilter = null;
             Label2.Dock = System.Windows.Forms.DockStyle.Fill;
             Label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Label2.Font = new System.Drawing.Font( "Roboto", 6.75F );
@@ -756,7 +743,6 @@
             // Label4
             // 
             Label4.BindingSource = null;
-            Label4.DataFilter = null;
             Label4.Dock = System.Windows.Forms.DockStyle.Fill;
             Label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Label4.Font = new System.Drawing.Font( "Roboto", 6.75F );
@@ -780,7 +766,6 @@
             // Label7
             // 
             Label7.BindingSource = null;
-            Label7.DataFilter = null;
             Label7.Dock = System.Windows.Forms.DockStyle.Fill;
             Label7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Label7.Font = new System.Drawing.Font( "Roboto", 6.75F );
@@ -804,7 +789,6 @@
             // Label8
             // 
             Label8.BindingSource = null;
-            Label8.DataFilter = null;
             Label8.Dock = System.Windows.Forms.DockStyle.Fill;
             Label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Label8.Font = new System.Drawing.Font( "Roboto", 6.75F );
@@ -828,7 +812,6 @@
             // Label5
             // 
             Label5.BindingSource = null;
-            Label5.DataFilter = null;
             Label5.Dock = System.Windows.Forms.DockStyle.Fill;
             Label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Label5.Font = new System.Drawing.Font( "Roboto", 6.75F );
@@ -852,7 +835,6 @@
             // Label9
             // 
             Label9.BindingSource = null;
-            Label9.DataFilter = null;
             Label9.Dock = System.Windows.Forms.DockStyle.Fill;
             Label9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Label9.Font = new System.Drawing.Font( "Roboto", 6.75F );
@@ -876,7 +858,6 @@
             // Label10
             // 
             Label10.BindingSource = null;
-            Label10.DataFilter = null;
             Label10.Dock = System.Windows.Forms.DockStyle.Fill;
             Label10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Label10.Font = new System.Drawing.Font( "Roboto", 6.75F );
@@ -900,7 +881,6 @@
             // Label11
             // 
             Label11.BindingSource = null;
-            Label11.DataFilter = null;
             Label11.Dock = System.Windows.Forms.DockStyle.Fill;
             Label11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Label11.Font = new System.Drawing.Font( "Roboto", 6.75F );
@@ -924,7 +904,6 @@
             // Label12
             // 
             Label12.BindingSource = null;
-            Label12.DataFilter = null;
             Label12.Dock = System.Windows.Forms.DockStyle.Fill;
             Label12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Label12.Font = new System.Drawing.Font( "Roboto", 6.75F );
@@ -948,7 +927,6 @@
             // Label13
             // 
             Label13.BindingSource = null;
-            Label13.DataFilter = null;
             Label13.Dock = System.Windows.Forms.DockStyle.Fill;
             Label13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Label13.Font = new System.Drawing.Font( "Roboto", 6.75F );
@@ -972,7 +950,6 @@
             // Label14
             // 
             Label14.BindingSource = null;
-            Label14.DataFilter = null;
             Label14.Dock = System.Windows.Forms.DockStyle.Fill;
             Label14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Label14.Font = new System.Drawing.Font( "Roboto", 6.75F );
@@ -996,7 +973,6 @@
             // Label15
             // 
             Label15.BindingSource = null;
-            Label15.DataFilter = null;
             Label15.Dock = System.Windows.Forms.DockStyle.Fill;
             Label15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Label15.Font = new System.Drawing.Font( "Roboto", 6.75F );
@@ -1020,7 +996,6 @@
             // Label20
             // 
             Label20.BindingSource = null;
-            Label20.DataFilter = null;
             Label20.Dock = System.Windows.Forms.DockStyle.Fill;
             Label20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Label20.Font = new System.Drawing.Font( "Roboto", 6.75F );

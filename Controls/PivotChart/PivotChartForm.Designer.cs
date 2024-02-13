@@ -157,7 +157,6 @@
             // Title
             // 
             Title.BindingSource = null;
-            Title.DataFilter = null;
             Title.Dock = System.Windows.Forms.DockStyle.Fill;
             Title.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Title.Font = new System.Drawing.Font( "Roboto", 9.75F );
@@ -921,7 +920,6 @@
             // SqlHeader
             // 
             SqlHeader.BindingSource = null;
-            SqlHeader.DataFilter = null;
             SqlHeader.Dock = System.Windows.Forms.DockStyle.Fill;
             SqlHeader.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             SqlHeader.Font = new System.Drawing.Font( "Roboto", 6.75F );
@@ -981,7 +979,6 @@
             // MetricLabel17
             // 
             MetricLabel17.BindingSource = null;
-            MetricLabel17.DataFilter = null;
             MetricLabel17.Dock = System.Windows.Forms.DockStyle.Fill;
             MetricLabel17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             MetricLabel17.Font = new System.Drawing.Font( "Roboto", 6.75F );
@@ -1005,7 +1002,6 @@
             // MetricLabel16
             // 
             MetricLabel16.BindingSource = null;
-            MetricLabel16.DataFilter = null;
             MetricLabel16.Dock = System.Windows.Forms.DockStyle.Fill;
             MetricLabel16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             MetricLabel16.Font = new System.Drawing.Font( "Roboto", 6.75F );
@@ -1029,7 +1025,6 @@
             // MetricLabel18
             // 
             MetricLabel18.BindingSource = null;
-            MetricLabel18.DataFilter = null;
             MetricLabel18.Dock = System.Windows.Forms.DockStyle.Fill;
             MetricLabel18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             MetricLabel18.Font = new System.Drawing.Font( "Roboto", 6.75F );
@@ -1053,7 +1048,6 @@
             // MetricLabel20
             // 
             MetricLabel20.BindingSource = null;
-            MetricLabel20.DataFilter = null;
             MetricLabel20.Dock = System.Windows.Forms.DockStyle.Fill;
             MetricLabel20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             MetricLabel20.Font = new System.Drawing.Font( "Roboto", 6.75F );
@@ -1077,7 +1071,6 @@
             // MetricLabel19
             // 
             MetricLabel19.BindingSource = null;
-            MetricLabel19.DataFilter = null;
             MetricLabel19.Dock = System.Windows.Forms.DockStyle.Fill;
             MetricLabel19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             MetricLabel19.Font = new System.Drawing.Font( "Roboto", 6.75F );
@@ -1101,7 +1094,6 @@
             // MetricLabel3
             // 
             MetricLabel3.BindingSource = null;
-            MetricLabel3.DataFilter = null;
             MetricLabel3.Dock = System.Windows.Forms.DockStyle.Fill;
             MetricLabel3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             MetricLabel3.Font = new System.Drawing.Font( "Roboto", 6.75F );
@@ -1125,7 +1117,6 @@
             // MetricLabel1
             // 
             MetricLabel1.BindingSource = null;
-            MetricLabel1.DataFilter = null;
             MetricLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
             MetricLabel1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             MetricLabel1.Font = new System.Drawing.Font( "Roboto", 6.75F );
@@ -1149,7 +1140,6 @@
             // MetricLabel2
             // 
             MetricLabel2.BindingSource = null;
-            MetricLabel2.DataFilter = null;
             MetricLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
             MetricLabel2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             MetricLabel2.Font = new System.Drawing.Font( "Roboto", 6.75F );
@@ -1173,7 +1163,6 @@
             // MetricLabel4
             // 
             MetricLabel4.BindingSource = null;
-            MetricLabel4.DataFilter = null;
             MetricLabel4.Dock = System.Windows.Forms.DockStyle.Fill;
             MetricLabel4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             MetricLabel4.Font = new System.Drawing.Font( "Roboto", 6.75F );
@@ -1197,7 +1186,6 @@
             // MetricLabel5
             // 
             MetricLabel5.BindingSource = null;
-            MetricLabel5.DataFilter = null;
             MetricLabel5.Dock = System.Windows.Forms.DockStyle.Fill;
             MetricLabel5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             MetricLabel5.Font = new System.Drawing.Font( "Roboto", 6.75F );
@@ -1221,7 +1209,6 @@
             // MetricLabel6
             // 
             MetricLabel6.BindingSource = null;
-            MetricLabel6.DataFilter = null;
             MetricLabel6.Dock = System.Windows.Forms.DockStyle.Fill;
             MetricLabel6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             MetricLabel6.Font = new System.Drawing.Font( "Roboto", 6.75F );
@@ -1245,7 +1232,6 @@
             // MetricLabel7
             // 
             MetricLabel7.BindingSource = null;
-            MetricLabel7.DataFilter = null;
             MetricLabel7.Dock = System.Windows.Forms.DockStyle.Fill;
             MetricLabel7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             MetricLabel7.Font = new System.Drawing.Font( "Roboto", 6.75F );
@@ -1269,7 +1255,6 @@
             // MetricLabel8
             // 
             MetricLabel8.BindingSource = null;
-            MetricLabel8.DataFilter = null;
             MetricLabel8.Dock = System.Windows.Forms.DockStyle.Fill;
             MetricLabel8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             MetricLabel8.Font = new System.Drawing.Font( "Roboto", 6.75F );
@@ -1293,7 +1278,6 @@
             // MetricLabel9
             // 
             MetricLabel9.BindingSource = null;
-            MetricLabel9.DataFilter = null;
             MetricLabel9.Dock = System.Windows.Forms.DockStyle.Fill;
             MetricLabel9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             MetricLabel9.Font = new System.Drawing.Font( "Roboto", 6.75F );
@@ -1317,7 +1301,6 @@
             // MetricLabel10
             // 
             MetricLabel10.BindingSource = null;
-            MetricLabel10.DataFilter = null;
             MetricLabel10.Dock = System.Windows.Forms.DockStyle.Fill;
             MetricLabel10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             MetricLabel10.Font = new System.Drawing.Font( "Roboto", 6.75F );
@@ -1341,7 +1324,6 @@
             // MetricLabel11
             // 
             MetricLabel11.BindingSource = null;
-            MetricLabel11.DataFilter = null;
             MetricLabel11.Dock = System.Windows.Forms.DockStyle.Fill;
             MetricLabel11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             MetricLabel11.Font = new System.Drawing.Font( "Roboto", 6.75F );
@@ -1365,7 +1347,6 @@
             // MetricLabel12
             // 
             MetricLabel12.BindingSource = null;
-            MetricLabel12.DataFilter = null;
             MetricLabel12.Dock = System.Windows.Forms.DockStyle.Fill;
             MetricLabel12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             MetricLabel12.Font = new System.Drawing.Font( "Roboto", 6.75F );
@@ -1389,7 +1370,6 @@
             // MetricLabel13
             // 
             MetricLabel13.BindingSource = null;
-            MetricLabel13.DataFilter = null;
             MetricLabel13.Dock = System.Windows.Forms.DockStyle.Fill;
             MetricLabel13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             MetricLabel13.Font = new System.Drawing.Font( "Roboto", 6.75F );
@@ -1413,7 +1393,6 @@
             // MetricLabel14
             // 
             MetricLabel14.BindingSource = null;
-            MetricLabel14.DataFilter = null;
             MetricLabel14.Dock = System.Windows.Forms.DockStyle.Fill;
             MetricLabel14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             MetricLabel14.Font = new System.Drawing.Font( "Roboto", 6.75F );
@@ -1437,7 +1416,6 @@
             // MetricLabel15
             // 
             MetricLabel15.BindingSource = null;
-            MetricLabel15.DataFilter = null;
             MetricLabel15.Dock = System.Windows.Forms.DockStyle.Fill;
             MetricLabel15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             MetricLabel15.Font = new System.Drawing.Font( "Roboto", 6.75F );

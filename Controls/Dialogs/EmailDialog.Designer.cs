@@ -791,7 +791,6 @@ partial class EmailDialog
         // StatusLabel
         // 
         StatusLabel.BindingSource = BindingSource;
-        StatusLabel.DataFilter = null;
         StatusLabel.Dock = System.Windows.Forms.DockStyle.Fill;
         StatusLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         StatusLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
@@ -921,7 +920,6 @@ partial class EmailDialog
         // Title
         // 
         Title.BindingSource = null;
-        Title.DataFilter = null;
         Title.Dock = System.Windows.Forms.DockStyle.Fill;
         Title.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         Title.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );

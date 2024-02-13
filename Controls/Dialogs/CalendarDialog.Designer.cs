@@ -170,7 +170,6 @@
             // HeaderLabel
             // 
             HeaderLabel.BindingSource = null;
-            HeaderLabel.DataFilter = null;
             HeaderLabel.Dock = DockStyle.Fill;
             HeaderLabel.FlatStyle = FlatStyle.Flat;
             HeaderLabel.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );

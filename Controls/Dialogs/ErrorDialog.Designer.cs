@@ -60,7 +60,6 @@
             // 
             Title.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right  ;
             Title.BindingSource = null;
-            Title.DataFilter = null;
             Title.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Title.Font = new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             Title.HoverText = null;

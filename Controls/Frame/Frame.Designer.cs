@@ -78,7 +78,6 @@ partial class Frame
         // Label
         // 
         Label.BindingSource = null;
-        Label.DataFilter = null;
         Label.Dock = System.Windows.Forms.DockStyle.Bottom;
         Label.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         Label.Font = new System.Drawing.Font( "Roboto", 9F );

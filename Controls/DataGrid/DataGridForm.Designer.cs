@@ -306,7 +306,6 @@
             // GridLabel1
             // 
             GridLabel1.BindingSource = null;
-            GridLabel1.DataFilter = null;
             GridLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
             GridLabel1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             GridLabel1.Font = new System.Drawing.Font( "Roboto", 8.25F );
@@ -436,7 +435,6 @@
             // GridLabel2
             // 
             GridLabel2.BindingSource = null;
-            GridLabel2.DataFilter = null;
             GridLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
             GridLabel2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             GridLabel2.Font = new System.Drawing.Font( "Roboto", 8.25F );
@@ -459,7 +457,6 @@
             // GridLabel4
             // 
             GridLabel4.BindingSource = null;
-            GridLabel4.DataFilter = null;
             GridLabel4.Dock = System.Windows.Forms.DockStyle.Fill;
             GridLabel4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             GridLabel4.Font = new System.Drawing.Font( "Roboto", 8.25F );
@@ -482,7 +479,6 @@
             // GridLabel3
             // 
             GridLabel3.BindingSource = null;
-            GridLabel3.DataFilter = null;
             GridLabel3.Dock = System.Windows.Forms.DockStyle.Fill;
             GridLabel3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             GridLabel3.Font = new System.Drawing.Font( "Roboto", 8.25F );
@@ -974,7 +970,6 @@
             // 
             SqlHeader.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             SqlHeader.BindingSource = null;
-            SqlHeader.DataFilter = null;
             SqlHeader.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             SqlHeader.Font = new System.Drawing.Font( "Roboto", 8.25F );
             SqlHeader.HoverText = null;
@@ -2432,7 +2427,6 @@
             // HeaderLabel
             // 
             HeaderLabel.BindingSource = null;
-            HeaderLabel.DataFilter = null;
             HeaderLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             HeaderLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             HeaderLabel.Font = new System.Drawing.Font( "Roboto", 9.75F );

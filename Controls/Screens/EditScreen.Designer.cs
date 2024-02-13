@@ -1133,7 +1133,6 @@
             // visualLabel3
             // 
             visualLabel3.BindingSource = null;
-            visualLabel3.DataFilter = null;
             visualLabel3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             visualLabel3.Font = new System.Drawing.Font( "Roboto", 9F );
             visualLabel3.HoverText = null;
@@ -1155,7 +1154,6 @@
             // visualLabel5
             // 
             visualLabel5.BindingSource = null;
-            visualLabel5.DataFilter = null;
             visualLabel5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             visualLabel5.Font = new System.Drawing.Font( "Roboto", 9F );
             visualLabel5.HoverText = null;

@@ -34,14 +34,8 @@
             Header = new System.Windows.Forms.TableLayoutPanel( );
             PictureBox = new System.Windows.Forms.PictureBox( );
             Timer = new System.Windows.Forms.Timer( components );
-            toolStripMenuItemExt1 = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt( );
-            toolStripMenuItemExt2 = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt( );
-            toolStripMenuItemExt3 = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt( );
-            toolStripMenuItemExt4 = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt( );
-            toolStripMenuItemExt5 = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt( );
-            toolStripMenuItemExt6 = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt( );
-            toolStripMenuItemExt7 = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt( );
             ContextMenu = new ContextMenu( );
+            ToolTip = new SmallTip( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
             Header.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
@@ -73,48 +67,6 @@
             PictureBox.TabIndex = 0;
             PictureBox.TabStop = false;
             // 
-            // toolStripMenuItemExt1
-            // 
-            toolStripMenuItemExt1.Name = "toolStripMenuItemExt1";
-            toolStripMenuItemExt1.Size = new System.Drawing.Size( 196, 22 );
-            toolStripMenuItemExt1.Text = "toolStripMenuItemExt1";
-            // 
-            // toolStripMenuItemExt2
-            // 
-            toolStripMenuItemExt2.Name = "toolStripMenuItemExt2";
-            toolStripMenuItemExt2.Size = new System.Drawing.Size( 198, 22 );
-            toolStripMenuItemExt2.Text = "toolStripMenuItemExt2";
-            // 
-            // toolStripMenuItemExt3
-            // 
-            toolStripMenuItemExt3.Name = "toolStripMenuItemExt3";
-            toolStripMenuItemExt3.Size = new System.Drawing.Size( 198, 22 );
-            toolStripMenuItemExt3.Text = "toolStripMenuItemExt3";
-            // 
-            // toolStripMenuItemExt4
-            // 
-            toolStripMenuItemExt4.Name = "toolStripMenuItemExt4";
-            toolStripMenuItemExt4.Size = new System.Drawing.Size( 198, 22 );
-            toolStripMenuItemExt4.Text = "toolStripMenuItemExt4";
-            // 
-            // toolStripMenuItemExt5
-            // 
-            toolStripMenuItemExt5.Name = "toolStripMenuItemExt5";
-            toolStripMenuItemExt5.Size = new System.Drawing.Size( 198, 22 );
-            toolStripMenuItemExt5.Text = "toolStripMenuItemExt5";
-            // 
-            // toolStripMenuItemExt6
-            // 
-            toolStripMenuItemExt6.Name = "toolStripMenuItemExt6";
-            toolStripMenuItemExt6.Size = new System.Drawing.Size( 198, 22 );
-            toolStripMenuItemExt6.Text = "toolStripMenuItemExt6";
-            // 
-            // toolStripMenuItemExt7
-            // 
-            toolStripMenuItemExt7.Name = "toolStripMenuItemExt7";
-            toolStripMenuItemExt7.Size = new System.Drawing.Size( 198, 22 );
-            toolStripMenuItemExt7.Text = "toolStripMenuItemExt7";
-            // 
             // ContextMenu
             // 
             ContextMenu.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
@@ -134,6 +86,26 @@
             ContextMenu.ThemeStyle.HoverForeColor = System.Drawing.Color.White;
             ContextMenu.ThemeStyle.PressedBackColor = System.Drawing.Color.FromArgb( 204, 204, 204 );
             ContextMenu.ThemeStyle.PressedForeColor = System.Drawing.Color.Black;
+            // 
+            // ToolTip
+            // 
+            ToolTip.AutoPopDelay = 5000;
+            ToolTip.BackColor = System.Drawing.Color.FromArgb( 5, 5, 5 );
+            ToolTip.BindingSource = null;
+            ToolTip.BorderColor = System.Drawing.SystemColors.Highlight;
+            ToolTip.ForeColor = System.Drawing.Color.White;
+            ToolTip.InitialDelay = 500;
+            ToolTip.IsDerivedStyle = true;
+            ToolTip.Name = null;
+            ToolTip.OwnerDraw = true;
+            ToolTip.ReshowDelay = 100;
+            ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
+            ToolTip.StyleManager = null;
+            ToolTip.ThemeAuthor = "Terry D. Eppler";
+            ToolTip.ThemeName = "Budget Execution";
+            ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            ToolTip.TipText = null;
+            ToolTip.TipTitle = null;
             // 
             // BudgetForm
             // 
@@ -171,21 +143,13 @@
         }
 
         #endregion
-        public SmallTip ToolTip;
         public System.Windows.Forms.BindingSource BindingSource;
         public System.Windows.Forms.PictureBox PictureBox;
         public Label Title;
         public Button CloseButton;
         public System.Windows.Forms.Timer Timer;
-        public Syncfusion.Windows.Forms.Tools.ProgressBarAdv progressBarAdv1;
-        private Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt toolStripMenuItemExt1;
-        private Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt toolStripMenuItemExt2;
-        private Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt toolStripMenuItemExt3;
-        private Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt toolStripMenuItemExt4;
-        private Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt toolStripMenuItemExt5;
-        private Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt toolStripMenuItemExt6;
-        private Syncfusion.Windows.Forms.Spreadsheet.ToolStripMenuItemExt toolStripMenuItemExt7;
         public System.Windows.Forms.TableLayoutPanel Header;
         public ContextMenu ContextMenu;
+        public SmallTip ToolTip;
     }
 }

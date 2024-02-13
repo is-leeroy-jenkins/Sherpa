@@ -98,7 +98,6 @@
             // Title
             // 
             Title.BindingSource = null;
-            Title.DataFilter = null;
             Title.Dock = System.Windows.Forms.DockStyle.Fill;
             Title.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Title.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );

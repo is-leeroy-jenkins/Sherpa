@@ -630,6 +630,14 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Initializes the delegates.
+        /// </summary>
+        private void InitializeDelegates( )
+        {
+            _statusUpdate += UpdateLabelText;
+        }
+
+        /// <summary>
         /// Begins the initialize.
         /// </summary>
         private void BeginInit( )
@@ -999,6 +1007,20 @@ namespace BudgetExecution
                 SecondValue = string.Empty;
                 FirstCategory = string.Empty;
                 FirstValue = string.Empty;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Updates the label text.
+        /// </summary>
+        private void UpdateLabelText( )
+        {
+            try
+            {
             }
             catch( Exception _ex )
             {

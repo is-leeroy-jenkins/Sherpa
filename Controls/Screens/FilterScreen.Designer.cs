@@ -441,7 +441,6 @@ partial class FilterScreen
         // SourceHeader
         // 
         SourceHeader.BindingSource = null;
-        SourceHeader.DataFilter = null;
         SourceHeader.Dock = System.Windows.Forms.DockStyle.Top;
         SourceHeader.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         SourceHeader.Font = new System.Drawing.Font( "Roboto", 12F );
@@ -863,7 +862,6 @@ partial class FilterScreen
         // FilterHeader
         // 
         FilterHeader.BindingSource = null;
-        FilterHeader.DataFilter = null;
         FilterHeader.Dock = System.Windows.Forms.DockStyle.Top;
         FilterHeader.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         FilterHeader.Font = new System.Drawing.Font( "Roboto", 12F );
@@ -1174,7 +1172,6 @@ partial class FilterScreen
         // GroupHeader
         // 
         GroupHeader.BindingSource = null;
-        GroupHeader.DataFilter = null;
         GroupHeader.Dock = System.Windows.Forms.DockStyle.Top;
         GroupHeader.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         GroupHeader.Font = new System.Drawing.Font( "Roboto", 12F );
@@ -1504,7 +1501,6 @@ partial class FilterScreen
         // TimeSpanLabel
         // 
         TimeSpanLabel.BindingSource = BindingSource;
-        TimeSpanLabel.DataFilter = null;
         TimeSpanLabel.Dock = System.Windows.Forms.DockStyle.Fill;
         TimeSpanLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         TimeSpanLabel.Font = new System.Drawing.Font( "Roboto", 8F );
@@ -1527,7 +1523,6 @@ partial class FilterScreen
         // FirstLabel
         // 
         FirstLabel.BindingSource = BindingSource;
-        FirstLabel.DataFilter = null;
         FirstLabel.Dock = System.Windows.Forms.DockStyle.Fill;
         FirstLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         FirstLabel.Font = new System.Drawing.Font( "Roboto", 8F );
@@ -1550,7 +1545,6 @@ partial class FilterScreen
         // SecondLabel
         // 
         SecondLabel.BindingSource = BindingSource;
-        SecondLabel.DataFilter = null;
         SecondLabel.Dock = System.Windows.Forms.DockStyle.Fill;
         SecondLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         SecondLabel.Font = new System.Drawing.Font( "Roboto", 8F );
@@ -1573,7 +1567,6 @@ partial class FilterScreen
         // ThirdLabel
         // 
         ThirdLabel.BindingSource = BindingSource;
-        ThirdLabel.DataFilter = null;
         ThirdLabel.Dock = System.Windows.Forms.DockStyle.Fill;
         ThirdLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         ThirdLabel.Font = new System.Drawing.Font( "Roboto", 8F );
@@ -1596,7 +1589,6 @@ partial class FilterScreen
         // FourthLabel
         // 
         FourthLabel.BindingSource = BindingSource;
-        FourthLabel.DataFilter = null;
         FourthLabel.Dock = System.Windows.Forms.DockStyle.Fill;
         FourthLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         FourthLabel.Font = new System.Drawing.Font( "Roboto", 8F );
@@ -1619,7 +1611,6 @@ partial class FilterScreen
         // FifthLable
         // 
         FifthLable.BindingSource = BindingSource;
-        FifthLable.DataFilter = null;
         FifthLable.Dock = System.Windows.Forms.DockStyle.Fill;
         FifthLable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         FifthLable.Font = new System.Drawing.Font( "Roboto", 8F );
@@ -1642,7 +1633,6 @@ partial class FilterScreen
         // TimeSpanHeader
         // 
         TimeSpanHeader.BindingSource = null;
-        TimeSpanHeader.DataFilter = null;
         TimeSpanHeader.Dock = System.Windows.Forms.DockStyle.Top;
         TimeSpanHeader.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         TimeSpanHeader.Font = new System.Drawing.Font( "Roboto", 12F );
@@ -1758,7 +1748,6 @@ partial class FilterScreen
         // FirstCalendarLabel
         // 
         FirstCalendarLabel.BindingSource = null;
-        FirstCalendarLabel.DataFilter = null;
         FirstCalendarLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         FirstCalendarLabel.Font = new System.Drawing.Font( "Roboto", 8F );
         FirstCalendarLabel.HoverText = null;
@@ -1874,7 +1863,6 @@ partial class FilterScreen
         // SecondCalendarLabel
         // 
         SecondCalendarLabel.BindingSource = null;
-        SecondCalendarLabel.DataFilter = null;
         SecondCalendarLabel.Dock = System.Windows.Forms.DockStyle.Fill;
         SecondCalendarLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         SecondCalendarLabel.Font = new System.Drawing.Font( "Roboto", 8F );

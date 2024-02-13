@@ -1,45 +1,42 @@
-﻿//  ******************************************************************************************
-//      Assembly:                Budget Execution
-//      Filename:                LookupDialog.cs
-//      Author:                  Terry D. Eppler
-//      Created:                 05-31-2023
+﻿// ******************************************************************************************
+//     Assembly:                Budget Execution
+//     Author:                  Terry D. Eppler
+//     Created:                 2-13-2024
 // 
-//      Last Modified By:        Terry D. Eppler
-//      Last Modified On:        06-01-2023
-//  ******************************************************************************************
-//  <copyright file="LookupDialog.cs" company="Terry D. Eppler">
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        2-13-2024
+// ******************************************************************************************
+// <copyright file="LookupScreen.cs" company="Terry D. Eppler">
+//    Budget Execution is a Federal Budget, Finance, and Accounting application
+//    for analysts with the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
-//     This is a Federal Budget, Finance, and Accounting application for the
-//     US Environmental Protection Agency (US EPA).
-//     Copyright ©  2023  Terry Eppler
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
 // 
-//     Permission is hereby granted, free of charge, to any person obtaining a copy
-//     of this software and associated documentation files (the “Software”),
-//     to deal in the Software without restriction,
-//     including without limitation the rights to use,
-//     copy, modify, merge, publish, distribute, sublicense,
-//     and/or sell copies of the Software,
-//     and to permit persons to whom the Software is furnished to do so,
-//     subject to the following conditions:
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
 // 
-//     The above copyright notice and this permission notice shall be included in all
-//     copies or substantial portions of the Software.
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
 // 
-//     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//     FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//     DEALINGS IN THE SOFTWARE.
-// 
-//     You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
-// 
-//  </copyright>
-//  <summary>
-//    LookupDialog.cs
-//  </summary>
-//  ******************************************************************************************
+//    Contact at:  terryeppler@gmail.com or eppler.terry@epa.gov
+// </copyright>
+// <summary>
+//   LookupScreen.cs
+// </summary>
+// ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -61,6 +58,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     public partial class LookupScreen : EditBase
     {
         /// <summary>
@@ -69,68 +67,305 @@ namespace BudgetExecution
         private bool _busy;
 
         /// <summary>
-        /// Gets or sets the time.
+        /// The status update
+        /// </summary>
+        private Action _statusUpdate;
+
+        /// <summary>
+        /// The time
+        /// </summary>
+        private int _time;
+
+        /// <summary>
+        /// The seconds
+        /// </summary>
+        private int _seconds;
+
+        /// <summary>
+        /// The count
+        /// </summary>
+        private int _count;
+
+        /// <summary>
+        /// The hover text
+        /// </summary>
+        private string _hoverText;
+
+        /// <summary>
+        /// The first category
+        /// </summary>
+        private string _firstCategory;
+
+        /// <summary>
+        /// The first value
+        /// </summary>
+        private string _firstValue;
+
+        /// <summary>
+        /// The second category
+        /// </summary>
+        private string _secondCategory;
+
+        /// <summary>
+        /// The second value
+        /// </summary>
+        private string _secondValue;
+
+        /// <summary>
+        /// The third category
+        /// </summary>
+        private string _thirdCategory;
+
+        /// <summary>
+        /// The third value
+        /// </summary>
+        private string _thirdValue;
+
+        /// <summary>
+        /// The fourth category
+        /// </summary>
+        private string _fourthCategory;
+
+        /// <summary>
+        /// The fourth value
+        /// </summary>
+        private string _fourthValue;
+
+        /// <summary>
+        /// Gets the time.
         /// </summary>
         /// <value>
         /// The time.
         /// </value>
-        public int Time { get; set; }
+        public int Time
+        {
+            get
+            {
+                return _time;
+            }
+            private set
+            {
+                _time = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the seconds.
+        /// Gets the seconds.
         /// </summary>
         /// <value>
         /// The seconds.
         /// </value>
-        public int Seconds { get; set; }
+        public int Seconds
+        {
+            get
+            {
+                return _seconds;
+            }
+            private set
+            {
+                _seconds = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the first category.
+        /// Gets the count.
+        /// </summary>
+        /// <value>
+        /// The count.
+        /// </value>
+        public int Count
+        {
+            get
+            {
+                return _count;
+            }
+            private set
+            {
+                _count = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the hover text.
+        /// </summary>
+        /// <value>
+        /// The hover text.
+        /// </value>
+        public virtual string HoverText
+        {
+            get
+            {
+                return _hoverText;
+            }
+            private set
+            {
+                _hoverText = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the first category.
         /// </summary>
         /// <value>
         /// The first category.
         /// </value>
-        public string FirstCategory { get; set; }
+        public string FirstCategory
+        {
+            get
+            {
+                return _firstCategory;
+            }
+            private set
+            {
+                _firstCategory = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the first value.
+        /// Gets the first value.
         /// </summary>
         /// <value>
         /// The first value.
         /// </value>
-        public string FirstValue { get; set; }
+        public string FirstValue
+        {
+            get
+            {
+                return _firstValue;
+            }
+            private set
+            {
+                _firstValue = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the second category.
+        /// Gets the second category.
         /// </summary>
         /// <value>
         /// The second category.
         /// </value>
-        public string SecondCategory { get; set; }
+        public string SecondCategory
+        {
+            get
+            {
+                return _secondCategory;
+            }
+            private set
+            {
+                _secondCategory = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the second value.
+        /// Gets the second value.
         /// </summary>
         /// <value>
         /// The second value.
         /// </value>
-        public string SecondValue { get; set; }
+        public string SecondValue
+        {
+            get
+            {
+                return _secondValue;
+            }
+            private set
+            {
+                _secondValue = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the third category.
+        /// Gets the third category.
         /// </summary>
         /// <value>
         /// The third category.
         /// </value>
-        public string ThirdCategory { get; set; }
+        public string ThirdCategory
+        {
+            get
+            {
+                return _thirdCategory;
+            }
+            private set
+            {
+                _thirdCategory = value;
+            }
+        }
 
         /// <summary>
-        /// Gets or sets the third value.
+        /// Gets the third value.
         /// </summary>
         /// <value>
         /// The third value.
         /// </value>
-        public string ThirdValue { get; set; }
+        public string ThirdValue
+        {
+            get
+            {
+                return _thirdValue;
+            }
+            private set
+            {
+                _thirdValue = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the fourth category.
+        /// </summary>
+        /// <value>
+        /// The fourth category.
+        /// </value>
+        public string FourthCategory
+        {
+            get
+            {
+                return _fourthCategory;
+            }
+            private set
+            {
+                _fourthCategory = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the fourth value.
+        /// </summary>
+        /// <value>
+        /// The fourth value.
+        /// </value>
+        public string FourthValue
+        {
+            get
+            {
+                return _fourthValue;
+            }
+            private set
+            {
+                _fourthValue = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether this instance is busy.
+        /// </summary>
+        /// <value>
+        /// <c> true </c>
+        /// if this instance is busy; otherwise,
+        /// <c> false </c>
+        /// </value>
+        public bool IsBusy
+        {
+            get
+            {
+                return _busy;
+            }
+            private set
+            {
+                _busy = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the table prefix.
@@ -157,34 +392,6 @@ namespace BudgetExecution
         public string ValuePrefix { get; set; } = " Values : ";
 
         /// <summary>
-        /// Gets or sets the SQL query.
-        /// </summary>
-        /// <value>
-        /// The SQL query.
-        /// </value>
-        public string SqlQuery { get; set; }
-
-        /// <summary>
-        /// Gets a value indicating whether this instance is busy.
-        /// </summary>
-        /// <value>
-        /// <c> true </c>
-        /// if this instance is busy; otherwise,
-        /// <c> false </c>
-        /// </value>
-        public bool IsBusy
-        {
-            get
-            {
-                return _busy;
-            }
-            private set
-            {
-                _busy = value;
-            }
-        }
-
-        /// <summary>
         /// Initializes a new instance of the
         /// <see cref="LookupScreen"/> class.
         /// </summary>
@@ -198,7 +405,7 @@ namespace BudgetExecution
             // Basic Properties
             Size = new Size( 1349, 730 );
             MaximumSize = new Size( 1349, 730 );
-            MinimumSize = new Size( 1349, 730 );
+            MinimumSize = new Size( 1339, 720 );
             StartPosition = FormStartPosition.CenterParent;
             FormBorderStyle = FormBorderStyle.None;
             BackColor = Color.FromArgb( 20, 20, 20 );
@@ -299,20 +506,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes the delegates.
-        /// </summary>
-        private void InitializeDelegates( )
-        {
-            try
-            {
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Initializes the callbacks.
         /// </summary>
         private void RegisterCallbacks( )
@@ -330,6 +523,30 @@ namespace BudgetExecution
             {
                 Fail( _ex );
             }
+        }
+
+        /// <summary>
+        /// Initializes the delegates.
+        /// </summary>
+        private void InitializeDelegates( )
+        {
+            _statusUpdate += UpdateLabels;
+        }
+
+        /// <summary>
+        /// Begins the initialize.
+        /// </summary>
+        private void BeginInit( )
+        {
+            _busy = true;
+        }
+
+        /// <summary>
+        /// Ends the initialize.
+        /// </summary>
+        private void EndInit( )
+        {
+            _busy = false;
         }
 
         /// <summary>
@@ -403,10 +620,10 @@ namespace BudgetExecution
                 ClearSelections( );
                 ClearCollections( );
                 ClearFilter( );
-                SelectedTable = string.Empty;
+                _selectedTable = string.Empty;
                 BindingSource.DataSource = null;
-                DataModel = null;
-                DataTable = null;
+                _dataModel = null;
+                _dataTable = null;
             }
             catch( Exception _ex )
             {
@@ -421,9 +638,9 @@ namespace BudgetExecution
         {
             try
             {
-                if( Filter?.Any( ) == true )
+                if( _filter?.Any( ) == true )
                 {
-                    Filter.Clear( );
+                    _filter.Clear( );
                 }
             }
             catch( Exception _ex )
@@ -439,19 +656,19 @@ namespace BudgetExecution
         {
             try
             {
-                if( SelectedColumns?.Any( ) == true )
+                if( _selectedColumns?.Any( ) == true )
                 {
-                    SelectedColumns.Clear( );
+                    _selectedColumns.Clear( );
                 }
 
-                if( SelectedFields?.Any( ) == true )
+                if( _selectedFields?.Any( ) == true )
                 {
-                    SelectedFields.Clear( );
+                    _selectedFields.Clear( );
                 }
 
-                if( SelectedNumerics?.Any( ) == true )
+                if( _selectedNumerics?.Any( ) == true )
                 {
-                    SelectedNumerics.Clear( );
+                    _selectedNumerics.Clear( );
                 }
             }
             catch( Exception _ex )
@@ -467,12 +684,12 @@ namespace BudgetExecution
         {
             try
             {
-                ThirdCategory = string.Empty;
-                ThirdValue = string.Empty;
-                SecondCategory = string.Empty;
-                SecondValue = string.Empty;
-                FirstCategory = string.Empty;
-                FirstValue = string.Empty;
+                _thirdCategory = string.Empty;
+                _thirdValue = string.Empty;
+                _secondCategory = string.Empty;
+                _secondValue = string.Empty;
+                _firstCategory = string.Empty;
+                _firstValue = string.Empty;
             }
             catch( Exception _ex )
             {
@@ -511,12 +728,12 @@ namespace BudgetExecution
                 InitializeTabControl( );
                 InitializeLabels( );
                 InitializeButtons( );
-                DataArgs = new DataArgs( );
-                Fields = new List<string>( );
-                Columns = new List<string>( );
-                Dates = new List<DateTime>( );
-                DataModel = new DataBuilder( Source.StatusOfFunds, Provider.Access, Filter );
-                BindingSource.DataSource = DataModel.DataTable;
+                _dataArgs = new DataArgs( );
+                _fields = new List<string>( );
+                _columns = new List<string>( );
+                _dates = new List<DateTime>( );
+                _dataModel = new DataBuilder( Source.StatusOfFunds, Provider.Access, _filter );
+                BindingSource.DataSource = _dataModel.DataTable;
                 PopulateTableListBoxItems( );
             }
             catch( Exception _ex )
@@ -533,7 +750,7 @@ namespace BudgetExecution
         {
             try
             {
-                Filter.Clear( );
+                _filter.Clear( );
                 ColumnListBox.Items?.Clear( );
                 ValueListBox.Items?.Clear( );
                 ColumnTable.CaptionText = string.Empty;
@@ -542,11 +759,11 @@ namespace BudgetExecution
                 var _value = _listBox?.SelectedItem.ToString( );
                 if( !string.IsNullOrEmpty( _value ) )
                 {
-                    var _source = (Source)Enum.Parse( typeof( Source ), _value );
-                    DataModel = new DataBuilder( _source, Provider.Access );
-                    BindingSource.DataSource = DataModel.DataTable;
-                    var _columns = DataModel.DataColumns;
-                    foreach( var _col in _columns )
+                    var _table = (Source)Enum.Parse( typeof( Source ), _value );
+                    _dataModel = new DataBuilder( _table, Provider.Access );
+                    BindingSource.DataSource = _dataModel.DataTable;
+                    var _names = _dataModel.DataColumns;
+                    foreach( var _col in _names )
                     {
                         ColumnListBox.Items?.Add( _col.ColumnName );
                     }
@@ -554,6 +771,20 @@ namespace BudgetExecution
                     ColumnTable.CaptionText = ColumnPrefix + ColumnListBox.Items?.Count;
                     ValueTable.CaptionText = ValuePrefix;
                 }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Updates the labels.
+        /// </summary>
+        private void UpdateLabels( )
+        {
+            try
+            {
             }
             catch( Exception _ex )
             {
@@ -572,7 +803,7 @@ namespace BudgetExecution
                 ValueListBox.Items?.Clear( );
                 var _listBox = sender as ListBox;
                 var _column = _listBox?.SelectedItem?.ToString( );
-                var _series = DataModel.DataElements;
+                var _series = _dataModel.DataElements;
                 if( !string.IsNullOrEmpty( _column ) )
                 {
                     foreach( var _item in _series[ _column ] )
@@ -618,13 +849,7 @@ namespace BudgetExecution
         {
             try
             {
-                DataArgs.Provider = Provider;
-                DataArgs.Source = Source;
-                DataArgs.Filter = Filter;
-                DataArgs.SelectedTable = SelectedTable;
-                DataArgs.SelectedFields = SelectedFields;
-                DataArgs.SelectedNumerics = SelectedNumerics;
-                DataArgs.SqlQuery = SqlQuery;
+                CaptureState( );
             }
             catch( Exception _ex )
             {

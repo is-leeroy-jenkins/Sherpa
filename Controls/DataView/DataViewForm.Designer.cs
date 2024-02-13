@@ -193,7 +193,6 @@
             // Title
             // 
             Title.BindingSource = null;
-            Title.DataFilter = null;
             Title.Dock = System.Windows.Forms.DockStyle.Fill;
             Title.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Title.Font = new System.Drawing.Font( "Roboto", 9.75F );
@@ -991,7 +990,6 @@
             // SecondGridLabel
             // 
             SecondGridLabel.BindingSource = null;
-            SecondGridLabel.DataFilter = null;
             SecondGridLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             SecondGridLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             SecondGridLabel.Font = new System.Drawing.Font( "Roboto", 8.25F );
@@ -1014,7 +1012,6 @@
             // FourthGridLabel
             // 
             FourthGridLabel.BindingSource = null;
-            FourthGridLabel.DataFilter = null;
             FourthGridLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             FourthGridLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             FourthGridLabel.Font = new System.Drawing.Font( "Roboto", 8.25F );
@@ -1037,7 +1034,6 @@
             // FirstGridLabel
             // 
             FirstGridLabel.BindingSource = null;
-            FirstGridLabel.DataFilter = null;
             FirstGridLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             FirstGridLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             FirstGridLabel.Font = new System.Drawing.Font( "Roboto", 8.25F );
@@ -1060,7 +1056,6 @@
             // ThirdGridLabel
             // 
             ThirdGridLabel.BindingSource = null;
-            ThirdGridLabel.DataFilter = null;
             ThirdGridLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             ThirdGridLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             ThirdGridLabel.Font = new System.Drawing.Font( "Roboto", 8.25F );

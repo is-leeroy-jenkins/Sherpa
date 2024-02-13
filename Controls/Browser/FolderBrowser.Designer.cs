@@ -111,7 +111,6 @@
             // FoundLabel
             // 
             FoundLabel.BindingSource = null;
-            FoundLabel.DataFilter = null;
             FoundLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             FoundLabel.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             FoundLabel.HoverText = null;
@@ -166,7 +165,6 @@
             // Title
             // 
             Title.BindingSource = null;
-            Title.DataFilter = null;
             Title.Dock = System.Windows.Forms.DockStyle.Top;
             Title.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Title.Font = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
@@ -305,7 +303,6 @@
             // MessageLabel
             // 
             MessageLabel.BindingSource = null;
-            MessageLabel.DataFilter = null;
             MessageLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             MessageLabel.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             MessageLabel.HoverText = null;

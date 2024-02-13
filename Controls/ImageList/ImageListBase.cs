@@ -75,7 +75,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    ImageSize = new Size( width, height );
+                    base.ImageSize = new Size( width, height );
                 }
                 catch( Exception _ex )
                 {

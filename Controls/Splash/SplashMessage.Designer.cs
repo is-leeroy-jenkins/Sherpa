@@ -116,7 +116,6 @@
             // Message
             // 
             Message.BindingSource = null;
-            Message.DataFilter = null;
             Message.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Message.Font = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             Message.HoverText = null;

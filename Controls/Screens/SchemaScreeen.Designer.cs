@@ -438,7 +438,6 @@
             // SelectDataTypeLable
             // 
             SelectDataTypeLable.BindingSource = null;
-            SelectDataTypeLable.DataFilter = null;
             SelectDataTypeLable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             SelectDataTypeLable.Font = new System.Drawing.Font( "Roboto", 8F );
             SelectDataTypeLable.HoverText = null;
@@ -461,7 +460,6 @@
             // AddColumnLabel
             // 
             AddColumnLabel.BindingSource = null;
-            AddColumnLabel.DataFilter = null;
             AddColumnLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             AddColumnLabel.Font = new System.Drawing.Font( "Roboto", 8F );
             AddColumnLabel.HoverText = null;
@@ -602,7 +600,6 @@
             // AddTableLabel
             // 
             AddTableLabel.BindingSource = null;
-            AddTableLabel.DataFilter = null;
             AddTableLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             AddTableLabel.Font = new System.Drawing.Font( "Roboto", 8F );
             AddTableLabel.HoverText = null;
@@ -694,7 +691,6 @@
             // SelectTableLabel
             // 
             SelectTableLabel.BindingSource = null;
-            SelectTableLabel.DataFilter = null;
             SelectTableLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             SelectTableLabel.Font = new System.Drawing.Font( "Roboto", 8F );
             SelectTableLabel.HoverText = null;
@@ -928,7 +924,6 @@
             // visualLabel3
             // 
             visualLabel3.BindingSource = null;
-            visualLabel3.DataFilter = null;
             visualLabel3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             visualLabel3.Font = new System.Drawing.Font( "Roboto", 9F );
             visualLabel3.HoverText = null;
@@ -950,7 +945,6 @@
             // visualLabel5
             // 
             visualLabel5.BindingSource = null;
-            visualLabel5.DataFilter = null;
             visualLabel5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             visualLabel5.Font = new System.Drawing.Font( "Roboto", 9F );
             visualLabel5.HoverText = null;

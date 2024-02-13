@@ -45,7 +45,6 @@ partial class WebSelector
             // Header
             // 
             this.Header.BindingSource = null;
-            this.Header.DataFilter = null;
             this.Header.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Header.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Header.HoverText = null;

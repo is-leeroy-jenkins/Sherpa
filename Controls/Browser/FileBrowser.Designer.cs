@@ -505,7 +505,6 @@ namespace BudgetExecution
             // FoundLabel
             // 
             FoundLabel.BindingSource = null;
-            FoundLabel.DataFilter = null;
             FoundLabel.FlatStyle = FlatStyle.Flat;
             FoundLabel.Font = new System.Drawing.Font( "Roboto", 8.25F );
             FoundLabel.HoverText = null;
@@ -560,7 +559,6 @@ namespace BudgetExecution
             // Title
             // 
             Title.BindingSource = null;
-            Title.DataFilter = null;
             Title.Dock = DockStyle.Top;
             Title.FlatStyle = FlatStyle.Flat;
             Title.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
@@ -583,7 +581,6 @@ namespace BudgetExecution
             // MessageLabel
             // 
             MessageLabel.BindingSource = null;
-            MessageLabel.DataFilter = null;
             MessageLabel.FlatStyle = FlatStyle.Flat;
             MessageLabel.Font = new System.Drawing.Font( "Roboto", 8.25F );
             MessageLabel.HoverText = null;

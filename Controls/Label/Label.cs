@@ -44,7 +44,6 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
@@ -60,21 +59,29 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public class Label : MetroSetLabel
     {
-        /// <summary> Gets or sets the binding source. </summary>
-        /// <value> The binding source. </value>
-        public virtual BindingSource BindingSource { get; set; }
+        /// <summary>
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
+        public BindingSource BindingSource { get; set; }
 
-        /// <summary> Gets or sets the tool tip. </summary>
-        /// <value> The tool tip. </value>
-        public virtual SmallTip ToolTip { get; set; }
+        /// <summary>
+        /// Gets or sets the tool tip.
+        /// </summary>
+        /// <value>
+        /// The tool tip.
+        /// </value>
+        public SmallTip ToolTip { get; set; }
 
-        /// <summary> Gets or sets the hover text. </summary>
-        /// <value> The hover text. </value>
-        public virtual string HoverText { get; set; }
-
-        /// <summary> Gets or sets the data filter. </summary>
-        /// <value> The data filter. </value>
-        public virtual IDictionary<string, object> DataFilter { get; set; }
+        /// <summary>
+        /// Gets or sets the hover text.
+        /// </summary>
+        /// <value>
+        /// The hover text.
+        /// </value>
+        public string HoverText { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the
@@ -84,22 +91,22 @@ namespace BudgetExecution
         public Label( )
         {
             // Basic Properties
-            Style = Style.Custom;
-            ThemeAuthor = "Terry D. Eppler";
-            ThemeName = "Budget Execution";
-            Size = new Size( 165, 23 );
-            BackColor = Color.Transparent;
-            ForeColor = Color.FromArgb( 106, 189, 252 );
-            Font = new Font( "Roboto", 8 );
-            Margin = new Padding( 3 );
-            Padding = new Padding( 1 );
-            Anchor = AnchorStyles.Top | AnchorStyles.Left;
-            Dock = DockStyle.None;
-            Enabled = true;
-            Visible = true;
-            BorderStyle = BorderStyle.None;
-            FlatStyle = FlatStyle.Flat;
-            TextAlign = ContentAlignment.MiddleLeft;
+            base.Style = Style.Custom;
+            base.ThemeAuthor = "Terry D. Eppler";
+            base.ThemeName = "Budget Execution";
+            base.Size = new Size( 165, 23 );
+            base.BackColor = Color.Transparent;
+            base.ForeColor = Color.FromArgb( 106, 189, 252 );
+            base.Font = new Font( "Roboto", 8 );
+            base.Margin = new Padding( 3 );
+            base.Padding = new Padding( 1 );
+            base.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            base.Dock = DockStyle.None;
+            base.Enabled = true;
+            base.Visible = true;
+            base.BorderStyle = BorderStyle.None;
+            base.FlatStyle = FlatStyle.Flat;
+            base.TextAlign = ContentAlignment.MiddleLeft;
 
             // Event Wiring
             MouseHover += OnMouseOver;
@@ -116,8 +123,8 @@ namespace BudgetExecution
         public Label( Size size, Point location )
             : this( )
         {
-            Size = size;
-            Location = location;
+            base.Size = size;
+            base.Location = location;
         }
 
         /// <inheritdoc />
@@ -144,8 +151,8 @@ namespace BudgetExecution
         public Label( Size size, Point location, Control parent )
             : this( size, location )
         {
-            Parent = parent;
-            Parent.Controls.Add( this );
+            base.Parent = parent;
+            base.Parent.Controls.Add( this );
         }
 
         /// <inheritdoc />
@@ -161,7 +168,7 @@ namespace BudgetExecution
         public Label( Size size, Point location, Control parent, string text )
             : this( size, location, parent )
         {
-            Text = text;
+            base.Text = text;
         }
 
         /// <inheritdoc />
@@ -188,7 +195,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    Text = text;
+                    base.Text = text;
                 }
                 catch( Exception _ex )
                 {
@@ -205,7 +212,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    Tag = tag;
+                    base.Tag = tag;
                 }
                 catch( Exception _ex )
                 {
@@ -238,7 +245,7 @@ namespace BudgetExecution
                     {
                         if( !string.IsNullOrEmpty( Tag?.ToString( ) ) )
                         {
-                            var _text = Tag?.ToString( )?.SplitPascal( );
+                            var _text = base.Tag?.ToString( )?.SplitPascal( );
                             var _ = new SmallTip( _budgetLabel, _text );
                         }
                     }

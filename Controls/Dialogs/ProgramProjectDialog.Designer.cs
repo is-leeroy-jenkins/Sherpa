@@ -307,7 +307,6 @@ partial class ProgramProjectDialog
         // Header
         // 
         Header.BindingSource = null;
-        Header.DataFilter = null;
         Header.Dock = System.Windows.Forms.DockStyle.Fill;
         Header.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         Header.Font = new System.Drawing.Font( "Roboto", 9.75F );
@@ -510,7 +509,6 @@ partial class ProgramProjectDialog
         // StatusLabel
         // 
         StatusLabel.BindingSource = BindingSource;
-        StatusLabel.DataFilter = null;
         StatusLabel.Dock = System.Windows.Forms.DockStyle.Fill;
         StatusLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         StatusLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );

@@ -195,7 +195,6 @@ namespace BudgetExecution
             // Title
             // 
             Title.BindingSource = null;
-            Title.DataFilter = null;
             Title.Dock = System.Windows.Forms.DockStyle.Fill;
             Title.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Title.Font = new System.Drawing.Font( "Roboto", 9.75F );
@@ -1388,7 +1387,6 @@ namespace BudgetExecution
             // Label11
             // 
             Label11.BindingSource = null;
-            Label11.DataFilter = null;
             Label11.Dock = System.Windows.Forms.DockStyle.Fill;
             Label11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Label11.Font = new System.Drawing.Font( "Roboto", 8.25F );
@@ -1411,7 +1409,6 @@ namespace BudgetExecution
             // Label3
             // 
             Label3.BindingSource = null;
-            Label3.DataFilter = null;
             Label3.Dock = System.Windows.Forms.DockStyle.Fill;
             Label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Label3.Font = new System.Drawing.Font( "Roboto", 8.25F );
@@ -1434,7 +1431,6 @@ namespace BudgetExecution
             // Label2
             // 
             Label2.BindingSource = null;
-            Label2.DataFilter = null;
             Label2.Dock = System.Windows.Forms.DockStyle.Fill;
             Label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Label2.Font = new System.Drawing.Font( "Roboto", 8.25F );
@@ -1457,7 +1453,6 @@ namespace BudgetExecution
             // Label1
             // 
             Label1.BindingSource = null;
-            Label1.DataFilter = null;
             Label1.Dock = System.Windows.Forms.DockStyle.Fill;
             Label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Label1.Font = new System.Drawing.Font( "Roboto", 8.25F );
@@ -1480,7 +1475,6 @@ namespace BudgetExecution
             // Label4
             // 
             Label4.BindingSource = null;
-            Label4.DataFilter = null;
             Label4.Dock = System.Windows.Forms.DockStyle.Fill;
             Label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Label4.Font = new System.Drawing.Font( "Roboto", 8.25F );
@@ -1503,7 +1497,6 @@ namespace BudgetExecution
             // Label5
             // 
             Label5.BindingSource = null;
-            Label5.DataFilter = null;
             Label5.Dock = System.Windows.Forms.DockStyle.Fill;
             Label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Label5.Font = new System.Drawing.Font( "Roboto", 8.25F );
@@ -1526,7 +1519,6 @@ namespace BudgetExecution
             // Label6
             // 
             Label6.BindingSource = null;
-            Label6.DataFilter = null;
             Label6.Dock = System.Windows.Forms.DockStyle.Fill;
             Label6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Label6.Font = new System.Drawing.Font( "Roboto", 8.25F );
@@ -1549,7 +1541,6 @@ namespace BudgetExecution
             // Label7
             // 
             Label7.BindingSource = null;
-            Label7.DataFilter = null;
             Label7.Dock = System.Windows.Forms.DockStyle.Fill;
             Label7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Label7.Font = new System.Drawing.Font( "Roboto", 8.25F );
@@ -1572,7 +1563,6 @@ namespace BudgetExecution
             // Label8
             // 
             Label8.BindingSource = null;
-            Label8.DataFilter = null;
             Label8.Dock = System.Windows.Forms.DockStyle.Fill;
             Label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Label8.Font = new System.Drawing.Font( "Roboto", 8.25F );
@@ -1595,7 +1585,6 @@ namespace BudgetExecution
             // Label9
             // 
             Label9.BindingSource = null;
-            Label9.DataFilter = null;
             Label9.Dock = System.Windows.Forms.DockStyle.Fill;
             Label9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Label9.Font = new System.Drawing.Font( "Roboto", 8.25F );
@@ -1618,7 +1607,6 @@ namespace BudgetExecution
             // Label12
             // 
             Label12.BindingSource = null;
-            Label12.DataFilter = null;
             Label12.Dock = System.Windows.Forms.DockStyle.Fill;
             Label12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Label12.Font = new System.Drawing.Font( "Roboto", 8.25F );
@@ -1641,7 +1629,6 @@ namespace BudgetExecution
             // Label10
             // 
             Label10.BindingSource = null;
-            Label10.DataFilter = null;
             Label10.Dock = System.Windows.Forms.DockStyle.Fill;
             Label10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Label10.Font = new System.Drawing.Font( "Roboto", 8.25F );

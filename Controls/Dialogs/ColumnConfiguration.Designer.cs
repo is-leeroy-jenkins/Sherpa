@@ -125,7 +125,6 @@ namespace BudgetExecution
             // HeaderLabel
             // 
             HeaderLabel.BindingSource = null;
-            HeaderLabel.DataFilter = null;
             HeaderLabel.FlatStyle = FlatStyle.Flat;
             HeaderLabel.Font = new System.Drawing.Font( "Roboto", 9.75F );
             HeaderLabel.HoverText = null;

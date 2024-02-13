@@ -291,7 +291,6 @@ namespace BudgetExecution
             // Title
             // 
             Title.BindingSource = null;
-            Title.DataFilter = null;
             Title.Dock = DockStyle.Fill;
             Title.FlatStyle = FlatStyle.Flat;
             Title.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );

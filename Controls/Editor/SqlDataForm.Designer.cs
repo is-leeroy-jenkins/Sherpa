@@ -256,7 +256,6 @@ namespace BudgetExecution
             // Title
             // 
             Title.BindingSource = null;
-            Title.DataFilter = null;
             Title.Dock = System.Windows.Forms.DockStyle.Fill;
             Title.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Title.Font = new System.Drawing.Font( "Roboto", 9.75F );
@@ -994,7 +993,6 @@ namespace BudgetExecution
             // SelectDataTypeLabel
             // 
             SelectDataTypeLabel.BindingSource = null;
-            SelectDataTypeLabel.DataFilter = null;
             SelectDataTypeLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             SelectDataTypeLabel.Font = new System.Drawing.Font( "Roboto", 8F );
             SelectDataTypeLabel.HoverText = null;
@@ -1017,7 +1015,6 @@ namespace BudgetExecution
             // AddColumnLabel
             // 
             AddColumnLabel.BindingSource = null;
-            AddColumnLabel.DataFilter = null;
             AddColumnLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             AddColumnLabel.Font = new System.Drawing.Font( "Roboto", 8F );
             AddColumnLabel.HoverText = null;
@@ -1158,7 +1155,6 @@ namespace BudgetExecution
             // AddTableLabel
             // 
             AddTableLabel.BindingSource = null;
-            AddTableLabel.DataFilter = null;
             AddTableLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             AddTableLabel.Font = new System.Drawing.Font( "Roboto", 8F );
             AddTableLabel.HoverText = null;
@@ -1250,7 +1246,6 @@ namespace BudgetExecution
             // SelectTableLabel
             // 
             SelectTableLabel.BindingSource = null;
-            SelectTableLabel.DataFilter = null;
             SelectTableLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             SelectTableLabel.Font = new System.Drawing.Font( "Roboto", 8F );
             SelectTableLabel.HoverText = null;

@@ -84,7 +84,6 @@
             // Header
             // 
             Header.BindingSource = null;
-            Header.DataFilter = null;
             Header.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Header.Font = new System.Drawing.Font( "Roboto", 12F );
             Header.HoverText = null;

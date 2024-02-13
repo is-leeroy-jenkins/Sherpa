@@ -155,7 +155,6 @@ partial class ColorDialog
         // Title
         // 
         Title.BindingSource = null;
-        Title.DataFilter = null;
         Title.Dock = System.Windows.Forms.DockStyle.Fill;
         Title.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         Title.Font = new System.Drawing.Font( "Roboto", 9.75F );

@@ -50,7 +50,6 @@ partial class MinionSelector
         // Header
         // 
         Header.BindingSource = null;
-        Header.DataFilter = null;
         Header.Dock = System.Windows.Forms.DockStyle.Top;
         Header.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         Header.Font = new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );

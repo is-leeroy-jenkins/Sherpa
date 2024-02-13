@@ -291,7 +291,6 @@
             // Header
             // 
             Header.BindingSource = null;
-            Header.DataFilter = null;
             Header.Dock = System.Windows.Forms.DockStyle.Fill;
             Header.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             Header.Font = new System.Drawing.Font( "Roboto", 9.75F );
