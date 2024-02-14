@@ -58,17 +58,91 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     public partial class ProgramProjectDialog : MetroForm
     {
+        /// <summary>
+        /// The busy
+        /// </summary>
+        private bool _busy;
+
         /// <summary>
         /// The status update
         /// </summary>
         private Action _statusUpdate;
 
         /// <summary>
-        /// The busy
+        /// 
         /// </summary>
-        private bool _busy;
+        private int _time;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private int _seconds;
+
+        /// <summary>
+        /// The source
+        /// </summary>
+        private protected Source _source;
+
+        /// <summary>
+        /// The provider
+        /// </summary>
+        private protected Provider _provider;
+
+        /// <summary>
+        /// The ext
+        /// </summary>
+        private protected EXT _extension;
+
+        /// <summary>
+        /// The SQL command
+        /// </summary>
+        private protected string _sqlQuery;
+
+        /// <summary>
+        /// The selected table
+        /// </summary>
+        private protected string _selectedValue;
+
+        /// <summary>
+        /// The selected path
+        /// </summary>
+        private protected string _selectedProgram;
+
+        /// <summary>
+        /// The filter
+        /// </summary>
+        private protected IDictionary<string, object> _filter;
+
+        /// <summary>
+        /// The program codes
+        /// </summary>
+        private protected IList<string> _programCodes;
+
+        /// <summary>
+        /// The data model
+        /// </summary>
+        private protected DataBuilder _dataModel;
+
+        /// <summary>
+        /// The data table
+        /// </summary>
+        private protected DataTable _dataTable;
+
+        /// <summary>
+        /// The current
+        /// </summary>
+        private protected DataRow _current;
+
+        /// <summary>
+        /// The data arguments
+        /// </summary>
+        private protected DataArgs _dataArgs;
 
         /// <summary>
         /// Gets or sets the time.
@@ -76,7 +150,17 @@ namespace BudgetExecution
         /// <value>
         /// The time.
         /// </value>
-        public int Time { get; set; }
+        public int Time
+        {
+            get
+            {
+                return _time;
+            }
+            private protected set
+            {
+                _time = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the seconds.
@@ -84,95 +168,17 @@ namespace BudgetExecution
         /// <value>
         /// The seconds.
         /// </value>
-        public int Seconds { get; set; }
-
-        /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
-        public Source Source { get; set; }
-
-        /// <summary>
-        /// Gets or sets the provider.
-        /// </summary>
-        /// <value>
-        /// The provider.
-        /// </value>
-        public Provider Provider { get; set; }
-
-        /// <summary>
-        /// Gets or sets the data model.
-        /// </summary>
-        /// <value>
-        /// The data model.
-        /// </value>
-        public DataBuilder DataModel { get; set; }
-
-        /// <summary>
-        /// Gets or sets the data table.
-        /// </summary>
-        /// <value>
-        /// The data table.
-        /// </value>
-        public DataTable DataTable { get; set; }
-
-        /// <summary>
-        /// Gets or sets the form filter.
-        /// </summary>
-        /// <value>
-        /// The form filter.
-        /// </value>
-        public IDictionary<string, object> Filter { get; set; }
-
-        /// <summary>
-        /// Gets or sets the selected value.
-        /// </summary>
-        /// <value>
-        /// The selected value.
-        /// </value>
-        public string SelectedValue { get; set; }
-
-        /// <summary>
-        /// Gets or sets the SQL query.
-        /// </summary>
-        /// <value>
-        /// The SQL query.
-        /// </value>
-        public string SqlQuery { get; set; }
-
-        /// <summary>
-        /// Gets or sets the selected program.
-        /// </summary>
-        /// <value>
-        /// The selected program.
-        /// </value>
-        public string SelectedProgram { get; set; }
-
-        /// <summary>
-        /// Gets or sets the current.
-        /// </summary>
-        /// <value>
-        /// The current.
-        /// </value>
-        public DataRow Current { get; set; }
-
-        /// <summary>
-        /// Gets or sets the program codes.
-        /// </summary>
-        /// <value>
-        /// The program codes.
-        /// </value>
-        public IEnumerable<string> ProgramCodes { get; set; }
-
-        /// <summary>
-        /// Gets or sets the data arguments.
-        /// </summary>
-        /// <value>
-        /// The data arguments.
-        /// </value>
-        public DataArgs DataArgs { get; set; }
+        public int Seconds
+        {
+            get
+            {
+                return _seconds;
+            }
+            private protected set
+            {
+                _seconds = value;
+            }
+        }
 
         /// <summary>
         /// Gets a value indicating whether this instance is busy.
@@ -184,8 +190,220 @@ namespace BudgetExecution
         /// </value>
         public bool IsBusy
         {
-            get { return _busy; }
-            private set { _busy = value; }
+            get
+            {
+                return _busy;
+            }
+            private set
+            {
+                _busy = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the SQL query.
+        /// </summary>
+        /// <value>
+        /// The SQL query.
+        /// </value>
+        public string SqlQuery
+        {
+            get
+            {
+                return _sqlQuery;
+            }
+            private protected set
+            {
+                _sqlQuery = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the data model.
+        /// </summary>
+        /// <value>
+        /// The data model.
+        /// </value>
+        public DataBuilder DataModel
+        {
+            get
+            {
+                return _dataModel;
+            }
+            private protected set
+            {
+                _dataModel = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the data table.
+        /// </summary>
+        /// <value>
+        /// The data table.
+        /// </value>
+        public DataTable DataTable
+        {
+            get
+            {
+                return _dataTable;
+            }
+            private protected set
+            {
+                _dataTable = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the form filter.
+        /// </summary>
+        /// <value>
+        /// The form filter.
+        /// </value>
+        public IDictionary<string, object> Filter
+        {
+            get
+            {
+                return _filter;
+            }
+            private protected set
+            {
+                _filter = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the source.
+        /// </summary>
+        /// <value>
+        /// The source.
+        /// </value>
+        public Source Source
+        {
+            get
+            {
+                return _source;
+            }
+            private protected set
+            {
+                _source = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the provider.
+        /// </summary>
+        /// <value>
+        /// The provider.
+        /// </value>
+        public Provider Provider
+        {
+            get
+            {
+                return _provider;
+            }
+            private protected set
+            {
+                _provider = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the extenstion.
+        /// </summary>
+        /// <value>
+        /// The extenstion.
+        /// </value>
+        public EXT Extension
+        {
+            get
+            {
+                return _extension;
+            }
+            private protected set
+            {
+                _extension = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the selected value.
+        /// </summary>
+        /// <value>
+        /// The selected value.
+        /// </value>
+        public string SelectedValue
+        {
+            get
+            {
+                return _selectedValue;
+            }
+            private protected set
+            {
+                _selectedValue = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the selected program.
+        /// </summary>
+        /// <value>
+        /// The selected program.
+        /// </value>
+        public string SelectedProgram
+        {
+            get
+            {
+                return _selectedProgram;
+            }
+            private protected set
+            {
+                _selectedProgram = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the current.
+        /// </summary>
+        /// <value>
+        /// The current.
+        /// </value>
+        public DataRow Current
+        {
+            get
+            {
+                return _current;
+            }
+            private protected set
+            {
+                _current = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the program codes.
+        /// </summary>
+        /// <value>
+        /// The program codes.
+        /// </value>
+        public IList<string> ProgramCodes { get; set; }
+
+        /// <summary>
+        /// Gets or sets the data arguments.
+        /// </summary>
+        /// <value>
+        /// The data arguments.
+        /// </value>
+        public DataArgs DataArgs
+        {
+            get
+            {
+                return _dataArgs;
+            }
+            private protected set
+            {
+                _dataArgs = value;
+            }
         }
 
         /// <inheritdoc/>
@@ -226,12 +444,12 @@ namespace BudgetExecution
             MaximizeBox = false;
 
             // Bind DataSource
-            Source = Source.ProgramProjectDescriptions;
-            Provider = Provider.Access;
+            _source = Source.ProgramProjectDescriptions;
+            _provider = Provider.Access;
 
             // Timer Properties
-            Time = 0;
-            Seconds = 5;
+            _time = 0;
+            _seconds = 5;
 
             // Event Wiring
             Load += OnLoad;
@@ -248,7 +466,7 @@ namespace BudgetExecution
         public ProgramProjectDialog( string code )
             : this( )
         {
-            SelectedProgram = code;
+            _selectedProgram = code;
         }
 
         /// <summary>
@@ -313,7 +531,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the callbacks.
         /// </summary>
-        private void RegisterCallbacks()
+        private void RegisterCallbacks( )
         {
             try
             {
@@ -388,10 +606,10 @@ namespace BudgetExecution
         {
             try
             {
-                DataArgs.Provider = Provider;
-                DataArgs.Source = Source;
-                DataArgs.Filter = Filter;
-                DataArgs.SqlQuery = SqlQuery;
+                _dataArgs.Provider = _provider;
+                _dataArgs.Source = _source;
+                _dataArgs.Filter = _filter;
+                _dataArgs.SqlQuery = _sqlQuery;
             }
             catch( Exception _ex )
             {
@@ -413,8 +631,8 @@ namespace BudgetExecution
                     Timer.Interval = 10;
                     Timer.Tick += ( sender, args ) =>
                     {
-                        Time++;
-                        if( Time == Seconds )
+                        _time++;
+                        if( _time == _seconds )
                         {
                             Timer.Stop( );
                         }
@@ -555,8 +773,8 @@ namespace BudgetExecution
             try
             {
                 ComboBox.Items?.Clear( );
-                DataModel = new DataBuilder( Source, Provider );
-                var _codes = DataModel.DataElements[ "ProgramTitle" ];
+                _dataModel = new DataBuilder( _source, _provider );
+                var _codes = _dataModel.DataElements[ "ProgramTitle" ];
                 foreach( var _item in _codes )
                 {
                     ComboBox.Items.Add( _item );
@@ -637,16 +855,16 @@ namespace BudgetExecution
                 InitializeTimers( );
                 InitializeLabels( );
                 InitializeButtons( );
-                Filter = new Dictionary<string, object>( );
-                DataArgs = new DataArgs( );
-                if( !string.IsNullOrEmpty( SelectedProgram ) )
+                _filter = new Dictionary<string, object>( );
+                _dataArgs = new DataArgs( );
+                if( !string.IsNullOrEmpty( _selectedProgram ) )
                 {
-                    Filter.Add( "Code", SelectedProgram );
-                    DataModel = new DataBuilder( Source, Provider, Filter );
-                    DataTable = DataModel.DataTable;
-                    BindingSource.DataSource = DataTable;
+                    _filter.Add( "Code", _selectedProgram );
+                    _dataModel = new DataBuilder( _source, _provider, _filter );
+                    _dataTable = _dataModel.DataTable;
+                    BindingSource.DataSource = _dataTable;
                     BindingSource.Filter = Filter.ToCriteria( );
-                    Current = BindingSource.GetCurrentDataRow( );
+                    _current = BindingSource.GetCurrentDataRow( );
                     DescriptionTable.CaptionText = "Program Description";
                     ComboBox.Visible = false;
                     BindData( );
@@ -754,19 +972,19 @@ namespace BudgetExecution
             {
                 try
                 {
-                    if( Filter?.Count > 0 )
+                    if( _filter?.Count > 0 )
                     {
-                        Filter.Clear( );
+                        _filter.Clear( );
                     }
 
                     var _selection = _comboBox.SelectedItem.ToString( );
-                    SelectedProgram = _selection?.Substring( 0, 2 );
-                    Filter?.Add( "Code", SelectedProgram );
-                    DataModel = new DataBuilder( Source, Provider, Filter );
-                    DataTable = DataModel.DataTable;
-                    BindingSource.DataSource = DataTable;
-                    Current = BindingSource.GetCurrentDataRow( );
-                    if( Current != null )
+                    _selectedProgram = _selection?.Substring( 0, 2 );
+                    _filter?.Add( "Code", _selectedProgram );
+                    _dataModel = new DataBuilder( _source, _provider, _filter );
+                    _dataTable = _dataModel.DataTable;
+                    BindingSource.DataSource = _dataTable;
+                    _current = BindingSource.GetCurrentDataRow( );
+                    if( _current != null )
                     {
                         BindData( );
                     }
@@ -798,7 +1016,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    //ContextMenu.Show( this, e.Location );
+                    ContextMenu.Show( this, e.Location );
                 }
                 catch( Exception _ex )
                 {

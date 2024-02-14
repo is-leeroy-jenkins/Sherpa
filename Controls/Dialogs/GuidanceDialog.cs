@@ -63,15 +63,99 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     public partial class GuidanceDialog : MetroForm
     {
+        /// <summary>
+        /// The busy
+        /// </summary>
+        private bool _busy;
+
+        /// <summary>
+        /// The status update
+        /// </summary>
+        private Action _statusUpdate;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private int _time;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private int _seconds;
+
+        /// <summary>
+        /// The source
+        /// </summary>
+        private protected Source _source;
+
+        /// <summary>
+        /// The provider
+        /// </summary>
+        private protected Provider _provider;
+
+        /// <summary>
+        /// The ext
+        /// </summary>
+        private protected EXT _extension;
+
+        /// <summary>
+        /// The SQL command
+        /// </summary>
+        private protected string _sqlQuery;
+
+        /// <summary>
+        /// The selected table
+        /// </summary>
+        private protected string _selectedTable;
+
+        /// <summary>
+        /// The selected path
+        /// </summary>
+        private protected string _selectedPath;
+
+        /// <summary>
+        /// The filter
+        /// </summary>
+        private protected IDictionary<string, object> _filter;
+
+        /// <summary>
+        /// The data model
+        /// </summary>
+        private protected DataBuilder _dataModel;
+
+        /// <summary>
+        /// The data table
+        /// </summary>
+        private protected DataTable _dataTable;
+
+        /// <summary>
+        /// The prefix
+        /// </summary>
+        private protected string _prefix;
+
         /// <summary>
         /// Gets or sets the time.
         /// </summary>
         /// <value>
         /// The time.
         /// </value>
-        public int Time { get; set; }
+        public int Time
+        {
+            get
+            {
+                return _time;
+            }
+            private protected set
+            {
+                _time = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the seconds.
@@ -79,7 +163,37 @@ namespace BudgetExecution
         /// <value>
         /// The seconds.
         /// </value>
-        public int Seconds { get; set; }
+        public int Seconds
+        {
+            get
+            {
+                return _seconds;
+            }
+            private protected set
+            {
+                _seconds = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether this instance is busy.
+        /// </summary>
+        /// <value>
+        /// <c> true </c>
+        /// if this instance is busy; otherwise,
+        /// <c> false </c>
+        /// </value>
+        public bool IsBusy
+        {
+            get
+            {
+                return _busy;
+            }
+            private set
+            {
+                _busy = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the SQL query.
@@ -87,7 +201,17 @@ namespace BudgetExecution
         /// <value>
         /// The SQL query.
         /// </value>
-        public string SqlQuery { get; set; }
+        public string SqlQuery
+        {
+            get
+            {
+                return _sqlQuery;
+            }
+            private protected set
+            {
+                _sqlQuery = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the data model.
@@ -95,7 +219,17 @@ namespace BudgetExecution
         /// <value>
         /// The data model.
         /// </value>
-        public DataBuilder DataModel { get; set; }
+        public DataBuilder DataModel
+        {
+            get
+            {
+                return _dataModel;
+            }
+            private protected set
+            {
+                _dataModel = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the data table.
@@ -103,7 +237,17 @@ namespace BudgetExecution
         /// <value>
         /// The data table.
         /// </value>
-        public DataTable DataTable { get; set; }
+        public DataTable DataTable
+        {
+            get
+            {
+                return _dataTable;
+            }
+            private protected set
+            {
+                _dataTable = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the form filter.
@@ -111,7 +255,17 @@ namespace BudgetExecution
         /// <value>
         /// The form filter.
         /// </value>
-        public IDictionary<string, object> Filter { get; set; }
+        public IDictionary<string, object> Filter
+        {
+            get
+            {
+                return _filter;
+            }
+            private protected set
+            {
+                _filter = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the prefix.
@@ -119,7 +273,17 @@ namespace BudgetExecution
         /// <value>
         /// The prefix.
         /// </value>
-        public string Prefix { get; set; }
+        public string Prefix
+        {
+            get
+            {
+                return _prefix;
+            }
+            private protected set
+            {
+                _prefix = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the source.
@@ -127,7 +291,17 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public Source Source { get; set; }
+        public Source Source
+        {
+            get
+            {
+                return _source;
+            }
+            private protected set
+            {
+                _source = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the provider.
@@ -135,7 +309,17 @@ namespace BudgetExecution
         /// <value>
         /// The provider.
         /// </value>
-        public Provider Provider { get; set; }
+        public Provider Provider
+        {
+            get
+            {
+                return _provider;
+            }
+            private protected set
+            {
+                _provider = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the extenstion.
@@ -143,15 +327,17 @@ namespace BudgetExecution
         /// <value>
         /// The extenstion.
         /// </value>
-        public EXT Extenstion { get; set; }
-
-        /// <summary>
-        /// Gets or sets the selected path.
-        /// </summary>
-        /// <value>
-        /// The selected path.
-        /// </value>
-        public string SelectedPath { get; set; }
+        public EXT Extension
+        {
+            get
+            {
+                return _extension;
+            }
+            private protected set
+            {
+                _extension = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the selected item.
@@ -159,7 +345,17 @@ namespace BudgetExecution
         /// <value>
         /// The selected item.
         /// </value>
-        public string SelectedItem { get; set; }
+        public string SelectedPath
+        {
+            get
+            {
+                return _selectedPath;
+            }
+            private protected set
+            {
+                _selectedPath = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
@@ -173,9 +369,10 @@ namespace BudgetExecution
             // Basic Properties
             Size = new Size( 568, 483 );
             MaximumSize = new Size( 568, 483 );
-            MinimumSize = new Size( 568, 483 );
+            MinimumSize = new Size( 558, 473 );
             StartPosition = FormStartPosition.CenterScreen;
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.Sizable;
+            WindowState = FormWindowState.Maximized;
             BorderColor = Color.FromArgb( 0, 120, 212 );
             BorderThickness = 1;
             BackColor = Color.FromArgb( 20, 20, 20 );
@@ -200,13 +397,13 @@ namespace BudgetExecution
             ControlBox = false;
 
             // Data Properties
-            Source = Source.Resources;
-            Provider = Provider.Access;
-            Extenstion = EXT.PDF;
+            _source = Source.Resources;
+            _provider = Provider.Access;
+            _extension = EXT.PDF;
 
             // Timer Properties
-            Time = 0;
-            Seconds = 5;
+            _time = 0;
+            _seconds = 5;
 
             // Event Wiring
             Load += OnLoad;
@@ -216,36 +413,6 @@ namespace BudgetExecution
             BrowseButton.Click += OnBrowseButtonClick;
             SelectButton.Click += OnSelectButtonClick;
             ListBox.SelectedValueChanged += OnListBoxSelectedValueChanged;
-        }
-
-        /// <summary>
-        /// Displays the control to the user.
-        /// </summary>
-        public new void Show( )
-        {
-            try
-            {
-                Opacity = 0;
-                if( Seconds != 0 )
-                {
-                    Timer = new Timer( );
-                    Timer.Interval = 1000;
-                    Timer.Tick += ( sender, args ) =>
-                    {
-                        Time++;
-                        if( Time == Seconds )
-                        {
-                            Timer.Stop( );
-                        }
-                    };
-                }
-
-                base.Show( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
         }
 
         /// <summary>
@@ -314,6 +481,105 @@ namespace BudgetExecution
                 ListBox.ItemHeight = 42;
                 ListBox.ShowScrollBar = true;
                 ListBox.Font = new Font( "Roboto", 10 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the delegates.
+        /// </summary>
+        private void InitializeDelegates( )
+        {
+            try
+            {
+                _statusUpdate += UpdateStatus;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Invokes if needed.
+        /// </summary>
+        /// <param name="action">The action.</param>
+        public void InvokeIf( Action action )
+        {
+            try
+            {
+                ThrowIf.Null( action, nameof( action ) );
+                if( InvokeRequired )
+                {
+                    BeginInvoke( action );
+                }
+                else
+                {
+                    action.Invoke( );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Displays the control to the user.
+        /// </summary>
+        public new void Show( )
+        {
+            try
+            {
+                Opacity = 0;
+                if( Seconds != 0 )
+                {
+                    Timer = new Timer( );
+                    Timer.Interval = 1000;
+                    Timer.Tick += ( sender, args ) =>
+                    {
+                        _time++;
+                        if( _time == _seconds )
+                        {
+                            Timer.Stop( );
+                        }
+                    };
+                }
+
+                base.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Begins the initialize.
+        /// </summary>
+        private void BeginInit( )
+        {
+            try
+            {
+                _busy = true;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Ends the initialize.
+        /// </summary>
+        private void EndInit( )
+        {
+            try
+            {
+                _busy = false;
             }
             catch( Exception _ex )
             {
@@ -401,10 +667,10 @@ namespace BudgetExecution
             try
             {
                 ListBox.Items?.Clear( );
-                DataModel = new DataBuilder( Source, Provider );
-                DataTable = DataModel.DataTable;
-                BindingSource.DataSource = DataModel.DataTable;
-                var _data = DataTable.AsEnumerable( );
+                _dataModel = new DataBuilder( _source, _provider );
+                _dataTable = _dataModel.DataTable;
+                BindingSource.DataSource = _dataModel.DataTable;
+                var _data = _dataTable.AsEnumerable( );
                 var _names = _data
                     ?.Where( r => r.Field<string>( nameof( Type ) ).Equals( "DOCUMENT" ) )
                     ?.Select( r => r.Field<string>( "Caption" ) )
@@ -446,8 +712,22 @@ namespace BudgetExecution
         {
             try
             {
-                SelectedItem = string.Empty;
-                SelectedPath = string.Empty;
+                _selectedPath = string.Empty;
+                _selectedPath = string.Empty;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Updates the status.
+        /// </summary>
+        private void UpdateStatus( )
+        {
+            try
+            {
             }
             catch( Exception _ex )
             {
@@ -508,9 +788,9 @@ namespace BudgetExecution
             {
                 try
                 {
-                    Prefix = ConfigurationManager.AppSettings[ "PathPrefix" ];
-                    SelectedItem = _listBox.SelectedValue.ToString( );
-                    Title.Text = SelectedItem;
+                    _prefix = ConfigurationManager.AppSettings[ "PathPrefix" ];
+                    _selectedPath = _listBox.SelectedValue.ToString( );
+                    Title.Text = _selectedPath;
                 }
                 catch( Exception _ex )
                 {
@@ -529,7 +809,7 @@ namespace BudgetExecution
         {
             try
             {
-                if( string.IsNullOrEmpty( SelectedItem ) )
+                if( string.IsNullOrEmpty( _selectedPath ) )
                 {
                     var _message = "Select a document to view!";
                     var _notification = new SplashMessage( _message );
@@ -537,17 +817,17 @@ namespace BudgetExecution
                 }
                 else
                 {
-                    var _filter = new Dictionary<string, object>
+                    _filter = new Dictionary<string, object>
                     {
                         {
-                            "Caption", SelectedItem
+                            "Caption", _selectedPath
                         }
                     };
 
-                    var _data = new DataBuilder( Source, Provider, _filter ).Record;
+                    var _data = new DataBuilder( _source, _provider, _filter ).Record;
                     var _path = _data[ nameof( Location ) ].ToString( );
-                    SelectedPath = Prefix + _path;
-                    Minion.RunEdge( SelectedPath );
+                    _selectedPath = _prefix + _path;
+                    Minion.RunEdge( _selectedPath );
                     OpenMainForm( );
                     Close( );
                 }
@@ -588,7 +868,7 @@ namespace BudgetExecution
             {
                 OpenFileDialog.ShowDialog( );
                 OpenFileDialog.Filter = "PDF Files | *.pdf";
-                SelectedPath = OpenFileDialog.SafeFileName;
+                _selectedPath = OpenFileDialog.SafeFileName;
             }
             catch( Exception _ex )
             {
@@ -606,9 +886,9 @@ namespace BudgetExecution
         {
             try
             {
-                if( !string.IsNullOrEmpty( SelectedPath ) )
+                if( !string.IsNullOrEmpty( _selectedPath ) )
                 {
-                    SelectedPath = string.Empty;
+                    _selectedPath = string.Empty;
                 }
 
                 ListBox.SelectedIndex = -1;

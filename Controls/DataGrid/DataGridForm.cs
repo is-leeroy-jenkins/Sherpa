@@ -1107,7 +1107,14 @@ namespace BudgetExecution
         /// </summary>
         private void InitializeDelegates( )
         {
-            _statusUpdate += UpdateStatus;
+            try
+            {
+                _statusUpdate += UpdateStatus;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -1115,7 +1122,14 @@ namespace BudgetExecution
         /// </summary>
         private void BeginInit( )
         {
-            _busy = true;
+            try
+            {
+                _busy = true;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -1123,7 +1137,14 @@ namespace BudgetExecution
         /// </summary>
         private void EndInit( )
         {
-            _busy = false;
+            try
+            {
+                _busy = false;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
