@@ -54,12 +54,18 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     public class AsyncModel : AsyncData
     {
         /// <summary>
         /// The busy
         /// </summary>
         private protected bool _busy;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private Task<IDictionary<string, IEnumerable<string>>> _dataElements;
 
         /// <inheritdoc/>
         /// <summary>
@@ -68,7 +74,17 @@ namespace BudgetExecution
         /// <value>
         /// The data elements.
         /// </value>
-        public Task<IDictionary<string, IEnumerable<string>>> DataElements { get; }
+        public Task<IDictionary<string, IEnumerable<string>>> DataElements
+        {
+            get
+            {
+                return _dataElements;
+            }
+            private set
+            {
+                _dataElements = value;
+            }
+        }
 
         /// <summary>
         /// Gets a value indicating whether this instance is busy.
@@ -81,8 +97,14 @@ namespace BudgetExecution
         /// </value>
         public bool IsBusy
         {
-            get { return _busy; }
-            set { _busy = value; }
+            get
+            {
+                return _busy;
+            }
+            set
+            {
+                _busy = value;
+            }
         }
 
         /// <summary>
@@ -104,21 +126,21 @@ namespace BudgetExecution
         public AsyncModel( Source source, Provider provider = Provider.Access )
         {
             BeginInit( );
-            Source = source;
-            Provider = provider;
-            ConnectionFactory = new ConnectionFactory( source, provider );
-            SqlStatement = new SqlStatement( source, provider, SQL.SELECTALL );
-            Query = new Query( SqlStatement );
-            DataTable = GetDataTableAsync( );
-            DataElements = GetSeriesAsync( );
-            DataColumns = GetColumnsAsync( );
-            ColumnNames = GetNamesAsync( );
-            Keys = GetPrimaryKeysAsync( );
-            Fields = GetFieldsAsync( );
-            Numerics = GetNumericsAsync( );
-            Dates = GetDatesAsync( );
-            Record = GetRecordAsync( );
-            Map = GetMapAsync( );
+            _source = source;
+            _provider = provider;
+            _connectionFactory = new ConnectionFactory( source, provider );
+            _sqlStatement = new SqlStatement( source, provider, SQL.SELECTALL );
+            _query = new Query( SqlStatement );
+            _dataTable = GetDataTableAsync( );
+            _dataElements = GetSeriesAsync( );
+            _dataColumns = GetColumnsAsync( );
+            _columnNames = GetNamesAsync( );
+            _keys = GetPrimaryKeysAsync( );
+            _fields = GetFieldsAsync( );
+            _numerics = GetNumericsAsync( );
+            _dates = GetDatesAsync( );
+            _record = GetRecordAsync( );
+            _map = GetMapAsync( );
             EndInit( );
         }
 
@@ -133,20 +155,20 @@ namespace BudgetExecution
         public AsyncModel( Source source, Provider provider, IDictionary<string, object> where )
         {
             BeginInit( );
-            Source = source;
-            Provider = provider;
-            ConnectionFactory = new ConnectionFactory( source, provider );
-            SqlStatement = new SqlStatement( source, provider, where );
-            Query = new Query( SqlStatement );
-            DataTable = GetDataTableAsync( );
-            DataElements = GetSeriesAsync( );
-            DataColumns = GetColumnsAsync( );
-            ColumnNames = GetNamesAsync( );
-            Keys = GetPrimaryKeysAsync( );
-            Fields = GetFieldsAsync( );
-            Numerics = GetNumericsAsync( );
-            Dates = GetDatesAsync( );
-            Record = GetRecordAsync( );
+            _source = source;
+            _provider = provider;
+            _connectionFactory = new ConnectionFactory( source, provider );
+            _sqlStatement = new SqlStatement( source, provider, where );
+            _query = new Query( SqlStatement );
+            _dataTable = GetDataTableAsync( );
+            _dataElements = GetSeriesAsync( );
+            _dataColumns = GetColumnsAsync( );
+            _columnNames = GetNamesAsync( );
+            _keys = GetPrimaryKeysAsync( );
+            _fields = GetFieldsAsync( );
+            _numerics = GetNumericsAsync( );
+            _dates = GetDatesAsync( );
+            _record = GetRecordAsync( );
             Map = GetMapAsync( );
             EndInit( );
         }
@@ -165,21 +187,21 @@ namespace BudgetExecution
             IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
         {
             BeginInit( );
-            Source = source;
-            Provider = provider;
-            ConnectionFactory = new ConnectionFactory( source, provider );
-            SqlStatement = new SqlStatement( source, provider, updates, where, commandType );
-            Query = new Query( SqlStatement );
-            DataTable = GetDataTableAsync( );
-            DataColumns = GetColumnsAsync( );
-            ColumnNames = GetNamesAsync( );
-            Keys = GetPrimaryKeysAsync( );
-            Fields = GetFieldsAsync( );
-            Numerics = GetNumericsAsync( );
-            Dates = GetDatesAsync( );
-            DataElements = GetSeriesAsync( );
-            Record = GetRecordAsync( );
-            Map = GetMapAsync( );
+            _source = source;
+            _provider = provider;
+            _connectionFactory = new ConnectionFactory( source, provider );
+            _sqlStatement = new SqlStatement( source, provider, updates, where, commandType );
+            _query = new Query( SqlStatement );
+            _dataTable = GetDataTableAsync( );
+            _dataColumns = GetColumnsAsync( );
+            _columnNames = GetNamesAsync( );
+            _keys = GetPrimaryKeysAsync( );
+            _fields = GetFieldsAsync( );
+            _numerics = GetNumericsAsync( );
+            _dates = GetDatesAsync( );
+            _dataElements = GetSeriesAsync( );
+            _record = GetRecordAsync( );
+            _map = GetMapAsync( );
             EndInit( );
         }
 
@@ -197,21 +219,21 @@ namespace BudgetExecution
             IDictionary<string, object> where, SQL commandType = SQL.SELECT )
         {
             BeginInit( );
-            Source = source;
-            Provider = provider;
-            ConnectionFactory = new ConnectionFactory( source, provider );
-            SqlStatement = new SqlStatement( source, provider, columns, where, commandType );
-            Query = new Query( SqlStatement );
-            DataTable = GetDataTableAsync( );
-            DataColumns = GetColumnsAsync( );
-            ColumnNames = GetNamesAsync( );
-            Keys = GetPrimaryKeysAsync( );
-            Fields = GetFieldsAsync( );
-            Numerics = GetNumericsAsync( );
-            Dates = GetDatesAsync( );
-            DataElements = GetSeriesAsync( );
-            Record = GetRecordAsync( );
-            Map = GetMapAsync( );
+            _source = source;
+            _provider = provider;
+            _connectionFactory = new ConnectionFactory( source, provider );
+            _sqlStatement = new SqlStatement( source, provider, columns, where, commandType );
+            _query = new Query( _sqlStatement );
+            _dataTable = GetDataTableAsync( );
+            _dataColumns = GetColumnsAsync( );
+            _columnNames = GetNamesAsync( );
+            _keys = GetPrimaryKeysAsync( );
+            _fields = GetFieldsAsync( );
+            _numerics = GetNumericsAsync( );
+            _dates = GetDatesAsync( );
+            _dataElements = GetSeriesAsync( );
+            _record = GetRecordAsync( );
+            _map = GetMapAsync( );
             EndInit( );
         }
 
@@ -231,23 +253,23 @@ namespace BudgetExecution
             SQL commandType )
         {
             BeginInit( );
-            Source = source;
-            Provider = provider;
-            ConnectionFactory = new ConnectionFactory( source, provider );
-            SqlStatement = new SqlStatement( source, provider, fields, numerics, where,
+            _source = source;
+            _provider = provider;
+            _connectionFactory = new ConnectionFactory( source, provider );
+            _sqlStatement = new SqlStatement( source, provider, fields, numerics, where,
                 commandType );
 
-            Query = new Query( SqlStatement );
-            DataTable = GetDataTableAsync( );
-            DataColumns = GetColumnsAsync( );
-            ColumnNames = GetNamesAsync( );
-            Keys = GetPrimaryKeysAsync( );
-            Fields = GetFieldsAsync( );
-            Numerics = GetNumericsAsync( );
-            Dates = GetDatesAsync( );
-            DataElements = GetSeriesAsync( );
-            Record = GetRecordAsync( );
-            Map = GetMapAsync( );
+            _query = new Query( _sqlStatement );
+            _dataTable = GetDataTableAsync( );
+            _dataColumns = GetColumnsAsync( );
+            _columnNames = GetNamesAsync( );
+            _keys = GetPrimaryKeysAsync( );
+            _fields = GetFieldsAsync( );
+            _numerics = GetNumericsAsync( );
+            _dates = GetDatesAsync( );
+            _dataElements = GetSeriesAsync( );
+            _record = GetRecordAsync( );
+            _map = GetMapAsync( );
             EndInit( );
         }
 
@@ -261,21 +283,21 @@ namespace BudgetExecution
         public AsyncModel( Source source, IDictionary<string, object> where )
         {
             BeginInit( );
-            Source = source;
-            Provider = Provider.Access;
-            ConnectionFactory = new ConnectionFactory( source, Provider.Access );
-            SqlStatement = new SqlStatement( source, Provider.Access, where );
-            Query = new Query( SqlStatement );
-            DataTable = GetDataTableAsync( );
-            DataColumns = GetColumnsAsync( );
-            ColumnNames = GetNamesAsync( );
-            Keys = GetPrimaryKeysAsync( );
-            Fields = GetFieldsAsync( );
-            Numerics = GetNumericsAsync( );
-            Dates = GetDatesAsync( );
-            DataElements = GetSeriesAsync( );
-            Record = GetRecordAsync( );
-            Map = GetMapAsync( );
+            _source = source;
+            _provider = Provider.Access;
+            _connectionFactory = new ConnectionFactory( source, Provider.Access );
+            _sqlStatement = new SqlStatement( source, Provider.Access, where );
+            _query = new Query( _sqlStatement );
+            _dataTable = GetDataTableAsync( );
+            _dataColumns = GetColumnsAsync( );
+            _columnNames = GetNamesAsync( );
+            _keys = GetPrimaryKeysAsync( );
+            _fields = GetFieldsAsync( );
+            _numerics = GetNumericsAsync( );
+            _dates = GetDatesAsync( );
+            _dataElements = GetSeriesAsync( );
+            _record = GetRecordAsync( );
+            _map = GetMapAsync( );
             EndInit( );
         }
 
@@ -290,21 +312,21 @@ namespace BudgetExecution
         public AsyncModel( Source source, Provider provider, string sqlText )
         {
             BeginInit( );
-            Source = source;
-            Provider = provider;
-            ConnectionFactory = new ConnectionFactory( source, provider );
-            SqlStatement = new SqlStatement( source, provider, sqlText );
-            Query = new Query( SqlStatement );
-            DataTable = GetDataTableAsync( );
-            DataColumns = GetColumnsAsync( );
-            ColumnNames = GetNamesAsync( );
-            Fields = GetFieldsAsync( );
-            Numerics = GetNumericsAsync( );
-            Keys = GetPrimaryKeysAsync( );
-            Dates = GetDatesAsync( );
-            DataElements = GetSeriesAsync( );
-            Record = GetRecordAsync( );
-            Map = GetMapAsync( );
+            _source = source;
+            _provider = provider;
+            _connectionFactory = new ConnectionFactory( source, provider );
+            _sqlStatement = new SqlStatement( source, provider, sqlText );
+            _query = new Query( _sqlStatement );
+            _dataTable = GetDataTableAsync( );
+            _dataColumns = GetColumnsAsync( );
+            _columnNames = GetNamesAsync( );
+            _fields = GetFieldsAsync( );
+            _numerics = GetNumericsAsync( );
+            _keys = GetPrimaryKeysAsync( );
+            _dates = GetDatesAsync( );
+            _dataElements = GetSeriesAsync( );
+            _record = GetRecordAsync( );
+            _map = GetMapAsync( );
             EndInit( );
         }
 
@@ -319,21 +341,21 @@ namespace BudgetExecution
         public AsyncModel( string fullPath, string sqlText, SQL commandType = SQL.SELECT )
         {
             BeginInit( );
-            ConnectionFactory = new ConnectionFactory( fullPath );
-            Source = ConnectionFactory.Source;
-            Provider = ConnectionFactory.Provider;
-            SqlStatement = new SqlStatement( Source, Provider, sqlText, commandType );
-            Query = new Query( SqlStatement );
-            DataTable = GetDataTableAsync( );
-            DataColumns = GetColumnsAsync( );
-            ColumnNames = GetNamesAsync( );
-            Keys = GetPrimaryKeysAsync( );
-            Fields = GetFieldsAsync( );
-            Numerics = GetNumericsAsync( );
-            Dates = GetDatesAsync( );
-            DataElements = GetSeriesAsync( );
-            Record = GetRecordAsync( );
-            Map = GetMapAsync( );
+            _connectionFactory = new ConnectionFactory( fullPath );
+            _source = ConnectionFactory.Source;
+            _provider = ConnectionFactory.Provider;
+            _sqlStatement = new SqlStatement( Source, Provider, sqlText, commandType );
+            _query = new Query( _sqlStatement );
+            _dataTable = GetDataTableAsync( );
+            _dataColumns = GetColumnsAsync( );
+            _columnNames = GetNamesAsync( );
+            _keys = GetPrimaryKeysAsync( );
+            _fields = GetFieldsAsync( );
+            _numerics = GetNumericsAsync( );
+            _dates = GetDatesAsync( );
+            _dataElements = GetSeriesAsync( );
+            _record = GetRecordAsync( );
+            _map = GetMapAsync( );
             EndInit( );
         }
 
@@ -346,21 +368,21 @@ namespace BudgetExecution
         public AsyncModel( IQuery query )
         {
             BeginInit( );
-            Query = query;
-            Source = query.Source;
-            Provider = query.Provider;
-            ConnectionFactory = query.ConnectionFactory;
-            SqlStatement = query.SqlStatement;
-            DataTable = GetDataTableAsync( );
-            DataColumns = GetColumnsAsync( );
-            ColumnNames = GetNamesAsync( );
-            Keys = GetPrimaryKeysAsync( );
-            Fields = GetFieldsAsync( );
-            Numerics = GetNumericsAsync( );
-            Dates = GetDatesAsync( );
-            DataElements = GetSeriesAsync( );
-            Record = GetRecordAsync( );
-            Map = GetMapAsync( );
+            _query = query;
+            _source = query.Source;
+            _provider = query.Provider;
+            _connectionFactory = query.ConnectionFactory;
+            _sqlStatement = query.SqlStatement;
+            _dataTable = GetDataTableAsync( );
+            _dataColumns = GetColumnsAsync( );
+            _columnNames = GetNamesAsync( );
+            _keys = GetPrimaryKeysAsync( );
+            _fields = GetFieldsAsync( );
+            _numerics = GetNumericsAsync( );
+            _dates = GetDatesAsync( );
+            _dataElements = GetSeriesAsync( );
+            _record = GetRecordAsync( );
+            _map = GetMapAsync( );
             EndInit( );
         }
 
@@ -385,62 +407,65 @@ namespace BudgetExecution
         /// <param name="columnName"> The name. </param>
         /// <param name="columnValue"> The value. </param>
         /// <returns> </returns>
-        public Task<IEnumerable<string>> GetValuesAsync( IEnumerable<DataRow> dataRows,
+        public Task<IList<string>> GetValuesAsync( IEnumerable<DataRow> dataRows,
             string columnName, string columnValue )
         {
             if( ( dataRows?.Any( ) == true )
                && !string.IsNullOrEmpty( columnValue ) )
             {
-                var _tcs = new TaskCompletionSource<IEnumerable<string>>( );
+                var _tcs = new TaskCompletionSource<IList<string>>( );
                 try
                 {
-                    var _query = dataRows
+                    var _select = dataRows
                         ?.Where( v => v.Field<string>( $"{columnName}" ).Equals( columnValue ) )
                         ?.Select( v => v.Field<string>( $"{columnName}" ) )
-                        ?.Distinct( );
+                        ?.Distinct( )
+                        ?.ToList( );
 
-                    _tcs.SetResult( _query );
-                    return _query?.Any( ) == true
+                    _tcs.SetResult( _select );
+                    return _select?.Any( ) == true
                         ? _tcs.Task
-                        : default( Task<IEnumerable<string>> );
+                        : default( Task<IList<string>> );
                 }
                 catch( Exception _ex )
                 {
                     _tcs.SetException( _ex );
                     Fail( _ex );
-                    return default( Task<IEnumerable<string>> );
+                    return default( Task<IList<string>> );
                 }
             }
 
-            return default( Task<IEnumerable<string>> );
+            return default( Task<IList<string>> );
         }
 
         /// <summary> Gets the values. </summary>
         /// <param name="dataRows"> The data rows. </param>
         /// <param name="columnName"> The column. </param>
         /// <returns> </returns>
-        private IEnumerable<string> GetValues( IEnumerable<DataRow> dataRows, string columnName )
+        private IList<string> GetValues( IEnumerable<DataRow> dataRows, string columnName )
         {
             if( ( dataRows?.Any( ) == true )
                && !string.IsNullOrEmpty( columnName ) )
             {
                 try
                 {
-                    var _query = dataRows?.Select( v => v.Field<string>( columnName ) )
-                        ?.Distinct( );
+                    var _values = dataRows
+                        ?.Select( v => v.Field<string>( columnName ) )
+                        ?.Distinct( )
+                        ?.ToList( );
 
-                    return _query?.Any( ) == true
-                        ? _query
-                        : default( IEnumerable<string> );
+                    return _values?.Any( ) == true
+                        ? _values
+                        : default( IList<string> );
                 }
                 catch( Exception _ex )
                 {
                     Fail( _ex );
-                    return default( IEnumerable<string> );
+                    return default( IList<string> );
                 }
             }
 
-            return default( IEnumerable<string> );
+            return default( IList<string> );
         }
 
         /// <summary> Creates the series asynchronous. </summary>
@@ -450,9 +475,9 @@ namespace BudgetExecution
             var _tcs = new TaskCompletionSource<IDictionary<string, IEnumerable<string>>>( );
             try
             {
-                var _dataTable = GetDataTable( );
-                var _columns = _dataTable?.Columns;
-                var _rows = _dataTable?.AsEnumerable( );
+                var _table = GetDataTable( );
+                var _columns = _table?.Columns;
+                var _rows = _table?.AsEnumerable( );
                 var _dict = new Dictionary<string, IEnumerable<string>>( );
                 for( var _i = 0; _i < _columns?.Count; _i++ )
                 {

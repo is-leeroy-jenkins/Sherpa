@@ -52,6 +52,7 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="T:BudgetExecution.AsyncState" />
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [ SuppressMessage( "ReSharper", "LocalVariableHidesMember" ) ]
     public abstract class AsyncData : AsyncState 
     {
         /// <inheritdoc />
@@ -85,13 +86,13 @@ namespace BudgetExecution
         /// Gets the ordinals asynchronous.
         /// </summary>
         /// <returns></returns>
-        public Task<IEnumerable<int>> GetOrdinalsAsync( )
+        public Task<IList<int>> GetOrdinalsAsync( )
         {
-            var _tcs = new TaskCompletionSource<IEnumerable<int>>( );
+            var _tcs = new TaskCompletionSource<IList<int>>( );
             try
             {
-                var _dataTable = GetDataTable( );
-                var _columns = _dataTable.Columns;
+                var _table = GetDataTable( );
+                var _columns = _table.Columns;
                 var _values = new List<int>( );
                 if( _columns?.Count > 0 )
                 {
@@ -104,13 +105,13 @@ namespace BudgetExecution
                 _tcs.SetResult( _values );
                 return _values?.Any( ) == true
                     ? _tcs.Task
-                    : default( Task<IEnumerable<int>> );
+                    : default( Task<IList<int>> );
             }
             catch( Exception _ex )
             {
                 _tcs.SetException( _ex );
                 Fail( _ex );
-                return default( Task<IEnumerable<int>> );
+                return default( Task<IList<int>> );
             }
         }
 
@@ -124,8 +125,8 @@ namespace BudgetExecution
             var _tcs = new TaskCompletionSource<IDictionary<string, object>>( );
             try
             {
-                var _dataTable = GetDataTable( );
-                var _rows = _dataTable.AsEnumerable( );
+                var _table = GetDataTable( );
+                var _rows = _table.AsEnumerable( );
                 var _record = _rows.FirstOrDefault( );
                 var _map = _record.ToDictionary( );
                 _tcs.SetResult( _map );
@@ -151,8 +152,8 @@ namespace BudgetExecution
             var _tcs = new TaskCompletionSource<IDictionary<string, Type>>( );
             try
             {
-                var _dataTable = GetDataTable( );
-                var _columns = _dataTable.Columns;
+                var _table = GetDataTable( );
+                var _columns = _table.Columns;
                 if( _columns != null )
                 {
                     var _schema = new Dictionary<string, Type>( );
@@ -184,38 +185,38 @@ namespace BudgetExecution
         /// Gets the columns asynchronous.
         /// </summary>
         /// <returns></returns>
-        public Task<IEnumerable<DataColumn>> GetColumnsAsync( )
+        public Task<IList<DataColumn>> GetColumnsAsync( )
         {
-            var _tcs = new TaskCompletionSource<IEnumerable<DataColumn>>( );
+            var _tcs = new TaskCompletionSource<IList<DataColumn>>( );
             try
             {
                 var _data = GetDataTable( );
                 if( _data != null )
                 {
-                    var _dataColumns = new List<DataColumn>( );
+                    var _columns = new List<DataColumn>( );
                     foreach( DataColumn _column in _data?.Columns )
                     {
                         if( _column != null )
                         {
-                            _dataColumns.Add( _column );
+                            _columns.Add( _column );
                         }
                     }
 
-                    _tcs.SetResult( _dataColumns );
-                    return _dataColumns?.Any( ) == true
+                    _tcs.SetResult( _columns );
+                    return _columns?.Any( ) == true
                         ? _tcs.Task
-                        : default( Task<IEnumerable<DataColumn>> );
+                        : default( Task<IList<DataColumn>> );
                 }
                 else
                 {
-                    return default( Task<IEnumerable<DataColumn>> );
+                    return default( Task<IList<DataColumn>> );
                 }
             }
             catch( Exception _ex )
             {
                 _tcs.SetException( _ex );
                 Fail( _ex );
-                return default( Task<IEnumerable<DataColumn>> );
+                return default( Task<IList<DataColumn>> );
             }
         }
 
@@ -224,13 +225,13 @@ namespace BudgetExecution
         /// Gets the names asynchronous.
         /// </summary>
         /// <returns></returns>
-        public Task<IEnumerable<string>> GetNamesAsync( )
+        public Task<IList<string>> GetNamesAsync( )
         {
-            var _tcs = new TaskCompletionSource<IEnumerable<string>>( );
+            var _tcs = new TaskCompletionSource<IList<string>>( );
             try
             {
-                var _dataTable = GetDataTable( );
-                var _columns = _dataTable.Columns;
+                var _table = GetDataTable( );
+                var _columns = _table.Columns;
                 if( _columns?.Count > 0 )
                 {
                     var _names = new List<string>( );
@@ -244,18 +245,18 @@ namespace BudgetExecution
 
                     return _names?.Any( ) == true
                         ? _tcs.Task
-                        : default( Task<IEnumerable<string>> );
+                        : default( Task<IList<string>> );
                 }
                 else
                 {
-                    return default( Task<IEnumerable<string>> );
+                    return default( Task<IList<string>> );
                 }
             }
             catch( Exception _ex )
             {
                 _tcs.SetException( _ex );
                 Fail( _ex );
-                return default( Task<IEnumerable<string>> );
+                return default( Task<IList<string>> );
             }
         }
     }

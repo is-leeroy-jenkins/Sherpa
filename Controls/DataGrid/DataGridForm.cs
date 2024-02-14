@@ -2762,7 +2762,7 @@ namespace BudgetExecution
                     _selectedNumerics.Add( _selectedItem );
                 }
 
-                SqlQuery = CreateSqlCommand( _selectedFields, _selectedNumerics, _filter );
+                _sqlQuery = CreateSqlCommand( _selectedFields, _selectedNumerics, _filter );
                 SqlHeader.Text = _sqlQuery;
                 BindData( _selectedFields, _selectedNumerics, _filter );
             }

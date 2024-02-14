@@ -315,7 +315,7 @@ namespace BudgetExecution
             }
             private protected set
             {
-                _notificationColor = value;
+                _darkBorder = value;
             }
         }
 
