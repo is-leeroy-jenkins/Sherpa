@@ -45,7 +45,6 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
-    using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Linq;
@@ -70,6 +69,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     public partial class SqlScreen : EditBase
     {
         /// <summary>

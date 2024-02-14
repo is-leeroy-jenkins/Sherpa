@@ -43,11 +43,156 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using Syncfusion.Windows.Forms.Spreadsheet;
 
     /// <inheritdoc />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class ContextMenu : ContextBase
     {
+        /// <summary>
+        /// Gets or sets the file option.
+        /// </summary>
+        /// <value>
+        /// The file option.
+        /// </value>
+        public ToolStripMenuItemExt FileOption
+        {
+            get
+            {
+                return _fileOption;
+            }
+            private protected set
+            {
+                _fileOption = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the folder option.
+        /// </summary>
+        /// <value>
+        /// The folder option.
+        /// </value>
+        public ToolStripMenuItemExt FolderOption
+        {
+            get
+            {
+                return _folderOption;
+            }
+            private protected set
+            {
+                _folderOption = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the calculator option.
+        /// </summary>
+        /// <value>
+        /// The calculator option.
+        /// </value>
+        public ToolStripMenuItemExt CalculatorOption
+        {
+            get
+            {
+                return _calculatorOption;
+            }
+            private protected set
+            {
+                _calculatorOption = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the Calendar option.
+        /// </summary>
+        /// <value>
+        /// The file option.
+        /// </value>
+        public ToolStripMenuItemExt CalendarOption
+        {
+            get
+            {
+                return _calendarOption;
+            }
+            private protected set
+            {
+                _calendarOption = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the Guidance option.
+        /// </summary>
+        /// <value>
+        /// The file option.
+        /// </value>
+        public ToolStripMenuItemExt GuidanceOption
+        {
+            get
+            {
+                return _guidanceOption;
+            }
+            private protected set
+            {
+                _guidanceOption = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the save option.
+        /// </summary>
+        /// <value>
+        /// The save option.
+        /// </value>
+        public ToolStripMenuItemExt SaveOption
+        {
+            get
+            {
+                return _saveOption;
+            }
+            private protected set
+            {
+                _saveOption = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the close option.
+        /// </summary>
+        /// <value>
+        /// The close option.
+        /// </value>
+        public ToolStripMenuItemExt CloseOption
+        {
+            get
+            {
+                return _closeOption;
+            }
+            private protected set
+            {
+                _closeOption = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the exit option.
+        /// </summary>
+        /// <value>
+        /// The exit option.
+        /// </value>
+        public ToolStripMenuItemExt ExitOption
+        {
+            get
+            {
+                return _exitOption;
+            }
+            private protected set
+            {
+                _exitOption = value;
+            }
+        }
+
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="ContextMenu"/> class.
@@ -75,14 +220,14 @@ namespace BudgetExecution
             ThemeStyle.BorderColor = Color.FromArgb( 77, 77, 77 );
 
             // Menu Items
-            FileOption = CreateFileOption( );
-            FolderOption = CreateFolderOption( );
-            CalculatorOption = CreateCalculatorOption( );
-            CalendarOption = CreateCalendarOption( );
-            GuidanceOption = CreateGuidanceOption( );
-            SaveOption = CreateSaveOption( );
-            CloseOption = CreateCloseOption( );
-            ExitOption = CreateExitOption( );
+            _fileOption = CreateFileOption( );
+            _folderOption = CreateFolderOption( );
+            _calculatorOption = CreateCalculatorOption( );
+            _calendarOption = CreateCalendarOption( );
+            _guidanceOption = CreateGuidanceOption( );
+            _saveOption = CreateSaveOption( );
+            _closeOption = CreateCloseOption( );
+            _exitOption = CreateExitOption( );
         }
     }
 }

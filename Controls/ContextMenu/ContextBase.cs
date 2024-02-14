@@ -53,71 +53,48 @@ namespace BudgetExecution
     /// <seealso cref="T:Syncfusion.Windows.Forms.Tools.ContextMenuStripEx" />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     public abstract class ContextBase : ContextMenuStripEx
     {
         /// <summary>
-        /// Gets or sets the file option.
+        /// The file option
         /// </summary>
-        /// <value>
-        /// The file option.
-        /// </value>
-        public ToolStripMenuItemExt FileOption { get; set; }
+        private protected ToolStripMenuItemExt _fileOption;
 
         /// <summary>
-        /// Gets or sets the folder option.
+        /// The folder option
         /// </summary>
-        /// <value>
-        /// The folder option.
-        /// </value>
-        public ToolStripMenuItemExt FolderOption { get; set; }
+        private protected ToolStripMenuItemExt _folderOption;
 
         /// <summary>
-        /// Gets or sets the calculator option.
+        /// The calculator option
         /// </summary>
-        /// <value>
-        /// The calculator option.
-        /// </value>
-        public ToolStripMenuItemExt CalculatorOption { get; set; }
+        private protected ToolStripMenuItemExt _calculatorOption;
 
         /// <summary>
-        /// Gets or sets the Calendar option.
+        /// The calendar option
         /// </summary>
-        /// <value>
-        /// The file option.
-        /// </value>
-        public ToolStripMenuItemExt CalendarOption { get; set; }
+        private protected ToolStripMenuItemExt _calendarOption;
 
         /// <summary>
-        /// Gets or sets the Guidance option.
+        /// The guidance option
         /// </summary>
-        /// <value>
-        /// The file option.
-        /// </value>
-        public ToolStripMenuItemExt GuidanceOption { get; set; }
+        private protected ToolStripMenuItemExt _guidanceOption;
 
         /// <summary>
-        /// Gets or sets the save option.
+        /// The save option
         /// </summary>
-        /// <value>
-        /// The save option.
-        /// </value>
-        public ToolStripMenuItemExt SaveOption { get; set; }
+        private protected ToolStripMenuItemExt _saveOption;
 
         /// <summary>
-        /// Gets or sets the close option.
+        /// The close option
         /// </summary>
-        /// <value>
-        /// The close option.
-        /// </value>
-        public ToolStripMenuItemExt CloseOption { get; set; }
+        private protected ToolStripMenuItemExt _closeOption;
 
         /// <summary>
-        /// Gets or sets the exit option.
+        /// The exit option
         /// </summary>
-        /// <value>
-        /// The exit option.
-        /// </value>
-        public ToolStripMenuItemExt ExitOption { get; set; }
+        private protected ToolStripMenuItemExt _exitOption;
 
         /// <summary>
         /// Creates the file option.

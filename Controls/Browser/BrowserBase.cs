@@ -14,10 +14,24 @@
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
 
-    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
+    [SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     public partial class BrowserBase : MetroForm
     {
+        /// <summary>
+        /// The time
+        /// </summary>
+        private protected int _time;
+
+        /// <summary>
+        /// The seconds
+        /// </summary>
+        private protected int _seconds;
+
         /// <summary>
         /// The data
         /// </summary>
@@ -52,6 +66,16 @@
         /// The file paths
         /// </summary>
         private protected IEnumerable<string> _filePaths;
+
+        /// <summary>
+        /// The initial dir paths
+        /// </summary>
+        private protected IEnumerable<string> _initialDirPaths;
+
+        /// <summary>
+        /// The radio buttons
+        /// </summary>
+        private protected IList<RadioButton> _radioButtons;
 
         /// <summary>
         /// The image

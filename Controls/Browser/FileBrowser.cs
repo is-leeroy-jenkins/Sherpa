@@ -52,14 +52,15 @@ namespace BudgetExecution
     using static System.IO.Directory;
     using CheckState = MetroSet_UI.Enums.CheckState;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
+    /// <seealso cref="T:Syncfusion.Windows.Forms.MetroForm" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     public partial class FileBrowser : BrowserBase
     {
         /// <summary>
@@ -68,7 +69,17 @@ namespace BudgetExecution
         /// <value>
         /// The time.
         /// </value>
-        public int Time { get; set; }
+        public int Time
+        {
+            get
+            {
+                return _time;
+            }
+            private protected set
+            {
+                _time = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the seconds.
@@ -76,7 +87,17 @@ namespace BudgetExecution
         /// <value>
         /// The seconds.
         /// </value>
-        public int Seconds { get; set; }
+        public int Seconds
+        {
+            get
+            {
+                return _seconds;
+            }
+            private protected set
+            {
+                _seconds = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the extension.
@@ -84,7 +105,17 @@ namespace BudgetExecution
         /// <value>
         /// The extension.
         /// </value>
-        public EXT Extension { get; set; }
+        public EXT Extension
+        {
+            get
+            {
+                return _extension;
+            }
+            private protected set
+            {
+                _extension = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the file extension.
@@ -92,7 +123,17 @@ namespace BudgetExecution
         /// <value>
         /// The file extension.
         /// </value>
-        public string FileExtension { get; set; }
+        public string FileExtension
+        {
+            get
+            {
+                return _fileExtension;
+            }
+            private protected set
+            {
+                _fileExtension = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the initial dir paths.
@@ -100,7 +141,17 @@ namespace BudgetExecution
         /// <value>
         /// The initial dir paths.
         /// </value>
-        public IEnumerable<string> InitialDirPaths { get; set; }
+        public IEnumerable<string> InitialDirPaths
+        {
+            get
+            {
+                return _initialDirPaths;
+            }
+            private protected set
+            {
+                _initialDirPaths = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the file paths.
@@ -108,7 +159,17 @@ namespace BudgetExecution
         /// <value>
         /// The file paths.
         /// </value>
-        public IEnumerable<string> FilePaths { get; set; }
+        public IEnumerable<string> FilePaths
+        {
+            get
+            {
+                return _filePaths;
+            }
+            private protected set
+            {
+                _filePaths = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the radio buttons.
@@ -116,7 +177,17 @@ namespace BudgetExecution
         /// <value>
         /// The radio buttons.
         /// </value>
-        public IEnumerable<RadioButton> RadioButtons { get; set; }
+        public IList<RadioButton> RadioButtons
+        {
+            get
+            {
+                return _radioButtons;
+            }
+            private protected set
+            {
+                _radioButtons = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the selected path.
@@ -124,7 +195,17 @@ namespace BudgetExecution
         /// <value>
         /// The selected path.
         /// </value>
-        public string SelectedPath { get; set; }
+        public string SelectedPath
+        {
+            get
+            {
+                return _selectedPath;
+            }
+            private protected set
+            {
+                _selectedPath = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the selected file.
@@ -132,7 +213,17 @@ namespace BudgetExecution
         /// <value>
         /// The selected file.
         /// </value>
-        public string SelectedFile { get; set; }
+        public string SelectedFile
+        {
+            get
+            {
+                return _selectedFile;
+            }
+            private protected set
+            {
+                _selectedFile = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
@@ -166,7 +257,6 @@ namespace BudgetExecution
             ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
-
             InitialDirPaths = GetInitialDirPaths( );
             FilePaths = GetListViewPaths( );
             FileExtension = "xlsx";
@@ -261,15 +351,15 @@ namespace BudgetExecution
         /// <returns></returns>
         private protected IEnumerable<string> GetListViewPaths( )
         {
-            if( InitialDirPaths?.Any( ) == true )
+            if( _initialDirPaths?.Any( ) == true )
             {
                 try
                 {
                     var _list = new List<string>( );
-                    foreach( var _filePath in InitialDirPaths )
+                    foreach( var _filePath in _initialDirPaths )
                     {
                         var _first = GetFiles( _filePath )
-                            ?.Where( f => f.EndsWith( FileExtension ) )
+                            ?.Where( f => f.EndsWith( _fileExtension ) )
                             ?.Select( f => Path.GetFullPath( f ) )
                             ?.ToList( );
 
@@ -280,7 +370,7 @@ namespace BudgetExecution
                             if( !_dir.Contains( "My " ) )
                             {
                                 var _second = GetFiles( _dir )
-                                    ?.Where( s => s.EndsWith( FileExtension ) )
+                                    ?.Where( s => s.EndsWith( _fileExtension ) )
                                     ?.Select( s => Path.GetFullPath( s ) )
                                     ?.ToList( );
 
@@ -296,7 +386,7 @@ namespace BudgetExecution
                                     if( !string.IsNullOrEmpty( _path ) )
                                     {
                                         var _last = GetFiles( _path )
-                                            ?.Where( l => l.EndsWith( FileExtension ) )
+                                            ?.Where( l => l.EndsWith( _fileExtension ) )
                                             ?.Select( l => Path.GetFullPath( l ) )
                                             ?.ToList( );
 
@@ -328,7 +418,7 @@ namespace BudgetExecution
         /// Gets the radio buttons.
         /// </summary>
         /// <returns></returns>
-        private protected virtual IEnumerable<RadioButton> GetRadioButtons( )
+        private protected virtual IList<RadioButton> GetRadioButtons( )
         {
             try
             {
@@ -350,12 +440,12 @@ namespace BudgetExecution
 
                 return _list?.Any( ) == true
                     ? _list
-                    : default( IEnumerable<RadioButton> );
+                    : default( IList<RadioButton> );
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return default( IEnumerable<RadioButton> );
+                return default( IList<RadioButton> );
             }
         }
 
@@ -393,11 +483,11 @@ namespace BudgetExecution
         /// </summary>
         private protected virtual void PopulateListBox( )
         {
-            if( FilePaths?.Any( ) == true )
+            if( _filePaths?.Any( ) == true )
             {
                 try
                 {
-                    foreach( var _path in FilePaths )
+                    foreach( var _path in _filePaths )
                     {
                         FileList.Items.Add( _path );
                     }
@@ -525,14 +615,14 @@ namespace BudgetExecution
             try
             {
                 Opacity = 0;
-                if( Seconds != 0 )
+                if( _seconds != 0 )
                 {
                     Timer = new Timer( );
                     Timer.Interval = 1000;
                     Timer.Tick += ( sender, args ) =>
                     {
-                        Time++;
-                        if( Time == Seconds )
+                        _time++;
+                        if( _time == _seconds )
                         {
                             Timer.Stop( );
                         }
@@ -648,7 +738,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    FileExtension = _radioButton?.Result;
+                    _fileExtension = _radioButton?.Result;
                     var _ext = _radioButton.Tag?.ToString( )
                         ?.Trim( ".".ToCharArray( ) )
                         ?.ToUpper( );
@@ -677,7 +767,7 @@ namespace BudgetExecution
         /// </param>
         public void OnLoad( object sender, EventArgs e )
         {
-            if( FilePaths?.Any( ) == true )
+            if( _filePaths?.Any( ) == true )
             {
                 try
                 {
@@ -686,7 +776,7 @@ namespace BudgetExecution
                     InitializeDialogs( );
                     InitializeTimers( );
                     PopulateListBox( );
-                    FoundLabel.Text = "Found : " + FilePaths?.Count( );
+                    FoundLabel.Text = "Found : " + _filePaths?.Count( );
                     Title.Text = $"{Extension} File Search";
                     ClearRadioButtons( );
                     SetRadioButtonEvents( );
@@ -709,8 +799,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    SelectedPath = _listBox.SelectedItem?.ToString( );
-                    MessageLabel.Text = SelectedPath;
+                    _selectedPath = _listBox.SelectedItem?.ToString( );
+                    MessageLabel.Text = _selectedPath;
                 }
                 catch( Exception _ex )
                 {
@@ -731,16 +821,16 @@ namespace BudgetExecution
             {
                 try
                 {
-                    OpenDialog.DefaultExt = FileExtension;
+                    OpenDialog.DefaultExt = _fileExtension;
                     OpenDialog.CheckFileExists = true;
                     OpenDialog.CheckPathExists = true;
                     OpenDialog.Multiselect = false;
-                    var _ext = FileExtension.ToLower( );
+                    var _ext = _fileExtension.ToLower( );
                     OpenDialog.Filter = $@"File Extension | *{_ext}";
                     OpenDialog.Title = $@"Search Directories for *{_ext} files...";
                     OpenDialog.InitialDirectory = GetFolderPath( SpecialFolder.DesktopDirectory );
                     OpenDialog.ShowDialog( );
-                    var _selectedPath = OpenDialog.FileName;
+                    _selectedPath = OpenDialog.FileName;
                     if( !string.IsNullOrEmpty( _selectedPath ) )
                     {
                         SelectedPath = _selectedPath;

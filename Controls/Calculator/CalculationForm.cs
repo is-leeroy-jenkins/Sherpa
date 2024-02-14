@@ -58,15 +58,41 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     public partial class CalculationForm : MetroForm
     {
+        /// <summary>
+        /// The time
+        /// </summary>
+        private protected int _time;
+
+        /// <summary>
+        /// The seconds
+        /// </summary>
+        private protected int _seconds;
+
+        /// <summary>
+        /// The initial value
+        /// </summary>
+        private protected double _initialValue;
+
         /// <summary>
         /// Gets or sets the time.
         /// </summary>
         /// <value>
         /// The time.
         /// </value>
-        public int Time { get; set; }
+        public int Time
+        {
+            get
+            {
+                return _time;
+            }
+            private protected set
+            {
+                _time = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the seconds.
@@ -74,7 +100,17 @@ namespace BudgetExecution
         /// <value>
         /// The seconds.
         /// </value>
-        public int Seconds { get; set; }
+        public int Seconds
+        {
+            get
+            {
+                return _seconds;
+            }
+            private protected set
+            {
+                _seconds = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the initial value.
@@ -82,7 +118,17 @@ namespace BudgetExecution
         /// <value>
         /// The initial value.
         /// </value>
-        public double InitialValue { get; set; }
+        public double InitialValue
+        {
+            get
+            {
+                return _initialValue;
+            }
+            private protected set
+            {
+                _initialValue = value;
+            }
+        }
 
         /// <inheritdoc/>
         /// <summary>
@@ -124,7 +170,7 @@ namespace BudgetExecution
         public CalculationForm( double initial )
             : this( )
         {
-            InitialValue = initial;
+            _initialValue = initial;
             Calculator.Value = new CalculatorValue( initial );
             ValueLabel.Text = Calculator.Value.ToString( );
         }
@@ -175,7 +221,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the callback.
         /// </summary>
-        private void RegisterCallbacks()
+        private void RegisterCallbacks( )
         {
             try
             {
@@ -196,8 +242,8 @@ namespace BudgetExecution
             try
             {
                 // Timer Properties
-                Time = 0;
-                Seconds = 5;
+                _time = 0;
+                _seconds = 5;
             }
             catch( Exception _ex )
             {
@@ -219,8 +265,8 @@ namespace BudgetExecution
                     Timer.Interval = 10;
                     Timer.Tick += ( sender, args ) =>
                     {
-                        Time++;
-                        if( Time == Seconds )
+                        _time++;
+                        if( _time == _seconds )
                         {
                             Timer.Stop( );
                         }
