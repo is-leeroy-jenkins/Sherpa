@@ -44,11 +44,47 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using Ookii.Dialogs.WinForms;
 
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Ookii.Dialogs.WinForms.VistaSaveFileDialog" />
+    [SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class SaveDialog : VistaSaveFileDialog
     {
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SaveDialog"/> class.
+        /// </summary>
         public SaveDialog( )
         {
+            CheckPathExists = true;
+            CheckFileExists = true;
+            AddExtension = true;
+        }
+
+        /// <summary>
+        /// Updates the status.
+        /// </summary>
+        private void UpdateStatus( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        private void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }
