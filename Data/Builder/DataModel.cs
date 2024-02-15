@@ -425,7 +425,9 @@ namespace BudgetExecution
                 using var _excelPackage = new ExcelPackage( );
                 using var _fileStream = OpenRead( filePath );
                 _excelPackage.Load( _fileStream );
-                var _worksheet = _excelPackage?.Workbook?.Worksheets?.First( );
+                var _worksheet = _excelPackage?.Workbook
+                    ?.Worksheets?.First( );
+
                 var _dataTable = new DataTable( _worksheet?.Name );
                 if( _worksheet?.Cells != null )
                 {

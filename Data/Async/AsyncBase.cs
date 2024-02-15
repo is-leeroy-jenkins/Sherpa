@@ -1,15 +1,15 @@
-﻿// ************************************************************************************************
+﻿// ******************************************************************************************
 //     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:              14-02-2024
+//     Created:                 2-14-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        14-02-2024
-// ************************************************************************************************
-// <copyright file="AsyncBase.cs.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for analysts in the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//     Last Modified On:        2-14-2024
+// ******************************************************************************************
+// <copyright file="AsyncBase.cs" company="Terry D. Eppler">
+//    Budget Execution is a Federal Budget, Finance, and Accounting application
+//    for analysts with the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -31,12 +31,12 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    Contact at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   Eppler, Terry.cs
+//   AsyncBase.cs
 // </summary>
-// ************************************************************************************************
+// ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -67,16 +67,6 @@ namespace BudgetExecution
         private protected Provider _provider;
 
         /// <summary>
-        /// The data set
-        /// </summary>
-        private protected Task<DataSet> _dataSet;
-
-        /// <summary>
-        /// The data table
-        /// </summary>
-        private protected Task<DataTable> _dataTable;
-
-        /// <summary>
         /// The data columns
         /// </summary>
         private protected Task<IList<DataColumn>> _dataColumns;
@@ -101,6 +91,16 @@ namespace BudgetExecution
         /// </summary>
         private protected Task<IList<string>> _numerics;
 
+        /// <summary>
+        /// The data set
+        /// </summary>
+        private protected Task<DataSet> _dataSet;
+
+        /// <summary>
+        /// The data table
+        /// </summary>
+        private protected Task<DataTable> _dataTable;
+
         /// <inheritdoc />
         /// <summary>
         /// Gets the source.
@@ -109,7 +109,7 @@ namespace BudgetExecution
         {
             get
             {
-                return _source; 
+                return _source;
             }
             private protected set
             {
@@ -144,6 +144,10 @@ namespace BudgetExecution
             get
             {
                 return _dataSet;
+            }
+            private protected set
+            {
+                _dataSet = value;
             }
         }
 

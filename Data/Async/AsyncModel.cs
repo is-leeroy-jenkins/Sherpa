@@ -125,7 +125,6 @@ namespace BudgetExecution
         /// <param name="provider"> The provider. </param>
         public AsyncModel( Source source, Provider provider = Provider.Access )
         {
-            BeginInit( );
             _source = source;
             _provider = provider;
             _connectionFactory = new ConnectionFactory( source, provider );
@@ -141,7 +140,6 @@ namespace BudgetExecution
             _dates = GetDatesAsync( );
             _record = GetRecordAsync( );
             _map = GetMapAsync( );
-            EndInit( );
         }
 
         /// <summary>
@@ -154,7 +152,6 @@ namespace BudgetExecution
         /// <param name="where"> The where. </param>
         public AsyncModel( Source source, Provider provider, IDictionary<string, object> where )
         {
-            BeginInit( );
             _source = source;
             _provider = provider;
             _connectionFactory = new ConnectionFactory( source, provider );
@@ -170,7 +167,6 @@ namespace BudgetExecution
             _dates = GetDatesAsync( );
             _record = GetRecordAsync( );
             Map = GetMapAsync( );
-            EndInit( );
         }
 
         /// <summary>
@@ -186,7 +182,6 @@ namespace BudgetExecution
         public AsyncModel( Source source, Provider provider, IDictionary<string, object> updates,
             IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
         {
-            BeginInit( );
             _source = source;
             _provider = provider;
             _connectionFactory = new ConnectionFactory( source, provider );
@@ -202,7 +197,6 @@ namespace BudgetExecution
             _dataElements = GetSeriesAsync( );
             _record = GetRecordAsync( );
             _map = GetMapAsync( );
-            EndInit( );
         }
 
         /// <summary>
@@ -218,7 +212,6 @@ namespace BudgetExecution
         public AsyncModel( Source source, Provider provider, IEnumerable<string> columns,
             IDictionary<string, object> where, SQL commandType = SQL.SELECT )
         {
-            BeginInit( );
             _source = source;
             _provider = provider;
             _connectionFactory = new ConnectionFactory( source, provider );
@@ -234,7 +227,6 @@ namespace BudgetExecution
             _dataElements = GetSeriesAsync( );
             _record = GetRecordAsync( );
             _map = GetMapAsync( );
-            EndInit( );
         }
 
         /// <summary>
@@ -252,7 +244,6 @@ namespace BudgetExecution
             IEnumerable<string> numerics, IDictionary<string, object> where,
             SQL commandType )
         {
-            BeginInit( );
             _source = source;
             _provider = provider;
             _connectionFactory = new ConnectionFactory( source, provider );
@@ -270,7 +261,6 @@ namespace BudgetExecution
             _dataElements = GetSeriesAsync( );
             _record = GetRecordAsync( );
             _map = GetMapAsync( );
-            EndInit( );
         }
 
         /// <summary>
@@ -282,7 +272,6 @@ namespace BudgetExecution
         /// <param name="where"> The where. </param>
         public AsyncModel( Source source, IDictionary<string, object> where )
         {
-            BeginInit( );
             _source = source;
             _provider = Provider.Access;
             _connectionFactory = new ConnectionFactory( source, Provider.Access );
@@ -298,7 +287,6 @@ namespace BudgetExecution
             _dataElements = GetSeriesAsync( );
             _record = GetRecordAsync( );
             _map = GetMapAsync( );
-            EndInit( );
         }
 
         /// <summary>
@@ -311,7 +299,6 @@ namespace BudgetExecution
         /// <param name="sqlText"> The SQL text. </param>
         public AsyncModel( Source source, Provider provider, string sqlText )
         {
-            BeginInit( );
             _source = source;
             _provider = provider;
             _connectionFactory = new ConnectionFactory( source, provider );
@@ -327,7 +314,6 @@ namespace BudgetExecution
             _dataElements = GetSeriesAsync( );
             _record = GetRecordAsync( );
             _map = GetMapAsync( );
-            EndInit( );
         }
 
         /// <summary>
@@ -340,7 +326,6 @@ namespace BudgetExecution
         /// <param name="commandType"> Type of the command. </param>
         public AsyncModel( string fullPath, string sqlText, SQL commandType = SQL.SELECT )
         {
-            BeginInit( );
             _connectionFactory = new ConnectionFactory( fullPath );
             _source = ConnectionFactory.Source;
             _provider = ConnectionFactory.Provider;
@@ -356,7 +341,6 @@ namespace BudgetExecution
             _dataElements = GetSeriesAsync( );
             _record = GetRecordAsync( );
             _map = GetMapAsync( );
-            EndInit( );
         }
 
         /// <summary>
@@ -410,69 +394,62 @@ namespace BudgetExecution
         public Task<IList<string>> GetValuesAsync( IEnumerable<DataRow> dataRows,
             string columnName, string columnValue )
         {
-            if( ( dataRows?.Any( ) == true )
-               && !string.IsNullOrEmpty( columnValue ) )
+            ThrowIf.Null( dataRows, nameof( dataRows ) );
+            ThrowIf.NullOrEmpty( columnName, nameof( columnName ) );
+            ThrowIf.NullOrEmpty( columnValue, nameof( columnValue ) );
+            var _async = new TaskCompletionSource<IList<string>>( );
+            try
             {
-                var _tcs = new TaskCompletionSource<IList<string>>( );
-                try
-                {
-                    var _select = dataRows
-                        ?.Where( v => v.Field<string>( $"{columnName}" ).Equals( columnValue ) )
-                        ?.Select( v => v.Field<string>( $"{columnName}" ) )
-                        ?.Distinct( )
-                        ?.ToList( );
+                var _select = dataRows
+                    ?.Where( v => v.Field<string>( $"{columnName}" ).Equals( columnValue ) )
+                    ?.Select( v => v.Field<string>( $"{columnName}" ) )
+                    ?.Distinct( )
+                    ?.ToList( );
 
-                    _tcs.SetResult( _select );
-                    return _select?.Any( ) == true
-                        ? _tcs.Task
-                        : default( Task<IList<string>> );
-                }
-                catch( Exception _ex )
-                {
-                    _tcs.SetException( _ex );
-                    Fail( _ex );
-                    return default( Task<IList<string>> );
-                }
+                _async.SetResult( _select );
+                return _select?.Any( ) == true
+                    ? _async.Task
+                    : default( Task<IList<string>> );
             }
-
-            return default( Task<IList<string>> );
+            catch( Exception _ex )
+            {
+                _async.SetException( _ex );
+                Fail( _ex );
+                return default( Task<IList<string>> );
+            }
         }
 
         /// <summary> Gets the values. </summary>
         /// <param name="dataRows"> The data rows. </param>
         /// <param name="columnName"> The column. </param>
         /// <returns> </returns>
-        private IList<string> GetValues( IEnumerable<DataRow> dataRows, string columnName )
+        private IEnumerable<string> GetValues( IEnumerable<DataRow> dataRows, string columnName )
         {
-            if( ( dataRows?.Any( ) == true )
-               && !string.IsNullOrEmpty( columnName ) )
+            try
             {
-                try
-                {
-                    var _values = dataRows
-                        ?.Select( v => v.Field<string>( columnName ) )
-                        ?.Distinct( )
-                        ?.ToList( );
+                ThrowIf.Null( dataRows, nameof( dataRows ) );
+                ThrowIf.NullOrEmpty( columnName, nameof( columnName ) );
+                var _values = dataRows
+                    ?.Select( v => v.Field<string>( columnName ) )
+                    ?.Distinct( )
+                    ?.ToList( );
 
-                    return _values?.Any( ) == true
-                        ? _values
-                        : default( IList<string> );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( IList<string> );
-                }
+                return _values?.Any( ) == true
+                    ? _values
+                    : default( IList<string> );
             }
-
-            return default( IList<string> );
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IList<string> );
+            }
         }
 
         /// <summary> Creates the series asynchronous. </summary>
         /// <returns> </returns>
         private Task<IDictionary<string, IEnumerable<string>>> GetSeriesAsync( )
         {
-            var _tcs = new TaskCompletionSource<IDictionary<string, IEnumerable<string>>>( );
+            var _async = new TaskCompletionSource<IDictionary<string, IEnumerable<string>>>( );
             try
             {
                 var _table = GetDataTable( );
@@ -490,14 +467,14 @@ namespace BudgetExecution
                     }
                 }
 
-                _tcs.SetResult( _dict );
+                _async.SetResult( _dict );
                 return _dict?.Any( ) == true
-                    ? _tcs.Task
+                    ? _async.Task
                     : default( Task<IDictionary<string, IEnumerable<string>>> );
             }
             catch( Exception _ex )
             {
-                _tcs.SetException( _ex );
+                _async.SetException( _ex );
                 Fail( _ex );
                 return default( Task<IDictionary<string, IEnumerable<string>>> );
             }

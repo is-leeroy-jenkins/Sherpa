@@ -47,6 +47,7 @@ namespace BudgetExecution
     using System.Linq;
     using System.Diagnostics.CodeAnalysis;
     using System.Threading.Tasks;
+    using Exception = System.Exception;
 
     /// <inheritdoc />
     /// <summary>
@@ -54,21 +55,38 @@ namespace BudgetExecution
     /// <seealso cref="T:BudgetExecution.ISource" />
     /// <seealso cref="T:BudgetExecution.IProvider" />
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public abstract class AsyncState : AsyncBase
     {
         /// <summary>
-        /// 
+        /// The connection factory
         /// </summary>
         private protected IConnectionFactory _connectionFactory;
-        
+
+        /// <summary>
+        /// The SQL statement
+        /// </summary>
         private protected ISqlStatement _sqlStatement;
 
+        /// <summary>
+        /// The query
+        /// </summary>
         private protected IQuery _query;
 
+        /// <summary>
+        /// The record
+        /// </summary>
         private protected Task<DataRow> _record;
 
+        /// <summary>
+        /// The keys
+        /// </summary>
         private protected Task<IList<int>> _keys;
 
+        /// <summary>
+        /// The map
+        /// </summary>
         private protected Task<IDictionary<string, object>> _map;
 
         /// <inheritdoc />
@@ -194,7 +212,7 @@ namespace BudgetExecution
         {
             if( _query != null )
             {
-                var _tcs = new TaskCompletionSource<DataTable>( );
+                var _async = new TaskCompletionSource<DataTable>( );
                 try
                 {
                     var _set = new DataSet( $"{_source}" );
@@ -204,14 +222,14 @@ namespace BudgetExecution
                     var _adapter = _query.DataAdapter;
                     _adapter.Fill( _set, _table.TableName );
                     SetColumnCaptions( _table );
-                    _tcs.SetResult( _table );
+                    _async.SetResult( _table );
                     return _table.Rows.Count > 0
-                        ? _tcs.Task
+                        ? _async.Task
                         : default( Task<DataTable> );
                 }
                 catch( Exception _ex )
                 {
-                    _tcs.SetException( _ex );
+                    _async.SetException( _ex );
                     Fail( _ex );
                     return default( Task<DataTable> );
                 }
@@ -227,20 +245,18 @@ namespace BudgetExecution
         /// <returns></returns>
         public Task<DataRow> GetRecordAsync( )
         {
-            var _tcs = new TaskCompletionSource<DataRow>( );
+            var _async = new TaskCompletionSource<DataRow>( );
             try
             {
                 var _table = GetDataTable( );
-                var _data = _table?.AsEnumerable( );
+                var _data = _table.AsEnumerable( );
                 var _row = _data.FirstOrDefault( );
-                _tcs.SetResult( _row );
                 return _row?.ItemArray?.Length > 0
-                    ? _tcs.Task
+                    ? _async.Task
                     : default( Task<DataRow> );
             }
             catch( Exception _ex )
             {
-                _tcs.SetException( _ex );
                 Fail( _ex );
                 return default( Task<DataRow> );
             }
@@ -253,15 +269,15 @@ namespace BudgetExecution
         /// <returns></returns>
         public DataTable GetDataTable( )
         {
-            if( Query != null )
+            if( _query != null )
             {
                 try
                 {
-                    var _set = new DataSet( $"{Source}" );
-                    var _table = new DataTable( $"{Source}" );
-                    _table.TableName = Source.ToString( );
+                    var _set = new DataSet( $"{_source}" );
+                    var _table = new DataTable( $"{_source}" );
+                    _table.TableName = _source.ToString( );
                     _set.Tables.Add( _table );
-                    var _adapter = Query.DataAdapter;
+                    var _adapter = _query.DataAdapter;
                     _adapter.Fill( _set, _table.TableName );
                     SetColumnCaptions( _table );
                     return _table?.Rows?.Count > 0
@@ -287,7 +303,7 @@ namespace BudgetExecution
         {
             if( _query != null )
             {
-                var _tcs = new TaskCompletionSource<DataSet>( );
+                var _task = new TaskCompletionSource<DataSet>( );
                 try
                 {
                     var _set = new DataSet( $"{_source}" );
@@ -297,13 +313,14 @@ namespace BudgetExecution
                     var _adapter = _query.DataAdapter;
                     _adapter.Fill( _set, _table.TableName );
                     SetColumnCaptions( _table );
-                    _tcs.SetResult( _set );
+                    _task.SetResult( _set );
                     return _set.Tables?.Count > 0
-                        ? _tcs.Task
+                        ? _task.Task
                         : default( Task<DataSet> );
                 }
                 catch( Exception _ex )
                 {
+                    _task.SetException( _ex );
                     Fail( _ex );
                     return default( Task<DataSet> );
                 }
@@ -346,7 +363,7 @@ namespace BudgetExecution
         /// <returns></returns>
         public Task<IList<string>> GetFieldsAsync( )
         {
-            var _tcs = new TaskCompletionSource<IList<string>>( );
+            var _async = new TaskCompletionSource<IList<string>>( );
             try
             {
                 var _list = new List<string>( );
@@ -359,14 +376,14 @@ namespace BudgetExecution
                     }
                 }
 
-                _tcs.SetResult( _list );
+                _async.SetResult( _list );
                 return _list?.Any( ) == true
-                    ? _tcs.Task
+                    ? _async.Task
                     : default( Task<IList<string>> );
             }
             catch( Exception _ex )
             {
-                _tcs.SetException( _ex );
+                _async.SetException( _ex );
                 Fail( _ex );
                 return default( Task<IList<string>> );
             }
@@ -379,7 +396,7 @@ namespace BudgetExecution
         /// <returns></returns>
         public Task<IList<string>> GetNumericsAsync( )
         {
-            var _tcs = new TaskCompletionSource<IList<string>>( );
+            var _async = new TaskCompletionSource<IList<string>>( );
             try
             {
                 var _list = new List<string>( );
@@ -398,14 +415,14 @@ namespace BudgetExecution
                     }
                 }
 
-                _tcs.SetResult( _list );
+                _async.SetResult( _list );
                 return _list?.Any( ) == true
-                    ? _tcs.Task
+                    ? _async.Task
                     : default( Task<IList<string>> );
             }
             catch( Exception _ex )
             {
-                _tcs.SetException( _ex );
+                _async.SetException( _ex );
                 Fail( _ex );
                 return default( Task<IList<string>> );
             }
@@ -418,7 +435,7 @@ namespace BudgetExecution
         /// <returns></returns>
         public Task<IList<string>> GetDatesAsync( )
         {
-            var _tcs = new TaskCompletionSource<IList<string>>( );
+            var _async = new TaskCompletionSource<IList<string>>( );
             try
             {
                 var _list = new List<string>( );
@@ -436,14 +453,14 @@ namespace BudgetExecution
                     }
                 }
 
-                _tcs.SetResult( _list );
+                _async.SetResult( _list );
                 return _list?.Any( ) == true
-                    ? _tcs.Task
+                    ? _async.Task
                     : default( Task<IList<string>> );
             }
             catch( Exception _ex )
             {
-                _tcs.SetException( _ex );
+                _async.SetException( _ex );
                 Fail( _ex );
                 return default( Task<IList<string>> );
             }
@@ -456,7 +473,7 @@ namespace BudgetExecution
         /// <returns></returns>
         public Task<IList<int>> GetPrimaryKeysAsync( )
         {
-            var _tcs = new TaskCompletionSource<IList<int>>( );
+            var _async = new TaskCompletionSource<IList<int>>( );
             try
             {
                 var _table = GetDataTable( );
@@ -465,13 +482,14 @@ namespace BudgetExecution
                     ?.Distinct( );
 
                 var _list = _values?.ToList( );
-                _tcs.SetResult( _list );
+                _async.SetResult( _list );
                 return _values?.Any( ) == true
-                    ? _tcs.Task
+                    ? _async.Task
                     : default( Task<IList<int>> );
             }
             catch( Exception _ex )
             {
+                _async.SetException( _ex );
                 Fail( _ex );
                 return default( Task<IList<int>> );
             }
