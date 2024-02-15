@@ -260,11 +260,11 @@ namespace BudgetExecution
                         }
                         case Provider.SqlCe:
                         {
-                            return GetSqlCeAdapter( );
+                            return GetSqlCompactAdapter( );
                         }
                         case Provider.SqlServer:
                         {
-                            return GetSqlAdapter( );
+                            return GetSqlServerAdapter( );
                         }
                         case Provider.Excel:
                         case Provider.CSV:

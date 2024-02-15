@@ -114,6 +114,18 @@ namespace BudgetExecution
             _extension = extension;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SqlConfig"/>
+        /// class.
+        /// </summary>
+        /// <param name="sqlConfig"> The command. </param>
+        public SqlConfig( SqlConfig sqlConfig )
+        {
+            _commandType = sqlConfig.CommandType;
+            _extension = sqlConfig.Extension;
+        }
+        
         /// <summary> Deconstructs the specified command type. </summary>
         /// <param name="commandType"> Type of the command. </param>
         /// <param name="extension"> The extension. </param>

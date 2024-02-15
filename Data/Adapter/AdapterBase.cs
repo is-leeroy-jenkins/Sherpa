@@ -208,7 +208,7 @@ namespace BudgetExecution
         /// Gets the SQL adapter.
         /// </summary>
         /// <returns></returns>
-        private protected SqlDataAdapter GetSqlAdapter( )
+        private protected SqlDataAdapter GetSqlServerAdapter( )
         {
             try
             {
@@ -279,7 +279,7 @@ namespace BudgetExecution
         /// Gets the SQL ce adapter.
         /// </summary>
         /// <returns> </returns>
-        private protected DbDataAdapter GetSqlCeAdapter( )
+        private protected DbDataAdapter GetSqlCompactAdapter( )
         {
             try
             {

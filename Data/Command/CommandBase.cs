@@ -65,7 +65,7 @@ namespace BudgetExecution
         /// The source
         /// </summary>
         /// <value>
-        ///  
+        ///  Source
         /// </value>
         private protected Source _source;
 
@@ -73,7 +73,7 @@ namespace BudgetExecution
         /// The provider
         /// </summary>
         /// <value>
-        ///  
+        ///  Provider
         /// </value>
         private protected Provider _provider;
 
