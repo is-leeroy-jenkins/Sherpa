@@ -59,7 +59,7 @@ namespace BudgetExecution
         /// <param name="value"> The value. </param>
         /// <returns> </returns>
         public static bool AddIf<T>( this ICollection<T> collection, Func<T, bool> predicate,
-                                     T value )
+            T value )
         {
             if( ( collection?.Count > 0 )
                && predicate( value ) )
@@ -176,7 +176,10 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _list = collection?.Where( child => predicate( child ) )?.ToList( );
+                    var _list = collection
+                        ?.Where( child => predicate( child ) )
+                        ?.ToList( );
+                    
                     if( _list?.Any( ) == true )
                     {
                         _list.ForEach( t => collection.Remove( t ) );

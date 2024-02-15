@@ -48,6 +48,7 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public enum Day
     {
         /// <summary> The sunday </summary>
