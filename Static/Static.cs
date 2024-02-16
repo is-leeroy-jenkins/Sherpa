@@ -46,14 +46,17 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Text;
 
-    /// <summary> </summary>
+    /// <summary>
+    /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public static class Static
     {
         /// <summary> Gets the type of the SQL. </summary>
         /// <param name="type"> The type. </param>
-        /// <returns> </returns>
+        /// <returns>
+        /// string
+        /// </returns>
         public static string GetSqlType( this Type type )
         {
             try
@@ -91,17 +94,23 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Creates the command. </summary>
+        /// <summary>
+        /// Creates the command.
+        /// </summary>
         /// <param name="connection"> The connection. </param>
         /// <param name="sql"> The SQL. </param>
-        /// <returns> </returns>
-        /// <exception cref="System.ArgumentNullException"> connection </exception>
+        /// <returns>
+        /// IDbCommand
+        /// </returns>
+        /// <exception cref="System.ArgumentNullException">
+        /// connection
+        /// </exception>
         public static IDbCommand CreateCommand( this IDbConnection connection, string sql )
         {
             try
             {
                 ThrowIf.NullOrEmpty( sql, nameof( sql ) );
-                var _command = connection?.CreateCommand( );
+                var _command = connection.CreateCommand( );
                 _command.CommandText = sql;
                 return !string.IsNullOrEmpty( _command?.CommandText )
                     ? _command
@@ -114,10 +123,14 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Executes the non query. </summary>
+        /// <summary>
+        /// Executes the non query.
+        /// </summary>
         /// <param name="connection"> The connection. </param>
         /// <param name="sql"> The SQL. </param>
-        /// <returns> </returns>
+        /// <returns>
+        /// int
+        /// </returns>
         public static int ExecuteNonQuery( this IDbConnection connection, string sql )
         {
             try
@@ -133,10 +146,14 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Converts to logstring. </summary>
+        /// <summary>
+        /// Converts to log string.
+        /// </summary>
         /// <param name="ex"> The ex. </param>
         /// <param name="message"> The message. </param>
-        /// <returns> </returns>
+        /// <returns>
+        /// string
+        /// </returns>
         public static string ToLogString( this Exception ex, string message )
         {
             try
@@ -206,9 +223,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Converts to dictionary. </summary>
+        /// <summary>
+        /// Converts to dictionary.
+        /// </summary>
         /// <param name="nvm"> The NVM. </param>
-        /// <returns> </returns>
+        /// <returns>
+        /// </returns>
         public static IDictionary<string, object> ToDictionary( this NameValueCollection nvm )
         {
             try

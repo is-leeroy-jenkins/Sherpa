@@ -41,93 +41,148 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
     using static System.Configuration.ConfigurationManager;
 
-    /// <summary> </summary>
+    /// <summary>
+    /// 
+    /// </summary>
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public static class Resource
     {
-        /// <summary> The summary </summary>
-        public static readonly string Summary = AppSettings[ "SummaryImages" ];
+        /// <summary>
+        /// The summary
+        /// </summary>
+        public static readonly string AgencyImages = AppSettings[ "AgencyImages" ];
 
-        /// <summary> The fund images </summary>
-        public static readonly string FundImages = AppSettings[ nameof( FundImages ) ];
+        /// <summary>
+        /// The fund images
+        /// </summary>
+        public static readonly string CarouselImages = AppSettings[ "CarouselImages" ];
 
-        /// <summary> The databases </summary>
-        public static readonly string Databases = AppSettings[ "DatabaseImages" ];
+        /// <summary>
+        /// The databases
+        /// </summary>
+        public static readonly string DatabaseImages = AppSettings[ "DatabaseImages" ];
 
-        /// <summary> The data images </summary>
-        public static readonly string DataImages = AppSettings[ nameof( DataImages ) ];
+        /// <summary>
+        /// The data images
+        /// </summary>
+        public static readonly string DataImages = AppSettings[ "DataImages" ];
 
-        /// <summary> The office images </summary>
-        public static readonly string OfficeImages = AppSettings[ nameof( OfficeImages ) ];
+        /// <summary>
+        /// The office images
+        /// </summary>
+        public static readonly string OfficeImages = AppSettings[ "OfficeImages" ];
 
-        /// <summary> The navigation images </summary>
-        public static readonly string NavigationImages = AppSettings[ nameof( NavigationImages ) ];
+        /// <summary>
+        /// The navigation images
+        /// </summary>
+        public static readonly string NavigationImages = AppSettings[ "NavigationImages" ];
 
-        /// <summary> The codec images </summary>
-        public static readonly string CodecImages = AppSettings[ nameof( CodecImages ) ];
+        /// <summary>
+        /// The codec images
+        /// </summary>
+        public static readonly string CodecImages = AppSettings[ "CodecImages" ];
 
-        /// <summary> The outlay images </summary>
-        public static readonly string OutlayImages = AppSettings[ nameof( OutlayImages ) ];
+        /// <summary>
+        /// The outlay images
+        /// </summary>
+        public static readonly string OutlayImages = AppSettings[ "OutlayImages" ];
 
-        /// <summary> The file images </summary>
-        public static readonly string FileImages = AppSettings[ nameof( FileImages ) ];
+        /// <summary>
+        /// The file images
+        /// </summary>
+        public static readonly string FileImages = AppSettings[ "FileImages" ];
 
-        /// <summary> The object class images </summary>
-        public static readonly string ObjectClassImages = AppSettings[ nameof( ObjectClassImages ) ];
+        /// <summary>
+        /// The object class images
+        /// </summary>
+        public static readonly string ObjectClassImages = AppSettings[ "ObjectClassImages" ];
 
-        /// <summary> The provider images </summary>
-        public static readonly string ProviderImages = AppSettings[ nameof( ProviderImages ) ];
+        /// <summary>
+        /// The provider images
+        /// </summary>
+        public static readonly string ProviderImages = AppSettings[ "ProviderImages" ];
 
-        /// <summary> The math images </summary>
-        public static readonly string MathImages = AppSettings[ nameof( MathImages ) ];
+        /// <summary>
+        /// The math images
+        /// </summary>
+        public static readonly string MathImages = AppSettings[ "MathImages" ];
 
-        /// <summary> The interface images </summary>
-        public static readonly string InterfaceImages = AppSettings[ nameof( InterfaceImages ) ];
+        /// <summary>
+        /// The interface images
+        /// </summary>
+        public static readonly string InterfaceImages = AppSettings[ "InterfaceImages" ];
 
-        /// <summary> The folder images </summary>
-        public static readonly string FolderImages = AppSettings[ nameof( FolderImages ) ];
+        /// <summary>
+        /// The folder images
+        /// </summary>
+        public static readonly string FolderImages = AppSettings[ "FolderImages" ];
 
-        /// <summary> The division caption </summary>
-        public static readonly string DivisionCaption = AppSettings[ nameof( DivisionCaption ) ];
+        /// <summary>
+        /// The main form images
+        /// </summary>
+        public static readonly string MainFormImages = AppSettings[ "MainFormImages" ];
 
-        /// <summary> The main form images </summary>
-        public static readonly string MainFormImages = AppSettings[ nameof( MainFormImages ) ];
+        /// <summary>
+        /// The execution images
+        /// </summary>
+        public static readonly string ExecutionImages = AppSettings[ "ExecutionImages" ];
 
-        /// <summary> The execution images </summary>
-        public static readonly string ExecutionImages = AppSettings[ nameof( ExecutionImages ) ];
+        /// <summary>
+        /// The tool strip images
+        /// </summary>
+        public static readonly string ToolStripImages = AppSettings[ "ToolStripImages" ];
 
-        /// <summary> The tool strip images </summary>
-        public static readonly string ToolStripImages = AppSettings[ nameof( ToolStripImages ) ];
-
-        /// <summary> The chart types </summary>
+        /// <summary>
+        /// The chart types
+        /// </summary>
         public static readonly string[ ] ChartTypes = Enum.GetNames( typeof( ChartType ) );
 
-        /// <summary> The sources </summary>
+        /// <summary>
+        /// The sources
+        /// </summary>
         public static readonly string[ ] Sources = Enum.GetNames( typeof( Source ) );
 
-        /// <summary> The providers </summary>
+        /// <summary>
+        /// The providers
+        /// </summary>
         public static readonly string[ ] Providers = Enum.GetNames( typeof( Provider ) );
 
-        /// <summary> The fields </summary>
+        /// <summary>
+        /// The fields
+        /// </summary>
         public static readonly string[ ] Fields = Enum.GetNames( typeof( Field ) );
 
-        /// <summary> The numerics </summary>
+        /// <summary>
+        /// The numerics
+        /// </summary>
         public static readonly string[ ] Numerics = Enum.GetNames( typeof( Numeric ) );
 
-        /// <summary> The primary keys </summary>
+        /// <summary>
+        /// The primary keys
+        /// </summary>
         public static readonly string[ ] PrimaryKeys = Enum.GetNames( typeof( PrimaryKey ) );
 
-        /// <summary> The extensions </summary>
+        /// <summary>
+        /// The extensions
+        /// </summary>
         public static readonly string[ ] Extensions = Enum.GetNames( typeof( EXT ) );
 
-        /// <summary> The image folders </summary>
+        /// <summary>
+        /// The image folders
+        /// </summary>
         public static readonly string[ ] ImageFolders = Enum.GetNames( typeof( ImageDirectory ) );
 
-        /// <summary> The charts </summary>
+        /// <summary>
+        /// The charts
+        /// </summary>
         public static readonly string[ ] Charts = Enum.GetNames( typeof( ChartType ) );
 
-        /// <summary> The tools </summary>
+        /// <summary>
+        /// The tools
+        /// </summary>
         public static readonly string[ ] Tools = Enum.GetNames( typeof( ToolType ) );
     }
 }

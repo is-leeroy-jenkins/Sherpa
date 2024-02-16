@@ -54,7 +54,7 @@
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="Resources\Pictures\Forms\budget-execution.ico" />
+    <Content Include="Resources\Pictures\FormsImages\budget-execution.ico" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="DocumentFormat.OpenXml" Version="3.0.1" />
@@ -215,7 +215,7 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
-    <None Update="Resources\Pictures\Forms\budget.png">
+    <None Update="Resources\Pictures\FormsImages\budget.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>

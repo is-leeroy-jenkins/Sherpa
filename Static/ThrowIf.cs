@@ -57,8 +57,10 @@ namespace BudgetExecution
     using Microsoft.Office.Interop.Excel;
     using OfficeOpenXml;
 
-    /// <summary> </summary>
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    [SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertTypeCheckPatternToNullCheck" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -68,9 +70,9 @@ namespace BudgetExecution
         /// <summary>
         /// Determines whether the specified string argument is null or empty.
         /// </summary>
-        /// <param name="argument"> The string argument. </param>
-        /// <param name="paramName"> The name of the string argument. </param>
-        /// <exception cref="System.ArgumentNullException"> </exception>
+        /// <param name="argument">The string argument.</param>
+        /// <param name="paramName">The name of the string argument.</param>
+        /// <exception cref="System.ArgumentNullException"></exception>
         public static void NullOrEmpty( string argument, string paramName )
         {
             if( string.IsNullOrEmpty( argument ) )
@@ -80,10 +82,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Nulls the specified argument. </summary>
-        /// <param name="argument"> The argument. </param>
-        /// <param name="paramName"> Name of the parameter. </param>
-        /// <exception cref="System.ArgumentNullException"> </exception>
+        /// <summary>
+        /// Nulls the specified argument.
+        /// </summary>
+        /// <param name="argument">The argument.</param>
+        /// <param name="paramName">Name of the parameter.</param>
+        /// <exception cref="System.ArgumentNullException"></exception>
         public static void Null( object argument, string paramName )
         {
             switch( argument )
@@ -376,11 +380,9 @@ namespace BudgetExecution
         /// <summary>
         /// Throws exception if 'argument' is not a null or empty.
         /// </summary>
-        /// <param name="argument"> The argument. </param>
-        /// <param name="paramName"> Name of the parameter. </param>
-        /// <exception cref="System.ArgumentNullException">
-        /// ArgumentNullException
-        /// </exception>
+        /// <param name="argument">The argument.</param>
+        /// <param name="paramName">Name of the parameter.</param>
+        /// <exception cref="System.ArgumentNullException">ArgumentNullException</exception>
         public static void NullOrEmpty( IEnumerable<string> argument, string paramName )
         {
             foreach( var _item in argument )
@@ -412,11 +414,10 @@ namespace BudgetExecution
         /// <summary>
         /// Throws exception if 'argument' is null.
         /// </summary>
-        /// <param name="argument"> The argument. </param>
-        /// <param name="paramName"> Name of the parameter. </param>
-        /// <exception cref="System.ArgumentNullException">
-        /// ArgumentNullException
-        /// </exception>
+        /// <param name="argument">The argument.</param>
+        /// <param name="paramName">Name of the parameter.</param>
+        /// <exception cref="System.ArgumentException"></exception>
+        /// <exception cref="System.ArgumentNullException">ArgumentNullException</exception>
         public static void NullOrEmpty( Color argument, string paramName )
         {
             if( argument.IsEmpty )
@@ -429,15 +430,10 @@ namespace BudgetExecution
         /// <summary>
         /// NoData throws exception if 'argument' is null.
         /// </summary>
-        /// <param name="argument">
-        /// The argument.
-        /// </param>
-        /// <param name="paramName">
-        /// Name of the parameter.
-        /// </param>
-        /// <exception cref="System.ArgumentNullException">
-        /// ArgumentNullException
-        /// </exception>
+        /// <param name="argument">The argument.</param>
+        /// <param name="paramName">Name of the parameter.</param>
+        /// <exception cref="System.ArgumentException"></exception>
+        /// <exception cref="System.ArgumentNullException">ArgumentNullException</exception>
         public static void NoData( object argument, string paramName )
         {
             switch( argument )
@@ -498,15 +494,9 @@ namespace BudgetExecution
         /// <summary>
         /// NoData throws exception if 'argument' has no elements.
         /// </summary>
-        /// <param name="argument">
-        /// The argument.
-        /// </param>
-        /// <param name="paramName">
-        /// Name of the parameter.
-        /// </param>
-        /// <exception cref="System.ArgumentException">
-        /// ArgumentException
-        /// </exception>
+        /// <param name="argument">The argument.</param>
+        /// <param name="paramName">Name of the parameter.</param>
+        /// <exception cref="System.ArgumentException">ArgumentException</exception>
         public static void NoData( IListSource argument, string paramName )
         {
             var _list = argument?.GetList( );
@@ -520,15 +510,9 @@ namespace BudgetExecution
         /// <summary>
         /// Verifies if a file/folder exists.
         /// </summary>
-        /// <param name="argument">
-        /// The argument.
-        /// </param>
-        /// <param name="paramName">
-        /// Name of the parameter.
-        /// </param>
-        /// <exception cref="System.ArgumentException">
-        /// ArgumentException
-        /// </exception>
+        /// <param name="argument">The argument.</param>
+        /// <param name="paramName">Name of the parameter.</param>
+        /// <exception cref="System.ArgumentException">ArgumentException</exception>
         public static void NotExists( string argument, string paramName )
         {
             if( !File.Exists( argument ) )
@@ -556,9 +540,9 @@ namespace BudgetExecution
         /// <summary>
         /// Determines whether the specified argument is negative.
         /// </summary>
-        /// <param name="argument"> The argument. </param>
-        /// <param name="paramName"> The argument's name. </param>
-        /// <exception cref="System.ArgumentOutOfRangeException"> </exception>
+        /// <param name="argument">The argument.</param>
+        /// <param name="paramName">The argument's name.</param>
+        /// <exception cref="System.ArgumentOutOfRangeException"></exception>
         public static void NegativeOrZero( object argument, string paramName )
         {
             switch( argument )
