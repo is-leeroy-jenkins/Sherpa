@@ -31,7 +31,7 @@
     <Title>Budget Execution</Title>
     <PackageIcon>budget.png</PackageIcon>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <ApplicationIcon>Resources\Pictures\Forms\budget-execution.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\Pictures\FormImages\budget-execution.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702;2201;1051;CA1200;CA1310;CA1305;1822;CA1716;CA1812;CA1304</NoWarn>
@@ -53,9 +53,6 @@
     <Optimize>False</Optimize>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
   </PropertyGroup>
-  <ItemGroup>
-    <Content Include="Resources\Pictures\FormsImages\budget-execution.ico" />
-  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="DocumentFormat.OpenXml" Version="3.0.1" />
     <PackageReference Include="EPPlus" Version="7.0.8" />
@@ -187,6 +184,7 @@
     <Compile Remove="bin\**" />
     <Compile Remove="Clients\WebBrower\**" />
     <Compile Remove="Minions\SqlCe\C# Source code\**" />
+    <Compile Remove="Resources\Pictures\FormsImages\**" />
     <Compile Remove="WebBrowser\**" />
   </ItemGroup>
   <ItemGroup>
@@ -198,8 +196,10 @@
     <EmbeddedResource Remove="bin\**" />
     <EmbeddedResource Remove="Clients\WebBrower\**" />
     <EmbeddedResource Remove="Minions\SqlCe\C# Source code\**" />
+    <EmbeddedResource Remove="Resources\Pictures\FormsImages\**" />
     <EmbeddedResource Remove="WebBrowser\**" />
     <None Remove="Clients\WebBrower\**" />
+    <None Remove="Resources\Pictures\FormsImages\**" />
     <None Remove="WebBrowser\**" />
   </ItemGroup>
   <ItemGroup>
@@ -215,12 +215,11 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
-    <None Update="Resources\Pictures\FormsImages\budget.png">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Remove="Clients\Baby\storage\i18n_process.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Pictures\FormImages\budget-execution.ico" />
   </ItemGroup>
 </Project>

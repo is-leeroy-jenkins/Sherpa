@@ -78,27 +78,22 @@ namespace BudgetExecution
         /// <summary>
         /// The navigation images
         /// </summary>
-        public static readonly string NavigationImages = AppSettings[ "NavigationImages" ];
+        public static readonly string LoaderImages = AppSettings[ "LoaderImages" ];
 
         /// <summary>
         /// The codec images
         /// </summary>
-        public static readonly string CodecImages = AppSettings[ "CodecImages" ];
+        public static readonly string ExtensionImages = AppSettings[ "ExtensionImages" ];
 
         /// <summary>
-        /// The outlay images
+        /// The epa images
         /// </summary>
-        public static readonly string OutlayImages = AppSettings[ "OutlayImages" ];
+        public static readonly string EpaImages = AppSettings[ "EpaImages" ];
 
         /// <summary>
         /// The file images
         /// </summary>
         public static readonly string FileImages = AppSettings[ "FileImages" ];
-
-        /// <summary>
-        /// The object class images
-        /// </summary>
-        public static readonly string ObjectClassImages = AppSettings[ "ObjectClassImages" ];
 
         /// <summary>
         /// The provider images
@@ -108,7 +103,7 @@ namespace BudgetExecution
         /// <summary>
         /// The math images
         /// </summary>
-        public static readonly string MathImages = AppSettings[ "MathImages" ];
+        public static readonly string HeaderFooterImages = AppSettings[ "HeaderFooterImages" ];
 
         /// <summary>
         /// The interface images
@@ -121,14 +116,19 @@ namespace BudgetExecution
         public static readonly string FolderImages = AppSettings[ "FolderImages" ];
 
         /// <summary>
+        /// The filter images
+        /// </summary>
+        public static readonly string FilterImages = AppSettings[ "FilterImages" ];
+
+        /// <summary>
         /// The main form images
         /// </summary>
-        public static readonly string MainFormImages = AppSettings[ "MainFormImages" ];
+        public static readonly string FormImages = AppSettings[ "FormImages" ];
 
         /// <summary>
         /// The execution images
         /// </summary>
-        public static readonly string ExecutionImages = AppSettings[ "ExecutionImages" ];
+        public static readonly string TileImages = AppSettings[ "TileImages" ];
 
         /// <summary>
         /// The tool strip images
