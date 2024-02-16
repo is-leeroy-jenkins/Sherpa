@@ -46,30 +46,46 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
 
-    /// <summary> </summary>
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    [SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public enum Day
     {
-        /// <summary> The sunday </summary>
+        /// <summary>
+        /// The sunday
+        /// </summary>
         Sunday = 0,
 
-        /// <summary> The monday </summary>
+        /// <summary>
+        /// The monday
+        /// </summary>
         Monday,
 
-        /// <summary> The tuesday </summary>
+        /// <summary>
+        /// The tuesday
+        /// </summary>
         Tuesday,
 
-        /// <summary> The wednesday </summary>
+        /// <summary>
+        /// The wednesday
+        /// </summary>
         Wednesday,
 
-        /// <summary> The thursday </summary>
+        /// <summary>
+        /// The thursday
+        /// </summary>
         Thursday,
 
-        /// <summary> The friday </summary>
+        /// <summary>
+        /// The friday
+        /// </summary>
         Friday,
 
-        /// <summary> The saturday </summary>
+        /// <summary>
+        /// The saturday
+        /// </summary>
         Saturday
     }
 }

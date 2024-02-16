@@ -44,16 +44,25 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
 
-    /// <summary> </summary>
+    /// <summary>
+    /// </summary>
     public interface IDataGrid
     {
-        /// <summary> Gets the filter values. </summary>
-        /// <param name="dict"> The dictionary. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the filter values.
+        /// </summary>
+        /// <param name="dict">
+        /// The dictionary.
+        /// </param>
+        /// <returns>
+        /// </returns>
         string GetFilterValues( IDictionary<string, object> dict );
 
-        /// <summary> Gets the current data row. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the current data row.
+        /// </summary>
+        /// <returns>
+        /// </returns>
         DataRow GetCurrentDataRow( );
     }
 }

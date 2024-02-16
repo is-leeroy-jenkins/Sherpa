@@ -42,7 +42,8 @@ namespace BudgetExecution
 {
     using System;
 
-    /// <summary> </summary>
+    /// <summary>
+    /// </summary>
     public enum Holiday
     {
         /// <summary>

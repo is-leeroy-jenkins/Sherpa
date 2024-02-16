@@ -53,16 +53,18 @@ namespace BudgetExecution
     public interface IFolder
     {
         /// <summary>
-        /// Creates the sub directory.
+        /// Creates the subdirectory.
         /// </summary>
         /// <param name="dirName">Name of the dir.</param>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         DirectoryInfo CreateSubDirectory( string dirName );
 
         /// <summary>
         /// Gets the sub file data.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         IDictionary<string, FileInfo> GetSubFileData( );
 
         /// <summary>
@@ -92,13 +94,15 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the special folders.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         IEnumerable<string> GetSpecialFolders( );
 
         /// <summary>
-        /// Gets the sub directory data.
+        /// Gets the subdirectory data.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         IDictionary<string, DirectoryInfo> GetSubDirectoryData( );
     }
 }

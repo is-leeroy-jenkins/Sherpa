@@ -58,9 +58,10 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the query.
         /// </summary>
-        /// <param name="connectionFactory">The connection factory.</param>
+        /// <param name="connection">The connection factory.</param>
         /// <param name="sqlStatement">The SQL statement.</param>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         IQuery GetQuery( IBudgetConnection connection, ISqlStatement sqlStatement );
 
         /// <summary>
@@ -72,13 +73,15 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the data.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         IEnumerable<DataRow> GetData( );
 
         /// <summary>
         /// Gets the data table.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         DataTable GetDataTable( );
 
         /// <summary>
@@ -97,27 +100,31 @@ namespace BudgetExecution
         /// Gets the schema table.
         /// </summary>
         /// <param name="dataTable">The data table.</param>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         DataTable GetSchemaTable( DataTable dataTable );
 
         /// <summary>
         /// Gets the primary indexes.
         /// </summary>
         /// <param name="data">The data.</param>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         IEnumerable<int> GetPrimaryIndexes( IEnumerable<DataRow> data );
 
         /// <summary>
         /// Gets the column ordinals.
         /// </summary>
         /// <param name="data">The data.</param>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         IEnumerable<int> GetColumnOrdinals( IEnumerable<DataColumn> data );
 
         /// <summary>
         /// Gets the data set.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         DataSet GetDataSet( );
     }
 }

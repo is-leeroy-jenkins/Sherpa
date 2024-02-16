@@ -47,24 +47,36 @@ namespace BudgetExecution
     /// <summary> </summary>
     public interface ITitleInfo
     {
-        /// <summary> Gets the main title. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the main title.
+        /// </summary>
+        /// <returns>
+        /// </returns>
         ChartTitle CreateMainTitle( );
 
-        /// <summary> Gets the axis title. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the axis title.
+        /// </summary>
+        /// <returns>
+        /// </returns>
         ChartTitle CreateAxisTitle( );
 
-        /// <summary> Gets the main title. </summary>
+        /// <summary>
+        /// Gets the main title.
+        /// </summary>
         /// <param name="color"> The color. </param>
         /// <param name="font"> The font. </param>
-        /// <returns> </returns>
+        /// <returns>
+        /// </returns>
         ChartTitle CreateMainTitle( Color color, Font font );
 
-        /// <summary> Gets the axis title. </summary>
+        /// <summary>
+        /// Gets the axis title.
+        /// </summary>
         /// <param name="color"> The color. </param>
         /// <param name="font"> The font. </param>
-        /// <returns> </returns>
+        /// <returns>
+        /// </returns>
         ChartTitle CreateAxisTitle( Color color, Font font );
     }
 }

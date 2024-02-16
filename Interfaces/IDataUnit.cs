@@ -47,17 +47,36 @@ namespace BudgetExecution
     /// <summary> </summary>
     public interface IDataUnit
     {
-        /// <summary> </summary>
+        /// <summary>
+        /// Gets or sets the identifier.
+        /// </summary>
+        /// <value>
+        /// The identifier.
+        /// </value>
         public int ID { get; set; }
 
-        /// <summary> Gets the field. </summary>
+        /// <summary>
+        /// Gets or sets the code.
+        /// </summary>
+        /// <value>
+        /// The code.
+        /// </value>
         public string Code { get; set; }
 
-        /// <summary> The name </summary>
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
         public string Name { get; set; }
 
-        /// <summary> </summary>
-        /// <value> </value>
+        /// <summary>
+        /// Gets or sets the record.
+        /// </summary>
+        /// <value>
+        /// The record.
+        /// </value>
         public DataRow Record { get; set; }
 
         /// <summary> Determines whether the specified element is match. </summary>

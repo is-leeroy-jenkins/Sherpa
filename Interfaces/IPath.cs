@@ -100,10 +100,12 @@ namespace BudgetExecution
         string Extension { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether this instance has parent.
+        /// Gets or sets a value indicating whether
+        /// this instance has parent.
         /// </summary>
         /// <value>
-        ///   <c>true</c> if this instance has parent; otherwise, <c>false</c>.
+        ///   <c>true</c> if this instance has parent;
+        /// otherwise, <c>false</c>.
         /// </value>
         bool HasParent { get; set; }
 

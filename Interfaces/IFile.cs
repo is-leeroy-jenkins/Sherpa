@@ -63,7 +63,8 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="search">The search.</param>
         /// <returns>
-        ///   <c>true</c> if [contains] [the specified search]; otherwise, <c>false</c>.
+        ///   <c>true</c> if [contains] [the specified search];
+        /// otherwise, <c>false</c>.
         /// </returns>
         bool Contains( string search );
 

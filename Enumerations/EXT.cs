@@ -43,65 +43,105 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
 
-    /// <summary> </summary>
-    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    [SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     public enum EXT
     {
-        /// <summary> The database </summary>
+        /// <summary>
+        /// The database
+        /// </summary>
         DB,
 
-        /// <summary> The accdb </summary>
+        /// <summary>
+        /// The accdb
+        /// </summary>
         ACCDB,
 
-        /// <summary> The MDB </summary>
+        /// <summary>
+        /// The MDB
+        /// </summary>
         MDB,
 
-        /// <summary> The SDF </summary>
+        /// <summary>
+        /// The SDF
+        /// </summary>
         SDF,
 
-        /// <summary> The MDF </summary>
+        /// <summary>
+        /// The MDF
+        /// </summary>
         MDF,
 
-        /// <summary> The XLS </summary>
+        /// <summary>
+        /// The XLS
+        /// </summary>
         XLS,
 
-        /// <summary> The XLSX </summary>
+        /// <summary>
+        /// The XLSX
+        /// </summary>
         XLSX,
 
-        /// <summary> The CSV </summary>
+        /// <summary>
+        /// The CSV
+        /// </summary>
         CSV,
 
-        /// <summary> The text </summary>
+        /// <summary>
+        /// The text
+        /// </summary>
         TXT,
 
-        /// <summary> The PDF </summary>
+        /// <summary>
+        /// The PDF
+        /// </summary>
         PDF,
 
-        /// <summary> The docx </summary>
+        /// <summary>
+        /// The docx
+        /// </summary>
         DOCX,
 
-        /// <summary> The document </summary>
+        /// <summary>
+        /// The document
+        /// </summary>
         DOC,
 
-        /// <summary> The SQL </summary>
+        /// <summary>
+        /// The SQL
+        /// </summary>
         SQL,
 
-        /// <summary> The RESX </summary>
+        /// <summary>
+        /// The RESX
+        /// </summary>
         RESX,
 
-        /// <summary> The DLL </summary>
+        /// <summary>
+        /// The DLL
+        /// </summary>
         DLL,
 
-        /// <summary> The executable </summary>
+        /// <summary>
+        /// The executable
+        /// </summary>
         EXE,
 
-        /// <summary> The icon </summary>
+        /// <summary>
+        /// The icon
+        /// </summary>
         ICO,
 
-        /// <summary> The PNG </summary>
+        /// <summary>
+        /// The PNG
+        /// </summary>
         PNG,
 
-        /// <summary> The GIF </summary>
+        /// <summary>
+        /// The GIF
+        /// </summary>
         GIF
     }
 }

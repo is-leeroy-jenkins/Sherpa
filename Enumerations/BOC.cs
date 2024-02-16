@@ -42,31 +42,49 @@ namespace BudgetExecution
 {
     using System;
 
-    /// <summary> </summary>
+    /// <summary>
+    /// 
+    /// </summary>
     public enum BOC
     {
-        /// <summary> The payroll </summary>
+        /// <summary>
+        /// The payroll
+        /// </summary>
         Payroll = 10,
 
-        /// <summary> The fte </summary>
+        /// <summary>
+        /// The fte
+        /// </summary>
         FTE = 17,
 
-        /// <summary> The travel </summary>
+        /// <summary>
+        /// The travel
+        /// </summary>
         Travel = 21,
 
-        /// <summary> The site travel </summary>
+        /// <summary>
+        /// The site travel
+        /// </summary>
         SiteTravel = 28,
 
-        /// <summary> The expenses </summary>
+        /// <summary>
+        /// The expenses
+        /// </summary>
         Expenses = 36,
 
-        /// <summary> The contracts </summary>
+        /// <summary>
+        /// The contracts
+        /// </summary>
         Contracts = 37,
 
-        /// <summary> The WCF </summary>
+        /// <summary>
+        /// The WCF
+        /// </summary>
         WCF = 38,
 
-        /// <summary> The grants </summary>
+        /// <summary>
+        /// The grants
+        /// </summary>
         Grants = 41
     }
 }

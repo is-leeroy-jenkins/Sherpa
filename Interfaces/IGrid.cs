@@ -48,34 +48,66 @@ namespace BudgetExecution
     /// </summary>
     public interface IGrid
     {
-        /// <summary> The range </summary>
+        /// <summary>
+        /// The range
+        /// </summary>
+        /// <value>
+        /// The range.
+        /// </value>
         ExcelRange Range { get; }
 
-        /// <summary> The workSheet </summary>
+        /// <summary>
+        /// The workSheet
+        /// </summary>
+        /// <value>
+        /// The worksheet.
+        /// </value>
         ExcelWorksheet Worksheet { get; }
 
-        /// <summary> The address </summary>
+        /// <summary>
+        /// The address
+        /// </summary>
+        /// <value>
+        /// The address.
+        /// </value>
         ExcelAddress Address { get; }
 
-        /// <summary> Gets or sets from. </summary>
-        /// <value> From. </value>
-        ( int Row, int Column ) From { get; }
+        /// <summary>
+        /// Gets or sets from.
+        /// </summary>
+        /// <value>
+        /// From.
+        /// </value>
+        (int Row, int Column ) From { get; }
 
-        /// <summary> Gets or sets to. </summary>
-        /// <value> To. </value>
-        ( int Row, int Column ) To { get; }
+        /// <summary>
+        /// Gets or sets to.
+        /// </summary>
+        /// <value>
+        /// To.
+        /// </value>
+        (int Row, int Column ) To { get; }
 
-        /// <summary> Counts the cells. </summary>
-        /// <param name="range"> The range. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Counts the cells.
+        /// </summary>
+        /// <param name="range">The range.</param>
+        /// <returns>
+        /// </returns>
         int CountCells( ExcelRange range );
 
-        /// <summary> Gets the row count. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the row count.
+        /// </summary>
+        /// <returns>
+        /// </returns>
         int GetRowCount( );
 
-        /// <summary> Gets the column count. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the column count.
+        /// </summary>
+        /// <returns>
+        /// </returns>
         int GetColumnCount( );
     }
 }

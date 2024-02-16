@@ -42,60 +42,115 @@ namespace BudgetExecution
 {
     using System;
 
-    /// <summary> </summary>
-    /// <seealso cref="ISource"/>
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:BudgetExecution.ISource" />
+    /// <seealso cref="T:BudgetExecution.ISource" />
     public interface IProgramResultsCode : ISource
     {
-        /// <summary> Gets the budget level. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the budget level.
+        /// </summary>
+        /// <value>
+        /// The budget level.
+        /// </value>
         string BudgetLevel { get; set; }
 
-        /// <summary> Gets the resource planning office. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the resource planning office.
+        /// </summary>
+        /// <value>
+        /// The rpio code.
+        /// </value>
         string RpioCode { get; set; }
 
-        /// <summary> Gets the budget fiscal year. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the budget fiscal year.
+        /// </summary>
+        /// <value>
+        /// The bfy.
+        /// </value>
         string BFY { get; set; }
 
-        /// <summary> Gets the allowance holder. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the allowance holder.
+        /// </summary>
+        /// <value>
+        /// The ah code.
+        /// </value>
         string AhCode { get; set; }
 
-        /// <summary> Gets the fund. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the fund.
+        /// </summary>
+        /// <value>
+        /// The fund code.
+        /// </value>
         string FundCode { get; set; }
 
-        /// <summary> Gets the organization. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the organization.
+        /// </summary>
+        /// <value>
+        /// The org code.
+        /// </value>
         string OrgCode { get; set; }
 
-        /// <summary> Gets the account. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the account.
+        /// </summary>
+        /// <value>
+        /// The account code.
+        /// </value>
         string AccountCode { get; set; }
 
-        /// <summary> Gets or sets the activity code. </summary>
-        /// <value> The activity code. </value>
+        /// <summary>
+        /// Gets or sets the activity code.
+        /// </summary>
+        /// <value>
+        /// The activity code.
+        /// </value>
         string ActivityCode { get; set; }
 
-        /// <summary> Gets the responsibility center. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the responsibility center.
+        /// </summary>
+        /// <value>
+        /// The rc code.
+        /// </value>
         string RcCode { get; set; }
 
-        /// <summary> Gets the budget object class. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the budget object class.
+        /// </summary>
+        /// <value>
+        /// The boc code.
+        /// </value>
         string BocCode { get; set; }
 
-        /// <summary> Gets or sets the program project code. </summary>
-        /// <value> The program project code. </value>
+        /// <summary>
+        /// Gets or sets the program project code.
+        /// </summary>
+        /// <value>
+        /// The program project code.
+        /// </value>
         string ProgramProjectCode { get; set; }
 
-        /// <summary> Gets the program area. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the program area.
+        /// </summary>
+        /// <value>
+        /// The program area code.
+        /// </value>
         string ProgramAreaCode { get; set; }
 
-        /// <summary> Gets or sets the amount. </summary>
-        /// <value> The amount. </value>
+        /// <summary>
+        /// Gets or sets the amount.
+        /// </summary>
+        /// <value>
+        /// The amount.
+        /// </value>
         double Amount { get; set; }
     }
 }

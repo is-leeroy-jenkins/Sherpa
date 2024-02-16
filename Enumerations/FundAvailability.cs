@@ -41,20 +41,27 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
 
-    /// <summary> Defines the Fiscal Year Availability of Appropriated Funds </summary>
+    /// <summary>
+    /// Defines the Fiscal Year Availability of Appropriated Funds
+    /// </summary>
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public enum FundAvailability
     {
-        /// <summary> The none </summary>
-        Ns = 0,
-
-        /// <summary> The expiring </summary>
+        /// <summary>
+        /// The expiring
+        /// </summary>
         Expiring = 1,
 
-        /// <summary> The multi year </summary>
+        /// <summary>
+        /// The multiyear
+        /// </summary>
         MultiYear = 2,
 
-        /// <summary> The no year </summary>
+        /// <summary>
+        /// The no year
+        /// </summary>
         NoYear
     }
 }

@@ -41,32 +41,47 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
 
-    /// <summary> Defines the OutlayType </summary>
+    /// <summary>
+    /// Defines the OutlayType
+    /// </summary>
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public enum ExpenseType
     {
-        /// <summary> Defines the NoData </summary>
-        Ns = 0,
-
-        /// <summary> Defines the Commitment </summary>
+        /// <summary>
+        /// Defines the Commitment
+        /// </summary>
         Commitment,
 
-        /// <summary> Defines the OpenCommitment </summary>
+        /// <summary>
+        /// Defines the OpenCommitment
+        /// </summary>
         OpenCommitment,
 
-        /// <summary> Defines the Obligation </summary>
+        /// <summary>
+        /// Defines the Obligation
+        /// </summary>
         Obligation,
 
-        /// <summary> Defines the ULO </summary>
+        /// <summary>
+        /// Defines the ULO
+        /// </summary>
         ULO,
 
-        /// <summary> The de-obligation </summary>
+        /// <summary>
+        /// The de-obligation
+        /// </summary>
         Deobligation,
 
-        /// <summary> Defines the Expenditure </summary>
+        /// <summary>
+        /// Defines the Expenditure
+        /// </summary>
         Expenditure,
 
-        /// <summary> Defines the All </summary>
+        /// <summary>
+        /// Defines All
+        /// </summary>
         All
     }
 }

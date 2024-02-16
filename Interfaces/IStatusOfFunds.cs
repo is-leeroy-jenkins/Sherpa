@@ -44,167 +44,329 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
 
-    /// <summary> </summary>
+    /// <summary>
+    /// 
+    /// </summary>
     public interface IStatusOfFunds
     {
-        /// <summary> Gets or sets the identifier. </summary>
-        /// <value> The identifier. </value>
+        /// <summary>
+        /// Gets or sets the identifier.
+        /// </summary>
+        /// <value>
+        /// The identifier.
+        /// </value>
         public int ID { get; set; }
 
-        /// <summary> Gets or sets the budget level. </summary>
-        /// <value> The budget level. </value>
+        /// <summary>
+        /// Gets or sets the budget level.
+        /// </summary>
+        /// <value>
+        /// The budget level.
+        /// </value>
         string BudgetLevel { get; set; }
 
-        /// <summary> Gets or sets the amount. </summary>
-        /// <value> The amount. </value>
+        /// <summary>
+        /// Gets or sets the amount.
+        /// </summary>
+        /// <value>
+        /// The amount.
+        /// </value>
         public double Amount { get; set; }
 
-        /// <summary> Gets or sets the budgeted. </summary>
-        /// <value> The budgeted. </value>
+        /// <summary>
+        /// Gets or sets the budgeted.
+        /// </summary>
+        /// <value>
+        /// The budgeted.
+        /// </value>
         public double Budgeted { get; set; }
 
-        /// <summary> Gets or sets the posted. </summary>
-        /// <value> The posted. </value>
+        /// <summary>
+        /// Gets or sets the posted.
+        /// </summary>
+        /// <value>
+        /// The posted.
+        /// </value>
         public double Posted { get; set; }
 
-        /// <summary> Gets or sets the open commitments. </summary>
-        /// <value> The open commitments. </value>
+        /// <summary>
+        /// Gets or sets the open commitments.
+        /// </summary>
+        /// <value>
+        /// The open commitments.
+        /// </value>
         public double OpenCommitments { get; set; }
 
-        /// <summary> Gets or sets the unliquidated obligations. </summary>
-        /// <value> The unliquidated obligations. </value>
+        /// <summary>
+        /// Gets or sets the unliquidated obligations.
+        /// </summary>
+        /// <value>
+        /// The unliquidated obligations.
+        /// </value>
         public double UnliquidatedObligations { get; set; }
 
-        /// <summary> Gets or sets the expenditures. </summary>
-        /// <value> The expenditures. </value>
+        /// <summary>
+        /// Gets or sets the expenditures.
+        /// </summary>
+        /// <value>
+        /// The expenditures.
+        /// </value>
         public double Expenditures { get; set; }
 
-        /// <summary> Gets or sets the obligations. </summary>
-        /// <value> The obligations. </value>
+        /// <summary>
+        /// Gets or sets the obligations.
+        /// </summary>
+        /// <value>
+        /// The obligations.
+        /// </value>
         public double Obligations { get; set; }
 
-        /// <summary> Gets or sets the used. </summary>
-        /// <value> The used. </value>
+        /// <summary>
+        /// Gets or sets the used.
+        /// </summary>
+        /// <value>
+        /// The used.
+        /// </value>
         public double Used { get; set; }
 
-        /// <summary> Gets or sets the available. </summary>
-        /// <value> The available. </value>
+        /// <summary>
+        /// Gets or sets the available.
+        /// </summary>
+        /// <value>
+        /// The available.
+        /// </value>
         public double Available { get; set; }
 
-        /// <summary> Gets or sets the NPM code. </summary>
-        /// <value> The NPM code. </value>
+        /// <summary>
+        /// Gets or sets the NPM code.
+        /// </summary>
+        /// <value>
+        /// The NPM code.
+        /// </value>
         public string NpmCode { get; set; }
 
-        /// <summary> Gets or sets the name of the NPM. </summary>
-        /// <value> The name of the NPM. </value>
+        /// <summary>
+        /// Gets or sets the name of the NPM.
+        /// </summary>
+        /// <value>
+        /// The name of the NPM.
+        /// </value>
         public string NpmName { get; set; }
 
-        /// <summary> Gets or sets the treasury account code. </summary>
-        /// <value> The treasury account code. </value>
+        /// <summary>
+        /// Gets or sets the treasury account code.
+        /// </summary>
+        /// <value>
+        /// The treasury account code.
+        /// </value>
         public string TreasuryAccountCode { get; set; }
 
-        /// <summary> Gets or sets the name of the treasury account. </summary>
-        /// <value> The name of the treasury account. </value>
+        /// <summary>
+        /// Gets or sets the name of the treasury account.
+        /// </summary>
+        /// <value>
+        /// The name of the treasury account.
+        /// </value>
         public string TreasuryAccountName { get; set; }
 
-        /// <summary> Gets or sets the budget account code. </summary>
-        /// <value> The budget account code. </value>
+        /// <summary>
+        /// Gets or sets the budget account code.
+        /// </summary>
+        /// <value>
+        /// The budget account code.
+        /// </value>
         public string BudgetAccountCode { get; set; }
 
-        /// <summary> Gets or sets the name of the budget account. </summary>
-        /// <value> The name of the budget account. </value>
+        /// <summary>
+        /// Gets or sets the name of the budget account.
+        /// </summary>
+        /// <value>
+        /// The name of the budget account.
+        /// </value>
         public string BudgetAccountName { get; set; }
 
-        /// <summary> Gets or sets the source. </summary>
-        /// <value> The source. </value>
+        /// <summary>
+        /// Gets or sets the source.
+        /// </summary>
+        /// <value>
+        /// The source.
+        /// </value>
         Source Source { get; set; }
 
-        /// <summary> Gets or sets the record. </summary>
-        /// <value> The record. </value>
+        /// <summary>
+        /// Gets or sets the record.
+        /// </summary>
+        /// <value>
+        /// The record.
+        /// </value>
         DataRow Record { get; set; }
 
-        /// <summary> Gets or sets the data. </summary>
-        /// <value> The data. </value>
+        /// <summary>
+        /// Gets or sets the data.
+        /// </summary>
+        /// <value>
+        /// The data.
+        /// </value>
         IDictionary<string, object> Data { get; set; }
 
-        /// <summary> Gets or sets the provider. </summary>
-        /// <value> The provider. </value>
+        /// <summary>
+        /// Gets or sets the provider.
+        /// </summary>
+        /// <value>
+        /// The provider.
+        /// </value>
         Provider Provider { get; set; }
 
-        /// <summary> Gets or sets the bfy. </summary>
-        /// <value> The bfy. </value>
+        /// <summary>
+        /// Gets or sets the bfy.
+        /// </summary>
+        /// <value>
+        /// The bfy.
+        /// </value>
         string BFY { get; set; }
 
-        /// <summary> Gets or sets the efy. </summary>
-        /// <value> The efy. </value>
+        /// <summary>
+        /// Gets or sets the efy.
+        /// </summary>
+        /// <value>
+        /// The efy.
+        /// </value>
         string EFY { get; set; }
 
-        /// <summary> Gets or sets the fund code. </summary>
-        /// <value> The fund code. </value>
+        /// <summary>
+        /// Gets or sets the fund code.
+        /// </summary>
+        /// <value>
+        /// The fund code.
+        /// </value>
         string FundCode { get; set; }
 
-        /// <summary> Gets or sets the name of the fund. </summary>
-        /// <value> The name of the fund. </value>
+        /// <summary>
+        /// Gets or sets the name of the fund.
+        /// </summary>
+        /// <value>
+        /// The name of the fund.
+        /// </value>
         string FundName { get; set; }
 
-        /// <summary> Gets or sets the rpio code. </summary>
-        /// <value> The rpio code. </value>
+        /// <summary>
+        /// Gets or sets the rpio code.
+        /// </summary>
+        /// <value>
+        /// The rpio code.
+        /// </value>
         string RpioCode { get; set; }
 
-        /// <summary> Gets or sets the name of the rpio. </summary>
-        /// <value> The name of the rpio. </value>
+        /// <summary>
+        /// Gets or sets the name of the rpio.
+        /// </summary>
+        /// <value>
+        /// The name of the rpio.
+        /// </value>
         string RpioName { get; set; }
 
-        /// <summary> Gets or sets the ah code. </summary>
-        /// <value> The ah code. </value>
+        /// <summary>
+        /// Gets or sets the ah code.
+        /// </summary>
+        /// <value>
+        /// The ah code.
+        /// </value>
         string AhCode { get; set; }
 
-        /// <summary> Gets or sets the name of the ah. </summary>
-        /// <value> The name of the ah. </value>
+        /// <summary>
+        /// Gets or sets the name of the ah.
+        /// </summary>
+        /// <value>
+        /// The name of the ah.
+        /// </value>
         string AhName { get; set; }
 
-        /// <summary> Gets or sets the org code. </summary>
-        /// <value> The org code. </value>
+        /// <summary>
+        /// Gets or sets the org code.
+        /// </summary>
+        /// <value>
+        /// The org code.
+        /// </value>
         string OrgCode { get; set; }
 
-        /// <summary> Gets or sets the name of the org. </summary>
-        /// <value> The name of the org. </value>
+        /// <summary>
+        /// Gets or sets the name of the org.
+        /// </summary>
+        /// <value>
+        /// The name of the org.
+        /// </value>
         string OrgName { get; set; }
 
-        /// <summary> Gets or sets the account code. </summary>
-        /// <value> The account code. </value>
+        /// <summary>
+        /// Gets or sets the account code.
+        /// </summary>
+        /// <value>
+        /// The account code.
+        /// </value>
         string AccountCode { get; set; }
 
-        /// <summary> Gets or sets the boc code. </summary>
-        /// <value> The boc code. </value>
+        /// <summary>
+        /// Gets or sets the boc code.
+        /// </summary>
+        /// <value>
+        /// The boc code.
+        /// </value>
         string BocCode { get; set; }
 
-        /// <summary> Gets or sets the name of the boc. </summary>
-        /// <value> The name of the boc. </value>
+        /// <summary>
+        /// Gets or sets the name of the boc.
+        /// </summary>
+        /// <value>
+        /// The name of the boc.
+        /// </value>
         string BocName { get; set; }
 
-        /// <summary> Gets or sets the rc code. </summary>
-        /// <value> The rc code. </value>
+        /// <summary>
+        /// Gets or sets the rc code.
+        /// </summary>
+        /// <value>
+        /// The rc code.
+        /// </value>
         string RcCode { get; set; }
 
-        /// <summary> Gets or sets the name of the rc. </summary>
-        /// <value> The name of the rc. </value>
+        /// <summary>
+        /// Gets or sets the name of the rc.
+        /// </summary>
+        /// <value>
+        /// The name of the rc.
+        /// </value>
         string RcName { get; set; }
 
-        /// <summary> Gets or sets the program project code. </summary>
-        /// <value> The program project code. </value>
+        /// <summary>
+        /// Gets or sets the program project code.
+        /// </summary>
+        /// <value>
+        /// The program project code.
+        /// </value>
         string ProgramProjectCode { get; set; }
 
-        /// <summary> Gets or sets the name of the program project. </summary>
-        /// <value> The name of the program project. </value>
+        /// <summary>
+        /// Gets or sets the name of the program project.
+        /// </summary>
+        /// <value>
+        /// The name of the program project.
+        /// </value>
         string ProgramProjectName { get; set; }
 
-        /// <summary> Gets or sets the program area code. </summary>
-        /// <value> The program area code. </value>
+        /// <summary>
+        /// Gets or sets the program area code.
+        /// </summary>
+        /// <value>
+        /// The program area code.
+        /// </value>
         string ProgramAreaCode { get; set; }
 
-        /// <summary> Gets or sets the name of the program area. </summary>
-        /// <value> The name of the program area. </value>
+        /// <summary>
+        /// Gets or sets the name of the program area.
+        /// </summary>
+        /// <value>
+        /// The name of the program area.
+        /// </value>
         string ProgramAreaName { get; set; }
     }
 }

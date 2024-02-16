@@ -42,15 +42,22 @@ namespace BudgetExecution
 {
     using System;
 
-    /// <summary> </summary>
+    /// <summary>
+    /// </summary>
     public interface IKey
     {
-        /// <summary> Gets the index. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the index.
+        /// </summary>
+        /// <returns>
+        /// </returns>
         int Index { get; set; }
 
-        /// <summary> Gets the name. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the name.
+        /// </summary>
+        /// <returns>
+        /// </returns>
         string Name { get; set; }
     }
 }
