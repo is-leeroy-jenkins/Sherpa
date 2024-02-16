@@ -64,8 +64,12 @@ namespace BudgetExecution
         /// </value>
         string ClientPath { get; }
 
-        /// <summary> Gets or sets the extension. </summary>
-        /// <value> The extension. </value>
+        /// <summary>
+        /// Gets or sets the extension.
+        /// </summary>
+        /// <value>
+        /// The extension.
+        /// </value>
         EXT Extension { get; }
 
         /// <summary>
@@ -111,13 +115,15 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the connection.
         /// </summary>
-        /// <returns> </returns>
+        /// <returns>
+        /// </returns>
         DbConnection Create( );
 
         /// <summary>
         /// Creates the asynchronous.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         Task<DbConnection> CreateAsync( );
     }
 }

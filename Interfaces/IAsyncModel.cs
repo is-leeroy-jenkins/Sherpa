@@ -217,8 +217,12 @@ namespace BudgetExecution
         /// <returns> </returns>
         IEnumerable<string> GetValues( IEnumerable<DataRow> dataRows, string columnName );
 
-        /// <summary> Creates the series asynchronous. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Creates the series asynchronous.
+        /// </summary>
+        /// <returns>
+        /// Task
+        /// </returns>
         Task<IDictionary<string, IEnumerable<string>>> GetSeriesAsync( );
 
         /// <summary>
@@ -235,7 +239,8 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the data table asynchronous.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         Task<DataTable> GetDataTableAsync( );
 
         /// <inheritdoc />
@@ -270,21 +275,24 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the fields asynchronous.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         Task<IList<string>> GetFieldsAsync( );
 
         /// <inheritdoc />
         /// <summary>
         /// Gets the numerics asynchronous.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         Task<IList<string>> GetNumericsAsync( );
 
         /// <inheritdoc />
         /// <summary>
         /// Gets the dates asynchronous.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         Task<IList<string>> GetDatesAsync( );
 
         /// <inheritdoc />
@@ -299,42 +307,48 @@ namespace BudgetExecution
         /// Gets the query asynchronous.
         /// </summary>
         /// <param name="sqlStatement">The SQL statement.</param>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         Task<IQuery> GetQueryAsync( SqlStatement sqlStatement );
 
         /// <inheritdoc />
         /// <summary>
         /// Gets the ordinals asynchronous.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         Task<IEnumerable<int>> GetOrdinalsAsync( );
 
         /// <inheritdoc />
         /// <summary>
         /// Gets the map asynchronous.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         Task<IDictionary<string, object>> GetMapAsync( );
 
         /// <inheritdoc />
         /// <summary>
         /// Gets the schema asynchronous.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         Task<IDictionary<string, Type>> GetSchemaAsync( );
 
         /// <inheritdoc />
         /// <summary>
         /// Gets the columns asynchronous.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         Task<IEnumerable<DataColumn>> GetColumnsAsync( );
 
         /// <inheritdoc />
         /// <summary>
         /// Gets the names asynchronous.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         Task<IEnumerable<string>> GetNamesAsync( );
     }
 }

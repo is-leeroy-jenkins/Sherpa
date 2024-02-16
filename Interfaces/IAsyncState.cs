@@ -189,7 +189,8 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the fields asynchronous.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         public Task<IList<string>> GetFieldsAsync( );
 
         /// <summary>
@@ -201,13 +202,15 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the dates asynchronous.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         public Task<IList<string>> GetDatesAsync( );
 
         /// <summary>
         /// Gets the primary keys asynchronous.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         public Task<IList<int>> GetPrimaryKeysAsync( );
     }
 }
