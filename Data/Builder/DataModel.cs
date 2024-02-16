@@ -340,8 +340,8 @@ namespace BudgetExecution
         {
             _source = query.Source;
             _provider = query.Provider;
-            _connection = query.Connection.Create( );
             _sqlStatement = query.SqlStatement;
+            _connection = new BudgetConnection( _source, _provider ).Create( );
             _dataTable = GetDataTable( );
             _dataColumns = GetDataColumns( );
             _columnNames = GetColumnNames( );

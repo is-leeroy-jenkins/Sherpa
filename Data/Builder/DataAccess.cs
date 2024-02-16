@@ -194,7 +194,7 @@ namespace BudgetExecution
                 _dataTable.TableName = _source.ToString( );
                 _dataSet.Tables.Add( _dataTable );
                 using var _query = new Query( _sqlStatement );
-                using var _adapter = _query.GetAdapter( );
+                using var _adapter = _query.DataAdapter;
                 _adapter.Fill( _dataSet, _dataTable.TableName );
                 SetColumnCaptions( _dataTable );
                 _duration = _clock.Elapsed;

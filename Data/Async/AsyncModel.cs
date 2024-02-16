@@ -351,12 +351,11 @@ namespace BudgetExecution
         /// <param name="query"> The query. </param>
         public AsyncModel( IQuery query )
         {
-            BeginInit( );
             _query = query;
             _source = query.Source;
             _provider = query.Provider;
-            _connection = query.Connection.Create( );
             _sqlStatement = query.SqlStatement;
+            _connection = new BudgetConnection( _source, _provider ).Create( );
             _dataTable = GetDataTableAsync( );
             _dataColumns = GetColumnsAsync( );
             _columnNames = GetNamesAsync( );
@@ -367,7 +366,6 @@ namespace BudgetExecution
             _dataElements = GetSeriesAsync( );
             _record = GetRecordAsync( );
             _map = GetMapAsync( );
-            EndInit( );
         }
 
         /// <summary>
@@ -375,7 +373,14 @@ namespace BudgetExecution
         /// </summary>
         private protected void BeginInit( )
         {
-            _busy = true;
+            try
+            {
+                _busy = true;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -383,26 +388,33 @@ namespace BudgetExecution
         /// </summary>
         private protected void EndInit( )
         {
-            _busy = false;
+            try
+            {
+                _busy = false;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary> Gets the values asynchronous. </summary>
         /// <param name="dataRows"> The data rows. </param>
-        /// <param name="columnName"> The name. </param>
-        /// <param name="columnValue"> The value. </param>
+        /// <param name="name"> The name. </param>
+        /// <param name="value"> The value. </param>
         /// <returns> </returns>
         public Task<IList<string>> GetValuesAsync( IEnumerable<DataRow> dataRows,
-            string columnName, string columnValue )
+            string name, string value )
         {
             ThrowIf.Null( dataRows, nameof( dataRows ) );
-            ThrowIf.NullOrEmpty( columnName, nameof( columnName ) );
-            ThrowIf.NullOrEmpty( columnValue, nameof( columnValue ) );
+            ThrowIf.NullOrEmpty( name, nameof( name ) );
+            ThrowIf.NullOrEmpty( value, nameof( value ) );
             var _async = new TaskCompletionSource<IList<string>>( );
             try
             {
                 var _select = dataRows
-                    ?.Where( v => v.Field<string>( $"{columnName}" ).Equals( columnValue ) )
-                    ?.Select( v => v.Field<string>( $"{columnName}" ) )
+                    ?.Where( v => v.Field<string>( $"{name}" ).Equals( value ) )
+                    ?.Select( v => v.Field<string>( $"{name}" ) )
                     ?.Distinct( )
                     ?.ToList( );
 
@@ -421,16 +433,16 @@ namespace BudgetExecution
 
         /// <summary> Gets the values. </summary>
         /// <param name="dataRows"> The data rows. </param>
-        /// <param name="columnName"> The column. </param>
+        /// <param name="name"> The column. </param>
         /// <returns> </returns>
-        private IEnumerable<string> GetValues( IEnumerable<DataRow> dataRows, string columnName )
+        private IEnumerable<string> GetValues( IEnumerable<DataRow> dataRows, string name )
         {
             try
             {
                 ThrowIf.Null( dataRows, nameof( dataRows ) );
-                ThrowIf.NullOrEmpty( columnName, nameof( columnName ) );
+                ThrowIf.NullOrEmpty( name, nameof( name ) );
                 var _values = dataRows
-                    ?.Select( v => v.Field<string>( columnName ) )
+                    ?.Select( v => v.Field<string>( name ) )
                     ?.Distinct( )
                     ?.ToList( );
 

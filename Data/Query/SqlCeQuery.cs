@@ -208,8 +208,8 @@ namespace BudgetExecution
                     var _excelQuery = new ExcelQuery( filePath, _sql );
                     var _connection = DataConnection as OleDbConnection;
                     _connection?.Open( );
-                    var _dataAdapter = _excelQuery.GetAdapter( );
-                    _dataAdapter.Fill( _dataSet );
+                    var _adapter = _excelQuery.DataAdapter;
+                    _adapter.Fill( _dataSet );
                     return _dataTable.Columns.Count > 0
                         ? _dataTable
                         : default( DataTable );
@@ -251,8 +251,8 @@ namespace BudgetExecution
                 {
                     var _sql = $"SELECT * FROM {sheetName}$";
                     using var _csvQuery = new CsvQuery( _cstring, _sql );
-                    var _dataAdapter = _csvQuery.GetAdapter( ) as OleDbDataAdapter;
-                    _dataAdapter?.Fill( _dataSet, sheetName );
+                    var _adapter = _csvQuery.DataAdapter;
+                    _adapter?.Fill( _dataSet, sheetName );
                     return _dataTable.Columns.Count > 0
                         ? _dataTable
                         : default( DataTable );

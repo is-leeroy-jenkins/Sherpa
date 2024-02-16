@@ -151,25 +151,6 @@ namespace BudgetExecution
 
         /// <inheritdoc />
         /// <summary>
-        /// Gets or sets the connection factory.
-        /// </summary>
-        /// <value>
-        /// The connection factory.
-        /// </value>
-        public IBudgetConnection Connection
-        {
-            get
-            {
-                return Connection;
-            }
-            private protected set
-            {
-                Connection = value;
-            }
-        }
-
-        /// <inheritdoc />
-        /// <summary>
         /// Gets or sets the data connection.
         /// </summary>
         /// <value>
@@ -265,8 +246,13 @@ namespace BudgetExecution
         /// <param name="commandType"> The commandType. </param>
         public Query( Source source, Provider provider = Provider.Access,
             SQL commandType = SQL.SELECTALL )
-            : base( source, provider, commandType )
         {
+            _source = source;
+            _provider = provider;
+            _dataConnection = new BudgetConnection( source, provider ).Create( );
+            _sqlStatement = new SqlStatement( source, provider, commandType );
+            _dataAdapter = new BudgetAdapter( _sqlStatement ).Create( );
+            _isDisposed = false;
         }
 
         /// <inheritdoc/>
@@ -280,9 +266,15 @@ namespace BudgetExecution
         /// <param name="where"> The dictionary of parameters. </param>
         /// <param name="commandType"> The type of sql command. </param>
         public Query( Source source, Provider provider, IDictionary<string, object> where,
-            SQL commandType )
-            : base( source, provider, where, commandType )
+            SQL commandType = SQL.SELECTALL )
         {
+            _source = source;
+            _provider = provider;
+            _criteria = where;
+            _dataConnection = new BudgetConnection( source, provider ).Create( );
+            _sqlStatement = new SqlStatement( source, provider, where, commandType );
+            _dataAdapter = new BudgetAdapter( _sqlStatement ).Create( );
+            _isDisposed = false;
         }
 
         /// <inheritdoc/>
@@ -298,8 +290,14 @@ namespace BudgetExecution
         /// <param name="commandType"> Type of the command. </param>
         public Query( Source source, Provider provider, IDictionary<string, object> updates,
             IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
-            : base( source, provider, updates, where, commandType )
         {
+            _source = source;
+            _provider = provider;
+            _criteria = where;
+            _dataConnection = new BudgetConnection( source, provider ).Create( );
+            _sqlStatement = new SqlStatement( source, provider, updates, where, commandType );
+            _dataAdapter = new BudgetAdapter( _sqlStatement ).Create( );
+            _isDisposed = false;
         }
 
         /// <inheritdoc/>
@@ -315,8 +313,15 @@ namespace BudgetExecution
         /// <param name="commandType"> Type of the command. </param>
         public Query( Source source, Provider provider, IEnumerable<string> columns,
             IDictionary<string, object> where, SQL commandType = SQL.SELECT )
-            : base( source, provider, columns, where, commandType )
         {
+            _source = source;
+            _provider = provider;
+            _criteria = where;
+            _commandType = commandType;
+            _dataConnection = new BudgetConnection( source, provider ).Create( );
+            _sqlStatement = new SqlStatement( source, provider, columns, where, commandType );
+            _dataAdapter = new BudgetAdapter( _sqlStatement ).Create( );
+            _isDisposed = false;
         }
 
         /// <inheritdoc/>
@@ -334,8 +339,16 @@ namespace BudgetExecution
         public Query( Source source, Provider provider, IEnumerable<string> columns,
             IEnumerable<string> numerics, IDictionary<string, object> having,
             SQL commandType = SQL.SELECT )
-            : base( source, provider, columns, having, commandType )
         {
+            _source = source;
+            _provider = provider;
+            _criteria = having;
+            _dataConnection = new BudgetConnection( source, provider ).Create( );
+            _sqlStatement = new SqlStatement( source, provider, columns, numerics,
+                having, commandType );
+
+            _dataAdapter = new BudgetAdapter( _sqlStatement ).Create( );
+            _isDisposed = false;
         }
 
         /// <inheritdoc/>
@@ -346,8 +359,14 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sqlStatement"> The sqlStatement. </param>
         public Query( ISqlStatement sqlStatement )
-            : base( sqlStatement )
         {
+            _sqlStatement = sqlStatement;
+            _source = sqlStatement.Source;
+            _provider = sqlStatement.Provider;
+            _criteria = sqlStatement.Criteria;
+            _dataConnection = new BudgetConnection( _source, _provider ).Create( );
+            _dataAdapter = new BudgetAdapter( sqlStatement ).Create( );
+            _isDisposed = false;
         }
 
         /// <inheritdoc/>
@@ -360,22 +379,14 @@ namespace BudgetExecution
         /// <param name="provider"> The provider. </param>
         /// <param name="sqlText"> The SQL text. </param>
         public Query( Source source, Provider provider, string sqlText )
-            : base( source, provider, sqlText )
         {
-        }
-
-        /// <inheritdoc/>
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Query"/>
-        /// class.
-        /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        /// <param name="where"> The dictionary. </param>
-        public Query( Source source, Provider provider, IDictionary<string, object> where )
-            : base( source, provider, where )
-        {
+            _source = source;
+            _provider = provider;
+            _dataConnection = new BudgetConnection( source, provider ).Create( );
+            _sqlStatement = new SqlStatement( source, provider, sqlText );
+            _dataAdapter = new BudgetAdapter( _sqlStatement ).Create( );
+            _isDisposed = false;
+            _criteria = null;
         }
 
         /// <inheritdoc/>
@@ -388,8 +399,14 @@ namespace BudgetExecution
         /// <param name="sqlText"> </param>
         /// <param name="commandType"> The commandType. </param>
         public Query( string fullPath, string sqlText, SQL commandType = SQL.SELECT )
-            : base( fullPath, sqlText, commandType )
         {
+            _criteria = null;
+            _provider = Provider.Access;
+            _source = Source.External;
+            _dataConnection = new BudgetConnection( fullPath ).Create( );
+            _sqlStatement = new SqlStatement( _source, _provider, sqlText );
+            _dataAdapter = new BudgetAdapter( _sqlStatement ).Create( );
+            _isDisposed = false;
         }
 
         /// <inheritdoc/>
@@ -402,8 +419,15 @@ namespace BudgetExecution
         /// <param name="commandType"> The commandType. </param>
         /// <param name="where"> The dictionary. </param>
         public Query( string fullPath, SQL commandType, IDictionary<string, object> where )
-            : base( fullPath, commandType, where )
         {
+            _criteria = where;
+            _commandType = commandType;
+            _provider = Provider.Access;
+            _source = Source.External;
+            _dataConnection = new BudgetConnection( fullPath ).Create( );
+            _sqlStatement = new SqlStatement( _source, _provider, where, commandType );
+            _dataAdapter = new BudgetAdapter( _sqlStatement ).Create( );
+            _isDisposed = false;
         }
     }
 }

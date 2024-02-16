@@ -213,8 +213,8 @@ namespace BudgetExecution
                     using var _excelQuery = new ExcelQuery( _path, _sql );
                     var _connection = DataConnection as OleDbConnection;
                     _connection?.Open( );
-                    using var _dataAdapter = _excelQuery.GetAdapter( );
-                    _dataAdapter.Fill( _dataSet );
+                    using var _adapter = _excelQuery.DataAdapter;
+                    _adapter.Fill( _dataSet );
                     return _dataTable.Columns.Count > 0
                         ? _dataTable
                         : default( DataTable );

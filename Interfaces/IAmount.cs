@@ -41,20 +41,34 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
 
-    /// <summary> </summary>
+    /// <summary>
+    /// 
+    /// </summary>
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public interface IAmount
     {
-        /// <summary> Gets the funding. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the funding.
+        /// </summary>
+        /// <value>
+        /// The value.
+        /// </value>
         double Value { get; set; }
 
-        /// <summary> Gets the numeric column. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the numeric column.
+        /// </summary>
+        /// <value>
+        /// The numeric.
+        /// </value>
         string Numeric { get; set; }
 
-        /// <summary> Gets the IAmount </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the IAmount
+        /// </summary>
+        /// <returns></returns>
         public IAmount GetAmount( );
     }
 }
