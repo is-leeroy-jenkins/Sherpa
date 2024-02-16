@@ -311,7 +311,7 @@
     <Compile Update="Data\Adapter\AdapterBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="Data\Adapter\AdapterFactory.cs">
+    <Compile Update="Data\Adapter\BudgetAdapter.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\GeoMapper\GeoMapper.cs">

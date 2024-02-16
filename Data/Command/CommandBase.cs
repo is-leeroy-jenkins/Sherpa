@@ -91,7 +91,7 @@ namespace BudgetExecution
         /// <value>
         ///  
         /// </value>
-        private protected IConnectionFactory _connectionFactory;
+        private protected DbConnection _connection;
         
         /// <summary>
         /// 
@@ -133,15 +133,15 @@ namespace BudgetExecution
         /// <value>
         /// The connection factory.
         /// </value>
-        public IConnectionFactory ConnectionFactory
+        public DbConnection Connection
         {
             get
             {
-                return _connectionFactory;
+                return _connection;
             }
             private protected set
             {
-                _connectionFactory = value;
+                _connection = value;
             }
         }
 
@@ -235,7 +235,7 @@ namespace BudgetExecution
             _source = source;
             _provider = provider;
             _commandType = commandType;
-            _connectionFactory = new ConnectionFactory( source, provider );
+            _connection = new BudgetConnection( source, provider ).Create( );
             _sqlStatement = new SqlStatement( source, provider, sqlText, commandType );
         }
 
@@ -254,7 +254,7 @@ namespace BudgetExecution
             _source = source;
             _provider = provider;
             _commandType = commandType;
-            _connectionFactory = new ConnectionFactory( source, provider );
+            _connection = new BudgetConnection( source, provider ).Create( );
             _sqlStatement = new SqlStatement( source, provider, where, commandType );
         }
 
@@ -274,7 +274,7 @@ namespace BudgetExecution
             _source = source;
             _provider = provider;
             _commandType = commandType;
-            _connectionFactory = new ConnectionFactory( source, provider );
+            _connection = new BudgetConnection( source, provider ).Create( );
             _sqlStatement = new SqlStatement( source, provider, update, where, commandType );
         }
 
@@ -294,7 +294,7 @@ namespace BudgetExecution
             _source = source;
             _provider = provider;
             _commandType = commandType;
-            _connectionFactory = new ConnectionFactory( source, provider );
+            _connection = new BudgetConnection( source, provider ).Create( );
             _sqlStatement = new SqlStatement( source, provider, columns, where, commandType );
         }
 
@@ -316,7 +316,7 @@ namespace BudgetExecution
             _source = source;
             _provider = provider;
             _commandType = commandType;
-            _connectionFactory = new ConnectionFactory( source, provider );
+            _connection = new BudgetConnection( source, provider ).Create( );
             _sqlStatement = new SqlStatement( source, provider, fields, numerics, having,
                 commandType );
         }
@@ -333,22 +333,20 @@ namespace BudgetExecution
             _source = sqlStatement.Source;
             _provider = sqlStatement.Provider;
             _commandType = sqlStatement.CommandType;
-            _connectionFactory = new ConnectionFactory( sqlStatement.Source, sqlStatement.Provider );
+            _connection = new BudgetConnection( sqlStatement.Source, sqlStatement.Provider ).Create( );
         }
 
         /// <summary>
-        /// Gets the sq lite command.
+        /// Gets the sqlite command.
         /// </summary>
         /// <returns> </returns>
         private protected DbCommand GetSQLiteCommand( )
         {
             if( ( _sqlStatement != null )
-               && Enum.IsDefined( typeof( SQL ), _sqlStatement.CommandType )
-               && ( _connectionFactory != null ) )
+               && ( _connection != null ) )
             {
                 try
                 {
-                    var _connection = _connectionFactory?.Connection as SQLiteConnection;
                     switch( _sqlStatement?.CommandType )
                     {
                         case SQL.SELECTALL:
@@ -356,28 +354,28 @@ namespace BudgetExecution
                         {
                             var _sql = _sqlStatement?.GetCommandText( );
                             return !string.IsNullOrEmpty( _sql )
-                                ? new SQLiteCommand( _sql, _connection )
+                                ? new SQLiteCommand( _sql, _connection as SQLiteConnection )
                                 : default( SQLiteCommand );
                         }
                         case SQL.INSERT:
                         {
                             var _sql = _sqlStatement?.GetCommandText( );
-                            return new SQLiteCommand( _sql, _connection );
+                            return new SQLiteCommand( _sql, _connection as SQLiteConnection );
                         }
                         case SQL.UPDATE:
                         {
                             var _sql = _sqlStatement?.GetCommandText( );
-                            return new SQLiteCommand( _sql, _connection );
+                            return new SQLiteCommand( _sql, _connection as SQLiteConnection );
                         }
                         case SQL.DELETE:
                         {
                             var _sql = _sqlStatement?.GetCommandText( );
-                            return new SQLiteCommand( _sql, _connection );
+                            return new SQLiteCommand( _sql, _connection as SQLiteConnection );
                         }
                         default:
                         {
                             var _sql = _sqlStatement?.GetCommandText( );
-                            return new SQLiteCommand( _sql, _connection );
+                            return new SQLiteCommand( _sql, _connection as SQLiteConnection );
                         }
                     }
                 }
@@ -399,12 +397,10 @@ namespace BudgetExecution
         private protected DbCommand GetSqlCeCommand( )
         {
             if( ( _sqlStatement != null )
-               && Enum.IsDefined( typeof( SQL ), _sqlStatement.CommandType )
-               && ( _connectionFactory != null ) )
+               && ( _connection != null ) )
             {
                 try
                 {
-                    var _connection = _connectionFactory?.Connection as SqlCeConnection;
                     switch( _sqlStatement?.CommandType )
                     {
                         case SQL.SELECTALL:
@@ -412,35 +408,35 @@ namespace BudgetExecution
                         {
                             var _sql = _sqlStatement?.GetCommandText( );
                             return !string.IsNullOrEmpty( _sql )
-                                ? new SqlCeCommand( _sql, _connection )
+                                ? new SqlCeCommand( _sql, _connection as SqlCeConnection )
                                 : default( DbCommand );
                         }
                         case SQL.INSERT:
                         {
                             var _sql = _sqlStatement?.GetCommandText( );
                             return !string.IsNullOrEmpty( _sql )
-                                ? new SqlCeCommand( _sql, _connection )
+                                ? new SqlCeCommand( _sql, _connection as SqlCeConnection )
                                 : default( DbCommand );
                         }
                         case SQL.UPDATE:
                         {
                             var _sql = _sqlStatement?.GetCommandText( );
                             return !string.IsNullOrEmpty( _sql )
-                                ? new SqlCeCommand( _sql, _connection )
+                                ? new SqlCeCommand( _sql, _connection as SqlCeConnection )
                                 : default( DbCommand );
                         }
                         case SQL.DELETE:
                         {
                             var _sql = _sqlStatement?.GetCommandText( );
                             return !string.IsNullOrEmpty( _sql )
-                                ? new SqlCeCommand( _sql, _connection )
+                                ? new SqlCeCommand( _sql, _connection as SqlCeConnection )
                                 : default( DbCommand );
                         }
                         default:
                         {
                             var _sql = _sqlStatement?.GetCommandText( );
                             return !string.IsNullOrEmpty( _sql )
-                                ? new SqlCeCommand( _sql, _connection )
+                                ? new SqlCeCommand( _sql, _connection as SqlCeConnection )
                                 : default( DbCommand );
                         }
                     }
@@ -463,39 +459,37 @@ namespace BudgetExecution
         private protected DbCommand GetSqlCommand( )
         {
             if( ( _sqlStatement != null )
-               && Enum.IsDefined( typeof( SQL ), _sqlStatement.CommandType )
-               && ( _connectionFactory != null ) )
+               && ( _connection != null ) )
             {
                 try
                 {
-                    var _connection = _connectionFactory?.Connection as SqlConnection;
                     switch( _sqlStatement?.CommandType )
                     {
                         case SQL.SELECTALL:
                         case SQL.SELECT:
                         {
                             var _sql = _sqlStatement?.GetCommandText( );
-                            return new SqlCommand( _sql, _connection );
+                            return new SqlCommand( _sql, _connection as SqlConnection );
                         }
                         case SQL.INSERT:
                         {
                             var _sql = _sqlStatement?.GetCommandText( );
-                            return new SqlCommand( _sql, _connection );
+                            return new SqlCommand( _sql, _connection as SqlConnection );
                         }
                         case SQL.UPDATE:
                         {
                             var _sql = _sqlStatement?.GetCommandText( );
-                            return new SqlCommand( _sql, _connection );
+                            return new SqlCommand( _sql, _connection as SqlConnection );
                         }
                         case SQL.DELETE:
                         {
                             var _sql = _sqlStatement?.GetCommandText( );
-                            return new SqlCommand( _sql, _connection );
+                            return new SqlCommand( _sql, _connection as SqlConnection );
                         }
                         default:
                         {
                             var _sql = _sqlStatement?.GetCommandText( );
-                            return new SqlCommand( _sql, _connection );
+                            return new SqlCommand( _sql, _connection as SqlConnection );
                         }
                     }
                 }
@@ -515,38 +509,37 @@ namespace BudgetExecution
         {
             if( ( _sqlStatement != null )
                && Enum.IsDefined( typeof( SQL ), _sqlStatement.CommandType )
-               && ( _connectionFactory != null ) )
+               && ( _connection != null ) )
             {
                 try
                 {
-                    var _connection = _connectionFactory?.Connection as OleDbConnection;
                     switch( _sqlStatement?.CommandType )
                     {
                         case SQL.SELECTALL:
                         case SQL.SELECT:
                         {
                             var _sql = _sqlStatement?.GetCommandText( );
-                            return new OleDbCommand( _sql, _connection );
+                            return new OleDbCommand( _sql, _connection as OleDbConnection );
                         }
                         case SQL.INSERT:
                         {
                             var _sql = _sqlStatement?.GetCommandText( );
-                            return new OleDbCommand( _sql, _connection );
+                            return new OleDbCommand( _sql, _connection as OleDbConnection );
                         }
                         case SQL.UPDATE:
                         {
                             var _sql = _sqlStatement?.GetCommandText( );
-                            return new OleDbCommand( _sql, _connection );
+                            return new OleDbCommand( _sql, _connection as OleDbConnection );
                         }
                         case SQL.DELETE:
                         {
                             var _sql = _sqlStatement?.GetCommandText( );
-                            return new OleDbCommand( _sql, _connection );
+                            return new OleDbCommand( _sql, _connection as OleDbConnection );
                         }
                         default:
                         {
                             var _sql = _sqlStatement?.GetCommandText( );
-                            return new OleDbCommand( _sql, _connection );
+                            return new OleDbCommand( _sql, _connection as OleDbConnection );
                         }
                     }
                 }

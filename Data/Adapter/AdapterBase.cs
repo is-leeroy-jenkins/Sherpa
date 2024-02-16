@@ -63,6 +63,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MergeConditionalExpression" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
     public class AdapterBase : DbDataAdapter
     {
         /// <summary>
@@ -91,11 +92,6 @@ namespace BudgetExecution
         private protected ISqlStatement _sqlStatement;
 
         /// <summary>
-        /// The connection factory
-        /// </summary>
-        private protected IConnectionFactory _connectionFactory;
-
-        /// <summary>
         /// The criteria
         /// </summary>
         private protected IDictionary<string, object> _criteria;
@@ -108,7 +104,7 @@ namespace BudgetExecution
         /// <summary>
         /// The command factory
         /// </summary>
-        private protected ICommandFactory _commandFactory;
+        private protected IBudgetCommand _commandFactory;
 
         /// <summary>
         /// The command text
@@ -138,17 +134,14 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="commandFactory"> The command factory. </param>
-        protected AdapterBase( ICommandFactory commandFactory )
+        protected AdapterBase( IBudgetCommand commandFactory )
             : this( )
         {
             _source = commandFactory.Source;
             _provider = commandFactory.Provider;
             _commandFactory = commandFactory;
-            _connectionFactory =
-                new ConnectionFactory( commandFactory.Source, commandFactory.Provider );
-
-            _dataConnection = _connectionFactory.GetConnection( );
-            _commandText = _commandFactory.GetCommand( ).CommandText;
+            _dataConnection = new BudgetConnection( _source, _provider ).Create( );
+            _commandText = _commandFactory.Create( ).CommandText;
         }
 
         /// <inheritdoc/>
@@ -164,8 +157,7 @@ namespace BudgetExecution
             _source = sqlStatement.Source;
             _provider = sqlStatement.Provider;
             _sqlStatement = sqlStatement;
-            _connectionFactory = new ConnectionFactory( sqlStatement.Source, sqlStatement.Provider );
-            _dataConnection = _connectionFactory.GetConnection( );
+            _dataConnection = new BudgetConnection( _source, _provider ).Create( );
             _commandText = sqlStatement.CommandText;
         }
 
@@ -177,8 +169,9 @@ namespace BudgetExecution
         {
             try
             {
-                var _connection = _dataConnection as SQLiteConnection;
-                var _adapter = new SQLiteDataAdapter( _commandText, _connection );
+                var _adapter = 
+                    new SQLiteDataAdapter( _commandText, _dataConnection as SQLiteConnection );
+
                 _adapter.ContinueUpdateOnError = true;
                 _adapter.AcceptChangesDuringFill = true;
                 _adapter.AcceptChangesDuringUpdate = true;
@@ -212,8 +205,9 @@ namespace BudgetExecution
         {
             try
             {
-                var _connection = _dataConnection as SqlConnection;
-                var _adapter = new SqlDataAdapter( _commandText, _connection );
+                var _adapter = 
+                    new SqlDataAdapter( _commandText, _dataConnection as SqlConnection );
+
                 _adapter.ContinueUpdateOnError = true;
                 _adapter.AcceptChangesDuringFill = true;
                 _adapter.AcceptChangesDuringUpdate = true;
@@ -248,8 +242,9 @@ namespace BudgetExecution
         {
             try
             {
-                var _connection = _dataConnection as OleDbConnection;
-                var _adapter = new OleDbDataAdapter( _commandText, _connection );
+                var _adapter = 
+                    new OleDbDataAdapter( _commandText, _dataConnection as OleDbConnection );
+
                 _adapter.ContinueUpdateOnError = true;
                 _adapter.AcceptChangesDuringFill = true;
                 _adapter.AcceptChangesDuringUpdate = true;
@@ -283,8 +278,9 @@ namespace BudgetExecution
         {
             try
             {
-                var _connection = _dataConnection as SqlCeConnection;
-                var _adapter = new SqlCeDataAdapter( _commandText, _connection );
+                var _adapter = 
+                    new SqlCeDataAdapter( _commandText, _dataConnection as SqlCeConnection );
+
                 _adapter.ContinueUpdateOnError = true;
                 _adapter.AcceptChangesDuringFill = true;
                 _adapter.AcceptChangesDuringUpdate = true;

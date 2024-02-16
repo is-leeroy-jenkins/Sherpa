@@ -61,7 +61,7 @@ namespace BudgetExecution
         /// <param name="connectionFactory">The connection factory.</param>
         /// <param name="sqlStatement">The SQL statement.</param>
         /// <returns></returns>
-        IQuery GetQuery( IConnectionFactory connectionFactory, ISqlStatement sqlStatement );
+        IQuery GetQuery( IBudgetConnection connection, ISqlStatement sqlStatement );
 
         /// <summary>
         /// Gets the record.

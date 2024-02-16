@@ -142,7 +142,7 @@ namespace BudgetExecution
         protected SqlBase( Source source, Provider provider, SQL commandType = SQL.SELECTALL )
             : this( )
         {
-            _dbPath = new ConnectionFactory( source, provider ).ClientPath;
+            _dbPath = new BudgetConnection( source, provider ).ClientPath;
             _commandType = commandType;
             _source = source;
             _provider = provider;
@@ -163,7 +163,7 @@ namespace BudgetExecution
         protected SqlBase( Source source, Provider provider, string sqlText, SQL commandType )
             : this( )
         {
-            _dbPath = new ConnectionFactory( source, provider ).ClientPath;
+            _dbPath = new BudgetConnection( source, provider ).ClientPath;
             _commandType = commandType;
             _source = source;
             _provider = provider;
@@ -185,7 +185,7 @@ namespace BudgetExecution
             SQL commandType = SQL.SELECTALL )
             : this( )
         {
-            _dbPath = new ConnectionFactory( source, provider ).ClientPath;
+            _dbPath = new BudgetConnection( source, provider ).ClientPath;
             _commandType = commandType;
             _source = source;
             _provider = provider;
@@ -209,7 +209,7 @@ namespace BudgetExecution
             IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
             : this( )
         {
-            _dbPath = new ConnectionFactory( source, provider ).ClientPath;
+            _dbPath = new BudgetConnection( source, provider ).ClientPath;
             _commandType = commandType;
             _source = source;
             _provider = provider;
@@ -235,7 +235,7 @@ namespace BudgetExecution
             IDictionary<string, object> where, SQL commandType = SQL.SELECT )
             : this( )
         {
-            _dbPath = new ConnectionFactory( source, provider ).ClientPath;
+            _dbPath = new BudgetConnection( source, provider ).ClientPath;
             _commandType = commandType;
             _source = source;
             _provider = provider;
@@ -262,7 +262,7 @@ namespace BudgetExecution
             SQL commandType = SQL.SELECT )
             : this( )
         {
-            _dbPath = new ConnectionFactory( source, provider ).ClientPath;
+            _dbPath = new BudgetConnection( source, provider ).ClientPath;
             _commandType = commandType;
             _source = source;
             _provider = provider;

@@ -58,7 +58,7 @@ namespace BudgetExecution
         /// <value>
         /// The connection factory.
         /// </value>
-        public IConnectionFactory ConnectionFactory { get; set; }
+        public IBudgetConnection Connection { get; set; }
 
         /// <summary>
         /// Gets or sets the SQL statement.

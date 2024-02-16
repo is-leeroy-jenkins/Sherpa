@@ -55,7 +55,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
-    public abstract class ConnectionBase
+    public abstract class ConnectionBase 
     {
         /// <summary>
         /// The source

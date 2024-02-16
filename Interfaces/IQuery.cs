@@ -67,7 +67,7 @@ namespace BudgetExecution
 
         /// <summary> Gets the connector. </summary>
         /// <value> The connector. </value>
-        IConnectionFactory ConnectionFactory { get; }
+        IBudgetConnection Connection { get; }
 
         /// <summary> Gets or sets the connection. </summary>
         /// <value> The connection. </value>

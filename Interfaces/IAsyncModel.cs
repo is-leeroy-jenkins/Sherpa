@@ -93,7 +93,7 @@ namespace BudgetExecution
         /// <value>
         /// The connection factory.
         /// </value>
-        IConnectionFactory ConnectionFactory { get; set; }
+        IBudgetConnection Connection { get; set; }
 
         /// <inheritdoc />
         /// <summary>
