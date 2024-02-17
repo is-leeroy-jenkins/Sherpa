@@ -171,7 +171,7 @@ namespace BudgetExecution
             RegisterCallbacks( );
 
             // Basic Form Properties
-            Size = new Size( 1345, 745 );
+            Size = new Size( 1350, 750 );
             MaximumSize = new Size( 1350, 750 );
             MinimumSize = new Size( 1340, 740 );
             Font = new Font( "Roboto", 9 );
@@ -189,7 +189,7 @@ namespace BudgetExecution
             BorderThickness = 1;
             ShowIcon = false;
             ShowInTaskbar = true;
-            SizeGripStyle = SizeGripStyle.Hide;
+            SizeGripStyle = SizeGripStyle.Show;
             AutoScaleMode = AutoScaleMode.Font;
             DoubleBuffered = true;
             ShowMouseOver = false;

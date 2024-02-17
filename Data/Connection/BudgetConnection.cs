@@ -47,6 +47,7 @@ namespace BudgetExecution
     using System.Data.SQLite;
     using System.Data.SqlServerCe;
     using System.Diagnostics.CodeAnalysis;
+    using System.IO;
     using System.Threading.Tasks;
     using static System.Configuration.ConfigurationManager;
 
@@ -82,9 +83,9 @@ namespace BudgetExecution
         {
             _source = Source.External;
             _filePath = fullPath;
-            _fileName = GetFileNameWithoutExtension( fullPath );
+            _fileName = Path.GetFileNameWithoutExtension( fullPath );
             _tableName = _fileName;
-            _pathExtension = GetExtension( fullPath )?.Replace( ".", "" );
+            _pathExtension = Path.GetExtension( fullPath )?.Replace( ".", "" );
             if( !string.IsNullOrEmpty( _pathExtension ) )
             {
                 _extension = (EXT)Enum.Parse( typeof( EXT ), _pathExtension.ToUpper( ) );
@@ -108,9 +109,9 @@ namespace BudgetExecution
             _source = Source.External;
             _provider = provider;
             _filePath = fullPath;
-            _fileName = GetFileNameWithoutExtension( fullPath );
+            _fileName = Path.GetFileNameWithoutExtension( fullPath );
             _tableName = _fileName;
-            _pathExtension = GetExtension( fullPath )?.Replace( ".", "" );
+            _pathExtension = Path.GetExtension( fullPath )?.Replace( ".", "" );
             if( !string.IsNullOrEmpty( _pathExtension ) )
             {
                 _extension = (EXT)Enum.Parse( typeof( EXT ), _pathExtension.ToUpper( ) );
@@ -135,8 +136,8 @@ namespace BudgetExecution
             _tableName = source.ToString( );
             _filePath = GetDbClientPath( provider );
             _connectionString = CreateConnectionString( provider );
-            _pathExtension = GetExtension( _filePath )?.Replace( ".", "" );
-            _fileName = GetFileNameWithoutExtension( _filePath );
+            _pathExtension = Path.GetExtension( _filePath )?.Replace( ".", "" );
+            _fileName = Path.GetFileNameWithoutExtension( _filePath );
             if( !string.IsNullOrEmpty( _pathExtension ) )
             {
                 _extension = (EXT)Enum.Parse( typeof( EXT ), _pathExtension.ToUpper( ) );

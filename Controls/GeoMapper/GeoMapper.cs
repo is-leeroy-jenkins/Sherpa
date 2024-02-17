@@ -148,7 +148,7 @@ namespace BudgetExecution
             RegisterCallbacks( );
 
             // General Properties
-            Size = new Size( 1345, 745 );
+            Size = new Size( 1350, 750 );
             MaximumSize = new Size( 1350, 750 );
             MinimumSize = new Size( 1340, 740 );
             StartPosition = FormStartPosition.CenterScreen;
@@ -168,7 +168,7 @@ namespace BudgetExecution
             CaptionForeColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
-            SizeGripStyle = SizeGripStyle.Hide;
+            SizeGripStyle = SizeGripStyle.Show;
             AutoScaleMode = AutoScaleMode.Font;
             DoubleBuffered = true;
             ShowMouseOver = false;

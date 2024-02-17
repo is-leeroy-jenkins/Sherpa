@@ -42,13 +42,13 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
-    using System.Data;
     using System.Data.Common;
     using System.Data.OleDb;
     using System.Data.SqlClient;
     using System.Data.SQLite;
     using System.Data.SqlServerCe;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading.Tasks;
 
     /// <inheritdoc/>
     /// <summary> </summary>
@@ -104,62 +104,12 @@ namespace BudgetExecution
         /// <summary>
         /// The command factory
         /// </summary>
-        private protected IBudgetCommand _commandFactory;
+        private protected IBudgetCommand _command;
 
         /// <summary>
         /// The command text
         /// </summary>
         private protected string _commandText;
-
-        /// <inheritdoc/>
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AdapterBase"/>
-        /// class.
-        /// </summary>
-        protected AdapterBase( )
-        {
-            MissingSchemaAction = MissingSchemaAction.AddWithKey;
-            MissingMappingAction = MissingMappingAction.Ignore;
-            ContinueUpdateOnError = true;
-            AcceptChangesDuringFill = true;
-            AcceptChangesDuringUpdate = true;
-            ReturnProviderSpecificTypes = true;
-        }
-
-        /// <inheritdoc/>
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AdapterBase"/>
-        /// class.
-        /// </summary>
-        /// <param name="commandFactory"> The command factory. </param>
-        protected AdapterBase( IBudgetCommand commandFactory )
-            : this( )
-        {
-            _source = commandFactory.Source;
-            _provider = commandFactory.Provider;
-            _commandFactory = commandFactory;
-            _dataConnection = new BudgetConnection( _source, _provider ).Create( );
-            _commandText = _commandFactory.Create( ).CommandText;
-        }
-
-        /// <inheritdoc/>
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AdapterBase"/>
-        /// class.
-        /// </summary>
-        /// <param name="sqlStatement"> The SQL statement. </param>
-        protected AdapterBase( ISqlStatement sqlStatement )
-            : this( )
-        {
-            _source = sqlStatement.Source;
-            _provider = sqlStatement.Provider;
-            _sqlStatement = sqlStatement;
-            _dataConnection = new BudgetConnection( _source, _provider ).Create( );
-            _commandText = sqlStatement.CommandText;
-        }
 
         /// <summary>
         /// Gets the sql lite adapter.
@@ -304,6 +254,118 @@ namespace BudgetExecution
                 Fail( _ex );
                 return default( SqlCeDataAdapter );
             }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets the adapter.
+        /// </summary>
+        /// <returns> DbDataAdapter </returns>
+        public DbDataAdapter Create( )
+        {
+            if( Enum.IsDefined( typeof( Provider ), _provider )
+               && ( _dataConnection != null )
+               && !string.IsNullOrEmpty( _commandText ) )
+            {
+                try
+                {
+                    switch( _provider )
+                    {
+                        case Provider.SQLite:
+                        {
+                            return GetSQLiteAdapter( );
+                        }
+                        case Provider.SqlCe:
+                        {
+                            return GetSqlCompactAdapter( );
+                        }
+                        case Provider.SqlServer:
+                        {
+                            return GetSqlServerAdapter( );
+                        }
+                        case Provider.Excel:
+                        case Provider.CSV:
+                        case Provider.Access:
+                        case Provider.OleDb:
+                        {
+                            return GetOleDbAdapter( );
+                        }
+                        default:
+                        {
+                            return GetOleDbAdapter( );
+                        }
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                    return default( DbDataAdapter );
+                }
+            }
+
+            return default( DbDataAdapter );
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Creates the asynchronous.
+        /// </summary>
+        /// <returns>
+        /// Task(DbDataAdapter)
+        /// </returns>
+        public Task<DbDataAdapter> CreateAsync( )
+        {
+            if( Enum.IsDefined( typeof( Provider ), _provider )
+               && !string.IsNullOrEmpty( _commandText ) )
+            {
+                var _async = new TaskCompletionSource<DbDataAdapter>( );
+                try
+                {
+                    switch( _provider )
+                    {
+                        case Provider.SQLite:
+                        {
+                            var _adapter = GetSQLiteAdapter( );
+                            _async.SetResult( _adapter );
+                            return _async.Task;
+                        }
+                        case Provider.SqlCe:
+                        {
+                            var _adapter = GetSqlCompactAdapter( );
+                            _async.SetResult( _adapter );
+                            return _async.Task;
+                        }
+                        case Provider.SqlServer:
+                        {
+                            var _adapter = GetSqlServerAdapter( );
+                            _async.SetResult( _adapter );
+                            return _async.Task;
+                        }
+                        case Provider.Excel:
+                        case Provider.CSV:
+                        case Provider.Access:
+                        case Provider.OleDb:
+                        {
+                            var _adapter = GetOleDbAdapter( );
+                            _async.SetResult( _adapter );
+                            return _async.Task;
+                        }
+                        default:
+                        {
+                            var _adapter = GetOleDbAdapter( );
+                            _async.SetResult( _adapter );
+                            return _async.Task;
+                        }
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                    return default( Task<DbDataAdapter> );
+                }
+            }
+
+            return default( Task<DbDataAdapter> );
         }
 
         /// <summary>

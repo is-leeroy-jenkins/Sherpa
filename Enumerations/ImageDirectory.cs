@@ -48,19 +48,9 @@ namespace BudgetExecution
     public enum ImageDirectory
     {
         /// <summary>
-        /// The ns
+        /// The agency images
         /// </summary>
-        Empty = 0,
-
-        /// <summary>
-        /// The badger images
-        /// </summary>
-        BadgerImages,
-
-        /// <summary>
-        /// The closebox images
-        /// </summary>
-        CloseboxImages,
+        AgencyImages,
 
         /// <summary>
         /// The data images
@@ -76,21 +66,6 @@ namespace BudgetExecution
         /// The dialog images
         /// </summary>
         DialogImages,
-
-        /// <summary>
-        /// The division images
-        /// </summary>
-        DivisionImages,
-
-        /// <summary>
-        /// The email images
-        /// </summary>
-        EmailImages,
-
-        /// <summary>
-        /// The employee images
-        /// </summary>
-        EmployeeImages,
 
         /// <summary>
         /// The epa images
@@ -118,14 +93,14 @@ namespace BudgetExecution
         FolderImages,
 
         /// <summary>
-        /// The fund images
+        /// The form images
         /// </summary>
-        FundImages,
+        FormImages,
 
         /// <summary>
         /// The identification images
         /// </summary>
-        IdentificationImages,
+        HeaderFooterImages,
 
         /// <summary>
         /// The interface images
@@ -140,37 +115,17 @@ namespace BudgetExecution
         /// <summary>
         /// The math images
         /// </summary>
-        MathImages,
+        CarouselImages,
 
         /// <summary>
-        /// The navigation images
+        /// The tile images
         /// </summary>
-        NavigationImages,
-
-        /// <summary>
-        /// The ninja images
-        /// </summary>
-        NinjaImages,
-
-        /// <summary>
-        /// The notification images
-        /// </summary>
-        NotificationImages,
-
-        /// <summary>
-        /// The object class images
-        /// </summary>
-        ObjectClassImages,
+        TileImages,
 
         /// <summary>
         /// The office images
         /// </summary>
         OfficeImages,
-
-        /// <summary>
-        /// The obligation images
-        /// </summary>
-        ObligationImages,
 
         /// <summary>
         /// The provider images

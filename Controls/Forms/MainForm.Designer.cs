@@ -1231,7 +1231,7 @@ namespace BudgetExecution
             CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionFont = new System.Drawing.Font( "Roboto", 12F );
             CaptionForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            ClientSize = new System.Drawing.Size( 1333, 733 );
+            ClientSize = new System.Drawing.Size( 1338, 738 );
             ControlBox = false;
             Controls.Add( ResourceTable );
             Controls.Add( DataManagementTable );
@@ -1252,7 +1252,7 @@ namespace BudgetExecution
             ShowIcon = false;
             ShowMaximizeBox = false;
             ShowMinimizeBox = false;
-            SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).EndInit( );

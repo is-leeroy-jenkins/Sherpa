@@ -126,7 +126,6 @@ partial class MinionSelector
         ImageList.FilePaths = null;
         ImageList.HoverText = null;
         ImageList.Image = null;
-        ImageList.ImageSource = ImageDirectory.Empty;
         // 
         // Carousel
         // 

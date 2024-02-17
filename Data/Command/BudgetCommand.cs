@@ -63,6 +63,22 @@ namespace BudgetExecution
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="BudgetCommand"/> class.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="commandType">Type of the command.</param>
+        public BudgetCommand( Source source, Provider provider, SQL commandType = SQL.SELECTALL )
+        {
+            _source = source;
+            _provider = provider;
+            _commandType = commandType;
+            _connection = new BudgetConnection( source, provider ).Create( );
+            _sqlStatement = new SqlStatement( source, provider, commandType );
+        }
+
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
@@ -74,8 +90,12 @@ namespace BudgetExecution
         /// <param name="sqlText"> The SQL text. </param>
         /// <param name="commandType"> Type of the command. </param>
         public BudgetCommand( Source source, Provider provider, string sqlText, SQL commandType )
-            : base( source, provider, sqlText, commandType )
         {
+            _source = source;
+            _provider = provider;
+            _commandType = commandType;
+            _connection = new BudgetConnection( source, provider ).Create( );
+            _sqlStatement = new SqlStatement( source, provider, sqlText, commandType );
         }
 
         /// <inheritdoc/>
@@ -90,8 +110,12 @@ namespace BudgetExecution
         /// <param name="commandType"> </param>
         public BudgetCommand( Source source, Provider provider, IDictionary<string, object> where,
             SQL commandType = SQL.SELECTALL )
-            : base( source, provider, where, commandType )
         {
+            _source = source;
+            _provider = provider;
+            _commandType = commandType;
+            _connection = new BudgetConnection( source, provider ).Create( );
+            _sqlStatement = new SqlStatement( source, provider, where, commandType );
         }
 
         /// <inheritdoc/>
@@ -107,8 +131,12 @@ namespace BudgetExecution
         /// <param name="commandType"> </param>
         public BudgetCommand( Source source, Provider provider, IDictionary<string, object> update,
             IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
-            : base( source, provider, update, where, commandType )
         {
+            _source = source;
+            _provider = provider;
+            _commandType = commandType;
+            _connection = new BudgetConnection( source, provider ).Create( );
+            _sqlStatement = new SqlStatement( source, provider, update, where, commandType );
         }
 
         /// <inheritdoc/>
@@ -120,8 +148,12 @@ namespace BudgetExecution
         /// <param name="commandType"> </param>
         public BudgetCommand( Source source, Provider provider, IEnumerable<string> columns,
             IDictionary<string, object> where, SQL commandType = SQL.SELECT )
-            : base( source, provider, columns, where, commandType )
         {
+            _source = source;
+            _provider = provider;
+            _commandType = commandType;
+            _connection = new BudgetConnection( source, provider ).Create( );
+            _sqlStatement = new SqlStatement( source, provider, columns, where, commandType );
         }
 
         /// <inheritdoc/>
@@ -139,9 +171,13 @@ namespace BudgetExecution
         public BudgetCommand( Source source, Provider provider, IEnumerable<string> fields,
             IEnumerable<string> numerics, IDictionary<string, object> having,
             SQL commandType = SQL.SELECT )
-            : base( source, provider, fields, numerics, having,
-                commandType )
         {
+            _source = source;
+            _provider = provider;
+            _commandType = commandType;
+            _connection = new BudgetConnection( source, provider ).Create( );
+            _sqlStatement = new SqlStatement( source, provider, fields, numerics, having,
+                commandType );
         }
 
         /// <inheritdoc/>
@@ -152,8 +188,12 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sqlStatement"> The SQL statement. </param>
         public BudgetCommand( ISqlStatement sqlStatement )
-            : base( sqlStatement )
         {
+            _sqlStatement = sqlStatement;
+            _source = sqlStatement.Source;
+            _provider = sqlStatement.Provider;
+            _commandType = sqlStatement.CommandType;
+            _connection = new BudgetConnection( sqlStatement.Source, sqlStatement.Provider ).Create( );
         }
 
         /// <inheritdoc/>

@@ -42,9 +42,9 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
+    using System.Data;
     using System.Data.Common;
     using System.Diagnostics.CodeAnalysis;
-    using System.Threading.Tasks;
 
     /// <inheritdoc/>
     /// <summary> </summary>
@@ -178,11 +178,11 @@ namespace BudgetExecution
         {
             get
             {
-                return _commandFactory;
+                return _command;
             }
             private protected set
             {
-                _commandFactory = value;
+                _command = value;
             }
         }
 
@@ -213,6 +213,134 @@ namespace BudgetExecution
         /// </summary>
         public BudgetAdapter( )
         {
+            MissingSchemaAction = MissingSchemaAction.AddWithKey;
+            MissingMappingAction = MissingMappingAction.Ignore;
+            ContinueUpdateOnError = true;
+            AcceptChangesDuringFill = true;
+            AcceptChangesDuringUpdate = true;
+            ReturnProviderSpecificTypes = true;
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.BudgetAdapter" /> class.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="commandType">Type of the command.</param>
+        public BudgetAdapter( Source source, Provider provider, SQL commandType = SQL.SELECTALL )
+            : this( )
+        {
+            _source = source;
+            _provider = provider;
+            _sqlStatement = new SqlStatement( source, provider, commandType );
+            _dataConnection = new BudgetConnection( source, provider ).Create( );
+            _commandText = _sqlStatement.CommandText;
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.BudgetAdapter" /> class.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="sqlText">The SQL text.</param>
+        /// <param name="commandType">Type of the command.</param>
+        public BudgetAdapter( Source source, Provider provider, string sqlText, SQL commandType )
+            : this( )
+        {
+            _source = source;
+            _provider = provider;
+            _sqlStatement = new SqlStatement( source, provider, commandType );
+            _dataConnection = new BudgetConnection( source, provider ).Create( );
+            _commandText = _sqlStatement.CommandText;
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.BudgetAdapter" /> class.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="where">The where.</param>
+        /// <param name="commandType">Type of the command.</param>
+        public BudgetAdapter( Source source, Provider provider, IDictionary<string, object> where,
+            SQL commandType = SQL.SELECTALL )
+            : this( )
+        {
+            _source = source;
+            _provider = provider;
+            _sqlStatement = new SqlStatement( source, provider, where, commandType );
+            _dataConnection = new BudgetConnection( source, provider ).Create( );
+            _commandText = _sqlStatement.CommandText;
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.BudgetAdapter" /> class.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="update">The update.</param>
+        /// <param name="where">The where.</param>
+        /// <param name="commandType">Type of the command.</param>
+        public BudgetAdapter( Source source, Provider provider, IDictionary<string, object> update,
+            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
+            : this( )
+        {
+            _source = source;
+            _provider = provider;
+            _sqlStatement = new SqlStatement( source, provider, update, where, commandType );
+            _dataConnection = new BudgetConnection( source, provider ).Create( );
+            _commandText = _sqlStatement.CommandText;
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.BudgetAdapter" /> class.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="columns">The columns.</param>
+        /// <param name="where">The where.</param>
+        /// <param name="commandType">Type of the command.</param>
+        public BudgetAdapter( Source source, Provider provider, IEnumerable<string> columns,
+            IDictionary<string, object> where, SQL commandType = SQL.SELECT )
+            : this( )
+        {
+            _source = source;
+            _provider = provider;
+            _sqlStatement = new SqlStatement( source, provider, columns, where, commandType );
+            _dataConnection = new BudgetConnection( source, provider ).Create( );
+            _commandText = _sqlStatement.CommandText;
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.BudgetAdapter" /> class.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="fields">The fields.</param>
+        /// <param name="numerics">The numerics.</param>
+        /// <param name="having">The having.</param>
+        /// <param name="commandType">Type of the command.</param>
+        public BudgetAdapter( Source source, Provider provider, IEnumerable<string> fields,
+            IEnumerable<string> numerics, IDictionary<string, object> having,
+            SQL commandType = SQL.SELECT )
+            : this( )
+        {
+            _source = source;
+            _provider = provider;
+            _sqlStatement = new SqlStatement( source, provider, fields, numerics, having,
+                commandType );
+
+            _dataConnection = new BudgetConnection( source, provider ).Create( );
+            _commandText = _sqlStatement.CommandText;
         }
 
         /// <inheritdoc/>
@@ -223,120 +351,29 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sqlStatement"> The SQL statement. </param>
         public BudgetAdapter( ISqlStatement sqlStatement )
-            : base( sqlStatement )
+            : this( )
         {
+            _source = sqlStatement.Source;
+            _provider = sqlStatement.Provider;
+            _sqlStatement = sqlStatement;
+            _dataConnection = new BudgetConnection( _source, _provider ).Create( );
+            _commandText = sqlStatement.CommandText;
         }
 
         /// <inheritdoc />
         /// <summary>
-        /// Gets the adapter.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.BudgetAdapter" /> class.
         /// </summary>
-        /// <returns> DbDataAdapter </returns>
-        public DbDataAdapter Create( )
+        /// <param name="command">The command.</param>
+        public BudgetAdapter( IBudgetCommand command )
+            : this( )
         {
-            if( Enum.IsDefined( typeof( Provider ), _provider )
-               && ( _dataConnection != null )
-               && !string.IsNullOrEmpty( _commandText ) )
-            {
-                try
-                {
-                    switch( _provider )
-                    {
-                        case Provider.SQLite:
-                        {
-                            return GetSQLiteAdapter( );
-                        }
-                        case Provider.SqlCe:
-                        {
-                            return GetSqlCompactAdapter( );
-                        }
-                        case Provider.SqlServer:
-                        {
-                            return GetSqlServerAdapter( );
-                        }
-                        case Provider.Excel:
-                        case Provider.CSV:
-                        case Provider.Access:
-                        case Provider.OleDb:
-                        {
-                            return GetOleDbAdapter( );
-                        }
-                        default:
-                        {
-                            return GetOleDbAdapter( );
-                        }
-                    }
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( DbDataAdapter );
-                }
-            }
-
-            return default( DbDataAdapter );
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Creates the asynchronous.
-        /// </summary>
-        /// <returns>
-        /// Task(DbDataAdapter)
-        /// </returns>
-        public Task<DbDataAdapter> CreateAsync( )
-        {
-            if( Enum.IsDefined( typeof( Provider ), _provider )
-               && !string.IsNullOrEmpty( _commandText ) )
-            {
-                var _async = new TaskCompletionSource<DbDataAdapter>( );
-                try
-                {
-                    switch( _provider )
-                    {
-                        case Provider.SQLite:
-                        {
-                            var _adapter = GetSQLiteAdapter( );
-                            _async.SetResult( _adapter );
-                            return _async.Task;
-                        }
-                        case Provider.SqlCe:
-                        {
-                            var _adapter = GetSqlCompactAdapter( );
-                            _async.SetResult( _adapter );
-                            return _async.Task;
-                        }
-                        case Provider.SqlServer:
-                        {
-                            var _adapter = GetSqlServerAdapter( );
-                            _async.SetResult( _adapter );
-                            return _async.Task;
-                        }
-                        case Provider.Excel:
-                        case Provider.CSV:
-                        case Provider.Access:
-                        case Provider.OleDb:
-                        {
-                            var _adapter = GetOleDbAdapter( );
-                            _async.SetResult( _adapter );
-                            return _async.Task;
-                        }
-                        default:
-                        {
-                            var _adapter = GetOleDbAdapter( );
-                            _async.SetResult( _adapter );
-                            return _async.Task;
-                        }
-                    }
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( Task<DbDataAdapter> );
-                }
-            }
-
-            return default( Task<DbDataAdapter> );
+            _source = command.Source;
+            _provider = command.Provider;
+            _sqlStatement = command.SqlStatement;
+            _dataConnection = command.Connection;
+            _commandText = command.SqlStatement.CommandText;
         }
     }
 }

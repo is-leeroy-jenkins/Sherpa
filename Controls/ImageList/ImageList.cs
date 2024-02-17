@@ -112,7 +112,6 @@ namespace BudgetExecution
         /// <param name="size">The size.</param>
         public ImageList( string path, Size size )
         {
-            ImageSource = ImageDirectory.Empty;
             ImageSize = size;
             Images.Add( new Bitmap( path ) );
         }

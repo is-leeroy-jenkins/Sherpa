@@ -117,7 +117,6 @@
             MinimumSize = new System.Drawing.Size( 1340, 740 );
             Name = "DelayForm";
             ShowIcon = false;
-            SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             Text = "DelayForm";
             WindowState = System.Windows.Forms.FormWindowState.Maximized;

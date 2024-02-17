@@ -246,7 +246,7 @@ namespace BudgetExecution
             InitializeComponent( );
             Size = new Size( 1350, 750 );
             MaximumSize = new Size( 1350, 750 );
-            MinimumSize = new Size( 1350, 750 );
+            MinimumSize = new Size( 1340, 740 );
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             BorderColor = Color.FromArgb( 0, 120, 212 );
@@ -265,7 +265,7 @@ namespace BudgetExecution
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
             Title.ForeColor = Color.FromArgb( 106, 189, 252 );
-            SizeGripStyle = SizeGripStyle.Hide;
+            SizeGripStyle = SizeGripStyle.Show;
             AutoScaleMode = AutoScaleMode.Font;
             DoubleBuffered = true;
             ShowMouseOver = false;
