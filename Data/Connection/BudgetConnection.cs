@@ -76,23 +76,22 @@ namespace BudgetExecution
         /// <see cref="BudgetConnection"/>
         /// class.
         /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        public BudgetConnection( Source source, Provider provider = Provider.Access )
-            : base( source, provider )
-        {
-        }
-
-        /// <inheritdoc/>
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="BudgetConnection"/>
-        /// class.
-        /// </summary>
         /// <param name="fullPath"> The fullPath. </param>
         public BudgetConnection( string fullPath )
-            : base( fullPath )
+            : this( )
         {
+            _source = Source.External;
+            _filePath = fullPath;
+            _fileName = GetFileNameWithoutExtension( fullPath );
+            _tableName = _fileName;
+            _pathExtension = GetExtension( fullPath )?.Replace( ".", "" );
+            if( !string.IsNullOrEmpty( _pathExtension ) )
+            {
+                _extension = (EXT)Enum.Parse( typeof( EXT ), _pathExtension.ToUpper( ) );
+                _provider = (Provider)Enum.Parse( typeof( Provider ), _pathExtension.ToUpper( ) );
+                _clientPath = AppSettings[ _extension.ToString( ) ];
+                _connectionString = CreateConnectionString( _provider );
+            }
         }
 
         /// <inheritdoc/>
@@ -104,8 +103,45 @@ namespace BudgetExecution
         /// <param name="fullPath"> The fullPath. </param>
         /// <param name="provider"> The provider. </param>
         public BudgetConnection( string fullPath, Provider provider = Provider.Access )
-            : base( fullPath, provider )
+            : this( )
         {
+            _source = Source.External;
+            _provider = provider;
+            _filePath = fullPath;
+            _fileName = GetFileNameWithoutExtension( fullPath );
+            _tableName = _fileName;
+            _pathExtension = GetExtension( fullPath )?.Replace( ".", "" );
+            if( !string.IsNullOrEmpty( _pathExtension ) )
+            {
+                _extension = (EXT)Enum.Parse( typeof( EXT ), _pathExtension.ToUpper( ) );
+                _clientPath = AppSettings[ _extension.ToString( ) ];
+                _connectionString = CreateConnectionString( _provider );
+            }
+        }
+
+        /// <inheritdoc/>
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="BudgetConnection"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        public BudgetConnection( Source source, Provider provider = Provider.Access )
+            : this( )
+        {
+            _source = source;
+            _provider = provider;
+            _tableName = source.ToString( );
+            _filePath = GetDbClientPath( provider );
+            _connectionString = CreateConnectionString( provider );
+            _pathExtension = GetExtension( _filePath )?.Replace( ".", "" );
+            _fileName = GetFileNameWithoutExtension( _filePath );
+            if( !string.IsNullOrEmpty( _pathExtension ) )
+            {
+                _extension = (EXT)Enum.Parse( typeof( EXT ), _pathExtension.ToUpper( ) );
+                _clientPath = AppSettings[ _extension.ToString( ) ];
+            }
         }
 
         /// <inheritdoc />
