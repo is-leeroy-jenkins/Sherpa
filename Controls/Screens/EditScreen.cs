@@ -45,7 +45,6 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
-    using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Linq;
@@ -63,6 +62,10 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
+    [ SuppressMessage( "ReSharper", "MergeConditionalExpression" ) ]
+    [ SuppressMessage( "ReSharper", "MergeCastWithTypeCheck" ) ]
     public partial class EditScreen : EditBase
     {
         /// <summary>
@@ -73,7 +76,7 @@ namespace BudgetExecution
         /// <summary>
         /// The status update
         /// </summary>
-        private System.Action _statusUpdate;
+        private Action _statusUpdate;
 
         /// <summary>
         /// The time
@@ -84,11 +87,6 @@ namespace BudgetExecution
         /// The seconds
         /// </summary>
         private int _seconds;
-
-        /// <summary>
-        /// The count
-        /// </summary>
-        private int _count;
 
         /// <summary>
         /// The first category
@@ -381,7 +379,9 @@ namespace BudgetExecution
         {
             get
             {
-                return _commands;
+                return ( _commands.Any( ) == true )
+                    ? _commands
+                    : new List<string>( );
             }
             private set
             {
@@ -399,7 +399,9 @@ namespace BudgetExecution
         {
             get
             {
-                return _statements;
+                return ( _statements != null )
+                    ? _statements
+                    : new Dictionary<string, object>( );
             }
             private set
             {
@@ -413,7 +415,19 @@ namespace BudgetExecution
         /// <value>
         /// The frames.
         /// </value>
-        public IEnumerable<Frame> Frames { get; set; }
+        public IList<Frame> Frames
+        {
+            get
+            {
+                return _frames?.Any( ) == true
+                    ? _frames
+                    : new List<Frame>( );
+            }
+            private set
+            {
+                _frames = value;
+            }
+        }
 
         /// <summary>
         /// Gets a value indicating whether this instance is busy.
@@ -447,9 +461,10 @@ namespace BudgetExecution
             RegisterCallbacks( );
 
             // Basic Properties
-            Size = new Size( 1335, 643 );
+            Size = new Size( 1340, 648 );
             MaximumSize = new Size( 1340, 648 );
             MinimumSize = new Size( 1330, 638 );
+            WindowState = FormWindowState.Normal;
             StartPosition = FormStartPosition.CenterParent;
             FormBorderStyle = FormBorderStyle.None;
             BackColor = Color.FromArgb( 20, 20, 20 );
@@ -634,7 +649,14 @@ namespace BudgetExecution
         /// </summary>
         private void InitializeDelegates( )
         {
-            _statusUpdate += UpdateLabelText;
+            try
+            {
+                _statusUpdate += UpdateLabelText;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -642,7 +664,14 @@ namespace BudgetExecution
         /// </summary>
         private void BeginInit( )
         {
-            _busy = true;
+            try
+            {
+                _busy = true;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -650,7 +679,14 @@ namespace BudgetExecution
         /// </summary>
         private void EndInit( )
         {
-            _busy = false;
+            try
+            {
+                _busy = false;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -685,19 +721,19 @@ namespace BudgetExecution
         /// </summary>
         /// <returns>
         /// </returns>
-        public IList<Frame> GetFrames( )
+        private IList<Frame> GetFrames( )
         {
             try
             {
+                _frames = new List<Frame>( );
                 for( var _i = 0; _i < FrameTable.Controls.Count; _i++ )
                 {
                     var _control = FrameTable.Controls[ _i ];
                     if( _control.GetType( ) == typeof( Frame ) )
                     {
-                        if( _control is Frame _frame )
+                        if( _control is Frame )
                         {
-                            _frame.BindingSource = BindingSource;
-                            _frames.Add( _frame );
+                            _frames.Add( _control as Frame );
                         }
                     }
                 }
@@ -716,14 +752,21 @@ namespace BudgetExecution
         /// <summary>
         /// Wires up frame events.
         /// </summary>
-        private void WireUpFrameEvents( )
+        private void RegisterFrameEvents( )
         {
-            if( Frames?.Any( ) == true )
+            try
             {
-                foreach( var _frame in Frames )
+                if( _frames?.Any( ) == true )
                 {
-                    _frame.TextBox.MouseClick += OnContentClick;
+                    foreach( var _frame in _frames )
+                    {
+                        _frame.TextBox.MouseClick += OnContentClick;
+                    }
                 }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -783,11 +826,11 @@ namespace BudgetExecution
         /// </summary>
         private void SetFrameDockStyle( )
         {
-            if( Frames?.Any( ) == true )
+            if( _frames?.Any( ) == true )
             {
                 try
                 {
-                    foreach( var _frame in Frames )
+                    foreach( var _frame in _frames )
                     {
                         _frame.Dock = DockStyle.Fill;
                     }
@@ -805,11 +848,11 @@ namespace BudgetExecution
         private void SetTableLocation( )
         {
             if( FrameTable != null
-               && Columns?.Any( ) == true )
+               && _columns?.Any( ) == true )
             {
                 try
                 {
-                    var _cols = Columns.ToArray( );
+                    var _cols = _columns.ToArray( );
                     switch( _cols.Length )
                     {
                         case >= 43:
@@ -1001,12 +1044,12 @@ namespace BudgetExecution
         {
             try
             {
-                ThirdCategory = string.Empty;
-                ThirdValue = string.Empty;
-                SecondCategory = string.Empty;
-                SecondValue = string.Empty;
-                FirstCategory = string.Empty;
-                FirstValue = string.Empty;
+                _thirdCategory = string.Empty;
+                _thirdValue = string.Empty;
+                _secondCategory = string.Empty;
+                _secondValue = string.Empty;
+                _firstCategory = string.Empty;
+                _firstValue = string.Empty;
             }
             catch( Exception _ex )
             {
@@ -1038,13 +1081,15 @@ namespace BudgetExecution
         {
             try
             {
+                _frames = GetFrames( );
+                _tabPages = GetTabPages( );
                 SetActiveTab( );
                 SetTableLocation( );
                 SetFrameColors( );
                 SetFrameDockStyle( );
                 BindRecord( );
                 SetFrameVisibility( );
-                WireUpFrameEvents( );
+                RegisterFrameEvents( );
                 InitializeTabControl( );
                 InitializeButtons( );
             }
@@ -1120,7 +1165,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    //FormMenu.Show( this, e.Location );
+                    //ContextMenu.Show( this, e.Location );
                 }
                 catch( Exception _ex )
                 {

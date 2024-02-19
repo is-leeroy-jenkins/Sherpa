@@ -133,11 +133,11 @@ namespace BudgetExecution
             HeaderLabel.Margin = new Padding( 3 );
             HeaderLabel.Name = "HeaderLabel";
             HeaderLabel.Padding = new Padding( 1 );
-            HeaderLabel.Size = new System.Drawing.Size( 184, 23 );
+            HeaderLabel.Size = new System.Drawing.Size( 197, 23 );
             HeaderLabel.Style = MetroSet_UI.Enums.Style.Custom;
             HeaderLabel.StyleManager = null;
             HeaderLabel.TabIndex = 8;
-            HeaderLabel.Text = "Data Column Configuration";
+            HeaderLabel.Text = "Table Data Column Configuration";
             HeaderLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             HeaderLabel.ThemeAuthor = "Terry D. Eppler";
             HeaderLabel.ThemeName = "Budget Execution";
@@ -176,6 +176,7 @@ namespace BudgetExecution
             ShowIcon = false;
             ShowMaximizeBox = false;
             ShowMinimizeBox = false;
+            SizeGripStyle = SizeGripStyle.Hide;
             StartPosition = FormStartPosition.Manual;
             Text = "       SELECT COLUMNS";
             ColumnConfigPanel.ResumeLayout( false );

@@ -2215,10 +2215,9 @@
             MinimumSize = new System.Drawing.Size( 1340, 740 );
             Name = "SqlEditor";
             ShowIcon = false;
-            SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
+            SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "SqlEditor";
-            WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).EndInit( );
             HeaderTable.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).EndInit( );

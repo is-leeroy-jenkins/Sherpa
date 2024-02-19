@@ -383,7 +383,7 @@ partial class FilterScreen
         TabControl.ActiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         TabControl.ActiveTabFont = new System.Drawing.Font( "Roboto", 8F );
         TabControl.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-        TabControl.BeforeTouchSize = new System.Drawing.Size( 1349, 544 );
+        TabControl.BeforeTouchSize = new System.Drawing.Size( 1337, 544 );
         TabControl.BindingSource = null;
         TabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
         TabControl.CanOverrideStyle = true;
@@ -403,7 +403,7 @@ partial class FilterScreen
         TabControl.ItemSize = new System.Drawing.Size( 100, 30 );
         TabControl.Location = new System.Drawing.Point( 0, 0 );
         TabControl.Name = "TabControl";
-        TabControl.Size = new System.Drawing.Size( 1349, 544 );
+        TabControl.Size = new System.Drawing.Size( 1337, 544 );
         TabControl.TabIndex = 12;
         TabControl.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         TabControl.TabStyle = typeof( Syncfusion.Windows.Forms.Tools.TabRendererMetro );
@@ -431,7 +431,7 @@ partial class FilterScreen
         TableTabPage.Location = new System.Drawing.Point( 0, 29 );
         TableTabPage.Name = "TableTabPage";
         TableTabPage.ShowCloseButton = true;
-        TableTabPage.Size = new System.Drawing.Size( 1349, 515 );
+        TableTabPage.Size = new System.Drawing.Size( 1337, 515 );
         TableTabPage.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         TableTabPage.TabFont = new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Bold );
         TableTabPage.TabForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
@@ -450,7 +450,7 @@ partial class FilterScreen
         SourceHeader.Margin = new System.Windows.Forms.Padding( 3 );
         SourceHeader.Name = "SourceHeader";
         SourceHeader.Padding = new System.Windows.Forms.Padding( 1 );
-        SourceHeader.Size = new System.Drawing.Size( 1349, 30 );
+        SourceHeader.Size = new System.Drawing.Size( 1337, 30 );
         SourceHeader.Style = MetroSet_UI.Enums.Style.Custom;
         SourceHeader.StyleManager = null;
         SourceHeader.TabIndex = 15;
@@ -852,7 +852,7 @@ partial class FilterScreen
         FilterTabPage.Location = new System.Drawing.Point( 0, 29 );
         FilterTabPage.Name = "FilterTabPage";
         FilterTabPage.ShowCloseButton = true;
-        FilterTabPage.Size = new System.Drawing.Size( 1349, 515 );
+        FilterTabPage.Size = new System.Drawing.Size( 1337, 515 );
         FilterTabPage.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         FilterTabPage.TabFont = new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Bold );
         FilterTabPage.TabForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
@@ -871,7 +871,7 @@ partial class FilterScreen
         FilterHeader.Margin = new System.Windows.Forms.Padding( 3 );
         FilterHeader.Name = "FilterHeader";
         FilterHeader.Padding = new System.Windows.Forms.Padding( 1 );
-        FilterHeader.Size = new System.Drawing.Size( 1349, 30 );
+        FilterHeader.Size = new System.Drawing.Size( 1337, 30 );
         FilterHeader.Style = MetroSet_UI.Enums.Style.Custom;
         FilterHeader.StyleManager = null;
         FilterHeader.TabIndex = 16;
@@ -1162,7 +1162,7 @@ partial class FilterScreen
         GroupTabPage.Location = new System.Drawing.Point( 0, 29 );
         GroupTabPage.Name = "GroupTabPage";
         GroupTabPage.ShowCloseButton = true;
-        GroupTabPage.Size = new System.Drawing.Size( 1349, 515 );
+        GroupTabPage.Size = new System.Drawing.Size( 1337, 515 );
         GroupTabPage.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         GroupTabPage.TabFont = new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Bold );
         GroupTabPage.TabForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
@@ -1181,7 +1181,7 @@ partial class FilterScreen
         GroupHeader.Margin = new System.Windows.Forms.Padding( 3 );
         GroupHeader.Name = "GroupHeader";
         GroupHeader.Padding = new System.Windows.Forms.Padding( 1 );
-        GroupHeader.Size = new System.Drawing.Size( 1349, 30 );
+        GroupHeader.Size = new System.Drawing.Size( 1337, 30 );
         GroupHeader.Style = MetroSet_UI.Enums.Style.Custom;
         GroupHeader.StyleManager = null;
         GroupHeader.TabIndex = 17;
@@ -1437,7 +1437,7 @@ partial class FilterScreen
         CalendarTabPage.Location = new System.Drawing.Point( 0, 29 );
         CalendarTabPage.Name = "CalendarTabPage";
         CalendarTabPage.ShowCloseButton = true;
-        CalendarTabPage.Size = new System.Drawing.Size( 1349, 515 );
+        CalendarTabPage.Size = new System.Drawing.Size( 1337, 515 );
         CalendarTabPage.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         CalendarTabPage.TabFont = new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Bold );
         CalendarTabPage.TabForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
@@ -1642,7 +1642,7 @@ partial class FilterScreen
         TimeSpanHeader.Margin = new System.Windows.Forms.Padding( 3 );
         TimeSpanHeader.Name = "TimeSpanHeader";
         TimeSpanHeader.Padding = new System.Windows.Forms.Padding( 1 );
-        TimeSpanHeader.Size = new System.Drawing.Size( 1349, 30 );
+        TimeSpanHeader.Size = new System.Drawing.Size( 1337, 30 );
         TimeSpanHeader.Style = MetroSet_UI.Enums.Style.Custom;
         TimeSpanHeader.StyleManager = null;
         TimeSpanHeader.TabIndex = 18;
@@ -1892,7 +1892,7 @@ partial class FilterScreen
         SqlTabPage.Location = new System.Drawing.Point( 0, 29 );
         SqlTabPage.Name = "SqlTabPage";
         SqlTabPage.ShowCloseButton = true;
-        SqlTabPage.Size = new System.Drawing.Size( 1349, 515 );
+        SqlTabPage.Size = new System.Drawing.Size( 1337, 515 );
         SqlTabPage.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         SqlTabPage.TabForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         SqlTabPage.TabIndex = 5;
@@ -2322,7 +2322,7 @@ partial class FilterScreen
         CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         CaptionFont = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Bold );
         CaptionForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-        ClientSize = new System.Drawing.Size( 1349, 724 );
+        ClientSize = new System.Drawing.Size( 1337, 718 );
         ControlBox = false;
         Controls.Add( ClearButton );
         Controls.Add( GroupButton );

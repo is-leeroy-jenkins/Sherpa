@@ -191,7 +191,7 @@
             Spreadsheet.DefaultRowCount = 100;
             Spreadsheet.DisplayAlerts = true;
             Spreadsheet.Dock = System.Windows.Forms.DockStyle.Fill;
-            Spreadsheet.FileName = "Book2";
+            Spreadsheet.FileName = "Book1";
             Spreadsheet.Font = new System.Drawing.Font( "Roboto", 9F );
             Spreadsheet.ForeColor = System.Drawing.Color.Black;
             Spreadsheet.FormulaBarVisibility = false;
@@ -466,7 +466,7 @@
             ToolStripTextBox.Margin = new System.Windows.Forms.Padding( 1 );
             ToolStripTextBox.Name = "ToolStripTextBox";
             ToolStripTextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Size = new System.Drawing.Size( 240, 27 );
+            ToolStripTextBox.Size = new System.Drawing.Size( 238, 27 );
             ToolStripTextBox.Tag = "";
             ToolStripTextBox.ToolTip = ToolTip;
             // 
@@ -876,7 +876,7 @@
             QueryTab.Location = new System.Drawing.Point( 0, 4 );
             QueryTab.Name = "QueryTab";
             QueryTab.ShowCloseButton = true;
-            QueryTab.Size = new System.Drawing.Size( 1333, 660 );
+            QueryTab.Size = new System.Drawing.Size( 1338, 665 );
             QueryTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             QueryTab.TabForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             QueryTab.TabIndex = 5;
@@ -1603,7 +1603,7 @@
             BusyTab.Margin = new System.Windows.Forms.Padding( 1 );
             BusyTab.Name = "BusyTab";
             BusyTab.ShowCloseButton = true;
-            BusyTab.Size = new System.Drawing.Size( 1333, 660 );
+            BusyTab.Size = new System.Drawing.Size( 1338, 665 );
             BusyTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             BusyTab.TabIndex = 2;
             BusyTab.ThemesEnabled = false;
@@ -1614,7 +1614,7 @@
             Loader.Image = Resources.Images.Loading;
             Loader.Location = new System.Drawing.Point( 0, 0 );
             Loader.Name = "Loader";
-            Loader.Size = new System.Drawing.Size( 1333, 660 );
+            Loader.Size = new System.Drawing.Size( 1338, 665 );
             Loader.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             Loader.TabIndex = 0;
             Loader.TabStop = false;
@@ -1649,9 +1649,8 @@
             ShowIcon = false;
             ShowMaximizeBox = false;
             ShowMinimizeBox = false;
-            SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
+            SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ( (System.ComponentModel.ISupportInitialize)Ribbon ).EndInit( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).EndInit( );
             HeaderPanel.ResumeLayout( false );

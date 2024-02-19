@@ -45,6 +45,7 @@ namespace BudgetExecution
     using System.Data;
     using System.Data.Common;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading.Tasks;
 
     /// <inheritdoc/>
     /// <summary> </summary>
@@ -374,6 +375,117 @@ namespace BudgetExecution
             _sqlStatement = command.SqlStatement;
             _dataConnection = command.Connection;
             _commandText = command.SqlStatement.CommandText;
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets the adapter.
+        /// </summary>
+        /// <returns> DbDataAdapter </returns>
+        public DbDataAdapter Create( )
+        {
+            if( Enum.IsDefined( typeof( Provider ), _provider )
+               && !string.IsNullOrEmpty( _commandText ) )
+            {
+                try
+                {
+                    switch( _provider )
+                    {
+                        case Provider.SQLite:
+                        {
+                            return GetSQLiteAdapter( );
+                        }
+                        case Provider.SqlCe:
+                        {
+                            return GetSqlCompactAdapter( );
+                        }
+                        case Provider.SqlServer:
+                        {
+                            return GetSqlServerAdapter( );
+                        }
+                        case Provider.Excel:
+                        case Provider.CSV:
+                        case Provider.Access:
+                        case Provider.OleDb:
+                        {
+                            return GetOleDbAdapter( );
+                        }
+                        default:
+                        {
+                            return GetOleDbAdapter( );
+                        }
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                    return default( DbDataAdapter );
+                }
+            }
+
+            return default( DbDataAdapter );
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Creates the asynchronous.
+        /// </summary>
+        /// <returns>
+        /// Task(DbDataAdapter)
+        /// </returns>
+        public Task<DbDataAdapter> CreateAsync( )
+        {
+            if( Enum.IsDefined( typeof( Provider ), _provider )
+               && !string.IsNullOrEmpty( _commandText ) )
+            {
+                var _async = new TaskCompletionSource<DbDataAdapter>( );
+                try
+                {
+                    switch( _provider )
+                    {
+                        case Provider.SQLite:
+                        {
+                            var _adapter = GetSQLiteAdapter( );
+                            _async.SetResult( _adapter );
+                            return _async.Task;
+                        }
+                        case Provider.SqlCe:
+                        {
+                            var _adapter = GetSqlCompactAdapter( );
+                            _async.SetResult( _adapter );
+                            return _async.Task;
+                        }
+                        case Provider.SqlServer:
+                        {
+                            var _adapter = GetSqlServerAdapter( );
+                            _async.SetResult( _adapter );
+                            return _async.Task;
+                        }
+                        case Provider.Excel:
+                        case Provider.CSV:
+                        case Provider.Access:
+                        case Provider.OleDb:
+                        {
+                            var _adapter = GetOleDbAdapter( );
+                            _async.SetResult( _adapter );
+                            return _async.Task;
+                        }
+                        default:
+                        {
+                            var _adapter = GetOleDbAdapter( );
+                            _async.SetResult( _adapter );
+                            return _async.Task;
+                        }
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                    return default( Task<DbDataAdapter> );
+                }
+            }
+
+            return default( Task<DbDataAdapter> );
         }
     }
 }

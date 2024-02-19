@@ -819,6 +819,7 @@ namespace BudgetExecution
         {
             try
             {
+                _tabPages = new Dictionary<string, TabPageAdv>( );
                 foreach( var _control in GetControls( ) )
                 {
                     if( _control.GetType( ) == typeof( TabPageAdv ) )
@@ -848,6 +849,7 @@ namespace BudgetExecution
         {
             try
             {
+                _radioButtons = new Dictionary<string, RadioButton>( );
                 foreach( var _control in GetControls( ) )
                 {
                     if( _control.GetType( ) == typeof( RadioButton ) )
@@ -877,6 +879,7 @@ namespace BudgetExecution
         {
             try
             {
+                _comboBoxes = new Dictionary<string, ComboBox>( );
                 foreach( var _control in GetControls( ) )
                 {
                     if( _control.GetType( ) == typeof( ComboBox ) )
@@ -906,6 +909,7 @@ namespace BudgetExecution
         {
             try
             {
+                _panels = new Dictionary<string, BackPanel>( );
                 foreach( var _control in GetControls( ) )
                 {
                     if( _control.GetType( ) == typeof( BackPanel ) )
@@ -935,6 +939,7 @@ namespace BudgetExecution
         {
             try
             {
+                _listBoxes = new Dictionary<string, ListBox>( );
                 foreach( var _control in GetControls( ) )
                 {
                     if( _control is ListBox _listBox )

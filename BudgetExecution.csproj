@@ -58,6 +58,7 @@
     <PackageReference Include="EPPlus" Version="7.0.8" />
     <PackageReference Include="EPPlus.Interfaces" Version="6.1.1" />
     <PackageReference Include="EPPlus.System.Drawing" Version="6.1.1" />
+    <PackageReference Include="GMap.NET.Core" Version="2.1.7" />
     <PackageReference Include="GMap.NET.WinForms" Version="2.1.7" />
     <PackageReference Include="Google.Apis" Version="1.66.0" />
     <PackageReference Include="Google.Apis.Core" Version="1.66.0" />

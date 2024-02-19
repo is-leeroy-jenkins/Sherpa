@@ -29,7 +29,6 @@
         private void InitializeComponent( )
         {
             components = new System.ComponentModel.Container( );
-            var resources = new System.ComponentModel.ComponentResourceManager( typeof( GeoMapper ) );
             HeaderTable = new System.Windows.Forms.TableLayoutPanel( );
             PictureBox = new System.Windows.Forms.PictureBox( );
             Title = new Label( );
@@ -71,17 +70,13 @@
             Separator15 = new ToolSeparator( );
             ApplicationLabel = new ToolStripLabel( );
             Timer = new System.Windows.Forms.Timer( components );
-            Map = new MapControl( );
             ContextMenu = new ContextMenu( );
-            MapPanel = new BackPanel( );
-            MapTable = new System.Windows.Forms.TableLayoutPanel( );
+            Map = new GMap.NET.WindowsForms.GMapControl( );
             HeaderTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
             ToolStripTable.SuspendLayout( );
             ToolStrip.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
-            MapPanel.SuspendLayout( );
-            MapTable.SuspendLayout( );
             SuspendLayout( );
             // 
             // HeaderTable
@@ -96,7 +91,7 @@
             HeaderTable.Name = "HeaderTable";
             HeaderTable.RowCount = 1;
             HeaderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            HeaderTable.Size = new System.Drawing.Size( 1338, 24 );
+            HeaderTable.Size = new System.Drawing.Size( 1333, 24 );
             HeaderTable.TabIndex = 0;
             // 
             // PictureBox
@@ -122,7 +117,7 @@
             Title.Margin = new System.Windows.Forms.Padding( 3 );
             Title.Name = "Title";
             Title.Padding = new System.Windows.Forms.Padding( 1 );
-            Title.Size = new System.Drawing.Size( 1304, 18 );
+            Title.Size = new System.Drawing.Size( 1299, 18 );
             Title.Style = MetroSet_UI.Enums.Style.Custom;
             Title.StyleManager = null;
             Title.TabIndex = 1;
@@ -138,11 +133,11 @@
             ToolStripTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             ToolStripTable.Controls.Add( ToolStrip, 0, 0 );
             ToolStripTable.Dock = System.Windows.Forms.DockStyle.Bottom;
-            ToolStripTable.Location = new System.Drawing.Point( 0, 693 );
+            ToolStripTable.Location = new System.Drawing.Point( 0, 688 );
             ToolStripTable.Name = "ToolStripTable";
             ToolStripTable.RowCount = 1;
             ToolStripTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            ToolStripTable.Size = new System.Drawing.Size( 1338, 45 );
+            ToolStripTable.Size = new System.Drawing.Size( 1333, 45 );
             ToolStripTable.TabIndex = 1;
             // 
             // ToolStrip
@@ -197,7 +192,7 @@
             ToolStrip.Separators = null;
             ToolStrip.ShowCaption = true;
             ToolStrip.ShowLauncher = true;
-            ToolStrip.Size = new System.Drawing.Size( 1336, 43 );
+            ToolStrip.Size = new System.Drawing.Size( 1331, 43 );
             ToolStrip.TabIndex = 0;
             ToolStrip.TextBox = null;
             ToolStrip.ThemeName = "Office2016DarkGray";
@@ -710,35 +705,6 @@
             Timer.Enabled = true;
             Timer.Interval = 500;
             // 
-            // Map
-            // 
-            Map.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            Map.Bearing = 0F;
-            Map.CanDragMap = true;
-            Map.Dock = System.Windows.Forms.DockStyle.Fill;
-            Map.EmptyTileColor = System.Drawing.Color.Navy;
-            Map.Font = new System.Drawing.Font( "Roboto", 9F );
-            Map.GrayScaleMode = false;
-            Map.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
-            Map.LevelsKeepInMemory = 5;
-            Map.Location = new System.Drawing.Point( 1, 1 );
-            Map.MarkersEnabled = true;
-            Map.MaxZoom = 18;
-            Map.MinZoom = 2;
-            Map.MouseWheelZoomEnabled = true;
-            Map.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
-            Map.Name = "Map";
-            Map.NegativeMode = false;
-            Map.PolygonsEnabled = true;
-            Map.RetryLoadTile = 0;
-            Map.RoutesEnabled = true;
-            Map.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
-            Map.SelectedAreaFillColor = System.Drawing.Color.FromArgb( 33, 65, 105, 225 );
-            Map.ShowTileGridLines = false;
-            Map.Size = new System.Drawing.Size( 1147, 602 );
-            Map.TabIndex = 2;
-            Map.Zoom = 5D;
-            // 
             // ContextMenu
             // 
             ContextMenu.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
@@ -759,48 +725,31 @@
             ContextMenu.ThemeStyle.PressedBackColor = System.Drawing.Color.FromArgb( 204, 204, 204 );
             ContextMenu.ThemeStyle.PressedForeColor = System.Drawing.Color.Black;
             // 
-            // MapPanel
+            // Map
             // 
-            MapPanel.BackColor = System.Drawing.Color.Transparent;
-            MapPanel.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            MapPanel.BindingSource = null;
-            MapPanel.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
-            MapPanel.BorderThickness = 1;
-            MapPanel.Children = null;
-            MapPanel.Controls.Add( Map );
-            MapPanel.DataFilter = null;
-            MapPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            MapPanel.Font = new System.Drawing.Font( "Roboto", 8F );
-            MapPanel.ForeColor = System.Drawing.Color.Transparent;
-            MapPanel.HoverText = null;
-            MapPanel.IsDerivedStyle = true;
-            MapPanel.Location = new System.Drawing.Point( 93, 28 );
-            MapPanel.Name = "MapPanel";
-            MapPanel.Padding = new System.Windows.Forms.Padding( 1 );
-            MapPanel.Size = new System.Drawing.Size( 1149, 604 );
-            MapPanel.Style = MetroSet_UI.Enums.Style.Custom;
-            MapPanel.StyleManager = null;
-            MapPanel.TabIndex = 3;
-            MapPanel.ThemeAuthor = "Terry D. Eppler";
-            MapPanel.ThemeName = "Budget Execution";
-            MapPanel.ToolTip = null;
-            // 
-            // MapTable
-            // 
-            MapTable.ColumnCount = 3;
-            MapTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            MapTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 1155F ) );
-            MapTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 93F ) );
-            MapTable.Controls.Add( MapPanel, 1, 1 );
-            MapTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            MapTable.Location = new System.Drawing.Point( 0, 24 );
-            MapTable.Name = "MapTable";
-            MapTable.RowCount = 3;
-            MapTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            MapTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 610F ) );
-            MapTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 34F ) );
-            MapTable.Size = new System.Drawing.Size( 1338, 669 );
-            MapTable.TabIndex = 4;
+            Map.Bearing = 0F;
+            Map.CanDragMap = true;
+            Map.EmptyTileColor = System.Drawing.Color.Navy;
+            Map.GrayScaleMode = false;
+            Map.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
+            Map.LevelsKeepInMemory = 5;
+            Map.Location = new System.Drawing.Point( 140, 54 );
+            Map.MarkersEnabled = true;
+            Map.MaxZoom = 2;
+            Map.MinZoom = 2;
+            Map.MouseWheelZoomEnabled = true;
+            Map.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
+            Map.Name = "Map";
+            Map.NegativeMode = false;
+            Map.PolygonsEnabled = true;
+            Map.RetryLoadTile = 0;
+            Map.RoutesEnabled = true;
+            Map.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
+            Map.SelectedAreaFillColor = System.Drawing.Color.FromArgb( 33, 65, 105, 225 );
+            Map.ShowTileGridLines = false;
+            Map.Size = new System.Drawing.Size( 1073, 607 );
+            Map.TabIndex = 2;
+            Map.Zoom = 0D;
             // 
             // GeoMapper
             // 
@@ -814,15 +763,14 @@
             CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionFont = new System.Drawing.Font( "Roboto", 9.75F );
             CaptionForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            ClientSize = new System.Drawing.Size( 1338, 738 );
+            ClientSize = new System.Drawing.Size( 1333, 733 );
             ControlBox = false;
-            Controls.Add( MapTable );
+            Controls.Add( Map );
             Controls.Add( ToolStripTable );
             Controls.Add( HeaderTable );
             DoubleBuffered = true;
             Font = new System.Drawing.Font( "Roboto", 8.25F );
             ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
             MaximizeBox = false;
             MaximumSize = new System.Drawing.Size( 1350, 750 );
             MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
@@ -832,9 +780,8 @@
             ShowIcon = false;
             ShowMaximizeBox = false;
             ShowMinimizeBox = false;
-            SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
+            SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            WindowState = System.Windows.Forms.FormWindowState.Maximized;
             HeaderTable.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).EndInit( );
             ToolStripTable.ResumeLayout( false );
@@ -842,8 +789,6 @@
             ToolStrip.ResumeLayout( false );
             ToolStrip.PerformLayout( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).EndInit( );
-            MapPanel.ResumeLayout( false );
-            MapTable.ResumeLayout( false );
             ResumeLayout( false );
         }
 
@@ -890,8 +835,6 @@
         public ToolStripButton MenuButton;
         public ToolSeparator Separator14;
         public ContextMenu ContextMenu;
-        public BackPanel MapPanel;
-        public MapControl Map;
-        public System.Windows.Forms.TableLayoutPanel MapTable;
+        private GMap.NET.WindowsForms.GMapControl Map;
     }
 }

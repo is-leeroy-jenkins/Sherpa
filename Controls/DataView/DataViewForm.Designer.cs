@@ -965,7 +965,7 @@
             GridHeaderPanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 5.405406F ) );
             GridHeaderPanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 94.5946F ) );
             GridHeaderPanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 20F ) );
-            GridHeaderPanel.Size = new System.Drawing.Size( 1019, 613 );
+            GridHeaderPanel.Size = new System.Drawing.Size( 1019, 615 );
             GridHeaderPanel.TabIndex = 55;
             // 
             // DataLabelTable
@@ -1080,7 +1080,7 @@
             GridTabControl.ActiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             GridTabControl.ActiveTabFont = new System.Drawing.Font( "Roboto", 8F );
             GridTabControl.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            GridTabControl.BeforeTouchSize = new System.Drawing.Size( 1013, 559 );
+            GridTabControl.BeforeTouchSize = new System.Drawing.Size( 1013, 561 );
             GridTabControl.BindingSource = null;
             GridTabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             GridTabControl.CanOverrideStyle = true;
@@ -1096,7 +1096,7 @@
             GridTabControl.ItemSize = new System.Drawing.Size( 100, 5 );
             GridTabControl.Location = new System.Drawing.Point( 3, 51 );
             GridTabControl.Name = "GridTabControl";
-            GridTabControl.Size = new System.Drawing.Size( 1013, 559 );
+            GridTabControl.Size = new System.Drawing.Size( 1013, 561 );
             GridTabControl.TabIndex = 0;
             GridTabControl.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             GridTabControl.TabStyle = typeof( Syncfusion.Windows.Forms.Tools.TabRendererMetro );
@@ -1119,7 +1119,7 @@
             Ready.Location = new System.Drawing.Point( 0, 4 );
             Ready.Name = "Ready";
             Ready.ShowCloseButton = true;
-            Ready.Size = new System.Drawing.Size( 1013, 555 );
+            Ready.Size = new System.Drawing.Size( 1013, 557 );
             Ready.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             Ready.TabForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             Ready.TabIndex = 1;
@@ -1143,7 +1143,7 @@
             DataGridPanel.Location = new System.Drawing.Point( 0, 0 );
             DataGridPanel.Name = "DataGridPanel";
             DataGridPanel.Padding = new System.Windows.Forms.Padding( 1 );
-            DataGridPanel.Size = new System.Drawing.Size( 1013, 555 );
+            DataGridPanel.Size = new System.Drawing.Size( 1013, 557 );
             DataGridPanel.Style = MetroSet_UI.Enums.Style.Custom;
             DataGridPanel.StyleManager = null;
             DataGridPanel.TabIndex = 47;
@@ -1197,7 +1197,7 @@
             Busy.Location = new System.Drawing.Point( 0, 4 );
             Busy.Name = "Busy";
             Busy.ShowCloseButton = true;
-            Busy.Size = new System.Drawing.Size( 1008, 550 );
+            Busy.Size = new System.Drawing.Size( 1013, 556 );
             Busy.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             Busy.TabForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             Busy.TabIndex = 2;
@@ -1209,7 +1209,7 @@
             Loader.Image = Resources.Images.Loading;
             Loader.Location = new System.Drawing.Point( 21, 16 );
             Loader.Name = "Loader";
-            Loader.Size = new System.Drawing.Size( 1761, 965 );
+            Loader.Size = new System.Drawing.Size( 1766, 971 );
             Loader.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             Loader.TabIndex = 0;
             Loader.TabStop = false;
@@ -2330,10 +2330,9 @@
             ShowIcon = false;
             ShowMaximizeBox = false;
             ShowMinimizeBox = false;
-            SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
+            SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "DataViewForm";
-            WindowState = System.Windows.Forms.FormWindowState.Maximized;
             HeaderTable.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).EndInit( );
             ToolStripTable.ResumeLayout( false );

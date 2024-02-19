@@ -84,13 +84,18 @@ namespace BudgetExecution
             // Color Picker Properties
             ColorPicker.ForeColor = Color.FromArgb( 106, 189, 252 );
             ColorPicker.Font = new Font( "Roboto", 9 );
-            ColorPicker.MetroForeColor = Color.FromArgb( 106, 189, 252 );
+            ColorPicker.MetroColor = Color.SteelBlue;
+            ColorPicker.MetroForeColor = Color.White;
             ColorPicker.BorderStyle = BorderStyle.None;
             ColorPicker.MetroColor = Color.FromArgb( 0, 120, 212 );
             ColorPicker.BackColor = Color.FromArgb( 20, 20, 20 );
             ColorPicker.VisualStyle = ColorUIStyle.Office2016Black;
             ColorPicker.Size = new Size( 246, 284 );
             ColorPicker.Location = new Point( 34, 16 );
+            ColorPicker.SelectedColorGroup = ColorUISelectedGroup.SystemColors;
+            ColorPicker.ThemeStyle.BackColor = Color.FromArgb( 20, 20, 20 );
+            ColorPicker.ThemeStyle.Font = new Font( "Roboto", 9 );
+            ColorPicker.ThemeStyle.ForeColor = Color.FromArgb( 106, 189, 252 );
 
             // Wire Events
             Load += OnLoad;

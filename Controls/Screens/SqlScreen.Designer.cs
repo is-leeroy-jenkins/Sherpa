@@ -60,6 +60,7 @@ partial class SqlScreen
         BindingSource = new System.Windows.Forms.BindingSource( components );
         FourthButton = new Button( );
         SecondButton = new Button( );
+        ContextMenu = new ContextMenu( );
         ( (System.ComponentModel.ISupportInitialize)TabControl ).BeginInit( );
         TabControl.SuspendLayout( );
         TabPage.SuspendLayout( );
@@ -182,6 +183,7 @@ partial class SqlScreen
         Editor.AllowZoom = false;
         Editor.AlwaysShowScrollers = true;
         Editor.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+        Editor.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
         Editor.BackColor = System.Drawing.SystemColors.ControlLight;
         Editor.BookmarkTooltipBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
         Editor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -608,7 +610,7 @@ partial class SqlScreen
         ThirdButton.Name = "ThirdButton";
         ThirdButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
         ThirdButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
-        ThirdButton.NormalTextColor = System.Drawing.Color.DarkGray;
+        ThirdButton.NormalTextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         ThirdButton.Padding = new System.Windows.Forms.Padding( 1 );
         ThirdButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
         ThirdButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
@@ -643,7 +645,7 @@ partial class SqlScreen
         FirstButton.Name = "FirstButton";
         FirstButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
         FirstButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
-        FirstButton.NormalTextColor = System.Drawing.Color.DarkGray;
+        FirstButton.NormalTextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         FirstButton.Padding = new System.Windows.Forms.Padding( 1 );
         FirstButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
         FirstButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
@@ -679,7 +681,7 @@ partial class SqlScreen
         FourthButton.Name = "FourthButton";
         FourthButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
         FourthButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
-        FourthButton.NormalTextColor = System.Drawing.Color.DarkGray;
+        FourthButton.NormalTextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         FourthButton.Padding = new System.Windows.Forms.Padding( 1 );
         FourthButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
         FourthButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
@@ -714,7 +716,7 @@ partial class SqlScreen
         SecondButton.Name = "SecondButton";
         SecondButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
         SecondButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
-        SecondButton.NormalTextColor = System.Drawing.Color.DarkGray;
+        SecondButton.NormalTextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         SecondButton.Padding = new System.Windows.Forms.Padding( 1 );
         SecondButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
         SecondButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
@@ -729,7 +731,27 @@ partial class SqlScreen
         SecondButton.ThemeName = "BudgetExecution";
         SecondButton.ToolTip = null;
         // 
-        // SqlDialog
+        // ContextMenu
+        // 
+        ContextMenu.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+        ContextMenu.DropShadowEnabled = false;
+        ContextMenu.Font = new System.Drawing.Font( "Roboto", 9F );
+        ContextMenu.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+        ContextMenu.MetroColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+        ContextMenu.Name = "ContextMenu";
+        ContextMenu.Size = new System.Drawing.Size( 126, 180 );
+        ContextMenu.Style = Syncfusion.Windows.Forms.Tools.ContextMenuStripEx.ContextMenuStyle.Office2016Black;
+        ContextMenu.ThemeName = "Office2016Black";
+        ContextMenu.ThemeStyle.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+        ContextMenu.ThemeStyle.BorderColor = System.Drawing.Color.FromArgb( 77, 77, 77 );
+        ContextMenu.ThemeStyle.DisabledForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+        ContextMenu.ThemeStyle.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+        ContextMenu.ThemeStyle.HoverBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+        ContextMenu.ThemeStyle.HoverForeColor = System.Drawing.Color.White;
+        ContextMenu.ThemeStyle.PressedBackColor = System.Drawing.Color.FromArgb( 204, 204, 204 );
+        ContextMenu.ThemeStyle.PressedForeColor = System.Drawing.Color.Black;
+        // 
+        // SqlScreen
         // 
         AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -798,4 +820,5 @@ partial class SqlScreen
     public HeaderPanel ProviderTable;
     private HeaderPanel EditorTable;
     public Button SecondButton;
+    public ContextMenu ContextMenu;
 }

@@ -100,6 +100,7 @@ namespace BudgetExecution
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
             SizeGripStyle = SizeGripStyle.Hide;
+            WindowState = FormWindowState.Normal;
             ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;

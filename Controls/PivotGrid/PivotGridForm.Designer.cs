@@ -74,6 +74,7 @@
             PivotTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             AreaTable = new System.Windows.Forms.TableLayoutPanel( );
             PivotPanel = new BackPanel( );
+            PivotGrid = new Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl( components );
             ChartSubTablePanel = new BackPanel( );
             ChartSubTable = new System.Windows.Forms.TableLayoutPanel( );
             CommandLabel2 = new Label( );
@@ -102,7 +103,6 @@
             TableListBoxLayout = new BackPanel( );
             TableListBox = new ListBox( );
             Timer = new System.Windows.Forms.Timer( components );
-            pivotGridControl1 = new Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl( components );
             ContextMenu = new ContextMenu( );
             HeaderTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
@@ -137,7 +137,7 @@
             HeaderTable.Name = "HeaderTable";
             HeaderTable.RowCount = 1;
             HeaderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            HeaderTable.Size = new System.Drawing.Size( 1333, 24 );
+            HeaderTable.Size = new System.Drawing.Size( 1338, 24 );
             HeaderTable.TabIndex = 0;
             // 
             // PictureBox
@@ -158,11 +158,11 @@
             Title.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
             Title.HoverText = null;
             Title.IsDerivedStyle = true;
-            Title.Location = new System.Drawing.Point( 30, 3 );
+            Title.Location = new System.Drawing.Point( 31, 3 );
             Title.Margin = new System.Windows.Forms.Padding( 3 );
             Title.Name = "Title";
             Title.Padding = new System.Windows.Forms.Padding( 1 );
-            Title.Size = new System.Drawing.Size( 1300, 18 );
+            Title.Size = new System.Drawing.Size( 1304, 18 );
             Title.Style = MetroSet_UI.Enums.Style.Custom;
             Title.StyleManager = null;
             Title.TabIndex = 1;
@@ -177,11 +177,11 @@
             ToolStripTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             ToolStripTable.Controls.Add( ToolStrip, 0, 0 );
             ToolStripTable.Dock = System.Windows.Forms.DockStyle.Bottom;
-            ToolStripTable.Location = new System.Drawing.Point( 0, 689 );
+            ToolStripTable.Location = new System.Drawing.Point( 0, 694 );
             ToolStripTable.Name = "ToolStripTable";
             ToolStripTable.RowCount = 1;
             ToolStripTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            ToolStripTable.Size = new System.Drawing.Size( 1333, 45 );
+            ToolStripTable.Size = new System.Drawing.Size( 1338, 45 );
             ToolStripTable.TabIndex = 1;
             // 
             // ToolStrip
@@ -236,7 +236,7 @@
             ToolStrip.Separators = null;
             ToolStrip.ShowCaption = true;
             ToolStrip.ShowLauncher = true;
-            ToolStrip.Size = new System.Drawing.Size( 1331, 43 );
+            ToolStrip.Size = new System.Drawing.Size( 1336, 43 );
             ToolStrip.TabIndex = 2;
             ToolStrip.Text = " ";
             ToolStrip.TextBox = null;
@@ -841,7 +841,7 @@
             PivotPanel.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
             PivotPanel.BorderThickness = 1;
             PivotPanel.Children = null;
-            PivotPanel.Controls.Add( pivotGridControl1 );
+            PivotPanel.Controls.Add( PivotGrid );
             PivotPanel.DataFilter = null;
             PivotPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             PivotPanel.Font = new System.Drawing.Font( "Roboto", 8F );
@@ -858,6 +858,19 @@
             PivotPanel.ThemeAuthor = "Terry D. Eppler";
             PivotPanel.ThemeName = "Budget Execution";
             PivotPanel.ToolTip = null;
+            // 
+            // PivotGrid
+            // 
+            PivotGrid.BackColor = System.Drawing.Color.FromArgb( 90, 90, 90 );
+            PivotGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            PivotGrid.EditManager = null;
+            PivotGrid.GridVisualStyles = Syncfusion.Windows.Forms.GridVisualStyles.Office2016Black;
+            PivotGrid.Location = new System.Drawing.Point( 1, 1 );
+            PivotGrid.Name = "PivotGrid";
+            PivotGrid.Size = new System.Drawing.Size( 1020, 470 );
+            PivotGrid.TabIndex = 0;
+            PivotGrid.ThemeName = "Office2016Black";
+            PivotGrid.UpdateManager = null;
             // 
             // ChartSubTablePanel
             // 
@@ -1454,20 +1467,6 @@
             Timer.Enabled = true;
             Timer.Interval = 500;
             // 
-            // pivotGridControl1
-            // 
-            pivotGridControl1.BackColor = System.Drawing.Color.FromArgb( 90, 90, 90 );
-            pivotGridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            pivotGridControl1.EditManager = null;
-            pivotGridControl1.GridVisualStyles = Syncfusion.Windows.Forms.GridVisualStyles.Office2016Black;
-            pivotGridControl1.Location = new System.Drawing.Point( 1, 1 );
-            pivotGridControl1.Name = "pivotGridControl1";
-            pivotGridControl1.Size = new System.Drawing.Size( 1020, 470 );
-            pivotGridControl1.TabIndex = 0;
-            pivotGridControl1.Text = "pivotGridControl1";
-            pivotGridControl1.ThemeName = "Office2016Black";
-            pivotGridControl1.UpdateManager = null;
-            // 
             // ContextMenu
             // 
             ContextMenu.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
@@ -1500,7 +1499,7 @@
             CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionFont = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
             CaptionForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            ClientSize = new System.Drawing.Size( 1333, 734 );
+            ClientSize = new System.Drawing.Size( 1338, 739 );
             ControlBox = false;
             Controls.Add( SourcePanel );
             Controls.Add( ChartHeaderTable );
@@ -1619,7 +1618,7 @@
         public ToolStripLabel StatusSpacer1;
         public ToolStripLabel Navigation;
         private PivotGrid pivotGrid1;
-        public Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl pivotGridControl1;
+        public Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl PivotGrid;
         public ContextMenu ContextMenu;
     }
 }

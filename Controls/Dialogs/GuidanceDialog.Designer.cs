@@ -427,9 +427,10 @@ namespace BudgetExecution
             Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
             Margin = new System.Windows.Forms.Padding( 4, 3, 4, 3 );
             MaximizeBox = false;
+            MaximumSize = new System.Drawing.Size( 568, 483 );
             MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             MinimizeBox = false;
-            MinimumSize = new System.Drawing.Size( 526, 455 );
+            MinimumSize = new System.Drawing.Size( 568, 483 );
             Name = "GuidanceDialog";
             ShowIcon = false;
             ShowMaximizeBox = false;

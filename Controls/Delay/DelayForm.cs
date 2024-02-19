@@ -177,7 +177,7 @@ namespace BudgetExecution
             Font = new Font( "Roboto", 9 );
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.Sizable;
-            WindowState = FormWindowState.Maximized;
+            WindowState = FormWindowState.Normal;
             CaptionBarHeight = 5;
             CaptionAlign = HorizontalAlignment.Center;
             CaptionFont = new Font( "Roboto", 10, FontStyle.Regular );
@@ -189,7 +189,7 @@ namespace BudgetExecution
             BorderThickness = 1;
             ShowIcon = false;
             ShowInTaskbar = true;
-            SizeGripStyle = SizeGripStyle.Show;
+            SizeGripStyle = SizeGripStyle.Hide;
             AutoScaleMode = AutoScaleMode.Font;
             DoubleBuffered = true;
             ShowMouseOver = false;

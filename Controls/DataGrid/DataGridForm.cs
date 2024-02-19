@@ -501,7 +501,9 @@ namespace BudgetExecution
         {
             get
             {
-                return _columns;
+                return _columns?.Any( ) == true
+                    ? _columns
+                    : new List<string>( );
             }
             private set
             {
@@ -555,7 +557,9 @@ namespace BudgetExecution
         {
             get
             {
-                return _filter;
+                return _filter?.Any( ) == true
+                    ? _filter
+                    : new Dictionary<string, object>( );
             }
             private set
             {
@@ -573,7 +577,9 @@ namespace BudgetExecution
         {
             get
             {
-                return _fields;
+                return _fields?.Any( ) == true
+                    ? _fields
+                    : new List<string>( );
             }
             private set
             {
@@ -591,7 +597,9 @@ namespace BudgetExecution
         {
             get
             {
-                return _numerics;
+                return _numerics?.Any( ) == true
+                    ? _numerics
+                    : new List<string>( );
             }
             private set
             {
@@ -609,7 +617,9 @@ namespace BudgetExecution
         {
             get
             {
-                return _selectedColumns;
+                return _selectedColumns?.Any( ) == true
+                    ? _selectedColumns
+                    : new List<string>( );
             }
             private set
             {
@@ -627,7 +637,9 @@ namespace BudgetExecution
         {
             get
             {
-                return _selectedFields;
+                return _selectedFields?.Any( ) == true
+                    ? _selectedFields
+                    : new List<string>( );
             }
             private set
             {
@@ -645,7 +657,9 @@ namespace BudgetExecution
         {
             get
             {
-                return _selectedNumerics;
+                return _selectedNumerics?.Any( ) == true
+                    ? _selectedNumerics
+                    : new List<string>( );
             }
             private set
             {
@@ -744,7 +758,7 @@ namespace BudgetExecution
             MinimumSize = new Size( 1340, 740 );
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.Sizable;
-            WindowState = FormWindowState.Maximized;
+            WindowState = FormWindowState.Normal;
             BorderColor = Color.FromArgb( 0, 120, 212 );
             BorderThickness = 1;
             BackColor = Color.FromArgb( 20, 20, 20 );
@@ -760,7 +774,7 @@ namespace BudgetExecution
             CaptionForeColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
-            SizeGripStyle = SizeGripStyle.Show;
+            SizeGripStyle = SizeGripStyle.Hide;
             AutoScaleMode = AutoScaleMode.Font;
             DoubleBuffered = true;
             ShowMouseOver = false;

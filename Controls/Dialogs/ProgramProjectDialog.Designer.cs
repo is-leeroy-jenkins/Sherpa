@@ -95,7 +95,7 @@ partial class ProgramProjectDialog
         StatutoryAuthorityTextBox.Tag = "Laws";
         StatutoryAuthorityTextBox.ThemeAuthor = "Terry D. Eppler";
         StatutoryAuthorityTextBox.ThemeName = "Budget Execution";
-        StatutoryAuthorityTextBox.ToolTip = null;
+        StatutoryAuthorityTextBox.ToolTip = ToolTip;
         StatutoryAuthorityTextBox.WordWrap = true;
         // 
         // ProgramDescriptionTextBox
@@ -126,7 +126,7 @@ partial class ProgramProjectDialog
         ProgramDescriptionTextBox.Tag = "Description";
         ProgramDescriptionTextBox.ThemeAuthor = "Terry D. Eppler";
         ProgramDescriptionTextBox.ThemeName = "Budget Execution";
-        ProgramDescriptionTextBox.ToolTip = null;
+        ProgramDescriptionTextBox.ToolTip = ToolTip;
         ProgramDescriptionTextBox.WordWrap = true;
         // 
         // ProgramAreaNameTextBox
@@ -154,10 +154,9 @@ partial class ProgramProjectDialog
         ProgramAreaNameTextBox.Style = MetroSet_UI.Enums.Style.Custom;
         ProgramAreaNameTextBox.StyleManager = null;
         ProgramAreaNameTextBox.TabIndex = 1;
-        ProgramAreaNameTextBox.Text = "ProgramAreaName";
         ProgramAreaNameTextBox.ThemeAuthor = "Terry D. Eppler";
         ProgramAreaNameTextBox.ThemeName = "Budget Execution";
-        ProgramAreaNameTextBox.ToolTip = null;
+        ProgramAreaNameTextBox.ToolTip = ToolTip;
         ProgramAreaNameTextBox.WordWrap = true;
         // 
         // ProgramProjectNameTextBox
@@ -188,7 +187,7 @@ partial class ProgramProjectDialog
         ProgramProjectNameTextBox.Tag = "Code";
         ProgramProjectNameTextBox.ThemeAuthor = "Terry D. Eppler";
         ProgramProjectNameTextBox.ThemeName = "Budget Execution";
-        ProgramProjectNameTextBox.ToolTip = null;
+        ProgramProjectNameTextBox.ToolTip = ToolTip;
         ProgramProjectNameTextBox.WordWrap = true;
         // 
         // DescriptionTable
@@ -360,7 +359,7 @@ partial class ProgramProjectDialog
         ComboBox.TabIndex = 19;
         ComboBox.ThemeAuthor = "Terry D. Eppler";
         ComboBox.ThemeName = "Budget Execution";
-        ComboBox.ToolTip = null;
+        ComboBox.ToolTip = ToolTip;
         // 
         // MenuButton
         // 
@@ -596,7 +595,6 @@ partial class ProgramProjectDialog
     public System.Windows.Forms.TableLayoutPanel HeaderTable;
     public System.Windows.Forms.PictureBox pictureBox1;
     private Label Header;
-    private ComboBox ComboBox;
     public Button MenuButton;
     public Button CloseButton;
     public Button SearchButton;
@@ -604,4 +602,5 @@ partial class ProgramProjectDialog
     private ContextMenu ContextMenu;
     public System.Windows.Forms.TableLayoutPanel ButtonTable;
     public Label StatusLabel;
+    public ComboBox ComboBox;
 }

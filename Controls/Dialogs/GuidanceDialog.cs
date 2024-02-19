@@ -369,10 +369,10 @@ namespace BudgetExecution
             // Basic Properties
             Size = new Size( 568, 483 );
             MaximumSize = new Size( 568, 483 );
-            MinimumSize = new Size( 558, 473 );
+            MinimumSize = new Size( 568, 483 );
             StartPosition = FormStartPosition.CenterScreen;
-            FormBorderStyle = FormBorderStyle.Sizable;
-            WindowState = FormWindowState.Maximized;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            WindowState = FormWindowState.Normal;
             BorderColor = Color.FromArgb( 0, 120, 212 );
             BorderThickness = 1;
             BackColor = Color.FromArgb( 20, 20, 20 );

@@ -87,6 +87,7 @@ namespace BudgetExecution
             Table.RowCount = 2;
             Table.Font = new Font( "Roboto", 9 );
             Table.ForeColor = Color.FromArgb( 106, 189, 252 );
+            Table.GrowStyle = TableLayoutPanelGrowStyle.FixedSize;
 
             // TextBox Properties
             TextBox.ForeColor = Color.White;
