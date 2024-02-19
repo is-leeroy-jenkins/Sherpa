@@ -36,6 +36,7 @@
             Timer = new System.Windows.Forms.Timer( components );
             CloseButton = new Button( );
             ContextMenu = new ContextMenu( );
+            ImageList = new ImageList( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
             SuspendLayout( );
             // 
@@ -113,6 +114,14 @@
             ContextMenu.ThemeStyle.PressedBackColor = System.Drawing.Color.FromArgb( 204, 204, 204 );
             ContextMenu.ThemeStyle.PressedForeColor = System.Drawing.Color.Black;
             // 
+            // ImageList
+            // 
+            ImageList.FileNames = null;
+            ImageList.FilePaths = null;
+            ImageList.HoverText = null;
+            ImageList.Image = null;
+            ImageList.ImageSource = ImageDirectory.LoaderImages;
+            // 
             // DelayForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
@@ -125,19 +134,25 @@
             CaptionButtonHoverColor = System.Drawing.Color.Black;
             CaptionFont = new System.Drawing.Font( "Roboto", 11.25F );
             CaptionForeColor = System.Drawing.Color.Black;
-            ClientSize = new System.Drawing.Size( 1338, 743 );
+            ClientSize = new System.Drawing.Size( 1338, 738 );
+            ControlBox = false;
             Controls.Add( CloseButton );
             Controls.Add( PictureBox );
+            DoubleBuffered = true;
             Font = new System.Drawing.Font( "Roboto", 9F );
             ForeColor = System.Drawing.Color.Black;
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
             Margin = new System.Windows.Forms.Padding( 4, 3, 4, 3 );
             MaximizeBox = false;
             MaximumSize = new System.Drawing.Size( 1350, 750 );
             MetroColor = System.Drawing.Color.Black;
+            MinimizeBox = false;
             MinimumSize = new System.Drawing.Size( 1340, 740 );
             Name = "DelayForm";
             ShowIcon = false;
+            ShowMaximizeBox = false;
+            ShowMinimizeBox = false;
             SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             Text = "DelayForm";
@@ -152,5 +167,6 @@
         public System.Windows.Forms.Timer Timer;
         private Button CloseButton;
         public ContextMenu ContextMenu;
+        public ImageList ImageList;
     }
 }

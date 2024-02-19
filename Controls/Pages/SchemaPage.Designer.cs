@@ -2,7 +2,7 @@
 {
 
 
-    partial class SchemaScreeen
+    partial class SchemaPage
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
         private void InitializeComponent( )
         {
             components = new System.ComponentModel.Container( );
-            var resources = new System.ComponentModel.ComponentResourceManager( typeof( SchemaScreeen ) );
+            var resources = new System.ComponentModel.ComponentResourceManager( typeof( SchemaPage ) );
             BindingSource = new System.Windows.Forms.BindingSource( components );
             TabControl = new Syncfusion.Windows.Forms.Tools.TabControlAdv( );
             TabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
@@ -39,7 +39,7 @@
             ProviderPanel = new BackPanel( );
             SqlCeRadioButton = new RadioButton( );
             ToolTip = new SmallTip( );
-            SqliteRadioButton = new RadioButton( );
+            SQLiteRadioButton = new RadioButton( );
             AccessRadioButton = new RadioButton( );
             SqlServerRadioButton = new RadioButton( );
             SchemaTable = new HeaderPanel( );
@@ -174,7 +174,7 @@
             ProviderPanel.BorderThickness = 1;
             ProviderPanel.Children = null;
             ProviderPanel.Controls.Add( SqlCeRadioButton );
-            ProviderPanel.Controls.Add( SqliteRadioButton );
+            ProviderPanel.Controls.Add( SQLiteRadioButton );
             ProviderPanel.Controls.Add( AccessRadioButton );
             ProviderPanel.Controls.Add( SqlServerRadioButton );
             ProviderPanel.DataFilter = null;
@@ -214,7 +214,7 @@
             SqlCeRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
             SqlCeRadioButton.StyleManager = null;
             SqlCeRadioButton.TabIndex = 4;
-            SqlCeRadioButton.Tag = "";
+            SqlCeRadioButton.Tag = "SqlCe";
             SqlCeRadioButton.Text = "    SQL Compact  ( *.sdf )";
             SqlCeRadioButton.ThemeAuthor = "Terry D. Eppler";
             SqlCeRadioButton.ThemeName = "Budget Execution";
@@ -240,31 +240,31 @@
             ToolTip.TipText = null;
             ToolTip.TipTitle = null;
             // 
-            // SqliteRadioButton
+            // SQLiteRadioButton
             // 
-            SqliteRadioButton.BackColor = System.Drawing.Color.Transparent;
-            SqliteRadioButton.BackgroundColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
-            SqliteRadioButton.BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            SqliteRadioButton.Checked = false;
-            SqliteRadioButton.CheckSignColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            SqliteRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
-            SqliteRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 85, 85, 85 );
-            SqliteRadioButton.Font = new System.Drawing.Font( "Roboto", 8F );
-            SqliteRadioButton.Group = 0;
-            SqliteRadioButton.HoverText = null;
-            SqliteRadioButton.IsDerivedStyle = true;
-            SqliteRadioButton.Location = new System.Drawing.Point( 112, 14 );
-            SqliteRadioButton.Name = "SqliteRadioButton";
-            SqliteRadioButton.Result = null;
-            SqliteRadioButton.Size = new System.Drawing.Size( 186, 17 );
-            SqliteRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
-            SqliteRadioButton.StyleManager = null;
-            SqliteRadioButton.TabIndex = 1;
-            SqliteRadioButton.Tag = "";
-            SqliteRadioButton.Text = "    SQLite  ( *.db )";
-            SqliteRadioButton.ThemeAuthor = "Narwin";
-            SqliteRadioButton.ThemeName = "MetroDark";
-            SqliteRadioButton.ToolTip = ToolTip;
+            SQLiteRadioButton.BackColor = System.Drawing.Color.Transparent;
+            SQLiteRadioButton.BackgroundColor = System.Drawing.Color.FromArgb( 30, 30, 30 );
+            SQLiteRadioButton.BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            SQLiteRadioButton.Checked = false;
+            SQLiteRadioButton.CheckSignColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            SQLiteRadioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
+            SQLiteRadioButton.DisabledBorderColor = System.Drawing.Color.FromArgb( 85, 85, 85 );
+            SQLiteRadioButton.Font = new System.Drawing.Font( "Roboto", 8F );
+            SQLiteRadioButton.Group = 0;
+            SQLiteRadioButton.HoverText = null;
+            SQLiteRadioButton.IsDerivedStyle = true;
+            SQLiteRadioButton.Location = new System.Drawing.Point( 112, 14 );
+            SQLiteRadioButton.Name = "SQLiteRadioButton";
+            SQLiteRadioButton.Result = null;
+            SQLiteRadioButton.Size = new System.Drawing.Size( 186, 17 );
+            SQLiteRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
+            SQLiteRadioButton.StyleManager = null;
+            SQLiteRadioButton.TabIndex = 1;
+            SQLiteRadioButton.Tag = "SQLite";
+            SQLiteRadioButton.Text = "    SQLite  ( *.db )";
+            SQLiteRadioButton.ThemeAuthor = "Narwin";
+            SQLiteRadioButton.ThemeName = "MetroDark";
+            SQLiteRadioButton.ToolTip = ToolTip;
             // 
             // AccessRadioButton
             // 
@@ -286,7 +286,7 @@
             AccessRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
             AccessRadioButton.StyleManager = null;
             AccessRadioButton.TabIndex = 3;
-            AccessRadioButton.Tag = "";
+            AccessRadioButton.Tag = "Access";
             AccessRadioButton.Text = "    MS Access  ( *.accdb )";
             AccessRadioButton.ThemeAuthor = "Terry D. Eppler";
             AccessRadioButton.ThemeName = "Budget Execution";
@@ -312,7 +312,7 @@
             SqlServerRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
             SqlServerRadioButton.StyleManager = null;
             SqlServerRadioButton.TabIndex = 2;
-            SqlServerRadioButton.Tag = "";
+            SqlServerRadioButton.Tag = "SqlServer";
             SqlServerRadioButton.Text = "    SQL Server  ( *.mdf )";
             SqlServerRadioButton.ThemeAuthor = "Terry D. Eppler";
             SqlServerRadioButton.ThemeName = "Budget Execution";
@@ -1230,7 +1230,7 @@
             groupBox9.ThemeName = "BudgetExecution";
             groupBox9.ToolTip = null;
             // 
-            // SchemaLayout
+            // SchemaPage
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1257,7 +1257,7 @@
             MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             MinimizeBox = false;
             MinimumSize = new System.Drawing.Size( 1340, 648 );
-            Name = "SchemaLayout";
+            Name = "SchemaPage";
             ShowIcon = false;
             ShowMaximizeBox = false;
             ShowMinimizeBox = false;
@@ -1303,7 +1303,7 @@
         public TextBox TableNameTextBox;
         public ComboBox DataTypeComboBox;
         private BackPanel ProviderPanel;
-        public RadioButton SqliteRadioButton;
+        public RadioButton SQLiteRadioButton;
         public RadioButton AccessRadioButton;
         public RadioButton SqlServerRadioButton;
         private BackPanel SchemaLayout;

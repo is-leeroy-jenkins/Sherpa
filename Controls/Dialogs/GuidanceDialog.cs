@@ -365,6 +365,8 @@ namespace BudgetExecution
         public GuidanceDialog( )
         {
             InitializeComponent( );
+            InitializeDelegates( );
+            RegisterCallbacks( );
 
             // Basic Properties
             Size = new Size( 568, 483 );
@@ -407,12 +409,26 @@ namespace BudgetExecution
 
             // Event Wiring
             Load += OnLoad;
-            CloseButton.Click += OnCloseButtonClicked;
-            MenuButton.Click += OnMainMenuButtonClicked;
-            ClearButton.Click += OnClearButtonClick;
-            BrowseButton.Click += OnBrowseButtonClick;
-            SelectButton.Click += OnSelectButtonClick;
-            ListBox.SelectedValueChanged += OnListBoxSelectedValueChanged;
+        }
+
+        /// <summary>
+        /// Initializes the callbacks.
+        /// </summary>
+        private void RegisterCallbacks( )
+        {
+            try
+            {
+                CloseButton.Click += OnCloseButtonClicked;
+                MenuButton.Click += OnMainMenuButtonClicked;
+                ClearButton.Click += OnClearButtonClick;
+                BrowseButton.Click += OnBrowseButtonClick;
+                SelectButton.Click += OnSelectButtonClick;
+                ListBox.SelectedValueChanged += OnListBoxSelectedValueChanged;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>

@@ -436,7 +436,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _editor = new EditScreen( );
+                var _editor = new EditPage( );
                 _editor.Owner = this;
                 _editor.Show( );
                 Hide( );
@@ -454,7 +454,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _editor = new LookupScreen( );
+                var _editor = new LookupPage( );
                 _editor.Owner = this;
                 _editor.Show( );
                 Hide( );
@@ -665,7 +665,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _sqlEditor = new SqlEditor( Provider.SqlServer );
+                var _sqlEditor = new SqlEditForm( Provider.SqlServer );
                 _sqlEditor.StartPosition = FormStartPosition.CenterScreen;
                 _sqlEditor.Owner = this;
                 _sqlEditor.Show( );
@@ -971,7 +971,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _sqlEditor = new SqlEditor( Provider.SqlCe );
+                var _sqlEditor = new SqlEditForm( Provider.SqlCe );
                 _sqlEditor.Owner = this;
                 _sqlEditor.Show( );
                 Hide( );
@@ -994,7 +994,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _sqlEditor = new SqlEditor( Provider.SQLite );
+                var _sqlEditor = new SqlEditForm( Provider.SQLite );
                 _sqlEditor.Owner = this;
                 _sqlEditor.Show( );
                 Hide( );
@@ -1030,7 +1030,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _sqlEditor = new SqlEditor( Provider.Access );
+                var _sqlEditor = new SqlEditForm( Provider.Access );
                 _sqlEditor.Owner = this;
                 _sqlEditor.Show( );
                 Hide( );

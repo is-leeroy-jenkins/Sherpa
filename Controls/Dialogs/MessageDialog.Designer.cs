@@ -283,7 +283,7 @@ namespace BudgetExecution
             PictureBox.Image = Resources.Images.Message;
             PictureBox.Location = new System.Drawing.Point( 3, 3 );
             PictureBox.Name = "PictureBox";
-            PictureBox.Size = new System.Drawing.Size( 22, 18 );
+            PictureBox.Size = new System.Drawing.Size( 20, 18 );
             PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             PictureBox.TabIndex = 0;
             PictureBox.TabStop = false;
@@ -317,6 +317,7 @@ namespace BudgetExecution
             // 
             // SaveDialog
             // 
+            SaveDialog.CheckFileExists = true;
             SaveDialog.Filter = null;
             // 
             // MessageDialog

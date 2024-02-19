@@ -51,7 +51,8 @@ namespace BudgetExecution
     using System.Windows.Forms;
 
     /// <inheritdoc/>
-    /// <summary> </summary>
+    /// <summary>
+    /// </summary>
     /// <seealso cref="T:BudgetExecution.EditBase"/>
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -66,7 +67,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
     [ SuppressMessage( "ReSharper", "MergeConditionalExpression" ) ]
     [ SuppressMessage( "ReSharper", "MergeCastWithTypeCheck" ) ]
-    public partial class EditScreen : EditBase
+    public partial class EditPage : EditBase
     {
         /// <summary>
         /// The busy
@@ -379,9 +380,7 @@ namespace BudgetExecution
         {
             get
             {
-                return ( _commands.Any( ) == true )
-                    ? _commands
-                    : new List<string>( );
+                return _commands;
             }
             private set
             {
@@ -399,9 +398,7 @@ namespace BudgetExecution
         {
             get
             {
-                return ( _statements != null )
-                    ? _statements
-                    : new Dictionary<string, object>( );
+                return _statements;
             }
             private set
             {
@@ -419,9 +416,7 @@ namespace BudgetExecution
         {
             get
             {
-                return _frames?.Any( ) == true
-                    ? _frames
-                    : new List<Frame>( );
+                return _frames;
             }
             private set
             {
@@ -455,7 +450,7 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.EditPanel"/>
         /// class.
         /// </summary>
-        public EditScreen( )
+        public EditPage( )
         {
             InitializeComponent( );
             RegisterCallbacks( );
@@ -492,6 +487,10 @@ namespace BudgetExecution
             _frames = GetFrames( );
             _tabPages = GetTabPages( );
 
+            // Timer Properties
+            _time = 0;
+            _seconds = 5;
+
             // Form Event Wiring
             Load += OnLoad;
             MouseClick += OnRightClick;
@@ -506,7 +505,7 @@ namespace BudgetExecution
         /// <param name="bindingSource">
         /// The binding source.
         /// </param>
-        public EditScreen( BindingSource bindingSource )
+        public EditPage( BindingSource bindingSource )
             : this( )
         {
             BindingSource = bindingSource;
@@ -530,7 +529,7 @@ namespace BudgetExecution
         /// <param name="dataModel">
         /// The data model.
         /// </param>
-        public EditScreen( DataBuilder dataModel )
+        public EditPage( DataBuilder dataModel )
             : this( )
         {
             _dataModel = dataModel;
@@ -555,7 +554,7 @@ namespace BudgetExecution
         /// <param name="source"> The source. </param>
         /// <param name="provider"> The provider. </param>
         /// <param name="where"> </param>
-        public EditScreen( Source source, Provider provider, IDictionary<string, object> where )
+        public EditPage( Source source, Provider provider, IDictionary<string, object> where )
             : this( )
         {
             _provider = provider;
@@ -577,7 +576,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
-        public EditScreen( Source source, Provider provider = Provider.Access )
+        public EditPage( Source source, Provider provider = Provider.Access )
             : this( )
         {
             _provider = provider;
@@ -651,7 +650,7 @@ namespace BudgetExecution
         {
             try
             {
-                _statusUpdate += UpdateLabelText;
+                _statusUpdate += UpdateLabels;
             }
             catch( Exception _ex )
             {
@@ -1006,30 +1005,14 @@ namespace BudgetExecution
         {
             try
             {
-                if( _selectedColumns?.Any( ) == true )
-                {
-                    _selectedColumns.Clear( );
-                }
-
-                if( _selectedFields?.Any( ) == true )
-                {
-                    _selectedFields.Clear( );
-                }
-
-                if( _selectedNumerics?.Any( ) == true )
-                {
-                    _selectedNumerics.Clear( );
-                }
-
-                if( _commands?.Any( ) == true )
-                {
-                    _commands.Clear( );
-                }
-
-                if( _statements?.Any( ) == true )
-                {
-                    _statements.Clear( );
-                }
+                _columns?.Clear( );
+                _fields?.Clear( );
+                _numerics?.Clear( );
+                _selectedColumns?.Clear( );
+                _selectedFields?.Clear( );
+                _selectedNumerics?.Clear( );
+                _commands?.Clear( );
+                _statements?.Clear( );
             }
             catch( Exception _ex )
             {
@@ -1060,7 +1043,7 @@ namespace BudgetExecution
         /// <summary>
         /// Updates the label text.
         /// </summary>
-        private void UpdateLabelText( )
+        private void UpdateLabels( )
         {
             try
             {

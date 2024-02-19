@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        2-13-2024
 // ******************************************************************************************
-// <copyright file="LookupScreen.cs" company="Terry D. Eppler">
+// <copyright file="LookupPage.cs" company="Terry D. Eppler">
 //    Budget Execution is a Federal Budget, Finance, and Accounting application
 //    for analysts with the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
@@ -34,7 +34,7 @@
 //    Contact at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   LookupScreen.cs
+//   LookupPage.cs
 // </summary>
 // ******************************************************************************************
 
@@ -42,9 +42,11 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
+    using System.Configuration;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.IO;
     using System.Linq;
     using System.Windows.Forms;
 
@@ -59,7 +61,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
-    public partial class LookupScreen : EditBase
+    public partial class LookupPage : EditBase
     {
         /// <summary>
         /// The busy
@@ -373,7 +375,7 @@ namespace BudgetExecution
         /// <value>
         /// The table prefix.
         /// </value>
-        public string TablePrefix { get; set; } = " Tables : ";
+        private readonly string _tablePrefix = " Tables : ";
 
         /// <summary>
         /// Gets or sets the column prefix.
@@ -381,7 +383,7 @@ namespace BudgetExecution
         /// <value>
         /// The column prefix.
         /// </value>
-        public string ColumnPrefix { get; set; } = " Columns : ";
+        private readonly string _columnPrefix = " Columns : ";
 
         /// <summary>
         /// Gets or sets the value prefix.
@@ -389,14 +391,14 @@ namespace BudgetExecution
         /// <value>
         /// The value prefix.
         /// </value>
-        public string ValuePrefix { get; set; } = " Values : ";
+        private readonly string _valuePrefix = " Values : ";
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="LookupScreen"/> class.
+        /// <see cref="LookupPage"/> class.
         /// </summary>
         /// <inheritdoc />
-        public LookupScreen( )
+        public LookupPage( )
         {
             InitializeComponent( );
             InitializeDelegates( );
@@ -483,8 +485,8 @@ namespace BudgetExecution
         {
             try
             {
-                SourceTable.CaptionText = TablePrefix + TableListBox.Items.Count;
-                ColumnTable.CaptionText = ColumnPrefix;
+                SourceTable.CaptionText = _tablePrefix + TableListBox.Items.Count;
+                ColumnTable.CaptionText = _columnPrefix;
             }
             catch( Exception _ex )
             {
@@ -531,7 +533,14 @@ namespace BudgetExecution
         /// </summary>
         private void InitializeDelegates( )
         {
-            _statusUpdate += UpdateLabels;
+            try
+            {
+                _statusUpdate += UpdateLabels;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -539,7 +548,14 @@ namespace BudgetExecution
         /// </summary>
         private void BeginInit( )
         {
-            _busy = true;
+            try
+            {
+                _busy = true;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -547,7 +563,49 @@ namespace BudgetExecution
         /// </summary>
         private void EndInit( )
         {
-            _busy = false;
+            try
+            {
+                _busy = false;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the form icon.
+        /// </summary>
+        private void SetImage( )
+        {
+            Image _img = null;
+            try
+            {
+                var _path = ConfigurationManager.AppSettings[ "ProviderImages" ];
+                if( !string.IsNullOrEmpty( _path ) )
+                {
+                    var _files = Directory.GetFiles( _path );
+                    if( _files?.Any( ) == true )
+                    {
+                        var _name = _provider.ToString( );
+                        var _file = _files
+                            ?.Where( f => f.Contains( _name ) )
+                            ?.First( );
+
+                        if( !string.IsNullOrEmpty( _file )
+                           && File.Exists( _file ) )
+                        {
+                            _img = Image.FromFile( _file );
+                            //PictureBox.Image = _img;
+                        }
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                _img?.Dispose( );
+            }
         }
 
         /// <summary>
@@ -657,20 +715,12 @@ namespace BudgetExecution
         {
             try
             {
-                if( _selectedColumns?.Any( ) == true )
-                {
-                    _selectedColumns.Clear( );
-                }
-
-                if( _selectedFields?.Any( ) == true )
-                {
-                    _selectedFields.Clear( );
-                }
-
-                if( _selectedNumerics?.Any( ) == true )
-                {
-                    _selectedNumerics.Clear( );
-                }
+                _columns?.Clear( );
+                _fields?.Clear( );
+                _numerics?.Clear( );
+                _selectedColumns?.Clear( );
+                _selectedFields?.Clear( );
+                _selectedNumerics?.Clear( );
             }
             catch( Exception _ex )
             {
@@ -685,6 +735,8 @@ namespace BudgetExecution
         {
             try
             {
+                _fourthCategory = string.Empty;
+                _fourthValue = string.Empty;
                 _thirdCategory = string.Empty;
                 _thirdValue = string.Empty;
                 _secondCategory = string.Empty;
@@ -708,6 +760,20 @@ namespace BudgetExecution
                 TableListBox?.Clear( );
                 ColumnListBox?.Clear( );
                 Filter?.Clear( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Updates the labels.
+        /// </summary>
+        private void UpdateLabels( )
+        {
+            try
+            {
             }
             catch( Exception _ex )
             {
@@ -769,23 +835,9 @@ namespace BudgetExecution
                         ColumnListBox.Items?.Add( _col.ColumnName );
                     }
 
-                    ColumnTable.CaptionText = ColumnPrefix + ColumnListBox.Items?.Count;
-                    ValueTable.CaptionText = ValuePrefix;
+                    ColumnTable.CaptionText = _columnPrefix + ColumnListBox.Items?.Count;
+                    ValueTable.CaptionText = _valuePrefix;
                 }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Updates the labels.
-        /// </summary>
-        private void UpdateLabels( )
-        {
-            try
-            {
             }
             catch( Exception _ex )
             {
@@ -813,7 +865,7 @@ namespace BudgetExecution
                     }
                 }
 
-                ValueTable.CaptionText = ValuePrefix + ValueListBox.Items?.Count;
+                ValueTable.CaptionText = _valuePrefix + ValueListBox.Items?.Count;
             }
             catch( Exception _ex )
             {

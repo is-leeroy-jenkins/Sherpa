@@ -5,7 +5,7 @@
 
 namespace BudgetExecution;
 
-partial class FilterScreen
+partial class FilterPage
 {
     /// <summary>
     /// Required designer variable.
@@ -35,7 +35,7 @@ partial class FilterScreen
     {
         components = new System.ComponentModel.Container( );
         var config1 = new Syncfusion.Windows.Forms.Edit.Implementation.Config.Config( );
-        var resources = new System.ComponentModel.ComponentResourceManager( typeof( FilterScreen ) );
+        var resources = new System.ComponentModel.ComponentResourceManager( typeof( FilterPage ) );
         FirstPanel = new BackPanel( );
         FirstListBox = new ListBox( );
         FirstComboBox = new ComboBox( );
@@ -2309,7 +2309,7 @@ partial class FilterScreen
         ClearButton.ThemeName = "Budget Execution";
         ClearButton.ToolTip = ToolTip;
         // 
-        // FilterScreen
+        // FilterPage
         // 
         AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -2339,7 +2339,7 @@ partial class FilterScreen
         MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         MinimizeBox = false;
         MinimumSize = new System.Drawing.Size( 1349, 730 );
-        Name = "FilterScreen";
+        Name = "FilterPage";
         ShowIcon = false;
         ShowMaximizeBox = false;
         ShowMinimizeBox = false;

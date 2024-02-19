@@ -365,7 +365,7 @@ namespace BudgetExecution
             _provider = sqlStatement.Provider;
             _criteria = sqlStatement.Criteria;
             _dataConnection = new BudgetConnection( _source, _provider ).Create( );
-            _dataAdapter = new BudgetAdapter( sqlStatement ).Create( );
+            _dataAdapter = new BudgetAdapter( _source, _provider ).Create( );
             _isDisposed = false;
         }
 

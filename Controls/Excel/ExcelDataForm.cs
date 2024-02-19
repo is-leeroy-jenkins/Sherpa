@@ -1546,7 +1546,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _group = new FilterScreen( );
+                var _group = new FilterPage( );
                 _group.ShowDialog( this );
                 _provider = _group.DataArgs.Provider;
                 _source = _group.DataArgs.Source;

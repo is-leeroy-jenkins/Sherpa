@@ -217,7 +217,7 @@
             PictureBox.Image = Resources.Images.budget;
             PictureBox.Location = new System.Drawing.Point( 3, 3 );
             PictureBox.Name = "PictureBox";
-            PictureBox.Size = new System.Drawing.Size( 22, 18 );
+            PictureBox.Size = new System.Drawing.Size( 20, 18 );
             PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             PictureBox.TabIndex = 1;
             PictureBox.TabStop = false;
@@ -228,7 +228,7 @@
             ToolStripTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             ToolStripTable.Controls.Add( ToolStrip, 0, 0 );
             ToolStripTable.Dock = System.Windows.Forms.DockStyle.Bottom;
-            ToolStripTable.Location = new System.Drawing.Point( 0, 694 );
+            ToolStripTable.Location = new System.Drawing.Point( 0, 693 );
             ToolStripTable.Name = "ToolStripTable";
             ToolStripTable.RowCount = 1;
             ToolStripTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
@@ -1197,7 +1197,7 @@
             Busy.Location = new System.Drawing.Point( 0, 4 );
             Busy.Name = "Busy";
             Busy.ShowCloseButton = true;
-            Busy.Size = new System.Drawing.Size( 1013, 556 );
+            Busy.Size = new System.Drawing.Size( 1013, 557 );
             Busy.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             Busy.TabForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             Busy.TabIndex = 2;
@@ -1209,7 +1209,7 @@
             Loader.Image = Resources.Images.Loading;
             Loader.Location = new System.Drawing.Point( 21, 16 );
             Loader.Name = "Loader";
-            Loader.Size = new System.Drawing.Size( 1766, 971 );
+            Loader.Size = new System.Drawing.Size( 1766, 972 );
             Loader.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             Loader.TabIndex = 0;
             Loader.TabStop = false;
@@ -2311,7 +2311,7 @@
             CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionFont = new System.Drawing.Font( "Roboto", 9.75F );
             CaptionForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            ClientSize = new System.Drawing.Size( 1338, 739 );
+            ClientSize = new System.Drawing.Size( 1338, 738 );
             ControlBox = false;
             Controls.Add( SelectionTabControl );
             Controls.Add( GridHeaderPanel );

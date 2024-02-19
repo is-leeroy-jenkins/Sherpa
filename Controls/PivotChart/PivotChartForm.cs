@@ -48,6 +48,7 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
+    using PdfSharp.Drawing;
     using Syncfusion.PivotAnalysis.Base;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Chart;
@@ -691,6 +692,7 @@ namespace BudgetExecution
         {
             InitializeComponent( );
             InitializeDelegates( );
+            RegisterCallbacks( );
 
             // Basic Properties
             Size = new Size( 1350, 750 );
@@ -721,6 +723,9 @@ namespace BudgetExecution
             MinimizeBox = false;
             MaximizeBox = false;
             ControlBox = false;
+
+            // Default Provider
+            _provider = Provider.Access;
 
             // Timer Properties
             _time = 0;
@@ -834,6 +839,76 @@ namespace BudgetExecution
         {
             try
             {
+                var _font = new Font( "Roboto", 7 );
+                var _foreColor = Color.FromArgb( 106, 189, 252 );
+                MetricLabel1.Font = _font;
+                MetricLabel1.ForeColor = _foreColor;
+                MetricLabel1.Text = string.Empty;
+                MetricLabel2.Font = _font;
+                MetricLabel2.ForeColor = _foreColor;
+                MetricLabel2.Text = string.Empty;
+                MetricLabel3.Font = _font;
+                MetricLabel3.ForeColor = _foreColor;
+                MetricLabel3.Text = string.Empty;
+                MetricLabel4.Font = _font;
+                MetricLabel4.ForeColor = _foreColor;
+                MetricLabel4.Text = string.Empty;
+                MetricLabel5.Font = _font;
+                MetricLabel5.ForeColor = _foreColor;
+                MetricLabel5.Text = string.Empty;
+                MetricLabel6.Font = _font;
+                MetricLabel6.ForeColor = _foreColor;
+                MetricLabel6.Text = string.Empty;
+                MetricLabel7.Font = _font;
+                MetricLabel7.ForeColor = _foreColor;
+                MetricLabel7.Text = string.Empty;
+                MetricLabel8.Font = _font;
+                MetricLabel8.ForeColor = _foreColor;
+                MetricLabel8.Text = string.Empty;
+                MetricLabel9.Font = _font;
+                MetricLabel9.ForeColor = _foreColor;
+                MetricLabel9.Text = string.Empty;
+                MetricLabel10.Font = _font;
+                MetricLabel10.ForeColor = _foreColor;
+                MetricLabel10.Text = string.Empty;
+                MetricLabel11.Font = _font;
+                MetricLabel11.ForeColor = _foreColor;
+                MetricLabel11.Text = string.Empty;
+                MetricLabel12.Font = _font;
+                MetricLabel12.ForeColor = _foreColor;
+                MetricLabel12.Text = string.Empty;
+                MetricLabel13.Font = _font;
+                MetricLabel13.Text = string.Empty;
+                MetricLabel13.ForeColor = _foreColor;
+                MetricLabel14.Font = _font;
+                MetricLabel14.Text = string.Empty;
+                MetricLabel14.ForeColor = _foreColor;
+                MetricLabel15.Font = _font;
+                MetricLabel15.Text = string.Empty;
+                MetricLabel15.ForeColor = _foreColor;
+                MetricLabel16.Font = _font;
+                MetricLabel16.Text = string.Empty;
+                MetricLabel16.ForeColor = _foreColor;
+                MetricLabel17.Font = _font;
+                MetricLabel17.Text = string.Empty;
+                MetricLabel17.ForeColor = _foreColor;
+                MetricLabel18.Font = _font;
+                MetricLabel18.Text = string.Empty;
+                MetricLabel18.ForeColor = _foreColor;
+                MetricLabel19.Font = _font;
+                MetricLabel19.Text = string.Empty;
+                MetricLabel19.ForeColor = _foreColor;
+                MetricLabel20.Font = _font;
+                MetricLabel20.Text = string.Empty;
+                MetricLabel20.ForeColor = _foreColor;
+                CommandLabel1.Font = _font;
+                CommandLabel1.ForeColor = _foreColor;
+                CommandLabel1.Text = string.Empty;
+                CommandLabel2.TextAlign = ContentAlignment.TopLeft;
+                CommandLabel2.Font = _font;
+                CommandLabel2.ForeColor = _foreColor;
+                CommandLabel2.Text = string.Empty;
+                CommandLabel2.TextAlign = ContentAlignment.TopLeft;
             }
             catch( Exception _ex )
             {
@@ -886,7 +961,14 @@ namespace BudgetExecution
         /// </summary>
         private void BeginInit( )
         {
-            _busy = true;
+            try
+            {
+                _busy = true;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -894,7 +976,14 @@ namespace BudgetExecution
         /// </summary>
         private void EndInit( )
         {
-            _busy = false;
+            try
+            {
+                _busy = false;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>

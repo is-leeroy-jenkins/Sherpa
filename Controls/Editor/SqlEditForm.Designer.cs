@@ -1,6 +1,6 @@
 ﻿namespace BudgetExecution
 {
-    partial class SqlEditor
+    partial class SqlEditForm
     {
         /// <summary>
         /// Required designer variable.
@@ -35,7 +35,7 @@
             var dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle( );
             var dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle( );
             var dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle( );
-            var resources = new System.ComponentModel.ComponentResourceManager( typeof( SqlEditor ) );
+            var resources = new System.ComponentModel.ComponentResourceManager( typeof( SqlEditForm ) );
             BindingSource = new System.Windows.Forms.BindingSource( components );
             ToolTip = new SmallTip( );
             HeaderTable = new System.Windows.Forms.TableLayoutPanel( );
@@ -219,7 +219,7 @@
             PictureBox.Location = new System.Drawing.Point( 3, 3 );
             PictureBox.Name = "PictureBox";
             PictureBox.Padding = new System.Windows.Forms.Padding( 1 );
-            PictureBox.Size = new System.Drawing.Size( 24, 22 );
+            PictureBox.Size = new System.Drawing.Size( 20, 18 );
             PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             PictureBox.TabIndex = 0;
             PictureBox.TabStop = false;
@@ -2188,7 +2188,7 @@
             ContextMenu.ThemeStyle.PressedBackColor = System.Drawing.Color.FromArgb( 204, 204, 204 );
             ContextMenu.ThemeStyle.PressedForeColor = System.Drawing.Color.Black;
             // 
-            // SqlEditor
+            // SqlEditForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -2213,11 +2213,11 @@
             MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             MinimizeBox = false;
             MinimumSize = new System.Drawing.Size( 1340, 740 );
-            Name = "SqlEditor";
+            Name = "SqlEditForm";
             ShowIcon = false;
             SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            Text = "SqlEditor";
+            Text = "SqlEditForm";
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).EndInit( );
             HeaderTable.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).EndInit( );

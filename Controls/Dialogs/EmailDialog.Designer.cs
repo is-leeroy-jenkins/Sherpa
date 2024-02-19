@@ -912,7 +912,7 @@ partial class EmailDialog
         PictureBox.Image = Resources.Images.budget;
         PictureBox.Location = new System.Drawing.Point( 3, 3 );
         PictureBox.Name = "PictureBox";
-        PictureBox.Size = new System.Drawing.Size( 22, 18 );
+        PictureBox.Size = new System.Drawing.Size( 20, 18 );
         PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
         PictureBox.TabIndex = 0;
         PictureBox.TabStop = false;

@@ -711,13 +711,14 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _query = "SELECT DISTINCT SchemaTypes.TypeName"
-                        + " FROM SchemaTypes"
-                        + $" WHERE SchemaTypes.Database = '{provider}'";
+                    var _database = provider.ToString( );
+                    var _model = new DataBuilder( Source.SchemaTypes, Provider.Access );
+                    var _data = _model.DataTable;
+                    var _list = _data.AsEnumerable( )
+                        ?.Where( c => c.Field<string>( "Database" ).Equals( _database ) )
+                        ?.Select( c => c.Field<string>( "TypeName" ) )
+                        ?.ToList( );
 
-                    var _model = new DataBuilder( Source.SchemaTypes, Provider.Access, _query );
-                    var _data = _model.DataTable.GetUniqueColumnValues( "TypeName" );
-                    var _list = _data.ToList( );
                     return _list.Count > 0
                         ? _list
                         : default( IList<string> );

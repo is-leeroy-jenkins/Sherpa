@@ -90,7 +90,7 @@
             PictureBox.Image = Resources.Images.budget;
             PictureBox.Location = new System.Drawing.Point( 3, 3 );
             PictureBox.Name = "PictureBox";
-            PictureBox.Size = new System.Drawing.Size( 22, 18 );
+            PictureBox.Size = new System.Drawing.Size( 20, 18 );
             PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             PictureBox.TabIndex = 0;
             PictureBox.TabStop = false;
@@ -156,7 +156,7 @@
             ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { CloseButton, Separator1, MenuButton, Separator2, StatusLabel, ToolStripLabel, Separator3, FirstButton, Separator4, PreviousButton, Separator5, ToolStripTextBox, Separator6, NextButton, Separator7, LastButton, MenuSeparator, Separator8, ApplicationLabel } );
             ToolStrip.LastButton = null;
             ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
-            ToolStrip.Location = new System.Drawing.Point( 0, 696 );
+            ToolStrip.Location = new System.Drawing.Point( 0, 695 );
             ToolStrip.Margin = new System.Windows.Forms.Padding( 1 );
             ToolStrip.Name = "ToolStrip";
             ToolStrip.NextButton = null;
@@ -375,7 +375,7 @@
             ToolStripTextBox.Margin = new System.Windows.Forms.Padding( 1 );
             ToolStripTextBox.Name = "ToolStripTextBox";
             ToolStripTextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Size = new System.Drawing.Size( 228, 25 );
+            ToolStripTextBox.Size = new System.Drawing.Size( 226, 25 );
             ToolStripTextBox.Tag = "";
             ToolStripTextBox.ToolTip = ToolTip;
             // 
@@ -476,7 +476,7 @@
             // 
             DataSheet.AlphaBlendSelectionColor = System.Drawing.Color.FromArgb( 130, 80, 80, 80 );
             DataSheet.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            gridBaseStyle1.Name = "Column Header";
+            gridBaseStyle1.Name = "Row Header";
             gridBaseStyle1.StyleInfo.BaseStyle = "Header";
             gridBaseStyle1.StyleInfo.Font.Bold = true;
             gridBaseStyle1.StyleInfo.Font.Facename = "Segoe UI";
@@ -486,20 +486,20 @@
             gridBaseStyle1.StyleInfo.Font.Underline = false;
             gridBaseStyle1.StyleInfo.Font.Unit = System.Drawing.GraphicsUnit.Point;
             gridBaseStyle1.StyleInfo.HorizontalAlignment = Syncfusion.Windows.Forms.Grid.GridHorizontalAlignment.Center;
-            gridBaseStyle2.Name = "Row Header";
-            gridBaseStyle2.StyleInfo.BaseStyle = "Header";
-            gridBaseStyle2.StyleInfo.Font.Bold = true;
-            gridBaseStyle2.StyleInfo.Font.Facename = "Segoe UI";
-            gridBaseStyle2.StyleInfo.Font.Italic = false;
-            gridBaseStyle2.StyleInfo.Font.Size = 9F;
-            gridBaseStyle2.StyleInfo.Font.Strikeout = false;
-            gridBaseStyle2.StyleInfo.Font.Underline = false;
-            gridBaseStyle2.StyleInfo.Font.Unit = System.Drawing.GraphicsUnit.Point;
-            gridBaseStyle2.StyleInfo.HorizontalAlignment = Syncfusion.Windows.Forms.Grid.GridHorizontalAlignment.Center;
-            gridBaseStyle3.Name = "Standard";
-            gridBaseStyle3.StyleInfo.Font.Facename = "Tahoma";
-            gridBaseStyle4.Name = "Header";
-            gridBaseStyle4.StyleInfo.CellType = "Header";
+            gridBaseStyle2.Name = "Standard";
+            gridBaseStyle2.StyleInfo.Font.Facename = "Tahoma";
+            gridBaseStyle3.Name = "Header";
+            gridBaseStyle3.StyleInfo.CellType = "Header";
+            gridBaseStyle3.StyleInfo.Font.Bold = true;
+            gridBaseStyle3.StyleInfo.Font.Facename = "Segoe UI";
+            gridBaseStyle3.StyleInfo.Font.Italic = false;
+            gridBaseStyle3.StyleInfo.Font.Size = 9F;
+            gridBaseStyle3.StyleInfo.Font.Strikeout = false;
+            gridBaseStyle3.StyleInfo.Font.Underline = false;
+            gridBaseStyle3.StyleInfo.Font.Unit = System.Drawing.GraphicsUnit.Point;
+            gridBaseStyle3.StyleInfo.VerticalAlignment = Syncfusion.Windows.Forms.Grid.GridVerticalAlignment.Middle;
+            gridBaseStyle4.Name = "Column Header";
+            gridBaseStyle4.StyleInfo.BaseStyle = "Header";
             gridBaseStyle4.StyleInfo.Font.Bold = true;
             gridBaseStyle4.StyleInfo.Font.Facename = "Segoe UI";
             gridBaseStyle4.StyleInfo.Font.Italic = false;
@@ -507,7 +507,7 @@
             gridBaseStyle4.StyleInfo.Font.Strikeout = false;
             gridBaseStyle4.StyleInfo.Font.Underline = false;
             gridBaseStyle4.StyleInfo.Font.Unit = System.Drawing.GraphicsUnit.Point;
-            gridBaseStyle4.StyleInfo.VerticalAlignment = Syncfusion.Windows.Forms.Grid.GridVerticalAlignment.Middle;
+            gridBaseStyle4.StyleInfo.HorizontalAlignment = Syncfusion.Windows.Forms.Grid.GridHorizontalAlignment.Center;
             DataSheet.BaseStylesMap.AddRange( new Syncfusion.Windows.Forms.Grid.GridBaseStyle[ ] { gridBaseStyle1, gridBaseStyle2, gridBaseStyle3, gridBaseStyle4 } );
             DataSheet.CanOverrideStyle = true;
             DataSheet.ColCount = 50;
@@ -538,7 +538,7 @@
             DataSheet.RowCount = 100;
             DataSheet.RowHeightEntries.AddRange( new Syncfusion.Windows.Forms.Grid.GridRowHeight[ ] { new Syncfusion.Windows.Forms.Grid.GridRowHeight( 0, 32 ) } );
             DataSheet.SerializeCellsBehavior = Syncfusion.Windows.Forms.Grid.GridSerializeCellsBehavior.SerializeIntoCode;
-            DataSheet.Size = new System.Drawing.Size( 1338, 672 );
+            DataSheet.Size = new System.Drawing.Size( 1338, 671 );
             DataSheet.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             DataSheet.SmartSizeBox = false;
             DataSheet.TabIndex = 2;
@@ -611,14 +611,14 @@
             CaptionButtonColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionFont = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
-            ClientSize = new System.Drawing.Size( 1338, 739 );
+            ClientSize = new System.Drawing.Size( 1338, 738 );
             ControlBox = false;
             Controls.Add( DataSheet );
             Controls.Add( ToolStrip );
             Controls.Add( HeaderTable );
             DoubleBuffered = true;
             Font = new System.Drawing.Font( "Roboto", 9F );
-            ForeColor = System.Drawing.Color.White;
+            ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
             MaximizeBox = false;

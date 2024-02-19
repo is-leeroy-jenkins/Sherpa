@@ -29,6 +29,7 @@
         private void InitializeComponent( )
         {
             components = new System.ComponentModel.Container( );
+            var resources = new System.ComponentModel.ComponentResourceManager( typeof( GeoMapper ) );
             HeaderTable = new System.Windows.Forms.TableLayoutPanel( );
             PictureBox = new System.Windows.Forms.PictureBox( );
             Title = new Label( );
@@ -82,8 +83,8 @@
             // HeaderTable
             // 
             HeaderTable.ColumnCount = 2;
-            HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 2.167414F ) );
-            HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 97.83259F ) );
+            HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 2.02550626F ) );
+            HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 97.9744949F ) );
             HeaderTable.Controls.Add( PictureBox, 0, 0 );
             HeaderTable.Controls.Add( Title, 1, 0 );
             HeaderTable.Dock = System.Windows.Forms.DockStyle.Top;
@@ -100,7 +101,7 @@
             PictureBox.Image = Resources.Images.budget;
             PictureBox.Location = new System.Drawing.Point( 3, 3 );
             PictureBox.Name = "PictureBox";
-            PictureBox.Size = new System.Drawing.Size( 22, 18 );
+            PictureBox.Size = new System.Drawing.Size( 20, 18 );
             PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             PictureBox.TabIndex = 0;
             PictureBox.TabStop = false;
@@ -113,11 +114,11 @@
             Title.Font = new System.Drawing.Font( "Roboto", 9.75F );
             Title.HoverText = null;
             Title.IsDerivedStyle = true;
-            Title.Location = new System.Drawing.Point( 31, 3 );
+            Title.Location = new System.Drawing.Point( 29, 3 );
             Title.Margin = new System.Windows.Forms.Padding( 3 );
             Title.Name = "Title";
             Title.Padding = new System.Windows.Forms.Padding( 1 );
-            Title.Size = new System.Drawing.Size( 1299, 18 );
+            Title.Size = new System.Drawing.Size( 1301, 18 );
             Title.Style = MetroSet_UI.Enums.Style.Custom;
             Title.StyleManager = null;
             Title.TabIndex = 1;
@@ -771,6 +772,8 @@
             DoubleBuffered = true;
             Font = new System.Drawing.Font( "Roboto", 8.25F );
             ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
             MaximizeBox = false;
             MaximumSize = new System.Drawing.Size( 1350, 750 );
             MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );

@@ -2,7 +2,7 @@
 {
 
 
-    partial class EditScreen
+    partial class EditPage
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
         private void InitializeComponent( )
         {
             components = new System.ComponentModel.Container( );
-            var resources = new System.ComponentModel.ComponentResourceManager( typeof( EditScreen ) );
+            var resources = new System.ComponentModel.ComponentResourceManager( typeof( EditPage ) );
             BindingSource = new System.Windows.Forms.BindingSource( components );
             TabControl = new Syncfusion.Windows.Forms.Tools.TabControlAdv( );
             TabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
@@ -1407,7 +1407,7 @@
             groupBox9.ThemeName = "BudgetExecution";
             groupBox9.ToolTip = null;
             // 
-            // EditPanel
+            // EditPage
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1435,7 +1435,7 @@
             MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             MinimizeBox = false;
             MinimumSize = new System.Drawing.Size( 1340, 648 );
-            Name = "EditScreen";
+            Name = "EditPage";
             Padding = new System.Windows.Forms.Padding( 1 );
             ShowIcon = false;
             ShowMaximizeBox = false;

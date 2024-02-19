@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        2-9-2024
 // ******************************************************************************************
-// <copyright file="SqlEditor.cs" company="Terry D. Eppler">
+// <copyright file="SqlEditForm.cs" company="Terry D. Eppler">
 //    Budget Execution is a Federal Budget, Finance, and Accounting application
 //    for analysts with the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
@@ -34,7 +34,7 @@
 //    Contact at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   SqlEditor.cs
+//   SqlEditForm.cs
 // </summary>
 // ******************************************************************************************
 
@@ -73,7 +73,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Local" ) ]
     [ SuppressMessage( "ReSharper", "RedundantCheckBeforeAssignment" ) ]
-    public partial class SqlEditor : EditBase
+    public partial class SqlEditForm : EditBase
     {
         /// <summary>
         /// The busy
@@ -404,9 +404,7 @@ namespace BudgetExecution
         {
             get
             {
-                return ( _commands?.Any( ) == true )
-                    ? _commands
-                    : new List<string>( );
+                return _commands;
             }
             private set
             {
@@ -424,9 +422,7 @@ namespace BudgetExecution
         {
             get
             {
-                return ( _statements?.Any( ) == true )
-                    ? _statements
-                    : new Dictionary<string, object>( );
+                return _statements;
             }
             private set
             {
@@ -457,10 +453,10 @@ namespace BudgetExecution
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SqlEditor"/>
+        /// <see cref="T:BudgetExecution.SqlEditForm"/>
         /// class.
         /// </summary>
-        public SqlEditor( )
+        public SqlEditForm( )
         {
             InitializeComponent( );
             RegisterCallbacks( );
@@ -516,7 +512,7 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="provider"> The provider. </param>
-        public SqlEditor( Provider provider )
+        public SqlEditForm( Provider provider )
             : this( )
         {
             // Provider
@@ -557,7 +553,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the editor.
         /// </summary>
-        private void InitializeEditor( )
+        private void InitializeTextEditor( )
         {
             try
             {
@@ -633,7 +629,7 @@ namespace BudgetExecution
         {
             try
             {
-                PictureBox.Size = new Size( 24, 22 );
+                PictureBox.Size = new Size( 20, 18 );
                 PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             }
             catch( Exception _ex )
@@ -1352,7 +1348,7 @@ namespace BudgetExecution
             Image _img = null;
             try
             {
-                var _path = AppSettings[ "Providers" ];
+                var _path = AppSettings[ "ProviderImages" ];
                 if( !string.IsNullOrEmpty( _path ) )
                 {
                     var _files = Directory.GetFiles( _path );
@@ -1916,16 +1912,16 @@ namespace BudgetExecution
             try
             {
                 InitializeDelegates( );
-                InitializeEditor( );
+                InitializeTextEditor( );
                 InitializeToolStrip( );
                 InitializeButtons( );
                 InitializeLabels( );
                 InitializeIcon( );
                 SetImage( );
-                TabPages = GetTabPages( );
-                Panels = GetPanels( );
-                RadioButtons = GetRadioButtons( );
-                ListBoxes = GetListBoxes( );
+                _tabPages = GetTabPages( );
+                _panels = GetPanels( );
+                _radioButtons = GetRadioButtons( );
+                _listBoxes = GetListBoxes( );
                 TabControl.SelectedIndex = 0;
                 SetActiveTab( );
                 FadeIn( );

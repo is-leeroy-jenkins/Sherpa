@@ -5,7 +5,7 @@
 
 namespace BudgetExecution;
 
-partial class SqlScreen
+partial class SqlPage
 {
     /// <summary>
     /// Required designer variable.
@@ -35,7 +35,7 @@ partial class SqlScreen
     {
         components = new System.ComponentModel.Container( );
         var config1 = new Syncfusion.Windows.Forms.Edit.Implementation.Config.Config( );
-        var resources = new System.ComponentModel.ComponentResourceManager( typeof( SqlScreen ) );
+        var resources = new System.ComponentModel.ComponentResourceManager( typeof( SqlPage ) );
         TabControl = new Syncfusion.Windows.Forms.Tools.TabControlAdv( );
         TabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
         EditorTable = new HeaderPanel( );
@@ -751,7 +751,7 @@ partial class SqlScreen
         ContextMenu.ThemeStyle.PressedBackColor = System.Drawing.Color.FromArgb( 204, 204, 204 );
         ContextMenu.ThemeStyle.PressedForeColor = System.Drawing.Color.Black;
         // 
-        // SqlScreen
+        // SqlPage
         // 
         AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -772,7 +772,7 @@ partial class SqlScreen
         MaximumSize = new System.Drawing.Size( 1340, 648 );
         MinimizeBox = false;
         MinimumSize = new System.Drawing.Size( 1340, 648 );
-        Name = "SqlScreen";
+        Name = "SqlPage";
         ShowMaximizeBox = false;
         ShowMinimizeBox = false;
         SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;

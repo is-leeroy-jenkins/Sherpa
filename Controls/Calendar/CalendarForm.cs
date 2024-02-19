@@ -140,6 +140,11 @@ namespace BudgetExecution
         private DataArgs _dataArgs;
 
         /// <summary>
+        /// The provider
+        /// </summary>
+        private Provider _provider;
+
+        /// <summary>
         /// Gets the time.
         /// </summary>
         /// <value>
@@ -434,6 +439,9 @@ namespace BudgetExecution
             MaximizeBox = false;
             ControlBox = false;
 
+            // Default Provider
+            _provider = Provider.Access;
+
             // Timer Properties
             _time = 0;
             _seconds = 5;
@@ -501,7 +509,14 @@ namespace BudgetExecution
         /// </summary>
         private void InitializeDelegates( )
         {
-            _statusUpdate += UpdateStatus;
+            try
+            {
+                _statusUpdate += UpdateStatus;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -533,6 +548,10 @@ namespace BudgetExecution
         {
             try
             {
+                // Timer Properties
+                Timer.Enabled = true;
+                Timer.Interval = 500;
+                Timer.Start( );
             }
             catch( Exception _ex )
             {
@@ -591,13 +610,21 @@ namespace BudgetExecution
         /// </param>
         public void InvokeIf( System.Action action )
         {
-            if( InvokeRequired )
+            try
             {
-                BeginInvoke( action );
+                ThrowIf.Null( action, nameof( action ) );
+                if( InvokeRequired )
+                {
+                    BeginInvoke( action );
+                }
+                else
+                {
+                    action.Invoke( );
+                }
             }
-            else
+            catch( Exception _ex )
             {
-                action.Invoke( );
+                Fail( _ex );
             }
         }
 
@@ -606,7 +633,14 @@ namespace BudgetExecution
         /// </summary>
         private void BeginInit( )
         {
-            _busy = true;
+            try
+            {
+                _busy = true;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -614,7 +648,14 @@ namespace BudgetExecution
         /// </summary>
         private void EndInit( )
         {
-            _busy = false;
+            try
+            {
+                _busy = false;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -956,7 +997,8 @@ namespace BudgetExecution
             try
             {
                 var _now = DateTime.Now;
-                StatusLabel.Text = $"{_now.ToShortDateString( )} - {_now.ToLongTimeString( )}";
+                StatusLabel.Text = 
+                    $"{_now.ToShortDateString( )} - {_now.ToLongTimeString( )}";
             }
             catch( Exception _ex )
             {

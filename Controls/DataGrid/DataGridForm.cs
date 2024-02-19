@@ -759,6 +759,8 @@ namespace BudgetExecution
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.Sizable;
             WindowState = FormWindowState.Normal;
+            SizeGripStyle = SizeGripStyle.Hide;
+            AutoScaleMode = AutoScaleMode.Font;
             BorderColor = Color.FromArgb( 0, 120, 212 );
             BorderThickness = 1;
             BackColor = Color.FromArgb( 20, 20, 20 );
@@ -774,8 +776,6 @@ namespace BudgetExecution
             CaptionForeColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
-            SizeGripStyle = SizeGripStyle.Hide;
-            AutoScaleMode = AutoScaleMode.Font;
             DoubleBuffered = true;
             ShowMouseOver = false;
             MinimizeBox = false;
@@ -2077,7 +2077,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _path = ConfigurationManager.AppSettings[ "Providers" ];
+                var _path = ConfigurationManager.AppSettings[ "ProviderImages" ];
                 if( !string.IsNullOrEmpty( _path ) )
                 {
                     var _files = Directory.GetFiles( _path );
@@ -2111,7 +2111,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _path = ConfigurationManager.AppSettings[ "Dialogs" ];
+                var _path = ConfigurationManager.AppSettings[ "DialogImages" ];
                 if( !string.IsNullOrEmpty( _path ) )
                 {
                     var _files = Directory.GetFiles( _path );
@@ -2888,7 +2888,7 @@ namespace BudgetExecution
                 try
                 {
                     SetScreenIcon( _button.ToolType );
-                    var _dialog = new EditScreen( _source, _provider );
+                    var _dialog = new EditPage( _source, _provider );
                     _dialog?.ShowDialog( this );
                     SetFormIcon( );
                 }
@@ -2912,7 +2912,7 @@ namespace BudgetExecution
                 try
                 {
                     SetScreenIcon( _button.ToolType );
-                    var _dialog = new SchemaScreeen( _button.ToolType, BindingSource );
+                    var _dialog = new SchemaPage( _button.ToolType, BindingSource );
                     _dialog?.ShowDialog( this );
                     SetFormIcon( );
                 }
@@ -2957,7 +2957,7 @@ namespace BudgetExecution
                 try
                 {
                     SetScreenIcon( _button.ToolType );
-                    var _sqlDialog = new SqlScreen( _source, _provider );
+                    var _sqlDialog = new SqlPage( _source, _provider );
                     _sqlDialog.ShowDialog( this );
                     SetFormIcon( );
                 }

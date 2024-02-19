@@ -36,7 +36,7 @@
             ToolTip = new SmallTip( );
             TextBox = new RichTextBox( );
             CloseButton = new Button( );
-            ( (System.ComponentModel.ISupportInitialize) Picture  ).BeginInit( );
+            ( (System.ComponentModel.ISupportInitialize)Picture ).BeginInit( );
             SuspendLayout( );
             // 
             // Picture
@@ -50,7 +50,7 @@
             Picture.Location = new System.Drawing.Point( 3, 3 );
             Picture.Name = "Picture";
             Picture.Padding = new System.Windows.Forms.Padding( 1 );
-            Picture.Size = new System.Drawing.Size( 24, 24 );
+            Picture.Size = new System.Drawing.Size( 20, 18 );
             Picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             Picture.TabIndex = 14;
             Picture.TabStop = false;
@@ -58,10 +58,10 @@
             // 
             // Title
             // 
-            Title.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right  ;
+            Title.Anchor =   System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             Title.BindingSource = null;
             Title.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            Title.Font = new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            Title.Font = new System.Drawing.Font( "Roboto", 12F );
             Title.HoverText = null;
             Title.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             Title.IsDerivedStyle = true;
@@ -82,7 +82,7 @@
             // ToolTip
             // 
             ToolTip.AutoPopDelay = 5000;
-            ToolTip.BackColor = System.Drawing.Color.FromArgb(   5  ,   5  ,   5   );
+            ToolTip.BackColor = System.Drawing.Color.FromArgb( 5, 5, 5 );
             ToolTip.BindingSource = null;
             ToolTip.BorderColor = System.Drawing.SystemColors.Highlight;
             ToolTip.ForeColor = System.Drawing.Color.White;
@@ -103,12 +103,12 @@
             // 
             TextBox.AutoWordSelection = false;
             TextBox.BindingSource = null;
-            TextBox.BorderColor = System.Drawing.Color.FromArgb(   65  ,   65  ,   65   );
+            TextBox.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
             TextBox.DataFilter = null;
             TextBox.DisabledBackColor = System.Drawing.Color.Transparent;
             TextBox.DisabledBorderColor = System.Drawing.Color.Transparent;
             TextBox.DisabledForeColor = System.Drawing.Color.Transparent;
-            TextBox.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            TextBox.Font = new System.Drawing.Font( "Roboto", 8.25F );
             TextBox.HoverColor = System.Drawing.Color.Maroon;
             TextBox.HoverText = null;
             TextBox.IsDerivedStyle = true;
@@ -135,21 +135,21 @@
             CloseButton.DisabledBackColor = System.Drawing.Color.Transparent;
             CloseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
             CloseButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            CloseButton.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            CloseButton.ForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb(   50  ,   93  ,   129   );
-            CloseButton.HoverColor = System.Drawing.Color.FromArgb(   17  ,   53  ,   84   );
+            CloseButton.Font = new System.Drawing.Font( "Roboto", 8F );
+            CloseButton.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            CloseButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             CloseButton.HoverText = null;
             CloseButton.HoverTextColor = System.Drawing.Color.White;
             CloseButton.IsDerivedStyle = true;
             CloseButton.Location = new System.Drawing.Point( 586, 397 );
             CloseButton.Name = "CloseButton";
-            CloseButton.NormalBorderColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
-            CloseButton.NormalColor = System.Drawing.Color.FromArgb(   40  ,   40  ,   40   );
-            CloseButton.NormalTextColor = System.Drawing.Color.DarkGray;
+            CloseButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
+            CloseButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
+            CloseButton.NormalTextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             CloseButton.Padding = new System.Windows.Forms.Padding( 1 );
-            CloseButton.PressBorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            CloseButton.PressColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            CloseButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            CloseButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             CloseButton.PressTextColor = System.Drawing.Color.White;
             CloseButton.Size = new System.Drawing.Size( 90, 30 );
             CloseButton.Style = MetroSet_UI.Enums.Style.Custom;
@@ -163,36 +163,39 @@
             // ErrorDialog
             // 
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             BorderColor = System.Drawing.Color.Maroon;
             BorderThickness = 2;
             CaptionAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            CaptionBarColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            CaptionBarColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionBarHeight = 5;
-            CaptionButtonColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            CaptionButtonHoverColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            CaptionFont = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            CaptionButtonColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            CaptionFont = new System.Drawing.Font( "Roboto", 9F );
             CaptionForeColor = System.Drawing.Color.Red;
             ClientSize = new System.Drawing.Size( 688, 439 );
+            ControlBox = false;
             Controls.Add( CloseButton );
             Controls.Add( TextBox );
             Controls.Add( Picture );
             Controls.Add( Title );
-            Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            ForeColor = System.Drawing.Color.LightGray;
+            DoubleBuffered = true;
+            Font = new System.Drawing.Font( "Roboto", 9F );
+            ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            Icon = (System.Drawing.Icon) resources.GetObject( "$this.Icon" ) ;
+            Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
             MaximizeBox = false;
             MaximumSize = new System.Drawing.Size( 700, 450 );
-            MetroColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             MinimizeBox = false;
             MinimumSize = new System.Drawing.Size( 700, 450 );
             Name = "ErrorDialog";
             ShowIcon = false;
             ShowMaximizeBox = false;
             ShowMinimizeBox = false;
+            SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             Text = "ErrorDialog";
-            ( (System.ComponentModel.ISupportInitialize) Picture  ).EndInit( );
+            ( (System.ComponentModel.ISupportInitialize)Picture ).EndInit( );
             ResumeLayout( false );
         }
 

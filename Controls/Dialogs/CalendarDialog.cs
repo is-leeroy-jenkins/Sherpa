@@ -59,8 +59,34 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     public partial class CalendarDialog : MetroForm
     {
+        /// <summary>
+        /// The busy
+        /// </summary>
+        private bool _busy;
+
+        /// <summary>
+        /// The status update
+        /// </summary>
+        private System.Action _statusUpdate;
+
+        /// <summary>
+        /// The time
+        /// </summary>
+        private int _time;
+
+        /// <summary>
+        /// The seconds
+        /// </summary>
+        private int _seconds;
+
+        /// <summary>
+        /// The provider
+        /// </summary>
+        private Provider _provider;
+
         /// <summary>
         /// 
         /// </summary>
@@ -85,6 +111,65 @@ namespace BudgetExecution
         /// 
         /// </summary>
         private DataTable _fiscalYears;
+
+        /// <summary>
+        /// The data row
+        /// </summary>
+        private DataRow _current;
+
+        /// <summary>
+        /// Gets or sets the current.
+        /// </summary>
+        /// <value>
+        /// The current.
+        /// </value>
+        public DataRow Current
+        {
+            get
+            {
+                return _current;
+            }
+            private set
+            {
+                _current = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the time.
+        /// </summary>
+        /// <value>
+        /// The time.
+        /// </value>
+        public int Time
+        {
+            get
+            {
+                return _time;
+            }
+            private set
+            {
+                _time = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the seconds.
+        /// </summary>
+        /// <value>
+        /// The seconds.
+        /// </value>
+        public int Seconds
+        {
+            get
+            {
+                return _seconds;
+            }
+            private set
+            {
+                _seconds = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the date string.
@@ -176,6 +261,26 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Gets a value indicating whether this instance is busy.
+        /// </summary>
+        /// <value>
+        /// <c> true </c>
+        /// if this instance is busy; otherwise,
+        /// <c> false </c>
+        /// </value>
+        public bool IsBusy
+        {
+            get
+            {
+                return _busy;
+            }
+            private set
+            {
+                _busy = value;
+            }
+        }
+
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -184,6 +289,7 @@ namespace BudgetExecution
         public CalendarDialog( )
         {
             InitializeComponent( );
+            RegisterCallbacks( );
 
             // Basic Properties
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -209,27 +315,19 @@ namespace BudgetExecution
             MinimizeBox = false;
             MaximizeBox = false;
 
-            // Picture Box Settings
-            PictureBox.Size = new Size( 20, 20 );
+            // Initialize Default Provider
+            _provider = Provider.Access;
 
-            // Close Button
-            CloseButton.NormalTextColor = Color.FromArgb( 106, 189, 252 );
-            CloseButton.HoverTextColor = Color.White;
-            CloseButton.HoverBorderColor = Color.FromArgb( 50, 93, 129 );
-            CloseButton.Text = nameof( Close );
-            CloseButton.HoverText = "Close Calendar";
-
-            // HeaderLabel Settings
-            HeaderLabel.Font = new Font( "Roboto", 10 );
-            HeaderLabel.ForeColor = Color.FromArgb( 106, 189, 252 );
-            HeaderLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // Timer Properties
+            _time = 0;
+            _seconds = 5;
 
             // Event Wiring
             Load += OnLoad;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="dateTime"></param>
         public CalendarDialog( DateTime dateTime )
@@ -237,6 +335,77 @@ namespace BudgetExecution
         {
             Calendar.SelectedDate = dateTime;
             _dateString = Calendar.SelectedDate.ToString( );
+        }
+
+        /// <summary>
+        /// Initializes the buttons.
+        /// </summary>
+        private void InitializeButtons( )
+        {
+            try
+            {
+                // Close Button
+                CloseButton.NormalTextColor = Color.FromArgb( 106, 189, 252 );
+                CloseButton.HoverTextColor = Color.White;
+                CloseButton.HoverBorderColor = Color.FromArgb( 50, 93, 129 );
+                CloseButton.Text = nameof( Close );
+                CloseButton.HoverText = "Close Calendar";
+                CloseButton.ForeColor = Color.FromArgb( 20, 20, 20 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the labels.
+        /// </summary>
+        private void InitializeLabels( )
+        {
+            try
+            {
+                // HeaderLabel Settings
+                HeaderLabel.Font = new Font( "Roboto", 10 );
+                HeaderLabel.ForeColor = Color.FromArgb( 106, 189, 252 );
+                HeaderLabel.TextAlign = ContentAlignment.MiddleCenter;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the icon.
+        /// </summary>
+        private void InitializeIcon( )
+        {
+            try
+            {
+                // Picture Box Settings
+                PictureBox.Size = new Size( 20, 20 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Registers the callbacks.
+        /// </summary>
+        private void RegisterCallbacks( )
+        {
+            try
+            {
+                CloseButton.Click += OnCloseButtonClicked;
+                Calendar.SelectionChanged += OnSelectionChanged;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -291,9 +460,9 @@ namespace BudgetExecution
         {
             try
             {
-                CloseButton.ForeColor = Color.FromArgb( 20, 20, 20 );
-                CloseButton.Click += OnCloseButtonClicked;
-                Calendar.SelectionChanged += OnSelectionChanged;
+                InitializeButtons( );
+                InitializeIcon( );
+                InitializeLabels( );
             }
             catch( Exception _ex )
             {

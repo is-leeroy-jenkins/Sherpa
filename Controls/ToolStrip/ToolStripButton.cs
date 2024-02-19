@@ -290,7 +290,7 @@ namespace BudgetExecution
                         case ToolType.InsertButton:
                         case ToolType.UpdateButton:
                         {
-                            var _dialog = new SqlScreen( );
+                            var _dialog = new SqlPage( );
                             _dialog?.ShowDialog( );
                             break;
                         }

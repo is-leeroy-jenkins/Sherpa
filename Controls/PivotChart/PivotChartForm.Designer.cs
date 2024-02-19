@@ -78,7 +78,7 @@
             PivotChart = new Syncfusion.Windows.Forms.PivotChart.PivotChart( );
             ChartSubTablePanel = new BackPanel( );
             ChartSubTable = new System.Windows.Forms.TableLayoutPanel( );
-            SqlHeader = new Label( );
+            CommandLabel2 = new Label( );
             MetricsTable = new System.Windows.Forms.TableLayoutPanel( );
             MetricLabel17 = new Label( );
             MetricLabel16 = new Label( );
@@ -107,6 +107,7 @@
             TableListBox = new ListBox( );
             ToolStripTable = new System.Windows.Forms.TableLayoutPanel( );
             ContextMenu = new ContextMenu( );
+            CommandLabel1 = new Label( );
             HeaderTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
@@ -149,8 +150,8 @@
             PictureBox.InitialImage = null;
             PictureBox.Location = new System.Drawing.Point( 3, 3 );
             PictureBox.Name = "PictureBox";
-            PictureBox.Size = new System.Drawing.Size( 27, 20 );
-            PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            PictureBox.Size = new System.Drawing.Size( 20, 18 );
+            PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             PictureBox.TabIndex = 0;
             PictureBox.TabStop = false;
             // 
@@ -908,35 +909,37 @@
             // 
             ChartSubTable.ColumnCount = 1;
             ChartSubTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            ChartSubTable.Controls.Add( SqlHeader, 0, 0 );
+            ChartSubTable.Controls.Add( CommandLabel2, 0, 1 );
+            ChartSubTable.Controls.Add( CommandLabel1, 0, 0 );
             ChartSubTable.Location = new System.Drawing.Point( 788, 4 );
             ChartSubTable.Name = "ChartSubTable";
             ChartSubTable.RowCount = 2;
             ChartSubTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             ChartSubTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 73F ) );
+            ChartSubTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 20F ) );
             ChartSubTable.Size = new System.Drawing.Size( 248, 97 );
             ChartSubTable.TabIndex = 5;
             // 
-            // SqlHeader
+            // CommandLabel2
             // 
-            SqlHeader.BindingSource = null;
-            SqlHeader.Dock = System.Windows.Forms.DockStyle.Fill;
-            SqlHeader.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            SqlHeader.Font = new System.Drawing.Font( "Roboto", 6.75F );
-            SqlHeader.HoverText = null;
-            SqlHeader.IsDerivedStyle = true;
-            SqlHeader.Location = new System.Drawing.Point( 3, 3 );
-            SqlHeader.Margin = new System.Windows.Forms.Padding( 3 );
-            SqlHeader.Name = "SqlHeader";
-            SqlHeader.Padding = new System.Windows.Forms.Padding( 1 );
-            SqlHeader.Size = new System.Drawing.Size( 242, 18 );
-            SqlHeader.Style = MetroSet_UI.Enums.Style.Custom;
-            SqlHeader.StyleManager = null;
-            SqlHeader.TabIndex = 2;
-            SqlHeader.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            SqlHeader.ThemeAuthor = "Terry D. Eppler";
-            SqlHeader.ThemeName = "Budget Execution";
-            SqlHeader.ToolTip = null;
+            CommandLabel2.BindingSource = null;
+            CommandLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            CommandLabel2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            CommandLabel2.Font = new System.Drawing.Font( "Roboto", 6.75F );
+            CommandLabel2.HoverText = null;
+            CommandLabel2.IsDerivedStyle = true;
+            CommandLabel2.Location = new System.Drawing.Point( 3, 27 );
+            CommandLabel2.Margin = new System.Windows.Forms.Padding( 3 );
+            CommandLabel2.Name = "CommandLabel2";
+            CommandLabel2.Padding = new System.Windows.Forms.Padding( 1 );
+            CommandLabel2.Size = new System.Drawing.Size( 242, 67 );
+            CommandLabel2.Style = MetroSet_UI.Enums.Style.Custom;
+            CommandLabel2.StyleManager = null;
+            CommandLabel2.TabIndex = 2;
+            CommandLabel2.Text = "Text";
+            CommandLabel2.ThemeAuthor = "Terry D. Eppler";
+            CommandLabel2.ThemeName = "Budget Execution";
+            CommandLabel2.ToolTip = null;
             // 
             // MetricsTable
             // 
@@ -1543,7 +1546,7 @@
             ToolStripTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             ToolStripTable.Controls.Add( ToolStrip, 0, 0 );
             ToolStripTable.Dock = System.Windows.Forms.DockStyle.Bottom;
-            ToolStripTable.Location = new System.Drawing.Point( 0, 694 );
+            ToolStripTable.Location = new System.Drawing.Point( 0, 693 );
             ToolStripTable.Name = "ToolStripTable";
             ToolStripTable.RowCount = 1;
             ToolStripTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
@@ -1570,6 +1573,29 @@
             ContextMenu.ThemeStyle.PressedBackColor = System.Drawing.Color.FromArgb( 204, 204, 204 );
             ContextMenu.ThemeStyle.PressedForeColor = System.Drawing.Color.Black;
             // 
+            // CommandLabel1
+            // 
+            CommandLabel1.BindingSource = null;
+            CommandLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            CommandLabel1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            CommandLabel1.Font = new System.Drawing.Font( "Roboto", 6.75F );
+            CommandLabel1.HoverText = null;
+            CommandLabel1.IsDerivedStyle = true;
+            CommandLabel1.Location = new System.Drawing.Point( 3, 3 );
+            CommandLabel1.Margin = new System.Windows.Forms.Padding( 3 );
+            CommandLabel1.Name = "CommandLabel1";
+            CommandLabel1.Padding = new System.Windows.Forms.Padding( 1 );
+            CommandLabel1.Size = new System.Drawing.Size( 242, 18 );
+            CommandLabel1.Style = MetroSet_UI.Enums.Style.Custom;
+            CommandLabel1.StyleManager = null;
+            CommandLabel1.TabIndex = 46;
+            CommandLabel1.Tag = "STAT";
+            CommandLabel1.Text = "Text";
+            CommandLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            CommandLabel1.ThemeAuthor = "Terry D. Eppler";
+            CommandLabel1.ThemeName = "Budget Execution";
+            CommandLabel1.ToolTip = ToolTip;
+            // 
             // PivotChartForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
@@ -1582,17 +1608,20 @@
             CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionFont = new System.Drawing.Font( "Roboto", 9.75F );
             CaptionForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            ClientSize = new System.Drawing.Size( 1338, 739 );
+            ClientSize = new System.Drawing.Size( 1338, 738 );
             ControlBox = false;
             Controls.Add( ToolStripTable );
             Controls.Add( SourcePanel );
             Controls.Add( ChartHeaderTable );
             Controls.Add( HeaderTable );
+            DoubleBuffered = true;
             Font = new System.Drawing.Font( "Roboto", 9F );
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
             MaximizeBox = false;
             MaximumSize = new System.Drawing.Size( 1350, 750 );
             MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            MinimizeBox = false;
             MinimumSize = new System.Drawing.Size( 1340, 740 );
             Name = "PivotChartForm";
             ShowIcon = false;
@@ -1639,7 +1668,7 @@
         public BackPanel ChartAreaPanel;
         public BackPanel ChartSubTablePanel;
         private System.Windows.Forms.TableLayoutPanel ChartSubTable;
-        public Label SqlHeader;
+        public Label CommandLabel2;
         public System.Windows.Forms.TableLayoutPanel MetricsTable;
         public Label MetricLabel3;
         public Label MetricLabel1;
@@ -1704,5 +1733,6 @@
         public ToolStripDropDown ComboBox;
         public ToolStripButton RefreshButton;
         public Syncfusion.Windows.Forms.PivotChart.PivotChart PivotChart;
+        public Label CommandLabel1;
     }
 }

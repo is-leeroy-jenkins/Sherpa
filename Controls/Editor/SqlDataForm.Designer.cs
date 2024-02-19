@@ -247,7 +247,7 @@ namespace BudgetExecution
             PictureBox.Location = new System.Drawing.Point( 3, 3 );
             PictureBox.Name = "PictureBox";
             PictureBox.Padding = new System.Windows.Forms.Padding( 1 );
-            PictureBox.Size = new System.Drawing.Size( 24, 18 );
+            PictureBox.Size = new System.Drawing.Size( 20, 18 );
             PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             PictureBox.TabIndex = 0;
             PictureBox.TabStop = false;
@@ -2406,7 +2406,7 @@ namespace BudgetExecution
             ToolStripTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             ToolStripTable.Controls.Add( ToolStrip, 0, 0 );
             ToolStripTable.Dock = System.Windows.Forms.DockStyle.Bottom;
-            ToolStripTable.Location = new System.Drawing.Point( 0, 694 );
+            ToolStripTable.Location = new System.Drawing.Point( 0, 693 );
             ToolStripTable.Name = "ToolStripTable";
             ToolStripTable.RowCount = 1;
             ToolStripTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
@@ -2445,7 +2445,7 @@ namespace BudgetExecution
             CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionFont = new System.Drawing.Font( "Roboto", 11.25F );
             CaptionForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            ClientSize = new System.Drawing.Size( 1338, 739 );
+            ClientSize = new System.Drawing.Size( 1338, 738 );
             ControlBox = false;
             Controls.Add( ToolStripTable );
             Controls.Add( SqlCommandTable );
@@ -2465,7 +2465,7 @@ namespace BudgetExecution
             ShowMinimizeBox = false;
             SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            Text = "SqlEditor";
+            Text = "SqlEditForm";
             HeaderTable.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).EndInit( );
             ( (System.ComponentModel.ISupportInitialize)TabControl ).EndInit( );

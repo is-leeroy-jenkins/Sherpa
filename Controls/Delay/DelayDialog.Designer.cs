@@ -38,7 +38,7 @@ partial class DelayDialog
         PictureBox = new System.Windows.Forms.PictureBox( );
         BindingSource = new System.Windows.Forms.BindingSource( components );
         Timer = new System.Windows.Forms.Timer( components );
-        ImageList = new System.Windows.Forms.ImageList( components );
+        ImageList = new ImageList( );
         ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
         ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
         SuspendLayout( );
@@ -55,9 +55,11 @@ partial class DelayDialog
         // 
         // ImageList
         // 
-        ImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-        ImageList.ImageSize = new System.Drawing.Size( 16, 16 );
-        ImageList.TransparentColor = System.Drawing.Color.Transparent;
+        ImageList.FileNames = null;
+        ImageList.FilePaths = null;
+        ImageList.HoverText = null;
+        ImageList.Image = null;
+        ImageList.ImageSource = ImageDirectory.LoaderImages;
         // 
         // DelayDialog
         // 
@@ -71,7 +73,8 @@ partial class DelayDialog
         CaptionButtonHoverColor = System.Drawing.Color.Black;
         CaptionFont = new System.Drawing.Font( "Roboto", 9F );
         CaptionForeColor = System.Drawing.Color.Black;
-        ClientSize = new System.Drawing.Size( 1328, 637 );
+        ClientSize = new System.Drawing.Size( 1328, 636 );
+        ControlBox = false;
         Controls.Add( PictureBox );
         DoubleBuffered = true;
         Font = new System.Drawing.Font( "Roboto", 9F );
@@ -88,6 +91,7 @@ partial class DelayDialog
         ShowIcon = false;
         ShowMaximizeBox = false;
         ShowMinimizeBox = false;
+        SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
         StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
         ( (System.ComponentModel.ISupportInitialize)PictureBox ).EndInit( );
         ( (System.ComponentModel.ISupportInitialize)BindingSource ).EndInit( );
@@ -97,6 +101,6 @@ partial class DelayDialog
     #endregion
     public System.Windows.Forms.BindingSource BindingSource;
     public System.Windows.Forms.Timer Timer;
-    public System.Windows.Forms.ImageList ImageList;
     public System.Windows.Forms.PictureBox PictureBox;
+    public ImageList ImageList;
 }

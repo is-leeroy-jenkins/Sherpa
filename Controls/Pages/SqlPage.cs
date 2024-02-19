@@ -70,7 +70,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
-    public partial class SqlScreen : EditBase
+    public partial class SqlPage : EditBase
     {
         /// <summary>
         /// The status update
@@ -217,10 +217,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SqlScreen"/> class.
+        /// <see cref="SqlPage"/> class.
         /// </summary>
         /// <inheritdoc />
-        public SqlScreen( )
+        public SqlPage( )
         {
             InitializeComponent( );
             RegisterCallbacks( );
@@ -269,7 +269,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="source">The binding source.</param>
         /// <param name="provider">The provider.</param>
-        public SqlScreen( Source source, Provider provider = Provider.Access )
+        public SqlPage( Source source, Provider provider = Provider.Access )
             : this( )
         {
             _toolType = ToolType.EditSqlButton;
@@ -497,6 +497,46 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Clears the filter.
+        /// </summary>
+        private void ClearFilter( )
+        {
+            try
+            {
+                if( _filter?.Any( ) == true )
+                {
+                    _filter.Clear( );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the collections.
+        /// </summary>
+        private void ClearCollections( )
+        {
+            try
+            {
+                _columns?.Clear( );
+                _fields?.Clear( );
+                _numerics?.Clear( );
+                _selectedColumns?.Clear( );
+                _selectedFields?.Clear( );
+                _selectedNumerics?.Clear( );
+                _commands?.Clear( );
+                _statements?.Clear( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Sets the provider.
         /// </summary>
         /// <param name="provider">
@@ -570,50 +610,48 @@ namespace BudgetExecution
         /// <param name="list">The list.</param>
         private void PopulateSqlComboBox( IList<string> list )
         {
-            if( list?.Any( ) == true )
+            try
             {
-                try
+                ThrowIf.Null( list, nameof( list ) );
+                _commands = Enum.GetNames( typeof( SQL ) );
+                SqlComboBox.Items.Clear( );
+                SqlListBox.Items.Clear( );
+                for( var _i = 0; _i < list.Count; _i++ )
                 {
-                    _commands = Enum.GetNames( typeof( SQL ) );
-                    SqlComboBox.Items.Clear( );
-                    SqlListBox.Items.Clear( );
-                    for( var _i = 0; _i < list.Count; _i++ )
+                    if( _commands.Contains( list[ _i ] )
+                       && list[ _i ].Equals( $"{SQL.CREATEDATABASE}" ) )
                     {
-                        if( _commands.Contains( list[ _i ] )
-                           && list[ _i ].Equals( $"{SQL.CREATEDATABASE}" ) )
-                        {
-                            SqlComboBox.Items.Add( "CREATE DATABASE" );
-                        }
-                        else if( _commands.Contains( list[ _i ] )
-                                && list[ _i ].Equals( $"{SQL.CREATETABLE}" ) )
-                        {
-                            SqlComboBox.Items.Add( "CREATE TABLE" );
-                        }
-                        else if( _commands.Contains( list[ _i ] )
-                                && list[ _i ].Equals( $"{SQL.ALTERTABLE}" ) )
-                        {
-                            SqlComboBox.Items.Add( "ALTER TABLE" );
-                        }
-                        else if( _commands.Contains( list[ _i ] )
-                                && list[ _i ].Equals( $"{SQL.CREATEVIEW}" ) )
-                        {
-                            SqlComboBox.Items.Add( "CREATE VIEW" );
-                        }
-                        else if( _commands.Contains( list[ _i ] )
-                                && list[ _i ].Equals( $"{SQL.SELECTALL}" ) )
-                        {
-                            SqlComboBox.Items.Add( "SELECT ALL" );
-                        }
-                        else if( _commands.Contains( list[ _i ] ) )
-                        {
-                            SqlComboBox.Items.Add( list[ _i ] );
-                        }
+                        SqlComboBox.Items.Add( "CREATE DATABASE" );
+                    }
+                    else if( _commands.Contains( list[ _i ] )
+                            && list[ _i ].Equals( $"{SQL.CREATETABLE}" ) )
+                    {
+                        SqlComboBox.Items.Add( "CREATE TABLE" );
+                    }
+                    else if( _commands.Contains( list[ _i ] )
+                            && list[ _i ].Equals( $"{SQL.ALTERTABLE}" ) )
+                    {
+                        SqlComboBox.Items.Add( "ALTER TABLE" );
+                    }
+                    else if( _commands.Contains( list[ _i ] )
+                            && list[ _i ].Equals( $"{SQL.CREATEVIEW}" ) )
+                    {
+                        SqlComboBox.Items.Add( "CREATE VIEW" );
+                    }
+                    else if( _commands.Contains( list[ _i ] )
+                            && list[ _i ].Equals( $"{SQL.SELECTALL}" ) )
+                    {
+                        SqlComboBox.Items.Add( "SELECT ALL" );
+                    }
+                    else if( _commands.Contains( list[ _i ] ) )
+                    {
+                        SqlComboBox.Items.Add( list[ _i ] );
                     }
                 }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -702,21 +740,17 @@ namespace BudgetExecution
         /// <returns></returns>
         private string CreateSqlText( IDictionary<string, object> where )
         {
-            if( where?.Any( ) == true )
+            try
             {
-                try
-                {
-                    return $"SELECT * FROM {_source} "
-                        + $"WHERE {where.ToCriteria( )};";
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return string.Empty;
-                }
+                ThrowIf.Null( where, nameof( where ) );
+                return $"SELECT * FROM {_source} "
+                    + $"WHERE {where.ToCriteria( )};";
             }
-
-            return string.Empty;
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return string.Empty;
+            }
         }
 
         /// <summary>

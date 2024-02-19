@@ -107,7 +107,7 @@ namespace BudgetExecution
             Picture.Location = new System.Drawing.Point( 3, 3 );
             Picture.Name = "Picture";
             Picture.Padding = new System.Windows.Forms.Padding( 1 );
-            Picture.Size = new System.Drawing.Size( 29, 22 );
+            Picture.Size = new System.Drawing.Size( 20, 18 );
             Picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             Picture.TabIndex = 4;
             Picture.TabStop = false;
@@ -421,6 +421,7 @@ namespace BudgetExecution
             Controls.Add( ButtonTable );
             Controls.Add( PathLabel );
             Controls.Add( HeaderTable );
+            DoubleBuffered = true;
             Font = new System.Drawing.Font( "Roboto", 9F );
             ForeColor = System.Drawing.Color.LightGray;
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

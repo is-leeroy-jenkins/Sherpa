@@ -1814,7 +1814,7 @@
             EditColumnButton.Padding = new System.Windows.Forms.Padding( 1 );
             EditColumnButton.Size = new System.Drawing.Size( 23, 25 );
             EditColumnButton.Text = "toolStripButton2";
-            EditColumnButton.ToolTip = null;
+            EditColumnButton.ToolTip = ToolTip;
             EditColumnButton.ToolType = ToolType.EditColumnButton;
             // 
             // EditColumnSeparator
@@ -2282,7 +2282,7 @@
             ToolStripTextBox.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             ToolStripTextBox.Name = "ToolStripTextBox";
             ToolStripTextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Size = new System.Drawing.Size( 230, 25 );
+            ToolStripTextBox.Size = new System.Drawing.Size( 214, 25 );
             ToolStripTextBox.Tag = "";
             ToolStripTextBox.ToolTip = ToolTip;
             // 
@@ -2452,8 +2452,8 @@
             PictureBox.InitialImage = null;
             PictureBox.Location = new System.Drawing.Point( 3, 3 );
             PictureBox.Name = "PictureBox";
-            PictureBox.Size = new System.Drawing.Size( 24, 20 );
-            PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            PictureBox.Size = new System.Drawing.Size( 22, 18 );
+            PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             PictureBox.TabIndex = 54;
             PictureBox.TabStop = false;
             // 
@@ -2541,7 +2541,7 @@
             BusyTabPage.Location = new System.Drawing.Point( 0, 4 );
             BusyTabPage.Name = "BusyTabPage";
             BusyTabPage.ShowCloseButton = true;
-            BusyTabPage.Size = new System.Drawing.Size( 994, 535 );
+            BusyTabPage.Size = new System.Drawing.Size( 999, 539 );
             BusyTabPage.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             BusyTabPage.TabForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             BusyTabPage.TabIndex = 2;
@@ -2553,7 +2553,7 @@
             Loader.Image = Resources.Images.Loading;
             Loader.Location = new System.Drawing.Point( 21, 16 );
             Loader.Name = "Loader";
-            Loader.Size = new System.Drawing.Size( 948, 500 );
+            Loader.Size = new System.Drawing.Size( 953, 504 );
             Loader.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             Loader.TabIndex = 0;
             Loader.TabStop = false;

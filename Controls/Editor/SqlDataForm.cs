@@ -642,6 +642,22 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Initializes the PictureBox.
+        /// </summary>
+        private void InitializeIcon( )
+        {
+            try
+            {
+                PictureBox.Size = new Size( 20, 18 );
+                PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Initializes the tool strip.
         /// </summary>
         private void InitializeToolStrip( )
@@ -672,7 +688,7 @@ namespace BudgetExecution
         {
             try
             {
-                _statusUpdate += UpdateStatusLabel;
+                _statusUpdate += UpdateStatus;
             }
             catch( Exception _ex )
             {
@@ -772,6 +788,30 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Invokes if needed.
+        /// </summary>
+        /// <param name="action">The action.</param>
+        public void InvokeIf( System.Action action )
+        {
+            try
+            {
+                ThrowIf.Null( action, nameof( action ) );
+                if( InvokeRequired )
+                {
+                    BeginInvoke( action );
+                }
+                else
+                {
+                    action.Invoke( );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Displays the control to the user.
         /// </summary>
         public new void Show( )
@@ -847,7 +887,7 @@ namespace BudgetExecution
                 ThrowIf.Null( dataTypes, nameof( dataTypes ) );
                 DataTypeComboBox.Items?.Clear( );
                 DataTypeComboBox.SelectedText = string.Empty;
-                var _types = DataTypes.ToArray( );
+                var _types = _dataTypes.ToArray( );
                 for( var _i = 0; _i < _types?.Length; _i++ )
                 {
                     if( !string.IsNullOrEmpty( _types[ _i ] ) )
@@ -895,28 +935,9 @@ namespace BudgetExecution
         /// </summary>
         private void BeginInit( )
         {
-            _busy = true;
-        }
-
-        /// <summary>
-        /// Ends the initialize.
-        /// </summary>
-        private void EndInit( )
-        {
-            _busy = false;
-        }
-
-        /// <summary>
-        /// Updates the status.
-        /// </summary>
-        private void UpdateStatusLabel( )
-        {
             try
             {
-                var _dateTime = DateTime.Now;
-                var _dateString = _dateTime.ToShortDateString( );
-                var _timeString = _dateTime.ToLongTimeString( );
-                StatusLabel.Text = _dateString + "  " + _timeString;
+                _busy = true;
             }
             catch( Exception _ex )
             {
@@ -925,22 +946,31 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Invokes if needed.
+        /// Ends the initialize.
         /// </summary>
-        /// <param name="action">The action.</param>
-        public void InvokeIf( System.Action action )
+        private void EndInit( )
         {
             try
             {
-                ThrowIf.Null( action, nameof( action ) );
-                if( InvokeRequired )
-                {
-                    BeginInvoke( action );
-                }
-                else
-                {
-                    action.Invoke( );
-                }
+                _busy = false;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Updates the status.
+        /// </summary>
+        private void UpdateStatus( )
+        {
+            try
+            {
+                var _dateTime = DateTime.Now;
+                var _dateString = _dateTime.ToShortDateString( );
+                var _timeString = _dateTime.ToLongTimeString( );
+                StatusLabel.Text = _dateString + "  " + _timeString;
             }
             catch( Exception _ex )
             {
@@ -1371,7 +1401,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _path = AppSettings[ "Providers" ];
+                var _path = AppSettings[ "ProviderImages" ];
                 if( !string.IsNullOrEmpty( _path ) )
                 {
                     var _files = GetFiles( _path );

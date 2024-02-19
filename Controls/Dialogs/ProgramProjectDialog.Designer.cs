@@ -38,6 +38,7 @@ partial class ProgramProjectDialog
         var resources = new System.ComponentModel.ComponentResourceManager( typeof( ProgramProjectDialog ) );
         StatutoryAuthorityTextBox = new RichTextBox( );
         BindingSource = new System.Windows.Forms.BindingSource( components );
+        ToolTip = new SmallTip( );
         ProgramDescriptionTextBox = new RichTextBox( );
         ProgramAreaNameTextBox = new RichTextBox( );
         ProgramProjectNameTextBox = new RichTextBox( );
@@ -45,7 +46,6 @@ partial class ProgramProjectDialog
         StatuteTable = new HeaderPanel( );
         ProgramAreaTable = new HeaderPanel( );
         ProgramProjectTable = new HeaderPanel( );
-        ToolTip = new SmallTip( );
         HeaderTable = new System.Windows.Forms.TableLayoutPanel( );
         pictureBox1 = new System.Windows.Forms.PictureBox( );
         Header = new Label( );
@@ -97,6 +97,26 @@ partial class ProgramProjectDialog
         StatutoryAuthorityTextBox.ThemeName = "Budget Execution";
         StatutoryAuthorityTextBox.ToolTip = ToolTip;
         StatutoryAuthorityTextBox.WordWrap = true;
+        // 
+        // ToolTip
+        // 
+        ToolTip.AutoPopDelay = 5000;
+        ToolTip.BackColor = System.Drawing.Color.FromArgb( 5, 5, 5 );
+        ToolTip.BindingSource = null;
+        ToolTip.BorderColor = System.Drawing.SystemColors.Highlight;
+        ToolTip.ForeColor = System.Drawing.Color.White;
+        ToolTip.InitialDelay = 500;
+        ToolTip.IsDerivedStyle = true;
+        ToolTip.Name = null;
+        ToolTip.OwnerDraw = true;
+        ToolTip.ReshowDelay = 100;
+        ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
+        ToolTip.StyleManager = null;
+        ToolTip.ThemeAuthor = "Terry D. Eppler";
+        ToolTip.ThemeName = "Budget Execution";
+        ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
+        ToolTip.TipText = null;
+        ToolTip.TipTitle = null;
         // 
         // ProgramDescriptionTextBox
         // 
@@ -258,26 +278,6 @@ partial class ProgramProjectDialog
         ProgramProjectTable.Size = new System.Drawing.Size( 448, 89 );
         ProgramProjectTable.TabIndex = 17;
         // 
-        // ToolTip
-        // 
-        ToolTip.AutoPopDelay = 5000;
-        ToolTip.BackColor = System.Drawing.Color.FromArgb( 5, 5, 5 );
-        ToolTip.BindingSource = null;
-        ToolTip.BorderColor = System.Drawing.SystemColors.Highlight;
-        ToolTip.ForeColor = System.Drawing.Color.White;
-        ToolTip.InitialDelay = 500;
-        ToolTip.IsDerivedStyle = true;
-        ToolTip.Name = null;
-        ToolTip.OwnerDraw = true;
-        ToolTip.ReshowDelay = 100;
-        ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
-        ToolTip.StyleManager = null;
-        ToolTip.ThemeAuthor = "Terry D. Eppler";
-        ToolTip.ThemeName = "Budget Execution";
-        ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
-        ToolTip.TipText = null;
-        ToolTip.TipTitle = null;
-        // 
         // HeaderTable
         // 
         HeaderTable.ColumnCount = 2;
@@ -298,7 +298,7 @@ partial class ProgramProjectDialog
         pictureBox1.Image = Resources.Images.AppropriationTile;
         pictureBox1.Location = new System.Drawing.Point( 3, 3 );
         pictureBox1.Name = "pictureBox1";
-        pictureBox1.Size = new System.Drawing.Size( 31, 22 );
+        pictureBox1.Size = new System.Drawing.Size( 28, 22 );
         pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
         pictureBox1.TabIndex = 0;
         pictureBox1.TabStop = false;
@@ -498,7 +498,7 @@ partial class ProgramProjectDialog
         ButtonTable.Controls.Add( MenuButton, 4, 0 );
         ButtonTable.Controls.Add( SearchButton, 2, 0 );
         ButtonTable.Dock = System.Windows.Forms.DockStyle.Bottom;
-        ButtonTable.Location = new System.Drawing.Point( 0, 565 );
+        ButtonTable.Location = new System.Drawing.Point( 0, 564 );
         ButtonTable.Name = "ButtonTable";
         ButtonTable.RowCount = 1;
         ButtonTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
@@ -533,7 +533,6 @@ partial class ProgramProjectDialog
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-        BorderThickness = 2;
         CaptionBarColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         CaptionBarHeight = 5;
         CaptionButtonColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
@@ -546,7 +545,8 @@ partial class ProgramProjectDialog
         captionImage1.Name = "CaptionImage1";
         captionImage1.Size = new System.Drawing.Size( 42, 16 );
         CaptionImages.Add( captionImage1 );
-        ClientSize = new System.Drawing.Size( 1054, 603 );
+        ClientSize = new System.Drawing.Size( 1054, 602 );
+        ControlBox = false;
         Controls.Add( ButtonTable );
         Controls.Add( ComboBox );
         Controls.Add( HeaderTable );
@@ -554,6 +554,7 @@ partial class ProgramProjectDialog
         Controls.Add( ProgramAreaTable );
         Controls.Add( StatuteTable );
         Controls.Add( DescriptionTable );
+        DoubleBuffered = true;
         Font = new System.Drawing.Font( "Roboto", 9F );
         ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

@@ -1744,7 +1744,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _path = ConfigurationManager.AppSettings[ "Providers" ];
+                var _path = ConfigurationManager.AppSettings[ "ProviderImages" ];
                 if( !string.IsNullOrEmpty( _path ) )
                 {
                     var _files = Directory.GetFiles( _path );
@@ -1778,7 +1778,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _path = ConfigurationManager.AppSettings[ "Dialogs" ];
+                var _path = ConfigurationManager.AppSettings[ "DialogImages" ];
                 if( !string.IsNullOrEmpty( _path ) )
                 {
                     var _files = Directory.GetFiles( _path );
@@ -2551,7 +2551,7 @@ namespace BudgetExecution
                 try
                 {
                     SetIcon( _button.ToolType );
-                    var _dialog = new EditScreen( Source, Provider );
+                    var _dialog = new EditPage( Source, Provider );
                     _dialog?.ShowDialog( this );
                     SetFormIcon( );
                 }
@@ -2575,7 +2575,7 @@ namespace BudgetExecution
                 try
                 {
                     SetIcon( _button.ToolType );
-                    var _dialog = new SchemaScreeen( _button.ToolType, BindingSource );
+                    var _dialog = new SchemaPage( _button.ToolType, BindingSource );
                     _dialog?.ShowDialog( this );
                     SetFormIcon( );
                 }
@@ -2621,7 +2621,7 @@ namespace BudgetExecution
                 try
                 {
                     SetIcon( _button.ToolType );
-                    var _dialog = new SqlScreen( );
+                    var _dialog = new SqlPage( );
                     _dialog.BindingSource = BindingSource;
                     _dialog.Editor.Text = SqlQuery;
                     _dialog.ShowDialog( this );

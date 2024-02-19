@@ -7,6 +7,7 @@
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Gauge;
 
+    /// <inheritdoc />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class CircularGuage : RadialGauge
     {

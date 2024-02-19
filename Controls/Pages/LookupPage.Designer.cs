@@ -2,7 +2,7 @@
 {
 
 
-    partial class LookupScreen
+    partial class LookupPage
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
         private void InitializeComponent( )
         {
             components = new System.ComponentModel.Container( );
-            var resources = new System.ComponentModel.ComponentResourceManager( typeof( LookupScreen ) );
+            var resources = new System.ComponentModel.ComponentResourceManager( typeof( LookupPage ) );
             BindingSource = new System.Windows.Forms.BindingSource( components );
             TabControl = new Syncfusion.Windows.Forms.Tools.TabControlAdv( );
             LookupTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
@@ -1008,7 +1008,7 @@
             groupBox9.ThemeName = "BudgetExecution";
             groupBox9.ToolTip = null;
             // 
-            // LookupScreen
+            // LookupPage
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1034,7 +1034,7 @@
             MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             MinimizeBox = false;
             MinimumSize = new System.Drawing.Size( 1349, 730 );
-            Name = "LookupScreen";
+            Name = "LookupPage";
             ShowIcon = false;
             ShowMaximizeBox = false;
             ShowMinimizeBox = false;
