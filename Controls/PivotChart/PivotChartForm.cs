@@ -48,7 +48,6 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
-    using PdfSharp.Drawing;
     using Syncfusion.PivotAnalysis.Base;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Chart;
@@ -71,6 +70,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UseNullPropagation" ) ]
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
     public partial class PivotChartForm : MetroForm
     {
         /// <summary>
@@ -763,6 +763,49 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Initializes the pivot grid.
+        /// </summary>
+        private void InitializePivotGrid( )
+        {
+            try
+            {
+                var _font = new Font( "Roboto", 9 );
+                var _gray = Color.FromArgb( 45, 45, 45 );
+                var _lightBlue = Color.FromArgb( 106, 189, 252 );
+                var _borderBlue = Color.FromArgb( 0, 120, 212 );
+                PivotChart.ShowPivotTableFieldList = false;
+                PivotChart.AllowDrillDown = true;
+                PivotChart.BackColor = Color.FromArgb( 20, 20, 20 );
+                PivotChart.ForeColor = _lightBlue;
+                PivotChart.ChartTypes = PivotChartTypes.Column;
+                PivotChart.PrimaryXAxis.Title.Color = _borderBlue;
+                PivotChart.PrimaryXAxis.Title.Font = _font;
+                PivotChart.PrimaryYAxis.Title.Color = _borderBlue;
+                PivotChart.PrimaryYAxis.Title.Font = _font;
+                PivotChart.AxisFieldSection.Visible = true;
+                PivotChart.LegendFieldSection.Visible = false;
+                PivotChart.ValueFieldSection.Visible = true;
+                PivotChart.FilterFieldSection.Visible = true;
+                PivotChart.AxisFieldSection.ItemBackColor = Color.FromArgb( 50, 93, 129 );
+                PivotChart.AxisFieldSection.ItemForeColor = Color.White;
+                PivotChart.AxisFieldSection.BackInterior = _gray;
+                PivotChart.CustomPalette = new[ ]
+                {
+                    Color.FromArgb( 0, 120, 212 ),
+                    Color.SlateGray,
+                    Color.Yellow,
+                    Color.DarkGreen,
+                    Color.Maroon,
+                    Color.Olive
+                };
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Initializes the delegates.
         /// </summary>
         private void InitializeDelegates( )
@@ -841,74 +884,31 @@ namespace BudgetExecution
             {
                 var _font = new Font( "Roboto", 7 );
                 var _foreColor = Color.FromArgb( 106, 189, 252 );
-                MetricLabel1.Font = _font;
-                MetricLabel1.ForeColor = _foreColor;
-                MetricLabel1.Text = string.Empty;
-                MetricLabel2.Font = _font;
-                MetricLabel2.ForeColor = _foreColor;
-                MetricLabel2.Text = string.Empty;
-                MetricLabel3.Font = _font;
-                MetricLabel3.ForeColor = _foreColor;
-                MetricLabel3.Text = string.Empty;
-                MetricLabel4.Font = _font;
-                MetricLabel4.ForeColor = _foreColor;
-                MetricLabel4.Text = string.Empty;
-                MetricLabel5.Font = _font;
-                MetricLabel5.ForeColor = _foreColor;
-                MetricLabel5.Text = string.Empty;
-                MetricLabel6.Font = _font;
-                MetricLabel6.ForeColor = _foreColor;
-                MetricLabel6.Text = string.Empty;
-                MetricLabel7.Font = _font;
-                MetricLabel7.ForeColor = _foreColor;
-                MetricLabel7.Text = string.Empty;
-                MetricLabel8.Font = _font;
-                MetricLabel8.ForeColor = _foreColor;
-                MetricLabel8.Text = string.Empty;
-                MetricLabel9.Font = _font;
-                MetricLabel9.ForeColor = _foreColor;
-                MetricLabel9.Text = string.Empty;
-                MetricLabel10.Font = _font;
-                MetricLabel10.ForeColor = _foreColor;
-                MetricLabel10.Text = string.Empty;
-                MetricLabel11.Font = _font;
-                MetricLabel11.ForeColor = _foreColor;
-                MetricLabel11.Text = string.Empty;
-                MetricLabel12.Font = _font;
-                MetricLabel12.ForeColor = _foreColor;
-                MetricLabel12.Text = string.Empty;
-                MetricLabel13.Font = _font;
-                MetricLabel13.Text = string.Empty;
-                MetricLabel13.ForeColor = _foreColor;
-                MetricLabel14.Font = _font;
-                MetricLabel14.Text = string.Empty;
-                MetricLabel14.ForeColor = _foreColor;
-                MetricLabel15.Font = _font;
-                MetricLabel15.Text = string.Empty;
-                MetricLabel15.ForeColor = _foreColor;
-                MetricLabel16.Font = _font;
-                MetricLabel16.Text = string.Empty;
-                MetricLabel16.ForeColor = _foreColor;
-                MetricLabel17.Font = _font;
-                MetricLabel17.Text = string.Empty;
-                MetricLabel17.ForeColor = _foreColor;
-                MetricLabel18.Font = _font;
-                MetricLabel18.Text = string.Empty;
-                MetricLabel18.ForeColor = _foreColor;
-                MetricLabel19.Font = _font;
-                MetricLabel19.Text = string.Empty;
-                MetricLabel19.ForeColor = _foreColor;
-                MetricLabel20.Font = _font;
-                MetricLabel20.Text = string.Empty;
-                MetricLabel20.ForeColor = _foreColor;
-                CommandLabel1.Font = _font;
-                CommandLabel1.ForeColor = _foreColor;
-                CommandLabel1.Text = string.Empty;
-                CommandLabel2.TextAlign = ContentAlignment.TopLeft;
-                CommandLabel2.Font = _font;
-                CommandLabel2.ForeColor = _foreColor;
-                CommandLabel2.Text = string.Empty;
-                CommandLabel2.TextAlign = ContentAlignment.TopLeft;
+                var _labels = GetLabels( );
+                foreach( var _label in _labels.Values )
+                {
+                    var _tag = _label.Tag.ToString( );
+                    if( _tag.Equals( "STAT" ) )
+                    {
+                        _label.Font = _font;
+                        _label.ForeColor = _foreColor;
+                        _label.Text = string.Empty;
+                    }
+                    else if( _label.Name.Equals( "CommandLabel1" ) )
+                    {
+                        _label.Font = _font;
+                        _label.ForeColor = _foreColor;
+                        _label.TextAlign = ContentAlignment.BottomLeft;
+                        _label.Text = string.Empty;
+                    }
+                    else if( _label.Name.Equals( "CommandLabel2" ) )
+                    {
+                        _label.Font = _font;
+                        _label.ForeColor = _foreColor;
+                        _label.TextAlign = ContentAlignment.TopLeft;
+                        _label.Text = string.Empty;
+                    }
+                }
             }
             catch( Exception _ex )
             {
@@ -928,10 +928,14 @@ namespace BudgetExecution
                 _palette.Add( _steelBlue );
                 var _slateGray = Color.SlateGray;
                 _palette.Add( _slateGray );
+                var _green = Color.DarkGreen;
+                _palette.Add( _green );
                 var _yellow = Color.FromArgb( 192, 192, 0 );
                 _palette.Add( _yellow );
                 var _maroon = Color.Maroon;
                 _palette.Add( _maroon );
+                var _olive = Color.Olive;
+                _palette.Add( _olive );
                 PivotChart.ShowPivotTableFieldList = false;
                 PivotChart.AllowDrillDown = true;
                 PivotChart.BackColor = Color.FromArgb( 45, 45, 45 );

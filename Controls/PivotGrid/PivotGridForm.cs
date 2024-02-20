@@ -49,6 +49,7 @@ namespace BudgetExecution
     using System.Linq;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
+    using Syncfusion.Windows.Forms.Gauge;
     using Syncfusion.Windows.Forms.Tools;
     using Action = System.Action;
 
@@ -65,6 +66,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
     public partial class PivotGridForm : MetroForm
     {
         /// <summary>
@@ -767,74 +769,104 @@ namespace BudgetExecution
             {
                 var _font = new Font( "Roboto", 7 );
                 var _foreColor = Color.FromArgb( 106, 189, 252 );
-                MetricLabel1.Font = _font;
-                MetricLabel1.ForeColor = _foreColor;
-                MetricLabel1.Text = string.Empty;
-                MetricLabel2.Font = _font;
-                MetricLabel2.ForeColor = _foreColor;
-                MetricLabel2.Text = string.Empty;
-                MetricLabel3.Font = _font;
-                MetricLabel3.ForeColor = _foreColor;
-                MetricLabel3.Text = string.Empty;
-                MetricLabel4.Font = _font;
-                MetricLabel4.ForeColor = _foreColor;
-                MetricLabel4.Text = string.Empty;
-                MetricLabel5.Font = _font;
-                MetricLabel5.ForeColor = _foreColor;
-                MetricLabel5.Text = string.Empty;
-                MetricLabel6.Font = _font;
-                MetricLabel6.ForeColor = _foreColor;
-                MetricLabel6.Text = string.Empty;
-                MetricLabel7.Font = _font;
-                MetricLabel7.ForeColor = _foreColor;
-                MetricLabel7.Text = string.Empty;
-                MetricLabel8.Font = _font;
-                MetricLabel8.ForeColor = _foreColor;
-                MetricLabel8.Text = string.Empty;
-                MetricLabel9.Font = _font;
-                MetricLabel9.ForeColor = _foreColor;
-                MetricLabel9.Text = string.Empty;
-                MetricLabel10.Font = _font;
-                MetricLabel10.ForeColor = _foreColor;
-                MetricLabel10.Text = string.Empty;
-                MetricLabel11.Font = _font;
-                MetricLabel11.ForeColor = _foreColor;
-                MetricLabel11.Text = string.Empty;
-                MetricLabel12.Font = _font;
-                MetricLabel12.ForeColor = _foreColor;
-                MetricLabel12.Text = string.Empty;
-                MetricLabel13.Font = _font;
-                MetricLabel13.Text = string.Empty;
-                MetricLabel13.ForeColor = _foreColor;
-                MetricLabel14.Font = _font;
-                MetricLabel14.Text = string.Empty;
-                MetricLabel14.ForeColor = _foreColor;
-                MetricLabel15.Font = _font;
-                MetricLabel15.Text = string.Empty;
-                MetricLabel15.ForeColor = _foreColor;
-                MetricLabel16.Font = _font;
-                MetricLabel16.Text = string.Empty;
-                MetricLabel16.ForeColor = _foreColor;
-                MetricLabel17.Font = _font;
-                MetricLabel17.Text = string.Empty;
-                MetricLabel17.ForeColor = _foreColor;
-                MetricLabel18.Font = _font;
-                MetricLabel18.Text = string.Empty;
-                MetricLabel18.ForeColor = _foreColor;
-                MetricLabel19.Font = _font;
-                MetricLabel19.Text = string.Empty;
-                MetricLabel19.ForeColor = _foreColor;
-                MetricLabel20.Font = _font;
-                MetricLabel20.Text = string.Empty;
-                MetricLabel20.ForeColor = _foreColor;
-                CommandLabel1.Font = _font;
-                CommandLabel1.ForeColor = _foreColor;
-                CommandLabel1.Text = string.Empty;
-                CommandLabel2.TextAlign = ContentAlignment.TopLeft;
-                CommandLabel2.Font = _font;
-                CommandLabel2.ForeColor = _foreColor;
-                CommandLabel2.Text = string.Empty;
-                CommandLabel2.TextAlign = ContentAlignment.TopLeft;
+                var _labels = GetLabels( );
+                foreach( var _label in _labels.Values )
+                {
+                    var _tag = _label.Tag.ToString( );
+                    if( _tag?.Equals( "STAT" ) == true )
+                    {
+                        _label.Font = _font;
+                        _label.ForeColor = _foreColor;
+                        _label.Text = string.Empty;
+                    }
+                    else if( _label.Name.Equals( "CommandLabel1" ) )
+                    {
+                        _label.Font = _font;
+                        _label.ForeColor = _foreColor;
+                        _label.TextAlign = ContentAlignment.BottomLeft;
+                        _label.Text = string.Empty;
+                    }
+                    else if( _label.Name.Equals( "CommandLabel2" ) )
+                    {
+                        _label.Font = _font;
+                        _label.ForeColor = _foreColor;
+                        _label.TextAlign = ContentAlignment.TopLeft;
+                        _label.Text = string.Empty;
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the pivot grid.
+        /// </summary>
+        private void InitializePivotGrid( )
+        {
+            try
+            {
+                var _font = new Font( "Roboto", 9 );
+                var _gray = Color.FromArgb( 45, 45, 45 );
+                var _lightBlue = Color.FromArgb( 106, 189, 252 );
+                var _borderBlue = Color.FromArgb( 0, 120, 212 );
+                PivotGrid.GridVisualStyles = GridVisualStyles.Office2016Black;
+                PivotGrid.CanOverrideStyle = true;
+                PivotGrid.CanApplyTheme = true;
+                PivotGrid.Font = _font;
+                PivotGrid.ForeColor = _lightBlue;
+                PivotGrid.ShowCalculationsAsColumns = true;
+                PivotGrid.ShowSubTotals = true;
+
+                // Dialog Style Properties
+                PivotGrid.ThemeStyle.ComputationInfoDialogStyle.BackColor = _gray;
+                PivotGrid.ThemeStyle.ComputationInfoDialogStyle.ForeColor = _lightBlue;
+                PivotGrid.ThemeStyle.ComputationInfoDialogStyle.BorderColor = _borderBlue;
+
+                // Edit Menu Style Properties
+                PivotGrid.ThemeStyle.EditMenuStyle.BackColor = _gray;
+                PivotGrid.ThemeStyle.EditMenuStyle.ForeColor = _lightBlue;
+                PivotGrid.ThemeStyle.EditMenuStyle.BorderColor = _borderBlue;
+
+                // Header Cell Style Properties
+                PivotGrid.ThemeStyle.HeaderCellStyle.HoverBackColor = _gray;
+                PivotGrid.ThemeStyle.HeaderCellStyle.HoverTextColor = Color.White;
+                PivotGrid.ThemeStyle.HeaderCellStyle.PressedBackColor = _borderBlue;
+                PivotGrid.ThemeStyle.HeaderCellStyle.PressedTextColor = _lightBlue;
+
+                // Value Cell Style Properties
+                PivotGrid.ThemeStyle.ValueCellStyle.Font = _font;
+                PivotGrid.ThemeStyle.ValueCellStyle.BackColor = _gray;
+                PivotGrid.ThemeStyle.ValueCellStyle.TextColor = _lightBlue;
+
+                // Summary Cell Style Properties
+                PivotGrid.ThemeStyle.SummaryCellStyle.Font = _font;
+                PivotGrid.ThemeStyle.SummaryCellStyle.BackColor = _gray;
+                PivotGrid.ThemeStyle.SummaryCellStyle.TextColor = _lightBlue;
+
+                // Expander Style Properties
+
+                // Filter DropDown Style Properties
+                PivotGrid.ThemeStyle.FilterDropDownStyle.ForeColor = _lightBlue;
+                PivotGrid.ThemeStyle.FilterDropDownStyle.BackColor = _gray;
+                PivotGrid.ThemeStyle.FilterDropDownStyle.BorderColor = _borderBlue;
+
+                // GroupBar Item Style Properties
+                PivotGrid.ThemeStyle.GroupBarItemStyle.ForeColor = _lightBlue;
+                PivotGrid.ThemeStyle.GroupBarItemStyle.BackColor = _gray;
+                PivotGrid.ThemeStyle.GroupBarItemStyle.Font = _font;
+                PivotGrid.ThemeStyle.GroupBarItemStyle.SortIconColor = _borderBlue;
+
+                // GroupBar Style Properties
+                PivotGrid.ThemeStyle.GroupBarStyle.FilterAreaBackColor = Color.FromArgb( 55, 55, 55 );
+                PivotGrid.ThemeStyle.GroupBarStyle.BackColor = _gray;
+
+                // PivotValueChooser Style Properties
+                PivotGrid.ThemeStyle.PivotValueChooserStyle.ForeColor = _lightBlue;
+                PivotGrid.ThemeStyle.PivotValueChooserStyle.BackColor = _gray;
+                PivotGrid.ThemeStyle.PivotValueChooserStyle.BorderColor = _borderBlue;
             }
             catch( Exception _ex )
             {
@@ -970,8 +1002,9 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the controls.
         /// </summary>
-        /// <returns></returns>
-        private protected IEnumerable<Control> GetControls( )
+        /// <returns>
+        /// </returns>
+        private IEnumerable<Control> GetControls( )
         {
             var _list = new List<Control>( );
             var _queue = new Queue( );
@@ -999,6 +1032,36 @@ namespace BudgetExecution
             {
                 Fail( _ex );
                 return default( Control[ ] );
+            }
+        }
+
+        /// <summary>
+        /// Gets the labels.
+        /// </summary>
+        /// <returns>
+        /// Dictionary
+        /// </returns>
+        private IDictionary<string, Label> GetLabels( )
+        {
+            try
+            {
+                var _labels = new Dictionary<string, Label>( );
+                foreach( var _control in GetControls( ) )
+                {
+                    if( _control.GetType( ) == typeof( Label ) )
+                    {
+                        _labels.Add( _control.Name, _control as Label );
+                    }
+                }
+
+                return _labels?.Any( ) == true
+                    ? _labels
+                    : default( IDictionary<string, Label> );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IDictionary<string, Label> );
             }
         }
 
@@ -1146,13 +1209,13 @@ namespace BudgetExecution
         {
             try
             {
-                DataModel = new DataBuilder( Source, Provider );
-                DataTable = DataModel.DataTable;
-                SelectedTable = DataTable.TableName;
-                BindingSource.DataSource = DataTable;
+                _dataModel = new DataBuilder( _source, _provider );
+                _dataTable = _dataModel.DataTable;
+                _selectedTable = _dataTable.TableName;
+                BindingSource.DataSource = _dataTable;
                 ToolStrip.BindingSource = BindingSource;
-                Fields = DataModel?.Fields;
-                Numerics = DataModel?.Numerics;
+                _fields = _dataModel?.Fields;
+                _numerics = _dataModel?.Numerics;
             }
             catch( Exception ex )
             {
@@ -1169,12 +1232,12 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.NullOrEmpty( sqlText, nameof( sqlText ) );
-                DataModel = new DataBuilder( Source, Provider, sqlText );
-                DataTable = DataModel.DataTable;
-                BindingSource.DataSource = DataModel.DataTable;
+                _dataModel = new DataBuilder( _source, _provider, sqlText );
+                _dataTable = _dataModel.DataTable;
+                BindingSource.DataSource = _dataModel.DataTable;
                 ToolStrip.BindingSource = BindingSource;
-                Fields = DataModel?.Fields;
-                Numerics = DataModel?.Numerics;
+                _fields = _dataModel?.Fields;
+                _numerics = _dataModel?.Numerics;
             }
             catch( Exception ex )
             {
@@ -1191,15 +1254,15 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( where, nameof( where ) );
-                Filter = where;
-                SqlCommand = CreateSqlText( where );
-                DataModel = new DataBuilder( Source, Provider, SqlCommand );
-                DataTable = DataModel.DataTable;
-                SelectedTable = DataTable.TableName;
-                BindingSource.DataSource = DataTable;
-                ToolStrip.BindingSource.DataSource = DataModel.DataTable;
-                Fields = DataModel?.Fields;
-                Numerics = DataModel?.Numerics;
+                _filter = where;
+                _sqlCommand = CreateSqlText( where );
+                _dataModel = new DataBuilder( _source, _provider, _sqlCommand );
+                _dataTable = _dataModel.DataTable;
+                _selectedTable = _dataTable.TableName;
+                BindingSource.DataSource = _dataTable;
+                ToolStrip.BindingSource.DataSource = _dataModel.DataTable;
+                _fields = _dataModel?.Fields;
+                _numerics = _dataModel?.Numerics;
             }
             catch( Exception ex )
             {
@@ -1218,13 +1281,13 @@ namespace BudgetExecution
             {
                 ThrowIf.Null( cols, nameof( cols ) );
                 ThrowIf.Null( where, nameof( where ) );
-                SqlCommand = CreateSqlText( cols, where );
-                DataModel = new DataBuilder( Source, Provider, SqlCommand );
-                DataTable = DataModel.DataTable;
-                BindingSource.DataSource = DataTable;
+                _sqlCommand = CreateSqlText( cols, where );
+                _dataModel = new DataBuilder( _source, _provider, _sqlCommand );
+                _dataTable = _dataModel.DataTable;
+                BindingSource.DataSource = _dataTable;
                 ToolStrip.BindingSource = BindingSource;
-                Fields = DataModel.Fields;
-                Numerics = DataModel.Numerics;
+                _fields = _dataModel.Fields;
+                _numerics = _dataModel.Numerics;
             }
             catch( Exception ex )
             {
@@ -1247,7 +1310,7 @@ namespace BudgetExecution
                 ThrowIf.Null( numerics, nameof( numerics ) );
                 ThrowIf.Null( where, nameof( where ) );
                 _sqlCommand = CreateSqlText( fields, numerics, where );
-                _dataModel = new DataBuilder( Source, Provider, SqlCommand );
+                _dataModel = new DataBuilder( _source, _provider, _sqlCommand );
                 _dataTable = _dataModel.DataTable;
                 BindingSource.DataSource = _dataTable;
                 ToolStrip.BindingSource = BindingSource;
@@ -1691,6 +1754,7 @@ namespace BudgetExecution
         {
             try
             {
+                InitializePivotGrid( );
                 InitializeToolStrip( );
                 InitializeTimers( );
                 InitializeLabels( );

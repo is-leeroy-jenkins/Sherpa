@@ -79,6 +79,7 @@
             ChartSubTablePanel = new BackPanel( );
             ChartSubTable = new System.Windows.Forms.TableLayoutPanel( );
             CommandLabel2 = new Label( );
+            CommandLabel1 = new Label( );
             MetricsTable = new System.Windows.Forms.TableLayoutPanel( );
             MetricLabel17 = new Label( );
             MetricLabel16 = new Label( );
@@ -107,7 +108,6 @@
             TableListBox = new ListBox( );
             ToolStripTable = new System.Windows.Forms.TableLayoutPanel( );
             ContextMenu = new ContextMenu( );
-            CommandLabel1 = new Label( );
             HeaderTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
@@ -722,7 +722,7 @@
             // 
             ChartHeaderTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             ChartHeaderTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
-            ChartHeaderTable.CaptionText = "Data Visualization";
+            ChartHeaderTable.CaptionText = "Pivot Chart";
             ChartHeaderTable.ColumnCount = 1;
             ChartHeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             ChartHeaderTable.Controls.Add( PivotLayout, 0, 1 );
@@ -863,7 +863,8 @@
     System.Drawing.Color.SteelBlue,
     System.Drawing.Color.SlateGray,
     System.Drawing.Color.Yellow,
-    System.Drawing.Color.Red
+    System.Drawing.Color.Red,
+    System.Drawing.Color.Olive
     };
             PivotChart.DeferLayoutUpdate = false;
             PivotChart.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -936,10 +937,34 @@
             CommandLabel2.Style = MetroSet_UI.Enums.Style.Custom;
             CommandLabel2.StyleManager = null;
             CommandLabel2.TabIndex = 2;
+            CommandLabel2.Tag = "SQL";
             CommandLabel2.Text = "Text";
             CommandLabel2.ThemeAuthor = "Terry D. Eppler";
             CommandLabel2.ThemeName = "Budget Execution";
             CommandLabel2.ToolTip = null;
+            // 
+            // CommandLabel1
+            // 
+            CommandLabel1.BindingSource = null;
+            CommandLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            CommandLabel1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            CommandLabel1.Font = new System.Drawing.Font( "Roboto", 6.75F );
+            CommandLabel1.HoverText = null;
+            CommandLabel1.IsDerivedStyle = true;
+            CommandLabel1.Location = new System.Drawing.Point( 3, 3 );
+            CommandLabel1.Margin = new System.Windows.Forms.Padding( 3 );
+            CommandLabel1.Name = "CommandLabel1";
+            CommandLabel1.Padding = new System.Windows.Forms.Padding( 1 );
+            CommandLabel1.Size = new System.Drawing.Size( 242, 18 );
+            CommandLabel1.Style = MetroSet_UI.Enums.Style.Custom;
+            CommandLabel1.StyleManager = null;
+            CommandLabel1.TabIndex = 46;
+            CommandLabel1.Tag = "SQL";
+            CommandLabel1.Text = "Text";
+            CommandLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            CommandLabel1.ThemeAuthor = "Terry D. Eppler";
+            CommandLabel1.ThemeName = "Budget Execution";
+            CommandLabel1.ToolTip = ToolTip;
             // 
             // MetricsTable
             // 
@@ -1572,29 +1597,6 @@
             ContextMenu.ThemeStyle.HoverForeColor = System.Drawing.Color.White;
             ContextMenu.ThemeStyle.PressedBackColor = System.Drawing.Color.FromArgb( 204, 204, 204 );
             ContextMenu.ThemeStyle.PressedForeColor = System.Drawing.Color.Black;
-            // 
-            // CommandLabel1
-            // 
-            CommandLabel1.BindingSource = null;
-            CommandLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            CommandLabel1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            CommandLabel1.Font = new System.Drawing.Font( "Roboto", 6.75F );
-            CommandLabel1.HoverText = null;
-            CommandLabel1.IsDerivedStyle = true;
-            CommandLabel1.Location = new System.Drawing.Point( 3, 3 );
-            CommandLabel1.Margin = new System.Windows.Forms.Padding( 3 );
-            CommandLabel1.Name = "CommandLabel1";
-            CommandLabel1.Padding = new System.Windows.Forms.Padding( 1 );
-            CommandLabel1.Size = new System.Drawing.Size( 242, 18 );
-            CommandLabel1.Style = MetroSet_UI.Enums.Style.Custom;
-            CommandLabel1.StyleManager = null;
-            CommandLabel1.TabIndex = 46;
-            CommandLabel1.Tag = "STAT";
-            CommandLabel1.Text = "Text";
-            CommandLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            CommandLabel1.ThemeAuthor = "Terry D. Eppler";
-            CommandLabel1.ThemeName = "Budget Execution";
-            CommandLabel1.ToolTip = ToolTip;
             // 
             // PivotChartForm
             // 

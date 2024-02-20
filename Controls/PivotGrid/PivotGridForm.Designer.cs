@@ -935,7 +935,9 @@
             CommandLabel2.Style = MetroSet_UI.Enums.Style.Custom;
             CommandLabel2.StyleManager = null;
             CommandLabel2.TabIndex = 4;
+            CommandLabel2.Tag = "SQL";
             CommandLabel2.Text = "Text";
+            CommandLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             CommandLabel2.ThemeAuthor = "Terry D. Eppler";
             CommandLabel2.ThemeName = "Budget Execution";
             CommandLabel2.ToolTip = null;
@@ -957,6 +959,7 @@
             CommandLabel1.Style = MetroSet_UI.Enums.Style.Custom;
             CommandLabel1.StyleManager = null;
             CommandLabel1.TabIndex = 3;
+            CommandLabel1.Tag = "SQL";
             CommandLabel1.Text = "Text";
             CommandLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             CommandLabel1.ThemeAuthor = "Terry D. Eppler";
@@ -1017,6 +1020,7 @@
             MetricLabel19.Style = MetroSet_UI.Enums.Style.Custom;
             MetricLabel19.StyleManager = null;
             MetricLabel19.TabIndex = 60;
+            MetricLabel19.Tag = "STAT";
             MetricLabel19.Text = "Text";
             MetricLabel19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             MetricLabel19.ThemeAuthor = "Terry D. Eppler";
@@ -1039,6 +1043,7 @@
             MetricLabel18.Style = MetroSet_UI.Enums.Style.Custom;
             MetricLabel18.StyleManager = null;
             MetricLabel18.TabIndex = 59;
+            MetricLabel18.Tag = "STAT";
             MetricLabel18.Text = "Text";
             MetricLabel18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             MetricLabel18.ThemeAuthor = "Terry D. Eppler";
@@ -1061,6 +1066,7 @@
             MetricLabel17.Style = MetroSet_UI.Enums.Style.Custom;
             MetricLabel17.StyleManager = null;
             MetricLabel17.TabIndex = 58;
+            MetricLabel17.Tag = "STAT";
             MetricLabel17.Text = "Text";
             MetricLabel17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             MetricLabel17.ThemeAuthor = "Terry D. Eppler";
@@ -1083,6 +1089,7 @@
             MetricLabel20.Style = MetroSet_UI.Enums.Style.Custom;
             MetricLabel20.StyleManager = null;
             MetricLabel20.TabIndex = 57;
+            MetricLabel20.Tag = "STAT";
             MetricLabel20.Text = "Text";
             MetricLabel20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             MetricLabel20.ThemeAuthor = "Terry D. Eppler";
@@ -1105,6 +1112,7 @@
             MetricLabel3.Style = MetroSet_UI.Enums.Style.Custom;
             MetricLabel3.StyleManager = null;
             MetricLabel3.TabIndex = 43;
+            MetricLabel3.Tag = "STAT";
             MetricLabel3.Text = "Text";
             MetricLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             MetricLabel3.ThemeAuthor = "Terry D. Eppler";
@@ -1150,6 +1158,7 @@
             MetricLabel2.Style = MetroSet_UI.Enums.Style.Custom;
             MetricLabel2.StyleManager = null;
             MetricLabel2.TabIndex = 44;
+            MetricLabel2.Tag = "STAT";
             MetricLabel2.Text = "Text";
             MetricLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             MetricLabel2.ThemeAuthor = "Terry D. Eppler";
@@ -1172,6 +1181,7 @@
             MetricLabel4.Style = MetroSet_UI.Enums.Style.Custom;
             MetricLabel4.StyleManager = null;
             MetricLabel4.TabIndex = 47;
+            MetricLabel4.Tag = "STAT";
             MetricLabel4.Text = "Text";
             MetricLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             MetricLabel4.ThemeAuthor = "Terry D. Eppler";
@@ -1194,6 +1204,7 @@
             MetricLabel5.Style = MetroSet_UI.Enums.Style.Custom;
             MetricLabel5.StyleManager = null;
             MetricLabel5.TabIndex = 44;
+            MetricLabel5.Tag = "STAT";
             MetricLabel5.Text = "Text";
             MetricLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             MetricLabel5.ThemeAuthor = "Terry D. Eppler";
@@ -1216,6 +1227,7 @@
             MetricLabel6.Style = MetroSet_UI.Enums.Style.Custom;
             MetricLabel6.StyleManager = null;
             MetricLabel6.TabIndex = 45;
+            MetricLabel6.Tag = "STAT";
             MetricLabel6.Text = "Text";
             MetricLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             MetricLabel6.ThemeAuthor = "Terry D. Eppler";
@@ -1238,6 +1250,7 @@
             MetricLabel7.Style = MetroSet_UI.Enums.Style.Custom;
             MetricLabel7.StyleManager = null;
             MetricLabel7.TabIndex = 46;
+            MetricLabel7.Tag = "STAT";
             MetricLabel7.Text = "Text";
             MetricLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             MetricLabel7.ThemeAuthor = "Terry D. Eppler";
@@ -1260,6 +1273,7 @@
             MetricLabel8.Style = MetroSet_UI.Enums.Style.Custom;
             MetricLabel8.StyleManager = null;
             MetricLabel8.TabIndex = 48;
+            MetricLabel8.Tag = "STAT";
             MetricLabel8.Text = "Text";
             MetricLabel8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             MetricLabel8.ThemeAuthor = "Terry D. Eppler";
@@ -1282,6 +1296,7 @@
             MetricLabel9.Style = MetroSet_UI.Enums.Style.Custom;
             MetricLabel9.StyleManager = null;
             MetricLabel9.TabIndex = 49;
+            MetricLabel9.Tag = "STAT";
             MetricLabel9.Text = "Text";
             MetricLabel9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             MetricLabel9.ThemeAuthor = "Terry D. Eppler";
@@ -1304,6 +1319,7 @@
             MetricLabel10.Style = MetroSet_UI.Enums.Style.Custom;
             MetricLabel10.StyleManager = null;
             MetricLabel10.TabIndex = 50;
+            MetricLabel10.Tag = "STAT";
             MetricLabel10.Text = "Text";
             MetricLabel10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             MetricLabel10.ThemeAuthor = "Terry D. Eppler";
@@ -1326,6 +1342,7 @@
             MetricLabel11.Style = MetroSet_UI.Enums.Style.Custom;
             MetricLabel11.StyleManager = null;
             MetricLabel11.TabIndex = 51;
+            MetricLabel11.Tag = "STAT";
             MetricLabel11.Text = "Text";
             MetricLabel11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             MetricLabel11.ThemeAuthor = "Terry D. Eppler";
@@ -1348,6 +1365,7 @@
             MetricLabel12.Style = MetroSet_UI.Enums.Style.Custom;
             MetricLabel12.StyleManager = null;
             MetricLabel12.TabIndex = 52;
+            MetricLabel12.Tag = "STAT";
             MetricLabel12.Text = "Text";
             MetricLabel12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             MetricLabel12.ThemeAuthor = "Terry D. Eppler";
@@ -1370,6 +1388,7 @@
             MetricLabel13.Style = MetroSet_UI.Enums.Style.Custom;
             MetricLabel13.StyleManager = null;
             MetricLabel13.TabIndex = 55;
+            MetricLabel13.Tag = "STAT";
             MetricLabel13.Text = "Text";
             MetricLabel13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             MetricLabel13.ThemeAuthor = "Terry D. Eppler";
@@ -1392,6 +1411,7 @@
             MetricLabel14.Style = MetroSet_UI.Enums.Style.Custom;
             MetricLabel14.StyleManager = null;
             MetricLabel14.TabIndex = 56;
+            MetricLabel14.Tag = "STAT";
             MetricLabel14.Text = "Text";
             MetricLabel14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             MetricLabel14.ThemeAuthor = "Terry D. Eppler";
@@ -1414,6 +1434,7 @@
             MetricLabel15.Style = MetroSet_UI.Enums.Style.Custom;
             MetricLabel15.StyleManager = null;
             MetricLabel15.TabIndex = 53;
+            MetricLabel15.Tag = "STAT";
             MetricLabel15.Text = "Text";
             MetricLabel15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             MetricLabel15.ThemeAuthor = "Terry D. Eppler";
@@ -1436,6 +1457,7 @@
             MetricLabel16.Style = MetroSet_UI.Enums.Style.Custom;
             MetricLabel16.StyleManager = null;
             MetricLabel16.TabIndex = 54;
+            MetricLabel16.Tag = "STAT";
             MetricLabel16.Text = "Text";
             MetricLabel16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             MetricLabel16.ThemeAuthor = "Terry D. Eppler";
