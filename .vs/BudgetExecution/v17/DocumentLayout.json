@@ -3,12 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\pivotgrid\\pivotgridform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\pivotgrid\\pivotgridform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\browser\\filebrowser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\browser\\filebrowser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\pivotchart\\pivotchartform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\pivotchart\\pivotchartform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\browser\\folderbrowser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\browser\\folderbrowser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\browser\\browserbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\browser\\browserbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\chart\\chartdataform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\chart\\chartdataform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\datagrid\\datagridform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\datagrid\\datagridform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\excel\\exceldataform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\excel\\exceldataform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,27 +54,80 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PivotChartForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\PivotChart\\PivotChartForm.cs",
-              "RelativeDocumentMoniker": "Controls\\PivotChart\\PivotChartForm.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\PivotChart\\PivotChartForm.cs [Design]",
-              "RelativeToolTip": "Controls\\PivotChart\\PivotChartForm.cs [Design]",
+              "DocumentIndex": 2,
+              "Title": "BrowserBase.cs",
+              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Browser\\BrowserBase.cs",
+              "RelativeDocumentMoniker": "Controls\\Browser\\BrowserBase.cs",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Browser\\BrowserBase.cs",
+              "RelativeToolTip": "Controls\\Browser\\BrowserBase.cs",
+              "ViewState": "AQIAADAAAAAAAAAAAAAcwE8AAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-20T01:12:51.826Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-02-21T00:43:21.849Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "PivotGridForm.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\PivotGrid\\PivotGridForm.cs",
-              "RelativeDocumentMoniker": "Controls\\PivotGrid\\PivotGridForm.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\PivotGrid\\PivotGridForm.cs",
-              "RelativeToolTip": "Controls\\PivotGrid\\PivotGridForm.cs",
-              "ViewState": "AQIAACADAAAAAAAAAAAAACcDAAAJAAAA",
+              "Title": "FileBrowser.cs",
+              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Browser\\FileBrowser.cs",
+              "RelativeDocumentMoniker": "Controls\\Browser\\FileBrowser.cs",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Browser\\FileBrowser.cs",
+              "RelativeToolTip": "Controls\\Browser\\FileBrowser.cs",
+              "ViewState": "AQIAAPABAAAAAAAAAAAUwAECAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-19T23:38:58.198Z",
+              "WhenOpened": "2024-02-21T00:43:05.148Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FolderBrowser.cs",
+              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Browser\\FolderBrowser.cs",
+              "RelativeDocumentMoniker": "Controls\\Browser\\FolderBrowser.cs",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Browser\\FolderBrowser.cs",
+              "RelativeToolTip": "Controls\\Browser\\FolderBrowser.cs",
+              "ViewState": "AQIAADYBAAAAAAAAAAAAADABAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-21T00:42:57.138Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ChartDataForm.cs",
+              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Chart\\ChartDataForm.cs",
+              "RelativeDocumentMoniker": "Controls\\Chart\\ChartDataForm.cs",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Chart\\ChartDataForm.cs",
+              "RelativeToolTip": "Controls\\Chart\\ChartDataForm.cs",
+              "ViewState": "AQIAAOsEAAAAAAAAAAAcwPYEAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-20T02:09:40.709Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DataGridForm.cs",
+              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\DataGrid\\DataGridForm.cs",
+              "RelativeDocumentMoniker": "Controls\\DataGrid\\DataGridForm.cs",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\DataGrid\\DataGridForm.cs",
+              "RelativeToolTip": "Controls\\DataGrid\\DataGridForm.cs",
+              "ViewState": "AQIAAP8CAAAAAAAAAAAkwBcDAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-20T02:09:34.026Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ExcelDataForm.cs",
+              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Excel\\ExcelDataForm.cs",
+              "RelativeDocumentMoniker": "Controls\\Excel\\ExcelDataForm.cs",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Excel\\ExcelDataForm.cs",
+              "RelativeToolTip": "Controls\\Excel\\ExcelDataForm.cs",
+              "ViewState": "AQIAAOkCAAAAAAAAAAAwwPwCAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-20T01:20:30.996Z",
               "EditorCaption": ""
             }
           ]

@@ -1,34 +1,90 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Windows.Forms;
-using Syncfusion.Windows.Forms;
+﻿// ******************************************************************************************
+//     Assembly:                Budget Execution
+//     Author:                  Terry D. Eppler
+//     Created:                 2-20-2024
+// 
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        2-20-2024
+// ******************************************************************************************
+// <copyright file="FolderBrowser.cs" company="Terry D. Eppler">
+//    Budget Execution is a Federal Budget, Finance, and Accounting application
+//    for analysts with the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
+// 
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
+// 
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
+// 
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
+// 
+//    Contact at:  terryeppler@gmail.com or eppler.terry@epa.gov
+// </copyright>
+// <summary>
+//   FolderBrowser.cs
+// </summary>
+// ******************************************************************************************
 
 namespace BudgetExecution
 {
     using System;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
+    using System.Drawing;
+    using System.IO;
+    using System.Linq;
+    using System.Windows.Forms;
 
+    /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
+    /// <seealso cref="T:Syncfusion.Windows.Forms.MetroForm" />
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
-    public partial class FolderBrowser : MetroForm
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    public partial class FolderBrowser : BrowserBase
     {
+        /// <summary>
+        /// The dir paths
+        /// </summary>
+        private IList<string> _dirPaths;
+
         /// <summary>
         /// Gets or sets the time.
         /// </summary>
         /// <value>
         /// The time.
         /// </value>
-        public int Time { get; set; }
+        public int Time
+        {
+            get
+            {
+                return _time;
+            }
+            private protected set
+            {
+                _time = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the seconds.
@@ -36,7 +92,35 @@ namespace BudgetExecution
         /// <value>
         /// The seconds.
         /// </value>
-        public int Seconds { get; set; }
+        public int Seconds
+        {
+            get
+            {
+                return _seconds;
+            }
+            private protected set
+            {
+                _seconds = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the radio buttons.
+        /// </summary>
+        /// <value>
+        /// The radio buttons.
+        /// </value>
+        public IList<RadioButton> RadioButtons
+        {
+            get
+            {
+                return _radioButtons;
+            }
+            private protected set
+            {
+                _radioButtons = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the selected path.
@@ -52,7 +136,17 @@ namespace BudgetExecution
         /// <value>
         /// The initial dir paths.
         /// </value>
-        public IEnumerable<string> InitialDirPaths { get; set; }
+        public IList<string> InitialDirPaths
+        {
+            get
+            {
+                return _initialDirPaths;
+            }
+            private protected set
+            {
+                _initialDirPaths = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the file paths.
@@ -60,7 +154,17 @@ namespace BudgetExecution
         /// <value>
         /// The file paths.
         /// </value>
-        public IEnumerable<string> DirPaths { get; set; }
+        public IList<string> DirPaths
+        {
+            get
+            {
+                return _dirPaths;
+            }
+            private protected set
+            {
+                _dirPaths = value;
+            }
+        }
 
         /// <inheritdoc/>
         /// <summary>
@@ -71,6 +175,7 @@ namespace BudgetExecution
         public FolderBrowser( )
         {
             InitializeComponent( );
+            RegisterCallbacks( );
 
             // Form Settings
             Font = new Font( "Roboto", 9 );
@@ -92,6 +197,14 @@ namespace BudgetExecution
             ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
+
+            // Budget Properties
+            _dirPaths = new List<string>( );
+            _initialDirPaths = new List<string>( );
+            _radioButtons = new List<RadioButton>( );
+
+            // Wire Events
+            Load += OnLoad;
         }
 
         /// <summary>
@@ -153,13 +266,13 @@ namespace BudgetExecution
         /// </param>
         public void OnLoad( object sender, EventArgs e )
         {
-            if( DirPaths?.Any( ) == true )
+            if( _dirPaths?.Any( ) == true )
             {
                 try
                 {
+                    InitializeTimers( );
                     InitializeLabels( );
                     InitializeButtons( );
-                    RegisterCallbacks();
                     PopulateListBox( );
                 }
                 catch( Exception _ex )
@@ -189,7 +302,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the callbacks.
         /// </summary>
-        private void RegisterCallbacks()
+        private void RegisterCallbacks( )
         {
             try
             {
@@ -211,8 +324,8 @@ namespace BudgetExecution
             try
             {
                 // Timer Properties
-                Time = 0;
-                Seconds = 5;
+                _time = 0;
+                _seconds = 5;
             }
             catch( Exception _ex )
             {
@@ -328,17 +441,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex"> The ex. </param>
-        private void Fail( Exception ex )
-        {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
-        }
-
-        /// <summary>
         /// Populates the ListBox.
         /// </summary>
         private protected virtual void PopulateListBox( )
@@ -365,13 +467,13 @@ namespace BudgetExecution
         /// <returns> </returns>
         private protected IEnumerable<string> GetListViewPaths( )
         {
-            if( InitialDirPaths?.Any( ) == true )
+            if( _initialDirPaths?.Any( ) == true )
             {
                 try
                 {
                     var _list = new List<string>( );
                     var _paths = new Dictionary<string, string>( );
-                    foreach( var _dirPath in InitialDirPaths )
+                    foreach( var _dirPath in _initialDirPaths )
                     {
                         var _dirs = Directory.GetDirectories( _dirPath );
                         for( var _index = 0; _index < _dirs.Length; _index++ )
@@ -434,8 +536,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    SelectedPath = _listBox.SelectedItem?.ToString( );
-                    MessageLabel.Text = SelectedPath;
+                    _selectedPath = _listBox.SelectedItem?.ToString( );
+                    MessageLabel.Text = _selectedPath;
                 }
                 catch( Exception _ex )
                 {
@@ -461,7 +563,7 @@ namespace BudgetExecution
                 {
                     Dialog = new FolderBrowserDialog( );
                     Dialog.ShowDialog( );
-                    var _selectedPath = Dialog.SelectedPath;
+                    _selectedPath = Dialog.SelectedPath;
                     if( !string.IsNullOrEmpty( _selectedPath ) )
                     {
                         SelectedPath = _selectedPath;
@@ -489,6 +591,7 @@ namespace BudgetExecution
             {
                 try
                 {
+                    FadeOut( );
                     Close( );
                 }
                 catch( Exception _ex )

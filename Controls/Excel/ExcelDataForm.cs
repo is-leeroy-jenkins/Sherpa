@@ -783,6 +783,13 @@ namespace BudgetExecution
             MaximizeBox = false;
             ControlBox = false;
 
+            // Budget Attributes
+            _filter = new Dictionary<string, object>( );
+            _selectedColumns = new List<string>( );
+            _selectedFields = new List<string>( );
+            _selectedNumerics = new List<string>( );
+            _dataArgs = new DataArgs( );
+
             // Timer Properties
             _time = 0;
             _seconds = 5;
@@ -1095,6 +1102,8 @@ namespace BudgetExecution
         {
             try
             {
+                _fourthCategory = string.Empty;
+                _fourthValue = string.Empty;
                 _thirdCategory = string.Empty;
                 _thirdValue = string.Empty;
                 _secondCategory = string.Empty;
@@ -1542,7 +1551,7 @@ namespace BudgetExecution
         /// <summary>
         /// Shows the filter dialog.
         /// </summary>
-        private void ShowFilterScreen( )
+        private void ShowFilterPage( )
         {
             try
             {
@@ -2146,11 +2155,6 @@ namespace BudgetExecution
                 InitializeToolStrip( );
                 InitializeLabels( );
                 InitializeIcon( );
-                _filter = new Dictionary<string, object>( );
-                _selectedColumns = new List<string>( );
-                _selectedFields = new List<string>( );
-                _selectedNumerics = new List<string>( );
-                _dataArgs = new DataArgs( );
                 Ribbon.Size = new Size( 1338, 128 );
                 Header.ForeColor = Color.FromArgb( 106, 189, 252 );
                 Header.Font = new Font( "Roboto", 10 );

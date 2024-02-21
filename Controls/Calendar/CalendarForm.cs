@@ -439,6 +439,10 @@ namespace BudgetExecution
             MaximizeBox = false;
             ControlBox = false;
 
+            // Budget Properties
+            _dataArgs = new DataArgs( );
+            _selectedDates = new List<DateTime>( );
+
             // Default Provider
             _provider = Provider.Access;
 
@@ -765,8 +769,8 @@ namespace BudgetExecution
         {
             try
             {
-                SelectedStart = string.Empty;
-                SelectedEnd = string.Empty;
+                _selectedStart = string.Empty;
+                _selectedEnd = string.Empty;
             }
             catch( Exception _ex )
             {
@@ -781,7 +785,7 @@ namespace BudgetExecution
         {
             try
             {
-                SelectedDates?.Clear( );
+                _selectedDates?.Clear( );
             }
             catch( Exception _ex )
             {
@@ -1180,7 +1184,7 @@ namespace BudgetExecution
         {
             try
             {
-                StartDate = DateTime.Parse( FirstCalendar.SelectedDate.ToString( ) );
+                _startDate = DateTime.Parse( FirstCalendar.SelectedDate.ToString( ) );
                 Label1.Text = "Start: ";
                 Label2.Text = "End: ";
                 Label3.Text = "Weeks: ";
@@ -1232,7 +1236,14 @@ namespace BudgetExecution
         /// </param>
         private void OnTableButtonClick( object sender, EventArgs e )
         {
-            TabControl.SelectedIndex = 1;
+            try
+            {
+                TabControl.SelectedIndex = 1;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -1245,7 +1256,14 @@ namespace BudgetExecution
         /// </param>
         private void OnChartButtonClick( object sender, EventArgs e )
         {
-            TabControl.SelectedIndex = 0;
+            try
+            {
+                TabControl.SelectedIndex = 0;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -1258,7 +1276,14 @@ namespace BudgetExecution
         /// </param>
         private void OnTabChanged( object sender, EventArgs e )
         {
-            SetActiveTab( );
+            try
+            {
+                SetActiveTab( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -1317,7 +1342,14 @@ namespace BudgetExecution
         /// instance containing the event data.</param>
         private void OnTimerTick( object sender, EventArgs e )
         {
-            InvokeIf( _statusUpdate );
+            try
+            {
+                InvokeIf( _statusUpdate );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>

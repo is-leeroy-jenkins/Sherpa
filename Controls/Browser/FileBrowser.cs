@@ -141,7 +141,7 @@ namespace BudgetExecution
         /// <value>
         /// The initial dir paths.
         /// </value>
-        public IEnumerable<string> InitialDirPaths
+        public IList<string> InitialDirPaths
         {
             get
             {
@@ -159,7 +159,7 @@ namespace BudgetExecution
         /// <value>
         /// The file paths.
         /// </value>
-        public IEnumerable<string> FilePaths
+        public IList<string> FilePaths
         {
             get
             {
@@ -235,7 +235,7 @@ namespace BudgetExecution
             InitializeComponent( );
             RegisterCallbacks( );
 
-            // Browser Properties
+            // Basic Properties
             Font = new Font( "Roboto", 9 );
             ForeColor = Color.FromArgb( 106, 189, 252 );
             Margin = new Padding( 3 );
@@ -247,7 +247,6 @@ namespace BudgetExecution
             BorderColor = Color.FromArgb( 0, 120, 212 );
             BorderThickness = 1;
             BackColor = Color.FromArgb( 20, 20, 20 );
-            RadioButtons = GetRadioButtons( );
             FileList.BackColor = Color.FromArgb( 40, 40, 40 );
             CaptionBarHeight = 5;
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
@@ -257,10 +256,15 @@ namespace BudgetExecution
             ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
-            InitialDirPaths = GetInitialDirPaths( );
-            FilePaths = GetListViewPaths( );
-            FileExtension = "xlsx";
-            Extension = EXT.XLSX;
+
+            // Budget Properties
+            _radioButtons = GetRadioButtons( );
+            _initialDirPaths = CreateInitialDirectoryPaths( );
+            _filePaths = CreateListViewFilePaths( );
+            _fileExtension = "xlsx";
+            _extension = EXT.XLSX;
+
+            // Set Icon
             PictureBox.Image = GetImage( );
 
             // Event Wiring
@@ -276,8 +280,8 @@ namespace BudgetExecution
         public FileBrowser( EXT extension )
             : this( )
         {
-            Extension = extension;
-            FileExtension = Extension.ToString( ).ToLower( );
+            _extension = extension;
+            _fileExtension = _extension.ToString( ).ToLower( );
         }
 
         /// <summary>
@@ -315,7 +319,7 @@ namespace BudgetExecution
         {
             try
             {
-                foreach( var _radioButton in RadioButtons )
+                foreach( var _radioButton in _radioButtons )
                 {
                     _radioButton.CheckedChanged += null;
                     _radioButton.CheckState = CheckState.Unchecked;
@@ -330,11 +334,11 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the RadioButton events.
         /// </summary>
-        private protected void SetRadioButtonEvents( )
+        private protected void RegisterRadioButtonEvents( )
         {
             try
             {
-                foreach( var _radioButton in RadioButtons )
+                foreach( var _radioButton in _radioButtons )
                 {
                     _radioButton.CheckedChanged += OnRadioButtonSelected;
                 }
@@ -349,7 +353,7 @@ namespace BudgetExecution
         /// Gets the ListView paths.
         /// </summary>
         /// <returns></returns>
-        private protected IEnumerable<string> GetListViewPaths( )
+        private protected IList<string> CreateListViewFilePaths( )
         {
             if( _initialDirPaths?.Any( ) == true )
             {
@@ -402,16 +406,16 @@ namespace BudgetExecution
 
                     return _list?.Any( ) == true
                         ? _list
-                        : default( IEnumerable<string> );
+                        : default( IList<string> );
                 }
                 catch( Exception _ex )
                 {
                     Fail( _ex );
-                    return default( IEnumerable<string> );
+                    return default( IList<string> );
                 }
             }
 
-            return default( IEnumerable<string> );
+            return default( IList<string> );
         }
 
         /// <summary>
@@ -453,7 +457,7 @@ namespace BudgetExecution
         /// Gets the initial dir paths.
         /// </summary>
         /// <returns></returns>
-        private protected virtual IEnumerable<string> GetInitialDirPaths( )
+        private protected virtual IList<string> CreateInitialDirectoryPaths( )
         {
             try
             {
@@ -469,12 +473,12 @@ namespace BudgetExecution
 
                 return _list?.Any( ) == true
                     ? _list
-                    : default( IEnumerable<string> );
+                    : default( IList<string> );
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return default( IEnumerable<string> );
+                return default( IList<string> );
             }
         }
 
@@ -746,7 +750,7 @@ namespace BudgetExecution
                     Title.Text = $"{_ext} File Search";
                     MessageLabel.Text = string.Empty;
                     FoundLabel.Text = string.Empty;
-                    var _paths = GetListViewPaths( );
+                    var _paths = CreateListViewFilePaths( );
                     PopulateListBox( _paths );
                     PictureBox.Image = GetImage( );
                     FoundLabel.Text = "Found: " + _paths?.ToList( )?.Count ?? "0";
@@ -779,7 +783,7 @@ namespace BudgetExecution
                     FoundLabel.Text = "Found : " + _filePaths?.Count( );
                     Title.Text = $"{Extension} File Search";
                     ClearRadioButtons( );
-                    SetRadioButtonEvents( );
+                    RegisterRadioButtonEvents( );
                 }
                 catch( Exception _ex )
                 {
@@ -855,6 +859,7 @@ namespace BudgetExecution
             {
                 try
                 {
+                    FadeOut( );
                     Close( );
                 }
                 catch( Exception _ex )

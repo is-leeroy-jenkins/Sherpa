@@ -65,12 +65,12 @@
         /// <summary>
         /// The file paths
         /// </summary>
-        private protected IEnumerable<string> _filePaths;
+        private protected IList<string> _filePaths;
 
         /// <summary>
         /// The initial dir paths
         /// </summary>
-        private protected IEnumerable<string> _initialDirPaths;
+        private protected IList<string> _initialDirPaths;
 
         /// <summary>
         /// The radio buttons

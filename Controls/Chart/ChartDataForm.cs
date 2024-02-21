@@ -841,10 +841,17 @@ namespace BudgetExecution
             MaximizeBox = false;
             ControlBox = false;
 
-            // Initialize Default Provider
+            // Default Provider
             _provider = Provider.Access;
             _metric = STAT.Total;
             _chartType = ChartSeriesType.Column;
+
+            // Budget Attributes
+            _filter = new Dictionary<string, object>( );
+            _selectedColumns = new List<string>( );
+            _selectedFields = new List<string>( );
+            _selectedNumerics = new List<string>( );
+            _dataArgs = new DataArgs( );
 
             // Timer Properties
             _time = 0;
@@ -1028,6 +1035,10 @@ namespace BudgetExecution
                     Chart.Series[ i ].SmartLabels = true;
                     Chart.Series[ i ].SmartLabelsBorderColor = _borderColor;
                     Chart.Series[ i ].DrawSeriesNameInDepth = true;
+                    Chart.Series[ i ].Style.Font.Size = _callFont.Size;
+                    Chart.Series[ i ].Style.Font.Facename = _callFont.Name;
+                    Chart.Series[ i ].Style.DisplayText = true;
+                    Chart.Series[ i ].Style.TextColor = _textColor;
                 }
 
                 SetFancyToolTips( );
@@ -1148,7 +1159,14 @@ namespace BudgetExecution
         /// </summary>
         private void BeginInit( )
         {
-            _busy = true;
+            try
+            {
+                _busy = true;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -1156,7 +1174,14 @@ namespace BudgetExecution
         /// </summary>
         private void EndInit( )
         {
-            _busy = false;
+            try
+            {
+                _busy = false;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -2726,11 +2751,6 @@ namespace BudgetExecution
                 InitializeLabels( );
                 InitializeChart( );
                 InitializeSeries( );
-                _filter = new Dictionary<string, object>( );
-                _selectedColumns = new List<string>( );
-                _selectedFields = new List<string>( );
-                _selectedNumerics = new List<string>( );
-                _dataArgs = new DataArgs( );
                 NumericListBox.MultiSelect = true;
                 FieldListBox.MultiSelect = true;
                 Text = string.Empty;

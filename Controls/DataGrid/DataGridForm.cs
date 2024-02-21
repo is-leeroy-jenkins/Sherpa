@@ -789,6 +789,13 @@ namespace BudgetExecution
             _time = 0;
             _seconds = 5;
 
+            // Budget Attributes
+            _filter = new Dictionary<string, object>( );
+            _selectedColumns = new List<string>( );
+            _selectedFields = new List<string>( );
+            _selectedNumerics = new List<string>( );
+            _dataArgs = new DataArgs( );
+
             // Set PictureBox Size
             PictureBox.Size = new Size( 20, 20 );
             TableListBox.ShowScrollBar = false;
@@ -2308,11 +2315,6 @@ namespace BudgetExecution
                 InitializeTabControl( );
                 InitializeLayouts( );
                 InitializeTimer( );
-                _filter = new Dictionary<string, object>( );
-                _selectedColumns = new List<string>( );
-                _selectedFields = new List<string>( );
-                _selectedNumerics = new List<string>( );
-                _dataArgs = new DataArgs( );
                 if( !string.IsNullOrEmpty( _selectedTable ) )
                 {
                     ActivateFilterTab( );
