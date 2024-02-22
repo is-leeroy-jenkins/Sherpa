@@ -54,31 +54,32 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ArrangeModifiersOrder" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     public class Amount
     {
         /// <summary>
-        /// Gets or sets the initial.
+        /// Gets or sets the _initial.
         /// </summary>
         /// <value>
-        /// The initial.
+        /// The _initial.
         /// </value>
-        public double Initial { get; set; }
+        private double _initial;
 
         /// <summary>
-        /// Gets or sets the delta.
+        /// Gets or sets the _delta.
         /// </summary>
         /// <value>
-        /// The delta.
+        /// The _delta.
         /// </value>
-        public double Delta { get; set; }
+        private double _delta;
 
         /// <summary>
-        /// Gets or sets the value.
+        /// Gets or sets the _value.
         /// </summary>
         /// <value>
-        /// The value.
+        /// The _value.
         /// </value>
-        public double Value { get; set; }
+        private double _value;
 
         /// <summary>
         /// Gets or sets the numeric.
@@ -86,7 +87,79 @@ namespace BudgetExecution
         /// <value>
         /// The numeric.
         /// </value>
-        public string Numeric { get; set; }
+        private string _numeric;
+
+        /// <summary>
+        /// Gets or sets the initial.
+        /// </summary>
+        /// <value>
+        /// The initial.
+        /// </value>
+        public double Initial
+        {
+            get
+            {
+                return _initial;
+            }
+            private protected set
+            {
+                _initial = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the delta.
+        /// </summary>
+        /// <value>
+        /// The delta.
+        /// </value>
+        public double Delta
+        {
+            get
+            {
+                return _delta;
+            }
+            private protected set
+            {
+                _delta = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the value.
+        /// </summary>
+        /// <value>
+        /// The value.
+        /// </value>
+        public double Value
+        {
+            get
+            {
+                return _value;
+            }
+            private protected set
+            {
+                _value = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the numeric.
+        /// </summary>
+        /// <value>
+        /// The numeric.
+        /// </value>
+        public string Numeric
+        {
+            get
+            {
+                return _numeric;
+            }
+            private protected set
+            {
+                _numeric = value;
+            }
+        }
 
         /// <summary>
         /// Initializes a new instance of the
@@ -132,7 +205,7 @@ namespace BudgetExecution
         public Amount( float value = 0 )
             : this( )
         {
-            Value = (double)value;
+            Value = value;
             Delta = Initial - Value;
         }
 
