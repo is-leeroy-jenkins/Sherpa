@@ -356,6 +356,8 @@
             Controls.Add( TopTablePanel );
             Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
             Name = "FolderDialog";
+            ShowMaximizeBox = false;
+            ShowMinimizeBox = false;
             Text = " ";
             TextBoxLayout.ResumeLayout( false );
             TopTablePanel.ResumeLayout( false );

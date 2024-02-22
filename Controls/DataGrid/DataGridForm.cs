@@ -611,7 +611,7 @@ namespace BudgetExecution
         {
             get
             {
-                return  _selectedColumns;
+                return _selectedColumns;
             }
             private set
             {
@@ -629,7 +629,7 @@ namespace BudgetExecution
         {
             get
             {
-                return  _selectedFields;
+                return _selectedFields;
             }
             private set
             {
@@ -786,7 +786,7 @@ namespace BudgetExecution
             _dataArgs = new DataArgs( );
 
             // Set PictureBox Size
-            PictureBox.Size = new Size( 20, 20 );
+            PictureBox.Size = new Size( 20, 18 );
             TableListBox.ShowScrollBar = false;
 
             // Form Event Wiring
@@ -2102,8 +2102,8 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the icon.
         /// </summary>
-        /// <param name="type">The type.</param>
-        private void SetScreenIcon( ToolType type )
+        /// <param name="toolType">The toolType.</param>
+        private void SetScreenIcon( ToolType toolType )
         {
             try
             {
@@ -2113,7 +2113,7 @@ namespace BudgetExecution
                     var _files = Directory.GetFiles( _path );
                     if( _files?.Any( ) == true )
                     {
-                        switch( type )
+                        switch( toolType )
                         {
                             case ToolType.EditTextButton:
                             case ToolType.AddTableButton:
@@ -2125,7 +2125,7 @@ namespace BudgetExecution
                             case ToolType.EditSqlButton:
                             case ToolType.EditButton:
                             {
-                                var _tool = type.ToString( );
+                                var _tool = toolType.ToString( );
                                 var _file = _files
                                     ?.Where( f => f.Contains( _tool ) )
                                     ?.First( );

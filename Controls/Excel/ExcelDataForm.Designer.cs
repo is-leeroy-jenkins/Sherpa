@@ -163,7 +163,7 @@
             Ribbon.RibbonStyle = Syncfusion.Windows.Forms.Tools.RibbonStyle.Office2010;
             Ribbon.ShowQuickItemsDropDownButton = false;
             Ribbon.ShowRibbonDisplayOptionButton = false;
-            Ribbon.Size = new System.Drawing.Size( 1338, 128 );
+            Ribbon.Size = new System.Drawing.Size( 1336, 128 );
             Ribbon.Spreadsheet = Spreadsheet;
             Ribbon.SystemText.QuickAccessDialogDropDownName = "Start menu";
             Ribbon.SystemText.RenameDisplayLabelText = "&Display Name:";
@@ -205,7 +205,7 @@
             Spreadsheet.SelectedTabIndex = 0;
             Spreadsheet.SelectedTabItem = null;
             Spreadsheet.ShowBusyIndicator = true;
-            Spreadsheet.Size = new System.Drawing.Size( 1338, 537 );
+            Spreadsheet.Size = new System.Drawing.Size( 1336, 535 );
             Spreadsheet.TabIndex = 1;
             Spreadsheet.TabItemContextMenu = null;
             Spreadsheet.Text = "Spreadsheet";
@@ -281,11 +281,11 @@
             HeaderPanel.Controls.Add( PictureBox, 0, 0 );
             HeaderPanel.Dock = System.Windows.Forms.DockStyle.Top;
             HeaderPanel.Font = new System.Drawing.Font( "Roboto", 9F );
-            HeaderPanel.Location = new System.Drawing.Point( 0, 0 );
+            HeaderPanel.Location = new System.Drawing.Point( 1, 1 );
             HeaderPanel.Name = "HeaderPanel";
             HeaderPanel.RowCount = 1;
             HeaderPanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            HeaderPanel.Size = new System.Drawing.Size( 1338, 24 );
+            HeaderPanel.Size = new System.Drawing.Size( 1336, 24 );
             HeaderPanel.TabIndex = 3;
             // 
             // Header
@@ -296,7 +296,7 @@
             Header.Font = new System.Drawing.Font( "Roboto", 9.75F );
             Header.HoverText = null;
             Header.IsDerivedStyle = true;
-            Header.Location = new System.Drawing.Point( 41, 3 );
+            Header.Location = new System.Drawing.Point( 39, 3 );
             Header.Margin = new System.Windows.Forms.Padding( 3 );
             Header.Name = "Header";
             Header.Padding = new System.Windows.Forms.Padding( 1 );
@@ -334,12 +334,12 @@
             ToolStripTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             ToolStripTable.Controls.Add( ToolStrip, 0, 0 );
             ToolStripTable.Dock = System.Windows.Forms.DockStyle.Bottom;
-            ToolStripTable.Location = new System.Drawing.Point( 0, 693 );
+            ToolStripTable.Location = new System.Drawing.Point( 1, 692 );
             ToolStripTable.Margin = new System.Windows.Forms.Padding( 1 );
             ToolStripTable.Name = "ToolStripTable";
             ToolStripTable.RowCount = 1;
             ToolStripTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            ToolStripTable.Size = new System.Drawing.Size( 1338, 45 );
+            ToolStripTable.Size = new System.Drawing.Size( 1336, 45 );
             ToolStripTable.TabIndex = 4;
             // 
             // ToolStrip
@@ -394,7 +394,7 @@
             ToolStrip.Separators = null;
             ToolStrip.ShowCaption = true;
             ToolStrip.ShowLauncher = true;
-            ToolStrip.Size = new System.Drawing.Size( 1338, 45 );
+            ToolStrip.Size = new System.Drawing.Size( 1336, 45 );
             ToolStrip.Stretch = true;
             ToolStrip.TabIndex = 2;
             ToolStrip.TextBox = null;
@@ -466,7 +466,7 @@
             ToolStripTextBox.Margin = new System.Windows.Forms.Padding( 1 );
             ToolStripTextBox.Name = "ToolStripTextBox";
             ToolStripTextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Size = new System.Drawing.Size( 236, 27 );
+            ToolStripTextBox.Size = new System.Drawing.Size( 234, 27 );
             ToolStripTextBox.Tag = "";
             ToolStripTextBox.ToolTip = ToolTip;
             // 
@@ -815,7 +815,7 @@
             TabControl.ActiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.ActiveTabFont = new System.Drawing.Font( "Roboto", 8F );
             TabControl.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            TabControl.BeforeTouchSize = new System.Drawing.Size( 1338, 669 );
+            TabControl.BeforeTouchSize = new System.Drawing.Size( 1336, 667 );
             TabControl.BindingSource = null;
             TabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             TabControl.CanOverrideStyle = true;
@@ -830,9 +830,9 @@
             TabControl.InactiveCloseButtonForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.InactiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.ItemSize = new System.Drawing.Size( 150, 5 );
-            TabControl.Location = new System.Drawing.Point( 0, 24 );
+            TabControl.Location = new System.Drawing.Point( 1, 25 );
             TabControl.Name = "TabControl";
-            TabControl.Size = new System.Drawing.Size( 1338, 669 );
+            TabControl.Size = new System.Drawing.Size( 1336, 667 );
             TabControl.TabIndex = 5;
             TabControl.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.TabStyle = typeof( Syncfusion.Windows.Forms.Tools.TabRendererMetro );
@@ -856,7 +856,7 @@
             DataTab.Location = new System.Drawing.Point( 0, 4 );
             DataTab.Name = "DataTab";
             DataTab.ShowCloseButton = true;
-            DataTab.Size = new System.Drawing.Size( 1338, 665 );
+            DataTab.Size = new System.Drawing.Size( 1336, 663 );
             DataTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataTab.TabForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataTab.TabIndex = 1;
@@ -1639,6 +1639,7 @@
             DoubleBuffered = true;
             Font = new System.Drawing.Font( "Roboto", 9F );
             ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
             MaximizeBox = false;
             MaximumSize = new System.Drawing.Size( 1350, 750 );
@@ -1646,6 +1647,7 @@
             MinimizeBox = false;
             MinimumSize = new System.Drawing.Size( 1340, 740 );
             Name = "ExcelDataForm";
+            Padding = new System.Windows.Forms.Padding( 1 );
             ShowIcon = false;
             ShowMaximizeBox = false;
             ShowMinimizeBox = false;

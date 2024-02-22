@@ -425,7 +425,7 @@
             DataLabelTable.Controls.Add( GridLabel1, 0, 0 );
             DataLabelTable.Controls.Add( GridLabel3, 2, 0 );
             DataLabelTable.Dock = System.Windows.Forms.DockStyle.Bottom;
-            DataLabelTable.Location = new System.Drawing.Point( 3, 23 );
+            DataLabelTable.Location = new System.Drawing.Point( 3, 22 );
             DataLabelTable.Name = "DataLabelTable";
             DataLabelTable.RowCount = 1;
             DataLabelTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
@@ -978,7 +978,7 @@
             SqlHeader.Margin = new System.Windows.Forms.Padding( 3 );
             SqlHeader.Name = "SqlHeader";
             SqlHeader.Padding = new System.Windows.Forms.Padding( 1 );
-            SqlHeader.Size = new System.Drawing.Size( 929, 5 );
+            SqlHeader.Size = new System.Drawing.Size( 929, 4 );
             SqlHeader.Style = MetroSet_UI.Enums.Style.Light;
             SqlHeader.StyleManager = null;
             SqlHeader.TabIndex = 47;
@@ -2282,7 +2282,7 @@
             ToolStripTextBox.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             ToolStripTextBox.Name = "ToolStripTextBox";
             ToolStripTextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Size = new System.Drawing.Size( 214, 25 );
+            ToolStripTextBox.Size = new System.Drawing.Size( 210, 25 );
             ToolStripTextBox.Tag = "";
             ToolStripTextBox.ToolTip = ToolTip;
             // 
@@ -2480,7 +2480,7 @@
             GridHeaderPanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 5.99315071F ) );
             GridHeaderPanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 94.00685F ) );
             GridHeaderPanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 20F ) );
-            GridHeaderPanel.Size = new System.Drawing.Size( 1005, 600 );
+            GridHeaderPanel.Size = new System.Drawing.Size( 1005, 599 );
             GridHeaderPanel.TabIndex = 54;
             // 
             // DataTabControl
@@ -2502,7 +2502,7 @@
             DataTabControl.InactiveCloseButtonForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataTabControl.InactiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataTabControl.ItemSize = new System.Drawing.Size( 100, 5 );
-            DataTabControl.Location = new System.Drawing.Point( 3, 54 );
+            DataTabControl.Location = new System.Drawing.Point( 3, 53 );
             DataTabControl.Name = "DataTabControl";
             DataTabControl.Size = new System.Drawing.Size( 999, 543 );
             DataTabControl.TabIndex = 0;
@@ -2564,7 +2564,7 @@
             ToolStripTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             ToolStripTable.Controls.Add( ToolStrip, 0, 0 );
             ToolStripTable.Dock = System.Windows.Forms.DockStyle.Bottom;
-            ToolStripTable.Location = new System.Drawing.Point( 0, 694 );
+            ToolStripTable.Location = new System.Drawing.Point( 0, 693 );
             ToolStripTable.Name = "ToolStripTable";
             ToolStripTable.RowCount = 1;
             ToolStripTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
@@ -2604,15 +2604,18 @@
             CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionFont = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Bold );
             CaptionForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            ClientSize = new System.Drawing.Size( 1338, 739 );
+            ClientSize = new System.Drawing.Size( 1338, 738 );
+            ControlBox = false;
             Controls.Add( ToolStripTable );
             Controls.Add( ProviderTable );
             Controls.Add( GridHeaderPanel );
             Controls.Add( HeaderTable );
             Controls.Add( QueryTabControl );
             Controls.Add( SqlHeader );
+            DoubleBuffered = true;
             Font = new System.Drawing.Font( "Roboto", 9F );
             ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
             IconTextRelation = System.Windows.Forms.LeftRightAlignment.Right;
             Margin = new System.Windows.Forms.Padding( 4, 3, 4, 3 );
@@ -2627,7 +2630,6 @@
             ShowMinimizeBox = false;
             SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).EndInit( );
             DataGridPanel.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize)DataGrid ).EndInit( );

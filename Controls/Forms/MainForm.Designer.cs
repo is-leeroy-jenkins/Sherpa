@@ -1240,8 +1240,10 @@ namespace BudgetExecution
             Controls.Add( BrowserTable );
             Controls.Add( ExitButton );
             Controls.Add( TestButton );
+            DoubleBuffered = true;
             Font = new System.Drawing.Font( "Roboto", 9F );
             ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
             MaximizeBox = false;
             MaximumSize = new System.Drawing.Size( 1350, 750 );
@@ -1249,6 +1251,7 @@ namespace BudgetExecution
             MinimizeBox = false;
             MinimumSize = new System.Drawing.Size( 1340, 740 );
             Name = "MainForm";
+            Padding = new System.Windows.Forms.Padding( 1 );
             ShowIcon = false;
             ShowMaximizeBox = false;
             ShowMinimizeBox = false;

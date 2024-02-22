@@ -137,11 +137,11 @@
             HeaderTable.Controls.Add( PictureBox, 0, 0 );
             HeaderTable.Controls.Add( Title, 1, 0 );
             HeaderTable.Dock = System.Windows.Forms.DockStyle.Top;
-            HeaderTable.Location = new System.Drawing.Point( 0, 0 );
+            HeaderTable.Location = new System.Drawing.Point( 1, 1 );
             HeaderTable.Name = "HeaderTable";
             HeaderTable.RowCount = 1;
             HeaderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            HeaderTable.Size = new System.Drawing.Size( 1338, 24 );
+            HeaderTable.Size = new System.Drawing.Size( 1336, 24 );
             HeaderTable.TabIndex = 0;
             // 
             // PictureBox
@@ -162,11 +162,11 @@
             Title.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
             Title.HoverText = null;
             Title.IsDerivedStyle = true;
-            Title.Location = new System.Drawing.Point( 31, 3 );
+            Title.Location = new System.Drawing.Point( 30, 3 );
             Title.Margin = new System.Windows.Forms.Padding( 3 );
             Title.Name = "Title";
             Title.Padding = new System.Windows.Forms.Padding( 1 );
-            Title.Size = new System.Drawing.Size( 1304, 18 );
+            Title.Size = new System.Drawing.Size( 1303, 18 );
             Title.Style = MetroSet_UI.Enums.Style.Custom;
             Title.StyleManager = null;
             Title.TabIndex = 1;
@@ -181,11 +181,11 @@
             ToolStripTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             ToolStripTable.Controls.Add( ToolStrip, 0, 0 );
             ToolStripTable.Dock = System.Windows.Forms.DockStyle.Bottom;
-            ToolStripTable.Location = new System.Drawing.Point( 0, 693 );
+            ToolStripTable.Location = new System.Drawing.Point( 1, 692 );
             ToolStripTable.Name = "ToolStripTable";
             ToolStripTable.RowCount = 1;
             ToolStripTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            ToolStripTable.Size = new System.Drawing.Size( 1338, 45 );
+            ToolStripTable.Size = new System.Drawing.Size( 1336, 45 );
             ToolStripTable.TabIndex = 1;
             // 
             // ToolStrip
@@ -240,7 +240,7 @@
             ToolStrip.Separators = null;
             ToolStrip.ShowCaption = true;
             ToolStrip.ShowLauncher = true;
-            ToolStrip.Size = new System.Drawing.Size( 1336, 43 );
+            ToolStrip.Size = new System.Drawing.Size( 1334, 43 );
             ToolStrip.TabIndex = 2;
             ToolStrip.Text = " ";
             ToolStrip.TextBox = null;
@@ -1632,6 +1632,7 @@
             MinimizeBox = false;
             MinimumSize = new System.Drawing.Size( 1340, 740 );
             Name = "PivotGridForm";
+            Padding = new System.Windows.Forms.Padding( 1 );
             ShowIcon = false;
             ShowMaximizeBox = false;
             ShowMinimizeBox = false;

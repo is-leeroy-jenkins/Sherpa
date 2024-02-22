@@ -88,11 +88,11 @@
             HeaderTable.Controls.Add( PictureBox, 0, 0 );
             HeaderTable.Controls.Add( Title, 1, 0 );
             HeaderTable.Dock = System.Windows.Forms.DockStyle.Top;
-            HeaderTable.Location = new System.Drawing.Point( 0, 0 );
+            HeaderTable.Location = new System.Drawing.Point( 1, 1 );
             HeaderTable.Name = "HeaderTable";
             HeaderTable.RowCount = 1;
             HeaderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            HeaderTable.Size = new System.Drawing.Size( 1333, 24 );
+            HeaderTable.Size = new System.Drawing.Size( 1331, 24 );
             HeaderTable.TabIndex = 0;
             // 
             // PictureBox
@@ -118,7 +118,7 @@
             Title.Margin = new System.Windows.Forms.Padding( 3 );
             Title.Name = "Title";
             Title.Padding = new System.Windows.Forms.Padding( 1 );
-            Title.Size = new System.Drawing.Size( 1301, 18 );
+            Title.Size = new System.Drawing.Size( 1299, 18 );
             Title.Style = MetroSet_UI.Enums.Style.Custom;
             Title.StyleManager = null;
             Title.TabIndex = 1;
@@ -134,11 +134,11 @@
             ToolStripTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             ToolStripTable.Controls.Add( ToolStrip, 0, 0 );
             ToolStripTable.Dock = System.Windows.Forms.DockStyle.Bottom;
-            ToolStripTable.Location = new System.Drawing.Point( 0, 688 );
+            ToolStripTable.Location = new System.Drawing.Point( 1, 687 );
             ToolStripTable.Name = "ToolStripTable";
             ToolStripTable.RowCount = 1;
             ToolStripTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            ToolStripTable.Size = new System.Drawing.Size( 1333, 45 );
+            ToolStripTable.Size = new System.Drawing.Size( 1331, 45 );
             ToolStripTable.TabIndex = 1;
             // 
             // ToolStrip
@@ -193,7 +193,7 @@
             ToolStrip.Separators = null;
             ToolStrip.ShowCaption = true;
             ToolStrip.ShowLauncher = true;
-            ToolStrip.Size = new System.Drawing.Size( 1331, 43 );
+            ToolStrip.Size = new System.Drawing.Size( 1329, 43 );
             ToolStrip.TabIndex = 0;
             ToolStrip.TextBox = null;
             ToolStrip.ThemeName = "Office2016DarkGray";
@@ -730,11 +730,12 @@
             // 
             Map.Bearing = 0F;
             Map.CanDragMap = true;
+            Map.Dock = System.Windows.Forms.DockStyle.Fill;
             Map.EmptyTileColor = System.Drawing.Color.Navy;
             Map.GrayScaleMode = false;
             Map.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
             Map.LevelsKeepInMemory = 5;
-            Map.Location = new System.Drawing.Point( 140, 54 );
+            Map.Location = new System.Drawing.Point( 1, 25 );
             Map.MarkersEnabled = true;
             Map.MaxZoom = 2;
             Map.MinZoom = 2;
@@ -742,13 +743,14 @@
             Map.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
             Map.Name = "Map";
             Map.NegativeMode = false;
+            Map.Padding = new System.Windows.Forms.Padding( 1 );
             Map.PolygonsEnabled = true;
             Map.RetryLoadTile = 0;
             Map.RoutesEnabled = true;
             Map.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             Map.SelectedAreaFillColor = System.Drawing.Color.FromArgb( 33, 65, 105, 225 );
             Map.ShowTileGridLines = false;
-            Map.Size = new System.Drawing.Size( 1073, 607 );
+            Map.Size = new System.Drawing.Size( 1331, 662 );
             Map.TabIndex = 2;
             Map.Zoom = 0D;
             // 
@@ -780,6 +782,7 @@
             MinimizeBox = false;
             MinimumSize = new System.Drawing.Size( 1340, 740 );
             Name = "GeoMapper";
+            Padding = new System.Windows.Forms.Padding( 1 );
             ShowIcon = false;
             ShowMaximizeBox = false;
             ShowMinimizeBox = false;

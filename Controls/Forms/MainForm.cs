@@ -102,6 +102,7 @@ namespace BudgetExecution
             Size = new Size( 1350, 750 );
             MaximumSize = new Size( 1350, 750 );
             MinimumSize = new Size( 1340, 740 );
+            Padding = new Padding( 1 );
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.Sizable;
             WindowState = FormWindowState.Normal;

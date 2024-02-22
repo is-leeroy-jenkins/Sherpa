@@ -171,6 +171,36 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Resources\Assets\DialogImages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DialogImages.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Assets\ExtensionImages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ExtensionImages.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Assets\FolderImages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FolderImages.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Assets\FormImages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FormImages.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Assets\LoaderImages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>LoaderImages.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Assets\ProviderImages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ProviderImages.resx</DependentUpon>
+    </Compile>
     <Compile Update="Resources\Images.Designer.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DesignTime>True</DesignTime>
@@ -182,6 +212,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Update="Resources\Assets\TileImages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>TileImages.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Assets\ToolStripImages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ToolStripImages.resx</DependentUpon>
+    </Compile>
     <Compile Remove="bin\**" />
     <Compile Remove="Clients\WebBrower\**" />
     <Compile Remove="Minions\SqlCe\C# Source code\**" />
@@ -189,10 +229,42 @@
     <Compile Remove="WebBrowser\**" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Update="Resources\Assets\DialogImages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DialogImages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Assets\ExtensionImages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ExtensionImages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Assets\FolderImages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FolderImages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Assets\FormImages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FormImages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Assets\LoaderImages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LoaderImages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Assets\ProviderImages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ProviderImages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Update="Resources\Images.resx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Images.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Assets\TileImages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>TileImages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Assets\ToolStripImages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ToolStripImages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Remove="bin\**" />
     <EmbeddedResource Remove="Clients\WebBrower\**" />

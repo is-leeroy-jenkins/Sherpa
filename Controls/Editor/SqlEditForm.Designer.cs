@@ -200,11 +200,11 @@
             HeaderTable.Controls.Add( PictureBox, 0, 0 );
             HeaderTable.Controls.Add( Title, 1, 0 );
             HeaderTable.Dock = System.Windows.Forms.DockStyle.Top;
-            HeaderTable.Location = new System.Drawing.Point( 0, 0 );
+            HeaderTable.Location = new System.Drawing.Point( 1, 1 );
             HeaderTable.Name = "HeaderTable";
             HeaderTable.RowCount = 1;
             HeaderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            HeaderTable.Size = new System.Drawing.Size( 1338, 32 );
+            HeaderTable.Size = new System.Drawing.Size( 1336, 32 );
             HeaderTable.TabIndex = 1;
             // 
             // PictureBox
@@ -233,11 +233,11 @@
             Title.Font = new System.Drawing.Font( "Roboto", 9.75F );
             Title.HoverText = null;
             Title.IsDerivedStyle = true;
-            Title.Location = new System.Drawing.Point( 50, 3 );
+            Title.Location = new System.Drawing.Point( 49, 3 );
             Title.Margin = new System.Windows.Forms.Padding( 3 );
             Title.Name = "Title";
             Title.Padding = new System.Windows.Forms.Padding( 1 );
-            Title.Size = new System.Drawing.Size( 1285, 26 );
+            Title.Size = new System.Drawing.Size( 1284, 26 );
             Title.Style = MetroSet_UI.Enums.Style.Custom;
             Title.StyleManager = null;
             Title.TabIndex = 1;
@@ -475,7 +475,7 @@
             ToolStrip.Separators = null;
             ToolStrip.ShowCaption = true;
             ToolStrip.ShowLauncher = true;
-            ToolStrip.Size = new System.Drawing.Size( 1336, 43 );
+            ToolStrip.Size = new System.Drawing.Size( 1334, 43 );
             ToolStrip.TabIndex = 15;
             ToolStrip.TextBox = null;
             ToolStrip.ThemeName = "Office2016DarkGray";
@@ -1066,11 +1066,11 @@
             ToolStripTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             ToolStripTable.Controls.Add( ToolStrip, 0, 0 );
             ToolStripTable.Dock = System.Windows.Forms.DockStyle.Bottom;
-            ToolStripTable.Location = new System.Drawing.Point( 0, 694 );
+            ToolStripTable.Location = new System.Drawing.Point( 1, 693 );
             ToolStripTable.Name = "ToolStripTable";
             ToolStripTable.RowCount = 1;
             ToolStripTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            ToolStripTable.Size = new System.Drawing.Size( 1338, 45 );
+            ToolStripTable.Size = new System.Drawing.Size( 1336, 45 );
             ToolStripTable.TabIndex = 17;
             // 
             // TabControl
@@ -2205,8 +2205,10 @@
             Controls.Add( ToolStripTable );
             Controls.Add( SqlCommandTable );
             Controls.Add( HeaderTable );
+            DoubleBuffered = true;
             Font = new System.Drawing.Font( "Roboto", 9F );
             ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
             MaximizeBox = false;
             MaximumSize = new System.Drawing.Size( 1350, 750 );
@@ -2214,6 +2216,7 @@
             MinimizeBox = false;
             MinimumSize = new System.Drawing.Size( 1340, 740 );
             Name = "SqlEditForm";
+            Padding = new System.Windows.Forms.Padding( 1 );
             ShowIcon = false;
             SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
