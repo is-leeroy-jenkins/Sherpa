@@ -1,6 +1,6 @@
 ﻿namespace BudgetExecution
 {
-    partial class BrowserBase
+    partial class DialogBase
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent( )
         {
-            var resources = new System.ComponentModel.ComponentResourceManager( typeof( BrowserBase ) );
+            var resources = new System.ComponentModel.ComponentResourceManager( typeof( DialogBase ) );
             SuspendLayout( );
             // 
-            // BrowserBase
+            // DialogBase
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 15F );
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -53,7 +53,7 @@
             MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             MinimizeBox = false;
             MinimumSize = new System.Drawing.Size( 700, 480 );
-            Name = "BrowserBase";
+            Name = "DialogBase";
             ShowIcon = false;
             ShowMaximizeBox = false;
             ShowMinimizeBox = false;

@@ -200,11 +200,11 @@ namespace BudgetExecution
             Title.Font = new System.Drawing.Font( "Roboto", 9.75F );
             Title.HoverText = null;
             Title.IsDerivedStyle = true;
-            Title.Location = new System.Drawing.Point( 50, 3 );
+            Title.Location = new System.Drawing.Point( 49, 3 );
             Title.Margin = new System.Windows.Forms.Padding( 3 );
             Title.Name = "Title";
             Title.Padding = new System.Windows.Forms.Padding( 1 );
-            Title.Size = new System.Drawing.Size( 1285, 31 );
+            Title.Size = new System.Drawing.Size( 1284, 31 );
             Title.Style = MetroSet_UI.Enums.Style.Custom;
             Title.StyleManager = null;
             Title.TabIndex = 1;
@@ -222,11 +222,11 @@ namespace BudgetExecution
             HeaderTable.Controls.Add( PictureBox, 0, 0 );
             HeaderTable.Controls.Add( Title, 1, 0 );
             HeaderTable.Dock = System.Windows.Forms.DockStyle.Top;
-            HeaderTable.Location = new System.Drawing.Point( 0, 0 );
+            HeaderTable.Location = new System.Drawing.Point( 1, 1 );
             HeaderTable.Name = "HeaderTable";
             HeaderTable.RowCount = 1;
             HeaderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            HeaderTable.Size = new System.Drawing.Size( 1338, 37 );
+            HeaderTable.Size = new System.Drawing.Size( 1336, 37 );
             HeaderTable.TabIndex = 2;
             // 
             // ToolTip
@@ -288,7 +288,7 @@ namespace BudgetExecution
             ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { Separator11, StatusLabel, Spacer, DataNavigationLabel, Separator1, FirstButton, Separator2, PreviousButton, Separator3, NextButton, Separator4, LastButton, Separator5, Separator6, FilterSpacer, FilterLabel, FilterSeparator, CloseButton, BrowseButton, BrowseSeparator, SaveButton, SaveSeparator, DataLabel, RefreshSeparator, RefreshButton, NavigationSeparator, TimeSpanInformation, TableButton, Separator8, Separator13, ChartButton, ChartSeparator, MenuButton, ApplicationSeparator, MenuLabel } );
             ToolStrip.LastButton = null;
             ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
-            ToolStrip.Location = new System.Drawing.Point( 0, 695 );
+            ToolStrip.Location = new System.Drawing.Point( 1, 694 );
             ToolStrip.Margin = new System.Windows.Forms.Padding( 1 );
             ToolStrip.Name = "ToolStrip";
             ToolStrip.NextButton = null;
@@ -301,7 +301,7 @@ namespace BudgetExecution
             ToolStrip.Separators = null;
             ToolStrip.ShowCaption = true;
             ToolStrip.ShowLauncher = true;
-            ToolStrip.Size = new System.Drawing.Size( 1338, 43 );
+            ToolStrip.Size = new System.Drawing.Size( 1336, 43 );
             ToolStrip.TabIndex = 4;
             ToolStrip.TextBox = null;
             ToolStrip.ThemeName = "Office2016DarkGray";
@@ -1721,7 +1721,7 @@ namespace BudgetExecution
             Controls.Add( ToolStrip );
             Controls.Add( HeaderTable );
             Font = new System.Drawing.Font( "Roboto", 9F );
-            ForeColor = System.Drawing.Color.LightGray;
+            ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
             MaximizeBox = false;
             MaximumSize = new System.Drawing.Size( 1350, 750 );
@@ -1729,6 +1729,7 @@ namespace BudgetExecution
             MinimizeBox = false;
             MinimumSize = new System.Drawing.Size( 1340, 740 );
             Name = "CalendarForm";
+            Padding = new System.Windows.Forms.Padding( 1 );
             ShowIcon = false;
             ShowMaximizeBox = false;
             ShowMinimizeBox = false;

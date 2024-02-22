@@ -274,7 +274,7 @@ namespace BudgetExecution
                         case ToolType.PdfImportButton:
                         case ToolType.ExcelImportButton:
                         {
-                            var _fileDialog = new FileBrowser( );
+                            var _fileDialog = new FileDialog( );
                             _fileDialog.ShowDialog( );
                             break;
                         }
@@ -345,7 +345,7 @@ namespace BudgetExecution
                         }
                         case ToolType.BrowseButton:
                         {
-                            var _browser = new FileBrowser( );
+                            var _browser = new FileDialog( );
                             _browser?.ShowDialog( );
                             break;
                         }

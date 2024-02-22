@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        2-20-2024
 // ******************************************************************************************
-// <copyright file="FolderBrowser.cs" company="Terry D. Eppler">
+// <copyright file="FolderDialog.cs" company="Terry D. Eppler">
 //    Budget Execution is a Federal Budget, Finance, and Accounting application
 //    for analysts with the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
@@ -34,7 +34,7 @@
 //    Contact at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   FolderBrowser.cs
+//   FolderDialog.cs
 // </summary>
 // ******************************************************************************************
 
@@ -61,7 +61,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    public partial class FolderBrowser : BrowserBase
+    public partial class FolderDialog : DialogBase
     {
         /// <summary>
         /// The dir paths
@@ -140,11 +140,11 @@ namespace BudgetExecution
         {
             get
             {
-                return _initialDirPaths;
+                return _initialPaths;
             }
             private protected set
             {
-                _initialDirPaths = value;
+                _initialPaths = value;
             }
         }
 
@@ -169,38 +169,49 @@ namespace BudgetExecution
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.FolderBrowser"/>
+        /// <see cref="T:BudgetExecution.FolderDialog"/>
         /// class.
         /// </summary>
-        public FolderBrowser( )
+        public FolderDialog( ) 
+            : base( )
         {
             InitializeComponent( );
             RegisterCallbacks( );
 
             // Form Settings
-            Font = new Font( "Roboto", 9 );
-            ForeColor = Color.FromArgb( 106, 189, 252 );
-            Margin = new Padding( 3 );
-            Padding = new Padding( 1 );
             Size = new Size( 700, 480 );
             MaximumSize = new Size( 700, 480 );
             MinimumSize = new Size( 700, 480 );
+            Padding = new Padding( 1 );
+            StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            WindowState = FormWindowState.Normal;
+            SizeGripStyle = SizeGripStyle.Hide;
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             BorderColor = Color.FromArgb( 0, 120, 212 );
             BorderThickness = 1;
-            BackColor = Color.FromArgb( 20, 20, 20 );
+            Font = new Font( "Roboto", 9 );
+            ShowIcon = false;
+            ShowInTaskbar = true;
+            MetroColor = Color.FromArgb( 20, 20, 20 );
+            CaptionBarHeight = 5;
+            CaptionAlign = HorizontalAlignment.Center;
+            CaptionFont = new Font( "Roboto", 10, FontStyle.Regular );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionForeColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
-            CaptionBarHeight = 5;
+            DoubleBuffered = true;
             ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
+            ControlBox = false;
 
             // Budget Properties
             _dirPaths = new List<string>( );
-            _initialDirPaths = new List<string>( );
+            _initialPaths = new List<string>( );
             _radioButtons = new List<RadioButton>( );
 
             // Wire Events
@@ -215,13 +226,20 @@ namespace BudgetExecution
         /// </param>
         public void InvokeIf( Action action )
         {
-            if( InvokeRequired )
+            try
             {
-                BeginInvoke( action );
+                if( InvokeRequired )
+                {
+                    BeginInvoke( action );
+                }
+                else
+                {
+                    action.Invoke( );
+                }
             }
-            else
+            catch( Exception _ex )
             {
-                action.Invoke( );
+                Fail( _ex );
             }
         }
 
@@ -445,11 +463,11 @@ namespace BudgetExecution
         /// </summary>
         private protected virtual void PopulateListBox( )
         {
-            if( DirPaths?.Any( ) == true )
+            if( _dirPaths?.Any( ) == true )
             {
                 try
                 {
-                    foreach( var _path in DirPaths )
+                    foreach( var _path in _dirPaths )
                     {
                         FileList.Items.Add( _path );
                     }
@@ -467,13 +485,13 @@ namespace BudgetExecution
         /// <returns> </returns>
         private protected IEnumerable<string> GetListViewPaths( )
         {
-            if( _initialDirPaths?.Any( ) == true )
+            if( _initialPaths?.Any( ) == true )
             {
                 try
                 {
                     var _list = new List<string>( );
                     var _paths = new Dictionary<string, string>( );
-                    foreach( var _dirPath in _initialDirPaths )
+                    foreach( var _dirPath in _initialPaths )
                     {
                         var _dirs = Directory.GetDirectories( _dirPath );
                         for( var _index = 0; _index < _dirs.Length; _index++ )

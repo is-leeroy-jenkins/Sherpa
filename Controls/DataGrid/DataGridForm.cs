@@ -557,9 +557,7 @@ namespace BudgetExecution
         {
             get
             {
-                return _filter?.Any( ) == true
-                    ? _filter
-                    : new Dictionary<string, object>( );
+                return _filter;
             }
             private set
             {
@@ -577,9 +575,7 @@ namespace BudgetExecution
         {
             get
             {
-                return _fields?.Any( ) == true
-                    ? _fields
-                    : new List<string>( );
+                return _fields;
             }
             private set
             {
@@ -597,9 +593,7 @@ namespace BudgetExecution
         {
             get
             {
-                return _numerics?.Any( ) == true
-                    ? _numerics
-                    : new List<string>( );
+                return _numerics;
             }
             private set
             {
@@ -617,9 +611,7 @@ namespace BudgetExecution
         {
             get
             {
-                return _selectedColumns?.Any( ) == true
-                    ? _selectedColumns
-                    : new List<string>( );
+                return  _selectedColumns;
             }
             private set
             {
@@ -637,9 +629,7 @@ namespace BudgetExecution
         {
             get
             {
-                return _selectedFields?.Any( ) == true
-                    ? _selectedFields
-                    : new List<string>( );
+                return  _selectedFields;
             }
             private set
             {
@@ -657,9 +647,7 @@ namespace BudgetExecution
         {
             get
             {
-                return _selectedNumerics?.Any( ) == true
-                    ? _selectedNumerics
-                    : new List<string>( );
+                return _selectedNumerics;
             }
             private set
             {
@@ -756,6 +744,7 @@ namespace BudgetExecution
             Size = new Size( 1350, 750 );
             MaximumSize = new Size( 1350, 750 );
             MinimumSize = new Size( 1340, 740 );
+            Padding = new Padding( 1 );
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.Sizable;
             WindowState = FormWindowState.Normal;

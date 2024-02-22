@@ -1,6 +1,6 @@
 ﻿namespace BudgetExecution
 {
-    partial class FolderBrowser
+    partial class FolderDialog
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent( )
         {
             components = new System.ComponentModel.Container( );
-            var resources = new System.ComponentModel.ComponentResourceManager( typeof( FolderBrowser ) );
+            var resources = new System.ComponentModel.ComponentResourceManager( typeof( FolderDialog ) );
             TextBoxLayout = new System.Windows.Forms.TableLayoutPanel( );
             FileList = new ListBox( );
             FoundLabel = new Label( );
@@ -336,27 +336,27 @@
             ButtonTable.Controls.Add( SelectButton, 3, 0 );
             ButtonTable.Controls.Add( CloseButton, 6, 0 );
             ButtonTable.Dock = System.Windows.Forms.DockStyle.Bottom;
-            ButtonTable.Location = new System.Drawing.Point( 1, 433 );
+            ButtonTable.Location = new System.Drawing.Point( 1, 404 );
             ButtonTable.Name = "ButtonTable";
             ButtonTable.RowCount = 1;
             ButtonTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             ButtonTable.Size = new System.Drawing.Size( 686, 35 );
             ButtonTable.TabIndex = 21;
             // 
-            // FolderBrowser
+            // FolderDialog
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionFont = new System.Drawing.Font( "Roboto", 11.25F );
-            ClientSize = new System.Drawing.Size( 688, 469 );
+            ClientSize = new System.Drawing.Size( 688, 440 );
             Controls.Add( ButtonTable );
             Controls.Add( MessageLabel );
             Controls.Add( TextBoxLayout );
             Controls.Add( TopTablePanel );
             Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
-            Name = "FolderBrowser";
-            Text = "FolderBrowser";
+            Name = "FolderDialog";
+            Text = " ";
             TextBoxLayout.ResumeLayout( false );
             TopTablePanel.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).EndInit( );

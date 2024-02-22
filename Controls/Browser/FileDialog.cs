@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        1-15-2024
 // ******************************************************************************************
-// <copyright file="FileBrowser.cs" company="Terry D. Eppler">
+// <copyright file="FileDialog.cs" company="Terry D. Eppler">
 //    Budget Execution is a Federal Budget, Finance, and Accounting application
 //    for analysts with the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
@@ -34,7 +34,7 @@
 //    Contact at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   FileBrowser.cs
+//   FileDialog.cs
 // </summary>
 // ******************************************************************************************
 
@@ -61,7 +61,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
-    public partial class FileBrowser : BrowserBase
+    public partial class FileDialog : DialogBase
     {
         /// <summary>
         /// Gets or sets the time.
@@ -145,11 +145,11 @@ namespace BudgetExecution
         {
             get
             {
-                return _initialDirPaths;
+                return _initialPaths;
             }
             private protected set
             {
-                _initialDirPaths = value;
+                _initialPaths = value;
             }
         }
 
@@ -228,38 +228,48 @@ namespace BudgetExecution
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.FileBrowser" /> class.
+        /// <see cref="T:BudgetExecution.FileDialog" /> class.
         /// </summary>
-        public FileBrowser( )
+        public FileDialog( ) 
+            : base( )
         {
             InitializeComponent( );
             RegisterCallbacks( );
 
             // Basic Properties
-            Font = new Font( "Roboto", 9 );
-            ForeColor = Color.FromArgb( 106, 189, 252 );
-            Margin = new Padding( 3 );
-            Padding = new Padding( 1 );
             Size = new Size( 700, 480 );
             MaximumSize = new Size( 700, 480 );
             MinimumSize = new Size( 700, 480 );
+            Padding = new Padding( 1 );
+            StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            WindowState = FormWindowState.Normal;
+            SizeGripStyle = SizeGripStyle.Hide;
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.FromArgb( 106, 189, 252 );
             BorderColor = Color.FromArgb( 0, 120, 212 );
             BorderThickness = 1;
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            FileList.BackColor = Color.FromArgb( 40, 40, 40 );
+            Font = new Font( "Roboto", 9 );
+            ShowIcon = false;
+            ShowInTaskbar = true;
+            MetroColor = Color.FromArgb( 20, 20, 20 );
             CaptionBarHeight = 5;
+            CaptionAlign = HorizontalAlignment.Center;
+            CaptionFont = new Font( "Roboto", 10, FontStyle.Regular );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
             CaptionForeColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
+            DoubleBuffered = true;
             ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
+            ControlBox = false;
 
             // Budget Properties
             _radioButtons = GetRadioButtons( );
-            _initialDirPaths = CreateInitialDirectoryPaths( );
+            _initialPaths = CreateInitialDirectoryPaths( );
             _filePaths = CreateListViewFilePaths( );
             _fileExtension = "xlsx";
             _extension = EXT.XLSX;
@@ -274,10 +284,10 @@ namespace BudgetExecution
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.FileBrowser" /> class.
+        /// <see cref="T:BudgetExecution.FileDialog" /> class.
         /// </summary>
         /// <param name="extension">The extension.</param>
-        public FileBrowser( EXT extension )
+        public FileDialog( EXT extension )
             : this( )
         {
             _extension = extension;
@@ -288,7 +298,7 @@ namespace BudgetExecution
         /// Populates the ListBox.
         /// </summary>
         /// <param name="filePaths">The file paths.</param>
-        public virtual void PopulateListBox( IEnumerable<string> filePaths )
+        private protected virtual void PopulateListBox( IEnumerable<string> filePaths )
         {
             try
             {
@@ -355,12 +365,12 @@ namespace BudgetExecution
         /// <returns></returns>
         private protected IList<string> CreateListViewFilePaths( )
         {
-            if( _initialDirPaths?.Any( ) == true )
+            if( _initialPaths?.Any( ) == true )
             {
                 try
                 {
                     var _list = new List<string>( );
-                    foreach( var _filePath in _initialDirPaths )
+                    foreach( var _filePath in _initialPaths )
                     {
                         var _first = GetFiles( _filePath )
                             ?.Where( f => f.EndsWith( _fileExtension ) )

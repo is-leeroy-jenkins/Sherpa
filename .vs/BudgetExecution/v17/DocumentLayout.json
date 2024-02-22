@@ -3,20 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\browser\\filebrowser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\browser\\filebrowser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\calendar\\calendarform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\calendar\\calendarform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\browser\\folderbrowser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\browser\\folderbrowser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\browser\\browserbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\browser\\browserbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\chart\\chartdataform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\chart\\chartdataform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\calendar\\calendarform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\calendar\\calendarform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\datagrid\\datagridform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -25,6 +17,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\excel\\exceldataform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\excel\\exceldataform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\browser\\folderdialog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\browser\\folderdialog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,80 +50,66 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "BrowserBase.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Browser\\BrowserBase.cs",
-              "RelativeDocumentMoniker": "Controls\\Browser\\BrowserBase.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Browser\\BrowserBase.cs",
-              "RelativeToolTip": "Controls\\Browser\\BrowserBase.cs",
-              "ViewState": "AQIAADAAAAAAAAAAAAAcwE8AAAAVAAAA",
+              "DocumentIndex": 0,
+              "Title": "CalendarForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Calendar\\CalendarForm.cs",
+              "RelativeDocumentMoniker": "Controls\\Calendar\\CalendarForm.cs",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Calendar\\CalendarForm.cs [Design]",
+              "RelativeToolTip": "Controls\\Calendar\\CalendarForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-21T00:43:21.849Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-22T00:11:54.433Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "FileBrowser.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Browser\\FileBrowser.cs",
-              "RelativeDocumentMoniker": "Controls\\Browser\\FileBrowser.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Browser\\FileBrowser.cs",
-              "RelativeToolTip": "Controls\\Browser\\FileBrowser.cs",
-              "ViewState": "AQIAAPABAAAAAAAAAAAUwAECAAAgAAAA",
+              "DocumentIndex": 4,
+              "Title": "FolderDialog.cs",
+              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Browser\\FolderDialog.cs",
+              "RelativeDocumentMoniker": "Controls\\Browser\\FolderDialog.cs",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Browser\\FolderDialog.cs",
+              "RelativeToolTip": "Controls\\Browser\\FolderDialog.cs",
+              "ViewState": "AQIAAKEAAAAAAAAAAAAkwK0AAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-21T00:43:05.148Z",
+              "WhenOpened": "2024-02-22T00:03:17.21Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "FolderBrowser.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Browser\\FolderBrowser.cs",
-              "RelativeDocumentMoniker": "Controls\\Browser\\FolderBrowser.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Browser\\FolderBrowser.cs",
-              "RelativeToolTip": "Controls\\Browser\\FolderBrowser.cs",
-              "ViewState": "AQIAADYBAAAAAAAAAAAAADABAAAfAAAA",
+              "Title": "CalendarForm.cs",
+              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Calendar\\CalendarForm.cs",
+              "RelativeDocumentMoniker": "Controls\\Calendar\\CalendarForm.cs",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Calendar\\CalendarForm.cs",
+              "RelativeToolTip": "Controls\\Calendar\\CalendarForm.cs",
+              "ViewState": "AQIAAJEBAAAAAAAAAAAswKIBAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-21T00:42:57.138Z",
+              "WhenOpened": "2024-02-22T00:00:01.963Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ChartDataForm.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Chart\\ChartDataForm.cs",
-              "RelativeDocumentMoniker": "Controls\\Chart\\ChartDataForm.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Chart\\ChartDataForm.cs",
-              "RelativeToolTip": "Controls\\Chart\\ChartDataForm.cs",
-              "ViewState": "AQIAAOsEAAAAAAAAAAAcwPYEAAAiAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-20T02:09:40.709Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "DataGridForm.cs",
               "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\DataGrid\\DataGridForm.cs",
               "RelativeDocumentMoniker": "Controls\\DataGrid\\DataGridForm.cs",
               "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\DataGrid\\DataGridForm.cs",
               "RelativeToolTip": "Controls\\DataGrid\\DataGridForm.cs",
-              "ViewState": "AQIAAP8CAAAAAAAAAAAkwBcDAAAgAAAA",
+              "ViewState": "AQIAANsCAAAAAAAAAAAowOoCAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-20T02:09:34.026Z",
+              "WhenOpened": "2024-02-21T23:56:13.267Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "ExcelDataForm.cs",
               "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Excel\\ExcelDataForm.cs",
               "RelativeDocumentMoniker": "Controls\\Excel\\ExcelDataForm.cs",
               "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Excel\\ExcelDataForm.cs",
               "RelativeToolTip": "Controls\\Excel\\ExcelDataForm.cs",
-              "ViewState": "AQIAAOkCAAAAAAAAAAAwwPwCAAA4AAAA",
+              "ViewState": "AQIAAOsCAAAAAAAAAAAgwPECAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-20T01:20:30.996Z",
+              "WhenOpened": "2024-02-21T23:44:28.602Z",
               "EditorCaption": ""
             }
           ]

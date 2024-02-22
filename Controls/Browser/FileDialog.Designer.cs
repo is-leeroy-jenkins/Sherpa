@@ -8,7 +8,7 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms;
 
 
-    partial class FileBrowser 
+    partial class FileDialog 
     {
         /// <summary>
         /// Required designer variable.
@@ -38,7 +38,7 @@ namespace BudgetExecution
         private void InitializeComponent( )
         {
             components = new Container( );
-            var resources = new ComponentResourceManager( typeof( FileBrowser ) );
+            var resources = new ComponentResourceManager( typeof( FileDialog ) );
             TextBoxLayout = new TableLayoutPanel( );
             CheckBoxLayout = new TableLayoutPanel( );
             LibraryRadioButton = new RadioButton( );
@@ -621,7 +621,7 @@ namespace BudgetExecution
             CloseButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             CloseButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             CloseButton.PressTextColor = System.Drawing.Color.White;
-            CloseButton.Size = new System.Drawing.Size( 101, 30 );
+            CloseButton.Size = new System.Drawing.Size( 101, 29 );
             CloseButton.Style = MetroSet_UI.Enums.Style.Custom;
             CloseButton.StyleManager = null;
             CloseButton.TabIndex = 14;
@@ -653,7 +653,7 @@ namespace BudgetExecution
             BrowseButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             BrowseButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             BrowseButton.PressTextColor = System.Drawing.Color.White;
-            BrowseButton.Size = new System.Drawing.Size( 110, 30 );
+            BrowseButton.Size = new System.Drawing.Size( 110, 29 );
             BrowseButton.Style = MetroSet_UI.Enums.Style.Custom;
             BrowseButton.StyleManager = null;
             BrowseButton.TabIndex = 15;
@@ -685,7 +685,7 @@ namespace BudgetExecution
             SelectButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             SelectButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             SelectButton.PressTextColor = System.Drawing.Color.White;
-            SelectButton.Size = new System.Drawing.Size( 110, 30 );
+            SelectButton.Size = new System.Drawing.Size( 110, 29 );
             SelectButton.Style = MetroSet_UI.Enums.Style.Custom;
             SelectButton.StyleManager = null;
             SelectButton.TabIndex = 16;
@@ -708,18 +708,18 @@ namespace BudgetExecution
             ButtonTable.Controls.Add( SelectButton, 3, 0 );
             ButtonTable.Controls.Add( BrowseButton, 2, 0 );
             ButtonTable.Dock = DockStyle.Bottom;
-            ButtonTable.Location = new System.Drawing.Point( 1, 430 );
+            ButtonTable.Location = new System.Drawing.Point( 1, 403 );
             ButtonTable.Name = "ButtonTable";
             ButtonTable.RowCount = 1;
             ButtonTable.RowStyles.Add( new RowStyle( SizeType.Percent, 50F ) );
-            ButtonTable.Size = new System.Drawing.Size( 686, 37 );
+            ButtonTable.Size = new System.Drawing.Size( 686, 35 );
             ButtonTable.TabIndex = 17;
             // 
             // OpenDialog
             // 
             OpenDialog.Filter = null;
             // 
-            // FileBrowser
+            // FileDialog
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 96F, 96F );
             AutoScaleMode = AutoScaleMode.Dpi;
@@ -729,14 +729,13 @@ namespace BudgetExecution
             CaptionButtonColor = System.Drawing.Color.FromArgb( 64, 64, 64 );
             CaptionButtonHoverColor = System.Drawing.Color.Red;
             CaptionFont = new System.Drawing.Font( "Roboto", 11.25F );
-            ClientSize = new System.Drawing.Size( 688, 468 );
+            ClientSize = new System.Drawing.Size( 688, 439 );
             Controls.Add( ButtonTable );
             Controls.Add( MessageLabel );
             Controls.Add( TextBoxLayout );
             Controls.Add( TopTablePanel );
-            DoubleBuffered = true;
             Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
-            Name = "FileBrowser";
+            Name = "FileDialog";
             TextBoxLayout.ResumeLayout( false );
             CheckBoxLayout.ResumeLayout( false );
             ( (ISupportInitialize)BindingSource ).EndInit( );

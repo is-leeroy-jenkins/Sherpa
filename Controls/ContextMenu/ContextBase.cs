@@ -365,14 +365,14 @@ namespace BudgetExecution
                         {
                             case MenuOption.File:
                             {
-                                var _file = new FileBrowser( );
+                                var _file = new FileDialog( );
                                 _file.Location = e.Location;
                                 _file.Show( );
                                 break;
                             }
                             case MenuOption.Folder:
                             {
-                                var _file = new FolderBrowser( );
+                                var _file = new FolderDialog( );
                                 _file.Location = e.Location;
                                 _file.Show( );
                                 break;
