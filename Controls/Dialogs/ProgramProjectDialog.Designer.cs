@@ -295,7 +295,7 @@ partial class ProgramProjectDialog
         // 
         // pictureBox1
         // 
-        pictureBox1.Image = Resources.Images.AppropriationTile;
+        pictureBox1.Image = Resources.Images.TileImages.AppropriationTile;
         pictureBox1.Location = new System.Drawing.Point( 3, 3 );
         pictureBox1.Name = "pictureBox1";
         pictureBox1.Size = new System.Drawing.Size( 28, 22 );
@@ -540,7 +540,7 @@ partial class ProgramProjectDialog
         CaptionFont = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Bold );
         CaptionForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         captionImage1.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-        captionImage1.Image = Resources.Images.EPA;
+        captionImage1.Image = Resources.Images.FormImages.EPA;
         captionImage1.Location = new System.Drawing.Point( 5, 5 );
         captionImage1.Name = "CaptionImage1";
         captionImage1.Size = new System.Drawing.Size( 42, 16 );

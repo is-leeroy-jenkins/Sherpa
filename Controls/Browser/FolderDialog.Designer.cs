@@ -153,7 +153,7 @@
             PictureBox.DataFilter = null;
             PictureBox.Dock = System.Windows.Forms.DockStyle.Top;
             PictureBox.HoverText = null;
-            PictureBox.Image = Resources.Images.Browse;
+            PictureBox.Image = Resources.Images.FolderImages.Browse;
             PictureBox.ImageList = null;
             PictureBox.Location = new System.Drawing.Point( 3, 3 );
             PictureBox.Name = "PictureBox";

@@ -161,7 +161,7 @@ namespace BudgetExecution
             LookupTile.Banner = textItem1;
             LookupTile.BannerColor = System.Drawing.Color.Transparent;
             LookupTile.BannerHeight = 30;
-            LookupTile.BannerIcon = Resources.Images.GridData;
+            LookupTile.BannerIcon = Resources.Images.TileImages.GridData;
             LookupTile.BindingSource = null;
             textItem2.Font = new System.Drawing.Font( "Roboto", 10F );
             textItem2.HubTile = LookupTile;
@@ -224,7 +224,7 @@ namespace BudgetExecution
             VisualizationTile.Banner = textItem5;
             VisualizationTile.BannerColor = System.Drawing.Color.Transparent;
             VisualizationTile.BannerHeight = 30;
-            VisualizationTile.BannerIcon = Resources.Images.VisualizationTile;
+            VisualizationTile.BannerIcon = Resources.Images.TileImages.VisualizationTile;
             VisualizationTile.BindingSource = null;
             textItem6.Font = new System.Drawing.Font( "Roboto", 10F );
             textItem6.HubTile = VisualizationTile;
@@ -267,7 +267,7 @@ namespace BudgetExecution
             GuidanceTile.Banner = textItem9;
             GuidanceTile.BannerColor = System.Drawing.Color.Transparent;
             GuidanceTile.BannerHeight = 30;
-            GuidanceTile.BannerIcon = Resources.Images.GuidanceTile;
+            GuidanceTile.BannerIcon = Resources.Images.TileImages.GuidanceTile;
             GuidanceTile.BindingSource = null;
             textItem10.Font = new System.Drawing.Font( "Roboto", 10F );
             textItem10.HubTile = GuidanceTile;
@@ -310,7 +310,7 @@ namespace BudgetExecution
             BrowserTile.Banner = textItem13;
             BrowserTile.BannerColor = System.Drawing.Color.Transparent;
             BrowserTile.BannerHeight = 30;
-            BrowserTile.BannerIcon = Resources.Images.BrowserTile;
+            BrowserTile.BannerIcon = Resources.Images.TileImages.BrowserTile;
             BrowserTile.BindingSource = null;
             textItem14.Font = new System.Drawing.Font( "Roboto", 10F );
             textItem14.HubTile = BrowserTile;
@@ -353,7 +353,7 @@ namespace BudgetExecution
             SqlServerTile.Banner = textItem17;
             SqlServerTile.BannerColor = System.Drawing.Color.Transparent;
             SqlServerTile.BannerHeight = 30;
-            SqlServerTile.BannerIcon = Resources.Images.SqlServerTile;
+            SqlServerTile.BannerIcon = Resources.Images.TileImages.SqlServerTile;
             SqlServerTile.BindingSource = null;
             textItem18.Font = new System.Drawing.Font( "Roboto", 10F );
             textItem18.HubTile = SqlServerTile;
@@ -396,7 +396,7 @@ namespace BudgetExecution
             AccessTile.Banner = textItem21;
             AccessTile.BannerColor = System.Drawing.Color.Transparent;
             AccessTile.BannerHeight = 30;
-            AccessTile.BannerIcon = Resources.Images.AccessTile;
+            AccessTile.BannerIcon = Resources.Images.TileImages.AccessTile;
             AccessTile.BindingSource = null;
             textItem22.Font = new System.Drawing.Font( "Roboto", 9F );
             textItem22.HubTile = AccessTile;
@@ -439,7 +439,7 @@ namespace BudgetExecution
             SQLiteTile.Banner = textItem25;
             SQLiteTile.BannerColor = System.Drawing.Color.Transparent;
             SQLiteTile.BannerHeight = 30;
-            SQLiteTile.BannerIcon = Resources.Images.SQLiteTile;
+            SQLiteTile.BannerIcon = Resources.Images.TileImages.SQLiteTile;
             SQLiteTile.BindingSource = null;
             textItem26.Font = new System.Drawing.Font( "Roboto", 10F );
             textItem26.HubTile = SQLiteTile;
@@ -482,7 +482,7 @@ namespace BudgetExecution
             ExcelDataTile.Banner = textItem29;
             ExcelDataTile.BannerColor = System.Drawing.Color.Transparent;
             ExcelDataTile.BannerHeight = 30;
-            ExcelDataTile.BannerIcon = Resources.Images.ExcelDataTile;
+            ExcelDataTile.BannerIcon = Resources.Images.TileImages.ExcelDataTile;
             ExcelDataTile.BindingSource = null;
             textItem30.Font = new System.Drawing.Font( "Roboto", 10F );
             textItem30.HubTile = ExcelDataTile;
@@ -525,7 +525,7 @@ namespace BudgetExecution
             SqlCeTile.Banner = textItem33;
             SqlCeTile.BannerColor = System.Drawing.Color.Transparent;
             SqlCeTile.BannerHeight = 30;
-            SqlCeTile.BannerIcon = Resources.Images.SqlCeTile;
+            SqlCeTile.BannerIcon = Resources.Images.TileImages.SqlCeTile;
             SqlCeTile.BindingSource = null;
             textItem34.Font = new System.Drawing.Font( "Roboto", 10F );
             textItem34.HubTile = SqlCeTile;
@@ -568,7 +568,7 @@ namespace BudgetExecution
             ChromeTile.Banner = textItem37;
             ChromeTile.BannerColor = System.Drawing.Color.Transparent;
             ChromeTile.BannerHeight = 30;
-            ChromeTile.BannerIcon = Resources.Images.ChromeTile;
+            ChromeTile.BannerIcon = Resources.Images.TileImages.ChromeTile;
             ChromeTile.BindingSource = null;
             textItem38.Font = new System.Drawing.Font( "Roboto", 10F );
             textItem38.HubTile = ChromeTile;
@@ -611,7 +611,7 @@ namespace BudgetExecution
             EdgeTile.Banner = textItem41;
             EdgeTile.BannerColor = System.Drawing.Color.Transparent;
             EdgeTile.BannerHeight = 30;
-            EdgeTile.BannerIcon = Resources.Images.EdgeTile;
+            EdgeTile.BannerIcon = Resources.Images.TileImages.EdgeTile;
             EdgeTile.BindingSource = BindingSource;
             textItem42.Font = new System.Drawing.Font( "Roboto", 10F );
             textItem42.HubTile = EdgeTile;
@@ -654,7 +654,7 @@ namespace BudgetExecution
             FirefoxTile.Banner = textItem45;
             FirefoxTile.BannerColor = System.Drawing.Color.Transparent;
             FirefoxTile.BannerHeight = 30;
-            FirefoxTile.BannerIcon = Resources.Images.FireFoxTile;
+            FirefoxTile.BannerIcon = Resources.Images.TileImages.FireFoxTile;
             FirefoxTile.BindingSource = null;
             textItem46.Font = new System.Drawing.Font( "Roboto", 10F );
             textItem46.HubTile = FirefoxTile;
@@ -697,7 +697,7 @@ namespace BudgetExecution
             CalendarTile.Banner = textItem49;
             CalendarTile.BannerColor = System.Drawing.Color.Transparent;
             CalendarTile.BannerHeight = 30;
-            CalendarTile.BannerIcon = Resources.Images.CalendarTile;
+            CalendarTile.BannerIcon = Resources.Images.TileImages.CalendarTile;
             CalendarTile.BindingSource = null;
             textItem50.Font = new System.Drawing.Font( "Roboto", 10F );
             textItem50.HubTile = CalendarTile;
@@ -740,7 +740,7 @@ namespace BudgetExecution
             SqlEditorTile.Banner = textItem53;
             SqlEditorTile.BannerColor = System.Drawing.Color.Transparent;
             SqlEditorTile.BannerHeight = 30;
-            SqlEditorTile.BannerIcon = Resources.Images.SqlEditorTile;
+            SqlEditorTile.BannerIcon = Resources.Images.TileImages.SqlEditorTile;
             SqlEditorTile.BindingSource = null;
             textItem54.Font = new System.Drawing.Font( "Roboto", 10F );
             textItem54.HubTile = SqlEditorTile;
@@ -783,7 +783,7 @@ namespace BudgetExecution
             ProgramProjectTile.Banner = textItem57;
             ProgramProjectTile.BannerColor = System.Drawing.Color.Transparent;
             ProgramProjectTile.BannerHeight = 30;
-            ProgramProjectTile.BannerIcon = Resources.Images.ProgramTile;
+            ProgramProjectTile.BannerIcon = Resources.Images.TileImages.ProgramTile;
             ProgramProjectTile.BindingSource = null;
             textItem58.Font = new System.Drawing.Font( "Roboto", 10F );
             textItem58.HubTile = ProgramProjectTile;
@@ -826,7 +826,7 @@ namespace BudgetExecution
             MessageTile.Banner = textItem61;
             MessageTile.BannerColor = System.Drawing.Color.Transparent;
             MessageTile.BannerHeight = 30;
-            MessageTile.BannerIcon = Resources.Images.OutlookTile;
+            MessageTile.BannerIcon = Resources.Images.TileImages.OutlookTile;
             MessageTile.BindingSource = null;
             textItem62.Font = new System.Drawing.Font( "Roboto", 10F );
             textItem62.HubTile = MessageTile;
@@ -869,7 +869,7 @@ namespace BudgetExecution
             MapTile.Banner = textItem65;
             MapTile.BannerColor = System.Drawing.Color.Transparent;
             MapTile.BannerHeight = 30;
-            MapTile.BannerIcon = Resources.Images.MapTile;
+            MapTile.BannerIcon = Resources.Images.TileImages.MapTile;
             MapTile.BindingSource = null;
             textItem66.Font = new System.Drawing.Font( "Roboto", 10F );
             textItem66.HubTile = MapTile;

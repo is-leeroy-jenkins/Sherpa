@@ -252,7 +252,7 @@
             HomeButton.Font = new System.Drawing.Font( "Roboto", 8F );
             HomeButton.ForeColor = System.Drawing.Color.LightSteelBlue;
             HomeButton.HoverText = "Main Menu";
-            HomeButton.Image = Resources.Images.HomeButton;
+            HomeButton.Image = Resources.Images.ToolStripImages.HomeButton;
             HomeButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             HomeButton.Margin = new System.Windows.Forms.Padding( 1 );
             HomeButton.Name = "HomeButton";
@@ -1676,7 +1676,7 @@
             FirstButton.Font = new System.Drawing.Font( "Roboto", 9F );
             FirstButton.ForeColor = System.Drawing.Color.LightGray;
             FirstButton.HoverText = "First Record";
-            FirstButton.Image = Resources.Images.FirstButton;
+            FirstButton.Image = Resources.Images.ToolStripImages.FirstButton;
             FirstButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             FirstButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             FirstButton.Name = "FirstButton";
@@ -1704,7 +1704,7 @@
             PreviousButton.Font = new System.Drawing.Font( "Roboto", 9F );
             PreviousButton.ForeColor = System.Drawing.Color.LightGray;
             PreviousButton.HoverText = "Previous Button";
-            PreviousButton.Image = Resources.Images.WebPreviousButton;
+            PreviousButton.Image = Resources.Images.ToolStripImages.WebPreviousButton;
             PreviousButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             PreviousButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             PreviousButton.Name = "PreviousButton";
@@ -1733,7 +1733,7 @@
             NextButton.Font = new System.Drawing.Font( "Roboto", 9F );
             NextButton.ForeColor = System.Drawing.Color.LightGray;
             NextButton.HoverText = "Next Record";
-            NextButton.Image = Resources.Images.WebNextButton;
+            NextButton.Image = Resources.Images.ToolStripImages.WebNextButton;
             NextButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             NextButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             NextButton.Name = "NextButton";
@@ -1770,7 +1770,7 @@
             RemoveFiltersButton.Font = new System.Drawing.Font( "Roboto", 9F );
             RemoveFiltersButton.ForeColor = System.Drawing.Color.LightGray;
             RemoveFiltersButton.HoverText = "Reset Table Filters";
-            RemoveFiltersButton.Image = Resources.Images.FilterButton;
+            RemoveFiltersButton.Image = Resources.Images.ToolStripImages.FilterButton;
             RemoveFiltersButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             RemoveFiltersButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             RemoveFiltersButton.Name = "RemoveFiltersButton";
@@ -1807,7 +1807,7 @@
             EditColumnButton.Font = new System.Drawing.Font( "Roboto", 9F );
             EditColumnButton.ForeColor = System.Drawing.Color.LightGray;
             EditColumnButton.HoverText = "Edit Table Schema";
-            EditColumnButton.Image = Resources.Images.EditColumnButtnon;
+            EditColumnButton.Image = Resources.Images.ToolStripImages.EditColumnButtnon;
             EditColumnButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             EditColumnButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             EditColumnButton.Name = "EditColumnButton";
@@ -1836,7 +1836,7 @@
             EditRecordButton.Font = new System.Drawing.Font( "Roboto", 9F );
             EditRecordButton.ForeColor = System.Drawing.Color.LightGray;
             EditRecordButton.HoverText = "Edit Current Record";
-            EditRecordButton.Image = Resources.Images.EditRecordButton;
+            EditRecordButton.Image = Resources.Images.ToolStripImages.EditRecordButton;
             EditRecordButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             EditRecordButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             EditRecordButton.Name = "EditRecordButton";
@@ -1865,7 +1865,7 @@
             RefreshDataButton.Font = new System.Drawing.Font( "Roboto", 9F );
             RefreshDataButton.ForeColor = System.Drawing.Color.LightGray;
             RefreshDataButton.HoverText = "Reset Data Source";
-            RefreshDataButton.Image = Resources.Images.RefreshDataButton;
+            RefreshDataButton.Image = Resources.Images.ToolStripImages.RefreshDataButton;
             RefreshDataButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             RefreshDataButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             RefreshDataButton.Name = "RefreshDataButton";
@@ -1894,7 +1894,7 @@
             SaveButton.Font = new System.Drawing.Font( "Roboto", 9F );
             SaveButton.ForeColor = System.Drawing.Color.LightGray;
             SaveButton.HoverText = "Save Changes";
-            SaveButton.Image = Resources.Images.SaveButton;
+            SaveButton.Image = Resources.Images.ToolStripImages.SaveButton;
             SaveButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             SaveButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             SaveButton.Name = "SaveButton";
@@ -1915,7 +1915,7 @@
             GroupButton.Font = new System.Drawing.Font( "Roboto", 9F );
             GroupButton.ForeColor = System.Drawing.Color.LightGray;
             GroupButton.HoverText = "Aggregate Columns";
-            GroupButton.Image = Resources.Images.GroupButton;
+            GroupButton.Image = Resources.Images.ToolStripImages.GroupButton;
             GroupButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             GroupButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             GroupButton.Name = "GroupButton";
@@ -1944,7 +1944,7 @@
             EditSqlButton.Font = new System.Drawing.Font( "Roboto", 9F );
             EditSqlButton.ForeColor = System.Drawing.Color.LightGray;
             EditSqlButton.HoverText = "Open SQL Editor";
-            EditSqlButton.Image = Resources.Images.EditSqlButton;
+            EditSqlButton.Image = Resources.Images.ToolStripImages.EditSqlButton;
             EditSqlButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             EditSqlButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             EditSqlButton.Name = "EditSqlButton";
@@ -1981,7 +1981,7 @@
             ExcelImportButton.Font = new System.Drawing.Font( "Roboto", 9F );
             ExcelImportButton.ForeColor = System.Drawing.Color.LightGray;
             ExcelImportButton.HoverText = "Excel Import";
-            ExcelImportButton.Image = Resources.Images.UploadButton;
+            ExcelImportButton.Image = Resources.Images.ToolStripImages.UploadButton;
             ExcelImportButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             ExcelImportButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             ExcelImportButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
@@ -2019,7 +2019,7 @@
             BrowseButton.Font = new System.Drawing.Font( "Roboto", 9F );
             BrowseButton.ForeColor = System.Drawing.Color.LightGray;
             BrowseButton.HoverText = "Search File System";
-            BrowseButton.Image = Resources.Images.BrowseButton;
+            BrowseButton.Image = Resources.Images.ToolStripImages.BrowseButton;
             BrowseButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             BrowseButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             BrowseButton.Name = "BrowseButton";
@@ -2074,7 +2074,7 @@
             MenuButton.Font = new System.Drawing.Font( "Roboto", 9F );
             MenuButton.ForeColor = System.Drawing.Color.LightGray;
             MenuButton.HoverText = "Main Menu";
-            MenuButton.Image = Resources.Images.HomeButton;
+            MenuButton.Image = Resources.Images.ToolStripImages.HomeButton;
             MenuButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             MenuButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             MenuButton.Name = "MenuButton";
@@ -2104,7 +2104,7 @@
             ExitButton.Font = new System.Drawing.Font( "Roboto", 9F );
             ExitButton.ForeColor = System.Drawing.Color.LightGray;
             ExitButton.HoverText = "Exit Application";
-            ExitButton.Image = Resources.Images.ShutdownButton;
+            ExitButton.Image = Resources.Images.ToolStripImages.ShutdownButton;
             ExitButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             ExitButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             ExitButton.Name = "ExitButton";
@@ -2210,7 +2210,7 @@
             LastButton.Font = new System.Drawing.Font( "Roboto", 9F );
             LastButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             LastButton.HoverText = null;
-            LastButton.Image = Resources.Images.LastButton;
+            LastButton.Image = Resources.Images.ToolStripImages.LastButton;
             LastButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             LastButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             LastButton.Name = "LastButton";
@@ -2297,7 +2297,7 @@
             GoButton.Font = new System.Drawing.Font( "Roboto", 9F );
             GoButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             GoButton.HoverText = "Search for it";
-            GoButton.Image = Resources.Images.GoButton;
+            GoButton.Image = Resources.Images.ToolStripImages.GoButton;
             GoButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             GoButton.Margin = new System.Windows.Forms.Padding( 3 );
             GoButton.Name = "GoButton";
@@ -2448,7 +2448,7 @@
             // 
             // PictureBox
             // 
-            PictureBox.Image = Resources.Images.budget;
+            PictureBox.Image = Resources.Images.FormImages.Application;
             PictureBox.InitialImage = null;
             PictureBox.Location = new System.Drawing.Point( 3, 3 );
             PictureBox.Name = "PictureBox";
@@ -2550,7 +2550,7 @@
             // Loader
             // 
             Loader.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
-            Loader.Image = Resources.Images.Loading;
+            Loader.Image = Resources.Images.LoaderImages.Loading;
             Loader.Location = new System.Drawing.Point( 21, 16 );
             Loader.Name = "Loader";
             Loader.Size = new System.Drawing.Size( 953, 504 );

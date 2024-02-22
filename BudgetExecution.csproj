@@ -31,7 +31,7 @@
     <Title>Budget Execution</Title>
     <PackageIcon>budget.png</PackageIcon>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <ApplicationIcon>Resources\Pictures\FormImages\budget-execution.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\Assets\FormImages\budget-execution.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702;2201;1051;CA1200;CA1310;CA1305;1822;CA1716;CA1812;CA1304</NoWarn>
@@ -171,53 +171,53 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Resources\Assets\DialogImages.Designer.cs">
+    <Compile Update="Resources\Images\DialogImages.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>DialogImages.resx</DependentUpon>
     </Compile>
-    <Compile Update="Resources\Assets\ExtensionImages.Designer.cs">
+    <Compile Update="Resources\Images\ExtensionImages.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>ExtensionImages.resx</DependentUpon>
     </Compile>
-    <Compile Update="Resources\Assets\FolderImages.Designer.cs">
+    <Compile Update="Resources\Images\FolderImages.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>FolderImages.resx</DependentUpon>
     </Compile>
-    <Compile Update="Resources\Assets\FormImages.Designer.cs">
+    <Compile Update="Resources\Images\FormImages.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>FormImages.resx</DependentUpon>
     </Compile>
-    <Compile Update="Resources\Assets\LoaderImages.Designer.cs">
+    <Compile Update="Resources\Images\LoaderImages.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>LoaderImages.resx</DependentUpon>
     </Compile>
-    <Compile Update="Resources\Assets\ProviderImages.Designer.cs">
+    <Compile Update="Resources\Images\ProviderImages.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>ProviderImages.resx</DependentUpon>
     </Compile>
-    <Compile Update="Resources\Images.Designer.cs">
+    <Compile Update="Resources\Image.Designer.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>Images.resx</DependentUpon>
+      <DependentUpon>Image.resx</DependentUpon>
     </Compile>
     <Compile Update="Properties\Settings.Designer.cs">
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Update="Resources\Assets\TileImages.Designer.cs">
+    <Compile Update="Resources\Images\TileImages.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>TileImages.resx</DependentUpon>
     </Compile>
-    <Compile Update="Resources\Assets\ToolStripImages.Designer.cs">
+    <Compile Update="Resources\Images\ToolStripImages.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>ToolStripImages.resx</DependentUpon>
@@ -225,54 +225,62 @@
     <Compile Remove="bin\**" />
     <Compile Remove="Clients\WebBrower\**" />
     <Compile Remove="Minions\SqlCe\C# Source code\**" />
-    <Compile Remove="Resources\Pictures\FormsImages\**" />
+    <Compile Remove="Resources\Pictures\**" />
     <Compile Remove="WebBrowser\**" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Update="Resources\Assets\DialogImages.resx">
+    <EmbeddedResource Update="Resources\Images\DialogImages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>DialogImages.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Assets\ExtensionImages.resx">
+    <EmbeddedResource Update="Resources\Images\ExtensionImages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ExtensionImages.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Assets\FolderImages.resx">
+    <EmbeddedResource Update="Resources\Images\FolderImages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>FolderImages.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Assets\FormImages.resx">
+    <EmbeddedResource Update="Resources\Images\FormImages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>FormImages.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Assets\LoaderImages.resx">
+    <EmbeddedResource Update="Resources\Images\LoaderImages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>LoaderImages.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Assets\ProviderImages.resx">
+    <EmbeddedResource Update="Resources\Images\ProviderImages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ProviderImages.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Images.resx">
+    <EmbeddedResource Update="Resources\Image.resx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Images.Designer.cs</LastGenOutput>
+      <LastGenOutput>Image.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Assets\TileImages.resx">
+    <EmbeddedResource Update="Resources\Images\TileImages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>TileImages.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Assets\ToolStripImages.resx">
+    <EmbeddedResource Update="Resources\Images\ToolStripImages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ToolStripImages.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Remove="bin\**" />
     <EmbeddedResource Remove="Clients\WebBrower\**" />
     <EmbeddedResource Remove="Minions\SqlCe\C# Source code\**" />
-    <EmbeddedResource Remove="Resources\Pictures\FormsImages\**" />
+    <EmbeddedResource Remove="Resources\Pictures\**" />
     <EmbeddedResource Remove="WebBrowser\**" />
     <None Remove="Clients\WebBrower\**" />
-    <None Remove="Resources\Pictures\FormsImages\**" />
+    <None Remove="Resources\Pictures\**" />
     <None Remove="WebBrowser\**" />
   </ItemGroup>
   <ItemGroup>
@@ -293,6 +301,6 @@
     <None Remove="Clients\Baby\storage\i18n_process.css" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\Pictures\FormImages\budget-execution.ico" />
+    <Content Include="Resources\Assets\FormImages\budget-execution.ico" />
   </ItemGroup>
 </Project>

@@ -61,7 +61,7 @@
             PictureBox.BindingSource = null;
             PictureBox.DataFilter = null;
             PictureBox.HoverText = null;
-            PictureBox.Image = Resources.Images.SplashNotification;
+            PictureBox.Image = Resources.Images.DialogImages.SplashNotification;
             PictureBox.ImageList = null;
             PictureBox.Location = new System.Drawing.Point( 3, 3 );
             PictureBox.Name = "PictureBox";

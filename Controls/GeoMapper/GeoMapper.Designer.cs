@@ -98,7 +98,7 @@
             // PictureBox
             // 
             PictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            PictureBox.Image = Resources.Images.budget;
+            PictureBox.Image = Resources.Images.FormImages.Application;
             PictureBox.Location = new System.Drawing.Point( 3, 3 );
             PictureBox.Name = "PictureBox";
             PictureBox.Size = new System.Drawing.Size( 20, 18 );
@@ -270,7 +270,7 @@
             FirstButton.Font = new System.Drawing.Font( "Roboto", 9F );
             FirstButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             FirstButton.HoverText = "First Location";
-            FirstButton.Image = Resources.Images.FirstButton;
+            FirstButton.Image = Resources.Images.ToolStripImages.FirstButton;
             FirstButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             FirstButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             FirstButton.Name = "FirstButton";
@@ -319,7 +319,7 @@
             PreviousButton.Font = new System.Drawing.Font( "Roboto", 9F );
             PreviousButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             PreviousButton.HoverText = "Previous Location";
-            PreviousButton.Image = Resources.Images.WebPreviousButton;
+            PreviousButton.Image = Resources.Images.ToolStripImages.WebPreviousButton;
             PreviousButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             PreviousButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             PreviousButton.Name = "PreviousButton";
@@ -348,7 +348,7 @@
             NextButton.Font = new System.Drawing.Font( "Roboto", 9F );
             NextButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             NextButton.HoverText = "Next Location";
-            NextButton.Image = Resources.Images.WebNextButton;
+            NextButton.Image = Resources.Images.ToolStripImages.WebNextButton;
             NextButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             NextButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             NextButton.Name = "NextButton";
@@ -377,7 +377,7 @@
             LastButton.Font = new System.Drawing.Font( "Roboto", 9F );
             LastButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             LastButton.HoverText = "Last Location";
-            LastButton.Image = Resources.Images.LastButton;
+            LastButton.Image = Resources.Images.ToolStripImages.LastButton;
             LastButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             LastButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             LastButton.Name = "LastButton";
@@ -448,7 +448,7 @@
             FilterButton.Font = new System.Drawing.Font( "Roboto", 9F );
             FilterButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             FilterButton.HoverText = "Filter Locations";
-            FilterButton.Image = Resources.Images.FilterButton;
+            FilterButton.Image = Resources.Images.ToolStripImages.FilterButton;
             FilterButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             FilterButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             FilterButton.Name = "FilterButton";
@@ -477,7 +477,7 @@
             RefreshButton.Font = new System.Drawing.Font( "Roboto", 9F );
             RefreshButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             RefreshButton.HoverText = "Reset Filters";
-            RefreshButton.Image = Resources.Images.WebRefreshButton;
+            RefreshButton.Image = Resources.Images.ToolStripImages.WebRefreshButton;
             RefreshButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             RefreshButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             RefreshButton.Name = "RefreshButton";
@@ -548,7 +548,7 @@
             BrowseButton.Font = new System.Drawing.Font( "Roboto", 9F );
             BrowseButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             BrowseButton.HoverText = "Browse File System";
-            BrowseButton.Image = Resources.Images.BrowseButton;
+            BrowseButton.Image = Resources.Images.ToolStripImages.BrowseButton;
             BrowseButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             BrowseButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             BrowseButton.Name = "BrowseButton";
@@ -577,7 +577,7 @@
             SaveButton.Font = new System.Drawing.Font( "Roboto", 9F );
             SaveButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             SaveButton.HoverText = "Save Changes";
-            SaveButton.Image = Resources.Images.SaveButton;
+            SaveButton.Image = Resources.Images.ToolStripImages.SaveButton;
             SaveButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             SaveButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             SaveButton.Name = "SaveButton";
@@ -633,7 +633,7 @@
             CloseButton.Font = new System.Drawing.Font( "Roboto", 9F );
             CloseButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             CloseButton.HoverText = null;
-            CloseButton.Image = Resources.Images.WebCloseButton;
+            CloseButton.Image = Resources.Images.ToolStripImages.WebCloseButton;
             CloseButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             CloseButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             CloseButton.Name = "CloseButton";
@@ -664,7 +664,7 @@
             MenuButton.Font = new System.Drawing.Font( "Roboto", 9F );
             MenuButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             MenuButton.HoverText = "Return to Menu";
-            MenuButton.Image = Resources.Images.WebMenuButton;
+            MenuButton.Image = Resources.Images.ToolStripImages.WebMenuButton;
             MenuButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             MenuButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             MenuButton.Name = "MenuButton";

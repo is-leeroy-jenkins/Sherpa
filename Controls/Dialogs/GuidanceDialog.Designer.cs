@@ -102,7 +102,7 @@ namespace BudgetExecution
             Picture.BindingSource = null;
             Picture.DataFilter = null;
             Picture.HoverText = null;
-            Picture.Image = Resources.Images.GuidanceTile;
+            Picture.Image = Resources.Images.TileImages.GuidanceTile;
             Picture.ImageList = null;
             Picture.Location = new System.Drawing.Point( 3, 3 );
             Picture.Name = "Picture";

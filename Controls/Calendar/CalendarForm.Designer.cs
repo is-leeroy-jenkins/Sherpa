@@ -181,7 +181,7 @@ namespace BudgetExecution
             PictureBox.BindingSource = null;
             PictureBox.DataFilter = null;
             PictureBox.HoverText = null;
-            PictureBox.Image = Resources.Images.CalendarTile;
+            PictureBox.Image = Resources.Images.TileImages.CalendarTile;
             PictureBox.ImageList = null;
             PictureBox.Location = new System.Drawing.Point( 3, 3 );
             PictureBox.Name = "PictureBox";
@@ -395,7 +395,7 @@ namespace BudgetExecution
             FirstButton.Font = new System.Drawing.Font( "Roboto", 9F );
             FirstButton.ForeColor = System.Drawing.Color.LightGray;
             FirstButton.HoverText = "First Date";
-            FirstButton.Image = Resources.Images.FirstButton;
+            FirstButton.Image = Resources.Images.ToolStripImages.FirstButton;
             FirstButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             FirstButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             FirstButton.Name = "FirstButton";
@@ -424,7 +424,7 @@ namespace BudgetExecution
             PreviousButton.Font = new System.Drawing.Font( "Roboto", 9F );
             PreviousButton.ForeColor = System.Drawing.Color.LightGray;
             PreviousButton.HoverText = "Previous Date";
-            PreviousButton.Image = Resources.Images.WebPreviousButton;
+            PreviousButton.Image = Resources.Images.ToolStripImages.WebPreviousButton;
             PreviousButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             PreviousButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             PreviousButton.Name = "PreviousButton";
@@ -453,7 +453,7 @@ namespace BudgetExecution
             NextButton.Font = new System.Drawing.Font( "Roboto", 9F );
             NextButton.ForeColor = System.Drawing.Color.LightGray;
             NextButton.HoverText = "Next Date";
-            NextButton.Image = Resources.Images.WebNextButton;
+            NextButton.Image = Resources.Images.ToolStripImages.WebNextButton;
             NextButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             NextButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             NextButton.Name = "NextButton";
@@ -482,7 +482,7 @@ namespace BudgetExecution
             LastButton.Font = new System.Drawing.Font( "Roboto", 9F );
             LastButton.ForeColor = System.Drawing.Color.LightGray;
             LastButton.HoverText = "Last Date";
-            LastButton.Image = Resources.Images.LastButton;
+            LastButton.Image = Resources.Images.ToolStripImages.LastButton;
             LastButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             LastButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             LastButton.Name = "LastButton";
@@ -563,7 +563,7 @@ namespace BudgetExecution
             CloseButton.Font = new System.Drawing.Font( "Roboto", 9F );
             CloseButton.ForeColor = System.Drawing.Color.LightGray;
             CloseButton.HoverText = "Close Application";
-            CloseButton.Image = Resources.Images.WebCloseButton;
+            CloseButton.Image = Resources.Images.ToolStripImages.WebCloseButton;
             CloseButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             CloseButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             CloseButton.Name = "CloseButton";
@@ -584,7 +584,7 @@ namespace BudgetExecution
             BrowseButton.Font = new System.Drawing.Font( "Roboto", 9F );
             BrowseButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             BrowseButton.HoverText = null;
-            BrowseButton.Image = Resources.Images.BrowseButton;
+            BrowseButton.Image = Resources.Images.ToolStripImages.BrowseButton;
             BrowseButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             BrowseButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             BrowseButton.Name = "BrowseButton";
@@ -613,7 +613,7 @@ namespace BudgetExecution
             SaveButton.Font = new System.Drawing.Font( "Roboto", 9F );
             SaveButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             SaveButton.HoverText = "Save Changes";
-            SaveButton.Image = Resources.Images.SaveButton;
+            SaveButton.Image = Resources.Images.ToolStripImages.SaveButton;
             SaveButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             SaveButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             SaveButton.Name = "SaveButton";
@@ -667,7 +667,7 @@ namespace BudgetExecution
             RefreshButton.Font = new System.Drawing.Font( "Roboto", 9F );
             RefreshButton.ForeColor = System.Drawing.Color.LightGray;
             RefreshButton.HoverText = "Refresh Data";
-            RefreshButton.Image = Resources.Images.RefreshButton;
+            RefreshButton.Image = Resources.Images.ToolStripImages.RefreshButton;
             RefreshButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             RefreshButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             RefreshButton.Name = "RefreshButton";
@@ -704,7 +704,7 @@ namespace BudgetExecution
             TableButton.Font = new System.Drawing.Font( "Roboto", 9F );
             TableButton.ForeColor = System.Drawing.Color.LightGray;
             TableButton.HoverText = "View Data";
-            TableButton.Image = Resources.Images.TableButton;
+            TableButton.Image = Resources.Images.ToolStripImages.TableButton;
             TableButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             TableButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             TableButton.Name = "TableButton";
@@ -742,7 +742,7 @@ namespace BudgetExecution
             ChartButton.Font = new System.Drawing.Font( "Roboto", 9F );
             ChartButton.ForeColor = System.Drawing.Color.LightGray;
             ChartButton.HoverText = "Charts";
-            ChartButton.Image = Resources.Images.ChartButton;
+            ChartButton.Image = Resources.Images.ToolStripImages.ChartButton;
             ChartButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             ChartButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             ChartButton.Name = "ChartButton";
@@ -772,7 +772,7 @@ namespace BudgetExecution
             MenuButton.Font = new System.Drawing.Font( "Roboto", 9F );
             MenuButton.ForeColor = System.Drawing.Color.LightGray;
             MenuButton.HoverText = "Main Menu";
-            MenuButton.Image = Resources.Images.WebMenuButton;
+            MenuButton.Image = Resources.Images.ToolStripImages.WebMenuButton;
             MenuButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             MenuButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             MenuButton.Name = "MenuButton";
@@ -1322,7 +1322,7 @@ namespace BudgetExecution
             // Loader
             // 
             Loader.Dock = System.Windows.Forms.DockStyle.Fill;
-            Loader.Image = Resources.Images.Loading;
+            Loader.Image = Resources.Images.LoaderImages.Loading;
             Loader.Location = new System.Drawing.Point( 0, 0 );
             Loader.Name = "Loader";
             Loader.Size = new System.Drawing.Size( 731, 464 );

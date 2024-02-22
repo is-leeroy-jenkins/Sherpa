@@ -43,7 +43,7 @@
             // NotifyIcon
             // 
             NotifyIcon.BackColor = System.Drawing.Color.Transparent;
-            NotifyIcon.Image = Resources.Images.SplashNotification;
+            NotifyIcon.Image = Resources.Images.DialogImages.SplashNotification;
             NotifyIcon.Location = new System.Drawing.Point( 3, 3 );
             NotifyIcon.Name = "NotifyIcon";
             NotifyIcon.Size = new System.Drawing.Size( 24, 18 );
