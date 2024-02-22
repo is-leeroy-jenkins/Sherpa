@@ -66,7 +66,7 @@ namespace BudgetExecution
             {
                 return _recipients;
             }
-            private set
+            private protected set
             {
                 _recipients = value;
             }
@@ -84,7 +84,7 @@ namespace BudgetExecution
             {
                 return _copies;
             }
-            private set
+            private protected set
             {
                 _copies = value;
             }
@@ -102,7 +102,7 @@ namespace BudgetExecution
             {
                 return _sender;
             }
-            private set
+            private protected set
             {
                 _sender = value;
             }
@@ -120,7 +120,7 @@ namespace BudgetExecution
             {
                 return _displayName;
             }
-            private set
+            private protected set
             {
                 _displayName = value;
             }
@@ -138,7 +138,7 @@ namespace BudgetExecution
             {
                 return _subject;
             }
-            private set
+            private protected set
             {
                 _subject = value;
             }
@@ -156,7 +156,7 @@ namespace BudgetExecution
             {
                 return _priority;
             }
-            private set
+            private protected set
             {
                 _priority = value;
             }
@@ -174,7 +174,7 @@ namespace BudgetExecution
             {
                 return _userName;
             }
-            private set
+            private protected set
             {
                 _userName = value;
             }
@@ -192,7 +192,7 @@ namespace BudgetExecution
             {
                 return _password;
             }
-            private set
+            private protected set
             {
                 _password = value;
             }

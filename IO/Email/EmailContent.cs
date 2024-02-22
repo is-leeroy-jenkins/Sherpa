@@ -64,7 +64,7 @@ namespace BudgetExecution
             {
                 return _isHtml;
             }
-            private set
+            private protected set
             {
                 _isHtml = value;
             }
@@ -82,7 +82,7 @@ namespace BudgetExecution
             {
                 return _message;
             }
-            private set
+            private protected set
             {
                 _message = value;
             }
@@ -100,7 +100,7 @@ namespace BudgetExecution
             {
                 return _attachment;
             }
-            private set
+            private protected set
             {
                 _attachment = value;
             }

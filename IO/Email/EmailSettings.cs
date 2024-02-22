@@ -45,6 +45,9 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Net.Mail;
 
+    /// <summary>
+    /// 
+    /// </summary>
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     public abstract class EmailSettings
     {

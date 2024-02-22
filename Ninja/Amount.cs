@@ -110,6 +110,32 @@ namespace BudgetExecution
             Delta = Initial - Value;
         }
 
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.Amount" /> class.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        public Amount( decimal value = 0 )
+            : this( )
+        {
+            Value = (double)value;
+            Delta = Initial - Value;
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.Amount" /> class.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        public Amount( float value = 0 )
+            : this( )
+        {
+            Value = (double)value;
+            Delta = Initial - Value;
+        }
+
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="Amount"/> class.
