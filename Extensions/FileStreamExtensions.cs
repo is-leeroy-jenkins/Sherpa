@@ -42,10 +42,13 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Text;
 
     /// <summary> </summary>
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public static class FileStreamExtensions
     {
         /// <summary>
@@ -55,12 +58,9 @@ namespace BudgetExecution
         /// <returns> The iterator </returns>
         public static IEnumerable<string> IterateLines( this TextReader reader )
         {
-            if( reader != null )
+            while( reader.ReadLine( ) != null )
             {
-                while( reader.ReadLine( ) != null )
-                {
-                    yield return reader.ReadLine( );
-                }
+                yield return reader.ReadLine( );
             }
         }
 
@@ -71,20 +71,17 @@ namespace BudgetExecution
         /// <param name="action"> The action. </param>
         public static void IterateLines( this TextReader reader, Action<string> action )
         {
-            if( ( reader != null )
-               && ( action != null ) )
+            try
             {
-                try
+                ThrowIf.Null( action, nameof( action ) );
+                foreach( var _line in reader.IterateLines( ) )
                 {
-                    foreach( var _line in reader.IterateLines( ) )
-                    {
-                        action( _line );
-                    }
+                    action( _line );
                 }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 

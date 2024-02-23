@@ -46,22 +46,24 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Forms;
 
-    /// <summary> </summary>
-    [ SuppressMessage( "ReSharper", "UseNullPropagation" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    [SuppressMessage( "ReSharper", "UseNullPropagation" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertIfStatementToReturnStatement" ) ]
     public static class BindingSourceExtensions
     {
-        /// <summary> The GetCurrentDataRow </summary>
-        /// <param name="bindingSource">
-        /// The bindingSource
-        /// <see cref="BindingSource"/>
-        /// </param>
+        /// <summary>
+        /// The GetCurrentDataRow
+        /// </summary>
+        /// <param name="bindingSource">The bindingSource
+        /// <see cref="BindingSource" /></param>
         /// <returns>
         /// The
-        /// <see cref="DataRow"/>
+        /// <see cref="DataRow" />
         /// </returns>
         public static DataRow GetCurrentDataRow( this BindingSource bindingSource )
         {
@@ -83,9 +85,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the rows. </summary>
-        /// <param name="bindingSource"> The binding source. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the rows.
+        /// </summary>
+        /// <param name="bindingSource">The binding source.</param>
+        /// <returns></returns>
         public static IEnumerable<DataRow> GetDataRows( this BindingSource bindingSource )
         {
             if( bindingSource.DataSource != null )
@@ -107,9 +111,11 @@ namespace BudgetExecution
             return default( IEnumerable<DataRow> );
         }
 
-        /// <summary> Gets the data table. </summary>
-        /// <param name="bindingSource"> The binding source. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the data table.
+        /// </summary>
+        /// <param name="bindingSource">The binding source.</param>
+        /// <returns></returns>
         public static DataTable GetDataTable( this BindingSource bindingSource )
         {
             if( bindingSource.DataSource != null )
@@ -131,8 +137,10 @@ namespace BudgetExecution
             return default( DataTable );
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

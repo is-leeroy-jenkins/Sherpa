@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="TypeObject.cs" company="Terry D. Eppler">
+// <copyright file="TypeExtensions.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -31,10 +31,10 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//    Contact at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   TypeObject.cs
+//   TypeExtensions.cs
 // </summary>
 // ******************************************************************************************
 
@@ -47,93 +47,89 @@ namespace BudgetExecution
     using System.Text;
     using System.Xml.Serialization;
 
-    /// <summary> </summary>
-    [ SuppressMessage( "ReSharper", "CompareNonConstrainedGenericWithNull" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    [SuppressMessage( "ReSharper", "CompareNonConstrainedGenericWithNull" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public static class TypeExtensions
     {
-        /// <summary> Converts to json. </summary>
-        /// <typeparam name="T"> </typeparam>
-        /// <param name="type"> The type. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Converts to json.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="type">The type.</param>
+        /// <returns></returns>
         public static string ToJson<T>( this T type )
         {
-            if( type != null )
+            try
             {
-                try
-                {
-                    var _encoding = Encoding.Default;
-                    var _serializer = new DataContractJsonSerializer( typeof( T ) );
-                    using var _stream = new MemoryStream( );
-                    _serializer.WriteObject( _stream, type );
-                    var _json = _encoding.GetString( _stream.ToArray( ) );
-                    return _json;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( string );
-                }
+                var _encoding = Encoding.Default;
+                var _serializer = new DataContractJsonSerializer( typeof( T ) );
+                using var _stream = new MemoryStream( );
+                _serializer.WriteObject( _stream, type );
+                var _json = _encoding.GetString( _stream.ToArray( ) );
+                return _json;
             }
-
-            return default( string );
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( string );
+            }
         }
 
-        /// <summary> Javas the script serialize. </summary>
-        /// <typeparam name="T"> </typeparam>
-        /// <param name="type"> The type. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Javas the script serialize.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="type">The type.</param>
+        /// <returns></returns>
         public static string JavaScriptSerialize<T>( this T type )
         {
-            if( type != null )
+            try
             {
-                try
-                {
-                    var _encoding = Encoding.Default;
-                    var _serializer = new DataContractJsonSerializer( typeof( T ) );
-                    using var _stream = new MemoryStream( );
-                    _serializer.WriteObject( _stream, type );
-                    var _json = _encoding.GetString( _stream.ToArray( ) );
-                    return _json;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( string );
-                }
+                var _encoding = Encoding.Default;
+                var _serializer = new DataContractJsonSerializer( typeof( T ) );
+                using var _stream = new MemoryStream( );
+                _serializer.WriteObject( _stream, type );
+                var _json = _encoding.GetString( _stream.ToArray( ) );
+                return _json;
             }
-
-            return default( string );
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( string );
+            }
         }
 
-        /// <summary> XMLs the serialize. </summary>
-        /// <typeparam name="T"> </typeparam>
-        /// <param name="type"> The type. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// XMLs serialize.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="type">The type.</param>
+        /// <returns></returns>
         public static string XmlSerialize<T>( this T type )
         {
-            if( type != null )
+            try
             {
-                try
-                {
-                    var _serializer = new XmlSerializer( type.GetType( ) );
-                    using var _writer = new StringWriter( );
-                    _serializer?.Serialize( _writer, type );
-                    var _string = _writer?.GetStringBuilder( )?.ToString( );
-                    using var _reader = new StringReader( _string );
-                    return _reader?.ReadToEnd( ) ?? string.Empty;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( string );
-                }
+                var _serializer = new XmlSerializer( type.GetType( ) );
+                using var _writer = new StringWriter( );
+                _serializer?.Serialize( _writer, type );
+                var _string = _writer?.GetStringBuilder( )?.ToString( );
+                using var _reader = new StringReader( _string );
+                return _reader?.ReadToEnd( ) ?? string.Empty;
             }
-
-            return default( string );
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( string );
+            }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

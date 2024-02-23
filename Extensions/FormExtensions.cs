@@ -71,9 +71,16 @@ namespace BudgetExecution
         /// <returns></returns>
         public static void ResizeToTextWidth( this Control control )
         {
-            using var g = control.CreateGraphics( );
-            var _length = g.MeasureString( control.Text, control.Font ).Width;
-            control.Width = (int)Math.Ceiling( _length );
+            try
+            {
+                using var _graphics = control.CreateGraphics( );
+                var _length = _graphics.MeasureString( control.Text, control.Font ).Width;
+                control.Width = (int)Math.Ceiling( _length );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>

@@ -45,43 +45,90 @@ namespace BudgetExecution
     using System.Linq;
     using System.Diagnostics.CodeAnalysis;
 
-    /// <summary> </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public static class OptionExtensions
     {
-        /// <summary> Firsts the or none. </summary>
-        /// <typeparam name="T"> </typeparam>
-        /// <param name="enumerable"> The enumerable. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Firsts or none.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="enumerable">The enumerable.</param>
+        /// <returns></returns>
         public static Option<T> FirstOrNone<T>( this IEnumerable<T> enumerable )
         {
-            return enumerable.Select( x => (Option<T>) new Some<T>( x ) ).FirstOrDefault( );
+            try
+            {
+                return enumerable
+                    ?.Select( x => (Option<T>)new Some<T>( x ) )
+                    ?.FirstOrDefault( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( Option<T> );
+            }
         }
 
-        /// <summary> Firsts the or none. </summary>
-        /// <typeparam name="T"> </typeparam>
-        /// <param name="enumerable"> The enumerable. </param>
-        /// <param name="predicate"> The predicate. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// First or none.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="enumerable">The enumerable.</param>
+        /// <param name="predicate">The predicate.</param>
+        /// <returns></returns>
         public static Option<T> FirstOrNone<T>( this IEnumerable<T> enumerable,
             Func<T, bool> predicate )
         {
-            return enumerable.Where( predicate ).FirstOrNone( );
+            try
+            {
+                return enumerable
+                    ?.Where( predicate )
+                    ?.FirstOrNone( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( Option<T> );
+            }
         }
 
-        /// <summary> Selects the optional. </summary>
-        /// <typeparam name="T"> </typeparam>
-        /// <typeparam name="TResult"> The type of the result. </typeparam>
-        /// <param name="enumerable"> The enumerable. </param>
-        /// <param name="map"> The map. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Selects the optional.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TResult">The type of the result.</typeparam>
+        /// <param name="enumerable">The enumerable.</param>
+        /// <param name="map">The map.</param>
+        /// <returns></returns>
         public static IEnumerable<TResult> SelectOptional<T, TResult>(
             this IEnumerable<T> enumerable, Func<T, Option<TResult>> map )
         {
-            return (IEnumerable<TResult>)enumerable.Select( map )
-                .OfType<Some<TResult>>( )
-                .Select( s => s.IsSome );
+            try
+            {
+                return (IEnumerable<TResult>)enumerable
+                    ?.Select( map ).OfType<Some<TResult>>( )
+                    ?.Select( s => s.IsSome );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IEnumerable<TResult> );
+            }
+        }
+
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        private static void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

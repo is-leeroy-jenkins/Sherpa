@@ -48,19 +48,21 @@ namespace BudgetExecution
     using System.Linq;
     using System.Windows.Forms;
 
-    /// <summary> </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public static class DataGridExtensions
     {
-        /// <summary> The GetDataTable </summary>
-        /// <param name="dataGridView">
-        /// The dataGridView
-        /// <see cref="DataGridView"/>
-        /// </param>
+        /// <summary>
+        /// The GetDataTable
+        /// </summary>
+        /// <param name="dataGridView">The dataGridView
+        /// <see cref="DataGridView" /></param>
         /// <returns>
         /// The
-        /// <see cref="DataTable"/>
+        /// <see cref="DataTable" />
         /// </returns>
         public static DataTable GetDataTable( this DataGridView dataGridView )
         {
@@ -99,17 +101,15 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> The SetColumns </summary>
-        /// <param name="dataGridView"> The dataGridView </param>
-        /// <param name="columns">
-        /// The fields
-        /// <see>
-        /// <cref> string[] </cref>
-        /// </see>
-        /// </param>
+        /// <summary>
+        /// The SetColumns
+        /// </summary>
+        /// <param name="dataGridView">The dataGridView</param>
+        /// <param name="columns">The fields
+        /// <see><cref> string[] </cref></see></param>
         /// <returns>
         /// The
-        /// <see cref="DataTable"/>
+        /// <see cref="DataTable" />
         /// </returns>
         public static DataTable SetColumns( this DataGridView dataGridView, string[ ] columns )
         {
@@ -141,18 +141,16 @@ namespace BudgetExecution
             return default( DataTable );
         }
 
-        /// <summary> The SetColumns </summary>
-        /// <param name="dataGridView">
-        /// The dataGridView
-        /// <see cref="DataGridView"/>
-        /// </param>
-        /// <param name="index">
-        /// The index
-        /// <see/>
-        /// </param>
+        /// <summary>
+        /// The SetColumns
+        /// </summary>
+        /// <param name="dataGridView">The dataGridView
+        /// <see cref="DataGridView" /></param>
+        /// <param name="index">The index
+        /// <see /></param>
         /// <returns>
         /// The
-        /// <see cref="DataTable"/>
+        /// <see cref="DataTable" />
         /// </returns>
         public static DataTable SetColumns( this DataGridView dataGridView, int[ ] index )
         {
@@ -189,14 +187,14 @@ namespace BudgetExecution
             return default( DataTable );
         }
 
-        /// <summary> The CommaDelimitedRows </summary>
-        /// <param name="dataGridView">
-        /// The dataGridView
-        /// <see cref="DataGridView"/>
-        /// </param>
+        /// <summary>
+        /// The CommaDelimitedRows
+        /// </summary>
+        /// <param name="dataGridView">The dataGridView
+        /// <see cref="DataGridView" /></param>
         /// <returns>
         /// The
-        /// <see/>
+        /// <see />
         /// </returns>
         public static string[ ] CommaDelimitedRows( this DataGridView dataGridView )
         {
@@ -244,15 +242,13 @@ namespace BudgetExecution
             return default( string[ ] );
         }
 
-        /// <summary> The ExportToCommaDelimitedFile </summary>
-        /// <param name="dataGridView">
-        /// The dataGridView
-        /// <see cref="DataGridView"/>
-        /// </param>
-        /// <param name="fileName">
-        /// The fileName
-        /// <see cref="string"/>
-        /// </param>
+        /// <summary>
+        /// The ExportToCommaDelimitedFile
+        /// </summary>
+        /// <param name="dataGridView">The dataGridView
+        /// <see cref="DataGridView" /></param>
+        /// <param name="fileName">The fileName
+        /// <see cref="string" /></param>
         public static void ExportToCommaDelimitedFile( this DataGridView dataGridView,
                                                        string fileName )
         {
@@ -278,11 +274,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> The ExpandColumns </summary>
-        /// <param name="dataGridView">
-        /// The dataGridView
-        /// <see cref="DataGridView"/>
-        /// </param>
+        /// <summary>
+        /// The ExpandColumns
+        /// </summary>
+        /// <param name="dataGridView">The dataGridView
+        /// <see cref="DataGridView" /></param>
         public static void ExpandColumns( this DataGridView dataGridView )
         {
             try
@@ -298,15 +294,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> The PascalizeHeaders </summary>
-        /// <param name="dataGridView">
-        /// The dataGridView
-        /// <see cref="DataGridView"/>
-        /// </param>
-        /// <param name="dataTable">
-        /// The dataTable
-        /// <see cref="DataTable"/>
-        /// </param>
+        /// <summary>
+        /// The PascalizeHeaders
+        /// </summary>
+        /// <param name="dataGridView">The dataGridView
+        /// <see cref="DataGridView" /></param>
+        /// <param name="dataTable">The dataTable
+        /// <see cref="DataTable" /></param>
         public static void PascalizeHeaders( this DataGridView dataGridView, DataTable dataTable )
         {
             if( ( dataGridView != null )
@@ -331,11 +325,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> The PascalizeHeaders </summary>
-        /// <param name="dataGridView">
-        /// The dataGridView
-        /// <see cref="DataGridView"/>
-        /// </param>
+        /// <summary>
+        /// The PascalizeHeaders
+        /// </summary>
+        /// <param name="dataGridView">The dataGridView
+        /// <see cref="DataGridView" /></param>
         public static void PascalizeHeaders( this DataGridView dataGridView )
         {
             if( dataGridView?.DataSource != null )
@@ -363,8 +357,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the column format. </summary>
-        /// <param name="dataGridView"> The data grid view. </param>
+        /// <summary>
+        /// Sets the column format.
+        /// </summary>
+        /// <param name="dataGridView">The data grid view.</param>
         public static void FormatColumns( this DataGridView dataGridView )
         {
             if( dataGridView?.DataSource != null )
@@ -413,8 +409,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
