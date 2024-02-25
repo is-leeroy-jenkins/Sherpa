@@ -52,19 +52,28 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public class Some<T> : Option<T>
     {
-        /// <summary> The value </summary>
+        /// <summary>
+        /// The value
+        /// </summary>
         private readonly T _value;
 
         /// <inheritdoc/>
-        /// <summary> Gets the value. </summary>
+        /// <summary>
+        /// Gets the value.
+        /// </summary>
         /// <value> The value. </value>
         public override T Value
         {
-            get { return _value; }
+            get
+            {
+                return _value;
+            }
         }
 
         /// <inheritdoc/>
-        /// <summary> Gets a value indicating whether this instance is some. </summary>
+        /// <summary>
+        /// Gets a value indicating whether this instance is some.
+        /// </summary>
         /// <value>
         /// <c> true </c>
         /// if this instance is some; otherwise,
@@ -73,11 +82,16 @@ namespace BudgetExecution
         /// </value>
         public override bool IsSome
         {
-            get { return true; }
+            get
+            {
+                return true;
+            }
         }
 
         /// <inheritdoc/>
-        /// <summary> Gets a value indicating whether this instance is none. </summary>
+        /// <summary>
+        /// Gets a value indicating whether this instance is none.
+        /// </summary>
         /// <value>
         /// <c> true </c>
         /// if this instance is none; otherwise,
@@ -86,21 +100,26 @@ namespace BudgetExecution
         /// </value>
         public override bool IsNone
         {
-            get { return false; }
+            get
+            {
+                return false;
+            }
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Some{T}"/>
+        /// <see cref="Some{T}" />
         /// class.
         /// </summary>
-        /// <param name="value"> The value. </param>
-        /// <exception cref="System.ArgumentNullException"> value - Some value was null, use NoData instead </exception>
+        /// <param name="value">The value.</param>
+        /// <exception cref="System.ArgumentNullException">
+        /// value - Some value was null, use Empty instead
+        /// </exception>
         public Some( T value )
         {
             if( value == null )
             {
-                var _msg = "The value for 'Some' was null...use 'NoData' instead";
+                var _msg = "The value for 'Some' was null...use 'Empty' instead";
                 throw new ArgumentNullException( nameof( value ), _msg );
             }
 
@@ -108,10 +127,14 @@ namespace BudgetExecution
         }
 
         /// <inheritdoc/>
-        /// <summary> Maps the specified function. </summary>
+        /// <summary>
+        /// Maps the specified function.
+        /// </summary>
         /// <typeparam name="TResult"> The type of the result. </typeparam>
         /// <param name="func"> The function. </param>
-        /// <returns> </returns>
+        /// <returns>
+        /// Option{TResult}
+        /// </returns>
         public override Option<TResult> Map<TResult>( Func<T, TResult> func )
         {
             try
@@ -126,11 +149,15 @@ namespace BudgetExecution
         }
 
         /// <inheritdoc/>
-        /// <summary> Matches the specified some function. </summary>
+        /// <summary>
+        /// Matches the specified some function.
+        /// </summary>
         /// <typeparam name="TResult"> The type of the result. </typeparam>
         /// <param name="someFunc"> Some function. </param>
         /// <param name="noneFunc"> The none function. </param>
-        /// <returns> </returns>
+        /// <returns>
+        /// TResult
+        /// </returns>
         public override TResult Match<TResult>( Func<T, TResult> someFunc, Func<TResult> noneFunc )
         {
             try

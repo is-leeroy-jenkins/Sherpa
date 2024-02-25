@@ -38,13 +38,12 @@
 // </summary>
 // ******************************************************************************************
 
-using System.Data;
-using System.Data.OleDb;
-using System.Windows.Forms;
-
 namespace BudgetExecution
 {
     using System;
+    using System.Data;
+    using System.Data.OleDb;
+    using System.Windows.Forms;
     using System.Collections.Generic;
 
     /// <inheritdoc />
@@ -199,8 +198,8 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( fileName, nameof( fileName ) );
-                ThrowIf.NullOrEmpty( sheetName, nameof( sheetName ) );
+                ThrowIf.Null( fileName, nameof( fileName ) );
+                ThrowIf.Null( sheetName, nameof( sheetName ) );
                 var _dataSet = new DataSet( );
                 var _dataTable = new DataTable( );
                 _dataSet.DataSetName = fileName;
@@ -273,8 +272,8 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( sheetName, nameof( sheetName ) );
-                ThrowIf.NoData( schemaTable, nameof( schemaTable ) );
+                ThrowIf.Null( sheetName, nameof( sheetName ) );
+                ThrowIf.Empty( schemaTable, nameof( schemaTable ) );
                 for( var _i = 0; _i < schemaTable.Rows.Count; _i++ )
                 {
                     var _dataRow = schemaTable.Rows[ _i ];

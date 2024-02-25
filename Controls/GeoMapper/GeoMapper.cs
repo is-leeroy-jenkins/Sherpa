@@ -384,7 +384,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( name, nameof( name ) );
+                ThrowIf.Null( name, nameof( name ) );
                 var _overlay = new GMapOverlay( name );
                 var _point = new PointLatLng( latitude, longitude );
                 var _marker = new GMarkerGoogle( _point, GMarkerGoogleType.blue_pushpin );

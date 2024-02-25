@@ -249,8 +249,8 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NoData( dataTable, nameof( dataTable ) );
-                ThrowIf.NullOrEmpty( filePath, nameof( filePath ) );
+                ThrowIf.Empty( dataTable, nameof( dataTable ) );
+                ThrowIf.Null( filePath, nameof( filePath ) );
                 using var _excelPackage = ReadExcelFile( filePath );
                 var _name = Path.GetFileNameWithoutExtension( filePath );
                 var _excelWorksheet = _excelPackage?.Workbook?.Worksheets?.Add( _name );
@@ -324,9 +324,9 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( sheetName, nameof( sheetName ) );
+                ThrowIf.Null( sheetName, nameof( sheetName ) );
                 var _dataSet = new DataSet( );
-                var _connection = DataConnection as OleDbConnection;
+                var _connection = _dataConnection as OleDbConnection;
                 _connection?.Open( );
                 var _sql = $"SELECT * FROM ${sheetName}";
                 var _schema = _connection?.GetOleDbSchemaTable( OleDbSchemaGuid.Tables, null );
@@ -342,8 +342,8 @@ namespace BudgetExecution
                     sheetName = _schema?.Rows[ 0 ][ "TABLENAME" ].ToString( );
                 }
 
-                var _adapter = new OleDbDataAdapter( _sql, _connection );
-                _adapter?.Fill( _dataSet );
+                _dataAdapter = new OleDbDataAdapter( _sql, _connection );
+                _dataAdapter?.Fill( _dataSet );
                 return _dataSet?.Tables[ 0 ];
             }
             catch( Exception _ex )
@@ -363,8 +363,8 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( fileName, nameof( fileName ) );
-                ThrowIf.NullOrEmpty( sheetName, nameof( sheetName ) );
+                ThrowIf.Null( fileName, nameof( fileName ) );
+                ThrowIf.Null( sheetName, nameof( sheetName ) );
                 var _data = new DataSet( );
                 var _sql = $"SELECT * FROM {sheetName}";
                 var _connectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;"
@@ -387,7 +387,7 @@ namespace BudgetExecution
                     sheetName = _schema?.Rows[ 0 ][ "TABLENAME" ].ToString( );
                 }
 
-                var _dataAdapter = new OleDbDataAdapter( _sql, _connection );
+                _dataAdapter = new OleDbDataAdapter( _sql, _connection );
                 _dataAdapter.Fill( _data );
                 return _data.Tables[ 0 ];
             }
@@ -430,7 +430,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( filePath, nameof( filePath ) );
+                ThrowIf.Null( filePath, nameof( filePath ) );
                 var _fileInfo = new FileInfo( filePath );
                 return new ExcelPackage( _fileInfo );
             }
@@ -491,8 +491,8 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( sheetName, nameof( sheetName ) );
-                ThrowIf.NoData( dataTable, nameof( dataTable ) );
+                ThrowIf.Null( sheetName, nameof( sheetName ) );
+                ThrowIf.Empty( dataTable, nameof( dataTable ) );
                 for( var _i = 0; _i < dataTable.Rows.Count; _i++ )
                 {
                     var _dataRow = dataTable.Rows[ _i ];

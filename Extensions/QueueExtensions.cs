@@ -42,9 +42,20 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
 
+    /// <summary>
+    /// 
+    /// </summary>
+    [SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public static class QueueExtensions
     {
+        /// <summary>
+        /// Adds the specified item.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="queue">The queue.</param>
+        /// <param name="item">The item.</param>
         public static void Add<T>( this Queue<T> queue, T item )
         {
             queue.Enqueue( item );

@@ -339,7 +339,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( message, nameof( message ) );
+                ThrowIf.Null( message, nameof( message ) );
                 _message = message;
                 _data = Encoding.ASCII.GetBytes( message );
                 if( _socket.Connected )
@@ -367,7 +367,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( message, nameof( message ) );
+                ThrowIf.Null( message, nameof( message ) );
                 var _notify = new SplashMessage( message );
                 _notify.Show( );
             }

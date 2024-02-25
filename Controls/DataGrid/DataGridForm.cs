@@ -778,7 +778,7 @@ namespace BudgetExecution
             _time = 0;
             _seconds = 5;
 
-            // Budget Attributes
+            // Budget Collections
             _filter = new Dictionary<string, object>( );
             _selectedColumns = new List<string>( );
             _selectedFields = new List<string>( );
@@ -1079,7 +1079,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the layouts.
         /// </summary>
-        private void InitializeLayouts( )
+        private void InitializeTablePanels( )
         {
             try
             {
@@ -1354,7 +1354,7 @@ namespace BudgetExecution
 
                     if( !string.IsNullOrEmpty( FirstValue ) )
                     {
-                        foreach( var _item in Fields )
+                        foreach( var _item in _fields )
                         {
                             if( !_item.Equals( FirstCategory ) )
                             {
@@ -1423,7 +1423,7 @@ namespace BudgetExecution
                         FieldListBox.Items?.Clear( );
                     }
 
-                    foreach( var _item in Fields )
+                    foreach( var _item in _fields )
                     {
                         FieldListBox.Items.Add( _item );
                     }
@@ -1580,8 +1580,8 @@ namespace BudgetExecution
         {
             try
             {
-                ClearSelections( );
-                ClearCollections( );
+                ClearCategoryValueSelections( );
+                ClearSchemaSelections( );
                 ClearFilter( );
                 BindingSource.DataSource = null;
                 DataGrid.DataSource = null;
@@ -1614,7 +1614,7 @@ namespace BudgetExecution
         /// <summary>
         /// Clears the collections.
         /// </summary>
-        private void ClearCollections( )
+        private void ClearSchemaSelections( )
         {
             try
             {
@@ -1642,10 +1642,12 @@ namespace BudgetExecution
         /// <summary>
         /// Clears the selections.
         /// </summary>
-        private void ClearSelections( )
+        private void ClearCategoryValueSelections( )
         {
             try
             {
+                _fourthValue = string.Empty;
+                _fourthCategory = string.Empty;
                 _thirdCategory = string.Empty;
                 _thirdValue = string.Empty;
                 _secondCategory = string.Empty;
@@ -1752,7 +1754,7 @@ namespace BudgetExecution
                 try
                 {
                     ThrowIf.Null( where, nameof( where ) );
-                    ThrowIf.NullOrEmpty( columns, nameof( columns ) );
+                    ThrowIf.Empty( columns, nameof( columns ) );
                     var _cols = string.Empty;
                     foreach( var _name in columns )
                     {
@@ -1782,15 +1784,17 @@ namespace BudgetExecution
         /// <param name="fields">The fields.</param>
         /// <param name="numerics">The numerics.</param>
         /// <param name="where">The where.</param>
-        /// <returns></returns>
+        /// <returns>
+        /// string
+        /// </returns>
         private string CreateSqlCommand( IEnumerable<string> fields, IEnumerable<string> numerics,
             IDictionary<string, object> where )
         {
             try
             {
-                ThrowIf.Null( where, nameof( where ) );
-                ThrowIf.NullOrEmpty( fields, nameof( fields ) );
-                ThrowIf.NullOrEmpty( numerics, nameof( numerics ) );
+                ThrowIf.Empty( where, nameof( where ) );
+                ThrowIf.Empty( fields, nameof( fields ) );
+                ThrowIf.Empty( numerics, nameof( numerics ) );
                 var _cols = string.Empty;
                 var _aggr = string.Empty;
                 foreach( var _name in fields )
@@ -2295,14 +2299,14 @@ namespace BudgetExecution
         {
             try
             {
-                ClearSelections( );
+                ClearCategoryValueSelections( );
                 InitializeRadioButtons( );
                 SetFormIcon( );
                 InitializeToolStrip( );
                 InitializeTitle( );
                 InitializeLabels( );
                 InitializeTabControl( );
-                InitializeLayouts( );
+                InitializeTablePanels( );
                 InitializeTimer( );
                 if( !string.IsNullOrEmpty( _selectedTable ) )
                 {
@@ -2346,13 +2350,13 @@ namespace BudgetExecution
 
                     _dataModel = new DataBuilder( _source, _provider );
                     _dataTable = _dataModel.DataTable;
-                    BindingSource.DataSource = _dataModel.DataTable;
+                    _fields = _dataModel.Fields;
+                    _numerics = _dataModel.Numerics;
+                    BindingSource.DataSource = _dataTable;
+                    ToolStrip.BindingSource = BindingSource;
                     DataGrid.DataSource = BindingSource;
                     DataGrid.PascalizeHeaders( );
                     DataGrid.FormatColumns( );
-                    ToolStrip.BindingSource = BindingSource;
-                    _fields = _dataModel.Fields;
-                    _numerics = _dataModel.Numerics;
                     QueryTabControl.SelectedIndex = 1;
                     UpdateLabelText( );
                     PopulateFirstComboBoxItems( );
@@ -2669,8 +2673,8 @@ namespace BudgetExecution
             {
                 if( !string.IsNullOrEmpty( _selectedTable ) )
                 {
-                    ClearSelections( );
-                    ClearCollections( );
+                    ClearCategoryValueSelections( );
+                    ClearSchemaSelections( );
                     BindData( );
                     QueryTabControl.SelectedIndex = 1;
                     DataGrid.PascalizeHeaders( );
@@ -3062,8 +3066,8 @@ namespace BudgetExecution
         {
             try
             {
-                ClearSelections( );
-                ClearCollections( );
+                ClearCategoryValueSelections( );
+                ClearSchemaSelections( );
                 FadeOut( );
             }
             catch( Exception _ex )

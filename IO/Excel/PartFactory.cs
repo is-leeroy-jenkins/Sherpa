@@ -165,9 +165,9 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( excelRange, nameof( excelRange ) );
-                ThrowIf.NullOrEmpty( tableName, nameof( tableName ) );
-                ThrowIf.NullOrEmpty( rows, nameof( rows ) );
-                ThrowIf.NullOrEmpty( data, nameof( data ) );
+                ThrowIf.Null( tableName, nameof( tableName ) );
+                ThrowIf.Empty( rows, nameof( rows ) );
+                ThrowIf.Empty( data, nameof( data ) );
                 var _startRow = excelRange.Start.Row;
                 var _startColumn = excelRange.Start.Column;
                 var _endRow = excelRange.End.Row;
@@ -258,9 +258,9 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( excelRange, nameof( excelRange ) );
-                ThrowIf.NullOrEmpty( chartName, nameof( chartName ) );
-                ThrowIf.NullOrEmpty( row, nameof( row ) );
-                ThrowIf.NullOrEmpty( column, nameof( column ) );
+                ThrowIf.Null( chartName, nameof( chartName ) );
+                ThrowIf.Null( row, nameof( row ) );
+                ThrowIf.Null( column, nameof( column ) );
                 var _startRow = excelRange.Start.Row;
                 var _startColumn = excelRange.Start.Column;
                 var _endRow = excelRange.End.Row;
@@ -320,9 +320,9 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( excelRange, nameof( excelRange ) );
-                ThrowIf.NullOrEmpty( chartName, nameof( chartName ) );
-                ThrowIf.NullOrEmpty( row, nameof( row ) );
-                ThrowIf.NullOrEmpty( column, nameof( column ) );
+                ThrowIf.Null( chartName, nameof( chartName ) );
+                ThrowIf.Null( row, nameof( row ) );
+                ThrowIf.Null( column, nameof( column ) );
                 var _startRow = excelRange.Start.Row;
                 var _startColumn = excelRange.Start.Column;
                 var _endRow = excelRange.End.Row;
@@ -382,9 +382,9 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( excelRange, nameof( excelRange ) );
-                ThrowIf.NullOrEmpty( chartName, nameof( chartName ) );
-                ThrowIf.NullOrEmpty( row, nameof( row ) );
-                ThrowIf.NullOrEmpty( column, nameof( column ) );
+                ThrowIf.Null( chartName, nameof( chartName ) );
+                ThrowIf.Null( row, nameof( row ) );
+                ThrowIf.Null( column, nameof( column ) );
                 var _startRow = excelRange.Start.Row;
                 var _startColumn = excelRange.Start.Column;
                 var _endRow = excelRange.End.Row;
@@ -440,7 +440,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( text, nameof( text ) );
+                ThrowIf.Null( text, nameof( text ) );
                 ThrowIf.Null( excelRange, nameof( excelRange ) );
                 var _startRow = excelRange.Start.Row;
                 var _startColumn = excelRange.Start.Column;

@@ -156,6 +156,7 @@ namespace BudgetExecution
         /// Gets the data.
         /// </summary>
         /// <returns>
+        /// IEnumerable{DataRow}
         /// </returns>
         public IEnumerable<DataRow> GetData( )
         {
@@ -182,6 +183,7 @@ namespace BudgetExecution
         /// Gets the data table.
         /// </summary>
         /// <returns>
+        /// DataTable
         /// </returns>
         private protected DataTable GetDataTable( )
         {
@@ -318,9 +320,10 @@ namespace BudgetExecution
 
                 foreach( DataColumn _col in _dataTable.Columns )
                 {
-                    if( ( !_col.ColumnName.EndsWith( "Id" ) && ( _col.Ordinal > 0 )
+                    if( ( !_col.ColumnName.EndsWith( "Id" ) 
                            && ( _col.DataType == typeof( double ) ) )
                        || ( _col.DataType == typeof( short ) )
+                       || ( _col.DataType == typeof( ushort ) )
                        || ( _col.DataType == typeof( long ) )
                        || ( _col.DataType == typeof( decimal ) )
                        || ( _col.DataType == typeof( float ) ) )
@@ -360,8 +363,10 @@ namespace BudgetExecution
                        && ( ( _col.DataType == typeof( DateTime ) )
                            || ( _col.DataType == typeof( DateOnly ) )
                            || ( _col.DataType == typeof( DateTimeOffset ) )
-                           || _col.ColumnName.EndsWith( nameof( Day ) )
-                           || _col.ColumnName.EndsWith( "Date" ) ) )
+                           || ( _col.ColumnName.EndsWith( "Day" ) 
+                               && _col.DataType == typeof( string ) )
+                           || ( _col.ColumnName.EndsWith( "Date" ) 
+                               && _col.DataType == typeof( string ) ) ) )
                     {
                         _list.Add( _col.ColumnName );
                     }
@@ -381,7 +386,8 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the primary keys.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         private protected IList<int> GetPrimaryKeys( )
         {
             try
@@ -408,7 +414,14 @@ namespace BudgetExecution
         /// </summary>
         private protected void BeginInit( )
         {
-            _busy = true;
+            try
+            {
+                _busy = true;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -416,7 +429,14 @@ namespace BudgetExecution
         /// </summary>
         private protected void EndInit( )
         {
-            _busy = false;
+            try
+            {
+                _busy = false;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
     }
 }

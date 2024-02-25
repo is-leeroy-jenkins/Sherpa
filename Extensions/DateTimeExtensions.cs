@@ -241,7 +241,7 @@ namespace BudgetExecution
                 {
                     var _timeSpan = endDate - startDate;
                     var _days = _timeSpan.TotalDays;
-                    var _count = 0;
+                    int _count;
                     for( _count = 0; _count < _days; _count++ )
                     {
                         var _dateTime = startDate.AddDays( _count );
@@ -259,7 +259,7 @@ namespace BudgetExecution
                 {
                     var _timeSpan = startDate - endDate;
                     var _days = _timeSpan.TotalDays;
-                    var _count = 0;
+                    int _count;
                     for( _count = 0; _count < _days; _count++ )
                     {
                         var _dateTime = endDate.AddDays( _count );
@@ -286,7 +286,8 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="startDate">The start date.</param>
         /// <param name="endDate">The end date.</param>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         public static IEnumerable<DateTime> GetWorkdays( this DateTime startDate, DateTime endDate )
         {
             try
@@ -367,7 +368,8 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="startDate">The start date.</param>
         /// <param name="days">The days.</param>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         public static DateTime AddWorkdays( this DateTime startDate, int days )
         {
             try
@@ -402,7 +404,8 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="startDate">The start date.</param>
         /// <param name="endDate">The end date.</param>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         public static int CountWeekDays( this DateTime startDate, DateTime endDate )
         {
             try
@@ -455,7 +458,9 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="startDate"> The start time. </param>
         /// <param name="endDate"> The end time. </param>
-        /// <returns> </returns>
+        /// <returns>
+        /// int
+        /// </returns>
         public static int CountWeekEnds( this DateTime startDate, DateTime endDate )
         {
             try
@@ -508,12 +513,13 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="startDate">The start date.</param>
         /// <param name="endDate">The end date.</param>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         public static int CountWorkdays( this DateTime startDate, DateTime endDate )
         {
             try
             {
-                var _workdays = 0;
+                int _workdays = 0;
                 if( endDate > startDate )
                 {
                     var _timeSpan = endDate - startDate;
@@ -563,7 +569,9 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="startDate">The start date.</param>
         /// <param name="endDate">The end date.</param>
-        /// <returns></returns>
+        /// <returns>
+        /// int
+        /// </returns>
         public static int CountHolidays( this DateTime startDate, DateTime endDate )
         {
             try

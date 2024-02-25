@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 2-24-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        2-24-2024
 // ******************************************************************************************
 // <copyright file="DataRowExtensions.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//    Budget Execution is a Federal Budget, Finance, and Accounting application
+//    for analysts with the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -31,7 +31,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//    Contact at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   DataRowExtensions.cs
@@ -51,17 +51,21 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
 
-    /// <summary> </summary>
+    /// <summary>
+    /// 
+    /// </summary>
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    public static class DataRowExtensions
+    internal static class DataRowExtensions
     {
-        /// <summary> Converts to sql db parameters. </summary>
-        /// <param name="dataRow"> The data row. </param>
-        /// <param name="provider"> The provider. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Converts to sql db parameters.
+        /// </summary>
+        /// <param name="dataRow">The data row.</param>
+        /// <param name="provider">The provider.</param>
+        /// <returns></returns>
         public static IEnumerable<DbParameter> ToSqlDbParameters( this DataRow dataRow,
-                                                                  Provider provider )
+            Provider provider )
         {
             if( ( dataRow?.ItemArray.Length > 0 )
                && Enum.IsDefined( typeof( Provider ), provider ) )
@@ -75,7 +79,6 @@ namespace BudgetExecution
                         switch( provider )
                         {
                             case Provider.SQLite:
-
                             {
                                 var _sqlite = new List<SQLiteParameter>( );
                                 for( var _i = 0; _i < _columns?.Count; _i++ )
@@ -90,9 +93,7 @@ namespace BudgetExecution
                                     ? _sqlite
                                     : default( IList<DbParameter> );
                             }
-
                             case Provider.SqlCe:
-
                             {
                                 var _sqlce = new List<SqlCeParameter>( );
                                 for( var _i = 0; _i < _columns?.Count; _i++ )
@@ -107,11 +108,9 @@ namespace BudgetExecution
                                     ? _sqlce
                                     : default( IList<DbParameter> );
                             }
-
                             case Provider.OleDb:
                             case Provider.Excel:
                             case Provider.Access:
-
                             {
                                 var _oledb = new List<OleDbParameter>( );
                                 for( var _i = 0; _i < _columns?.Count; _i++ )
@@ -126,9 +125,7 @@ namespace BudgetExecution
                                     ? _oledb
                                     : default( IList<DbParameter> );
                             }
-
                             case Provider.SqlServer:
-
                             {
                                 var _sqlserver = new List<SqlParameter>( );
                                 for( var _i = 0; _i < _columns?.Count; _i++ )
@@ -158,9 +155,11 @@ namespace BudgetExecution
             return default( IList<DbParameter> );
         }
 
-        /// <summary> Converts to dictionary. </summary>
-        /// <param name="dataRow"> The data row. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Converts to dictionary.
+        /// </summary>
+        /// <param name="dataRow">The data row.</param>
+        /// <returns></returns>
         public static IDictionary<string, object> ToDictionary( this DataRow dataRow )
         {
             try
@@ -194,14 +193,19 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the bytes. </summary>
-        /// <param name="dataRow"> The data row. </param>
-        /// <param name="columnName"> Name of the column. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the bytes.
+        /// </summary>
+        /// <param name="dataRow">The data row.</param>
+        /// <param name="columnName">Name of the column.</param>
+        /// <returns>
+        /// IEnumerable
+        /// </returns>
         public static IEnumerable<byte> GetBytes( this DataRow dataRow, string columnName )
         {
             try
             {
+                ThrowIf.Null( columnName, nameof( columnName ) );
                 return dataRow[ columnName ] as byte[ ];
             }
             catch( Exception _ex )
@@ -211,8 +215,26 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Iterates the items.
+        /// </summary>
+        /// <param name="dataRow">The data row.</param>
+        /// <returns></returns>
+        public static IEnumerator<object> IterateItems( this DataRow dataRow )
+        {
+            foreach( var _item in dataRow.ItemArray )
+            {
+                if( _item != null )
+                {
+                    yield return _item;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

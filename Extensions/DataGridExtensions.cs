@@ -51,8 +51,9 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public static class DataGridExtensions
     {
         /// <summary>
@@ -205,13 +206,13 @@ namespace BudgetExecution
                     var _list = new List<string>( );
                     foreach( var _row in dataGridView.Rows )
                     {
-                        if( !( (DataGridViewRow) _row )?.IsNewRow == true )
+                        if( !( (DataGridViewRow)_row )?.IsNewRow == true )
                         {
-                            var _cells = ( (DataGridViewRow) _row )?.Cells
+                            var _cells = ( (DataGridViewRow)_row )?.Cells
                                 ?.Cast<DataGridViewCell>( )
                                 ?.ToArray( );
 
-                            var _array = ( (DataGridViewRow) _row )?.Cells
+                            var _array = ( (DataGridViewRow)_row )?.Cells
                                 ?.Cast<DataGridViewCell>( )
                                 ?.ToArray( );
 
@@ -250,27 +251,24 @@ namespace BudgetExecution
         /// <param name="fileName">The fileName
         /// <see cref="string" /></param>
         public static void ExportToCommaDelimitedFile( this DataGridView dataGridView,
-                                                       string fileName )
+            string fileName )
         {
-            if( !string.IsNullOrEmpty( fileName )
-               && ( dataGridView != null ) )
+            try
             {
-                try
+                ThrowIf.Null( fileName, nameof( fileName ) );
+                var _baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                if( !string.IsNullOrEmpty( _baseDirectory ) )
                 {
-                    var _baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-                    if( !string.IsNullOrEmpty( _baseDirectory ) )
+                    var _path = Path.Combine( _baseDirectory, fileName );
+                    if( !string.IsNullOrEmpty( _path ) )
                     {
-                        var _path = Path.Combine( _baseDirectory, fileName );
-                        if( !string.IsNullOrEmpty( _path ) )
-                        {
-                            File.WriteAllLines( _path, dataGridView.CommaDelimitedRows( ) );
-                        }
+                        File.WriteAllLines( _path, dataGridView.CommaDelimitedRows( ) );
                     }
                 }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -295,7 +293,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// The PascalizeHeaders
+        /// Converts column captions to pascal casing
         /// </summary>
         /// <param name="dataGridView">The dataGridView
         /// <see cref="DataGridView" /></param>
@@ -303,30 +301,27 @@ namespace BudgetExecution
         /// <see cref="DataTable" /></param>
         public static void PascalizeHeaders( this DataGridView dataGridView, DataTable dataTable )
         {
-            if( ( dataGridView != null )
-               && ( dataTable?.Columns?.Count > 0 ) )
+            try
             {
-                try
+                ThrowIf.Empty( dataTable, nameof( dataTable ) );
+                for( var _i = 0; _i < dataGridView.Columns.Count; _i++ )
                 {
-                    for( var _i = 0; _i < dataGridView.Columns.Count; _i++ )
+                    var _column = dataTable?.Columns[ _i ];
+                    var _caption = _column?.ColumnName?.SplitPascal( );
+                    if( !string.IsNullOrEmpty( _caption ) )
                     {
-                        var _column = dataTable?.Columns[ _i ];
-                        var _caption = _column?.ColumnName?.SplitPascal( );
-                        if( !string.IsNullOrEmpty( _caption ) )
-                        {
-                            dataGridView.Columns[ _i ].HeaderText = _caption;
-                        }
+                        dataGridView.Columns[ _i ].HeaderText = _caption;
                     }
                 }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
         /// <summary>
-        /// The PascalizeHeaders
+        /// Converts column captions to pascal casing
         /// </summary>
         /// <param name="dataGridView">The dataGridView
         /// <see cref="DataGridView" /></param>

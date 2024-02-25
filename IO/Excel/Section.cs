@@ -323,7 +323,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NoItems( dict, nameof( dict ) );
+                ThrowIf.Empty( dict, nameof( dict ) );
                 var _items = dict.Values.ToArray( );
                 if( _cells.Count == _items.Length )
                 {
@@ -344,7 +344,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NoData( data, nameof( data ) );
+                ThrowIf.Empty( data, nameof( data ) );
                 var _items = data.ToArray( );
                 if( _cells.Count == _items?.Length )
                 {

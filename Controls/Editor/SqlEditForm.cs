@@ -1257,7 +1257,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( provider, nameof( provider ) );
+                ThrowIf.Null( provider, nameof( provider ) );
                 var _value = (Provider)Enum.Parse( typeof( Provider ), provider );
                 if( Enum.IsDefined( typeof( Provider ), _value ) )
                 {
@@ -1429,7 +1429,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NoItems( where, nameof( where ) );
+                ThrowIf.Empty( where, nameof( where ) );
                 BeginInit( );
                 var _sql = CreateSqlText( where );
                 _dataModel = new DataBuilder( _source, _provider, _sql );
@@ -1502,7 +1502,7 @@ namespace BudgetExecution
             {
                 ThrowIf.Null( fields, nameof( fields ) );
                 ThrowIf.Null( numerics, nameof( numerics ) );
-                ThrowIf.NoItems( where, nameof( where ) );
+                ThrowIf.Empty( where, nameof( where ) );
                 BeginInit( );
                 var _sql = CreateSqlText( fields, numerics, where );
                 _dataModel = new DataBuilder( _source, _provider, _sql );
@@ -1555,7 +1555,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NoItems( where, nameof( where ) );
+                ThrowIf.Empty( where, nameof( where ) );
                 return $"SELECT * FROM {_source} "
                     + $"WHERE {where.ToCriteria( )};";
             }
@@ -1584,7 +1584,7 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( columns, nameof( columns ) );
-                ThrowIf.NoItems( where, nameof( where ) );
+                ThrowIf.Empty( where, nameof( where ) );
                 var _cols = string.Empty;
                 foreach( var _name in columns )
                 {
@@ -1626,7 +1626,7 @@ namespace BudgetExecution
             {
                 ThrowIf.Null( fields, nameof( fields ) );
                 ThrowIf.Null( numerics, nameof( numerics ) );
-                ThrowIf.NoItems( where, nameof( where ) );
+                ThrowIf.Empty( where, nameof( where ) );
                 var _cols = string.Empty;
                 var _aggr = string.Empty;
                 foreach( var _name in fields )

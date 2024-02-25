@@ -1591,7 +1591,7 @@ namespace BudgetExecution
                 try
                 {
                     ThrowIf.Null( where, nameof( where ) );
-                    ThrowIf.NullOrEmpty( columns, nameof( columns ) );
+                    ThrowIf.Empty( columns, nameof( columns ) );
                     var _cols = string.Empty;
                     foreach( var _name in columns )
                     {
@@ -1626,8 +1626,8 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( where, nameof( where ) );
-                ThrowIf.NullOrEmpty( fields, nameof( fields ) );
-                ThrowIf.NullOrEmpty( numerics, nameof( numerics ) );
+                ThrowIf.Empty( fields, nameof( fields ) );
+                ThrowIf.Empty( numerics, nameof( numerics ) );
                 var _cols = string.Empty;
                 var _aggr = string.Empty;
                 foreach( var _name in fields )
@@ -1689,8 +1689,8 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.Null( where, nameof( where ) );
-                ThrowIf.NullOrEmpty( cols, nameof( cols ) );
+                ThrowIf.Empty( where, nameof( where ) );
+                ThrowIf.Empty( cols, nameof( cols ) );
                 var _sql = CreateSqlText( cols, where );
                 _dataModel = new DataBuilder( _source, _provider, _sql );
                 _dataTable = _dataModel?.DataTable;

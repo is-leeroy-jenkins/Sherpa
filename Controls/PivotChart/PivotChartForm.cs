@@ -1551,7 +1551,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( text, nameof( text ) );
+                ThrowIf.Null( text, nameof( text ) );
                 var _notification = new Notification( text );
                 _notification.Show( );
             }
@@ -1569,7 +1569,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( text, nameof( text ) );
+                ThrowIf.Null( text, nameof( text ) );
                 var _message = new SplashMessage( text );
                 _message.Show( );
             }
@@ -1622,7 +1622,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( type, nameof( type ) );
+                ThrowIf.Null( type, nameof( type ) );
                 if( Enum.IsDefined( typeof( PivotChartTypes ), type ) )
                 {
                     _chartType = (PivotChartTypes)Enum.Parse( typeof( PivotChartTypes ), type );

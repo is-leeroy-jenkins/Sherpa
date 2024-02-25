@@ -301,7 +301,6 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( excelRange, nameof( excelRange ) );
-                ThrowIf.NullOrEmpty( color, nameof( color ) );
                 var _startRow = excelRange.Start.Row;
                 var _startColumn = excelRange.Start.Column;
                 var _endRow = excelRange.End.Row;

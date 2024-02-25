@@ -46,7 +46,9 @@ namespace BudgetExecution
     using System.IO;
     using System.Text;
 
-    /// <summary> </summary>
+    /// <summary>
+    /// 
+    /// </summary>
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public static class FileStreamExtensions
@@ -54,8 +56,10 @@ namespace BudgetExecution
         /// <summary>
         /// The method provides an iterator through all lines of the str reader.
         /// </summary>
-        /// <param name="reader"> The str reader. </param>
-        /// <returns> The iterator </returns>
+        /// <param name="reader">The str reader.</param>
+        /// <returns>
+        /// The iterator
+        /// </returns>
         public static IEnumerable<string> IterateLines( this TextReader reader )
         {
             while( reader.ReadLine( ) != null )
@@ -67,8 +71,8 @@ namespace BudgetExecution
         /// <summary>
         /// The method executes the passed delegate /lambda expression) for all lines of the str reader.
         /// </summary>
-        /// <param name="reader"> The str reader. </param>
-        /// <param name="action"> The action. </param>
+        /// <param name="reader">The str reader.</param>
+        /// <param name="action">The action.</param>
         public static void IterateLines( this TextReader reader, Action<string> action )
         {
             try
@@ -85,75 +89,78 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Opens a StreamReader using the default encoding. </summary>
-        /// <param name="stream"> The stream. </param>
-        /// <returns> The stream reader </returns>
+        /// <summary>
+        /// Opens a StreamReader using the default encoding.
+        /// </summary>
+        /// <param name="stream">The stream.</param>
+        /// <returns>
+        /// The stream reader
+        /// </returns>
         public static StreamReader GetReader( this Stream stream )
         {
-            if( stream != null )
+            try
             {
-                try
-                {
-                    return stream.GetReader( null );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( StreamReader );
-                }
+                return stream.GetReader( null );
             }
-
-            return default( StreamReader );
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( StreamReader );
+            }
         }
 
-        /// <summary> Opens a StreamReader using the specified encoding. </summary>
-        /// <param name="stream"> The stream. </param>
-        /// <param name="encoding"> The encoding. </param>
-        /// <returns> The stream reader </returns>
+        /// <summary>
+        /// Opens a StreamReader using the specified encoding.
+        /// </summary>
+        /// <param name="stream">The stream.</param>
+        /// <param name="encoding">The encoding.</param>
+        /// <returns>
+        /// The stream reader
+        /// </returns>
         public static StreamReader GetReader( this Stream stream, Encoding encoding )
         {
-            if( stream != null )
+            try
             {
-                try
-                {
-                    encoding ??= Encoding.Default;
-                    return new StreamReader( stream, encoding );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( StreamReader );
-                }
+                encoding ??= Encoding.Default;
+                return new StreamReader( stream, encoding );
             }
-
-            return default( StreamReader );
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( StreamReader );
+            }
         }
 
-        /// <summary> Opens a StreamWriter using the default encoding. </summary>
-        /// <param name="stream"> The stream. </param>
-        /// <returns> The stream writer </returns>
+        /// <summary>
+        /// Gets the writer.
+        /// </summary>
+        /// <param name="stream">
+        /// The stream.
+        /// </param>
+        /// <returns>
+        ///   <br />
+        /// </returns>
         public static StreamWriter GetWriter( this Stream stream )
         {
-            if( stream != null )
+            try
             {
-                try
-                {
-                    return stream.GetWriter( null );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( StreamWriter );
-                }
+                return stream.GetWriter( null );
             }
-
-            return default( StreamWriter );
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( StreamWriter );
+            }
         }
 
-        /// <summary> Opens a StreamWriter using the specified encoding. </summary>
-        /// <param name="stream"> The stream. </param>
-        /// <param name="encoding"> The encoding. </param>
-        /// <returns> The stream writer </returns>
+        /// <summary>
+        /// Opens a StreamWriter using the specified encoding.
+        /// </summary>
+        /// <param name="stream">The stream.</param>
+        /// <param name="encoding">The encoding.</param>
+        /// <returns>
+        /// The stream writer
+        /// </returns>
         public static StreamWriter GetWriter( this Stream stream, Encoding encoding )
         {
             if( stream?.CanWrite == true )
@@ -173,43 +180,58 @@ namespace BudgetExecution
             return default( StreamWriter );
         }
 
-        /// <summary> Reads all str from the stream using the default encoding. </summary>
-        /// <param name="stream"> The stream. </param>
-        /// <returns> The result str. </returns>
+        /// <summary>
+        /// Reads all str from the stream using the default encoding.
+        /// </summary>
+        /// <param name="stream">The stream.</param>
+        /// <returns>
+        /// The result str.
+        /// </returns>
         public static string ReadToEnd( this Stream stream )
         {
-            return stream.ReadToEnd( null );
+            try
+            {
+                return stream.ReadToEnd( null );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return string.Empty;
+            }
         }
 
-        /// <summary> Reads all str from the stream using a specified encoding. </summary>
-        /// <param name="stream"> The stream. </param>
-        /// <param name="encoding"> The encoding. </param>
-        /// <returns> The result str. </returns>
+        /// <summary>
+        /// Reads all str from the stream using a specified encoding.
+        /// </summary>
+        /// <param name="stream">The stream.</param>
+        /// <param name="encoding">The encoding.</param>
+        /// <returns>
+        /// The result str.
+        /// </returns>
         public static string ReadToEnd( this Stream stream, Encoding encoding )
         {
-            if( stream != null )
+            try
             {
-                try
-                {
-                    using var _reader = stream.GetReader( encoding );
-                    return _reader.ReadToEnd( );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( string );
-                }
+                using var _reader = stream.GetReader( encoding );
+                return _reader.ReadToEnd( );
             }
-
-            return default( string );
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return string.Empty;
+            }
         }
 
-        /// <summary> Sets the stream cursor to the beginning of the stream. </summary>
-        /// <param name="stream"> The stream. </param>
-        /// <returns> The stream </returns>
+        /// <summary>
+        /// Sets the stream cursor to the beginning of the stream.
+        /// </summary>
+        /// <param name="stream">The stream.</param>
+        /// <returns>
+        /// The stream
+        /// </returns>
         public static Stream SeekBeginning( this Stream stream )
         {
-            if( stream != null )
+            if( stream?.CanSeek == true )
             {
                 try
                 {
@@ -226,9 +248,13 @@ namespace BudgetExecution
             return default( Stream );
         }
 
-        /// <summary> Sets the stream cursor to the end of the stream. </summary>
-        /// <param name="stream"> The stream. </param>
-        /// <returns> The stream </returns>
+        /// <summary>
+        /// Sets the stream cursor to the end of the stream.
+        /// </summary>
+        /// <param name="stream">The stream.</param>
+        /// <returns>
+        /// The stream
+        /// </returns>
         public static Stream SeekEnding( this Stream stream )
         {
             if( stream?.CanSeek == true )
@@ -248,15 +274,18 @@ namespace BudgetExecution
             return default( Stream );
         }
 
-        /// <summary> Copies one stream into a another one. </summary>
-        /// <param name="stream"> The source stream. </param>
-        /// <param name="target"> The target stream. </param>
-        /// <param name="buffer"> The buffer size used to read / write. </param>
-        /// <returns> The source stream. </returns>
+        /// <summary>
+        /// Copies one stream into another one.
+        /// </summary>
+        /// <param name="stream">The source stream.</param>
+        /// <param name="target">The target stream.</param>
+        /// <param name="buffer">The buffer size used to read / write.</param>
+        /// <returns>
+        /// The source stream.
+        /// </returns>
         public static Stream CopyTo( this Stream stream, Stream target, int buffer )
         {
-            if( ( stream != null )
-               && ( target != null )
+            if( ( target != null )
                && stream.CanRead
                && target.CanWrite )
             {
@@ -281,107 +310,107 @@ namespace BudgetExecution
             return default( MemoryStream );
         }
 
-        /// <summary> Copies any stream into a local MemoryStream </summary>
-        /// <param name="stream"> The source stream. </param>
-        /// <returns> The copied memory stream. </returns>
+        /// <summary>
+        /// Copies any stream into a local MemoryStream
+        /// </summary>
+        /// <param name="stream">The source stream.</param>
+        /// <returns>
+        /// The copied memory stream.
+        /// </returns>
         public static MemoryStream CopyToMemory( this Stream stream )
         {
-            if( stream != null )
+            try
             {
-                try
-                {
-                    using var _memory = new MemoryStream( (int) stream.Length );
-                    stream.CopyTo( _memory, (int) stream.Length );
-                    return _memory;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( MemoryStream );
-                }
+                var _memory = new MemoryStream( (int)stream.Length );
+                stream.CopyTo( _memory, (int)stream.Length );
+                return _memory;
             }
-
-            return default( MemoryStream );
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( MemoryStream );
+            }
         }
 
-        /// <summary> Reads the entire stream and returns an IEnumerable byte. </summary>
-        /// <param name="stream"> The stream. </param>
-        /// <returns> The IEnumerable byte </returns>
+        /// <summary>
+        /// Reads the entire stream and returns an IEnumerable byte.
+        /// </summary>
+        /// <param name="stream">The stream.</param>
+        /// <returns>
+        /// The IEnumerable byte
+        /// </returns>
         public static IEnumerable<byte> ReadAllBytes( this Stream stream )
         {
-            if( stream != null )
+            try
             {
-                try
-                {
-                    using var _memory = stream.CopyToMemory( );
-                    return _memory.ToArray( );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( IEnumerable<byte> );
-                }
+                var _memory = stream.CopyToMemory( );
+                return _memory.ToArray( );
             }
-
-            return default( IEnumerable<byte> );
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IEnumerable<byte> );
+            }
         }
 
-        /// <summary> Reads a fixed number of bytes. </summary>
-        /// <param name="stream"> The stream to read from </param>
-        /// <param name="bufsize"> The number of bytes to read. </param>
-        /// <returns> the read byte[] </returns>
+        /// <summary>
+        /// Reads a fixed number of bytes.
+        /// </summary>
+        /// <param name="stream">The stream to read from</param>
+        /// <param name="bufsize">The number of bytes to read.</param>
+        /// <returns>
+        /// the read byte[]
+        /// </returns>
         public static IEnumerable<byte> ReadFixedbuffersize( this Stream stream, int bufsize )
         {
-            if( stream != null )
+            try
             {
-                try
+                ThrowIf.NegativeOrZero( bufsize, nameof( bufsize ) );
+                var _buffer = new byte[ bufsize ];
+                var _offset = 0;
+                do
                 {
-                    var _buffer = new byte[ bufsize ];
-                    var _offset = 0;
-                    do
+                    var _read = stream.Read( _buffer, _offset, bufsize - _offset );
+                    if( _read == 0 )
                     {
-                        var _read = stream.Read( _buffer, _offset, bufsize - _offset );
-                        if( _read == 0 )
-                        {
-                            return null;
-                        }
-
-                        _offset += _read;
+                        return null;
                     }
-                    while( _offset < bufsize );
 
-                    return _buffer;
+                    _offset += _read;
                 }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( IEnumerable<byte> );
-                }
+                while( _offset < bufsize );
+
+                return _buffer;
             }
-
-            return default( IEnumerable<byte> );
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IEnumerable<byte> );
+            }
         }
 
-        /// <summary> Writes all passed bytes to the specified stream. </summary>
-        /// <param name="stream"> The stream. </param>
-        /// <param name="bytes"> The byte array / buffer. </param>
+        /// <summary>
+        /// Writes all passed bytes to the specified stream.
+        /// </summary>
+        /// <param name="stream">The stream.</param>
+        /// <param name="bytes">The byte array / buffer.</param>
         public static void Write( this Stream stream, byte[ ] bytes )
         {
-            if( stream != null )
+            try
             {
-                try
-                {
-                    stream.Write( bytes, 0, bytes.Length );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                ThrowIf.Empty( bytes, nameof( bytes ) );
+                stream.Write( bytes, 0, bytes.Length );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

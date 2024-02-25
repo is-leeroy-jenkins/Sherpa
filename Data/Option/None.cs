@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        06-22-2023
 // ******************************************************************************************
-// <copyright file="NoData.cs" company="Terry D. Eppler">
+// <copyright file="Empty.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   NoData.cs
+//   Empty.cs
 // </summary>
 // ******************************************************************************************
 
@@ -51,11 +51,13 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnassignedGetOnlyAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class None<T> : Option<T>
     {
-
         /// <inheritdoc/>
-        /// <summary> Gets the value. </summary>
+        /// <summary>
+        /// Gets the value.
+        /// </summary>
         /// <value> The value. </value>
         public override T Value { get; }
 
@@ -64,7 +66,9 @@ namespace BudgetExecution
         public static T Default { get; }
 
         /// <inheritdoc/>
-        /// <summary> Gets a value indicating whether this instance is some. </summary>
+        /// <summary>
+        /// Gets a value indicating whether this instance is some.
+        /// </summary>
         /// <value>
         /// <c> true </c>
         /// if this instance is some; otherwise,
@@ -77,7 +81,9 @@ namespace BudgetExecution
         }
 
         /// <inheritdoc/>
-        /// <summary> Gets a value indicating whether this instance is none. </summary>
+        /// <summary>
+        /// Gets a value indicating whether this instance is none.
+        /// </summary>
         /// <value>
         /// <c> true </c>
         /// if this instance is none; otherwise,
@@ -91,7 +97,7 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="NoData{T}"/>
+        /// <see cref="None{T}"/>
         /// class.
         /// </summary>
         public None( )
@@ -99,7 +105,9 @@ namespace BudgetExecution
         }
 
         /// <inheritdoc/>
-        /// <summary> Maps the specified function. </summary>
+        /// <summary>
+        /// Maps the specified function.
+        /// </summary>
         /// <typeparam name="TResult"> The type of the result. </typeparam>
         /// <param name="func"> The function. </param>
         /// <returns> </returns>

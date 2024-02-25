@@ -63,17 +63,19 @@ namespace BudgetExecution
         /// Counts the values.
         /// </summary>
         /// <param name="numeric">The numeric.</param>
-        /// <returns></returns>
+        /// <returns>
+        /// An int
+        /// </returns>
         public int CountValues( string numeric )
         {
             try
             {
-                ThrowIfNullNumeric( numeric );
-                var _select = _dataTable?.AsEnumerable( )
+                ThrowIf.Null( numeric, nameof( numeric ) );
+                var _dataRows = _dataTable?.AsEnumerable( )
                     ?.Select( p => p.Field<double>( numeric ) );
 
-                return _select?.Any( ) == true
-                    ? _select.Count( )
+                return _dataRows?.Any( ) == true
+                    ? _dataRows.Count( )
                     : 0;
             }
             catch( Exception _ex )
@@ -88,18 +90,20 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="numeric">The numeric.</param>
         /// <param name="where">The where.</param>
-        /// <returns></returns>
+        /// <returns>
+        /// An int
+        /// </returns>
         public int CountValues( string numeric, IDictionary<string, object> where )
         {
             try
             {
-                ThrowIfNullNumeric( numeric );
-                ThrowIfNullCriteria( where );
-                var _select = _dataTable?.Filter( where )
+                ThrowIf.Null( numeric, nameof( numeric ) );
+                ThrowIfNotCriteria( where );
+                var _dataRows = _dataTable?.Filter( where )
                     ?.Select( p => p.Field<double>( numeric ) );
 
-                return _select?.Any( ) == true
-                    ? _select.Count( )
+                return _dataRows?.Any( ) == true
+                    ? _dataRows.Count( )
                     : 0;
             }
             catch( Exception _ex )
@@ -113,12 +117,14 @@ namespace BudgetExecution
         /// Calculates the total.
         /// </summary>
         /// <param name="numeric">The numeric.</param>
-        /// <returns></returns>
+        /// <returns>
+        /// A double
+        /// </returns>
         public double CalculateTotal( string numeric )
         {
             try
             {
-                ThrowIfNullNumeric( numeric );
+                ThrowIf.Null( numeric, nameof( numeric ) );
                 var _select = _dataTable?.AsEnumerable( )
                     ?.Select( p => p.Field<double>( numeric ) )
                     ?.Sum( );
@@ -144,8 +150,8 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIfNullNumeric( numeric );
-                ThrowIfNullCriteria( where );
+                ThrowIfNotNumeric( numeric );
+                ThrowIfNotCriteria( where );
                 var _select = _dataTable?.Filter( where )
                     ?.Select( p => p.Field<double>( numeric ) )
                     ?.Sum( );
@@ -170,7 +176,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIfNullNumeric( numeric );
+                ThrowIfNotNumeric( numeric );
                 var _query = _dataTable.AsEnumerable( )
                     ?.Select( p => p.Field<double>( numeric ) )
                     ?.Average( );
@@ -196,8 +202,8 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIfNullNumeric( numeric );
-                ThrowIfNullCriteria( where );
+                ThrowIfNotNumeric( numeric );
+                ThrowIfNotCriteria( where );
                 var _query = _dataTable?.Filter( where )
                     ?.Select( p => p.Field<double>( numeric ) )
                     ?.Average( );
@@ -222,7 +228,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIfNullNumeric( numeric );
+                ThrowIf.Null( numeric, nameof( numeric ) );
                 var _select = _dataTable?.AsEnumerable( )
                     ?.Select( p => p.Field<double>( numeric ) )
                     ?.Sum( );
@@ -248,8 +254,8 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIfNullNumeric( numeric );
-                ThrowIfNullCriteria( where );
+                ThrowIfNotCriteria( where );
+                ThrowIf.Null( numeric, nameof( numeric ) );
                 var _select = _dataTable?.Filter( where )
                     ?.Select( p => p.Field<double>( numeric ) )
                     ?.Sum( );
@@ -274,7 +280,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIfNullNumeric( numeric );
+                ThrowIfNotNumeric( numeric );
                 var _query = _dataTable?.AsEnumerable( )
                     ?.Select( p => p.Field<double>( numeric ) )
                     ?.StandardDeviation( );
@@ -295,13 +301,15 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="numeric">The numeric.</param>
         /// <param name="where">The where.</param>
-        /// <returns></returns>
+        /// <returns>
+        /// A double
+        /// </returns>
         public double CalculateDeviation( string numeric, IDictionary<string, object> where )
         {
             try
             {
-                ThrowIfNullNumeric( numeric );
-                ThrowIfNullCriteria( where );
+                ThrowIfNotNumeric( numeric );
+                ThrowIfNotCriteria( where );
                 var _query = _dataTable?.Filter( where )
                     ?.Select( p => p.Field<double>( numeric ) )
                     ?.StandardDeviation( );
@@ -323,12 +331,14 @@ namespace BudgetExecution
         /// <param name="numeric">
         /// The numeric.
         /// </param>
-        /// <returns></returns>
+        /// <returns>
+        /// A double
+        /// </returns>
         public double CalculateVariance( string numeric )
         {
             try
             {
-                ThrowIfNullNumeric( numeric );
+                ThrowIfNotNumeric( numeric );
                 var _query = _dataTable?.AsEnumerable( )
                     ?.Select( p => p.Field<double>( numeric ) )
                     ?.Variance( );
@@ -353,13 +363,15 @@ namespace BudgetExecution
         /// <param name="where">
         /// The where.
         /// </param>
-        /// <returns></returns>
+        /// <returns>
+        /// A double
+        /// </returns>
         public double CalculateVariance( IDictionary<string, object> where, string numeric )
         {
             try
             {
-                ThrowIfNullCriteria( where );
-                ThrowIfNullNumeric( numeric );
+                ThrowIfNotCriteria( where );
+                ThrowIfNotNumeric( numeric );
                 var _query = _dataTable?.Filter( where )
                     ?.Select( p => p.Field<double>( numeric ) )
                     ?.Variance( );
@@ -378,8 +390,10 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the numerics.
         /// </summary>
-        /// <returns></returns>
-        private protected IList<string> GetNumericColumns( )
+        /// <returns>
+        /// IList(string)
+        /// </returns>
+        private protected IList<string> GetNumericColumnNames( )
         {
             try
             {
@@ -389,10 +403,11 @@ namespace BudgetExecution
                     if( ( !_dataColumn.ColumnName.EndsWith( "Id" )
                            && ( _dataColumn.Ordinal > 0 )
                            && ( _dataColumn.DataType == typeof( double ) ) )
-                       || ( _dataColumn.DataType == typeof( short ) )
-                       || ( _dataColumn.DataType == typeof( long ) )
-                       || ( _dataColumn.DataType == typeof( decimal ) )
-                       || ( _dataColumn.DataType == typeof( float ) ) )
+                       | ( _dataColumn.DataType == typeof( short ) )
+                       | ( _dataColumn.DataType == typeof( ushort ) )
+                       | ( _dataColumn.DataType == typeof( long ) )
+                       | ( _dataColumn.DataType == typeof( decimal ) )
+                       | ( _dataColumn.DataType == typeof( float ) ) )
                     {
                         _names.Add( _dataColumn.ColumnName );
                     }
@@ -412,7 +427,9 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the dates.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// IList(string)
+        /// </returns>
         private protected IList<string> GetDateColumns( )
         {
             try
@@ -422,10 +439,10 @@ namespace BudgetExecution
                 {
                     if( ( _dataColumn.Ordinal > 0 )
                        && ( ( _dataColumn.DataType == typeof( DateTime ) )
-                           || ( _dataColumn.DataType == typeof( DateOnly ) )
-                           || ( _dataColumn.DataType == typeof( DateTimeOffset ) )
-                           || _dataColumn.ColumnName.EndsWith( "Day" )
-                           || _dataColumn.ColumnName.EndsWith( "Date" ) ) )
+                           | ( _dataColumn.DataType == typeof( DateOnly ) )
+                           | ( _dataColumn.DataType == typeof( DateTimeOffset ) )
+                           | _dataColumn.ColumnName.EndsWith( "Day" )
+                           | _dataColumn.ColumnName.EndsWith( "Date" ) ) )
                     {
                         _names.Add( _dataColumn.ColumnName );
                     }

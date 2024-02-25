@@ -365,7 +365,7 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( dataRows, nameof( dataRows ) );
-                ThrowIf.NullOrEmpty( column, nameof( column ) );
+                ThrowIf.Null( column, nameof( column ) );
                 var _query = dataRows
                     ?.Select( v => v.Field<string>( column ) )
                     ?.Distinct( );
@@ -394,7 +394,7 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( dataRows, nameof( dataRows ) );
-                ThrowIf.NullOrEmpty( value, nameof( value ) );
+                ThrowIf.Null( value, nameof( value ) );
                 var _query = dataRows
                     ?.Where( v => v.Field<string>( $"{name}" ).Equals( value ) )
                     ?.Select( v => v.Field<string>( $"{name}" ) )
@@ -422,7 +422,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( filePath, nameof( filePath ) );
+                ThrowIf.Null( filePath, nameof( filePath ) );
                 using var _excelPackage = new ExcelPackage( );
                 using var _fileStream = OpenRead( filePath );
                 _excelPackage.Load( _fileStream );

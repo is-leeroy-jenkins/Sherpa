@@ -488,7 +488,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( message, nameof( message ) );
+                ThrowIf.Null( message, nameof( message ) );
                 var _notify = new Notification( message );
                 _notify.Show( );
             }

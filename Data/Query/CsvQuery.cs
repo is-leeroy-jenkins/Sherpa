@@ -225,7 +225,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( sheetName, nameof( sheetName ) );
+                ThrowIf.Null( sheetName, nameof( sheetName ) );
                 using var _dataSet = new DataSet( );
                 var _sql = "SELECT * FROM [" + sheetName + "]";
                 var _connstring = $@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source={
@@ -267,8 +267,8 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( filePath, nameof( filePath ) );
-                ThrowIf.NullOrEmpty( sheetName, nameof( sheetName ) );
+                ThrowIf.Null( filePath, nameof( filePath ) );
+                ThrowIf.Null( sheetName, nameof( sheetName ) );
                 using var _dataSet = new DataSet( );
                 var _sql = "SELECT * FROM [" + sheetName + "]";
                 var _connectionString = $@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source={
@@ -309,8 +309,8 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( filePath, nameof( filePath ) );
-                ThrowIf.NoData( dataTable, nameof( dataTable ) );
+                ThrowIf.Null( filePath, nameof( filePath ) );
+                ThrowIf.Empty( dataTable, nameof( dataTable ) );
                 using var _excel = CreateCsvFile( filePath );
                 var _name = Path.GetFileNameWithoutExtension( filePath );
                 var _sheet = _excel.Workbook.Worksheets.Add( _name );
@@ -437,8 +437,8 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( sheetName, nameof( sheetName ) );
-                ThrowIf.NoData( dataTable, nameof( dataTable ) );
+                ThrowIf.Null( sheetName, nameof( sheetName ) );
+                ThrowIf.Empty( dataTable, nameof( dataTable ) );
                 for( var _i = 0; _i < dataTable.Rows.Count; _i++ )
                 {
                     var _dataRow = dataTable.Rows[ _i ];

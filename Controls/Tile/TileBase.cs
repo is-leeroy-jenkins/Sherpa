@@ -182,7 +182,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( message, nameof( message ) );
+                ThrowIf.Null( message, nameof( message ) );
                 Title.Text = message;
             }
             catch( Exception _ex )
@@ -201,7 +201,6 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( font, nameof( font ) );
-                ThrowIf.NullOrEmpty( color, nameof( color ) );
                 Title.Font = font;
                 Title.TextColor = color;
             }
@@ -238,7 +237,6 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( font, nameof( font ) );
-                ThrowIf.NullOrEmpty( color, nameof( color ) );
                 Body.Font = font;
                 Body.TextColor = color;
             }
@@ -276,7 +274,6 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( font, nameof( font ) );
-                ThrowIf.NullOrEmpty( color, nameof( color ) );
                 ShowBanner = true;
                 BannerHeight = height;
                 Banner.Font = font;

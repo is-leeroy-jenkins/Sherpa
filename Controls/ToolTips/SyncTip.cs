@@ -163,7 +163,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( headerText, nameof( headerText ) );
+                ThrowIf.Null( headerText, nameof( headerText ) );
                 TipInfo.Body.Text = headerText; 
             }
             catch( Exception _ex )
@@ -180,7 +180,7 @@ namespace BudgetExecution
         {
             try
             { 
-                ThrowIf.NullOrEmpty( bodyText, nameof( bodyText ) );
+                ThrowIf.Null( bodyText, nameof( bodyText ) );
                 TipInfo.Body.Text = bodyText; 
             }
             catch( Exception _ex )
@@ -197,7 +197,7 @@ namespace BudgetExecution
         {
             try
             { 
-                ThrowIf.NullOrEmpty( footerText, nameof( footerText ) );
+                ThrowIf.Null( footerText, nameof( footerText ) );
                 TipInfo.Body.Text = footerText; 
             }
             catch( Exception _ex )

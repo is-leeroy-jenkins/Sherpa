@@ -1314,7 +1314,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( provider, nameof( provider ) );
+                ThrowIf.Null( provider, nameof( provider ) );
                 var _value = (Provider)Enum.Parse( typeof( Provider ), provider );
                 if( Enum.IsDefined( typeof( Provider ), _value ) )
                 {
@@ -1499,7 +1499,7 @@ namespace BudgetExecution
             {
                 ThrowIf.Null( fields, nameof( fields ) );
                 ThrowIf.Null( numerics, nameof( numerics ) );
-                ThrowIf.NoItems( where, nameof( where ) );
+                ThrowIf.Empty( where, nameof( where ) );
                 var _cols = string.Empty;
                 var _aggr = string.Empty;
                 foreach( var _name in fields )

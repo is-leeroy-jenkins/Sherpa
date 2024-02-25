@@ -51,6 +51,7 @@ namespace BudgetExecution
     /// </summary>
     [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public static class LinqExtensions
     {
         /// <summary>
@@ -63,7 +64,15 @@ namespace BudgetExecution
         public static bool None<TSource>( this IEnumerable<TSource> source,
             Func<TSource, bool> predicate )
         {
-            return !source.Any( predicate );
+            try
+            {
+                return !source.Any( predicate );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return false;
+            }
         }
 
         /// <summary>
@@ -80,7 +89,15 @@ namespace BudgetExecution
         /// </returns>
         public static bool HasAtLeast<TSource>( this IEnumerable<TSource> source, int minCount )
         {
-            return source.HasAtLeast( minCount, _ => true );
+            try
+            {
+                return source.HasAtLeast( minCount, _ => true );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return false;
+            }
         }
 
         /// <summary>
@@ -137,9 +154,17 @@ namespace BudgetExecution
         /// </returns>
         public static bool HasExactly<TSource>( this IEnumerable<TSource> source, int count )
         {
-            return source is ICollection _sequence
-                ? _sequence.Count == count
-                : source.HasExactly( count, _ => true );
+            try
+            {
+                return source is ICollection _sequence
+                    ? _sequence.Count == count
+                    : source.HasExactly( count, _ => true );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return false;
+            }
         }
 
         /// <summary>
@@ -160,6 +185,7 @@ namespace BudgetExecution
         {
             try
             {
+                ThrowIf.NegativeOrZero( count, nameof( count ) );
                 if( source is ICollection _sequence
                    && ( _sequence.Count < count ) )
                 {

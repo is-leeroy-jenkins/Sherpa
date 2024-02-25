@@ -780,7 +780,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( text, nameof( text ) );
+                ThrowIf.Null( text, nameof( text ) );
                 var _notification = new Notification( text );
                 _notification.Show( );
             }
@@ -800,7 +800,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( text, nameof( text ) );
+                ThrowIf.Null( text, nameof( text ) );
                 var _message = new SplashMessage( text );
                 _message.Show( );
             }

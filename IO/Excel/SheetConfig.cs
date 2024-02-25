@@ -419,8 +419,8 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( extension, nameof( extension ) );
-                ThrowIf.NotExists( filePath, nameof( filePath ) );
+                ThrowIf.Null( extension, nameof( extension ) );
+                ThrowIf.Null( filePath, nameof( filePath ) );
                 switch( extension?.ToUpper( ) )
                 {
                     case ".XLS":

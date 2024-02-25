@@ -50,8 +50,9 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ParameterTypeCanBeEnumerable.Global" ) ]
     public static class CollectionExtensions
     {
         /// <summary>
@@ -62,11 +63,10 @@ namespace BudgetExecution
         /// <param name="predicate">The predicate.</param>
         /// <param name="value">The value.</param>
         /// <returns></returns>
-        public static bool AddIf<T>( this ICollection<T> collection, Func<T, bool> predicate,
+        public static bool AddIf<T>( this ICollection<T> collection, Func<T, bool> predicate, 
             T value )
         {
-            if( ( collection?.Count > 0 )
-               && predicate( value ) )
+            if( predicate( value ) )
             {
                 try
                 {
@@ -87,18 +87,22 @@ namespace BudgetExecution
         /// Adds the range.
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="collection">The collection.</param>
-        /// <param name="values">The values.</param>
+        /// <param name="collection">
+        /// The collection.
+        /// </param>
+        /// <param name="values">
+        /// The values.
+        /// </param>
         public static void AddRange<T>( this ICollection<T> collection, params T[ ] values )
         {
-            if( ( values?.Length > 0 )
-               && ( collection?.Any( ) == true ) )
+            if( ( values?.Any( ) == true ) )
             {
                 try
                 {
                     for( var _i = 0; _i < values.Length; _i++ )
                     {
-                        collection.Add( values[ _i ] );
+                        var _value = values[ _i ];
+                        collection.Add( _value );
                     }
                 }
                 catch( Exception _ex )
@@ -161,8 +165,7 @@ namespace BudgetExecution
         /// <param name="values">The values.</param>
         public static void RemoveRange<T>( this ICollection<T> collection, params T[ ] values )
         {
-            if( ( collection?.Any( ) == true )
-               && ( values?.Any( ) == true ) )
+            if( ( values?.Any( ) == true ) )
             {
                 try
                 {
@@ -186,23 +189,20 @@ namespace BudgetExecution
         /// <param name="predicate">The predicate.</param>
         public static void RemoveWhere<T>( this ICollection<T> collection, Predicate<T> predicate )
         {
-            if( collection?.Any( ) == true )
+            try
             {
-                try
-                {
-                    var _list = collection
-                        ?.Where( child => predicate( child ) )
-                        ?.ToList( );
+                var _list = collection
+                    ?.Where( child => predicate( child ) )
+                    ?.ToList( );
                     
-                    if( _list?.Any( ) == true )
-                    {
-                        _list.ForEach( t => collection.Remove( t ) );
-                    }
-                }
-                catch( Exception _ex )
+                if( _list?.Any( ) == true )
                 {
-                    Fail( _ex );
+                    _list.ForEach( t => collection.Remove( t ) );
                 }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -237,28 +237,23 @@ namespace BudgetExecution
         /// <returns></returns>
         public static BindingList<T> ToBindingList<T>( this ICollection<T> collection )
         {
-            if( collection?.Count > 0 )
+            try
             {
-                try
+                var _list = new BindingList<T>( );
+                foreach( var _item in collection )
                 {
-                    var _list = new BindingList<T>( );
-                    foreach( var _item in collection )
-                    {
-                        _list.Add( _item );
-                    }
+                    _list.Add( _item );
+                }
 
-                    return _list?.Any( ) == true
-                        ? _list
-                        : default( BindingList<T> );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( BindingList<T> );
-                }
+                return _list?.Any( ) == true
+                    ? _list
+                    : default( BindingList<T> );
             }
-
-            return default( BindingList<T> );
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( BindingList<T> );
+            }
         }
 
         /// <summary>

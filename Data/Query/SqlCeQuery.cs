@@ -187,7 +187,9 @@ namespace BudgetExecution
         {
         }
 
-        /// <summary> Creates the table from excel file. </summary>
+        /// <summary>
+        /// Creates the table from excel file.
+        /// </summary>
         /// <param name="filePath"> Name of the file. </param>
         /// <param name="sheetName"> Name of the sheet. </param>
         /// <returns> </returns>
@@ -195,8 +197,8 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( filePath, nameof( filePath ) );
-                ThrowIf.NullOrEmpty( sheetName, nameof( sheetName ) );
+                ThrowIf.Null( filePath, nameof( filePath ) );
+                ThrowIf.Null( sheetName, nameof( sheetName ) );
                 var _dataSet = new DataSet( );
                 var _dataTable = new DataTable( );
                 _dataSet.DataSetName = sheetName;
@@ -224,7 +226,9 @@ namespace BudgetExecution
             return default( DataTable );
         }
 
-        /// <summary> Creates the table from CSV file. </summary>
+        /// <summary>
+        /// Creates the table from CSV file.
+        /// </summary>
         /// <param name="filePath"> The file path. </param>
         /// <param name="sheetName"> Name of the sheet. </param>
         /// <returns>
@@ -234,8 +238,8 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( filePath, nameof( filePath ) );
-                ThrowIf.NullOrEmpty( sheetName, nameof( sheetName ) );
+                ThrowIf.Null( filePath, nameof( filePath ) );
+                ThrowIf.Null( sheetName, nameof( sheetName ) );
                 var _dataSet = new DataSet( );
                 var _dataTable = new DataTable( );
                 var _fileName = Connection?.FileName;
@@ -311,8 +315,8 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( sheetName, nameof( sheetName ) );
-                ThrowIf.NoData( schemaTable, nameof( schemaTable ) );
+                ThrowIf.Null( sheetName, nameof( sheetName ) );
+                ThrowIf.Empty( schemaTable, nameof( schemaTable ) );
                 for( var _i = 0; _i < schemaTable.Rows.Count; _i++ )
                 {
                     var _dataRow = schemaTable.Rows[ _i ];

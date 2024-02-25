@@ -47,41 +47,21 @@ namespace BudgetExecution
     using System.Data;
     using System.Data.Common;
     using System.Diagnostics.CodeAnalysis;
-    using System.IO;
     using System.Linq;
     using System.Net.Mail;
     using System.Windows.Forms;
-    using DocumentFormat.OpenXml;
-    using DocumentFormat.OpenXml.Packaging;
-    using System.Drawing;
-    using Microsoft.Office.Interop.Excel;
     using OfficeOpenXml;
 
     /// <summary>
     /// 
     /// </summary>
-    [SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertTypeCheckPatternToNullCheck" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "InternalOrPrivateMemberNotDocumented" ) ]
     public static class ThrowIf
     {
-        /// <summary>
-        /// Determines whether the specified string argument is null or empty.
-        /// </summary>
-        /// <param name="argument">The string argument.</param>
-        /// <param name="paramName">The name of the string argument.</param>
-        /// <exception cref="System.ArgumentNullException"></exception>
-        public static void NullOrEmpty( string argument, string paramName )
-        {
-            if( string.IsNullOrEmpty( argument ) )
-            {
-                var _message = @$"The string '{paramName}' is null or empty!";
-                throw new ArgumentNullException( _message );
-            }
-        }
-
         /// <summary>
         /// Nulls the specified argument.
         /// </summary>
@@ -102,7 +82,7 @@ namespace BudgetExecution
 
                     break;
                 }
-                case System.Action _action:
+                case Action _action:
                 {
                     if( _action == null )
                     {
@@ -314,26 +294,6 @@ namespace BudgetExecution
 
                     break;
                 }
-                case SpreadsheetDocument _sheet:
-                {
-                    if( _sheet == null )
-                    {
-                        var _message = @$"The '{paramName}' is null!";
-                        throw new ArgumentNullException( _message );
-                    }
-
-                    break;
-                }
-                case OpenXmlElement _sheet:
-                {
-                    if( _sheet == null )
-                    {
-                        var _message = @$"The '{paramName}' is null!";
-                        throw new ArgumentNullException( _message );
-                    }
-
-                    break;
-                }
                 case ExcelRange _range:
                 {
                     if( _range == null )
@@ -378,66 +338,26 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Throws exception if 'argument' is not a null or empty.
-        /// </summary>
-        /// <param name="argument">The argument.</param>
-        /// <param name="paramName">Name of the parameter.</param>
-        /// <exception cref="System.ArgumentNullException">ArgumentNullException</exception>
-        public static void NullOrEmpty( IEnumerable<string> argument, string paramName )
-        {
-            foreach( var _item in argument )
-            {
-                if( string.IsNullOrEmpty( _item ) )
-                {
-                    var _text = "contains a null or empty string!";
-                    var _message = @$"The IEnumerable<string> '{paramName}' " + _text;
-                    throw new ArgumentNullException( _message );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Checks the items.
-        /// </summary>
-        /// <param name="argument">The argument.</param>
-        /// <param name="paramName">Name of the parameter.</param>
-        /// <exception cref="System.ArgumentNullException"></exception>
-        public static void NoItems( IDictionary<string, object> argument, string paramName )
-        {
-            if( argument.Any( ) != true )
-            {
-                var _message = @$"The Dictionary<string, object> '{paramName}' is null or empty!";
-                throw new ArgumentNullException( _message );
-            }
-        }
-
-        /// <summary>
-        /// Throws exception if 'argument' is null.
+        /// Empty throws exception if 'argument' is null.
         /// </summary>
         /// <param name="argument">The argument.</param>
         /// <param name="paramName">Name of the parameter.</param>
         /// <exception cref="System.ArgumentException"></exception>
         /// <exception cref="System.ArgumentNullException">ArgumentNullException</exception>
-        public static void NullOrEmpty( Color argument, string paramName )
-        {
-            if( argument.IsEmpty )
-            {
-                var _message = @$"The color '{paramName}' is empty or uninitialized!";
-                throw new ArgumentException( _message );
-            }
-        }
-
-        /// <summary>
-        /// NoData throws exception if 'argument' is null.
-        /// </summary>
-        /// <param name="argument">The argument.</param>
-        /// <param name="paramName">Name of the parameter.</param>
-        /// <exception cref="System.ArgumentException"></exception>
-        /// <exception cref="System.ArgumentNullException">ArgumentNullException</exception>
-        public static void NoData( object argument, string paramName )
+        public static void Empty( object argument, string paramName )
         {
             switch( argument )
             {
+                case string _args:
+                {
+                    if( string.IsNullOrEmpty( _args ) )
+                    {
+                        var _message = @$"The '{paramName}' is empty!";
+                        throw new ArgumentNullException( _message );
+                    }
+
+                    break;
+                }
                 case IListSource _listSource:
                 {
                     if( _listSource == null )
@@ -448,9 +368,21 @@ namespace BudgetExecution
                     
                     break;
                 }
+                case IBindingList _bindingList:
+                {
+                    if( _bindingList == null 
+                       || _bindingList.IsEmpty( ) )
+                    {
+                        var _message = @$"The IBindingList '{paramName}' is empty!";
+                        throw new ArgumentException( _message );
+                    }
+
+                    break;
+                }
                 case IEnumerable<string> _list:
                 {
-                    if( _list == null )
+                    if( _list == null 
+                       || _list.Any( ) != true )
                     {
                         var _message = @$"The IEnumerable<string> '{paramName}' is empty!";
                         throw new ArgumentException( _message );
@@ -458,9 +390,21 @@ namespace BudgetExecution
                     
                     break;
                 }
+                case IEnumerable<byte> _data:
+                {
+                    if( _data == null
+                       || _data.Any( ) != true )
+                    {
+                        var _message = @$"The IEnumerable<string> '{paramName}' is empty!";
+                        throw new ArgumentException( _message );
+                    }
+
+                    break;
+                }
                 case IEnumerable<DataRow> _rows:
                 {
-                    if( _rows == null )
+                    if( _rows == null 
+                       || _rows?.Any( ) != true )
                     {
                         var _message = @$"The IEnumerable<DataRow> '{paramName}' is empty!";
                         throw new ArgumentException( _message );
@@ -470,7 +414,8 @@ namespace BudgetExecution
                 }
                 case ICollection _collection:
                 {
-                    if( _collection == null )
+                    if( _collection == null 
+                       || _collection.IsEmpty( ) )
                     {
                         var _message = @$"The ICollection '{paramName}' is empty!";
                         throw new ArgumentException( _message );
@@ -480,7 +425,8 @@ namespace BudgetExecution
                 }
                 case IDictionary<string, object> _dict:
                 {
-                    if( _dict == null )
+                    if( _dict == null 
+                       || _dict.Keys.IsEmpty( ) )
                     {
                         var _message = @$"The IDictionary<string, object> '{paramName}' is empty!";
                         throw new ArgumentException( _message );
@@ -488,52 +434,27 @@ namespace BudgetExecution
                     
                     break;
                 }
-            }
-        }
+                case IDictionary<string, string> _nvp:
+                {
+                    if( _nvp == null
+                       || _nvp.Keys.IsEmpty( ) )
+                    {
+                        var _message = @$"The IDictionary<string, string> '{paramName}' is empty!";
+                        throw new ArgumentException( _message );
+                    }
 
-        /// <summary>
-        /// NoData throws exception if 'argument' has no elements.
-        /// </summary>
-        /// <param name="argument">The argument.</param>
-        /// <param name="paramName">Name of the parameter.</param>
-        /// <exception cref="System.ArgumentException">ArgumentException</exception>
-        public static void NoData( IListSource argument, string paramName )
-        {
-            var _list = argument?.GetList( );
-            if( _list?.IsEmpty( ) == true )
-            {
-                var _message = @$"The data source '{paramName}' is empty!";
-                throw new ArgumentException( _message );
-            }
-        }
+                    break;
+                }
+                default:
+                {
+                    if( argument == null )
+                    {
+                        var _message = @$"The '{paramName}' is null!";
+                        throw new ArgumentNullException( _message );
+                    }
 
-        /// <summary>
-        /// Verifies if a file/folder exists.
-        /// </summary>
-        /// <param name="argument">The argument.</param>
-        /// <param name="paramName">Name of the parameter.</param>
-        /// <exception cref="System.ArgumentException">ArgumentException</exception>
-        public static void NotExists( string argument, string paramName )
-        {
-            if( !File.Exists( argument ) )
-            {
-                var _message = @$"The File '{paramName}' does not exist!";
-                throw new ArgumentException( _message );
-            }
-            else if( !new FileInfo( argument ).Exists )
-            {
-                var _message = @$"The File '{paramName}' does not exist!";
-                throw new ArgumentException( _message );
-            }
-            else if( !Directory.Exists( argument ) )
-            {
-                var _message = @$"The Folder '{paramName}' does not exist!";
-                throw new ArgumentException( _message );
-            }
-            else if( !new DirectoryInfo( argument ).Exists )
-            {
-                var _message = @$"The Folder '{paramName}' does not exist!";
-                throw new ArgumentException( _message );
+                    break;
+                }
             }
         }
 
@@ -545,13 +466,40 @@ namespace BudgetExecution
         /// <exception cref="System.ArgumentOutOfRangeException"></exception>
         public static void NegativeOrZero( object argument, string paramName )
         {
+            var _message = @$"{paramName} must be greater than zero";
             switch( argument )
             {
-                case int _negative:
+                case sbyte _sbyte:
                 {
-                    if( _negative <= 0 )
+                    if( _sbyte <= 0 )
                     {
-                        var _message = @$"The integer {paramName} is negative or zero!";
+                        throw new ArgumentOutOfRangeException( paramName, _message );
+                    }
+
+                    break;
+                }
+                case byte _byte:
+                {
+                    if( _byte <= 0 )
+                    {
+                        throw new ArgumentOutOfRangeException( paramName, _message );
+                    }
+
+                    break;
+                }
+                case int _count:
+                {
+                    if( _count <= 0 )
+                    {
+                        throw new ArgumentOutOfRangeException( paramName, _message );
+                    }
+
+                    break;
+                }
+                case short _shorty:
+                {
+                    if( _shorty <= 0 )
+                    {
                         throw new ArgumentOutOfRangeException( paramName, _message );
                     }
 
@@ -561,17 +509,15 @@ namespace BudgetExecution
                 {
                     if( _number <= 0 )
                     {
-                        var _message = @$"The double {paramName} is negative or zero!";
                         throw new ArgumentOutOfRangeException( paramName, _message );
                     }
 
                     break;
                 }
-                case float _money:
+                case float _floaty:
                 {
-                    if( _money <= 0 )
+                    if( _floaty <= 0 )
                     {
-                        var _message = @$"The float {paramName} is negative or zero!";
                         throw new ArgumentOutOfRangeException( paramName, _message );
                     }
 
@@ -581,7 +527,6 @@ namespace BudgetExecution
                 {
                     if( _cash <= 0 )
                     {
-                        var _message = @$"The decimal {paramName} is negative or zero!";
                         throw new ArgumentOutOfRangeException( paramName, _message );
                     }
 

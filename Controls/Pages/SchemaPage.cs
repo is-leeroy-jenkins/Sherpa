@@ -571,7 +571,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( provider, nameof( provider ) );
+                ThrowIf.Null( provider, nameof( provider ) );
                 var _value = (Provider)Enum.Parse( typeof( Provider ), provider );
                 if( Enum.IsDefined( typeof( Provider ), _value ) )
                 {

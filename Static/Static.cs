@@ -109,7 +109,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( sql, nameof( sql ) );
+                ThrowIf.Null( sql, nameof( sql ) );
                 var _command = connection.CreateCommand( );
                 _command.CommandText = sql;
                 return !string.IsNullOrEmpty( _command?.CommandText )
@@ -135,7 +135,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( sql, nameof( sql ) );
+                ThrowIf.Null( sql, nameof( sql ) );
                 using var _command = connection?.CreateCommand( sql );
                 return _command?.ExecuteNonQuery( ) ?? 0;
             }
@@ -158,7 +158,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( message, nameof( message ) );
+                ThrowIf.Null( message, nameof( message ) );
                 var _stringBuilder = new StringBuilder( );
                 _stringBuilder.Append( message );
                 _stringBuilder.Append( Environment.NewLine );

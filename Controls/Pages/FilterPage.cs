@@ -1173,8 +1173,8 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( where, nameof( where ) );
-                ThrowIf.NullOrEmpty( fields, nameof( fields ) );
-                ThrowIf.NullOrEmpty( numerics, nameof( numerics ) );
+                ThrowIf.Null( fields, nameof( fields ) );
+                ThrowIf.Null( numerics, nameof( numerics ) );
                 var _cols = string.Empty;
                 var _aggr = string.Empty;
                 foreach( var _name in fields )
@@ -1215,7 +1215,7 @@ namespace BudgetExecution
                 try
                 {
                     ThrowIf.Null( where, nameof( where ) );
-                    ThrowIf.NullOrEmpty( columns, nameof( columns ) );
+                    ThrowIf.Null( columns, nameof( columns ) );
                     var _cols = string.Empty;
                     foreach( var _name in columns )
                     {

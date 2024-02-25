@@ -112,7 +112,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( text, nameof( text ) );
+                ThrowIf.Null( text, nameof( text ) );
                 int count;
                 if( allowInternational )
                 {
@@ -168,7 +168,7 @@ namespace BudgetExecution
             try
             {
                 var _test = c.ToString( );
-                ThrowIf.NullOrEmpty( _test, nameof( c ) );
+                ThrowIf.Null( _test, nameof( c ) );
                 return ( c >= '0' ) && ( c <= '9' );
             }
             catch( Exception _ex )
@@ -190,7 +190,7 @@ namespace BudgetExecution
             try
             {
                 var _test = c.ToString( );
-                ThrowIf.NullOrEmpty( _test, nameof( c ) );
+                ThrowIf.Null( _test, nameof( c ) );
                 return ( ( c >= 'A' ) && ( c <= 'Z' ) ) || ( ( c >= 'a' ) && ( c <= 'z' ) );
             }
             catch( Exception _ex )
@@ -211,7 +211,7 @@ namespace BudgetExecution
             try
             {
                 var _test = c.ToString( );
-                ThrowIf.NullOrEmpty( _test, nameof( c ) );
+                ThrowIf.Null( _test, nameof( c ) );
                 return IsLetter( c ) || IsDigit( c );
             }
             catch( Exception _ex )
@@ -233,7 +233,7 @@ namespace BudgetExecution
             try
             {
                 var _test = c.ToString( );
-                ThrowIf.NullOrEmpty( _test, nameof( c ) );
+                ThrowIf.Null( _test, nameof( c ) );
                 if( IsControl( c ) )
                 {
                     return false;
@@ -263,7 +263,7 @@ namespace BudgetExecution
             try
             {
                 var _test = c.ToString( );
-                ThrowIf.NullOrEmpty( _test, nameof( c ) );
+                ThrowIf.Null( _test, nameof( c ) );
                 if( c < 128 )
                 {
                     if( IsLetter( c )
@@ -310,7 +310,7 @@ namespace BudgetExecution
             try
             {
                 var _test = c.ToString( );
-                ThrowIf.NullOrEmpty( _test, nameof( c ) );
+                ThrowIf.Null( _test, nameof( c ) );
                 if( c < 128 )
                 {
                     if( IsLetter( c ) )
@@ -359,7 +359,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( text, nameof( text ) );
+                ThrowIf.Null( text, nameof( text ) );
                 ThrowIf.NegativeOrZero( index, nameof( index ) );
                 var startIndex = index;
                 while( ( index < text.Length )

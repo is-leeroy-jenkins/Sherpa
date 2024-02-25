@@ -254,10 +254,14 @@ namespace BudgetExecution
             return default( DataTable );
         }
 
-        /// <summary> Creates the table from CSV file. </summary>
+        /// <summary>
+        /// Creates the table from CSV file.
+        /// </summary>
         /// <param name="fileName"> Name of the file. </param>
         /// <param name="sheetName"> Name of the sheet. </param>
-        /// <returns> </returns>
+        /// <returns>
+        /// DataTable
+        /// </returns>
         public DataTable CreateTableFromCsvFile( string fileName, ref string sheetName )
         {
             if( !string.IsNullOrEmpty( fileName )
@@ -294,9 +298,12 @@ namespace BudgetExecution
             return default( DataTable );
         }
 
-        /// <summary> Gets the parameters. </summary>
+        /// <summary>
+        /// Gets the parameters.
+        /// </summary>
         /// <param name="dict"> The dictionary. </param>
-        /// <returns> </returns>
+        /// <returns>
+        /// </returns>
         public IEnumerable<SQLiteParameter> GetParameters( Dictionary<string, object> dict )
         {
             if( dict?.Any( ) == true )
@@ -324,9 +331,12 @@ namespace BudgetExecution
             return default( IEnumerable<SQLiteParameter> );
         }
 
-        /// <summary> Gets the command builder. </summary>
+        /// <summary>
+        /// Gets the command builder.
+        /// </summary>
         /// <param name="adapter"> The adapter. </param>
-        /// <returns> </returns>
+        /// <returns>
+        /// </returns>
         private SQLiteCommandBuilder GetCommandBuilder( SQLiteDataAdapter adapter )
         {
             try
@@ -342,8 +352,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the excel file path. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the excel file path.
+        /// </summary>
+        /// <returns>
+        /// </returns>
         private string GetExcelFilePath( )
         {
             try
@@ -372,16 +385,19 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Checks if sheet name exists. </summary>
+        /// <summary>
+        /// Checks if sheet name exists.
+        /// </summary>
         /// <param name="sheetName"> Name of the sheet. </param>
         /// <param name="dataSchema"> The data schema. </param>
-        /// <returns> </returns>
+        /// <returns>
+        /// </returns>
         private bool CheckIfSheetNameExists( string sheetName, DataTable dataSchema )
         {
             try
             {
-                ThrowIf.NullOrEmpty( sheetName, nameof( sheetName ) );
-                ThrowIf.NoData( dataSchema, nameof( dataSchema ) );
+                ThrowIf.Null( sheetName, nameof( sheetName ) );
+                ThrowIf.Empty( dataSchema, nameof( dataSchema ) );
                 for( var _i = 0; _i < dataSchema.Rows.Count; _i++ )
                 {
                     var _dataRow = dataSchema.Rows[ _i ];
@@ -400,7 +416,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Creates the database. </summary>
+        /// <summary>
+        /// Creates the database.
+        /// </summary>
         private void CreateDatabase( )
         {
             var _commandText = @"CREATE TABLE IF NOT EXISTS [MyTable] 

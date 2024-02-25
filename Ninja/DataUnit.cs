@@ -205,7 +205,7 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( dataRow, nameof( dataRow ) );
-                ThrowIf.NullOrEmpty( primaryKey, nameof( primaryKey ) );
+                ThrowIf.Null( primaryKey, nameof( primaryKey ) );
                 return !string.IsNullOrEmpty( primaryKey ) && ( dataRow != null )
                     ? int.Parse( dataRow[ $"{primaryKey}" ].ToString( ) ?? string.Empty )
                     : -1;

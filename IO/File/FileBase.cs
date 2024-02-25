@@ -69,7 +69,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( filePath, nameof( filePath ) );
+                ThrowIf.Null( filePath, nameof( filePath ) );
                 var _source = new FileInfo( _fullPath );
                 _source.MoveTo( filePath );
             }
@@ -89,7 +89,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( filePath, nameof( filePath ) );
+                ThrowIf.Null( filePath, nameof( filePath ) );
                 var _source = new FileInfo( _fullPath );
                 _source.CopyTo( filePath );
             }

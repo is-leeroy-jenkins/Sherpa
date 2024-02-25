@@ -1231,7 +1231,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( sqlText, nameof( sqlText ) );
+                ThrowIf.Null( sqlText, nameof( sqlText ) );
                 _dataModel = new DataBuilder( _source, _provider, sqlText );
                 _dataTable = _dataModel.DataTable;
                 BindingSource.DataSource = _dataModel.DataTable;
@@ -1400,9 +1400,9 @@ namespace BudgetExecution
             {
                 try
                 {
-                    ThrowIf.Null( where, nameof( where ) );
-                    ThrowIf.NullOrEmpty( fields, nameof( fields ) );
-                    ThrowIf.NullOrEmpty( numerics, nameof( numerics ) );
+                    ThrowIf.Empty( where, nameof( where ) );
+                    ThrowIf.Empty( fields, nameof( fields ) );
+                    ThrowIf.Empty( numerics, nameof( numerics ) );
                     var _cols = string.Empty;
                     var _aggr = string.Empty;
                     foreach( var name in fields )
@@ -1446,8 +1446,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    ThrowIf.Null( where, nameof( where ) );
-                    ThrowIf.NullOrEmpty( columns, nameof( columns ) );
+                    ThrowIf.Empty( where, nameof( where ) );
+                    ThrowIf.Empty( columns, nameof( columns ) );
                     var _cols = string.Empty;
                     foreach( var name in columns )
                     {
@@ -1686,7 +1686,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( text, nameof( text ) );
+                ThrowIf.Null( text, nameof( text ) );
                 var _notification = new Notification( text );
                 _notification.Show( );
             }
@@ -1704,7 +1704,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( text, nameof( text ) );
+                ThrowIf.Null( text, nameof( text ) );
                 var _message = new SplashMessage( text );
                 _message.Show( );
             }

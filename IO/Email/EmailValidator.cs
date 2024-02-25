@@ -65,7 +65,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( text, nameof( text ) );
+                ThrowIf.Null( text, nameof( text ) );
                 ThrowIf.NegativeOrZero( index, nameof( index ) );
                 if( !SkipSubDomain( text, ref index, allowInternational, out var _type ) )
                 {
@@ -116,7 +116,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( text, nameof( text ) );
+                ThrowIf.Null( text, nameof( text ) );
                 ThrowIf.NegativeOrZero( index, nameof( index ) );
                 var _escaped = false;
                 index++;
@@ -173,7 +173,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( text, nameof( text ) );
+                ThrowIf.Null( text, nameof( text ) );
                 ThrowIf.NegativeOrZero( index, nameof( index ) );
                 var _groups = 0;
                 while( ( index < text.Length )
@@ -223,7 +223,7 @@ namespace BudgetExecution
             try
             {
                 var _test = c.ToString( );
-                ThrowIf.NullOrEmpty( _test, nameof( c ) );
+                ThrowIf.Null( _test, nameof( c ) );
                 return ( ( c >= 'A' ) && ( c <= 'F' ) )
                     || ( ( c >= 'a' ) && ( c <= 'f' ) )
                     || ( ( c >= '0' ) && ( c <= '9' ) );
@@ -245,7 +245,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( text, nameof( text ) );
+                ThrowIf.Null( text, nameof( text ) );
                 ThrowIf.NegativeOrZero( index, nameof( index ) );
                 var _needGroup = false;
                 var _compact = false;
@@ -362,7 +362,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( email, nameof( email ) );
+                ThrowIf.Null( email, nameof( email ) );
                 var _index = 0;
                 if( email == null )
                 {

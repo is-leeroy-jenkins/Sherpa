@@ -236,7 +236,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( code, nameof( code ) );
+                ThrowIf.Null( code, nameof( code ) );
                 return new Dictionary<string, object>
                 {
                     [ "Code" ] = code

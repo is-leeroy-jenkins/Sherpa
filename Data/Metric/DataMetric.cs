@@ -165,8 +165,8 @@ namespace BudgetExecution
         public DataMetric( DataTable dataTable )
         {
             _dataTable = dataTable;
-            _fields = GetTextColumns( );
-            _numerics = GetNumericColumns( );
+            _fields = GetTextColumnNames( );
+            _numerics = GetNumericColumnNames( );
             _dates = GetDateColumns( );
         }
 
@@ -175,7 +175,7 @@ namespace BudgetExecution
         /// </summary>
         /// <returns>
         /// </returns>
-        private protected IList<string> GetTextColumns( )
+        private protected IList<string> GetTextColumnNames( )
         {
             try
             {

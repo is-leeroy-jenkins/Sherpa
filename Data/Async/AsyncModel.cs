@@ -407,8 +407,8 @@ namespace BudgetExecution
             string name, string value )
         {
             ThrowIf.Null( dataRows, nameof( dataRows ) );
-            ThrowIf.NullOrEmpty( name, nameof( name ) );
-            ThrowIf.NullOrEmpty( value, nameof( value ) );
+            ThrowIf.Null( name, nameof( name ) );
+            ThrowIf.Null( value, nameof( value ) );
             var _async = new TaskCompletionSource<IList<string>>( );
             try
             {
@@ -440,7 +440,7 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( dataRows, nameof( dataRows ) );
-                ThrowIf.NullOrEmpty( name, nameof( name ) );
+                ThrowIf.Null( name, nameof( name ) );
                 var _values = dataRows
                     ?.Select( v => v.Field<string>( name ) )
                     ?.Distinct( )

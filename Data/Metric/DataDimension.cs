@@ -106,11 +106,11 @@ namespace BudgetExecution
         /// <param name="numeric">The numeric.</param>
         /// <exception cref="System.ArgumentOutOfRangeException">
         /// </exception>
-        private protected void ThrowIfNullNumeric( string numeric )
+        private protected void ThrowIfNotNumeric( string numeric )
         {
             try
             {
-                ThrowIf.NullOrEmpty( numeric, nameof( numeric ) );
+                ThrowIf.Null( numeric, nameof( numeric ) );
                 if( _numerics?.Contains( numeric ) == false )
                 {
                     var _message = $"{numeric} is not in Data Columns!";
@@ -127,12 +127,13 @@ namespace BudgetExecution
         /// Throws if null field.
         /// </summary>
         /// <param name="field">The field.</param>
-        /// <exception cref="System.ArgumentOutOfRangeException"></exception>
-        private protected void ThrowIfNullField( string field )
+        /// <exception cref="System.ArgumentOutOfRangeException">
+        /// </exception>
+        private protected void ThrowIfNotField( string field )
         {
             try
             {
-                ThrowIf.NullOrEmpty( field, nameof( field ) );
+                ThrowIf.Null( field, nameof( field ) );
                 if( _fields?.Contains( field ) == false )
                 {
                     var _message = $"{field} is not in Data Columns!";
@@ -151,14 +152,14 @@ namespace BudgetExecution
         /// <param name="date">The date.</param>
         /// <exception cref="System.ArgumentOutOfRangeException">
         /// </exception>
-        private protected void ThrowIfNullDate( string date )
+        private protected void ThrowIfNotDate( string date )
         {
             try
             {
-                ThrowIf.NullOrEmpty( date, nameof( date ) );
+                ThrowIf.Null( date, nameof( date ) );
                 if( _dates?.Contains( date ) == false )
                 {
-                    var _message = $"{date} is not in Data Columns!";
+                    var _message = $"{date} is not a Data Column!";
                     throw new ArgumentOutOfRangeException( date, _message );
                 }
             }
@@ -174,18 +175,19 @@ namespace BudgetExecution
         /// <param name="where">The where.</param>
         /// <exception cref="System.ArgumentOutOfRangeException">
         /// </exception>
-        private protected void ThrowIfNullCriteria( IDictionary<string, object> where )
+        private protected void ThrowIfNotCriteria( IDictionary<string, object> where )
         {
             try
             {
                 ThrowIf.Null( where, nameof( where ) );
                 var _keys = where.Keys.ToList( );
-                foreach( var _column in _keys )
+                foreach( var _name in _keys )
                 {
-                    if( _keys?.Contains( _column ) == false )
+                    var _colNames = _dataTable.GetColumnNames( );
+                    if( _colNames.Contains( _name ) == false )
                     {
-                        var _message = $"{_column} is not in Data Columns!";
-                        throw new ArgumentOutOfRangeException( _column, _message );
+                        var _message = $"{_name} is not a Data Column!";
+                        throw new ArgumentOutOfRangeException( _name, _message );
                     }
                 }
             }

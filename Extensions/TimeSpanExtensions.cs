@@ -76,7 +76,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return -1;
+                return 0;
             }
         }
 
@@ -94,7 +94,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return -1D;
+                return 0D;
             }
         }
 
@@ -112,7 +112,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return -1;
+                return 0;
             }
         }
 
@@ -130,7 +130,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return -1D;
+                return 0D;
             }
         }
 
@@ -148,7 +148,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return -1;
+                return 0;
             }
         }
 
@@ -166,7 +166,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return -1D;
+                return 0D;
             }
         }
 
@@ -184,7 +184,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return -1;
+                return 0;
             }
         }
 
@@ -202,7 +202,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return -1D;
+                return 0D;
             }
         }
 
@@ -220,7 +220,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return -1D;
+                return 0D;
             }
         }
 

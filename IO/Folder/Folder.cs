@@ -206,7 +206,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( destination, nameof( destination ) );
+                ThrowIf.Null( destination, nameof( destination ) );
                 Directory.Move( _buffer, destination );
             }
             catch( IOException _ex )
@@ -246,7 +246,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( filePath, nameof( filePath ) );
+                ThrowIf.Null( filePath, nameof( filePath ) );
                 return CreateDirectory( filePath );
             }
             catch( Exception _ex )
@@ -266,7 +266,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( folderName, nameof( folderName ) );
+                ThrowIf.Null( folderName, nameof( folderName ) );
                 Directory.Delete( folderName, true );
             }
             catch( Exception _ex )
@@ -284,8 +284,8 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( source, nameof( source ) );
-                ThrowIf.NullOrEmpty( destination, nameof( destination ) );
+                ThrowIf.Null( source, nameof( source ) );
+                ThrowIf.Null( destination, nameof( destination ) );
                 ZipFile.CreateFromDirectory( source, destination );
             }
             catch( Exception _ex )
@@ -304,7 +304,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( dirName, nameof( dirName ) );
+                ThrowIf.Null( dirName, nameof( dirName ) );
                 return new DirectoryInfo( _fullPath )?.CreateSubdirectory( dirName );
             }
             catch( Exception _ex )
@@ -325,7 +325,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( destination, nameof( destination ) );
+                ThrowIf.Null( destination, nameof( destination ) );
                 var _directory = new DirectoryInfo( _fullPath );
                 _directory.MoveTo( destination );
             }
@@ -346,7 +346,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( destination, nameof( destination ) );
+                ThrowIf.Null( destination, nameof( destination ) );
                 ZipFile.CreateFromDirectory( _fileName, destination );
             }
             catch( Exception _ex )
@@ -366,7 +366,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( zipPath, nameof( zipPath ) );
+                ThrowIf.Null( zipPath, nameof( zipPath ) );
                 ZipFile.ExtractToDirectory( zipPath, FullPath );
             }
             catch( Exception _ex )

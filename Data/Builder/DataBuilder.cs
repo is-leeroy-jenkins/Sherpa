@@ -281,7 +281,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( provider, nameof( provider ) );
+                ThrowIf.Null( provider, nameof( provider ) );
                 if( Enum.IsDefined( typeof( Provider ), provider ) )
                 {
                     return (Provider)Enum.Parse( typeof( Provider ), provider );
@@ -387,7 +387,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( tableName, nameof( tableName ) );
+                ThrowIf.Null( tableName, nameof( tableName ) );
                 var _names = Enum.GetNames( typeof( Source ) );
                 foreach( var _name in _names )
                 {

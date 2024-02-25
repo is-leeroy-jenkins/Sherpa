@@ -269,7 +269,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( dirPath, nameof( dirPath ) );
+                ThrowIf.Null( dirPath, nameof( dirPath ) );
                 var _files = Directory.GetFiles( dirPath );
                 for( var _i = 0; _i < _files.Length; _i++ )
                 {

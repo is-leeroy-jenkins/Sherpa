@@ -176,7 +176,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    ThrowIf.NullOrEmpty( search, nameof( search ) );
+                    ThrowIf.Null( search, nameof( search ) );
                     using var _stream = File.Open( _buffer, FileMode.Open );
                     using var _reader = new StreamReader( _stream );
                     if( _reader != null )
@@ -255,7 +255,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.NullOrEmpty( filePath, nameof( filePath ) );
+                ThrowIf.Null( filePath, nameof( filePath ) );
                 return new FileInfo( filePath );
             }
             catch( Exception _ex )
