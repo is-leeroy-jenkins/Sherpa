@@ -46,14 +46,12 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.Drawing.Drawing2D;
     using System.Linq;
     using System.Windows.Forms;
     using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Chart;
     using Syncfusion.Windows.Forms.Tools;
-    using BrushInfo = Syncfusion.Drawing.BrushInfo;
     using MarkerStyle = Syncfusion.Windows.Forms.Chart.MarkerStyle;
 
     /// <summary>
@@ -1048,115 +1046,6 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the chart.
-        /// </summary>
-        private void InitializeChart( )
-        {
-            try
-            {
-                var _blueText = Color.FromArgb( 106, 189, 252 );
-                var _darkBackground = Color.FromArgb( 20, 20, 20 );
-                var _highlight = Color.FromArgb( 20, 20, 20 );
-                var _black = Color.Black;
-                var _white = Color.White;
-                var _transparent = Color.Transparent;
-                var _tipGradient = new[ ] { _blueText, _black };
-                var _chartGradient = new[ ] { _highlight, _darkBackground };
-                var _direction = Syncfusion.Drawing.GradientStyle.None;
-                Chart.ShowToolbar = false;
-                Chart.ShowScrollBars = false;
-                Chart.EnableMouseRotation = true;
-                Chart.Padding = new Padding( 1 );
-                Chart.Margin = new Padding( 1 );
-                Chart.Anchor = AnchorStyles.Top | AnchorStyles.Left;
-                Chart.AllowGapForEmptyPoints = false;
-                Chart.AllowGradientPalette = true;
-                Chart.AllowUserEditStyles = true;
-                Chart.PrintColorMode = ChartPrintColorMode.CheckPrinter;
-                Chart.CalcRegions = true;
-                Chart.ChartAreaMargins = new ChartMargins( 0, 0, 0, 0 );
-                Chart.DropSeriesPoints = false;
-                Chart.AddRandomSeries = true;
-                Chart.ChartAreaShadow = false;
-                Chart.Series3D = true;
-                Chart.SeriesHighlight = true;
-                Chart.RealMode3D = true;
-                Chart.AutoHighlight = true;
-                Chart.Style3D = true;
-                Chart.ShowLegend = false;
-                Chart.ShowToolTips = false;
-                Chart.DisplayChartContextMenu = false;
-                Chart.DisplaySeriesContextMenu = false;
-                Chart.SeriesHighlightIndex = -1;
-                Chart.Depth = 250;
-                Chart.ElementsSpacing = 10;
-                Chart.Spacing = 5;
-                Chart.SpacingBetweenPoints = 5;
-                Chart.SpacingBetweenSeries = 10;
-                Chart.ColumnFixedWidth = 20;
-                Chart.ColumnDrawMode = ChartColumnDrawMode.ClusteredMode;
-                Chart.ColumnWidthMode = ChartColumnWidthMode.DefaultWidthMode;
-                Chart.Palette = ChartColorPalette.Office2016;
-                Chart.Skins = Skins.Office2016Black;
-                Chart.Rotation = 10;
-                Chart.SmoothingMode = SmoothingMode.AntiAlias;
-                Chart.TextAlignment = StringAlignment.Center;
-                Chart.TextPosition = ChartTextPosition.Top;
-                Chart.Tilt = 3;
-                Chart.RadarStyle = ChartRadarAxisStyle.Polygon;
-                Chart.BackColor = _darkBackground;
-                Chart.ForeColor = _blueText;
-                Chart.PrimaryXAxis.Font = new Font( "Roboto", 8 );
-                Chart.PrimaryXAxis.ForeColor = _white;
-                Chart.PrimaryXAxis.AxisLabelPlacement = ChartPlacement.Outside;
-                Chart.PrimaryXAxis.ValueType = ChartValueType.Category;
-                Chart.PrimaryXAxis.TitleFont = new Font( "Roboto", 8 );
-                Chart.PrimaryXAxis.TitleColor = _blueText;
-                Chart.PrimaryXAxis.Title = "Records";
-                Chart.PrimaryYAxis.Font = new Font( "Roboto", 8 );
-                Chart.PrimaryYAxis.ForeColor = _white;
-                Chart.PrimaryYAxis.AxisLabelPlacement = ChartPlacement.Outside;
-                Chart.PrimaryYAxis.ValueType = ChartValueType.Double;
-                Chart.PrimaryYAxis.TitleFont = new Font( "Roboto", 9 );
-                Chart.PrimaryYAxis.TitleColor = _blueText;
-                Chart.PrimaryYAxis.Format = "#,##0";
-                Chart.Tooltip.Font = new Font( "Roboto", 8 );
-                Chart.Tooltip.ForeColor = _blueText;
-                Chart.Tooltip.BorderStyle = BorderStyle.FixedSingle;
-                Chart.ToolBar.Border.ForeColor = _black;
-                Chart.ToolBar.Orientation = ChartOrientation.Horizontal;
-                Chart.ToolBar.ButtonBackColor = _darkBackground;
-                Chart.ToolBar.Position = ChartDock.Bottom;
-                Chart.ToolBar.ShowGrip = false;
-                Chart.ToolBar.ShowBorder = false;
-                Chart.ToolBar.BackColor = _darkBackground;
-                Chart.Title.Font = new Font( "Roboto", 10 );
-                Chart.Title.ForeColor = _blueText;
-                Chart.Title.BackColor = _transparent;
-                Chart.Legend.BackColor = _transparent;
-                Chart.Legend.ForeColor = _blueText;
-                Chart.Legend.Font = new Font( "Roboto", 7 );
-                Chart.Legend.ShowBorder = false;
-                Chart.Legend.ColumnsCount = 1;
-                Chart.Legend.Position = ChartDock.Right;
-                Chart.Legend.VisibleCheckBox = true;
-                Chart.Legend.Visible = false;
-                Chart.ChartArea.RealSeries3D = true;
-                Chart.ChartArea.Series3D = true;
-                Chart.ChartArea.AutoScale = true;
-                Chart.Tooltip.BackgroundColor = new BrushInfo( _direction, _tipGradient );
-                Chart.ChartArea.BackInterior = new BrushInfo( GradientStyle.None,
-                    Color.FromArgb( 20, 20, 20 ), Color.FromArgb( 20, 20, 20 ) );
-
-                Chart.ChartInterior = new BrushInfo( _direction, _chartGradient );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
             }
         }
 
@@ -2514,8 +2403,7 @@ namespace BudgetExecution
                         _series.Points.Add( _cp );
                     }
 
-                    _series.YAxis.TickColor = _textColor;
-                    _series.XAxis.TickColor = _textColor;
+                    _series.Style.Interior = new BrushInfo( _backColor );
                     _series.Visible = true;
                     _series.EnableStyles = true;
                     _series.Type = type;
@@ -2578,6 +2466,7 @@ namespace BudgetExecution
                 Chart.Series?.Clear( );
                 var _borderColor = Color.FromArgb( 0, 120, 212 );
                 var _backColor = Color.Black;
+                var _white = Color.White;
                 var _textColor = Color.FromArgb( 106, 189, 252 );
                 var _callFont = new Font( "Roboto", 8 );
                 var _nums = _numerics.ToArray( );
@@ -2604,7 +2493,7 @@ namespace BudgetExecution
                     _series.PointsToolTipFormat = "{4}";
                     _series.Style.DisplayText = true;
                     _series.Style.DrawTextShape = true;
-                    _series.Style.TextColor = Color.White;
+                    _series.Style.TextColor = _white;
                     _series.Style.Font.Size = 9;
                     _series.Style.Font.Facename = "Roboto";
                     _series.Style.Symbol.Shape = ChartSymbolShape.Circle;
@@ -2614,7 +2503,7 @@ namespace BudgetExecution
                     _series.FancyToolTip.Spacing = 10f;
                     _series.FancyToolTip.Border.ForeColor = _borderColor;
                     _series.FancyToolTip.Border.BackColor = Color.Transparent;
-                    _series.FancyToolTip.ForeColor = Color.White;
+                    _series.FancyToolTip.ForeColor = _white;
                     _series.FancyToolTip.BackColor = _backColor;
                     _series.FancyToolTip.Symbol = ChartSymbolShape.Arrow;
                     _series.FancyToolTip.Visible = true;
@@ -2755,7 +2644,6 @@ namespace BudgetExecution
                 InitializeToolStrip( );
                 InitializeTimers( );
                 InitializeLabels( );
-                InitializeChart( );
                 InitializeSeries( );
                 NumericListBox.MultiSelect = true;
                 FieldListBox.MultiSelect = true;
@@ -2896,7 +2784,7 @@ namespace BudgetExecution
                     }
 
                     _firstValue = _listBox.SelectedValue?.ToString( );
-                    _filter[ FirstCategory ] = FirstValue;
+                    _filter[ FirstCategory ] = _firstValue;
                     PopulateSecondComboBoxItems( );
                     if( SecondTable.Visible == false )
                     {
