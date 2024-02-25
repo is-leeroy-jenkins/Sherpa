@@ -49,6 +49,7 @@ namespace BudgetExecution
     using System.Drawing.Drawing2D;
     using System.Linq;
     using System.Windows.Forms;
+    using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Chart;
     using Syncfusion.Windows.Forms.Tools;
@@ -1059,12 +1060,13 @@ namespace BudgetExecution
             {
                 var _blueText = Color.FromArgb( 106, 189, 252 );
                 var _darkBackground = Color.FromArgb( 20, 20, 20 );
+                var _highlight = Color.FromArgb( 20, 20, 20 );
                 var _black = Color.Black;
                 var _white = Color.White;
                 var _transparent = Color.Transparent;
                 var _tipGradient = new[ ] { _blueText, _black };
-                var _chartGradient = new[ ] { _blueText, _darkBackground };
-                var _direction = Syncfusion.Drawing.GradientStyle.ForwardDiagonal;
+                var _chartGradient = new[ ] { _highlight, _darkBackground };
+                var _direction = Syncfusion.Drawing.GradientStyle.None;
                 Chart.ShowToolbar = false;
                 Chart.ShowScrollBars = false;
                 Chart.EnableMouseRotation = true;
@@ -1147,7 +1149,10 @@ namespace BudgetExecution
                 Chart.ChartArea.Series3D = true;
                 Chart.ChartArea.AutoScale = true;
                 Chart.Tooltip.BackgroundColor = new BrushInfo( _direction, _tipGradient );
-                Chart.ChartArea.BackInterior = new BrushInfo( _direction, _chartGradient );
+                Chart.ChartArea.BackInterior = new BrushInfo( GradientStyle.None,
+                    Color.FromArgb( 20, 20, 20 ), Color.FromArgb( 20, 20, 20 ) );
+
+                Chart.ChartInterior = new BrushInfo( _direction, _chartGradient );
             }
             catch( Exception _ex )
             {

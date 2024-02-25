@@ -156,8 +156,11 @@ namespace BudgetExecution
             ChartArea.RealSeries3D = true;
             ChartArea.Series3D = true;
             ChartArea.AutoScale = true;
-            ChartArea.BackInterior = new BrushInfo( GradientStyle.None, 
-                Color.FromArgb( 106, 189, 252 ), Color.FromArgb( 20, 20, 20 ) );
+            ChartArea.BackInterior = new BrushInfo( GradientStyle.None,
+                Color.FromArgb( 20, 20, 20 ), Color.FromArgb( 20, 20, 20 ) );
+
+            ChartInterior = new BrushInfo( GradientStyle.None,
+                Color.FromArgb( 20, 20, 20 ), Color.FromArgb( 20, 20, 20 ) );
         }
 
         /// <summary>
