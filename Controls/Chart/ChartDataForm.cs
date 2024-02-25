@@ -91,152 +91,152 @@ namespace BudgetExecution
         /// <summary>
         /// The time
         /// </summary>
-        private int _time;
+        private protected int _time;
 
         /// <summary>
         /// The seconds
         /// </summary>
-        private int _seconds;
+        private protected int _seconds;
 
         /// <summary>
         /// The count
         /// </summary>
-        private int _count;
+        private protected int _count;
 
         /// <summary>
         /// The hover text
         /// </summary>
-        private string _hoverText;
+        private protected string _hoverText;
 
         /// <summary>
         /// The selected table
         /// </summary>
-        private string _selectedTable;
+        private protected string _selectedTable;
 
         /// <summary>
         /// The first category
         /// </summary>
-        private string _firstCategory;
+        private protected string _firstCategory;
 
         /// <summary>
         /// The first value
         /// </summary>
-        private string _firstValue;
+        private protected string _firstValue;
 
         /// <summary>
         /// The second category
         /// </summary>
-        private string _secondCategory;
+        private protected string _secondCategory;
 
         /// <summary>
         /// The second value
         /// </summary>
-        private string _secondValue;
+        private protected string _secondValue;
 
         /// <summary>
         /// The third category
         /// </summary>
-        private string _thirdCategory;
+        private protected string _thirdCategory;
 
         /// <summary>
         /// The third value
         /// </summary>
-        private string _thirdValue;
+        private protected string _thirdValue;
 
         /// <summary>
         /// The fourth category
         /// </summary>
-        private string _fourthCategory;
+        private protected string _fourthCategory;
 
         /// <summary>
         /// The fourth value
         /// </summary>
-        private string _fourthValue;
+        private protected string _fourthValue;
 
         /// <summary>
         /// The SQL command
         /// </summary>
-        private string _sqlQuery;
+        private protected string _sqlQuery;
 
         /// <summary>
         /// The xaxis
         /// </summary>
-        private string _xaxis;
+        private protected string _xaxis;
 
         /// <summary>
         /// The yvalues
         /// </summary>
-        private IList<string> _yvalues;
+        private protected IList<string> _yvalues;
 
         /// <summary>
         /// The chart type
         /// </summary>
-        private ChartSeriesType _chartType;
+        private protected ChartSeriesType _chartType;
 
         /// <summary>
         /// The stat
         /// </summary>
-        private STAT _metric;
+        private protected STAT _metric;
 
         /// <summary>
         /// The data model
         /// </summary>
-        private DataBuilder _dataModel;
+        private protected DataBuilder _dataModel;
 
         /// <summary>
         /// The data table
         /// </summary>
-        private DataTable _dataTable;
+        private protected DataTable _dataTable;
 
         /// <summary>
         /// The filter
         /// </summary>
-        private IDictionary<string, object> _filter;
+        private protected IDictionary<string, object> _filter;
 
         /// <summary>
         /// The fields
         /// </summary>
-        private IList<string> _fields;
+        private protected IList<string> _fields;
 
         /// <summary>
         /// The columns
         /// </summary>
-        private IList<string> _columns;
+        private protected IList<string> _columns;
 
         /// <summary>
         /// The numerics
         /// </summary>
-        private IList<string> _numerics;
+        private protected IList<string> _numerics;
 
         /// <summary>
         /// The selected columns
         /// </summary>
-        private IList<string> _selectedColumns;
+        private protected IList<string> _selectedColumns;
 
         /// <summary>
         /// The selected fields
         /// </summary>
-        private IList<string> _selectedFields;
+        private protected IList<string> _selectedFields;
 
         /// <summary>
         /// The selected numerics
         /// </summary>
-        private IList<string> _selectedNumerics;
+        private protected IList<string> _selectedNumerics;
 
         /// <summary>
         /// The source
         /// </summary>
-        private Source _source;
+        private protected Source _source;
 
         /// <summary>
         /// The provider
         /// </summary>
-        private Provider _provider;
+        private protected Provider _provider;
 
         /// <summary>
         /// The data arguments
         /// </summary>
-        private DataArgs _dataArgs;
+        private protected DataArgs _dataArgs;
         
         /// <summary>
         /// Gets or sets the time.
@@ -250,7 +250,7 @@ namespace BudgetExecution
             {
                 return _time;
             }
-            private set
+            private protected set
             {
                 _time = value;
             }
@@ -268,7 +268,7 @@ namespace BudgetExecution
             {
                 return _seconds;
             }
-            private set
+            private protected set
             {
                 _seconds = value;
             }
@@ -286,7 +286,7 @@ namespace BudgetExecution
             {
                 return _count;
             }
-            private set
+            private protected set
             {
                 _count = value;
             }
@@ -304,7 +304,7 @@ namespace BudgetExecution
             {
                 return _hoverText;
             }
-            private set
+            private protected set
             {
                 _hoverText = value;
             }
@@ -322,7 +322,7 @@ namespace BudgetExecution
             {
                 return _selectedTable;
             }
-            private set
+            private protected set
             {
                 _selectedTable = value;
             }
@@ -340,7 +340,7 @@ namespace BudgetExecution
             {
                 return _firstCategory;
             }
-            private set
+            private protected set
             {
                 _firstCategory = value;
             }
@@ -358,7 +358,7 @@ namespace BudgetExecution
             {
                 return _firstValue;
             }
-            private set
+            private protected set
             {
                 _firstValue = value;
             }
@@ -376,7 +376,7 @@ namespace BudgetExecution
             {
                 return _secondCategory;
             }
-            private set
+            private protected set
             {
                 _secondCategory = value;
             }
@@ -394,7 +394,7 @@ namespace BudgetExecution
             {
                 return _secondValue;
             }
-            private set
+            private protected set
             {
                 _secondValue = value;
             }
@@ -412,7 +412,7 @@ namespace BudgetExecution
             {
                 return _thirdCategory;
             }
-            private set
+            private protected set
             {
                 _thirdCategory = value;
             }
@@ -430,7 +430,7 @@ namespace BudgetExecution
             {
                 return _thirdValue;
             }
-            private set
+            private protected set
             {
                 _thirdValue = value;
             }
@@ -448,7 +448,7 @@ namespace BudgetExecution
             {
                 return _fourthCategory;
             }
-            private set
+            private protected set
             {
                 _fourthCategory = value;
             }
@@ -466,7 +466,7 @@ namespace BudgetExecution
             {
                 return _fourthValue;
             }
-            private set
+            private protected set
             {
                 _fourthValue = value;
             }
@@ -484,7 +484,7 @@ namespace BudgetExecution
             {
                 return _sqlQuery;
             }
-            private set
+            private protected set
             {
                 _sqlQuery = value;
             }
@@ -502,7 +502,7 @@ namespace BudgetExecution
             {
                 return _xaxis;
             }
-            private set
+            private protected set
             {
                 _xaxis = value;
             }
@@ -520,7 +520,7 @@ namespace BudgetExecution
             {
                 return _yvalues;
             }
-            private set
+            private protected set
             {
                 _yvalues = value;
             }
@@ -538,7 +538,7 @@ namespace BudgetExecution
             {
                 return _dataModel;
             }
-            private set
+            private protected set
             {
                 _dataModel = value;
             }
@@ -556,7 +556,7 @@ namespace BudgetExecution
             {
                 return _dataTable;
             }
-            private set
+            private protected set
             {
                 _dataTable = value;
             }
@@ -574,7 +574,7 @@ namespace BudgetExecution
             {
                 return _filter;
             }
-            private set
+            private protected set
             {
                 _filter = value;
             }
@@ -592,7 +592,7 @@ namespace BudgetExecution
             {
                 return _metric;
             }
-            private set
+            private protected set
             {
                 _metric = value;
             }
@@ -610,7 +610,7 @@ namespace BudgetExecution
             {
                 return _chartType;
             }
-            private set
+            private protected set
             {
                 _chartType = value;
             }
@@ -628,7 +628,7 @@ namespace BudgetExecution
             {
                 return _columns;
             }
-            private set
+            private protected set
             {
                 _columns = value;
             }
@@ -646,7 +646,7 @@ namespace BudgetExecution
             {
                 return _fields;
             }
-            private set
+            private protected set
             {
                 _fields = value;
             }
@@ -664,7 +664,7 @@ namespace BudgetExecution
             {
                 return _numerics;
             }
-            private set
+            private protected set
             {
                 _numerics = value;
             }
@@ -682,7 +682,7 @@ namespace BudgetExecution
             {
                 return _selectedColumns;
             }
-            private set
+            private protected set
             {
                 _selectedColumns = value;
             }
@@ -700,7 +700,7 @@ namespace BudgetExecution
             {
                 return _selectedFields;
             }
-            private set
+            private protected set
             {
                 _selectedFields = value;
             }
@@ -718,7 +718,7 @@ namespace BudgetExecution
             {
                 return _selectedNumerics;
             }
-            private set
+            private protected set
             {
                 _selectedNumerics = value;
             }
@@ -736,7 +736,7 @@ namespace BudgetExecution
             {
                 return _source;
             }
-            private set
+            private protected set
             {
                 _source = value;
             }
@@ -754,7 +754,7 @@ namespace BudgetExecution
             {
                 return _provider;
             }
-            private set
+            private protected set
             {
                 _provider = value;
             }
@@ -772,7 +772,7 @@ namespace BudgetExecution
             {
                 return _dataArgs;
             }
-            private set
+            private protected set
             {
                 _dataArgs = value;
             }
@@ -793,7 +793,7 @@ namespace BudgetExecution
             {
                 return _busy;
             }
-            private set
+            private protected set
             {
                 _busy = value;
             }
@@ -1602,7 +1602,7 @@ namespace BudgetExecution
                     _columns = _dataModel?.ColumnNames;
                     _fields = _dataModel?.Fields;
                     _numerics = _dataModel?.Numerics;
-                    BindingSource.DataSource = _dataModel.DataTable;
+                    BindingSource.DataSource = _dataTable;
                     ToolStrip.BindingSource = BindingSource;
                     EndInit( );
                 }
@@ -1615,7 +1615,7 @@ namespace BudgetExecution
                     _columns = _dataModel?.ColumnNames;
                     _fields = _dataModel?.Fields;
                     _numerics = _dataModel?.Numerics;
-                    BindingSource.DataSource = _dataModel.DataTable;
+                    BindingSource.DataSource = _dataTable;
                     ToolStrip.BindingSource = BindingSource;
                     EndInit( );
                 }
@@ -1643,7 +1643,7 @@ namespace BudgetExecution
                 _columns = _dataModel?.ColumnNames;
                 _fields = _dataModel?.Fields;
                 _numerics = _dataModel?.Numerics;
-                BindingSource.DataSource = _dataModel.DataTable;
+                BindingSource.DataSource = _dataTable;
                 ToolStrip.BindingSource = BindingSource;
                 EndInit( );
             }
@@ -1749,9 +1749,9 @@ namespace BudgetExecution
         {
             try
             {
-                var _current = BindingSource.GetCurrentDataRow( );
-                SetSeriesPointStyles( _current, _chartType );
+                var _current = _dataModel.Record;
                 UpdateSchema( _current );
+                SetSeriesPointStyles( _current, _chartType );
                 Chart.Title.Text = _dataTable.TableName.SplitPascal( );
                 Chart.PrimaryXAxis.Title = GetAxisTitle( );
                 Chart.Refresh( );
@@ -2380,6 +2380,7 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( table, nameof( table ) );
+                Chart.Series?.Clear( );
                 var _borderColor = Color.FromArgb( 0, 120, 212 );
                 var _backColor = Color.Black;
                 var _textColor = Color.FromArgb( 106, 189, 252 );
@@ -2403,7 +2404,6 @@ namespace BudgetExecution
                         _series.Points.Add( _cp );
                     }
 
-                    _series.Style.Interior = new BrushInfo( _backColor );
                     _series.Visible = true;
                     _series.EnableStyles = true;
                     _series.Type = type;
@@ -2778,11 +2778,6 @@ namespace BudgetExecution
             {
                 try
                 {
-                    if( _filter.Count > 0 )
-                    {
-                        _filter.Clear( );
-                    }
-
                     _firstValue = _listBox.SelectedValue?.ToString( );
                     _filter[ FirstCategory ] = _firstValue;
                     PopulateSecondComboBoxItems( );
@@ -2804,7 +2799,7 @@ namespace BudgetExecution
                     }
 
                     _sqlQuery = CreateSqlCommand( _filter );
-                    BindData( _sqlQuery );
+                    BindData( );
                     UpdateMetrics( );
                     BindChart( );
                 }
