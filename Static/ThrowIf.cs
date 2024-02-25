@@ -92,7 +92,7 @@ namespace BudgetExecution
 
                     break;
                 }
-                case Query _query:
+                case BudgetQuery _query:
                 {
                     if( _query == null )
                     {

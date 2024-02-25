@@ -56,7 +56,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class ExcelQuery : Query
+    public class ExcelQuery : BudgetQuery
     {
         /// <inheritdoc/>
         /// <summary>

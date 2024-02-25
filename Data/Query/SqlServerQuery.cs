@@ -48,7 +48,7 @@ namespace BudgetExecution
     /// <summary> </summary>
     /// <seealso cref="T:BudgetExecution.Query" />
     [SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class SqlServerQuery : Query
+    public class SqlServerQuery : BudgetQuery
     {
         /// <inheritdoc />
         /// <summary>

@@ -54,7 +54,7 @@ namespace BudgetExecution
     /// <summary> </summary>
     /// <seealso cref="T:BudgetExecution.Query"/>
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    public class SQLiteQuery : Query
+    public class SQLiteQuery : BudgetQuery
     {
         /// <inheritdoc/>
         /// <summary>

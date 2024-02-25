@@ -70,7 +70,7 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( sqlStatement, nameof( sqlStatement ) );
-                var _query = new Query( sqlStatement );
+                var _query = new BudgetQuery( sqlStatement );
                 _async.SetResult( _query );
                 return _query != null
                     ? _async.Task

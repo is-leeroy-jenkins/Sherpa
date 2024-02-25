@@ -160,7 +160,7 @@ namespace BudgetExecution
         /// <param name="provider"> The provider. </param>
         /// <param name="sqlText"> The SQL text. </param>
         /// <param name="commandType"> Type of the command. </param>
-        protected SqlBase( Source source, Provider provider, string sqlText, SQL commandType )
+        protected SqlBase( Source source, Provider provider, string sqlText, SQL commandType = SQL.SELECTALL )
             : this( )
         {
             _dbPath = new BudgetConnection( source, provider ).ClientPath;

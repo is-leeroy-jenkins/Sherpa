@@ -74,7 +74,7 @@ namespace BudgetExecution
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Query"/>
+        /// <see cref="BudgetQuery"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -94,7 +94,7 @@ namespace BudgetExecution
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Query"/>
+        /// <see cref="BudgetQuery"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source Data. </param>
@@ -116,7 +116,7 @@ namespace BudgetExecution
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Query"/>
+        /// <see cref="BudgetQuery"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -139,7 +139,7 @@ namespace BudgetExecution
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Query"/>
+        /// <see cref="BudgetQuery"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -163,7 +163,7 @@ namespace BudgetExecution
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Query"/>
+        /// <see cref="BudgetQuery"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -188,7 +188,7 @@ namespace BudgetExecution
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Query"/>
+        /// <see cref="BudgetQuery"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -208,7 +208,7 @@ namespace BudgetExecution
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Query"/>
+        /// <see cref="BudgetQuery"/>
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
@@ -221,7 +221,7 @@ namespace BudgetExecution
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Query"/>
+        /// <see cref="BudgetQuery"/>
         /// class.
         /// </summary>
         /// <param name="fullPath"> The fullpath. </param>
@@ -241,7 +241,7 @@ namespace BudgetExecution
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Query"/>
+        /// <see cref="BudgetQuery"/>
         /// class.
         /// </summary>
         /// <param name="fullPath"> The fullpath. </param>
@@ -263,7 +263,7 @@ namespace BudgetExecution
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Query"/>
+        /// <see cref="BudgetQuery"/>
         /// class.
         /// </summary>
         /// <param name="sqlStatement"> The sqlStatement. </param>

@@ -50,7 +50,7 @@ namespace BudgetExecution
     /// <summary>
     /// </summary>
     /// <seealso cref="T:BudgetExecution.Query" />
-    public class AccessQuery : Query
+    public class AccessQuery : BudgetQuery
     {
         /// <inheritdoc />
         /// <summary>

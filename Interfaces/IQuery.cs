@@ -104,5 +104,13 @@ namespace BudgetExecution
         /// The adapter.
         /// </value>
         DbDataAdapter DataAdapter { get; }
+
+        /// <summary>
+        /// Gets the data reader.
+        /// </summary>
+        /// <value>
+        /// The data reader.
+        /// </value>
+        public DbDataReader DataReader { get; }
     }
 }

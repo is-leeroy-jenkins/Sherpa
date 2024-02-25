@@ -55,7 +55,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class CsvQuery : Query
+    public class CsvQuery : BudgetQuery
     {
         /// <inheritdoc/>
         /// <summary>

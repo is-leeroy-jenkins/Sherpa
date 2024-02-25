@@ -129,7 +129,7 @@ namespace BudgetExecution
             _provider = provider;
             _connection = new BudgetConnection( source, provider ).Create( );
             _sqlStatement = new SqlStatement( source, provider, SQL.SELECTALL );
-            _query = new Query( SqlStatement );
+            _query = new BudgetQuery( SqlStatement );
             _dataTable = GetDataTableAsync( );
             _dataElements = GetSeriesAsync( );
             _dataColumns = GetColumnsAsync( );
@@ -156,7 +156,7 @@ namespace BudgetExecution
             _provider = provider;
             _connection = new BudgetConnection( source, provider ).Create( );
             _sqlStatement = new SqlStatement( source, provider, where );
-            _query = new Query( SqlStatement );
+            _query = new BudgetQuery( SqlStatement );
             _dataTable = GetDataTableAsync( );
             _dataElements = GetSeriesAsync( );
             _dataColumns = GetColumnsAsync( );
@@ -186,7 +186,7 @@ namespace BudgetExecution
             _provider = provider;
             _connection = new BudgetConnection( source, provider ).Create( );
             _sqlStatement = new SqlStatement( source, provider, updates, where, commandType );
-            _query = new Query( SqlStatement );
+            _query = new BudgetQuery( SqlStatement );
             _dataTable = GetDataTableAsync( );
             _dataColumns = GetColumnsAsync( );
             _columnNames = GetNamesAsync( );
@@ -216,7 +216,7 @@ namespace BudgetExecution
             _provider = provider;
             _connection = new BudgetConnection( source, provider ).Create( );
             _sqlStatement = new SqlStatement( source, provider, columns, where, commandType );
-            _query = new Query( _sqlStatement );
+            _query = new BudgetQuery( _sqlStatement );
             _dataTable = GetDataTableAsync( );
             _dataColumns = GetColumnsAsync( );
             _columnNames = GetNamesAsync( );
@@ -250,7 +250,7 @@ namespace BudgetExecution
             _sqlStatement = new SqlStatement( source, provider, fields, numerics, where,
                 commandType );
 
-            _query = new Query( _sqlStatement );
+            _query = new BudgetQuery( _sqlStatement );
             _dataTable = GetDataTableAsync( );
             _dataColumns = GetColumnsAsync( );
             _columnNames = GetNamesAsync( );
@@ -276,7 +276,7 @@ namespace BudgetExecution
             _provider = Provider.Access;
             _connection = new BudgetConnection( source, _provider ).Create( );
             _sqlStatement = new SqlStatement( source, Provider.Access, where );
-            _query = new Query( _sqlStatement );
+            _query = new BudgetQuery( _sqlStatement );
             _dataTable = GetDataTableAsync( );
             _dataColumns = GetColumnsAsync( );
             _columnNames = GetNamesAsync( );
@@ -303,7 +303,7 @@ namespace BudgetExecution
             _provider = provider;
             _connection = new BudgetConnection( source, provider ).Create( );
             _sqlStatement = new SqlStatement( source, provider, sqlText );
-            _query = new Query( _sqlStatement );
+            _query = new BudgetQuery( _sqlStatement );
             _dataTable = GetDataTableAsync( );
             _dataColumns = GetColumnsAsync( );
             _columnNames = GetNamesAsync( );
@@ -330,7 +330,7 @@ namespace BudgetExecution
             _source = Source.External;
             _provider = Provider.Access;
             _sqlStatement = new SqlStatement( _source, _provider, sqlText, commandType );
-            _query = new Query( _sqlStatement );
+            _query = new BudgetQuery( _sqlStatement );
             _dataTable = GetDataTableAsync( );
             _dataColumns = GetColumnsAsync( );
             _columnNames = GetNamesAsync( );
