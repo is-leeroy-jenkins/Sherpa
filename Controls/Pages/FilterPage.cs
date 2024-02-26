@@ -827,9 +827,10 @@ namespace BudgetExecution
         {
             try
             {
-                SourceHeader.ForeColor = Color.FromArgb( 106, 189, 252 );
-                FilterHeader.ForeColor = Color.FromArgb( 106, 189, 252 );
-                GroupHeader.ForeColor = Color.FromArgb( 106, 189, 252 );
+                var _lightBlue = Color.FromArgb( 106, 189, 252 );
+                SourceHeader.ForeColor = _lightBlue;
+                FilterHeader.ForeColor = _lightBlue;
+                GroupHeader.ForeColor = _lightBlue;
             }
             catch( Exception _ex )
             {
@@ -951,6 +952,7 @@ namespace BudgetExecution
                 BeginInit( );
                 _dataModel = new DataBuilder( _source, _provider, where );
                 _dataTable = _dataModel.DataTable;
+                _columns = _dataModel.ColumnNames;
                 _fields = _dataModel.Fields;
                 _numerics = _dataModel.Numerics;
                 BindingSource.DataSource = _dataModel.DataTable;
@@ -978,6 +980,7 @@ namespace BudgetExecution
                 _dataModel = new DataBuilder( _source, _provider, _sql );
                 _dataTable = _dataModel?.DataTable;
                 _selectedTable = _dataTable?.TableName;
+                _columns = _dataModel?.ColumnNames;
                 _fields = _dataModel?.Fields;
                 _numerics = _dataModel?.Numerics;
                 BindingSource.DataSource = _dataTable;
@@ -1008,6 +1011,7 @@ namespace BudgetExecution
                 _dataModel = new DataBuilder( _source, _provider, _sql );
                 _dataTable = _dataModel.DataTable;
                 _selectedTable = _dataTable.TableName;
+                _columns = _dataModel.ColumnNames;
                 _fields = _dataModel?.Fields;
                 _numerics = _dataModel?.Numerics;
                 BindingSource.DataSource = _dataTable;
@@ -1051,50 +1055,50 @@ namespace BudgetExecution
                 GroupButton.Visible = !GroupButton.Visible;
                 SelectButton.Visible = !SelectButton.Visible;
                 _selectedTable = string.Empty;
-                TabControl.SelectedTab = TableTabPage;
+                TabControl.SelectedTab = TableTab;
                 if( _filter.Keys.Count > 0 )
                 {
                     _filter.Clear( );
                 }
 
                 if( !string.IsNullOrEmpty( _fourthValue )
-                   || FourthTable.Visible )
+                   || FourthLayoutTable.Visible )
                 {
                     FourthComboBox.Items?.Clear( );
                     FourthListBox.Items?.Clear( );
                     _fourthCategory = string.Empty;
                     _fourthValue = string.Empty;
-                    ThirdTable.Visible = false;
+                    ThirdLayoutTable.Visible = false;
                 }
 
                 if( !string.IsNullOrEmpty( _thirdValue )
-                   || ThirdTable.Visible )
+                   || ThirdLayoutTable.Visible )
                 {
                     ThirdComboBox.Items?.Clear( );
                     ThirdListBox.Items?.Clear( );
                     _thirdCategory = string.Empty;
                     _thirdValue = string.Empty;
-                    ThirdTable.Visible = false;
+                    ThirdLayoutTable.Visible = false;
                 }
 
                 if( !string.IsNullOrEmpty( _secondValue )
-                   || SecondTable.Visible )
+                   || SecondLayoutTable.Visible )
                 {
                     SecondComboBox.Items?.Clear( );
                     SecondListBox.Items?.Clear( );
                     _secondCategory = string.Empty;
                     _secondValue = string.Empty;
-                    SecondTable.Visible = false;
+                    SecondLayoutTable.Visible = false;
                 }
 
                 if( !string.IsNullOrEmpty( _firstValue )
-                   || FirstTable.Visible )
+                   || FirstLayoutTable.Visible )
                 {
                     FirstComboBox.Items?.Clear( );
                     FirstListBox.Items?.Clear( );
                     _firstCategory = string.Empty;
                     _firstValue = string.Empty;
-                    FirstTable.Visible = true;
+                    FirstLayoutTable.Visible = true;
                 }
             }
             catch( Exception _ex )
@@ -1547,9 +1551,9 @@ namespace BudgetExecution
                 _dataArgs = new DataArgs( );
                 if( _selectedTable != null )
                 {
-                    TabControl.SelectedTab = FilterTabPage;
-                    FilterTabPage.TabVisible = true;
-                    TableTabPage.TabVisible = false;
+                    TabControl.SelectedTab = FilterTab;
+                    FilterTab.TabVisible = true;
+                    TableTab.TabVisible = false;
                     _provider = _dataModel.Provider;
                     _source = _dataModel.Source;
                     _fields = _dataModel.Fields;
@@ -1558,10 +1562,10 @@ namespace BudgetExecution
                 }
                 else
                 {
-                    TabControl.SelectedTab = TableTabPage;
-                    TableTabPage.TabVisible = true;
-                    FilterTabPage.TabVisible = false;
-                    CalendarTabPage.TabVisible = false;
+                    TabControl.SelectedTab = TableTab;
+                    TableTab.TabVisible = true;
+                    FilterTab.TabVisible = false;
+                    CalendarTab.TabVisible = false;
                     PopulateTableListBoxItems( );
                     AccessRadioButton.Checked = true;
                     _provider = Provider.Access;
@@ -2107,10 +2111,10 @@ namespace BudgetExecution
                     case 0:
                     {
                         ProviderTable.Visible = true;
-                        TableTabPage.TabVisible = true;
-                        FilterTabPage.TabVisible = false;
-                        GroupTabPage.TabVisible = false;
-                        CalendarTabPage.TabVisible = false;
+                        TableTab.TabVisible = true;
+                        FilterTab.TabVisible = false;
+                        GroupTab.TabVisible = false;
+                        CalendarTab.TabVisible = false;
                         ClearButton.Visible = false;
                         GroupButton.Visible = false;
                         SelectButton.Visible = false;
@@ -2120,10 +2124,10 @@ namespace BudgetExecution
                     case 1:
                     {
                         ProviderTable.Visible = false;
-                        FilterTabPage.TabVisible = true;
-                        TableTabPage.TabVisible = false;
-                        GroupTabPage.TabVisible = false;
-                        CalendarTabPage.TabVisible = false;
+                        FilterTab.TabVisible = true;
+                        TableTab.TabVisible = false;
+                        GroupTab.TabVisible = false;
+                        CalendarTab.TabVisible = false;
                         ClearButton.Visible = false;
                         GroupButton.Visible = false;
                         SelectButton.Visible = false;
@@ -2133,10 +2137,10 @@ namespace BudgetExecution
                     case 2:
                     {
                         ProviderTable.Visible = false;
-                        GroupTabPage.TabVisible = true;
-                        TableTabPage.TabVisible = false;
-                        FilterTabPage.TabVisible = false;
-                        CalendarTabPage.TabVisible = false;
+                        GroupTab.TabVisible = true;
+                        TableTab.TabVisible = false;
+                        FilterTab.TabVisible = false;
+                        CalendarTab.TabVisible = false;
                         ClearButton.Visible = true;
                         GroupButton.Visible = true;
                         SelectButton.Visible = true;
@@ -2148,10 +2152,10 @@ namespace BudgetExecution
                     case 3:
                     {
                         ProviderTable.Visible = false;
-                        CalendarTabPage.TabVisible = true;
-                        GroupTabPage.TabVisible = false;
-                        TableTabPage.TabVisible = false;
-                        FilterTabPage.TabVisible = false;
+                        CalendarTab.TabVisible = true;
+                        GroupTab.TabVisible = false;
+                        TableTab.TabVisible = false;
+                        FilterTab.TabVisible = false;
                         ClearButton.Visible = true;
                         GroupButton.Visible = true;
                         SelectButton.Visible = true;

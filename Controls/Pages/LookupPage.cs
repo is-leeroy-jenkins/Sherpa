@@ -463,14 +463,15 @@ namespace BudgetExecution
             try
             {
                 // Command Buttons
-                SelectButton.ForeColor = Color.FromArgb( 106, 189, 252 );
-                CloseButton.ForeColor = Color.FromArgb( 106, 189, 252 );
-                RefreshButton.ForeColor = Color.FromArgb( 106, 189, 252 );
+                var _lightBlue = Color.FromArgb( 106, 189, 252 );
+                SelectButton.ForeColor = _lightBlue;
+                CloseButton.ForeColor = _lightBlue;
+                RefreshButton.ForeColor = _lightBlue;
 
                 // Radio Buttons
-                SqliteRadioButton.Tag = nameof( SQLite );
-                SqlServerRadioButton.Tag = nameof( SqlServer );
-                AccessRadioButton.Tag = nameof( Access );
+                SqliteRadioButton.Tag = "SQLite";
+                SqlServerRadioButton.Tag = "SqlServer";
+                AccessRadioButton.Tag = "Access";
             }
             catch( Exception _ex )
             {

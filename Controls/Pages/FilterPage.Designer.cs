@@ -45,7 +45,7 @@ partial class FilterPage
         ThirdListBox = new ListBox( );
         ToolTip = new SmallTip( );
         TabControl = new TabControl( );
-        TableTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
+        TableTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
         SourceHeader = new Label( );
         MaintenanceTable = new HeaderPanel( );
         MaintenancePanel = new BackPanel( );
@@ -62,19 +62,19 @@ partial class FilterPage
         AccessRadioButton = new RadioButton( );
         SqlServerRadioButton = new RadioButton( );
         SQLiteRadioButton = new RadioButton( );
-        FilterTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
+        FilterTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
         FilterHeader = new Label( );
-        FourthTable = new HeaderPanel( );
+        FourthLayoutTable = new HeaderPanel( );
         FourthPanel = new BackPanel( );
         FourthListBox = new ListBox( );
         FourthComboBox = new ComboBox( );
-        ThirdTable = new HeaderPanel( );
-        SecondTable = new HeaderPanel( );
+        ThirdLayoutTable = new HeaderPanel( );
+        SecondLayoutTable = new HeaderPanel( );
         SecondPanel = new BackPanel( );
         SecondListBox = new ListBox( );
         SecondComboBox = new ComboBox( );
-        FirstTable = new HeaderPanel( );
-        GroupTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
+        FirstLayoutTable = new HeaderPanel( );
+        GroupTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
         GroupHeader = new Label( );
         SqlTable = new HeaderPanel( );
         SqlPanel = new BackPanel( );
@@ -85,7 +85,7 @@ partial class FilterPage
         FieldTable = new HeaderPanel( );
         FieldPanel = new BackPanel( );
         FieldListBox = new ListBox( );
-        CalendarTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
+        CalendarTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
         TimeSpanPanel = new BackPanel( );
         TimeSpanTable = new HeaderPanel( );
         TimeSpanLabel = new Label( );
@@ -103,7 +103,7 @@ partial class FilterPage
         SecondCalendarTable = new HeaderPanel( );
         SeondCalendar = new Syncfusion.WinForms.Input.SfCalendar( );
         SecondCalendarLabel = new Label( );
-        SqlTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
+        SqlTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
         EditorTable = new HeaderPanel( );
         EditorPanel = new BackPanel( );
         SqlEditor = new Editor( );
@@ -123,7 +123,7 @@ partial class FilterPage
         ThirdPanel.SuspendLayout( );
         ( (System.ComponentModel.ISupportInitialize)TabControl ).BeginInit( );
         TabControl.SuspendLayout( );
-        TableTabPage.SuspendLayout( );
+        TableTab.SuspendLayout( );
         MaintenanceTable.SuspendLayout( );
         MaintenancePanel.SuspendLayout( );
         ReferenceTable.SuspendLayout( );
@@ -132,28 +132,28 @@ partial class FilterPage
         TablePanel.SuspendLayout( );
         ProviderTable.SuspendLayout( );
         ProviderPanel.SuspendLayout( );
-        FilterTabPage.SuspendLayout( );
-        FourthTable.SuspendLayout( );
+        FilterTab.SuspendLayout( );
+        FourthLayoutTable.SuspendLayout( );
         FourthPanel.SuspendLayout( );
-        ThirdTable.SuspendLayout( );
-        SecondTable.SuspendLayout( );
+        ThirdLayoutTable.SuspendLayout( );
+        SecondLayoutTable.SuspendLayout( );
         SecondPanel.SuspendLayout( );
-        FirstTable.SuspendLayout( );
-        GroupTabPage.SuspendLayout( );
+        FirstLayoutTable.SuspendLayout( );
+        GroupTab.SuspendLayout( );
         SqlTable.SuspendLayout( );
         SqlPanel.SuspendLayout( );
         NumericTable.SuspendLayout( );
         NumericPanel.SuspendLayout( );
         FieldTable.SuspendLayout( );
         FieldPanel.SuspendLayout( );
-        CalendarTabPage.SuspendLayout( );
+        CalendarTab.SuspendLayout( );
         TimeSpanPanel.SuspendLayout( );
         TimeSpanTable.SuspendLayout( );
         StartDatePanel.SuspendLayout( );
         FirstCalendarTable.SuspendLayout( );
         EndDatePanel.SuspendLayout( );
         SecondCalendarTable.SuspendLayout( );
-        SqlTabPage.SuspendLayout( );
+        SqlTab.SuspendLayout( );
         EditorTable.SuspendLayout( );
         EditorPanel.SuspendLayout( );
         ( (System.ComponentModel.ISupportInitialize)SqlEditor ).BeginInit( );
@@ -201,7 +201,7 @@ partial class FilterPage
         FirstListBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         FirstListBox.Font = new System.Drawing.Font( "Roboto", 8.25F );
         FirstListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
-        FirstListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
+        FirstListBox.HoveredItemColor = System.Drawing.Color.White;
         FirstListBox.HoverText = null;
         FirstListBox.IsDerivedStyle = true;
         FirstListBox.ItemHeight = 28;
@@ -333,7 +333,7 @@ partial class FilterPage
         ThirdListBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         ThirdListBox.Font = new System.Drawing.Font( "Roboto", 8.25F );
         ThirdListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
-        ThirdListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
+        ThirdListBox.HoveredItemColor = System.Drawing.Color.White;
         ThirdListBox.HoverText = null;
         ThirdListBox.IsDerivedStyle = true;
         ThirdListBox.ItemHeight = 28;
@@ -388,11 +388,11 @@ partial class FilterPage
         TabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
         TabControl.CanOverrideStyle = true;
         TabControl.CloseButtonBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-        TabControl.Controls.Add( TableTabPage );
-        TabControl.Controls.Add( FilterTabPage );
-        TabControl.Controls.Add( GroupTabPage );
-        TabControl.Controls.Add( CalendarTabPage );
-        TabControl.Controls.Add( SqlTabPage );
+        TabControl.Controls.Add( FilterTab );
+        TabControl.Controls.Add( TableTab );
+        TabControl.Controls.Add( GroupTab );
+        TabControl.Controls.Add( CalendarTab );
+        TabControl.Controls.Add( SqlTab );
         TabControl.Dock = System.Windows.Forms.DockStyle.Top;
         TabControl.FixedSingleBorderColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         TabControl.FocusOnTabClick = false;
@@ -419,24 +419,24 @@ partial class FilterPage
         TabControl.ThemeStyle.TabStyle.SeparatorColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         TabControl.ToolTip = null;
         // 
-        // TableTabPage
+        // TableTab
         // 
-        TableTabPage.Controls.Add( SourceHeader );
-        TableTabPage.Controls.Add( MaintenanceTable );
-        TableTabPage.Controls.Add( ReferenceTable );
-        TableTabPage.Controls.Add( SourceTable );
-        TableTabPage.Controls.Add( ProviderTable );
-        TableTabPage.Image = null;
-        TableTabPage.ImageSize = new System.Drawing.Size( 22, 20 );
-        TableTabPage.Location = new System.Drawing.Point( 0, 29 );
-        TableTabPage.Name = "TableTabPage";
-        TableTabPage.ShowCloseButton = true;
-        TableTabPage.Size = new System.Drawing.Size( 1337, 515 );
-        TableTabPage.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-        TableTabPage.TabFont = new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Bold );
-        TableTabPage.TabForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-        TableTabPage.TabIndex = 2;
-        TableTabPage.ThemesEnabled = false;
+        TableTab.Controls.Add( SourceHeader );
+        TableTab.Controls.Add( MaintenanceTable );
+        TableTab.Controls.Add( ReferenceTable );
+        TableTab.Controls.Add( SourceTable );
+        TableTab.Controls.Add( ProviderTable );
+        TableTab.Image = null;
+        TableTab.ImageSize = new System.Drawing.Size( 22, 20 );
+        TableTab.Location = new System.Drawing.Point( 0, 29 );
+        TableTab.Name = "TableTab";
+        TableTab.ShowCloseButton = true;
+        TableTab.Size = new System.Drawing.Size( 1337, 515 );
+        TableTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+        TableTab.TabFont = new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Bold );
+        TableTab.TabForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+        TableTab.TabIndex = 2;
+        TableTab.ThemesEnabled = false;
         // 
         // SourceHeader
         // 
@@ -839,25 +839,25 @@ partial class FilterPage
         SQLiteRadioButton.ThemeName = "Budget Execution";
         SQLiteRadioButton.ToolTip = ToolTip;
         // 
-        // FilterTabPage
+        // FilterTab
         // 
-        FilterTabPage.Controls.Add( FilterHeader );
-        FilterTabPage.Controls.Add( FourthTable );
-        FilterTabPage.Controls.Add( ThirdTable );
-        FilterTabPage.Controls.Add( SecondTable );
-        FilterTabPage.Controls.Add( FirstTable );
-        FilterTabPage.ForeColor = System.Drawing.Color.DarkGray;
-        FilterTabPage.Image = null;
-        FilterTabPage.ImageSize = new System.Drawing.Size( 22, 20 );
-        FilterTabPage.Location = new System.Drawing.Point( 0, 29 );
-        FilterTabPage.Name = "FilterTabPage";
-        FilterTabPage.ShowCloseButton = true;
-        FilterTabPage.Size = new System.Drawing.Size( 1337, 515 );
-        FilterTabPage.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-        FilterTabPage.TabFont = new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Bold );
-        FilterTabPage.TabForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-        FilterTabPage.TabIndex = 1;
-        FilterTabPage.ThemesEnabled = false;
+        FilterTab.Controls.Add( FilterHeader );
+        FilterTab.Controls.Add( FourthLayoutTable );
+        FilterTab.Controls.Add( ThirdLayoutTable );
+        FilterTab.Controls.Add( SecondLayoutTable );
+        FilterTab.Controls.Add( FirstLayoutTable );
+        FilterTab.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+        FilterTab.Image = null;
+        FilterTab.ImageSize = new System.Drawing.Size( 20, 18 );
+        FilterTab.Location = new System.Drawing.Point( 0, 29 );
+        FilterTab.Name = "FilterTab";
+        FilterTab.ShowCloseButton = false;
+        FilterTab.Size = new System.Drawing.Size( 1337, 515 );
+        FilterTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+        FilterTab.TabFont = new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Bold );
+        FilterTab.TabForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+        FilterTab.TabIndex = 1;
+        FilterTab.ThemesEnabled = false;
         // 
         // FilterHeader
         // 
@@ -880,24 +880,24 @@ partial class FilterPage
         FilterHeader.ThemeName = "Budget Execution";
         FilterHeader.ToolTip = null;
         // 
-        // FourthTable
+        // FourthLayoutTable
         // 
-        FourthTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-        FourthTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
-        FourthTable.CaptionText = "Fourth Category";
-        FourthTable.ColumnCount = 1;
-        FourthTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-        FourthTable.Controls.Add( FourthPanel, 0, 1 );
-        FourthTable.Controls.Add( FourthComboBox, 0, 0 );
-        FourthTable.Font = new System.Drawing.Font( "Roboto", 9F );
-        FourthTable.ForeColor = System.Drawing.Color.DarkGray;
-        FourthTable.Location = new System.Drawing.Point( 1025, 73 );
-        FourthTable.Name = "FourthTable";
-        FourthTable.RowCount = 2;
-        FourthTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 10.2857141F ) );
-        FourthTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 89.71429F ) );
-        FourthTable.Size = new System.Drawing.Size( 245, 366 );
-        FourthTable.TabIndex = 12;
+        FourthLayoutTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+        FourthLayoutTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
+        FourthLayoutTable.CaptionText = "Fourth Category";
+        FourthLayoutTable.ColumnCount = 1;
+        FourthLayoutTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+        FourthLayoutTable.Controls.Add( FourthPanel, 0, 1 );
+        FourthLayoutTable.Controls.Add( FourthComboBox, 0, 0 );
+        FourthLayoutTable.Font = new System.Drawing.Font( "Roboto", 9F );
+        FourthLayoutTable.ForeColor = System.Drawing.Color.DarkGray;
+        FourthLayoutTable.Location = new System.Drawing.Point( 1025, 73 );
+        FourthLayoutTable.Name = "FourthLayoutTable";
+        FourthLayoutTable.RowCount = 2;
+        FourthLayoutTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 10.2857141F ) );
+        FourthLayoutTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 89.71429F ) );
+        FourthLayoutTable.Size = new System.Drawing.Size( 245, 366 );
+        FourthLayoutTable.TabIndex = 12;
         // 
         // FourthPanel
         // 
@@ -936,7 +936,7 @@ partial class FilterPage
         FourthListBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         FourthListBox.Font = new System.Drawing.Font( "Roboto", 8.25F );
         FourthListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
-        FourthListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
+        FourthListBox.HoveredItemColor = System.Drawing.Color.White;
         FourthListBox.HoverText = null;
         FourthListBox.IsDerivedStyle = true;
         FourthListBox.ItemHeight = 28;
@@ -996,43 +996,43 @@ partial class FilterPage
         FourthComboBox.ThemeName = "BudgetExecution";
         FourthComboBox.ToolTip = null;
         // 
-        // ThirdTable
+        // ThirdLayoutTable
         // 
-        ThirdTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-        ThirdTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
-        ThirdTable.CaptionText = "Third Category";
-        ThirdTable.ColumnCount = 1;
-        ThirdTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-        ThirdTable.Controls.Add( ThirdPanel, 0, 1 );
-        ThirdTable.Controls.Add( ThirdComboBox, 0, 0 );
-        ThirdTable.Font = new System.Drawing.Font( "Roboto", 9F );
-        ThirdTable.ForeColor = System.Drawing.Color.DarkGray;
-        ThirdTable.Location = new System.Drawing.Point( 695, 73 );
-        ThirdTable.Name = "ThirdTable";
-        ThirdTable.RowCount = 2;
-        ThirdTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 10.8571424F ) );
-        ThirdTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 89.14286F ) );
-        ThirdTable.Size = new System.Drawing.Size( 248, 366 );
-        ThirdTable.TabIndex = 11;
+        ThirdLayoutTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+        ThirdLayoutTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
+        ThirdLayoutTable.CaptionText = "Third Category";
+        ThirdLayoutTable.ColumnCount = 1;
+        ThirdLayoutTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+        ThirdLayoutTable.Controls.Add( ThirdPanel, 0, 1 );
+        ThirdLayoutTable.Controls.Add( ThirdComboBox, 0, 0 );
+        ThirdLayoutTable.Font = new System.Drawing.Font( "Roboto", 9F );
+        ThirdLayoutTable.ForeColor = System.Drawing.Color.DarkGray;
+        ThirdLayoutTable.Location = new System.Drawing.Point( 695, 73 );
+        ThirdLayoutTable.Name = "ThirdLayoutTable";
+        ThirdLayoutTable.RowCount = 2;
+        ThirdLayoutTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 10.8571424F ) );
+        ThirdLayoutTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 89.14286F ) );
+        ThirdLayoutTable.Size = new System.Drawing.Size( 248, 366 );
+        ThirdLayoutTable.TabIndex = 11;
         // 
-        // SecondTable
+        // SecondLayoutTable
         // 
-        SecondTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-        SecondTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
-        SecondTable.CaptionText = "Second Category";
-        SecondTable.ColumnCount = 1;
-        SecondTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-        SecondTable.Controls.Add( SecondPanel, 0, 1 );
-        SecondTable.Controls.Add( SecondComboBox, 0, 0 );
-        SecondTable.Font = new System.Drawing.Font( "Roboto", 9F );
-        SecondTable.ForeColor = System.Drawing.Color.DarkGray;
-        SecondTable.Location = new System.Drawing.Point( 364, 73 );
-        SecondTable.Name = "SecondTable";
-        SecondTable.RowCount = 2;
-        SecondTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 10.8571424F ) );
-        SecondTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 89.14286F ) );
-        SecondTable.Size = new System.Drawing.Size( 248, 366 );
-        SecondTable.TabIndex = 10;
+        SecondLayoutTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+        SecondLayoutTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
+        SecondLayoutTable.CaptionText = "Second Category";
+        SecondLayoutTable.ColumnCount = 1;
+        SecondLayoutTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+        SecondLayoutTable.Controls.Add( SecondPanel, 0, 1 );
+        SecondLayoutTable.Controls.Add( SecondComboBox, 0, 0 );
+        SecondLayoutTable.Font = new System.Drawing.Font( "Roboto", 9F );
+        SecondLayoutTable.ForeColor = System.Drawing.Color.DarkGray;
+        SecondLayoutTable.Location = new System.Drawing.Point( 364, 73 );
+        SecondLayoutTable.Name = "SecondLayoutTable";
+        SecondLayoutTable.RowCount = 2;
+        SecondLayoutTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 10.8571424F ) );
+        SecondLayoutTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 89.14286F ) );
+        SecondLayoutTable.Size = new System.Drawing.Size( 248, 366 );
+        SecondLayoutTable.TabIndex = 10;
         // 
         // SecondPanel
         // 
@@ -1071,7 +1071,7 @@ partial class FilterPage
         SecondListBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         SecondListBox.Font = new System.Drawing.Font( "Roboto", 8.25F );
         SecondListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
-        SecondListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
+        SecondListBox.HoveredItemColor = System.Drawing.Color.White;
         SecondListBox.HoverText = null;
         SecondListBox.IsDerivedStyle = true;
         SecondListBox.ItemHeight = 28;
@@ -1131,43 +1131,43 @@ partial class FilterPage
         SecondComboBox.ThemeName = "BudgetExecution";
         SecondComboBox.ToolTip = null;
         // 
-        // FirstTable
+        // FirstLayoutTable
         // 
-        FirstTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-        FirstTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
-        FirstTable.CaptionText = "First Category";
-        FirstTable.ColumnCount = 1;
-        FirstTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-        FirstTable.Controls.Add( FirstPanel, 0, 1 );
-        FirstTable.Controls.Add( FirstComboBox, 0, 0 );
-        FirstTable.Font = new System.Drawing.Font( "Roboto", 9F );
-        FirstTable.ForeColor = System.Drawing.Color.DarkGray;
-        FirstTable.Location = new System.Drawing.Point( 52, 73 );
-        FirstTable.Name = "FirstTable";
-        FirstTable.RowCount = 2;
-        FirstTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 10.5714283F ) );
-        FirstTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 89.42857F ) );
-        FirstTable.Size = new System.Drawing.Size( 248, 366 );
-        FirstTable.TabIndex = 9;
+        FirstLayoutTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+        FirstLayoutTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
+        FirstLayoutTable.CaptionText = "First Category";
+        FirstLayoutTable.ColumnCount = 1;
+        FirstLayoutTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
+        FirstLayoutTable.Controls.Add( FirstPanel, 0, 1 );
+        FirstLayoutTable.Controls.Add( FirstComboBox, 0, 0 );
+        FirstLayoutTable.Font = new System.Drawing.Font( "Roboto", 9F );
+        FirstLayoutTable.ForeColor = System.Drawing.Color.DarkGray;
+        FirstLayoutTable.Location = new System.Drawing.Point( 52, 73 );
+        FirstLayoutTable.Name = "FirstLayoutTable";
+        FirstLayoutTable.RowCount = 2;
+        FirstLayoutTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 10.5714283F ) );
+        FirstLayoutTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 89.42857F ) );
+        FirstLayoutTable.Size = new System.Drawing.Size( 248, 366 );
+        FirstLayoutTable.TabIndex = 9;
         // 
-        // GroupTabPage
+        // GroupTab
         // 
-        GroupTabPage.Controls.Add( GroupHeader );
-        GroupTabPage.Controls.Add( SqlTable );
-        GroupTabPage.Controls.Add( NumericTable );
-        GroupTabPage.Controls.Add( FieldTable );
-        GroupTabPage.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-        GroupTabPage.Image = null;
-        GroupTabPage.ImageSize = new System.Drawing.Size( 16, 16 );
-        GroupTabPage.Location = new System.Drawing.Point( 0, 29 );
-        GroupTabPage.Name = "GroupTabPage";
-        GroupTabPage.ShowCloseButton = true;
-        GroupTabPage.Size = new System.Drawing.Size( 1337, 515 );
-        GroupTabPage.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-        GroupTabPage.TabFont = new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Bold );
-        GroupTabPage.TabForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-        GroupTabPage.TabIndex = 4;
-        GroupTabPage.ThemesEnabled = false;
+        GroupTab.Controls.Add( GroupHeader );
+        GroupTab.Controls.Add( SqlTable );
+        GroupTab.Controls.Add( NumericTable );
+        GroupTab.Controls.Add( FieldTable );
+        GroupTab.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+        GroupTab.Image = null;
+        GroupTab.ImageSize = new System.Drawing.Size( 16, 16 );
+        GroupTab.Location = new System.Drawing.Point( 0, 29 );
+        GroupTab.Name = "GroupTab";
+        GroupTab.ShowCloseButton = true;
+        GroupTab.Size = new System.Drawing.Size( 1337, 515 );
+        GroupTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+        GroupTab.TabFont = new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Bold );
+        GroupTab.TabForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+        GroupTab.TabIndex = 4;
+        GroupTab.ThemesEnabled = false;
         // 
         // GroupHeader
         // 
@@ -1425,24 +1425,24 @@ partial class FilterPage
         FieldListBox.ThemeName = "Budget Execution";
         FieldListBox.ToolTip = null;
         // 
-        // CalendarTabPage
+        // CalendarTab
         // 
-        CalendarTabPage.Controls.Add( TimeSpanPanel );
-        CalendarTabPage.Controls.Add( TimeSpanHeader );
-        CalendarTabPage.Controls.Add( StartDatePanel );
-        CalendarTabPage.Controls.Add( EndDatePanel );
-        CalendarTabPage.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-        CalendarTabPage.Image = null;
-        CalendarTabPage.ImageSize = new System.Drawing.Size( 16, 16 );
-        CalendarTabPage.Location = new System.Drawing.Point( 0, 29 );
-        CalendarTabPage.Name = "CalendarTabPage";
-        CalendarTabPage.ShowCloseButton = true;
-        CalendarTabPage.Size = new System.Drawing.Size( 1337, 515 );
-        CalendarTabPage.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-        CalendarTabPage.TabFont = new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Bold );
-        CalendarTabPage.TabForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-        CalendarTabPage.TabIndex = 3;
-        CalendarTabPage.ThemesEnabled = false;
+        CalendarTab.Controls.Add( TimeSpanPanel );
+        CalendarTab.Controls.Add( TimeSpanHeader );
+        CalendarTab.Controls.Add( StartDatePanel );
+        CalendarTab.Controls.Add( EndDatePanel );
+        CalendarTab.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+        CalendarTab.Image = null;
+        CalendarTab.ImageSize = new System.Drawing.Size( 16, 16 );
+        CalendarTab.Location = new System.Drawing.Point( 0, 29 );
+        CalendarTab.Name = "CalendarTab";
+        CalendarTab.ShowCloseButton = true;
+        CalendarTab.Size = new System.Drawing.Size( 1337, 515 );
+        CalendarTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+        CalendarTab.TabFont = new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Bold );
+        CalendarTab.TabForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+        CalendarTab.TabIndex = 3;
+        CalendarTab.ThemesEnabled = false;
         // 
         // TimeSpanPanel
         // 
@@ -1882,22 +1882,22 @@ partial class FilterPage
         SecondCalendarLabel.ThemeName = "Budget Execution";
         SecondCalendarLabel.ToolTip = null;
         // 
-        // SqlTabPage
+        // SqlTab
         // 
-        SqlTabPage.Controls.Add( EditorTable );
-        SqlTabPage.Controls.Add( SqlCommandTable );
-        SqlTabPage.ForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-        SqlTabPage.Image = null;
-        SqlTabPage.ImageSize = new System.Drawing.Size( 16, 16 );
-        SqlTabPage.Location = new System.Drawing.Point( 0, 29 );
-        SqlTabPage.Name = "SqlTabPage";
-        SqlTabPage.ShowCloseButton = true;
-        SqlTabPage.Size = new System.Drawing.Size( 1337, 515 );
-        SqlTabPage.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-        SqlTabPage.TabForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-        SqlTabPage.TabIndex = 5;
-        SqlTabPage.Text = " ";
-        SqlTabPage.ThemesEnabled = false;
+        SqlTab.Controls.Add( EditorTable );
+        SqlTab.Controls.Add( SqlCommandTable );
+        SqlTab.ForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+        SqlTab.Image = null;
+        SqlTab.ImageSize = new System.Drawing.Size( 16, 16 );
+        SqlTab.Location = new System.Drawing.Point( 0, 29 );
+        SqlTab.Name = "SqlTab";
+        SqlTab.ShowCloseButton = true;
+        SqlTab.Size = new System.Drawing.Size( 1337, 515 );
+        SqlTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+        SqlTab.TabForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+        SqlTab.TabIndex = 5;
+        SqlTab.Text = " ";
+        SqlTab.ThemesEnabled = false;
         // 
         // EditorTable
         // 
@@ -2350,7 +2350,7 @@ partial class FilterPage
         ThirdPanel.ResumeLayout( false );
         ( (System.ComponentModel.ISupportInitialize)TabControl ).EndInit( );
         TabControl.ResumeLayout( false );
-        TableTabPage.ResumeLayout( false );
+        TableTab.ResumeLayout( false );
         MaintenanceTable.ResumeLayout( false );
         MaintenancePanel.ResumeLayout( false );
         ReferenceTable.ResumeLayout( false );
@@ -2359,28 +2359,28 @@ partial class FilterPage
         TablePanel.ResumeLayout( false );
         ProviderTable.ResumeLayout( false );
         ProviderPanel.ResumeLayout( false );
-        FilterTabPage.ResumeLayout( false );
-        FourthTable.ResumeLayout( false );
+        FilterTab.ResumeLayout( false );
+        FourthLayoutTable.ResumeLayout( false );
         FourthPanel.ResumeLayout( false );
-        ThirdTable.ResumeLayout( false );
-        SecondTable.ResumeLayout( false );
+        ThirdLayoutTable.ResumeLayout( false );
+        SecondLayoutTable.ResumeLayout( false );
         SecondPanel.ResumeLayout( false );
-        FirstTable.ResumeLayout( false );
-        GroupTabPage.ResumeLayout( false );
+        FirstLayoutTable.ResumeLayout( false );
+        GroupTab.ResumeLayout( false );
         SqlTable.ResumeLayout( false );
         SqlPanel.ResumeLayout( false );
         NumericTable.ResumeLayout( false );
         NumericPanel.ResumeLayout( false );
         FieldTable.ResumeLayout( false );
         FieldPanel.ResumeLayout( false );
-        CalendarTabPage.ResumeLayout( false );
+        CalendarTab.ResumeLayout( false );
         TimeSpanPanel.ResumeLayout( false );
         TimeSpanTable.ResumeLayout( false );
         StartDatePanel.ResumeLayout( false );
         FirstCalendarTable.ResumeLayout( false );
         EndDatePanel.ResumeLayout( false );
         SecondCalendarTable.ResumeLayout( false );
-        SqlTabPage.ResumeLayout( false );
+        SqlTab.ResumeLayout( false );
         EditorTable.ResumeLayout( false );
         EditorPanel.ResumeLayout( false );
         ( (System.ComponentModel.ISupportInitialize)SqlEditor ).EndInit( );
@@ -2402,9 +2402,9 @@ partial class FilterPage
     public System.Windows.Forms.BindingSource BindingSource;
     public SmallTip ToolTip;
     public TabControl TabControl;
-    public Syncfusion.Windows.Forms.Tools.TabPageAdv TableTabPage;
+    public Syncfusion.Windows.Forms.Tools.TabPageAdv TableTab;
     public BackPanel ProviderPanel;
-    public Syncfusion.Windows.Forms.Tools.TabPageAdv FilterTabPage;
+    public Syncfusion.Windows.Forms.Tools.TabPageAdv FilterTab;
     public RadioButton AccessRadioButton;
     public RadioButton SqlServerRadioButton;
     public RadioButton SQLiteRadioButton;
@@ -2426,7 +2426,7 @@ partial class FilterPage
     public ListBox FourthListBox;
     public BackPanel MaintenancePanel;
     public ListBox MaintenanceListBox;
-    public Syncfusion.Windows.Forms.Tools.TabPageAdv GroupTabPage;
+    public Syncfusion.Windows.Forms.Tools.TabPageAdv GroupTab;
     public HeaderPanel NumericTable;
     public BackPanel NumericPanel;
     public ListBox NumericListBox;
@@ -2440,18 +2440,18 @@ partial class FilterPage
     public HeaderPanel ReferenceTable;
     public HeaderPanel SourceTable;
     public HeaderPanel ProviderTable;
-    public HeaderPanel FourthTable;
-    public HeaderPanel ThirdTable;
-    public HeaderPanel SecondTable;
-    public HeaderPanel FirstTable;
-    public Syncfusion.Windows.Forms.Tools.TabPageAdv CalendarTabPage;
+    public HeaderPanel FourthLayoutTable;
+    public HeaderPanel ThirdLayoutTable;
+    public HeaderPanel SecondLayoutTable;
+    public HeaderPanel FirstLayoutTable;
+    public Syncfusion.Windows.Forms.Tools.TabPageAdv CalendarTab;
     public Label SourceHeader;
     public Label GroupHeader;
     public Label FilterHeader;
     public HeaderPanel FirstCalendarTable;
     public HeaderPanel SecondCalendarTable;
     public Label TimeSpanHeader;
-    public Syncfusion.Windows.Forms.Tools.TabPageAdv SqlTabPage;
+    public Syncfusion.Windows.Forms.Tools.TabPageAdv SqlTab;
     public HeaderPanel EditorTable;
     public BackPanel EditorPanel;
     public Editor SqlEditor;

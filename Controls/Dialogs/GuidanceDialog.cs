@@ -478,7 +478,7 @@ namespace BudgetExecution
         {
             try
             {
-                Picture.Size = new Size( 22, 20 );
+                Picture.Size = new Size( 20, 18 );
                 Picture.SizeMode = PictureBoxSizeMode.StretchImage;
             }
             catch( Exception _ex )
@@ -841,7 +841,7 @@ namespace BudgetExecution
                     };
 
                     var _data = new DataBuilder( _source, _provider, _filter ).Record;
-                    var _path = _data[ nameof( Location ) ].ToString( );
+                    var _path = _data[ "Location" ].ToString( );
                     _selectedPath = _prefix + _path;
                     Minion.RunEdge( _selectedPath );
                     OpenMainForm( );

@@ -1,45 +1,42 @@
-﻿//  ******************************************************************************************
-//      Assembly:                Budget Execution
-//      Filename:                SchemaPanel.cs
-//      Author:                  Terry D. Eppler
-//      Created:                 05-31-2023
+﻿// ******************************************************************************************
+//     Assembly:                Budget Execution
+//     Author:                  Terry D. Eppler
+//     Created:                 2-25-2024
 // 
-//      Last Modified By:        Terry D. Eppler
-//      Last Modified On:        06-01-2023
-//  ******************************************************************************************
-//  <copyright file="SchemaPanel.cs" company="Terry D. Eppler">
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        2-25-2024
+// ******************************************************************************************
+// <copyright file="SchemaPage.cs" company="Terry D. Eppler">
+//    Budget Execution is a Federal Budget, Finance, and Accounting application
+//    for analysts with the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
-//     This is a Federal Budget, Finance, and Accounting application for the
-//     US Environmental Protection Agency (US EPA).
-//     Copyright ©  2023  Terry Eppler
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
 // 
-//     Permission is hereby granted, free of charge, to any person obtaining a copy
-//     of this software and associated documentation files (the “Software”),
-//     to deal in the Software without restriction,
-//     including without limitation the rights to use,
-//     copy, modify, merge, publish, distribute, sublicense,
-//     and/or sell copies of the Software,
-//     and to permit persons to whom the Software is furnished to do so,
-//     subject to the following conditions:
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
 // 
-//     The above copyright notice and this permission notice shall be included in all
-//     copies or substantial portions of the Software.
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
 // 
-//     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//     FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//     DEALINGS IN THE SOFTWARE.
-// 
-//     You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
-// 
-//  </copyright>
-//  <summary>
-//    SchemaPanel.cs
-//  </summary>
-//  ******************************************************************************************
+//    Contact at:  terryeppler@gmail.com or eppler.terry@epa.gov
+// </copyright>
+// <summary>
+//   SchemaPage.cs
+// </summary>
+// ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -50,6 +47,7 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
+    using CheckState = MetroSet_UI.Enums.CheckState;
 
     /// <inheritdoc/>
     /// <summary>
@@ -60,27 +58,28 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     [ SuppressMessage( "ReSharper", "ConvertSwitchStatementToSwitchExpression" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     public partial class SchemaPage : EditBase
     {
         /// <summary>
         /// The busy
         /// </summary>
-        private bool _busy;
+        private protected bool _busy;
 
         /// <summary>
         /// The status update
         /// </summary>
-        private Action _statusUpdate;
+        private protected Action _statusUpdate;
 
         /// <summary>
         /// The time
         /// </summary>
-        private int _time;
+        private protected int _time;
 
         /// <summary>
         /// The seconds
         /// </summary>
-        private int _seconds;
+        private protected int _seconds;
 
         /// <summary>
         ///  
@@ -88,7 +87,7 @@ namespace BudgetExecution
         /// <value>
         /// 
         /// </value>
-        private string _selectedType;
+        private protected string _selectedType;
 
         /// <summary>
         ///  
@@ -96,7 +95,7 @@ namespace BudgetExecution
         /// <value>
         /// 
         /// </value>
-        private string _columnName;
+        private protected string _columnName;
 
         /// <summary>
         /// Gets or sets the type of the selected.
@@ -110,7 +109,7 @@ namespace BudgetExecution
             {
                 return _selectedType;
             }
-            private set
+            private protected set
             {
                 _selectedType = value;
             }
@@ -128,7 +127,7 @@ namespace BudgetExecution
             {
                 return _columnName;
             }
-            private set
+            private protected set
             {
                 _columnName = value;
             }
@@ -146,7 +145,7 @@ namespace BudgetExecution
             {
                 return _time;
             }
-            private set
+            private protected set
             {
                 _time = value;
             }
@@ -164,7 +163,7 @@ namespace BudgetExecution
             {
                 return _seconds;
             }
-            private set
+            private protected set
             {
                 _seconds = value;
             }
@@ -247,6 +246,8 @@ namespace BudgetExecution
         /// Initializes a new instance of the
         /// <see cref="T:BudgetExecution.SchemaLayout"/>
         /// class.
+        ///
+        /// 
         /// </summary>
         /// <param name="tool"> Type of the tool. </param>
         /// <param name="bindingSource"> The binding source. </param>
@@ -271,7 +272,7 @@ namespace BudgetExecution
                 SQLiteRadioButton.CheckedChanged += OnRadioButtonChecked;
                 SqlCeRadioButton.CheckedChanged += OnRadioButtonChecked;
                 CloseButton.Click += OnCloseButtonClicked;
-                TabPage.MouseClick += OnRightClick;
+                DataTab.MouseClick += OnRightClick;
             }
             catch( Exception _ex )
             {
@@ -286,8 +287,8 @@ namespace BudgetExecution
         {
             try
             {
-                TabPage.TabFont = new Font( "Roboto", 8, FontStyle.Regular );
-                TabPage.TabForeColor = Color.FromArgb( 106, 189, 252 );
+                DataTab.TabFont = new Font( "Roboto", 8, FontStyle.Regular );
+                DataTab.TabForeColor = Color.FromArgb( 106, 189, 252 );
                 TabControl.TabPanelBackColor = Color.FromArgb( 20, 20, 20 );
             }
             catch( Exception _ex )
@@ -320,13 +321,14 @@ namespace BudgetExecution
             try
             {
                 // Command Buttons
-                DeleteColumnButton.ForeColor = Color.FromArgb( 106, 189, 252 );
-                AddColumnButton.ForeColor = Color.FromArgb( 106, 189, 252 );
-                AddTableButton.ForeColor = Color.FromArgb( 106, 189, 252 );
-                DeleteTableButton.ForeColor = Color.FromArgb( 106, 189, 252 );
-                SelectButton.ForeColor = Color.FromArgb( 106, 189, 252 );
-                CloseButton.ForeColor = Color.FromArgb( 106, 189, 252 );
-                ClearButton.ForeColor = Color.FromArgb( 106, 189, 252 );
+                var _lightBlue = Color.FromArgb( 106, 189, 252 );
+                DeleteColumnButton.ForeColor = _lightBlue;
+                AddColumnButton.ForeColor = _lightBlue;
+                AddTableButton.ForeColor = _lightBlue;
+                DeleteTableButton.ForeColor = _lightBlue;
+                SelectButton.ForeColor = _lightBlue;
+                CloseButton.ForeColor = _lightBlue;
+                ClearButton.ForeColor = _lightBlue;
             }
             catch( Exception _ex )
             {
@@ -341,24 +343,26 @@ namespace BudgetExecution
         {
             try
             {
+                // Radio Button Properties
+                var _lightBlue = Color.FromArgb( 106, 189, 252 );
                 SQLiteRadioButton.Tag = "SQLite";
                 SQLiteRadioButton.Text = "SQLite";
-                SQLiteRadioButton.ForeColor = Color.FromArgb( 106, 189, 252 );
+                SQLiteRadioButton.ForeColor = _lightBlue;
                 SQLiteRadioButton.HoverText = "SQLite Provider";
                 SQLiteRadioButton.Checked = false;
                 AccessRadioButton.Tag = "Access";
                 AccessRadioButton.Text = "MS Access";
-                AccessRadioButton.ForeColor = Color.FromArgb( 106, 189, 252 );
+                AccessRadioButton.ForeColor = _lightBlue;
                 AccessRadioButton.HoverText = "MS Access Provider";
                 AccessRadioButton.Checked = true;
                 SqlCeRadioButton.Tag = "SqlCe";
                 SqlCeRadioButton.Text = "SQL Compact";
-                SqlCeRadioButton.ForeColor = Color.FromArgb( 106, 189, 252 );
+                SqlCeRadioButton.ForeColor = _lightBlue;
                 SqlCeRadioButton.HoverText = "SQL Compact Provider";
                 SqlCeRadioButton.Checked = false;
                 SqlServerRadioButton.Tag = "SqlServer";
                 SqlServerRadioButton.Text = "MS SQL Server";
-                SqlServerRadioButton.ForeColor = Color.FromArgb( 106, 189, 252 );
+                SqlServerRadioButton.ForeColor = _lightBlue;
                 SqlServerRadioButton.HoverText = "Sql Server Provider";
                 SqlServerRadioButton.Checked = false;
             }
@@ -519,37 +523,37 @@ namespace BudgetExecution
                     {
                         case ToolType.AddDatabaseButton:
                         {
-                            ActiveTab = TabPage;
+                            ActiveTab = DataTab;
                             break;
                         }
                         case ToolType.AddTableButton:
                         {
-                            ActiveTab = TabPage;
+                            ActiveTab = DataTab;
                             break;
                         }
                         case ToolType.EditColumnButton:
                         {
-                            ActiveTab = TabPage;
+                            ActiveTab = DataTab;
                             break;
                         }
                         case ToolType.DeleteColumnButton:
                         {
-                            ActiveTab = TabPage;
+                            ActiveTab = DataTab;
                             break;
                         }
                         case ToolType.DeleteTableButton:
                         {
-                            ActiveTab = TabPage;
+                            ActiveTab = DataTab;
                             break;
                         }
                         case ToolType.DeleteDatabaseButton:
                         {
-                            ActiveTab = TabPage;
+                            ActiveTab = DataTab;
                             break;
                         }
                         default:
                         {
-                            ActiveTab = TabPage;
+                            ActiveTab = DataTab;
                             break;
                         }
                     }
@@ -602,6 +606,28 @@ namespace BudgetExecution
                 {
                     _filter.Clear( );
                 }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the controls.
+        /// </summary>
+        private void ClearControls( )
+        {
+            try
+            {
+                TableNameComboBox.Items?.Clear( );
+                TableNameTextBox.Text = string.Empty;
+                DataTypeComboBox.Items?.Clear( );
+                AddColumnTextBox.Text = string.Empty;
+                SQLiteRadioButton.CheckState = CheckState.Unchecked;
+                AccessRadioButton.CheckState = CheckState.Unchecked;
+                SqlCeRadioButton.CheckState = CheckState.Unchecked;
+                SqlServerRadioButton.CheckState = CheckState.Unchecked;
             }
             catch( Exception _ex )
             {
