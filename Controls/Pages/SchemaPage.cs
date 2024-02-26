@@ -521,32 +521,12 @@ namespace BudgetExecution
                 {
                     switch( _toolType )
                     {
-                        case ToolType.AddDatabaseButton:
-                        {
-                            ActiveTab = DataTab;
-                            break;
-                        }
-                        case ToolType.AddTableButton:
-                        {
-                            ActiveTab = DataTab;
-                            break;
-                        }
-                        case ToolType.EditColumnButton:
-                        {
-                            ActiveTab = DataTab;
-                            break;
-                        }
-                        case ToolType.DeleteColumnButton:
-                        {
-                            ActiveTab = DataTab;
-                            break;
-                        }
-                        case ToolType.DeleteTableButton:
-                        {
-                            ActiveTab = DataTab;
-                            break;
-                        }
                         case ToolType.DeleteDatabaseButton:
+                        case ToolType.DeleteTableButton:
+                        case ToolType.DeleteColumnButton:
+                        case ToolType.EditColumnButton:
+                        case ToolType.AddTableButton:
+                        case ToolType.AddDatabaseButton:
                         {
                             ActiveTab = DataTab;
                             break;
@@ -576,17 +556,54 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( provider, nameof( provider ) );
-                var _value = (Provider)Enum.Parse( typeof( Provider ), provider );
-                if( Enum.IsDefined( typeof( Provider ), _value ) )
+                _provider = (Provider)Enum.Parse( typeof( Provider ), provider );
+                switch( _provider )
                 {
-                    _provider = _value switch
+                    case Provider.Access:
                     {
-                        Provider.Access => Provider.Access,
-                        Provider.SQLite => Provider.SQLite,
-                        Provider.SqlCe => Provider.SqlCe,
-                        Provider.SqlServer => Provider.SqlServer,
-                        _ => Provider.Access
-                    };
+                        _provider = Provider.Access;
+                        AccessRadioButton.CheckState = CheckState.Checked;
+                        SqlCeRadioButton.CheckState = CheckState.Unchecked;
+                        SQLiteRadioButton.CheckState = CheckState.Unchecked;
+                        SqlServerRadioButton.CheckState = CheckState.Unchecked;
+                        break;
+                    }
+                    case Provider.SQLite:
+                    {
+                        _provider = Provider.SQLite;
+                        SQLiteRadioButton.CheckState = CheckState.Checked;
+                        AccessRadioButton.CheckState = CheckState.Unchecked;
+                        SqlCeRadioButton.CheckState = CheckState.Unchecked;
+                        SqlServerRadioButton.CheckState = CheckState.Unchecked;
+                        break;
+                    }
+                    case Provider.SqlCe:
+                    {
+                        _provider = Provider.SqlCe;
+                        SqlCeRadioButton.CheckState = CheckState.Checked;
+                        AccessRadioButton.CheckState = CheckState.Unchecked;
+                        SQLiteRadioButton.CheckState = CheckState.Unchecked;
+                        SqlServerRadioButton.CheckState = CheckState.Unchecked;
+                        break;
+                    }
+                    case Provider.SqlServer:
+                    {
+                        _provider = Provider.SqlServer;
+                        SqlServerRadioButton.CheckState = CheckState.Checked;
+                        AccessRadioButton.CheckState = CheckState.Unchecked;
+                        SqlCeRadioButton.CheckState = CheckState.Unchecked;
+                        SQLiteRadioButton.CheckState = CheckState.Unchecked;
+                        break;
+                    }
+                    default:
+                    {
+                        _provider = Provider.Access;
+                        AccessRadioButton.CheckState = CheckState.Checked;
+                        SqlCeRadioButton.CheckState = CheckState.Unchecked;
+                        SQLiteRadioButton.CheckState = CheckState.Unchecked;
+                        SqlServerRadioButton.CheckState = CheckState.Unchecked;
+                        break;
+                    }
                 }
             }
             catch( Exception _ex )

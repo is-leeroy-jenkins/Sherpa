@@ -544,63 +544,73 @@ namespace BudgetExecution
         /// </param>
         private void SetProvider( string provider )
         {
-            if( !string.IsNullOrEmpty( provider ) )
+            try
             {
-                try
+                ThrowIf.Null( provider, nameof( provider ) );
+                _commands?.Clear( );
+                _provider = (Provider)Enum.Parse( typeof( Provider ), provider );
+                switch( _provider )
                 {
-                    _provider = (Provider)Enum.Parse( typeof( Provider ), provider );
-                    if( Enum.IsDefined( typeof( Provider ), _provider ) )
+                    case Provider.Access:
                     {
-                        _commands.Clear( );
-                        switch( _provider )
-                        {
-                            case Provider.Access:
-                            {
-                                _provider = Provider.Access;
-                                AccessRadioButton.CheckState = CheckState.Checked;
-                                _commands = CreateCommandList( _provider );
-                                PopulateSqlComboBox( _commands );
-                                break;
-                            }
-                            case Provider.SQLite:
-                            {
-                                _provider = Provider.SQLite;
-                                SQLiteRadioButton.CheckState = CheckState.Checked;
-                                _commands = CreateCommandList( _provider );
-                                PopulateSqlComboBox( _commands );
-                                break;
-                            }
-                            case Provider.SqlCe:
-                            {
-                                _provider = Provider.SqlCe;
-                                SqlCeRadioButton.CheckState = CheckState.Checked;
-                                _commands = CreateCommandList( _provider );
-                                PopulateSqlComboBox( _commands );
-                                break;
-                            }
-                            case Provider.SqlServer:
-                            {
-                                _provider = Provider.SqlServer;
-                                SqlServerRadioButton.CheckState = CheckState.Checked;
-                                _commands = CreateCommandList( _provider );
-                                PopulateSqlComboBox( _commands );
-                                break;
-                            }
-                            default:
-                            {
-                                _provider = Provider.Access;
-                                SetProvider( _provider.ToString( ) );
-                                _commands = CreateCommandList( _provider );
-                                PopulateSqlComboBox( _commands );
-                                break;
-                            }
-                        }
+                        _provider = Provider.Access;
+                        AccessRadioButton.CheckState = CheckState.Checked;
+                        SqlCeRadioButton.CheckState = CheckState.Unchecked;
+                        SQLiteRadioButton.CheckState = CheckState.Unchecked;
+                        SqlServerRadioButton.CheckState = CheckState.Unchecked;
+                        _commands = CreateCommandList( _provider );
+                        PopulateSqlComboBox( _commands );
+                        break;
+                    }
+                    case Provider.SQLite:
+                    {
+                        _provider = Provider.SQLite;
+                        SQLiteRadioButton.CheckState = CheckState.Checked;
+                        AccessRadioButton.CheckState = CheckState.Unchecked;
+                        SqlCeRadioButton.CheckState = CheckState.Unchecked;
+                        SqlServerRadioButton.CheckState = CheckState.Unchecked;
+                        _commands = CreateCommandList( _provider );
+                        PopulateSqlComboBox( _commands );
+                        break;
+                    }
+                    case Provider.SqlCe:
+                    {
+                        _provider = Provider.SqlCe;
+                        SqlCeRadioButton.CheckState = CheckState.Checked;
+                        AccessRadioButton.CheckState = CheckState.Unchecked;
+                        SQLiteRadioButton.CheckState = CheckState.Unchecked;
+                        SqlServerRadioButton.CheckState = CheckState.Unchecked;
+                        _commands = CreateCommandList( _provider );
+                        PopulateSqlComboBox( _commands );
+                        break;
+                    }
+                    case Provider.SqlServer:
+                    {
+                        _provider = Provider.SqlServer;
+                        SqlServerRadioButton.CheckState = CheckState.Checked;
+                        AccessRadioButton.CheckState = CheckState.Unchecked;
+                        SqlCeRadioButton.CheckState = CheckState.Unchecked;
+                        SQLiteRadioButton.CheckState = CheckState.Unchecked;
+                        _commands = CreateCommandList( _provider );
+                        PopulateSqlComboBox( _commands );
+                        break;
+                    }
+                    default:
+                    {
+                        _provider = Provider.Access;
+                        AccessRadioButton.CheckState = CheckState.Checked;
+                        SqlCeRadioButton.CheckState = CheckState.Unchecked;
+                        SQLiteRadioButton.CheckState = CheckState.Unchecked;
+                        SqlServerRadioButton.CheckState = CheckState.Unchecked;
+                        _commands = CreateCommandList( _provider );
+                        PopulateSqlComboBox( _commands );
+                        break;
                     }
                 }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 

@@ -572,7 +572,8 @@ namespace BudgetExecution
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.EditPanel" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.EditPanel" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
@@ -601,7 +602,7 @@ namespace BudgetExecution
             try
             {
                 CloseButton.Click += OnCloseButtonClicked;
-                TabPage.MouseClick += OnRightClick;
+                DataTab.MouseClick += OnRightClick;
                 RefreshButton.Click += OnClearButtonClicked;
             }
             catch( Exception _ex )
@@ -618,8 +619,8 @@ namespace BudgetExecution
             try
             {
                 TabControl.TabPanelBackColor = Color.FromArgb( 20, 20, 20 );
-                TabPage.TabFont = new Font( "Roboto", 8, FontStyle.Regular );
-                TabPage.TabForeColor = Color.FromArgb( 106, 189, 252 );
+                DataTab.TabFont = new Font( "Roboto", 8, FontStyle.Regular );
+                DataTab.TabForeColor = Color.FromArgb( 106, 189, 252 );
             }
             catch( Exception _ex )
             {
@@ -782,33 +783,33 @@ namespace BudgetExecution
                     {
                         case ToolType.CopyButton:
                         {
-                            ActiveTab = TabPage;
+                            ActiveTab = DataTab;
                             break;
                         }
                         case ToolType.AddRecordButton:
                         {
-                            ActiveTab = TabPage;
+                            ActiveTab = DataTab;
                             break;
                         }
                         case ToolType.AddButton:
                         {
-                            ActiveTab = TabPage;
+                            ActiveTab = DataTab;
                             break;
                         }
                         case ToolType.EditRecordButton:
                         {
-                            ActiveTab = TabPage;
+                            ActiveTab = DataTab;
                             break;
                         }
                         case ToolType.DeleteRecordButton:
                         {
-                            ActiveTab = TabPage;
+                            ActiveTab = DataTab;
                             SelectButton.Text = "Delete";
                             break;
                         }
                         default:
                         {
-                            ActiveTab = TabPage;
+                            ActiveTab = DataTab;
                             break;
                         }
                     }

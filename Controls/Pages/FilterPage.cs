@@ -48,6 +48,8 @@ namespace BudgetExecution
     using System.Linq;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
+    using MetroSet_UI.Enums;
+    using CheckState = MetroSet_UI.Enums.CheckState;
 
     /// <inheritdoc />
     [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
@@ -1210,7 +1212,9 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="columns">The columns.</param>
         /// <param name="where">The where.</param>
-        /// <returns></returns>
+        /// <returns>
+        /// A string
+        /// </returns>
         private string CreateSqlText( IEnumerable<string> columns,
             IDictionary<string, object> where )
         {
@@ -1411,41 +1415,70 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the provider.
+        /// Sets the provider.
         /// </summary>
-        /// <returns></returns>
-        private Provider GetProvider( )
+        /// <param name="provider">
+        /// The provider.
+        /// </param>
+        private void SetProvider( string provider )
         {
             try
             {
-                if( SQLiteRadioButton.Checked == true )
+                ThrowIf.Null( provider, nameof( provider ) );
+                _provider = (Provider)Enum.Parse( typeof( Provider ), provider );
+                switch( _provider )
                 {
-                    _provider = Provider.SQLite;
-                }
-                else if( SqlServerRadioButton.Checked == true )
-                {
-                    _provider = Provider.SqlServer;
-                }
-                else if( AccessRadioButton.Checked == true )
-                {
-                    _provider = Provider.Access;
-                }
-                else if( SqlCeRadioButton.Checked == true )
-                {
-                    _provider = Provider.SqlCe;
-                }
-                else
-                {
-                    _provider = Provider.Access;
+                    case Provider.Access:
+                    {
+                        _provider = Provider.Access;
+                        AccessRadioButton.CheckState = CheckState.Checked;
+                        SqlCeRadioButton.CheckState = CheckState.Unchecked;
+                        SQLiteRadioButton.CheckState = CheckState.Unchecked;
+                        SqlServerRadioButton.CheckState = CheckState.Unchecked;
+                        break;
+                    }
+                    case Provider.SQLite:
+                    {
+                        _provider = Provider.SQLite;
+                        SQLiteRadioButton.CheckState = CheckState.Checked;
+                        AccessRadioButton.CheckState = CheckState.Unchecked;
+                        SqlCeRadioButton.CheckState = CheckState.Unchecked;
+                        SqlServerRadioButton.CheckState = CheckState.Unchecked;
+                        break;
+                    }
+                    case Provider.SqlCe:
+                    {
+                        _provider = Provider.SqlCe;
+                        SqlCeRadioButton.CheckState = CheckState.Checked;
+                        AccessRadioButton.CheckState = CheckState.Unchecked;
+                        SQLiteRadioButton.CheckState = CheckState.Unchecked;
+                        SqlServerRadioButton.CheckState = CheckState.Unchecked;
+                        break;
+                    }
+                    case Provider.SqlServer:
+                    {
+                        _provider = Provider.SqlServer;
+                        SqlServerRadioButton.CheckState = CheckState.Checked;
+                        AccessRadioButton.CheckState = CheckState.Unchecked;
+                        SqlCeRadioButton.CheckState = CheckState.Unchecked;
+                        SQLiteRadioButton.CheckState = CheckState.Unchecked;
+                        break;
+                    }
+                    default:
+                    {
+                        _provider = Provider.Access;
+                        AccessRadioButton.CheckState = CheckState.Checked;
+                        SqlCeRadioButton.CheckState = CheckState.Unchecked;
+                        SQLiteRadioButton.CheckState = CheckState.Unchecked;
+                        SqlServerRadioButton.CheckState = CheckState.Unchecked;
+                        break;
+                    }
                 }
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return Provider.Access;
             }
-
-            return Provider.Access;
         }
 
         /// <summary>

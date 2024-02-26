@@ -34,7 +34,7 @@
             var resources = new System.ComponentModel.ComponentResourceManager( typeof( EditPage ) );
             BindingSource = new System.Windows.Forms.BindingSource( components );
             TabControl = new Syncfusion.Windows.Forms.Tools.TabControlAdv( );
-            TabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
+            DataTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             FrameTable = new System.Windows.Forms.TableLayoutPanel( );
             Frame1 = new Frame( );
             Frame2 = new Frame( );
@@ -86,30 +86,15 @@
             Frame21 = new Frame( );
             Frame44 = new Frame( );
             ToolTip = new SmallTip( );
-            tabPageAdv1 = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
-            groupBox7 = new BackPanel( );
-            listBox5 = new ListBox( );
-            listBox6 = new ListBox( );
-            groupBox8 = new BackPanel( );
-            visualComboBox3 = new ComboBox( );
-            visualLabel3 = new Label( );
-            visualLabel5 = new Label( );
-            visualTextBox3 = new TextBox( );
             SelectButton = new Button( );
             RefreshButton = new Button( );
             CloseButton = new Button( );
-            groupBox2 = new BackPanel( );
-            groupBox3 = new BackPanel( );
-            groupBox4 = new BackPanel( );
-            groupBox9 = new BackPanel( );
+            BusyTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
             ( (System.ComponentModel.ISupportInitialize)TabControl ).BeginInit( );
             TabControl.SuspendLayout( );
-            TabPage.SuspendLayout( );
+            DataTab.SuspendLayout( );
             FrameTable.SuspendLayout( );
-            tabPageAdv1.SuspendLayout( );
-            groupBox7.SuspendLayout( );
-            groupBox8.SuspendLayout( );
             SuspendLayout( );
             // 
             // TabControl
@@ -122,7 +107,8 @@
             TabControl.BorderWidth = 1;
             TabControl.CanOverrideStyle = true;
             TabControl.CloseButtonBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            TabControl.Controls.Add( TabPage );
+            TabControl.Controls.Add( DataTab );
+            TabControl.Controls.Add( BusyTab );
             TabControl.Dock = System.Windows.Forms.DockStyle.Top;
             TabControl.FixedSingleBorderColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.FocusOnTabClick = false;
@@ -151,23 +137,23 @@
             TabControl.ThemeStyle.TabStyle.ActiveForeColor = System.Drawing.Color.White;
             TabControl.ThemeStyle.TabStyle.InactiveBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             // 
-            // TabPage
+            // DataTab
             // 
-            TabPage.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            TabPage.Controls.Add( FrameTable );
-            TabPage.Image = null;
-            TabPage.ImageSize = new System.Drawing.Size( 14, 14 );
-            TabPage.Location = new System.Drawing.Point( 0, 22 );
-            TabPage.Margin = new System.Windows.Forms.Padding( 1 );
-            TabPage.Name = "TabPage";
-            TabPage.Padding = new System.Windows.Forms.Padding( 1 );
-            TabPage.ShowCloseButton = false;
-            TabPage.Size = new System.Drawing.Size( 1338, 485 );
-            TabPage.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            TabPage.TabForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            TabPage.TabIndex = 8;
-            TabPage.Text = "  Edit Mode";
-            TabPage.ThemesEnabled = false;
+            DataTab.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            DataTab.Controls.Add( FrameTable );
+            DataTab.Image = null;
+            DataTab.ImageSize = new System.Drawing.Size( 14, 14 );
+            DataTab.Location = new System.Drawing.Point( 0, 22 );
+            DataTab.Margin = new System.Windows.Forms.Padding( 1 );
+            DataTab.Name = "DataTab";
+            DataTab.Padding = new System.Windows.Forms.Padding( 1 );
+            DataTab.ShowCloseButton = false;
+            DataTab.Size = new System.Drawing.Size( 1338, 485 );
+            DataTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            DataTab.TabForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            DataTab.TabIndex = 8;
+            DataTab.Text = "  Edit Mode";
+            DataTab.ThemesEnabled = false;
             // 
             // FrameTable
             // 
@@ -950,262 +936,6 @@
             ToolTip.TipText = null;
             ToolTip.TipTitle = null;
             // 
-            // tabPageAdv1
-            // 
-            tabPageAdv1.Controls.Add( groupBox7 );
-            tabPageAdv1.Controls.Add( groupBox8 );
-            tabPageAdv1.Image = null;
-            tabPageAdv1.ImageSize = new System.Drawing.Size( 16, 16 );
-            tabPageAdv1.Location = new System.Drawing.Point( 0, 0 );
-            tabPageAdv1.Name = "tabPageAdv1";
-            tabPageAdv1.ShowCloseButton = true;
-            tabPageAdv1.Size = new System.Drawing.Size( 200, 100 );
-            tabPageAdv1.TabFont = null;
-            tabPageAdv1.TabIndex = 0;
-            tabPageAdv1.ThemesEnabled = false;
-            // 
-            // groupBox7
-            // 
-            groupBox7.Anchor =  System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Right ;
-            groupBox7.BackColor = System.Drawing.Color.Transparent;
-            groupBox7.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            groupBox7.BindingSource = null;
-            groupBox7.BorderColor = System.Drawing.Color.Transparent;
-            groupBox7.BorderThickness = 1;
-            groupBox7.Children = null;
-            groupBox7.Controls.Add( listBox5 );
-            groupBox7.Controls.Add( listBox6 );
-            groupBox7.DataFilter = null;
-            groupBox7.Font = new System.Drawing.Font( "Roboto", 9F );
-            groupBox7.ForeColor = System.Drawing.Color.Transparent;
-            groupBox7.HoverText = null;
-            groupBox7.IsDerivedStyle = true;
-            groupBox7.Location = new System.Drawing.Point( 438, 58 );
-            groupBox7.Name = "groupBox7";
-            groupBox7.Padding = new System.Windows.Forms.Padding( 1 );
-            groupBox7.Size = new System.Drawing.Size( 377, 191 );
-            groupBox7.Style = MetroSet_UI.Enums.Style.Custom;
-            groupBox7.StyleManager = null;
-            groupBox7.TabIndex = 6;
-            groupBox7.Text = "  Tables";
-            groupBox7.ThemeAuthor = "Terry D. Eppler";
-            groupBox7.ThemeName = "BudgetExecution";
-            groupBox7.ToolTip = null;
-            // 
-            // listBox5
-            // 
-            listBox5.Anchor =  System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Right ;
-            listBox5.BackColor = System.Drawing.Color.FromArgb( 15, 15, 15 );
-            listBox5.BindingSource = null;
-            listBox5.BorderColor = System.Drawing.Color.FromArgb( 50, 50, 50 );
-            listBox5.DataFilter = null;
-            listBox5.DisabledBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            listBox5.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            listBox5.Font = new System.Drawing.Font( "Roboto", 9F );
-            listBox5.HoveredItemBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
-            listBox5.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
-            listBox5.HoverText = null;
-            listBox5.IsDerivedStyle = true;
-            listBox5.ItemHeight = 30;
-            listBox5.Location = new System.Drawing.Point( 15, 40 );
-            listBox5.Margin = new System.Windows.Forms.Padding( 1 );
-            listBox5.MultiSelect = false;
-            listBox5.Name = "listBox5";
-            listBox5.Padding = new System.Windows.Forms.Padding( 1 );
-            listBox5.SelectedIndex = -1;
-            listBox5.SelectedItem = null;
-            listBox5.SelectedItemBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            listBox5.SelectedItemColor = System.Drawing.Color.White;
-            listBox5.SelectedText = null;
-            listBox5.SelectedValue = null;
-            listBox5.ShowBorder = false;
-            listBox5.ShowScrollBar = false;
-            listBox5.Size = new System.Drawing.Size( 348, 140 );
-            listBox5.Style = MetroSet_UI.Enums.Style.Custom;
-            listBox5.StyleManager = null;
-            listBox5.TabIndex = 2;
-            listBox5.Text = "listBox3";
-            listBox5.ThemeAuthor = "Terry D. Eppler";
-            listBox5.ThemeName = "BudgetExecution";
-            listBox5.ToolTip = ToolTip;
-            // 
-            // listBox6
-            // 
-            listBox6.Anchor =  System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Right ;
-            listBox6.BackColor = System.Drawing.Color.FromArgb( 15, 15, 15 );
-            listBox6.BindingSource = null;
-            listBox6.BorderColor = System.Drawing.Color.FromArgb( 50, 50, 50 );
-            listBox6.DataFilter = null;
-            listBox6.DisabledBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            listBox6.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            listBox6.Font = new System.Drawing.Font( "Roboto", 9F );
-            listBox6.HoveredItemBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
-            listBox6.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
-            listBox6.HoverText = null;
-            listBox6.IsDerivedStyle = true;
-            listBox6.ItemHeight = 30;
-            listBox6.Location = new System.Drawing.Point( 15, 40 );
-            listBox6.Margin = new System.Windows.Forms.Padding( 1 );
-            listBox6.MultiSelect = false;
-            listBox6.Name = "listBox6";
-            listBox6.Padding = new System.Windows.Forms.Padding( 1 );
-            listBox6.SelectedIndex = -1;
-            listBox6.SelectedItem = null;
-            listBox6.SelectedItemBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            listBox6.SelectedItemColor = System.Drawing.Color.White;
-            listBox6.SelectedText = null;
-            listBox6.SelectedValue = null;
-            listBox6.ShowBorder = false;
-            listBox6.ShowScrollBar = false;
-            listBox6.Size = new System.Drawing.Size( 348, 140 );
-            listBox6.Style = MetroSet_UI.Enums.Style.Custom;
-            listBox6.StyleManager = null;
-            listBox6.TabIndex = 1;
-            listBox6.Text = "listBox4";
-            listBox6.ThemeAuthor = "Terry D. Eppler";
-            listBox6.ThemeName = "BudgetExecution";
-            listBox6.ToolTip = ToolTip;
-            // 
-            // groupBox8
-            // 
-            groupBox8.BackColor = System.Drawing.Color.Transparent;
-            groupBox8.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            groupBox8.BindingSource = null;
-            groupBox8.BorderColor = System.Drawing.Color.Transparent;
-            groupBox8.BorderThickness = 1;
-            groupBox8.Children = null;
-            groupBox8.Controls.Add( visualComboBox3 );
-            groupBox8.Controls.Add( visualLabel3 );
-            groupBox8.Controls.Add( visualLabel5 );
-            groupBox8.Controls.Add( visualTextBox3 );
-            groupBox8.DataFilter = null;
-            groupBox8.Font = new System.Drawing.Font( "Roboto", 9F );
-            groupBox8.ForeColor = System.Drawing.Color.Transparent;
-            groupBox8.HoverText = null;
-            groupBox8.IsDerivedStyle = true;
-            groupBox8.Location = new System.Drawing.Point( 25, 293 );
-            groupBox8.Name = "groupBox8";
-            groupBox8.Padding = new System.Windows.Forms.Padding( 1 );
-            groupBox8.Size = new System.Drawing.Size( 790, 186 );
-            groupBox8.Style = MetroSet_UI.Enums.Style.Custom;
-            groupBox8.StyleManager = null;
-            groupBox8.TabIndex = 5;
-            groupBox8.Text = "  Columns";
-            groupBox8.ThemeAuthor = "Terry D. Eppler";
-            groupBox8.ThemeName = "BudgetExecution";
-            groupBox8.ToolTip = null;
-            // 
-            // visualComboBox3
-            // 
-            visualComboBox3.AllowDrop = true;
-            visualComboBox3.ArrowColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            visualComboBox3.BackColor = System.Drawing.Color.Transparent;
-            visualComboBox3.BackgroundColor = System.Drawing.Color.FromArgb( 238, 238, 238 );
-            visualComboBox3.BindingSource = null;
-            visualComboBox3.BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            visualComboBox3.CausesValidation = false;
-            visualComboBox3.DataFilter = null;
-            visualComboBox3.DisabledBackColor = System.Drawing.Color.Transparent;
-            visualComboBox3.DisabledBorderColor = System.Drawing.Color.Transparent;
-            visualComboBox3.DisabledForeColor = System.Drawing.Color.Transparent;
-            visualComboBox3.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            visualComboBox3.DropDownHeight = 100;
-            visualComboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            visualComboBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            visualComboBox3.Font = new System.Drawing.Font( "Roboto", 9F );
-            visualComboBox3.FormattingEnabled = true;
-            visualComboBox3.HoverText = null;
-            visualComboBox3.IntegralHeight = false;
-            visualComboBox3.IsDerivedStyle = true;
-            visualComboBox3.ItemHeight = 24;
-            visualComboBox3.Location = new System.Drawing.Point( 92, 91 );
-            visualComboBox3.Name = "visualComboBox3";
-            visualComboBox3.SelectedItemBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            visualComboBox3.SelectedItemForeColor = System.Drawing.Color.White;
-            visualComboBox3.Size = new System.Drawing.Size( 221, 30 );
-            visualComboBox3.Style = MetroSet_UI.Enums.Style.Custom;
-            visualComboBox3.StyleManager = null;
-            visualComboBox3.TabIndex = 4;
-            visualComboBox3.ThemeAuthor = "Terry D. Eppler";
-            visualComboBox3.ThemeName = "BudgetExecution";
-            visualComboBox3.ToolTip = null;
-            // 
-            // visualLabel3
-            // 
-            visualLabel3.BindingSource = null;
-            visualLabel3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            visualLabel3.Font = new System.Drawing.Font( "Roboto", 9F );
-            visualLabel3.HoverText = null;
-            visualLabel3.IsDerivedStyle = true;
-            visualLabel3.Location = new System.Drawing.Point( 92, 57 );
-            visualLabel3.Margin = new System.Windows.Forms.Padding( 3 );
-            visualLabel3.Name = "visualLabel3";
-            visualLabel3.Padding = new System.Windows.Forms.Padding( 1 );
-            visualLabel3.Size = new System.Drawing.Size( 177, 23 );
-            visualLabel3.Style = MetroSet_UI.Enums.Style.Custom;
-            visualLabel3.StyleManager = null;
-            visualLabel3.TabIndex = 3;
-            visualLabel3.Text = "Select  Existing Column";
-            visualLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            visualLabel3.ThemeAuthor = "Terry D. Eppler";
-            visualLabel3.ThemeName = "BudgetExecution";
-            visualLabel3.ToolTip = null;
-            // 
-            // visualLabel5
-            // 
-            visualLabel5.BindingSource = null;
-            visualLabel5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            visualLabel5.Font = new System.Drawing.Font( "Roboto", 9F );
-            visualLabel5.HoverText = null;
-            visualLabel5.IsDerivedStyle = true;
-            visualLabel5.Location = new System.Drawing.Point( 419, 57 );
-            visualLabel5.Margin = new System.Windows.Forms.Padding( 3 );
-            visualLabel5.Name = "visualLabel5";
-            visualLabel5.Padding = new System.Windows.Forms.Padding( 1 );
-            visualLabel5.Size = new System.Drawing.Size( 120, 23 );
-            visualLabel5.Style = MetroSet_UI.Enums.Style.Custom;
-            visualLabel5.StyleManager = null;
-            visualLabel5.TabIndex = 2;
-            visualLabel5.Text = "Enter New Name";
-            visualLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            visualLabel5.ThemeAuthor = "Terry D. Eppler";
-            visualLabel5.ThemeName = "BudgetExecution";
-            visualLabel5.ToolTip = null;
-            // 
-            // visualTextBox3
-            // 
-            visualTextBox3.AutoCompleteCustomSource = null;
-            visualTextBox3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            visualTextBox3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            visualTextBox3.BindingSource = null;
-            visualTextBox3.BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            visualTextBox3.DataFilter = null;
-            visualTextBox3.DisabledBackColor = System.Drawing.Color.Transparent;
-            visualTextBox3.DisabledBorderColor = System.Drawing.Color.Transparent;
-            visualTextBox3.DisabledForeColor = System.Drawing.Color.Transparent;
-            visualTextBox3.Font = new System.Drawing.Font( "Roboto", 9F );
-            visualTextBox3.HoverColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
-            visualTextBox3.HoverText = null;
-            visualTextBox3.Image = null;
-            visualTextBox3.IsDerivedStyle = true;
-            visualTextBox3.Lines = null;
-            visualTextBox3.Location = new System.Drawing.Point( 419, 91 );
-            visualTextBox3.MaxLength = 32767;
-            visualTextBox3.Multiline = false;
-            visualTextBox3.Name = "visualTextBox3";
-            visualTextBox3.ReadOnly = false;
-            visualTextBox3.SelectionLength = 0;
-            visualTextBox3.Size = new System.Drawing.Size( 278, 25 );
-            visualTextBox3.Style = MetroSet_UI.Enums.Style.Custom;
-            visualTextBox3.StyleManager = null;
-            visualTextBox3.TabIndex = 1;
-            visualTextBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            visualTextBox3.ThemeAuthor = "Terry D. Eppler";
-            visualTextBox3.ThemeName = "BudgetExecution";
-            visualTextBox3.ToolTip = null;
-            visualTextBox3.UseSystemPasswordChar = false;
-            visualTextBox3.WatermarkText = "";
-            // 
             // SelectButton
             // 
             SelectButton.BackColor = System.Drawing.Color.Transparent;
@@ -1308,104 +1038,16 @@
             CloseButton.ThemeName = "BudgetExecution";
             CloseButton.ToolTip = ToolTip;
             // 
-            // groupBox2
+            // BusyTab
             // 
-            groupBox2.Anchor =   System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
-            groupBox2.BackColor = System.Drawing.Color.Transparent;
-            groupBox2.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            groupBox2.BindingSource = null;
-            groupBox2.BorderColor = System.Drawing.Color.Transparent;
-            groupBox2.BorderThickness = 1;
-            groupBox2.Children = null;
-            groupBox2.DataFilter = null;
-            groupBox2.Font = new System.Drawing.Font( "Roboto", 9F );
-            groupBox2.ForeColor = System.Drawing.Color.Transparent;
-            groupBox2.HoverText = null;
-            groupBox2.IsDerivedStyle = true;
-            groupBox2.Location = new System.Drawing.Point( 1, 1 );
-            groupBox2.Name = "groupBox2";
-            groupBox2.Padding = new System.Windows.Forms.Padding( 1 );
-            groupBox2.Size = new System.Drawing.Size( 250, 150 );
-            groupBox2.Style = MetroSet_UI.Enums.Style.Custom;
-            groupBox2.StyleManager = null;
-            groupBox2.TabIndex = 0;
-            groupBox2.ThemeAuthor = "Terry D. Eppler";
-            groupBox2.ThemeName = "BudgetExecution";
-            groupBox2.ToolTip = null;
-            // 
-            // groupBox3
-            // 
-            groupBox3.Anchor =   System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
-            groupBox3.BackColor = System.Drawing.Color.Transparent;
-            groupBox3.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            groupBox3.BindingSource = null;
-            groupBox3.BorderColor = System.Drawing.Color.Transparent;
-            groupBox3.BorderThickness = 1;
-            groupBox3.Children = null;
-            groupBox3.DataFilter = null;
-            groupBox3.Font = new System.Drawing.Font( "Roboto", 9F );
-            groupBox3.ForeColor = System.Drawing.Color.Transparent;
-            groupBox3.HoverText = null;
-            groupBox3.IsDerivedStyle = true;
-            groupBox3.Location = new System.Drawing.Point( 1, 1 );
-            groupBox3.Name = "groupBox3";
-            groupBox3.Padding = new System.Windows.Forms.Padding( 1 );
-            groupBox3.Size = new System.Drawing.Size( 250, 150 );
-            groupBox3.Style = MetroSet_UI.Enums.Style.Custom;
-            groupBox3.StyleManager = null;
-            groupBox3.TabIndex = 0;
-            groupBox3.ThemeAuthor = "Terry D. Eppler";
-            groupBox3.ThemeName = "BudgetExecution";
-            groupBox3.ToolTip = null;
-            // 
-            // groupBox4
-            // 
-            groupBox4.Anchor =   System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
-            groupBox4.BackColor = System.Drawing.Color.Transparent;
-            groupBox4.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            groupBox4.BindingSource = null;
-            groupBox4.BorderColor = System.Drawing.Color.Transparent;
-            groupBox4.BorderThickness = 1;
-            groupBox4.Children = null;
-            groupBox4.DataFilter = null;
-            groupBox4.Font = new System.Drawing.Font( "Roboto", 9F );
-            groupBox4.ForeColor = System.Drawing.Color.Transparent;
-            groupBox4.HoverText = null;
-            groupBox4.IsDerivedStyle = true;
-            groupBox4.Location = new System.Drawing.Point( 1, 1 );
-            groupBox4.Name = "groupBox4";
-            groupBox4.Padding = new System.Windows.Forms.Padding( 1 );
-            groupBox4.Size = new System.Drawing.Size( 250, 150 );
-            groupBox4.Style = MetroSet_UI.Enums.Style.Custom;
-            groupBox4.StyleManager = null;
-            groupBox4.TabIndex = 0;
-            groupBox4.ThemeAuthor = "Terry D. Eppler";
-            groupBox4.ThemeName = "BudgetExecution";
-            groupBox4.ToolTip = null;
-            // 
-            // groupBox9
-            // 
-            groupBox9.BackColor = System.Drawing.Color.Transparent;
-            groupBox9.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            groupBox9.BindingSource = null;
-            groupBox9.BorderColor = System.Drawing.Color.Transparent;
-            groupBox9.BorderThickness = 1;
-            groupBox9.Children = null;
-            groupBox9.DataFilter = null;
-            groupBox9.Font = new System.Drawing.Font( "Roboto", 9F );
-            groupBox9.ForeColor = System.Drawing.Color.Transparent;
-            groupBox9.HoverText = null;
-            groupBox9.IsDerivedStyle = true;
-            groupBox9.Location = new System.Drawing.Point( 1, 1 );
-            groupBox9.Name = "groupBox9";
-            groupBox9.Padding = new System.Windows.Forms.Padding( 1 );
-            groupBox9.Size = new System.Drawing.Size( 250, 150 );
-            groupBox9.Style = MetroSet_UI.Enums.Style.Custom;
-            groupBox9.StyleManager = null;
-            groupBox9.TabIndex = 0;
-            groupBox9.ThemeAuthor = "Terry D. Eppler";
-            groupBox9.ThemeName = "BudgetExecution";
-            groupBox9.ToolTip = null;
+            BusyTab.Image = null;
+            BusyTab.ImageSize = new System.Drawing.Size( 16, 16 );
+            BusyTab.Location = new System.Drawing.Point( 0, 0 );
+            BusyTab.Name = "BusyTab";
+            BusyTab.ShowCloseButton = true;
+            BusyTab.Size = new System.Drawing.Size( 200, 100 );
+            BusyTab.TabIndex = 9;
+            BusyTab.ThemesEnabled = false;
             // 
             // EditPage
             // 
@@ -1445,11 +1087,8 @@
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).EndInit( );
             ( (System.ComponentModel.ISupportInitialize)TabControl ).EndInit( );
             TabControl.ResumeLayout( false );
-            TabPage.ResumeLayout( false );
+            DataTab.ResumeLayout( false );
             FrameTable.ResumeLayout( false );
-            tabPageAdv1.ResumeLayout( false );
-            groupBox7.ResumeLayout( false );
-            groupBox8.ResumeLayout( false );
             ResumeLayout( false );
         }
 
@@ -1459,21 +1098,8 @@
         public Button RefreshButton;
         public Button CloseButton;
         public Button SelectButton;
-        public BackPanel groupBox2;
-        public BackPanel groupBox3;
-        public BackPanel groupBox4;
         public Syncfusion.Windows.Forms.Tools.TabControlAdv TabControl;
-        public BackPanel groupBox7;
-        public ListBox listBox5;
-        public ListBox listBox6;
-        public BackPanel groupBox8;
-        public BudgetExecution.ComboBox visualComboBox3;
-        public BudgetExecution.Label visualLabel3;
-        public BudgetExecution.Label visualLabel5;
-        public BudgetExecution.TextBox visualTextBox3;
-        public BackPanel groupBox9;
-        public Syncfusion.Windows.Forms.Tools.TabPageAdv tabPageAdv1;
-        public Syncfusion.Windows.Forms.Tools.TabPageAdv TabPage;
+        public Syncfusion.Windows.Forms.Tools.TabPageAdv DataTab;
         public System.Windows.Forms.TableLayoutPanel FrameTable;
         public Frame Frame1;
         public Frame Frame2;
@@ -1523,6 +1149,7 @@
         public Frame Frame46;
         public Frame Frame47;
         public Frame Frame48;
-        protected Frame Frame49;
+        public Frame Frame49;
+        public Syncfusion.Windows.Forms.Tools.TabPageAdv BusyTab;
     }
 }
