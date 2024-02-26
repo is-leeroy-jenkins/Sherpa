@@ -734,9 +734,9 @@ namespace BudgetExecution
             MinimumSize = new Size( 1340, 740 );
             Padding = new Padding( 1 );
             StartPosition = FormStartPosition.CenterScreen;
-            FormBorderStyle = FormBorderStyle.Sizable;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             WindowState = FormWindowState.Normal;
-            SizeGripStyle = SizeGripStyle.Hide;
+            SizeGripStyle = SizeGripStyle.Auto;
             AutoScaleMode = AutoScaleMode.Font;
             BorderColor = Color.FromArgb( 0, 120, 212 );
             BorderThickness = 1;

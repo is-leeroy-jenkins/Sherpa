@@ -323,6 +323,9 @@
     <Compile Update="Controls\TreeView\TreeView.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="DocumentViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Clients\Baby\net6.0-windows\Properties\Resources.resx">

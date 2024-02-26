@@ -181,7 +181,7 @@
             ToolStripTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             ToolStripTable.Controls.Add( ToolStrip, 0, 0 );
             ToolStripTable.Dock = System.Windows.Forms.DockStyle.Bottom;
-            ToolStripTable.Location = new System.Drawing.Point( 1, 692 );
+            ToolStripTable.Location = new System.Drawing.Point( 1, 693 );
             ToolStripTable.Name = "ToolStripTable";
             ToolStripTable.RowCount = 1;
             ToolStripTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
@@ -1616,7 +1616,7 @@
             CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionFont = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
             CaptionForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            ClientSize = new System.Drawing.Size( 1338, 738 );
+            ClientSize = new System.Drawing.Size( 1338, 739 );
             ControlBox = false;
             Controls.Add( SourcePanel );
             Controls.Add( ChartHeaderTable );
@@ -1636,7 +1636,6 @@
             ShowIcon = false;
             ShowMaximizeBox = false;
             ShowMinimizeBox = false;
-            SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = " ";
             HeaderTable.ResumeLayout( false );

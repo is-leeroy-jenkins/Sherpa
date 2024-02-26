@@ -2466,7 +2466,6 @@ namespace BudgetExecution
             ShowIcon = false;
             ShowMaximizeBox = false;
             ShowMinimizeBox = false;
-            SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "SqlEditForm";
             HeaderTable.ResumeLayout( false );

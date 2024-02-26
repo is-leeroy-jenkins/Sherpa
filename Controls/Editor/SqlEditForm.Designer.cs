@@ -2218,7 +2218,6 @@
             Name = "SqlEditForm";
             Padding = new System.Windows.Forms.Padding( 1 );
             ShowIcon = false;
-            SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "SqlEditForm";
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).EndInit( );

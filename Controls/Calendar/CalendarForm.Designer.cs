@@ -186,7 +186,7 @@ namespace BudgetExecution
             PictureBox.Location = new System.Drawing.Point( 3, 3 );
             PictureBox.Name = "PictureBox";
             PictureBox.Padding = new System.Windows.Forms.Padding( 1 );
-            PictureBox.Size = new System.Drawing.Size( 32, 31 );
+            PictureBox.Size = new System.Drawing.Size( 20, 18 );
             PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             PictureBox.TabIndex = 0;
             PictureBox.TabStop = false;
@@ -209,7 +209,6 @@ namespace BudgetExecution
             Title.StyleManager = null;
             Title.TabIndex = 1;
             Title.Text = "Budget Fiscal Year";
-            Title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             Title.ThemeAuthor = "Terry D. Eppler";
             Title.ThemeName = "Budget Execution";
             Title.ToolTip = null;
@@ -1722,6 +1721,7 @@ namespace BudgetExecution
             Controls.Add( HeaderTable );
             Font = new System.Drawing.Font( "Roboto", 9F );
             ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
             MaximizeBox = false;
             MaximumSize = new System.Drawing.Size( 1350, 750 );
@@ -1733,7 +1733,6 @@ namespace BudgetExecution
             ShowIcon = false;
             ShowMaximizeBox = false;
             ShowMinimizeBox = false;
-            SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).EndInit( );
             HeaderTable.ResumeLayout( false );

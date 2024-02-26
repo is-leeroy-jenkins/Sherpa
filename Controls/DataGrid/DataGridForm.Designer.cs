@@ -2282,7 +2282,7 @@
             ToolStripTextBox.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             ToolStripTextBox.Name = "ToolStripTextBox";
             ToolStripTextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Size = new System.Drawing.Size( 210, 25 );
+            ToolStripTextBox.Size = new System.Drawing.Size( 206, 25 );
             ToolStripTextBox.Tag = "";
             ToolStripTextBox.ToolTip = ToolTip;
             // 
@@ -2628,7 +2628,6 @@
             ShowIcon = false;
             ShowMaximizeBox = false;
             ShowMinimizeBox = false;
-            SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).EndInit( );
             DataGridPanel.ResumeLayout( false );

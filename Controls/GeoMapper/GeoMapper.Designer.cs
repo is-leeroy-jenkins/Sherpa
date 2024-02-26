@@ -92,7 +92,7 @@
             HeaderTable.Name = "HeaderTable";
             HeaderTable.RowCount = 1;
             HeaderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            HeaderTable.Size = new System.Drawing.Size( 1331, 24 );
+            HeaderTable.Size = new System.Drawing.Size( 1336, 24 );
             HeaderTable.TabIndex = 0;
             // 
             // PictureBox
@@ -101,7 +101,7 @@
             PictureBox.Image = Resources.Images.FormImages.Application;
             PictureBox.Location = new System.Drawing.Point( 3, 3 );
             PictureBox.Name = "PictureBox";
-            PictureBox.Size = new System.Drawing.Size( 20, 18 );
+            PictureBox.Size = new System.Drawing.Size( 21, 18 );
             PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             PictureBox.TabIndex = 0;
             PictureBox.TabStop = false;
@@ -114,11 +114,11 @@
             Title.Font = new System.Drawing.Font( "Roboto", 9.75F );
             Title.HoverText = null;
             Title.IsDerivedStyle = true;
-            Title.Location = new System.Drawing.Point( 29, 3 );
+            Title.Location = new System.Drawing.Point( 30, 3 );
             Title.Margin = new System.Windows.Forms.Padding( 3 );
             Title.Name = "Title";
             Title.Padding = new System.Windows.Forms.Padding( 1 );
-            Title.Size = new System.Drawing.Size( 1299, 18 );
+            Title.Size = new System.Drawing.Size( 1303, 18 );
             Title.Style = MetroSet_UI.Enums.Style.Custom;
             Title.StyleManager = null;
             Title.TabIndex = 1;
@@ -134,11 +134,11 @@
             ToolStripTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             ToolStripTable.Controls.Add( ToolStrip, 0, 0 );
             ToolStripTable.Dock = System.Windows.Forms.DockStyle.Bottom;
-            ToolStripTable.Location = new System.Drawing.Point( 1, 687 );
+            ToolStripTable.Location = new System.Drawing.Point( 1, 692 );
             ToolStripTable.Name = "ToolStripTable";
             ToolStripTable.RowCount = 1;
             ToolStripTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            ToolStripTable.Size = new System.Drawing.Size( 1331, 45 );
+            ToolStripTable.Size = new System.Drawing.Size( 1336, 45 );
             ToolStripTable.TabIndex = 1;
             // 
             // ToolStrip
@@ -193,7 +193,7 @@
             ToolStrip.Separators = null;
             ToolStrip.ShowCaption = true;
             ToolStrip.ShowLauncher = true;
-            ToolStrip.Size = new System.Drawing.Size( 1329, 43 );
+            ToolStrip.Size = new System.Drawing.Size( 1334, 43 );
             ToolStrip.TabIndex = 0;
             ToolStrip.TextBox = null;
             ToolStrip.ThemeName = "Office2016DarkGray";
@@ -750,7 +750,7 @@
             Map.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             Map.SelectedAreaFillColor = System.Drawing.Color.FromArgb( 33, 65, 105, 225 );
             Map.ShowTileGridLines = false;
-            Map.Size = new System.Drawing.Size( 1331, 662 );
+            Map.Size = new System.Drawing.Size( 1336, 667 );
             Map.TabIndex = 2;
             Map.Zoom = 0D;
             // 
@@ -766,7 +766,7 @@
             CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionFont = new System.Drawing.Font( "Roboto", 9.75F );
             CaptionForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            ClientSize = new System.Drawing.Size( 1333, 733 );
+            ClientSize = new System.Drawing.Size( 1338, 738 );
             ControlBox = false;
             Controls.Add( Map );
             Controls.Add( ToolStripTable );
@@ -786,7 +786,6 @@
             ShowIcon = false;
             ShowMaximizeBox = false;
             ShowMinimizeBox = false;
-            SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             HeaderTable.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).EndInit( );

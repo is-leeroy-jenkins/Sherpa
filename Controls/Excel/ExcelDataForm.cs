@@ -761,7 +761,7 @@ namespace BudgetExecution
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             WindowState = FormWindowState.Normal;
-            SizeGripStyle = SizeGripStyle.Hide;
+            SizeGripStyle = SizeGripStyle.Auto;
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.FromArgb( 106, 189, 252 );
