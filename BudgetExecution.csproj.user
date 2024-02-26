@@ -323,7 +323,7 @@
     <Compile Update="Controls\TreeView\TreeView.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="DocumentViewer.cs">
+    <Compile Update="Controls\Document\DocumentViewer.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
