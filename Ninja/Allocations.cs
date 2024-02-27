@@ -133,36 +133,36 @@ namespace BudgetExecution
         public Allocations( IDataModel builder )
         {
             Record = builder.Record;
-            Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "AllocationsId" ].ToString( ) ?? "0" );
-            BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
-            FundCode = Record[ "FundCode" ].ToString( );
-            FundName = Record[ "FundName" ].ToString( );
-            RpioCode = Record[ "RpioCode" ].ToString( );
-            RpioName = Record[ "RpioName" ].ToString( );
-            AhCode = Record[ "AhCode" ].ToString( );
-            AhName = Record[ "AhName" ].ToString( );
-            OrgCode = Record[ "OrgCode" ].ToString( );
-            OrgName = Record[ "OrgName" ].ToString( );
-            AccountCode = Record[ "AccountCode" ].ToString( );
-            BocCode = Record[ "BocCode" ].ToString( );
-            BocName = Record[ "BocName" ].ToString( );
-            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0.0" );
-            ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
-            ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
-            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
-            ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
-            NpmCode = Record[ "NpmCode" ].ToString( );
-            NpmName = Record[ "NpmName" ].ToString( );
-            GoalCode = Record[ "GoalCode" ].ToString( );
-            GoalName = Record[ "GoalName" ].ToString( );
-            ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
-            ObjectiveName = Record[ "ObjectiveName" ].ToString( );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
+            Data = builder.Record.ToDictionary( );
+            ID = int.Parse( builder.Record[ "AllocationsId" ].ToString( ) ?? "0" );
+            BFY = builder.Record[ "BFY" ].ToString( );
+            EFY = builder.Record[ "EFY" ].ToString( );
+            FundCode = builder.Record[ "FundCode" ].ToString( );
+            FundName = builder.Record[ "FundName" ].ToString( );
+            RpioCode = builder.Record[ "RpioCode" ].ToString( );
+            RpioName = builder.Record[ "RpioName" ].ToString( );
+            AhCode = builder.Record[ "AhCode" ].ToString( );
+            AhName = builder.Record[ "AhName" ].ToString( );
+            OrgCode = builder.Record[ "OrgCode" ].ToString( );
+            OrgName = builder.Record[ "OrgName" ].ToString( );
+            AccountCode = builder.Record[ "AccountCode" ].ToString( );
+            BocCode = builder.Record[ "BocCode" ].ToString( );
+            BocName = builder.Record[ "BocName" ].ToString( );
+            Amount = double.Parse( builder.Record[ "Amount" ].ToString( ) ?? "0.0" );
+            ProgramProjectCode = builder.Record[ "ProgramProjectCode" ].ToString( );
+            ProgramProjectName = builder.Record[ "ProgramProjectName" ].ToString( );
+            ProgramAreaCode = builder.Record[ "ProgramAreaCode" ].ToString( );
+            ProgramAreaName = builder.Record[ "ProgramAreaName" ].ToString( );
+            NpmCode = builder.Record[ "NpmCode" ].ToString( );
+            NpmName = builder.Record[ "NpmName" ].ToString( );
+            GoalCode = builder.Record[ "GoalCode" ].ToString( );
+            GoalName = builder.Record[ "GoalName" ].ToString( );
+            ObjectiveCode = builder.Record[ "ObjectiveCode" ].ToString( );
+            ObjectiveName = builder.Record[ "ObjectiveName" ].ToString( );
+            TreasuryAccountCode = builder.Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = builder.Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = builder.Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = builder.Record[ "BudgetAccountName" ].ToString( );
         }
 
         /// <summary>
