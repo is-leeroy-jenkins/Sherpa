@@ -688,7 +688,7 @@ namespace BudgetExecution
                 BindingSource.DataSource = _dataModel.DataTable;
                 var _data = _dataTable.AsEnumerable( );
                 var _names = _data
-                    ?.Where( r => r.Field<string>( nameof( Type ) ).Equals( "DOCUMENT" ) )
+                    ?.Where( r => r.Field<string>( "Type" ).Equals( "DOCUMENT" ) )
                     ?.Select( r => r.Field<string>( "Caption" ) )
                     ?.ToList( );
 
@@ -728,7 +728,6 @@ namespace BudgetExecution
         {
             try
             {
-                _selectedPath = string.Empty;
                 _selectedPath = string.Empty;
             }
             catch( Exception _ex )
