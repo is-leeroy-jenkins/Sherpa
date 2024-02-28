@@ -585,7 +585,7 @@
             TextBox.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             TextBox.Name = "TextBox";
             TextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            TextBox.Size = new System.Drawing.Size( 182, 25 );
+            TextBox.Size = new System.Drawing.Size( 174, 25 );
             TextBox.Tag = "";
             TextBox.ToolTip = ToolTip;
             // 
@@ -812,9 +812,9 @@
             textSearchSettings1.HighlightAllInstance = true;
             textSearchSettings1.OtherInstanceColor = System.Drawing.Color.FromArgb( 127, 254, 255, 0 );
             PdfViewer.TextSearchSettings = textSearchSettings1;
-            PdfViewer.ThemeName = "Default";
+            PdfViewer.ThemeName = "Office2016Black";
             PdfViewer.VerticalScrollOffset = 0;
-            PdfViewer.VisualStyle = Syncfusion.Windows.Forms.PdfViewer.VisualStyle.Default;
+            PdfViewer.VisualStyle = Syncfusion.Windows.Forms.PdfViewer.VisualStyle.Office2016Black;
             PdfViewer.ZoomMode = Syncfusion.Windows.Forms.PdfViewer.ZoomMode.Default;
             // 
             // DocumentViewer

@@ -49,6 +49,7 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
+    using VisualStyle = Syncfusion.Windows.Forms.PdfViewer.VisualStyle;
 
     /// <summary>
     /// 
@@ -106,6 +107,11 @@ namespace BudgetExecution
         /// The selected path
         /// </summary>
         private string _selectedPath;
+
+        /// <summary>
+        /// The filter
+        /// </summary>
+        private IDictionary<string, string> _documents;
 
         /// <summary>
         /// The filter
@@ -353,6 +359,7 @@ namespace BudgetExecution
         public DocumentViewer( )
         {
             InitializeComponent( );
+            RegisterCallbacks( );
 
             // Basic Properties
             Size = new Size( 1350, 750 );
@@ -386,6 +393,7 @@ namespace BudgetExecution
             ControlBox = false;
 
             // Initialize Default Provider
+            _source = Source.Resources;
             _provider = Provider.Access;
 
             // Timer Properties
@@ -398,9 +406,25 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Registers the callbacks.
+        /// </summary>
+        private void RegisterCallbacks( )
+        {
+            try
+            {
+                CloseButton.Click += OnExitButtonClicked;
+                MenuButton.Click += OnMainMenuButtonClicked;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Initializes the icon.
         /// </summary>
-        private void InitializeButtonPanel( )
+        private void InitializeFlowPanel( )
         {
             try
             {
@@ -434,7 +458,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-        
+
         /// <summary>
         /// Initializes the icon.
         /// </summary>
@@ -452,27 +476,40 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Initializes the viewer.
+        /// </summary>
+        private void InitializeViewer( )
+        {
+            try
+            {
+                PdfViewer.VisualStyle = VisualStyle.Office2016Black;
+                PdfViewer.IsBookmarkEnabled = true;
+                PdfViewer.IsTextSelectionEnabled = true;
+                PdfViewer.ShowHorizontalScrollBar = true;
+                PdfViewer.ShowVerticalScrollBar = true;
+                PdfViewer.IsTextSearchEnabled = true;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Initializes the list boxes.
         /// </summary>
         private void InitializeButtons( )
         {
             try
             {
-                ButtonPanel.Controls.Clear( );
-                _dataModel = new DataBuilder( _source, _provider );
-                _dataTable = _dataModel.DataTable;
-                var _data = _dataTable.AsEnumerable( );
-                var _names = _data
-                    ?.Where( r => r.Field<string>( "Type" ).Equals( "DOCUMENT" ) )
-                    ?.Select( r => r.Field<string>( "Caption" ) )
-                    ?.ToList( );
-
-                foreach( var _name in _names )
+                _documents = CreatePaths( );
+                foreach( var _name in _documents.Keys )
                 {
                     var _button = new Button( );
                     _button.Size = new Size( 240, 30 );
                     _button.Tag = _name;
                     _button.Text = _name.SplitPascal( );
+                    _button.Click += OnButtonClick;
                     ButtonPanel.Controls.Add( _button );
                 }
             }
@@ -544,6 +581,30 @@ namespace BudgetExecution
                 }
 
                 base.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Binds the data.
+        /// </summary>
+        private void BindData( )
+        {
+            try
+            {
+                var _criteria = new Dictionary<string, object>
+                {
+                    {
+                        "Type", "DOCUMENT"
+                    }
+                };
+
+                _dataModel = new DataBuilder( _source, _provider, _criteria );
+                _dataTable = _dataModel.DataTable;
+                _documents = CreatePaths( );
             }
             catch( Exception _ex )
             {
@@ -704,16 +765,58 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Creates the document paths.
+        /// </summary>
+        /// <returns>
+        /// IDictionary
+        /// </returns>
+        private IDictionary<string, string> CreatePaths( )
+        {
+            try
+            {
+                var _names = Enum.GetNames( typeof( Guidance ) );
+                var _documentPaths = new Dictionary<string, string>( );
+                for( int _i = 0; _i < _names.Length; _i++ )
+                {
+                    var _query = new Dictionary<string, object> 
+                    {
+                        {
+                            "Identifier", _names[ _i ]
+                        }
+                    };
+
+                    var _row = _dataTable?.Filter( _query )
+                        ?.FirstOrDefault( );
+
+                    var _path = _row?[ "Location" ].ToString( );
+                    _documentPaths.Add( _names[ _i ], _path );
+                }
+
+                return ( _documentPaths?.Any( ) == true )
+                    ? _documentPaths
+                    : default( IDictionary<string, string> );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IDictionary<string, string> );
+            }
+        }
+
+        /// <summary>
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
+        /// instance containing the event data.
+        /// </param>
         private void OnLoad( object sender, EventArgs e )
         {
             try
             {
-                InitializeButtonPanel( );
+                BindData( );
+                InitializeViewer( );
+                InitializeFlowPanel( );
                 InitializeButtons( );
                 InitializeIcon( );
                 InitializeToolStrip( );
@@ -810,8 +913,8 @@ namespace BudgetExecution
             try
             {
                 var _button = sender as Button;
-                _selectedPath = _button?.Tag.ToString( );
-                if( string.IsNullOrEmpty( _selectedPath ) )
+                var _tag = _button?.Tag.ToString( );
+                if( string.IsNullOrEmpty( _tag ) )
                 {
                     var _message = "Select a document to view!";
                     var _notification = new SplashMessage( _message );
@@ -819,16 +922,7 @@ namespace BudgetExecution
                 }
                 else
                 {
-                    _filter = new Dictionary<string, object>
-                    {
-                        {
-                            "Caption", _selectedPath
-                        }
-                    };
-
-                    var _data = new DataBuilder( _source, _provider, _filter ).Record;
-                    var _path = _data[ "Location" ].ToString( );
-                    _selectedPath = _prefix + _path;
+                    _selectedPath = _documents[ _tag ];
                     PdfViewer.Load( _selectedPath );
                 }
             }

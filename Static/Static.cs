@@ -149,12 +149,12 @@ namespace BudgetExecution
         /// <summary>
         /// Converts to log string.
         /// </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <param name="exception"> The exception. </param>
         /// <param name="message"> The message. </param>
         /// <returns>
         /// string
         /// </returns>
-        public static string ToLogString( this Exception ex, string message )
+        public static string ToLogString( this Exception exception, string message )
         {
             try
             {
@@ -162,8 +162,8 @@ namespace BudgetExecution
                 var _stringBuilder = new StringBuilder( );
                 _stringBuilder.Append( message );
                 _stringBuilder.Append( Environment.NewLine );
-                var _exception = ex;
-                _stringBuilder.Append( "Exception:" );
+                var _exception = exception;
+                _stringBuilder.Append( "Exception: " );
                 _stringBuilder.Append( Environment.NewLine );
                 while( _exception != null )
                 {
@@ -172,46 +172,46 @@ namespace BudgetExecution
                     _exception = _exception.InnerException;
                 }
 
-                if( ex.Data != null )
+                if( exception.Data != null )
                 {
-                    foreach( var _i in ex.Data )
+                    foreach( var _i in exception.Data )
                     {
-                        _stringBuilder.Append( "Data :" );
+                        _stringBuilder.Append( "Data : " );
                         _stringBuilder.Append( _i );
                         _stringBuilder.Append( Environment.NewLine );
                     }
                 }
 
-                if( ex.StackTrace != null )
+                if( exception.StackTrace != null )
                 {
-                    _stringBuilder.Append( "StackTrace:" );
+                    _stringBuilder.Append( "StackTrace: " );
                     _stringBuilder.Append( Environment.NewLine );
-                    _stringBuilder.Append( ex.StackTrace );
+                    _stringBuilder.Append( exception.StackTrace );
                     _stringBuilder.Append( Environment.NewLine );
                 }
 
-                if( ex.Source != null )
+                if( exception.Source != null )
                 {
-                    _stringBuilder.Append( "ErrorSource:" );
+                    _stringBuilder.Append( "ErrorSource: " );
                     _stringBuilder.Append( Environment.NewLine );
-                    _stringBuilder.Append( ex.Source );
+                    _stringBuilder.Append( exception.Source );
                     _stringBuilder.Append( Environment.NewLine );
                 }
 
-                if( ex.TargetSite != null )
+                if( exception.TargetSite != null )
                 {
-                    _stringBuilder.Append( "TargetSite:" );
+                    _stringBuilder.Append( "TargetSite: " );
                     _stringBuilder.Append( Environment.NewLine );
-                    _stringBuilder.Append( ex.TargetSite );
+                    _stringBuilder.Append( exception.TargetSite );
                     _stringBuilder.Append( Environment.NewLine );
                 }
 
-                var _baseException = ex.GetBaseException( );
+                var _baseException = exception.GetBaseException( );
                 if( _baseException != null )
                 {
-                    _stringBuilder.Append( "BaseException:" );
+                    _stringBuilder.Append( "BaseException: " );
                     _stringBuilder.Append( Environment.NewLine );
-                    _stringBuilder.Append( ex.GetBaseException( ) );
+                    _stringBuilder.Append( exception.GetBaseException( ) );
                 }
 
                 return _stringBuilder.ToString( );
@@ -252,10 +252,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Fails the specified ex.
+        /// Fails the specified exception.
         /// </summary>
         /// <param name="ex">
-        /// The ex.
+        /// The exception.
         /// </param>
         private static void Fail( Exception ex )
         {

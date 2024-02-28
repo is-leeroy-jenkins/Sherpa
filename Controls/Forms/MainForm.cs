@@ -603,6 +603,25 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Opens the document viewer.
+        /// </summary>
+        private void OpenDocumentViewer( )
+        {
+            try
+            {
+                var _form = new DocumentViewer( );
+                _form.StartPosition = FormStartPosition.CenterScreen;
+                _form.Owner = this;
+                _form.Show( );
+                Hide( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Opens the excel data form.
         /// </summary>
         private void OpenExcelDataForm( )
@@ -1171,7 +1190,7 @@ namespace BudgetExecution
         {
             try
             {
-                CreateExcelReport( );
+                OpenDocumentViewer( );
             }
             catch( Exception _ex )
             {
