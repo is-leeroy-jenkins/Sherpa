@@ -54,6 +54,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class SyncTip : SuperToolTip
     {
         /// <summary>
@@ -100,32 +101,32 @@ namespace BudgetExecution
             InitialDelay = 300;
             ToolTipDuration = 5;
             CanApplyTheme = true;
-            VisualStyle = Appearance.Metro;
+            VisualStyle = Appearance.Office2016Black;
             CanOverrideStyle = true;
             UseFading = FadingType.System;
 
             // TipInfo Properties
             TipInfo = new ToolTipInfo( );
             TipInfo.BackColor = Color.FromArgb( 70, 70, 70 );
-            TipInfo.BorderColor = Color.FromArgb( 106, 189, 252 );
-            TipInfo.ForeColor = Color.DarkGray;
+            TipInfo.BorderColor = Color.FromArgb( 0, 120, 212 );
+            TipInfo.ForeColor = Color.FromArgb( 106, 189, 252 );
             TipInfo.Separator = true;
 
             // Header Properties
             TipInfo.Header.Font = new Font( "Roboto", 10 );
             TipInfo.Header.ForeColor = Color.FromArgb( 106, 189, 252 );
-            TipInfo.Header.TextAlign = ContentAlignment.MiddleCenter;
+            TipInfo.Header.TextAlign = ContentAlignment.TopCenter;
             TipInfo.Header.ImageAlign = ContentAlignment.TopLeft;
             TipInfo.Header.ImageScalingSize = new Size( 10, 14 );
 
             // Body Properties
             TipInfo.Body.Font = new Font( "Roboto", 9 );
-            TipInfo.Body.ForeColor = Color.LightGray;
-            TipInfo.Body.TextAlign = ContentAlignment.MiddleCenter;
+            TipInfo.Body.ForeColor = Color.FromArgb( 106, 189, 252 );
+            TipInfo.Body.TextAlign = ContentAlignment.TopLeft;
 
             // Footer Properties
             TipInfo.Footer.Font = new Font( "Roboto", 7 );
-            TipInfo.Footer.ForeColor = Color.DarkGray;
+            TipInfo.Footer.ForeColor = Color.White;
             TipInfo.Footer.TextAlign = ContentAlignment.BottomLeft;
         }
 
@@ -159,12 +160,22 @@ namespace BudgetExecution
         /// Sets the header text.
         /// </summary>
         /// <param name="headerText">The header text.</param>
-        public void SetHeaderText( string headerText )
+        /// <param name="fontSize">Size of the font.</param>
+        /// <param name="textAlign">The text align.</param>
+        /// <param name="imageAlign">The image align.</param>
+        public void SetHeaderText( string headerText, int fontSize = 10,
+            ContentAlignment textAlign = ContentAlignment.TopLeft, 
+            ContentAlignment imageAlign = ContentAlignment.TopLeft )
         {
             try
             {
                 ThrowIf.Null( headerText, nameof( headerText ) );
-                TipInfo.Body.Text = headerText; 
+                TipInfo.Header.Text = headerText;
+                TipInfo.Header.Font = new Font( "Roboto", fontSize );
+                TipInfo.Header.ForeColor = Color.FromArgb( 106, 189, 252 );
+                TipInfo.Header.TextAlign = textAlign;
+                TipInfo.Header.ImageAlign = imageAlign;
+                TipInfo.Header.ImageScalingSize = new Size( 10, 14 );
             }
             catch( Exception _ex )
             {
@@ -176,12 +187,18 @@ namespace BudgetExecution
         /// Sets the body text.
         /// </summary>
         /// <param name="bodyText">The body text.</param>
-        public void SetBodyText( string bodyText )
+        /// <param name="fontSize">Size of the font.</param>
+        /// <param name="textAlign">The text align.</param>
+        public void SetBodyText( string bodyText, int fontSize = 9,
+            ContentAlignment textAlign = ContentAlignment.TopLeft )
         {
             try
             { 
                 ThrowIf.Null( bodyText, nameof( bodyText ) );
-                TipInfo.Body.Text = bodyText; 
+                TipInfo.Body.Text = bodyText;
+                TipInfo.Body.Font = new Font( "Roboto", fontSize );
+                TipInfo.Body.ForeColor = Color.FromArgb( 106, 189, 252 );
+                TipInfo.Body.TextAlign = textAlign;
             }
             catch( Exception _ex )
             {
@@ -193,12 +210,18 @@ namespace BudgetExecution
         /// Sets the footer text.
         /// </summary>
         /// <param name="footerText">The footer text.</param>
-        public void SetFooterText( string footerText )
+        /// <param name="fontSize">Size of the font.</param>
+        /// <param name="textAlign">The text align.</param>
+        public void SetFooterText( string footerText, int fontSize = 7, 
+            ContentAlignment textAlign = ContentAlignment.BottomLeft )
         {
             try
             { 
                 ThrowIf.Null( footerText, nameof( footerText ) );
-                TipInfo.Body.Text = footerText; 
+                TipInfo.Footer.Text = footerText;
+                TipInfo.Footer.Font = new Font( "Roboto", fontSize );
+                TipInfo.Footer.ForeColor = Color.White;
+                TipInfo.Footer.TextAlign = textAlign;
             }
             catch( Exception _ex )
             {

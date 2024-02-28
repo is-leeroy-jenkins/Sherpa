@@ -585,7 +585,7 @@
             TextBox.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             TextBox.Name = "TextBox";
             TextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            TextBox.Size = new System.Drawing.Size( 174, 25 );
+            TextBox.Size = new System.Drawing.Size( 170, 25 );
             TextBox.Tag = "";
             TextBox.ToolTip = ToolTip;
             // 
@@ -715,13 +715,13 @@
             GuidancePanel.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             GuidancePanel.Controls.Add( TableListBoxLayout, 0, 1 );
             GuidancePanel.Font = new System.Drawing.Font( "Roboto", 9F );
-            GuidancePanel.ForeColor = System.Drawing.Color.DarkGray;
-            GuidancePanel.Location = new System.Drawing.Point( 1085, 25 );
+            GuidancePanel.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            GuidancePanel.Location = new System.Drawing.Point( 1049, 25 );
             GuidancePanel.Name = "GuidancePanel";
             GuidancePanel.RowCount = 2;
             GuidancePanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 1.26582277F ) );
             GuidancePanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 98.73418F ) );
-            GuidancePanel.Size = new System.Drawing.Size( 252, 661 );
+            GuidancePanel.Size = new System.Drawing.Size( 288, 661 );
             GuidancePanel.TabIndex = 57;
             // 
             // TableListBoxLayout
@@ -742,7 +742,7 @@
             TableListBoxLayout.Location = new System.Drawing.Point( 3, 27 );
             TableListBoxLayout.Name = "TableListBoxLayout";
             TableListBoxLayout.Padding = new System.Windows.Forms.Padding( 1 );
-            TableListBoxLayout.Size = new System.Drawing.Size( 246, 631 );
+            TableListBoxLayout.Size = new System.Drawing.Size( 282, 631 );
             TableListBoxLayout.Style = MetroSet_UI.Enums.Style.Custom;
             TableListBoxLayout.StyleManager = null;
             TableListBoxLayout.TabIndex = 0;
@@ -754,9 +754,10 @@
             // 
             ButtonPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             ButtonPanel.Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
+            ButtonPanel.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             ButtonPanel.Location = new System.Drawing.Point( 1, 1 );
             ButtonPanel.Name = "ButtonPanel";
-            ButtonPanel.Size = new System.Drawing.Size( 244, 629 );
+            ButtonPanel.Size = new System.Drawing.Size( 280, 629 );
             ButtonPanel.TabIndex = 0;
             // 
             // DocumentTable
@@ -774,7 +775,7 @@
             DocumentTable.RowCount = 2;
             DocumentTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 1.275917F ) );
             DocumentTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 98.72408F ) );
-            DocumentTable.Size = new System.Drawing.Size( 1078, 661 );
+            DocumentTable.Size = new System.Drawing.Size( 1042, 661 );
             DocumentTable.TabIndex = 58;
             // 
             // PdfViewer
@@ -804,7 +805,7 @@
             PdfViewer.ShowHorizontalScrollBar = true;
             PdfViewer.ShowToolBar = true;
             PdfViewer.ShowVerticalScrollBar = true;
-            PdfViewer.Size = new System.Drawing.Size( 1072, 631 );
+            PdfViewer.Size = new System.Drawing.Size( 1036, 631 );
             PdfViewer.SpaceBetweenPages = 8;
             PdfViewer.TabIndex = 0;
             PdfViewer.Text = "pdfViewerControl1";

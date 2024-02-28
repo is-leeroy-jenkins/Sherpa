@@ -430,6 +430,8 @@ namespace BudgetExecution
             {
                 ButtonPanel.FlowDirection = FlowDirection.TopDown;
                 ButtonPanel.WrapContents = false;
+                ButtonPanel.AutoScroll = true;
+                ButtonPanel.Margin = new Padding( 1 );
             }
             catch( Exception _ex )
             {
@@ -466,7 +468,7 @@ namespace BudgetExecution
         {
             try
             {
-                PictureBox.Size = new Size( 20, 18 );
+                PictureBox.Size = new Size( 18, 18 );
                 PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             }
             catch( Exception _ex )
@@ -506,7 +508,7 @@ namespace BudgetExecution
                 foreach( var _name in _documents.Keys )
                 {
                     var _button = new Button( );
-                    _button.Size = new Size( 240, 30 );
+                    _button.Size = new Size( 250, 40 );
                     _button.Tag = _name;
                     _button.Text = _name.SplitPascal( );
                     _button.Click += OnButtonClick;
