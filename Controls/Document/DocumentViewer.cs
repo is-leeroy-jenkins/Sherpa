@@ -431,6 +431,8 @@ namespace BudgetExecution
                 ButtonPanel.FlowDirection = FlowDirection.TopDown;
                 ButtonPanel.WrapContents = false;
                 ButtonPanel.AutoScroll = true;
+                ButtonPanel.BackColor = Color.FromArgb( 10, 10, 10 );
+                ButtonPanel.BorderStyle = BorderStyle.FixedSingle;
                 ButtonPanel.Margin = new Padding( 1 );
             }
             catch( Exception _ex )
@@ -508,7 +510,9 @@ namespace BudgetExecution
                 foreach( var _name in _documents.Keys )
                 {
                     var _button = new Button( );
-                    _button.Size = new Size( 250, 40 );
+                    _button.Padding = new Padding( 3 );
+                    _button.Margin = new Padding( 3 );
+                    _button.Size = new Size( 250, 42 );
                     _button.Tag = _name;
                     _button.Text = _name.SplitPascal( );
                     _button.Click += OnButtonClick;
@@ -925,6 +929,7 @@ namespace BudgetExecution
                 else
                 {
                     _selectedPath = _documents[ _tag ];
+                    Title.Text = _tag.SplitPascal( );
                     PdfViewer.Load( _selectedPath );
                 }
             }

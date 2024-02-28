@@ -313,6 +313,16 @@ namespace BudgetExecution
         /// <summary>
         /// The separation of duties
         /// </summary>
-        SeparationOfDuties
+        SeparationOfDuties,
+
+        /// <summary>
+        /// The non-direct costs
+        /// </summary>
+        NonDirectAllocableCosts,
+
+        /// <summary>
+        /// The split funding requirements
+        /// </summary>
+        SplitFundingRequirements
     }
 }
