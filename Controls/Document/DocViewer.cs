@@ -720,7 +720,10 @@ namespace BudgetExecution
         {
             try
             {
-                PdfViewer.Unload( );
+                if( PdfViewer.IsDocumentLoaded )
+                {
+                    PdfViewer.Unload( );
+                }
             }
             catch( Exception _ex )
             {
@@ -996,6 +999,7 @@ namespace BudgetExecution
                 else
                 {
                     _selectedPath = _documents[ _tag ];
+                    Title.TextAlign = ContentAlignment.TopCenter;
                     Title.Text = _tag.SplitPascal( );
                     PdfViewer.Load( _selectedPath );
                 }
@@ -1038,7 +1042,8 @@ namespace BudgetExecution
             try
             {
                 var _browser = new FileDialog( EXT.PDF );
-                _browser.ShowDialog( );
+                _browser.TopMost = true;
+                _browser.ShowDialog( this );
             }
             catch( Exception _ex )
             {

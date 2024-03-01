@@ -269,8 +269,6 @@ namespace BudgetExecution
 
             // Budget Properties
             _radioButtons = GetRadioButtons( );
-            _initialPaths = CreateInitialDirectoryPaths( );
-            _filePaths = CreateListViewFilePaths( );
             _fileExtension = "xlsx";
             _extension = EXT.XLSX;
 
@@ -785,6 +783,8 @@ namespace BudgetExecution
             {
                 try
                 {
+                    _initialPaths = CreateInitialDirectoryPaths( );
+                    _filePaths = CreateListViewFilePaths( );
                     InitializeLabels( );
                     InitializeButtons( );
                     InitializeDialogs( );

@@ -29,10 +29,10 @@
         private void InitializeComponent( )
         {
             components = new System.ComponentModel.Container( );
-            var messageBoxSettings2 = new Syncfusion.Windows.Forms.PdfViewer.MessageBoxSettings( );
-            var pdfViewerPrinterSettings2 = new Syncfusion.Windows.PdfViewer.PdfViewerPrinterSettings( );
+            var messageBoxSettings1 = new Syncfusion.Windows.Forms.PdfViewer.MessageBoxSettings( );
+            var pdfViewerPrinterSettings1 = new Syncfusion.Windows.PdfViewer.PdfViewerPrinterSettings( );
             var resources = new System.ComponentModel.ComponentResourceManager( typeof( DocViewer ) );
-            var textSearchSettings2 = new Syncfusion.Windows.Forms.PdfViewer.TextSearchSettings( );
+            var textSearchSettings1 = new Syncfusion.Windows.Forms.PdfViewer.TextSearchSettings( );
             ToolStripTable = new System.Windows.Forms.TableLayoutPanel( );
             ToolStrip = new ToolStrip( );
             Separator1 = new ToolSeparator( );
@@ -46,6 +46,8 @@
             NextButton = new ToolStripButton( );
             Separator4 = new ToolSeparator( );
             LastButton = new ToolStripButton( );
+            BindingSource = new System.Windows.Forms.BindingSource( components );
+            ToolTip = new SmallTip( );
             Separator6 = new ToolSeparator( );
             SystemLabel = new ToolStripLabel( );
             Separator7 = new ToolSeparator( );
@@ -60,11 +62,9 @@
             FilterLabel = new ToolStripLabel( );
             Separator12 = new ToolSeparator( );
             RefreshButton = new ToolStripButton( );
-            BindingSource = new System.Windows.Forms.BindingSource( components );
             Separator13 = new ToolSeparator( );
             LastSeparator = new ToolSeparator( );
             TextBox = new ToolStripTextBox( );
-            ToolTip = new SmallTip( );
             Separator14 = new ToolSeparator( );
             LookupButton = new ToolStripButton( );
             Separator16 = new ToolSeparator( );
@@ -328,6 +328,26 @@
             LastButton.ToolTip = ToolTip;
             LastButton.ToolType = ToolType.LastButton;
             // 
+            // ToolTip
+            // 
+            ToolTip.AutoPopDelay = 5000;
+            ToolTip.BackColor = System.Drawing.Color.FromArgb( 5, 5, 5 );
+            ToolTip.BindingSource = null;
+            ToolTip.BorderColor = System.Drawing.SystemColors.Highlight;
+            ToolTip.ForeColor = System.Drawing.Color.White;
+            ToolTip.InitialDelay = 500;
+            ToolTip.IsDerivedStyle = true;
+            ToolTip.Name = null;
+            ToolTip.OwnerDraw = true;
+            ToolTip.ReshowDelay = 100;
+            ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
+            ToolTip.StyleManager = null;
+            ToolTip.ThemeAuthor = "Terry D. Eppler";
+            ToolTip.ThemeName = "Budget Execution";
+            ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            ToolTip.TipText = null;
+            ToolTip.TipTitle = null;
+            // 
             // Separator6
             // 
             Separator6.ForeColor = System.Drawing.Color.Black;
@@ -557,31 +577,11 @@
             TextBox.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             TextBox.Name = "TextBox";
             TextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            TextBox.Size = new System.Drawing.Size( 184, 25 );
+            TextBox.Size = new System.Drawing.Size( 172, 25 );
             TextBox.Tag = "";
             TextBox.Text = "Enter Keywords";
             TextBox.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             TextBox.ToolTip = ToolTip;
-            // 
-            // ToolTip
-            // 
-            ToolTip.AutoPopDelay = 5000;
-            ToolTip.BackColor = System.Drawing.Color.FromArgb( 5, 5, 5 );
-            ToolTip.BindingSource = null;
-            ToolTip.BorderColor = System.Drawing.SystemColors.Highlight;
-            ToolTip.ForeColor = System.Drawing.Color.White;
-            ToolTip.InitialDelay = 500;
-            ToolTip.IsDerivedStyle = true;
-            ToolTip.Name = null;
-            ToolTip.OwnerDraw = true;
-            ToolTip.ReshowDelay = 100;
-            ToolTip.Style = MetroSet_UI.Enums.Style.Custom;
-            ToolTip.StyleManager = null;
-            ToolTip.ThemeAuthor = "Terry D. Eppler";
-            ToolTip.ThemeName = "Budget Execution";
-            ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            ToolTip.TipText = null;
-            ToolTip.TipTitle = null;
             // 
             // Separator14
             // 
@@ -793,17 +793,17 @@
             PdfViewer.IsTextSearchEnabled = true;
             PdfViewer.IsTextSelectionEnabled = true;
             PdfViewer.Location = new System.Drawing.Point( 3, 27 );
-            messageBoxSettings2.EnableNotification = true;
-            PdfViewer.MessageBoxSettings = messageBoxSettings2;
+            messageBoxSettings1.EnableNotification = true;
+            PdfViewer.MessageBoxSettings = messageBoxSettings1;
             PdfViewer.MinimumZoomPercentage = 50;
             PdfViewer.Name = "PdfViewer";
             PdfViewer.PageBorderThickness = 1;
-            pdfViewerPrinterSettings2.Copies = 1;
-            pdfViewerPrinterSettings2.PageOrientation = Syncfusion.Windows.PdfViewer.PdfViewerPrintOrientation.Auto;
-            pdfViewerPrinterSettings2.PageSize = Syncfusion.Windows.PdfViewer.PdfViewerPrintSize.ActualSize;
-            pdfViewerPrinterSettings2.PrintLocation = (System.Drawing.PointF)resources.GetObject( "pdfViewerPrinterSettings2.PrintLocation" );
-            pdfViewerPrinterSettings2.ShowPrintStatusDialog = true;
-            PdfViewer.PrinterSettings = pdfViewerPrinterSettings2;
+            pdfViewerPrinterSettings1.Copies = 1;
+            pdfViewerPrinterSettings1.PageOrientation = Syncfusion.Windows.PdfViewer.PdfViewerPrintOrientation.Auto;
+            pdfViewerPrinterSettings1.PageSize = Syncfusion.Windows.PdfViewer.PdfViewerPrintSize.ActualSize;
+            pdfViewerPrinterSettings1.PrintLocation = (System.Drawing.PointF)resources.GetObject( "pdfViewerPrinterSettings1.PrintLocation" );
+            pdfViewerPrinterSettings1.ShowPrintStatusDialog = true;
+            PdfViewer.PrinterSettings = pdfViewerPrinterSettings1;
             PdfViewer.ReferencePath = null;
             PdfViewer.ScrollDisplacementValue = 0;
             PdfViewer.ShowHorizontalScrollBar = true;
@@ -813,10 +813,10 @@
             PdfViewer.SpaceBetweenPages = 8;
             PdfViewer.TabIndex = 0;
             PdfViewer.Text = "pdfViewerControl1";
-            textSearchSettings2.CurrentInstanceColor = System.Drawing.Color.FromArgb( 127, 255, 171, 64 );
-            textSearchSettings2.HighlightAllInstance = true;
-            textSearchSettings2.OtherInstanceColor = System.Drawing.Color.FromArgb( 127, 254, 255, 0 );
-            PdfViewer.TextSearchSettings = textSearchSettings2;
+            textSearchSettings1.CurrentInstanceColor = System.Drawing.Color.FromArgb( 127, 255, 171, 64 );
+            textSearchSettings1.HighlightAllInstance = true;
+            textSearchSettings1.OtherInstanceColor = System.Drawing.Color.FromArgb( 127, 254, 255, 0 );
+            PdfViewer.TextSearchSettings = textSearchSettings1;
             PdfViewer.ThemeName = "Office2016Black";
             PdfViewer.VerticalScrollOffset = 0;
             PdfViewer.VisualStyle = Syncfusion.Windows.Forms.PdfViewer.VisualStyle.Office2016Black;
