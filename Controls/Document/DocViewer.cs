@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        2-26-2024
 // ******************************************************************************************
-// <copyright file="DocumentViewer.cs" company="Terry D. Eppler">
+// <copyright file="DocViewer.cs" company="Terry D. Eppler">
 //    Budget Execution is a Federal Budget, Finance, and Accounting application
 //    for analysts with the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
@@ -31,10 +31,10 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    Contact at:  terryeppler@gmail.com or eppler.terry@epa.gov
+//    Contact at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   DocumentViewer.cs
+//   DocViewer.cs
 // </summary>
 // ******************************************************************************************
 
@@ -61,7 +61,8 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public partial class DocumentViewer : MetroForm
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    public partial class DocViewer : MetroForm
     {
         /// <summary>
         /// The busy
@@ -354,9 +355,9 @@ namespace BudgetExecution
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the 
-        /// <see cref="T:BudgetExecution.DocumentViewer" /> class.
+        /// <see cref="T:BudgetExecution.DocViewer" /> class.
         /// </summary>
-        public DocumentViewer( )
+        public DocViewer( )
         {
             InitializeComponent( );
             RegisterCallbacks( );

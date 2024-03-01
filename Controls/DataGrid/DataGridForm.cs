@@ -74,6 +74,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "TooWideLocalVariableScope" ) ]
     public partial class DataGridForm : MetroForm
     {
         /// <summary>
@@ -974,6 +975,22 @@ namespace BudgetExecution
                 SourceTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
                 FilterTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
                 GroupTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the PictureBox.
+        /// </summary>
+        private void InitializeIcon( )
+        {
+            try
+            {
+                PictureBox.Size = new Size( 18, 18 );
+                PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             }
             catch( Exception _ex )
             {
@@ -2091,14 +2108,15 @@ namespace BudgetExecution
                         if( !string.IsNullOrEmpty( _file )
                            && File.Exists( _file ) )
                         {
-                            var _img = Image.FromFile( _file );
-                            PictureBox.Image = _img;
+                            var _image = Image.FromFile( _file );
+                            PictureBox.Image = _image;
                         }
                     }
                 }
             }
             catch( Exception _ex )
             {
+                PictureBox.Image?.Dispose( );
                 Fail( _ex );
             }
         }
@@ -2301,6 +2319,7 @@ namespace BudgetExecution
             {
                 ClearCategoryValueSelections( );
                 InitializeRadioButtons( );
+                InitializeIcon( );
                 SetFormIcon( );
                 InitializeToolStrip( );
                 InitializeTitle( );

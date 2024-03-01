@@ -1,6 +1,6 @@
 ﻿namespace BudgetExecution
 {
-    partial class DocumentViewer
+    partial class DocViewer
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             components = new System.ComponentModel.Container( );
             var messageBoxSettings1 = new Syncfusion.Windows.Forms.PdfViewer.MessageBoxSettings( );
             var pdfViewerPrinterSettings1 = new Syncfusion.Windows.PdfViewer.PdfViewerPrinterSettings( );
-            var resources = new System.ComponentModel.ComponentResourceManager( typeof( DocumentViewer ) );
+            var resources = new System.ComponentModel.ComponentResourceManager( typeof( DocViewer ) );
             var textSearchSettings1 = new Syncfusion.Windows.Forms.PdfViewer.TextSearchSettings( );
             ToolStripTable = new System.Windows.Forms.TableLayoutPanel( );
             ToolStrip = new ToolStrip( );
@@ -818,7 +818,7 @@
             PdfViewer.VisualStyle = Syncfusion.Windows.Forms.PdfViewer.VisualStyle.Office2016Black;
             PdfViewer.ZoomMode = Syncfusion.Windows.Forms.PdfViewer.ZoomMode.Default;
             // 
-            // DocumentViewer
+            // DocViewer
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -846,13 +846,13 @@
             MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             MinimizeBox = false;
             MinimumSize = new System.Drawing.Size( 1340, 740 );
-            Name = "DocumentViewer";
+            Name = "DocViewer";
             Padding = new System.Windows.Forms.Padding( 1 );
             ShowIcon = false;
             ShowMaximizeBox = false;
             ShowMinimizeBox = false;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            Text = "DocumentViewer";
+            Text = "DocViewer";
             ToolStripTable.ResumeLayout( false );
             ToolStripTable.PerformLayout( );
             ToolStrip.ResumeLayout( false );

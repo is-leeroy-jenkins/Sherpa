@@ -649,7 +649,7 @@ namespace BudgetExecution
         {
             try
             {
-                PictureBox.Size = new Size( 20, 18 );
+                PictureBox.Size = new Size( 18, 18 );
                 PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             }
             catch( Exception _ex )
@@ -1461,6 +1461,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
+                PictureBox.Image?.Dispose( );
                 Fail( _ex );
             }
         }

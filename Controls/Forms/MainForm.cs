@@ -609,7 +609,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _form = new DocumentViewer( );
+                var _form = new DocViewer( );
                 _form.StartPosition = FormStartPosition.CenterScreen;
                 _form.Owner = this;
                 _form.Show( );

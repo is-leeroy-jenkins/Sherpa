@@ -970,6 +970,22 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Initializes the PictureBox.
+        /// </summary>
+        private void InitializeIcon( )
+        {
+            try
+            {
+                PictureBox.Size = new Size( 18, 18 );
+                PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Initializes the timer.
         /// </summary>
         private void InitializeTimer( )
@@ -1767,6 +1783,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
+                PictureBox.Image?.Dispose( );
                 Fail( _ex );
             }
         }

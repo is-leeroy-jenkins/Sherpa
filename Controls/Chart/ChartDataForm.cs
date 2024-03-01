@@ -43,12 +43,13 @@ namespace BudgetExecution
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Configuration;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.IO;
     using System.Linq;
     using System.Windows.Forms;
-    using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Chart;
     using Syncfusion.Windows.Forms.Tools;
@@ -952,13 +953,13 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes the icon.
+        /// Initializes the PictureBox.
         /// </summary>
         private void InitializeIcon( )
         {
             try
             {
-                PictureBox.Size = new Size( 24, 20 );
+                PictureBox.Size = new Size( 18, 18 );
                 PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             }
             catch( Exception _ex )
@@ -2545,6 +2546,40 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the form icon.
+        /// </summary>
+        private void SetFormIcon( )
+        {
+            try
+            {
+                var _path = ConfigurationManager.AppSettings[ "ProviderImages" ];
+                if( !string.IsNullOrEmpty( _path ) )
+                {
+                    var _files = Directory.GetFiles( _path );
+                    if( _files?.Any( ) == true )
+                    {
+                        var _extension = _provider.ToString( );
+                        var _file = _files
+                            ?.Where( f => f.Contains( _extension ) )
+                            ?.First( );
+
+                        if( !string.IsNullOrEmpty( _file )
+                           && File.Exists( _file ) )
+                        {
+                            var _image = Image.FromFile( _file );
+                            PictureBox.Image = _image;
+                        }
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                PictureBox.Image?.Dispose( );
                 Fail( _ex );
             }
         }

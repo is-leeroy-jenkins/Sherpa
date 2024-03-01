@@ -631,7 +631,7 @@ namespace BudgetExecution
         {
             try
             {
-                PictureBox.Size = new Size( 20, 18 );
+                PictureBox.Size = new Size( 18, 18 );
                 PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             }
             catch( Exception _ex )
@@ -1345,9 +1345,8 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the form icon.
         /// </summary>
-        private void SetImage( )
+        private void SetFormIcon( )
         {
-            Image _img = null;
             try
             {
                 var _path = AppSettings[ "ProviderImages" ];
@@ -1364,7 +1363,7 @@ namespace BudgetExecution
                         if( !string.IsNullOrEmpty( _file )
                            && Exists( _file ) )
                         {
-                            _img = Image.FromFile( _file );
+                            var _img = Image.FromFile( _file );
                             PictureBox.Image = _img;
                         }
                     }
@@ -1372,8 +1371,8 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
+                PictureBox.Image?.Dispose( );
                 Fail( _ex );
-                _img?.Dispose( );
             }
         }
 
@@ -1919,7 +1918,7 @@ namespace BudgetExecution
                 InitializeButtons( );
                 InitializeLabels( );
                 InitializeIcon( );
-                SetImage( );
+                SetFormIcon( );
                 _tabPages = GetTabPages( );
                 _panels = GetPanels( );
                 _radioButtons = GetRadioButtons( );
