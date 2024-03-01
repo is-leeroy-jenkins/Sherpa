@@ -190,9 +190,9 @@
             StatusLabel.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             StatusLabel.Name = "StatusLabel";
             StatusLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            StatusLabel.Size = new System.Drawing.Size( 50, 25 );
+            StatusLabel.Size = new System.Drawing.Size( 88, 25 );
             StatusLabel.Tag = "";
-            StatusLabel.Text = "Date & Time";
+            StatusLabel.Text = "Date & Time                   ";
             StatusLabel.ToolTip = null;
             // 
             // NavigationLabel
@@ -579,14 +579,16 @@
             TextBox.BindingSource = null;
             TextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             TextBox.Field = Field.AccountCode;
-            TextBox.Font = new System.Drawing.Font( "Roboto", 9F );
+            TextBox.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
             TextBox.ForeColor = System.Drawing.SystemColors.WindowText;
             TextBox.HoverText = "";
             TextBox.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             TextBox.Name = "TextBox";
             TextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            TextBox.Size = new System.Drawing.Size( 170, 25 );
+            TextBox.Size = new System.Drawing.Size( 176, 25 );
             TextBox.Tag = "";
+            TextBox.Text = "Enter Keywords";
+            TextBox.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             TextBox.ToolTip = ToolTip;
             // 
             // ToolTip
@@ -705,6 +707,7 @@
             // Timer
             // 
             Timer.Enabled = true;
+            Timer.Interval = 500;
             // 
             // GuidancePanel
             // 

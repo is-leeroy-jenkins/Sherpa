@@ -787,7 +787,7 @@ namespace BudgetExecution
             _dataArgs = new DataArgs( );
 
             // Set PictureBox Size
-            PictureBox.Size = new Size( 20, 18 );
+            PictureBox.Size = new Size( 18, 18 );
             TableListBox.ShowScrollBar = false;
 
             // Form Event Wiring
@@ -3072,7 +3072,14 @@ namespace BudgetExecution
         /// instance containing the event data.</param>
         private void OnTimerTick( object sender, EventArgs e )
         {
-            InvokeIf( _statusUpdate );
+            try
+            {
+                InvokeIf( _statusUpdate );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>

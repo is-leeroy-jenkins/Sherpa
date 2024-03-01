@@ -62,6 +62,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     public partial class DocViewer : MetroForm
     {
         /// <summary>
@@ -360,6 +361,7 @@ namespace BudgetExecution
         public DocViewer( )
         {
             InitializeComponent( );
+            InitializeDelegates( );
             RegisterCallbacks( );
 
             // Basic Properties
@@ -401,9 +403,10 @@ namespace BudgetExecution
             _time = 0;
             _seconds = 5;
 
-            // Event Wiring
+            // Form Event Wiring
             Load += OnLoad;
             Closing += OnClosing;
+            MouseClick += OnRightClick;
         }
 
         /// <summary>
@@ -415,6 +418,7 @@ namespace BudgetExecution
             {
                 CloseButton.Click += OnExitButtonClicked;
                 MenuButton.Click += OnMainMenuButtonClicked;
+                Timer.Tick += OnTimerTick;
             }
             catch( Exception _ex )
             {
@@ -432,7 +436,7 @@ namespace BudgetExecution
                 ButtonPanel.FlowDirection = FlowDirection.TopDown;
                 ButtonPanel.WrapContents = false;
                 ButtonPanel.AutoScroll = true;
-                ButtonPanel.BackColor = Color.FromArgb( 10, 10, 10 );
+                ButtonPanel.BackColor = Color.FromArgb( 5, 5, 5 );
                 ButtonPanel.BorderStyle = BorderStyle.FixedSingle;
                 ButtonPanel.Margin = new Padding( 1 );
             }
@@ -457,6 +461,11 @@ namespace BudgetExecution
                 ToolStrip.LauncherStyle = LauncherStyle.Office12;
                 ToolStrip.ImageSize = new Size( 16, 16 );
                 ToolStrip.ImageScalingSize = new Size( 16, 16 );
+                TextBox.TextBox.Font = new Font( "Roboto", 10 );
+                TextBox.TextBox.Size = new Size( 180, 25 );
+                TextBox.TextBox.ForeColor = Color.White;
+                TextBox.TextBox.Text = "< Enter Keywords >";
+                TextBox.TextBoxTextAlign = HorizontalAlignment.Center;
             }
             catch( Exception _ex )
             {
@@ -519,6 +528,24 @@ namespace BudgetExecution
                     _button.Click += OnButtonClick;
                     ButtonPanel.Controls.Add( _button );
                 }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the timer.
+        /// </summary>
+        private void InitializeTimer( )
+        {
+            try
+            {
+                // Timer Properties
+                Timer.Enabled = true;
+                Timer.Interval = 500;
+                Timer.Start( );
             }
             catch( Exception _ex )
             {
@@ -827,6 +854,7 @@ namespace BudgetExecution
                 InitializeButtons( );
                 InitializeIcon( );
                 InitializeToolStrip( );
+                InitializeTimer( );
                 FadeIn( );
             }
             catch( Exception _ex )
@@ -937,6 +965,27 @@ namespace BudgetExecution
             catch( Exception _ex )
             {
                 Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [right click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnRightClick( object sender, MouseEventArgs e )
+        {
+            if( e.Button == MouseButtons.Right )
+            {
+                try
+                {
+                    ContextMenu.Show( this, e.Location );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
             }
         }
 
