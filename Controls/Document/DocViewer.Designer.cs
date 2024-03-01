@@ -29,10 +29,10 @@
         private void InitializeComponent( )
         {
             components = new System.ComponentModel.Container( );
-            var messageBoxSettings1 = new Syncfusion.Windows.Forms.PdfViewer.MessageBoxSettings( );
-            var pdfViewerPrinterSettings1 = new Syncfusion.Windows.PdfViewer.PdfViewerPrinterSettings( );
+            var messageBoxSettings2 = new Syncfusion.Windows.Forms.PdfViewer.MessageBoxSettings( );
+            var pdfViewerPrinterSettings2 = new Syncfusion.Windows.PdfViewer.PdfViewerPrinterSettings( );
             var resources = new System.ComponentModel.ComponentResourceManager( typeof( DocViewer ) );
-            var textSearchSettings1 = new Syncfusion.Windows.Forms.PdfViewer.TextSearchSettings( );
+            var textSearchSettings2 = new Syncfusion.Windows.Forms.PdfViewer.TextSearchSettings( );
             ToolStripTable = new System.Windows.Forms.TableLayoutPanel( );
             ToolStrip = new ToolStrip( );
             Separator1 = new ToolSeparator( );
@@ -60,19 +60,19 @@
             FilterLabel = new ToolStripLabel( );
             Separator12 = new ToolSeparator( );
             RefreshButton = new ToolStripButton( );
+            BindingSource = new System.Windows.Forms.BindingSource( components );
             Separator13 = new ToolSeparator( );
-            FilterButton = new ToolStripButton( );
-            Separator14 = new ToolSeparator( );
             LastSeparator = new ToolSeparator( );
             TextBox = new ToolStripTextBox( );
             ToolTip = new SmallTip( );
+            Separator14 = new ToolSeparator( );
+            LookupButton = new ToolStripButton( );
             Separator16 = new ToolSeparator( );
             ApplicationLabel = new ToolStripLabel( );
             PictureBox = new System.Windows.Forms.PictureBox( );
             HeaderPanel = new System.Windows.Forms.TableLayoutPanel( );
             Title = new Label( );
             ContextMenu = new ContextMenu( );
-            BindingSource = new System.Windows.Forms.BindingSource( components );
             Timer = new System.Windows.Forms.Timer( components );
             GuidancePanel = new HeaderPanel( );
             TableListBoxLayout = new BackPanel( );
@@ -81,9 +81,9 @@
             PdfViewer = new Syncfusion.Windows.Forms.PdfViewer.PdfViewerControl( );
             ToolStripTable.SuspendLayout( );
             ToolStrip.SuspendLayout( );
+            ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
             HeaderPanel.SuspendLayout( );
-            ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
             GuidancePanel.SuspendLayout( );
             TableListBoxLayout.SuspendLayout( );
             DocumentTable.SuspendLayout( );
@@ -138,7 +138,7 @@
             ToolStrip.Image = null;
             ToolStrip.ImageDirectory = null;
             ToolStrip.ImageSize = new System.Drawing.Size( 0, 0 );
-            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { Separator1, StatusLabel, NavigationLabel, Separator2, FirstButton, Separator3, PreviousButton, Separator5, NextButton, Separator4, LastButton, Separator6, SystemLabel, Separator7, BrowseButton, Separator8, SaveButton, Separator9, Separator10, CloseButton, Separator11, MenuButton, FilterLabel, Separator12, RefreshButton, Separator13, FilterButton, Separator14, LastSeparator, TextBox, Separator16 } );
+            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { Separator1, StatusLabel, NavigationLabel, Separator2, FirstButton, Separator3, PreviousButton, Separator5, NextButton, Separator4, LastButton, Separator6, SystemLabel, Separator7, BrowseButton, Separator8, SaveButton, Separator9, Separator10, CloseButton, Separator11, MenuButton, FilterLabel, Separator12, RefreshButton, Separator13, LastSeparator, TextBox, Separator14, LookupButton, Separator16 } );
             ToolStrip.LastButton = null;
             ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
             ToolStrip.Location = new System.Drawing.Point( 1, 1 );
@@ -311,7 +311,7 @@
             // 
             LastButton.AutoToolTip = false;
             LastButton.BackColor = System.Drawing.Color.Transparent;
-            LastButton.BindingSource = null;
+            LastButton.BindingSource = BindingSource;
             LastButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             LastButton.Field = Field.AccountCode;
             LastButton.Filter = null;
@@ -325,7 +325,7 @@
             LastButton.Padding = new System.Windows.Forms.Padding( 1 );
             LastButton.Size = new System.Drawing.Size( 23, 25 );
             LastButton.Text = "toolStripButton4";
-            LastButton.ToolTip = null;
+            LastButton.ToolTip = ToolTip;
             LastButton.ToolType = ToolType.LastButton;
             // 
             // Separator6
@@ -365,7 +365,7 @@
             // 
             BrowseButton.AutoToolTip = false;
             BrowseButton.BackColor = System.Drawing.Color.Transparent;
-            BrowseButton.BindingSource = null;
+            BrowseButton.BindingSource = BindingSource;
             BrowseButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             BrowseButton.Field = Field.AccountCode;
             BrowseButton.Filter = null;
@@ -378,8 +378,9 @@
             BrowseButton.Name = "BrowseButton";
             BrowseButton.Padding = new System.Windows.Forms.Padding( 1 );
             BrowseButton.Size = new System.Drawing.Size( 23, 25 );
+            BrowseButton.Tag = "pdf";
             BrowseButton.Text = "toolStripButton5";
-            BrowseButton.ToolTip = null;
+            BrowseButton.ToolTip = ToolTip;
             BrowseButton.ToolType = ToolType.BrowseButton;
             // 
             // Separator8
@@ -394,7 +395,7 @@
             // 
             SaveButton.AutoToolTip = false;
             SaveButton.BackColor = System.Drawing.Color.Transparent;
-            SaveButton.BindingSource = null;
+            SaveButton.BindingSource = BindingSource;
             SaveButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             SaveButton.Field = Field.AccountCode;
             SaveButton.Filter = null;
@@ -408,7 +409,7 @@
             SaveButton.Padding = new System.Windows.Forms.Padding( 1 );
             SaveButton.Size = new System.Drawing.Size( 23, 25 );
             SaveButton.Text = "toolStripButton6";
-            SaveButton.ToolTip = null;
+            SaveButton.ToolTip = ToolTip;
             SaveButton.ToolType = ToolType.SaveButton;
             // 
             // Separator9
@@ -433,7 +434,7 @@
             CloseButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             CloseButton.AutoToolTip = false;
             CloseButton.BackColor = System.Drawing.Color.Transparent;
-            CloseButton.BindingSource = null;
+            CloseButton.BindingSource = BindingSource;
             CloseButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             CloseButton.Field = Field.AccountCode;
             CloseButton.Filter = null;
@@ -447,7 +448,7 @@
             CloseButton.Padding = new System.Windows.Forms.Padding( 1 );
             CloseButton.Size = new System.Drawing.Size( 23, 25 );
             CloseButton.Text = "toolStripButton7";
-            CloseButton.ToolTip = null;
+            CloseButton.ToolTip = ToolTip;
             CloseButton.ToolType = ToolType.CloseButton;
             // 
             // Separator11
@@ -464,7 +465,7 @@
             MenuButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             MenuButton.AutoToolTip = false;
             MenuButton.BackColor = System.Drawing.Color.Transparent;
-            MenuButton.BindingSource = null;
+            MenuButton.BindingSource = BindingSource;
             MenuButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             MenuButton.Field = Field.AccountCode;
             MenuButton.Filter = null;
@@ -478,7 +479,7 @@
             MenuButton.Padding = new System.Windows.Forms.Padding( 1 );
             MenuButton.Size = new System.Drawing.Size( 23, 25 );
             MenuButton.Text = "toolStripButton8";
-            MenuButton.ToolTip = null;
+            MenuButton.ToolTip = ToolTip;
             MenuButton.ToolType = ToolType.MenuButton;
             // 
             // FilterLabel
@@ -510,7 +511,7 @@
             // 
             RefreshButton.AutoToolTip = false;
             RefreshButton.BackColor = System.Drawing.Color.Transparent;
-            RefreshButton.BindingSource = null;
+            RefreshButton.BindingSource = BindingSource;
             RefreshButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             RefreshButton.Field = Field.AccountCode;
             RefreshButton.Filter = null;
@@ -524,7 +525,7 @@
             RefreshButton.Padding = new System.Windows.Forms.Padding( 1 );
             RefreshButton.Size = new System.Drawing.Size( 23, 25 );
             RefreshButton.Text = "toolStripButton9";
-            RefreshButton.ToolTip = null;
+            RefreshButton.ToolTip = ToolTip;
             RefreshButton.ToolType = ToolType.RefreshButton;
             // 
             // Separator13
@@ -534,35 +535,6 @@
             Separator13.Name = "Separator13";
             Separator13.Padding = new System.Windows.Forms.Padding( 1 );
             Separator13.Size = new System.Drawing.Size( 6, 25 );
-            // 
-            // FilterButton
-            // 
-            FilterButton.AutoToolTip = false;
-            FilterButton.BackColor = System.Drawing.Color.Transparent;
-            FilterButton.BindingSource = null;
-            FilterButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            FilterButton.Field = Field.AccountCode;
-            FilterButton.Filter = null;
-            FilterButton.Font = new System.Drawing.Font( "Roboto", 9F );
-            FilterButton.ForeColor = System.Drawing.Color.LightGray;
-            FilterButton.HoverText = "Lookup";
-            FilterButton.Image = Resources.Images.ToolStripImages.FilterButton;
-            FilterButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            FilterButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
-            FilterButton.Name = "FilterButton";
-            FilterButton.Padding = new System.Windows.Forms.Padding( 1 );
-            FilterButton.Size = new System.Drawing.Size( 23, 25 );
-            FilterButton.Text = "toolStripButton10";
-            FilterButton.ToolTip = null;
-            FilterButton.ToolType = ToolType.FilterButton;
-            // 
-            // Separator14
-            // 
-            Separator14.ForeColor = System.Drawing.Color.Black;
-            Separator14.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
-            Separator14.Name = "Separator14";
-            Separator14.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator14.Size = new System.Drawing.Size( 6, 25 );
             // 
             // LastSeparator
             // 
@@ -576,16 +548,16 @@
             // TextBox
             // 
             TextBox.BackColor = System.Drawing.Color.Black;
-            TextBox.BindingSource = null;
+            TextBox.BindingSource = BindingSource;
             TextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             TextBox.Field = Field.AccountCode;
             TextBox.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
             TextBox.ForeColor = System.Drawing.SystemColors.WindowText;
-            TextBox.HoverText = "";
+            TextBox.HoverText = "Enter Keywords";
             TextBox.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             TextBox.Name = "TextBox";
             TextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            TextBox.Size = new System.Drawing.Size( 176, 25 );
+            TextBox.Size = new System.Drawing.Size( 184, 25 );
             TextBox.Tag = "";
             TextBox.Text = "Enter Keywords";
             TextBox.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -610,6 +582,35 @@
             ToolTip.TipIcon = System.Windows.Forms.ToolTipIcon.Info;
             ToolTip.TipText = null;
             ToolTip.TipTitle = null;
+            // 
+            // Separator14
+            // 
+            Separator14.ForeColor = System.Drawing.Color.Black;
+            Separator14.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            Separator14.Name = "Separator14";
+            Separator14.Padding = new System.Windows.Forms.Padding( 1 );
+            Separator14.Size = new System.Drawing.Size( 6, 25 );
+            // 
+            // LookupButton
+            // 
+            LookupButton.AutoToolTip = false;
+            LookupButton.BackColor = System.Drawing.Color.Transparent;
+            LookupButton.BindingSource = null;
+            LookupButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            LookupButton.Field = Field.AccountCode;
+            LookupButton.Filter = null;
+            LookupButton.Font = new System.Drawing.Font( "Roboto", 9F );
+            LookupButton.ForeColor = System.Drawing.Color.LightGray;
+            LookupButton.HoverText = "Look-up";
+            LookupButton.Image = Resources.Images.ToolStripImages.LookupButton;
+            LookupButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            LookupButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            LookupButton.Name = "LookupButton";
+            LookupButton.Padding = new System.Windows.Forms.Padding( 1 );
+            LookupButton.Size = new System.Drawing.Size( 23, 25 );
+            LookupButton.Text = "toolStripButton10";
+            LookupButton.ToolTip = ToolTip;
+            LookupButton.ToolType = ToolType.LookupButton;
             // 
             // Separator16
             // 
@@ -792,17 +793,17 @@
             PdfViewer.IsTextSearchEnabled = true;
             PdfViewer.IsTextSelectionEnabled = true;
             PdfViewer.Location = new System.Drawing.Point( 3, 27 );
-            messageBoxSettings1.EnableNotification = true;
-            PdfViewer.MessageBoxSettings = messageBoxSettings1;
+            messageBoxSettings2.EnableNotification = true;
+            PdfViewer.MessageBoxSettings = messageBoxSettings2;
             PdfViewer.MinimumZoomPercentage = 50;
             PdfViewer.Name = "PdfViewer";
             PdfViewer.PageBorderThickness = 1;
-            pdfViewerPrinterSettings1.Copies = 1;
-            pdfViewerPrinterSettings1.PageOrientation = Syncfusion.Windows.PdfViewer.PdfViewerPrintOrientation.Auto;
-            pdfViewerPrinterSettings1.PageSize = Syncfusion.Windows.PdfViewer.PdfViewerPrintSize.ActualSize;
-            pdfViewerPrinterSettings1.PrintLocation = (System.Drawing.PointF)resources.GetObject( "pdfViewerPrinterSettings1.PrintLocation" );
-            pdfViewerPrinterSettings1.ShowPrintStatusDialog = true;
-            PdfViewer.PrinterSettings = pdfViewerPrinterSettings1;
+            pdfViewerPrinterSettings2.Copies = 1;
+            pdfViewerPrinterSettings2.PageOrientation = Syncfusion.Windows.PdfViewer.PdfViewerPrintOrientation.Auto;
+            pdfViewerPrinterSettings2.PageSize = Syncfusion.Windows.PdfViewer.PdfViewerPrintSize.ActualSize;
+            pdfViewerPrinterSettings2.PrintLocation = (System.Drawing.PointF)resources.GetObject( "pdfViewerPrinterSettings2.PrintLocation" );
+            pdfViewerPrinterSettings2.ShowPrintStatusDialog = true;
+            PdfViewer.PrinterSettings = pdfViewerPrinterSettings2;
             PdfViewer.ReferencePath = null;
             PdfViewer.ScrollDisplacementValue = 0;
             PdfViewer.ShowHorizontalScrollBar = true;
@@ -812,10 +813,10 @@
             PdfViewer.SpaceBetweenPages = 8;
             PdfViewer.TabIndex = 0;
             PdfViewer.Text = "pdfViewerControl1";
-            textSearchSettings1.CurrentInstanceColor = System.Drawing.Color.FromArgb( 127, 255, 171, 64 );
-            textSearchSettings1.HighlightAllInstance = true;
-            textSearchSettings1.OtherInstanceColor = System.Drawing.Color.FromArgb( 127, 254, 255, 0 );
-            PdfViewer.TextSearchSettings = textSearchSettings1;
+            textSearchSettings2.CurrentInstanceColor = System.Drawing.Color.FromArgb( 127, 255, 171, 64 );
+            textSearchSettings2.HighlightAllInstance = true;
+            textSearchSettings2.OtherInstanceColor = System.Drawing.Color.FromArgb( 127, 254, 255, 0 );
+            PdfViewer.TextSearchSettings = textSearchSettings2;
             PdfViewer.ThemeName = "Office2016Black";
             PdfViewer.VerticalScrollOffset = 0;
             PdfViewer.VisualStyle = Syncfusion.Windows.Forms.PdfViewer.VisualStyle.Office2016Black;
@@ -860,9 +861,9 @@
             ToolStripTable.PerformLayout( );
             ToolStrip.ResumeLayout( false );
             ToolStrip.PerformLayout( );
+            ( (System.ComponentModel.ISupportInitialize)BindingSource ).EndInit( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).EndInit( );
             HeaderPanel.ResumeLayout( false );
-            ( (System.ComponentModel.ISupportInitialize)BindingSource ).EndInit( );
             GuidancePanel.ResumeLayout( false );
             TableListBoxLayout.ResumeLayout( false );
             DocumentTable.ResumeLayout( false );
@@ -899,7 +900,7 @@
         public ToolSeparator Separator12;
         public ToolStripButton RefreshButton;
         public ToolSeparator Separator13;
-        public ToolStripButton FilterButton;
+        public ToolStripButton LookupButton;
         public ToolSeparator Separator14;
         public ToolSeparator LastSeparator;
         public ToolStripLabel ApplicationLabel;

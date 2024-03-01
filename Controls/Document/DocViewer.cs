@@ -418,6 +418,10 @@ namespace BudgetExecution
             {
                 CloseButton.Click += OnExitButtonClicked;
                 MenuButton.Click += OnMainMenuButtonClicked;
+                RefreshButton.Click += OnRefreshButtonClick;
+                BrowseButton.Click += OnFileBrowserClick;
+                LookupButton.Click += OnLookupButtonClick;
+                TextBox.MouseEnter += OnTextBoxEnter;
                 Timer.Tick += OnTimerTick;
             }
             catch( Exception _ex )
@@ -490,6 +494,24 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Initializes the title.
+        /// </summary>
+        private void InitializeTitle( )
+        {
+            try
+            {
+                Title.Font = new Font( "Roboto", 10 );
+                Title.ForeColor = Color.FromArgb( 106, 189, 252 );
+                Title.TextAlign = ContentAlignment.TopLeft;
+                Title.Text = string.Empty;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Initializes the viewer.
         /// </summary>
         private void InitializeViewer( )
@@ -525,7 +547,7 @@ namespace BudgetExecution
                     _button.Size = new Size( 250, 42 );
                     _button.Tag = _name;
                     _button.Text = _name.SplitPascal( );
-                    _button.Click += OnButtonClick;
+                    _button.Click += OnDocumentSelected;
                     ButtonPanel.Controls.Add( _button );
                 }
             }
@@ -692,6 +714,21 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Clears the data.
+        /// </summary>
+        public void ClearViewer( )
+        {
+            try
+            {
+                PdfViewer.Unload( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Fades the in.
         /// </summary>
         private void FadeIn( )
@@ -849,6 +886,7 @@ namespace BudgetExecution
             try
             {
                 BindData( );
+                InitializeTitle( );
                 InitializeViewer( );
                 InitializeFlowPanel( );
                 InitializeButtons( );
@@ -943,7 +981,7 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// nstance containing the event data.</param>
-        private void OnButtonClick( object sender, EventArgs e )
+        private void OnDocumentSelected( object sender, EventArgs e )
         {
             try
             {
@@ -986,6 +1024,85 @@ namespace BudgetExecution
                 {
                     Fail( _ex );
                 }
+            }
+        }
+
+        /// <summary>
+        /// Called when [file browser click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnFileBrowserClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _browser = new FileDialog( EXT.PDF );
+                _browser.ShowDialog( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [refresh button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnRefreshButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                ClearViewer( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [lookup button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnLookupButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _message = "NOT YET IMPLEMENTED!";
+                var _notification = new Notification( _message );
+                _notification.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [text box enter].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnTextBoxEnter( object sender, EventArgs e )
+        {
+            try
+            {
+                var _textBox = sender as ToolStripTextBox;
+                if( !string.IsNullOrEmpty( _textBox.Text ) )
+                {
+                    _textBox.Text = string.Empty;
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
