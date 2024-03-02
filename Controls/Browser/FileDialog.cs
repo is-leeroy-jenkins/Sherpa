@@ -59,6 +59,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
+    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     public partial class FileDialog : DialogBase
     {
         /// <summary>
@@ -478,86 +479,78 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the extension.
         /// </summary>
-        /// <param name="extension">
-        /// The extension.
-        /// </param>
-        private void SetExtension( string extension )
+        private void SetExtension( )
         {
             try
             {
-                ThrowIf.Null( extension, nameof( extension ) );
-                _extension = (EXT)Enum.Parse( typeof( EXT ), extension );
                 switch( _extension )
                 {
                     case EXT.XLS:
                     case EXT.XLSX:
                     {
+                        ExcelRadioButton.Checked = true;
                         break;
                     }
                     case EXT.PDF:
                     {
+                        PdfRadioButton.Checked = true;
                         break;
                     }
                     case EXT.CSV:
                     {
+                        CsvRadioButton.Checked = true;
                         break;
                     }
                     case EXT.PPT:
                     {
+                        PowerPointRadioButton.Checked = true;
                         break;
                     }
                     case EXT.MDB:
                     case EXT.ACCDB:
                     {
+                        AccessRadioButton.Checked = true;
                         break;
                     }
                     case EXT.DB:
                     {
+                        SQLiteRadioButton.Checked = true;
                         break;
                     }
                     case EXT.DLL:
                     {
+                        LibraryRadioButton.Checked = true;
                         break;
                     }
                     case EXT.DOC:
                     case EXT.DOCX:
                     {
+                        WordRadioButton.Checked = true;
                         break;
                     }
                     case EXT.EXE:
                     {
-                        break;
-                    }
-                    case EXT.GIF:
-                    {
-                        break;
-                    }
-                    case EXT.ICO:
-                    {
+                        ExecutableRadioButton.Checked = true;
                         break;
                     }
                     case EXT.MDF:
                     {
+                        SqlServerRadioButton.Checked = true;
                         break;
                     }
-                    case EXT.PNG:
+                    case EXT.SDF:
                     {
-                        break;
-                    }
-                    case EXT.RESX:
-                    {
-                        break;
-                    }
-                    case EXT.SQL:
-                    {
+                        SqlCeRadioButton.Checked = true;
                         break;
                     }
                     case EXT.TXT:
                     {
+                        TextRadioButton.Checked = true;
                         break;
                     }
                     default:
                     {
+                        ExcelRadioButton.Checked = true;
                         break;
                     }
                 }
@@ -639,28 +632,21 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         private protected virtual void OnRadioButtonSelected( object sender )
         {
-            if( sender is RadioButton _radioButton
-               && !string.IsNullOrEmpty( _radioButton.Tag?.ToString( ) ) )
+            try
             {
-                try
-                {
-                    _fileExtension = _radioButton?.Result;
-                    var _ext = _radioButton.Tag?.ToString( )
-                        ?.Trim( ".".ToCharArray( ) )
-                        ?.ToUpper( );
+                var _radioButton = sender as RadioButton;
+                _fileExtension = _radioButton?.Result;
+                var _ext = _radioButton.Tag?.ToString( )
+                    ?.Trim( ".".ToCharArray( ) )
+                    ?.ToUpper( );
 
-                    Title.Text = $"{_ext} File Search";
-                    MessageLabel.Text = string.Empty;
-                    FoundLabel.Text = string.Empty;
-                    var _paths = CreateListViewFilePaths( );
-                    PopulateListBox( _paths );
-                    PictureBox.Image = GetImage( );
-                    FoundLabel.Text = "Found: " + _paths?.ToList( )?.Count ?? "0";
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                _filePaths = CreateListViewFilePaths( );
+                Title.Text = $"{_ext} File Search";
+                FoundLabel.Text = "Found: " + _filePaths?.ToList( )?.Count ?? "0";
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
