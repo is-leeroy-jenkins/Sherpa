@@ -1,6 +1,7 @@
 ﻿namespace BudgetExecution
 {
     using System;
+    using System.Collections;
     using System.Collections.Generic;
     using static System.Configuration.ConfigurationManager;
     using System.Diagnostics.CodeAnalysis;
@@ -9,6 +10,9 @@
     using System.Linq;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
+    using static System.Environment;
+    using static System.IO.Directory;
+    using CheckState = MetroSet_UI.Enums.CheckState;
 
     /// <summary>
     /// 
@@ -16,6 +20,7 @@
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public partial class DialogBase : MetroForm
     {
         /// <summary>
@@ -126,7 +131,7 @@
             {
                 try
                 {
-                    var _path = AppSettings[ "Extensions" ];
+                    var _path = AppSettings[ "ExtensionImages" ];
                     if( _path != null )
                     {
                         var _files = Directory.GetFiles( _path );
@@ -137,9 +142,9 @@
                                 ?.Where( f => f.Contains( _ext ) )
                                 ?.First( );
 
-                            using var _stream = File.Open( _file, FileMode.Open );
+                            var _stream = File.Open( _file, FileMode.Open );
                             var _img = Image.FromStream( _stream );
-                            return new Bitmap( _img, 22, 22 );
+                            return new Bitmap( _img, 18, 18 );
                         }
                     }
                 }
@@ -151,6 +156,251 @@
             }
 
             return default( Bitmap );
+        }
+
+        /// <summary>
+        /// Gets the ListView paths.
+        /// </summary>
+        /// <returns></returns>
+        private protected IList<string> CreateListViewFilePaths( )
+        {
+            if( _initialPaths?.Any( ) == true )
+            {
+                try
+                {
+                    var _list = new List<string>( );
+                    foreach( var _filePath in _initialPaths )
+                    {
+                        var _first = GetFiles( _filePath )
+                            ?.Where( f => f.EndsWith( _fileExtension ) )
+                            ?.Select( f => Path.GetFullPath( f ) )
+                            ?.ToList( );
+
+                        _list.AddRange( _first );
+                        var _dirs = GetDirectories( _filePath );
+                        foreach( var _dir in _dirs )
+                        {
+                            if( !_dir.Contains( "My " ) )
+                            {
+                                var _second = GetFiles( _dir )
+                                    ?.Where( s => s.EndsWith( _fileExtension ) )
+                                    ?.Select( s => Path.GetFullPath( s ) )
+                                    ?.ToList( );
+
+                                if( _second?.Any( ) == true )
+                                {
+                                    _list.AddRange( _second );
+                                }
+
+                                var _subDir = GetDirectories( _dir );
+                                for( var _i = 0; _i < _subDir.Length; _i++ )
+                                {
+                                    var _path = _subDir[ _i ];
+                                    if( !string.IsNullOrEmpty( _path ) )
+                                    {
+                                        var _last = GetFiles( _path )
+                                            ?.Where( l => l.EndsWith( _fileExtension ) )
+                                            ?.Select( l => Path.GetFullPath( l ) )
+                                            ?.ToList( );
+
+                                        if( _last?.Any( ) == true )
+                                        {
+                                            _list.AddRange( _last );
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    return _list?.Any( ) == true
+                        ? _list
+                        : default( IList<string> );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                    return default( IList<string> );
+                }
+            }
+
+            return default( IList<string> );
+        }
+
+        /// <summary>
+        /// Gets the initial dir paths.
+        /// </summary>
+        /// <returns>
+        /// IList(string)
+        /// </returns>
+        private protected IList<string> CreateInitialDirectoryPaths( )
+        {
+            try
+            {
+                var _current = CurrentDirectory;
+                var _list = new List<string>
+                {
+                    GetFolderPath( SpecialFolder.DesktopDirectory ),
+                    GetFolderPath( SpecialFolder.Personal ),
+                    GetFolderPath( SpecialFolder.Recent ),
+                    @"C:\Users\terry\source\repos\BudgetExecution\Resources\Documents",
+                    _current
+                };
+
+                return _list?.Any( ) == true
+                    ? _list
+                    : default( IList<string> );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IList<string> );
+            }
+        }
+
+        /// <summary>
+        /// Clears the radio buttons.
+        /// </summary>
+        private protected void ClearRadioButtons( )
+        {
+            try
+            {
+                foreach( var _radioButton in _radioButtons )
+                {
+                    _radioButton.CheckedChanged += null;
+                    _radioButton.CheckState = CheckState.Unchecked;
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Invokes if needed.
+        /// </summary>
+        /// <param name="action">
+        /// The action.
+        /// </param>
+        private protected void InvokeIf( Action action )
+        {
+            if( InvokeRequired )
+            {
+                BeginInvoke( action );
+            }
+            else
+            {
+                action.Invoke( );
+            }
+        }
+
+        /// <summary> 
+        /// Fades the in. 
+        /// </summary>
+        private protected void FadeIn( )
+        {
+            try
+            {
+                var _timer = new Timer( );
+                _timer.Interval = 10;
+                _timer.Tick += ( sender, args ) =>
+                {
+                    if( Opacity == 1d )
+                    {
+                        _timer.Stop( );
+                    }
+
+                    Opacity += 0.02d;
+                };
+
+                _timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> 
+        /// Fades the out and close. 
+        /// </summary>
+        private protected void FadeOut( )
+        {
+            try
+            {
+                var _timer = new Timer( );
+                _timer.Interval = 10;
+                _timer.Tick += ( sender, args ) =>
+                {
+                    if( Opacity == 0d )
+                    {
+                        _timer.Stop( );
+                    }
+
+                    Opacity -= 0.02d;
+                };
+
+                _timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Gets the controls.
+        /// </summary>
+        /// <returns>
+        /// </returns>
+        private protected IEnumerable<Control> GetControls( )
+        {
+            var _list = new List<Control>( );
+            var _queue = new Queue( );
+            try
+            {
+                _queue.Enqueue( Controls );
+                while( _queue.Count > 0 )
+                {
+                    var _collection = (Control.ControlCollection)_queue.Dequeue( );
+                    if( _collection?.Count > 0 )
+                    {
+                        foreach( Control _control in _collection )
+                        {
+                            _list.Add( _control );
+                            _queue.Enqueue( _control.Controls );
+                        }
+                    }
+                }
+
+                return _list?.Any( ) == true
+                    ? _list.ToArray( )
+                    : default( Control[ ] );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( Control[ ] );
+            }
+        }
+
+        /// <summary>
+        /// Raises the Close event.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        public void OnClosing( object sender, EventArgs e )
+        {
+            try
+            {
+                FadeOut( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>

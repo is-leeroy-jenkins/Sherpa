@@ -44,12 +44,9 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.IO;
     using System.Linq;
-    using System.Collections;
     using System.Windows.Forms;
     using static System.Environment;
-    using static System.IO.Directory;
     using CheckState = MetroSet_UI.Enums.CheckState;
 
     /// <inheritdoc />
@@ -61,6 +58,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     public partial class FileDialog : DialogBase
     {
         /// <summary>
@@ -270,9 +268,9 @@ namespace BudgetExecution
             // Budget Properties
             _radioButtons = GetRadioButtons( );
             _extension = EXT.XLSX;
-
-            // Set Icon
-            PictureBox.Image = GetImage( );
+            _fileExtension = _extension.ToString( ).ToLower( );
+            _filePaths = CreateListViewFilePaths( );
+            ExcelRadioButton.Checked = true;
 
             // Event Wiring
             Load += OnLoad;
@@ -289,243 +287,7 @@ namespace BudgetExecution
         {
             _extension = extension;
             _fileExtension = _extension.ToString( ).ToLower( );
-        }
-
-        /// <summary>
-        /// Populates the ListBox.
-        /// </summary>
-        /// <param name="filePaths">The file paths.</param>
-        private protected virtual void PopulateListBox( IEnumerable<string> filePaths )
-        {
-            try
-            {
-                if( filePaths?.Any( ) == true )
-                {
-                    FileList.Items?.Clear( );
-                    var _paths = filePaths.ToArray( );
-                    for( var _i = 0; _i < _paths.Length; _i++ )
-                    {
-                        var _path = _paths[ _i ];
-                        if( !string.IsNullOrEmpty( _path ) )
-                        {
-                            FileList?.Items?.Add( _path );
-                        }
-                    }
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Clears the radio buttons.
-        /// </summary>
-        private protected void ClearRadioButtons( )
-        {
-            try
-            {
-                foreach( var _radioButton in _radioButtons )
-                {
-                    _radioButton.CheckedChanged += null;
-                    _radioButton.CheckState = CheckState.Unchecked;
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the RadioButton events.
-        /// </summary>
-        private protected void RegisterRadioButtonEvents( )
-        {
-            try
-            {
-                foreach( var _radioButton in _radioButtons )
-                {
-                    _radioButton.CheckedChanged += OnRadioButtonSelected;
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Gets the ListView paths.
-        /// </summary>
-        /// <returns></returns>
-        private protected IList<string> CreateListViewFilePaths( )
-        {
-            if( _initialPaths?.Any( ) == true )
-            {
-                try
-                {
-                    var _list = new List<string>( );
-                    foreach( var _filePath in _initialPaths )
-                    {
-                        var _first = GetFiles( _filePath )
-                            ?.Where( f => f.EndsWith( _fileExtension ) )
-                            ?.Select( f => Path.GetFullPath( f ) )
-                            ?.ToList( );
-
-                        _list.AddRange( _first );
-                        var _dirs = GetDirectories( _filePath );
-                        foreach( var _dir in _dirs )
-                        {
-                            if( !_dir.Contains( "My " ) )
-                            {
-                                var _second = GetFiles( _dir )
-                                    ?.Where( s => s.EndsWith( _fileExtension ) )
-                                    ?.Select( s => Path.GetFullPath( s ) )
-                                    ?.ToList( );
-
-                                if( _second?.Any( ) == true )
-                                {
-                                    _list.AddRange( _second );
-                                }
-
-                                var _subDir = GetDirectories( _dir );
-                                for( var _i = 0; _i < _subDir.Length; _i++ )
-                                {
-                                    var _path = _subDir[ _i ];
-                                    if( !string.IsNullOrEmpty( _path ) )
-                                    {
-                                        var _last = GetFiles( _path )
-                                            ?.Where( l => l.EndsWith( _fileExtension ) )
-                                            ?.Select( l => Path.GetFullPath( l ) )
-                                            ?.ToList( );
-
-                                        if( _last?.Any( ) == true )
-                                        {
-                                            _list.AddRange( _last );
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    return _list?.Any( ) == true
-                        ? _list
-                        : default( IList<string> );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( IList<string> );
-                }
-            }
-
-            return default( IList<string> );
-        }
-
-        /// <summary>
-        /// Gets the radio buttons.
-        /// </summary>
-        /// <returns></returns>
-        private protected virtual IList<RadioButton> GetRadioButtons( )
-        {
-            try
-            {
-                var _list = new List<RadioButton>
-                {
-                    PdfRadioButton,
-                    AccessRadioButton,
-                    SQLiteRadioButton,
-                    SqlCeRadioButton,
-                    SqlServerRadioButton,
-                    ExcelRadioButton,
-                    CsvRadioButton,
-                    TextRadioButton,
-                    PowerPointRadioButton,
-                    WordRadioButton,
-                    ExecutableRadioButton,
-                    LibraryRadioButton
-                };
-
-                return _list?.Any( ) == true
-                    ? _list
-                    : default( IList<RadioButton> );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( IList<RadioButton> );
-            }
-        }
-
-        /// <summary>
-        /// Gets the initial dir paths.
-        /// </summary>
-        /// <returns></returns>
-        private protected virtual IList<string> CreateInitialDirectoryPaths( )
-        {
-            try
-            {
-                var _current = CurrentDirectory;
-                var _list = new List<string>
-                {
-                    GetFolderPath( SpecialFolder.DesktopDirectory ),
-                    GetFolderPath( SpecialFolder.Personal ),
-                    GetFolderPath( SpecialFolder.Recent ),
-                    @"C:\Users\terry\source\repos\BudgetExecution\Resources\Documents",
-                    _current
-                };
-
-                return _list?.Any( ) == true
-                    ? _list
-                    : default( IList<string> );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( IList<string> );
-            }
-        }
-
-        /// <summary>
-        /// Populates the ListBox.
-        /// </summary>
-        private protected virtual void PopulateListBox( )
-        {
-            if( _filePaths?.Any( ) == true )
-            {
-                try
-                {
-                    foreach( var _path in _filePaths )
-                    {
-                        FileList.Items.Add( _path );
-                    }
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Invokes if needed.
-        /// </summary>
-        /// <param name="action">
-        /// The action.
-        /// </param>
-        public void InvokeIf( Action action )
-        {
-            if( InvokeRequired )
-            {
-                BeginInvoke( action );
-            }
-            else
-            {
-                action.Invoke( );
-            }
+            _filePaths = CreateListViewFilePaths( );
         }
 
         /// <summary>
@@ -648,53 +410,46 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> 
-        /// Fades the in. 
+        /// <summary>
+        /// Populates the ListBox.
         /// </summary>
-        private void FadeIn( )
+        private protected void PopulateListBox( )
         {
-            try
+            if( _filePaths?.Any( ) == true )
             {
-                var _timer = new Timer( );
-                _timer.Interval = 10;
-                _timer.Tick += ( sender, args ) =>
+                try
                 {
-                    if( Opacity == 1d )
+                    foreach( var _path in _filePaths )
                     {
-                        _timer.Stop( );
+                        FileList.Items.Add( _path );
                     }
-
-                    Opacity += 0.02d;
-                };
-
-                _timer.Start( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
             }
         }
 
-        /// <summary> 
-        /// Fades the out and close. 
+        /// <summary>
+        /// Populates the ListBox.
         /// </summary>
-        private void FadeOut( )
+        /// <param name="filePaths">The file paths.</param>
+        private protected void PopulateListBox( IEnumerable<string> filePaths )
         {
             try
             {
-                var _timer = new Timer( );
-                _timer.Interval = 10;
-                _timer.Tick += ( sender, args ) =>
+                ThrowIf.Null( filePaths, nameof( filePaths ) );
+                FileList.Items?.Clear( );
+                var _paths = filePaths.ToArray( );
+                for( var _i = 0; _i < _paths.Length; _i++ )
                 {
-                    if( Opacity == 0d )
+                    var _path = _paths[ _i ];
+                    if( !string.IsNullOrEmpty( _path ) )
                     {
-                        _timer.Stop( );
+                        FileList?.Items?.Add( _path );
                     }
-
-                    Opacity -= 0.02d;
-                };
-
-                _timer.Start( );
+                }
             }
             catch( Exception _ex )
             {
@@ -703,38 +458,178 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the controls.
+        /// Sets the RadioButton events.
         /// </summary>
-        /// <returns>
-        /// </returns>
-        private IEnumerable<Control> GetControls( )
+        private protected void RegisterRadioButtonEvents( )
         {
-            var _list = new List<Control>( );
-            var _queue = new Queue( );
             try
             {
-                _queue.Enqueue( Controls );
-                while( _queue.Count > 0 )
+                foreach( var _radioButton in _radioButtons )
                 {
-                    var _collection = (Control.ControlCollection)_queue.Dequeue( );
-                    if( _collection?.Count > 0 )
-                    {
-                        foreach( Control _control in _collection )
-                        {
-                            _list.Add( _control );
-                            _queue.Enqueue( _control.Controls );
-                        }
-                    }
+                    _radioButton.CheckedChanged += OnRadioButtonSelected;
                 }
-
-                return _list?.Any( ) == true
-                    ? _list.ToArray( )
-                    : default( Control[ ] );
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return default( Control[ ] );
+            }
+        }
+
+        /// <summary>
+        /// Sets the extension.
+        /// </summary>
+        /// <param name="extension">
+        /// The extension.
+        /// </param>
+        private void SetExtension( string extension )
+        {
+            try
+            {
+                ThrowIf.Null( extension, nameof( extension ) );
+                _extension = (EXT)Enum.Parse( typeof( EXT ), extension );
+                switch( _extension )
+                {
+                    case EXT.XLS:
+                    case EXT.XLSX:
+                    {
+                        break;
+                    }
+                    case EXT.PDF:
+                    {
+                        break;
+                    }
+                    case EXT.CSV:
+                    {
+                        break;
+                    }
+                    case EXT.PPT:
+                    {
+                        break;
+                    }
+                    case EXT.MDB:
+                    case EXT.ACCDB:
+                    {
+                        break;
+                    }
+                    case EXT.DB:
+                    {
+                        break;
+                    }
+                    case EXT.DLL:
+                    {
+                        break;
+                    }
+                    case EXT.DOC:
+                    case EXT.DOCX:
+                    {
+                        break;
+                    }
+                    case EXT.EXE:
+                    {
+                        break;
+                    }
+                    case EXT.GIF:
+                    {
+                        break;
+                    }
+                    case EXT.ICO:
+                    {
+                        break;
+                    }
+                    case EXT.MDF:
+                    {
+                        break;
+                    }
+                    case EXT.PNG:
+                    {
+                        break;
+                    }
+                    case EXT.RESX:
+                    {
+                        break;
+                    }
+                    case EXT.SQL:
+                    {
+                        break;
+                    }
+                    case EXT.TXT:
+                    {
+                        break;
+                    }
+                    default:
+                    {
+                        break;
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Gets the radio buttons.
+        /// </summary>
+        /// <returns></returns>
+        private protected virtual IList<RadioButton> GetRadioButtons( )
+        {
+            try
+            {
+                var _list = new List<RadioButton>
+                {
+                    PdfRadioButton,
+                    AccessRadioButton,
+                    SQLiteRadioButton,
+                    SqlCeRadioButton,
+                    SqlServerRadioButton,
+                    ExcelRadioButton,
+                    CsvRadioButton,
+                    TextRadioButton,
+                    PowerPointRadioButton,
+                    WordRadioButton,
+                    ExecutableRadioButton,
+                    LibraryRadioButton
+                };
+
+                return _list?.Any( ) == true
+                    ? _list
+                    : default( IList<RadioButton> );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IList<RadioButton> );
+            }
+        }
+
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnLoad( object sender, EventArgs e )
+        {
+            try
+            {
+                _initialPaths = CreateInitialDirectoryPaths( );
+                _filePaths = CreateListViewFilePaths( );
+                InitializeLabels( );
+                InitializeButtons( );
+                InitializeDialogs( );
+                InitializeTimers( );
+                PopulateListBox( );
+                FoundLabel.Text = "Found : " + _filePaths?.Count( );
+                Title.Text = $"{_extension} File Search";
+                ClearRadioButtons( );
+                RegisterRadioButtonEvents( );
+                PictureBox.Image = GetImage( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -761,38 +656,6 @@ namespace BudgetExecution
                     PopulateListBox( _paths );
                     PictureBox.Image = GetImage( );
                     FoundLabel.Text = "Found: " + _paths?.ToList( )?.Count ?? "0";
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Called when [load].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        public void OnLoad( object sender, EventArgs e )
-        {
-            if( _filePaths?.Any( ) == true )
-            {
-                try
-                {
-                    _initialPaths = CreateInitialDirectoryPaths( );
-                    _filePaths = CreateListViewFilePaths( );
-                    InitializeLabels( );
-                    InitializeButtons( );
-                    InitializeDialogs( );
-                    InitializeTimers( );
-                    PopulateListBox( );
-                    FoundLabel.Text = "Found : " + _filePaths?.Count( );
-                    Title.Text = $"{Extension} File Search";
-                    ClearRadioButtons( );
-                    RegisterRadioButtonEvents( );
                 }
                 catch( Exception _ex )
                 {

@@ -142,6 +142,11 @@ namespace BudgetExecution
         /// <summary>
         /// The GIF
         /// </summary>
-        GIF
+        GIF,
+
+        /// <summary>
+        /// The Power Point Extension
+        /// </summary>
+        PPT
     }
 }
