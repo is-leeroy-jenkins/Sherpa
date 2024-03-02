@@ -71,7 +71,7 @@
         /// <summary>
         /// The initial dir paths
         /// </summary>
-        private protected IList<string> _initialPaths;
+        private protected IList<string> _searchPaths;
 
         /// <summary>
         /// The radio buttons
@@ -88,7 +88,7 @@
         /// Initializes a new instance of the
         /// <see cref="T:BudgetExecution.DialogBase" /> class.
         /// </summary>
-        protected DialogBase( )
+        public DialogBase( )
         {
             Size = new Size( 700, 480 );
             MaximumSize = new Size( 700, 480 );
@@ -164,12 +164,12 @@
         /// <returns></returns>
         private protected IList<string> CreateListViewFilePaths( )
         {
-            if( _initialPaths?.Any( ) == true )
+            if( _searchPaths?.Any( ) == true )
             {
                 try
                 {
                     var _list = new List<string>( );
-                    foreach( var _filePath in _initialPaths )
+                    foreach( var _filePath in _searchPaths )
                     {
                         var _first = GetFiles( _filePath )
                             ?.Where( f => f.EndsWith( _fileExtension ) )
@@ -411,6 +411,7 @@
         /// </param>
         private protected void Fail( Exception ex )
         {
+            _image?.Dispose( );
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );

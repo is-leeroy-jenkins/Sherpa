@@ -42,8 +42,10 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
+    using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.IO;
     using System.Linq;
     using System.Windows.Forms;
     using static System.Environment;
@@ -140,15 +142,15 @@ namespace BudgetExecution
         /// <value>
         /// The initial dir paths.
         /// </value>
-        public IList<string> InitialDirPaths
+        public IList<string> SearhPaths
         {
             get
             {
-                return _initialPaths;
+                return _searchPaths;
             }
             private protected set
             {
-                _initialPaths = value;
+                _searchPaths = value;
             }
         }
 
@@ -271,7 +273,7 @@ namespace BudgetExecution
             _extension = EXT.XLSX;
             _fileExtension = _extension.ToString( ).ToLower( );
             _filePaths = CreateListViewFilePaths( );
-            ExcelRadioButton.Checked = true;
+            _searchPaths = new List<string>( );
 
             // Event Wiring
             Load += OnLoad;
@@ -289,6 +291,7 @@ namespace BudgetExecution
             _extension = extension;
             _fileExtension = _extension.ToString( ).ToLower( );
             _filePaths = CreateListViewFilePaths( );
+            _searchPaths = new List<string>( );
         }
 
         /// <summary>
@@ -298,7 +301,7 @@ namespace BudgetExecution
         {
             try
             {
-                FileList.SelectedValueChanged += OnPathSelected;
+                FileList.SelectedValueChanged += OnListBoxItemSelected;
                 BrowseButton.Click += OnBrowseButtonClicked;
                 CloseButton.Click += OnCloseButtonClicked;
             }
@@ -420,6 +423,7 @@ namespace BudgetExecution
             {
                 try
                 {
+                    FileList.Items?.Clear( );
                     foreach( var _path in _filePaths )
                     {
                         FileList.Items.Add( _path );
@@ -479,78 +483,89 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the extension.
         /// </summary>
-        private void SetExtension( )
+        private void SetImage( )
         {
             try
             {
                 switch( _extension )
-                {
+                { 
                     case EXT.XLS:
                     case EXT.XLSX:
                     {
                         ExcelRadioButton.Checked = true;
+                        _image = Resources.Images.ExtensionImages.XLSX;
                         break;
                     }
                     case EXT.PDF:
                     {
                         PdfRadioButton.Checked = true;
+                        _image = Resources.Images.ExtensionImages.XLSX;
                         break;
                     }
                     case EXT.CSV:
                     {
                         CsvRadioButton.Checked = true;
+                        _image = Resources.Images.ExtensionImages.CSV;
                         break;
                     }
                     case EXT.PPT:
                     {
                         PowerPointRadioButton.Checked = true;
+                        _image = Resources.Images.ExtensionImages.PPTX;
                         break;
                     }
                     case EXT.MDB:
                     case EXT.ACCDB:
                     {
                         AccessRadioButton.Checked = true;
+                        _image = Resources.Images.ExtensionImages.ACCDB;
                         break;
                     }
                     case EXT.DB:
                     {
-                        SQLiteRadioButton.Checked = true;
                         break;
                     }
                     case EXT.DLL:
                     {
                         LibraryRadioButton.Checked = true;
+                        _image = Resources.Images.ExtensionImages.DLL;
                         break;
                     }
                     case EXT.DOC:
                     case EXT.DOCX:
                     {
                         WordRadioButton.Checked = true;
+                        _image = Resources.Images.ExtensionImages.DOCX;
                         break;
                     }
                     case EXT.EXE:
                     {
                         ExecutableRadioButton.Checked = true;
+                        _image = Resources.Images.ExtensionImages.EXE;
                         break;
                     }
                     case EXT.MDF:
                     {
                         SqlServerRadioButton.Checked = true;
+                        _image = Resources.Images.ExtensionImages.MDF;
                         break;
                     }
                     case EXT.SDF:
                     {
                         SqlCeRadioButton.Checked = true;
+                        _image = Resources.Images.ExtensionImages.SDF;
                         break;
                     }
                     case EXT.TXT:
                     {
                         TextRadioButton.Checked = true;
+                        _image = Resources.Images.ExtensionImages.TXT;
                         break;
                     }
                     default:
                     {
                         ExcelRadioButton.Checked = true;
+                        _image = Resources.Images.ExtensionImages.XLSX;
                         break;
                     }
                 }
@@ -607,7 +622,7 @@ namespace BudgetExecution
         {
             try
             {
-                _initialPaths = CreateInitialDirectoryPaths( );
+                _searchPaths = CreateInitialDirectoryPaths( );
                 _filePaths = CreateListViewFilePaths( );
                 InitializeLabels( );
                 InitializeButtons( );
@@ -618,7 +633,6 @@ namespace BudgetExecution
                 Title.Text = $"{_extension} File Search";
                 ClearRadioButtons( );
                 RegisterRadioButtonEvents( );
-                PictureBox.Image = GetImage( );
             }
             catch( Exception _ex )
             {
@@ -643,6 +657,8 @@ namespace BudgetExecution
                 _filePaths = CreateListViewFilePaths( );
                 Title.Text = $"{_ext} File Search";
                 FoundLabel.Text = "Found: " + _filePaths?.ToList( )?.Count ?? "0";
+                PopulateListBox( );
+                SetImage( );
             }
             catch( Exception _ex )
             {
@@ -654,7 +670,7 @@ namespace BudgetExecution
         /// Called when [path selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        private protected virtual void OnPathSelected( object sender )
+        private protected virtual void OnListBoxItemSelected( object sender )
         {
             if( sender is ListBox _listBox
                && !string.IsNullOrEmpty( _listBox.SelectedItem?.ToString( ) ) )

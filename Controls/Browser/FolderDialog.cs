@@ -140,11 +140,11 @@ namespace BudgetExecution
         {
             get
             {
-                return _initialPaths;
+                return _searchPaths;
             }
             private protected set
             {
-                _initialPaths = value;
+                _searchPaths = value;
             }
         }
 
@@ -211,7 +211,7 @@ namespace BudgetExecution
 
             // Budget Properties
             _dirPaths = new List<string>( );
-            _initialPaths = new List<string>( );
+            _searchPaths = new List<string>( );
             _radioButtons = new List<RadioButton>( );
 
             // Wire Events
@@ -485,13 +485,13 @@ namespace BudgetExecution
         /// <returns> </returns>
         private protected IEnumerable<string> GetListViewPaths( )
         {
-            if( _initialPaths?.Any( ) == true )
+            if( _searchPaths?.Any( ) == true )
             {
                 try
                 {
                     var _list = new List<string>( );
                     var _paths = new Dictionary<string, string>( );
-                    foreach( var _dirPath in _initialPaths )
+                    foreach( var _dirPath in _searchPaths )
                     {
                         var _dirs = Directory.GetDirectories( _dirPath );
                         for( var _index = 0; _index < _dirs.Length; _index++ )

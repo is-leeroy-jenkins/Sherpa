@@ -1043,7 +1043,7 @@ namespace BudgetExecution
             {
                 var _browser = new FileDialog( EXT.PDF );
                 _browser.TopMost = true;
-                _browser.ShowDialog( this );
+                _browser.Show( );
             }
             catch( Exception _ex )
             {
