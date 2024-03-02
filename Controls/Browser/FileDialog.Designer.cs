@@ -550,7 +550,7 @@ namespace BudgetExecution
             PictureBox.Location = new System.Drawing.Point( 3, 3 );
             PictureBox.Name = "PictureBox";
             PictureBox.Padding = new Padding( 1 );
-            PictureBox.Size = new System.Drawing.Size( 24, 20 );
+            PictureBox.Size = new System.Drawing.Size( 18, 18 );
             PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             PictureBox.TabIndex = 1;
             PictureBox.TabStop = false;

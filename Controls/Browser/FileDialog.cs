@@ -269,7 +269,6 @@ namespace BudgetExecution
 
             // Budget Properties
             _radioButtons = GetRadioButtons( );
-            _fileExtension = "xlsx";
             _extension = EXT.XLSX;
 
             // Set Icon
