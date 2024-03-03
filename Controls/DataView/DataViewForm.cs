@@ -1675,7 +1675,7 @@ namespace BudgetExecution
         /// Binds the data.
         /// </summary>
         /// <param name="where">The where.</param>
-        private void BindData( IDictionary<string, object> where )
+        private void GetData( IDictionary<string, object> where )
         {
             try
             {
@@ -1701,7 +1701,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="cols">The cols.</param>
         /// <param name="where">The where.</param>
-        private void BindData( IEnumerable<string> cols, IDictionary<string, object> where )
+        private void GetData( IEnumerable<string> cols, IDictionary<string, object> where )
         {
             try
             {
@@ -1729,7 +1729,7 @@ namespace BudgetExecution
         /// <param name="fields">The fields.</param>
         /// <param name="numerics">The numerics.</param>
         /// <param name="where">The where.</param>
-        private void BindData( IEnumerable<string> fields, IEnumerable<string> numerics,
+        private void GetData( IEnumerable<string> fields, IEnumerable<string> numerics,
             IDictionary<string, object> where )
         {
             if( where?.Any( ) == true
@@ -2113,7 +2113,7 @@ namespace BudgetExecution
                         GroupSeparator.Visible = true;
                     }
 
-                    BindData( _filter );
+                    GetData( _filter );
                     UpdateLabelText( );
                     _sqlQuery = CreateSqlText( _filter );
                 }
@@ -2187,7 +2187,7 @@ namespace BudgetExecution
                         ThirdTable.Visible = true;
                     }
 
-                    BindData( _filter );
+                    GetData( _filter );
                     UpdateLabelText( );
                     _sqlQuery = CreateSqlText( _filter );
                 }
@@ -2262,7 +2262,7 @@ namespace BudgetExecution
                     _filter.Add( _firstCategory, _firstValue );
                     _filter.Add( _secondCategory, _secondValue );
                     _filter.Add( _thirdCategory, _thirdValue );
-                    BindData( _filter );
+                    GetData( _filter );
                     UpdateLabelText( );
                     _sqlQuery = CreateSqlText( _filter );
                 }
@@ -2446,7 +2446,7 @@ namespace BudgetExecution
                 }
 
                 _sqlQuery = CreateSqlText( _selectedFields, _selectedNumerics, _filter );
-                BindData( _selectedFields, _selectedNumerics, _filter );
+                GetData( _selectedFields, _selectedNumerics, _filter );
             }
             catch( Exception _ex )
             {

@@ -1597,7 +1597,7 @@ namespace BudgetExecution
         /// <summary>
         /// Binds the data.
         /// </summary>
-        private void BindData( )
+        private void GetData( )
         {
             try
             {
@@ -1640,7 +1640,7 @@ namespace BudgetExecution
         /// <param name="sqlText">
         /// The SQL text.
         /// </param>
-        private void BindData( string sqlText )
+        private void GetData( string sqlText )
         {
             try
             {
@@ -1667,7 +1667,7 @@ namespace BudgetExecution
         /// <param name="where">
         /// The where.
         /// </param>
-        private void BindData( IDictionary<string, object> where )
+        private void GetData( IDictionary<string, object> where )
         {
             try
             {
@@ -1696,7 +1696,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="cols">The cols.</param>
         /// <param name="where">The where.</param>
-        private void BindData( IEnumerable<string> cols, IDictionary<string, object> where )
+        private void GetData( IEnumerable<string> cols, IDictionary<string, object> where )
         {
             try
             {
@@ -1725,7 +1725,7 @@ namespace BudgetExecution
         /// <param name="fields">The fields.</param>
         /// <param name="numerics">The numerics.</param>
         /// <param name="where">The where.</param>
-        private void BindData( IEnumerable<string> fields, IEnumerable<string> numerics,
+        private void GetData( IEnumerable<string> fields, IEnumerable<string> numerics,
             IDictionary<string, object> where )
         {
             try
@@ -2759,7 +2759,7 @@ namespace BudgetExecution
                     var _title = _listBox.SelectedValue?.ToString( );
                     _selectedTable = _title?.Replace( " ", "" );
                     _source = (Source)Enum.Parse( typeof( Source ), _selectedTable );
-                    BindData( );
+                    GetData( );
                     BindChart( );
                     QueryTabControl.SelectedIndex = 1;
                     SetActiveQueryTab( );
@@ -2841,7 +2841,7 @@ namespace BudgetExecution
                     }
 
                     _sqlQuery = CreateSqlCommand( _filter );
-                    BindData( );
+                    GetData( );
                     UpdateMetrics( );
                     BindChart( );
                 }
@@ -2916,7 +2916,7 @@ namespace BudgetExecution
                     }
 
                     _sqlQuery = CreateSqlCommand( _filter );
-                    BindData( _sqlQuery );
+                    GetData( _sqlQuery );
                     UpdateMetrics( );
                     BindChart( );
                 }
@@ -2992,7 +2992,7 @@ namespace BudgetExecution
                     _filter[ _secondCategory ] = _secondValue;
                     _filter[ _thirdCategory ] = _thirdValue;
                     _sqlQuery = CreateSqlCommand( _filter );
-                    BindData( _sqlQuery );
+                    GetData( _sqlQuery );
                     UpdateMetrics( );
                     BindChart( );
                 }
@@ -3110,12 +3110,12 @@ namespace BudgetExecution
                 if( _selectedFields.Count >= 2
                    && _selectedNumerics.Count >= 1 )
                 {
-                    BindData( _selectedFields, _selectedNumerics, _filter );
+                    GetData( _selectedFields, _selectedNumerics, _filter );
                     UpdateMetrics( );
                 }
                 else
                 {
-                    BindData( _fields, _numerics, _filter );
+                    GetData( _fields, _numerics, _filter );
                     UpdateMetrics( );
                 }
 
@@ -3146,7 +3146,7 @@ namespace BudgetExecution
                     _selectedNumerics.Add( _selectedItem );
                 }
 
-                BindData( _selectedFields, _selectedNumerics, _filter );
+                GetData( _selectedFields, _selectedNumerics, _filter );
                 UpdateMetrics( );
             }
             catch( Exception ex )
@@ -3214,7 +3214,7 @@ namespace BudgetExecution
                     ClearSelections( );
                     ClearListBoxes( );
                     ClearComboBoxes( );
-                    BindData( );
+                    GetData( );
                     QueryTabControl.SelectedIndex = 1;
                     UpdateMetrics( );
                     if( Chart.Visible == true )

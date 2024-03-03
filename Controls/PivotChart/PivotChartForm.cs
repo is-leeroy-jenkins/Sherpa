@@ -994,7 +994,7 @@ namespace BudgetExecution
         /// <summary>
         /// Binds the data.
         /// </summary>
-        private void BindData( )
+        private void GetData( )
         {
             try
             {
@@ -1891,7 +1891,7 @@ namespace BudgetExecution
                     if( _selectedTable != null )
                     {
                         _source = (Source)Enum.Parse( typeof( Source ), _selectedTable );
-                        BindData( );
+                        GetData( );
                         BindChart( );
                     }
                 }

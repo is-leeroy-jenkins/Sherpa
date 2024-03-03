@@ -1379,7 +1379,7 @@ namespace BudgetExecution
         /// <summary>
         /// Binds the data.
         /// </summary>
-        private void BindData( )
+        private void GetData( )
         {
             try
             {
@@ -1424,7 +1424,7 @@ namespace BudgetExecution
         /// <param name="where">
         /// The where.
         /// </param>
-        private void BindData( IDictionary<string, object> where )
+        private void GetData( IDictionary<string, object> where )
         {
             try
             {
@@ -1457,7 +1457,7 @@ namespace BudgetExecution
         /// <param name="where">
         /// The where.
         /// </param>
-        private void BindData( IEnumerable<string> columns, IDictionary<string, object> where )
+        private void GetData( IEnumerable<string> columns, IDictionary<string, object> where )
         {
             try
             {
@@ -1494,7 +1494,7 @@ namespace BudgetExecution
         /// <param name="where">
         /// The where.
         /// </param>
-        private void BindData( IEnumerable<string> fields, IEnumerable<string> numerics,
+        private void GetData( IEnumerable<string> fields, IEnumerable<string> numerics,
             IDictionary<string, object> where )
         {
             try

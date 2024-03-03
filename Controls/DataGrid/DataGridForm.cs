@@ -1954,7 +1954,7 @@ namespace BudgetExecution
         /// <summary>
         /// Binds the data.
         /// </summary>
-        private void BindData( )
+        private void GetData( )
         {
             try
             {
@@ -1997,7 +1997,7 @@ namespace BudgetExecution
         /// <param name="where">
         /// The where.
         /// </param>
-        private void BindData( IDictionary<string, object> where )
+        private void GetData( IDictionary<string, object> where )
         {
             try
             {
@@ -2027,7 +2027,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="cols">The cols.</param>
         /// <param name="where">The where.</param>
-        private void BindData( IEnumerable<string> cols, IDictionary<string, object> where )
+        private void GetData( IEnumerable<string> cols, IDictionary<string, object> where )
         {
             try
             {
@@ -2059,7 +2059,7 @@ namespace BudgetExecution
         /// <param name="fields">The fields.</param>
         /// <param name="numerics">The numerics.</param>
         /// <param name="where">The where.</param>
-        private void BindData( IEnumerable<string> fields, IEnumerable<string> numerics,
+        private void GetData( IEnumerable<string> fields, IEnumerable<string> numerics,
             IDictionary<string, object> where )
         {
             try
@@ -2464,7 +2464,7 @@ namespace BudgetExecution
                         GroupSeparator.Visible = true;
                     }
 
-                    BindData( _filter );
+                    GetData( _filter );
                     UpdateLabelText( );
                     _sqlQuery = CreateSqlCommand( _filter );
                     SqlHeader.Text = _sqlQuery;
@@ -2535,7 +2535,7 @@ namespace BudgetExecution
                         ThirdTable.Visible = true;
                     }
 
-                    BindData( _filter );
+                    GetData( _filter );
                     UpdateLabelText( );
                     _sqlQuery = CreateSqlCommand( _filter );
                 }
@@ -2610,7 +2610,7 @@ namespace BudgetExecution
                     Filter.Add( _firstCategory, _firstValue );
                     Filter.Add( _secondCategory, _secondValue );
                     Filter.Add( _thirdCategory, _thirdValue );
-                    BindData( _filter );
+                    GetData( _filter );
                     UpdateLabelText( );
                     _sqlQuery = CreateSqlCommand( _filter );
                     SqlHeader.Text = _sqlQuery;
@@ -2694,7 +2694,7 @@ namespace BudgetExecution
                 {
                     ClearCategoryValueSelections( );
                     ClearSchemaSelections( );
-                    BindData( );
+                    GetData( );
                     QueryTabControl.SelectedIndex = 1;
                     DataGrid.PascalizeHeaders( );
                     DataGrid.FormatColumns( );
@@ -2792,7 +2792,7 @@ namespace BudgetExecution
 
                 _sqlQuery = CreateSqlCommand( _selectedFields, _selectedNumerics, _filter );
                 SqlHeader.Text = _sqlQuery;
-                BindData( _selectedFields, _selectedNumerics, _filter );
+                GetData( _selectedFields, _selectedNumerics, _filter );
             }
             catch( Exception _ex )
             {

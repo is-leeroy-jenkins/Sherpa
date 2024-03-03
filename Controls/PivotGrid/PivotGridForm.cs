@@ -1205,7 +1205,7 @@ namespace BudgetExecution
         /// <summary>
         /// Binds the data.
         /// </summary>
-        private void BindData( )
+        private void GetData( )
         {
             try
             {
@@ -1227,7 +1227,7 @@ namespace BudgetExecution
         /// Binds the data.
         /// </summary>
         /// <param name="sqlText">The SQL text.</param>
-        private void BindData( string sqlText )
+        private void GetData( string sqlText )
         {
             try
             {
@@ -1249,7 +1249,7 @@ namespace BudgetExecution
         /// Binds the data.
         /// </summary>
         /// <param name="where">The where.</param>
-        private void BindData( IDictionary<string, object> where )
+        private void GetData( IDictionary<string, object> where )
         {
             try
             {
@@ -1275,7 +1275,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="cols">The cols.</param>
         /// <param name="where">The where.</param>
-        private void BindData( IEnumerable<string> cols, IDictionary<string, object> where )
+        private void GetData( IEnumerable<string> cols, IDictionary<string, object> where )
         {
             try
             {
@@ -1301,7 +1301,7 @@ namespace BudgetExecution
         /// <param name="fields">The fields.</param>
         /// <param name="numerics">The numerics.</param>
         /// <param name="where">The where.</param>
-        private void BindData( IEnumerable<string> fields, IEnumerable<string> numerics,
+        private void GetData( IEnumerable<string> fields, IEnumerable<string> numerics,
             IDictionary<string, object> where )
         {
             try
@@ -1807,7 +1807,7 @@ namespace BudgetExecution
                     var _title = _listBox.SelectedValue?.ToString( );
                     _selectedTable = _title?.Replace( " ", "" );
                     _source = (Source)Enum.Parse( typeof( Source ), _selectedTable );
-                    BindData( );
+                    GetData( );
                     BindChart( );
                     UpdateLabelText( );
                 }
@@ -1938,7 +1938,7 @@ namespace BudgetExecution
                     ClearSelections( );
                     ClearListBoxes( );
                     ClearComboBoxes( );
-                    BindData( );
+                    GetData( );
                     TabControl.SelectedIndex = 1;
                     UpdateLabelText( );
                 }

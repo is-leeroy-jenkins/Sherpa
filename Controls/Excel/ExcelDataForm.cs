@@ -784,8 +784,11 @@ namespace BudgetExecution
             MaximizeBox = false;
             ControlBox = false;
 
-            // Budget Attributes
+            // Data Attributes
             _filter = new Dictionary<string, object>( );
+            _fields = new List<string>( );
+            _columns = new List<string>( );
+            _numerics = new List<string>( );
             _selectedColumns = new List<string>( );
             _selectedFields = new List<string>( );
             _selectedNumerics = new List<string>( );
@@ -854,8 +857,9 @@ namespace BudgetExecution
         {
             _dataTable = dataTable;
             BindingSource.DataSource = dataTable;
-            _source = (Source)Enum.Parse( typeof( Source ), _dataTable.TableName );
-            Header.Text = $"{DataTable.TableName.SplitPascal( )} ";
+            _selectedTable = dataTable.TableName;
+            _source = (Source)Enum.Parse( typeof( Source ), dataTable.TableName );
+            Header.Text = $"{dataTable.TableName.SplitPascal( )} ";
         }
 
         /// <summary>
@@ -1323,7 +1327,7 @@ namespace BudgetExecution
         /// <summary>
         /// Notifies this instance.
         /// </summary>
-        private void SendMessage( string message )
+        private void PostMessage( string message )
         {
             try
             {
@@ -2042,7 +2046,7 @@ namespace BudgetExecution
         /// <summary>
         /// Binds the data.
         /// </summary>
-        private void BindData( )
+        private void GetData( )
         {
             try
             {
@@ -2066,7 +2070,7 @@ namespace BudgetExecution
         /// <param name="where">
         /// The where.
         /// </param>
-        private void BindData( IDictionary<string, object> where )
+        private void GetData( IDictionary<string, object> where )
         {
             try
             {
@@ -2091,7 +2095,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="cols">The cols.</param>
         /// <param name="where">The where.</param>
-        private void BindData( IEnumerable<string> cols, IDictionary<string, object> where )
+        private void GetData( IEnumerable<string> cols, IDictionary<string, object> where )
         {
             try
             {
@@ -2118,7 +2122,7 @@ namespace BudgetExecution
         /// <param name="fields">The fields.</param>
         /// <param name="numerics">The numerics.</param>
         /// <param name="where">The where.</param>
-        private void BindData( IEnumerable<string> fields, IEnumerable<string> numerics,
+        private void GetData( IEnumerable<string> fields, IEnumerable<string> numerics,
             IDictionary<string, object> where )
         {
             try
