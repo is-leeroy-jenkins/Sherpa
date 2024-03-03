@@ -577,7 +577,7 @@
             TextBox.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             TextBox.Name = "TextBox";
             TextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            TextBox.Size = new System.Drawing.Size( 172, 25 );
+            TextBox.Size = new System.Drawing.Size( 168, 25 );
             TextBox.Tag = "";
             TextBox.Text = "Enter Keywords";
             TextBox.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -595,14 +595,14 @@
             // 
             LookupButton.AutoToolTip = false;
             LookupButton.BackColor = System.Drawing.Color.Transparent;
-            LookupButton.BindingSource = null;
+            LookupButton.BindingSource = BindingSource;
             LookupButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             LookupButton.Field = Field.AccountCode;
             LookupButton.Filter = null;
             LookupButton.Font = new System.Drawing.Font( "Roboto", 9F );
             LookupButton.ForeColor = System.Drawing.Color.LightGray;
-            LookupButton.HoverText = "Look-up";
-            LookupButton.Image = Resources.Images.ToolStripImages.LookupButton;
+            LookupButton.HoverText = "Begin Search";
+            LookupButton.Image = Resources.Images.ToolStripImages.GoButton;
             LookupButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             LookupButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             LookupButton.Name = "LookupButton";

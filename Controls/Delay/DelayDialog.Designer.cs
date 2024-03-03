@@ -99,8 +99,23 @@ partial class DelayDialog
     }
 
     #endregion
+    /// <summary>
+    /// The binding source
+    /// </summary>
     public System.Windows.Forms.BindingSource BindingSource;
+
+    /// <summary>
+    /// The timer
+    /// </summary>
     public System.Windows.Forms.Timer Timer;
+
+    /// <summary>
+    /// The PictureBox
+    /// </summary>
     public System.Windows.Forms.PictureBox PictureBox;
+
+    /// <summary>
+    /// The image list
+    /// </summary>
     public ImageList ImageList;
 }

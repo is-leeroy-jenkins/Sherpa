@@ -420,15 +420,54 @@ namespace BudgetExecution
 
         #endregion
 
+        /// <summary>
+        /// The close button
+        /// </summary>
         public Button CloseButton;
+
+        /// <summary>
+        /// The save button
+        /// </summary>
         public Button SaveButton;
+
+        /// <summary>
+        /// The clear button
+        /// </summary>
         public Button ClearButton;
-        private System.Windows.Forms.TableLayoutPanel FormTable;
+
+        /// <summary>
+        /// The form table
+        /// </summary>
+        public System.Windows.Forms.TableLayoutPanel FormTable;
+
+        /// <summary>
+        /// The title table
+        /// </summary>
         public System.Windows.Forms.TableLayoutPanel TitleTable;
+
+        /// <summary>
+        /// The button table
+        /// </summary>
         public System.Windows.Forms.TableLayoutPanel ButtonTable;
+
+        /// <summary>
+        /// The editor panel
+        /// </summary>
         public BackPanel EditorPanel;
+
+        /// <summary>
+        /// The title
+        /// </summary>
         public Label Title;
+
+        /// <summary>
+        /// The PictureBox
+        /// </summary>
         public Picture PictureBox;
+
+        /// <summary>
+        /// The editor
+        /// </summary>
         public Editor Editor;
     }
 }

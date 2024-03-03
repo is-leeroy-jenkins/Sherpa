@@ -234,12 +234,36 @@ partial class MinionSelector
 
     #endregion
 
+    /// <summary>
+    /// The header
+    /// </summary>
     public Label Header;
+    /// <summary>
+    /// The close button
+    /// </summary>
     public Button CloseButton;
+    /// <summary>
+    /// The tool tip
+    /// </summary>
     public SmallTip ToolTip;
+    /// <summary>
+    /// The image list
+    /// </summary>
     public ImageList ImageList;
+    /// <summary>
+    /// The carousel
+    /// </summary>
     private Carousel Carousel;
+    /// <summary>
+    /// The selector table
+    /// </summary>
     private System.Windows.Forms.TableLayoutPanel SelectorTable;
+    /// <summary>
+    /// The selection panel
+    /// </summary>
     private BackPanel SelectionPanel;
+    /// <summary>
+    /// The timer
+    /// </summary>
     public System.Windows.Forms.Timer Timer;
 }

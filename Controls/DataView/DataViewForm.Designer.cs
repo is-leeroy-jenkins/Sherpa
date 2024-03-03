@@ -2380,109 +2380,421 @@
 
         #endregion
 
+        /// <summary>
+        /// The header table
+        /// </summary>
         public System.Windows.Forms.TableLayoutPanel HeaderTable;
-        private Label Title;
+        /// <summary>
+        /// The title
+        /// </summary>
+        public Label Title;
+        /// <summary>
+        /// The PictureBox
+        /// </summary>
         public System.Windows.Forms.PictureBox PictureBox;
+        /// <summary>
+        /// The tool strip table
+        /// </summary>
         public System.Windows.Forms.TableLayoutPanel ToolStripTable;
+        /// <summary>
+        /// The tool strip
+        /// </summary>
         public ToolStrip ToolStrip;
+        /// <summary>
+        /// The edit record button
+        /// </summary>
         public ToolStripButton EditRecordButton;
+        /// <summary>
+        /// The edit SQL button
+        /// </summary>
         public ToolStripButton EditSqlButton;
+        /// <summary>
+        /// The edit column button
+        /// </summary>
         public ToolStripButton EditColumnButton;
+        /// <summary>
+        /// The first button
+        /// </summary>
         public ToolStripButton FirstButton;
+        /// <summary>
+        /// The text box separator
+        /// </summary>
         public ToolSeparator TextBoxSeparator;
+        /// <summary>
+        /// The first separator
+        /// </summary>
         public ToolSeparator FirstSeparator;
+        /// <summary>
+        /// The previous button
+        /// </summary>
         public ToolStripButton PreviousButton;
+        /// <summary>
+        /// The previous separator
+        /// </summary>
         public ToolSeparator PreviousSeparator;
+        /// <summary>
+        /// The next button
+        /// </summary>
         public ToolStripButton NextButton;
+        /// <summary>
+        /// The next separator
+        /// </summary>
         public ToolSeparator NextSeparator;
+        /// <summary>
+        /// The remove filters button
+        /// </summary>
         public ToolStripButton RemoveFiltersButton;
+        /// <summary>
+        /// The edit record separator
+        /// </summary>
         public ToolSeparator EditRecordSeparator;
+        /// <summary>
+        /// The refresh data button
+        /// </summary>
         public ToolStripButton RefreshDataButton;
+        /// <summary>
+        /// The edit column separator
+        /// </summary>
         public ToolSeparator EditColumnSeparator;
+        /// <summary>
+        /// The group button
+        /// </summary>
         public ToolStripButton GroupButton;
+        /// <summary>
+        /// The refresh data separator
+        /// </summary>
         public ToolSeparator RefreshDataSeparator;
+        /// <summary>
+        /// The command label separator
+        /// </summary>
         public ToolSeparator CommandLabelSeparator;
+        /// <summary>
+        /// The group separator
+        /// </summary>
         public ToolSeparator GroupSeparator;
+        /// <summary>
+        /// The column separator
+        /// </summary>
         public ToolSeparator ColumnSeparator;
+        /// <summary>
+        /// The edit SQL separator
+        /// </summary>
         public ToolSeparator EditSqlSeparator;
+        /// <summary>
+        /// The chart separator
+        /// </summary>
         public ToolSeparator ChartSeparator;
+        /// <summary>
+        /// The excel import button
+        /// </summary>
         public ToolStripButton ExcelImportButton;
+        /// <summary>
+        /// The excel import separator
+        /// </summary>
         public ToolSeparator ExcelImportSeparator;
+        /// <summary>
+        /// The calendar button
+        /// </summary>
         public ToolStripButton CalendarButton;
+        /// <summary>
+        /// The guidance separator
+        /// </summary>
         public ToolSeparator GuidanceSeparator;
+        /// <summary>
+        /// The browse button
+        /// </summary>
         public ToolStripButton BrowseButton;
+        /// <summary>
+        /// The browse separator
+        /// </summary>
         public ToolSeparator BrowseSeparator;
+        /// <summary>
+        /// The web button
+        /// </summary>
         public ToolStripButton WebButton;
+        /// <summary>
+        /// The exit button
+        /// </summary>
         public ToolStripButton ExitButton;
+        /// <summary>
+        /// The back separator
+        /// </summary>
         public ToolSeparator BackSeparator;
+        /// <summary>
+        /// The menu button
+        /// </summary>
         public ToolStripButton MenuButton;
+        /// <summary>
+        /// The menu separator
+        /// </summary>
         public ToolSeparator MenuSeparator;
+        /// <summary>
+        /// The exit separator
+        /// </summary>
         public ToolSeparator ExitSeparator;
+        /// <summary>
+        /// The binding source
+        /// </summary>
         public System.Windows.Forms.BindingSource BindingSource;
+        /// <summary>
+        /// The timer
+        /// </summary>
         public System.Windows.Forms.Timer Timer;
+        /// <summary>
+        /// The tool tip
+        /// </summary>
         public SmallTip ToolTip;
-        private HeaderPanel GridHeaderPanel;
+        /// <summary>
+        /// The grid header panel
+        /// </summary>
+        public HeaderPanel GridHeaderPanel;
+        /// <summary>
+        /// The data label table
+        /// </summary>
         public System.Windows.Forms.TableLayoutPanel DataLabelTable;
+        /// <summary>
+        /// The second grid label
+        /// </summary>
         public Label SecondGridLabel;
+        /// <summary>
+        /// The fourth grid label
+        /// </summary>
         public Label FourthGridLabel;
+        /// <summary>
+        /// The first grid label
+        /// </summary>
         public Label FirstGridLabel;
+        /// <summary>
+        /// The third grid label
+        /// </summary>
         public Label ThirdGridLabel;
-        private TabControl GridTabControl;
-        private Syncfusion.Windows.Forms.Tools.TabPageAdv Ready;
+        /// <summary>
+        /// The grid tab control
+        /// </summary>
+        public TabControl GridTabControl;
+        /// <summary>
+        /// The ready
+        /// </summary>
+        public Syncfusion.Windows.Forms.Tools.TabPageAdv Ready;
+        /// <summary>
+        /// The data grid panel
+        /// </summary>
         public BackPanel DataGridPanel;
-        private Syncfusion.Windows.Forms.Tools.TabPageAdv Busy;
+        /// <summary>
+        /// The busy
+        /// </summary>
+        public Syncfusion.Windows.Forms.Tools.TabPageAdv Busy;
+        /// <summary>
+        /// The loader
+        /// </summary>
         public System.Windows.Forms.PictureBox Loader;
+        /// <summary>
+        /// The selection tab control
+        /// </summary>
         public TabControl SelectionTabControl;
+        /// <summary>
+        /// The table tab page
+        /// </summary>
         public Syncfusion.Windows.Forms.Tools.TabPageAdv TableTabPage;
+        /// <summary>
+        /// The source table
+        /// </summary>
         public HeaderPanel SourceTable;
+        /// <summary>
+        /// The table ComboBox
+        /// </summary>
         public ComboBox TableComboBox;
+        /// <summary>
+        /// The table panel
+        /// </summary>
         public BackPanel TablePanel;
+        /// <summary>
+        /// The table ListBox
+        /// </summary>
         public ListBox TableListBox;
+        /// <summary>
+        /// The filter tab page
+        /// </summary>
         public Syncfusion.Windows.Forms.Tools.TabPageAdv FilterTabPage;
+        /// <summary>
+        /// The filter table
+        /// </summary>
         public System.Windows.Forms.TableLayoutPanel FilterTable;
+        /// <summary>
+        /// The second table
+        /// </summary>
         public HeaderPanel SecondTable;
+        /// <summary>
+        /// The second ListBox panel
+        /// </summary>
         public BackPanel SecondListBoxPanel;
+        /// <summary>
+        /// The second ListBox
+        /// </summary>
         public ListBox SecondListBox;
+        /// <summary>
+        /// The second ComboBox
+        /// </summary>
         public ComboBox SecondComboBox;
+        /// <summary>
+        /// The first table
+        /// </summary>
         public HeaderPanel FirstTable;
+        /// <summary>
+        /// The first ComboBox
+        /// </summary>
         public ComboBox FirstComboBox;
+        /// <summary>
+        /// The first ListBox panel
+        /// </summary>
         public BackPanel FirstListBoxPanel;
+        /// <summary>
+        /// The first ListBox
+        /// </summary>
         public ListBox FirstListBox;
+        /// <summary>
+        /// The third table
+        /// </summary>
         public HeaderPanel ThirdTable;
+        /// <summary>
+        /// The third ListBox panel
+        /// </summary>
         public BackPanel ThirdListBoxPanel;
+        /// <summary>
+        /// The third ListBox
+        /// </summary>
         public ListBox ThirdListBox;
+        /// <summary>
+        /// The third ComboBox
+        /// </summary>
         public ComboBox ThirdComboBox;
+        /// <summary>
+        /// The group tab page
+        /// </summary>
         public Syncfusion.Windows.Forms.Tools.TabPageAdv GroupTabPage;
+        /// <summary>
+        /// The numerics table
+        /// </summary>
         public HeaderPanel NumericsTable;
+        /// <summary>
+        /// The numeric panel
+        /// </summary>
         public BackPanel NumericPanel;
+        /// <summary>
+        /// The numeric ListBox
+        /// </summary>
         public ListBox NumericListBox;
+        /// <summary>
+        /// The fields table
+        /// </summary>
         public HeaderPanel FieldsTable;
+        /// <summary>
+        /// The field panel
+        /// </summary>
         public BackPanel FieldPanel;
+        /// <summary>
+        /// The field ListBox
+        /// </summary>
         public ListBox FieldListBox;
+        /// <summary>
+        /// The calendar tab page
+        /// </summary>
         public Syncfusion.Windows.Forms.Tools.TabPageAdv CalendarTabPage;
+        /// <summary>
+        /// The time span table
+        /// </summary>
         public System.Windows.Forms.TableLayoutPanel TimeSpanTable;
+        /// <summary>
+        /// The second calendar table
+        /// </summary>
         public HeaderPanel SecondCalendarTable;
+        /// <summary>
+        /// The second calendar panel
+        /// </summary>
         public BackPanel SecondCalendarPanel;
+        /// <summary>
+        /// The second calendar
+        /// </summary>
         public Syncfusion.WinForms.Input.SfCalendar SecondCalendar;
-        private HeaderPanel FirstCalendarTable;
+        /// <summary>
+        /// The first calendar table
+        /// </summary>
+        public HeaderPanel FirstCalendarTable;
+        /// <summary>
+        /// The first calendar panel
+        /// </summary>
         public BackPanel FirstCalendarPanel;
+        /// <summary>
+        /// The first calendar
+        /// </summary>
         public Syncfusion.WinForms.Input.SfCalendar FirstCalendar;
+        /// <summary>
+        /// The provider table
+        /// </summary>
         public System.Windows.Forms.TableLayoutPanel ProviderTable;
+        /// <summary>
+        /// The sq lite RadioButton
+        /// </summary>
         public RadioButton SQLiteRadioButton;
+        /// <summary>
+        /// The SQL server RadioButton
+        /// </summary>
         public RadioButton SqlServerRadioButton;
+        /// <summary>
+        /// The access RadioButton
+        /// </summary>
         public RadioButton AccessRadioButton;
+        /// <summary>
+        /// The SQL ce RadioButton
+        /// </summary>
         public RadioButton SqlCeRadioButton;
+        /// <summary>
+        /// The context menu
+        /// </summary>
         public ContextMenu ContextMenu;
+        /// <summary>
+        /// The navigation separator
+        /// </summary>
         public ToolSeparator NavigationSeparator;
+        /// <summary>
+        /// The status label
+        /// </summary>
         public ToolStripLabel StatusLabel;
+        /// <summary>
+        /// The navigation label
+        /// </summary>
         public ToolStripLabel NavigationLabel;
+        /// <summary>
+        /// The last button
+        /// </summary>
         public ToolStripButton LastButton;
+        /// <summary>
+        /// The data spacer
+        /// </summary>
         public ToolStripLabel DataSpacer;
+        /// <summary>
+        /// The data label
+        /// </summary>
         public ToolStripLabel DataLabel;
+        /// <summary>
+        /// The data separator
+        /// </summary>
         public ToolSeparator DataSeparator;
+        /// <summary>
+        /// The file system spacer
+        /// </summary>
         public ToolStripLabel FileSysSpacer;
+        /// <summary>
+        /// The file system label
+        /// </summary>
         public ToolStripLabel FileSysLabel;
+        /// <summary>
+        /// The application label
+        /// </summary>
         public ToolStripLabel ApplicationLabel;
+        /// <summary>
+        /// The data grid
+        /// </summary>
         public DataView DataGrid;
     }
 }

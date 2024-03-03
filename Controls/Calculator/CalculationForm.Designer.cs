@@ -281,15 +281,45 @@ namespace BudgetExecution
 
         #endregion
 
+        /// <summary>
+        /// The top panel
+        /// </summary>
         private BackPanel TopPanel;
+        /// <summary>
+        /// The image
+        /// </summary>
         private Picture Image;
+        /// <summary>
+        /// The value label
+        /// </summary>
         private Label ValueLabel;
+        /// <summary>
+        /// The calculator panel
+        /// </summary>
         private BackPanel CalculatorPanel;
+        /// <summary>
+        /// The calculator
+        /// </summary>
         public Syncfusion.Windows.Forms.Tools.CalculatorControl Calculator;
+        /// <summary>
+        /// The close button
+        /// </summary>
         public Button CloseButton;
+        /// <summary>
+        /// The calculator table
+        /// </summary>
         private System.Windows.Forms.TableLayoutPanel CalculatorTable;
+        /// <summary>
+        /// The top table
+        /// </summary>
         private System.Windows.Forms.TableLayoutPanel TopTable;
+        /// <summary>
+        /// The button table
+        /// </summary>
         private System.Windows.Forms.TableLayoutPanel ButtonTable;
+        /// <summary>
+        /// The timer
+        /// </summary>
         public System.Windows.Forms.Timer Timer;
     }
 }

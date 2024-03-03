@@ -316,6 +316,9 @@
   <data name="ShutdownButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\ToolStripImages\ShutdownButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="SqlButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\ToolStripImages\SqlButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="StopButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\ToolStripImages\StopButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

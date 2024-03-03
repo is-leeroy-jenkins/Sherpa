@@ -41,6 +41,7 @@
 //  </summary>
 //  ******************************************************************************************
 
+// ReSharper disable All
 namespace BudgetExecution
 {
     using System;

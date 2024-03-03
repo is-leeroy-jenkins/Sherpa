@@ -362,20 +362,79 @@ namespace BudgetExecution
         }
 
         #endregion
+        /// <summary>
+        /// The tool tip
+        /// </summary>
         public SmallTip ToolTip;
+
+        /// <summary>
+        /// The binding source
+        /// </summary>
         public BindingSource BindingSource;
+
+        /// <summary>
+        /// The timer
+        /// </summary>
         public System.Windows.Forms.Timer Timer;
+
+        /// <summary>
+        /// The button table
+        /// </summary>
         public TableLayoutPanel ButtonTable;
-        private TableLayoutPanel MessageTable;
+
+        /// <summary>
+        /// The message table
+        /// </summary>
+        public TableLayoutPanel MessageTable;
+
+        /// <summary>
+        /// The text box
+        /// </summary>
         public System.Windows.Forms.RichTextBox TextBox;
-        private Button CloseButton;
+
+        /// <summary>
+        /// The close button
+        /// </summary>
+        public Button CloseButton;
+
+        /// <summary>
+        /// The header table
+        /// </summary>
         public TableLayoutPanel HeaderTable;
+
+        /// <summary>
+        /// The PictureBox
+        /// </summary>
         public PictureBox PictureBox;
+
+        /// <summary>
+        /// The title
+        /// </summary>
         public Label Title;
+
+        /// <summary>
+        /// The select button
+        /// </summary>
         public Button SelectButton;
+
+        /// <summary>
+        /// The browse button
+        /// </summary>
         public Button BrowseButton;
+
+        /// <summary>
+        /// The open dialog
+        /// </summary>
         public OpenDialog OpenDialog;
+
+        /// <summary>
+        /// The save dialog
+        /// </summary>
         public SaveDialog SaveDialog;
+
+        /// <summary>
+        /// The save button
+        /// </summary>
         public Button SaveButton;
     }
 

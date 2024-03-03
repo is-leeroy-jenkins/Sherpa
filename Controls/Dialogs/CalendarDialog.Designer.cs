@@ -262,13 +262,44 @@
             ResumeLayout( false );
         }
 
+        /// <summary>
+        /// The calendar
+        /// </summary>
         public Syncfusion.WinForms.Input.SfCalendar Calendar;
+
+        /// <summary>
+        /// The tool tip
+        /// </summary>
         public SmallTip ToolTip;
+
+        /// <summary>
+        /// The binding source
+        /// </summary>
         public BindingSource BindingSource;
+
+        /// <summary>
+        /// The close button
+        /// </summary>
         public Button CloseButton;
+
+        /// <summary>
+        /// The PictureBox
+        /// </summary>
         public PictureBox PictureBox;
+
+        /// <summary>
+        /// The header
+        /// </summary>
         public TableLayoutPanel Header;
+
+        /// <summary>
+        /// The header label
+        /// </summary>
         public Label HeaderLabel;
+
+        /// <summary>
+        /// The select button
+        /// </summary>
         public Button SelectButton;
     }
 }

@@ -171,6 +171,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Resources\Images\MathImages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>MathImages.resx</DependentUpon>
+    </Compile>
     <Compile Update="Resources\Images\DialogImages.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -229,6 +234,10 @@
     <Compile Remove="WebBrowser\**" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Update="Resources\Images\MathImages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MathImages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Update="Resources\Images\DialogImages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>DialogImages.Designer.cs</LastGenOutput>

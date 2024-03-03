@@ -260,6 +260,8 @@ namespace BudgetExecution
         {
             try
             {
+                ThrowIf.NegativeOrZero( width, nameof( width ) );
+                ThrowIf.NegativeOrZero( height, nameof( height ) );
                 Size = new Size( width, height );
             }
             catch( Exception _ex )
@@ -276,6 +278,7 @@ namespace BudgetExecution
         {
             try
             {
+                ThrowIf.Null( text, nameof( text ) );
                 Text = text;
             }
             catch( Exception _ex )
@@ -296,6 +299,8 @@ namespace BudgetExecution
             {
                 try
                 {
+                    ThrowIf.NegativeOrZero( x, nameof( x ) );
+                    ThrowIf.NegativeOrZero( y, nameof( y ) );
                     Location = new Point( x, y );
                 }
                 catch( Exception _ex )

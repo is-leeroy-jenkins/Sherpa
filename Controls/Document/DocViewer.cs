@@ -789,7 +789,7 @@ namespace BudgetExecution
         /// Sends the notification.
         /// </summary>
         /// <param name="message">The message.</param>
-        private void SendNotification( string message )
+        private void PostMessage( string message )
         {
             try
             {

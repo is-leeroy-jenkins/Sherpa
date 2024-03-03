@@ -46,9 +46,16 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using MetroSet_UI.Controls;
 
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="MetroSet_UI.Controls.MetroSetControlBox" />
+    [SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class ControlBox : MetroSetControlBox
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ControlBox"/> class.
+        /// </summary>
         public ControlBox( )
         {
             Font = new Font( "Roboto", 9 );
