@@ -45,6 +45,7 @@
             Timer = new System.Windows.Forms.Timer( components );
             MessageLabel = new Label( );
             ButtonTable = new System.Windows.Forms.TableLayoutPanel( );
+            ClearButton = new Button( );
             TextBoxLayout.SuspendLayout( );
             TopTablePanel.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
@@ -65,7 +66,7 @@
             TextBoxLayout.Controls.Add( FoundLabel, 0, 0 );
             TextBoxLayout.Dock = System.Windows.Forms.DockStyle.Top;
             TextBoxLayout.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            TextBoxLayout.Location = new System.Drawing.Point( 1, 65 );
+            TextBoxLayout.Location = new System.Drawing.Point( 1, 63 );
             TextBoxLayout.Margin = new System.Windows.Forms.Padding( 5 );
             TextBoxLayout.Name = "TextBoxLayout";
             TextBoxLayout.Padding = new System.Windows.Forms.Padding( 1 );
@@ -143,7 +144,7 @@
             TopTablePanel.Name = "TopTablePanel";
             TopTablePanel.RowCount = 1;
             TopTablePanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            TopTablePanel.Size = new System.Drawing.Size( 686, 64 );
+            TopTablePanel.Size = new System.Drawing.Size( 686, 62 );
             TopTablePanel.TabIndex = 11;
             // 
             // PictureBox
@@ -200,7 +201,7 @@
             SelectButton.HoverText = null;
             SelectButton.HoverTextColor = System.Drawing.Color.White;
             SelectButton.IsDerivedStyle = true;
-            SelectButton.Location = new System.Drawing.Point( 313, 3 );
+            SelectButton.Location = new System.Drawing.Point( 394, 3 );
             SelectButton.Name = "SelectButton";
             SelectButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             SelectButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
@@ -232,7 +233,7 @@
             FindButton.HoverText = null;
             FindButton.HoverTextColor = System.Drawing.Color.White;
             FindButton.IsDerivedStyle = true;
-            FindButton.Location = new System.Drawing.Point( 37, 3 );
+            FindButton.Location = new System.Drawing.Point( 34, 3 );
             FindButton.Name = "FindButton";
             FindButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             FindButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
@@ -264,7 +265,7 @@
             CloseButton.HoverText = null;
             CloseButton.HoverTextColor = System.Drawing.Color.White;
             CloseButton.IsDerivedStyle = true;
-            CloseButton.Location = new System.Drawing.Point( 582, 3 );
+            CloseButton.Location = new System.Drawing.Point( 576, 3 );
             CloseButton.Name = "CloseButton";
             CloseButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             CloseButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
@@ -327,14 +328,15 @@
             ButtonTable.ColumnCount = 7;
             ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 18.2242985F ) );
             ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 81.7757F ) );
-            ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 123F ) );
-            ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 181F ) );
-            ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 27F ) );
-            ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 61F ) );
-            ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 106F ) );
+            ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 35F ) );
+            ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 185F ) );
+            ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 127F ) );
+            ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 55F ) );
+            ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 112F ) );
+            ButtonTable.Controls.Add( ClearButton, 3, 0 );
             ButtonTable.Controls.Add( FindButton, 1, 0 );
-            ButtonTable.Controls.Add( SelectButton, 3, 0 );
             ButtonTable.Controls.Add( CloseButton, 6, 0 );
+            ButtonTable.Controls.Add( SelectButton, 4, 0 );
             ButtonTable.Dock = System.Windows.Forms.DockStyle.Bottom;
             ButtonTable.Location = new System.Drawing.Point( 1, 404 );
             ButtonTable.Name = "ButtonTable";
@@ -342,6 +344,38 @@
             ButtonTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             ButtonTable.Size = new System.Drawing.Size( 686, 35 );
             ButtonTable.TabIndex = 21;
+            // 
+            // ClearButton
+            // 
+            ClearButton.BindingSource = null;
+            ClearButton.DataFilter = null;
+            ClearButton.DisabledBackColor = System.Drawing.Color.Transparent;
+            ClearButton.DisabledBorderColor = System.Drawing.Color.Transparent;
+            ClearButton.DisabledForeColor = System.Drawing.Color.Transparent;
+            ClearButton.Font = new System.Drawing.Font( "Roboto", 8F );
+            ClearButton.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            ClearButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            ClearButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
+            ClearButton.HoverText = null;
+            ClearButton.HoverTextColor = System.Drawing.Color.White;
+            ClearButton.IsDerivedStyle = true;
+            ClearButton.Location = new System.Drawing.Point( 209, 3 );
+            ClearButton.Name = "ClearButton";
+            ClearButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
+            ClearButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
+            ClearButton.NormalTextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ClearButton.Padding = new System.Windows.Forms.Padding( 1 );
+            ClearButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            ClearButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            ClearButton.PressTextColor = System.Drawing.Color.White;
+            ClearButton.Size = new System.Drawing.Size( 90, 29 );
+            ClearButton.Style = MetroSet_UI.Enums.Style.Custom;
+            ClearButton.StyleManager = null;
+            ClearButton.TabIndex = 22;
+            ClearButton.Text = "Clear";
+            ClearButton.ThemeAuthor = "Terry D. Eppler";
+            ClearButton.ThemeName = "Budget Execution";
+            ClearButton.ToolTip = null;
             // 
             // FolderDialog
             // 
@@ -384,5 +418,6 @@
         public System.Windows.Forms.Timer Timer;
         public Label MessageLabel;
         public System.Windows.Forms.TableLayoutPanel ButtonTable;
+        public Button ClearButton;
     }
 }

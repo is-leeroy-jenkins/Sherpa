@@ -219,31 +219,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Invokes if needed.
-        /// </summary>
-        /// <param name="action">
-        /// The action.
-        /// </param>
-        public void InvokeIf( Action action )
-        {
-            try
-            {
-                if( InvokeRequired )
-                {
-                    BeginInvoke( action );
-                }
-                else
-                {
-                    action.Invoke( );
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Displays the control to the user.
         /// </summary>
         public new void Show( )

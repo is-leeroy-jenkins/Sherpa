@@ -650,6 +650,7 @@ namespace BudgetExecution
             {
                 var _radioButton = sender as RadioButton;
                 _fileExtension = _radioButton?.Result;
+                var _path = ConfigurationManager.AppSettings[ "ExtensionImages" ];
                 var _ext = _radioButton.Tag?.ToString( )
                     ?.Trim( ".".ToCharArray( ) )
                     ?.ToUpper( );
@@ -658,7 +659,7 @@ namespace BudgetExecution
                 Title.Text = $"{_ext} File Search";
                 FoundLabel.Text = "Found: " + _filePaths?.ToList( )?.Count ?? "0";
                 PopulateListBox( );
-                SetImage( );
+                PictureBox.ImageLocation = _path + $@"\{_ext.ToUpper( )}.png";
             }
             catch( Exception _ex )
             {
@@ -695,29 +696,26 @@ namespace BudgetExecution
         /// instance containing the event data.</param>
         private protected virtual void OnBrowseButtonClicked( object sender, EventArgs e )
         {
-            if( sender is Button )
+            try
             {
-                try
+                OpenDialog.DefaultExt = _fileExtension;
+                OpenDialog.CheckFileExists = true;
+                OpenDialog.CheckPathExists = true;
+                OpenDialog.Multiselect = false;
+                var _ext = _fileExtension.ToLower( );
+                OpenDialog.Filter = $@"File Extension | *{_ext}";
+                OpenDialog.Title = $@"Search Directories for *{_ext} files...";
+                OpenDialog.InitialDirectory = GetFolderPath( SpecialFolder.DesktopDirectory );
+                OpenDialog.ShowDialog( );
+                _selectedPath = OpenDialog.FileName;
+                if( !string.IsNullOrEmpty( _selectedPath ) )
                 {
-                    OpenDialog.DefaultExt = _fileExtension;
-                    OpenDialog.CheckFileExists = true;
-                    OpenDialog.CheckPathExists = true;
-                    OpenDialog.Multiselect = false;
-                    var _ext = _fileExtension.ToLower( );
-                    OpenDialog.Filter = $@"File Extension | *{_ext}";
-                    OpenDialog.Title = $@"Search Directories for *{_ext} files...";
-                    OpenDialog.InitialDirectory = GetFolderPath( SpecialFolder.DesktopDirectory );
-                    OpenDialog.ShowDialog( );
-                    _selectedPath = OpenDialog.FileName;
-                    if( !string.IsNullOrEmpty( _selectedPath ) )
-                    {
-                        SelectedPath = _selectedPath;
-                    }
+                    SelectedPath = _selectedPath;
                 }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
