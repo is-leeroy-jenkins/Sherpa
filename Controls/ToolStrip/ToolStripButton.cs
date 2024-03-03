@@ -115,7 +115,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _path = AppSettings[ nameof( ToolStrip ) ] + $"{toolType}.png";
+                    var _path = AppSettings[ "ToolStripImages" ] + @$"\{toolType}.png";
                     if( File.Exists( _path ) )
                     {
                         using var _stream = File.Open( _path, FileMode.Open );
@@ -268,25 +268,6 @@ namespace BudgetExecution
                         {
                             break;
                         }
-                        case ToolType.ImportDatabaseButton:
-                        case ToolType.ImportButton:
-                        case ToolType.CsvImportButton:
-                        case ToolType.PdfImportButton:
-                        case ToolType.ExcelImportButton:
-                        {
-                            var _fileDialog = new FileDialog( );
-                            _fileDialog.ShowDialog( );
-                            break;
-                        }
-                        case ToolType.ExcelButton:
-                        {
-                            var _excel =
-                                @"C:\Users\terry\source\repos\BudgetExecution\Resources\Reports\Template.xlsx";
-
-                            using var _excelForm = new ExcelDataForm( _excel );
-                            _excelForm?.ShowDialog( );
-                            break;
-                        }
                         case ToolType.InsertButton:
                         case ToolType.UpdateButton:
                         {
@@ -295,6 +276,12 @@ namespace BudgetExecution
                             break;
                         }
                         case ToolType.GoButton:
+                        case ToolType.ExcelButton:
+                        case ToolType.ImportDatabaseButton:
+                        case ToolType.ImportButton:
+                        case ToolType.CsvImportButton:
+                        case ToolType.PdfImportButton:
+                        case ToolType.ExcelImportButton:
                         case ToolType.GoogleButton:
                         case ToolType.BlueToothButton:
                         case ToolType.CancelRequestButton:
@@ -331,25 +318,19 @@ namespace BudgetExecution
                         case ToolType.UploadDataButton:
                         case ToolType.UndoButton:
                         case ToolType.WordButton:
+                        case ToolType.WebButton:
+                        case ToolType.BrowseButton:
                         case ToolType.RefreshButton:
                         {
-                            var _notification = new Notification( "NOT YET IMPLEMENTED!" );
-                            _notification.Show( );
                             break;
                         }
                         case ToolType.CalculatorButton:
                         {
-                            using var _calculator = new CalculationForm( );
+                            var _calculator = new CalculationForm( );
                             _calculator?.ShowDialog( );
                             break;
                         }
-                        case ToolType.BrowseButton:
-                        {
-                            var _browser = new FileDialog( );
-                            _browser?.ShowDialog( );
-                            break;
-                        }
-                        case ToolType.WebButton:
+                        default:
                         {
                             var _notification = new Notification( "NOT YET IMPLEMENTED!" );
                             _notification.Show( );

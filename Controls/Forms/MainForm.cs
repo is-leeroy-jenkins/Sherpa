@@ -526,6 +526,24 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Shows the dialogs.
+        /// </summary>
+        private void ShowDialogs( )
+        {
+            try
+            {
+                var _dialog = new FileDialog( );
+                _dialog.Owner = this;
+                _dialog.Show( );
+                Hide( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Creates the excel report.
         /// </summary>
         private void CreateExcelReport( )
@@ -1162,7 +1180,7 @@ namespace BudgetExecution
         /// </param>
         private void OnGuidanceTileClick( object sender, EventArgs e )
         {
-            ShowGuidanceDialog( );
+            OpenDocumentViewer( );
         }
 
         /// <summary>

@@ -422,6 +422,7 @@ namespace BudgetExecution
                 BrowseButton.Click += OnFileBrowserClick;
                 LookupButton.Click += OnLookupButtonClick;
                 TextBox.MouseEnter += OnTextBoxEnter;
+                TextBox.MouseLeave += OnTextBoxLeave;
                 Timer.Tick += OnTimerTick;
             }
             catch( Exception _ex )
@@ -468,7 +469,7 @@ namespace BudgetExecution
                 TextBox.TextBox.Font = new Font( "Roboto", 10 );
                 TextBox.TextBox.Size = new Size( 180, 25 );
                 TextBox.TextBox.ForeColor = Color.White;
-                TextBox.TextBox.Text = "< Enter Keywords >";
+                TextBox.TextBox.Text = "     < Enter Keywords >     ";
                 TextBox.TextBoxTextAlign = HorizontalAlignment.Center;
             }
             catch( Exception _ex )
@@ -723,6 +724,8 @@ namespace BudgetExecution
                 if( PdfViewer.IsDocumentLoaded )
                 {
                     PdfViewer.Unload( );
+                    Title.Text = string.Empty;
+                    _selectedPath = string.Empty;
                 }
             }
             catch( Exception _ex )
@@ -1042,8 +1045,7 @@ namespace BudgetExecution
             try
             {
                 var _browser = new FileDialog( EXT.PDF );
-                _browser.TopMost = true;
-                _browser.Show( );
+                _browser.ShowDialog( this );
             }
             catch( Exception _ex )
             {
@@ -1103,6 +1105,27 @@ namespace BudgetExecution
                 if( !string.IsNullOrEmpty( _textBox.Text ) )
                 {
                     _textBox.Text = string.Empty;
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [text box leave].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnTextBoxLeave( object sender, EventArgs e )
+        {
+            try
+            {
+                var _textBox = sender as ToolStripTextBox;
+                if( string.IsNullOrEmpty( _textBox.Text ) )
+                {
+                    _textBox.Text = "     < Enter Keywords >     ";
                 }
             }
             catch( Exception _ex )

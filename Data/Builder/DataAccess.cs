@@ -226,7 +226,7 @@ namespace BudgetExecution
                 var _clock = Stopwatch.StartNew( );
                 _dataSet = new DataSet( $"{_provider}" );
                 _dataTable = new DataTable( $"{_source}" );
-                _dataTable.TableName = _source.ToString( );
+                _dataTable.TableName =_source.ToString( );
                 _dataSet.Tables.Add( _dataTable );
                 using var _query = new BudgetQuery( _sqlStatement );
                 using var _adapter = _query.DataAdapter;

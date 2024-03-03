@@ -45,11 +45,9 @@ namespace BudgetExecution
     using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.IO;
     using System.Linq;
     using System.Windows.Forms;
     using static System.Environment;
-    using CheckState = MetroSet_UI.Enums.CheckState;
 
     /// <inheritdoc />
     /// <summary>
@@ -269,10 +267,9 @@ namespace BudgetExecution
             ControlBox = false;
 
             // Budget Properties
-            _radioButtons = GetRadioButtons( );
             _extension = EXT.XLSX;
             _fileExtension = _extension.ToString( ).ToLower( );
-            _filePaths = CreateListViewFilePaths( );
+            _radioButtons = GetRadioButtons( );
             _searchPaths = new List<string>( );
 
             // Event Wiring
@@ -377,6 +374,41 @@ namespace BudgetExecution
                 Timer.Enabled = true;
                 Timer.Interval = 500;
                 Timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the radios.
+        /// </summary>
+        private void InitializeRadios( )
+        {
+            try
+            {
+                switch( _extension )
+                {
+                    case EXT.XLSX:
+                    {
+                        foreach( var _button in _radioButtons )
+                        {
+                            _button.Visible = true;
+                        }
+
+                        break;
+                    }
+                    default:
+                    {
+                        foreach( var _button in _radioButtons )
+                        {
+                            _button.Visible = false;
+                        }
+
+                        break;
+                    }
+                }
             }
             catch( Exception _ex )
             {
@@ -629,10 +661,12 @@ namespace BudgetExecution
                 InitializeDialogs( );
                 InitializeTimers( );
                 PopulateListBox( );
-                FoundLabel.Text = "Found : " + _filePaths?.Count( );
+                FoundLabel.Text = "Found : " + _filePaths?.Count;
                 Title.Text = $"{_extension} File Search";
                 ClearRadioButtons( );
                 RegisterRadioButtonEvents( );
+                SetImage( );
+                InitializeRadios( );
             }
             catch( Exception _ex )
             {
@@ -733,6 +767,28 @@ namespace BudgetExecution
                 {
                     FadeOut( );
                     Close( );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [clear button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private protected virtual void OnClearButtonClicked( object sender, EventArgs e )
+        {
+            if( sender is Button )
+            {
+                try
+                {
+                    MessageLabel.Text = string.Empty;
+                    FileList.SelectedValue = string.Empty;
                 }
                 catch( Exception _ex )
                 {

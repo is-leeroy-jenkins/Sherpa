@@ -925,6 +925,7 @@ namespace BudgetExecution
                 ToolStrip.LauncherStyle = LauncherStyle.Office12;
                 ToolStrip.ImageSize = new Size( 16, 16 );
                 ToolStrip.ImageScalingSize = new Size( 16, 16 );
+                ToolStripTextBox.TextBox.ForeColor = Color.White;
             }
             catch( Exception _ex )
             {
@@ -939,7 +940,7 @@ namespace BudgetExecution
         {
             try
             {
-                PictureBox.Size = new Size( 22, 18 );
+                PictureBox.Size = new Size( 18, 18 );
                 PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             }
             catch( Exception _ex )

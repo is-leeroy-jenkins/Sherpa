@@ -127,7 +127,7 @@ namespace BudgetExecution
                         ToolType.EditSqlButton => "SQL Editor",
                         ToolType.DeleteButton => "Delete Record",
                         ToolType.SaveButton => "Save Record",
-                        ToolType.RefreshButton => "Reset Filters",
+                        ToolType.RefreshButton => "Reset Data",
                         ToolType.ExcelButton => "Excel Export",
                         ToolType.CalculatorButton => nameof( Calculator ),
                         ToolType.ChartButton => "Visualizations",

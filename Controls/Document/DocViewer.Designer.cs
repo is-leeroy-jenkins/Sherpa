@@ -577,7 +577,7 @@
             TextBox.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             TextBox.Name = "TextBox";
             TextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            TextBox.Size = new System.Drawing.Size( 168, 25 );
+            TextBox.Size = new System.Drawing.Size( 136, 25 );
             TextBox.Tag = "";
             TextBox.Text = "Enter Keywords";
             TextBox.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
