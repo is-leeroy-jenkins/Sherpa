@@ -383,6 +383,11 @@ namespace BudgetExecution
         PlayButton,
 
         /// <summary>
+        /// The pivot button
+        /// </summary>
+        PivotButton,
+
+        /// <summary>
         /// The power point button
         /// </summary>
         PowerPointButton,

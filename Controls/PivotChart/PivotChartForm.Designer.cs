@@ -63,11 +63,14 @@
             Separator12 = new ToolSeparator( );
             RefreshButton = new ToolStripButton( );
             Separator13 = new ToolSeparator( );
-            FilterButton = new ToolStripButton( );
+            FilterDataButton = new ToolStripButton( );
             Separator14 = new ToolSeparator( );
             LastSeparator = new ToolSeparator( );
             ApplicationLabel = new ToolStripLabel( );
             ComboBox = new ToolStripDropDown( );
+            Separator17 = new ToolSeparator( );
+            PivotButton = new ToolStripButton( );
+            Separator18 = new ToolSeparator( );
             FirstSeparator = new ToolSeparator( );
             ChartHeaderTable = new HeaderPanel( );
             PivotLayout = new BackPanel( );
@@ -150,7 +153,7 @@
             PictureBox.InitialImage = null;
             PictureBox.Location = new System.Drawing.Point( 3, 3 );
             PictureBox.Name = "PictureBox";
-            PictureBox.Size = new System.Drawing.Size( 20, 18 );
+            PictureBox.Size = new System.Drawing.Size( 18, 18 );
             PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             PictureBox.TabIndex = 0;
             PictureBox.TabStop = false;
@@ -238,7 +241,7 @@
             ToolStrip.Image = null;
             ToolStrip.ImageDirectory = null;
             ToolStrip.ImageSize = new System.Drawing.Size( 0, 0 );
-            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { Separator1, StatusLabel, NavigationLabel, Separator2, FirstButton, Separator3, PreviousButton, Separator5, NextButton, Separator4, LastButton, Separator6, SystemLabel, Separator7, BrowseButton, Separator8, SaveButton, Separator9, Separator10, CloseButton, Separator11, MenuButton, FilterLabel, Separator12, RefreshButton, Separator13, FilterButton, Separator14, LastSeparator, ApplicationLabel, ComboBox } );
+            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { Separator1, StatusLabel, NavigationLabel, Separator2, FirstButton, Separator3, PreviousButton, Separator5, NextButton, Separator4, LastButton, Separator6, SystemLabel, Separator7, BrowseButton, Separator8, SaveButton, Separator9, Separator10, CloseButton, Separator11, MenuButton, FilterLabel, Separator12, RefreshButton, Separator13, FilterDataButton, Separator14, LastSeparator, ApplicationLabel, ComboBox, Separator17, PivotButton, Separator18 } );
             ToolStrip.LastButton = null;
             ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
             ToolStrip.Location = new System.Drawing.Point( 1, 1 );
@@ -635,26 +638,26 @@
             Separator13.Padding = new System.Windows.Forms.Padding( 1 );
             Separator13.Size = new System.Drawing.Size( 6, 25 );
             // 
-            // FilterButton
+            // FilterDataButton
             // 
-            FilterButton.AutoToolTip = false;
-            FilterButton.BackColor = System.Drawing.Color.Transparent;
-            FilterButton.BindingSource = BindingSource;
-            FilterButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            FilterButton.Field = Field.AccountCode;
-            FilterButton.Filter = null;
-            FilterButton.Font = new System.Drawing.Font( "Roboto", 9F );
-            FilterButton.ForeColor = System.Drawing.Color.LightGray;
-            FilterButton.HoverText = "Lookup";
-            FilterButton.Image = Resources.Images.ToolStripImages.FilterButton;
-            FilterButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            FilterButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
-            FilterButton.Name = "FilterButton";
-            FilterButton.Padding = new System.Windows.Forms.Padding( 1 );
-            FilterButton.Size = new System.Drawing.Size( 23, 25 );
-            FilterButton.Text = "toolStripButton10";
-            FilterButton.ToolTip = ToolTip;
-            FilterButton.ToolType = ToolType.FilterButton;
+            FilterDataButton.AutoToolTip = false;
+            FilterDataButton.BackColor = System.Drawing.Color.Transparent;
+            FilterDataButton.BindingSource = BindingSource;
+            FilterDataButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            FilterDataButton.Field = Field.AccountCode;
+            FilterDataButton.Filter = null;
+            FilterDataButton.Font = new System.Drawing.Font( "Roboto", 9F );
+            FilterDataButton.ForeColor = System.Drawing.Color.LightGray;
+            FilterDataButton.HoverText = "Lookup";
+            FilterDataButton.Image = Resources.Images.ToolStripImages.FilterButton;
+            FilterDataButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            FilterDataButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            FilterDataButton.Name = "FilterDataButton";
+            FilterDataButton.Padding = new System.Windows.Forms.Padding( 1 );
+            FilterDataButton.Size = new System.Drawing.Size( 23, 25 );
+            FilterDataButton.Text = "toolStripButton10";
+            FilterDataButton.ToolTip = ToolTip;
+            FilterDataButton.ToolType = ToolType.FilterDataButton;
             // 
             // Separator14
             // 
@@ -686,9 +689,9 @@
             ApplicationLabel.Margin = new System.Windows.Forms.Padding( 1 );
             ApplicationLabel.Name = "ApplicationLabel";
             ApplicationLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            ApplicationLabel.Size = new System.Drawing.Size( 41, 25 );
+            ApplicationLabel.Size = new System.Drawing.Size( 45, 25 );
             ApplicationLabel.Tag = "";
-            ApplicationLabel.Text = "        App:";
+            ApplicationLabel.Text = "        Main:";
             ApplicationLabel.ToolTip = null;
             // 
             // ComboBox
@@ -709,6 +712,43 @@
             ComboBox.Style = Syncfusion.Windows.Forms.Tools.ToolStripExStyle.Office2016Black;
             ComboBox.ToolTip = ToolTip;
             ComboBox.ToolTipText = "Make Selection";
+            // 
+            // Separator17
+            // 
+            Separator17.ForeColor = System.Drawing.Color.Black;
+            Separator17.Margin = new System.Windows.Forms.Padding( 1 );
+            Separator17.Name = "Separator17";
+            Separator17.Padding = new System.Windows.Forms.Padding( 1 );
+            Separator17.Size = new System.Drawing.Size( 6, 25 );
+            // 
+            // PivotButton
+            // 
+            PivotButton.AutoToolTip = false;
+            PivotButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            PivotButton.BindingSource = BindingSource;
+            PivotButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            PivotButton.Field = Field.AccountCode;
+            PivotButton.Filter = null;
+            PivotButton.Font = new System.Drawing.Font( "Roboto", 9F );
+            PivotButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            PivotButton.HoverText = "Pivot Filters";
+            PivotButton.Image = Resources.Images.ToolStripImages.PivotButton;
+            PivotButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            PivotButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            PivotButton.Name = "PivotButton";
+            PivotButton.Padding = new System.Windows.Forms.Padding( 1 );
+            PivotButton.Size = new System.Drawing.Size( 23, 25 );
+            PivotButton.Text = "toolStripButton1";
+            PivotButton.ToolTip = ToolTip;
+            PivotButton.ToolType = ToolType.PivotButton;
+            // 
+            // Separator18
+            // 
+            Separator18.ForeColor = System.Drawing.Color.Black;
+            Separator18.Margin = new System.Windows.Forms.Padding( 1 );
+            Separator18.Name = "Separator18";
+            Separator18.Padding = new System.Windows.Forms.Padding( 1 );
+            Separator18.Size = new System.Drawing.Size( 6, 25 );
             // 
             // FirstSeparator
             // 
@@ -1700,7 +1740,7 @@
         public ToolSeparator Separator12;
         public ToolSeparator Separator13;
         public ToolSeparator Separator14;
-        public ToolStripButton FilterButton;
+        public ToolStripButton FilterDataButton;
         public ToolStripButton SaveButton;
         public ToolStripButton BrowseButton;
         public ToolStripButton PreviousButton;
@@ -1737,5 +1777,8 @@
         public ToolStripButton RefreshButton;
         public Syncfusion.Windows.Forms.PivotChart.PivotChart PivotChart;
         public Label CommandLabel1;
+        private ToolSeparator Separator17;
+        public ToolStripButton PivotButton;
+        private ToolSeparator Separator18;
     }
 }

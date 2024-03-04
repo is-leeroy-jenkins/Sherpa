@@ -849,6 +849,9 @@ namespace BudgetExecution
 
             // Budget Attributes
             _filter = new Dictionary<string, object>( );
+            _fields = new List<string>( );
+            _columns = new List<string>( );
+            _numerics = new List<string>( );
             _selectedColumns = new List<string>( );
             _selectedFields = new List<string>( );
             _selectedNumerics = new List<string>( );
@@ -961,6 +964,31 @@ namespace BudgetExecution
             {
                 PictureBox.Size = new Size( 18, 18 );
                 PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the chart.
+        /// </summary>
+        private void InitializeChart( )
+        {
+            try
+            {
+                var _colors = new[ ]
+                {
+                    Color.FromArgb( 0, 120, 212 ),
+                    Color.SlateGray,
+                    Color.Yellow,
+                    Color.DarkGreen,
+                    Color.Maroon,
+                    Color.Olive
+                };
+
+                Chart.CustomPalette = _colors;
             }
             catch( Exception _ex )
             {
@@ -2687,6 +2715,7 @@ namespace BudgetExecution
                 InitializeTimers( );
                 InitializeLabels( );
                 InitializeSeries( );
+                InitializeChart( );
                 NumericListBox.MultiSelect = true;
                 FieldListBox.MultiSelect = true;
                 Text = string.Empty;

@@ -48,6 +48,7 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
+    using Syncfusion.Linq;
     using Syncfusion.PivotAnalysis.Base;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Chart;
@@ -162,6 +163,11 @@ namespace BudgetExecution
         /// The filter
         /// </summary>
         private IDictionary<string, object> _filter;
+
+        /// <summary>
+        /// The labels
+        /// </summary>
+        private IDictionary<string, Label> _labels;
 
         /// <summary>
         /// The fields
@@ -728,6 +734,17 @@ namespace BudgetExecution
             // Default Provider
             _provider = Provider.Access;
 
+            // Budget Attributes
+            _labels = new Dictionary<string, Label>( );
+            _filter = new Dictionary<string, object>( );
+            _fields = new List<string>( );
+            _columns = new List<string>( );
+            _numerics = new List<string>( );
+            _selectedColumns = new List<string>( );
+            _selectedFields = new List<string>( );
+            _selectedNumerics = new List<string>( );
+            _dataArgs = new DataArgs( );
+
             // Timer Properties
             _time = 0;
             _seconds = 5;
@@ -747,6 +764,7 @@ namespace BudgetExecution
                 PreviousButton.Click += OnPreviousButtonClick;
                 NextButton.Click += OnNextButtonClick;
                 LastButton.Click += OnLastButtonClick;
+                PivotButton.Click += OnPivotButtonClick;
                 MenuButton.Click += OnMenuButtonClick;
                 CloseButton.Click += OnCloseButtonClick;
                 TabControl.SelectedIndexChanged += OnActiveTabChanged;
@@ -772,16 +790,16 @@ namespace BudgetExecution
             {
                 var _font = new Font( "Roboto", 9 );
                 var _gray = Color.FromArgb( 45, 45, 45 );
-                var _lightBlue = Color.FromArgb( 106, 189, 252 );
-                var _borderBlue = Color.FromArgb( 0, 120, 212 );
+                var _blue = Color.FromArgb( 106, 189, 252 );
+                var _border = Color.FromArgb( 0, 120, 212 );
                 PivotChart.ShowPivotTableFieldList = false;
                 PivotChart.AllowDrillDown = true;
                 PivotChart.BackColor = Color.FromArgb( 20, 20, 20 );
-                PivotChart.ForeColor = _lightBlue;
+                PivotChart.ForeColor = _blue;
                 PivotChart.ChartTypes = PivotChartTypes.Column;
-                PivotChart.PrimaryXAxis.Title.Color = _borderBlue;
+                PivotChart.PrimaryXAxis.Title.Color = _border;
                 PivotChart.PrimaryXAxis.Title.Font = _font;
-                PivotChart.PrimaryYAxis.Title.Color = _borderBlue;
+                PivotChart.PrimaryYAxis.Title.Color = _border;
                 PivotChart.PrimaryYAxis.Title.Font = _font;
                 PivotChart.AxisFieldSection.Visible = true;
                 PivotChart.LegendFieldSection.Visible = false;
@@ -885,7 +903,7 @@ namespace BudgetExecution
             {
                 var _font = new Font( "Roboto", 7 );
                 var _foreColor = Color.FromArgb( 106, 189, 252 );
-                var _labels = GetLabels( );
+                _labels = GetLabels( );
                 foreach( var _label in _labels.Values )
                 {
                     var _tag = _label.Tag.ToString( );
@@ -924,6 +942,9 @@ namespace BudgetExecution
         {
             try
             {
+                var _border = Color.FromArgb( 0, 120, 212 );
+                var _background = Color.FromArgb( 45, 45, 45 );
+                var _blue = Color.FromArgb( 106, 189, 252 );
                 var _palette = new List<Color>( );
                 var _steelBlue = Color.SteelBlue;
                 _palette.Add( _steelBlue );
@@ -939,12 +960,12 @@ namespace BudgetExecution
                 _palette.Add( _olive );
                 PivotChart.ShowPivotTableFieldList = false;
                 PivotChart.AllowDrillDown = true;
-                PivotChart.BackColor = Color.FromArgb( 45, 45, 45 );
-                PivotChart.ForeColor = Color.FromArgb( 106, 189, 252 );
+                PivotChart.BackColor = _background;
+                PivotChart.ForeColor = _blue;
                 PivotChart.ChartTypes = PivotChartTypes.Column;
-                PivotChart.PrimaryXAxis.Title.Color = Color.FromArgb( 0, 120, 212 );
+                PivotChart.PrimaryXAxis.Title.Color = _border;
                 PivotChart.PrimaryXAxis.Title.Font = new Font( "Roboto", 9 );
-                PivotChart.PrimaryYAxis.Title.Color = Color.FromArgb( 0, 120, 212 );
+                PivotChart.PrimaryYAxis.Title.Color = _border;
                 PivotChart.PrimaryYAxis.Title.Font = new Font( "Roboto", 9 );
                 PivotChart.LegendFieldSection.Visible = false;
                 PivotChart.ValueFieldSection.Visible = true;
@@ -954,6 +975,7 @@ namespace BudgetExecution
                 PivotChart.AxisFieldSection.BackInterior = Color.FromArgb( 75, 75, 75 );
                 PivotChart.CustomPalette = _palette.ToArray( );
                 PivotChart.Style3D = true;
+                PivotChart.Skins = Skins.Office2016Black;
             }
             catch( Exception _ex )
             {
@@ -1080,7 +1102,7 @@ namespace BudgetExecution
         /// </summary>
         /// <returns>
         /// </returns>
-        private IEnumerable<Control> GetControls( )
+        private protected IEnumerable<Control> GetControls( )
         {
             var _list = new List<Control>( );
             var _queue = new Queue( );
@@ -1117,14 +1139,15 @@ namespace BudgetExecution
         /// <returns>
         /// Dictionary
         /// </returns>
-        private IDictionary<string, Label> GetLabels( )
+        private protected IDictionary<string, Label> GetLabels( )
         {
             try
             {
-                var _labels = new Dictionary<string, Label>( );
+                _labels = new Dictionary<string, Label>( );
                 foreach( var _control in GetControls( ) )
                 {
-                    if( _control.GetType( ) == typeof( Label ) )
+                    if( _control.GetType( ) == typeof( Label ) 
+                       && _control.Tag != null )
                     {
                         _labels.Add( _control.Name, _control as Label );
                     }
@@ -1280,6 +1303,7 @@ namespace BudgetExecution
         {
             try
             {
+                TableListBox.Items?.Clear( );
             }
             catch( Exception _ex )
             {
@@ -1443,25 +1467,23 @@ namespace BudgetExecution
                 ThrowIf.Null( row, nameof( row ) );
                 ClearLabels( );
                 var _data = row.ToDictionary( );
-                var _labels = GetLabels( )
-                    ?.Where( l => l.Value?.Tag != null )
-                    ?.Select( l => l.Value )
+                var _list = _labels.Values
                     ?.ToArray( );
 
                 var _colNames = _data.Keys
-                    ?.Take( _labels.Length )
+                    ?.Take( _list.Length )
                     ?.ToArray( );
 
                 var _colValues = _data.Values
-                    ?.Take( _labels.Length )
+                    ?.Take( _list.Length )
                     ?.ToArray( );
 
-                for( var _i = 0; _i < _labels.Length; _i++ )
+                for( var _i = 0; _i < _list.Length; _i++ )
                 {
-                    var _lbl = _labels[ _i ].Tag?.ToString( );
+                    var _lbl = _list[ _i ].Tag?.ToString( );
                     if( _lbl == nameof( STAT ) )
                     {
-                        _labels[ _i ].Text = $"{_colNames[ _i ]} = {_colValues[ _i ]}";
+                        _list[ _i ].Text = $"{_colNames[ _i ]} = {_colValues[ _i ]}";
                     }
                 }
             }
@@ -2023,7 +2045,8 @@ namespace BudgetExecution
         /// Called when [save button click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnSaveButtonClick( object sender, EventArgs e )
         {
             try
@@ -2041,12 +2064,37 @@ namespace BudgetExecution
         /// Called when [browse button click].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
         private void OnBrowseButtonClick( object sender, EventArgs e )
         {
             try
             {
                 var _message = "The Save Button is not yet implemented!";
+                SendMessage( _message );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [pivot button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnPivotButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                if( PivotChart.ShowPivotTableFieldList == false )
+                {
+                    PivotChart.ShowPivotTableFieldList = true;
+                }
+
+                var _message = "The Pivot Button has been pressed!";
                 SendMessage( _message );
             }
             catch( Exception _ex )

@@ -68,6 +68,25 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Gets the chart colors.
+        /// </summary>
+        /// <value>
+        /// The chart colors.
+        /// </value>
+        public Color[ ] ChartColors
+        {
+            get
+            {
+                return _palette;
+            }
+
+            private protected set
+            {
+                _palette = value;
+            }
+        }
+
+        /// <summary>
         /// Gets the light green.
         /// </summary>
         /// <value>

@@ -1208,7 +1208,7 @@ namespace BudgetExecution
         {
             try
             {
-                OpenDocumentViewer( );
+                OpenPivotChartForm( );
             }
             catch( Exception _ex )
             {

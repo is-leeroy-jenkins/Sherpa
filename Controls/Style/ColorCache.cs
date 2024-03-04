@@ -157,6 +157,11 @@ namespace BudgetExecution
         private protected Color _notificationBackColor;
 
         /// <summary>
+        /// The palette
+        /// </summary>
+        private protected Color[ ] _palette;
+
+        /// <summary>
         /// Fails the specified ex.
         /// </summary>
         /// <param name="ex">The ex.</param>
