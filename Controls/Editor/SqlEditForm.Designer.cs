@@ -87,7 +87,7 @@
             MainMenuButton = new ToolStripButton( );
             Separator17 = new ToolSeparator( );
             MenuSeparator = new ToolSeparator( );
-            ApplicationLabel = new ToolStripLabel( );
+            MenuLabel = new ToolStripLabel( );
             Separator1 = new ToolSeparator( );
             Timer = new System.Windows.Forms.Timer( components );
             ToolStripTable = new System.Windows.Forms.TableLayoutPanel( );
@@ -459,7 +459,7 @@
             ToolStrip.Image = null;
             ToolStrip.ImageDirectory = null;
             ToolStrip.ImageSize = new System.Drawing.Size( 0, 0 );
-            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { CloseButton, Separator18, StatusLabel, NavigationSpacer, Separator2, FirstButton, Separator3, PreviousButton, Separator4, NextButton, Separator5, LastButton, Separator6, DataLabel, Separator7, GoButton, Separator8, RefreshButton, Separator9, EditSqlButton, Separator11, EditDataButton, Separator12, TableButton, TableSeparator, LookupButton, Separator13, SaveButton, Separator14, FileSystemLabel, Separator15, ClientButton, ClientSeparator, BrowserButton, Separator16, MainMenuButton, Separator17, MenuSeparator, ApplicationLabel } );
+            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { CloseButton, Separator18, StatusLabel, NavigationSpacer, Separator2, FirstButton, Separator3, PreviousButton, Separator4, NextButton, Separator5, LastButton, Separator6, DataLabel, Separator7, GoButton, Separator8, RefreshButton, Separator9, EditSqlButton, Separator11, EditDataButton, Separator12, TableButton, TableSeparator, LookupButton, Separator13, SaveButton, Separator14, FileSystemLabel, Separator15, ClientButton, ClientSeparator, BrowserButton, Separator16, MainMenuButton, Separator17, MenuSeparator, MenuLabel } );
             ToolStrip.LastButton = null;
             ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
             ToolStrip.Location = new System.Drawing.Point( 1, 1 );
@@ -533,8 +533,9 @@
             StatusLabel.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             StatusLabel.Name = "StatusLabel";
             StatusLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            StatusLabel.Size = new System.Drawing.Size( 2, 25 );
+            StatusLabel.Size = new System.Drawing.Size( 81, 25 );
             StatusLabel.Tag = "";
+            StatusLabel.Text = "        Date and Time";
             StatusLabel.ToolTip = null;
             // 
             // NavigationSpacer
@@ -546,7 +547,7 @@
             NavigationSpacer.Font = new System.Drawing.Font( "Roboto", 6.75F );
             NavigationSpacer.ForeColor = System.Drawing.Color.Black;
             NavigationSpacer.HoverText = null;
-            NavigationSpacer.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            NavigationSpacer.Margin = new System.Windows.Forms.Padding( 10, 1, 5, 1 );
             NavigationSpacer.Name = "NavigationSpacer";
             NavigationSpacer.Padding = new System.Windows.Forms.Padding( 1 );
             NavigationSpacer.Size = new System.Drawing.Size( 85, 25 );
@@ -1029,23 +1030,23 @@
             MenuSeparator.Padding = new System.Windows.Forms.Padding( 1 );
             MenuSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
-            // ApplicationLabel
+            // MenuLabel
             // 
-            ApplicationLabel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            ApplicationLabel.BackColor = System.Drawing.Color.Transparent;
-            ApplicationLabel.BindingSource = null;
-            ApplicationLabel.DataFilter = null;
-            ApplicationLabel.Field = Field.AccountCode;
-            ApplicationLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
-            ApplicationLabel.ForeColor = System.Drawing.Color.Black;
-            ApplicationLabel.HoverText = null;
-            ApplicationLabel.Margin = new System.Windows.Forms.Padding( 1 );
-            ApplicationLabel.Name = "ApplicationLabel";
-            ApplicationLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            ApplicationLabel.Size = new System.Drawing.Size( 72, 25 );
-            ApplicationLabel.Tag = "";
-            ApplicationLabel.Text = "          Application";
-            ApplicationLabel.ToolTip = null;
+            MenuLabel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            MenuLabel.BackColor = System.Drawing.Color.Transparent;
+            MenuLabel.BindingSource = null;
+            MenuLabel.DataFilter = null;
+            MenuLabel.Field = Field.AccountCode;
+            MenuLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
+            MenuLabel.ForeColor = System.Drawing.Color.Black;
+            MenuLabel.HoverText = null;
+            MenuLabel.Margin = new System.Windows.Forms.Padding( 1 );
+            MenuLabel.Name = "MenuLabel";
+            MenuLabel.Padding = new System.Windows.Forms.Padding( 1 );
+            MenuLabel.Size = new System.Drawing.Size( 50, 25 );
+            MenuLabel.Tag = "";
+            MenuLabel.Text = "          Menu";
+            MenuLabel.ToolTip = null;
             // 
             // Separator1
             // 
@@ -2359,7 +2360,7 @@
         public DataGrid DataGrid;
         public ToolStripLabel StatusLabel;
         public ToolSeparator MenuSeparator;
-        public ToolStripLabel ApplicationLabel;
+        public ToolStripLabel MenuLabel;
         public ContextMenu ContextMenu;
     }
 }

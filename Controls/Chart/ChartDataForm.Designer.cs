@@ -91,7 +91,7 @@
             MenuSeparator = new ToolSeparator( );
             MenuButton = new ToolStripButton( );
             ExitSeparator = new ToolSeparator( );
-            ApplicationLabel = new ToolStripLabel( );
+            MenuLabel = new ToolStripLabel( );
             ChartTypeSpacer = new ToolStripLabel( );
             ChartLabel = new ToolStripLabel( );
             ToolStripComboBox = new ToolStripDropDown( );
@@ -1071,7 +1071,7 @@
             ToolStrip.Image = null;
             ToolStrip.ImageDirectory = null;
             ToolStrip.ImageSize = new System.Drawing.Size( 16, 16 );
-            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { StatusSeparator, StatusLabel, ChartSpacerLabel, StatusSpacer, NavigationLabelSeparator, FirstButton, FirstSeparator, PreviousButton, PreviousSeparator, NextButton, NextSeparator, LastButton, EditSqlSeparator, MetricsLabel, FilterLabel, FilterLabelSeparator, RefreshDataButton, RefreshSeparator, RemoveFiltersButton, FilterSeparator, GroupButton, RemoveFiltersSeparator, ExitButton, MenuSeparator, MenuButton, ExitSeparator, ApplicationLabel, ChartTypeSpacer, ChartLabel, ToolStripComboBox } );
+            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { StatusSeparator, StatusLabel, ChartSpacerLabel, StatusSpacer, NavigationLabelSeparator, FirstButton, FirstSeparator, PreviousButton, PreviousSeparator, NextButton, NextSeparator, LastButton, EditSqlSeparator, MetricsLabel, FilterLabel, FilterLabelSeparator, RefreshDataButton, RefreshSeparator, RemoveFiltersButton, FilterSeparator, GroupButton, RemoveFiltersSeparator, ExitButton, MenuSeparator, MenuButton, ExitSeparator, MenuLabel, ChartTypeSpacer, ChartLabel, ToolStripComboBox } );
             ToolStrip.LastButton = LastButton;
             ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
             ToolStrip.Location = new System.Drawing.Point( 1, 1 );
@@ -1477,23 +1477,23 @@
             ExitSeparator.Padding = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
             ExitSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
-            // ApplicationLabel
+            // MenuLabel
             // 
-            ApplicationLabel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            ApplicationLabel.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            ApplicationLabel.BindingSource = null;
-            ApplicationLabel.DataFilter = null;
-            ApplicationLabel.Field = Field.AccountCode;
-            ApplicationLabel.Font = new System.Drawing.Font( "Roboto", 6.75F );
-            ApplicationLabel.ForeColor = System.Drawing.Color.Black;
-            ApplicationLabel.HoverText = null;
-            ApplicationLabel.Margin = new System.Windows.Forms.Padding( 10, 1, 3, 1 );
-            ApplicationLabel.Name = "ApplicationLabel";
-            ApplicationLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            ApplicationLabel.Size = new System.Drawing.Size( 86, 25 );
-            ApplicationLabel.Tag = "";
-            ApplicationLabel.Text = "                Application:";
-            ApplicationLabel.ToolTip = null;
+            MenuLabel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            MenuLabel.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            MenuLabel.BindingSource = null;
+            MenuLabel.DataFilter = null;
+            MenuLabel.Field = Field.AccountCode;
+            MenuLabel.Font = new System.Drawing.Font( "Roboto", 6.75F );
+            MenuLabel.ForeColor = System.Drawing.Color.Black;
+            MenuLabel.HoverText = null;
+            MenuLabel.Margin = new System.Windows.Forms.Padding( 10, 1, 3, 1 );
+            MenuLabel.Name = "MenuLabel";
+            MenuLabel.Padding = new System.Windows.Forms.Padding( 1 );
+            MenuLabel.Size = new System.Drawing.Size( 61, 25 );
+            MenuLabel.Tag = "";
+            MenuLabel.Text = "                Main:";
+            MenuLabel.ToolTip = null;
             // 
             // ChartTypeSpacer
             // 
@@ -1703,7 +1703,7 @@
             SourcePanel.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             SourcePanel.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             SourcePanel.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
-            SourcePanel.CaptionText = "Data Tables";
+            SourcePanel.CaptionText = "Data";
             SourcePanel.ColumnCount = 1;
             SourcePanel.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             SourcePanel.Controls.Add( TableListBoxPanel, 0, 1 );
@@ -2315,7 +2315,7 @@
             ChartHeaderPanel.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             ChartHeaderPanel.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             ChartHeaderPanel.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
-            ChartHeaderPanel.CaptionText = "Data Visualization";
+            ChartHeaderPanel.CaptionText = "Chart";
             ChartHeaderPanel.ColumnCount = 1;
             ChartHeaderPanel.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             ChartHeaderPanel.Controls.Add( MetricPanel, 0, 2 );
@@ -2641,11 +2641,6 @@
         public System.Windows.Forms.BindingSource BindingSource;
 
         /// <summary>
-        /// The components
-        /// </summary>
-        public System.ComponentModel.IContainer components;
-
-        /// <summary>
         /// The tool tip
         /// </summary>
         public SmallTip ToolTip;
@@ -2765,7 +2760,7 @@
         /// <summary>
         /// The application label
         /// </summary>
-        public ToolStripLabel ApplicationLabel;
+        public ToolStripLabel MenuLabel;
         /// <summary>
         /// The PictureBox
         /// </summary>
@@ -2994,5 +2989,6 @@
         /// The chart
         /// </summary>
         public Chart Chart;
+        private System.ComponentModel.IContainer components;
     }
 }

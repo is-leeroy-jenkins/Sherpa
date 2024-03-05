@@ -209,6 +209,7 @@ namespace BudgetExecution
             Title.StyleManager = null;
             Title.TabIndex = 1;
             Title.Text = "Budget Fiscal Year";
+            Title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             Title.ThemeAuthor = "Terry D. Eppler";
             Title.ThemeName = "Budget Execution";
             Title.ToolTip = null;
@@ -803,9 +804,9 @@ namespace BudgetExecution
             MenuLabel.Margin = new System.Windows.Forms.Padding( 1 );
             MenuLabel.Name = "MenuLabel";
             MenuLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            MenuLabel.Size = new System.Drawing.Size( 54, 25 );
+            MenuLabel.Size = new System.Drawing.Size( 29, 25 );
             MenuLabel.Tag = "";
-            MenuLabel.Text = "Application:";
+            MenuLabel.Text = "Main:";
             MenuLabel.ToolTip = null;
             // 
             // StripSeparator

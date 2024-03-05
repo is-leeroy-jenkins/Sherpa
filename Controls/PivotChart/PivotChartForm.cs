@@ -840,6 +840,24 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Initializes the title.
+        /// </summary>
+        private void InitializeTitle( )
+        {
+            try
+            {
+                Title.ForeColor = Color.FromArgb( 106, 189, 252 );
+                Title.TextAlign = ContentAlignment.TopLeft;
+                Title.Text = string.Empty;
+                ;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Initializes the timers.
         /// </summary>
         private void InitializeTimers( )
@@ -975,7 +993,6 @@ namespace BudgetExecution
                 PivotChart.AxisFieldSection.BackInterior = Color.FromArgb( 75, 75, 75 );
                 PivotChart.CustomPalette = _palette.ToArray( );
                 PivotChart.Style3D = true;
-                PivotChart.Skins = Skins.Office2016Black;
             }
             catch( Exception _ex )
             {
@@ -1044,7 +1061,8 @@ namespace BudgetExecution
             try
             {
                 PivotChart.ShowPivotTableFieldList = true;
-                var _dataRows = DataTable?.AsEnumerable( )
+                var _dataRows = _dataTable
+                    ?.AsEnumerable( )
                     ?.Take( 1000 );
 
                 PivotChart.ItemSource = _dataRows?.CopyToDataTable( );
@@ -1736,6 +1754,7 @@ namespace BudgetExecution
             try
             {
                 RegisterCallbacks( );
+                InitializeTitle( );
                 InitializeLabels( );
                 InitializeToolStrip( );
                 InitializeTimers( );

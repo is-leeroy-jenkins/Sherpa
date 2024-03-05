@@ -55,8 +55,8 @@
             StatusSpacer = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt( );
             StripSeparator = new ToolSeparator( );
             ToolStripTextBox = new ToolStripTextBox( );
-            GoButton = new ToolStripButton( );
             Separator3 = new ToolSeparator( );
+            GoButton = new ToolStripButton( );
             Label3 = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt( );
             SystemLabel = new ToolStripLabel( );
             Separator5 = new ToolSeparator( );
@@ -191,7 +191,7 @@
             Spreadsheet.DefaultRowCount = 100;
             Spreadsheet.DisplayAlerts = true;
             Spreadsheet.Dock = System.Windows.Forms.DockStyle.Fill;
-            Spreadsheet.FileName = "Book1";
+            Spreadsheet.FileName = "Book2";
             Spreadsheet.Font = new System.Drawing.Font( "Roboto", 9F );
             Spreadsheet.ForeColor = System.Drawing.Color.Black;
             Spreadsheet.FormulaBarVisibility = false;
@@ -378,7 +378,7 @@
             ToolStrip.Image = null;
             ToolStrip.ImageDirectory = null;
             ToolStrip.ImageSize = new System.Drawing.Size( 16, 16 );
-            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { Separator2, StatusLabel, StatusSpacer, StripSeparator, ToolStripTextBox, GoButton, Separator3, Label3, SystemLabel, Separator5, BrowseButton, Separator7, SaveButton, FilterSpacer, FilterLabel, RefreshButtonSeparator, RefreshButton, LookupSeparator, LookupButton, SqlSeparator, BackButtonSeparator, CloseButton, Separator10, MenuButton, MenuSeparator, ApplicationLabel, ExcelButton, ExcelSeparator } );
+            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { Separator2, StatusLabel, StatusSpacer, StripSeparator, ToolStripTextBox, Separator3, GoButton, Label3, SystemLabel, Separator5, BrowseButton, Separator7, SaveButton, FilterSpacer, FilterLabel, RefreshButtonSeparator, RefreshButton, LookupSeparator, LookupButton, SqlSeparator, BackButtonSeparator, CloseButton, Separator10, MenuButton, MenuSeparator, ApplicationLabel, ExcelButton, ExcelSeparator } );
             ToolStrip.LastButton = null;
             ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
             ToolStrip.Location = new System.Drawing.Point( 0, 0 );
@@ -466,9 +466,17 @@
             ToolStripTextBox.Margin = new System.Windows.Forms.Padding( 1 );
             ToolStripTextBox.Name = "ToolStripTextBox";
             ToolStripTextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Size = new System.Drawing.Size( 230, 27 );
+            ToolStripTextBox.Size = new System.Drawing.Size( 222, 27 );
             ToolStripTextBox.Tag = "";
             ToolStripTextBox.ToolTip = ToolTip;
+            // 
+            // Separator3
+            // 
+            Separator3.ForeColor = System.Drawing.Color.Black;
+            Separator3.Margin = new System.Windows.Forms.Padding( 1 );
+            Separator3.Name = "Separator3";
+            Separator3.Padding = new System.Windows.Forms.Padding( 1 );
+            Separator3.Size = new System.Drawing.Size( 6, 27 );
             // 
             // GoButton
             // 
@@ -481,7 +489,7 @@
             GoButton.Font = new System.Drawing.Font( "Roboto", 9F );
             GoButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             GoButton.HoverText = "Search for it";
-            GoButton.Image = Resources.Images.ToolStripImages.GoButton;
+            GoButton.Image = Resources.Images.ToolStripImages.WebGoButton;
             GoButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             GoButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             GoButton.Name = "GoButton";
@@ -490,14 +498,6 @@
             GoButton.Text = "toolStripButton1";
             GoButton.ToolTip = ToolTip;
             GoButton.ToolType = ToolType.GoButton;
-            // 
-            // Separator3
-            // 
-            Separator3.ForeColor = System.Drawing.Color.Black;
-            Separator3.Margin = new System.Windows.Forms.Padding( 1 );
-            Separator3.Name = "Separator3";
-            Separator3.Padding = new System.Windows.Forms.Padding( 1 );
-            Separator3.Size = new System.Drawing.Size( 6, 27 );
             // 
             // Label3
             // 
@@ -768,9 +768,9 @@
             ApplicationLabel.Margin = new System.Windows.Forms.Padding( 1 );
             ApplicationLabel.Name = "ApplicationLabel";
             ApplicationLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            ApplicationLabel.Size = new System.Drawing.Size( 84, 27 );
+            ApplicationLabel.Size = new System.Drawing.Size( 59, 27 );
             ApplicationLabel.Tag = "";
-            ApplicationLabel.Text = "               Application:";
+            ApplicationLabel.Text = "               Main:";
             ApplicationLabel.ToolTip = null;
             // 
             // ExcelButton
@@ -820,8 +820,8 @@
             TabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             TabControl.CanOverrideStyle = true;
             TabControl.CloseButtonBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            TabControl.Controls.Add( DataTab );
             TabControl.Controls.Add( QueryTab );
+            TabControl.Controls.Add( DataTab );
             TabControl.Controls.Add( BusyTab );
             TabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             TabControl.FocusOnTabClick = false;
@@ -896,10 +896,10 @@
             ThirdFilterTable.Location = new System.Drawing.Point( 1081, 57 );
             ThirdFilterTable.Name = "ThirdFilterTable";
             ThirdFilterTable.RowCount = 3;
-            ThirdFilterTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 27.7777786F ) );
-            ThirdFilterTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 72.22222F ) );
-            ThirdFilterTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 479F ) );
-            ThirdFilterTable.Size = new System.Drawing.Size( 234, 550 );
+            ThirdFilterTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 14.8148146F ) );
+            ThirdFilterTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 85.18519F ) );
+            ThirdFilterTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 472F ) );
+            ThirdFilterTable.Size = new System.Drawing.Size( 234, 534 );
             ThirdFilterTable.TabIndex = 23;
             // 
             // backPanel2
@@ -917,10 +917,10 @@
             backPanel2.ForeColor = System.Drawing.Color.Transparent;
             backPanel2.HoverText = null;
             backPanel2.IsDerivedStyle = true;
-            backPanel2.Location = new System.Drawing.Point( 3, 73 );
+            backPanel2.Location = new System.Drawing.Point( 3, 64 );
             backPanel2.Name = "backPanel2";
             backPanel2.Padding = new System.Windows.Forms.Padding( 1 );
-            backPanel2.Size = new System.Drawing.Size( 228, 474 );
+            backPanel2.Size = new System.Drawing.Size( 228, 467 );
             backPanel2.Style = MetroSet_UI.Enums.Style.Custom;
             backPanel2.StyleManager = null;
             backPanel2.TabIndex = 9;
@@ -955,7 +955,7 @@
             ThirdListBox.SelectedValue = null;
             ThirdListBox.ShowBorder = false;
             ThirdListBox.ShowScrollBar = false;
-            ThirdListBox.Size = new System.Drawing.Size( 194, 449 );
+            ThirdListBox.Size = new System.Drawing.Size( 194, 431 );
             ThirdListBox.Style = MetroSet_UI.Enums.Style.Custom;
             ThirdListBox.StyleManager = null;
             ThirdListBox.TabIndex = 2;
@@ -986,7 +986,7 @@
             ThirdComboBox.HoverText = null;
             ThirdComboBox.IsDerivedStyle = true;
             ThirdComboBox.ItemHeight = 24;
-            ThirdComboBox.Location = new System.Drawing.Point( 3, 34 );
+            ThirdComboBox.Location = new System.Drawing.Point( 3, 25 );
             ThirdComboBox.Name = "ThirdComboBox";
             ThirdComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             ThirdComboBox.SelectedItemForeColor = System.Drawing.Color.White;
@@ -1135,7 +1135,7 @@
             ProviderHeaderTable.Controls.Add( ProviderPanel, 0, 1 );
             ProviderHeaderTable.Font = new System.Drawing.Font( "Roboto", 9F );
             ProviderHeaderTable.ForeColor = System.Drawing.Color.DarkGray;
-            ProviderHeaderTable.Location = new System.Drawing.Point( 41, 348 );
+            ProviderHeaderTable.Location = new System.Drawing.Point( 44, 332 );
             ProviderHeaderTable.Name = "ProviderHeaderTable";
             ProviderHeaderTable.RowCount = 2;
             ProviderHeaderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 3.25203252F ) );
@@ -1294,11 +1294,11 @@
             FirstFilterTable.Location = new System.Drawing.Point( 589, 60 );
             FirstFilterTable.Name = "FirstFilterTable";
             FirstFilterTable.RowCount = 3;
-            FirstFilterTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 26.4150944F ) );
-            FirstFilterTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 73.58491F ) );
-            FirstFilterTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 480F ) );
+            FirstFilterTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 15.6862745F ) );
+            FirstFilterTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 84.31373F ) );
+            FirstFilterTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 474F ) );
             FirstFilterTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 20F ) );
-            FirstFilterTable.Size = new System.Drawing.Size( 234, 550 );
+            FirstFilterTable.Size = new System.Drawing.Size( 234, 534 );
             FirstFilterTable.TabIndex = 20;
             // 
             // ColumnPanel
@@ -1316,10 +1316,10 @@
             ColumnPanel.ForeColor = System.Drawing.Color.Transparent;
             ColumnPanel.HoverText = null;
             ColumnPanel.IsDerivedStyle = true;
-            ColumnPanel.Location = new System.Drawing.Point( 3, 72 );
+            ColumnPanel.Location = new System.Drawing.Point( 3, 62 );
             ColumnPanel.Name = "ColumnPanel";
             ColumnPanel.Padding = new System.Windows.Forms.Padding( 1 );
-            ColumnPanel.Size = new System.Drawing.Size( 228, 475 );
+            ColumnPanel.Size = new System.Drawing.Size( 228, 469 );
             ColumnPanel.Style = MetroSet_UI.Enums.Style.Custom;
             ColumnPanel.StyleManager = null;
             ColumnPanel.TabIndex = 8;
@@ -1354,7 +1354,7 @@
             FirstListBox.SelectedValue = null;
             FirstListBox.ShowBorder = false;
             FirstListBox.ShowScrollBar = false;
-            FirstListBox.Size = new System.Drawing.Size( 194, 449 );
+            FirstListBox.Size = new System.Drawing.Size( 194, 439 );
             FirstListBox.Style = MetroSet_UI.Enums.Style.Custom;
             FirstListBox.StyleManager = null;
             FirstListBox.TabIndex = 2;
@@ -1385,7 +1385,7 @@
             FirstComboBox.HoverText = null;
             FirstComboBox.IsDerivedStyle = true;
             FirstComboBox.ItemHeight = 24;
-            FirstComboBox.Location = new System.Drawing.Point( 3, 33 );
+            FirstComboBox.Location = new System.Drawing.Point( 3, 25 );
             FirstComboBox.Name = "FirstComboBox";
             FirstComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             FirstComboBox.SelectedItemForeColor = System.Drawing.Color.White;
@@ -1411,11 +1411,11 @@
             SecondFilterTableable.Location = new System.Drawing.Point( 829, 60 );
             SecondFilterTableable.Name = "SecondFilterTableable";
             SecondFilterTableable.RowCount = 3;
-            SecondFilterTableable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 22.2222214F ) );
-            SecondFilterTableable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 77.77778F ) );
-            SecondFilterTableable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 482F ) );
+            SecondFilterTableable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 18.75F ) );
+            SecondFilterTableable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 81.25F ) );
+            SecondFilterTableable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 474F ) );
             SecondFilterTableable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 20F ) );
-            SecondFilterTableable.Size = new System.Drawing.Size( 246, 550 );
+            SecondFilterTableable.Size = new System.Drawing.Size( 246, 534 );
             SecondFilterTableable.TabIndex = 18;
             // 
             // ValuePanel
@@ -1433,10 +1433,10 @@
             ValuePanel.ForeColor = System.Drawing.Color.Transparent;
             ValuePanel.HoverText = null;
             ValuePanel.IsDerivedStyle = true;
-            ValuePanel.Location = new System.Drawing.Point( 3, 70 );
+            ValuePanel.Location = new System.Drawing.Point( 3, 62 );
             ValuePanel.Name = "ValuePanel";
             ValuePanel.Padding = new System.Windows.Forms.Padding( 1 );
-            ValuePanel.Size = new System.Drawing.Size( 240, 477 );
+            ValuePanel.Size = new System.Drawing.Size( 240, 469 );
             ValuePanel.Style = MetroSet_UI.Enums.Style.Custom;
             ValuePanel.StyleManager = null;
             ValuePanel.TabIndex = 9;
@@ -1458,7 +1458,7 @@
             SecondListBox.HoverText = null;
             SecondListBox.IsDerivedStyle = true;
             SecondListBox.ItemHeight = 30;
-            SecondListBox.Location = new System.Drawing.Point( 15, 13 );
+            SecondListBox.Location = new System.Drawing.Point( 19, 12 );
             SecondListBox.Margin = new System.Windows.Forms.Padding( 1 );
             SecondListBox.MultiSelect = false;
             SecondListBox.Name = "SecondListBox";
@@ -1471,7 +1471,7 @@
             SecondListBox.SelectedValue = null;
             SecondListBox.ShowBorder = false;
             SecondListBox.ShowScrollBar = false;
-            SecondListBox.Size = new System.Drawing.Size( 194, 449 );
+            SecondListBox.Size = new System.Drawing.Size( 194, 431 );
             SecondListBox.Style = MetroSet_UI.Enums.Style.Custom;
             SecondListBox.StyleManager = null;
             SecondListBox.TabIndex = 2;
@@ -1502,7 +1502,7 @@
             SecondComboBox.HoverText = null;
             SecondComboBox.IsDerivedStyle = true;
             SecondComboBox.ItemHeight = 24;
-            SecondComboBox.Location = new System.Drawing.Point( 3, 30 );
+            SecondComboBox.Location = new System.Drawing.Point( 3, 27 );
             SecondComboBox.Name = "SecondComboBox";
             SecondComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             SecondComboBox.SelectedItemForeColor = System.Drawing.Color.White;
@@ -1529,7 +1529,7 @@
             SourceTable.RowCount = 2;
             SourceTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 1.8621974F ) );
             SourceTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 98.1378F ) );
-            SourceTable.Size = new System.Drawing.Size( 288, 553 );
+            SourceTable.Size = new System.Drawing.Size( 288, 534 );
             SourceTable.TabIndex = 17;
             // 
             // TablePanel
@@ -1547,10 +1547,10 @@
             TablePanel.ForeColor = System.Drawing.Color.Transparent;
             TablePanel.HoverText = null;
             TablePanel.IsDerivedStyle = true;
-            TablePanel.Location = new System.Drawing.Point( 3, 29 );
+            TablePanel.Location = new System.Drawing.Point( 3, 28 );
             TablePanel.Name = "TablePanel";
             TablePanel.Padding = new System.Windows.Forms.Padding( 1 );
-            TablePanel.Size = new System.Drawing.Size( 282, 521 );
+            TablePanel.Size = new System.Drawing.Size( 282, 503 );
             TablePanel.Style = MetroSet_UI.Enums.Style.Custom;
             TablePanel.StyleManager = null;
             TablePanel.TabIndex = 7;
@@ -1585,7 +1585,7 @@
             TableListBox.SelectedValue = null;
             TableListBox.ShowBorder = false;
             TableListBox.ShowScrollBar = false;
-            TableListBox.Size = new System.Drawing.Size( 249, 492 );
+            TableListBox.Size = new System.Drawing.Size( 249, 471 );
             TableListBox.Style = MetroSet_UI.Enums.Style.Custom;
             TableListBox.StyleManager = null;
             TableListBox.TabIndex = 1;

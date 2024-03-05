@@ -900,8 +900,7 @@
             PivotChart.ChartTypes = Syncfusion.Windows.Forms.PivotChart.PivotChartTypes.Column;
             PivotChart.CustomPalette = new System.Drawing.Color[ ]
     {
-    System.Drawing.Color.SteelBlue,
-    System.Drawing.Color.SlateGray,
+    System.Drawing.Color.FromArgb(0, 120, 212),
     System.Drawing.Color.Yellow,
     System.Drawing.Color.Red,
     System.Drawing.Color.Olive

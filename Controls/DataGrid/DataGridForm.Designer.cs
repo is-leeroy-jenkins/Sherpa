@@ -145,7 +145,7 @@
             ToolStripTextBox = new ToolStripTextBox( );
             GoButton = new ToolStripButton( );
             ApplicationSeparator = new ToolSeparator( );
-            ApplicationLabel = new ToolStripLabel( );
+            MenuLabel = new ToolStripLabel( );
             ExitSeparator = new ToolSeparator( );
             ToolSeparator1 = new ToolSeparator( );
             CommandSpacer = new ToolStripLabel( );
@@ -1111,7 +1111,7 @@
             // 
             SourceTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             SourceTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
-            SourceTable.CaptionText = "Data Tables";
+            SourceTable.CaptionText = "Sources";
             SourceTable.ColumnCount = 1;
             SourceTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             SourceTable.Controls.Add( TableComboBox, 0, 0 );
@@ -2150,7 +2150,7 @@
             ToolStrip.Image = null;
             ToolStrip.ImageDirectory = null;
             ToolStrip.ImageSize = new System.Drawing.Size( 16, 16 );
-            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { StatusLabel, TextBoxSeparator, FirstButton, FirstSeparator, PreviousButton, PreviousSeparator, NextButton, NextSeparator, LastButton, LastButtonSeparator, DataSpacer, DataLabel, EditRecordSeparator, RemoveFiltersButton, CommandLabelSeparator, RefreshDataButton, EditColumnSeparator, GroupButton, RefreshDataSeparator, EditRecordButton, GroupSeparator, EditColumnButton, ColumnSeparator, EditSqlButton, EditSqlSeparator, ToolStripTextBox, GoButton, ChartSeparator, ExcelImportButton, BrowseSeparator, BrowseButton, ExitButton, BackSeparator, MenuButton, MenuSeparator, ApplicationSeparator, ApplicationLabel } );
+            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { StatusLabel, TextBoxSeparator, FirstButton, FirstSeparator, PreviousButton, PreviousSeparator, NextButton, NextSeparator, LastButton, LastButtonSeparator, DataSpacer, DataLabel, EditRecordSeparator, RemoveFiltersButton, CommandLabelSeparator, RefreshDataButton, EditColumnSeparator, GroupButton, RefreshDataSeparator, EditRecordButton, GroupSeparator, EditColumnButton, ColumnSeparator, EditSqlButton, EditSqlSeparator, ToolStripTextBox, GoButton, ChartSeparator, ExcelImportButton, BrowseSeparator, BrowseButton, ExitButton, BackSeparator, MenuButton, MenuSeparator, ApplicationSeparator, MenuLabel } );
             ToolStrip.LastButton = null;
             ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
             ToolStrip.Location = new System.Drawing.Point( 1, 1 );
@@ -2282,7 +2282,7 @@
             ToolStripTextBox.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             ToolStripTextBox.Name = "ToolStripTextBox";
             ToolStripTextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Size = new System.Drawing.Size( 206, 25 );
+            ToolStripTextBox.Size = new System.Drawing.Size( 202, 25 );
             ToolStripTextBox.Tag = "";
             ToolStripTextBox.ToolTip = ToolTip;
             // 
@@ -2316,23 +2316,23 @@
             ApplicationSeparator.Padding = new System.Windows.Forms.Padding( 1 );
             ApplicationSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
-            // ApplicationLabel
+            // MenuLabel
             // 
-            ApplicationLabel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            ApplicationLabel.BackColor = System.Drawing.Color.Transparent;
-            ApplicationLabel.BindingSource = null;
-            ApplicationLabel.DataFilter = null;
-            ApplicationLabel.Field = Field.AccountCode;
-            ApplicationLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
-            ApplicationLabel.ForeColor = System.Drawing.Color.Black;
-            ApplicationLabel.HoverText = null;
-            ApplicationLabel.Margin = new System.Windows.Forms.Padding( 1 );
-            ApplicationLabel.Name = "ApplicationLabel";
-            ApplicationLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            ApplicationLabel.Size = new System.Drawing.Size( 70, 25 );
-            ApplicationLabel.Tag = "";
-            ApplicationLabel.Text = "        Application:";
-            ApplicationLabel.ToolTip = null;
+            MenuLabel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            MenuLabel.BackColor = System.Drawing.Color.Transparent;
+            MenuLabel.BindingSource = null;
+            MenuLabel.DataFilter = null;
+            MenuLabel.Field = Field.AccountCode;
+            MenuLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
+            MenuLabel.ForeColor = System.Drawing.Color.Black;
+            MenuLabel.HoverText = null;
+            MenuLabel.Margin = new System.Windows.Forms.Padding( 1 );
+            MenuLabel.Name = "MenuLabel";
+            MenuLabel.Padding = new System.Windows.Forms.Padding( 1 );
+            MenuLabel.Size = new System.Drawing.Size( 45, 25 );
+            MenuLabel.Tag = "";
+            MenuLabel.Text = "        Main:";
+            MenuLabel.ToolTip = null;
             // 
             // ExitSeparator
             // 
@@ -2467,7 +2467,7 @@
             GridHeaderPanel.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             GridHeaderPanel.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             GridHeaderPanel.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
-            GridHeaderPanel.CaptionText = "Data Grid";
+            GridHeaderPanel.CaptionText = "Data";
             GridHeaderPanel.ColumnCount = 1;
             GridHeaderPanel.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
             GridHeaderPanel.Controls.Add( DataLabelTable, 0, 0 );
@@ -3201,7 +3201,7 @@
         /// <summary>
         /// The application label
         /// </summary>
-        public ToolStripLabel ApplicationLabel;
+        public ToolStripLabel MenuLabel;
         /// <summary>
         /// The busy tab page
         /// </summary>

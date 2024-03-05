@@ -804,6 +804,8 @@ namespace BudgetExecution
 
             // Default Provider
             _provider = Provider.Access;
+
+            // Event Wiring
             Load += OnLoad;
             Closing += OnClosing;
         }
