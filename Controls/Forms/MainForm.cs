@@ -169,6 +169,7 @@ namespace BudgetExecution
                 TestButton.Click += OnTestButtonClick;
                 AccessTile.Click += OnAccessTileClick;
                 MapTile.Click += OnMapTileClick;
+                PivotTile.Click += OnPivotTileClick;
             }
             catch( Exception _ex )
             {

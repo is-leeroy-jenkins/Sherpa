@@ -48,7 +48,6 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Linq;
     using System.Windows.Forms;
-    using Syncfusion.Linq;
     using Syncfusion.PivotAnalysis.Base;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Chart;
@@ -817,6 +816,8 @@ namespace BudgetExecution
                     Color.Maroon,
                     Color.Olive
                 };
+
+                PivotChart.Skins = Skins.Office2016Black;
             }
             catch( Exception _ex )
             {
@@ -847,9 +848,8 @@ namespace BudgetExecution
             try
             {
                 Title.ForeColor = Color.FromArgb( 106, 189, 252 );
-                Title.TextAlign = ContentAlignment.TopLeft;
+                Title.TextAlign = ContentAlignment.TopCenter;
                 Title.Text = string.Empty;
-                ;
             }
             catch( Exception _ex )
             {
@@ -963,19 +963,16 @@ namespace BudgetExecution
                 var _border = Color.FromArgb( 0, 120, 212 );
                 var _background = Color.FromArgb( 45, 45, 45 );
                 var _blue = Color.FromArgb( 106, 189, 252 );
-                var _palette = new List<Color>( );
-                var _steelBlue = Color.SteelBlue;
-                _palette.Add( _steelBlue );
-                var _slateGray = Color.SlateGray;
-                _palette.Add( _slateGray );
-                var _green = Color.DarkGreen;
-                _palette.Add( _green );
-                var _yellow = Color.FromArgb( 192, 192, 0 );
-                _palette.Add( _yellow );
-                var _maroon = Color.Maroon;
-                _palette.Add( _maroon );
-                var _olive = Color.Olive;
-                _palette.Add( _olive );
+                PivotChart.CustomPalette = new[ ]
+                {
+                    Color.FromArgb( 0, 120, 212 ),
+                    Color.SlateGray,
+                    Color.Yellow,
+                    Color.DarkGreen,
+                    Color.Maroon,
+                    Color.Olive
+                };
+
                 PivotChart.ShowPivotTableFieldList = false;
                 PivotChart.AllowDrillDown = true;
                 PivotChart.BackColor = _background;
@@ -983,16 +980,19 @@ namespace BudgetExecution
                 PivotChart.ChartTypes = PivotChartTypes.Column;
                 PivotChart.PrimaryXAxis.Title.Color = _border;
                 PivotChart.PrimaryXAxis.Title.Font = new Font( "Roboto", 9 );
+                PivotChart.PrimaryXAxis.ShowAxisLabelTooltip = true;
+                PivotChart.PrimaryXAxis.Title.Text = "Columns";
                 PivotChart.PrimaryYAxis.Title.Color = _border;
                 PivotChart.PrimaryYAxis.Title.Font = new Font( "Roboto", 9 );
+                PivotChart.PrimaryYAxis.ShowAxisLabelTooltip = true;
+                PivotChart.PrimaryYAxis.Title.Text = "Values";
                 PivotChart.LegendFieldSection.Visible = false;
                 PivotChart.ValueFieldSection.Visible = true;
                 PivotChart.FilterFieldSection.Visible = true;
                 PivotChart.AxisFieldSection.ItemBackColor = Color.FromArgb( 50, 93, 129 );
                 PivotChart.AxisFieldSection.ItemForeColor = Color.White;
                 PivotChart.AxisFieldSection.BackInterior = Color.FromArgb( 75, 75, 75 );
-                PivotChart.CustomPalette = _palette.ToArray( );
-                PivotChart.Style3D = true;
+                PivotChart.AllowDrillDown = true;
             }
             catch( Exception _ex )
             {
@@ -1061,32 +1061,22 @@ namespace BudgetExecution
             try
             {
                 PivotChart.ShowPivotTableFieldList = true;
-                var _dataRows = _dataTable
+                PivotChart.ItemSource = _dataTable
                     ?.AsEnumerable( )
-                    ?.Take( 1000 );
+                    ?.Take( 10 )
+                    ?.ToList( );
 
-                PivotChart.ItemSource = _dataRows?.CopyToDataTable( );
-                var _row = BindingSource.GetCurrentDataRow( );
-                UpdateSchema( _row );
-                SetSeriesPointStyles( _row );
-                var _cols = _fields.Take( 10 )
-                    ?.ToArray( );
-
-                var _numbers = _numerics.Take( 3 )
-                    ?.ToArray( );
-
+                var _cols = _fields?.Take( 5 )?.ToArray( );
+                var _numbers = _numerics?.Take( 5 )?.ToArray( );
                 foreach( var _name in _cols )
                 {
-                    if( !_name.Contains( "Name" ) )
+                    var _item = new PivotItem
                     {
-                        var _item = new PivotItem
-                        {
-                            FieldMappingName = _name,
-                            TotalHeader = "Total"
-                        };
+                        FieldMappingName = _name,
+                        TotalHeader = "Total"
+                    };
 
-                        PivotChart.PivotAxis.Add( _item );
-                    }
+                    PivotChart.PivotAxis.Add( _item );
                 }
 
                 foreach( var _value in _numbers )
@@ -1100,14 +1090,6 @@ namespace BudgetExecution
 
                     PivotChart.PivotCalculations.Add( _info );
                 }
-
-                PivotChart.EnableXZooming = true;
-                PivotChart.PrimaryXAxis.ZoomFactor = .7;
-                PivotChart.PrimaryXAxis.Title.Text = "Fields";
-                PivotChart.PrimaryYAxis.ShowAxisLabelTooltip = true;
-                PivotChart.PrimaryYAxis.Title.Text = "Values";
-                PivotChart.AllowDrillDown = true;
-                PivotChart.Refresh( );
             }
             catch( Exception _ex )
             {
@@ -1437,7 +1419,6 @@ namespace BudgetExecution
         {
             try
             {
-                var _labels = GetLabels( );
                 foreach( var _lbl in _labels.Values )
                 {
                     if( _lbl.Tag != null )
@@ -1784,7 +1765,6 @@ namespace BudgetExecution
             {
                 _current = BindingSource.GetCurrentDataRow( );
                 UpdateSchema( _current );
-                PivotChart.Refresh( );
             }
             catch( Exception _ex )
             {
@@ -1929,12 +1909,9 @@ namespace BudgetExecution
                 {
                     var _title = _listBox.SelectedValue?.ToString( );
                     _selectedTable = _title?.Replace( " ", "" );
-                    if( _selectedTable != null )
-                    {
-                        _source = (Source)Enum.Parse( typeof( Source ), _selectedTable );
-                        GetData( );
-                        BindChart( );
-                    }
+                    _source = (Source)Enum.Parse( typeof( Source ), _selectedTable );
+                    GetData( );
+                    BindChart( );
                 }
                 catch( Exception _ex )
                 {

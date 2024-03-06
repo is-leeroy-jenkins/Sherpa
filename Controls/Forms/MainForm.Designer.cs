@@ -104,6 +104,10 @@ namespace BudgetExecution
             var textItem66 = new Syncfusion.Windows.Forms.Tools.TextItem( );
             var textItem67 = new Syncfusion.Windows.Forms.Tools.TextItem( );
             var textItem68 = new Syncfusion.Windows.Forms.Tools.TextItem( );
+            var textItem69 = new Syncfusion.Windows.Forms.Tools.TextItem( );
+            var textItem70 = new Syncfusion.Windows.Forms.Tools.TextItem( );
+            var textItem71 = new Syncfusion.Windows.Forms.Tools.TextItem( );
+            var textItem72 = new Syncfusion.Windows.Forms.Tools.TextItem( );
             var resources = new System.ComponentModel.ComponentResourceManager( typeof( MainForm ) );
             LookupTile = new Tile( );
             ToolTip = new SmallTip( );
@@ -124,6 +128,7 @@ namespace BudgetExecution
             ProgramProjectTile = new Tile( );
             MessageTile = new Tile( );
             MapTile = new Tile( );
+            PivotTile = new Tile( );
             TestButton = new Button( );
             ExitButton = new Button( );
             BrowserTable = new HeaderPanel( );
@@ -178,13 +183,13 @@ namespace BudgetExecution
             LookupTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             LookupTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             LookupTile.HoverText = null;
-            LookupTile.Location = new System.Drawing.Point( 18, 18 );
+            LookupTile.Location = new System.Drawing.Point( 18, 148 );
             LookupTile.Margin = new System.Windows.Forms.Padding( 1 );
             LookupTile.MinimumSize = new System.Drawing.Size( 100, 50 );
             LookupTile.Name = "LookupTile";
             LookupTile.ShowBanner = true;
             LookupTile.ShowBannerIcon = true;
-            LookupTile.Size = new System.Drawing.Size( 217, 80 );
+            LookupTile.Size = new System.Drawing.Size( 152, 80 );
             LookupTile.TabIndex = 0;
             textItem4.Font = new System.Drawing.Font( "Roboto", 9.75F );
             textItem4.HubTile = LookupTile;
@@ -241,13 +246,13 @@ namespace BudgetExecution
             VisualizationTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             VisualizationTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             VisualizationTile.HoverText = null;
-            VisualizationTile.Location = new System.Drawing.Point( 266, 18 );
+            VisualizationTile.Location = new System.Drawing.Point( 188, 148 );
             VisualizationTile.Margin = new System.Windows.Forms.Padding( 1 );
             VisualizationTile.MinimumSize = new System.Drawing.Size( 100, 50 );
             VisualizationTile.Name = "VisualizationTile";
             VisualizationTile.ShowBanner = true;
             VisualizationTile.ShowBannerIcon = true;
-            VisualizationTile.Size = new System.Drawing.Size( 217, 80 );
+            VisualizationTile.Size = new System.Drawing.Size( 152, 80 );
             VisualizationTile.TabIndex = 1;
             textItem8.Font = new System.Drawing.Font( "Roboto", 9.75F );
             textItem8.HubTile = VisualizationTile;
@@ -499,7 +504,7 @@ namespace BudgetExecution
             ExcelDataTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             ExcelDataTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             ExcelDataTile.HoverText = null;
-            ExcelDataTile.Location = new System.Drawing.Point( 266, 148 );
+            ExcelDataTile.Location = new System.Drawing.Point( 287, 18 );
             ExcelDataTile.Margin = new System.Windows.Forms.Padding( 1 );
             ExcelDataTile.MinimumSize = new System.Drawing.Size( 100, 50 );
             ExcelDataTile.Name = "ExcelDataTile";
@@ -509,7 +514,7 @@ namespace BudgetExecution
             ExcelDataTile.TabIndex = 10;
             textItem32.Font = new System.Drawing.Font( "Roboto", 9.75F );
             textItem32.HubTile = ExcelDataTile;
-            textItem32.Text = "Excel Data";
+            textItem32.Text = "Excel ";
             textItem32.TextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             ExcelDataTile.Title = textItem32;
             ExcelDataTile.ToolTip = ToolTip;
@@ -585,7 +590,7 @@ namespace BudgetExecution
             ChromeTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             ChromeTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             ChromeTile.HoverText = null;
-            ChromeTile.Location = new System.Drawing.Point( 266, 184 );
+            ChromeTile.Location = new System.Drawing.Point( 290, 184 );
             ChromeTile.Margin = new System.Windows.Forms.Padding( 1 );
             ChromeTile.MinimumSize = new System.Drawing.Size( 100, 50 );
             ChromeTile.Name = "ChromeTile";
@@ -671,7 +676,7 @@ namespace BudgetExecution
             FirefoxTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             FirefoxTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             FirefoxTile.HoverText = null;
-            FirefoxTile.Location = new System.Drawing.Point( 266, 15 );
+            FirefoxTile.Location = new System.Drawing.Point( 290, 15 );
             FirefoxTile.Margin = new System.Windows.Forms.Padding( 1 );
             FirefoxTile.MinimumSize = new System.Drawing.Size( 100, 50 );
             FirefoxTile.Name = "FirefoxTile";
@@ -757,7 +762,7 @@ namespace BudgetExecution
             SqlEditorTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             SqlEditorTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
             SqlEditorTile.HoverText = null;
-            SqlEditorTile.Location = new System.Drawing.Point( 18, 148 );
+            SqlEditorTile.Location = new System.Drawing.Point( 18, 18 );
             SqlEditorTile.Margin = new System.Windows.Forms.Padding( 1 );
             SqlEditorTile.MinimumSize = new System.Drawing.Size( 100, 50 );
             SqlEditorTile.Name = "SqlEditorTile";
@@ -767,7 +772,7 @@ namespace BudgetExecution
             SqlEditorTile.TabIndex = 2;
             textItem56.Font = new System.Drawing.Font( "Roboto", 9.75F );
             textItem56.HubTile = SqlEditorTile;
-            textItem56.Text = "SQL Editor";
+            textItem56.Text = "SQL ";
             textItem56.TextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             SqlEditorTile.Title = textItem56;
             SqlEditorTile.ToolTip = ToolTip;
@@ -902,6 +907,49 @@ namespace BudgetExecution
             MapTile.ToolTip = ToolTip;
             MapTile.TurnLiveTileOn = true;
             // 
+            // PivotTile
+            // 
+            PivotTile.Anchor = System.Windows.Forms.AnchorStyles.None;
+            PivotTile.BackColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
+            textItem69.Font = new System.Drawing.Font( "Roboto", 8F );
+            textItem69.HubTile = PivotTile;
+            textItem69.TextColor = System.Drawing.Color.DarkGray;
+            PivotTile.Banner = textItem69;
+            PivotTile.BannerColor = System.Drawing.Color.Transparent;
+            PivotTile.BannerHeight = 30;
+            PivotTile.BannerIcon = Resources.Images.TileImages.PivotTile;
+            PivotTile.BindingSource = BindingSource;
+            textItem70.Font = new System.Drawing.Font( "Roboto", 10F );
+            textItem70.HubTile = PivotTile;
+            textItem70.TextColor = System.Drawing.Color.DarkGray;
+            PivotTile.Body = textItem70;
+            PivotTile.EnableSelectionMarker = false;
+            PivotTile.Filter = null;
+            PivotTile.Font = new System.Drawing.Font( "Roboto", 9F );
+            textItem71.Font = new System.Drawing.Font( "Roboto", 9F );
+            textItem71.HubTile = PivotTile;
+            textItem71.TextColor = System.Drawing.Color.DarkGray;
+            PivotTile.Footer = textItem71;
+            PivotTile.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            PivotTile.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
+            PivotTile.HoveredBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
+            PivotTile.HoverText = null;
+            PivotTile.Location = new System.Drawing.Point( 355, 148 );
+            PivotTile.Margin = new System.Windows.Forms.Padding( 1 );
+            PivotTile.MinimumSize = new System.Drawing.Size( 100, 50 );
+            PivotTile.Name = "PivotTile";
+            PivotTile.ShowBanner = true;
+            PivotTile.ShowBannerIcon = true;
+            PivotTile.Size = new System.Drawing.Size( 152, 80 );
+            PivotTile.TabIndex = 11;
+            textItem72.Font = new System.Drawing.Font( "Roboto", 9.75F );
+            textItem72.HubTile = PivotTile;
+            textItem72.Text = "Pivots";
+            textItem72.TextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            PivotTile.Title = textItem72;
+            PivotTile.ToolTip = ToolTip;
+            PivotTile.TurnLiveTileOn = true;
+            // 
             // TestButton
             // 
             TestButton.BindingSource = null;
@@ -970,7 +1018,7 @@ namespace BudgetExecution
             // 
             BrowserTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             BrowserTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
-            BrowserTable.CaptionText = "Browsers";
+            BrowserTable.CaptionText = "Web Browsers";
             BrowserTable.ColumnCount = 1;
             BrowserTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
             BrowserTable.Controls.Add( BrowserPanel, 0, 1 );
@@ -1132,6 +1180,7 @@ namespace BudgetExecution
             DataManagementPanel.BorderColor = System.Drawing.Color.Transparent;
             DataManagementPanel.BorderThickness = 1;
             DataManagementPanel.Children = null;
+            DataManagementPanel.Controls.Add( PivotTile );
             DataManagementPanel.Controls.Add( SqlEditorTile );
             DataManagementPanel.Controls.Add( LookupTile );
             DataManagementPanel.Controls.Add( VisualizationTile );
@@ -1305,5 +1354,6 @@ namespace BudgetExecution
         public System.Windows.Forms.Timer Timer;
         public ContextMenu ContextMenu;
         public Tile MapTile;
+        public Tile PivotTile;
     }
 }
