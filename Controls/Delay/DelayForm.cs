@@ -46,9 +46,11 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using static System.Configuration.ConfigurationManager;
+    using Timer = System.Windows.Forms.Timer;
 
     /// <summary> </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
@@ -61,6 +63,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Local" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public partial class DelayForm : MetroForm
     {
         /// <summary>
@@ -132,7 +135,7 @@ namespace BudgetExecution
             {
                 return _status;
             }
-            private set
+            private protected set
             {
                 _status = value;
             }
@@ -152,7 +155,7 @@ namespace BudgetExecution
             {
                 return _busy;
             }
-            private set
+            private protected set
             {
                 _busy = value;
             }
@@ -167,7 +170,6 @@ namespace BudgetExecution
         public DelayForm( )
         {
             InitializeComponent( );
-            InitializeDelegates( );
             RegisterCallbacks( );
 
             // Basic Form Properties
@@ -176,8 +178,10 @@ namespace BudgetExecution
             MinimumSize = new Size( 1340, 740 );
             Font = new Font( "Roboto", 9 );
             StartPosition = FormStartPosition.CenterScreen;
-            FormBorderStyle = FormBorderStyle.Sizable;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             WindowState = FormWindowState.Normal;
+            SizeGripStyle = SizeGripStyle.Hide;
+            AutoScaleMode = AutoScaleMode.Font;
             CaptionBarHeight = 5;
             CaptionAlign = HorizontalAlignment.Center;
             CaptionFont = new Font( "Roboto", 10, FontStyle.Regular );
@@ -189,8 +193,6 @@ namespace BudgetExecution
             BorderThickness = 1;
             ShowIcon = false;
             ShowInTaskbar = true;
-            SizeGripStyle = SizeGripStyle.Hide;
-            AutoScaleMode = AutoScaleMode.Font;
             DoubleBuffered = true;
             ShowMouseOver = false;
             MinimizeBox = false;
@@ -216,7 +218,7 @@ namespace BudgetExecution
         public DelayForm( Status status )
             : this( )
         {
-            Status = status;
+            _status = status;
         }
 
         /// <summary>
@@ -258,9 +260,7 @@ namespace BudgetExecution
             {
                 // Timer Properties
                 Timer.Enabled = true;
-                Timer.Interval = 5000;
-                Timer.Tick += OnTick;
-                Timer.Start( );
+                Timer.Interval = 500;
             }
             catch( Exception _ex )
             {
@@ -278,14 +278,14 @@ namespace BudgetExecution
                 Opacity = 0;
                 if( _seconds != 0 )
                 {
-                    Timer = new Timer( );
-                    Timer.Interval = 1000;
-                    Timer.Tick += ( sender, args ) =>
+                    var _timer = new Timer( );
+                    _timer.Interval = 1000;
+                    _timer.Tick += ( sender, args ) =>
                     {
                         _time++;
                         if( _time == _seconds )
                         {
-                            Timer.Stop( );
+                            _timer.Stop( );
                         }
                     };
                 }
@@ -301,7 +301,7 @@ namespace BudgetExecution
         /// <summary>
         /// Fades the in Form.
         /// </summary>
-        private protected virtual void FadeIn( )
+        private protected void FadeIn( )
         {
             try
             {
@@ -328,7 +328,7 @@ namespace BudgetExecution
         /// <summary>
         /// Fades the Form out and closes it.
         /// </summary>
-        private protected virtual void FadeOut( )
+        private protected void FadeOut( )
         {
             try
             {
@@ -342,7 +342,7 @@ namespace BudgetExecution
                         Close( );
                     }
 
-                    Opacity -= 0.02d;
+                    Opacity -= 0.01d;
                 };
 
                 _timer.Start( );
@@ -361,51 +361,83 @@ namespace BudgetExecution
         /// </param>
         public void InvokeIf( Action action )
         {
-            if( InvokeRequired )
+            try
             {
-                BeginInvoke( action );
+                ThrowIf.Null( action, nameof( action ) );
+                if( InvokeRequired )
+                {
+                    BeginInvoke( action );
+                }
+                else
+                {
+                    action.Invoke( );
+                }
             }
-            else
+            catch( Exception _ex )
             {
-                action.Invoke( );
+                Fail( _ex );
             }
         }
 
         /// <summary>
         /// Begins the initialize.
         /// </summary>
-        private void BeginInit( )
+        private protected void BeginInit( )
         {
-            _busy = true;
+            try
+            {
+                _busy = true;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
         /// Ends the initialize.
         /// </summary>
-        private void EndInit( )
+        private protected void EndInit( )
         {
-            _busy = false;
+            try
+            {
+                _busy = false;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
         /// Shows the image.
         /// </summary>
-        public void ShowImage( )
+        private protected void SetImage( )
         {
             try
             {
-                var _loading = AppSettings[ "PathPrefix" ] + AppSettings[ "Loading" ];
-                var _processing = AppSettings[ "PathPrefix" ] + AppSettings[ "Processing" ];
-                var _waiting = AppSettings[ "PathPrefix" ] + AppSettings[ "Waiting" ];
-                if( Enum.IsDefined( typeof( Status ), Status ) )
+                switch( _status )
                 {
-                    PictureBox.Image = Status switch
+                    case Status.Loading:
                     {
-                        Status.Loading => Image.FromFile( _loading ),
-                        Status.Processing => Image.FromFile( _processing ),
-                        Status.Waiting => Image.FromFile( _waiting ),
-                        _ => Image.FromFile( _loading )
-                    };
+                        PictureBox.Image = Resources.Images.LoaderImages.Loading;
+                        break;
+                    }
+                    case Status.Processing:
+                    {
+                        PictureBox.Image = Resources.Images.LoaderImages.Processing;
+                        break;
+                    }
+                    case Status.Waiting:
+                    {
+                        PictureBox.Image = Resources.Images.LoaderImages.Waiting;
+                        break;
+                    }
+                    default:
+                    {
+                        PictureBox.Image = Resources.Images.LoaderImages.Loading;
+                        break;
+                    }
                 }
             }
             catch( Exception _ex )
@@ -425,8 +457,9 @@ namespace BudgetExecution
         {
             try
             {
-                ShowImage( );
+                SetImage( );
                 CloseButton.Text = "Close Window";
+                FadeIn( );
             }
             catch( Exception _ex )
             {
@@ -441,12 +474,11 @@ namespace BudgetExecution
         /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        public void OnTick( object sender, EventArgs e )
+        public void OnTimerTick( object sender, EventArgs e )
         {
             try
             {
-                Timer?.Stop( );
-                Close( );
+                InvokeIf( _statusUpdate );
             }
             catch( Exception _ex )
             {
@@ -466,15 +498,12 @@ namespace BudgetExecution
             try
             {
                 Timer?.Dispose( );
-                if( Program.Windows.ContainsKey( Name ) )
-                {
-                    Program.Windows.Remove( Name );
-                }
-
                 if( PictureBox?.Image != null )
                 {
                     PictureBox.Image = null;
                 }
+
+                FadeOut( );
             }
             catch( Exception _ex )
             {

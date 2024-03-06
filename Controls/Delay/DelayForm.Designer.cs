@@ -34,16 +34,15 @@
             PictureBox = new System.Windows.Forms.PictureBox( );
             Worker = new System.ComponentModel.BackgroundWorker( );
             Timer = new System.Windows.Forms.Timer( components );
-            CloseButton = new Button( );
             ContextMenu = new ContextMenu( );
-            ImageList = new ImageList( );
+            CloseButton = new Button( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
             SuspendLayout( );
             // 
             // PictureBox
             // 
             PictureBox.BackColor = System.Drawing.Color.Transparent;
-            PictureBox.Location = new System.Drawing.Point( 369, 214 );
+            PictureBox.Location = new System.Drawing.Point( 371, 191 );
             PictureBox.Margin = new System.Windows.Forms.Padding( 4, 3, 4, 3 );
             PictureBox.Name = "PictureBox";
             PictureBox.Size = new System.Drawing.Size( 565, 335 );
@@ -59,40 +58,7 @@
             // Timer
             // 
             Timer.Enabled = true;
-            Timer.Interval = 5000;
-            // 
-            // CloseButton
-            // 
-            CloseButton.BindingSource = null;
-            CloseButton.DataFilter = null;
-            CloseButton.DisabledBackColor = System.Drawing.Color.Transparent;
-            CloseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
-            CloseButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            CloseButton.Font = new System.Drawing.Font( "Roboto", 8F );
-            CloseButton.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
-            CloseButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
-            CloseButton.HoverText = null;
-            CloseButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
-            CloseButton.IsDerivedStyle = true;
-            CloseButton.Location = new System.Drawing.Point( 1384, 691 );
-            CloseButton.Margin = new System.Windows.Forms.Padding( 4, 3, 4, 3 );
-            CloseButton.Name = "CloseButton";
-            CloseButton.NormalBorderColor = System.Drawing.Color.Black;
-            CloseButton.NormalColor = System.Drawing.Color.Black;
-            CloseButton.NormalTextColor = System.Drawing.Color.Black;
-            CloseButton.Padding = new System.Windows.Forms.Padding( 1 );
-            CloseButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            CloseButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            CloseButton.PressTextColor = System.Drawing.Color.White;
-            CloseButton.Size = new System.Drawing.Size( 163, 40 );
-            CloseButton.Style = MetroSet_UI.Enums.Style.Custom;
-            CloseButton.StyleManager = null;
-            CloseButton.TabIndex = 1;
-            CloseButton.Text = "button1";
-            CloseButton.ThemeAuthor = "Terry D. Eppler";
-            CloseButton.ThemeName = "Budget Execution";
-            CloseButton.ToolTip = null;
+            Timer.Interval = 500;
             // 
             // ContextMenu
             // 
@@ -114,13 +80,37 @@
             ContextMenu.ThemeStyle.PressedBackColor = System.Drawing.Color.FromArgb( 204, 204, 204 );
             ContextMenu.ThemeStyle.PressedForeColor = System.Drawing.Color.Black;
             // 
-            // ImageList
+            // CloseButton
             // 
-            ImageList.FileNames = null;
-            ImageList.FilePaths = null;
-            ImageList.HoverText = null;
-            ImageList.Image = null;
-            ImageList.ImageSource = ImageDirectory.LoaderImages;
+            CloseButton.BindingSource = null;
+            CloseButton.DataFilter = null;
+            CloseButton.DisabledBackColor = System.Drawing.Color.Transparent;
+            CloseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
+            CloseButton.DisabledForeColor = System.Drawing.Color.Transparent;
+            CloseButton.Font = new System.Drawing.Font( "Roboto", 9F );
+            CloseButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            CloseButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
+            CloseButton.HoverText = null;
+            CloseButton.HoverTextColor = System.Drawing.Color.White;
+            CloseButton.IsDerivedStyle = true;
+            CloseButton.Location = new System.Drawing.Point( 1103, 619 );
+            CloseButton.Name = "CloseButton";
+            CloseButton.NormalBorderColor = System.Drawing.Color.Transparent;
+            CloseButton.NormalColor = System.Drawing.Color.Transparent;
+            CloseButton.NormalTextColor = System.Drawing.Color.Transparent;
+            CloseButton.Padding = new System.Windows.Forms.Padding( 1 );
+            CloseButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            CloseButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            CloseButton.PressTextColor = System.Drawing.Color.White;
+            CloseButton.Size = new System.Drawing.Size( 90, 30 );
+            CloseButton.Style = MetroSet_UI.Enums.Style.Custom;
+            CloseButton.StyleManager = null;
+            CloseButton.TabIndex = 1;
+            CloseButton.Text = "button1";
+            CloseButton.ThemeAuthor = "Terry D. Eppler";
+            CloseButton.ThemeName = "Budget Execution";
+            CloseButton.ToolTip = null;
             // 
             // DelayForm
             // 
@@ -129,12 +119,12 @@
             BackColor = System.Drawing.Color.Black;
             BorderColor = System.Drawing.Color.Black;
             CaptionBarColor = System.Drawing.Color.Black;
-            CaptionBarHeight = 1;
+            CaptionBarHeight = 5;
             CaptionButtonColor = System.Drawing.Color.Black;
             CaptionButtonHoverColor = System.Drawing.Color.Black;
             CaptionFont = new System.Drawing.Font( "Roboto", 11.25F );
             CaptionForeColor = System.Drawing.Color.Black;
-            ClientSize = new System.Drawing.Size( 1338, 738 );
+            ClientSize = new System.Drawing.Size( 1333, 734 );
             ControlBox = false;
             Controls.Add( CloseButton );
             Controls.Add( PictureBox );
@@ -165,8 +155,7 @@
         public System.Windows.Forms.PictureBox PictureBox;
         public System.ComponentModel.BackgroundWorker Worker;
         public System.Windows.Forms.Timer Timer;
-        private Button CloseButton;
         public ContextMenu ContextMenu;
-        public ImageList ImageList;
+        private Button CloseButton;
     }
 }

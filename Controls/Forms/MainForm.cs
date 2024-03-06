@@ -46,6 +46,8 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Linq;
+    using System.Threading;
+    using System.Threading.Tasks;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Timer = System.Windows.Forms.Timer;
@@ -61,8 +63,11 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantNameQualifier" ) ]
     public partial class MainForm : MetroForm
     {
+        private Action _delay;
+
         /// <summary>
         /// Gets or sets the time.
         /// </summary>
@@ -204,6 +209,21 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Initializes the delegates.
+        /// </summary>
+        private void InitializeDelegates( )
+        {
+            try
+            {
+                _delay += ShowLoadingForm;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Displays the control to the user.
         /// </summary>
         public new virtual void Show( )
@@ -326,7 +346,7 @@ namespace BudgetExecution
                 LookupTile.Body.Text = string.Empty;
                 LookupTile.Banner.Text = string.Empty;
                 LookupTile.HoverText = "Look-Up";
-                SqlEditorTile.Title.Text = "SQL Editor";
+                SqlEditorTile.Title.Text = "SQL";
                 SqlEditorTile.Body.Text = string.Empty;
                 SqlEditorTile.Banner.Text = string.Empty;
                 SqlEditorTile.HoverText = "SQL Editor";
@@ -386,6 +406,8 @@ namespace BudgetExecution
                 var _loader = new DelayForm( Status.Processing );
                 _loader.StartPosition = FormStartPosition.CenterParent;
                 _loader.ShowDialog( this );
+                Thread.Sleep( 3000 );
+                _loader.Close( );
             }
             catch( Exception _ex )
             {
@@ -787,6 +809,30 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Invokes if needed.
+        /// </summary>
+        /// <param name="action">The action.</param>
+        public void InvokeIf( System.Action action )
+        {
+            try
+            {
+                ThrowIf.Null( action, nameof( action ) );
+                if( InvokeRequired )
+                {
+                    BeginInvoke( action );
+                }
+                else
+                {
+                    action.Invoke( );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Fades the in.
         /// </summary>
         private protected void FadeIn( )
@@ -1142,7 +1188,7 @@ namespace BudgetExecution
         /// </param>
         private void OnPivotTileClick( object sender, EventArgs e )
         {
-            OpenPivotChartForm( );
+            InvokeIf( _delay );
         }
 
         /// <summary>
