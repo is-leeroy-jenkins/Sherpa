@@ -247,9 +247,9 @@ namespace BudgetExecution
             try
             {
                 // Timer Properties
-                Timer.Enabled = true;
                 Timer.Interval = 5000;
                 Timer.Tick += OnTimerTick;
+                Timer.Enabled = true;
                 Timer.Start( );
             }
             catch( Exception _ex )
@@ -440,40 +440,6 @@ namespace BudgetExecution
             try
             {
                 Minion.RunSqlCe( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Shows the loading form.
-        /// </summary>
-        private void ShowLoadingForm( )
-        {
-            try
-            {
-                BeginInit( );
-                _loader = new DelayForm( Status.Processing );
-                _loader.StartPosition = FormStartPosition.CenterParent;
-                _loader.ShowDialog( this );
-                EndInit( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Closes the loading form.
-        /// </summary>
-        private void CloseLoadingForm( )
-        {
-            try
-            {
-                _loader?.Close( );
             }
             catch( Exception _ex )
             {
@@ -1015,6 +981,40 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Shows the loading form.
+        /// </summary>
+        private void ShowLoadingForm( )
+        {
+            try
+            {
+                BeginInit( );
+                _loader = new DelayForm( Status.Processing );
+                _loader.StartPosition = FormStartPosition.CenterParent;
+                _loader.ShowDialog( this );
+                EndInit( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Closes the loading form.
+        /// </summary>
+        private void CloseLoadingForm( )
+        {
+            try
+            {
+                _loader?.Close( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -1025,6 +1025,7 @@ namespace BudgetExecution
             try
             {
                 InitializeTiles( );
+                InitializeTimer( );
                 SetTileText( );
                 FadeIn( );
             }
