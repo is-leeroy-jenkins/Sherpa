@@ -284,7 +284,7 @@ namespace BudgetExecution
                 Opacity = 0;
                 if( Seconds != 0 )
                 {
-                    var _timer = new Timer( );
+                    var _timer = new System.Windows.Forms.Timer( );
                     _timer.Interval = 1000;
                     _timer.Tick += ( sender, args ) =>
                     {
