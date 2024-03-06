@@ -43,6 +43,7 @@ namespace BudgetExecution
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Linq;
@@ -66,7 +67,30 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "RedundantNameQualifier" ) ]
     public partial class MainForm : MetroForm
     {
-        private Action _delay;
+        /// <summary>
+        /// The time
+        /// </summary>
+        private int _time;
+
+        /// <summary>
+        /// The seconds
+        /// </summary>
+        private int _seconds;
+
+        /// <summary>
+        /// The busy
+        /// </summary>
+        private bool _busy;
+
+        /// <summary>
+        /// The delay
+        /// </summary>
+        private Action _beginLoad;
+
+        /// <summary>
+        /// The end load
+        /// </summary>
+        private Action _endLoad;
 
         /// <summary>
         /// Gets or sets the time.
@@ -92,6 +116,11 @@ namespace BudgetExecution
         /// </value>
         public IEnumerable<Tile> Tiles { get; set; }
 
+        /// <summary>
+        /// The loader
+        /// </summary>
+        private DelayForm _loader;
+
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -100,6 +129,7 @@ namespace BudgetExecution
         public MainForm( )
         {
             InitializeComponent( );
+            InitializeDelegates( );
             RegisterCallbacks( );
 
             // Basic Properties
@@ -137,8 +167,8 @@ namespace BudgetExecution
             Tiles = GetTiles( );
 
             // Timer Properties
-            Time = 0;
-            Seconds = 5;
+            _time = 0;
+            _seconds = 5;
 
             // Wire Events
             Load += OnLoad;
@@ -209,13 +239,33 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Initializes the timer.
+        /// </summary>
+        private void InitializeTimer( )
+        {
+            try
+            {
+                // Timer Properties
+                Timer.Enabled = true;
+                Timer.Interval = 500;
+                Timer.Tick += OnTimerTick;
+                Timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Initializes the delegates.
         /// </summary>
         private void InitializeDelegates( )
         {
             try
             {
-                _delay += ShowLoadingForm;
+                _beginLoad += ShowLoadingForm;
+                _endLoad += CloseLoadingForm;
             }
             catch( Exception _ex )
             {
@@ -403,11 +453,26 @@ namespace BudgetExecution
         {
             try
             {
-                var _loader = new DelayForm( Status.Processing );
+                BeginInit( );
+                _loader = new DelayForm( Status.Processing );
                 _loader.StartPosition = FormStartPosition.CenterParent;
                 _loader.ShowDialog( this );
-                Thread.Sleep( 3000 );
-                _loader.Close( );
+                EndInit( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Closes the loading form.
+        /// </summary>
+        private void CloseLoadingForm( )
+        {
+            try
+            {
+                _loader?.Close( );
             }
             catch( Exception _ex )
             {
@@ -833,6 +898,36 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Begins the initialize.
+        /// </summary>
+        private protected void BeginInit( )
+        {
+            try
+            {
+                _busy = true;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Ends the initialize.
+        /// </summary>
+        private protected void EndInit( )
+        {
+            try
+            {
+                _busy = false;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Fades the in.
         /// </summary>
         private protected void FadeIn( )
@@ -1188,7 +1283,28 @@ namespace BudgetExecution
         /// </param>
         private void OnPivotTileClick( object sender, EventArgs e )
         {
-            InvokeIf( _delay );
+            var _task = Task.Run( _beginLoad );
+            Task.Delay( 3000 );
+            var _waiter = _task.GetAwaiter( );
+            _waiter.OnCompleted( _endLoad );
+        }
+
+        /// <summary>
+        /// Called when [timer tick].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnTimerTick( object sender, EventArgs e )
+        {
+            try
+            {
+                InvokeIf( _endLoad );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>

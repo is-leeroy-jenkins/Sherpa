@@ -189,7 +189,7 @@ namespace BudgetExecution
             BackColor = Color.Black;
             MetroColor = Color.Black;
             ForeColor = Color.Black;
-            BorderColor = Color.Black;
+            BorderColor = Color.FromArgb( 0, 120, 212 );
             BorderThickness = 1;
             ShowIcon = false;
             ShowInTaskbar = true;

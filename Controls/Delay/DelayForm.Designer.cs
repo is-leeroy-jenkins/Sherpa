@@ -117,14 +117,14 @@
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.Black;
-            BorderColor = System.Drawing.Color.Black;
+            BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             CaptionBarColor = System.Drawing.Color.Black;
             CaptionBarHeight = 5;
             CaptionButtonColor = System.Drawing.Color.Black;
             CaptionButtonHoverColor = System.Drawing.Color.Black;
             CaptionFont = new System.Drawing.Font( "Roboto", 11.25F );
             CaptionForeColor = System.Drawing.Color.Black;
-            ClientSize = new System.Drawing.Size( 1333, 734 );
+            ClientSize = new System.Drawing.Size( 1338, 739 );
             ControlBox = false;
             Controls.Add( CloseButton );
             Controls.Add( PictureBox );
