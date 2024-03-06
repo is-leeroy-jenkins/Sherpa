@@ -459,7 +459,6 @@ namespace BudgetExecution
                 _loader.StartPosition = FormStartPosition.CenterParent;
                 _loader.ShowDialog( this );
                 EndInit( );
-                Timer.Start( );
             }
             catch( Exception _ex )
             {
@@ -475,7 +474,6 @@ namespace BudgetExecution
             try
             {
                 _loader?.Close( );
-                Timer.Stop( );
             }
             catch( Exception _ex )
             {
@@ -1277,30 +1275,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [pivot tile click].
-        /// </summary>
-        /// <param name="sender">The sender.
-        /// </param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        private void OnPivotTileClick( object sender, EventArgs e )
-        {
-            InvokeIf( _beginLoad );
-        }
-
-        /// <summary>
-        /// Called when [timer tick].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnTimerTick( object sender, EventArgs e )
-        {
-            InvokeIf( _endLoad );
-        }
-
-        /// <summary>
         /// Called when [program project tile click].
         /// </summary>
         /// <param name="sender">The sender.
@@ -1311,6 +1285,30 @@ namespace BudgetExecution
         private void OnProgramProjectTileClick( object sender, EventArgs e )
         {
             ShowProgramProjectDialog( );
+        }
+
+        /// <summary>
+        /// Called when [pivot tile click].
+        /// </summary>
+        /// <param name="sender">The sender.
+        /// </param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        private void OnPivotTileClick( object sender, EventArgs e )
+        {
+            BeginInvoke( _beginLoad );
+        }
+
+        /// <summary>
+        /// Called when [timer tick].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnTimerTick( object sender, EventArgs e )
+        {
+            BeginInvoke( _endLoad );
         }
 
         /// <summary>

@@ -1247,6 +1247,11 @@ namespace BudgetExecution
             ResourcePanel.ThemeName = "Budget Execution";
             ResourcePanel.ToolTip = null;
             // 
+            // Timer
+            // 
+            Timer.Enabled = true;
+            Timer.Interval = 5000;
+            // 
             // ContextMenu
             // 
             ContextMenu.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
