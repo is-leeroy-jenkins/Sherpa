@@ -205,6 +205,7 @@ namespace BudgetExecution
                 AccessTile.Click += OnAccessTileClick;
                 MapTile.Click += OnMapTileClick;
                 PivotTile.Click += OnPivotTileClick;
+                Timer.Tick += OnTimerTick;
             }
             catch( Exception _ex )
             {
@@ -247,7 +248,7 @@ namespace BudgetExecution
             {
                 // Timer Properties
                 Timer.Enabled = true;
-                Timer.Interval = 500;
+                Timer.Interval = 5000;
                 Timer.Tick += OnTimerTick;
                 Timer.Start( );
             }
@@ -287,8 +288,8 @@ namespace BudgetExecution
                     _timer.Interval = 1000;
                     _timer.Tick += ( sender, args ) =>
                     {
-                        Time++;
-                        if( Time == Seconds )
+                        _time++;
+                        if( _time == _seconds )
                         {
                             _timer.Stop( );
                         }
@@ -458,6 +459,7 @@ namespace BudgetExecution
                 _loader.StartPosition = FormStartPosition.CenterParent;
                 _loader.ShowDialog( this );
                 EndInit( );
+                Timer.Start( );
             }
             catch( Exception _ex )
             {
@@ -473,6 +475,7 @@ namespace BudgetExecution
             try
             {
                 _loader?.Close( );
+                Timer.Stop( );
             }
             catch( Exception _ex )
             {
@@ -1283,10 +1286,7 @@ namespace BudgetExecution
         /// </param>
         private void OnPivotTileClick( object sender, EventArgs e )
         {
-            var _task = Task.Run( _beginLoad );
-            Task.Delay( 3000 );
-            var _waiter = _task.GetAwaiter( );
-            _waiter.OnCompleted( _endLoad );
+            InvokeIf( _beginLoad );
         }
 
         /// <summary>
@@ -1297,14 +1297,7 @@ namespace BudgetExecution
         /// instance containing the event data.</param>
         private void OnTimerTick( object sender, EventArgs e )
         {
-            try
-            {
-                InvokeIf( _endLoad );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
+            InvokeIf( _endLoad );
         }
 
         /// <summary>
