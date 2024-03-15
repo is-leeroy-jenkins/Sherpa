@@ -67,17 +67,17 @@ namespace BudgetExecution
         /// <summary>
         /// The record
         /// </summary>
-        private protected Task<DataRow> _record;
+        private protected DataRow _record;
 
         /// <summary>
         /// The keys
         /// </summary>
-        private protected Task<IList<int>> _keys;
+        private protected IList<int> _keys;
 
         /// <summary>
         /// The map
         /// </summary>
-        private protected Task<IDictionary<string, object>> _map;
+        private protected IDictionary<string, object> _map;
 
         /// <inheritdoc />
         /// <summary>
@@ -105,7 +105,7 @@ namespace BudgetExecution
         /// <value>
         /// The record.
         /// </value>
-        public Task<DataRow> Record
+        public DataRow Record
         {
             get
             {
@@ -124,7 +124,7 @@ namespace BudgetExecution
         /// <value>
         /// The keys.
         /// </value>
-        public Task<IList<int>> Keys
+        public IList<int> Keys
         {
             get
             {
@@ -143,7 +143,7 @@ namespace BudgetExecution
         /// <value>
         /// The map.
         /// </value>
-        public Task<IDictionary<string, object>> Map
+        public IDictionary<string, object> Map
         {
             get
             {
@@ -195,22 +195,21 @@ namespace BudgetExecution
         /// Gets the record asynchronous.
         /// </summary>
         /// <returns></returns>
-        public Task<DataRow> GetRecordAsync( )
+        public DataRow GetRecord( )
         {
-            var _async = new TaskCompletionSource<DataRow>( );
             try
             {
                 var _table = GetDataTable( );
                 var _data = _table.AsEnumerable( );
                 var _row = _data.FirstOrDefault( );
                 return _row?.ItemArray?.Length > 0
-                    ? _async.Task
-                    : default( Task<DataRow> );
+                    ? _row
+                    : default( DataRow );
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return default( Task<DataRow> );
+                return default( DataRow );
             }
         }
 
@@ -313,9 +312,8 @@ namespace BudgetExecution
         /// Gets the fields asynchronous.
         /// </summary>
         /// <returns></returns>
-        public Task<IList<string>> GetFieldsAsync( )
+        public IList<string> GetFields( )
         {
-            var _async = new TaskCompletionSource<IList<string>>( );
             try
             {
                 var _list = new List<string>( );
@@ -328,16 +326,14 @@ namespace BudgetExecution
                     }
                 }
 
-                _async.SetResult( _list );
                 return _list?.Any( ) == true
-                    ? _async.Task
-                    : default( Task<IList<string>> );
+                    ? _list
+                    : default( IList<string> );
             }
             catch( Exception _ex )
             {
-                _async.SetException( _ex );
                 Fail( _ex );
-                return default( Task<IList<string>> );
+                return default( IList<string> );
             }
         }
 
@@ -346,9 +342,8 @@ namespace BudgetExecution
         /// Gets the numerics asynchronous.
         /// </summary>
         /// <returns></returns>
-        public Task<IList<string>> GetNumericsAsync( )
+        public IList<string> GetNumerics( )
         {
-            var _async = new TaskCompletionSource<IList<string>>( );
             try
             {
                 var _list = new List<string>( );
@@ -367,16 +362,14 @@ namespace BudgetExecution
                     }
                 }
 
-                _async.SetResult( _list );
                 return _list?.Any( ) == true
-                    ? _async.Task
-                    : default( Task<IList<string>> );
+                    ? _list
+                    : default( IList<string> );
             }
             catch( Exception _ex )
             {
-                _async.SetException( _ex );
                 Fail( _ex );
-                return default( Task<IList<string>> );
+                return default( IList<string> );
             }
         }
 
@@ -385,9 +378,8 @@ namespace BudgetExecution
         /// Gets the dates asynchronous.
         /// </summary>
         /// <returns></returns>
-        public Task<IList<string>> GetDatesAsync( )
+        public IList<string> GetDates( )
         {
-            var _async = new TaskCompletionSource<IList<string>>( );
             try
             {
                 var _list = new List<string>( );
@@ -405,16 +397,14 @@ namespace BudgetExecution
                     }
                 }
 
-                _async.SetResult( _list );
                 return _list?.Any( ) == true
-                    ? _async.Task
-                    : default( Task<IList<string>> );
+                    ? _list
+                    : default( IList<string> );
             }
             catch( Exception _ex )
             {
-                _async.SetException( _ex );
                 Fail( _ex );
-                return default( Task<IList<string>> );
+                return default( IList<string> );
             }
         }
 
@@ -423,9 +413,8 @@ namespace BudgetExecution
         /// Gets the primary keys asynchronous.
         /// </summary>
         /// <returns></returns>
-        public Task<IList<int>> GetPrimaryKeysAsync( )
+        public IList<int> GetPrimaryKeys( )
         {
-            var _async = new TaskCompletionSource<IList<int>>( );
             try
             {
                 var _table = GetDataTable( );
@@ -434,16 +423,14 @@ namespace BudgetExecution
                     ?.Distinct( );
 
                 var _list = _values?.ToList( );
-                _async.SetResult( _list );
-                return _values?.Any( ) == true
-                    ? _async.Task
-                    : default( Task<IList<int>> );
+                return _list?.Any( ) == true
+                    ? _list
+                    : default( IList<int> );
             }
             catch( Exception _ex )
             {
-                _async.SetException( _ex );
                 Fail( _ex );
-                return default( Task<IList<int>> );
+                return default( IList<int> );
             }
         }
     }

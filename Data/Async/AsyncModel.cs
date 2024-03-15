@@ -132,14 +132,14 @@ namespace BudgetExecution
             _query = new BudgetQuery( SqlStatement );
             _dataTable = GetDataTableAsync( );
             _dataElements = GetSeriesAsync( );
-            _dataColumns = GetColumnsAsync( );
-            _columnNames = GetNamesAsync( );
-            _keys = GetPrimaryKeysAsync( );
-            _fields = GetFieldsAsync( );
-            _numerics = GetNumericsAsync( );
-            _dates = GetDatesAsync( );
-            _record = GetRecordAsync( );
-            _map = GetMapAsync( );
+            _dataColumns = GetColumns( );
+            _columnNames = GetNames( );
+            _keys = GetPrimaryKeys( );
+            _fields = GetFields( );
+            _numerics = GetNumerics( );
+            _dates = GetDates( );
+            _record = GetRecord( );
+            _map = GetMap( );
         }
 
         /// <summary>
@@ -159,14 +159,14 @@ namespace BudgetExecution
             _query = new BudgetQuery( SqlStatement );
             _dataTable = GetDataTableAsync( );
             _dataElements = GetSeriesAsync( );
-            _dataColumns = GetColumnsAsync( );
-            _columnNames = GetNamesAsync( );
-            _keys = GetPrimaryKeysAsync( );
-            _fields = GetFieldsAsync( );
-            _numerics = GetNumericsAsync( );
-            _dates = GetDatesAsync( );
-            _record = GetRecordAsync( );
-            Map = GetMapAsync( );
+            _dataColumns = GetColumns( );
+            _columnNames = GetNames( );
+            _keys = GetPrimaryKeys( );
+            _fields = GetFields( );
+            _numerics = GetNumerics( );
+            _dates = GetDates( );
+            _record = GetRecord( );
+            Map = GetMap( );
         }
 
         /// <summary>
@@ -188,15 +188,15 @@ namespace BudgetExecution
             _sqlStatement = new SqlStatement( source, provider, updates, where, commandType );
             _query = new BudgetQuery( SqlStatement );
             _dataTable = GetDataTableAsync( );
-            _dataColumns = GetColumnsAsync( );
-            _columnNames = GetNamesAsync( );
-            _keys = GetPrimaryKeysAsync( );
-            _fields = GetFieldsAsync( );
-            _numerics = GetNumericsAsync( );
-            _dates = GetDatesAsync( );
+            _dataColumns = GetColumns( );
+            _columnNames = GetNames( );
+            _keys = GetPrimaryKeys( );
+            _fields = GetFields( );
+            _numerics = GetNumerics( );
+            _dates = GetDates( );
             _dataElements = GetSeriesAsync( );
-            _record = GetRecordAsync( );
-            _map = GetMapAsync( );
+            _record = GetRecord( );
+            _map = GetMap( );
         }
 
         /// <summary>
@@ -218,15 +218,15 @@ namespace BudgetExecution
             _sqlStatement = new SqlStatement( source, provider, columns, where, commandType );
             _query = new BudgetQuery( _sqlStatement );
             _dataTable = GetDataTableAsync( );
-            _dataColumns = GetColumnsAsync( );
-            _columnNames = GetNamesAsync( );
-            _keys = GetPrimaryKeysAsync( );
-            _fields = GetFieldsAsync( );
-            _numerics = GetNumericsAsync( );
-            _dates = GetDatesAsync( );
+            _dataColumns = GetColumns( );
+            _columnNames = GetNames( );
+            _keys = GetPrimaryKeys( );
+            _fields = GetFields( );
+            _numerics = GetNumerics( );
+            _dates = GetDates( );
             _dataElements = GetSeriesAsync( );
-            _record = GetRecordAsync( );
-            _map = GetMapAsync( );
+            _record = GetRecord( );
+            _map = GetMap( );
         }
 
         /// <summary>
@@ -252,15 +252,15 @@ namespace BudgetExecution
 
             _query = new BudgetQuery( _sqlStatement );
             _dataTable = GetDataTableAsync( );
-            _dataColumns = GetColumnsAsync( );
-            _columnNames = GetNamesAsync( );
-            _keys = GetPrimaryKeysAsync( );
-            _fields = GetFieldsAsync( );
-            _numerics = GetNumericsAsync( );
-            _dates = GetDatesAsync( );
+            _dataColumns = GetColumns( );
+            _columnNames = GetNames( );
+            _keys = GetPrimaryKeys( );
+            _fields = GetFields( );
+            _numerics = GetNumerics( );
+            _dates = GetDates( );
             _dataElements = GetSeriesAsync( );
-            _record = GetRecordAsync( );
-            _map = GetMapAsync( );
+            _record = GetRecord( );
+            _map = GetMap( );
         }
 
         /// <summary>
@@ -278,15 +278,15 @@ namespace BudgetExecution
             _sqlStatement = new SqlStatement( source, Provider.Access, where );
             _query = new BudgetQuery( _sqlStatement );
             _dataTable = GetDataTableAsync( );
-            _dataColumns = GetColumnsAsync( );
-            _columnNames = GetNamesAsync( );
-            _keys = GetPrimaryKeysAsync( );
-            _fields = GetFieldsAsync( );
-            _numerics = GetNumericsAsync( );
-            _dates = GetDatesAsync( );
+            _dataColumns = GetColumns( );
+            _columnNames = GetNames( );
+            _keys = GetPrimaryKeys( );
+            _fields = GetFields( );
+            _numerics = GetNumerics( );
+            _dates = GetDates( );
             _dataElements = GetSeriesAsync( );
-            _record = GetRecordAsync( );
-            _map = GetMapAsync( );
+            _record = GetRecord( );
+            _map = GetMap( );
         }
 
         /// <summary>
@@ -305,15 +305,15 @@ namespace BudgetExecution
             _sqlStatement = new SqlStatement( source, provider, sqlText );
             _query = new BudgetQuery( _sqlStatement );
             _dataTable = GetDataTableAsync( );
-            _dataColumns = GetColumnsAsync( );
-            _columnNames = GetNamesAsync( );
-            _fields = GetFieldsAsync( );
-            _numerics = GetNumericsAsync( );
-            _keys = GetPrimaryKeysAsync( );
-            _dates = GetDatesAsync( );
+            _dataColumns = GetColumns( );
+            _columnNames = GetNames( );
+            _fields = GetFields( );
+            _numerics = GetNumerics( );
+            _keys = GetPrimaryKeys( );
+            _dates = GetDates( );
             _dataElements = GetSeriesAsync( );
-            _record = GetRecordAsync( );
-            _map = GetMapAsync( );
+            _record = GetRecord( );
+            _map = GetMap( );
         }
 
         /// <summary>
@@ -332,15 +332,15 @@ namespace BudgetExecution
             _sqlStatement = new SqlStatement( _source, _provider, sqlText, commandType );
             _query = new BudgetQuery( _sqlStatement );
             _dataTable = GetDataTableAsync( );
-            _dataColumns = GetColumnsAsync( );
-            _columnNames = GetNamesAsync( );
-            _keys = GetPrimaryKeysAsync( );
-            _fields = GetFieldsAsync( );
-            _numerics = GetNumericsAsync( );
-            _dates = GetDatesAsync( );
+            _dataColumns = GetColumns( );
+            _columnNames = GetNames( );
+            _keys = GetPrimaryKeys( );
+            _fields = GetFields( );
+            _numerics = GetNumerics( );
+            _dates = GetDates( );
             _dataElements = GetSeriesAsync( );
-            _record = GetRecordAsync( );
-            _map = GetMapAsync( );
+            _record = GetRecord( );
+            _map = GetMap( );
         }
 
         /// <summary>
@@ -357,15 +357,15 @@ namespace BudgetExecution
             _sqlStatement = query.SqlStatement;
             _connection = new BudgetConnection( _source, _provider ).Create( );
             _dataTable = GetDataTableAsync( );
-            _dataColumns = GetColumnsAsync( );
-            _columnNames = GetNamesAsync( );
-            _keys = GetPrimaryKeysAsync( );
-            _fields = GetFieldsAsync( );
-            _numerics = GetNumericsAsync( );
-            _dates = GetDatesAsync( );
+            _dataColumns = GetColumns( );
+            _columnNames = GetNames( );
+            _keys = GetPrimaryKeys( );
+            _fields = GetFields( );
+            _numerics = GetNumerics( );
+            _dates = GetDates( );
             _dataElements = GetSeriesAsync( );
-            _record = GetRecordAsync( );
-            _map = GetMapAsync( );
+            _record = GetRecord( );
+            _map = GetMap( );
         }
 
         /// <summary>

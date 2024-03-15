@@ -108,27 +108,27 @@ namespace BudgetExecution
         /// <summary>
         /// The data columns
         /// </summary>
-        private protected Task<IList<DataColumn>> _dataColumns;
+        private protected IList<DataColumn> _dataColumns;
 
         /// <summary>
         /// The column names
         /// </summary>
-        private protected Task<IList<string>> _columnNames;
+        private protected IList<string> _columnNames;
 
         /// <summary>
         /// The dates
         /// </summary>
-        private protected Task<IList<string>> _dates;
+        private protected IList<string> _dates;
 
         /// <summary>
         /// The fields
         /// </summary>
-        private protected Task<IList<string>> _fields;
+        private protected IList<string> _fields;
 
         /// <summary>
         /// The numerics
         /// </summary>
-        private protected Task<IList<string>> _numerics;
+        private protected IList<string> _numerics;
 
         /// <summary>
         /// The data set
@@ -329,7 +329,7 @@ namespace BudgetExecution
         /// <value>
         /// The data columns.
         /// </value>
-        public Task<IList<DataColumn>> DataColumns
+        public IList<DataColumn> DataColumns
         {
             get
             {
@@ -347,7 +347,7 @@ namespace BudgetExecution
         /// <value>
         /// The column names.
         /// </value>
-        public Task<IList<string>> ColumnNames
+        public IList<string> ColumnNames
         {
             get
             {
@@ -365,7 +365,7 @@ namespace BudgetExecution
         /// <value>
         /// The fields.
         /// </value>
-        public Task<IList<string>> Fields
+        public IList<string> Fields
         {
             get
             {
@@ -383,7 +383,7 @@ namespace BudgetExecution
         /// <value>
         /// The dates.
         /// </value>
-        public Task<IList<string>> Dates
+        public IList<string> Dates
         {
             get
             {
@@ -401,7 +401,7 @@ namespace BudgetExecution
         /// <value>
         /// The numerics.
         /// </value>
-        public Task<IList<string>> Numerics
+        public IList<string> Numerics
         {
             get
             {
