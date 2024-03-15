@@ -134,10 +134,10 @@ namespace BudgetExecution
             _dataElements = GetSeriesAsync( );
             _dataColumns = GetColumns( );
             _columnNames = GetNames( );
-            _keys = GetPrimaryKeys( );
-            _fields = GetFields( );
-            _numerics = GetNumerics( );
-            _dates = GetDates( );
+            _keys = GetPrimaryKeysAsnyc( );
+            _fields = GetFieldsAsync( );
+            _numerics = GetNumericsAsync( );
+            _dates = GetDatesAsync( );
             _record = GetRecord( );
             _map = GetMap( );
         }
@@ -161,10 +161,10 @@ namespace BudgetExecution
             _dataElements = GetSeriesAsync( );
             _dataColumns = GetColumns( );
             _columnNames = GetNames( );
-            _keys = GetPrimaryKeys( );
-            _fields = GetFields( );
-            _numerics = GetNumerics( );
-            _dates = GetDates( );
+            _keys = GetPrimaryKeysAsnyc( );
+            _fields = GetFieldsAsync( );
+            _numerics = GetNumericsAsync( );
+            _dates = GetDatesAsync( );
             _record = GetRecord( );
             Map = GetMap( );
         }
@@ -190,10 +190,10 @@ namespace BudgetExecution
             _dataTable = GetDataTableAsync( );
             _dataColumns = GetColumns( );
             _columnNames = GetNames( );
-            _keys = GetPrimaryKeys( );
-            _fields = GetFields( );
-            _numerics = GetNumerics( );
-            _dates = GetDates( );
+            _keys = GetPrimaryKeysAsnyc( );
+            _fields = GetFieldsAsync( );
+            _numerics = GetNumericsAsync( );
+            _dates = GetDatesAsync( );
             _dataElements = GetSeriesAsync( );
             _record = GetRecord( );
             _map = GetMap( );
@@ -220,10 +220,10 @@ namespace BudgetExecution
             _dataTable = GetDataTableAsync( );
             _dataColumns = GetColumns( );
             _columnNames = GetNames( );
-            _keys = GetPrimaryKeys( );
-            _fields = GetFields( );
-            _numerics = GetNumerics( );
-            _dates = GetDates( );
+            _keys = GetPrimaryKeysAsnyc( );
+            _fields = GetFieldsAsync( );
+            _numerics = GetNumericsAsync( );
+            _dates = GetDatesAsync( );
             _dataElements = GetSeriesAsync( );
             _record = GetRecord( );
             _map = GetMap( );
@@ -254,10 +254,10 @@ namespace BudgetExecution
             _dataTable = GetDataTableAsync( );
             _dataColumns = GetColumns( );
             _columnNames = GetNames( );
-            _keys = GetPrimaryKeys( );
-            _fields = GetFields( );
-            _numerics = GetNumerics( );
-            _dates = GetDates( );
+            _keys = GetPrimaryKeysAsnyc( );
+            _fields = GetFieldsAsync( );
+            _numerics = GetNumericsAsync( );
+            _dates = GetDatesAsync( );
             _dataElements = GetSeriesAsync( );
             _record = GetRecord( );
             _map = GetMap( );
@@ -280,10 +280,10 @@ namespace BudgetExecution
             _dataTable = GetDataTableAsync( );
             _dataColumns = GetColumns( );
             _columnNames = GetNames( );
-            _keys = GetPrimaryKeys( );
-            _fields = GetFields( );
-            _numerics = GetNumerics( );
-            _dates = GetDates( );
+            _keys = GetPrimaryKeysAsnyc( );
+            _fields = GetFieldsAsync( );
+            _numerics = GetNumericsAsync( );
+            _dates = GetDatesAsync( );
             _dataElements = GetSeriesAsync( );
             _record = GetRecord( );
             _map = GetMap( );
@@ -307,10 +307,10 @@ namespace BudgetExecution
             _dataTable = GetDataTableAsync( );
             _dataColumns = GetColumns( );
             _columnNames = GetNames( );
-            _fields = GetFields( );
-            _numerics = GetNumerics( );
-            _keys = GetPrimaryKeys( );
-            _dates = GetDates( );
+            _fields = GetFieldsAsync( );
+            _numerics = GetNumericsAsync( );
+            _keys = GetPrimaryKeysAsnyc( );
+            _dates = GetDatesAsync( );
             _dataElements = GetSeriesAsync( );
             _record = GetRecord( );
             _map = GetMap( );
@@ -334,10 +334,10 @@ namespace BudgetExecution
             _dataTable = GetDataTableAsync( );
             _dataColumns = GetColumns( );
             _columnNames = GetNames( );
-            _keys = GetPrimaryKeys( );
-            _fields = GetFields( );
-            _numerics = GetNumerics( );
-            _dates = GetDates( );
+            _keys = GetPrimaryKeysAsnyc( );
+            _fields = GetFieldsAsync( );
+            _numerics = GetNumericsAsync( );
+            _dates = GetDatesAsync( );
             _dataElements = GetSeriesAsync( );
             _record = GetRecord( );
             _map = GetMap( );
@@ -359,10 +359,10 @@ namespace BudgetExecution
             _dataTable = GetDataTableAsync( );
             _dataColumns = GetColumns( );
             _columnNames = GetNames( );
-            _keys = GetPrimaryKeys( );
-            _fields = GetFields( );
-            _numerics = GetNumerics( );
-            _dates = GetDates( );
+            _keys = GetPrimaryKeysAsnyc( );
+            _fields = GetFieldsAsync( );
+            _numerics = GetNumericsAsync( );
+            _dates = GetDatesAsync( );
             _dataElements = GetSeriesAsync( );
             _record = GetRecord( );
             _map = GetMap( );
@@ -435,8 +435,9 @@ namespace BudgetExecution
         /// <param name="dataRows"> The data rows. </param>
         /// <param name="name"> The column. </param>
         /// <returns> </returns>
-        private IEnumerable<string> GetValues( IEnumerable<DataRow> dataRows, string name )
+        private Task<IList<string>> GetValues( IEnumerable<DataRow> dataRows, string name )
         {
+            var _async = new TaskCompletionSource<IList<string>>( );
             try
             {
                 ThrowIf.Null( dataRows, nameof( dataRows ) );
@@ -446,19 +447,24 @@ namespace BudgetExecution
                     ?.Distinct( )
                     ?.ToList( );
 
+                _async.SetResult( _values );
                 return _values?.Any( ) == true
-                    ? _values
-                    : default( IList<string> );
+                    ? _async.Task
+                    : default( Task<IList<string>> );
             }
             catch( Exception _ex )
             {
+                _async.SetException( _ex );
                 Fail( _ex );
-                return default( IList<string> );
+                return default( Task<IList<string>> );
             }
         }
 
-        /// <summary> Creates the series asynchronous. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Creates the series asynchronous.
+        /// </summary>
+        /// <returns>
+        /// </returns>
         private Task<IDictionary<string, IEnumerable<string>>> GetSeriesAsync( )
         {
             var _async = new TaskCompletionSource<IDictionary<string, IEnumerable<string>>>( );
@@ -475,7 +481,7 @@ namespace BudgetExecution
                        && ( _columns[ _i ]?.DataType == typeof( string ) ) )
                     {
                         var _name = GetValues( _rows, _colName );
-                        _dict?.Add( _columns[ _i ]?.ColumnName, _name );
+                        _dict?.Add( _columns[ _i ]?.ColumnName, _name.Result );
                     }
                 }
 

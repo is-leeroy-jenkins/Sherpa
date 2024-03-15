@@ -91,8 +91,9 @@ namespace BudgetExecution
         /// <returns>
         /// Task(List)
         /// </returns>
-        public IList<int> GetOrdinals( )
+        public Task<IList<int>> GetOrdinals( )
         {
+            var _async = new TaskCompletionSource<IList<int>>( );
             try
             {
                 var _table = GetDataTable( );
@@ -106,14 +107,16 @@ namespace BudgetExecution
                     }
                 }
 
+                _async.SetResult( _values );
                 return _values?.Any( ) == true
-                    ? _values
-                    : default( IList<int> );
+                    ? _async.Task
+                    : default( Task<IList<int>> );
             }
             catch( Exception _ex )
             {
+                _async.SetException( _ex );
                 Fail( _ex );
-                return default( IList<int> );
+                return default( Task<IList<int>> );
             }
         }
 
@@ -122,22 +125,25 @@ namespace BudgetExecution
         /// Gets the map asynchronous.
         /// </summary>
         /// <returns></returns>
-        public IDictionary<string, object> GetMap( )
+        public Task<IDictionary<string, object>> GetMap( )
         {
+            var _async = new TaskCompletionSource<IDictionary<string, object>>( );
             try
             {
                 var _table = GetDataTable( );
                 var _rows = _table?.AsEnumerable( );
                 var _record = _rows?.FirstOrDefault( );
                 var _map = _record.ToDictionary( );
+                _async.SetResult( _map );
                 return _map?.Any( ) == true
-                    ? _map
-                    : default( IDictionary<string, object> );
+                    ? _async.Task
+                    : default( Task<IDictionary<string, object>> );
             }
             catch( Exception _ex )
             {
+                _async.SetException( _ex );
                 Fail( _ex );
-                return default( IDictionary<string, object> );
+                return default( Task<IDictionary<string, object>> );
             }
         }
 
@@ -148,8 +154,9 @@ namespace BudgetExecution
         /// <returns>
         /// Task(Dictionary)
         /// </returns>
-        public IDictionary<string, Type> GetSchema( )
+        public Task<IDictionary<string, Type>> GetSchema( )
         {
+            var _async = new TaskCompletionSource<IDictionary<string, Type>>( );
             try
             {
                 var _table = GetDataTable( );
@@ -162,19 +169,21 @@ namespace BudgetExecution
                         _schema.Add( _col.ColumnName, _col.DataType );
                     }
 
+                    _async.SetResult( _schema );
                     return _schema?.Any( ) == true
-                        ? _schema
-                        : default( IDictionary<string, Type> );
+                        ? _async.Task
+                        : default( Task<IDictionary<string, Type>> );
                 }
                 else
                 {
-                    return default( IDictionary<string, Type> );
+                    return default( Task<IDictionary<string, Type>> );
                 }
             }
             catch( Exception _ex )
             {
+                _async.SetException( _ex );
                 Fail( _ex );
-                return default( IDictionary<string, Type> );
+                return default( Task<IDictionary<string, Type>> );
             }
         }
 
@@ -183,8 +192,9 @@ namespace BudgetExecution
         /// Gets the columns asynchronous.
         /// </summary>
         /// <returns></returns>
-        public IList<DataColumn> GetColumns( )
+        public Task<IList<DataColumn>> GetColumns( )
         {
+            var _async = new TaskCompletionSource<IList<DataColumn>>( );
             try
             {
                 var _table = GetDataTable( );
@@ -199,19 +209,21 @@ namespace BudgetExecution
                         }
                     }
 
+                    _async.SetResult( _columns );
                     return _columns?.Any( ) == true
-                        ? _columns
-                        : default( IList<DataColumn> );
+                        ? _async.Task
+                        : default( Task<IList<DataColumn>> );
                 }
                 else
                 {
-                    return default( IList<DataColumn> );
+                    return default( Task<IList<DataColumn>> );
                 }
             }
             catch( Exception _ex )
             {
+                _async.SetException( _ex );
                 Fail( _ex );
-                return default( IList<DataColumn> );
+                return default( Task<IList<DataColumn>> );
             }
         }
 
@@ -219,9 +231,11 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the names asynchronous.
         /// </summary>
-        /// <returns></returns>
-        public IList<string> GetNames( )
+        /// <returns>
+        /// </returns>
+        public Task<IList<string>> GetNames( )
         {
+            var _async = new TaskCompletionSource<IList<string>>( );
             try
             {
                 var _table = GetDataTable( );
@@ -237,19 +251,21 @@ namespace BudgetExecution
                         }
                     }
 
+                    _async.SetResult( _names );
                     return _names?.Any( ) == true
-                        ? _names
-                        : default( IList<string> );
+                        ? _async.Task
+                        : default( Task<IList<string>> );
                 }
                 else
                 {
-                    return default( IList<string> );
+                    return default( Task<IList<string>> );
                 }
             }
             catch( Exception _ex )
             {
+                _async.SetException( _ex );
                 Fail( _ex );
-                return default( IList<string> );
+                return default( Task<IList<string>> );
             }
         }
     }

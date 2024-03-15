@@ -67,17 +67,17 @@ namespace BudgetExecution
         /// <summary>
         /// The record
         /// </summary>
-        private protected DataRow _record;
+        private protected Task<DataRow> _record;
 
         /// <summary>
         /// The keys
         /// </summary>
-        private protected IList<int> _keys;
+        private protected Task<IList<int>> _keys;
 
         /// <summary>
         /// The map
         /// </summary>
-        private protected IDictionary<string, object> _map;
+        private protected Task<IDictionary<string, object>> _map;
 
         /// <inheritdoc />
         /// <summary>
@@ -105,7 +105,7 @@ namespace BudgetExecution
         /// <value>
         /// The record.
         /// </value>
-        public DataRow Record
+        public Task<DataRow> Record
         {
             get
             {
@@ -124,7 +124,7 @@ namespace BudgetExecution
         /// <value>
         /// The keys.
         /// </value>
-        public IList<int> Keys
+        public Task<IList<int>> Keys
         {
             get
             {
@@ -143,7 +143,7 @@ namespace BudgetExecution
         /// <value>
         /// The map.
         /// </value>
-        public IDictionary<string, object> Map
+        public Task<IDictionary<string, object>> Map
         {
             get
             {
@@ -195,21 +195,24 @@ namespace BudgetExecution
         /// Gets the record asynchronous.
         /// </summary>
         /// <returns></returns>
-        public DataRow GetRecord( )
+        public Task<DataRow> GetRecord( )
         {
+            var _async = new TaskCompletionSource<DataRow>( );
             try
             {
                 var _table = GetDataTable( );
                 var _data = _table.AsEnumerable( );
                 var _row = _data.FirstOrDefault( );
+                _async.SetResult( _row );
                 return _row?.ItemArray?.Length > 0
-                    ? _row
-                    : default( DataRow );
+                    ? _async.Task
+                    : default( Task<DataRow> );
             }
             catch( Exception _ex )
             {
+                _async.SetException( _ex );
                 Fail( _ex );
-                return default( DataRow );
+                return default( Task<DataRow> );
             }
         }
 
@@ -287,23 +290,21 @@ namespace BudgetExecution
         /// <param name="dataTable">The data table.</param>
         public void SetColumnCaptions( DataTable dataTable )
         {
-            if( dataTable?.Rows?.Count > 0 )
+            try
             {
-                try
+                ThrowIf.Null( dataTable, nameof( dataTable ) );
+                foreach( DataColumn _column in dataTable.Columns )
                 {
-                    foreach( DataColumn _column in dataTable.Columns )
+                    if( _column != null )
                     {
-                        if( _column != null )
-                        {
-                            var _caption = _column.ColumnName.SplitPascal( );
-                            _column.Caption = _caption;
-                        }
+                        var _caption = _column.ColumnName.SplitPascal( );
+                        _column.Caption = _caption;
                     }
                 }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -311,9 +312,12 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the fields asynchronous.
         /// </summary>
-        /// <returns></returns>
-        public IList<string> GetFields( )
+        /// <returns>
+        /// Task of IList of string
+        /// </returns>
+        public Task<IList<string>> GetFieldsAsync( )
         {
+            var _async = new TaskCompletionSource<IList<string>>( );
             try
             {
                 var _list = new List<string>( );
@@ -326,14 +330,15 @@ namespace BudgetExecution
                     }
                 }
 
+                _async.SetResult( _list );
                 return _list?.Any( ) == true
-                    ? _list
-                    : default( IList<string> );
+                    ? _async.Task
+                    : default( Task<IList<string>> );
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return default( IList<string> );
+                return default( Task<IList<string>> );
             }
         }
 
@@ -341,9 +346,12 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the numerics asynchronous.
         /// </summary>
-        /// <returns></returns>
-        public IList<string> GetNumerics( )
+        /// <returns>
+        /// Task of IList of string
+        /// </returns>
+        public Task<IList<string>> GetNumericsAsync( )
         {
+            var _async = new TaskCompletionSource<IList<string>>( );
             try
             {
                 var _list = new List<string>( );
@@ -362,14 +370,15 @@ namespace BudgetExecution
                     }
                 }
 
+                _async.SetResult( _list );
                 return _list?.Any( ) == true
-                    ? _list
-                    : default( IList<string> );
+                    ? _async.Task
+                    : default( Task<IList<string>> );
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return default( IList<string> );
+                return default( Task<IList<string>> );
             }
         }
 
@@ -377,9 +386,12 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the dates asynchronous.
         /// </summary>
-        /// <returns></returns>
-        public IList<string> GetDates( )
+        /// <returns>
+        /// Task of IList of string
+        /// </returns>
+        public Task<IList<string>> GetDatesAsync( )
         {
+            var _async = new TaskCompletionSource<IList<string>>( );
             try
             {
                 var _list = new List<string>( );
@@ -397,14 +409,15 @@ namespace BudgetExecution
                     }
                 }
 
+                _async.SetResult( _list );
                 return _list?.Any( ) == true
-                    ? _list
-                    : default( IList<string> );
+                    ? _async.Task
+                    : default( Task<IList<string>>);
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return default( IList<string> );
+                return default( Task<IList<string>> );
             }
         }
 
@@ -412,9 +425,12 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the primary keys asynchronous.
         /// </summary>
-        /// <returns></returns>
-        public IList<int> GetPrimaryKeys( )
+        /// <returns>
+        /// Task of IList of int
+        /// </returns>
+        public Task<IList<int>> GetPrimaryKeysAsnyc( )
         {
+            var _async = new TaskCompletionSource<IList<int>>( );
             try
             {
                 var _table = GetDataTable( );
@@ -423,14 +439,15 @@ namespace BudgetExecution
                     ?.Distinct( );
 
                 var _list = _values?.ToList( );
+                _async.SetResult( _list );
                 return _list?.Any( ) == true
-                    ? _list
-                    : default( IList<int> );
+                    ? _async.Task
+                    : default( Task<IList<int>> );
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return default( IList<int> );
+                return default( Task<IList<int>> );
             }
         }
     }
