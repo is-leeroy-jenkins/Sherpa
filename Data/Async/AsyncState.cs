@@ -1,11 +1,11 @@
-﻿// ******************************************************************************************
+﻿// ****************************************************************************************
 //     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
 //     Created:                 07-14-2023
 // 
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        07-14-2023
-// ******************************************************************************************
+// ****************************************************************************************
 // <copyright file="AsyncData.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
@@ -37,7 +37,7 @@
 // <summary>
 //   AsyncData.cs
 // </summary>
-// ******************************************************************************************
+// ****************************************************************************************
 
 namespace BudgetExecution
 {
@@ -195,7 +195,30 @@ namespace BudgetExecution
         /// Gets the record asynchronous.
         /// </summary>
         /// <returns></returns>
-        public Task<DataRow> GetRecord( )
+        public DataRow GetRecord( )
+        {
+            try
+            {
+                var _table = GetDataTable( );
+                var _data = _table.AsEnumerable( );
+                var _row = _data.FirstOrDefault( );
+                return _row?.ItemArray?.Length > 0
+                    ? _row
+                    : default( DataRow );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( DataRow );
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets the record asynchronous.
+        /// </summary>
+        /// <returns></returns>
+        public Task<DataRow> GetRecordAsync( )
         {
             var _async = new TaskCompletionSource<DataRow>( );
             try
@@ -287,7 +310,8 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the column captions.
         /// </summary>
-        /// <param name="dataTable">The data table.</param>
+        /// <param name="dataTable"> The data table.
+        /// </param>
         public void SetColumnCaptions( DataTable dataTable )
         {
             try
@@ -428,7 +452,7 @@ namespace BudgetExecution
         /// <returns>
         /// Task of IList of int
         /// </returns>
-        public Task<IList<int>> GetPrimaryKeysAsnyc( )
+        public Task<IList<int>> GetKeysAsnyc( )
         {
             var _async = new TaskCompletionSource<IList<int>>( );
             try

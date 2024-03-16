@@ -1,11 +1,11 @@
-﻿// ******************************************************************************************
+﻿// ****************************************************************************************
 //     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
 //     Created:                 2-14-2024
 // 
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        2-14-2024
-// ******************************************************************************************
+// ****************************************************************************************
 // <copyright file="AsyncBase.cs" company="Terry D. Eppler">
 //    Budget Execution is a Federal Budget, Finance, and Accounting application
 //    for analysts with the US Environmental Protection Agency (US EPA).
@@ -36,7 +36,7 @@
 // <summary>
 //   AsyncBase.cs
 // </summary>
-// ******************************************************************************************
+// ****************************************************************************************
 
 namespace BudgetExecution
 {

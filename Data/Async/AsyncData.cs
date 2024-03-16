@@ -1,46 +1,49 @@
-﻿// ******************************************************************************************
-//     Assembly:                Budget Enumerations
+﻿// ****************************************************************************************
+//     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 $CREATED_MONTH$-$CREATED_DAY$-$CREATED_YEAR$
-//
+//     Created:                 15-03-2024
+// 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        $CURRENT_MONTH$-$CURRENT_DAY$-$CURRENT_YEAR$
-// ******************************************************************************************
-// <copyright file="AsyncBase.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the 
+//     Last Modified On:        16-03-2024
+// ****************************************************************************************
+// <copyright file="AsyncData.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application for analysts in the
 //    US Environmental Protection Agency (US EPA).
-//    Copyright ©  $CURRENT_YEAR$  Terry Eppler
-//
-//    Permission is hereby granted, free of charge, to any person obtaining a copy 
-//    of this software and associated documentation files (the “Software”), 
-//    to deal in the Software without restriction, 
-//    including without limitation the rights to use, 
-//    copy, modify, merge, publish, distribute, sublicense, 
-//    and/or sell copies of the Software, 
-//    and to permit persons to whom the Software is furnished to do so, 
+//    Copyright ©  2023  Terry Eppler
+// 
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
 //    subject to the following conditions:
-//    
-//    The above copyright notice and this permission notice shall be included in all 
+// 
+//    The above copyright notice and this permission notice shall be included in all
 //    copies or substantial portions of the Software.
-//    
-//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
-//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
-//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. 
-//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, 
-//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, 
-//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
-//    DEALINGS IN THE SOFTWARE.
-//
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+// 
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND,
+//     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+//     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE
+//     AND NON-INFRINGEMENT.  IN NO EVENT SHALL THE AUTHORS
+//     OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+//     TORT OR OTHERWISE, ARISING FROM,
+//     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//     DEALINGS IN THE SOFTWARE.
+// 
+//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   AsyncBase.cs
+//  AsyncData.cs
 // </summary>
-// ******************************************************************************************
+// ****************************************************************************************
 
 namespace BudgetExecution
 {
     using System;
+    using System.Collections;
     using System.Collections.Generic;
     using System.Data;
     using System.Linq;
@@ -54,7 +57,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "LocalVariableHidesMember" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    public abstract class AsyncData : AsyncState 
+    public abstract class AsyncData : AsyncState
     {
         /// <inheritdoc />
         /// <summary>
@@ -91,24 +94,20 @@ namespace BudgetExecution
         /// <returns>
         /// Task(List)
         /// </returns>
-        public Task<IList<int>> GetOrdinals( )
+        public Task<IList<int>> GetOrdinalsAsync( )
         {
             var _async = new TaskCompletionSource<IList<int>>( );
             try
             {
                 var _table = GetDataTable( );
-                var _columns = _table?.Columns;
-                var _values = new List<int>( );
-                if( _columns?.Count > 0 )
+                var _indexes = new List<int>( );
+                foreach( DataColumn _column in _table?.Columns )
                 {
-                    foreach( DataColumn _column in _columns )
-                    {
-                        _values?.Add( _column.Ordinal );
-                    }
+                    _indexes?.Add( _column.Ordinal );
                 }
 
-                _async.SetResult( _values );
-                return _values?.Any( ) == true
+                _async.SetResult( _indexes );
+                return _indexes?.Any( ) == true
                     ? _async.Task
                     : default( Task<IList<int>> );
             }
@@ -125,7 +124,7 @@ namespace BudgetExecution
         /// Gets the map asynchronous.
         /// </summary>
         /// <returns></returns>
-        public Task<IDictionary<string, object>> GetMap( )
+        public Task<IDictionary<string, object>> GetMapAsync( )
         {
             var _async = new TaskCompletionSource<IDictionary<string, object>>( );
             try
@@ -152,19 +151,18 @@ namespace BudgetExecution
         /// Gets the schema asynchronous.
         /// </summary>
         /// <returns>
-        /// Task(Dictionary)
+        /// Task(IDictionary(string, Type))
         /// </returns>
-        public Task<IDictionary<string, Type>> GetSchema( )
+        public Task<IDictionary<string, Type>> GetSchemaAsync( )
         {
             var _async = new TaskCompletionSource<IDictionary<string, Type>>( );
             try
             {
                 var _table = GetDataTable( );
-                var _columns = _table?.Columns;
-                if( _columns != null )
+                if( _table != null )
                 {
                     var _schema = new Dictionary<string, Type>( );
-                    foreach( DataColumn _col in _columns )
+                    foreach( DataColumn _col in _table.Columns )
                     {
                         _schema.Add( _col.ColumnName, _col.DataType );
                     }
@@ -176,7 +174,8 @@ namespace BudgetExecution
                 }
                 else
                 {
-                    return default( Task<IDictionary<string, Type>> );
+                    _async.SetResult( default( IDictionary<string, Type> ) );
+                    return _async.Task ?? default( Task<IDictionary<string, Type>> );
                 }
             }
             catch( Exception _ex )
@@ -191,8 +190,9 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the columns asynchronous.
         /// </summary>
-        /// <returns></returns>
-        public Task<IList<DataColumn>> GetColumns( )
+        /// <returns>
+        /// </returns>
+        public Task<IList<DataColumn>> GetColumnsAsync( )
         {
             var _async = new TaskCompletionSource<IList<DataColumn>>( );
             try
@@ -216,6 +216,7 @@ namespace BudgetExecution
                 }
                 else
                 {
+                    _async.SetResult( default( IList<DataColumn> ) );
                     return default( Task<IList<DataColumn>> );
                 }
             }
@@ -233,17 +234,16 @@ namespace BudgetExecution
         /// </summary>
         /// <returns>
         /// </returns>
-        public Task<IList<string>> GetNames( )
+        public Task<IList<string>> GetNamesAsync( )
         {
             var _async = new TaskCompletionSource<IList<string>>( );
             try
             {
                 var _table = GetDataTable( );
-                var _columns = _table?.Columns;
-                if( _columns?.Count > 0 )
+                if( _table != null )
                 {
                     var _names = new List<string>( );
-                    foreach( DataColumn _column in _columns )
+                    foreach( DataColumn _column in _table.Columns )
                     {
                         if( !string.IsNullOrEmpty( _column?.ColumnName ) )
                         {
@@ -258,6 +258,7 @@ namespace BudgetExecution
                 }
                 else
                 {
+                    _async.SetResult( default( IList<string> ) );
                     return default( Task<IList<string>> );
                 }
             }
