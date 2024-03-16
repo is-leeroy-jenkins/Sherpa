@@ -76,7 +76,7 @@ namespace BudgetExecution
         /// <value>
         /// The client path.
         /// </value>
-        string ClientPath { get; }
+        string DataPath { get; }
 
         /// <summary>
         /// Gets or sets the extension.

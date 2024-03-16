@@ -345,7 +345,7 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( dataGrid, nameof( dataGrid ) );
-                var _filePath = Connection.ClientPath;
+                var _filePath = Connection.DataPath;
                 using var _excel = new ExcelPackage( new FileInfo( _filePath ) );
                 var _workbook = _excel.Workbook;
                 var _worksheet = _workbook.Worksheets[ 1 ];

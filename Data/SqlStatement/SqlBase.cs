@@ -1,13 +1,13 @@
-﻿// ******************************************************************************************
-//     Assembly:             BudgetExecution
+﻿// ****************************************************************************************
+//     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 11-11-2023
+//     Created:                 15-03-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        11-29-2023
-// ******************************************************************************************
-// <copyright file="Terry Eppler.cs" company="Terry D. Eppler">
-//    BudgetExecution is a Federal Budget, Finance, and Accounting application for the
+//     Last Modified On:        16-03-2024
+// ****************************************************************************************
+// <copyright file="SqlBase.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application for analysts in the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
 // 
@@ -23,20 +23,22 @@
 //    The above copyright notice and this permission notice shall be included in all
 //    copies or substantial portions of the Software.
 // 
-//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//    DEALINGS IN THE SOFTWARE.
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND,
+//     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+//     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE
+//     AND NON-INFRINGEMENT.  IN NO EVENT SHALL THE AUTHORS
+//     OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+//     TORT OR OTHERWISE, ARISING FROM,
+//     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//     DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   SqlBase.cs.cs
+//  SqlBase.cs
 // </summary>
-// ******************************************************************************************
+// ****************************************************************************************
 
 namespace BudgetExecution
 {
@@ -142,7 +144,7 @@ namespace BudgetExecution
         protected SqlBase( Source source, Provider provider, SQL commandType = SQL.SELECTALL )
             : this( )
         {
-            _dbPath = new BudgetConnection( source, provider ).ClientPath;
+            _dbPath = new BudgetConnection( source, provider ).DataPath;
             _commandType = commandType;
             _source = source;
             _provider = provider;
@@ -160,10 +162,11 @@ namespace BudgetExecution
         /// <param name="provider"> The provider. </param>
         /// <param name="sqlText"> The SQL text. </param>
         /// <param name="commandType"> Type of the command. </param>
-        protected SqlBase( Source source, Provider provider, string sqlText, SQL commandType = SQL.SELECTALL )
+        protected SqlBase( Source source, Provider provider, string sqlText,
+            SQL commandType = SQL.SELECTALL )
             : this( )
         {
-            _dbPath = new BudgetConnection( source, provider ).ClientPath;
+            _dbPath = new BudgetConnection( source, provider ).DataPath;
             _commandType = commandType;
             _source = source;
             _provider = provider;
@@ -185,7 +188,7 @@ namespace BudgetExecution
             SQL commandType = SQL.SELECTALL )
             : this( )
         {
-            _dbPath = new BudgetConnection( source, provider ).ClientPath;
+            _dbPath = new BudgetConnection( source, provider ).DataPath;
             _commandType = commandType;
             _source = source;
             _provider = provider;
@@ -209,7 +212,7 @@ namespace BudgetExecution
             IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
             : this( )
         {
-            _dbPath = new BudgetConnection( source, provider ).ClientPath;
+            _dbPath = new BudgetConnection( source, provider ).DataPath;
             _commandType = commandType;
             _source = source;
             _provider = provider;
@@ -235,7 +238,7 @@ namespace BudgetExecution
             IDictionary<string, object> where, SQL commandType = SQL.SELECT )
             : this( )
         {
-            _dbPath = new BudgetConnection( source, provider ).ClientPath;
+            _dbPath = new BudgetConnection( source, provider ).DataPath;
             _commandType = commandType;
             _source = source;
             _provider = provider;
@@ -262,7 +265,7 @@ namespace BudgetExecution
             SQL commandType = SQL.SELECT )
             : this( )
         {
-            _dbPath = new BudgetConnection( source, provider ).ClientPath;
+            _dbPath = new BudgetConnection( source, provider ).DataPath;
             _commandType = commandType;
             _source = source;
             _provider = provider;

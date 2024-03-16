@@ -90,7 +90,7 @@ namespace BudgetExecution
             {
                 _extension = (EXT)Enum.Parse( typeof( EXT ), _pathExtension.ToUpper( ) );
                 _provider = (Provider)Enum.Parse( typeof( Provider ), _pathExtension.ToUpper( ) );
-                _clientPath = AppSettings[ _extension.ToString( ) ];
+                _dataPath = AppSettings[ _extension.ToString( ) ];
                 _connectionString = CreateConnectionString( _provider );
             }
         }
@@ -115,7 +115,7 @@ namespace BudgetExecution
             if( !string.IsNullOrEmpty( _pathExtension ) )
             {
                 _extension = (EXT)Enum.Parse( typeof( EXT ), _pathExtension.ToUpper( ) );
-                _clientPath = AppSettings[ _extension.ToString( ) ];
+                _dataPath = AppSettings[ _extension.ToString( ) ];
                 _connectionString = CreateConnectionString( _provider );
             }
         }
@@ -141,7 +141,7 @@ namespace BudgetExecution
             if( !string.IsNullOrEmpty( _pathExtension ) )
             {
                 _extension = (EXT)Enum.Parse( typeof( EXT ), _pathExtension.ToUpper( ) );
-                _clientPath = AppSettings[ _extension.ToString( ) ];
+                _dataPath = AppSettings[ _extension.ToString( ) ];
             }
         }
 

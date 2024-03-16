@@ -450,7 +450,7 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( dataGrid, nameof( dataGrid ) );
-                var _filePath = Connection.ClientPath;
+                var _filePath = Connection.DataPath;
                 var _stream = new FileInfo( _filePath );
                 var _application = new ExcelPackage( _stream );
                 var _workbook = _application.Workbook;

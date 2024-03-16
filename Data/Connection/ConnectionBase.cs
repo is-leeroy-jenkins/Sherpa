@@ -87,7 +87,7 @@ namespace BudgetExecution
         /// <value>
         ///  
         /// </value>
-        private protected string _clientPath;
+        private protected string _dataPath;
 
         /// <summary>
         /// 
@@ -169,15 +169,15 @@ namespace BudgetExecution
         /// <value>
         /// The client path.
         /// </value>
-        public string ClientPath
+        public string DataPath
         {
             get
             {
-                return _clientPath;
+                return _dataPath;
             }
             private protected set
             {
-                _clientPath = value;
+                _dataPath = value;
             }
         }
 
@@ -379,9 +379,9 @@ namespace BudgetExecution
                         var _names = Enum.GetNames( typeof( EXT ) );
                         if( _names?.Contains( _extension.ToString( ) ) == true )
                         {
-                            _clientPath = AppSettings[ $"{_extension}" ];
-                            return !string.IsNullOrEmpty( _clientPath )
-                                ? _clientPath
+                            _dataPath = AppSettings[ $"{_extension}" ];
+                            return !string.IsNullOrEmpty( _dataPath )
+                                ? _dataPath
                                 : string.Empty;
                         }
                     }

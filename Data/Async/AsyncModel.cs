@@ -166,7 +166,7 @@ namespace BudgetExecution
             _numerics = GetNumericsAsync( );
             _dates = GetDatesAsync( );
             _record = GetRecordAsync( );
-            Map = GetMapAsync( );
+            _map = GetMapAsync( );
         }
 
         /// <summary>
