@@ -4,7 +4,7 @@
 //     Created:                 15-03-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        16-03-2024
+//     Last Modified On:        19-03-2024
 // ****************************************************************************************
 // <copyright file="SqlBase.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for analysts in the
@@ -220,7 +220,7 @@ namespace BudgetExecution
             _updates = updates;
             _criteria = where;
             _fields = updates.Keys.ToList( );
-            _commandText = GetCommandText( );
+            _commandText = CreateCommandText( );
         }
 
         /// <inheritdoc/>
@@ -245,7 +245,7 @@ namespace BudgetExecution
             _tableName = source.ToString( );
             _criteria = where;
             _fields = columns.ToList( );
-            _commandText = GetCommandText( );
+            _commandText = CreateCommandText( );
         }
 
         /// <inheritdoc/>
@@ -273,7 +273,7 @@ namespace BudgetExecution
             _criteria = having;
             _fields = fields.ToList( );
             _numerics = numerics.ToList( );
-            _commandText = GetCommandText( );
+            _commandText = CreateCommandText( );
         }
 
         /// <summary>
@@ -281,7 +281,7 @@ namespace BudgetExecution
         /// </summary>
         /// <returns>
         /// </returns>
-        public string GetCommandText( )
+        public string CreateCommandText( )
         {
             try
             {
@@ -290,15 +290,15 @@ namespace BudgetExecution
                     case SQL.SELECT:
                     case SQL.SELECTALL:
                     {
-                        return GetSelectStatement( );
+                        return CreateSelectStatement( );
                     }
                     case SQL.INSERT:
                     {
-                        return GetInsertStatement( );
+                        return CreateInsertStatement( );
                     }
                     case SQL.UPDATE:
                     {
-                        return GetUpdateStatement( );
+                        return CreateUpdateStatement( );
                     }
                     case SQL.DELETE:
                     {
@@ -306,7 +306,7 @@ namespace BudgetExecution
                     }
                     default:
                     {
-                        return GetSelectStatement( );
+                        return CreateSelectStatement( );
                     }
                 }
             }
@@ -321,7 +321,7 @@ namespace BudgetExecution
         /// Gets the select statement.
         /// </summary>
         /// <returns></returns>
-        private protected string GetSelectStatement( )
+        private protected string CreateSelectStatement( )
         {
             if( ( _fields?.Any( ) == true )
                && ( _criteria?.Any( ) == true )
@@ -384,7 +384,7 @@ namespace BudgetExecution
         /// Gets the update statement.
         /// </summary>
         /// <returns></returns>
-        private protected string GetUpdateStatement( )
+        private protected string CreateUpdateStatement( )
         {
             try
             {
@@ -419,7 +419,7 @@ namespace BudgetExecution
         /// Gets the insert statement.
         /// </summary>
         /// <returns></returns>
-        private protected string GetInsertStatement( )
+        private protected string CreateInsertStatement( )
         {
             try
             {
