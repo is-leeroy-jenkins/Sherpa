@@ -46,7 +46,6 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Linq;
-    using Microsoft.Office.Interop.Excel;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
@@ -61,13 +60,53 @@ namespace BudgetExecution
         private EXT _extension;
 
         /// <summary>
+        /// 
+        /// </summary>
+        private Source _source;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private SQL _commandType;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private IList<string> _files;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private string _fileName;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private string _directoryPath;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private IDictionary<string, string> _commands;
+        
+        /// <summary>
         /// Gets or sets the source.
         /// </summary>
         /// <value>
         /// The source.
         /// </value>
-        public Source Source { get; set; }
-
+        public Source Source
+        {
+            get
+            {
+                return _source;
+            }
+            private protected set
+            {
+                _source = value;
+            }
+        }
+        
         /// <summary>
         /// Gets or sets the extension.
         /// </summary>
@@ -85,15 +124,24 @@ namespace BudgetExecution
                 _extension = value;
             }
         }
-    
 
-    /// <summary>
+        /// <summary>
         /// Gets or sets the type of the command.
         /// </summary>
         /// <value>
         /// The type of the command.
         /// </value>
-        public SQL CommandType { get; set; }
+        public SQL CommandType
+        {
+            get
+            {
+                return _commandType;
+            }
+            private protected set
+            {
+                _commandType = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the files.
@@ -101,32 +149,72 @@ namespace BudgetExecution
         /// <value>
         /// The files.
         /// </value>
-        public IEnumerable<string> Files { get; set; }
-
+        public IList<string> Files
+        {
+            get
+            {
+                return _files;
+            }
+            private protected set
+            {
+                _files = value;
+            }
+        }
+        
         /// <summary>
         /// Gets or sets the name of the file.
         /// </summary>
         /// <value>
         /// The name of the file.
         /// </value>
-        public string FileName { get; set; }
-
+        public string FileName
+        {
+            get
+            {
+                return _fileName;
+            }
+            private protected set
+            {
+                _fileName = value;
+            }
+        }
+        
         /// <summary>
         /// Gets or sets the directory path.
         /// </summary>
         /// <value>
         /// The directory path.
         /// </value>
-        public string DirectoryPath { get; set; }
-
+        public string DirectoryPath
+        {
+            get
+            {
+                return _directoryPath;
+            }
+            private protected set
+            {
+                _directoryPath = value;
+            }
+        }
+        
         /// <summary>
         /// Gets or sets the commands.
         /// </summary>
         /// <value>
         /// The commands.
         /// </value>
-        public IDictionary<string, string> Commands { get; set; }
-
+        public IDictionary<string, string> Commands
+        {
+            get
+            {
+                return _commands;
+            }
+            private protected set
+            {
+                _commands = value;
+            }
+        }
+        
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="SqlBuilder"/>
