@@ -46,13 +46,20 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Linq;
+    using Microsoft.Office.Interop.Excel;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     public class SqlBuilder
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        private EXT _extension;
+
         /// <summary>
         /// Gets or sets the source.
         /// </summary>
@@ -67,9 +74,20 @@ namespace BudgetExecution
         /// <value>
         /// The extension.
         /// </value>
-        public EXT Extension { get; set; }
+        public EXT Extension
+        {
+            get
+            {
+                return _extension;
+            }
+            private protected set
+            {
+                _extension = value;
+            }
+        }
+    
 
-        /// <summary>
+    /// <summary>
         /// Gets or sets the type of the command.
         /// </summary>
         /// <value>
