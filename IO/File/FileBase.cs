@@ -1,14 +1,14 @@
-﻿// ******************************************************************************************
-//     Assembly:              Budget Execution
+﻿// ****************************************************************************************
+//     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 12-9-2023
+//     Created:                 15-03-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-9-2023
-// ******************************************************************************************
+//     Last Modified On:        20-03-2024
+// ****************************************************************************************
 // <copyright file="FileBase.cs" company="Terry D. Eppler">
-//    This is a tiny web browser used in Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
+//    This is a Federal Budget, Finance, and Accounting application for analysts in the
+//    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,20 +23,22 @@
 //    The above copyright notice and this permission notice shall be included in all
 //    copies or substantial portions of the Software.
 // 
-//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//    DEALINGS IN THE SOFTWARE.
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND,
+//     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+//     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE
+//     AND NON-INFRINGEMENT.  IN NO EVENT SHALL THE AUTHORS
+//     OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+//     TORT OR OTHERWISE, ARISING FROM,
+//     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//     DEALINGS IN THE SOFTWARE.
 // 
-//    Contact at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   FileBase.cs
+//  FileBase.cs
 // </summary>
-// ******************************************************************************************
+// ****************************************************************************************
 
 namespace BudgetExecution
 {
@@ -64,7 +66,9 @@ namespace BudgetExecution
         /// <summary>
         /// Moves the specified file path.
         /// </summary>
-        /// <param name="filePath">The file path.</param>
+        /// <param name="filePath">
+        /// The file path.
+        /// </param>
         public void Move( string filePath )
         {
             try
@@ -205,7 +209,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    string _text = string.Empty;
+                    var _text = string.Empty;
                     var _list = ReadLines( );
                     for( var _i = 0; _i < _list.Count; _i++ )
                     {

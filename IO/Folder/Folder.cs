@@ -1,14 +1,14 @@
-﻿// ******************************************************************************************
+﻿// ****************************************************************************************
 //     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 04-22-2023
+//     Created:                 15-03-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
-// ******************************************************************************************
+//     Last Modified On:        20-03-2024
+// ****************************************************************************************
 // <copyright file="Folder.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application 
-//    for analyst with the US Environmental Protection Agency (US EPA).
+//    This is a Federal Budget, Finance, and Accounting application for analysts in the
+//    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,20 +23,22 @@
 //    The above copyright notice and this permission notice shall be included in all
 //    copies or substantial portions of the Software.
 // 
-//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//    DEALINGS IN THE SOFTWARE.
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND,
+//     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+//     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE
+//     AND NON-INFRINGEMENT.  IN NO EVENT SHALL THE AUTHORS
+//     OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+//     TORT OR OTHERWISE, ARISING FROM,
+//     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//     DEALINGS IN THE SOFTWARE.
 // 
 //    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   Folder.cs
+//  Folder.cs
 // </summary>
-// ******************************************************************************************
+// ****************************************************************************************
 
 namespace BudgetExecution
 {
@@ -108,7 +110,7 @@ namespace BudgetExecution
             get
             {
                 return _hasSubFiles
-                    ? Directory.GetFiles( _fullPath )
+                    ? GetFiles( _fullPath )
                     : default( IEnumerable<string> );
             }
         }
@@ -124,7 +126,7 @@ namespace BudgetExecution
             get
             {
                 return _hasSubFolders
-                    ? Directory.GetDirectories( _fullPath )
+                    ? GetDirectories( _fullPath )
                     : default( IEnumerable<string> );
             }
         }
@@ -134,7 +136,7 @@ namespace BudgetExecution
         /// Initializes a new instance of the
         /// <see cref="T:BudgetExecution.Folder" /> class.
         /// </summary>
-        public Folder( ) 
+        public Folder( )
         {
         }
 
@@ -144,16 +146,16 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.Folder" /> class.
         /// </summary>
         /// <param name="dirPath"></param>
-        public Folder( string dirPath ) 
+        public Folder( string dirPath )
         {
             _buffer = dirPath;
             _fullPath = dirPath;
-            _folderExists = Directory.Exists( dirPath );
+            _folderExists = Exists( dirPath );
             _folderName = Path.GetDirectoryName( dirPath );
-            _hasSubFiles = ( Directory.GetFiles( dirPath )?.Length > 0 );
-            _hasSubFolders = ( GetDirectories( dirPath )?.Length > 0 );
-            _created = Directory.GetCreationTime( dirPath );
-            _modified = Directory.GetLastWriteTime( dirPath );
+            _hasSubFiles = GetFiles( dirPath )?.Length > 0;
+            _hasSubFolders = GetDirectories( dirPath )?.Length > 0;
+            _created = GetCreationTime( dirPath );
+            _modified = GetLastWriteTime( dirPath );
         }
 
         /// <inheritdoc />
@@ -162,13 +164,13 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.Folder" /> class.
         /// </summary>
         /// <param name="folder">The folder.</param>
-        public Folder( Folder folder ) 
+        public Folder( Folder folder )
         {
             _buffer = folder.Input;
             _fullPath = folder.FullPath;
             _folderName = folder.FolderName;
-            _hasSubFiles = ( Directory.GetFiles( folder.FullPath )?.Length > 0 );
-            _hasSubFolders = ( GetDirectories( folder.FullPath )?.Length > 0 );
+            _hasSubFiles = GetFiles( folder.FullPath )?.Length > 0;
+            _hasSubFolders = GetDirectories( folder.FullPath )?.Length > 0;
             _created = folder.Created;
             _modified = folder.Modified;
         }
@@ -183,8 +185,9 @@ namespace BudgetExecution
         /// <param name="hasSubFolders"> </param>
         /// <param name="created">The created.</param>
         /// <param name="modified">The modified.</param>
-        public void Deconstruct( out string buffer, out string fullPath, out string folderName, 
-            out bool hasSubFiles, out bool hasSubFolders, out DateTime created, out DateTime modified )
+        public void Deconstruct( out string buffer, out string fullPath, out string folderName,
+            out bool hasSubFiles, out bool hasSubFolders, out DateTime created,
+            out DateTime modified )
         {
             buffer = _buffer;
             fullPath = _fullPath;

@@ -1,14 +1,14 @@
-﻿// ******************************************************************************************
+﻿// ****************************************************************************************
 //     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 12-23-2023
+//     Created:                 15-03-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-23-2023
-// ******************************************************************************************
+//     Last Modified On:        20-03-2024
+// ****************************************************************************************
 // <copyright file="DataPath.cs" company="Terry D. Eppler">
-//    Budget Execution is a Federal Budget, Finance, and Accounting application
-//    for analysts in the US Environmental Protection Agency (US EPA).
+//    This is a Federal Budget, Finance, and Accounting application for analysts in the
+//    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,20 +23,22 @@
 //    The above copyright notice and this permission notice shall be included in all
 //    copies or substantial portions of the Software.
 // 
-//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//    DEALINGS IN THE SOFTWARE.
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND,
+//     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+//     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE
+//     AND NON-INFRINGEMENT.  IN NO EVENT SHALL THE AUTHORS
+//     OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+//     TORT OR OTHERWISE, ARISING FROM,
+//     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//     DEALINGS IN THE SOFTWARE.
 // 
-//    Contact at:  terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   DataPath.cs
+//  DataPath.cs
 // </summary>
-// ******************************************************************************************
+// ****************************************************************************************
 
 namespace BudgetExecution
 {
@@ -58,7 +60,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class DataPath : PathBase 
+    public class DataPath : PathBase
     {
         /// <summary>
         /// Gets or sets the buffer.
@@ -92,6 +94,10 @@ namespace BudgetExecution
                     ? _fullPath
                     : string.Empty;
             }
+            private protected set
+            {
+                _fullPath = value;
+            }
         }
 
         /// <summary>
@@ -107,6 +113,10 @@ namespace BudgetExecution
                 return !string.IsNullOrEmpty( _absolutePath )
                     ? _absolutePath
                     : string.Empty;
+            }
+            private protected set
+            {
+                _absolutePath = value;
             }
         }
 
@@ -124,6 +134,10 @@ namespace BudgetExecution
                     ? _relativePath
                     : string.Empty;
             }
+            private protected set
+            {
+                _relativePath = value;
+            }
         }
 
         /// <summary>
@@ -139,6 +153,10 @@ namespace BudgetExecution
                 return !string.IsNullOrEmpty( _fileName )
                     ? _fileName
                     : string.Empty;
+            }
+            private protected set
+            {
+                _fileName = value;
             }
         }
 
@@ -246,6 +264,10 @@ namespace BudgetExecution
                     ? Path.GetExtension( _fullPath )
                     : string.Empty;
             }
+            private protected set
+            {
+                _fileExtension = value;
+            }
         }
 
         /// <summary>
@@ -260,6 +282,10 @@ namespace BudgetExecution
             {
                 return _fileAttributes;
             }
+            private protected set
+            {
+                _fileAttributes = value;
+            }
         }
 
         /// <summary>
@@ -273,6 +299,10 @@ namespace BudgetExecution
             get
             {
                 return _fileSecurity;
+            }
+            private protected set
+            {
+                _fileSecurity = value;
             }
         }
 
@@ -289,6 +319,10 @@ namespace BudgetExecution
             {
                 return _invalidPathChars;
             }
+            private protected set
+            {
+                _invalidPathChars = value;
+            }
         }
 
         /// <inheritdoc />
@@ -304,6 +338,10 @@ namespace BudgetExecution
             {
                 return _invalidNameChars;
             }
+            private protected set
+            {
+                _invalidNameChars = value;
+            }
         }
 
         /// <summary>
@@ -317,6 +355,10 @@ namespace BudgetExecution
             get
             {
                 return _pathSeparator;
+            }
+            private protected set
+            {
+                _pathSeparator = value;
             }
         }
 
@@ -332,6 +374,10 @@ namespace BudgetExecution
             {
                 return _folderSeparator;
             }
+            private protected set
+            {
+                _folderSeparator = value;
+            }
         }
 
         /// <summary>
@@ -345,6 +391,10 @@ namespace BudgetExecution
             get
             {
                 return _driveSeparator;
+            }
+            private protected set
+            {
+                _driveSeparator = value;
             }
         }
 
@@ -402,6 +452,7 @@ namespace BudgetExecution
             _absolutePath = Path.GetFullPath( path.FullPath );
             _relativePath = Path.GetRelativePath( Environment.CurrentDirectory, path.FullPath );
             _fullPath = path.FullPath;
+            _fileExtension = path.Extension;
             _length = path.Length;
             _created = path.Created;
             _modified = path.Modified;
@@ -423,12 +474,14 @@ namespace BudgetExecution
         /// <param name="createDate">The created.</param>
         /// <param name="modifyDate">The modified.</param>
         public void Deconstruct( out string buffer, out string absolutePath, out string name,
-            out string fullPath, out long length, out DateTime createDate, out DateTime modifyDate )
+            out string fullPath, out long length, out string extension, out DateTime createDate,
+            out DateTime modifyDate )
         {
             buffer = _buffer;
             absolutePath = _absolutePath;
             name = _fileName;
             fullPath = _fullPath;
+            extension = _fileExtension;
             length = _length;
             createDate = _created;
             modifyDate = _modified;
