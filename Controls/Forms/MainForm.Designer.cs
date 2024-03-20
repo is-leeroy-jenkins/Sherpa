@@ -964,7 +964,7 @@ namespace BudgetExecution
             TestButton.HoverText = null;
             TestButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
             TestButton.IsDerivedStyle = true;
-            TestButton.Location = new System.Drawing.Point( 1060, 4 );
+            TestButton.Location = new System.Drawing.Point( 704, 4 );
             TestButton.Name = "TestButton";
             TestButton.NormalBorderColor = System.Drawing.Color.Transparent;
             TestButton.NormalColor = System.Drawing.Color.Transparent;
@@ -1024,7 +1024,7 @@ namespace BudgetExecution
             BrowserTable.Controls.Add( BrowserPanel, 0, 1 );
             BrowserTable.Font = new System.Drawing.Font( "Roboto", 9.75F );
             BrowserTable.ForeColor = System.Drawing.Color.DarkGray;
-            BrowserTable.Location = new System.Drawing.Point( 75, 36 );
+            BrowserTable.Location = new System.Drawing.Point( 75, 51 );
             BrowserTable.Name = "BrowserTable";
             BrowserTable.RowCount = 2;
             BrowserTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 2.72108841F ) );
@@ -1118,7 +1118,7 @@ namespace BudgetExecution
             UtilityTable.Controls.Add( UtilityPanel, 0, 1 );
             UtilityTable.Font = new System.Drawing.Font( "Roboto", 9.75F );
             UtilityTable.ForeColor = System.Drawing.Color.DarkGray;
-            UtilityTable.Location = new System.Drawing.Point( 704, 36 );
+            UtilityTable.Location = new System.Drawing.Point( 704, 51 );
             UtilityTable.Name = "UtilityTable";
             UtilityTable.RowCount = 2;
             UtilityTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 5.55555534F ) );
@@ -1212,7 +1212,7 @@ namespace BudgetExecution
             ResourceTable.Controls.Add( ResourcePanel, 0, 1 );
             ResourceTable.Font = new System.Drawing.Font( "Roboto", 9.75F );
             ResourceTable.ForeColor = System.Drawing.Color.DarkGray;
-            ResourceTable.Location = new System.Drawing.Point( 707, 206 );
+            ResourceTable.Location = new System.Drawing.Point( 707, 218 );
             ResourceTable.Name = "ResourceTable";
             ResourceTable.RowCount = 2;
             ResourceTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 7.25806475F ) );
@@ -1285,8 +1285,8 @@ namespace BudgetExecution
             CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionFont = new System.Drawing.Font( "Roboto", 12F );
             CaptionForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            ClientSize = new System.Drawing.Size( 1338, 738 );
-            ControlBox = false;
+            ClientSize = new System.Drawing.Size( 1328, 729 );
+            ContextMenuStrip = ContextMenu;
             Controls.Add( ResourceTable );
             Controls.Add( DataManagementTable );
             Controls.Add( UtilityTable );
@@ -1297,7 +1297,6 @@ namespace BudgetExecution
             DoubleBuffered = true;
             Font = new System.Drawing.Font( "Roboto", 9F );
             ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
             MaximizeBox = false;
             MaximumSize = new System.Drawing.Size( 1350, 750 );

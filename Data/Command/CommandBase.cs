@@ -58,23 +58,22 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    public abstract class CommandBase : ISource, IProvider
+    public abstract class CommandBase
     {
         /// <summary>
         /// The source
         /// </summary>
-        /// <value>
-        ///  Source
-        /// </value>
         private protected Source _source;
 
         /// <summary>
         /// The provider
         /// </summary>
-        /// <value>
-        ///  Provider
-        /// </value>
         private protected Provider _provider;
+
+        /// <summary>
+        /// The command type
+        /// </summary>
+        private protected SQL _commandType;
 
         /// <summary>
         ///  
@@ -93,21 +92,70 @@ namespace BudgetExecution
         private protected DbConnection _connection;
         
         /// <summary>
-        /// 
-        /// </summary>
-        /// <value>
-        ///  
-        /// </value>
-        private protected SQL _commandType;
-
-        /// <summary>
         ///  
         /// </summary>
         /// <value>
         /// 
         /// </value>
         private protected ISqlStatement _sqlStatement;
-        
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the source.
+        /// </summary>
+        /// <value>
+        /// The source.
+        /// </value>
+        public Source Source
+        {
+            get
+            {
+                return _source;
+            }
+            private protected set
+            {
+                _source = value;
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the provider.
+        /// </summary>
+        /// <value>
+        /// The provider.
+        /// </value>
+        public Provider Provider
+        {
+            get
+            {
+                return _provider;
+            }
+            private protected set
+            {
+                _provider = value;
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the type of the command.
+        /// </summary>
+        /// <value>
+        /// The type of the command.
+        /// </value>
+        public SQL CommandType
+        {
+            get
+            {
+                return _commandType;
+            }
+            private protected set
+            {
+                _commandType = value;
+            }
+        }
+
         /// <summary>
         /// Gets or sets the command.
         /// </summary>
@@ -145,24 +193,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets or sets the type of the command.
-        /// </summary>
-        /// <value>
-        /// The type of the command.
-        /// </value>
-        public SQL CommandType
-        {
-            get
-            {
-                return _commandType;
-            }
-            private protected set
-            {
-                _commandType = value;
-            }
-        }
-
-        /// <summary>
         /// Gets or sets the SQL statement.
         /// </summary>
         /// <value>
@@ -177,37 +207,6 @@ namespace BudgetExecution
             private protected set
             {
                 _sqlStatement = value;
-            }
-        }
-
-        /// <inheritdoc/>
-        /// <summary>
-        /// </summary>
-        public Provider Provider
-        {
-            get
-            {
-                return _provider;
-            }
-            private protected set
-            {
-                _provider = value;
-            }
-        }
-
-        /// <inheritdoc/>
-        /// <summary>
-        /// Gets the source.
-        /// </summary>
-        public Source Source
-        {
-            get
-            {
-                return _source;
-            }
-            private protected set
-            {
-                _source = value;
             }
         }
 
@@ -227,29 +226,29 @@ namespace BudgetExecution
                         case SQL.SELECTALL:
                         case SQL.SELECT:
                         {
-                            var _sql = _sqlStatement?.CreateCommandText( );
+                            var _sql = _sqlStatement?.CommandText;
                             return !string.IsNullOrEmpty( _sql )
                                 ? new SQLiteCommand( _sql, _connection as SQLiteConnection )
                                 : default( SQLiteCommand );
                         }
                         case SQL.INSERT:
                         {
-                            var _sql = _sqlStatement?.CreateCommandText( );
+                            var _sql = _sqlStatement?.CommandText;
                             return new SQLiteCommand( _sql, _connection as SQLiteConnection );
                         }
                         case SQL.UPDATE:
                         {
-                            var _sql = _sqlStatement?.CreateCommandText( );
+                            var _sql = _sqlStatement?.CommandText;
                             return new SQLiteCommand( _sql, _connection as SQLiteConnection );
                         }
                         case SQL.DELETE:
                         {
-                            var _sql = _sqlStatement?.CreateCommandText( );
+                            var _sql = _sqlStatement?.CommandText;
                             return new SQLiteCommand( _sql, _connection as SQLiteConnection );
                         }
                         default:
                         {
-                            var _sql = _sqlStatement?.CreateCommandText( );
+                            var _sql = _sqlStatement?.CommandText;
                             return new SQLiteCommand( _sql, _connection as SQLiteConnection );
                         }
                     }
@@ -281,35 +280,35 @@ namespace BudgetExecution
                         case SQL.SELECTALL:
                         case SQL.SELECT:
                         {
-                            var _sql = _sqlStatement?.CreateCommandText( );
+                            var _sql = _sqlStatement?.CommandText;
                             return !string.IsNullOrEmpty( _sql )
                                 ? new SqlCeCommand( _sql, _connection as SqlCeConnection )
                                 : default( DbCommand );
                         }
                         case SQL.INSERT:
                         {
-                            var _sql = _sqlStatement?.CreateCommandText( );
+                            var _sql = _sqlStatement?.CommandText;
                             return !string.IsNullOrEmpty( _sql )
                                 ? new SqlCeCommand( _sql, _connection as SqlCeConnection )
                                 : default( DbCommand );
                         }
                         case SQL.UPDATE:
                         {
-                            var _sql = _sqlStatement?.CreateCommandText( );
+                            var _sql = _sqlStatement?.CommandText;
                             return !string.IsNullOrEmpty( _sql )
                                 ? new SqlCeCommand( _sql, _connection as SqlCeConnection )
                                 : default( DbCommand );
                         }
                         case SQL.DELETE:
                         {
-                            var _sql = _sqlStatement?.CreateCommandText( );
+                            var _sql = _sqlStatement?.CommandText;
                             return !string.IsNullOrEmpty( _sql )
                                 ? new SqlCeCommand( _sql, _connection as SqlCeConnection )
                                 : default( DbCommand );
                         }
                         default:
                         {
-                            var _sql = _sqlStatement?.CreateCommandText( );
+                            var _sql = _sqlStatement?.CommandText;
                             return !string.IsNullOrEmpty( _sql )
                                 ? new SqlCeCommand( _sql, _connection as SqlCeConnection )
                                 : default( DbCommand );
@@ -343,27 +342,27 @@ namespace BudgetExecution
                         case SQL.SELECTALL:
                         case SQL.SELECT:
                         {
-                            var _sql = _sqlStatement?.CreateCommandText( );
+                            var _sql = _sqlStatement?.CommandText;
                             return new SqlCommand( _sql, _connection as SqlConnection );
                         }
                         case SQL.INSERT:
                         {
-                            var _sql = _sqlStatement?.CreateCommandText( );
+                            var _sql = _sqlStatement?.CommandText;
                             return new SqlCommand( _sql, _connection as SqlConnection );
                         }
                         case SQL.UPDATE:
                         {
-                            var _sql = _sqlStatement?.CreateCommandText( );
+                            var _sql = _sqlStatement?.CommandText;
                             return new SqlCommand( _sql, _connection as SqlConnection );
                         }
                         case SQL.DELETE:
                         {
-                            var _sql = _sqlStatement?.CreateCommandText( );
+                            var _sql = _sqlStatement?.CommandText;
                             return new SqlCommand( _sql, _connection as SqlConnection );
                         }
                         default:
                         {
-                            var _sql = _sqlStatement?.CreateCommandText( );
+                            var _sql = _sqlStatement?.CommandText;
                             return new SqlCommand( _sql, _connection as SqlConnection );
                         }
                     }
@@ -393,27 +392,27 @@ namespace BudgetExecution
                         case SQL.SELECTALL:
                         case SQL.SELECT:
                         {
-                            var _sql = _sqlStatement?.CreateCommandText( );
+                            var _sql = _sqlStatement?.CommandText;
                             return new OleDbCommand( _sql, _connection as OleDbConnection );
                         }
                         case SQL.INSERT:
                         {
-                            var _sql = _sqlStatement?.CreateCommandText( );
+                            var _sql = _sqlStatement?.CommandText;
                             return new OleDbCommand( _sql, _connection as OleDbConnection );
                         }
                         case SQL.UPDATE:
                         {
-                            var _sql = _sqlStatement?.CreateCommandText( );
+                            var _sql = _sqlStatement?.CommandText;
                             return new OleDbCommand( _sql, _connection as OleDbConnection );
                         }
                         case SQL.DELETE:
                         {
-                            var _sql = _sqlStatement?.CreateCommandText( );
+                            var _sql = _sqlStatement?.CommandText;
                             return new OleDbCommand( _sql, _connection as OleDbConnection );
                         }
                         default:
                         {
-                            var _sql = _sqlStatement?.CreateCommandText( );
+                            var _sql = _sqlStatement?.CommandText;
                             return new OleDbCommand( _sql, _connection as OleDbConnection );
                         }
                     }

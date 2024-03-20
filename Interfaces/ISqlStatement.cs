@@ -45,10 +45,10 @@ namespace BudgetExecution
     using System;
     using System.Collections.Generic;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    public interface ISqlStatement
+    public interface ISqlStatement : ISource, IProvider
     {
         /// <summary>
         /// Gets the extension.
@@ -57,22 +57,6 @@ namespace BudgetExecution
         /// The extension.
         /// </value>
         EXT Extension { get; }
-
-        /// <summary>
-        /// Gets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
-        Source Source { get; }
-
-        /// <summary>
-        /// Gets the provider.
-        /// </summary>
-        /// <value>
-        /// The provider.
-        /// </value>
-        Provider Provider { get; }
 
         /// <summary>
         /// Gets the type of the command.
@@ -145,11 +129,5 @@ namespace BudgetExecution
         /// The name of the file.
         /// </value>
         string FileName { get; }
-
-        /// <summary>
-        /// Gets the command text.
-        /// </summary>
-        /// <returns></returns>
-        string CreateCommandText( );
     }
 }

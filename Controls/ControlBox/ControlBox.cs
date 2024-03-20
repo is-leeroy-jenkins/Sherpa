@@ -70,63 +70,9 @@ namespace BudgetExecution
             CloseHoverForeColor = Color.White;
             MinimizeHoverForeColor = Color.White;
             MaximizeHoverForeColor = Color.White;
-            CloseNormalForeColor = Color.FromArgb( 65, 65, 65 );
-            MinimizeNormalForeColor = Color.FromArgb( 65, 65, 65 );
-            MaximizeNormalForeColor = Color.FromArgb( 65, 65, 65 );
-        }
-
-        /// <summary>
-        /// Called when [close button click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        private void OnCloseButtonClick( object sender, EventArgs e )
-        {
-            try
-            {
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [minimize button click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        private void OnMinimizeButtonClick( object sender, EventArgs e )
-        {
-            try
-            {
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [maximize button click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        private void OnMaximizeButtonClick( object sender, EventArgs e )
-        {
-            try
-            {
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
+            CloseNormalForeColor = Color.FromArgb( 20, 20, 20 );
+            MinimizeNormalForeColor = Color.FromArgb( 20, 20, 20 );
+            MaximizeNormalForeColor = Color.FromArgb( 20, 20, 20 );
         }
 
         /// <summary>

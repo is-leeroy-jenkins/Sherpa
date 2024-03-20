@@ -134,12 +134,12 @@ namespace BudgetExecution
 
             // Basic Properties
             Name = nameof( MainForm );
-            Size = new Size( 1350, 750 );
+            Size = new Size( 1340, 740 );
             MaximumSize = new Size( 1350, 750 );
             MinimumSize = new Size( 1340, 740 );
             Padding = new Padding( 1 );
             StartPosition = FormStartPosition.CenterScreen;
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.Sizable;
             WindowState = FormWindowState.Normal;
             SizeGripStyle = SizeGripStyle.Auto;
             AutoScaleMode = AutoScaleMode.Font;
@@ -162,7 +162,6 @@ namespace BudgetExecution
             ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
-            ControlBox = false;
             ExitButton.HoverText = "Exit Application";
             Tiles = GetTiles( );
 
@@ -1416,6 +1415,63 @@ namespace BudgetExecution
         private void OnMapTileClick( object sender, EventArgs e )
         {
             OpenGeoMapper( );
+        }
+
+        /// <summary>
+        /// Called when [maximize button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnMaximizeButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                Size = MaximumSize;
+                Refresh( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [minimize button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnMinimizeButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                Size = MinimumSize;
+                Refresh( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [close button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnCloseButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                FadeOut( );
+                Close( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>

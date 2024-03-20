@@ -220,7 +220,7 @@ namespace BudgetExecution
             _updates = updates;
             _criteria = where;
             _fields = updates.Keys.ToList( );
-            _commandText = CreateCommandText( );
+            _commandText = GetCommandText( );
         }
 
         /// <inheritdoc/>
@@ -245,7 +245,7 @@ namespace BudgetExecution
             _tableName = source.ToString( );
             _criteria = where;
             _fields = columns.ToList( );
-            _commandText = CreateCommandText( );
+            _commandText = GetCommandText( );
         }
 
         /// <inheritdoc/>
@@ -273,7 +273,7 @@ namespace BudgetExecution
             _criteria = having;
             _fields = fields.ToList( );
             _numerics = numerics.ToList( );
-            _commandText = CreateCommandText( );
+            _commandText = GetCommandText( );
         }
 
         /// <summary>
@@ -281,7 +281,7 @@ namespace BudgetExecution
         /// </summary>
         /// <returns>
         /// </returns>
-        public string CreateCommandText( )
+        private protected string GetCommandText( )
         {
             try
             {

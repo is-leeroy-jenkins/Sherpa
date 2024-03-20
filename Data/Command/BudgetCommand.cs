@@ -72,7 +72,7 @@ namespace BudgetExecution
         /// <param name="commandType">Type of the command.</param>
         public BudgetCommand( Source source, Provider provider, SQL commandType = SQL.SELECTALL )
         {
-            _source = source;
+            _source = _sqlStatement.Source;
             _provider = provider;
             _commandType = commandType;
             _connection = new BudgetConnection( source, provider ).Create( );
