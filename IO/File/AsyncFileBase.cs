@@ -1,12 +1,12 @@
 ﻿// ****************************************************************************************
 //     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 15-03-2024
+//     Created:                 20-03-2024
 // 
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        20-03-2024
 // ****************************************************************************************
-// <copyright file="FileBase.cs" company="Terry D. Eppler">
+// <copyright file="AsyncFileBase.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for analysts in the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -36,7 +36,7 @@
 //    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//  FileBase.cs
+//  AsyncFileBase.cs
 // </summary>
 // ****************************************************************************************
 
@@ -47,16 +47,14 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Linq;
+    using System.Threading.Tasks;
 
-    /// <inheritdoc />
     /// <summary>
+    /// 
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.PathBase" />
-    [ SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
-    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public abstract class FileBase : DataPath
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    public abstract class AsyncFileBase : PathAsync
     {
         /// <summary>
         /// The exists
@@ -69,7 +67,7 @@ namespace BudgetExecution
         /// <param name="filePath">
         /// The file path.
         /// </param>
-        public void Move( string filePath )
+        public void MoveAsync( string filePath )
         {
             try
             {
@@ -89,54 +87,69 @@ namespace BudgetExecution
         /// <param name="filePath">
         /// The file path.
         /// </param>
-        public void Copy( string filePath )
+        public Task CopyAsnyc( string filePath )
         {
+            var _async = new TaskCompletionSource( );
             try
             {
                 ThrowIf.Null( filePath, nameof( filePath ) );
                 var _source = new FileInfo( _fullPath );
                 _source.CopyTo( filePath );
+                _async.SetResult( );
+                return _async.Task;
             }
             catch( IOException _ex )
             {
+                _async.SetException( _ex );
                 Fail( _ex );
+                return default( Task );
             }
         }
 
         /// <summary>
         /// Deletes this instance.
         /// </summary>
-        public void Delete( )
+        public Task DeleteAsync( )
         {
+            var _async = new TaskCompletionSource( );
             try
             {
                 if( File.Exists( _fullPath ) )
                 {
                     File.Delete( _fullPath );
+                    _async.SetResult( );
                 }
+
+                return _async.Task;
             }
             catch( IOException _ex )
             {
+                _async.SetException( _ex );
                 Fail( _ex );
+                return default( Task );
             }
         }
 
         /// <summary>
-        /// Gets the base stream.
+        /// Gets the base stream aynchronously.
         /// </summary>
         /// <returns></returns>
-        private protected FileStream CreateBaseStream( )
+        private protected Task<FileStream> GetBaseStreamAsync( )
         {
+            var _async = new TaskCompletionSource<FileStream>( );
             try
             {
+                using var _file = new FileInfo( _fullPath )?.Create( );
+                _async.SetResult( _file );
                 return File.Exists( _fullPath )
-                    ? new FileInfo( _fullPath )?.Create( )
-                    : default( FileStream );
+                    ? _async.Task
+                    : default( Task<FileStream> );
             }
             catch( Exception _ex )
             {
+                _async.SetException( _ex );
                 Fail( _ex );
-                return default( FileStream );
+                return default( Task<FileStream> );
             }
         }
 
@@ -144,10 +157,11 @@ namespace BudgetExecution
         /// Reads the lines.
         /// </summary>
         /// <returns></returns>
-        private protected IList<string> ReadLines( )
+        private protected Task<IList<string>> ReadLinesAsync( )
         {
             if( _fileExists )
             {
+                var _async = new TaskCompletionSource<IList<string>>( );
                 try
                 {
                     var _list = new List<string>( );
@@ -159,18 +173,19 @@ namespace BudgetExecution
                         }
                     }
 
+                    _async.SetResult( _list );
                     return _list?.Any( ) == true
-                        ? _list
-                        : default( List<string> );
+                        ? _async.Task
+                        : default( Task<IList<string>> );
                 }
                 catch( IOException _ex )
                 {
                     Fail( _ex );
-                    return default( IList<string> );
+                    return default( Task<IList<string>> );
                 }
             }
 
-            return default( IList<string> );
+            return default( Task<IList<string>> );
         }
 
         /// <summary>
@@ -178,56 +193,64 @@ namespace BudgetExecution
         /// </summary>
         /// <returns>
         /// </returns>
-        private protected byte[ ] ReadBytes( )
+        private protected Task<byte[ ]> ReadBytesAsync( )
         {
             if( _fileExists )
             {
+                var _async = new TaskCompletionSource<byte[ ]>( );
                 try
                 {
                     var _data = File.ReadAllBytes( _buffer );
+                    _async.SetResult( _data );
                     return _data.Length > 0
-                        ? _data
-                        : default( byte[ ] );
+                        ? _async.Task
+                        : default( Task<byte[ ]> );
                 }
                 catch( IOException _ex )
                 {
+                    _async.SetException( _ex );
                     Fail( _ex );
-                    return default( byte[ ] );
+                    return default( Task<byte[ ]> );
                 }
             }
 
-            return default( byte[ ] );
+            return default( Task<byte[ ]> );
         }
 
         /// <summary>
         /// Writes the lines.
         /// </summary>
         /// <returns></returns>
-        private protected string WriteLines( )
+        private protected Task<string> WriteLinesAsync( )
         {
             if( _fileExists )
             {
+                var _async = new TaskCompletionSource<string>( );
                 try
                 {
                     var _text = string.Empty;
-                    var _list = ReadLines( );
+                    var _list = File.ReadLines( _fullPath )
+                        ?.ToList( );
+                    
                     for( var _i = 0; _i < _list.Count; _i++ )
                     {
                         _text += _list[ _i ];
                     }
-
+                    
+                    _async.SetResult( _text );
                     return !string.IsNullOrEmpty( _text )
-                        ? _text
-                        : string.Empty;
+                        ? _async.Task 
+                        : default( Task<string> );
                 }
                 catch( IOException _ex )
                 {
+                    _async.SetException( _ex );
                     Fail( _ex );
-                    return string.Empty;
+                    return default( Task<string> );
                 }
             }
 
-            return string.Empty;
+            return default( Task<string> );
         }
     }
 }

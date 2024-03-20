@@ -1,12 +1,12 @@
 ﻿// ****************************************************************************************
 //     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
-//     Created:                 15-03-2024
+//     Created:                 20-03-2024
 // 
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        20-03-2024
 // ****************************************************************************************
-// <copyright file="PathBase.cs" company="Terry D. Eppler">
+// <copyright file="AsyncPathBase.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for analysts in the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -36,7 +36,7 @@
 //    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//  PathBase.cs
+//  AsyncPathBase.cs
 // </summary>
 // ****************************************************************************************
 
@@ -50,11 +50,8 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
-    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ReplaceAutoPropertyWithComputedProperty" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    public abstract class PathBase
+    public abstract class AsyncPathBase
     {
         /// <summary>
         /// The has extension
