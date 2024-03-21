@@ -54,7 +54,7 @@ namespace BudgetExecution
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    public abstract class AsyncFileBase : PathAsync
+    public abstract class AsyncFileBase : AsyncPath
     {
         /// <summary>
         /// The exists

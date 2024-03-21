@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        20-03-2024
 // ****************************************************************************************
-// <copyright file="PathAsync.cs" company="Terry D. Eppler">
+// <copyright file="AsyncPath.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for analysts in the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -36,7 +36,7 @@
 //    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//  PathAsync.cs
+//  AsyncPath.cs
 // </summary>
 // ****************************************************************************************
 
@@ -49,7 +49,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    public class PathAsync : AsyncPathBase
+    public class AsyncPath : AsyncPathBase
     {
         /// <summary>
         /// Gets or sets the buffer.
@@ -393,7 +393,7 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.DataPath"/>
         /// class.
         /// </summary>
-        public PathAsync( )
+        public AsyncPath( )
         {
         }
 
@@ -406,7 +406,7 @@ namespace BudgetExecution
         /// <param name="input">
         /// The input.
         /// </param>
-        public PathAsync( string input )
+        public AsyncPath( string input )
         {
             _buffer = input;
             _hasExtension = Path.HasExtension( input );
@@ -433,7 +433,7 @@ namespace BudgetExecution
         /// <param name="path">
         /// The path.
         /// </param>
-        public PathAsync( DataPath path )
+        public AsyncPath( DataPath path )
         {
             _buffer = path.Input;
             _hasExtension = Path.HasExtension( path.FullPath );

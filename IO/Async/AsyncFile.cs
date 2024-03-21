@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        20-03-2024
 // ****************************************************************************************
-// <copyright file="FileAsync.cs" company="Terry D. Eppler">
+// <copyright file="AsyncFile.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for analysts in the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -36,7 +36,7 @@
 //    You can contact me at: terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//  FileAsync.cs
+//  AsyncFile.cs
 // </summary>
 // ****************************************************************************************
 
@@ -53,7 +53,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    public class FileAsync : AsyncFileBase
+    public class AsyncFile : AsyncFileBase
     {
         /// <summary>
         /// Gets the size.
@@ -108,7 +108,7 @@ namespace BudgetExecution
         /// Initializes a new instance of the
         /// <see cref="T:BudgetExecution.DataFile" /> class.
         /// </summary>
-        public FileAsync( )
+        public AsyncFile( )
         {
         }
 
@@ -118,7 +118,7 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.DataFile" /> class.
         /// </summary>
         /// <param name="input">The input.</param>
-        public FileAsync( string input )
+        public AsyncFile( string input )
         {
             _buffer = input;
             _fileName = Path.GetFileNameWithoutExtension( input );
@@ -138,7 +138,7 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.DataFile" /> class.
         /// </summary>
         /// <param name="file">The file.</param>
-        public FileAsync( DataFile file )
+        public AsyncFile( DataFile file )
         {
             _buffer = file.Input;
             _fileName = file.FileName;
