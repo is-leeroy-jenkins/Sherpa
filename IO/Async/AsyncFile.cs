@@ -70,39 +70,7 @@ namespace BudgetExecution
                     : 0L;
             }
         }
-
-        /// <summary>
-        /// Gets the name of the parent.
-        /// </summary>
-        /// <value>
-        /// The name of the parent.
-        /// </value>
-        public string ParentName
-        {
-            get
-            {
-                return _hasParent
-                    ? Path.GetDirectoryName( _fullPath )
-                    : string.Empty;
-            }
-        }
-
-        /// <summary>
-        /// Gets the parent path.
-        /// </summary>
-        /// <value>
-        /// The parent path.
-        /// </value>
-        public string ParentPath
-        {
-            get
-            {
-                return _hasParent
-                    ? Directory.GetParent( _fullPath )?.FullName
-                    : string.Empty;
-            }
-        }
-
+        
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -164,7 +132,7 @@ namespace BudgetExecution
         /// if [contains] [the specified search];
         /// otherwise, <c>false</c>.
         /// </returns>
-        public Task<bool> Contains( string search )
+        public Task<bool> ContainsAsync( string search )
         {
             if( _fileExists )
             {
@@ -215,7 +183,7 @@ namespace BudgetExecution
         /// </param>
         /// <returns>
         /// </returns>
-        public Task<IList<FileInfo>> SearchAsync( string pattern )
+        public Task<IList<FileInfo>> SearchFileAsync( string pattern )
         {
             if( _fileExists )
             {
@@ -245,6 +213,27 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public Task<DirectoryInfo> GetParentAsync( )
+        {
+            var _async = new TaskCompletionSource<DirectoryInfo>( );
+            try
+            {
+                var _fileInfo = Directory.GetParent( _fullPath );
+                _async.SetResult( _fileInfo );
+                return _async.Task;
+            }
+            catch( Exception _ex )
+            {
+                _async.SetException( _ex );
+                Fail( _ex );
+                return default( Task<DirectoryInfo> );
+            }
+        }
+
+        /// <summary>
         /// Creates the specified file path.
         /// </summary>
         /// <param name="filePath">
@@ -253,7 +242,7 @@ namespace BudgetExecution
         /// <returns>
         /// FileInfo
         /// </returns>
-        public static Task<FileInfo> CreateAsync( string filePath )
+        public static Task<FileInfo> GetFileAsync( string filePath )
         {
             var _async = new TaskCompletionSource<FileInfo>( );
             try
@@ -304,7 +293,7 @@ namespace BudgetExecution
         /// </summary>
         /// <returns>
         /// </returns>
-        public Task SaveAsync( )
+        public Task SaveFileAsync( )
         {
             FileStream _stream = null;
             var _async = new TaskCompletionSource( );

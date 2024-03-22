@@ -54,22 +54,6 @@ namespace BudgetExecution
     /// </summary>
     public class AsyncFolder : AsyncFolderBase
     {
-        /// <summary>
-        /// Gets the name of the folder.
-        /// </summary>
-        /// <value>
-        /// The name of the folder.
-        /// </value>
-        public string FolderName
-        {
-            get
-            {
-                return _folderExists
-                    ? Path.GetDirectoryName( _fullPath )
-                    : string.Empty;
-            }
-        }
-
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
