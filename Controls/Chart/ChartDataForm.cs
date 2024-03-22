@@ -59,24 +59,24 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
-    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
-    [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
-    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
-    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ArrangeModifiersOrder" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
-    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "UnusedVariable" )]
+    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
+    [SuppressMessage( "ReSharper", "RedundantBoolCompare" )]
+    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
+    [SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" )]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
+    [SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" )]
+    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
+    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
+    [SuppressMessage( "ReSharper", "InconsistentNaming" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
+    [SuppressMessage( "ReSharper", "ArrangeModifiersOrder" )]
+    [SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" )]
+    [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
+    [SuppressMessage( "ReSharper", "ConvertToAutoProperty" )]
     public partial class ChartDataForm : MetroForm
     {
         /// <summary>
@@ -238,7 +238,7 @@ namespace BudgetExecution
         /// The data arguments
         /// </summary>
         private protected DataArgs _dataArgs;
-        
+
         /// <summary>
         /// Gets or sets the time.
         /// </summary>
@@ -2409,7 +2409,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the series style.
         /// </summary>
-        [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
+        [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
         private void SetSeriesPointStyles( DataTable table,
             ChartSeriesType type = ChartSeriesType.Column )
         {
@@ -2492,7 +2492,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the series style.
         /// </summary>
-        [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
+        [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
         private void SetSeriesPointStyles( DataRow row,
             ChartSeriesType type = ChartSeriesType.Column )
         {
@@ -3103,7 +3103,7 @@ namespace BudgetExecution
             try
             {
                 var _selectedItem = ToolStripComboBox.ComboBox.SelectedItem.ToString( );
-                _chartType = 
+                _chartType =
                     (ChartSeriesType)Enum.Parse( typeof( ChartSeriesType ), _selectedItem );
 
                 BindChart( );

@@ -238,24 +238,24 @@
             // 
             DataTabControl.ActiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataTabControl.ActiveTabFont = new System.Drawing.Font( "Roboto", 8F );
-            DataTabControl.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             DataTabControl.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            DataTabControl.BeforeTouchSize = new System.Drawing.Size( 1023, 497 );
+            DataTabControl.BeforeTouchSize = new System.Drawing.Size( 1023, 492 );
             DataTabControl.BindingSource = null;
             DataTabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             DataTabControl.CanOverrideStyle = true;
             DataTabControl.CloseButtonBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataTabControl.Controls.Add( ReadyTabPage );
             DataTabControl.Controls.Add( BusyTabPage );
+            DataTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             DataTabControl.FocusOnTabClick = false;
             DataTabControl.Font = new System.Drawing.Font( "Roboto", 9F );
             DataTabControl.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             DataTabControl.InactiveCloseButtonForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataTabControl.InactiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataTabControl.ItemSize = new System.Drawing.Size( 100, 18 );
-            DataTabControl.Location = new System.Drawing.Point( 7, 4 );
+            DataTabControl.Location = new System.Drawing.Point( 1, 1 );
             DataTabControl.Name = "DataTabControl";
-            DataTabControl.Size = new System.Drawing.Size( 1023, 497 );
+            DataTabControl.Size = new System.Drawing.Size( 1023, 492 );
             DataTabControl.TabIndex = 1;
             DataTabControl.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataTabControl.TabStyle = typeof( Syncfusion.Windows.Forms.Tools.TabRendererMetro );
@@ -280,7 +280,7 @@
             ReadyTabPage.Location = new System.Drawing.Point( 0, 17 );
             ReadyTabPage.Name = "ReadyTabPage";
             ReadyTabPage.ShowCloseButton = true;
-            ReadyTabPage.Size = new System.Drawing.Size( 1023, 480 );
+            ReadyTabPage.Size = new System.Drawing.Size( 1023, 475 );
             ReadyTabPage.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             ReadyTabPage.TabForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             ReadyTabPage.TabIndex = 1;
@@ -292,7 +292,6 @@
             Chart.AllowGapForEmptyPoints = false;
             Chart.AllowGradientPalette = true;
             Chart.AllowUserEditStyles = true;
-            Chart.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             Chart.AutoHighlight = true;
             Chart.BorderAppearance.BaseColor = System.Drawing.Color.FromArgb( 80, 80, 80 );
             Chart.BorderAppearance.Interior.ForeColor = System.Drawing.Color.FromArgb( 80, 80, 80 );
@@ -304,6 +303,7 @@
             Chart.Depth = 250F;
             Chart.DisplayChartContextMenu = false;
             Chart.DisplaySeriesContextMenu = false;
+            Chart.Dock = System.Windows.Forms.DockStyle.Fill;
             Chart.EnableMouseRotation = true;
             Chart.Font = new System.Drawing.Font( "Microsoft Sans Serif", 8.25F );
             Chart.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
@@ -317,7 +317,7 @@
             Chart.Legend.Visible = false;
             Chart.Legend.VisibleCheckBox = true;
             Chart.Localize = null;
-            Chart.Location = new System.Drawing.Point( 0, -4 );
+            Chart.Location = new System.Drawing.Point( 0, 0 );
             Chart.Margin = new System.Windows.Forms.Padding( 1 );
             Chart.Name = "Chart";
             Chart.Padding = new System.Windows.Forms.Padding( 1 );
@@ -349,7 +349,7 @@
             Chart.Series3D = true;
             Chart.SeriesHighlight = true;
             Chart.ShowScrollBars = false;
-            Chart.Size = new System.Drawing.Size( 1005, 453 );
+            Chart.Size = new System.Drawing.Size( 1023, 475 );
             Chart.Skins = Syncfusion.Windows.Forms.Chart.Skins.Office2016Black;
             Chart.Spacing = 5F;
             Chart.SpacingBetweenPoints = 5F;
@@ -378,7 +378,7 @@
             BusyTabPage.Location = new System.Drawing.Point( 0, 17 );
             BusyTabPage.Name = "BusyTabPage";
             BusyTabPage.ShowCloseButton = true;
-            BusyTabPage.Size = new System.Drawing.Size( 1023, 480 );
+            BusyTabPage.Size = new System.Drawing.Size( 1023, 475 );
             BusyTabPage.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             BusyTabPage.TabForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             BusyTabPage.TabIndex = 2;
@@ -391,7 +391,7 @@
             Loader.Image = Resources.Images.LoaderImages.Loading;
             Loader.Location = new System.Drawing.Point( 0, 0 );
             Loader.Name = "Loader";
-            Loader.Size = new System.Drawing.Size( 1023, 480 );
+            Loader.Size = new System.Drawing.Size( 1023, 475 );
             Loader.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             Loader.TabIndex = 0;
             Loader.TabStop = false;
