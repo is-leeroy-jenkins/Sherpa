@@ -754,12 +754,12 @@ namespace BudgetExecution
             RegisterCallbacks( );
 
             // Form Properties
-            Size = new Size( 1350, 750 );
+            Size = new Size( 1340, 740 );
             MaximumSize = new Size( 1350, 750 );
-            MinimumSize = new Size( 1340, 740 );
+            MinimumSize = new Size( 1330, 730 );
             Padding = new Padding( 1 );
             StartPosition = FormStartPosition.CenterScreen;
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.Sizable;
             WindowState = FormWindowState.Normal;
             SizeGripStyle = SizeGripStyle.Auto;
             AutoScaleMode = AutoScaleMode.Font;

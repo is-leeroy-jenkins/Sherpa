@@ -43,12 +43,9 @@ namespace BudgetExecution
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using System.ComponentModel;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Linq;
-    using System.Threading;
-    using System.Threading.Tasks;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Timer = System.Windows.Forms.Timer;
@@ -65,6 +62,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "RedundantNameQualifier" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
     public partial class MainForm : MetroForm
     {
         /// <summary>
@@ -136,7 +134,7 @@ namespace BudgetExecution
             Name = nameof( MainForm );
             Size = new Size( 1340, 740 );
             MaximumSize = new Size( 1350, 750 );
-            MinimumSize = new Size( 1340, 740 );
+            MinimumSize = new Size( 1330, 730 );
             Padding = new Padding( 1 );
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.Sizable;
