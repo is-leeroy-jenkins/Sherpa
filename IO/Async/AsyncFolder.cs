@@ -70,54 +70,6 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets or sets the parent folder.
-        /// </summary>
-        /// <value>
-        /// The parent folder.
-        /// </value>
-        public DirectoryInfo ParentFolder
-        {
-            get
-            {
-                return _hasParent
-                    ? new DirectoryInfo( _fullPath ).Parent
-                    : default( DirectoryInfo );
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the sub files.
-        /// </summary>
-        /// <value>
-        /// The sub files.
-        /// </value>
-        public IEnumerable<string> SubFiles
-        {
-            get
-            {
-                return _hasSubFiles
-                    ? Directory.GetFiles( _fullPath )
-                    : default( IEnumerable<string> );
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the sub folders.
-        /// </summary>
-        /// <value>
-        /// The sub folders.
-        /// </value>
-        public IList<string> SubFolders
-        {
-            get
-            {
-                return _hasSubFolders
-                    ? Directory.GetDirectories( _fullPath )
-                    : default( IList<string> );
-            }
-        }
-
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -185,6 +137,120 @@ namespace BudgetExecution
             modified = _modified;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>
+        /// </returns>
+        public Task<IList<string>> GetSubFilesAsync( )
+        {
+            if( _hasSubFiles )
+            {
+                var _async = new TaskCompletionSource<IList<string>>( );
+                try
+                {
+                    var _files = Directory.GetFiles( _fullPath );
+                    _async.SetResult( _files );
+                    return _async.Task;
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                    return default( Task<IList<string>> );
+                }
+            }
+            else
+            {
+                return default( Task<IList<string>> );
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>
+        /// </returns>
+        public Task<IList<string>> GetSubFoldersAsync( )
+        {
+            if( _hasSubFolders )
+            {
+                var _async = new TaskCompletionSource<IList<string>>( );
+                try
+                {
+                    var _folders = Directory.GetDirectories( _fullPath );
+                    _async.SetResult( _folders );
+                    return _async.Task;
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                    return default( Task<IList<string>> );
+                }
+            }
+            else
+            {
+                return default( Task<IList<string>> );
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>
+        /// </returns>
+        public Task<DirectoryInfo> GetParentFolderAsync( )
+        {
+            if( _hasParent )
+            {
+                var _async = new TaskCompletionSource<DirectoryInfo>( );
+                try
+                {
+                    var _folder = Directory.GetParent( _buffer );
+                    _async.SetResult( _folder );
+                    return _async.Task;
+                }
+                catch( Exception _ex )
+                {
+                    _async.SetException( _ex );
+                    Fail( _ex );
+                    return default( Task<DirectoryInfo> );
+                }
+            }
+            else
+            {
+                return default( Task<DirectoryInfo> );
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>
+        /// </returns>
+        public Task<string> GetFolderNameAsync( )
+        {
+            if( _folderExists )
+            {
+                var _async = new TaskCompletionSource<string>( );
+                try
+                {
+                    var _name = Path.GetDirectoryName( _buffer );
+                    _async.SetResult( _name );
+                    return _async.Task;
+                }
+                catch( Exception _ex )
+                {
+                    _async.SetException( _ex );
+                    Fail( _ex );
+                    return default( Task<string> );
+                }
+            }
+            else
+            {
+                return default( Task<string> );
+            }
+        }
+
         /// <inheritdoc />
         /// <summary>
         /// Transfers the specified folder.
@@ -224,6 +290,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
+                _async.SetException( _ex );
                 Fail( _ex );
                 return default( Task<string> );
             }
@@ -239,17 +306,20 @@ namespace BudgetExecution
         /// <returns>
         /// DirectoryInfo
         /// </returns>
-        public static new DirectoryInfo Create( string filePath )
+        public static Task<DirectoryInfo> CreateFolderAsync( string filePath )
         {
+            var _async = new TaskCompletionSource<DirectoryInfo>( );
             try
             {
                 ThrowIf.Null( filePath, nameof( filePath ) );
-                return Directory.CreateDirectory( filePath );
+                var _stream = Directory.CreateDirectory( filePath );
+                _async.SetResult( _stream );
+                return _async.Task;
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return default( DirectoryInfo );
+                return default( Task<DirectoryInfo> );
             }
         }
 
@@ -259,15 +329,18 @@ namespace BudgetExecution
         /// <param name="folderName">
         /// Name of the folder.
         /// </param>
-        public static void DeleteAsync( string folderName )
+        public static void DeleteFolderAsync( string folderName )
         {
+            var _async = new TaskCompletionSource( );
             try
             {
                 ThrowIf.Null( folderName, nameof( folderName ) );
                 Directory.Delete( folderName, true );
+                _async.SetResult( );
             }
             catch( Exception _ex )
             {
+                _async.SetException( _ex );
                 Fail( _ex );
             }
         }
@@ -275,18 +348,25 @@ namespace BudgetExecution
         /// <summary>
         /// Creates the zip file.
         /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="destination">The destination.</param>
+        /// <param name="source">
+        /// The source.
+        /// </param>
+        /// <param name="destination">
+        /// The destination.
+        /// </param>
         public static void CreateZipFileAsync( string source, string destination )
         {
+            var _async = new TaskCompletionSource( );
             try
             {
                 ThrowIf.Null( source, nameof( source ) );
                 ThrowIf.Null( destination, nameof( destination ) );
                 ZipFile.CreateFromDirectory( source, destination );
+                _async.SetResult( );
             }
             catch( Exception _ex )
             {
+                _async.SetException( _ex );
                 Fail( _ex );
             }
         }
@@ -297,17 +377,23 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dirName">The folderName.</param>
         /// <returns></returns>
-        public DirectoryInfo CreateSubDirectoryAsync( string dirName )
+        public Task<DirectoryInfo> CreateSubDirectoryAsync( string dirName )
         {
+            var _async = new TaskCompletionSource<DirectoryInfo>( );
             try
             {
                 ThrowIf.Null( dirName, nameof( dirName ) );
-                return new DirectoryInfo( _fullPath )?.CreateSubdirectory( dirName );
+                var _folder = new DirectoryInfo( _fullPath )
+                    ?.CreateSubdirectory( dirName );
+
+                _async.SetResult( _folder );
+                return _async.Task;
             }
             catch( Exception _ex )
             {
+                _async.SetException( _ex );
                 Fail( _ex );
-                return default( DirectoryInfo );
+                return default( Task<DirectoryInfo> );
             }
         }
 
@@ -318,16 +404,19 @@ namespace BudgetExecution
         /// <param name="destination">
         /// The fullName.
         /// </param>
-        public void TransferAsync( string destination )
+        public void TransferContentsAsync( string destination )
         {
+            var _async = new TaskCompletionSource( );
             try
             {
                 ThrowIf.Null( destination, nameof( destination ) );
                 var _directory = new DirectoryInfo( _fullPath );
                 _directory.MoveTo( destination );
+                _async.SetResult( );
             }
             catch( Exception _ex )
             {
+                _async.SetException( _ex );
                 Fail( _ex );
             }
         }
@@ -341,13 +430,16 @@ namespace BudgetExecution
         /// </param>
         public void ZipAsync( string destination )
         {
+            var _async = new TaskCompletionSource( );
             try
             {
                 ThrowIf.Null( destination, nameof( destination ) );
                 ZipFile.CreateFromDirectory( _fileName, destination );
+                _async.SetResult( );
             }
             catch( Exception _ex )
             {
+                _async.SetException( _ex );
                 Fail( _ex );
             }
         }
@@ -361,13 +453,16 @@ namespace BudgetExecution
         /// </param>
         public void UnZipAsync( string zipPath )
         {
+            var _async = new TaskCompletionSource( );
             try
             {
                 ThrowIf.Null( zipPath, nameof( zipPath ) );
                 ZipFile.ExtractToDirectory( zipPath, FullPath );
+                _async.SetResult( );
             }
             catch( Exception _ex )
             {
+                _async.SetException( _ex );
                 Fail( _ex );
             }
         }

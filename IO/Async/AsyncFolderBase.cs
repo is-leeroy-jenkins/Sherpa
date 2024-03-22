@@ -205,15 +205,15 @@ namespace BudgetExecution
                 {
                     var _list = new List<string>( );
                     var _paths = Directory.GetFiles( _buffer );
-                    foreach( var _filePath in _paths )
+                    foreach( var _file in _paths )
                     {
-                        var _first = Directory.GetFiles( _filePath )
+                        var _first = Directory.GetFiles( _file )
                             ?.Where( f => File.Exists( f ) )
                             ?.Select( f => Path.GetFullPath( f ) )
                             ?.ToList( );
 
                         _list.AddRange( _first );
-                        var _folders = Directory.GetDirectories( _filePath );
+                        var _folders = Directory.GetDirectories( _file );
                         foreach( var _folder in _folders )
                         {
                             if( !_folder.Contains( "My " ) )
