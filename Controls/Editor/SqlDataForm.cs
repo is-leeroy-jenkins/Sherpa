@@ -528,10 +528,18 @@ namespace BudgetExecution
             ControlBox = false;
 
             // Default Provider
+            _provider = Provider.Access;
 
             // Timer Properties
             _time = 0;
             _seconds = 5;
+
+            // Budget Collections
+            _filter = new Dictionary<string, object>( );
+            _selectedColumns = new List<string>( );
+            _selectedFields = new List<string>( );
+            _selectedNumerics = new List<string>( );
+            _dataArgs = new DataArgs( );
 
             // Form Even Wiring
             Load += OnLoad;
@@ -915,7 +923,7 @@ namespace BudgetExecution
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
                 var _names = _data
-                    ?.Select( dr => dr.Field<string>( "TableName" ) )
+                    ?.Select( r => r.Field<string>( "TableName" ) )
                     ?.Distinct( )
                     ?.ToList( );
 
@@ -980,7 +988,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Fades in the Form
+        /// Fades the in.
         /// </summary>
         private void FadeIn( )
         {
@@ -995,7 +1003,7 @@ namespace BudgetExecution
                         _timer.Stop( );
                     }
 
-                    Opacity += 0.02d;
+                    Opacity += 0.01d;
                 };
 
                 _timer.Start( );
@@ -1007,7 +1015,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Fades in the Form
+        /// Fades the out.
         /// </summary>
         private void FadeOut( )
         {
@@ -1022,7 +1030,7 @@ namespace BudgetExecution
                         _timer.Stop( );
                     }
 
-                    Opacity -= 0.02d;
+                    Opacity -= 0.01d;
                 };
 
                 _timer.Start( );
