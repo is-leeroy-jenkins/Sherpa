@@ -45,7 +45,11 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using MetroSet_UI.Enums;
 
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="MetroSet_UI.Components.StyleManager" />
+    [SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class StyleManager : MetroSet_UI.Components.StyleManager
     {
         /// <summary>

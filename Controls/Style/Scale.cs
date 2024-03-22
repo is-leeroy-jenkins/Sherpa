@@ -63,7 +63,7 @@ namespace BudgetExecution
         /// <summary>
         /// The form normal
         /// </summary>
-        public readonly Size FormNormal = new Size( 1350, 750 );
+        public readonly Size FormNormal = new Size( 1340, 740 );
 
         /// <summary>
         /// The form maximum
@@ -73,22 +73,22 @@ namespace BudgetExecution
         /// <summary>
         /// The form minimum
         /// </summary>
-        public readonly Size FormMinimum = new Size( 1340, 740 );
+        public readonly Size FormMinimum = new Size( 1330, 730 );
 
         /// <summary>
         /// The dialog normal
         /// </summary>
-        public readonly Size ScreenNormal = new Size( 1340, 648 );
+        public readonly Size PageNormal = new Size( 1340, 648 );
 
         /// <summary>
         /// The dialog minimum
         /// </summary>
-        public readonly Size ScreenMinimum = new Size( 1330, 638 );
+        public readonly Size PageMinimum = new Size( 1330, 638 );
 
         /// <summary>
         /// The dialog maximum
         /// </summary>
-        public readonly Size ScreenMaximum = new Size( 1340, 648 );
+        public readonly Size PageMaximum = new Size( 1340, 648 );
 
         /// <summary>
         /// The context menu normal
@@ -103,22 +103,22 @@ namespace BudgetExecution
         /// <summary>
         /// The image small
         /// </summary>
-        public readonly Size ImageSmall = new Size( 16, 16 );
+        public readonly Size Icon = new Size( 16, 16 );
 
         /// <summary>
         /// The image medium
         /// </summary>
-        public readonly Size ImageMedium = new Size( 18, 18 );
+        public readonly Size ImageSmall = new Size( 18, 18 );
 
         /// <summary>
         /// The image large
         /// </summary>
-        public readonly Size ImageLarge = new Size( 20, 20 );
+        public readonly Size ImageMedium = new Size( 20, 20 );
 
         /// <summary>
         /// The image huge
         /// </summary>
-        public readonly Size ImageExtra = new Size( 250, 250 );
+        public readonly Size ImageLarge = new Size( 250, 250 );
 
         /// <summary>
         /// The guidance dialog
@@ -153,12 +153,12 @@ namespace BudgetExecution
         /// <summary>
         /// The calculator dialog
         /// </summary>
-        public readonly Size Calculator = new Size( 0, 0 );
+        public readonly Size Calculator = new Size( 373, 451 );
 
         /// <summary>
         /// The calendar dialog
         /// </summary>
-        public readonly Size CalendarDialog = new Size( 0, 0 );
+        public readonly Size CalendarDialog = new Size( 446, 373 );
 
         /// <summary>
         /// Gets the size.
