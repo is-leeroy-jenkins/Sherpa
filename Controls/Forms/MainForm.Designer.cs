@@ -952,6 +952,7 @@ namespace BudgetExecution
             // 
             // TestButton
             // 
+            TestButton.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             TestButton.BindingSource = null;
             TestButton.DataFilter = null;
             TestButton.DisabledBackColor = System.Drawing.Color.Transparent;
@@ -984,6 +985,7 @@ namespace BudgetExecution
             // 
             // ExitButton
             // 
+            ExitButton.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             ExitButton.BindingSource = null;
             ExitButton.DataFilter = null;
             ExitButton.DisabledBackColor = System.Drawing.Color.Transparent;
@@ -996,7 +998,7 @@ namespace BudgetExecution
             ExitButton.HoverText = null;
             ExitButton.HoverTextColor = System.Drawing.Color.White;
             ExitButton.IsDerivedStyle = true;
-            ExitButton.Location = new System.Drawing.Point( 1257, 709 );
+            ExitButton.Location = new System.Drawing.Point( 1246, 699 );
             ExitButton.Name = "ExitButton";
             ExitButton.NormalBorderColor = System.Drawing.Color.Transparent;
             ExitButton.NormalColor = System.Drawing.Color.Transparent;
@@ -1016,6 +1018,7 @@ namespace BudgetExecution
             // 
             // BrowserTable
             // 
+            BrowserTable.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             BrowserTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             BrowserTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             BrowserTable.CaptionText = "Web Browsers";
@@ -1063,6 +1066,7 @@ namespace BudgetExecution
             // 
             // ClientTable
             // 
+            ClientTable.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             ClientTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             ClientTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             ClientTable.CaptionText = "Database Clients";
@@ -1110,6 +1114,7 @@ namespace BudgetExecution
             // 
             // UtilityTable
             // 
+            UtilityTable.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             UtilityTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             UtilityTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             UtilityTable.CaptionText = "Utilities";
@@ -1156,6 +1161,7 @@ namespace BudgetExecution
             // 
             // DataManagementTable
             // 
+            DataManagementTable.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             DataManagementTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataManagementTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             DataManagementTable.CaptionText = "Data Management";
@@ -1204,6 +1210,7 @@ namespace BudgetExecution
             // 
             // ResourceTable
             // 
+            ResourceTable.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             ResourceTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             ResourceTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             ResourceTable.CaptionText = "Resources";
