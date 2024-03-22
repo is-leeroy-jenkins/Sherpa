@@ -61,6 +61,11 @@ namespace BudgetExecution
         public static readonly string CarouselImages = AppSettings[ "CarouselImages" ];
 
         /// <summary>
+        /// The codec images
+        /// </summary>
+        public static readonly string ExtensionImages = AppSettings[ "ExtensionImages" ];
+
+        /// <summary>
         /// The databases
         /// </summary>
         public static readonly string DatabaseImages = AppSettings[ "DatabaseImages" ];
@@ -71,24 +76,24 @@ namespace BudgetExecution
         public static readonly string DataImages = AppSettings[ "DataImages" ];
 
         /// <summary>
-        /// The office images
-        /// </summary>
-        public static readonly string OfficeImages = AppSettings[ "OfficeImages" ];
-
-        /// <summary>
         /// The navigation images
         /// </summary>
         public static readonly string LoaderImages = AppSettings[ "LoaderImages" ];
 
         /// <summary>
-        /// The codec images
+        /// The office images
         /// </summary>
-        public static readonly string ExtensionImages = AppSettings[ "ExtensionImages" ];
+        public static readonly string OfficeImages = AppSettings[ "OfficeImages" ];
 
         /// <summary>
         /// The epa images
         /// </summary>
         public static readonly string EpaImages = AppSettings[ "EpaImages" ];
+
+        /// <summary>
+        /// The folder images
+        /// </summary>
+        public static readonly string FolderImages = AppSettings[ "FolderImages" ];
 
         /// <summary>
         /// The file images
@@ -109,11 +114,6 @@ namespace BudgetExecution
         /// The interface images
         /// </summary>
         public static readonly string InterfaceImages = AppSettings[ "InterfaceImages" ];
-
-        /// <summary>
-        /// The folder images
-        /// </summary>
-        public static readonly string FolderImages = AppSettings[ "FolderImages" ];
 
         /// <summary>
         /// The filter images
