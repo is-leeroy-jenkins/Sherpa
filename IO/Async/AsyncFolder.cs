@@ -290,7 +290,7 @@ namespace BudgetExecution
         /// <returns>
         /// DirectoryInfo
         /// </returns>
-        public static Task<DirectoryInfo> CreateFolderAsync( string filePath )
+        public static Task<DirectoryInfo> GetFolderAsync( string filePath )
         {
             var _async = new TaskCompletionSource<DirectoryInfo>( );
             try
@@ -338,7 +338,7 @@ namespace BudgetExecution
         /// <param name="destination">
         /// The destination.
         /// </param>
-        public static void CreateZipFileAsync( string source, string destination )
+        public static void GetZipFileAsync( string source, string destination )
         {
             var _async = new TaskCompletionSource( );
             try
@@ -361,7 +361,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dirName">The folderName.</param>
         /// <returns></returns>
-        public Task<DirectoryInfo> CreateSubDirectoryAsync( string dirName )
+        public Task<DirectoryInfo> GetSubDirectoryAsync( string dirName )
         {
             var _async = new TaskCompletionSource<DirectoryInfo>( );
             try
@@ -388,7 +388,7 @@ namespace BudgetExecution
         /// <param name="destination">
         /// The fullName.
         /// </param>
-        public void TransferContentsAsync( string destination )
+        public void TransferAsync( string destination )
         {
             var _async = new TaskCompletionSource( );
             try
@@ -459,38 +459,39 @@ namespace BudgetExecution
         /// A <see cref="T:System.String" />
         /// that represents this instance.
         /// </returns>
-        public override string ToString( )
+        public Task<string> ToStringAsync( )
         {
+            var _async = new TaskCompletionSource<string>( );
             try
             {
-                var _folder = new Folder( _buffer );
-                var _name = _folder.FolderName ?? string.Empty;
-                var _path = _folder.FullPath ?? string.Empty;
-                var _dirPath = _folder.ParentPath ?? string.Empty;
-                var _create = _folder.Created;
-                var _modify = _folder.Modified;
-                var _subfiles = _folder.SubFiles?.Count( );
-                var _subfolders = _folder.SubFolders?.Count( );
-                var _size = ( _folder.Size.ToString( "N0" ) ?? "0" ) + " bytes";
+                var _file = new DataFile( _buffer );
+                var _extenstion = _file.Extension ?? string.Empty;
+                var _name = _file.FileName ?? string.Empty;
+                var _path = _file.FullPath ?? string.Empty;
+                var _dirPath = _file.ParentPath ?? string.Empty;
+                var _create = _file.Created;
+                var _modify = _file.Modified;
+                var _size = ( _file.Size.ToString( "N0" ) ?? "0" ) + " bytes";
                 var _nl = Environment.NewLine;
                 var _tb = char.ToString( '\t' );
-                var _text = _nl + _tb + "Folder Name: " + _tb + _name + _nl + _nl +
-                    _tb + "Folder Path: " + _tb + _path + _nl + _nl +
+                var _text = _nl + _tb + "File Name: " + _tb + _name + _nl + _nl +
+                    _tb + "File Path: " + _tb + _path + _nl + _nl +
                     _tb + "Parent Path: " + _tb + _dirPath + _nl + _nl +
-                    _tb + "Sub-Files: " + _tb + _subfiles + _nl + _nl +
-                    _tb + "Sub-Folders: " + _tb + _subfolders + _nl + _nl +
+                    _tb + "File Extension: " + _tb + _extenstion + _nl + _nl +
                     _tb + "File Size: " + _tb + _size + _nl + _nl +
                     _tb + "Created On: " + _tb + _create.ToShortDateString( ) + _nl + _nl +
                     _tb + "Modified On: " + _tb + _modify.ToShortDateString( ) + _nl + _nl;
 
+                _async.SetResult( _text );
                 return !string.IsNullOrEmpty( _text )
-                    ? _text
-                    : string.Empty;
+                    ? _async.Task
+                    : default( Task<string> );
             }
             catch( IOException _ex )
             {
+                _async.SetException( _ex );
                 Fail( _ex );
-                return string.Empty;
+                return default( Task<string> );
             }
         }
     }
