@@ -46,19 +46,27 @@
             MenuButton = new ToolStripButton( );
             Separator2 = new ToolSeparator( );
             StatusLabel = new ToolStripLabel( );
+            DateTimeSpacer = new ToolStripLabel( );
             ToolStripLabel = new ToolStripLabel( );
             Separator3 = new ToolSeparator( );
             FirstButton = new ToolStripButton( );
             Separator4 = new ToolSeparator( );
             PreviousButton = new ToolStripButton( );
             Separator5 = new ToolSeparator( );
-            ToolStripTextBox = new ToolStripTextBox( );
             Separator6 = new ToolSeparator( );
             NextButton = new ToolStripButton( );
             Separator7 = new ToolSeparator( );
             LastButton = new ToolStripButton( );
             MenuSeparator = new ToolSeparator( );
             Separator8 = new ToolSeparator( );
+            SearchLabel = new ToolStripLabel( );
+            TextBoxLabel = new ToolStripLabel( );
+            Separator14 = new ToolSeparator( );
+            TextBox = new ToolStripTextBox( );
+            MenuLabel = new ToolStripLabel( );
+            Separator12 = new ToolSeparator( );
+            SearchButton = new ToolStripButton( );
+            Separator13 = new ToolSeparator( );
             ApplicationLabel = new ToolStripLabel( );
             Timer = new System.Windows.Forms.Timer( components );
             DataSheet = new GridControl( );
@@ -82,16 +90,17 @@
             HeaderTable.Name = "HeaderTable";
             HeaderTable.RowCount = 1;
             HeaderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            HeaderTable.Size = new System.Drawing.Size( 1336, 24 );
+            HeaderTable.Size = new System.Drawing.Size( 1326, 24 );
             HeaderTable.TabIndex = 0;
             // 
             // PictureBox
             // 
             PictureBox.Image = Resources.Images.FormImages.Application;
-            PictureBox.Location = new System.Drawing.Point( 3, 3 );
+            PictureBox.Location = new System.Drawing.Point( 1, 1 );
+            PictureBox.Margin = new System.Windows.Forms.Padding( 1 );
             PictureBox.Name = "PictureBox";
-            PictureBox.Size = new System.Drawing.Size( 20, 18 );
-            PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            PictureBox.Size = new System.Drawing.Size( 18, 16 );
+            PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             PictureBox.TabIndex = 0;
             PictureBox.TabStop = false;
             // 
@@ -107,12 +116,12 @@
             Title.Margin = new System.Windows.Forms.Padding( 3 );
             Title.Name = "Title";
             Title.Padding = new System.Windows.Forms.Padding( 1 );
-            Title.Size = new System.Drawing.Size( 1287, 18 );
+            Title.Size = new System.Drawing.Size( 1277, 18 );
             Title.Style = MetroSet_UI.Enums.Style.Custom;
             Title.StyleManager = null;
             Title.TabIndex = 1;
             Title.Text = "Title";
-            Title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            Title.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             Title.ThemeAuthor = "Terry D. Eppler";
             Title.ThemeName = "Budget Execution";
             Title.ToolTip = null;
@@ -153,10 +162,10 @@
             ToolStrip.Image = null;
             ToolStrip.ImageDirectory = null;
             ToolStrip.ImageSize = new System.Drawing.Size( 0, 0 );
-            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { CloseButton, Separator1, MenuButton, Separator2, StatusLabel, ToolStripLabel, Separator3, FirstButton, Separator4, PreviousButton, Separator5, ToolStripTextBox, Separator6, NextButton, Separator7, LastButton, MenuSeparator, Separator8, ApplicationLabel } );
+            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { CloseButton, Separator1, MenuButton, Separator2, StatusLabel, DateTimeSpacer, ToolStripLabel, Separator3, FirstButton, Separator4, PreviousButton, Separator5, Separator6, NextButton, Separator7, LastButton, MenuSeparator, Separator8, SearchLabel, TextBoxLabel, Separator14, TextBox, MenuLabel, Separator12, SearchButton, Separator13 } );
             ToolStrip.LastButton = null;
             ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
-            ToolStrip.Location = new System.Drawing.Point( 1, 694 );
+            ToolStrip.Location = new System.Drawing.Point( 1, 685 );
             ToolStrip.Margin = new System.Windows.Forms.Padding( 1 );
             ToolStrip.Name = "ToolStrip";
             ToolStrip.NextButton = null;
@@ -169,7 +178,7 @@
             ToolStrip.Separators = null;
             ToolStrip.ShowCaption = true;
             ToolStrip.ShowLauncher = true;
-            ToolStrip.Size = new System.Drawing.Size( 1336, 43 );
+            ToolStrip.Size = new System.Drawing.Size( 1326, 43 );
             ToolStrip.TabIndex = 1;
             ToolStrip.TextBox = null;
             ToolStrip.ThemeName = "Office2016DarkGray";
@@ -281,6 +290,23 @@
             StatusLabel.Text = "Date and Time";
             StatusLabel.ToolTip = null;
             // 
+            // DateTimeSpacer
+            // 
+            DateTimeSpacer.BackColor = System.Drawing.Color.Transparent;
+            DateTimeSpacer.BindingSource = null;
+            DateTimeSpacer.DataFilter = null;
+            DateTimeSpacer.Field = Field.AccountCode;
+            DateTimeSpacer.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
+            DateTimeSpacer.ForeColor = System.Drawing.Color.Transparent;
+            DateTimeSpacer.HoverText = null;
+            DateTimeSpacer.Margin = new System.Windows.Forms.Padding( 1 );
+            DateTimeSpacer.Name = "DateTimeSpacer";
+            DateTimeSpacer.Padding = new System.Windows.Forms.Padding( 1 );
+            DateTimeSpacer.Size = new System.Drawing.Size( 135, 25 );
+            DateTimeSpacer.Tag = "";
+            DateTimeSpacer.Text = "                                  toolStripLabel1";
+            DateTimeSpacer.ToolTip = null;
+            // 
             // ToolStripLabel
             // 
             ToolStripLabel.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
@@ -364,21 +390,6 @@
             Separator5.Padding = new System.Windows.Forms.Padding( 1 );
             Separator5.Size = new System.Drawing.Size( 6, 25 );
             // 
-            // ToolStripTextBox
-            // 
-            ToolStripTextBox.BackColor = System.Drawing.Color.Black;
-            ToolStripTextBox.BindingSource = BindingSource;
-            ToolStripTextBox.Field = Field.AccountCode;
-            ToolStripTextBox.Font = new System.Drawing.Font( "Roboto", 9F );
-            ToolStripTextBox.ForeColor = System.Drawing.SystemColors.WindowText;
-            ToolStripTextBox.HoverText = "";
-            ToolStripTextBox.Margin = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Name = "ToolStripTextBox";
-            ToolStripTextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Size = new System.Drawing.Size( 222, 25 );
-            ToolStripTextBox.Tag = "";
-            ToolStripTextBox.ToolTip = ToolTip;
-            // 
             // Separator6
             // 
             Separator6.ForeColor = System.Drawing.Color.Black;
@@ -454,6 +465,119 @@
             Separator8.Padding = new System.Windows.Forms.Padding( 1 );
             Separator8.Size = new System.Drawing.Size( 6, 25 );
             // 
+            // SearchLabel
+            // 
+            SearchLabel.BackColor = System.Drawing.Color.Transparent;
+            SearchLabel.BindingSource = null;
+            SearchLabel.DataFilter = null;
+            SearchLabel.Field = Field.AccountCode;
+            SearchLabel.Font = new System.Drawing.Font( "Roboto", 8F );
+            SearchLabel.ForeColor = System.Drawing.Color.Transparent;
+            SearchLabel.HoverText = null;
+            SearchLabel.Margin = new System.Windows.Forms.Padding( 1 );
+            SearchLabel.Name = "SearchLabel";
+            SearchLabel.Padding = new System.Windows.Forms.Padding( 1 );
+            SearchLabel.Size = new System.Drawing.Size( 85, 25 );
+            SearchLabel.Tag = "";
+            SearchLabel.Text = "toolStripLabel1";
+            SearchLabel.ToolTip = null;
+            // 
+            // TextBoxLabel
+            // 
+            TextBoxLabel.BackColor = System.Drawing.Color.Transparent;
+            TextBoxLabel.BindingSource = null;
+            TextBoxLabel.DataFilter = null;
+            TextBoxLabel.Field = Field.AccountCode;
+            TextBoxLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
+            TextBoxLabel.ForeColor = System.Drawing.Color.Black;
+            TextBoxLabel.HoverText = null;
+            TextBoxLabel.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            TextBoxLabel.Name = "TextBoxLabel";
+            TextBoxLabel.Padding = new System.Windows.Forms.Padding( 1 );
+            TextBoxLabel.Size = new System.Drawing.Size( 87, 25 );
+            TextBoxLabel.Tag = "";
+            TextBoxLabel.Text = "                         Search:";
+            TextBoxLabel.ToolTip = null;
+            // 
+            // Separator14
+            // 
+            Separator14.ForeColor = System.Drawing.Color.Black;
+            Separator14.Margin = new System.Windows.Forms.Padding( 1 );
+            Separator14.Name = "Separator14";
+            Separator14.Padding = new System.Windows.Forms.Padding( 1 );
+            Separator14.Size = new System.Drawing.Size( 6, 25 );
+            // 
+            // TextBox
+            // 
+            TextBox.BackColor = System.Drawing.Color.Black;
+            TextBox.BindingSource = BindingSource;
+            TextBox.Field = Field.AccountCode;
+            TextBox.Font = new System.Drawing.Font( "Roboto", 9F );
+            TextBox.ForeColor = System.Drawing.SystemColors.WindowText;
+            TextBox.HoverText = "Begin Search";
+            TextBox.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            TextBox.Name = "TextBox";
+            TextBox.Padding = new System.Windows.Forms.Padding( 1 );
+            TextBox.Size = new System.Drawing.Size( 216, 25 );
+            TextBox.Tag = "";
+            TextBox.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            TextBox.ToolTip = ToolTip;
+            // 
+            // MenuLabel
+            // 
+            MenuLabel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            MenuLabel.BackColor = System.Drawing.Color.Transparent;
+            MenuLabel.BindingSource = null;
+            MenuLabel.DataFilter = null;
+            MenuLabel.Field = Field.AccountCode;
+            MenuLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
+            MenuLabel.ForeColor = System.Drawing.Color.Black;
+            MenuLabel.HoverText = null;
+            MenuLabel.Margin = new System.Windows.Forms.Padding( 1 );
+            MenuLabel.Name = "MenuLabel";
+            MenuLabel.Padding = new System.Windows.Forms.Padding( 1 );
+            MenuLabel.Size = new System.Drawing.Size( 94, 25 );
+            MenuLabel.Tag = "";
+            MenuLabel.Text = "                             Menu:  ";
+            MenuLabel.ToolTip = null;
+            // 
+            // Separator12
+            // 
+            Separator12.ForeColor = System.Drawing.Color.Black;
+            Separator12.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            Separator12.Name = "Separator12";
+            Separator12.Padding = new System.Windows.Forms.Padding( 1 );
+            Separator12.Size = new System.Drawing.Size( 6, 25 );
+            // 
+            // SearchButton
+            // 
+            SearchButton.AutoToolTip = false;
+            SearchButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            SearchButton.BindingSource = BindingSource;
+            SearchButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            SearchButton.Field = Field.AccountCode;
+            SearchButton.Filter = null;
+            SearchButton.Font = new System.Drawing.Font( "Roboto", 9F );
+            SearchButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            SearchButton.HoverText = "Start Search";
+            SearchButton.Image = Resources.Images.ToolStripImages.WebLookUpButton;
+            SearchButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            SearchButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            SearchButton.Name = "SearchButton";
+            SearchButton.Padding = new System.Windows.Forms.Padding( 1 );
+            SearchButton.Size = new System.Drawing.Size( 23, 25 );
+            SearchButton.Text = "toolStripButton1";
+            SearchButton.ToolTip = ToolTip;
+            SearchButton.ToolType = ToolType.NS;
+            // 
+            // Separator13
+            // 
+            Separator13.ForeColor = System.Drawing.Color.Black;
+            Separator13.Margin = new System.Windows.Forms.Padding( 3, 1, 3, 1 );
+            Separator13.Name = "Separator13";
+            Separator13.Padding = new System.Windows.Forms.Padding( 1 );
+            Separator13.Size = new System.Drawing.Size( 6, 25 );
+            // 
             // ApplicationLabel
             // 
             ApplicationLabel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -467,28 +591,28 @@
             ApplicationLabel.Margin = new System.Windows.Forms.Padding( 1 );
             ApplicationLabel.Name = "ApplicationLabel";
             ApplicationLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            ApplicationLabel.Size = new System.Drawing.Size( 72, 25 );
+            ApplicationLabel.Size = new System.Drawing.Size( 90, 25 );
             ApplicationLabel.Tag = "";
-            ApplicationLabel.Text = "         Application:";
+            ApplicationLabel.Text = "                    Menu:         ";
             ApplicationLabel.ToolTip = null;
             // 
             // DataSheet
             // 
             DataSheet.AlphaBlendSelectionColor = System.Drawing.Color.FromArgb( 130, 80, 80, 80 );
             DataSheet.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            gridBaseStyle1.Name = "Header";
-            gridBaseStyle1.StyleInfo.CellType = "Header";
-            gridBaseStyle1.StyleInfo.Font.Bold = true;
-            gridBaseStyle1.StyleInfo.Font.Facename = "Segoe UI";
-            gridBaseStyle1.StyleInfo.Font.Italic = false;
-            gridBaseStyle1.StyleInfo.Font.Size = 9F;
-            gridBaseStyle1.StyleInfo.Font.Strikeout = false;
-            gridBaseStyle1.StyleInfo.Font.Underline = false;
-            gridBaseStyle1.StyleInfo.Font.Unit = System.Drawing.GraphicsUnit.Point;
-            gridBaseStyle1.StyleInfo.VerticalAlignment = Syncfusion.Windows.Forms.Grid.GridVerticalAlignment.Middle;
-            gridBaseStyle2.Name = "Standard";
-            gridBaseStyle2.StyleInfo.Font.Facename = "Tahoma";
-            gridBaseStyle3.Name = "Row Header";
+            gridBaseStyle1.Name = "Standard";
+            gridBaseStyle1.StyleInfo.Font.Facename = "Tahoma";
+            gridBaseStyle2.Name = "Row Header";
+            gridBaseStyle2.StyleInfo.BaseStyle = "Header";
+            gridBaseStyle2.StyleInfo.Font.Bold = true;
+            gridBaseStyle2.StyleInfo.Font.Facename = "Segoe UI";
+            gridBaseStyle2.StyleInfo.Font.Italic = false;
+            gridBaseStyle2.StyleInfo.Font.Size = 9F;
+            gridBaseStyle2.StyleInfo.Font.Strikeout = false;
+            gridBaseStyle2.StyleInfo.Font.Underline = false;
+            gridBaseStyle2.StyleInfo.Font.Unit = System.Drawing.GraphicsUnit.Point;
+            gridBaseStyle2.StyleInfo.HorizontalAlignment = Syncfusion.Windows.Forms.Grid.GridHorizontalAlignment.Center;
+            gridBaseStyle3.Name = "Column Header";
             gridBaseStyle3.StyleInfo.BaseStyle = "Header";
             gridBaseStyle3.StyleInfo.Font.Bold = true;
             gridBaseStyle3.StyleInfo.Font.Facename = "Segoe UI";
@@ -498,8 +622,8 @@
             gridBaseStyle3.StyleInfo.Font.Underline = false;
             gridBaseStyle3.StyleInfo.Font.Unit = System.Drawing.GraphicsUnit.Point;
             gridBaseStyle3.StyleInfo.HorizontalAlignment = Syncfusion.Windows.Forms.Grid.GridHorizontalAlignment.Center;
-            gridBaseStyle4.Name = "Column Header";
-            gridBaseStyle4.StyleInfo.BaseStyle = "Header";
+            gridBaseStyle4.Name = "Header";
+            gridBaseStyle4.StyleInfo.CellType = "Header";
             gridBaseStyle4.StyleInfo.Font.Bold = true;
             gridBaseStyle4.StyleInfo.Font.Facename = "Segoe UI";
             gridBaseStyle4.StyleInfo.Font.Italic = false;
@@ -507,7 +631,7 @@
             gridBaseStyle4.StyleInfo.Font.Strikeout = false;
             gridBaseStyle4.StyleInfo.Font.Underline = false;
             gridBaseStyle4.StyleInfo.Font.Unit = System.Drawing.GraphicsUnit.Point;
-            gridBaseStyle4.StyleInfo.HorizontalAlignment = Syncfusion.Windows.Forms.Grid.GridHorizontalAlignment.Center;
+            gridBaseStyle4.StyleInfo.VerticalAlignment = Syncfusion.Windows.Forms.Grid.GridVerticalAlignment.Middle;
             DataSheet.BaseStylesMap.AddRange( new Syncfusion.Windows.Forms.Grid.GridBaseStyle[ ] { gridBaseStyle1, gridBaseStyle2, gridBaseStyle3, gridBaseStyle4 } );
             DataSheet.CanOverrideStyle = true;
             DataSheet.ColCount = 50;
@@ -538,7 +662,7 @@
             DataSheet.RowCount = 100;
             DataSheet.RowHeightEntries.AddRange( new Syncfusion.Windows.Forms.Grid.GridRowHeight[ ] { new Syncfusion.Windows.Forms.Grid.GridRowHeight( 0, 32 ) } );
             DataSheet.SerializeCellsBehavior = Syncfusion.Windows.Forms.Grid.GridSerializeCellsBehavior.SerializeIntoCode;
-            DataSheet.Size = new System.Drawing.Size( 1336, 669 );
+            DataSheet.Size = new System.Drawing.Size( 1326, 660 );
             DataSheet.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             DataSheet.SmartSizeBox = false;
             DataSheet.TabIndex = 2;
@@ -611,7 +735,7 @@
             CaptionButtonColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionFont = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
-            ClientSize = new System.Drawing.Size( 1338, 738 );
+            ClientSize = new System.Drawing.Size( 1328, 729 );
             ControlBox = false;
             Controls.Add( DataSheet );
             Controls.Add( ToolStrip );
@@ -625,7 +749,7 @@
             MaximumSize = new System.Drawing.Size( 1350, 750 );
             MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             MinimizeBox = false;
-            MinimumSize = new System.Drawing.Size( 1340, 740 );
+            MinimumSize = new System.Drawing.Size( 1330, 730 );
             Name = "GridForm";
             Padding = new System.Windows.Forms.Padding( 1 );
             ShowIcon = false;
@@ -660,7 +784,7 @@
         public ToolSeparator Separator4;
         public ToolStripButton PreviousButton;
         public ToolSeparator Separator5;
-        public ToolStripTextBox ToolStripTextBox;
+        public ToolStripTextBox TextBox;
         public ToolSeparator Separator6;
         public ToolStripButton NextButton;
         public ToolSeparator Separator7;
@@ -672,5 +796,13 @@
         public ToolStripLabel ApplicationLabel;
         public ContextMenu ContextMenu;
         public System.Windows.Forms.TableLayoutPanel HeaderTable;
+        public ToolStripLabel DateTimeSpacer;
+        public ToolStripLabel SearchLabel;
+        public ToolStripLabel TextBoxLabel;
+        public ToolSeparator Separator14;
+        public ToolStripLabel MenuLabel;
+        public ToolSeparator Separator12;
+        public ToolStripButton SearchButton;
+        public ToolSeparator Separator13;
     }
 }

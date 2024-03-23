@@ -107,6 +107,51 @@ namespace BudgetExecution
         private IDictionary<string, object> _filter;
 
         /// <summary>
+        /// The fields
+        /// </summary>
+        private IList<string> _fields;
+
+        /// <summary>
+        /// The columns
+        /// </summary>
+        private IList<string> _columns;
+
+        /// <summary>
+        /// The numerics
+        /// </summary>
+        private IList<string> _numerics;
+
+        /// <summary>
+        /// The selected columns
+        /// </summary>
+        private IList<string> _selectedColumns;
+
+        /// <summary>
+        /// The selected fields
+        /// </summary>
+        private IList<string> _selectedFields;
+
+        /// <summary>
+        /// The selected numerics
+        /// </summary>
+        private IList<string> _selectedNumerics;
+
+        /// <summary>
+        /// The source
+        /// </summary>
+        private Source _source;
+
+        /// <summary>
+        /// The provider
+        /// </summary>
+        private Provider _provider;
+
+        /// <summary>
+        /// The data arguments
+        /// </summary>
+        private DataArgs _dataArgs;
+
+        /// <summary>
         /// Gets the time.
         /// </summary>
         /// <value>
@@ -216,6 +261,168 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Gets the columns.
+        /// </summary>
+        /// <value>
+        /// The columns.
+        /// </value>
+        public IList<string> Columns
+        {
+            get
+            {
+                return _columns;
+            }
+            private protected set
+            {
+                _columns = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the fields.
+        /// </summary>
+        /// <value>
+        /// The fields.
+        /// </value>
+        public IList<string> Fields
+        {
+            get
+            {
+                return _fields;
+            }
+            private protected set
+            {
+                _fields = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the numerics.
+        /// </summary>
+        /// <value>
+        /// The numerics.
+        /// </value>
+        public IList<string> Numerics
+        {
+            get
+            {
+                return _numerics;
+            }
+            private protected set
+            {
+                _numerics = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the selected columns.
+        /// </summary>
+        /// <value>
+        /// The selected columns.
+        /// </value>
+        public IList<string> SelectedColumns
+        {
+            get
+            {
+                return _selectedColumns;
+            }
+            private protected set
+            {
+                _selectedColumns = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the selected fields.
+        /// </summary>
+        /// <value>
+        /// The selected fields.
+        /// </value>
+        public IList<string> SelectedFields
+        {
+            get
+            {
+                return _selectedFields;
+            }
+            private protected set
+            {
+                _selectedFields = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the selected numerics.
+        /// </summary>
+        /// <value>
+        /// The selected numerics.
+        /// </value>
+        public IList<string> SelectedNumerics
+        {
+            get
+            {
+                return _selectedNumerics;
+            }
+            private protected set
+            {
+                _selectedNumerics = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the source.
+        /// </summary>
+        /// <value>
+        /// The source.
+        /// </value>
+        public Source Source
+        {
+            get
+            {
+                return _source;
+            }
+            private protected set
+            {
+                _source = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the provider.
+        /// </summary>
+        /// <value>
+        /// The provider.
+        /// </value>
+        public Provider Provider
+        {
+            get
+            {
+                return _provider;
+            }
+            private protected set
+            {
+                _provider = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the data arguments.
+        /// </summary>
+        /// <value>
+        /// The data arguments.
+        /// </value>
+        public DataArgs DataArgs
+        {
+            get
+            {
+                return _dataArgs;
+            }
+            private protected set
+            {
+                _dataArgs = value;
+            }
+        }
+
+        /// <summary>
         /// Gets a value indicating whether
         /// this instance is busy.
         /// </summary>
@@ -277,6 +484,13 @@ namespace BudgetExecution
             // Timer Properties
             _time = 0;
             _seconds = 5;
+
+            // Budget Collections
+            _filter = new Dictionary<string, object>( );
+            _selectedColumns = new List<string>( );
+            _selectedFields = new List<string>( );
+            _selectedNumerics = new List<string>( );
+            _dataArgs = new DataArgs( );
 
             // Event Wiring
             Load += OnLoad;
@@ -345,8 +559,11 @@ namespace BudgetExecution
                 ToolStrip.LauncherStyle = LauncherStyle.Office12;
                 ToolStrip.ImageSize = new Size( 16, 16 );
                 ToolStrip.ImageScalingSize = new Size( 16, 16 );
-                ToolStripTextBox.Font = new Font( "Roboto", 8 );
-                ToolStripTextBox.ForeColor = Color.White;
+                TextBox.Font = new Font( "Roboto", 9 );
+                TextBox.Size = new Size( 180, 25 );
+                TextBox.ForeColor = Color.White;
+                TextBox.Text = "     < Enter Keywords >     ";
+                TextBox.TextAlign = ContentAlignment.MiddleCenter;
             }
             catch( Exception _ex )
             {
@@ -555,16 +772,16 @@ namespace BudgetExecution
                 try
                 {
                     var _rows = _dataTable.Rows.Count - 1;
-                    var _columns = _dataTable.Columns.Count - 1;
+                    var _count = _dataTable.Columns.Count - 1;
                     for( var _r = 1; _r <= _rows; _r++ )
                     {
-                        for( var _c = 1; _c <= _columns; _c++ )
+                        for( var _c = 1; _c <= _count; _c++ )
                         {
                             DataSheet.Model[ _r, _c ].CellValue = $"{_dataTable.Rows[ _r ][ _c ]}";
                         }
                     }
 
-                    ToolStripTextBox.Text = $"Rows: {_rows} Columns: {_columns}";
+                    TextBox.Text = $"Rows: {_rows} Columns: {_count}";
                     ToolStripLabel.Text = "Data Source:  " + _dataTable.TableName?.SplitPascal( );
                 }
                 catch( Exception _ex )
