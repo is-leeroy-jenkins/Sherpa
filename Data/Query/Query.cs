@@ -46,7 +46,8 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
 
     /// <inheritdoc/>
-    /// <summary> </summary>
+    /// <summary>
+    /// </summary>
     /// <seealso cref="T:System.IDisposable"/>
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
@@ -63,7 +64,17 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public abstract Source Source { get; private protected set; }
+        public Source Source
+        {
+            get
+            {
+                return _source;
+            }
+            private protected set
+            {
+                _source = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
@@ -72,7 +83,17 @@ namespace BudgetExecution
         /// <value>
         /// The provider.
         /// </value>
-        public virtual Provider Provider { get; private protected set; }
+        public Provider Provider
+        {
+            get
+            {
+                return _provider;
+            }
+            private protected set
+            {
+                _provider = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
@@ -81,7 +102,17 @@ namespace BudgetExecution
         /// <value>
         /// The type of the command.
         /// </value>
-        public virtual SQL CommandType { get; private protected set; }
+        public SQL CommandType
+        {
+            get
+            {
+                return _commandType;
+            }
+            private protected set
+            {
+                _commandType = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
@@ -90,7 +121,17 @@ namespace BudgetExecution
         /// <value>
         /// The arguments.
         /// </value>
-        public virtual IDictionary<string, object> Criteria { get; private protected set; }
+        public IDictionary<string, object> Criteria
+        {
+            get
+            {
+                return _criteria;
+            }
+            private protected set
+            {
+                _criteria = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
@@ -99,7 +140,17 @@ namespace BudgetExecution
         /// <value>
         /// The SQL statement.
         /// </value>
-        public virtual ISqlStatement SqlStatement { get; private protected set; }
+        public ISqlStatement SqlStatement
+        {
+            get
+            {
+                return _sqlStatement;
+            }
+            private protected set
+            {
+                _sqlStatement = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
@@ -108,7 +159,17 @@ namespace BudgetExecution
         /// <value>
         /// The connection.
         /// </value>
-        public virtual DbConnection DataConnection { get; private protected set; }
+        public DbConnection DataConnection
+        {
+            get
+            {
+                return _dataConnection;
+            }
+            private protected set
+            {
+                _dataConnection = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
@@ -117,7 +178,17 @@ namespace BudgetExecution
         /// <value>
         /// The adapter.
         /// </value>
-        public virtual DbDataAdapter DataAdapter { get; private protected set; }
+        public DbDataAdapter DataAdapter
+        {
+            get
+            {
+                return _dataAdapter;
+            }
+            private protected set
+            {
+                _dataAdapter = value;
+            }
+        }
 
         /// <summary>
         /// Gets a value indicating whether this instance is disposed.
@@ -126,7 +197,17 @@ namespace BudgetExecution
         ///   <c>true</c> if this instance is disposed;
         /// otherwise, <c>false</c>.
         /// </value>
-        public virtual bool IsDisposed { get; private protected set; }
+        public bool IsDisposed
+        {
+            get
+            {
+                return _isDisposed;
+            }
+            private protected set
+            {
+                _isDisposed = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
@@ -135,6 +216,16 @@ namespace BudgetExecution
         /// <value>
         /// The data reader.
         /// </value>
-        public virtual DbDataReader DataReader { get; private protected set; }
+        public DbDataReader DataReader
+        {
+            get
+            {
+                return _dataReader;
+            }
+            private protected set
+            {
+                _dataReader = value;
+            }
+        }
     }
 }

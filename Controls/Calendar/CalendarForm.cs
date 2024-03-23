@@ -110,6 +110,36 @@ namespace BudgetExecution
         private string _selectedEnd;
 
         /// <summary>
+        /// The filter
+        /// </summary>
+        private IDictionary<string, object> _filter;
+
+        /// <summary>
+        /// The columns
+        /// </summary>
+        private IList<string> _columns;
+
+        /// <summary>
+        /// The fields
+        /// </summary>
+        private IList<string> _fields;
+
+        /// <summary>
+        /// The numerics
+        /// </summary>
+        private IList<string> _numerics;
+
+        /// <summary>
+        /// The selected columns
+        /// </summary>
+        private IList<string> _selectedColumns;
+
+        /// <summary>
+        /// The selected fields
+        /// </summary>
+        private IList<string> _selectedFields;
+
+        /// <summary>
         /// The data set
         /// </summary>
         private DataSet _dataSet;
@@ -177,6 +207,114 @@ namespace BudgetExecution
             private set
             {
                 _seconds = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the filter.
+        /// </summary>
+        /// <value>
+        /// The filter.
+        /// </value>
+        public IDictionary<string, object> Filter
+        {
+            get
+            {
+                return _filter;
+            }
+            private set
+            {
+                _filter = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the columns.
+        /// </summary>
+        /// <value>
+        /// The columns.
+        /// </value>
+        public IList<string> Columns
+        {
+            get
+            {
+                return _columns;
+            }
+            private set
+            {
+                _columns = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the fields.
+        /// </summary>
+        /// <value>
+        /// The fields.
+        /// </value>
+        public IList<string> Fields
+        {
+            get
+            {
+                return _fields;
+            }
+            private set
+            {
+                _fields = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the numerics.
+        /// </summary>
+        /// <value>
+        /// The numerics.
+        /// </value>
+        public IList<string> Numerics
+        {
+            get
+            {
+                return _numerics;
+            }
+            private set
+            {
+                _numerics = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the selected columns.
+        /// </summary>
+        /// <value>
+        /// The selected columns.
+        /// </value>
+        public IList<string> SelectedColumns
+        {
+            get
+            {
+                return _selectedColumns;
+            }
+            private set
+            {
+                _selectedColumns = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the selected fields.
+        /// </summary>
+        /// <value>
+        /// The selected fields.
+        /// </value>
+        public IList<string> SelectedFields
+        {
+            get
+            {
+                return _selectedFields;
+            }
+            private set
+            {
+                _selectedFields = value;
             }
         }
 
@@ -441,6 +579,9 @@ namespace BudgetExecution
             ControlBox = false;
 
             // Budget Properties
+            _filter = new Dictionary<string, object>( );
+            _fields = new List<string>( );
+            _columns = new List<string>( );
             _dataArgs = new DataArgs( );
             _selectedDates = new List<DateTime>( );
 

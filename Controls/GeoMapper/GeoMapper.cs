@@ -101,6 +101,21 @@ namespace BudgetExecution
         private Action _statusUpdate;
 
         /// <summary>
+        /// The filter
+        /// </summary>
+        private IDictionary<string, object> _filter;
+
+        /// <summary>
+        /// The fields
+        /// </summary>
+        private IList<string> _fields;
+
+        /// <summary>
+        /// The numerics
+        /// </summary>
+        private IList<string> _numerics;
+
+        /// <summary>
         /// Gets or sets the time.
         /// </summary>
         /// <value>

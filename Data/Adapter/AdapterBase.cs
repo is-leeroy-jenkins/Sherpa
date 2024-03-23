@@ -48,7 +48,6 @@ namespace BudgetExecution
     using System.Data.SQLite;
     using System.Data.SqlServerCe;
     using System.Diagnostics.CodeAnalysis;
-    using System.Threading.Tasks;
 
     /// <inheritdoc/>
     /// <summary> </summary>
@@ -119,14 +118,14 @@ namespace BudgetExecution
         {
             try
             {
-                var _adapter = 
+                var _adapter =
                     new SQLiteDataAdapter( _commandText, _dataConnection as SQLiteConnection );
 
                 _adapter.ContinueUpdateOnError = true;
                 _adapter.AcceptChangesDuringFill = true;
                 _adapter.AcceptChangesDuringUpdate = true;
                 _adapter.ReturnProviderSpecificTypes = true;
-                if( _commandText.StartsWith( "SELECT *" )
+                if( _commandText.StartsWith( @"SELECT *" )
                    || _commandText.StartsWith( "SELECT ALL" ) )
                 {
                     var _builder = new SQLiteCommandBuilder( _adapter );
@@ -162,7 +161,7 @@ namespace BudgetExecution
                 _adapter.AcceptChangesDuringFill = true;
                 _adapter.AcceptChangesDuringUpdate = true;
                 _adapter.ReturnProviderSpecificTypes = true;
-                if( _commandText.StartsWith( "SELECT *" )
+                if( _commandText.StartsWith( @"SELECT *" )
                    || _commandText.StartsWith( "SELECT ALL" ) )
                 {
                     var _builder = new SqlCommandBuilder( _adapter );
@@ -188,7 +187,7 @@ namespace BudgetExecution
         /// </summary>
         /// <returns>
         /// </returns>
-        private protected OleDbDataAdapter GetOleDbAdapter( )
+        public OleDbDataAdapter GetOleDbAdapter( )
         {
             try
             {
@@ -199,7 +198,7 @@ namespace BudgetExecution
                 _adapter.AcceptChangesDuringFill = true;
                 _adapter.AcceptChangesDuringUpdate = true;
                 _adapter.ReturnProviderSpecificTypes = true;
-                if( _commandText.StartsWith( "SELECT *" )
+                if( _commandText.StartsWith( @"SELECT *" )
                    || _commandText.StartsWith( "SELECT ALL" ) )
                 {
                     var _builder = new OleDbCommandBuilder( _adapter );
@@ -235,7 +234,7 @@ namespace BudgetExecution
                 _adapter.AcceptChangesDuringFill = true;
                 _adapter.AcceptChangesDuringUpdate = true;
                 _adapter.ReturnProviderSpecificTypes = true;
-                if( _commandText.StartsWith( "SELECT *" )
+                if( _commandText.StartsWith( @"SELECT *" )
                    || _commandText.StartsWith( "SELECT ALL" ) )
                 {
                     var _builder = new SqlCeCommandBuilder( _adapter );

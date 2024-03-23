@@ -48,7 +48,8 @@ namespace BudgetExecution
     using System.Threading.Tasks;
 
     /// <inheritdoc/>
-    /// <summary> </summary>
+    /// <summary>
+    /// </summary>
     /// <seealso cref="T:BudgetExecution.AdapterBase"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
@@ -236,7 +237,7 @@ namespace BudgetExecution
             _source = source;
             _provider = provider;
             _sqlStatement = new SqlStatement( source, provider, commandType );
-            _dataConnection = new BudgetConnection( source, provider ).Create( );
+            _dataConnection = new BudgetConnection( source, provider )?.Create( );
             _commandText = _sqlStatement.CommandText;
         }
 
@@ -255,7 +256,7 @@ namespace BudgetExecution
             _source = source;
             _provider = provider;
             _sqlStatement = new SqlStatement( source, provider, commandType );
-            _dataConnection = new BudgetConnection( source, provider ).Create( );
+            _dataConnection = new BudgetConnection( source, provider )?.Create( );
             _commandText = _sqlStatement.CommandText;
         }
 
@@ -274,7 +275,7 @@ namespace BudgetExecution
             _source = source;
             _provider = provider;
             _sqlStatement = new SqlStatement( source, provider, where, commandType );
-            _dataConnection = new BudgetConnection( source, provider ).Create( );
+            _dataConnection = new BudgetConnection( source, provider )?.Create( );
             _commandText = _sqlStatement.CommandText;
         }
 
@@ -294,7 +295,7 @@ namespace BudgetExecution
             _source = source;
             _provider = provider;
             _sqlStatement = new SqlStatement( source, provider, update, where, commandType );
-            _dataConnection = new BudgetConnection( source, provider ).Create( );
+            _dataConnection = new BudgetConnection( source, provider )?.Create( );
             _commandText = _sqlStatement.CommandText;
         }
 
@@ -315,7 +316,7 @@ namespace BudgetExecution
             _source = source;
             _provider = provider;
             _sqlStatement = new SqlStatement( source, provider, columns, where, commandType );
-            _dataConnection = new BudgetConnection( source, provider ).Create( );
+            _dataConnection = new BudgetConnection( source, provider )?.Create( );
             _commandText = _sqlStatement.CommandText;
         }
 
@@ -340,7 +341,7 @@ namespace BudgetExecution
             _sqlStatement = new SqlStatement( source, provider, fields, numerics, having,
                 commandType );
 
-            _dataConnection = new BudgetConnection( source, provider ).Create( );
+            _dataConnection = new BudgetConnection( source, provider )?.Create( );
             _commandText = _sqlStatement.CommandText;
         }
 
@@ -357,7 +358,9 @@ namespace BudgetExecution
             _source = sqlStatement.Source;
             _provider = sqlStatement.Provider;
             _sqlStatement = sqlStatement;
-            _dataConnection = new BudgetConnection( _source, _provider ).Create( );
+            _dataConnection = 
+                new BudgetConnection( sqlStatement.Source, sqlStatement.Provider )?.Create( );
+
             _commandText = sqlStatement.CommandText;
         }
 
@@ -384,46 +387,40 @@ namespace BudgetExecution
         /// <returns> DbDataAdapter </returns>
         public DbDataAdapter Create( )
         {
-            if( Enum.IsDefined( typeof( Provider ), _provider )
-               && !string.IsNullOrEmpty( _commandText ) )
+            try
             {
-                try
+                switch( _provider )
                 {
-                    switch( _provider )
+                    case Provider.SQLite:
                     {
-                        case Provider.SQLite:
-                        {
-                            return GetSQLiteAdapter( );
-                        }
-                        case Provider.SqlCe:
-                        {
-                            return GetSqlCompactAdapter( );
-                        }
-                        case Provider.SqlServer:
-                        {
-                            return GetSqlServerAdapter( );
-                        }
-                        case Provider.Excel:
-                        case Provider.CSV:
-                        case Provider.Access:
-                        case Provider.OleDb:
-                        {
-                            return GetOleDbAdapter( );
-                        }
-                        default:
-                        {
-                            return GetOleDbAdapter( );
-                        }
+                        return GetSQLiteAdapter( );
+                    }
+                    case Provider.SqlCe:
+                    {
+                        return GetSqlCompactAdapter( );
+                    }
+                    case Provider.SqlServer:
+                    {
+                        return GetSqlServerAdapter( );
+                    }
+                    case Provider.Excel:
+                    case Provider.CSV:
+                    case Provider.Access:
+                    case Provider.OleDb:
+                    {
+                        return GetOleDbAdapter( );
+                    }
+                    default:
+                    {
+                        return GetOleDbAdapter( );
                     }
                 }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( DbDataAdapter );
-                }
             }
-
-            return default( DbDataAdapter );
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( DbDataAdapter );
+            }
         }
 
         /// <inheritdoc />

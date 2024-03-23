@@ -43,10 +43,6 @@ namespace BudgetExecution
     using System;
     using System.Collections.Generic;
     using System.Data.Common;
-    using System.Data.OleDb;
-    using System.Data.SqlClient;
-    using System.Data.SQLite;
-    using System.Data.SqlServerCe;
     using System.Diagnostics.CodeAnalysis;
 
     /// <inheritdoc/>
@@ -117,11 +113,20 @@ namespace BudgetExecution
         /// </summary>
         public void Dispose( )
         {
-            Dispose( true );
-            GC.SuppressFinalize( this );
+            try
+            {
+                Dispose( true );
+                GC.SuppressFinalize( this );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
-        /// <summary> Releases unmanaged and - optionally - managed resources. </summary>
+        /// <summary> Releases unmanaged and
+        /// - optionally - managed resources.
+        /// </summary>
         /// <param name="disposing">
         /// <c> true </c>
         /// to release both managed and unmanaged resources;
@@ -132,15 +137,25 @@ namespace BudgetExecution
         {
             if( disposing )
             {
-                _dataConnection?.Dispose( );
-                _dataAdapter?.Dispose( );
-                _dataReader?.Dispose( );
-                _isDisposed = true;
+                try
+                {
+                    _dataConnection?.Dispose( );
+                    _dataAdapter?.Dispose( );
+                    _dataReader?.Dispose( );
+                    _isDisposed = true;
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary> Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">
+        /// The ex.
+        /// </param>
         private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
