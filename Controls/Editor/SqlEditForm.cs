@@ -567,9 +567,6 @@ namespace BudgetExecution
             {
                 Editor.AutoSizeMode = AutoSizeMode.GrowAndShrink;
                 Editor.AlwaysShowScrollers = true;
-                Editor.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left
-                    | AnchorStyles.Right;
-
                 Editor.BackColor = SystemColors.ControlLight;
                 Editor.ForeColor = Color.Black;
                 Editor.BackgroundColor = new BrushInfo( SystemColors.ControlLight );
@@ -640,8 +637,8 @@ namespace BudgetExecution
         {
             try
             {
-                PictureBox.Size = new Size( 18, 18 );
-                PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                PictureBox.Size = new Size( 18, 16 );
+                PictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             }
             catch( Exception _ex )
             {

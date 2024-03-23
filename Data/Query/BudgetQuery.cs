@@ -213,8 +213,8 @@ namespace BudgetExecution
             _dataConnection = new BudgetConnection( source, provider ).Create( );
             _sqlStatement = new SqlStatement( source, provider, sqlText );
             _dataAdapter = new BudgetAdapter( _sqlStatement ).Create( );
-            _isDisposed = false;
             _criteria = null;
+            _isDisposed = false;
         }
 
         /// <inheritdoc/>

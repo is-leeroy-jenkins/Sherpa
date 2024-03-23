@@ -47,7 +47,7 @@ partial class ProgramProjectDialog
         ProgramAreaTable = new HeaderPanel( );
         ProgramProjectTable = new HeaderPanel( );
         HeaderTable = new System.Windows.Forms.TableLayoutPanel( );
-        pictureBox1 = new System.Windows.Forms.PictureBox( );
+        PictureBox = new System.Windows.Forms.PictureBox( );
         Header = new Label( );
         ComboBox = new ComboBox( );
         MenuButton = new Button( );
@@ -63,7 +63,7 @@ partial class ProgramProjectDialog
         ProgramAreaTable.SuspendLayout( );
         ProgramProjectTable.SuspendLayout( );
         HeaderTable.SuspendLayout( );
-        ( (System.ComponentModel.ISupportInitialize)pictureBox1 ).BeginInit( );
+        ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
         ButtonTable.SuspendLayout( );
         SuspendLayout( );
         // 
@@ -139,7 +139,7 @@ partial class ProgramProjectDialog
         ProgramDescriptionTextBox.Name = "ProgramDescriptionTextBox";
         ProgramDescriptionTextBox.Padding = new System.Windows.Forms.Padding( 4, 10, 4, 3 );
         ProgramDescriptionTextBox.ReadOnly = false;
-        ProgramDescriptionTextBox.Size = new System.Drawing.Size( 980, 220 );
+        ProgramDescriptionTextBox.Size = new System.Drawing.Size( 984, 220 );
         ProgramDescriptionTextBox.Style = MetroSet_UI.Enums.Style.Custom;
         ProgramDescriptionTextBox.StyleManager = null;
         ProgramDescriptionTextBox.TabIndex = 1;
@@ -200,7 +200,7 @@ partial class ProgramProjectDialog
         ProgramProjectNameTextBox.Name = "ProgramProjectNameTextBox";
         ProgramProjectNameTextBox.Padding = new System.Windows.Forms.Padding( 4, 3, 4, 3 );
         ProgramProjectNameTextBox.ReadOnly = false;
-        ProgramProjectNameTextBox.Size = new System.Drawing.Size( 440, 65 );
+        ProgramProjectNameTextBox.Size = new System.Drawing.Size( 444, 65 );
         ProgramProjectNameTextBox.Style = MetroSet_UI.Enums.Style.Custom;
         ProgramProjectNameTextBox.StyleManager = null;
         ProgramProjectNameTextBox.TabIndex = 1;
@@ -212,6 +212,7 @@ partial class ProgramProjectDialog
         // 
         // DescriptionTable
         // 
+        DescriptionTable.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
         DescriptionTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         DescriptionTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
         DescriptionTable.CaptionText = "Program Description";
@@ -224,11 +225,12 @@ partial class ProgramProjectDialog
         DescriptionTable.Name = "DescriptionTable";
         DescriptionTable.RowCount = 1;
         DescriptionTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-        DescriptionTable.Size = new System.Drawing.Size( 988, 244 );
+        DescriptionTable.Size = new System.Drawing.Size( 992, 244 );
         DescriptionTable.TabIndex = 14;
         // 
         // StatuteTable
         // 
+        StatuteTable.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
         StatuteTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         StatuteTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
         StatuteTable.CaptionText = "Statutory Authority";
@@ -246,6 +248,7 @@ partial class ProgramProjectDialog
         // 
         // ProgramAreaTable
         // 
+        ProgramAreaTable.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
         ProgramAreaTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         ProgramAreaTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
         ProgramAreaTable.CaptionText = "Program Area";
@@ -263,6 +266,7 @@ partial class ProgramProjectDialog
         // 
         // ProgramProjectTable
         // 
+        ProgramProjectTable.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
         ProgramProjectTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         ProgramProjectTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
         ProgramProjectTable.CaptionText = "Program Project";
@@ -275,33 +279,36 @@ partial class ProgramProjectDialog
         ProgramProjectTable.Name = "ProgramProjectTable";
         ProgramProjectTable.RowCount = 1;
         ProgramProjectTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-        ProgramProjectTable.Size = new System.Drawing.Size( 448, 89 );
+        ProgramProjectTable.Size = new System.Drawing.Size( 452, 89 );
         ProgramProjectTable.TabIndex = 17;
         // 
         // HeaderTable
         // 
         HeaderTable.ColumnCount = 2;
-        HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 4.20899868F ) );
-        HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 95.791F ) );
-        HeaderTable.Controls.Add( pictureBox1, 0, 0 );
+        HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 2.8463F ) );
+        HeaderTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 97.1537F ) );
+        HeaderTable.Controls.Add( PictureBox, 0, 0 );
         HeaderTable.Controls.Add( Header, 1, 0 );
         HeaderTable.Dock = System.Windows.Forms.DockStyle.Top;
         HeaderTable.Location = new System.Drawing.Point( 0, 0 );
         HeaderTable.Name = "HeaderTable";
         HeaderTable.RowCount = 1;
         HeaderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-        HeaderTable.Size = new System.Drawing.Size( 1054, 28 );
+        HeaderTable.Size = new System.Drawing.Size( 1054, 25 );
         HeaderTable.TabIndex = 18;
         // 
-        // pictureBox1
+        // PictureBox
         // 
-        pictureBox1.Image = Resources.Images.TileImages.AppropriationTile;
-        pictureBox1.Location = new System.Drawing.Point( 3, 3 );
-        pictureBox1.Name = "pictureBox1";
-        pictureBox1.Size = new System.Drawing.Size( 28, 22 );
-        pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-        pictureBox1.TabIndex = 0;
-        pictureBox1.TabStop = false;
+        PictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
+        PictureBox.Image = Resources.Images.TileImages.AppropriationTile;
+        PictureBox.Location = new System.Drawing.Point( 1, 1 );
+        PictureBox.Margin = new System.Windows.Forms.Padding( 1 );
+        PictureBox.Name = "PictureBox";
+        PictureBox.Padding = new System.Windows.Forms.Padding( 1 );
+        PictureBox.Size = new System.Drawing.Size( 28, 23 );
+        PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+        PictureBox.TabIndex = 0;
+        PictureBox.TabStop = false;
         // 
         // Header
         // 
@@ -311,11 +318,11 @@ partial class ProgramProjectDialog
         Header.Font = new System.Drawing.Font( "Roboto", 9.75F );
         Header.HoverText = null;
         Header.IsDerivedStyle = true;
-        Header.Location = new System.Drawing.Point( 47, 3 );
+        Header.Location = new System.Drawing.Point( 33, 3 );
         Header.Margin = new System.Windows.Forms.Padding( 3 );
         Header.Name = "Header";
         Header.Padding = new System.Windows.Forms.Padding( 1 );
-        Header.Size = new System.Drawing.Size( 1004, 22 );
+        Header.Size = new System.Drawing.Size( 1018, 19 );
         Header.Style = MetroSet_UI.Enums.Style.Custom;
         Header.StyleManager = null;
         Header.TabIndex = 1;
@@ -349,7 +356,7 @@ partial class ProgramProjectDialog
         ComboBox.IntegralHeight = false;
         ComboBox.IsDerivedStyle = true;
         ComboBox.ItemHeight = 24;
-        ComboBox.Location = new System.Drawing.Point( 159, 31 );
+        ComboBox.Location = new System.Drawing.Point( 161, 31 );
         ComboBox.Name = "ComboBox";
         ComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
         ComboBox.SelectedItemForeColor = System.Drawing.Color.White;
@@ -368,6 +375,7 @@ partial class ProgramProjectDialog
         MenuButton.DisabledBackColor = System.Drawing.Color.Transparent;
         MenuButton.DisabledBorderColor = System.Drawing.Color.Transparent;
         MenuButton.DisabledForeColor = System.Drawing.Color.Transparent;
+        MenuButton.Dock = System.Windows.Forms.DockStyle.Fill;
         MenuButton.Font = new System.Drawing.Font( "Roboto", 8F );
         MenuButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         MenuButton.HoverBorderColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
@@ -384,7 +392,7 @@ partial class ProgramProjectDialog
         MenuButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
         MenuButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
         MenuButton.PressTextColor = System.Drawing.Color.White;
-        MenuButton.Size = new System.Drawing.Size( 90, 30 );
+        MenuButton.Size = new System.Drawing.Size( 105, 29 );
         MenuButton.Style = MetroSet_UI.Enums.Style.Custom;
         MenuButton.StyleManager = null;
         MenuButton.TabIndex = 20;
@@ -400,6 +408,7 @@ partial class ProgramProjectDialog
         CloseButton.DisabledBackColor = System.Drawing.Color.Transparent;
         CloseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
         CloseButton.DisabledForeColor = System.Drawing.Color.Transparent;
+        CloseButton.Dock = System.Windows.Forms.DockStyle.Fill;
         CloseButton.Font = new System.Drawing.Font( "Roboto", 8F );
         CloseButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
@@ -416,7 +425,7 @@ partial class ProgramProjectDialog
         CloseButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
         CloseButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
         CloseButton.PressTextColor = System.Drawing.Color.White;
-        CloseButton.Size = new System.Drawing.Size( 90, 30 );
+        CloseButton.Size = new System.Drawing.Size( 96, 29 );
         CloseButton.Style = MetroSet_UI.Enums.Style.Custom;
         CloseButton.StyleManager = null;
         CloseButton.TabIndex = 21;
@@ -432,6 +441,7 @@ partial class ProgramProjectDialog
         SearchButton.DisabledBackColor = System.Drawing.Color.Transparent;
         SearchButton.DisabledBorderColor = System.Drawing.Color.Transparent;
         SearchButton.DisabledForeColor = System.Drawing.Color.Transparent;
+        SearchButton.Dock = System.Windows.Forms.DockStyle.Fill;
         SearchButton.Font = new System.Drawing.Font( "Roboto", 8F );
         SearchButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         SearchButton.HoverBorderColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
@@ -448,7 +458,7 @@ partial class ProgramProjectDialog
         SearchButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
         SearchButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
         SearchButton.PressTextColor = System.Drawing.Color.White;
-        SearchButton.Size = new System.Drawing.Size( 90, 30 );
+        SearchButton.Size = new System.Drawing.Size( 101, 29 );
         SearchButton.Style = MetroSet_UI.Enums.Style.Custom;
         SearchButton.StyleManager = null;
         SearchButton.TabIndex = 22;
@@ -487,10 +497,10 @@ partial class ProgramProjectDialog
         ButtonTable.ColumnCount = 8;
         ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 61.4886742F ) );
         ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 38.5113258F ) );
-        ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 179F ) );
-        ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 134F ) );
-        ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 157F ) );
-        ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 207F ) );
+        ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 107F ) );
+        ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 206F ) );
+        ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 111F ) );
+        ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 253F ) );
         ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 102F ) );
         ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 20F ) );
         ButtonTable.Controls.Add( StatusLabel, 0, 0 );
@@ -498,11 +508,11 @@ partial class ProgramProjectDialog
         ButtonTable.Controls.Add( MenuButton, 4, 0 );
         ButtonTable.Controls.Add( SearchButton, 2, 0 );
         ButtonTable.Dock = System.Windows.Forms.DockStyle.Bottom;
-        ButtonTable.Location = new System.Drawing.Point( 0, 564 );
+        ButtonTable.Location = new System.Drawing.Point( 0, 567 );
         ButtonTable.Name = "ButtonTable";
         ButtonTable.RowCount = 1;
         ButtonTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-        ButtonTable.Size = new System.Drawing.Size( 1054, 38 );
+        ButtonTable.Size = new System.Drawing.Size( 1054, 35 );
         ButtonTable.TabIndex = 24;
         // 
         // StatusLabel
@@ -517,7 +527,7 @@ partial class ProgramProjectDialog
         StatusLabel.Margin = new System.Windows.Forms.Padding( 3 );
         StatusLabel.Name = "StatusLabel";
         StatusLabel.Padding = new System.Windows.Forms.Padding( 1 );
-        StatusLabel.Size = new System.Drawing.Size( 150, 32 );
+        StatusLabel.Size = new System.Drawing.Size( 150, 29 );
         StatusLabel.Style = MetroSet_UI.Enums.Style.Custom;
         StatusLabel.StyleManager = null;
         StatusLabel.TabIndex = 0;
@@ -577,7 +587,7 @@ partial class ProgramProjectDialog
         ProgramAreaTable.ResumeLayout( false );
         ProgramProjectTable.ResumeLayout( false );
         HeaderTable.ResumeLayout( false );
-        ( (System.ComponentModel.ISupportInitialize)pictureBox1 ).EndInit( );
+        ( (System.ComponentModel.ISupportInitialize)PictureBox ).EndInit( );
         ButtonTable.ResumeLayout( false );
         ResumeLayout( false );
     }
@@ -594,7 +604,7 @@ partial class ProgramProjectDialog
     public RichTextBox ProgramAreaNameTextBox;
     public RichTextBox ProgramProjectNameTextBox;
     public System.Windows.Forms.TableLayoutPanel HeaderTable;
-    public System.Windows.Forms.PictureBox pictureBox1;
+    public System.Windows.Forms.PictureBox PictureBox;
     private Label Header;
     public Button MenuButton;
     public Button CloseButton;

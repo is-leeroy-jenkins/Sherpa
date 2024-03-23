@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:             BudgetExecution
 //     Author:                  Terry D. Eppler
-//     Created:                 12-10-2023
+//     Created:                 12-24-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-10-2023
+//     Last Modified On:        03-23-2024
 // ******************************************************************************************
-// <copyright file="ChartDataForm.cs" company="Terry D. Eppler">
-//    Budget Execution is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+// <copyright file="Terry Eppler" company="Terry D. Eppler">
+//    Budget Execution is a small Federal Budget, Finance, and Accounting data management
+//    application for analysts with the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -31,7 +31,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    Contact at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   ChartDataForm.cs
@@ -59,24 +59,24 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "UnusedVariable" )]
-    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
-    [SuppressMessage( "ReSharper", "RedundantBoolCompare" )]
-    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
-    [SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" )]
-    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
-    [SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" )]
-    [SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" )]
-    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
-    [SuppressMessage( "ReSharper", "InconsistentNaming" )]
-    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
-    [SuppressMessage( "ReSharper", "ArrangeModifiersOrder" )]
-    [SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" )]
-    [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
-    [SuppressMessage( "ReSharper", "ConvertToAutoProperty" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
+    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
+    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeModifiersOrder" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
+    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     public partial class ChartDataForm : MetroForm
     {
         /// <summary>
@@ -881,22 +881,6 @@ namespace BudgetExecution
             _provider = provider;
         }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.ChartDataForm" /> class.
-        /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="provider">The provider.</param>
-        /// <param name="where">The where.</param>
-        public ChartDataForm( Source source, Provider provider, IDictionary<string, object> where )
-            : this( )
-        {
-            _source = source;
-            _provider = provider;
-            _filter = where;
-        }
-
         /// <summary>
         /// Initializes the callbacks.
         /// </summary>
@@ -1078,6 +1062,24 @@ namespace BudgetExecution
                 }
 
                 SetFancyToolTips( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the PictureBox.
+        /// </summary>
+        private void InitializePictureBox( )
+        {
+            try
+            {
+                PictureBox.Size = new Size( 18, 18 );
+                PictureBox.Padding = new Padding( 1 );
+                PictureBox.Margin = new Padding( 1 );
+                PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             }
             catch( Exception ex )
             {
@@ -2409,7 +2411,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the series style.
         /// </summary>
-        [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
+        [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
         private void SetSeriesPointStyles( DataTable table,
             ChartSeriesType type = ChartSeriesType.Column )
         {
@@ -2492,7 +2494,7 @@ namespace BudgetExecution
         /// <summary>
         /// Sets the series style.
         /// </summary>
-        [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
+        [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
         private void SetSeriesPointStyles( DataRow row,
             ChartSeriesType type = ChartSeriesType.Column )
         {
@@ -3081,7 +3083,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _current = BindingSource.GetCurrentDataRow( );
+                var _current = BindingSource.GetCurrentRow( );
                 SetSeriesPointStyles( _current, _chartType );
                 var _position = BindingSource.Position;
                 Chart.Refresh( );
@@ -3351,7 +3353,7 @@ namespace BudgetExecution
             try
             {
                 BindingSource?.MoveFirst( );
-                var _current = BindingSource.GetCurrentDataRow( );
+                var _current = BindingSource.GetCurrentRow( );
                 SetSeriesPointStyles( _current );
                 UpdateSchema( _current );
             }
@@ -3372,7 +3374,7 @@ namespace BudgetExecution
             try
             {
                 BindingSource?.MovePrevious( );
-                var _current = BindingSource.GetCurrentDataRow( );
+                var _current = BindingSource.GetCurrentRow( );
                 SetSeriesPointStyles( _current );
                 UpdateSchema( _current );
             }
@@ -3393,7 +3395,7 @@ namespace BudgetExecution
             try
             {
                 BindingSource?.MoveNext( );
-                var _current = BindingSource.GetCurrentDataRow( );
+                var _current = BindingSource.GetCurrentRow( );
                 SetSeriesPointStyles( _current );
                 UpdateSchema( _current );
             }
@@ -3414,7 +3416,7 @@ namespace BudgetExecution
             try
             {
                 BindingSource?.MoveLast( );
-                var _current = BindingSource.GetCurrentDataRow( );
+                var _current = BindingSource.GetCurrentRow( );
                 SetSeriesPointStyles( _current );
                 UpdateSchema( _current );
             }

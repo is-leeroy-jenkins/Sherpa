@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:             BudgetExecution
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 12-24-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        03-23-2024
 // ******************************************************************************************
-// <copyright file="BindingSourceExtensions.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+// <copyright file="Terry Eppler" company="Terry D. Eppler">
+//    Budget Execution is a small Federal Budget, Finance, and Accounting data management
+//    application for analysts with the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -31,7 +31,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   BindingSourceExtensions.cs
@@ -44,6 +44,7 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Linq;
     using System.Windows.Forms;
 
     /// <summary>
@@ -65,7 +66,7 @@ namespace BudgetExecution
         /// The
         /// <see cref="DataRow" />
         /// </returns>
-        public static DataRow GetCurrentDataRow( this BindingSource bindingSource )
+        public static DataRow GetCurrentRow( this BindingSource bindingSource )
         {
             try
             {
@@ -90,32 +91,40 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="bindingSource">The binding source.</param>
         /// <returns></returns>
-        public static IEnumerable<DataRow> GetDataRows( this BindingSource bindingSource )
+        public static IList<DataRow> GetDataRows( this BindingSource bindingSource )
         {
             if( bindingSource.DataSource != null )
             {
                 try
                 {
                     var _table = (DataTable)bindingSource.DataSource;
-                    return _table?.Rows?.Count > 0
-                        ? _table.AsEnumerable( )
-                        : default( IEnumerable<DataRow> );
+                    var _list = new List<DataRow>( );
+                    foreach( DataRow _row in _table.Rows )
+                    {
+                        _list.Add( _row );
+                    }
+
+                    return ( _list?.Any( ) == true )
+                        ? _list
+                        : default( IList<DataRow> );
                 }
                 catch( Exception _ex )
                 {
                     Fail( _ex );
-                    return default( IEnumerable<DataRow> );
+                    return default( IList<DataRow> );
                 }
             }
 
-            return default( IEnumerable<DataRow> );
+            return default( IList<DataRow> );
         }
 
         /// <summary>
         /// Gets the data table.
         /// </summary>
         /// <param name="bindingSource">The binding source.</param>
-        /// <returns></returns>
+        /// <returns>
+        ///  DataTable
+        /// </returns>
         public static DataTable GetDataTable( this BindingSource bindingSource )
         {
             if( bindingSource.DataSource != null )

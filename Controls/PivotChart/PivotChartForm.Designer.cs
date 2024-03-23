@@ -105,12 +105,12 @@
             MetricLabel14 = new Label( );
             MetricLabel15 = new Label( );
             BusyTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
-            Loader = new System.Windows.Forms.PictureBox( );
             SourcePanel = new HeaderPanel( );
             TableListBoxLayout = new BackPanel( );
             TableListBox = new ListBox( );
             ToolStripTable = new System.Windows.Forms.TableLayoutPanel( );
             ContextMenu = new ContextMenu( );
+            Loader = new System.Windows.Forms.PictureBox( );
             HeaderTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
@@ -126,10 +126,10 @@
             ChartSubTable.SuspendLayout( );
             MetricsTable.SuspendLayout( );
             BusyTab.SuspendLayout( );
-            ( (System.ComponentModel.ISupportInitialize)Loader ).BeginInit( );
             SourcePanel.SuspendLayout( );
             TableListBoxLayout.SuspendLayout( );
             ToolStripTable.SuspendLayout( );
+            ( (System.ComponentModel.ISupportInitialize)Loader ).BeginInit( );
             SuspendLayout( );
             // 
             // HeaderTable
@@ -144,14 +144,15 @@
             HeaderTable.Name = "HeaderTable";
             HeaderTable.RowCount = 1;
             HeaderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            HeaderTable.Size = new System.Drawing.Size( 1326, 29 );
+            HeaderTable.Size = new System.Drawing.Size( 1326, 28 );
             HeaderTable.TabIndex = 0;
             // 
             // PictureBox
             // 
             PictureBox.Image = Resources.Images.FormImages.Application;
             PictureBox.InitialImage = null;
-            PictureBox.Location = new System.Drawing.Point( 3, 3 );
+            PictureBox.Location = new System.Drawing.Point( 1, 1 );
+            PictureBox.Margin = new System.Windows.Forms.Padding( 1 );
             PictureBox.Name = "PictureBox";
             PictureBox.Size = new System.Drawing.Size( 18, 18 );
             PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -170,7 +171,7 @@
             Title.Margin = new System.Windows.Forms.Padding( 3 );
             Title.Name = "Title";
             Title.Padding = new System.Windows.Forms.Padding( 1 );
-            Title.Size = new System.Drawing.Size( 1287, 23 );
+            Title.Size = new System.Drawing.Size( 1287, 22 );
             Title.Style = MetroSet_UI.Enums.Style.Custom;
             Title.StyleManager = null;
             Title.TabIndex = 1;
@@ -760,6 +761,7 @@
             // 
             // ChartHeaderTable
             // 
+            ChartHeaderTable.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             ChartHeaderTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             ChartHeaderTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             ChartHeaderTable.CaptionText = "Pivot Chart";
@@ -1008,6 +1010,7 @@
             // 
             // MetricsTable
             // 
+            MetricsTable.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             MetricsTable.ColumnCount = 5;
             MetricsTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 20F ) );
             MetricsTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 20F ) );
@@ -1516,18 +1519,9 @@
             BusyTab.TabIndex = 2;
             BusyTab.ThemesEnabled = false;
             // 
-            // Loader
-            // 
-            Loader.Image = Resources.Images.LoaderImages.Loading;
-            Loader.Location = new System.Drawing.Point( 41, 0 );
-            Loader.Name = "Loader";
-            Loader.Size = new System.Drawing.Size( 982, 562 );
-            Loader.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            Loader.TabIndex = 0;
-            Loader.TabStop = false;
-            // 
             // SourcePanel
             // 
+            SourcePanel.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             SourcePanel.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             SourcePanel.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             SourcePanel.CaptionText = "Data Tables";
@@ -1572,6 +1566,7 @@
             // 
             // TableListBox
             // 
+            TableListBox.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             TableListBox.BackColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             TableListBox.BindingSource = null;
             TableListBox.BorderColor = System.Drawing.Color.FromArgb( 55, 55, 55 );
@@ -1638,6 +1633,17 @@
             ContextMenu.ThemeStyle.PressedBackColor = System.Drawing.Color.FromArgb( 204, 204, 204 );
             ContextMenu.ThemeStyle.PressedForeColor = System.Drawing.Color.Black;
             // 
+            // Loader
+            // 
+            Loader.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            Loader.Image = Resources.Images.LoaderImages.Loading;
+            Loader.Location = new System.Drawing.Point( 35, 5 );
+            Loader.Name = "Loader";
+            Loader.Size = new System.Drawing.Size( 991, 566 );
+            Loader.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            Loader.TabIndex = 1;
+            Loader.TabStop = false;
+            // 
             // PivotChartForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
@@ -1687,11 +1693,11 @@
             ChartSubTable.ResumeLayout( false );
             MetricsTable.ResumeLayout( false );
             BusyTab.ResumeLayout( false );
-            ( (System.ComponentModel.ISupportInitialize)Loader ).EndInit( );
             SourcePanel.ResumeLayout( false );
             TableListBoxLayout.ResumeLayout( false );
             ToolStripTable.ResumeLayout( false );
             ToolStripTable.PerformLayout( );
+            ( (System.ComponentModel.ISupportInitialize)Loader ).EndInit( );
             ResumeLayout( false );
         }
 
@@ -1754,7 +1760,6 @@
         public Syncfusion.Windows.Forms.Tools.TabPageAdv DataTab;
         public Syncfusion.Windows.Forms.Tools.TabPageAdv BusyTab;
         public System.Windows.Forms.TableLayoutPanel ToolStripTable;
-        public System.Windows.Forms.PictureBox Loader;
         public ToolStripLabel ApplicationLabel;
         public Label MetricLabel17;
         public Label MetricLabel16;
@@ -1778,5 +1783,6 @@
         private ToolSeparator Separator17;
         public ToolStripButton PivotButton;
         private ToolSeparator Separator18;
+        public System.Windows.Forms.PictureBox Loader;
     }
 }

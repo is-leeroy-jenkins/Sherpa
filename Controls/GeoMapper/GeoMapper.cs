@@ -283,6 +283,11 @@ namespace BudgetExecution
                 ToolStrip.LauncherStyle = LauncherStyle.Office12;
                 ToolStrip.ImageSize = new Size( 16, 16 );
                 ToolStrip.ImageScalingSize = new Size( 16, 16 );
+                TextBox.Font = new Font( "Roboto", 9 );
+                TextBox.Size = new Size( 180, 25 );
+                TextBox.ForeColor = Color.White;
+                TextBox.Text = "     < Enter Keywords >     ";
+                TextBox.TextAlign = ContentAlignment.MiddleCenter;
             }
             catch( Exception _ex )
             {

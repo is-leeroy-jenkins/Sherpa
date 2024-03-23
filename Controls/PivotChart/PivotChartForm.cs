@@ -1763,7 +1763,7 @@ namespace BudgetExecution
         {
             try
             {
-                _current = BindingSource.GetCurrentDataRow( );
+                _current = BindingSource.GetCurrentRow( );
                 UpdateSchema( _current );
             }
             catch( Exception _ex )
@@ -1931,7 +1931,7 @@ namespace BudgetExecution
             try
             {
                 BindingSource?.MoveFirst( );
-                _current = BindingSource.GetCurrentDataRow( );
+                _current = BindingSource.GetCurrentRow( );
                 UpdateSchema( _current );
             }
             catch( Exception _ex )
@@ -1951,7 +1951,7 @@ namespace BudgetExecution
             try
             {
                 BindingSource?.MovePrevious( );
-                _current = BindingSource.GetCurrentDataRow( );
+                _current = BindingSource.GetCurrentRow( );
                 UpdateSchema( _current );
             }
             catch( Exception _ex )
@@ -1971,7 +1971,7 @@ namespace BudgetExecution
             try
             {
                 BindingSource?.MoveNext( );
-                _current = BindingSource.GetCurrentDataRow( );
+                _current = BindingSource.GetCurrentRow( );
                 UpdateSchema( _current );
             }
             catch( Exception _ex )
@@ -1991,7 +1991,7 @@ namespace BudgetExecution
             try
             {
                 BindingSource?.MoveLast( );
-                _current = BindingSource.GetCurrentDataRow( );
+                _current = BindingSource.GetCurrentRow( );
                 UpdateSchema( _current );
             }
             catch( Exception _ex )

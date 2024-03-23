@@ -136,6 +136,7 @@ partial class SqlPage
         // 
         // EditorTable
         // 
+        EditorTable.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
         EditorTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         EditorTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
         EditorTable.CaptionText = "SQL Text Editor";
@@ -244,6 +245,7 @@ partial class SqlPage
         // 
         // SqlCommandTable
         // 
+        SqlCommandTable.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
         SqlCommandTable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
         SqlCommandTable.ColumnCount = 1;
         SqlCommandTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
@@ -460,6 +462,7 @@ partial class SqlPage
         ThirdPanel.Children = null;
         ThirdPanel.Controls.Add( SqlComboBox );
         ThirdPanel.DataFilter = null;
+        ThirdPanel.Dock = System.Windows.Forms.DockStyle.Fill;
         ThirdPanel.Font = new System.Drawing.Font( "Roboto", 8F );
         ThirdPanel.ForeColor = System.Drawing.Color.Transparent;
         ThirdPanel.HoverText = null;

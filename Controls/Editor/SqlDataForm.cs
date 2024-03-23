@@ -1,45 +1,42 @@
-﻿//  ******************************************************************************************
-//      Assembly:                Budget Execution
-//      Filename:                SqlDataForm.cs
-//      Author:                  Terry D. Eppler
-//      Created:                 05-31-2023
+﻿// ******************************************************************************************
+//     Assembly:             BudgetExecution
+//     Author:                  Terry D. Eppler
+//     Created:                 12-24-2023
 // 
-//      Last Modified By:        Terry D. Eppler
-//      Last Modified On:        06-01-2023
-//  ******************************************************************************************
-//  <copyright file="SqlDataForm.cs" company="Terry D. Eppler">
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        03-23-2024
+// ******************************************************************************************
+// <copyright file="Terry Eppler" company="Terry D. Eppler">
+//    Budget Execution is a small Federal Budget, Finance, and Accounting data management
+//    application for analysts with the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
-//     This is a Federal Budget, Finance, and Accounting application for the
-//     US Environmental Protection Agency (US EPA).
-//     Copyright ©  2023  Terry Eppler
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
 // 
-//     Permission is hereby granted, free of charge, to any person obtaining a copy
-//     of this software and associated documentation files (the “Software”),
-//     to deal in the Software without restriction,
-//     including without limitation the rights to use,
-//     copy, modify, merge, publish, distribute, sublicense,
-//     and/or sell copies of the Software,
-//     and to permit persons to whom the Software is furnished to do so,
-//     subject to the following conditions:
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
 // 
-//     The above copyright notice and this permission notice shall be included in all
-//     copies or substantial portions of the Software.
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
 // 
-//     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//     FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//     DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//     DEALINGS IN THE SOFTWARE.
-// 
-//     You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
-// 
-//  </copyright>
-//  <summary>
-//    SqlDataForm.cs
-//  </summary>
-//  ******************************************************************************************
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
+// </copyright>
+// <summary>
+//   SqlDataForm.cs
+// </summary>
+// ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -51,35 +48,30 @@ namespace BudgetExecution
     using System.IO;
     using System.Linq;
     using System.Windows.Forms;
-    using Syncfusion.Drawing;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Edit;
     using Syncfusion.Windows.Forms.Tools;
     using static System.Configuration.ConfigurationManager;
     using static System.IO.Directory;
     using static System.IO.Path;
+    using Syncfusion.Drawing;
+    using Action = System.Action;
     using CheckState = MetroSet_UI.Enums.CheckState;
-    using Color = System.Drawing.Color;
-    using Font = System.Drawing.Font;
-    using FontStyle = System.Drawing.FontStyle;
-    using Image = System.Drawing.Image;
-    using Size = System.Drawing.Size;
-    using SystemColors = System.Drawing.SystemColors;
 
     /// <inheritdoc />
     /// <summary>
     /// </summary>
     /// <seealso cref="T:BudgetExecution.EditBase" />
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
-    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
-    [SuppressMessage( "ReSharper", "ConvertToAutoProperty" )]
-    [SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" )]
-    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
-    [SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Local" )]
-    [SuppressMessage( "ReSharper", "RedundantCheckBeforeAssignment" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
+    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Local" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantCheckBeforeAssignment" ) ]
     public partial class SqlDataForm : EditBase
     {
         /// <summary>
@@ -90,7 +82,7 @@ namespace BudgetExecution
         /// <summary>
         /// The status update
         /// </summary>
-        private System.Action _statusUpdate;
+        private Action _statusUpdate;
 
         /// <summary>
         /// The time
@@ -582,7 +574,7 @@ namespace BudgetExecution
                 EditDataButton.Click += OnEditDataButtonClick;
                 TableButton.Click += OnTableButtonClick;
                 LookupButton.Click += OnLookupButtonClick;
-                MainMenuButton.Click += OnMainMenuButtonClicked;
+                MenuButton.Click += OnMainMenuButtonClicked;
                 ClientButton.Click += OnClientButtonClick;
                 TableListBox.SelectedIndexChanged += OnTableListBoxSelectionChanged;
                 ColumnListBox.SelectedIndexChanged += OnColumnListBoxSelectionChanged;
@@ -603,9 +595,6 @@ namespace BudgetExecution
             {
                 Editor.AutoSizeMode = AutoSizeMode.GrowAndShrink;
                 Editor.AlwaysShowScrollers = true;
-                Editor.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left
-                    | AnchorStyles.Right;
-
                 Editor.BackColor = SystemColors.ControlLight;
                 Editor.ForeColor = Color.Black;
                 Editor.BackgroundColor = new BrushInfo( SystemColors.ControlLight );
@@ -644,6 +633,8 @@ namespace BudgetExecution
                 Editor.WordWrap = true;
                 Editor.WordWrapColumn = 100;
                 Editor.Dock = DockStyle.None;
+                Editor.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left
+                    | AnchorStyles.Right;
             }
             catch( Exception _ex )
             {
@@ -658,8 +649,8 @@ namespace BudgetExecution
         {
             try
             {
-                PictureBox.Size = new Size( 18, 18 );
-                PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                PictureBox.Size = new Size( 18, 16 );
+                PictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             }
             catch( Exception _ex )
             {
@@ -801,7 +792,7 @@ namespace BudgetExecution
         /// Invokes if needed.
         /// </summary>
         /// <param name="action">The action.</param>
-        public void InvokeIf( System.Action action )
+        public void InvokeIf( Action action )
         {
             try
             {
@@ -1049,11 +1040,11 @@ namespace BudgetExecution
         {
             try
             {
-                SqlTabPage.TabVisible = true;
-                LookupTabPage.TabVisible = false;
-                DataTabPage.TabVisible = false;
-                SchemaTabPage.TabVisible = false;
-                BusyTabPage.TabVisible = false;
+                SqlTab.TabVisible = true;
+                LookupTab.TabVisible = false;
+                DataTab.TabVisible = false;
+                SchemaTab.TabVisible = false;
+                BusyTab.TabVisible = false;
                 Title.Text = GetTitleText( ) + "| SQL Editor";
                 Title.TextAlign = ContentAlignment.TopLeft;
                 _commands = CreateCommandList( _provider );
@@ -1072,11 +1063,11 @@ namespace BudgetExecution
         {
             try
             {
-                LookupTabPage.TabVisible = true;
-                SqlTabPage.TabVisible = false;
-                DataTabPage.TabVisible = false;
-                SchemaTabPage.TabVisible = false;
-                BusyTabPage.TabVisible = false;
+                LookupTab.TabVisible = true;
+                SqlTab.TabVisible = false;
+                DataTab.TabVisible = false;
+                SchemaTab.TabVisible = false;
+                BusyTab.TabVisible = false;
                 PopulateTableListBoxItems( );
                 Title.Text = GetTitleText( ) + "| Data Look-Up";
                 TableListBox.SelectedValue = string.Empty;
@@ -1096,11 +1087,11 @@ namespace BudgetExecution
         {
             try
             {
-                DataTabPage.TabVisible = true;
-                SqlTabPage.TabVisible = false;
-                LookupTabPage.TabVisible = false;
-                SchemaTabPage.TabVisible = false;
-                BusyTabPage.TabVisible = false;
+                DataTab.TabVisible = true;
+                SqlTab.TabVisible = false;
+                LookupTab.TabVisible = false;
+                SchemaTab.TabVisible = false;
+                BusyTab.TabVisible = false;
                 Title.Text = GetTitleText( )
                     + $"| {_source.ToString( ).SplitPascal( )} Data Table";
 
@@ -1121,11 +1112,11 @@ namespace BudgetExecution
         {
             try
             {
-                SchemaTabPage.TabVisible = true;
-                SqlTabPage.TabVisible = false;
-                LookupTabPage.TabVisible = false;
-                DataTabPage.TabVisible = false;
-                BusyTabPage.TabVisible = false;
+                SchemaTab.TabVisible = true;
+                SqlTab.TabVisible = false;
+                LookupTab.TabVisible = false;
+                DataTab.TabVisible = false;
+                BusyTab.TabVisible = false;
                 PopulateTableComboBoxItems( );
                 _dataTypes = GetDataTypes( _provider );
                 PopulateDataTypeComboBoxItems( _dataTypes );
@@ -1144,11 +1135,11 @@ namespace BudgetExecution
         {
             try
             {
-                BusyTabPage.TabVisible = true;
-                SqlTabPage.TabVisible = false;
-                LookupTabPage.TabVisible = false;
-                DataTabPage.TabVisible = false;
-                SchemaTabPage.TabVisible = false;
+                BusyTab.TabVisible = true;
+                SqlTab.TabVisible = false;
+                LookupTab.TabVisible = false;
+                DataTab.TabVisible = false;
+                SchemaTab.TabVisible = false;
             }
             catch( Exception _ex )
             {

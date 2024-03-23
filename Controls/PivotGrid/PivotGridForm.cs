@@ -66,6 +66,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
     public partial class PivotGridForm : MetroForm
     {
         /// <summary>
@@ -1273,15 +1274,15 @@ namespace BudgetExecution
         /// <summary>
         /// Binds the data.
         /// </summary>
-        /// <param name="cols">The cols.</param>
+        /// <param name="columns">The cols.</param>
         /// <param name="where">The where.</param>
-        private void GetData( IEnumerable<string> cols, IDictionary<string, object> where )
+        private void GetData( IList<string> columns, IDictionary<string, object> where )
         {
             try
             {
-                ThrowIf.Null( cols, nameof( cols ) );
+                ThrowIf.Null( columns, nameof( columns ) );
                 ThrowIf.Null( where, nameof( where ) );
-                _sqlCommand = CreateSqlText( cols, where );
+                _sqlCommand = CreateSqlText( columns, where );
                 _dataModel = new DataBuilder( _source, _provider, _sqlCommand );
                 _dataTable = _dataModel.DataTable;
                 BindingSource.DataSource = _dataTable;
@@ -1301,7 +1302,7 @@ namespace BudgetExecution
         /// <param name="fields">The fields.</param>
         /// <param name="numerics">The numerics.</param>
         /// <param name="where">The where.</param>
-        private void GetData( IEnumerable<string> fields, IEnumerable<string> numerics,
+        private void GetData( IList<string> fields, IList<string> numerics,
             IDictionary<string, object> where )
         {
             try
@@ -1330,7 +1331,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _current = BindingSource.GetCurrentDataRow( );
+                var _current = BindingSource.GetCurrentRow( );
             }
             catch( Exception ex )
             {
@@ -1393,7 +1394,7 @@ namespace BudgetExecution
         /// <param name="where">The where.</param>
         /// <returns>
         /// </returns>
-        private string CreateSqlText( IEnumerable<string> fields, IEnumerable<string> numerics,
+        private string CreateSqlText( IList<string> fields, IList<string> numerics,
             IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( _selectedTable ) )
@@ -1405,14 +1406,14 @@ namespace BudgetExecution
                     ThrowIf.Empty( numerics, nameof( numerics ) );
                     var _cols = string.Empty;
                     var _aggr = string.Empty;
-                    foreach( var name in fields )
+                    foreach( var _name in fields )
                     {
-                        _cols += $"{name}, ";
+                        _cols += $"{_name}, ";
                     }
 
-                    foreach( var metric in numerics )
+                    foreach( var _metric in numerics )
                     {
-                        _aggr += $"SUM({metric}) AS {metric}, ";
+                        _aggr += $"SUM({_metric}) AS {_metric}, ";
                     }
 
                     var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
@@ -1439,7 +1440,7 @@ namespace BudgetExecution
         /// <param name="where">The where.</param>
         /// <returns>
         /// </returns>
-        private string CreateSqlText( IEnumerable<string> columns,
+        private string CreateSqlText( IList<string> columns,
             IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( _selectedTable ) )

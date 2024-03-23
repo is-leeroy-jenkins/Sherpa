@@ -932,6 +932,11 @@ namespace BudgetExecution
                 ToolStrip.ImageSize = new Size( 16, 16 );
                 ToolStrip.ImageScalingSize = new Size( 16, 16 );
                 ToolStripTextBox.TextBox.ForeColor = Color.White;
+                ToolStripTextBox.TextBox.Font = new Font( "Roboto", 9 );
+                ToolStripTextBox.TextBox.Size = new Size( 180, 25 );
+                ToolStripTextBox.TextBox.ForeColor = Color.White;
+                ToolStripTextBox.TextBox.Text = "     < Enter Keywords >     ";
+                ToolStripTextBox.TextBoxTextAlign = HorizontalAlignment.Center;
             }
             catch( Exception _ex )
             {

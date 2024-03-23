@@ -114,7 +114,7 @@ namespace BudgetExecution
         /// Gets the sql lite adapter.
         /// </summary>
         /// <returns></returns>
-        private protected SQLiteDataAdapter GetSQLiteAdapter( )
+        private protected SQLiteDataAdapter CreateSQLiteAdapter( )
         {
             try
             {
@@ -126,7 +126,7 @@ namespace BudgetExecution
                 _adapter.AcceptChangesDuringUpdate = true;
                 _adapter.ReturnProviderSpecificTypes = true;
                 if( _commandText.StartsWith( @"SELECT *" )
-                   || _commandText.StartsWith( "SELECT ALL" ) )
+                   | _commandText.StartsWith( "SELECT ALL" ) )
                 {
                     var _builder = new SQLiteCommandBuilder( _adapter );
                     _adapter.InsertCommand = _builder.GetInsertCommand( );
@@ -150,7 +150,7 @@ namespace BudgetExecution
         /// Gets the SQL adapter.
         /// </summary>
         /// <returns></returns>
-        private protected SqlDataAdapter GetSqlServerAdapter( )
+        private protected SqlDataAdapter CreateSqlDataAdapter( )
         {
             try
             {
@@ -162,7 +162,7 @@ namespace BudgetExecution
                 _adapter.AcceptChangesDuringUpdate = true;
                 _adapter.ReturnProviderSpecificTypes = true;
                 if( _commandText.StartsWith( @"SELECT *" )
-                   || _commandText.StartsWith( "SELECT ALL" ) )
+                   | _commandText.StartsWith( "SELECT ALL" ) )
                 {
                     var _builder = new SqlCommandBuilder( _adapter );
                     _adapter.InsertCommand = _builder.GetInsertCommand( );
@@ -187,7 +187,7 @@ namespace BudgetExecution
         /// </summary>
         /// <returns>
         /// </returns>
-        public OleDbDataAdapter GetOleDbAdapter( )
+        private protected OleDbDataAdapter CreateOleDbAdapter( )
         {
             try
             {
@@ -198,8 +198,8 @@ namespace BudgetExecution
                 _adapter.AcceptChangesDuringFill = true;
                 _adapter.AcceptChangesDuringUpdate = true;
                 _adapter.ReturnProviderSpecificTypes = true;
-                if( _commandText.StartsWith( @"SELECT *" )
-                   || _commandText.StartsWith( "SELECT ALL" ) )
+                if( _commandText.StartsWith( @"SELECT *" ) 
+                   | _commandText.StartsWith( "SELECT ALL" ) )
                 {
                     var _builder = new OleDbCommandBuilder( _adapter );
                     _adapter.InsertCommand = _builder.GetInsertCommand( );
@@ -209,8 +209,10 @@ namespace BudgetExecution
                         ? _adapter
                         : default( OleDbDataAdapter );
                 }
-
-                return default( OleDbDataAdapter );
+                else
+                {
+                    return _adapter;
+                }
             }
             catch( Exception _ex )
             {
@@ -223,7 +225,7 @@ namespace BudgetExecution
         /// Gets the SQL ce adapter.
         /// </summary>
         /// <returns> </returns>
-        private protected DbDataAdapter GetSqlCompactAdapter( )
+        private protected DbDataAdapter CreateSqlCompactAdapter( )
         {
             try
             {
@@ -235,7 +237,7 @@ namespace BudgetExecution
                 _adapter.AcceptChangesDuringUpdate = true;
                 _adapter.ReturnProviderSpecificTypes = true;
                 if( _commandText.StartsWith( @"SELECT *" )
-                   || _commandText.StartsWith( "SELECT ALL" ) )
+                   | _commandText.StartsWith( "SELECT ALL" ) )
                 {
                     var _builder = new SqlCeCommandBuilder( _adapter );
                     _adapter.InsertCommand = _builder.GetInsertCommand( );

@@ -1,14 +1,14 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:             BudgetExecution
 //     Author:                  Terry D. Eppler
-//     Created:                 2-24-2024
+//     Created:                 12-24-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        2-24-2024
+//     Last Modified On:        03-23-2024
 // ******************************************************************************************
-// <copyright file="DictionaryExtensions.cs" company="Terry D. Eppler">
-//    Budget Execution is a Federal Budget, Finance, and Accounting application
-//    for analysts with the US Environmental Protection Agency (US EPA).
+// <copyright file="Terry Eppler" company="Terry D. Eppler">
+//    Budget Execution is a small Federal Budget, Finance, and Accounting data management
+//    application for analysts with the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,7 +31,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    Contact at:  terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   DictionaryExtensions.cs
@@ -42,6 +42,7 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
+    using System.Collections.Specialized;
     using System.ComponentModel;
     using System.Data.Common;
     using System.Data.OleDb;
@@ -63,7 +64,7 @@ namespace BudgetExecution
     public static class DictionaryExtensions
     {
         /// <summary>
-        /// Adds the or update.
+        /// Updates a IDictionary( K, V ) with a TKey and TValue or adds it
         /// </summary>
         /// <typeparam name="TKey">The type of the key.</typeparam>
         /// <typeparam name="TValue">The type of the value.</typeparam>
@@ -74,24 +75,54 @@ namespace BudgetExecution
         public static TValue AddOrUpdate<TKey, TValue>( this IDictionary<TKey, TValue> dict,
             TKey key, TValue value )
         {
-            if( !dict.ContainsKey( key ) )
+            try
             {
-                try
+                if( !dict.ContainsKey( key ) )
                 {
                     dict.Add( new KeyValuePair<TKey, TValue>( key, value ) );
                 }
-                catch( Exception _ex )
+                else
                 {
-                    Fail( _ex );
-                    return default( TValue );
+                    dict[ key ] = value;
                 }
-            }
-            else
-            {
-                dict[ key ] = value;
-            }
 
-            return dict[ key ];
+                return dict[ key ];
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( TValue );
+            }
+        }
+
+        /// <summary>
+        /// Converts an IDictionary( K, V ) into a NameValueCollection
+        /// </summary>
+        /// <param name="dict">The dictionary.</param>
+        /// <returns>
+        /// NameValueCollection
+        /// </returns>
+        public static NameValueCollection ToNameValueCollection(
+            this IDictionary<string, object> dict )
+        {
+            try
+            {
+                var _nvp = new NameValueCollection( );
+                foreach( var _kvp in dict )
+                {
+                    var _value = _kvp.Value.ToString( );
+                    _nvp?.Add( _kvp.Key, _value );
+                }
+
+                return _nvp.Count > 0
+                    ? _nvp
+                    : default( NameValueCollection );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( NameValueCollection );
+            }
         }
 
         /// <summary>
@@ -169,7 +200,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Converts to bindinglist.
+        /// Converts an IDictionary( string, object) to a bindinglist.
         /// </summary>
         /// <param name="dictionary">The NVC.</param>
         /// <returns></returns>
@@ -196,12 +227,14 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Converts to sorted dictionary.
+        /// Converts an IDcitionary( T, V ) to a SortedList( T, V ).
         /// </summary>
         /// <typeparam name="TKey">The type of the key.</typeparam>
         /// <typeparam name="TValue">The type of the value.</typeparam>
         /// <param name="dict">The dictionary.</param>
-        /// <returns></returns>
+        /// <returns>
+        /// SortedList( T, V )
+        /// </returns>
         public static SortedList<TKey, TValue> ToSortedList<TKey, TValue>(
             this IDictionary<TKey, TValue> dict )
         {
@@ -225,101 +258,95 @@ namespace BudgetExecution
         public static IEnumerable<DbParameter> ToSqlDbParameters(
             this IDictionary<string, object> dict, Provider provider )
         {
-            if( ( dict?.Keys?.Count > 0 )
-               && Enum.IsDefined( typeof( Provider ), provider ) )
+            try
             {
-                try
+                var _columns = dict.Keys.ToArray( );
+                var _values = dict.Values.ToArray( );
+                switch( provider )
                 {
-                    var _columns = dict.Keys.ToArray( );
-                    var _values = dict.Values.ToArray( );
-                    switch( provider )
+                    case Provider.SQLite:
                     {
-                        case Provider.SQLite:
+                        var _sqlite = new List<SQLiteParameter>( );
+                        for( var _i = 0; _i < _columns.Length; _i++ )
                         {
-                            var _sqlite = new List<SQLiteParameter>( );
-                            for( var _i = 0; _i < _columns.Length; _i++ )
+                            var _parameter = new SQLiteParameter
                             {
-                                var _parameter = new SQLiteParameter
-                                {
-                                    SourceColumn = _columns[ _i ],
-                                    Value = _values[ _i ]
-                                };
+                                SourceColumn = _columns[ _i ],
+                                Value = _values[ _i ]
+                            };
 
-                                _sqlite.Add( _parameter );
-                            }
-
-                            return _sqlite.Any( )
-                                ? _sqlite.ToArray( )
-                                : default( List<DbParameter> );
+                            _sqlite.Add( _parameter );
                         }
-                        case Provider.SqlCe:
-                        {
-                            var _sqlce = new List<SqlCeParameter>( );
-                            for( var _i = 0; _i < _columns.Length; _i++ )
-                            {
-                                var _parameter = new SqlCeParameter
-                                {
-                                    SourceColumn = _columns[ _i ],
-                                    Value = _values[ _i ]
-                                };
 
-                                _sqlce.Add( _parameter );
-                            }
-
-                            return _sqlce.Any( )
-                                ? _sqlce.ToArray( )
-                                : default( List<DbParameter> );
-                        }
-                        case Provider.OleDb:
-                        case Provider.Excel:
-                        case Provider.Access:
-                        {
-                            var _oledb = new List<OleDbParameter>( );
-                            for( var _i = 0; _i < _columns.Length; _i++ )
-                            {
-                                var _parameter = new OleDbParameter
-                                {
-                                    SourceColumn = _columns[ _i ],
-                                    Value = _values[ _i ]
-                                };
-
-                                _oledb.Add( _parameter );
-                            }
-
-                            return _oledb.Any( )
-                                ? _oledb.ToArray( )
-                                : default( List<DbParameter> );
-                        }
-                        case Provider.SqlServer:
-                        {
-                            var _sqlserver = new List<SqlParameter>( );
-                            for( var _i = 0; _i < _columns.Length; _i++ )
-                            {
-                                var _parameter = new SqlParameter
-                                {
-                                    SourceColumn = _columns[ _i ],
-                                    Value = _values[ _i ]
-                                };
-
-                                _sqlserver.Add( _parameter );
-                            }
-
-                            return _sqlserver?.Any( ) == true
-                                ? _sqlserver.ToArray( )
-                                : default( List<DbParameter> );
-                        }
+                        return _sqlite.Any( )
+                            ? _sqlite.ToArray( )
+                            : default( List<DbParameter> );
                     }
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( List<DbParameter> );
+                    case Provider.SqlCe:
+                    {
+                        var _sqlce = new List<SqlCeParameter>( );
+                        for( var _i = 0; _i < _columns.Length; _i++ )
+                        {
+                            var _parameter = new SqlCeParameter
+                            {
+                                SourceColumn = _columns[ _i ],
+                                Value = _values[ _i ]
+                            };
+
+                            _sqlce.Add( _parameter );
+                        }
+
+                        return _sqlce.Any( )
+                            ? _sqlce.ToArray( )
+                            : default( List<DbParameter> );
+                    }
+                    case Provider.OleDb:
+                    case Provider.Excel:
+                    case Provider.Access:
+                    {
+                        var _oledb = new List<OleDbParameter>( );
+                        for( var _i = 0; _i < _columns.Length; _i++ )
+                        {
+                            var _parameter = new OleDbParameter
+                            {
+                                SourceColumn = _columns[ _i ],
+                                Value = _values[ _i ]
+                            };
+
+                            _oledb.Add( _parameter );
+                        }
+
+                        return _oledb.Any( )
+                            ? _oledb.ToArray( )
+                            : default( List<DbParameter> );
+                    }
+                    case Provider.SqlServer:
+                    {
+                        var _sqlserver = new List<SqlParameter>( );
+                        for( var _i = 0; _i < _columns.Length; _i++ )
+                        {
+                            var _parameter = new SqlParameter
+                            {
+                                SourceColumn = _columns[ _i ],
+                                Value = _values[ _i ]
+                            };
+
+                            _sqlserver.Add( _parameter );
+                        }
+
+                        return _sqlserver?.Any( ) == true
+                            ? _sqlserver.ToArray( )
+                            : default( List<DbParameter> );
+                    }
                 }
 
                 return default( List<DbParameter> );
             }
-
-            return default( List<DbParameter> );
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( List<DbParameter> );
+            }
         }
 
         /// <summary>

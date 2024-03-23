@@ -491,6 +491,16 @@ namespace BudgetExecution
             _time = 0;
             _seconds = 5;
 
+            // Budget Attributes
+            _filter = new Dictionary<string, object>( );
+            _fields = new List<string>( );
+            _columns = new List<string>( );
+            _numerics = new List<string>( );
+            _selectedColumns = new List<string>( );
+            _selectedFields = new List<string>( );
+            _selectedNumerics = new List<string>( );
+            _dataArgs = new DataArgs( );
+
             // Form Event Wiring
             Load += OnLoad;
             MouseClick += OnRightClick;
@@ -509,8 +519,7 @@ namespace BudgetExecution
             : this( )
         {
             BindingSource = bindingSource;
-            _filter = new Dictionary<string, object>( );
-            _current = bindingSource.GetCurrentDataRow( );
+            _current = bindingSource.GetCurrentRow( );
             _provider = Provider.Access;
             _source = (Source)Enum.Parse( typeof( Source ), _selectedTable );
             _dataModel = new DataBuilder( _source, _provider );
@@ -535,7 +544,6 @@ namespace BudgetExecution
             _dataModel = dataModel;
             _provider = dataModel.Provider;
             _source = dataModel.Source;
-            _filter = new Dictionary<string, object>( );
             _commandType = dataModel.SqlStatement.CommandType;
             BindingSource.DataSource = dataModel.DataTable;
             _dataTable = dataModel.DataTable;
@@ -565,7 +573,7 @@ namespace BudgetExecution
             _commandType = _dataModel.SqlStatement.CommandType;
             BindingSource.DataSource = _dataModel.DataTable;
             _columns = _dataTable.GetColumnNames( );
-            _current = BindingSource.GetCurrentDataRow( );
+            _current = BindingSource.GetCurrentRow( );
             _fields = _dataModel?.Fields;
             _numerics = _dataModel?.Numerics;
         }
@@ -582,13 +590,12 @@ namespace BudgetExecution
         {
             _provider = provider;
             _source = source;
-            _filter = new Dictionary<string, object>( );
             _dataModel = new DataBuilder( source, provider );
             _dataTable = _dataModel.DataTable;
             _commandType = _dataModel.SqlStatement.CommandType;
             BindingSource.DataSource = _dataTable;
             _columns = _dataTable.GetColumnNames( );
-            _current = BindingSource.GetCurrentDataRow( );
+            _current = BindingSource.GetCurrentRow( );
             _fields = _dataModel?.Fields;
             _numerics = _dataModel?.Numerics;
         }
@@ -775,49 +782,46 @@ namespace BudgetExecution
         /// </summary>
         private void SetActiveTab( )
         {
-            if( Enum.IsDefined( typeof( ToolType ), Tool ) )
+            try
             {
-                try
+                switch( Tool )
                 {
-                    switch( Tool )
+                    case ToolType.CopyButton:
                     {
-                        case ToolType.CopyButton:
-                        {
-                            ActiveTab = DataTab;
-                            break;
-                        }
-                        case ToolType.AddRecordButton:
-                        {
-                            ActiveTab = DataTab;
-                            break;
-                        }
-                        case ToolType.AddButton:
-                        {
-                            ActiveTab = DataTab;
-                            break;
-                        }
-                        case ToolType.EditRecordButton:
-                        {
-                            ActiveTab = DataTab;
-                            break;
-                        }
-                        case ToolType.DeleteRecordButton:
-                        {
-                            ActiveTab = DataTab;
-                            SelectButton.Text = "Delete";
-                            break;
-                        }
-                        default:
-                        {
-                            ActiveTab = DataTab;
-                            break;
-                        }
+                        ActiveTab = DataTab;
+                        break;
+                    }
+                    case ToolType.AddRecordButton:
+                    {
+                        ActiveTab = DataTab;
+                        break;
+                    }
+                    case ToolType.AddButton:
+                    {
+                        ActiveTab = DataTab;
+                        break;
+                    }
+                    case ToolType.EditRecordButton:
+                    {
+                        ActiveTab = DataTab;
+                        break;
+                    }
+                    case ToolType.DeleteRecordButton:
+                    {
+                        ActiveTab = DataTab;
+                        SelectButton.Text = "Delete";
+                        break;
+                    }
+                    default:
+                    {
+                        ActiveTab = DataTab;
+                        break;
                     }
                 }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -857,15 +861,19 @@ namespace BudgetExecution
                     {
                         case >= 43:
                         case < 43 and >= 35:
+                        {
                             FrameTable.Location = new Point( 12, 25 );
                             break;
+                        }
                         case < 35 and >= 28:
                         case < 28 and >= 21:
                         case < 21 and >= 14:
                         case < 14 and > 7:
                         case <= 7:
+                        {
                             FrameTable.Location = new Point( 12, 81 );
                             break;
+                        }
                     }
                 }
                 catch( Exception _ex )

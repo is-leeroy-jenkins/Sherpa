@@ -79,6 +79,7 @@
             ButtonPanel = new System.Windows.Forms.FlowLayoutPanel( );
             DocumentTable = new HeaderPanel( );
             PdfViewer = new Syncfusion.Windows.Forms.PdfViewer.PdfViewerControl( );
+            MenuLabel = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt( );
             ToolStripTable.SuspendLayout( );
             ToolStrip.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
@@ -138,7 +139,7 @@
             ToolStrip.Image = null;
             ToolStrip.ImageDirectory = null;
             ToolStrip.ImageSize = new System.Drawing.Size( 0, 0 );
-            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { Separator1, StatusLabel, NavigationLabel, Separator2, FirstButton, Separator3, PreviousButton, Separator5, NextButton, Separator4, LastButton, Separator6, SystemLabel, Separator7, BrowseButton, Separator8, SaveButton, Separator9, Separator10, CloseButton, Separator11, MenuButton, FilterLabel, Separator12, RefreshButton, Separator13, LastSeparator, TextBox, Separator14, LookupButton, Separator16 } );
+            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { Separator1, StatusLabel, NavigationLabel, Separator2, FirstButton, Separator3, PreviousButton, Separator5, NextButton, Separator4, LastButton, Separator6, SystemLabel, Separator7, BrowseButton, Separator8, SaveButton, Separator9, Separator10, CloseButton, Separator11, MenuButton, FilterLabel, Separator12, RefreshButton, Separator13, LastSeparator, TextBox, Separator14, LookupButton, Separator16, MenuLabel } );
             ToolStrip.LastButton = null;
             ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
             ToolStrip.Location = new System.Drawing.Point( 1, 1 );
@@ -514,9 +515,9 @@
             FilterLabel.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             FilterLabel.Name = "FilterLabel";
             FilterLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            FilterLabel.Size = new System.Drawing.Size( 60, 25 );
+            FilterLabel.Size = new System.Drawing.Size( 82, 25 );
             FilterLabel.Tag = "";
-            FilterLabel.Text = "                Data:";
+            FilterLabel.Text = "                           Data:";
             FilterLabel.ToolTip = null;
             // 
             // Separator12
@@ -572,12 +573,12 @@
             TextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             TextBox.Field = Field.AccountCode;
             TextBox.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
-            TextBox.ForeColor = System.Drawing.SystemColors.WindowText;
+            TextBox.ForeColor = System.Drawing.SystemColors.Window;
             TextBox.HoverText = "Enter Keywords";
             TextBox.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             TextBox.Name = "TextBox";
             TextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            TextBox.Size = new System.Drawing.Size( 132, 25 );
+            TextBox.Size = new System.Drawing.Size( 198, 25 );
             TextBox.Tag = "";
             TextBox.Text = "Enter Keywords";
             TextBox.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -641,10 +642,11 @@
             // PictureBox
             // 
             PictureBox.Image = Resources.Images.FormImages.Application;
-            PictureBox.Location = new System.Drawing.Point( 3, 3 );
+            PictureBox.Location = new System.Drawing.Point( 1, 1 );
+            PictureBox.Margin = new System.Windows.Forms.Padding( 1 );
             PictureBox.Name = "PictureBox";
-            PictureBox.Size = new System.Drawing.Size( 20, 15 );
-            PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            PictureBox.Size = new System.Drawing.Size( 18, 16 );
+            PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             PictureBox.TabIndex = 54;
             PictureBox.TabStop = false;
             // 
@@ -712,6 +714,7 @@
             // 
             // GuidancePanel
             // 
+            GuidancePanel.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             GuidancePanel.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             GuidancePanel.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             GuidancePanel.CaptionText = "Guidance";
@@ -766,6 +769,7 @@
             // 
             // DocumentTable
             // 
+            DocumentTable.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             DocumentTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DocumentTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             DocumentTable.CaptionText = "Document Viewer";
@@ -822,6 +826,18 @@
             PdfViewer.VisualStyle = Syncfusion.Windows.Forms.PdfViewer.VisualStyle.Office2016Black;
             PdfViewer.ZoomMode = Syncfusion.Windows.Forms.PdfViewer.ZoomMode.Default;
             // 
+            // MenuLabel
+            // 
+            MenuLabel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            MenuLabel.BackColor = System.Drawing.Color.Transparent;
+            MenuLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
+            MenuLabel.ForeColor = System.Drawing.Color.Black;
+            MenuLabel.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            MenuLabel.Name = "MenuLabel";
+            MenuLabel.Size = new System.Drawing.Size( 80, 25 );
+            MenuLabel.Text = "                     Menu:    ";
+            MenuLabel.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
             // DocViewer
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
@@ -836,9 +852,9 @@
             CaptionForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             ClientSize = new System.Drawing.Size( 1328, 729 );
             ControlBox = false;
+            Controls.Add( HeaderPanel );
             Controls.Add( DocumentTable );
             Controls.Add( GuidancePanel );
-            Controls.Add( HeaderPanel );
             Controls.Add( ToolStripTable );
             DoubleBuffered = true;
             Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
@@ -917,5 +933,6 @@
         public ToolStripTextBox TextBox;
         public ToolSeparator Separator16;
         public System.Windows.Forms.FlowLayoutPanel ButtonPanel;
+        public Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt MenuLabel;
     }
 }

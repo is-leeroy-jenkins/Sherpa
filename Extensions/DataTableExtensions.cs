@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:             BudgetExecution
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 12-24-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        03-23-2024
 // ******************************************************************************************
-// <copyright file="DataTableExtensions.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+// <copyright file="Terry Eppler" company="Terry D. Eppler">
+//    Budget Execution is a small Federal Budget, Finance, and Accounting data management
+//    application for analysts with the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -31,7 +31,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   DataTableExtensions.cs
@@ -117,7 +117,7 @@ namespace BudgetExecution
         {
             try
             {
-                ThrowIf.Null( filePath, nameof( filePath ) ); 
+                ThrowIf.Null( filePath, nameof( filePath ) );
                 var _excel = new ExcelPackage( );
                 var _worksheet = _excel?.Workbook?.Worksheets[ 0 ];
                 for( var _i = 0; _i < dataTable?.Columns?.Count; _i++ )
@@ -346,13 +346,13 @@ namespace BudgetExecution
                 {
                     if( !_col.ColumnName.EndsWith( "Id" )
                        && ( _col.Ordinal > 0 )
-                       && ( _col.DataType == typeof( decimal )
-                           | _col.DataType == typeof( float )
-                           | _col.DataType == typeof( double )
-                           | _col.DataType == typeof( int )
-                           | _col.DataType == typeof( uint )
-                           | _col.DataType == typeof( ushort )
-                           | _col.DataType == typeof( short ) ) )
+                       && ( ( _col.DataType == typeof( decimal ) )
+                           | ( _col.DataType == typeof( float ) )
+                           | ( _col.DataType == typeof( double ) )
+                           | ( _col.DataType == typeof( int ) )
+                           | ( _col.DataType == typeof( uint ) )
+                           | ( _col.DataType == typeof( ushort ) )
+                           | ( _col.DataType == typeof( short ) ) ) )
                     {
                         _columns.Add( _col );
                     }
@@ -385,9 +385,9 @@ namespace BudgetExecution
                 {
                     if( _col.ColumnName.EndsWith( "Date" )
                        || _col.ColumnName.EndsWith( "Day" )
-                       || ( _col.DataType == typeof( DateTime )
-                           | _col.DataType == typeof( DateOnly )
-                           | _col.DataType == typeof( DateTimeOffset ) ) )
+                       || ( ( _col.DataType == typeof( DateTime ) )
+                           | ( _col.DataType == typeof( DateOnly ) )
+                           | ( _col.DataType == typeof( DateTimeOffset ) ) ) )
                     {
                         _columns.Add( _col );
                     }

@@ -257,6 +257,14 @@ namespace BudgetExecution
             ControlBox = false;
             TabPage.TabForeColor = Color.FromArgb( 106, 189, 252 );
 
+            // Budget Properties
+            _fields = new List<string>( );
+            _columns = new List<string>( );
+            _dates = new List<DateTime>( );
+            _dataArgs = new DataArgs( );
+            _commands = new List<string>( );
+            _statements = new Dictionary<string, object>( );
+
             // Event Wiring
             Load += OnLoad;
             MouseClick += OnRightClick;
@@ -439,7 +447,7 @@ namespace BudgetExecution
                 _numerics = _dataModel?.Numerics;
                 _columns = _dataTable.GetColumnNames( );
                 BindingSource.DataSource = _dataTable;
-                _current = BindingSource.GetCurrentDataRow( );
+                _current = BindingSource.GetCurrentRow( );
                 _commands = CreateCommandList( _provider );
                 PopulateSqlComboBox( _commands );
             }
@@ -465,7 +473,7 @@ namespace BudgetExecution
                 _numerics = _dataModel?.Numerics;
                 _columns = _dataTable.GetColumnNames( );
                 BindingSource.DataSource = _dataTable;
-                _current = BindingSource.GetCurrentDataRow( );
+                _current = BindingSource.GetCurrentRow( );
                 _commands = CreateCommandList( _provider );
                 PopulateSqlComboBox( _commands );
             }
@@ -846,7 +854,8 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the query text.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// </returns>
         private string GetQueryText( )
         {
             try
@@ -888,12 +897,6 @@ namespace BudgetExecution
         {
             try
             {
-                _fields = new List<string>( );
-                _columns = new List<string>( );
-                _dates = new List<DateTime>( );
-                _dataArgs = new DataArgs( );
-                _commands = new List<string>( );
-                _statements = new Dictionary<string, object>( );
                 AccessRadioButton.Checked = true;
                 AccessRadioButton.Click += OnRadioButtonChecked;
                 SQLiteRadioButton.Click += OnRadioButtonChecked;

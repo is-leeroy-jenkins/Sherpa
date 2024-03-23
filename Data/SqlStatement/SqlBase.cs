@@ -346,10 +346,9 @@ namespace BudgetExecution
                     + $"WHERE {_where} "
                     + $"GROUP BY {_group};";
             }
-
-            if( ( _fields?.Any( ) == true )
-               && ( _criteria?.Any( ) == true )
-               && ( _numerics?.Any( ) == false ) )
+            else if( ( _fields?.Any( ) == true )
+                    && ( _criteria?.Any( ) == true )
+                    && ( _numerics?.Any( ) == false ) )
             {
                 var _cols = string.Empty;
                 foreach( var _name in _fields )

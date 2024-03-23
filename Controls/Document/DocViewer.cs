@@ -76,6 +76,11 @@ namespace BudgetExecution
         private System.Action _statusUpdate;
 
         /// <summary>
+        /// The data arguments
+        /// </summary>
+        private DataArgs _dataArgs;
+
+        /// <summary>
         /// 
         /// </summary>
         private int _time;
@@ -403,6 +408,10 @@ namespace BudgetExecution
             _time = 0;
             _seconds = 5;
 
+            // Budget Collections
+            _filter = new Dictionary<string, object>( );
+            _dataArgs = new DataArgs( );
+
             // Form Event Wiring
             Load += OnLoad;
             Closing += OnClosing;
@@ -466,7 +475,7 @@ namespace BudgetExecution
                 ToolStrip.LauncherStyle = LauncherStyle.Office12;
                 ToolStrip.ImageSize = new Size( 16, 16 );
                 ToolStrip.ImageScalingSize = new Size( 16, 16 );
-                TextBox.TextBox.Font = new Font( "Roboto", 10 );
+                TextBox.TextBox.Font = new Font( "Roboto", 9 );
                 TextBox.TextBox.Size = new Size( 180, 25 );
                 TextBox.TextBox.ForeColor = Color.White;
                 TextBox.TextBox.Text = "     < Enter Keywords >     ";
@@ -479,14 +488,14 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes the icon.
+        /// Initializes the PictureBox.
         /// </summary>
         private void InitializeIcon( )
         {
             try
             {
-                PictureBox.Size = new Size( 18, 18 );
-                PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                PictureBox.Size = new Size( 18, 16 );
+                PictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             }
             catch( Exception _ex )
             {

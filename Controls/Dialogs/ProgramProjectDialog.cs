@@ -451,6 +451,10 @@ namespace BudgetExecution
             _time = 0;
             _seconds = 5;
 
+            // Budget Attributes
+            _filter = new Dictionary<string, object>( );
+            _dataArgs = new DataArgs( );
+
             // Event Wiring
             Load += OnLoad;
             MouseClick += OnRightClick;
@@ -573,13 +577,20 @@ namespace BudgetExecution
         /// </param>
         public void InvokeIf( Action action )
         {
-            if( InvokeRequired )
+            try
             {
-                BeginInvoke( action );
+                if( InvokeRequired )
+                {
+                    BeginInvoke( action );
+                }
+                else
+                {
+                    action.Invoke( );
+                }
             }
-            else
+            catch( Exception _ex )
             {
-                action.Invoke( );
+                Fail( _ex );
             }
         }
 
@@ -588,7 +599,14 @@ namespace BudgetExecution
         /// </summary>
         private void BeginInit( )
         {
-            _busy = true;
+            try
+            {
+                _busy = true;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -596,7 +614,14 @@ namespace BudgetExecution
         /// </summary>
         private void EndInit( )
         {
-            _busy = false;
+            try
+            {
+                _busy = false;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -864,7 +889,7 @@ namespace BudgetExecution
                     _dataTable = _dataModel.DataTable;
                     BindingSource.DataSource = _dataTable;
                     BindingSource.Filter = Filter.ToCriteria( );
-                    _current = BindingSource.GetCurrentDataRow( );
+                    _current = BindingSource.GetCurrentRow( );
                     DescriptionTable.CaptionText = "Program Description";
                     ComboBox.Visible = false;
                     BindData( );
@@ -945,6 +970,7 @@ namespace BudgetExecution
                     _results.Append( "Title : " );
                     _results.Append( _item.Title );
                     _results.Append( Environment.NewLine );
+                    _results.Append( Environment.NewLine );
                     _results.Append( "Link : " );
                     _results.Append( _item.Link );
                     _results.Append( Environment.NewLine );
@@ -983,7 +1009,7 @@ namespace BudgetExecution
                     _dataModel = new DataBuilder( _source, _provider, _filter );
                     _dataTable = _dataModel.DataTable;
                     BindingSource.DataSource = _dataTable;
-                    _current = BindingSource.GetCurrentDataRow( );
+                    _current = BindingSource.GetCurrentRow( );
                     if( _current != null )
                     {
                         BindData( );
@@ -1033,7 +1059,14 @@ namespace BudgetExecution
         /// instance containing the event data.</param>
         private void OnTimerTick( object sender, EventArgs e )
         {
-            InvokeIf( _statusUpdate );
+            try
+            {
+                InvokeIf( _statusUpdate );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>

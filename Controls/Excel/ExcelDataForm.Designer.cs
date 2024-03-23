@@ -80,6 +80,7 @@
             ExcelSeparator = new ToolSeparator( );
             FilterSeparator = new ToolSeparator( );
             TabControl = new TabControl( );
+            DataTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             QueryTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             ThirdFilterTable = new HeaderPanel( );
             backPanel2 = new BackPanel( );
@@ -107,7 +108,6 @@
             SourceTable = new HeaderPanel( );
             TablePanel = new BackPanel( );
             TableListBox = new ListBox( );
-            DataTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             BusyTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             Loader = new System.Windows.Forms.PictureBox( );
             ( (System.ComponentModel.ISupportInitialize)Ribbon ).BeginInit( );
@@ -118,6 +118,7 @@
             ToolStrip.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)TabControl ).BeginInit( );
             TabControl.SuspendLayout( );
+            DataTab.SuspendLayout( );
             QueryTab.SuspendLayout( );
             ThirdFilterTable.SuspendLayout( );
             backPanel2.SuspendLayout( );
@@ -131,7 +132,6 @@
             ValuePanel.SuspendLayout( );
             SourceTable.SuspendLayout( );
             TablePanel.SuspendLayout( );
-            DataTab.SuspendLayout( );
             BusyTab.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)Loader ).BeginInit( );
             SuspendLayout( );
@@ -191,7 +191,7 @@
             Spreadsheet.DefaultRowCount = 100;
             Spreadsheet.DisplayAlerts = true;
             Spreadsheet.Dock = System.Windows.Forms.DockStyle.Fill;
-            Spreadsheet.FileName = "Book1";
+            Spreadsheet.FileName = "Book2";
             Spreadsheet.Font = new System.Drawing.Font( "Roboto", 9F );
             Spreadsheet.ForeColor = System.Drawing.Color.Black;
             Spreadsheet.FormulaBarVisibility = false;
@@ -313,10 +313,11 @@
             // PictureBox
             // 
             PictureBox.Image = Resources.Images.FormImages.Application;
-            PictureBox.Location = new System.Drawing.Point( 3, 3 );
+            PictureBox.Location = new System.Drawing.Point( 1, 1 );
+            PictureBox.Margin = new System.Windows.Forms.Padding( 1 );
             PictureBox.Name = "PictureBox";
-            PictureBox.Size = new System.Drawing.Size( 18, 18 );
-            PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            PictureBox.Size = new System.Drawing.Size( 18, 16 );
+            PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             PictureBox.TabIndex = 0;
             PictureBox.TabStop = false;
             // 
@@ -466,7 +467,7 @@
             ToolStripTextBox.Margin = new System.Windows.Forms.Padding( 1 );
             ToolStripTextBox.Name = "ToolStripTextBox";
             ToolStripTextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Size = new System.Drawing.Size( 220, 27 );
+            ToolStripTextBox.Size = new System.Drawing.Size( 216, 27 );
             ToolStripTextBox.Tag = "";
             ToolStripTextBox.ToolTip = ToolTip;
             // 
@@ -846,6 +847,22 @@
             TabControl.ThemeStyle.TabStyle.ActiveForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             TabControl.ThemeStyle.TabStyle.SeparatorColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.ToolTip = null;
+            // 
+            // DataTab
+            // 
+            DataTab.Controls.Add( Spreadsheet );
+            DataTab.Controls.Add( Ribbon );
+            DataTab.Image = null;
+            DataTab.ImageSize = new System.Drawing.Size( 16, 16 );
+            DataTab.Location = new System.Drawing.Point( 0, 4 );
+            DataTab.Name = "DataTab";
+            DataTab.ShowCloseButton = true;
+            DataTab.Size = new System.Drawing.Size( 1326, 653 );
+            DataTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            DataTab.TabForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            DataTab.TabIndex = 1;
+            DataTab.Text = "Data";
+            DataTab.ThemesEnabled = false;
             // 
             // QueryTab
             // 
@@ -1578,22 +1595,6 @@
             TableListBox.ThemeName = "BudgetExecution";
             TableListBox.ToolTip = ToolTip;
             // 
-            // DataTab
-            // 
-            DataTab.Controls.Add( Spreadsheet );
-            DataTab.Controls.Add( Ribbon );
-            DataTab.Image = null;
-            DataTab.ImageSize = new System.Drawing.Size( 16, 16 );
-            DataTab.Location = new System.Drawing.Point( 0, 4 );
-            DataTab.Name = "DataTab";
-            DataTab.ShowCloseButton = true;
-            DataTab.Size = new System.Drawing.Size( 1326, 653 );
-            DataTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            DataTab.TabForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            DataTab.TabIndex = 1;
-            DataTab.Text = "Data";
-            DataTab.ThemesEnabled = false;
-            // 
             // BusyTab
             // 
             BusyTab.Controls.Add( Loader );
@@ -1661,6 +1662,7 @@
             ToolStrip.PerformLayout( );
             ( (System.ComponentModel.ISupportInitialize)TabControl ).EndInit( );
             TabControl.ResumeLayout( false );
+            DataTab.ResumeLayout( false );
             QueryTab.ResumeLayout( false );
             ThirdFilterTable.ResumeLayout( false );
             backPanel2.ResumeLayout( false );
@@ -1674,7 +1676,6 @@
             ValuePanel.ResumeLayout( false );
             SourceTable.ResumeLayout( false );
             TablePanel.ResumeLayout( false );
-            DataTab.ResumeLayout( false );
             BusyTab.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize)Loader ).EndInit( );
             ResumeLayout( false );

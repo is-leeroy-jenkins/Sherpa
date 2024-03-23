@@ -69,10 +69,14 @@
             Separator14 = new ToolSeparator( );
             MenuButton = new ToolStripButton( );
             Separator15 = new ToolSeparator( );
-            ApplicationLabel = new ToolStripLabel( );
+            MenuLabel = new ToolStripLabel( );
+            TextBox = new ToolStripTextBox( );
             Timer = new System.Windows.Forms.Timer( components );
             ContextMenu = new ContextMenu( );
             Map = new GMap.NET.WindowsForms.GMapControl( );
+            SearchButton = new ToolStripButton( );
+            Separator23 = new ToolSeparator( );
+            Separator22 = new ToolSeparator( );
             HeaderTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
             ToolStripTable.SuspendLayout( );
@@ -97,12 +101,12 @@
             // 
             // PictureBox
             // 
-            PictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
             PictureBox.Image = Resources.Images.FormImages.Application;
-            PictureBox.Location = new System.Drawing.Point( 3, 3 );
+            PictureBox.Location = new System.Drawing.Point( 1, 1 );
+            PictureBox.Margin = new System.Windows.Forms.Padding( 1 );
             PictureBox.Name = "PictureBox";
-            PictureBox.Size = new System.Drawing.Size( 20, 18 );
-            PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            PictureBox.Size = new System.Drawing.Size( 18, 16 );
+            PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             PictureBox.TabIndex = 0;
             PictureBox.TabStop = false;
             // 
@@ -177,7 +181,7 @@
             ToolStrip.Image = null;
             ToolStrip.ImageDirectory = null;
             ToolStrip.ImageSize = new System.Drawing.Size( 0, 0 );
-            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { Separator1, StatusLabel, NavigationLabel, Separator2, FirstButton, Separator3, PreviousButton, Separator4, NextButton, Separator5, LastButton, Separator6, DataSpacer, DataLabel, Separator7, FilterButton, Separator8, RefreshButton, Separator9, FileSysSpacer, FileSysLabel, Separator10, BrowseButton, Separator11, SaveButton, Separator12, ApplicationSpacer, Separator13, CloseButton, Separator14, MenuButton, Separator15, ApplicationLabel } );
+            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { Separator1, StatusLabel, NavigationLabel, Separator2, FirstButton, Separator3, PreviousButton, Separator4, NextButton, Separator5, LastButton, Separator6, DataSpacer, DataLabel, Separator7, FilterButton, Separator8, RefreshButton, Separator9, FileSysSpacer, FileSysLabel, Separator10, BrowseButton, Separator11, SaveButton, Separator12, ApplicationSpacer, Separator13, CloseButton, Separator14, MenuButton, Separator15, MenuLabel, TextBox, Separator23, SearchButton, Separator22 } );
             ToolStrip.LastButton = null;
             ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
             ToolStrip.Location = new System.Drawing.Point( 1, 1 );
@@ -683,23 +687,40 @@
             Separator15.Padding = new System.Windows.Forms.Padding( 1 );
             Separator15.Size = new System.Drawing.Size( 6, 25 );
             // 
-            // ApplicationLabel
+            // MenuLabel
             // 
-            ApplicationLabel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            ApplicationLabel.BackColor = System.Drawing.Color.Transparent;
-            ApplicationLabel.BindingSource = null;
-            ApplicationLabel.DataFilter = null;
-            ApplicationLabel.Field = Field.AccountCode;
-            ApplicationLabel.Font = new System.Drawing.Font( "Roboto", 6.75F );
-            ApplicationLabel.ForeColor = System.Drawing.Color.Black;
-            ApplicationLabel.HoverText = "Close Application";
-            ApplicationLabel.Margin = new System.Windows.Forms.Padding( 1 );
-            ApplicationLabel.Name = "ApplicationLabel";
-            ApplicationLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            ApplicationLabel.Size = new System.Drawing.Size( 43, 25 );
-            ApplicationLabel.Tag = "";
-            ApplicationLabel.Text = "         App:";
-            ApplicationLabel.ToolTip = null;
+            MenuLabel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            MenuLabel.BackColor = System.Drawing.Color.Transparent;
+            MenuLabel.BindingSource = null;
+            MenuLabel.DataFilter = null;
+            MenuLabel.Field = Field.AccountCode;
+            MenuLabel.Font = new System.Drawing.Font( "Roboto", 6.75F );
+            MenuLabel.ForeColor = System.Drawing.Color.Black;
+            MenuLabel.HoverText = "Close Application";
+            MenuLabel.Margin = new System.Windows.Forms.Padding( 1 );
+            MenuLabel.Name = "MenuLabel";
+            MenuLabel.Padding = new System.Windows.Forms.Padding( 1 );
+            MenuLabel.Size = new System.Drawing.Size( 48, 25 );
+            MenuLabel.Tag = "";
+            MenuLabel.Text = "        Menu:";
+            MenuLabel.ToolTip = null;
+            // 
+            // TextBox
+            // 
+            TextBox.BackColor = System.Drawing.Color.FromArgb( 10, 10, 10 );
+            TextBox.BindingSource = BindingSource;
+            TextBox.Field = Field.AccountCode;
+            TextBox.Font = new System.Drawing.Font( "Roboto", 9F );
+            TextBox.ForeColor = System.Drawing.Color.White;
+            TextBox.HoverText = "Search Web";
+            TextBox.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            TextBox.Name = "TextBox";
+            TextBox.Padding = new System.Windows.Forms.Padding( 1 );
+            TextBox.Size = new System.Drawing.Size( 178, 25 );
+            TextBox.Tag = "";
+            TextBox.Text = "Enter Keywords";
+            TextBox.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            TextBox.ToolTip = ToolTip;
             // 
             // Timer
             // 
@@ -730,12 +751,11 @@
             // 
             Map.Bearing = 0F;
             Map.CanDragMap = true;
-            Map.Dock = System.Windows.Forms.DockStyle.Fill;
             Map.EmptyTileColor = System.Drawing.Color.Navy;
             Map.GrayScaleMode = false;
             Map.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
             Map.LevelsKeepInMemory = 5;
-            Map.Location = new System.Drawing.Point( 1, 25 );
+            Map.Location = new System.Drawing.Point( 307, 83 );
             Map.MarkersEnabled = true;
             Map.MaxZoom = 2;
             Map.MinZoom = 2;
@@ -750,9 +770,45 @@
             Map.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             Map.SelectedAreaFillColor = System.Drawing.Color.FromArgb( 33, 65, 105, 225 );
             Map.ShowTileGridLines = false;
-            Map.Size = new System.Drawing.Size( 1326, 657 );
+            Map.Size = new System.Drawing.Size( 569, 459 );
             Map.TabIndex = 2;
             Map.Zoom = 0D;
+            // 
+            // SearchButton
+            // 
+            SearchButton.AutoToolTip = false;
+            SearchButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            SearchButton.BindingSource = BindingSource;
+            SearchButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            SearchButton.Field = Field.AccountCode;
+            SearchButton.Filter = null;
+            SearchButton.Font = new System.Drawing.Font( "Roboto", 9F );
+            SearchButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            SearchButton.HoverText = "Begin Search";
+            SearchButton.Image = Resources.Images.ToolStripImages.WebGoButton;
+            SearchButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            SearchButton.Margin = new System.Windows.Forms.Padding( 1 );
+            SearchButton.Name = "SearchButton";
+            SearchButton.Padding = new System.Windows.Forms.Padding( 1 );
+            SearchButton.Size = new System.Drawing.Size( 23, 25 );
+            SearchButton.ToolTip = ToolTip;
+            SearchButton.ToolType = ToolType.NS;
+            // 
+            // Separator23
+            // 
+            Separator23.ForeColor = System.Drawing.Color.Black;
+            Separator23.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            Separator23.Name = "Separator23";
+            Separator23.Padding = new System.Windows.Forms.Padding( 1 );
+            Separator23.Size = new System.Drawing.Size( 6, 25 );
+            // 
+            // Separator22
+            // 
+            Separator22.ForeColor = System.Drawing.Color.Black;
+            Separator22.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            Separator22.Name = "Separator22";
+            Separator22.Padding = new System.Windows.Forms.Padding( 1 );
+            Separator22.Size = new System.Drawing.Size( 6, 25 );
             // 
             // GeoMapper
             // 
@@ -810,7 +866,7 @@
         public ToolStripLabel FileSysSpacer;
         public ToolStripLabel FileSysLabel;
         public ToolStripLabel ApplicationSpacer;
-        public ToolStripLabel ApplicationLabel;
+        public ToolStripLabel MenuLabel;
         public ToolSeparator Separator1;
         public ToolStripLabel NavigationLabel;
         public ToolStripButton FirstButton;
@@ -840,5 +896,9 @@
         public ToolSeparator Separator14;
         public ContextMenu ContextMenu;
         private GMap.NET.WindowsForms.GMapControl Map;
+        public ToolStripTextBox TextBox;
+        public ToolSeparator Separator23;
+        public ToolStripButton SearchButton;
+        private ToolSeparator Separator22;
     }
 }

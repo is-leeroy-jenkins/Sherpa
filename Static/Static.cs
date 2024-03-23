@@ -64,20 +64,20 @@ namespace BudgetExecution
                 type = Nullable.GetUnderlyingType( type ) ?? type;
                 switch( type.Name )
                 {
-                    case nameof( String ):
-                    case nameof( Boolean ):
+                    case "String":
+                    case "Boolean":
                     {
                         return "Text";
                     }
-                    case nameof( DateTime ):
+                    case "DateTime":
                     {
                         return "Date";
                     }
-                    case nameof( Int32 ):
+                    case "Int32":
                     {
-                        return nameof( Double );
+                        return "Double";
                     }
-                    case nameof( Decimal ):
+                    case "Decimal":
                     {
                         return "Currency";
                     }
@@ -95,7 +95,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Creates the command.
+        /// Creates a command from a IDbConnection.
         /// </summary>
         /// <param name="connection"> The connection. </param>
         /// <param name="sql"> The SQL. </param>
@@ -159,67 +159,82 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( message, nameof( message ) );
-                var _stringBuilder = new StringBuilder( );
-                _stringBuilder.Append( message );
-                _stringBuilder.Append( Environment.NewLine );
+                var _builder = new StringBuilder( );
+                _builder.Append( message );
+                _builder.Append( Environment.NewLine );
+                _builder.Append( Environment.NewLine );
                 var _exception = exception;
-                _stringBuilder.Append( "Exception: " );
-                _stringBuilder.Append( Environment.NewLine );
+                _builder.Append( "Exception: " );
+                _builder.Append( Environment.NewLine );
+                _builder.Append( Environment.NewLine );
                 while( _exception != null )
                 {
-                    _stringBuilder.Append( _exception.Message );
-                    _stringBuilder.Append( Environment.NewLine );
+                    _builder.Append( _exception.Message );
+                    _builder.Append( Environment.NewLine );
+                    _builder.Append( Environment.NewLine );
                     _exception = _exception.InnerException;
+                    _builder.Append( Environment.NewLine );
+                    _builder.Append( Environment.NewLine );
                 }
 
                 if( exception.Data != null )
                 {
                     foreach( var _i in exception.Data )
                     {
-                        _stringBuilder.Append( "Data : " );
-                        _stringBuilder.Append( _i );
-                        _stringBuilder.Append( Environment.NewLine );
+                        _builder.Append( "Data : " );
+                        _builder.Append( _i );
+                        _builder.Append( Environment.NewLine );
+                        _builder.Append( Environment.NewLine );
                     }
                 }
 
                 if( exception.StackTrace != null )
                 {
-                    _stringBuilder.Append( "StackTrace: " );
-                    _stringBuilder.Append( Environment.NewLine );
-                    _stringBuilder.Append( exception.StackTrace );
-                    _stringBuilder.Append( Environment.NewLine );
+                    _builder.Append( "Stack Trace: " );
+                    _builder.Append( Environment.NewLine );
+                    _builder.Append( Environment.NewLine );
+                    _builder.Append( exception.StackTrace );
+                    _builder.Append( Environment.NewLine );
+                    _builder.Append( Environment.NewLine );
                 }
 
                 if( exception.Source != null )
                 {
-                    _stringBuilder.Append( "ErrorSource: " );
-                    _stringBuilder.Append( Environment.NewLine );
-                    _stringBuilder.Append( exception.Source );
-                    _stringBuilder.Append( Environment.NewLine );
+                    _builder.Append( "Error Source: " );
+                    _builder.Append( Environment.NewLine );
+                    _builder.Append( Environment.NewLine );
+                    _builder.Append( exception.Source );
+                    _builder.Append( Environment.NewLine );
+                    _builder.Append( Environment.NewLine );
                 }
 
                 if( exception.TargetSite != null )
                 {
-                    _stringBuilder.Append( "TargetSite: " );
-                    _stringBuilder.Append( Environment.NewLine );
-                    _stringBuilder.Append( exception.TargetSite );
-                    _stringBuilder.Append( Environment.NewLine );
+                    _builder.Append( "Target Site: " );
+                    _builder.Append( Environment.NewLine );
+                    _builder.Append( Environment.NewLine );
+                    _builder.Append( exception.TargetSite );
+                    _builder.Append( Environment.NewLine );
+                    _builder.Append( Environment.NewLine );
                 }
 
                 var _baseException = exception.GetBaseException( );
                 if( _baseException != null )
                 {
-                    _stringBuilder.Append( "BaseException: " );
-                    _stringBuilder.Append( Environment.NewLine );
-                    _stringBuilder.Append( exception.GetBaseException( ) );
+                    _builder.Append( "Base Exception: " );
+                    _builder.Append( Environment.NewLine );
+                    _builder.Append( Environment.NewLine );
+                    _builder.Append( exception.GetBaseException( ) );
                 }
 
-                return _stringBuilder.ToString( );
+                return !string.IsNullOrEmpty( _builder.ToString( ) )
+                    ? _builder.ToString( )
+                    : string.Empty;
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return default( string );
+                return string.Empty;
             }
         }
 
@@ -236,9 +251,13 @@ namespace BudgetExecution
                 var _dictionary = new Dictionary<string, object>( );
                 if( nvm != null )
                 {
-                    foreach( var _key in nvm.AllKeys )
+                    for( var _i = 0; _i < nvm.AllKeys.Length; _i++ )
                     {
-                        _dictionary.Add( _key, nvm[ _key ] );
+                        var _key = nvm.AllKeys[ _i ];
+                        if( _key != null )
+                        {
+                            _dictionary.Add( _key, nvm[ _key ] );
+                        }
                     }
                 }
 

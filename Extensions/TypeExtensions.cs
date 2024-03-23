@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:             BudgetExecution
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 12-24-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        03-23-2024
 // ******************************************************************************************
-// <copyright file="TypeExtensions.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+// <copyright file="Terry Eppler" company="Terry D. Eppler">
+//    Budget Execution is a small Federal Budget, Finance, and Accounting data management
+//    application for analysts with the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -31,7 +31,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    Contact at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   TypeExtensions.cs
@@ -50,41 +50,17 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [SuppressMessage( "ReSharper", "CompareNonConstrainedGenericWithNull" ) ]
+    [ SuppressMessage( "ReSharper", "CompareNonConstrainedGenericWithNull" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public static class TypeExtensions
     {
-        /// <summary>
-        /// Converts to json.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="type">The type.</param>
-        /// <returns></returns>
-        public static string ToJson<T>( this T type )
-        {
-            try
-            {
-                var _encoding = Encoding.Default;
-                var _serializer = new DataContractJsonSerializer( typeof( T ) );
-                using var _stream = new MemoryStream( );
-                _serializer.WriteObject( _stream, type );
-                var _json = _encoding.GetString( _stream.ToArray( ) );
-                return _json;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( string );
-            }
-        }
-
         /// <summary>
         /// Javas the script serialize.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="type">The type.</param>
         /// <returns></returns>
-        public static string JavaScriptSerialize<T>( this T type )
+        public static string SerializeToJavaScript<T>( this T type )
         {
             try
             {
@@ -93,7 +69,9 @@ namespace BudgetExecution
                 using var _stream = new MemoryStream( );
                 _serializer.WriteObject( _stream, type );
                 var _json = _encoding.GetString( _stream.ToArray( ) );
-                return _json;
+                return !string.IsNullOrEmpty( _json )
+                    ? _json
+                    : string.Empty;
             }
             catch( Exception _ex )
             {
@@ -108,7 +86,7 @@ namespace BudgetExecution
         /// <typeparam name="T"></typeparam>
         /// <param name="type">The type.</param>
         /// <returns></returns>
-        public static string XmlSerialize<T>( this T type )
+        public static string SerializeToXml<T>( this T type )
         {
             try
             {

@@ -335,7 +335,7 @@ namespace BudgetExecution
         /// <param name="provider"> The provider. </param>
         /// <param name="sqlText"> The SQL text. </param>
         public SqlStatement( Source source, Provider provider, string sqlText )
-            : base( source, provider, sqlText, SQL.SELECTALL )
+            : base( source, provider, sqlText )
         {
         }
 

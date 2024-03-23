@@ -216,7 +216,7 @@ namespace BudgetExecution
         public BudgetAdapter( )
         {
             MissingSchemaAction = MissingSchemaAction.AddWithKey;
-            MissingMappingAction = MissingMappingAction.Ignore;
+            MissingMappingAction = MissingMappingAction.Passthrough;
             ContinueUpdateOnError = true;
             AcceptChangesDuringFill = true;
             AcceptChangesDuringUpdate = true;
@@ -358,10 +358,9 @@ namespace BudgetExecution
             _source = sqlStatement.Source;
             _provider = sqlStatement.Provider;
             _sqlStatement = sqlStatement;
+            _commandText = sqlStatement.CommandText;
             _dataConnection = 
                 new BudgetConnection( sqlStatement.Source, sqlStatement.Provider )?.Create( );
-
-            _commandText = sqlStatement.CommandText;
         }
 
         /// <inheritdoc />
@@ -393,26 +392,26 @@ namespace BudgetExecution
                 {
                     case Provider.SQLite:
                     {
-                        return GetSQLiteAdapter( );
+                        return CreateSQLiteAdapter( );
                     }
                     case Provider.SqlCe:
                     {
-                        return GetSqlCompactAdapter( );
+                        return CreateSqlCompactAdapter( );
                     }
                     case Provider.SqlServer:
                     {
-                        return GetSqlServerAdapter( );
+                        return CreateSqlDataAdapter( );
                     }
                     case Provider.Excel:
                     case Provider.CSV:
                     case Provider.Access:
                     case Provider.OleDb:
                     {
-                        return GetOleDbAdapter( );
+                        return CreateOleDbAdapter( );
                     }
                     default:
                     {
-                        return GetOleDbAdapter( );
+                        return CreateOleDbAdapter( );
                     }
                 }
             }
@@ -442,19 +441,19 @@ namespace BudgetExecution
                     {
                         case Provider.SQLite:
                         {
-                            var _adapter = GetSQLiteAdapter( );
+                            var _adapter = CreateSQLiteAdapter( );
                             _async.SetResult( _adapter );
                             return _async.Task;
                         }
                         case Provider.SqlCe:
                         {
-                            var _adapter = GetSqlCompactAdapter( );
+                            var _adapter = CreateSqlCompactAdapter( );
                             _async.SetResult( _adapter );
                             return _async.Task;
                         }
                         case Provider.SqlServer:
                         {
-                            var _adapter = GetSqlServerAdapter( );
+                            var _adapter = CreateSqlDataAdapter( );
                             _async.SetResult( _adapter );
                             return _async.Task;
                         }
@@ -463,13 +462,13 @@ namespace BudgetExecution
                         case Provider.Access:
                         case Provider.OleDb:
                         {
-                            var _adapter = GetOleDbAdapter( );
+                            var _adapter = CreateOleDbAdapter( );
                             _async.SetResult( _adapter );
                             return _async.Task;
                         }
                         default:
                         {
-                            var _adapter = GetOleDbAdapter( );
+                            var _adapter = CreateOleDbAdapter( );
                             _async.SetResult( _adapter );
                             return _async.Task;
                         }

@@ -2780,7 +2780,9 @@ namespace BudgetExecution
         /// <summary>
         /// Called when [numeric ListBox selected value changed].
         /// </summary>
-        /// <param name="sender">The sender.</param>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
         private void OnNumericListBoxSelectedValueChanged( object sender )
         {
             try
