@@ -501,6 +501,13 @@ namespace BudgetExecution
             // Default Provider
             _provider = Provider.Access;
 
+            // Budget Collections
+            _filter = new Dictionary<string, object>( );
+            _selectedColumns = new List<string>( );
+            _selectedFields = new List<string>( );
+            _selectedNumerics = new List<string>( );
+            _dataArgs = new DataArgs( );
+
             // Form Even Wiring
             Load += OnLoad;
             Closing += OnClosing;
@@ -526,7 +533,6 @@ namespace BudgetExecution
         /// </summary>
         private void RegisterCallbacks( )
         {
-            // Control Event Wiring
             try
             {
                 TabControl.SelectedIndexChanged += OnActiveTabChanged;
@@ -561,6 +567,9 @@ namespace BudgetExecution
             {
                 Editor.AutoSizeMode = AutoSizeMode.GrowAndShrink;
                 Editor.AlwaysShowScrollers = true;
+                Editor.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left
+                    | AnchorStyles.Right;
+
                 Editor.BackColor = SystemColors.ControlLight;
                 Editor.ForeColor = Color.Black;
                 Editor.BackgroundColor = new BrushInfo( SystemColors.ControlLight );
@@ -1785,7 +1794,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _form = (MainForm)Program.Windows[ nameof( MainForm ) ];
+                var _form = (MainForm)Program.Windows[ "MainForm" ];
                 _form.StartPosition = FormStartPosition.CenterScreen;
                 _form.TopMost = true;
                 _form.Visible = true;
@@ -2138,6 +2147,7 @@ namespace BudgetExecution
         {
             try
             {
+                FadeOut( );
                 Close( );
             }
             catch( Exception _ex )
@@ -2284,8 +2294,15 @@ namespace BudgetExecution
         /// </param>
         private void OnSaveButtonClick( object sender, EventArgs e )
         {
-            var _message = "THIS IS NOT IMPLEMENTED!";
-            SendNotification( _message );
+            try
+            {
+                var _message = "THIS IS NOT IMPLEMENTED!";
+                SendNotification( _message );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -2399,7 +2416,14 @@ namespace BudgetExecution
         /// </param>
         private void OnClientButtonClick( object sender, EventArgs e )
         {
-            RunClient( );
+            try
+            {
+                RunClient( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -2413,7 +2437,14 @@ namespace BudgetExecution
         /// </param>
         private void OnTimerTick( object sender, EventArgs e )
         {
-            InvokeIf( _statusUpdate );
+            try
+            {
+                InvokeIf( _statusUpdate );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -2441,6 +2472,9 @@ namespace BudgetExecution
                 {
                     _dataTable = null;
                 }
+
+                FadeOut( );
+                Close( );
             }
             catch( Exception _ex )
             {

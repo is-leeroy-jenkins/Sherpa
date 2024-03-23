@@ -690,12 +690,12 @@
     <s:String x:Key="/Default/CodeStyle/FileHeader/FileHeaderText/@EntryValue">******************************************************************************************&#xD;
     Assembly:             Baby&#xD;
     Author:                  Terry D. Eppler&#xD;
-    Created:                 $CREATED_MONTH$-$CREATED_DAY$-$CREATED_YEAR$&#xD;
+    Created:                 ${File.CreatedMonth}-${File.CreatedDay}-${File.CreatedYear}&#xD;
 &#xD;
     Last Modified By:        Terry D. Eppler&#xD;
-    Last Modified On:        $CURRENT_MONTH$-$CURRENT_DAY$-$CURRENT_YEAR$&#xD;
+    Last Modified On:        ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}&#xD;
 ******************************************************************************************&#xD;
-&lt;copyright file="$USER_NAME$.cs" company="Terry D. Eppler"&gt;&#xD;
+&lt;copyright file="${User.Name}.cs" company="Terry D. Eppler"&gt;&#xD;
    Baby is a small web browser used in a Federal Budget, Finance, and Accounting application for the&#xD;
    US Environmental Protection Agency (US EPA).&#xD;
    Copyright ©  2023  Terry Eppler&#xD;
@@ -723,7 +723,7 @@
    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov&#xD;
 &lt;/copyright&gt;&#xD;
 &lt;summary&gt;&#xD;
-  $FILENAME$.cs&#xD;
+  ${File.FileName}.cs&#xD;
 &lt;/summary&gt;&#xD;
 ******************************************************************************************&#xD;
 </s:String>
@@ -874,6 +874,7 @@
     <s:Int64 x:Key="/Default/Environment/SearchAndNavigation/DefaultOccurrencesGroupingIndices/=JetBrains_002EReSharper_002EFeatures_002EInspections_002EAnalyzeReferences_002ERemoveUnused_002EUnusedReferencesDescriptor/@EntryIndexedValue">0</s:Int64>
     <s:Boolean x:Key="/Default/Environment/SearchAndNavigation/MergeOccurrences/@EntryValue">True</s:Boolean>
     <s:Boolean x:Key="/Default/Environment/SettingsMigration/IsMigratorApplied/=JetBrains_002EApplication_002EExceptionReport_002EUserLoginInformationMigrateSettings/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/Environment/SettingsMigration/IsMigratorApplied/=JetBrains_002EReSharper_002EFeature_002EServices_002ECodeCleanup_002EFileHeader_002EFileHeaderSettingsMigrate/@EntryIndexedValue">True</s:Boolean>
     <s:Boolean x:Key="/Default/Environment/SettingsMigration/IsMigratorApplied/=JetBrains_002EReSharper_002EFeature_002EServices_002ECSharp_002EParameterNameHints_002ECSharpOtherInlayHintsOptionsMigration/@EntryIndexedValue">True</s:Boolean>
     <s:Boolean x:Key="/Default/Environment/SettingsMigration/IsMigratorApplied/=JetBrains_002EReSharper_002EFeature_002EServices_002EInlayHints_002EInlayHintsOptionsMigration/@EntryIndexedValue">True</s:Boolean>
     <s:Boolean x:Key="/Default/Environment/SettingsMigration/IsMigratorApplied/=JetBrains_002EReSharper_002EPsi_002ECSharp_002ECodeStyle_002ECSharpAttributeForSingleLineMethodUpgrade/@EntryIndexedValue">True</s:Boolean>

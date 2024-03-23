@@ -51,18 +51,43 @@ namespace BudgetExecution
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public class ListView : SfListView
-    { 
+    {
+        /// <summary>
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
         public BindingSource BindingSource { get; set; }
-         
-        public SmallTip ToolTip { get; set; }
-         
-        public string HoverText { get; set; }
-         
-        public IDictionary<string, object> Filter { get; set; }
 
         /// <summary>
+        /// Gets or sets the tool tip.
+        /// </summary>
+        /// <value>
+        /// The tool tip.
+        /// </value>
+        public SmallTip ToolTip { get; set; }
+
+        /// <summary>
+        /// Gets or sets the hover text.
+        /// </summary>
+        /// <value>
+        /// The hover text.
+        /// </value>
+        public string HoverText { get; set; }
+
+        /// <summary>
+        /// Gets or sets the filter.
+        /// </summary>
+        /// <value>
+        /// The filter.
+        /// </value>
+        public IDictionary<string, object> Filter { get; set; }
+
+        /// <inheritdoc />
+        /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ListView"/>
+        /// <see cref="T:BudgetExecution.ListView" />
         /// class.
         /// </summary>
         public ListView( )

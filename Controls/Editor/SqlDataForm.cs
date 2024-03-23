@@ -70,16 +70,16 @@ namespace BudgetExecution
     /// <summary>
     /// </summary>
     /// <seealso cref="T:BudgetExecution.EditBase" />
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
-    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
-    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Local" ) ]
-    [ SuppressMessage( "ReSharper", "RedundantCheckBeforeAssignment" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
+    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
+    [SuppressMessage( "ReSharper", "ConvertToAutoProperty" )]
+    [SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" )]
+    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
+    [SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Local" )]
+    [SuppressMessage( "ReSharper", "RedundantCheckBeforeAssignment" )]
     public partial class SqlDataForm : EditBase
     {
         /// <summary>
@@ -559,7 +559,7 @@ namespace BudgetExecution
         {
             // Provider
         }
-        
+
         /// <summary>
         /// Initializes the callbacks.
         /// </summary>
@@ -603,6 +603,9 @@ namespace BudgetExecution
             {
                 Editor.AutoSizeMode = AutoSizeMode.GrowAndShrink;
                 Editor.AlwaysShowScrollers = true;
+                Editor.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left
+                    | AnchorStyles.Right;
+
                 Editor.BackColor = SystemColors.ControlLight;
                 Editor.ForeColor = Color.Black;
                 Editor.BackgroundColor = new BrushInfo( SystemColors.ControlLight );
@@ -641,8 +644,6 @@ namespace BudgetExecution
                 Editor.WordWrap = true;
                 Editor.WordWrapColumn = 100;
                 Editor.Dock = DockStyle.None;
-                Editor.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left
-                    | AnchorStyles.Right;
             }
             catch( Exception _ex )
             {
@@ -890,7 +891,7 @@ namespace BudgetExecution
         /// The data types.
         /// </param>
         public void PopulateDataTypeComboBoxItems( IEnumerable<string> dataTypes )
-        { 
+        {
             try
             {
                 ThrowIf.Null( dataTypes, nameof( dataTypes ) );
@@ -908,7 +909,7 @@ namespace BudgetExecution
             catch( Exception _ex )
             {
                 Fail( _ex );
-            } 
+            }
         }
 
         /// <summary>
@@ -1473,7 +1474,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-        
+
         /// <summary>
         /// Creates the SQL text.
         /// </summary>
@@ -1484,7 +1485,7 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( where, nameof( where ) );
-                return $"SELECT * FROM {_source} " 
+                return $"SELECT * FROM {_source} "
                     + $"WHERE {where.ToCriteria( )};";
             }
             catch( Exception _ex )
@@ -1517,7 +1518,7 @@ namespace BudgetExecution
 
                     var _criteria = where.ToCriteria( );
                     var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_names} FROM {_selectedTable} " 
+                    return $"SELECT {_names} FROM {_selectedTable} "
                         + $"WHERE {_criteria} "
                         + $"GROUP BY {_names} ;";
                 }
@@ -2512,7 +2513,14 @@ namespace BudgetExecution
         /// instance containing the event data.</param>
         private void OnTimerTick( object sender, EventArgs e )
         {
-            InvokeIf( _statusUpdate );
+            try
+            {
+                InvokeIf( _statusUpdate );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -2537,6 +2545,9 @@ namespace BudgetExecution
                 {
                     _dataTable = null;
                 }
+
+                FadeOut( );
+                Close( );
             }
             catch( Exception _ex )
             {

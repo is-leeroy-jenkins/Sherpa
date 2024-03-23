@@ -29,20 +29,20 @@
     <PackageProjectUrl>https://github.com/KarmaScripter/BudgetExecution</PackageProjectUrl>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <Title>Budget Execution</Title>
-    <PackageIcon>budget.png</PackageIcon>
+    <PackageIcon>Application.png</PackageIcon>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <ApplicationIcon>Resources\Assets\FormImages\budget-execution.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\Assets\FormImages\Application.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702;2201;1051;CA1200;CA1310;CA1305;1822;CA1716;CA1812;CA1304</NoWarn>
-    <OutputPath>C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\</OutputPath>
+    <OutputPath>C:\Users\terry\source\repos\BudgetExecution\bin\Debug\</OutputPath>
     <Deterministic>False</Deterministic>
     <Optimize>False</Optimize>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='BudgetExecution|AnyCPU'">
     <NoWarn>1701;1702;2201;1051;1305;1822;CA1716</NoWarn>
-    <OutputPath>C:\Users\teppler\source\repos\BudgetExecution\bin\Debug\</OutputPath>
+    <OutputPath>C:\Users\terry\source\repos\BudgetExecution\bin\Debug\</OutputPath>
     <Deterministic>False</Deterministic>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
     <Optimize>True</Optimize>
@@ -305,6 +305,10 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
+    <None Update="Resources\Assets\FormImages\Application.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
     <None Update="Resources\Documents\AdviceOfAllowanceFiscalYear2021.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -472,6 +476,6 @@
     <None Remove="Clients\Baby\storage\i18n_process.css" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\Assets\FormImages\budget-execution.ico" />
+    <Content Include="Resources\Assets\FormImages\Application.ico" />
   </ItemGroup>
 </Project>
