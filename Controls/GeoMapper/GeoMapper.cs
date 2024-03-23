@@ -519,11 +519,29 @@ namespace BudgetExecution
                 ToolStrip.LauncherStyle = LauncherStyle.Office12;
                 ToolStrip.ImageSize = new Size( 16, 16 );
                 ToolStrip.ImageScalingSize = new Size( 16, 16 );
-                TextBox.Font = new Font( "Roboto", 9 );
-                TextBox.Size = new Size( 180, 25 );
+                TextBox.Font = new Font( "Roboto", 8 );
+                TextBox.Size = new Size( 200, 25 );
                 TextBox.ForeColor = Color.White;
                 TextBox.Text = "     < Enter Keywords >     ";
                 TextBox.TextAlign = ContentAlignment.MiddleCenter;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the PictureBox.
+        /// </summary>
+        private void InitializePictureBox( )
+        {
+            try
+            {
+                PictureBox.Size = new Size( 18, 14 );
+                PictureBox.Padding = new Padding( 1 );
+                PictureBox.Margin = new Padding( 1 );
+                PictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             }
             catch( Exception _ex )
             {
@@ -570,6 +588,36 @@ namespace BudgetExecution
                         if( Time == Seconds )
                         {
                             Timer.Stop( );
+                        }
+                    };
+                }
+
+                base.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Closes the form.
+        /// </summary>
+        public new void Close( )
+        {
+            try
+            {
+                Opacity = 0;
+                if( _seconds != 0 )
+                {
+                    var _timer = new Timer( );
+                    _timer.Interval = 1000;
+                    _timer.Tick += ( sender, args ) =>
+                    {
+                        _time--;
+                        if( _time == _seconds )
+                        {
+                            _timer.Stop( );
                         }
                     };
                 }
@@ -785,6 +833,41 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
+        /// <summary>
+        /// Sends the notification.
+        /// </summary>
+        /// <param name="text">The text.</param>
+        private void SendNotification( string text )
+        {
+            try
+            {
+                ThrowIf.Null( text, nameof( text ) );
+                var _notification = new Notification( text );
+                _notification.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Sends the message.
+        /// </summary>
+        /// <param name="text">The text.</param>
+        private void SendMessage( string text )
+        {
+            try
+            {
+                ThrowIf.Null( text, nameof( text ) );
+                var _message = new SplashMessage( text );
+                _message.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
 
         /// <summary> Called when [load]. </summary>
         /// <param name="sender"> The sender. </param>
@@ -797,6 +880,7 @@ namespace BudgetExecution
         {
             try
             {
+                InitializePictureBox( );
                 InitializeMap( );
                 InitializeToolStrip( );
                 InitializeLabels( );
@@ -877,7 +961,32 @@ namespace BudgetExecution
         /// instance containing the event data.</param>
         private void OnTimerTick( object sender, EventArgs e )
         {
-            InvokeIf( _statusUpdate );
+            try
+            {
+                InvokeIf( _statusUpdate );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [shown].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnShown( object sender, EventArgs e )
+        {
+            try
+            {
+                FadeIn( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>

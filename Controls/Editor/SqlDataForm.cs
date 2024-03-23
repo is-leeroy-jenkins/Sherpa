@@ -75,6 +75,11 @@ namespace BudgetExecution
     public partial class SqlDataForm : EditBase
     {
         /// <summary>
+        /// The locked
+        /// </summary>
+        private static object KEY;
+
+        /// <summary>
         /// The busy
         /// </summary>
         private bool _busy;
@@ -145,17 +150,17 @@ namespace BudgetExecution
         private string _fourthValue;
 
         /// <summary>
-        /// The SQL command
+        /// The command of the SQL command
         /// </summary>
         private string _selectedCommand;
 
         /// <summary>
-        /// The SQL command
+        /// The text of the SQL command
         /// </summary>
         private string _selectedQuery;
 
         /// <summary>
-        /// The commands
+        /// A list of commands of type string
         /// </summary>
         private IList<string> _commands;
 
@@ -645,11 +650,13 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the PictureBox.
         /// </summary>
-        private void InitializeIcon( )
+        private void InitializePictureBox( )
         {
             try
             {
-                PictureBox.Size = new Size( 18, 16 );
+                PictureBox.Size = new Size( 18, 14 );
+                PictureBox.Padding = new Padding( 1 );
+                PictureBox.Margin = new Padding( 1 );
                 PictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             }
             catch( Exception _ex )
@@ -761,7 +768,7 @@ namespace BudgetExecution
         {
             try
             {
-                Title.Font = new Font( "Roboto", 10 );
+                Title.Font = new Font( "Roboto", 9 );
                 Title.ForeColor = Color.FromArgb( 106, 189, 252 );
                 Title.TextAlign = ContentAlignment.TopLeft;
             }
@@ -843,6 +850,36 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Closes the form.
+        /// </summary>
+        public new void Close( )
+        {
+            try
+            {
+                Opacity = 0;
+                if( _seconds != 0 )
+                {
+                    var _timer = new Timer( );
+                    _timer.Interval = 1000;
+                    _timer.Tick += ( sender, args ) =>
+                    {
+                        _time--;
+                        if( _time == _seconds )
+                        {
+                            _timer.Stop( );
+                        }
+                    };
+                }
+
+                base.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Populates the table ListBox items.
         /// </summary>
         public void PopulateTableListBoxItems( )
@@ -854,7 +891,7 @@ namespace BudgetExecution
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
                 var _names = _data
-                    ?.Select( dr => dr.Field<string>( "TableName" ) )
+                    ?.Select( r => r.Field<string>( "TableName" ) )
                     ?.Distinct( )
                     ?.ToList( );
 
@@ -938,7 +975,21 @@ namespace BudgetExecution
         {
             try
             {
-                _busy = true;
+                if( KEY == null )
+                {
+                    KEY = new object( );
+                    lock( KEY )
+                    {
+                        _busy = true;
+                    }
+                }
+                else
+                {
+                    lock( KEY )
+                    {
+                        _busy = true;
+                    }
+                }
             }
             catch( Exception _ex )
             {
@@ -953,7 +1004,21 @@ namespace BudgetExecution
         {
             try
             {
-                _busy = false;
+                if( KEY == null )
+                {
+                    KEY = new object( );
+                    lock( KEY )
+                    {
+                        _busy = false;
+                    }
+                }
+                else
+                {
+                    lock( KEY )
+                    {
+                        _busy = false;
+                    }
+                }
             }
             catch( Exception _ex )
             {
@@ -1994,12 +2059,12 @@ namespace BudgetExecution
                 SetFormIcon( );
                 InitializeLabels( );
                 InitializeTimers( );
+                TabControl.SelectedIndex = 0;
                 _tabPages = GetTabPages( );
                 _panels = GetPanels( );
                 _radioButtons = GetRadioButtons( );
                 _listBoxes = GetListBoxes( );
                 _labels = GetLabels( );
-                TabControl.SelectedIndex = 0;
                 SetActiveTab( );
                 FadeIn( );
             }
@@ -2539,6 +2604,24 @@ namespace BudgetExecution
 
                 FadeOut( );
                 Close( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [shown].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnShown( object sender, EventArgs e )
+        {
+            try
+            {
+                FadeIn( );
             }
             catch( Exception _ex )
             {

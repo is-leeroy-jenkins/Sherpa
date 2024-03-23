@@ -238,24 +238,25 @@
             // 
             DataTabControl.ActiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataTabControl.ActiveTabFont = new System.Drawing.Font( "Roboto", 8F );
+            DataTabControl.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             DataTabControl.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            DataTabControl.BeforeTouchSize = new System.Drawing.Size( 1023, 492 );
+            DataTabControl.BeforeTouchSize = new System.Drawing.Size( 989, 468 );
             DataTabControl.BindingSource = null;
-            DataTabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            DataTabControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             DataTabControl.CanOverrideStyle = true;
             DataTabControl.CloseButtonBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataTabControl.Controls.Add( ReadyTabPage );
             DataTabControl.Controls.Add( BusyTabPage );
-            DataTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            DataTabControl.FixedSingleBorderColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataTabControl.FocusOnTabClick = false;
             DataTabControl.Font = new System.Drawing.Font( "Roboto", 9F );
             DataTabControl.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             DataTabControl.InactiveCloseButtonForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataTabControl.InactiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataTabControl.ItemSize = new System.Drawing.Size( 100, 18 );
-            DataTabControl.Location = new System.Drawing.Point( 1, 1 );
+            DataTabControl.Location = new System.Drawing.Point( 16, 16 );
             DataTabControl.Name = "DataTabControl";
-            DataTabControl.Size = new System.Drawing.Size( 1023, 492 );
+            DataTabControl.Size = new System.Drawing.Size( 989, 468 );
             DataTabControl.TabIndex = 1;
             DataTabControl.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataTabControl.TabStyle = typeof( Syncfusion.Windows.Forms.Tools.TabRendererMetro );
@@ -273,14 +274,16 @@
             // 
             // ReadyTabPage
             // 
+            ReadyTabPage.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             ReadyTabPage.Controls.Add( Chart );
             ReadyTabPage.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             ReadyTabPage.Image = null;
             ReadyTabPage.ImageSize = new System.Drawing.Size( 16, 16 );
-            ReadyTabPage.Location = new System.Drawing.Point( 0, 17 );
+            ReadyTabPage.Location = new System.Drawing.Point( 1, 18 );
+            ReadyTabPage.Margin = new System.Windows.Forms.Padding( 1 );
             ReadyTabPage.Name = "ReadyTabPage";
             ReadyTabPage.ShowCloseButton = true;
-            ReadyTabPage.Size = new System.Drawing.Size( 1023, 475 );
+            ReadyTabPage.Size = new System.Drawing.Size( 987, 449 );
             ReadyTabPage.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             ReadyTabPage.TabForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             ReadyTabPage.TabIndex = 1;
@@ -292,6 +295,7 @@
             Chart.AllowGapForEmptyPoints = false;
             Chart.AllowGradientPalette = true;
             Chart.AllowUserEditStyles = true;
+            Chart.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             Chart.AutoHighlight = true;
             Chart.BorderAppearance.BaseColor = System.Drawing.Color.FromArgb( 80, 80, 80 );
             Chart.BorderAppearance.Interior.ForeColor = System.Drawing.Color.FromArgb( 80, 80, 80 );
@@ -303,7 +307,6 @@
             Chart.Depth = 250F;
             Chart.DisplayChartContextMenu = false;
             Chart.DisplaySeriesContextMenu = false;
-            Chart.Dock = System.Windows.Forms.DockStyle.Fill;
             Chart.EnableMouseRotation = true;
             Chart.Font = new System.Drawing.Font( "Microsoft Sans Serif", 8.25F );
             Chart.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
@@ -317,7 +320,7 @@
             Chart.Legend.Visible = false;
             Chart.Legend.VisibleCheckBox = true;
             Chart.Localize = null;
-            Chart.Location = new System.Drawing.Point( 0, 0 );
+            Chart.Location = new System.Drawing.Point( 21, 16 );
             Chart.Margin = new System.Windows.Forms.Padding( 1 );
             Chart.Name = "Chart";
             Chart.Padding = new System.Windows.Forms.Padding( 1 );
@@ -349,7 +352,7 @@
             Chart.Series3D = true;
             Chart.SeriesHighlight = true;
             Chart.ShowScrollBars = false;
-            Chart.Size = new System.Drawing.Size( 1023, 475 );
+            Chart.Size = new System.Drawing.Size( 949, 417 );
             Chart.Skins = Syncfusion.Windows.Forms.Chart.Skins.Office2016Black;
             Chart.Spacing = 5F;
             Chart.SpacingBetweenPoints = 5F;
@@ -375,10 +378,10 @@
             BusyTabPage.Controls.Add( Loader );
             BusyTabPage.Image = null;
             BusyTabPage.ImageSize = new System.Drawing.Size( 16, 16 );
-            BusyTabPage.Location = new System.Drawing.Point( 0, 17 );
+            BusyTabPage.Location = new System.Drawing.Point( 1, 18 );
             BusyTabPage.Name = "BusyTabPage";
             BusyTabPage.ShowCloseButton = true;
-            BusyTabPage.Size = new System.Drawing.Size( 1023, 475 );
+            BusyTabPage.Size = new System.Drawing.Size( 987, 449 );
             BusyTabPage.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             BusyTabPage.TabForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             BusyTabPage.TabIndex = 2;
@@ -391,7 +394,7 @@
             Loader.Image = Resources.Images.LoaderImages.Loading;
             Loader.Location = new System.Drawing.Point( 0, 0 );
             Loader.Name = "Loader";
-            Loader.Size = new System.Drawing.Size( 1023, 475 );
+            Loader.Size = new System.Drawing.Size( 987, 449 );
             Loader.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             Loader.TabIndex = 0;
             Loader.TabStop = false;
@@ -1809,12 +1812,12 @@
             ThirdTable.Controls.Add( ThirdListBoxPanel, 0, 1 );
             ThirdTable.Font = new System.Drawing.Font( "Roboto", 9F );
             ThirdTable.ForeColor = System.Drawing.Color.DarkGray;
-            ThirdTable.Location = new System.Drawing.Point( 3, 440 );
+            ThirdTable.Location = new System.Drawing.Point( 3, 437 );
             ThirdTable.Name = "ThirdTable";
             ThirdTable.RowCount = 2;
-            ThirdTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 19.2513371F ) );
-            ThirdTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 80.7486649F ) );
-            ThirdTable.Size = new System.Drawing.Size( 242, 211 );
+            ThirdTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 18.97436F ) );
+            ThirdTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 81.02564F ) );
+            ThirdTable.Size = new System.Drawing.Size( 242, 205 );
             ThirdTable.TabIndex = 51;
             // 
             // ThirdComboBox
@@ -1861,14 +1864,15 @@
             ThirdListBoxPanel.Children = null;
             ThirdListBoxPanel.Controls.Add( ThirdListBox );
             ThirdListBoxPanel.DataFilter = null;
+            ThirdListBoxPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             ThirdListBoxPanel.Font = new System.Drawing.Font( "Roboto", 8F );
             ThirdListBoxPanel.ForeColor = System.Drawing.Color.Transparent;
             ThirdListBoxPanel.HoverText = null;
             ThirdListBoxPanel.IsDerivedStyle = true;
-            ThirdListBoxPanel.Location = new System.Drawing.Point( 3, 56 );
+            ThirdListBoxPanel.Location = new System.Drawing.Point( 3, 54 );
             ThirdListBoxPanel.Name = "ThirdListBoxPanel";
             ThirdListBoxPanel.Padding = new System.Windows.Forms.Padding( 1 );
-            ThirdListBoxPanel.Size = new System.Drawing.Size( 233, 152 );
+            ThirdListBoxPanel.Size = new System.Drawing.Size( 236, 148 );
             ThirdListBoxPanel.Style = MetroSet_UI.Enums.Style.Custom;
             ThirdListBoxPanel.StyleManager = null;
             ThirdListBoxPanel.TabIndex = 1;
@@ -1903,7 +1907,7 @@
             ThirdListBox.SelectedValue = null;
             ThirdListBox.ShowBorder = false;
             ThirdListBox.ShowScrollBar = true;
-            ThirdListBox.Size = new System.Drawing.Size( 199, 118 );
+            ThirdListBox.Size = new System.Drawing.Size( 199, 109 );
             ThirdListBox.Style = MetroSet_UI.Enums.Style.Custom;
             ThirdListBox.StyleManager = null;
             ThirdListBox.TabIndex = 0;
@@ -2201,6 +2205,7 @@
             // 
             // NumericListBox
             // 
+            NumericListBox.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             NumericListBox.BackColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             NumericListBox.BindingSource = null;
             NumericListBox.BorderColor = System.Drawing.Color.FromArgb( 55, 55, 55 );
@@ -2280,6 +2285,7 @@
             // 
             // FieldListBox
             // 
+            FieldListBox.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             FieldListBox.BackColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             FieldListBox.BindingSource = null;
             FieldListBox.BorderColor = System.Drawing.Color.FromArgb( 55, 55, 55 );
@@ -2381,7 +2387,7 @@
             PictureBox.Image = Resources.Images.FormImages.Application;
             PictureBox.Location = new System.Drawing.Point( 3, 3 );
             PictureBox.Name = "PictureBox";
-            PictureBox.Size = new System.Drawing.Size( 18, 18 );
+            PictureBox.Size = new System.Drawing.Size( 18, 14 );
             PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             PictureBox.TabIndex = 0;
             PictureBox.TabStop = false;
@@ -2437,14 +2443,13 @@
             CaptionForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             ClientSize = new System.Drawing.Size( 1328, 728 );
             ControlBox = false;
-            Controls.Add( QueryTabControl );
             Controls.Add( ToolStripTable );
             Controls.Add( ChartHeaderTable );
             Controls.Add( ChartHeaderPanel );
+            Controls.Add( QueryTabControl );
             DoubleBuffered = true;
             Font = new System.Drawing.Font( "Roboto", 9F );
             ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
             MaximizeBox = false;
             MaximumSize = new System.Drawing.Size( 1350, 750 );

@@ -53,6 +53,7 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Chart;
     using Syncfusion.Windows.Forms.Tools;
+    using Action = System.Action;
     using MarkerStyle = Syncfusion.Windows.Forms.Chart.MarkerStyle;
 
     /// <summary>
@@ -87,7 +88,7 @@ namespace BudgetExecution
         /// <summary>
         /// The status update
         /// </summary>
-        private System.Action _statusUpdate;
+        private Action _statusUpdate;
 
         /// <summary>
         /// The time
@@ -847,6 +848,10 @@ namespace BudgetExecution
             _metric = STAT.Total;
             _chartType = ChartSeriesType.Column;
 
+            // Timer Properties
+            _time = 0;
+            _seconds = 5;
+
             // Budget Attributes
             _filter = new Dictionary<string, object>( );
             _fields = new List<string>( );
@@ -856,10 +861,6 @@ namespace BudgetExecution
             _selectedFields = new List<string>( );
             _selectedNumerics = new List<string>( );
             _dataArgs = new DataArgs( );
-
-            // Timer Properties
-            _time = 0;
-            _seconds = 5;
 
             // Event Wiring
             Load += OnLoad;
@@ -1076,10 +1077,10 @@ namespace BudgetExecution
         {
             try
             {
-                PictureBox.Size = new Size( 18, 18 );
+                PictureBox.Size = new Size( 18, 14 );
                 PictureBox.Padding = new Padding( 1 );
                 PictureBox.Margin = new Padding( 1 );
-                PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                PictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             }
             catch( Exception ex )
             {
@@ -1123,7 +1124,7 @@ namespace BudgetExecution
         /// <param name="action">
         /// The action.
         /// </param>
-        public void InvokeIf( System.Action action )
+        public void InvokeIf( Action action )
         {
             try
             {
@@ -1223,6 +1224,36 @@ namespace BudgetExecution
                     _timer.Tick += ( sender, args ) =>
                     {
                         _time++;
+                        if( _time == _seconds )
+                        {
+                            _timer.Stop( );
+                        }
+                    };
+                }
+
+                base.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Closes the form.
+        /// </summary>
+        public new void Close( )
+        {
+            try
+            {
+                Opacity = 0;
+                if( _seconds != 0 )
+                {
+                    var _timer = new Timer( );
+                    _timer.Interval = 1000;
+                    _timer.Tick += ( sender, args ) =>
+                    {
+                        _time--;
                         if( _time == _seconds )
                         {
                             _timer.Stop( );
@@ -2674,36 +2705,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Closes the form.
-        /// </summary>
-        public new void Close( )
-        {
-            try
-            {
-                Opacity = 0;
-                if( _seconds != 0 )
-                {
-                    var _timer = new Timer( );
-                    _timer.Interval = 1000;
-                    _timer.Tick += ( sender, args ) =>
-                    {
-                        _time--;
-                        if( _time == _seconds )
-                        {
-                            _timer.Stop( );
-                        }
-                    };
-                }
-
-                base.Show( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -3426,6 +3427,24 @@ namespace BudgetExecution
                 var _current = BindingSource.GetCurrentRow( );
                 SetSeriesPointStyles( _current );
                 UpdateSchema( _current );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [shown].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnShown( object sender, EventArgs e )
+        {
+            try
+            {
+                FadeIn( );
             }
             catch( Exception _ex )
             {

@@ -725,6 +725,8 @@ namespace BudgetExecution
         public DataViewForm( )
         {
             InitializeComponent( );
+            InitializeDelegates( );
+            RegisterCallbacks( );
 
             // Basic Properties
             Size = new Size( 1340, 740 );
@@ -759,6 +761,22 @@ namespace BudgetExecution
 
             // Initialize Default Provider
             _provider = Provider.Access;
+
+            // Timer Properties
+            _time = 0;
+            _seconds = 5;
+
+            // Budget Collections
+            _filter = new Dictionary<string, object>( );
+            _selectedColumns = new List<string>( );
+            _selectedFields = new List<string>( );
+            _selectedNumerics = new List<string>( );
+            _dataArgs = new DataArgs( );
+
+            // Form Event Wiring
+            Load += OnLoad;
+            MouseClick += OnRightClick;
+            Closing += OnClosing;
         }
 
         /// <summary>
@@ -800,6 +818,36 @@ namespace BudgetExecution
                     _timer.Tick += ( sender, args ) =>
                     {
                         _time++;
+                        if( _time == _seconds )
+                        {
+                            _timer.Stop( );
+                        }
+                    };
+                }
+
+                base.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Closes the form.
+        /// </summary>
+        public new void Close( )
+        {
+            try
+            {
+                Opacity = 0;
+                if( _seconds != 0 )
+                {
+                    var _timer = new Timer( );
+                    _timer.Interval = 1000;
+                    _timer.Tick += ( sender, args ) =>
+                    {
+                        _time--;
                         if( _time == _seconds )
                         {
                             _timer.Stop( );
@@ -972,12 +1020,14 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the PictureBox.
         /// </summary>
-        private void InitializeIcon( )
+        private void InitializePictureBox( )
         {
             try
             {
-                PictureBox.Size = new Size( 18, 18 );
-                PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                PictureBox.Size = new Size( 18, 14 );
+                PictureBox.Padding = new Padding( 1 );
+                PictureBox.Margin = new Padding( 1 );
+                PictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             }
             catch( Exception _ex )
             {

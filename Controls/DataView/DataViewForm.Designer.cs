@@ -215,10 +215,11 @@
             // PictureBox
             // 
             PictureBox.Image = Resources.Images.FormImages.Application;
-            PictureBox.Location = new System.Drawing.Point( 3, 3 );
+            PictureBox.Location = new System.Drawing.Point( 1, 1 );
+            PictureBox.Margin = new System.Windows.Forms.Padding( 1 );
             PictureBox.Name = "PictureBox";
-            PictureBox.Size = new System.Drawing.Size( 20, 18 );
-            PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            PictureBox.Size = new System.Drawing.Size( 18, 14 );
+            PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             PictureBox.TabIndex = 1;
             PictureBox.TabStop = false;
             // 
@@ -918,9 +919,9 @@
             ApplicationLabel.Margin = new System.Windows.Forms.Padding( 1 );
             ApplicationLabel.Name = "ApplicationLabel";
             ApplicationLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            ApplicationLabel.Size = new System.Drawing.Size( 68, 25 );
+            ApplicationLabel.Size = new System.Drawing.Size( 46, 25 );
             ApplicationLabel.Tag = "";
-            ApplicationLabel.Text = "       Application:";
+            ApplicationLabel.Text = "       Menu:";
             ApplicationLabel.ToolTip = null;
             // 
             // Timer
@@ -1197,7 +1198,7 @@
             Busy.Location = new System.Drawing.Point( 0, 4 );
             Busy.Name = "Busy";
             Busy.ShowCloseButton = true;
-            Busy.Size = new System.Drawing.Size( 1011, 555 );
+            Busy.Size = new System.Drawing.Size( 1001, 547 );
             Busy.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             Busy.TabForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             Busy.TabIndex = 2;
@@ -1209,7 +1210,7 @@
             Loader.Image = Resources.Images.LoaderImages.Loading;
             Loader.Location = new System.Drawing.Point( 21, 16 );
             Loader.Name = "Loader";
-            Loader.Size = new System.Drawing.Size( 1764, 970 );
+            Loader.Size = new System.Drawing.Size( 1754, 962 );
             Loader.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             Loader.TabIndex = 0;
             Loader.TabStop = false;

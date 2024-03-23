@@ -107,7 +107,7 @@
             PictureBox.Location = new System.Drawing.Point( 1, 1 );
             PictureBox.Margin = new System.Windows.Forms.Padding( 1 );
             PictureBox.Name = "PictureBox";
-            PictureBox.Size = new System.Drawing.Size( 18, 16 );
+            PictureBox.Size = new System.Drawing.Size( 18, 14 );
             PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             PictureBox.TabIndex = 0;
             PictureBox.TabStop = false;
@@ -712,13 +712,13 @@
             TextBox.BackColor = System.Drawing.Color.FromArgb( 10, 10, 10 );
             TextBox.BindingSource = BindingSource;
             TextBox.Field = Field.AccountCode;
-            TextBox.Font = new System.Drawing.Font( "Roboto", 9F );
+            TextBox.Font = new System.Drawing.Font( "Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
             TextBox.ForeColor = System.Drawing.SystemColors.WindowText;
             TextBox.HoverText = "Search Web";
-            TextBox.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            TextBox.Margin = new System.Windows.Forms.Padding( 1 );
             TextBox.Name = "TextBox";
             TextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            TextBox.Size = new System.Drawing.Size( 174, 25 );
+            TextBox.Size = new System.Drawing.Size( 196, 25 );
             TextBox.Tag = "";
             TextBox.Text = "Enter Keywords";
             TextBox.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -794,7 +794,7 @@
             Map.GrayScaleMode = false;
             Map.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
             Map.LevelsKeepInMemory = 5;
-            Map.Location = new System.Drawing.Point( 81, 19 );
+            Map.Location = new System.Drawing.Point( 81, 17 );
             Map.MarkersEnabled = true;
             Map.MaxZoom = 2;
             Map.MinZoom = 2;
@@ -809,7 +809,7 @@
             Map.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             Map.SelectedAreaFillColor = System.Drawing.Color.FromArgb( 33, 65, 105, 225 );
             Map.ShowTileGridLines = false;
-            Map.Size = new System.Drawing.Size( 1161, 596 );
+            Map.Size = new System.Drawing.Size( 1161, 556 );
             Map.TabIndex = 2;
             Map.Zoom = 0D;
             // 
@@ -829,7 +829,7 @@
             MapTable.RowCount = 3;
             MapTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 2.58899665F ) );
             MapTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 97.411F ) );
-            MapTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 38F ) );
+            MapTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 80F ) );
             MapTable.Size = new System.Drawing.Size( 1326, 657 );
             MapTable.TabIndex = 3;
             // 

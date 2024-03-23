@@ -187,7 +187,7 @@ namespace BudgetExecution
                 MessageTile.Click += OnMessageTileClick;
                 SqlEditorTile.Click += OnSqlEditorTileClick;
                 VisualizationTile.Click += OnVisualizationTileClick;
-                ExcelDataTile.Click += OnExcelDataTileClick;
+                ExcelDataTile.Click += OnExcelTileClick;
                 SQLiteTile.Click += OnSQLiteTileClick;
                 SqlCeTile.Click += OnSqlCeTileClick;
                 GuidanceTile.Click += OnGuidanceTileClick;
@@ -302,6 +302,36 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Closes the form.
+        /// </summary>
+        public new void Close( )
+        {
+            try
+            {
+                Opacity = 0;
+                if( _seconds != 0 )
+                {
+                    var _timer = new Timer( );
+                    _timer.Interval = 1000;
+                    _timer.Tick += ( sender, args ) =>
+                    {
+                        _time--;
+                        if( _time == _seconds )
+                        {
+                            _timer.Stop( );
+                        }
+                    };
+                }
+
+                base.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Sends the notification.
         /// </summary>
         /// <param name="message">
@@ -314,6 +344,25 @@ namespace BudgetExecution
                 ThrowIf.Null( message, nameof( message ) );
                 var _notify = new Notification( message );
                 _notify.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Shows the splash message.
+        /// </summary>
+        private void SendMessage( string message )
+        {
+            try
+            {
+                ThrowIf.Null( message, nameof( message ) );
+                var _splash = new SplashMessage( message );
+                _splash.Owner = this;
+                _splash.TopMost = true;
+                _splash.Show( );
             }
             catch( Exception _ex )
             {
@@ -511,25 +560,6 @@ namespace BudgetExecution
                 _editor.Owner = this;
                 _editor.Show( );
                 Hide( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Shows the splash message.
-        /// </summary>
-        private void SendMessage( string message )
-        {
-            try
-            {
-                ThrowIf.Null( message, nameof( message ) );
-                var _splash = new SplashMessage( message );
-                _splash.Owner = this;
-                _splash.TopMost = true;
-                _splash.Show( );
             }
             catch( Exception _ex )
             {
@@ -1228,9 +1258,16 @@ namespace BudgetExecution
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        private void OnExcelDataTileClick( object sender, EventArgs e )
+        private void OnExcelTileClick( object sender, EventArgs e )
         {
-            OpenExcelDataForm( );
+            try
+            {
+                OpenExcelDataForm( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -1243,7 +1280,14 @@ namespace BudgetExecution
         /// </param>
         private void OnLookupTileClick( object sender, EventArgs e )
         {
-            OpenDataGridForm( );
+            try
+            {
+                OpenDataGridForm( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -1256,7 +1300,14 @@ namespace BudgetExecution
         /// </param>
         private void OnSqlEditorTileClick( object sender, EventArgs e )
         {
-            OpenSqlEditor( );
+            try
+            {
+                OpenSqlEditor( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -1269,7 +1320,14 @@ namespace BudgetExecution
         /// </param>
         private void OnVisualizationTileClick( object sender, EventArgs e )
         {
-            OpenChartDataForm( );
+            try
+            {
+                OpenChartDataForm( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -1282,7 +1340,14 @@ namespace BudgetExecution
         /// </param>
         private void OnProgramProjectTileClick( object sender, EventArgs e )
         {
-            ShowProgramProjectDialog( );
+            try
+            {
+                ShowProgramProjectDialog( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -1295,7 +1360,14 @@ namespace BudgetExecution
         /// </param>
         private void OnPivotTileClick( object sender, EventArgs e )
         {
-            BeginInvoke( _beginLoad );
+            try
+            {
+                InvokeIf( _beginLoad );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -1306,7 +1378,14 @@ namespace BudgetExecution
         /// instance containing the event data.</param>
         private void OnTimerTick( object sender, EventArgs e )
         {
-            BeginInvoke( _endLoad );
+            try
+            {
+                InvokeIf( _endLoad );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -1319,7 +1398,14 @@ namespace BudgetExecution
         /// </param>
         private void OnCalculatorTileClick( object sender, EventArgs e )
         {
-            OpenCalculationForm( );
+            try
+            {
+                OpenCalculationForm( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -1332,7 +1418,14 @@ namespace BudgetExecution
         /// </param>
         private void OnGuidanceTileClick( object sender, EventArgs e )
         {
-            OpenDocumentViewer( );
+            try
+            {
+                OpenDocumentViewer( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -1345,7 +1438,14 @@ namespace BudgetExecution
         /// </param>
         private void OnCalendarTileClick( object sender, EventArgs e )
         {
-            OpenFiscalYearForm( );
+            try
+            {
+                OpenFiscalYearForm( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -1377,7 +1477,14 @@ namespace BudgetExecution
         /// </param>
         private void OnMessageTileClick( object sender, EventArgs e )
         {
-            ShowEmailDialog( );
+            try
+            {
+                ShowEmailDialog( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -1412,40 +1519,9 @@ namespace BudgetExecution
         /// </param>
         private void OnMapTileClick( object sender, EventArgs e )
         {
-            OpenGeoMapper( );
-        }
-
-        /// <summary>
-        /// Called when [maximize button click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnMaximizeButtonClick( object sender, EventArgs e )
-        {
             try
             {
-                Size = MaximumSize;
-                Refresh( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [minimize button click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnMinimizeButtonClick( object sender, EventArgs e )
-        {
-            try
-            {
-                Size = MinimumSize;
-                Refresh( );
+                OpenGeoMapper( );
             }
             catch( Exception _ex )
             {

@@ -786,10 +786,6 @@ namespace BudgetExecution
             _selectedNumerics = new List<string>( );
             _dataArgs = new DataArgs( );
 
-            // Set PictureBox Size
-            PictureBox.Size = new Size( 18, 18 );
-            TableListBox.ShowScrollBar = false;
-
             // Form Event Wiring
             Load += OnLoad;
             MouseClick += OnRightClick;
@@ -917,6 +913,36 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Closes the form.
+        /// </summary>
+        public new void Close( )
+        {
+            try
+            {
+                Opacity = 0;
+                if( _seconds != 0 )
+                {
+                    var _timer = new Timer( );
+                    _timer.Interval = 1000;
+                    _timer.Tick += ( sender, args ) =>
+                    {
+                        _time--;
+                        if( _time == _seconds )
+                        {
+                            _timer.Stop( );
+                        }
+                    };
+                }
+
+                base.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Initializes the callbacks.
         /// </summary>
         private void RegisterCallbacks( )
@@ -985,12 +1011,14 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the PictureBox.
         /// </summary>
-        private void InitializeIcon( )
+        private void InitializePictureBox( )
         {
             try
             {
-                PictureBox.Size = new Size( 18, 18 );
-                PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                PictureBox.Size = new Size( 18, 14 );
+                PictureBox.Padding = new Padding( 1 );
+                PictureBox.Margin = new Padding( 1 );
+                PictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             }
             catch( Exception _ex )
             {
@@ -2279,28 +2307,34 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Closes the form.
+        /// Sends the notification.
         /// </summary>
-        public new void Close( )
+        /// <param name="text">The text.</param>
+        private void SendNotification( string text )
         {
             try
             {
-                Opacity = 0;
-                if( _seconds != 0 )
-                {
-                    var _timer = new Timer( );
-                    _timer.Interval = 1000;
-                    _timer.Tick += ( sender, args ) =>
-                    {
-                        _time--;
-                        if( _time == _seconds )
-                        {
-                            _timer.Stop( );
-                        }
-                    };
-                }
+                ThrowIf.Null( text, nameof( text ) );
+                var _notification = new Notification( text );
+                _notification.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
 
-                base.Show( );
+        /// <summary>
+        /// Sends the message.
+        /// </summary>
+        /// <param name="text">The text.</param>
+        private void SendMessage( string text )
+        {
+            try
+            {
+                ThrowIf.Null( text, nameof( text ) );
+                var _message = new SplashMessage( text );
+                _message.Show( );
             }
             catch( Exception _ex )
             {
@@ -2320,7 +2354,7 @@ namespace BudgetExecution
             {
                 ClearCategoryValueSelections( );
                 InitializeRadioButtons( );
-                InitializeIcon( );
+                InitializePictureBox( );
                 SetFormIcon( );
                 InitializeToolStrip( );
                 InitializeTitle( );
@@ -2339,6 +2373,7 @@ namespace BudgetExecution
 
                 DataGrid.PascalizeHeaders( );
                 DataGrid.FormatColumns( );
+                TableListBox.ShowScrollBar = false;
                 UpdateLabelText( );
                 UpdateStatus( );
                 FadeIn( );

@@ -633,11 +633,13 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the PictureBox.
         /// </summary>
-        private void InitializeIcon( )
+        private void InitializePictureBox( )
         {
             try
             {
-                PictureBox.Size = new Size( 18, 16 );
+                PictureBox.Size = new Size( 18, 14 );
+                PictureBox.Padding = new Padding( 1 );
+                PictureBox.Margin = new Padding( 1 );
                 PictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             }
             catch( Exception _ex )
@@ -1923,7 +1925,7 @@ namespace BudgetExecution
                 InitializeToolStrip( );
                 InitializeButtons( );
                 InitializeLabels( );
-                InitializeIcon( );
+                InitializePictureBox( );
                 SetFormIcon( );
                 _tabPages = GetTabPages( );
                 _panels = GetPanels( );
