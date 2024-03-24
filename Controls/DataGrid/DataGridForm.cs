@@ -3166,6 +3166,7 @@ namespace BudgetExecution
                 ClearCategoryValueSelections( );
                 ClearSchemaSelections( );
                 FadeOut( );
+                Close( );
             }
             catch( Exception _ex )
             {

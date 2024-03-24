@@ -364,6 +364,26 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Launches the windows calculator.
+        /// </summary>
+        public static void LaunchWindowsCalculator( )
+        {
+            try
+            {
+                var _startInfo = new ProcessStartInfo( );
+                _startInfo.FileName = "CALC.EXE";
+                _startInfo.UseShellExecute = true;
+                _startInfo.LoadUserProfile = true;
+                _startInfo.WindowStyle = ProcessWindowStyle.Normal;
+                Process.Start( _startInfo );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Fails the specified ex.
         /// </summary>
         /// <param name="ex">The ex.</param>

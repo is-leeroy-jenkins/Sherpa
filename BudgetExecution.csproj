@@ -32,6 +32,10 @@
     <PackageIcon>Application.png</PackageIcon>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <ApplicationIcon>Resources\Assets\FormImages\Application.ico</ApplicationIcon>
+    <Description>A budget, finance, and accounting tool used for data analysis by analysts with the US EPA.</Description>
+    <Copyright>MIT</Copyright>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>data analysis; budget; finance; accounting; federal;</PackageTags>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702;2201;1051;CA1200;CA1310;CA1305;1822;CA1716;CA1812;CA1304</NoWarn>

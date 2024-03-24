@@ -59,6 +59,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public partial class CalculationForm : MetroForm
     {
         /// <summary>
@@ -75,6 +76,11 @@ namespace BudgetExecution
         /// The initial value
         /// </summary>
         private protected double _initialValue;
+
+        /// <summary>
+        /// The status update
+        /// </summary>
+        private System.Action _statusUpdate;
 
         /// <summary>
         /// Gets or sets the time.
@@ -139,12 +145,16 @@ namespace BudgetExecution
         public CalculationForm( )
         {
             InitializeComponent( );
+            InitializeDelegates( );
+            RegisterCallbacks( );
 
             // Basic Properties
             Font = new Font( "Roboto", 9 );
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.FromArgb( 106, 189, 252 );
             Size = new Size( 373, 451 );
+            MaximumSize = new Size( 373, 451 );
+            MinimumSize = new Size( 373, 451 );
             FormBorderStyle = FormBorderStyle.FixedSingle;
             BorderColor = Color.FromArgb( 0, 120, 212 );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
@@ -158,6 +168,8 @@ namespace BudgetExecution
 
             // Event Wiring
             Load += OnLoad;
+            Closing += OnClosing;
+            Shown += OnShown;
         }
 
         /// <inheritdoc/>
@@ -206,11 +218,17 @@ namespace BudgetExecution
             try
             {
                 // Label Configuration
+                var _blue = Color.FromArgb( 106, 189, 252 );
+                var _transparent = Color.Transparent;
                 ValueLabel.Font = new Font( "Roboto", 12 );
                 ValueLabel.Dock = DockStyle.Top;
-                ValueLabel.BackColor = Color.Transparent;
-                ValueLabel.ForeColor = Color.FromArgb( 106, 189, 252 );
+                ValueLabel.BackColor = _transparent;
+                ValueLabel.ForeColor = _blue;
                 ValueLabel.TextAlign = ContentAlignment.MiddleCenter;
+                StatusLabel.Font = new Font( "Roboto", 7 );
+                StatusLabel.ForeColor = _blue;
+                StatusLabel.TextAlign = ContentAlignment.MiddleCenter;
+                CalculatorButton.HoverText = "Windows 10 Calculator";
             }
             catch( Exception _ex )
             {
@@ -225,8 +243,10 @@ namespace BudgetExecution
         {
             try
             {
+                CalculatorButton.Click += OnCalculatorButtonClick;
                 Calculator.ValueCalculated += OnCalculationValueChanged;
                 CloseButton.Click += OnCloseButtonClick;
+                ClearButton.Click += OnClearButtonClick;
             }
             catch( Exception _ex )
             {
@@ -237,13 +257,60 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the timers.
         /// </summary>
-        private void InitializeTimers( )
+        private void InitializeTimer( )
         {
             try
             {
                 // Timer Properties
-                _time = 0;
-                _seconds = 5;
+                Timer.Enabled = true;
+                Timer.Interval = 500;
+                Timer.Tick += OnTimerTick;
+                Timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the delegates.
+        /// </summary>
+        private void InitializeDelegates( )
+        {
+            try
+            {
+                _statusUpdate += UpdateStatus;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Shows the dialog.
+        /// </summary>
+        public new void ShowDialog( )
+        {
+            try
+            {
+                Opacity = 0;
+                if( Seconds != 0 )
+                {
+                    Timer = new Timer( );
+                    Timer.Interval = 10;
+                    Timer.Tick += ( sender, args ) =>
+                    {
+                        _time++;
+                        if( _time == _seconds )
+                        {
+                            Timer.Stop( );
+                        }
+                    };
+                }
+
+                base.Show( );
             }
             catch( Exception _ex )
             {
@@ -269,6 +336,36 @@ namespace BudgetExecution
                         if( _time == _seconds )
                         {
                             Timer.Stop( );
+                        }
+                    };
+                }
+
+                base.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Closes the form.
+        /// </summary>
+        public new void Close( )
+        {
+            try
+            {
+                Opacity = 0;
+                if( _seconds != 0 )
+                {
+                    var _timer = new Timer( );
+                    _timer.Interval = 1000;
+                    _timer.Tick += ( sender, args ) =>
+                    {
+                        _time--;
+                        if( _time == _seconds )
+                        {
+                            _timer.Stop( );
                         }
                     };
                 }
@@ -335,6 +432,65 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Invokes if needed.
+        /// </summary>
+        /// <param name="action">The action.</param>
+        public void InvokeIf( System.Action action )
+        {
+            try
+            {
+                ThrowIf.Null( action, nameof( action ) );
+                if( InvokeRequired )
+                {
+                    BeginInvoke( action );
+                }
+                else
+                {
+                    action.Invoke( );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Updates the status.
+        /// </summary>
+        private void UpdateStatus( )
+        {
+            try
+            {
+                var _now = DateTime.Now;
+                var _instant = _now.ToShortTimeString( );
+                StatusLabel.Text = $"{_instant}";
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Sends the notification.
+        /// </summary>
+        /// <param name="text">The text.</param>
+        private void SendNotification( string text )
+        {
+            try
+            {
+                ThrowIf.Null( text, nameof( text ) );
+                var _notification = new Notification( text );
+                _notification.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
         /// <summary> Called when [load]. </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
@@ -346,10 +502,8 @@ namespace BudgetExecution
         {
             try
             {
-                FadeIn( );
                 InitializeLabels( );
-                RegisterCallbacks();
-                InitializeTimers( );
+                InitializeTimer( );
                 InitializeCalculator( );
                 Calculator.BorderStyle = Border3DStyle.Adjust;
                 Calculator.BackColor = Color.FromArgb( 20, 20, 20 );
@@ -404,6 +558,97 @@ namespace BudgetExecution
             {
                 FadeOut( );
                 Close( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [windows button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnCalculatorButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                Minion.LaunchWindowsCalculator( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [timer tick].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnTimerTick( object sender, EventArgs e )
+        {
+            try
+            {
+                InvokeIf( _statusUpdate );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [clear button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnClearButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                Calculator.Value = new CalculatorValue( 0.0 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Raises the Close event.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        public void OnClosing( object sender, EventArgs e )
+        {
+            try
+            {
+                FadeOut( );
+                Close( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [shown].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnShown( object sender, EventArgs e )
+        {
+            try
+            {
+                FadeIn( );
             }
             catch( Exception _ex )
             {
