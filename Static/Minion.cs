@@ -384,6 +384,46 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Launches the control panel.
+        /// </summary>
+        public static void LaunchControlPanel( )
+        {
+            try
+            {
+                var _startInfo = new ProcessStartInfo( );
+                _startInfo.FileName = "control.exe";
+                _startInfo.UseShellExecute = true;
+                _startInfo.LoadUserProfile = true;
+                _startInfo.WindowStyle = ProcessWindowStyle.Maximized;
+                Process.Start( _startInfo );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Launches the task manager.
+        /// </summary>
+        public static void LaunchTaskManager( )
+        {
+            try
+            {
+                var _startInfo = new ProcessStartInfo( );
+                _startInfo.FileName = "taskmgr.exe";
+                _startInfo.UseShellExecute = true;
+                _startInfo.LoadUserProfile = true;
+                _startInfo.WindowStyle = ProcessWindowStyle.Maximized;
+                Process.Start( _startInfo );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Fails the specified ex.
         /// </summary>
         /// <param name="ex">The ex.</param>

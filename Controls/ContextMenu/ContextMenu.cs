@@ -91,15 +91,15 @@ namespace BudgetExecution
         /// <value>
         /// The calculator option.
         /// </value>
-        public ToolStripMenuItemExt CalculatorOption
+        public ToolStripMenuItemExt BudgetCalculatorOption
         {
             get
             {
-                return _calculatorOption;
+                return _budgetCalculatorOption;
             }
             private protected set
             {
-                _calculatorOption = value;
+                _budgetCalculatorOption = value;
             }
         }
 
@@ -118,6 +118,60 @@ namespace BudgetExecution
             private protected set
             {
                 _calendarOption = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the task manager option.
+        /// </summary>
+        /// <value>
+        /// The task manager option.
+        /// </value>
+        public ToolStripMenuItemExt TaskManagerOption
+        {
+            get
+            {
+                return _taskManagerOption;
+            }
+            private protected set
+            {
+                _taskManagerOption = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the control panel option.
+        /// </summary>
+        /// <value>
+        /// The control panel option.
+        /// </value>
+        public ToolStripMenuItemExt ControlPanelOption
+        {
+            get
+            {
+                return _controlPanelOption;
+            }
+            private protected set
+            {
+                _controlPanelOption = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the windows calculator option.
+        /// </summary>
+        /// <value>
+        /// The windows calculator option.
+        /// </value>
+        public ToolStripMenuItemExt WindowsCalculatorOption
+        {
+            get
+            {
+                return _windowsCalculatorOption;
+            }
+            private protected set
+            {
+                _windowsCalculatorOption = value;
             }
         }
 
@@ -222,8 +276,10 @@ namespace BudgetExecution
             // Menu Items
             _fileOption = CreateFileOption( );
             _folderOption = CreateFolderOption( );
-            _calculatorOption = CreateCalculatorOption( );
+            _budgetCalculatorOption = CreateBudgetCalculatorOption( );
             _calendarOption = CreateCalendarOption( );
+            _controlPanelOption = CreateControlPanelOption( );
+            _taskManagerOption = CreateTaskManagerOption( );
             _guidanceOption = CreateGuidanceOption( );
             _saveOption = CreateSaveOption( );
             _closeOption = CreateCloseOption( );

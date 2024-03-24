@@ -62,7 +62,7 @@ namespace BudgetExecution
         /// <summary>
         /// The calculator
         /// </summary>
-        Calculator = 3,
+        BudgetCalculator = 3,
 
         /// <summary>
         /// The calendar
@@ -70,23 +70,38 @@ namespace BudgetExecution
         Calendar = 4,
 
         /// <summary>
+        /// The control panel
+        /// </summary>
+        ControlPanel = 5,
+
+        /// <summary>
+        /// The task manager
+        /// </summary>
+        TaskManager = 6,
+
+        /// <summary>
+        /// The windows calculator
+        /// </summary>
+        WindowsCalculator = 7,
+
+        /// <summary>
         /// The guidance
         /// </summary>
-        Guidance = 5,
+        Guidance = 8,
 
         /// <summary>
         /// The save
         /// </summary>
-        Save = 6,
+        Save = 9,
 
         /// <summary>
         /// The close
         /// </summary>
-        Close = 7,
+        Close = 10,
 
         /// <summary>
         /// The exit
         /// </summary>
-        Exit = 8
+        Exit = 11
     }
 }
