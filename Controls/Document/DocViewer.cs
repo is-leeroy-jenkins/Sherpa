@@ -66,6 +66,11 @@ namespace BudgetExecution
     public partial class DocViewer : MetroForm
     {
         /// <summary>
+        /// The locked object
+        /// </summary>
+        private static object KEY;
+
+        /// <summary>
         /// The busy
         /// </summary>
         private bool _busy;
@@ -685,7 +690,21 @@ namespace BudgetExecution
         {
             try
             {
-                _busy = true;
+                if( KEY == null )
+                {
+                    KEY = new object( );
+                    lock( KEY )
+                    {
+                        _busy = true;
+                    }
+                }
+                else
+                {
+                    lock( KEY )
+                    {
+                        _busy = true;
+                    }
+                }
             }
             catch( Exception _ex )
             {
@@ -700,7 +719,21 @@ namespace BudgetExecution
         {
             try
             {
-                _busy = false;
+                if( KEY == null )
+                {
+                    KEY = new object( );
+                    lock( KEY )
+                    {
+                        _busy = false;
+                    }
+                }
+                else
+                {
+                    lock( KEY )
+                    {
+                        _busy = false;
+                    }
+                }
             }
             catch( Exception _ex )
             {

@@ -81,6 +81,11 @@ namespace BudgetExecution
     public partial class ChartDataForm : MetroForm
     {
         /// <summary>
+        /// The locked object
+        /// </summary>
+        private static object KEY;
+
+        /// <summary>
         /// The busy
         /// </summary>
         private bool _busy;
@@ -927,11 +932,11 @@ namespace BudgetExecution
                 var _foreColor = Color.FromArgb( 106, 189, 252 );
                 var _backColor = Color.Transparent;
                 var _labels = GetLabels( );
-                foreach( var lbl in _labels.Values )
+                foreach( var _label in _labels.Values )
                 {
-                    lbl.Font = _font;
-                    lbl.ForeColor = _foreColor;
-                    lbl.BackColor = _backColor;
+                    _label.Font = _font;
+                    _label.ForeColor = _foreColor;
+                    _label.BackColor = _backColor;
                 }
             }
             catch( Exception _ex )
@@ -943,12 +948,14 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the PictureBox.
         /// </summary>
-        private void InitializeIcon( )
+        private void InitializePictureBox( )
         {
             try
             {
-                PictureBox.Size = new Size( 18, 18 );
-                PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                PictureBox.Size = new Size( 18, 14 );
+                PictureBox.Padding = new Padding( 1 );
+                PictureBox.Margin = new Padding( 1 );
+                PictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             }
             catch( Exception _ex )
             {
@@ -1071,31 +1078,27 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes the PictureBox.
-        /// </summary>
-        private void InitializePictureBox( )
-        {
-            try
-            {
-                PictureBox.Size = new Size( 18, 14 );
-                PictureBox.Padding = new Padding( 1 );
-                PictureBox.Margin = new Padding( 1 );
-                PictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
         /// Begins the initialize.
         /// </summary>
         private void BeginInit( )
         {
             try
             {
-                _busy = true;
+                if( KEY == null )
+                {
+                    KEY = new object( );
+                    lock( KEY )
+                    {
+                        _busy = true;
+                    }
+                }
+                else
+                {
+                    lock( KEY )
+                    {
+                        _busy = true;
+                    }
+                }
             }
             catch( Exception _ex )
             {
@@ -1110,7 +1113,21 @@ namespace BudgetExecution
         {
             try
             {
-                _busy = false;
+                if( KEY == null )
+                {
+                    KEY = new object( );
+                    lock( KEY )
+                    {
+                        _busy = false;
+                    }
+                }
+                else
+                {
+                    lock( KEY )
+                    {
+                        _busy = false;
+                    }
+                }
             }
             catch( Exception _ex )
             {
@@ -1398,11 +1415,11 @@ namespace BudgetExecution
                 _list.Add( ChartSeriesType.Histogram.ToString( ) );
                 _list.Add( ChartSeriesType.Custom.ToString( ) );
                 _list.Add( ChartSeriesType.ThreeLineBreak.ToString( ) );
-                foreach( var _typ in _types )
+                foreach( var _type in _types )
                 {
-                    if( !_list.Contains( _typ ) )
+                    if( !_list.Contains( _type ) )
                     {
-                        ToolStripComboBox.Items.Add( _typ );
+                        ToolStripComboBox.Items.Add( _type );
                     }
                 }
             }

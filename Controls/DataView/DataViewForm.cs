@@ -67,6 +67,11 @@ namespace BudgetExecution
     public partial class DataViewForm : MetroForm
     {
         /// <summary>
+        /// The locked object
+        /// </summary>
+        private static object KEY;
+
+        /// <summary>
         /// The busy
         /// </summary>
         private bool _busy;
@@ -1116,7 +1121,28 @@ namespace BudgetExecution
         /// </summary>
         private void BeginInit( )
         {
-            _busy = true;
+            try
+            {
+                if( KEY == null )
+                {
+                    KEY = new object( );
+                    lock( KEY )
+                    {
+                        _busy = true;
+                    }
+                }
+                else
+                {
+                    lock( KEY )
+                    {
+                        _busy = true;
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -1124,7 +1150,28 @@ namespace BudgetExecution
         /// </summary>
         private void EndInit( )
         {
-            _busy = false;
+            try
+            {
+                if( KEY == null )
+                {
+                    KEY = new object( );
+                    lock( KEY )
+                    {
+                        _busy = false;
+                    }
+                }
+                else
+                {
+                    lock( KEY )
+                    {
+                        _busy = false;
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>

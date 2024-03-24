@@ -73,6 +73,11 @@ namespace BudgetExecution
     public partial class ExcelDataForm : MetroForm
     {
         /// <summary>
+        /// The locked object
+        /// </summary>
+        private static object KEY;
+
+        /// <summary>
         /// The busy
         /// </summary>
         private bool _busy;
@@ -1057,6 +1062,64 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Begins the initialize.
+        /// </summary>
+        private void BeginInit( )
+        {
+            try
+            {
+                if( KEY == null )
+                {
+                    KEY = new object( );
+                    lock( KEY )
+                    {
+                        _busy = true;
+                    }
+                }
+                else
+                {
+                    lock( KEY )
+                    {
+                        _busy = true;
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Ends the initialize.
+        /// </summary>
+        private void EndInit( )
+        {
+            try
+            {
+                if( KEY == null )
+                {
+                    KEY = new object( );
+                    lock( KEY )
+                    {
+                        _busy = false;
+                    }
+                }
+                else
+                {
+                    lock( KEY )
+                    {
+                        _busy = false;
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Displays the control to the user.
         /// </summary>
         public new void Show( )
@@ -1071,6 +1134,36 @@ namespace BudgetExecution
                     _timer.Tick += ( sender, args ) =>
                     {
                         _time++;
+                        if( _time == _seconds )
+                        {
+                            _timer.Stop( );
+                        }
+                    };
+                }
+
+                base.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Closes the form.
+        /// </summary>
+        public new void Close( )
+        {
+            try
+            {
+                Opacity = 0;
+                if( _seconds != 0 )
+                {
+                    var _timer = new Timer( );
+                    _timer.Interval = 1000;
+                    _timer.Tick += ( sender, args ) =>
+                    {
+                        _time--;
                         if( _time == _seconds )
                         {
                             _timer.Stop( );

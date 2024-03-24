@@ -75,7 +75,7 @@ namespace BudgetExecution
     public partial class SqlDataForm : EditBase
     {
         /// <summary>
-        /// The locked
+        /// The locked object
         /// </summary>
         private static object KEY;
 

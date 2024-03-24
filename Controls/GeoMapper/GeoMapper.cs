@@ -72,6 +72,11 @@ namespace BudgetExecution
     public partial class GeoMapper : MetroForm
     {
         /// <summary>
+        /// The locked object
+        /// </summary>
+        private static object KEY;
+
+        /// <summary>
         /// The time
         /// </summary>
         private int _time;
@@ -657,13 +662,27 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Begins to initialize.
+        /// Begins the initialize.
         /// </summary>
         private void BeginInit( )
         {
             try
             {
-                _busy = true;
+                if( KEY == null )
+                {
+                    KEY = new object( );
+                    lock( KEY )
+                    {
+                        _busy = true;
+                    }
+                }
+                else
+                {
+                    lock( KEY )
+                    {
+                        _busy = true;
+                    }
+                }
             }
             catch( Exception _ex )
             {
@@ -672,13 +691,27 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Ends the initialized.
+        /// Ends the initialize.
         /// </summary>
         private void EndInit( )
         {
             try
             {
-                _busy = false;
+                if( KEY == null )
+                {
+                    KEY = new object( );
+                    lock( KEY )
+                    {
+                        _busy = false;
+                    }
+                }
+                else
+                {
+                    lock( KEY )
+                    {
+                        _busy = false;
+                    }
+                }
             }
             catch( Exception _ex )
             {
