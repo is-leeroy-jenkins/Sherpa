@@ -228,7 +228,6 @@ namespace BudgetExecution
                 StatusLabel.Font = new Font( "Roboto", 7 );
                 StatusLabel.ForeColor = _blue;
                 StatusLabel.TextAlign = ContentAlignment.MiddleCenter;
-                CalculatorButton.HoverText = "Windows 10 Calculator";
             }
             catch( Exception _ex )
             {
@@ -244,6 +243,8 @@ namespace BudgetExecution
             try
             {
                 CalculatorButton.Click += OnCalculatorButtonClick;
+                CalculatorButton.MouseEnter += OnCalculatorMouseEnter;
+                CalculatorButton.MouseLeave += OnCalculatorMouseLeave;
                 Calculator.ValueCalculated += OnCalculationValueChanged;
                 CloseButton.Click += OnCloseButtonClick;
                 ClearButton.Click += OnClearButtonClick;
@@ -464,7 +465,7 @@ namespace BudgetExecution
             try
             {
                 var _now = DateTime.Now;
-                var _instant = _now.ToShortTimeString( );
+                var _instant = _now.ToLongTimeString( );
                 StatusLabel.Text = $"{_instant}";
             }
             catch( Exception _ex )
@@ -507,7 +508,6 @@ namespace BudgetExecution
                 InitializeCalculator( );
                 Calculator.BorderStyle = Border3DStyle.Adjust;
                 Calculator.BackColor = Color.FromArgb( 20, 20, 20 );
-                CloseButton.HoverText = "Exit Calculator";
             }
             catch( Exception _ex )
             {
@@ -612,6 +612,7 @@ namespace BudgetExecution
             try
             {
                 Calculator.Value = new CalculatorValue( 0.0 );
+                ValueLabel.Text = Calculator.Value.ToString( );
             }
             catch( Exception _ex )
             {
@@ -649,6 +650,44 @@ namespace BudgetExecution
             try
             {
                 FadeIn( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [calculator button hover].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnCalculatorMouseEnter( object sender, EventArgs e )
+        {
+            try
+            {
+                CalculatorButton.BackColor = Color.SteelBlue;
+                CalculatorButton.ToolTip.Show( "Windows 10 Calculator", this );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [calculator mouse leave].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnCalculatorMouseLeave( object sender, EventArgs e )
+        {
+            try
+            {
+                CalculatorButton.BackColor = Color.Transparent;
+                CalculatorButton.HoverText = string.Empty;
             }
             catch( Exception _ex )
             {

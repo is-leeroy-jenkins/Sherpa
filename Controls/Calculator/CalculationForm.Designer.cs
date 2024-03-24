@@ -75,7 +75,7 @@ namespace BudgetExecution
             TopPanel.Location = new System.Drawing.Point( 3, 3 );
             TopPanel.Name = "TopPanel";
             TopPanel.Padding = new System.Windows.Forms.Padding( 1 );
-            TopPanel.Size = new System.Drawing.Size( 355, 36 );
+            TopPanel.Size = new System.Drawing.Size( 355, 37 );
             TopPanel.Style = MetroSet_UI.Enums.Style.Custom;
             TopPanel.StyleManager = null;
             TopPanel.TabIndex = 0;
@@ -87,7 +87,7 @@ namespace BudgetExecution
             // 
             TopTable.ColumnCount = 2;
             TopTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
-            TopTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 312F ) );
+            TopTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 291F ) );
             TopTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 20F ) );
             TopTable.Controls.Add( ValueLabel, 1, 0 );
             TopTable.Controls.Add( CalculatorButton, 0, 0 );
@@ -107,11 +107,11 @@ namespace BudgetExecution
             ValueLabel.Font = new System.Drawing.Font( "Roboto", 12F );
             ValueLabel.HoverText = null;
             ValueLabel.IsDerivedStyle = true;
-            ValueLabel.Location = new System.Drawing.Point( 44, 3 );
+            ValueLabel.Location = new System.Drawing.Point( 65, 3 );
             ValueLabel.Margin = new System.Windows.Forms.Padding( 3 );
             ValueLabel.Name = "ValueLabel";
             ValueLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            ValueLabel.Size = new System.Drawing.Size( 306, 26 );
+            ValueLabel.Size = new System.Drawing.Size( 285, 26 );
             ValueLabel.Style = MetroSet_UI.Enums.Style.Custom;
             ValueLabel.StyleManager = null;
             ValueLabel.TabIndex = 0;
@@ -133,7 +133,7 @@ namespace BudgetExecution
             CalculatorButton.Location = new System.Drawing.Point( 3, 3 );
             CalculatorButton.Name = "CalculatorButton";
             CalculatorButton.Padding = new System.Windows.Forms.Padding( 1 );
-            CalculatorButton.Size = new System.Drawing.Size( 35, 26 );
+            CalculatorButton.Size = new System.Drawing.Size( 56, 26 );
             CalculatorButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             CalculatorButton.TabIndex = 0;
             CalculatorButton.TabStop = false;
@@ -174,10 +174,10 @@ namespace BudgetExecution
             CalculatorPanel.ForeColor = System.Drawing.Color.Transparent;
             CalculatorPanel.HoverText = null;
             CalculatorPanel.IsDerivedStyle = true;
-            CalculatorPanel.Location = new System.Drawing.Point( 3, 45 );
+            CalculatorPanel.Location = new System.Drawing.Point( 3, 46 );
             CalculatorPanel.Name = "CalculatorPanel";
             CalculatorPanel.Padding = new System.Windows.Forms.Padding( 1 );
-            CalculatorPanel.Size = new System.Drawing.Size( 355, 341 );
+            CalculatorPanel.Size = new System.Drawing.Size( 355, 349 );
             CalculatorPanel.Style = MetroSet_UI.Enums.Style.Custom;
             CalculatorPanel.StyleManager = null;
             CalculatorPanel.TabIndex = 1;
@@ -189,7 +189,7 @@ namespace BudgetExecution
             // 
             Calculator.AccessibleDescription = "Calculator control";
             Calculator.AccessibleName = "Calculator Control";
-            Calculator.BeforeTouchSize = new System.Drawing.Size( 353, 339 );
+            Calculator.BeforeTouchSize = new System.Drawing.Size( 353, 347 );
             Calculator.BorderStyle = System.Windows.Forms.Border3DStyle.Flat;
             Calculator.ButtonStyle = Syncfusion.Windows.Forms.ButtonAppearance.Metro;
             Calculator.Culture = new System.Globalization.CultureInfo( "en-US" );
@@ -203,7 +203,7 @@ namespace BudgetExecution
             Calculator.Name = "Calculator";
             Calculator.RightToLeft = System.Windows.Forms.RightToLeft.No;
             Calculator.ShowDisplayArea = false;
-            Calculator.Size = new System.Drawing.Size( 353, 339 );
+            Calculator.Size = new System.Drawing.Size( 353, 347 );
             Calculator.TabIndex = 0;
             Calculator.ThemeName = "Metro";
             Calculator.UseVerticalAndHorizontalSpacing = true;
@@ -216,6 +216,7 @@ namespace BudgetExecution
             CloseButton.DisabledBackColor = System.Drawing.Color.Transparent;
             CloseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
             CloseButton.DisabledForeColor = System.Drawing.Color.Transparent;
+            CloseButton.Dock = System.Windows.Forms.DockStyle.Fill;
             CloseButton.Font = new System.Drawing.Font( "Roboto", 8F );
             CloseButton.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
@@ -227,12 +228,12 @@ namespace BudgetExecution
             CloseButton.Name = "CloseButton";
             CloseButton.NormalBorderColor = System.Drawing.Color.Transparent;
             CloseButton.NormalColor = System.Drawing.Color.Transparent;
-            CloseButton.NormalTextColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            CloseButton.NormalTextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             CloseButton.Padding = new System.Windows.Forms.Padding( 1 );
             CloseButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             CloseButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             CloseButton.PressTextColor = System.Drawing.Color.White;
-            CloseButton.Size = new System.Drawing.Size( 84, 21 );
+            CloseButton.Size = new System.Drawing.Size( 89, 30 );
             CloseButton.Style = MetroSet_UI.Enums.Style.Custom;
             CloseButton.StyleManager = null;
             CloseButton.TabIndex = 0;
@@ -254,7 +255,7 @@ namespace BudgetExecution
             CalculatorTable.RowCount = 3;
             CalculatorTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 10.9414759F ) );
             CalculatorTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 89.0585251F ) );
-            CalculatorTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 50F ) );
+            CalculatorTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 41F ) );
             CalculatorTable.Size = new System.Drawing.Size( 361, 440 );
             CalculatorTable.TabIndex = 3;
             // 
@@ -272,13 +273,13 @@ namespace BudgetExecution
             ButtonTable.Controls.Add( ClearButton, 4, 0 );
             ButtonTable.Controls.Add( CloseButton, 6, 0 );
             ButtonTable.Controls.Add( StatusLabel, 1, 0 );
-            ButtonTable.Dock = System.Windows.Forms.DockStyle.Bottom;
-            ButtonTable.Location = new System.Drawing.Point( 3, 410 );
+            ButtonTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            ButtonTable.Location = new System.Drawing.Point( 3, 401 );
             ButtonTable.Name = "ButtonTable";
             ButtonTable.RowCount = 1;
             ButtonTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 20F ) );
             ButtonTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 20F ) );
-            ButtonTable.Size = new System.Drawing.Size( 355, 27 );
+            ButtonTable.Size = new System.Drawing.Size( 355, 36 );
             ButtonTable.TabIndex = 1;
             // 
             // ClearButton
@@ -288,6 +289,7 @@ namespace BudgetExecution
             ClearButton.DisabledBackColor = System.Drawing.Color.Transparent;
             ClearButton.DisabledBorderColor = System.Drawing.Color.Transparent;
             ClearButton.DisabledForeColor = System.Drawing.Color.Transparent;
+            ClearButton.Dock = System.Windows.Forms.DockStyle.Fill;
             ClearButton.Font = new System.Drawing.Font( "Roboto", 8F );
             ClearButton.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             ClearButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
@@ -299,12 +301,12 @@ namespace BudgetExecution
             ClearButton.Name = "ClearButton";
             ClearButton.NormalBorderColor = System.Drawing.Color.Transparent;
             ClearButton.NormalColor = System.Drawing.Color.Transparent;
-            ClearButton.NormalTextColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            ClearButton.NormalTextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             ClearButton.Padding = new System.Windows.Forms.Padding( 1 );
             ClearButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             ClearButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             ClearButton.PressTextColor = System.Drawing.Color.White;
-            ClearButton.Size = new System.Drawing.Size( 82, 21 );
+            ClearButton.Size = new System.Drawing.Size( 87, 30 );
             ClearButton.Style = MetroSet_UI.Enums.Style.Custom;
             ClearButton.StyleManager = null;
             ClearButton.TabIndex = 1;
@@ -325,7 +327,7 @@ namespace BudgetExecution
             StatusLabel.Margin = new System.Windows.Forms.Padding( 1 );
             StatusLabel.Name = "StatusLabel";
             StatusLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            StatusLabel.Size = new System.Drawing.Size( 97, 25 );
+            StatusLabel.Size = new System.Drawing.Size( 97, 34 );
             StatusLabel.Style = MetroSet_UI.Enums.Style.Custom;
             StatusLabel.StyleManager = null;
             StatusLabel.TabIndex = 1;
