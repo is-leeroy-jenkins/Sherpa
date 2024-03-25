@@ -48,7 +48,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
+    [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public static class Minion
     {
@@ -147,29 +147,6 @@ namespace BudgetExecution
                 _startInfo.UseShellExecute = true;
                 _startInfo.LoadUserProfile = true;
                 _startInfo.WindowStyle = ProcessWindowStyle.Maximized;
-                if( !string.IsNullOrEmpty( _app ) )
-                {
-                    _startInfo.FileName = _app;
-                }
-
-                Process.Start( _startInfo );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Opens the PDF document.
-        /// </summary>
-        public static void OpenPdfDocument( )
-        {
-            try
-            {
-                var _app = AppSettings[ "Reports" ];
-                var _startInfo = new ProcessStartInfo( );
-                _startInfo.UseShellExecute = true;
                 if( !string.IsNullOrEmpty( _app ) )
                 {
                     _startInfo.FileName = _app;
@@ -384,6 +361,106 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Launches the windows media player.
+        /// </summary>
+        public static void LaunchWindowsMediaPlayer( )
+        {
+            try
+            {
+                var _startInfo = new ProcessStartInfo( );
+                _startInfo.FileName = "wmplayer.exe";
+                _startInfo.UseShellExecute = true;
+                _startInfo.LoadUserProfile = true;
+                _startInfo.WindowStyle = ProcessWindowStyle.Maximized;
+                Process.Start( _startInfo );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Launches the windows maps.
+        /// </summary>
+        public static void LaunchWindowsMaps( )
+        {
+            try
+            {
+                var _startInfo = new ProcessStartInfo( );
+                _startInfo.FileName = "WindowsMaps.exe";
+                _startInfo.UseShellExecute = true;
+                _startInfo.LoadUserProfile = true;
+                _startInfo.WindowStyle = ProcessWindowStyle.Maximized;
+                Process.Start( _startInfo );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Launches the one drive.
+        /// </summary>
+        public static void LaunchOneDrive( )
+        {
+            try
+            {
+                var _startInfo = new ProcessStartInfo( );
+                _startInfo.FileName = "OneDrive.exe";
+                _startInfo.UseShellExecute = true;
+                _startInfo.LoadUserProfile = true;
+                _startInfo.WindowStyle = ProcessWindowStyle.Maximized;
+                Process.Start( _startInfo );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Launches the calendar.
+        /// </summary>
+        public static void LaunchWindowsCalendar( )
+        {
+            try
+            {
+                var _startInfo = new ProcessStartInfo( );
+                _startInfo.FileName = "calendar.exe";
+                _startInfo.UseShellExecute = true;
+                _startInfo.LoadUserProfile = true;
+                _startInfo.WindowStyle = ProcessWindowStyle.Maximized;
+                Process.Start( _startInfo );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Launches the clock.
+        /// </summary>
+        public static void LaunchWindowsClock( )
+        {
+            try
+            {
+                var _startInfo = new ProcessStartInfo( );
+                _startInfo.FileName = "Clock.exe";
+                _startInfo.UseShellExecute = true;
+                _startInfo.LoadUserProfile = true;
+                _startInfo.WindowStyle = ProcessWindowStyle.Maximized;
+                Process.Start( _startInfo );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Launches the control panel.
         /// </summary>
         public static void LaunchControlPanel( )
@@ -394,7 +471,7 @@ namespace BudgetExecution
                 _startInfo.FileName = "control.exe";
                 _startInfo.UseShellExecute = true;
                 _startInfo.LoadUserProfile = true;
-                _startInfo.WindowStyle = ProcessWindowStyle.Maximized;
+                _startInfo.WindowStyle = ProcessWindowStyle.Normal;
                 Process.Start( _startInfo );
             }
             catch( Exception _ex )

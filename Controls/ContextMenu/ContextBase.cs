@@ -59,12 +59,12 @@ namespace BudgetExecution
         /// <summary>
         /// The file option
         /// </summary>
-        private protected ToolStripMenuItemExt _fileOption;
+        private protected ToolStripMenuItemExt _browseFileOption;
 
         /// <summary>
         /// The folder option
         /// </summary>
-        private protected ToolStripMenuItemExt _folderOption;
+        private protected ToolStripMenuItemExt _browseFolderOption;
 
         /// <summary>
         /// The calculator option
@@ -72,34 +72,44 @@ namespace BudgetExecution
         private protected ToolStripMenuItemExt _budgetCalculatorOption;
 
         /// <summary>
-        /// The calendar option
+        /// The budget calendar option
         /// </summary>
-        private protected ToolStripMenuItemExt _calendarOption;
+        private protected ToolStripMenuItemExt _budgetCalendarOption;
 
         /// <summary>
-        /// The guidance option
+        /// The budget guidance option
         /// </summary>
-        private protected ToolStripMenuItemExt _guidanceOption;
+        private protected ToolStripMenuItemExt _budgetGuidanceOption;
 
         /// <summary>
-        /// The save option
+        /// The save changes option
         /// </summary>
-        private protected ToolStripMenuItemExt _saveOption;
+        private protected ToolStripMenuItemExt _saveChangesOption;
 
         /// <summary>
-        /// The close option
+        /// The One Drive option
         /// </summary>
-        private protected ToolStripMenuItemExt _closeOption;
+        private protected ToolStripMenuItemExt _oneDriveOption;
 
         /// <summary>
-        /// The exit option
+        /// The exit application option
         /// </summary>
-        private protected ToolStripMenuItemExt _exitOption;
+        private protected ToolStripMenuItemExt _exitApplicationOption;
 
         /// <summary>
         /// The win10 calculator option
         /// </summary>
         private protected ToolStripMenuItemExt _windowsCalculatorOption;
+
+        /// <summary>
+        /// The win10 clock option
+        /// </summary>
+        private protected ToolStripMenuItemExt _windowsClockOption;
+
+        /// <summary>
+        /// The win10 Maps option
+        /// </summary>
+        private protected ToolStripMenuItemExt _windowsMapsOption;
 
         /// <summary>
         /// The control panel option
@@ -112,24 +122,31 @@ namespace BudgetExecution
         private protected ToolStripMenuItemExt _taskManagerOption;
 
         /// <summary>
+        /// The task manager option
+        /// </summary>
+        private protected ToolStripMenuItemExt _windowsMediaPlayerOption;
+
+        /// <summary>
         /// Creates the file option.
         /// </summary>
         /// <returns>
         /// ToolStripMenuItemExt
         /// </returns>
-        private protected ToolStripMenuItemExt CreateFileOption( )
+        private protected ToolStripMenuItemExt CreateBrowseFileOption( )
         {
             try
             {
+                var _name = MenuOption.BrowseFile.ToString( );
+                var _caption = _name.SplitPascal( );
                 var _item = new ToolStripMenuItemExt( );
                 _item.TextAlign = ContentAlignment.MiddleCenter;
                 _item.Font = new Font( "Roboto", 8 );
-                _item.Name = MenuOption.File.ToString( );
+                _item.Name = _name;
                 _item.Size = new Size( 198, 22 );
                 _item.BackColor = Color.FromArgb( 45, 45, 45 );
                 _item.ForeColor = Color.FromArgb( 106, 189, 252 );
-                _item.Text = $"{MenuOption.File}";
-                _item.Tag = MenuOption.File.ToString( );
+                _item.Text = _caption;
+                _item.Tag = _name;
                 _item.Checked = false;
                 _item.MouseDown += OnItemClicked;
                 Items.Add( _item );
@@ -148,19 +165,21 @@ namespace BudgetExecution
         /// <returns>
         /// ToolStripMenuItemExt
         /// </returns>
-        private protected ToolStripMenuItemExt CreateFolderOption( )
+        private protected ToolStripMenuItemExt CreateBrowseFolderOption( )
         {
             try
             {
+                var _name = MenuOption.BrowseFolder.ToString( );
+                var _caption = _name.SplitPascal( );
                 var _item = new ToolStripMenuItemExt( );
                 _item.TextAlign = ContentAlignment.MiddleCenter;
                 _item.Font = new Font( "Roboto", 8 );
-                _item.Name = MenuOption.Folder.ToString( );
+                _item.Name = _name;
                 _item.Size = new Size( 198, 22 );
                 _item.BackColor = Color.FromArgb( 45, 45, 45 );
                 _item.ForeColor = Color.FromArgb( 106, 189, 252 );
-                _item.Text = $"{MenuOption.Folder}";
-                _item.Tag = MenuOption.Folder.ToString( );
+                _item.Text = _caption;
+                _item.Tag = _name;
                 _item.Checked = false;
                 _item.MouseDown += OnItemClicked;
                 Items.Add( _item );
@@ -212,19 +231,21 @@ namespace BudgetExecution
         /// <returns>
         /// ToolStripMenuItemExt
         /// </returns>
-        private protected ToolStripMenuItemExt CreateCalendarOption( )
+        private protected ToolStripMenuItemExt CreateBudgetCalendarOption( )
         {
             try
             {
+                var _name = MenuOption.BudgetCalendar.ToString( );
+                var _caption = _name.SplitPascal( );
                 var _item = new ToolStripMenuItemExt( );
                 _item.TextAlign = ContentAlignment.MiddleCenter;
                 _item.Font = new Font( "Roboto", 8 );
-                _item.Name = MenuOption.Calendar.ToString( );
+                _item.Name = _name;
                 _item.Size = new Size( 198, 22 );
                 _item.BackColor = Color.FromArgb( 45, 45, 45 );
                 _item.ForeColor = Color.FromArgb( 106, 189, 252 );
-                _item.Text = $"{MenuOption.Calendar}";
-                _item.Tag = MenuOption.Calendar.ToString( );
+                _item.Text = _caption;
+                _item.Tag = _name;
                 _item.Checked = false;
                 _item.MouseDown += OnItemClicked;
                 Items.Add( _item );
@@ -243,19 +264,21 @@ namespace BudgetExecution
         /// <returns>
         /// ToolStripMenuItemExt
         /// </returns>
-        private protected ToolStripMenuItemExt CreateGuidanceOption( )
+        private protected ToolStripMenuItemExt CreateBudgetGuidanceOption( )
         {
             try
             {
+                var _name = MenuOption.BudgetGuidance.ToString( );
+                var _caption = _name.SplitPascal( );
                 var _item = new ToolStripMenuItemExt( );
                 _item.TextAlign = ContentAlignment.MiddleCenter;
                 _item.Font = new Font( "Roboto", 8 );
-                _item.Name = MenuOption.Guidance.ToString( );
+                _item.Name = _name;
                 _item.Size = new Size( 198, 22 );
                 _item.BackColor = Color.FromArgb( 45, 45, 45 );
                 _item.ForeColor = Color.FromArgb( 106, 189, 252 );
-                _item.Text = $"{MenuOption.Guidance}";
-                _item.Tag = MenuOption.Guidance.ToString( );
+                _item.Text = _caption;
+                _item.Tag = _name;
                 _item.Checked = false;
                 _item.MouseDown += OnItemClicked;
                 Items.Add( _item );
@@ -274,50 +297,21 @@ namespace BudgetExecution
         /// <returns>
         /// ToolStripMenuItemExt
         /// </returns>
-        private protected ToolStripMenuItemExt CreateSaveOption( )
+        private protected ToolStripMenuItemExt CreateSaveChangesOption( )
         {
             try
             {
+                var _name = MenuOption.SaveChanges.ToString( );
+                var _caption = _name.SplitPascal( );
                 var _item = new ToolStripMenuItemExt( );
                 _item.TextAlign = ContentAlignment.MiddleCenter;
                 _item.Font = new Font( "Roboto", 8 );
-                _item.Name = MenuOption.Save.ToString( );
+                _item.Name = _name;
                 _item.Size = new Size( 198, 22 );
                 _item.BackColor = Color.FromArgb( 45, 45, 45 );
                 _item.ForeColor = Color.FromArgb( 106, 189, 252 );
-                _item.Text = $"{MenuOption.Save}";
-                _item.Tag = MenuOption.Save.ToString( );
-                _item.Checked = false;
-                _item.MouseDown += OnItemClicked;
-                Items.Add( _item );
-                return _item;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( ToolStripMenuItemExt );
-            }
-        }
-
-        /// <summary>
-        /// Creates the close option.
-        /// </summary>
-        /// <returns>
-        /// ToolStripMenuItemExt
-        /// </returns>
-        private protected ToolStripMenuItemExt CreateCloseOption( )
-        {
-            try
-            {
-                var _item = new ToolStripMenuItemExt( );
-                _item.TextAlign = ContentAlignment.MiddleCenter;
-                _item.Font = new Font( "Roboto", 8 );
-                _item.Name = MenuOption.Close.ToString( );
-                _item.Size = new Size( 198, 22 );
-                _item.BackColor = Color.FromArgb( 45, 45, 45 );
-                _item.ForeColor = Color.FromArgb( 106, 189, 252 );
-                _item.Text = $"{MenuOption.Close}";
-                _item.Tag = MenuOption.Close.ToString( );
+                _item.Text = _caption;
+                _item.Tag = _name;
                 _item.Checked = false;
                 _item.MouseDown += OnItemClicked;
                 Items.Add( _item );
@@ -336,40 +330,11 @@ namespace BudgetExecution
         /// <returns>
         /// ToolStripMenuItemExt
         /// </returns>
-        private protected ToolStripMenuItemExt CreateExitOption( )
+        private protected ToolStripMenuItemExt CreateExitApplicationOption( )
         {
             try
             {
-                var _item = new ToolStripMenuItemExt( );
-                _item.TextAlign = ContentAlignment.MiddleCenter;
-                _item.Font = new Font( "Roboto", 8 );
-                _item.Name = MenuOption.Exit.ToString( );
-                _item.Size = new Size( 198, 22 );
-                _item.BackColor = Color.FromArgb( 45, 45, 45 );
-                _item.ForeColor = Color.FromArgb( 106, 189, 252 );
-                _item.Text = $"{MenuOption.Exit}";
-                _item.Tag = MenuOption.Exit.ToString( );
-                _item.Checked = false;
-                _item.MouseDown += OnItemClicked;
-                Items.Add( _item );
-                return _item;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( ToolStripMenuItemExt );
-            }
-        }
-
-        /// <summary>
-        /// Creates the windows calculator option.
-        /// </summary>
-        /// <returns></returns>
-        private protected ToolStripMenuItemExt CreateWindowsCalculatorOption( )
-        {
-            try
-            {
-                var _name = MenuOption.WindowsCalculator.ToString( );
+                var _name = MenuOption.ExitApplication.ToString( );
                 var _caption = _name.SplitPascal( );
                 var _item = new ToolStripMenuItemExt( );
                 _item.TextAlign = ContentAlignment.MiddleCenter;
@@ -378,70 +343,7 @@ namespace BudgetExecution
                 _item.Size = new Size( 198, 22 );
                 _item.BackColor = Color.FromArgb( 45, 45, 45 );
                 _item.ForeColor = Color.FromArgb( 106, 189, 252 );
-                _item.Text = $"{_caption}";
-                _item.Tag = _name;
-                _item.Checked = false;
-                _item.MouseDown += OnItemClicked;
-                Items.Add( _item );
-                return _item;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( ToolStripMenuItemExt );
-            }
-        }
-
-        /// <summary>
-        /// Creates the control panel option.
-        /// </summary>
-        /// <returns></returns>
-        private protected ToolStripMenuItemExt CreateControlPanelOption( )
-        {
-            try
-            {
-                var _name = MenuOption.ControlPanel.ToString( );
-                var _caption = _name.SplitPascal( );
-                var _item = new ToolStripMenuItemExt( );
-                _item.TextAlign = ContentAlignment.MiddleCenter;
-                _item.Font = new Font( "Roboto", 8 );
-                _item.Name = _name;
-                _item.Size = new Size( 198, 22 );
-                _item.BackColor = Color.FromArgb( 45, 45, 45 );
-                _item.ForeColor = Color.FromArgb( 106, 189, 252 );
-                _item.Text = $"{_caption}";
-                _item.Tag = _name;
-                _item.Checked = false;
-                _item.MouseDown += OnItemClicked;
-                Items.Add( _item );
-                return _item;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( ToolStripMenuItemExt );
-            }
-        }
-
-        /// <summary>
-        /// Creates the task manager option.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        private protected ToolStripMenuItemExt CreateTaskManagerOption( )
-        {
-            try
-            {
-                var _name = MenuOption.TaskManager.ToString( );
-                var _caption = _name.SplitPascal( );
-                var _item = new ToolStripMenuItemExt( );
-                _item.TextAlign = ContentAlignment.MiddleCenter;
-                _item.Font = new Font( "Roboto", 8 );
-                _item.Name = _name;
-                _item.Size = new Size( 198, 22 );
-                _item.BackColor = Color.FromArgb( 45, 45, 45 );
-                _item.ForeColor = Color.FromArgb( 106, 189, 252 );
-                _item.Text = $"{_caption}";
+                _item.Text = _caption;
                 _item.Tag = _name;
                 _item.Checked = false;
                 _item.MouseDown += OnItemClicked;
@@ -474,18 +376,18 @@ namespace BudgetExecution
                         var _option = Enum.Parse( typeof( MenuOption ), _name );
                         switch( _option )
                         {
-                            case MenuOption.File:
+                            case MenuOption.BrowseFile:
                             {
                                 var _file = new FileDialog( );
                                 _file.Location = e.Location;
-                                _file.Show( );
+                                _file.ShowDialog( );
                                 break;
                             }
-                            case MenuOption.Folder:
+                            case MenuOption.BrowseFolder:
                             {
                                 var _file = new FolderDialog( );
                                 _file.Location = e.Location;
-                                _file.Show( );
+                                _file.ShowDialog( );
                                 break;
                             }
                             case MenuOption.BudgetCalculator:
@@ -495,11 +397,9 @@ namespace BudgetExecution
                                 _form.ShowDialog( );
                                 break;
                             }
-                            case MenuOption.Calendar:
+                            case MenuOption.WindowsCalendar:
                             {
-                                var _form = new CalendarDialog( );
-                                _form.Location = e.Location;
-                                _form.ShowDialog( );
+                                Minion.LaunchWindowsCalendar( );
                                 break;
                             }
                             case MenuOption.ControlPanel:
@@ -509,7 +409,7 @@ namespace BudgetExecution
                             }
                             case MenuOption.TaskManager:
                             {
-                                Minion.LaunchControlPanel( );
+                                Minion.LaunchTaskManager( );
                                 break;
                             }
                             case MenuOption.WindowsCalculator:
@@ -517,32 +417,42 @@ namespace BudgetExecution
                                 Minion.LaunchWindowsCalculator( );
                                 break;
                             }
-                            case MenuOption.Guidance:
+                            case MenuOption.BudgetGuidance:
                             {
-                                var _guidance = new GuidanceDialog( );
-                                _guidance.Location = e.Location;
+                                var _guidance = new DocViewer( );
                                 _guidance.ShowDialog( );
                                 break;
                             }
-                            case MenuOption.Save:
+                            case MenuOption.OneDrive:
+                            {
+                                Minion.LaunchOneDrive( );
+                                break;
+                            }
+                            case MenuOption.SaveChanges:
                             {
                                 var _msg = "NOT YET IMPLEMENTED!!";
                                 var _notification = new Notification( _msg );
                                 _notification.Show( );
                                 break;
                             }
-                            case MenuOption.Close:
+                            case MenuOption.WindowsClock:
                             {
-                                var _msg = "NOT YET IMPLEMENTED!!";
-                                var _notification = new Notification( _msg );
-                                _notification.Show( );
+                                Minion.LaunchWindowsClock( );
                                 break;
                             }
-                            case MenuOption.Exit:
+                            case MenuOption.WindowsMaps:
                             {
-                                var _msg = "NOT YET IMPLEMENTED!!";
-                                var _notification = new Notification( _msg );
-                                _notification.Show( );
+                                Minion.LaunchWindowsMaps( );
+                                break;
+                            }
+                            case MenuOption.WindowsMediaPlayer:
+                            {
+                                Minion.LaunchWindowsMediaPlayer( );
+                                break;
+                            }
+                            case MenuOption.ExitApplication:
+                            {
+                                Application.Exit( );
                                 break;
                             }
                             default:

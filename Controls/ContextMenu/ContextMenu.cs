@@ -50,204 +50,6 @@ namespace BudgetExecution
     public class ContextMenu : ContextBase
     {
         /// <summary>
-        /// Gets or sets the file option.
-        /// </summary>
-        /// <value>
-        /// The file option.
-        /// </value>
-        public ToolStripMenuItemExt FileOption
-        {
-            get
-            {
-                return _fileOption;
-            }
-            private protected set
-            {
-                _fileOption = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the folder option.
-        /// </summary>
-        /// <value>
-        /// The folder option.
-        /// </value>
-        public ToolStripMenuItemExt FolderOption
-        {
-            get
-            {
-                return _folderOption;
-            }
-            private protected set
-            {
-                _folderOption = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the calculator option.
-        /// </summary>
-        /// <value>
-        /// The calculator option.
-        /// </value>
-        public ToolStripMenuItemExt BudgetCalculatorOption
-        {
-            get
-            {
-                return _budgetCalculatorOption;
-            }
-            private protected set
-            {
-                _budgetCalculatorOption = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the Calendar option.
-        /// </summary>
-        /// <value>
-        /// The file option.
-        /// </value>
-        public ToolStripMenuItemExt CalendarOption
-        {
-            get
-            {
-                return _calendarOption;
-            }
-            private protected set
-            {
-                _calendarOption = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the task manager option.
-        /// </summary>
-        /// <value>
-        /// The task manager option.
-        /// </value>
-        public ToolStripMenuItemExt TaskManagerOption
-        {
-            get
-            {
-                return _taskManagerOption;
-            }
-            private protected set
-            {
-                _taskManagerOption = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the control panel option.
-        /// </summary>
-        /// <value>
-        /// The control panel option.
-        /// </value>
-        public ToolStripMenuItemExt ControlPanelOption
-        {
-            get
-            {
-                return _controlPanelOption;
-            }
-            private protected set
-            {
-                _controlPanelOption = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the windows calculator option.
-        /// </summary>
-        /// <value>
-        /// The windows calculator option.
-        /// </value>
-        public ToolStripMenuItemExt WindowsCalculatorOption
-        {
-            get
-            {
-                return _windowsCalculatorOption;
-            }
-            private protected set
-            {
-                _windowsCalculatorOption = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the Guidance option.
-        /// </summary>
-        /// <value>
-        /// The file option.
-        /// </value>
-        public ToolStripMenuItemExt GuidanceOption
-        {
-            get
-            {
-                return _guidanceOption;
-            }
-            private protected set
-            {
-                _guidanceOption = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the save option.
-        /// </summary>
-        /// <value>
-        /// The save option.
-        /// </value>
-        public ToolStripMenuItemExt SaveOption
-        {
-            get
-            {
-                return _saveOption;
-            }
-            private protected set
-            {
-                _saveOption = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the close option.
-        /// </summary>
-        /// <value>
-        /// The close option.
-        /// </value>
-        public ToolStripMenuItemExt CloseOption
-        {
-            get
-            {
-                return _closeOption;
-            }
-            private protected set
-            {
-                _closeOption = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the exit option.
-        /// </summary>
-        /// <value>
-        /// The exit option.
-        /// </value>
-        public ToolStripMenuItemExt ExitOption
-        {
-            get
-            {
-                return _exitOption;
-            }
-            private protected set
-            {
-                _exitOption = value;
-            }
-        }
-
-        /// <summary>
         /// Initializes a new instance of the
         /// <see cref="ContextMenu"/> class.
         /// </summary>
@@ -274,16 +76,240 @@ namespace BudgetExecution
             ThemeStyle.BorderColor = Color.FromArgb( 77, 77, 77 );
 
             // Menu Items
-            _fileOption = CreateFileOption( );
-            _folderOption = CreateFolderOption( );
+            _browseFileOption = CreateBrowseFileOption( );
+            _browseFolderOption = CreateBrowseFolderOption( );
             _budgetCalculatorOption = CreateBudgetCalculatorOption( );
-            _calendarOption = CreateCalendarOption( );
+            _windowsCalculatorOption = CreateWindowsCalculatorOption( );
+            _budgetCalendarOption = CreateBudgetCalendarOption( );
             _controlPanelOption = CreateControlPanelOption( );
             _taskManagerOption = CreateTaskManagerOption( );
-            _guidanceOption = CreateGuidanceOption( );
-            _saveOption = CreateSaveOption( );
-            _closeOption = CreateCloseOption( );
-            _exitOption = CreateExitOption( );
+            _budgetGuidanceOption = CreateBudgetGuidanceOption( );
+            _windowsClockOption = CreateWindowsClockOption( );
+            _saveChangesOption = CreateSaveChangesOption( );
+            _windowsMapsOption = CreateMapsOption( );
+            _oneDriveOption = CreateOneDriveOption( );
+            _windowsMediaPlayerOption = CreateWindowsMediaPlayerOption( );
+            _exitApplicationOption = CreateExitApplicationOption( );
+        }
+
+        /// <summary>
+        /// Creates the control panel option.
+        /// </summary>
+        /// <returns></returns>
+        private ToolStripMenuItemExt CreateControlPanelOption( )
+        {
+            try
+            {
+                var _name = MenuOption.ControlPanel.ToString( );
+                var _caption = _name.SplitPascal( );
+                var _item = new ToolStripMenuItemExt( );
+                _item.TextAlign = ContentAlignment.MiddleCenter;
+                _item.Font = new Font( "Roboto", 8 );
+                _item.Name = _name;
+                _item.Size = new Size( 198, 22 );
+                _item.BackColor = Color.FromArgb( 45, 45, 45 );
+                _item.ForeColor = Color.FromArgb( 106, 189, 252 );
+                _item.Text = $"{_caption}";
+                _item.Tag = _name;
+                _item.Checked = false;
+                _item.MouseDown += OnItemClicked;
+                Items.Add( _item );
+                return _item;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( ToolStripMenuItemExt );
+            }
+        }
+
+        /// <summary>
+        /// Creates the task manager option.
+        /// </summary>
+        /// <returns>
+        /// </returns>
+        private ToolStripMenuItemExt CreateTaskManagerOption( )
+        {
+            try
+            {
+                var _name = MenuOption.TaskManager.ToString( );
+                var _caption = _name.SplitPascal( );
+                var _item = new ToolStripMenuItemExt( );
+                _item.TextAlign = ContentAlignment.MiddleCenter;
+                _item.Font = new Font( "Roboto", 8 );
+                _item.Name = _name;
+                _item.Size = new Size( 198, 22 );
+                _item.BackColor = Color.FromArgb( 45, 45, 45 );
+                _item.ForeColor = Color.FromArgb( 106, 189, 252 );
+                _item.Text = $"{_caption}";
+                _item.Tag = _name;
+                _item.Checked = false;
+                _item.MouseDown += OnItemClicked;
+                Items.Add( _item );
+                return _item;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( ToolStripMenuItemExt );
+            }
+        }
+
+        /// <summary>
+        /// Creates the windows calculator option.
+        /// </summary>
+        /// <returns></returns>
+        private ToolStripMenuItemExt CreateWindowsCalculatorOption( )
+        {
+            try
+            {
+                var _name = MenuOption.WindowsCalculator.ToString( );
+                var _caption = _name.SplitPascal( );
+                var _item = new ToolStripMenuItemExt( );
+                _item.TextAlign = ContentAlignment.MiddleCenter;
+                _item.Font = new Font( "Roboto", 8 );
+                _item.Name = _name;
+                _item.Size = new Size( 198, 22 );
+                _item.BackColor = Color.FromArgb( 45, 45, 45 );
+                _item.ForeColor = Color.FromArgb( 106, 189, 252 );
+                _item.Text = $"{_caption}";
+                _item.Tag = _name;
+                _item.Checked = false;
+                _item.MouseDown += OnItemClicked;
+                Items.Add( _item );
+                return _item;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( ToolStripMenuItemExt );
+            }
+        }
+
+        /// <summary>
+        /// Creates the one drive option.
+        /// </summary>
+        /// <returns></returns>
+        private ToolStripMenuItemExt CreateOneDriveOption( )
+        {
+            try
+            {
+                var _name = MenuOption.OneDrive.ToString( );
+                var _caption = _name.SplitPascal( );
+                var _item = new ToolStripMenuItemExt( );
+                _item.TextAlign = ContentAlignment.MiddleCenter;
+                _item.Font = new Font( "Roboto", 8 );
+                _item.Name = _name;
+                _item.Size = new Size( 198, 22 );
+                _item.BackColor = Color.FromArgb( 45, 45, 45 );
+                _item.ForeColor = Color.FromArgb( 106, 189, 252 );
+                _item.Text = $"{_caption}";
+                _item.Tag = _name;
+                _item.Checked = false;
+                _item.MouseDown += OnItemClicked;
+                Items.Add( _item );
+                return _item;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( ToolStripMenuItemExt );
+            }
+        }
+
+        /// <summary>
+        /// Creates the maps option.
+        /// </summary>
+        /// <returns></returns>
+        private ToolStripMenuItemExt CreateMapsOption( )
+        {
+            try
+            {
+                var _name = MenuOption.WindowsMaps.ToString( );
+                var _caption = _name.SplitPascal( );
+                var _item = new ToolStripMenuItemExt( );
+                _item.TextAlign = ContentAlignment.MiddleCenter;
+                _item.Font = new Font( "Roboto", 8 );
+                _item.Name = _name;
+                _item.Size = new Size( 198, 22 );
+                _item.BackColor = Color.FromArgb( 45, 45, 45 );
+                _item.ForeColor = Color.FromArgb( 106, 189, 252 );
+                _item.Text = _caption;
+                _item.Tag = _name;
+                _item.Checked = false;
+                _item.MouseDown += OnItemClicked;
+                Items.Add( _item );
+                return _item;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( ToolStripMenuItemExt );
+            }
+        }
+
+        /// <summary>
+        /// Creates the close option.
+        /// </summary>
+        /// <returns>
+        /// ToolStripMenuItemExt
+        /// </returns>
+        private ToolStripMenuItemExt CreateWindowsClockOption( )
+        {
+            try
+            {
+                var _name = MenuOption.WindowsClock.ToString( );
+                var _caption = _name.SplitPascal( );
+                var _item = new ToolStripMenuItemExt( );
+                _item.TextAlign = ContentAlignment.MiddleCenter;
+                _item.Font = new Font( "Roboto", 8 );
+                _item.Name = _name;
+                _item.Size = new Size( 198, 22 );
+                _item.BackColor = Color.FromArgb( 45, 45, 45 );
+                _item.ForeColor = Color.FromArgb( 106, 189, 252 );
+                _item.Text = _caption;
+                _item.Tag = _name;
+                _item.Checked = false;
+                _item.MouseDown += OnItemClicked;
+                Items.Add( _item );
+                return _item;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( ToolStripMenuItemExt );
+            }
+        }
+
+        /// <summary>
+        /// Creates the windows media player option.
+        /// </summary>
+        /// <returns></returns>
+        private protected ToolStripMenuItemExt CreateWindowsMediaPlayerOption( )
+        {
+            try
+            {
+                var _name = MenuOption.WindowsMediaPlayer.ToString( );
+                var _caption = _name.SplitPascal( );
+                var _item = new ToolStripMenuItemExt( );
+                _item.TextAlign = ContentAlignment.MiddleCenter;
+                _item.Font = new Font( "Roboto", 8 );
+                _item.Name = _name;
+                _item.Size = new Size( 198, 22 );
+                _item.BackColor = Color.FromArgb( 45, 45, 45 );
+                _item.ForeColor = Color.FromArgb( 106, 189, 252 );
+                _item.Text = _caption;
+                _item.Tag = _name;
+                _item.Checked = false;
+                _item.MouseDown += OnItemClicked;
+                Items.Add( _item );
+                return _item;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( ToolStripMenuItemExt );
+            }
         }
     }
 }

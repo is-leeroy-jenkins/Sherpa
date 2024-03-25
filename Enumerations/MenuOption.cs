@@ -52,12 +52,12 @@ namespace BudgetExecution
         /// <summary>
         /// The file
         /// </summary>
-        File = 1,
+        BrowseFile = 1,
 
         /// <summary>
         /// The folder
         /// </summary>
-        Folder = 2,
+        BrowseFolder = 2,
 
         /// <summary>
         /// The calculator
@@ -65,43 +65,63 @@ namespace BudgetExecution
         BudgetCalculator = 3,
 
         /// <summary>
+        /// The windows calculator
+        /// </summary>
+        WindowsCalculator = 4,
+
+        /// <summary>
         /// The calendar
         /// </summary>
-        Calendar = 4,
+        BudgetCalendar = 5,
+
+        /// <summary>
+        /// The budget calendar
+        /// </summary>
+        WindowsCalendar = 6, 
 
         /// <summary>
         /// The control panel
         /// </summary>
-        ControlPanel = 5,
+        ControlPanel = 7,
 
         /// <summary>
         /// The task manager
         /// </summary>
-        TaskManager = 6,
+        TaskManager = 8,
 
         /// <summary>
-        /// The windows calculator
+        /// The windows maps
         /// </summary>
-        WindowsCalculator = 7,
+        WindowsMaps = 9,
+
+        /// <summary>
+        /// The windows media player
+        /// </summary>
+        WindowsMediaPlayer = 10,
+
+        /// <summary>
+        /// The one drive
+        /// </summary>
+        OneDrive = 11,
+
+        /// <summary>
+        /// The windows clock
+        /// </summary>
+        WindowsClock = 12, 
 
         /// <summary>
         /// The guidance
         /// </summary>
-        Guidance = 8,
+        BudgetGuidance = 13,
 
         /// <summary>
         /// The save
         /// </summary>
-        Save = 9,
-
-        /// <summary>
-        /// The close
-        /// </summary>
-        Close = 10,
+        SaveChanges = 14,
 
         /// <summary>
         /// The exit
         /// </summary>
-        Exit = 11
+        ExitApplication = 15
     }
 }
