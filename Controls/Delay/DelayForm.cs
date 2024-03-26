@@ -46,13 +46,12 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
-    using static System.Configuration.ConfigurationManager;
     using Timer = System.Windows.Forms.Timer;
 
-    /// <summary> </summary>
+    /// <summary>
+    /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "RedundantEmptySwitchSection" ) ]

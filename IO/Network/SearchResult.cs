@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:             BudgetExecution
 //     Author:                  Terry D. Eppler
-//     Created:                 05-16-2023
+//     Created:                 01-06-2024
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        03-25-2024
 // ******************************************************************************************
-// <copyright file="ResultData.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+// <copyright file="Terry Eppler" company="Terry D. Eppler">
+//    Budget Execution is a small Federal Budget, Finance, and Accounting data management
+//    application for analysts with the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -31,10 +31,10 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   ResultData.cs
+//   SearchResult.cs
 // </summary>
 // ******************************************************************************************
 
@@ -43,9 +43,10 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
+    /// <seealso cref="T:BudgetExecution.WebSearch" />
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
@@ -169,7 +170,7 @@ namespace BudgetExecution
         /// <param name="name">The name.</param>
         /// <param name="content">The content.</param>
         /// <param name="title">The title.</param>
-        public void Deconstruct( out string link, out string name, 
+        public void Deconstruct( out string link, out string name,
             out string content, out string title )
         {
             link = _link;

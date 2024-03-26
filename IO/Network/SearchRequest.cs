@@ -46,11 +46,12 @@ namespace BudgetExecution
     using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
+    using System.Threading.Tasks;
     using Google.Apis.Customsearch.v1;
     using Google.Apis.Services;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
@@ -137,6 +138,7 @@ namespace BudgetExecution
         /// Gets the results.
         /// </summary>
         /// <returns>
+        /// List(SearchResult)
         /// </returns>
         public List<SearchResult> GetResults( )
         {
@@ -190,6 +192,70 @@ namespace BudgetExecution
             {
                 Fail( _ex );
                 return default( List<SearchResult> );
+            }
+        }
+
+        /// <summary>
+        /// Gets the results.
+        /// </summary>
+        /// <returns>
+        /// Task(IList(SearchResult))
+        /// </returns>
+        public Task<IList<SearchResult>> GetResultsAsync( )
+        {
+            var _async = new TaskCompletionSource<IList<SearchResult>>( );
+            try
+            {
+                var _count = 0;
+                var _results = new List<SearchResult>( );
+                var _initializer = new BaseClientService.Initializer( );
+                _initializer.ApiKey = _config[ "ApiKey" ];
+                var _customSearch = new CustomsearchService( _initializer );
+                var _searchRequest = _customSearch
+                    ?.Cse
+                    ?.List( );
+
+                if( _searchRequest != null )
+                {
+                    _searchRequest.Q = _query;
+                    _searchRequest.Cx = _config[ "SearchEngineId" ];
+                    _searchRequest.Start = _count;
+                    var _list = _searchRequest.Execute( )
+                        ?.Items
+                        ?.ToList( );
+
+                    if( _list?.Any( ) == true )
+                    {
+                        for( var _i = 0; _i < _list.Count; _i++ )
+                        {
+                            var _snippet = _list[ _i ].Snippet ?? string.Empty;
+                            var _line = _list[ _i ].Link ?? string.Empty;
+                            var _titles = _list[ _i ].Title ?? string.Empty;
+                            var _htmlTitle = _list[ _i ].HtmlTitle ?? string.Empty;
+                            var _searchResults = new SearchResult( _snippet, _line, _titles, _htmlTitle );
+                            _results.Add( _searchResults );
+                        }
+
+                        _async.SetResult( _results );
+                        return _results?.Any( ) == true
+                            ? _async.Task
+                            : default( Task<IList<SearchResult>> );
+                    }
+                    else
+                    {
+                        return default( Task<IList<SearchResult>> );
+                    }
+                }
+                else
+                {
+                    return default( Task<IList<SearchResult>> );
+                }
+            }
+            catch( Exception _ex )
+            {
+                _async.SetException( _ex );
+                Fail( _ex );
+                return default( Task<IList<SearchResult>> );
             }
         }
 

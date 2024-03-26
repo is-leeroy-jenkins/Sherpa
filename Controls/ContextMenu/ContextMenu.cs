@@ -47,6 +47,7 @@ namespace BudgetExecution
 
     /// <inheritdoc />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class ContextMenu : ContextBase
     {
         /// <summary>
@@ -104,9 +105,9 @@ namespace BudgetExecution
                 var _caption = _name.SplitPascal( );
                 var _item = new ToolStripMenuItemExt( );
                 _item.TextAlign = ContentAlignment.MiddleCenter;
-                _item.Font = new Font( "Roboto", 8 );
+                _item.Font = new Font( "Roboto", 9 );
                 _item.Name = _name;
-                _item.Size = new Size( 198, 22 );
+                _item.Size = new Size( 198, 24 );
                 _item.BackColor = Color.FromArgb( 45, 45, 45 );
                 _item.ForeColor = Color.FromArgb( 106, 189, 252 );
                 _item.Text = $"{_caption}";
@@ -136,9 +137,9 @@ namespace BudgetExecution
                 var _caption = _name.SplitPascal( );
                 var _item = new ToolStripMenuItemExt( );
                 _item.TextAlign = ContentAlignment.MiddleCenter;
-                _item.Font = new Font( "Roboto", 8 );
+                _item.Font = new Font( "Roboto", 9 );
                 _item.Name = _name;
-                _item.Size = new Size( 198, 22 );
+                _item.Size = new Size( 198, 24 );
                 _item.BackColor = Color.FromArgb( 45, 45, 45 );
                 _item.ForeColor = Color.FromArgb( 106, 189, 252 );
                 _item.Text = $"{_caption}";
@@ -167,9 +168,9 @@ namespace BudgetExecution
                 var _caption = _name.SplitPascal( );
                 var _item = new ToolStripMenuItemExt( );
                 _item.TextAlign = ContentAlignment.MiddleCenter;
-                _item.Font = new Font( "Roboto", 8 );
+                _item.Font = new Font( "Roboto", 9 );
                 _item.Name = _name;
-                _item.Size = new Size( 198, 22 );
+                _item.Size = new Size( 198, 24 );
                 _item.BackColor = Color.FromArgb( 45, 45, 45 );
                 _item.ForeColor = Color.FromArgb( 106, 189, 252 );
                 _item.Text = $"{_caption}";
@@ -198,9 +199,9 @@ namespace BudgetExecution
                 var _caption = _name.SplitPascal( );
                 var _item = new ToolStripMenuItemExt( );
                 _item.TextAlign = ContentAlignment.MiddleCenter;
-                _item.Font = new Font( "Roboto", 8 );
+                _item.Font = new Font( "Roboto", 9 );
                 _item.Name = _name;
-                _item.Size = new Size( 198, 22 );
+                _item.Size = new Size( 198, 24 );
                 _item.BackColor = Color.FromArgb( 45, 45, 45 );
                 _item.ForeColor = Color.FromArgb( 106, 189, 252 );
                 _item.Text = $"{_caption}";
@@ -229,9 +230,9 @@ namespace BudgetExecution
                 var _caption = _name.SplitPascal( );
                 var _item = new ToolStripMenuItemExt( );
                 _item.TextAlign = ContentAlignment.MiddleCenter;
-                _item.Font = new Font( "Roboto", 8 );
+                _item.Font = new Font( "Roboto", 9 );
                 _item.Name = _name;
-                _item.Size = new Size( 198, 22 );
+                _item.Size = new Size( 198, 24 );
                 _item.BackColor = Color.FromArgb( 45, 45, 45 );
                 _item.ForeColor = Color.FromArgb( 106, 189, 252 );
                 _item.Text = _caption;
@@ -262,9 +263,9 @@ namespace BudgetExecution
                 var _caption = _name.SplitPascal( );
                 var _item = new ToolStripMenuItemExt( );
                 _item.TextAlign = ContentAlignment.MiddleCenter;
-                _item.Font = new Font( "Roboto", 8 );
+                _item.Font = new Font( "Roboto", 9 );
                 _item.Name = _name;
-                _item.Size = new Size( 198, 22 );
+                _item.Size = new Size( 198, 24 );
                 _item.BackColor = Color.FromArgb( 45, 45, 45 );
                 _item.ForeColor = Color.FromArgb( 106, 189, 252 );
                 _item.Text = _caption;
@@ -293,9 +294,9 @@ namespace BudgetExecution
                 var _caption = _name.SplitPascal( );
                 var _item = new ToolStripMenuItemExt( );
                 _item.TextAlign = ContentAlignment.MiddleCenter;
-                _item.Font = new Font( "Roboto", 8 );
+                _item.Font = new Font( "Roboto", 9 );
                 _item.Name = _name;
-                _item.Size = new Size( 198, 22 );
+                _item.Size = new Size( 198, 24 );
                 _item.BackColor = Color.FromArgb( 45, 45, 45 );
                 _item.ForeColor = Color.FromArgb( 106, 189, 252 );
                 _item.Text = _caption;

@@ -44,6 +44,9 @@ namespace BudgetExecution
     using System.Collections.Specialized;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <summary>
+    /// 
+    /// </summary>
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     public abstract class WebSearch
     {
