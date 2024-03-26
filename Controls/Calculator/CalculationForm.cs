@@ -575,7 +575,7 @@ namespace BudgetExecution
         {
             try
             {
-                Minion.LaunchWindowsCalculator( );
+                WinMinion.LaunchCalculator( );
             }
             catch( Exception _ex )
             {

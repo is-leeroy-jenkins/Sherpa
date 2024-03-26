@@ -400,22 +400,22 @@ namespace BudgetExecution
                             }
                             case MenuOption.WindowsCalendar:
                             {
-                                Minion.LaunchWindowsCalendar( );
+                                WinMinion.LaunchCalendar( );
                                 break;
                             }
                             case MenuOption.ControlPanel:
                             {
-                                Minion.LaunchControlPanel( );
+                                WinMinion.LaunchControlPanel( );
                                 break;
                             }
                             case MenuOption.TaskManager:
                             {
-                                Minion.LaunchTaskManager( );
+                                WinMinion.LaunchTaskManager( );
                                 break;
                             }
                             case MenuOption.WindowsCalculator:
                             {
-                                Minion.LaunchWindowsCalculator( );
+                                WinMinion.LaunchCalculator( );
                                 break;
                             }
                             case MenuOption.BudgetGuidance:
@@ -426,7 +426,7 @@ namespace BudgetExecution
                             }
                             case MenuOption.OneDrive:
                             {
-                                Minion.LaunchOneDrive( );
+                                WinMinion.LaunchOneDrive( );
                                 break;
                             }
                             case MenuOption.SaveChanges:
@@ -438,17 +438,17 @@ namespace BudgetExecution
                             }
                             case MenuOption.WindowsClock:
                             {
-                                Minion.LaunchWindowsClock( );
+                                WinMinion.LaunchClock( );
                                 break;
                             }
                             case MenuOption.WindowsMaps:
                             {
-                                Minion.LaunchWindowsMaps( );
+                                WinMinion.LaunchMaps( );
                                 break;
                             }
                             case MenuOption.MediaPlayer:
                             {
-                                Minion.LaunchWindowsMediaPlayer( );
+                                WinMinion.LaunchMediaPlayer( );
                                 break;
                             }
                             case MenuOption.ExitApplication:
