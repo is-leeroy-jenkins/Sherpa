@@ -290,7 +290,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _name = MenuOption.WindowsMediaPlayer.ToString( );
+                var _name = MenuOption.MediaPlayer.ToString( );
                 var _caption = _name.SplitPascal( );
                 var _item = new ToolStripMenuItemExt( );
                 _item.TextAlign = ContentAlignment.MiddleCenter;

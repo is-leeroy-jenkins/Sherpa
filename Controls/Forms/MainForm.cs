@@ -568,6 +568,24 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Shows the delay form.
+        /// </summary>
+        private void ShowDelayForm( )
+        {
+            try
+            {
+                var _delay = new DelayForm( );
+                _delay.Owner = this;
+                _delay.Show( );
+                Hide( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Shows the sheet form.
         /// </summary>
         private void ShowSheetForm( )
@@ -1460,7 +1478,7 @@ namespace BudgetExecution
         {
             try
             {
-                OpenPivotChartForm( );
+                ShowDelayForm( );
             }
             catch( Exception _ex )
             {

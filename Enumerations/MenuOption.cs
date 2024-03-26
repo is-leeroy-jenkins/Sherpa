@@ -97,7 +97,7 @@ namespace BudgetExecution
         /// <summary>
         /// The windows media player
         /// </summary>
-        WindowsMediaPlayer = 10,
+        MediaPlayer = 10,
 
         /// <summary>
         /// The one drive

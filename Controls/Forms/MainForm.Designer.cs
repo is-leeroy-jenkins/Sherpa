@@ -952,7 +952,7 @@ namespace BudgetExecution
             // 
             // TestButton
             // 
-            TestButton.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            TestButton.Anchor =   System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             TestButton.BindingSource = null;
             TestButton.DataFilter = null;
             TestButton.DisabledBackColor = System.Drawing.Color.Transparent;
@@ -985,7 +985,7 @@ namespace BudgetExecution
             // 
             // ExitButton
             // 
-            ExitButton.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            ExitButton.Anchor =  System.Windows.Forms.AnchorStyles.Bottom  |  System.Windows.Forms.AnchorStyles.Right ;
             ExitButton.BindingSource = null;
             ExitButton.DataFilter = null;
             ExitButton.DisabledBackColor = System.Drawing.Color.Transparent;
@@ -1018,7 +1018,6 @@ namespace BudgetExecution
             // 
             // BrowserTable
             // 
-            BrowserTable.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             BrowserTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             BrowserTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             BrowserTable.CaptionText = "Web Browsers";
@@ -1066,7 +1065,7 @@ namespace BudgetExecution
             // 
             // ClientTable
             // 
-            ClientTable.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            ClientTable.Anchor =  System.Windows.Forms.AnchorStyles.Bottom  |  System.Windows.Forms.AnchorStyles.Right ;
             ClientTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             ClientTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             ClientTable.CaptionText = "Database Clients";
@@ -1114,7 +1113,7 @@ namespace BudgetExecution
             // 
             // UtilityTable
             // 
-            UtilityTable.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            UtilityTable.Anchor =  System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Right ;
             UtilityTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             UtilityTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             UtilityTable.CaptionText = "Utilities";
@@ -1161,7 +1160,7 @@ namespace BudgetExecution
             // 
             // DataManagementTable
             // 
-            DataManagementTable.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            DataManagementTable.Anchor =  System.Windows.Forms.AnchorStyles.Bottom  |  System.Windows.Forms.AnchorStyles.Left ;
             DataManagementTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataManagementTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
             DataManagementTable.CaptionText = "Data Management";
@@ -1267,7 +1266,7 @@ namespace BudgetExecution
             ContextMenu.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             ContextMenu.MetroColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             ContextMenu.Name = "ContextMenu";
-            ContextMenu.Size = new System.Drawing.Size( 126, 180 );
+            ContextMenu.Size = new System.Drawing.Size( 184, 312 );
             ContextMenu.Style = Syncfusion.Windows.Forms.Tools.ContextMenuStripEx.ContextMenuStyle.Office2016Black;
             ContextMenu.ThemeName = "Office2016Black";
             ContextMenu.ThemeStyle.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );

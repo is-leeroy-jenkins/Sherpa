@@ -63,6 +63,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Local" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertSwitchStatementToSwitchExpression" ) ]
     public partial class DelayForm : MetroForm
     {
         /// <summary>
@@ -91,12 +92,32 @@ namespace BudgetExecution
         private Status _status;
 
         /// <summary>
+        /// The picture
+        /// </summary>
+        private Image _picture;
+
+        /// <summary>
+        /// The loader
+        /// </summary>
+        private Bitmap _loader;
+
+        /// <summary>
         /// Gets or sets the time.
         /// </summary>
         /// <value>
         /// The time.
         /// </value>
-        public int Time { get; set; }
+        public int Time
+        {
+            get
+            {
+                return _time;
+            }
+            private protected set
+            {
+                _time = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the seconds.
@@ -104,7 +125,17 @@ namespace BudgetExecution
         /// <value>
         /// The seconds.
         /// </value>
-        public int Seconds { get; set; }
+        public int Seconds
+        {
+            get
+            {
+                return _seconds;
+            }
+            private protected set
+            {
+                _seconds = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the picture.
@@ -112,7 +143,17 @@ namespace BudgetExecution
         /// <value>
         /// The picture.
         /// </value>
-        public Image Picture { get; set; }
+        public Image Picture
+        {
+            get
+            {
+                return _picture;
+            }
+            private protected set
+            {
+                _picture = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the loader.
@@ -120,7 +161,17 @@ namespace BudgetExecution
         /// <value>
         /// The loader.
         /// </value>
-        public Bitmap Loader { get; set; }
+        public Bitmap Loader
+        {
+            get
+            {
+                return _loader;
+            }
+            private protected set
+            {
+                _loader = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the status.
@@ -205,6 +256,7 @@ namespace BudgetExecution
             // Form Event Wiring
             Load += OnLoad;
             Closing += OnClose;
+            Shown += OnShown;
         }
 
         /// <inheritdoc/>
@@ -227,7 +279,6 @@ namespace BudgetExecution
         {
             try
             {
-                CloseButton.Click += OnCloseButtonClicked;
             }
             catch( Exception _ex )
             {
@@ -441,6 +492,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
+                PictureBox.Image?.Dispose( );
                 Fail( _ex );
             }
         }
@@ -457,11 +509,11 @@ namespace BudgetExecution
             try
             {
                 SetImage( );
-                CloseButton.Text = "Close Window";
                 FadeIn( );
             }
             catch( Exception _ex )
             {
+                PictureBox.Image?.Dispose( );
                 Fail( _ex );
             }
         }
@@ -481,6 +533,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
+                PictureBox.Image?.Dispose( );
                 Fail( _ex );
             }
         }
@@ -497,12 +550,11 @@ namespace BudgetExecution
             try
             {
                 Timer?.Dispose( );
+                FadeOut( );
                 if( PictureBox?.Image != null )
                 {
                     PictureBox.Image = null;
                 }
-
-                FadeOut( );
             }
             catch( Exception _ex )
             {
@@ -540,6 +592,7 @@ namespace BudgetExecution
         {
             try
             {
+                FadeIn( );
             }
             catch( Exception _ex )
             {

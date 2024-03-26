@@ -40,6 +40,7 @@
             // PictureBox
             // 
             PictureBox.BackColor = System.Drawing.Color.Transparent;
+            PictureBox.Image = Resources.Images.LoaderImages.Loading;
             PictureBox.Location = new System.Drawing.Point( 354, 203 );
             PictureBox.Margin = new System.Windows.Forms.Padding( 4, 3, 4, 3 );
             PictureBox.Name = "PictureBox";
