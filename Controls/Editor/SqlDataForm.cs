@@ -2017,17 +2017,17 @@ namespace BudgetExecution
                 {
                     case Provider.Access:
                     {
-                        Minion.RunAccess( );
+                        DataMinion.RunAccess( );
                         break;
                     }
                     case Provider.SqlCe:
                     {
-                        Minion.RunSqlCe( );
+                        DataMinion.RunSqlCe( );
                         break;
                     }
                     case Provider.SQLite:
                     {
-                        Minion.RunSQLite( );
+                        DataMinion.RunSQLite( );
                         break;
                     }
                 }

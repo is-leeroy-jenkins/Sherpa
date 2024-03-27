@@ -345,13 +345,13 @@ namespace BudgetExecution
                     {
                         case Provider.SQLite:
                         {
-                            Minion.RunSQLite( );
+                            DataMinion.RunSQLite( );
                             Close( );
                             break;
                         }
                         default:
                         {
-                            Minion.RunSQLite( );
+                            DataMinion.RunSQLite( );
                             Close( );
                             break;
                         }

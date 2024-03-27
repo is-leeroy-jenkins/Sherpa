@@ -842,7 +842,7 @@ namespace BudgetExecution
                     var _data = new DataBuilder( _source, _provider, _filter ).Record;
                     var _path = _data[ "Location" ].ToString( );
                     _selectedPath = _prefix + _path;
-                    Minion.RunEdge( _selectedPath );
+                    DataMinion.RunEdge( _selectedPath );
                     OpenMainForm( );
                     Close( );
                 }

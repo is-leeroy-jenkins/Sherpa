@@ -3,24 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\contextmenu\\contextbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\contextmenu\\contextbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\budgetexecution.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:budgetexecution.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\calculator\\calculationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\calculator\\calculationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\editor\\sqleditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\editor\\sqleditform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\winminion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:winminion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\static\\dataminion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:static\\dataminion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\webminion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:webminion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\editor\\sqldataform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\editor\\sqldataform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\static\\minion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:static\\minion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\carousel\\carouselform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\carousel\\carouselform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\static\\winminion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:static\\winminion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\static\\webminion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:static\\webminion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -51,66 +59,91 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ContextBase.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\ContextMenu\\ContextBase.cs",
-              "RelativeDocumentMoniker": "Controls\\ContextMenu\\ContextBase.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\ContextMenu\\ContextBase.cs",
-              "RelativeToolTip": "Controls\\ContextMenu\\ContextBase.cs",
-              "ViewState": "AQIAAGcBAAAAAAAAAAAIwJYBAAAdAAAA",
+              "Title": "BudgetExecution",
+              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\BudgetExecution.csproj",
+              "RelativeDocumentMoniker": "BudgetExecution.csproj",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\BudgetExecution.csproj",
+              "RelativeToolTip": "BudgetExecution.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-03-27T11:46:08.449Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CarouselForm.cs",
+              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Carousel\\CarouselForm.cs",
+              "RelativeDocumentMoniker": "Controls\\Carousel\\CarouselForm.cs",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Carousel\\CarouselForm.cs",
+              "RelativeToolTip": "Controls\\Carousel\\CarouselForm.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-26T22:59:46.042Z",
+              "WhenOpened": "2024-03-26T23:04:47.222Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "CalculationForm.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Calculator\\CalculationForm.cs",
-              "RelativeDocumentMoniker": "Controls\\Calculator\\CalculationForm.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Calculator\\CalculationForm.cs",
-              "RelativeToolTip": "Controls\\Calculator\\CalculationForm.cs",
-              "ViewState": "AQIAADkCAAAAAAAAAAAkwFACAAAJAAAA",
+              "Title": "SqlEditForm.cs",
+              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Editor\\SqlEditForm.cs",
+              "RelativeDocumentMoniker": "Controls\\Editor\\SqlEditForm.cs",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Editor\\SqlEditForm.cs",
+              "RelativeToolTip": "Controls\\Editor\\SqlEditForm.cs",
+              "ViewState": "AQIAANoBAAAAAAAAAADwv+cBAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-26T22:57:34.522Z",
+              "WhenOpened": "2024-03-26T23:04:47.271Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "WebMinion.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\WebMinion.cs",
-              "RelativeDocumentMoniker": "WebMinion.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\WebMinion.cs",
-              "RelativeToolTip": "WebMinion.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAASAAAA",
+              "Title": "SqlDataForm.cs",
+              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Editor\\SqlDataForm.cs",
+              "RelativeDocumentMoniker": "Controls\\Editor\\SqlDataForm.cs",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Editor\\SqlDataForm.cs",
+              "RelativeToolTip": "Controls\\Editor\\SqlDataForm.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-26T22:55:03.037Z",
+              "WhenOpened": "2024-03-26T23:04:47.303Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "WinMinion.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\WinMinion.cs",
-              "RelativeDocumentMoniker": "WinMinion.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\WinMinion.cs",
-              "RelativeToolTip": "WinMinion.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAAAowDUAAAAsAAAA",
+              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Static\\WinMinion.cs",
+              "RelativeDocumentMoniker": "Static\\WinMinion.cs",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Static\\WinMinion.cs",
+              "RelativeToolTip": "Static\\WinMinion.cs",
+              "ViewState": "AQIAAMgAAAAAAAAAAAAAAKcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-26T22:50:29.054Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Minion.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Static\\Minion.cs",
-              "RelativeDocumentMoniker": "Static\\Minion.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Static\\Minion.cs",
-              "RelativeToolTip": "Static\\Minion.cs",
-              "ViewState": "AQIAACQAAAAAAAAAAAAAAEkBAAA0AAAA",
+              "DocumentIndex": 2,
+              "Title": "DataMinion.cs",
+              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Static\\DataMinion.cs",
+              "RelativeDocumentMoniker": "Static\\DataMinion.cs",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Static\\DataMinion.cs",
+              "RelativeToolTip": "Static\\DataMinion.cs",
+              "ViewState": "AQIAACQAAAAAAAAAAAAAADAAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-26T22:42:12.779Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "WebMinion.cs",
+              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Static\\WebMinion.cs",
+              "RelativeDocumentMoniker": "Static\\WebMinion.cs",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Static\\WebMinion.cs",
+              "RelativeToolTip": "Static\\WebMinion.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-26T22:55:03.037Z",
               "EditorCaption": ""
             }
           ]

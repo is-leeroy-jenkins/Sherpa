@@ -91,7 +91,7 @@ namespace BudgetExecution
         private Action _endLoad;
 
         /// <summary>
-        /// Gets or sets the time.
+        /// Gets or sets the time.xc c
         /// </summary>
         /// <value>
         /// The time.
@@ -132,9 +132,9 @@ namespace BudgetExecution
 
             // Basic Properties
             Name = nameof( MainForm );
-            Size = new Size( 1340, 740 );
             MaximumSize = new Size( 1350, 750 );
             MinimumSize = new Size( 1330, 730 );
+            Size = new Size( 1340, 740 );
             Padding = new Padding( 1 );
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.Sizable;
@@ -485,7 +485,7 @@ namespace BudgetExecution
         {
             try
             {
-                Minion.RunSqlCe( );
+                DataMinion.RunSqlCe( );
             }
             catch( Exception _ex )
             {
@@ -1129,7 +1129,7 @@ namespace BudgetExecution
         {
             try
             {
-                Minion.RunEdge( );
+                DataMinion.RunEdge( );
             }
             catch( Exception _ex )
             {
@@ -1147,7 +1147,7 @@ namespace BudgetExecution
         {
             try
             {
-                Minion.RunChrome( );
+                DataMinion.RunChrome( );
             }
             catch( Exception _ex )
             {
@@ -1165,7 +1165,7 @@ namespace BudgetExecution
         {
             try
             {
-                Minion.RunFirefox( );
+                DataMinion.RunFirefox( );
             }
             catch( Exception _ex )
             {
@@ -1183,7 +1183,7 @@ namespace BudgetExecution
         /// </param>
         private void OnBrowserTileClick( object sender, EventArgs e )
         {
-            Minion.RunBudgetBrowser( );
+            DataMinion.RunBudgetBrowser( );
         }
 
         /// <summary>

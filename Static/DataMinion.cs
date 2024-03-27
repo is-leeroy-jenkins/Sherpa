@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="Minion.cs" company="Terry D. Eppler">
+// <copyright file="DataMinion.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   Minion.cs
+//   DataMinion.cs
 // </summary>
 // ******************************************************************************************
 
@@ -50,7 +50,7 @@ namespace BudgetExecution
     /// </summary>
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    public static class Minion
+    public static class DataMinion
     {
         /// <summary>
         /// Opens the sql lite client
