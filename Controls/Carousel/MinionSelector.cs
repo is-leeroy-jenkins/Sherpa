@@ -70,7 +70,7 @@ namespace BudgetExecution
         /// The image path.
         /// </value>
         public string ImagePath { get; } =
-            @"C:\Users\terry\source\repos\BudgetExecution\Resources\Pictures\Carousel\Minion";
+            @"C:\Users\teppler\source\repos\BudgetExecution\Resources\Pictures\Carousel\Minion";
 
         /// <inheritdoc />
         /// <summary>
