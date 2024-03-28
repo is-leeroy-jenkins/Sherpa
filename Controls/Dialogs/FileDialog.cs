@@ -233,6 +233,7 @@ namespace BudgetExecution
             : base( )
         {
             InitializeComponent( );
+            InitializeDelegates( );
             RegisterCallbacks( );
 
             // Basic Properties
@@ -266,14 +267,20 @@ namespace BudgetExecution
             MaximizeBox = false;
             ControlBox = false;
 
+            // Timer Properties
+            _time = 0;
+            _seconds = 5;
+
             // Budget Properties
             _extension = EXT.XLSX;
             _fileExtension = _extension.ToString( ).ToLower( );
+            _searchPaths = CreateInitialDirectoryPaths( );
+            _filePaths = CreateListViewFilePaths( );
             _radioButtons = GetRadioButtons( );
-            _searchPaths = new List<string>( );
 
             // Event Wiring
             Load += OnLoad;
+            Closing += OnCloseButtonClicked;
         }
 
         /// <inheritdoc />
@@ -287,8 +294,8 @@ namespace BudgetExecution
         {
             _extension = extension;
             _fileExtension = _extension.ToString( ).ToLower( );
+            _searchPaths = CreateInitialDirectoryPaths( );
             _filePaths = CreateListViewFilePaths( );
-            _searchPaths = new List<string>( );
         }
 
         /// <summary>
@@ -301,6 +308,22 @@ namespace BudgetExecution
                 FileList.SelectedValueChanged += OnListBoxItemSelected;
                 BrowseButton.Click += OnBrowseButtonClicked;
                 CloseButton.Click += OnCloseButtonClicked;
+                Timer.Tick += OnTimerTick;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the delegates.
+        /// </summary>
+        private void InitializeDelegates( )
+        {
+            try
+            {
+                _statusUpdate += UpdateStatus;
             }
             catch( Exception _ex )
             {
@@ -362,17 +385,18 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
-        /// Initializes the timers.
+        /// Initializes the timer.
         /// </summary>
-        private void InitializeTimers( )
+        private void InitializeTimer( )
         {
             try
             {
                 // Timer Properties
                 Timer.Enabled = true;
                 Timer.Interval = 500;
+                Timer.Tick += OnTimerTick;
                 Timer.Start( );
             }
             catch( Exception _ex )
@@ -384,7 +408,7 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the radios.
         /// </summary>
-        private void InitializeRadios( )
+        private void InitializeRadioButtons( )
         {
             try
             {
@@ -409,6 +433,24 @@ namespace BudgetExecution
                         break;
                     }
                 }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the PictureBox.
+        /// </summary>
+        private void InitializePictureBox( )
+        {
+            try
+            {
+                PictureBox.Size = new Size( 22, 22 );
+                PictureBox.Padding = new Padding( 1 );
+                PictureBox.Margin = new Padding( 1 );
+                PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             }
             catch( Exception _ex )
             {
@@ -447,13 +489,59 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Shows the dialog.
+        /// </summary>
+        public new void ShowDialog( )
+        {
+            try
+            {
+                Opacity = 0;
+                if( _seconds != 0 )
+                {
+                    Timer = new Timer( );
+                    Timer.Interval = 1000;
+                    Timer.Tick += ( sender, args ) =>
+                    {
+                        _time++;
+                        if( _time == _seconds )
+                        {
+                            Timer.Stop( );
+                        }
+                    };
+                }
+
+                base.ShowDialog( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Updates the status.
+        /// </summary>
+        private void UpdateStatus( )
+        {
+            try
+            {
+                var _now = DateTime.Now;
+                MessageLabel.Text = $"{_now.ToShortDateString( )} - {_now.ToLongTimeString( )}";
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Populates the ListBox.
         /// </summary>
         private protected void PopulateListBox( )
         {
-            if( _filePaths?.Any( ) == true )
+            try
             {
-                try
+                if( _filePaths?.Any( ) == true )
                 {
                     FileList.Items?.Clear( );
                     foreach( var _path in _filePaths )
@@ -461,10 +549,10 @@ namespace BudgetExecution
                         FileList.Items.Add( _path );
                     }
                 }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -654,19 +742,18 @@ namespace BudgetExecution
         {
             try
             {
-                _searchPaths = CreateInitialDirectoryPaths( );
                 _filePaths = CreateListViewFilePaths( );
                 InitializeLabels( );
                 InitializeButtons( );
                 InitializeDialogs( );
-                InitializeTimers( );
-                PopulateListBox( );
-                FoundLabel.Text = "Found : " + _filePaths?.Count;
-                Title.Text = $"{_extension} File Search";
-                ClearRadioButtons( );
+                InitializeTimer( );
                 RegisterRadioButtonEvents( );
                 SetImage( );
-                InitializeRadios( );
+                InitializeRadioButtons( );
+                FoundLabel.Text = "Found : " + _filePaths?.Count ?? "0";
+                Title.Text = $"{_extension} File Search";
+                PopulateListBox( );
+                FadeIn( );
             }
             catch( Exception _ex )
             {
@@ -794,6 +881,24 @@ namespace BudgetExecution
                 {
                     Fail( _ex );
                 }
+            }
+        }
+        
+        /// <summary>
+        /// Called when [timer tick].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnTimerTick( object sender, EventArgs e )
+        {
+            try
+            {
+                InvokeIf( _statusUpdate );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
     }

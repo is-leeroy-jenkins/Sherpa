@@ -21,8 +21,15 @@
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public partial class DialogBase : MetroForm
     {
+        /// <summary>
+        /// The status update
+        /// </summary>
+        private protected System.Action _statusUpdate;
+
         /// <summary>
         /// The time
         /// </summary>
@@ -88,37 +95,8 @@
         /// Initializes a new instance of the
         /// <see cref="T:BudgetExecution.DialogBase" /> class.
         /// </summary>
-        public DialogBase( )
+        protected DialogBase( )
         {
-            Size = new Size( 700, 480 );
-            MaximumSize = new Size( 700, 480 );
-            MinimumSize = new Size( 700, 480 );
-            Padding = new Padding( 1 );
-            StartPosition = FormStartPosition.CenterScreen;
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            WindowState = FormWindowState.Normal;
-            SizeGripStyle = SizeGripStyle.Hide;
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.FromArgb( 106, 189, 252 );
-            BorderColor = Color.FromArgb( 0, 120, 212 );
-            BorderThickness = 1;
-            Font = new Font( "Roboto", 9 );
-            ShowIcon = false;
-            ShowInTaskbar = true;
-            MetroColor = Color.FromArgb( 20, 20, 20 );
-            CaptionBarHeight = 5;
-            CaptionAlign = HorizontalAlignment.Center;
-            CaptionFont = new Font( "Roboto", 10, FontStyle.Regular );
-            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionForeColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
-            DoubleBuffered = true;
-            ShowMouseOver = false;
-            MinimizeBox = false;
-            MaximizeBox = false;
-            ControlBox = false;
         }
 
         /// <summary>
@@ -164,9 +142,9 @@
         /// <returns></returns>
         private protected IList<string> CreateListViewFilePaths( )
         {
-            if( _searchPaths?.Any( ) == true )
+            try
             {
-                try
+                if( _searchPaths?.Any( ) == true )
                 {
                     var _list = new List<string>( );
                     foreach( var _filePath in _searchPaths )
@@ -178,8 +156,9 @@
 
                         _list.AddRange( _first );
                         var _dirs = GetDirectories( _filePath );
-                        foreach( var _dir in _dirs )
+                        for( var _i = 0; _i < _dirs.Length; _i++ )
                         {
+                            var _dir = _dirs[ _i ];
                             if( !_dir.Contains( "My " ) )
                             {
                                 var _second = GetFiles( _dir )
@@ -187,28 +166,7 @@
                                     ?.Select( s => Path.GetFullPath( s ) )
                                     ?.ToList( );
 
-                                if( _second?.Any( ) == true )
-                                {
-                                    _list.AddRange( _second );
-                                }
-
-                                var _subDir = GetDirectories( _dir );
-                                for( var _i = 0; _i < _subDir.Length; _i++ )
-                                {
-                                    var _path = _subDir[ _i ];
-                                    if( !string.IsNullOrEmpty( _path ) )
-                                    {
-                                        var _last = GetFiles( _path )
-                                            ?.Where( l => l.EndsWith( _fileExtension ) )
-                                            ?.Select( l => Path.GetFullPath( l ) )
-                                            ?.ToList( );
-
-                                        if( _last?.Any( ) == true )
-                                        {
-                                            _list.AddRange( _last );
-                                        }
-                                    }
-                                }
+                                _list.AddRange( _second );
                             }
                         }
                     }
@@ -217,11 +175,11 @@
                         ? _list
                         : default( IList<string> );
                 }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( IList<string> );
-                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IList<string> );
             }
 
             return default( IList<string> );
@@ -243,7 +201,7 @@
                     GetFolderPath( SpecialFolder.DesktopDirectory ),
                     GetFolderPath( SpecialFolder.Personal ),
                     GetFolderPath( SpecialFolder.Recent ),
-                    @"C:\Users\teppler\source\repos\BudgetExecution\Resources\Documents",
+                    @"C:\Users\terry\source\repos\BudgetExecution\Resources\Documents",
                     _current
                 };
 
@@ -295,8 +253,8 @@
             }
         }
 
-        /// <summary> 
-        /// Fades the in. 
+        /// <summary>
+        /// Fades the in.
         /// </summary>
         private protected void FadeIn( )
         {
@@ -311,7 +269,7 @@
                         _timer.Stop( );
                     }
 
-                    Opacity += 0.02d;
+                    Opacity += 0.05d;
                 };
 
                 _timer.Start( );
@@ -322,8 +280,8 @@
             }
         }
 
-        /// <summary> 
-        /// Fades the out and close. 
+        /// <summary>
+        /// Fades the out.
         /// </summary>
         private protected void FadeOut( )
         {
@@ -338,7 +296,7 @@
                         _timer.Stop( );
                     }
 
-                    Opacity -= 0.02d;
+                    Opacity -= 0.05d;
                 };
 
                 _timer.Start( );
@@ -382,24 +340,6 @@
             {
                 Fail( _ex );
                 return default( Control[ ] );
-            }
-        }
-
-        /// <summary>
-        /// Raises the Close event.
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        public void OnClosing( object sender, EventArgs e )
-        {
-            try
-            {
-                FadeOut( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
             }
         }
 

@@ -3,28 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\extensions\\dictionaryextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:extensions\\dictionaryextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\dialogs\\dialogbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\dialogs\\dialogbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\extensions\\datarowextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:extensions\\datarowextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\dialogs\\filedialog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\dialogs\\filedialog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\extensions\\datatableextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:extensions\\datatableextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\dialogs\\folderdialog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\dialogs\\folderdialog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\extensions\\collectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:extensions\\collectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\dialogs\\filedialog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\dialogs\\filedialog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\static\\static.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:static\\static.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\static\\resource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:static\\resource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\datagrid\\datagridform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\datagrid\\datagridform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -55,79 +51,65 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "DataTableExtensions.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Extensions\\DataTableExtensions.cs",
-              "RelativeDocumentMoniker": "Extensions\\DataTableExtensions.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Extensions\\DataTableExtensions.cs",
-              "RelativeToolTip": "Extensions\\DataTableExtensions.cs",
-              "ViewState": "AQIAAIMBAAAAAAAAAAAAAJYBAAAJAAAA",
+              "Title": "FolderDialog.cs",
+              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Dialogs\\FolderDialog.cs",
+              "RelativeDocumentMoniker": "Controls\\Dialogs\\FolderDialog.cs",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Dialogs\\FolderDialog.cs",
+              "RelativeToolTip": "Controls\\Dialogs\\FolderDialog.cs",
+              "ViewState": "AQIAAMUAAAAAAAAAAAAAANkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-28T00:18:48.211Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DataRowExtensions.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Extensions\\DataRowExtensions.cs",
-              "RelativeDocumentMoniker": "Extensions\\DataRowExtensions.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Extensions\\DataRowExtensions.cs",
-              "RelativeToolTip": "Extensions\\DataRowExtensions.cs",
-              "ViewState": "AQIAALsAAAAAAAAAAAAgwMgAAAAWAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-28T00:04:38.216Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CollectionExtensions.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Extensions\\CollectionExtensions.cs",
-              "RelativeDocumentMoniker": "Extensions\\CollectionExtensions.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Extensions\\CollectionExtensions.cs",
-              "RelativeToolTip": "Extensions\\CollectionExtensions.cs",
-              "ViewState": "AQIAAOoAAAAAAAAAAAAUwPoAAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-27T23:58:35.258Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "DictionaryExtensions.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Extensions\\DictionaryExtensions.cs",
-              "RelativeDocumentMoniker": "Extensions\\DictionaryExtensions.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Extensions\\DictionaryExtensions.cs",
-              "RelativeToolTip": "Extensions\\DictionaryExtensions.cs",
-              "ViewState": "AQIAAHMBAAAAAAAAAAAAAIkBAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-27T23:57:05.098Z",
+              "WhenOpened": "2024-03-28T11:32:12.098Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Static.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Static\\Static.cs",
-              "RelativeDocumentMoniker": "Static\\Static.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Static\\Static.cs",
-              "RelativeToolTip": "Static\\Static.cs",
-              "ViewState": "AQIAAO4AAAAAAAAAAAAgwPgAAAA5AAAA",
+              "Title": "DataGridForm.cs",
+              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\DataGrid\\DataGridForm.cs",
+              "RelativeDocumentMoniker": "Controls\\DataGrid\\DataGridForm.cs",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\DataGrid\\DataGridForm.cs",
+              "RelativeToolTip": "Controls\\DataGrid\\DataGridForm.cs",
+              "ViewState": "AQIAAN0DAAAAAAAAAAAAAP4DAAA1AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-27T23:16:59.036Z",
+              "WhenOpened": "2024-03-28T11:24:27.328Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Resource.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Static\\Resource.cs",
-              "RelativeDocumentMoniker": "Static\\Resource.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Static\\Resource.cs",
-              "RelativeToolTip": "Static\\Resource.cs",
-              "ViewState": "AQIAAHEAAAAAAAAAAAAswIcAAABPAAAA",
+              "DocumentIndex": 3,
+              "Title": "FileDialog.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Dialogs\\FileDialog.cs",
+              "RelativeDocumentMoniker": "Controls\\Dialogs\\FileDialog.cs",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Dialogs\\FileDialog.cs [Design]",
+              "RelativeToolTip": "Controls\\Dialogs\\FileDialog.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-27T23:11:00.327Z",
+              "WhenOpened": "2024-03-28T11:23:13.842Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FileDialog.cs",
+              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Dialogs\\FileDialog.cs",
+              "RelativeDocumentMoniker": "Controls\\Dialogs\\FileDialog.cs",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Dialogs\\FileDialog.cs",
+              "RelativeToolTip": "Controls\\Dialogs\\FileDialog.cs",
+              "ViewState": "AQIAADgDAAAAAAAAAAAqwFcDAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-28T10:58:19.923Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DialogBase.cs",
+              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Dialogs\\DialogBase.cs",
+              "RelativeDocumentMoniker": "Controls\\Dialogs\\DialogBase.cs",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Dialogs\\DialogBase.cs",
+              "RelativeToolTip": "Controls\\Dialogs\\DialogBase.cs",
+              "ViewState": "AQIAAEcBAAAAAAAAAAAQwFkBAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-28T10:58:07.019Z",
               "EditorCaption": ""
             }
           ]

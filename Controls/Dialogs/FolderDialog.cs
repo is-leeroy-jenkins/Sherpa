@@ -41,7 +41,6 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Collections;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
@@ -209,10 +208,13 @@ namespace BudgetExecution
             MaximizeBox = false;
             ControlBox = false;
 
+            // Timer Properties
+            _time = 0;
+            _seconds = 5;
+
             // Budget Properties
-            _dirPaths = new List<string>( );
-            _searchPaths = new List<string>( );
-            _radioButtons = new List<RadioButton>( );
+            _searchPaths = CreateInitialDirectoryPaths( );
+            _dirPaths = GetListViewFolderPaths( );
 
             // Wire Events
             Load += OnLoad;
@@ -259,19 +261,16 @@ namespace BudgetExecution
         /// </param>
         public void OnLoad( object sender, EventArgs e )
         {
-            if( _dirPaths?.Any( ) == true )
+            try
             {
-                try
-                {
-                    InitializeTimers( );
-                    InitializeLabels( );
-                    InitializeButtons( );
-                    PopulateListBox( );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                InitializeTimer( );
+                InitializeLabels( );
+                InitializeButtons( );
+                PopulateListBox( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -285,6 +284,43 @@ namespace BudgetExecution
                 // Title Properties
                 Title.ForeColor = Color.FromArgb( 106, 189, 252 );
                 Title.TextAlign = ContentAlignment.TopLeft;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the timer.
+        /// </summary>
+        private void InitializeTimer( )
+        {
+            try
+            {
+                // Timer Properties
+                Timer.Enabled = true;
+                Timer.Interval = 500;
+                Timer.Tick += OnTimerTick;
+                Timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the PictureBox.
+        /// </summary>
+        private void InitializePictureBox( )
+        {
+            try
+            {
+                PictureBox.Size = new Size( 22, 22 );
+                PictureBox.Padding = new Padding( 1 );
+                PictureBox.Margin = new Padding( 1 );
+                PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             }
             catch( Exception _ex )
             {
@@ -310,23 +346,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes the timers.
-        /// </summary>
-        private void InitializeTimers( )
-        {
-            try
-            {
-                // Timer Properties
-                _time = 0;
-                _seconds = 5;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Initializes the buttons.
         /// </summary>
         private void InitializeButtons( )
@@ -344,113 +363,24 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Fades the in.
-        /// </summary>
-        private void FadeIn( )
-        {
-            try
-            {
-                var _timer = new Timer( );
-                _timer.Interval = 10;
-                _timer.Tick += ( sender, args ) =>
-                {
-                    if( Opacity == 1d )
-                    {
-                        _timer.Stop( );
-                    }
-
-                    Opacity += 0.02d;
-                };
-
-                _timer.Start( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Fades the out and close.
-        /// </summary>
-        private void FadeOut( )
-        {
-            try
-            {
-                var _timer = new Timer( );
-                _timer.Interval = 10;
-                _timer.Tick += ( sender, args ) =>
-                {
-                    if( Opacity == 0d )
-                    {
-                        _timer.Stop( );
-                    }
-
-                    Opacity -= 0.02d;
-                };
-
-                _timer.Start( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Gets the controls.
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        private IEnumerable<Control> GetControls( )
-        {
-            var _list = new List<Control>( );
-            var _queue = new Queue( );
-            try
-            {
-                _queue.Enqueue( Controls );
-                while( _queue.Count > 0 )
-                {
-                    var _collection = (Control.ControlCollection)_queue.Dequeue( );
-                    if( _collection?.Count > 0 )
-                    {
-                        foreach( Control _control in _collection )
-                        {
-                            _list.Add( _control );
-                            _queue.Enqueue( _control.Controls );
-                        }
-                    }
-                }
-
-                return _list?.Any( ) == true
-                    ? _list.ToArray( )
-                    : default( Control[ ] );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( Control[ ] );
-            }
-        }
-
-        /// <summary>
         /// Populates the ListBox.
         /// </summary>
         private protected virtual void PopulateListBox( )
         {
-            if( _dirPaths?.Any( ) == true )
+            try
             {
-                try
+                if( _dirPaths?.Any( ) == true )
                 {
+                    _dirPaths.Clear( );
                     foreach( var _path in _dirPaths )
                     {
                         FileList.Items.Add( _path );
                     }
                 }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -458,7 +388,7 @@ namespace BudgetExecution
         /// Gets the ListView paths.
         /// </summary>
         /// <returns> </returns>
-        private protected IEnumerable<string> GetListViewPaths( )
+        private protected IList<string> GetListViewFolderPaths( )
         {
             if( _searchPaths?.Any( ) == true )
             {
@@ -478,7 +408,7 @@ namespace BudgetExecution
                                 var _dirpath = Path.GetFullPath( _dir );
                                 if( _name != null )
                                 {
-                                    _paths.Add( _name, _dirpath );
+                                    _list.Add( _dirpath );
                                 }
 
                                 var _second = Directory.GetDirectories( _dirpath );
@@ -506,16 +436,16 @@ namespace BudgetExecution
 
                     return _list?.Any( ) == true
                         ? _list
-                        : default( IEnumerable<string> );
+                        : default( IList<string> );
                 }
                 catch( Exception _ex )
                 {
                     Fail( _ex );
-                    return default( IEnumerable<string> );
+                    return default( IList<string> );
                 }
             }
 
-            return default( IEnumerable<string> );
+            return default( IList<string> );
         }
 
         /// <summary>
@@ -591,6 +521,24 @@ namespace BudgetExecution
                 {
                     Fail( _ex );
                 }
+            }
+        }
+
+        /// <summary>
+        /// Called when [timer tick].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnTimerTick( object sender, EventArgs e )
+        {
+            try
+            {
+                InvokeIf( _statusUpdate );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
     }

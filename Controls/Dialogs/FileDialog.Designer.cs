@@ -89,13 +89,13 @@ namespace BudgetExecution
             TextBoxLayout.Controls.Add( FoundLabel, 0, 0 );
             TextBoxLayout.Dock = DockStyle.Top;
             TextBoxLayout.GrowStyle = TableLayoutPanelGrowStyle.FixedSize;
-            TextBoxLayout.Location = new System.Drawing.Point( 1, 65 );
+            TextBoxLayout.Location = new System.Drawing.Point( 0, 64 );
             TextBoxLayout.Margin = new Padding( 5 );
             TextBoxLayout.Name = "TextBoxLayout";
             TextBoxLayout.Padding = new Padding( 1 );
             TextBoxLayout.RowCount = 1;
             TextBoxLayout.RowStyles.Add( new RowStyle( SizeType.Percent, 100F ) );
-            TextBoxLayout.Size = new System.Drawing.Size( 686, 291 );
+            TextBoxLayout.Size = new System.Drawing.Size( 688, 291 );
             TextBoxLayout.TabIndex = 5;
             // 
             // CheckBoxLayout
@@ -116,7 +116,7 @@ namespace BudgetExecution
             CheckBoxLayout.Controls.Add( WordRadioButton, 0, 1 );
             CheckBoxLayout.Controls.Add( PdfRadioButton, 0, 0 );
             CheckBoxLayout.Dock = DockStyle.Fill;
-            CheckBoxLayout.Location = new System.Drawing.Point( 574, 4 );
+            CheckBoxLayout.Location = new System.Drawing.Point( 576, 4 );
             CheckBoxLayout.Name = "CheckBoxLayout";
             CheckBoxLayout.RowCount = 12;
             CheckBoxLayout.RowStyles.Add( new RowStyle( SizeType.Percent, 8.333765F ) );
@@ -461,7 +461,7 @@ namespace BudgetExecution
             FileList.HoverText = null;
             FileList.IsDerivedStyle = true;
             FileList.ItemHeight = 30;
-            FileList.Location = new System.Drawing.Point( 87, 2 );
+            FileList.Location = new System.Drawing.Point( 88, 2 );
             FileList.Margin = new Padding( 1 );
             FileList.MultiSelect = false;
             FileList.Name = "FileList";
@@ -474,7 +474,7 @@ namespace BudgetExecution
             FileList.SelectedValue = null;
             FileList.ShowBorder = false;
             FileList.ShowScrollBar = false;
-            FileList.Size = new System.Drawing.Size( 483, 287 );
+            FileList.Size = new System.Drawing.Size( 484, 287 );
             FileList.Style = MetroSet_UI.Enums.Style.Custom;
             FileList.StyleManager = null;
             FileList.TabIndex = 3;
@@ -531,12 +531,12 @@ namespace BudgetExecution
             TopTablePanel.Controls.Add( PictureBox, 0, 0 );
             TopTablePanel.Controls.Add( Title, 1, 0 );
             TopTablePanel.Dock = DockStyle.Top;
-            TopTablePanel.Location = new System.Drawing.Point( 1, 1 );
+            TopTablePanel.Location = new System.Drawing.Point( 0, 0 );
             TopTablePanel.Name = "TopTablePanel";
             TopTablePanel.RowCount = 2;
             TopTablePanel.RowStyles.Add( new RowStyle( SizeType.Percent, 50F ) );
             TopTablePanel.RowStyles.Add( new RowStyle( SizeType.Absolute, 37F ) );
-            TopTablePanel.Size = new System.Drawing.Size( 686, 64 );
+            TopTablePanel.Size = new System.Drawing.Size( 688, 64 );
             TopTablePanel.TabIndex = 9;
             // 
             // PictureBox
@@ -545,12 +545,13 @@ namespace BudgetExecution
             PictureBox.BindingSource = BindingSource;
             PictureBox.DataFilter = null;
             PictureBox.HoverText = null;
-            PictureBox.Image = Resources.Images.FolderImages.Browse;
+            PictureBox.Image = Resources.Images.FormImages.Application;
             PictureBox.ImageList = null;
-            PictureBox.Location = new System.Drawing.Point( 3, 3 );
+            PictureBox.Location = new System.Drawing.Point( 1, 1 );
+            PictureBox.Margin = new Padding( 1 );
             PictureBox.Name = "PictureBox";
             PictureBox.Padding = new Padding( 1 );
-            PictureBox.Size = new System.Drawing.Size( 18, 18 );
+            PictureBox.Size = new System.Drawing.Size( 22, 22 );
             PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             PictureBox.TabIndex = 1;
             PictureBox.TabStop = false;
@@ -564,11 +565,11 @@ namespace BudgetExecution
             Title.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
             Title.HoverText = null;
             Title.IsDerivedStyle = true;
-            Title.Location = new System.Drawing.Point( 41, 3 );
+            Title.Location = new System.Drawing.Point( 42, 3 );
             Title.Margin = new Padding( 3 );
             Title.Name = "Title";
             Title.Padding = new Padding( 1 );
-            Title.Size = new System.Drawing.Size( 642, 21 );
+            Title.Size = new System.Drawing.Size( 643, 21 );
             Title.Style = MetroSet_UI.Enums.Style.Custom;
             Title.StyleManager = null;
             Title.TabIndex = 0;
@@ -612,7 +613,7 @@ namespace BudgetExecution
             CloseButton.HoverText = null;
             CloseButton.HoverTextColor = System.Drawing.Color.White;
             CloseButton.IsDerivedStyle = true;
-            CloseButton.Location = new System.Drawing.Point( 568, 3 );
+            CloseButton.Location = new System.Drawing.Point( 570, 3 );
             CloseButton.Name = "CloseButton";
             CloseButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             CloseButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
@@ -644,7 +645,7 @@ namespace BudgetExecution
             BrowseButton.HoverText = null;
             BrowseButton.HoverTextColor = System.Drawing.Color.White;
             BrowseButton.IsDerivedStyle = true;
-            BrowseButton.Location = new System.Drawing.Point( 45, 3 );
+            BrowseButton.Location = new System.Drawing.Point( 47, 3 );
             BrowseButton.Name = "BrowseButton";
             BrowseButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             BrowseButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
@@ -676,7 +677,7 @@ namespace BudgetExecution
             SelectButton.HoverText = null;
             SelectButton.HoverTextColor = System.Drawing.Color.White;
             SelectButton.IsDerivedStyle = true;
-            SelectButton.Location = new System.Drawing.Point( 287, 3 );
+            SelectButton.Location = new System.Drawing.Point( 289, 3 );
             SelectButton.Name = "SelectButton";
             SelectButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             SelectButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
@@ -708,11 +709,11 @@ namespace BudgetExecution
             ButtonTable.Controls.Add( SelectButton, 3, 0 );
             ButtonTable.Controls.Add( BrowseButton, 2, 0 );
             ButtonTable.Dock = DockStyle.Bottom;
-            ButtonTable.Location = new System.Drawing.Point( 1, 403 );
+            ButtonTable.Location = new System.Drawing.Point( 0, 404 );
             ButtonTable.Name = "ButtonTable";
             ButtonTable.RowCount = 1;
             ButtonTable.RowStyles.Add( new RowStyle( SizeType.Percent, 50F ) );
-            ButtonTable.Size = new System.Drawing.Size( 686, 35 );
+            ButtonTable.Size = new System.Drawing.Size( 688, 35 );
             ButtonTable.TabIndex = 17;
             // 
             // OpenDialog
@@ -721,21 +722,37 @@ namespace BudgetExecution
             // 
             // FileDialog
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF( 96F, 96F );
-            AutoScaleMode = AutoScaleMode.Dpi;
+            AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
+            AutoScaleMode = AutoScaleMode.Font;
             BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            BorderThickness = 2;
+            BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             CaptionAlign = HorizontalAlignment.Left;
-            CaptionButtonColor = System.Drawing.Color.FromArgb( 64, 64, 64 );
-            CaptionButtonHoverColor = System.Drawing.Color.Red;
+            CaptionBarColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            CaptionBarHeight = 5;
+            CaptionButtonColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionFont = new System.Drawing.Font( "Roboto", 11.25F );
+            CaptionForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             ClientSize = new System.Drawing.Size( 688, 439 );
+            ControlBox = false;
             Controls.Add( ButtonTable );
             Controls.Add( MessageLabel );
             Controls.Add( TextBoxLayout );
             Controls.Add( TopTablePanel );
+            DoubleBuffered = true;
+            Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
+            ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
+            MaximizeBox = false;
+            MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            MinimizeBox = false;
             Name = "FileDialog";
+            ShowIcon = false;
+            ShowMaximizeBox = false;
+            ShowMinimizeBox = false;
+            SizeGripStyle = SizeGripStyle.Hide;
+            StartPosition = FormStartPosition.CenterScreen;
             TextBoxLayout.ResumeLayout( false );
             CheckBoxLayout.ResumeLayout( false );
             ( (ISupportInitialize)BindingSource ).EndInit( );

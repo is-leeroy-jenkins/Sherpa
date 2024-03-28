@@ -60,72 +60,72 @@ namespace BudgetExecution
         /// <summary>
         /// The file option
         /// </summary>
-        private protected ToolStripMenuItemExt _browseFileOption;
+        private protected ToolStripMenuItemExt _browseFile;
 
         /// <summary>
         /// The folder option
         /// </summary>
-        private protected ToolStripMenuItemExt _browseFolderOption;
+        private protected ToolStripMenuItemExt _browseFolder;
 
         /// <summary>
         /// The calculator option
         /// </summary>
-        private protected ToolStripMenuItemExt _budgetCalculatorOption;
+        private protected ToolStripMenuItemExt _budgetCalculator;
 
         /// <summary>
         /// The budget calendar option
         /// </summary>
-        private protected ToolStripMenuItemExt _budgetCalendarOption;
+        private protected ToolStripMenuItemExt _budgetCalendar;
 
         /// <summary>
         /// The budget guidance option
         /// </summary>
-        private protected ToolStripMenuItemExt _budgetGuidanceOption;
+        private protected ToolStripMenuItemExt _budgetGuidance;
 
         /// <summary>
         /// The save changes option
         /// </summary>
-        private protected ToolStripMenuItemExt _saveChangesOption;
+        private protected ToolStripMenuItemExt _saveChanges;
 
         /// <summary>
         /// The One Drive option
         /// </summary>
-        private protected ToolStripMenuItemExt _oneDriveOption;
+        private protected ToolStripMenuItemExt _oneDrive;
 
         /// <summary>
         /// The exit application option
         /// </summary>
-        private protected ToolStripMenuItemExt _exitApplicationOption;
+        private protected ToolStripMenuItemExt _exitApplication;
 
         /// <summary>
         /// The win10 calculator option
         /// </summary>
-        private protected ToolStripMenuItemExt _windowsCalculatorOption;
+        private protected ToolStripMenuItemExt _windowsCalculator;
 
         /// <summary>
         /// The win10 clock option
         /// </summary>
-        private protected ToolStripMenuItemExt _windowsClockOption;
+        private protected ToolStripMenuItemExt _windowsClock;
 
         /// <summary>
         /// The win10 Maps option
         /// </summary>
-        private protected ToolStripMenuItemExt _windowsMapsOption;
+        private protected ToolStripMenuItemExt _windowsMaps;
 
         /// <summary>
         /// The control panel option
         /// </summary>
-        private protected ToolStripMenuItemExt _controlPanelOption;
+        private protected ToolStripMenuItemExt _controlPanel;
 
         /// <summary>
         /// The task manager option
         /// </summary>
-        private protected ToolStripMenuItemExt _taskManagerOption;
+        private protected ToolStripMenuItemExt _taskManager;
 
         /// <summary>
         /// The task manager option
         /// </summary>
-        private protected ToolStripMenuItemExt _windowsMediaPlayerOption;
+        private protected ToolStripMenuItemExt _windowsMediaPlayer;
 
         /// <summary>
         /// Creates the file option.
@@ -133,7 +133,7 @@ namespace BudgetExecution
         /// <returns>
         /// ToolStripMenuItemExt
         /// </returns>
-        private protected ToolStripMenuItemExt CreateBrowseFileOption( )
+        private protected ToolStripMenuItemExt CreateBrowseFileItem( )
         {
             try
             {
@@ -166,7 +166,7 @@ namespace BudgetExecution
         /// <returns>
         /// ToolStripMenuItemExt
         /// </returns>
-        private protected ToolStripMenuItemExt CreateBrowseFolderOption( )
+        private protected ToolStripMenuItemExt CreateBrowseFolderItem( )
         {
             try
             {
@@ -199,7 +199,7 @@ namespace BudgetExecution
         /// <returns>
         /// ToolStripMenuItemExt
         /// </returns>
-        private protected ToolStripMenuItemExt CreateBudgetCalculatorOption( )
+        private protected ToolStripMenuItemExt CreateBudgetCalculatorItem( )
         {
             try
             {
@@ -232,7 +232,7 @@ namespace BudgetExecution
         /// <returns>
         /// ToolStripMenuItemExt
         /// </returns>
-        private protected ToolStripMenuItemExt CreateBudgetCalendarOption( )
+        private protected ToolStripMenuItemExt CreateBudgetCalendarItem( )
         {
             try
             {
@@ -265,7 +265,7 @@ namespace BudgetExecution
         /// <returns>
         /// ToolStripMenuItemExt
         /// </returns>
-        private protected ToolStripMenuItemExt CreateBudgetGuidanceOption( )
+        private protected ToolStripMenuItemExt CreateBudgetGuidanceItem( )
         {
             try
             {
@@ -298,7 +298,7 @@ namespace BudgetExecution
         /// <returns>
         /// ToolStripMenuItemExt
         /// </returns>
-        private protected ToolStripMenuItemExt CreateSaveChangesOption( )
+        private protected ToolStripMenuItemExt CreateSaveChangesItem( )
         {
             try
             {
@@ -331,7 +331,7 @@ namespace BudgetExecution
         /// <returns>
         /// ToolStripMenuItemExt
         /// </returns>
-        private protected ToolStripMenuItemExt CreateExitApplicationOption( )
+        private protected ToolStripMenuItemExt CreateExitApplicationItem( )
         {
             try
             {

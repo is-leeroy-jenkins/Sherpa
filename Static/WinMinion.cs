@@ -75,6 +75,29 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Launches the outlook.
+        /// </summary>
+        public static void LaunchOutlook( )
+        {
+            try
+            {
+                var _startInfo = new ProcessStartInfo
+                {
+                    FileName = "Outlook.exe",
+                    UseShellExecute = true,
+                    LoadUserProfile = true,
+                    WindowStyle = ProcessWindowStyle.Normal
+                };
+
+                Process.Start( _startInfo );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Launches the windows media player.
         /// </summary>
         public static void LaunchMediaPlayer( )
@@ -106,7 +129,7 @@ namespace BudgetExecution
             {
                 var _startInfo = new ProcessStartInfo
                 {
-                    FileName = "WindowsMaps.exe",
+                    FileName = "Maps.exe",
                     UseShellExecute = true,
                     LoadUserProfile = true,
                     WindowStyle = ProcessWindowStyle.Maximized

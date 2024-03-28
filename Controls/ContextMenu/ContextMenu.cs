@@ -44,6 +44,7 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using Syncfusion.Windows.Forms.Spreadsheet;
+    using Syncfusion.Windows.Forms.Tools;
 
     /// <inheritdoc />
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
@@ -66,38 +67,41 @@ namespace BudgetExecution
             ShowImageMargin = true;
             ShowCheckMargin = false;
             MetroColor = Color.FromArgb( 45, 45, 45 );
+            CanApplyTheme = true;
+            CanOverrideStyle = true;
             Style = ContextMenuStyle.Office2016Black;
+            ThemeStyle = new ContextMenuStripExVisualStyle( );
             ThemeStyle.BackColor = Color.FromArgb( 45, 45, 45 );
             ThemeStyle.ForeColor = Color.FromArgb( 106, 189, 252 );
             ThemeStyle.DisabledForeColor = Color.FromArgb( 45, 45, 45 );
-            ThemeStyle.HoverBackColor = Color.FromArgb( 0, 120, 212 );
+            ThemeStyle.HoverBackColor = Color.FromArgb( 50, 93, 129 );
             ThemeStyle.HoverForeColor = Color.White;
-            ThemeStyle.PressedForeColor = Color.Black;
-            ThemeStyle.PressedBackColor = Color.FromArgb( 204, 204, 204 );
-            ThemeStyle.BorderColor = Color.FromArgb( 77, 77, 77 );
+            ThemeStyle.PressedForeColor = Color.White;
+            ThemeStyle.PressedBackColor = Color.FromArgb( 0, 120, 212 );
+            ThemeStyle.BorderColor = Color.FromArgb( 0, 120, 212 );
 
             // Menu Items
-            _browseFileOption = CreateBrowseFileOption( );
-            _browseFolderOption = CreateBrowseFolderOption( );
-            _budgetCalculatorOption = CreateBudgetCalculatorOption( );
-            _windowsCalculatorOption = CreateWindowsCalculatorOption( );
-            _budgetCalendarOption = CreateBudgetCalendarOption( );
-            _controlPanelOption = CreateControlPanelOption( );
-            _taskManagerOption = CreateTaskManagerOption( );
-            _budgetGuidanceOption = CreateBudgetGuidanceOption( );
-            _windowsClockOption = CreateWindowsClockOption( );
-            _saveChangesOption = CreateSaveChangesOption( );
-            _windowsMapsOption = CreateMapsOption( );
-            _oneDriveOption = CreateOneDriveOption( );
-            _windowsMediaPlayerOption = CreateWindowsMediaPlayerOption( );
-            _exitApplicationOption = CreateExitApplicationOption( );
+            _browseFile = CreateBrowseFileItem( );
+            _browseFolder = CreateBrowseFolderItem( );
+            _budgetCalculator = CreateBudgetCalculatorItem( );
+            _windowsCalculator = CreateWindowsCalculatorItem( );
+            _budgetCalendar = CreateBudgetCalendarItem( );
+            _controlPanel = CreateControlPanelItem( );
+            _taskManager = CreateTaskManagerItem( );
+            _budgetGuidance = CreateBudgetGuidanceItem( );
+            _windowsClock = CreateWindowsClockItem( );
+            _saveChanges = CreateSaveChangesItem( );
+            _windowsMaps = CreateMapsItem( );
+            _oneDrive = CreateOneDriveItem( );
+            _windowsMediaPlayer = CreateWindowsMediaPlayerItem( );
+            _exitApplication = CreateExitApplicationItem( );
         }
 
         /// <summary>
         /// Creates the control panel option.
         /// </summary>
         /// <returns></returns>
-        private ToolStripMenuItemExt CreateControlPanelOption( )
+        private ToolStripMenuItemExt CreateControlPanelItem( )
         {
             try
             {
@@ -129,7 +133,7 @@ namespace BudgetExecution
         /// </summary>
         /// <returns>
         /// </returns>
-        private ToolStripMenuItemExt CreateTaskManagerOption( )
+        private ToolStripMenuItemExt CreateTaskManagerItem( )
         {
             try
             {
@@ -160,7 +164,7 @@ namespace BudgetExecution
         /// Creates the windows calculator option.
         /// </summary>
         /// <returns></returns>
-        private ToolStripMenuItemExt CreateWindowsCalculatorOption( )
+        private ToolStripMenuItemExt CreateWindowsCalculatorItem( )
         {
             try
             {
@@ -191,7 +195,7 @@ namespace BudgetExecution
         /// Creates the one drive option.
         /// </summary>
         /// <returns></returns>
-        private ToolStripMenuItemExt CreateOneDriveOption( )
+        private ToolStripMenuItemExt CreateOneDriveItem( )
         {
             try
             {
@@ -222,7 +226,7 @@ namespace BudgetExecution
         /// Creates the maps option.
         /// </summary>
         /// <returns></returns>
-        private ToolStripMenuItemExt CreateMapsOption( )
+        private ToolStripMenuItemExt CreateMapsItem( )
         {
             try
             {
@@ -255,7 +259,7 @@ namespace BudgetExecution
         /// <returns>
         /// ToolStripMenuItemExt
         /// </returns>
-        private ToolStripMenuItemExt CreateWindowsClockOption( )
+        private ToolStripMenuItemExt CreateWindowsClockItem( )
         {
             try
             {
@@ -286,7 +290,7 @@ namespace BudgetExecution
         /// Creates the windows media player option.
         /// </summary>
         /// <returns></returns>
-        private protected ToolStripMenuItemExt CreateWindowsMediaPlayerOption( )
+        private protected ToolStripMenuItemExt CreateWindowsMediaPlayerItem( )
         {
             try
             {

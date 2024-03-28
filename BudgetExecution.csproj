@@ -31,7 +31,7 @@
     <Title>Budget Execution</Title>
     <PackageIcon>Application.png</PackageIcon>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <ApplicationIcon>Resources\Assets\FormImages\Application.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\Assets\FormImages\AppIcon.ico</ApplicationIcon>
     <Description>A budget, finance, and accounting tool used for data analysis by analysts with the US EPA.</Description>
     <Copyright>MIT</Copyright>
     <RepositoryType>git</RepositoryType>
@@ -480,6 +480,6 @@
     <None Remove="Clients\Baby\storage\i18n_process.css" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\Assets\FormImages\Application.ico" />
+    <Content Include="Resources\Assets\FormImages\AppIcon.ico" />
   </ItemGroup>
 </Project>
