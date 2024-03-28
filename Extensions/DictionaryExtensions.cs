@@ -179,27 +179,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Converts to a sorted dictionary.
-        /// </summary>
-        /// <typeparam name="TKey">The type of the key.</typeparam>
-        /// <typeparam name="TValue">The type of the value.</typeparam>
-        /// <param name="nvc">The this.</param>
-        /// <returns></returns>
-        public static SortedDictionary<TKey, TValue> ToSortedDictionary<TKey, TValue>(
-            this IDictionary<TKey, TValue> nvc )
-        {
-            try
-            {
-                return new SortedDictionary<TKey, TValue>( nvc );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( SortedDictionary<TKey, TValue> );
-            }
-        }
-
-        /// <summary>
         /// Converts an IDictionary( string, object) to a bindinglist.
         /// </summary>
         /// <param name="dictionary">The NVC.</param>
@@ -227,25 +206,45 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Converts an IDcitionary( T, V ) to a SortedList( T, V ).
+        /// Converts an IDcitionary( T, V ) to a SortedList( int, KeyValuePair(string. object)).
         /// </summary>
-        /// <typeparam name="TKey">The type of the key.</typeparam>
-        /// <typeparam name="TValue">The type of the value.</typeparam>
         /// <param name="dict">The dictionary.</param>
         /// <returns>
         /// SortedList( T, V )
         /// </returns>
-        public static SortedList<TKey, TValue> ToSortedList<TKey, TValue>(
-            this IDictionary<TKey, TValue> dict )
+        public static SortedList<int, KeyValuePair<string, object>> ToSortedList(
+            this IDictionary<string, object> dict )
         {
             try
             {
-                return new SortedList<TKey, TValue>( dict );
+                if( dict?.Count > 0 )
+                {
+                    var _sortedList = new SortedList<int, KeyValuePair<string, object>>( );
+                    var _keys = dict?.Keys.ToArray( );
+                    var _values = dict?.Values.ToArray( );
+                    for( var _i = 0; _i < dict?.Count; _i++ )
+                    {
+                        if( _values[ _i ] != null
+                           && !string.IsNullOrEmpty( _keys[ _i ] ) )
+                        {
+                            var _kvp = 
+                                new KeyValuePair<string, object>( _keys[ _i ], _values[ _i ] );
+
+                            _sortedList?.Add( _i, _kvp );
+                        }
+                    }
+
+                    return _sortedList?.Count > 0
+                        ? _sortedList
+                        : default( SortedList<int, KeyValuePair<string, object>> );
+                }
+
+                return default( SortedList<int, KeyValuePair<string, object>> );
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return default( SortedList<TKey, TValue> );
+                return default( SortedList<int, KeyValuePair<string, object>> );
             }
         }
 
