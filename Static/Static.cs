@@ -44,16 +44,20 @@ namespace BudgetExecution
     using System.Collections.Specialized;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
+    using System.Linq;
     using System.Text;
 
     /// <summary>
+    /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public static class Static
     {
-        /// <summary> Gets the type of the SQL. </summary>
-        /// <param name="type"> The type. </param>
+        /// <summary>
+        /// Gets the type of the SQL.
+        /// </summary>
+        /// <param name="type">The type.</param>
         /// <returns>
         /// string
         /// </returns>
@@ -97,14 +101,12 @@ namespace BudgetExecution
         /// <summary>
         /// Creates a command from a IDbConnection.
         /// </summary>
-        /// <param name="connection"> The connection. </param>
-        /// <param name="sql"> The SQL. </param>
+        /// <param name="connection">The connection.</param>
+        /// <param name="sql">The SQL.</param>
         /// <returns>
         /// IDbCommand
         /// </returns>
-        /// <exception cref="System.ArgumentNullException">
-        /// connection
-        /// </exception>
+        /// <exception cref="System.ArgumentNullException">connection</exception>
         public static IDbCommand CreateCommand( this IDbConnection connection, string sql )
         {
             try
@@ -126,8 +128,8 @@ namespace BudgetExecution
         /// <summary>
         /// Executes the non query.
         /// </summary>
-        /// <param name="connection"> The connection. </param>
-        /// <param name="sql"> The SQL. </param>
+        /// <param name="connection">The connection.</param>
+        /// <param name="sql">The SQL.</param>
         /// <returns>
         /// int
         /// </returns>
@@ -149,8 +151,8 @@ namespace BudgetExecution
         /// <summary>
         /// Converts to log string.
         /// </summary>
-        /// <param name="exception"> The exception. </param>
-        /// <param name="message"> The message. </param>
+        /// <param name="exception">The exception.</param>
+        /// <param name="message">The message.</param>
         /// <returns>
         /// string
         /// </returns>
@@ -241,7 +243,7 @@ namespace BudgetExecution
         /// <summary>
         /// Converts to dictionary.
         /// </summary>
-        /// <param name="nvm"> The NVM. </param>
+        /// <param name="nvm">The NVM.</param>
         /// <returns>
         /// </returns>
         public static IDictionary<string, object> ToDictionary( this NameValueCollection nvm )
@@ -273,9 +275,7 @@ namespace BudgetExecution
         /// <summary>
         /// Fails the specified exception.
         /// </summary>
-        /// <param name="ex">
-        /// The exception.
-        /// </param>
+        /// <param name="ex">The exception.</param>
         private static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

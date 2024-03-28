@@ -314,37 +314,37 @@ namespace BudgetExecution
                     {
                         case Provider.SQLite:
                         {
-                            Minion.RunSQLite( );
+                            DataMinion.RunSQLite( );
                             Close( );
                             break;
                         }
                         case Provider.SqlCe:
                         {
-                            Minion.RunSqlCe( );
+                            DataMinion.RunSqlCe( );
                             Close( );
                             break;
                         }
                         case Provider.SqlServer:
                         {
-                            Minion.RunSqlCe( );
+                            DataMinion.RunSqlCe( );
                             Close( );
                             break;
                         }
                         case Provider.Access:
                         {
-                            Minion.RunAccess( );
+                            DataMinion.RunAccess( );
                             Close( );
                             break;
                         }
                         case Provider.Excel:
                         {
-                            Minion.OpenExcel( );
+                            DataMinion.OpenExcel( );
                             Close( );
                             break;
                         }
                         default:
                         {
-                            Minion.RunSQLite( );
+                            DataMinion.RunSQLite( );
                             Close( );
                             break;
                         }

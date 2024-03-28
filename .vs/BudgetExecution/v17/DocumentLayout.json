@@ -3,8 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\carousel\\minionselector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\carousel\\minionselector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\extensions\\dictionaryextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:extensions\\dictionaryextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\extensions\\datarowextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:extensions\\datarowextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\extensions\\datatableextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:extensions\\datatableextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\extensions\\collectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:extensions\\collectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\static\\static.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:static\\static.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\static\\resource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -18,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,26 +54,78 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MinionSelector.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Carousel\\MinionSelector.cs",
-              "RelativeDocumentMoniker": "Controls\\Carousel\\MinionSelector.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Carousel\\MinionSelector.cs",
-              "RelativeToolTip": "Controls\\Carousel\\MinionSelector.cs",
-              "ViewState": "AQIAAFABAAAAAAAAAAAswGwBAAAUAAAA",
+              "DocumentIndex": 2,
+              "Title": "DataTableExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Extensions\\DataTableExtensions.cs",
+              "RelativeDocumentMoniker": "Extensions\\DataTableExtensions.cs",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Extensions\\DataTableExtensions.cs",
+              "RelativeToolTip": "Extensions\\DataTableExtensions.cs",
+              "ViewState": "AQIAAIMBAAAAAAAAAAAAAJYBAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-27T23:11:15.142Z",
+              "WhenOpened": "2024-03-28T00:18:48.211Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "DataRowExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Extensions\\DataRowExtensions.cs",
+              "RelativeDocumentMoniker": "Extensions\\DataRowExtensions.cs",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Extensions\\DataRowExtensions.cs",
+              "RelativeToolTip": "Extensions\\DataRowExtensions.cs",
+              "ViewState": "AQIAALsAAAAAAAAAAAAgwMgAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-28T00:04:38.216Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CollectionExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Extensions\\CollectionExtensions.cs",
+              "RelativeDocumentMoniker": "Extensions\\CollectionExtensions.cs",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Extensions\\CollectionExtensions.cs",
+              "RelativeToolTip": "Extensions\\CollectionExtensions.cs",
+              "ViewState": "AQIAAOoAAAAAAAAAAAAUwPoAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-27T23:58:35.258Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DictionaryExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Extensions\\DictionaryExtensions.cs",
+              "RelativeDocumentMoniker": "Extensions\\DictionaryExtensions.cs",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Extensions\\DictionaryExtensions.cs",
+              "RelativeToolTip": "Extensions\\DictionaryExtensions.cs",
+              "ViewState": "AQIAAHMBAAAAAAAAAAAAAIkBAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-27T23:57:05.098Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Static.cs",
+              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Static\\Static.cs",
+              "RelativeDocumentMoniker": "Static\\Static.cs",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Static\\Static.cs",
+              "RelativeToolTip": "Static\\Static.cs",
+              "ViewState": "AQIAAO4AAAAAAAAAAAAgwPgAAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-27T23:16:59.036Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Resource.cs",
               "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Static\\Resource.cs",
               "RelativeDocumentMoniker": "Static\\Resource.cs",
               "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Static\\Resource.cs",
               "RelativeToolTip": "Static\\Resource.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAqAAAA",
+              "ViewState": "AQIAAHEAAAAAAAAAAAAswIcAAABPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-27T23:11:00.327Z",
               "EditorCaption": ""

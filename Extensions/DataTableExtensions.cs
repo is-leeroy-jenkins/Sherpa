@@ -43,7 +43,6 @@ namespace BudgetExecution
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
-    using System.Configuration;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
@@ -63,12 +62,6 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public static class DataTableExtensions
     {
-        /// <summary>
-        /// The connection string
-        /// </summary>
-        public static readonly ConnectionStringSettingsCollection Connection =
-            ConfigurationManager.ConnectionStrings;
-
         /// <summary>
         /// Converts to xml.
         /// </summary>
@@ -113,7 +106,7 @@ namespace BudgetExecution
         /// <exception cref="Exception">OSExportToExcelFile: Null or empty input datatable!\n
         /// or OSExportToExcelFile: Excel file could not
         /// be saved.\n" + ex.Message</exception>
-        public static void ToExcel( this DataTable dataTable, string filePath )
+        public static void WriteToExcel( this DataTable dataTable, string filePath )
         {
             try
             {
@@ -122,10 +115,11 @@ namespace BudgetExecution
                 var _worksheet = _excel?.Workbook?.Worksheets[ 0 ];
                 for( var _i = 0; _i < dataTable?.Columns?.Count; _i++ )
                 {
+                    var _name = dataTable.Columns[ _i ]?.ColumnName;
                     if( ( _worksheet != null )
-                       && !string.IsNullOrEmpty( dataTable.Columns[ _i ]?.ColumnName ) )
+                       && !string.IsNullOrEmpty( _name ) )
                     {
-                        _worksheet.Cells[ 1, _i + 1 ].Value = dataTable.Columns[ _i ]?.ColumnName;
+                        _worksheet.Cells[ 1, _i + 1 ].Value = _name;
                     }
                 }
 
@@ -140,7 +134,7 @@ namespace BudgetExecution
                     }
                 }
 
-                _excel.Save( filePath );
+                _excel.SaveAs( filePath );
             }
             catch( Exception _ex )
             {
@@ -447,6 +441,41 @@ namespace BudgetExecution
             {
                 Fail( _ex );
                 return default( BindingList<DataRow> );
+            }
+        }
+
+        /// <summary>
+        /// Converts to sortedlist.
+        /// </summary>
+        /// <param name="dataTable">The data table.</param>
+        /// <returns>
+        /// SortedList(int, DataRow)
+        /// </returns>
+        public static SortedList<int, DataRow> ToSortedList( this DataTable dataTable )
+        {
+            try
+            {
+                if( dataTable?.Rows.Count > 0 )
+                {
+                    var _sortedList = new SortedList<int, DataRow>( );
+                    var _columns = dataTable?.Columns;
+                    var _items = dataTable?.Rows;
+                    for( var _i = 0; _i < _columns?.Count; _i++ )
+                    {
+                        _sortedList?.Add( _i, _items[ _i ] );
+                    }
+
+                    return _sortedList?.Count > 0
+                        ? _sortedList
+                        : default( SortedList<int, DataRow> );
+                }
+
+                return default( SortedList<int, DataRow> );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( SortedList<int, DataRow> );
             }
         }
 

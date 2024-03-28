@@ -167,15 +167,14 @@ namespace BudgetExecution
                 if( dataRow?.ItemArray.Length > 0 )
                 {
                     var _dictionary = new Dictionary<string, object>( );
-                    var _table = dataRow?.Table;
-                    var _column = _table?.Columns;
-                    var _items = dataRow?.ItemArray;
-                    for( var _i = 0; _i < _column?.Count; _i++ )
+                    for( var _i = 0; _i < dataRow.ItemArray.Length; _i++ )
                     {
-                        if( !string.IsNullOrEmpty( _column[ _i ]?.ColumnName ) )
+                        var _name = dataRow.Table.Columns[ _i ].ColumnName;
+                        var _value = dataRow?.ItemArray[ _i ];
+                        if( !string.IsNullOrEmpty( _name )
+                           && _value != null ) 
                         {
-                            _dictionary?.Add( _column[ _i ].ColumnName,
-                                _items[ _i ] ?? default( object ) );
+                            _dictionary?.Add( _name, _value );
                         }
                     }
 
@@ -190,6 +189,47 @@ namespace BudgetExecution
             {
                 Fail( _ex );
                 return default( IDictionary<string, object> );
+            }
+        }
+
+        /// <summary>
+        /// Converts to namevaluecollection.
+        /// </summary>
+        /// <param name="dataRow">The data row.</param>
+        /// <returns>
+        /// SortedList(string, object)
+        /// </returns>
+        public static SortedList<int, KeyValuePair<string, object>> ToSortedList( 
+            this DataRow dataRow )
+        {
+            try
+            {
+                if( dataRow?.ItemArray.Length > 0 )
+                {
+                    var _sortedList = new SortedList<int, KeyValuePair<string, object>>( );
+                    var _items = dataRow?.ItemArray;
+                    for( var _i = 0; _i < dataRow?.ItemArray.Length; _i++ )
+                    {
+                        var _key = dataRow?.Table.Columns[ _i ].ColumnName;
+                        if( _items[ _i ] != null 
+                           && !string.IsNullOrEmpty( _key ) )
+                        {
+                            var _kvp = new KeyValuePair<string, object>( _key, _items[ _i ] );
+                            _sortedList?.Add( _i, _kvp );
+                        }
+                    }
+
+                    return _sortedList?.Count > 0
+                        ? _sortedList
+                        : default( SortedList<int, KeyValuePair<string, object>> );
+                }
+
+                return default( SortedList<int, KeyValuePair<string, object>> );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( SortedList<int, KeyValuePair<string, object>> );
             }
         }
 
@@ -219,8 +259,10 @@ namespace BudgetExecution
         /// Iterates the items.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        /// <returns></returns>
-        public static IEnumerator<object> IterateItems( this DataRow dataRow )
+        /// <returns>
+        /// IEnumerator(object)
+        /// </returns>
+        public static IEnumerator<object> IterItems( this DataRow dataRow )
         {
             foreach( var _item in dataRow.ItemArray )
             {
