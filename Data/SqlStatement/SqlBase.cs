@@ -67,7 +67,7 @@ namespace BudgetExecution
         /// <summary>
         /// The command type
         /// </summary>
-        private protected SQL _commandType;
+        private protected Command _commandType;
 
         /// <summary>
         /// The extension
@@ -141,7 +141,7 @@ namespace BudgetExecution
         /// <param name="source"> The source. </param>
         /// <param name="provider"> The provider. </param>
         /// <param name="commandType"> Type of the command. </param>
-        protected SqlBase( Source source, Provider provider, SQL commandType = SQL.SELECTALL )
+        protected SqlBase( Source source, Provider provider, Command commandType = Command.SELECTALL )
             : this( )
         {
             _dbPath = new BudgetConnection( source, provider ).DataPath;
@@ -163,7 +163,7 @@ namespace BudgetExecution
         /// <param name="sqlText"> The SQL text. </param>
         /// <param name="commandType"> Type of the command. </param>
         protected SqlBase( Source source, Provider provider, string sqlText,
-            SQL commandType = SQL.SELECTALL )
+            Command commandType = Command.SELECTALL )
             : this( )
         {
             _dbPath = new BudgetConnection( source, provider ).DataPath;
@@ -185,7 +185,7 @@ namespace BudgetExecution
         /// <param name="where"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
         protected SqlBase( Source source, Provider provider, IDictionary<string, object> where,
-            SQL commandType = SQL.SELECTALL )
+            Command commandType = Command.SELECTALL )
             : this( )
         {
             _dbPath = new BudgetConnection( source, provider ).DataPath;
@@ -209,7 +209,7 @@ namespace BudgetExecution
         /// <param name="where"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
         protected SqlBase( Source source, Provider provider, IDictionary<string, object> updates,
-            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
+            IDictionary<string, object> where, Command commandType = Command.UPDATE )
             : this( )
         {
             _dbPath = new BudgetConnection( source, provider ).DataPath;
@@ -235,7 +235,7 @@ namespace BudgetExecution
         /// <param name="where"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
         protected SqlBase( Source source, Provider provider, IEnumerable<string> columns,
-            IDictionary<string, object> where, SQL commandType = SQL.SELECT )
+            IDictionary<string, object> where, Command commandType = Command.SELECT )
             : this( )
         {
             _dbPath = new BudgetConnection( source, provider ).DataPath;
@@ -262,7 +262,7 @@ namespace BudgetExecution
         /// <param name="commandType"> Type of the command. </param>
         protected SqlBase( Source source, Provider provider, IEnumerable<string> fields,
             IEnumerable<string> numerics, IDictionary<string, object> having,
-            SQL commandType = SQL.SELECT )
+            Command commandType = Command.SELECT )
             : this( )
         {
             _dbPath = new BudgetConnection( source, provider ).DataPath;
@@ -287,20 +287,20 @@ namespace BudgetExecution
             {
                 switch( _commandType )
                 {
-                    case SQL.SELECT:
-                    case SQL.SELECTALL:
+                    case Command.SELECT:
+                    case Command.SELECTALL:
                     {
                         return CreateSelectStatement( );
                     }
-                    case SQL.INSERT:
+                    case Command.INSERT:
                     {
                         return CreateInsertStatement( );
                     }
-                    case SQL.UPDATE:
+                    case Command.UPDATE:
                     {
                         return CreateUpdateStatement( );
                     }
-                    case SQL.DELETE:
+                    case Command.DELETE:
                     {
                         return GetDeleteStatement( );
                     }

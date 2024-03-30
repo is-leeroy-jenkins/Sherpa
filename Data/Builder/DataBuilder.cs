@@ -196,7 +196,7 @@ namespace BudgetExecution
         /// <param name="where">The where.</param>
         /// <param name="commandType">Type of the command.</param>
         public DataBuilder( Source source, Provider provider, IDictionary<string, object> updates,
-            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
+            IDictionary<string, object> where, Command commandType = Command.UPDATE )
             : base( source, provider, updates, where, commandType )
         {
         }
@@ -212,7 +212,7 @@ namespace BudgetExecution
         /// <param name="where">The where.</param>
         /// <param name="commandType">Type of the command.</param>
         public DataBuilder( Source source, Provider provider, IEnumerable<string> columns,
-            IDictionary<string, object> where, SQL commandType = SQL.SELECT )
+            IDictionary<string, object> where, Command commandType = Command.SELECT )
             : base( source, provider, columns, where, commandType )
         {
         }
@@ -229,7 +229,7 @@ namespace BudgetExecution
         /// <param name="where">The where.</param>
         /// <param name="commandType">Type of the command.</param>
         public DataBuilder( Source source, Provider provider, IEnumerable<string> fields,
-            IEnumerable<string> numerics, IDictionary<string, object> where, SQL commandType )
+            IEnumerable<string> numerics, IDictionary<string, object> where, Command commandType )
             : base( source, provider, fields, numerics, where,
                 commandType )
         {
@@ -267,7 +267,7 @@ namespace BudgetExecution
         /// <param name="fullPath">The full path.</param>
         /// <param name="sqlText">The SQL text.</param>
         /// <param name="commandType">Type of the command.</param>
-        public DataBuilder( string fullPath, string sqlText, SQL commandType = SQL.SELECT )
+        public DataBuilder( string fullPath, string sqlText, Command commandType = Command.SELECT )
             : base( fullPath, sqlText, commandType )
         {
         }

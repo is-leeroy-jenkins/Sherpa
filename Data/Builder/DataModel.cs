@@ -135,7 +135,7 @@ namespace BudgetExecution
             _source = source;
             _provider = provider;
             _connection = new BudgetConnection( source, provider ).Create( );
-            _sqlStatement = new SqlStatement( source, provider, SQL.SELECTALL );
+            _sqlStatement = new SqlStatement( source, provider, Command.SELECTALL );
             _dataTable = GetDataTable( );
             _elements = CreateSeries( _dataTable );
             _dataColumns = GetDataColumns( );
@@ -181,7 +181,7 @@ namespace BudgetExecution
         /// <param name="where">The where.</param>
         /// <param name="commandType">Type of the command.</param>
         public DataModel( Source source, Provider provider, IDictionary<string, object> updates,
-            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
+            IDictionary<string, object> where, Command commandType = Command.UPDATE )
         {
             _source = source;
             _provider = provider;
@@ -208,7 +208,7 @@ namespace BudgetExecution
         /// <param name="where">The where.</param>
         /// <param name="commandType">Type of the command.</param>
         public DataModel( Source source, Provider provider, IEnumerable<string> columns,
-            IDictionary<string, object> where, SQL commandType = SQL.SELECT )
+            IDictionary<string, object> where, Command commandType = Command.SELECT )
         {
             _source = source;
             _provider = provider;
@@ -237,7 +237,7 @@ namespace BudgetExecution
         /// <param name="commandType">Type of the command.</param>
         public DataModel( Source source, Provider provider, IEnumerable<string> fields,
             IEnumerable<string> numerics, IDictionary<string, object> where,
-            SQL commandType )
+            Command commandType )
         {
             _source = source;
             _provider = provider;
@@ -313,7 +313,7 @@ namespace BudgetExecution
         /// <param name="fullPath">The full path.</param>
         /// <param name="sqlText">The SQL text.</param>
         /// <param name="commandType">Type of the command.</param>
-        public DataModel( string fullPath, string sqlText, SQL commandType = SQL.SELECT )
+        public DataModel( string fullPath, string sqlText, Command commandType = Command.SELECT )
         {
             _connection = new BudgetConnection( fullPath ).Create( );
             _source = Source.External;

@@ -101,7 +101,7 @@ namespace BudgetExecution
         /// <value>
         /// The type of the command.
         /// </value>
-        public SQL CommandType
+        public Command CommandType
         {
             get
             {
@@ -231,7 +231,7 @@ namespace BudgetExecution
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
         /// <param name="commandType">Type of the command.</param>
-        public BudgetAdapter( Source source, Provider provider, SQL commandType = SQL.SELECTALL )
+        public BudgetAdapter( Source source, Provider provider, Command commandType = Command.SELECTALL )
             : this( )
         {
             _source = source;
@@ -250,7 +250,7 @@ namespace BudgetExecution
         /// <param name="provider">The provider.</param>
         /// <param name="sqlText">The SQL text.</param>
         /// <param name="commandType">Type of the command.</param>
-        public BudgetAdapter( Source source, Provider provider, string sqlText, SQL commandType )
+        public BudgetAdapter( Source source, Provider provider, string sqlText, Command commandType )
             : this( )
         {
             _source = source;
@@ -269,7 +269,7 @@ namespace BudgetExecution
         /// <param name="where">The where.</param>
         /// <param name="commandType">Type of the command.</param>
         public BudgetAdapter( Source source, Provider provider, IDictionary<string, object> where,
-            SQL commandType = SQL.SELECTALL )
+            Command commandType = Command.SELECTALL )
             : this( )
         {
             _source = source;
@@ -289,7 +289,7 @@ namespace BudgetExecution
         /// <param name="where">The where.</param>
         /// <param name="commandType">Type of the command.</param>
         public BudgetAdapter( Source source, Provider provider, IDictionary<string, object> update,
-            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
+            IDictionary<string, object> where, Command commandType = Command.UPDATE )
             : this( )
         {
             _source = source;
@@ -310,7 +310,7 @@ namespace BudgetExecution
         /// <param name="where">The where.</param>
         /// <param name="commandType">Type of the command.</param>
         public BudgetAdapter( Source source, Provider provider, IEnumerable<string> columns,
-            IDictionary<string, object> where, SQL commandType = SQL.SELECT )
+            IDictionary<string, object> where, Command commandType = Command.SELECT )
             : this( )
         {
             _source = source;
@@ -333,7 +333,7 @@ namespace BudgetExecution
         /// <param name="commandType">Type of the command.</param>
         public BudgetAdapter( Source source, Provider provider, IEnumerable<string> fields,
             IEnumerable<string> numerics, IDictionary<string, object> having,
-            SQL commandType = SQL.SELECT )
+            Command commandType = Command.SELECT )
             : this( )
         {
             _source = source;

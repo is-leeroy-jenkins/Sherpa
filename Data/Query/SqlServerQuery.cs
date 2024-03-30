@@ -81,7 +81,7 @@ namespace BudgetExecution
         /// <param name="source"> The source. </param>
         /// <param name="dict"> The dictionary. </param>
         public SqlServerQuery( Source source, IDictionary<string, object> dict )
-            : base( source, Provider.SqlServer, dict, SQL.SELECT )
+            : base( source, Provider.SqlServer, dict, Command.SELECT )
         {
         }
 
@@ -94,7 +94,7 @@ namespace BudgetExecution
         /// <param name="source"> The source Data. </param>
         /// <param name="dict"> The dictionary of parameters. </param>
         /// <param name="commandType"> The type of sql command. </param>
-        public SqlServerQuery( Source source, IDictionary<string, object> dict, SQL commandType )
+        public SqlServerQuery( Source source, IDictionary<string, object> dict, Command commandType )
             : base( source, Provider.SqlServer, dict, commandType )
         {
         }
@@ -110,7 +110,7 @@ namespace BudgetExecution
         /// <param name="where"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
         public SqlServerQuery( Source source, IDictionary<string, object> updates,
-            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
+            IDictionary<string, object> where, Command commandType = Command.UPDATE )
             : base( source, Provider.SqlServer, updates, where, commandType )
         {
         }
@@ -126,7 +126,7 @@ namespace BudgetExecution
         /// <param name="criteria"> The criteria. </param>
         /// <param name="commandType"> Type of the command. </param>
         public SqlServerQuery( Source source, IEnumerable<string> columns,
-            IDictionary<string, object> criteria, SQL commandType = SQL.SELECT )
+            IDictionary<string, object> criteria, Command commandType = Command.SELECT )
             : base( source, Provider.SqlServer, columns, criteria, commandType )
         {
         }
@@ -165,7 +165,7 @@ namespace BudgetExecution
         /// <param name="fullPath"> The fullpath. </param>
         /// <param name="sqlText"> </param>
         /// <param name="commandType"> The commandType. </param>
-        public SqlServerQuery( string fullPath, string sqlText, SQL commandType = SQL.SELECT )
+        public SqlServerQuery( string fullPath, string sqlText, Command commandType = Command.SELECT )
             : base( fullPath, sqlText, commandType )
         {
         }
@@ -179,7 +179,7 @@ namespace BudgetExecution
         /// <param name="fullPath"> The full path. </param>
         /// <param name="commandType"> The commandType. </param>
         /// <param name="dict"> The dictionary. </param>
-        public SqlServerQuery( string fullPath, SQL commandType, IDictionary<string, object> dict )
+        public SqlServerQuery( string fullPath, Command commandType, IDictionary<string, object> dict )
             : base( fullPath, commandType, dict )
         {
         }

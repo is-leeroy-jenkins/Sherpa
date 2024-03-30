@@ -100,7 +100,7 @@ namespace BudgetExecution
         /// <value>
         /// The type of the command.
         /// </value>
-        public SQL CommandType
+        public Command CommandType
         {
             get
             {
@@ -320,7 +320,7 @@ namespace BudgetExecution
         /// <param name="source"> The source. </param>
         /// <param name="provider"> The provider. </param>
         /// <param name="commandType"> Type of the command. </param>
-        public SqlStatement( Source source, Provider provider, SQL commandType = SQL.SELECTALL )
+        public SqlStatement( Source source, Provider provider, Command commandType = Command.SELECTALL )
             : base( source, provider, commandType )
         {
         }
@@ -349,7 +349,7 @@ namespace BudgetExecution
         /// <param name="provider"> The provider. </param>
         /// <param name="sqlText"> The SQL text. </param>
         /// <param name="commandType"> Type of the command. </param>
-        public SqlStatement( Source source, Provider provider, string sqlText, SQL commandType )
+        public SqlStatement( Source source, Provider provider, string sqlText, Command commandType )
             : base( source, provider, sqlText, commandType )
         {
         }
@@ -365,7 +365,7 @@ namespace BudgetExecution
         /// <param name="where"> </param>
         /// <param name="commandType"> </param>
         public SqlStatement( Source source, Provider provider, IDictionary<string, object> where,
-            SQL commandType = SQL.SELECTALL )
+            Command commandType = Command.SELECTALL )
             : base( source, provider, where, commandType )
         {
         }
@@ -382,7 +382,7 @@ namespace BudgetExecution
         /// <param name="where"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
         public SqlStatement( Source source, Provider provider, IDictionary<string, object> updates,
-            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
+            IDictionary<string, object> where, Command commandType = Command.UPDATE )
             : base( source, provider, updates, where, commandType )
         {
         }
@@ -397,7 +397,7 @@ namespace BudgetExecution
         /// <param name="provider"> The provider. </param>
         /// <param name="commandType"> Type of the command. </param>
         /// <param name="where"> The arguments. </param>
-        public SqlStatement( Source source, Provider provider, SQL commandType,
+        public SqlStatement( Source source, Provider provider, Command commandType,
             IDictionary<string, object> where )
             : base( source, provider, where, commandType )
         {
@@ -415,7 +415,7 @@ namespace BudgetExecution
         /// <param name="where"> The dictionary. </param>
         /// <param name="commandType"> Type of the command. </param>
         public SqlStatement( Source source, Provider provider, IEnumerable<string> columns,
-            IDictionary<string, object> where, SQL commandType = SQL.SELECT )
+            IDictionary<string, object> where, Command commandType = Command.SELECT )
             : base( source, provider, columns, where, commandType )
         {
         }
@@ -434,7 +434,7 @@ namespace BudgetExecution
         /// <param name="commandType"> Type of the command. </param>
         public SqlStatement( Source source, Provider provider, IEnumerable<string> fields,
             IEnumerable<string> numerics, IDictionary<string, object> having,
-            SQL commandType = SQL.SELECT )
+            Command commandType = Command.SELECT )
             : base( source, provider, fields, numerics, having,
                 commandType )
         {

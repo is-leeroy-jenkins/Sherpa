@@ -81,7 +81,7 @@ namespace BudgetExecution
         /// <param name="provider"> The provider. </param>
         /// <param name="commandType"> The commandType. </param>
         public AsyncQuery( Source source, Provider provider = Provider.Access,
-            SQL commandType = SQL.SELECTALL )
+            Command commandType = Command.SELECTALL )
         {
             _source = source;
             _provider = provider;
@@ -102,7 +102,7 @@ namespace BudgetExecution
         /// <param name="where"> The dictionary of parameters. </param>
         /// <param name="commandType"> The type of sql command. </param>
         public AsyncQuery( Source source, Provider provider, IDictionary<string, object> where,
-            SQL commandType = SQL.SELECTALL )
+            Command commandType = Command.SELECTALL )
         {
             _source = source;
             _provider = provider;
@@ -125,7 +125,7 @@ namespace BudgetExecution
         /// <param name="where"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
         public AsyncQuery( Source source, Provider provider, IDictionary<string, object> updates,
-            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
+            IDictionary<string, object> where, Command commandType = Command.UPDATE )
         {
             _source = source;
             _provider = provider;
@@ -148,7 +148,7 @@ namespace BudgetExecution
         /// <param name="where"> The criteria. </param>
         /// <param name="commandType"> Type of the command. </param>
         public AsyncQuery( Source source, Provider provider, IEnumerable<string> columns,
-            IDictionary<string, object> where, SQL commandType = SQL.SELECT )
+            IDictionary<string, object> where, Command commandType = Command.SELECT )
         {
             _source = source;
             _provider = provider;
@@ -174,7 +174,7 @@ namespace BudgetExecution
         /// <param name="commandType"> Type of the command. </param>
         public AsyncQuery( Source source, Provider provider, IEnumerable<string> columns,
             IEnumerable<string> numerics, IDictionary<string, object> having,
-            SQL commandType = SQL.SELECT )
+            Command commandType = Command.SELECT )
         {
             _source = source;
             _provider = provider;
@@ -227,7 +227,7 @@ namespace BudgetExecution
         /// <param name="fullPath"> The fullpath. </param>
         /// <param name="sqlText"> </param>
         /// <param name="commandType"> The commandType. </param>
-        public AsyncQuery( string fullPath, string sqlText, SQL commandType = SQL.SELECT )
+        public AsyncQuery( string fullPath, string sqlText, Command commandType = Command.SELECT )
         {
             _criteria = null;
             _connection = new BudgetConnection( fullPath ).Create( );
@@ -247,7 +247,7 @@ namespace BudgetExecution
         /// <param name="fullPath"> The fullpath. </param>
         /// <param name="commandType"> The commandType. </param>
         /// <param name="where"> The dictionary. </param>
-        public AsyncQuery( string fullPath, SQL commandType, IDictionary<string, object> where )
+        public AsyncQuery( string fullPath, Command commandType, IDictionary<string, object> where )
         {
             _connection = new BudgetConnection( fullPath ).Create( );
             _criteria = where;
@@ -282,7 +282,7 @@ namespace BudgetExecution
         /// Gets the adapter.
         /// </summary>
         /// <returns></returns>
-        private Task<DbDataAdapter> GetAdapterAsync( )
+        public Task<DbDataAdapter> GetAdapterAsync( )
         {
             if( _connection != null
                && _sqlStatement != null )

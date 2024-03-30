@@ -631,33 +631,33 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( list, nameof( list ) );
-                _commands = Enum.GetNames( typeof( SQL ) );
+                _commands = Enum.GetNames( typeof( Command ) );
                 SqlComboBox.Items.Clear( );
                 SqlListBox.Items.Clear( );
                 for( var _i = 0; _i < list.Count; _i++ )
                 {
                     if( _commands.Contains( list[ _i ] )
-                       && list[ _i ].Equals( $"{SQL.CREATEDATABASE}" ) )
+                       && list[ _i ].Equals( $"{Command.CREATEDATABASE}" ) )
                     {
                         SqlComboBox.Items.Add( "CREATE DATABASE" );
                     }
                     else if( _commands.Contains( list[ _i ] )
-                            && list[ _i ].Equals( $"{SQL.CREATETABLE}" ) )
+                            && list[ _i ].Equals( $"{Command.CREATETABLE}" ) )
                     {
                         SqlComboBox.Items.Add( "CREATE TABLE" );
                     }
                     else if( _commands.Contains( list[ _i ] )
-                            && list[ _i ].Equals( $"{SQL.ALTERTABLE}" ) )
+                            && list[ _i ].Equals( $"{Command.ALTERTABLE}" ) )
                     {
                         SqlComboBox.Items.Add( "ALTER TABLE" );
                     }
                     else if( _commands.Contains( list[ _i ] )
-                            && list[ _i ].Equals( $"{SQL.CREATEVIEW}" ) )
+                            && list[ _i ].Equals( $"{Command.CREATEVIEW}" ) )
                     {
                         SqlComboBox.Items.Add( "CREATE VIEW" );
                     }
                     else if( _commands.Contains( list[ _i ] )
-                            && list[ _i ].Equals( $"{SQL.SELECTALL}" ) )
+                            && list[ _i ].Equals( $"{Command.SELECTALL}" ) )
                     {
                         SqlComboBox.Items.Add( "SELECT ALL" );
                     }

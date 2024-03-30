@@ -71,7 +71,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="source"> The source. </param>
         public SqlCeQuery( Source source )
-            : base( source, Provider.SqlCe, SQL.SELECT )
+            : base( source, Provider.SqlCe, Command.SELECT )
         {
         }
 
@@ -84,7 +84,7 @@ namespace BudgetExecution
         /// <param name="source"> The source. </param>
         /// <param name="dict"> The dictionary. </param>
         public SqlCeQuery( Source source, IDictionary<string, object> dict )
-            : base( source, Provider.SqlCe, dict, SQL.SELECT )
+            : base( source, Provider.SqlCe, dict, Command.SELECT )
         {
         }
 
@@ -97,7 +97,7 @@ namespace BudgetExecution
         /// <param name="source"> The source. </param>
         /// <param name="dict"> The dictionary. </param>
         /// <param name="commandType"> Type of the command. </param>
-        public SqlCeQuery( Source source, IDictionary<string, object> dict, SQL commandType )
+        public SqlCeQuery( Source source, IDictionary<string, object> dict, Command commandType )
             : base( source, Provider.SqlCe, dict, commandType )
         {
         }
@@ -113,7 +113,7 @@ namespace BudgetExecution
         /// <param name="where"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
         public SqlCeQuery( Source source, IDictionary<string, object> updates,
-            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
+            IDictionary<string, object> where, Command commandType = Command.UPDATE )
             : base( source, Provider.SqlCe, updates, where, commandType )
         {
         }
@@ -129,7 +129,7 @@ namespace BudgetExecution
         /// <param name="criteria"> The criteria. </param>
         /// <param name="commandType"> Type of the command. </param>
         public SqlCeQuery( Source source, IEnumerable<string> columns,
-            IDictionary<string, object> criteria, SQL commandType = SQL.SELECT )
+            IDictionary<string, object> criteria, Command commandType = Command.SELECT )
             : base( source, Provider.SqlCe, columns, criteria, commandType )
         {
         }
@@ -168,7 +168,7 @@ namespace BudgetExecution
         /// <param name="fullPath"> The fullpath. </param>
         /// <param name="sqlText"> </param>
         /// <param name="commandType"> The commandType. </param>
-        public SqlCeQuery( string fullPath, string sqlText, SQL commandType = SQL.SELECT )
+        public SqlCeQuery( string fullPath, string sqlText, Command commandType = Command.SELECT )
             : base( fullPath, sqlText, commandType )
         {
         }
@@ -182,7 +182,7 @@ namespace BudgetExecution
         /// <param name="fullPath"> The fullpath. </param>
         /// <param name="commandType"> The commandType. </param>
         /// <param name="dict"> </param>
-        public SqlCeQuery( string fullPath, SQL commandType, IDictionary<string, object> dict )
+        public SqlCeQuery( string fullPath, Command commandType, IDictionary<string, object> dict )
             : base( fullPath, commandType, dict )
         {
         }

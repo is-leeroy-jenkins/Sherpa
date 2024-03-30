@@ -55,7 +55,7 @@ namespace BudgetExecution
         /// <summary>
         /// 
         /// </summary>
-        private protected SQL _commandType;
+        private protected Command _commandType;
 
         /// <summary>
         /// 
@@ -64,7 +64,7 @@ namespace BudgetExecution
 
         /// <summary> Gets or sets the type of the command. </summary>
         /// <value> The type of the command. </value>
-        public SQL CommandType
+        public Command CommandType
         {
             get
             {
@@ -108,7 +108,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="command"> The command. </param>
         /// <param name="extension"> The extension. </param>
-        public SqlConfig( SQL command, EXT extension )
+        public SqlConfig( Command command, EXT extension )
         {
             _commandType = command;
             _extension = extension;
@@ -129,7 +129,7 @@ namespace BudgetExecution
         /// <summary> Deconstructs the specified command type. </summary>
         /// <param name="commandType"> Type of the command. </param>
         /// <param name="extension"> The extension. </param>
-        public void Deconstruct( out SQL commandType, out EXT extension )
+        public void Deconstruct( out Command commandType, out EXT extension )
         {
             commandType = _commandType;
             extension = _extension;

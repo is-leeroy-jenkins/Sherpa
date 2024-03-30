@@ -58,7 +58,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ValueParameterNotUsed" ) ]
     [ SuppressMessage( "ReSharper", "MergeConditionalExpression" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    public abstract class AsyncBase : ISource, IProvider
+    public abstract class AsyncBase : ISource, IProvider, IDisposable
     {
         /// <summary>
         /// The source
@@ -73,7 +73,7 @@ namespace BudgetExecution
         /// <summary>
         /// The command type
         /// </summary>
-        private protected SQL _commandType;
+        private protected Command _commandType;
 
         /// <summary>
         /// The data connection
@@ -424,7 +424,8 @@ namespace BudgetExecution
             GC.SuppressFinalize( this );
         }
 
-        /// <summary> Releases unmanaged and - optionally - managed resources. </summary>
+        /// <summary> Releases unmanaged and -
+        /// optionally - managed resources. </summary>
         /// <param name="disposing">
         /// <c> true </c>
         /// to release both managed and unmanaged resources;

@@ -157,6 +157,38 @@ namespace BudgetExecution
 
         /// <inheritdoc />
         /// <summary>
+        /// Gets the data table.
+        /// </summary>
+        /// <returns></returns>
+        public DataTable GetDataTable( )
+        {
+            if( _query != null )
+            {
+                try
+                {
+                    var _set = new DataSet( $"{_source}" );
+                    var _table = new DataTable( $"{_source}" );
+                    _table.TableName = _source.ToString( );
+                    _set.Tables.Add( _table );
+                    var _adapter = _query.DataAdapter;
+                    _adapter.Fill( _set, _table.TableName );
+                    SetColumnCaptions( _table );
+                    return _table?.Rows?.Count > 0
+                        ? _table
+                        : default( DataTable );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                    return default( DataTable );
+                }
+            }
+
+            return default( DataTable );
+        }
+
+        /// <inheritdoc />
+        /// <summary>
         /// Gets the data table asynchronous.
         /// </summary>
         /// <returns></returns>
@@ -237,38 +269,6 @@ namespace BudgetExecution
                 Fail( _ex );
                 return default( Task<DataRow> );
             }
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets the data table.
-        /// </summary>
-        /// <returns></returns>
-        public DataTable GetDataTable( )
-        {
-            if( _query != null )
-            {
-                try
-                {
-                    var _set = new DataSet( $"{_source}" );
-                    var _table = new DataTable( $"{_source}" );
-                    _table.TableName = _source.ToString( );
-                    _set.Tables.Add( _table );
-                    var _adapter = _query.DataAdapter;
-                    _adapter.Fill( _set, _table.TableName );
-                    SetColumnCaptions( _table );
-                    return _table?.Rows?.Count > 0
-                        ? _table
-                        : default( DataTable );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( DataTable );
-                }
-            }
-
-            return default( DataTable );
         }
 
         /// <inheritdoc />

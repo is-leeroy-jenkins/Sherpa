@@ -46,8 +46,8 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    public enum SQL
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    public enum Command
     {
         /// <summary>
         /// The select

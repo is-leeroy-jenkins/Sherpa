@@ -78,7 +78,7 @@ namespace BudgetExecution
         /// <summary>
         /// The command type
         /// </summary>
-        private protected SQL _commandType;
+        private protected Command _commandType;
 
         /// <summary>
         /// The data connection

@@ -1948,53 +1948,53 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( list, nameof( list ) );
-                var _names = Enum.GetNames( typeof( SQL ) );
+                var _names = Enum.GetNames( typeof( Command ) );
                 CommandComboBox.Items?.Clear( );
                 QueryListBox.Items?.Clear( );
                 for( var _i = 0; _i < list.Count; _i++ )
                 {
                     if( _names.Contains( list[ _i ] )
-                       && list[ _i ].Equals( $"{SQL.CREATEDATABASE}" ) )
+                       && list[ _i ].Equals( $"{Command.CREATEDATABASE}" ) )
                     {
                         CommandComboBox.Items.Add( "CREATE DATABASE" );
                     }
                     else if( _names.Contains( list[ _i ] )
-                            && list[ _i ].Equals( $"{SQL.CREATETABLE}" ) )
+                            && list[ _i ].Equals( $"{Command.CREATETABLE}" ) )
                     {
                         CommandComboBox.Items.Add( "CREATE TABLE" );
                     }
                     else if( _names.Contains( list[ _i ] )
-                            && list[ _i ].Equals( $"{SQL.ALTERTABLE}" ) )
+                            && list[ _i ].Equals( $"{Command.ALTERTABLE}" ) )
                     {
                         CommandComboBox.Items.Add( "ALTER TABLE" );
                     }
                     else if( _names.Contains( list[ _i ] )
-                            && list[ _i ].Equals( $"{SQL.CREATEVIEW}" ) )
+                            && list[ _i ].Equals( $"{Command.CREATEVIEW}" ) )
                     {
                         CommandComboBox.Items.Add( "CREATE VIEW" );
                     }
                     else if( _names.Contains( list[ _i ] )
-                            && list[ _i ].Equals( $"{SQL.SELECTALL}" ) )
+                            && list[ _i ].Equals( $"{Command.SELECTALL}" ) )
                     {
                         CommandComboBox.Items.Add( "SELECT ALL" );
                     }
                     else if( _names.Contains( list[ _i ] )
-                            && list[ _i ].Equals( $"{SQL.DELETE}" ) )
+                            && list[ _i ].Equals( $"{Command.DELETE}" ) )
                     {
                         CommandComboBox.Items.Add( "DELETE" );
                     }
                     else if( _names.Contains( list[ _i ] )
-                            && list[ _i ].Equals( $"{SQL.INSERT}" ) )
+                            && list[ _i ].Equals( $"{Command.INSERT}" ) )
                     {
                         CommandComboBox.Items.Add( "INSERT" );
                     }
                     else if( _names.Contains( list[ _i ] )
-                            && list[ _i ].Equals( $"{SQL.UPDATE}" ) )
+                            && list[ _i ].Equals( $"{Command.UPDATE}" ) )
                     {
                         CommandComboBox.Items.Add( "UPDATE" );
                     }
                     else if( _names.Contains( list[ _i ] )
-                            && list[ _i ].Equals( $"{SQL.SELECT}" ) )
+                            && list[ _i ].Equals( $"{Command.SELECT}" ) )
                     {
                         CommandComboBox.Items.Add( "SELECT" );
                     }

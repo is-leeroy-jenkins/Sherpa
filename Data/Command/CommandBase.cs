@@ -73,7 +73,7 @@ namespace BudgetExecution
         /// <summary>
         /// The command type
         /// </summary>
-        private protected SQL _commandType;
+        private protected Command _commandType;
 
         /// <summary>
         ///  
@@ -144,7 +144,7 @@ namespace BudgetExecution
         /// <value>
         /// The type of the command.
         /// </value>
-        public SQL CommandType
+        public Command CommandType
         {
             get
             {
@@ -223,25 +223,25 @@ namespace BudgetExecution
                 {
                     switch( _sqlStatement?.CommandType )
                     {
-                        case SQL.SELECTALL:
-                        case SQL.SELECT:
+                        case BudgetExecution.Command.SELECTALL:
+                        case BudgetExecution.Command.SELECT:
                         {
                             var _sql = _sqlStatement?.CommandText;
                             return !string.IsNullOrEmpty( _sql )
                                 ? new SQLiteCommand( _sql, _connection as SQLiteConnection )
                                 : default( SQLiteCommand );
                         }
-                        case SQL.INSERT:
+                        case BudgetExecution.Command.INSERT:
                         {
                             var _sql = _sqlStatement?.CommandText;
                             return new SQLiteCommand( _sql, _connection as SQLiteConnection );
                         }
-                        case SQL.UPDATE:
+                        case BudgetExecution.Command.UPDATE:
                         {
                             var _sql = _sqlStatement?.CommandText;
                             return new SQLiteCommand( _sql, _connection as SQLiteConnection );
                         }
-                        case SQL.DELETE:
+                        case BudgetExecution.Command.DELETE:
                         {
                             var _sql = _sqlStatement?.CommandText;
                             return new SQLiteCommand( _sql, _connection as SQLiteConnection );
@@ -277,29 +277,29 @@ namespace BudgetExecution
                 {
                     switch( _sqlStatement?.CommandType )
                     {
-                        case SQL.SELECTALL:
-                        case SQL.SELECT:
+                        case BudgetExecution.Command.SELECTALL:
+                        case BudgetExecution.Command.SELECT:
                         {
                             var _sql = _sqlStatement?.CommandText;
                             return !string.IsNullOrEmpty( _sql )
                                 ? new SqlCeCommand( _sql, _connection as SqlCeConnection )
                                 : default( DbCommand );
                         }
-                        case SQL.INSERT:
+                        case BudgetExecution.Command.INSERT:
                         {
                             var _sql = _sqlStatement?.CommandText;
                             return !string.IsNullOrEmpty( _sql )
                                 ? new SqlCeCommand( _sql, _connection as SqlCeConnection )
                                 : default( DbCommand );
                         }
-                        case SQL.UPDATE:
+                        case BudgetExecution.Command.UPDATE:
                         {
                             var _sql = _sqlStatement?.CommandText;
                             return !string.IsNullOrEmpty( _sql )
                                 ? new SqlCeCommand( _sql, _connection as SqlCeConnection )
                                 : default( DbCommand );
                         }
-                        case SQL.DELETE:
+                        case BudgetExecution.Command.DELETE:
                         {
                             var _sql = _sqlStatement?.CommandText;
                             return !string.IsNullOrEmpty( _sql )
@@ -339,23 +339,23 @@ namespace BudgetExecution
                 {
                     switch( _sqlStatement?.CommandType )
                     {
-                        case SQL.SELECTALL:
-                        case SQL.SELECT:
+                        case BudgetExecution.Command.SELECTALL:
+                        case BudgetExecution.Command.SELECT:
                         {
                             var _sql = _sqlStatement?.CommandText;
                             return new SqlCommand( _sql, _connection as SqlConnection );
                         }
-                        case SQL.INSERT:
+                        case BudgetExecution.Command.INSERT:
                         {
                             var _sql = _sqlStatement?.CommandText;
                             return new SqlCommand( _sql, _connection as SqlConnection );
                         }
-                        case SQL.UPDATE:
+                        case BudgetExecution.Command.UPDATE:
                         {
                             var _sql = _sqlStatement?.CommandText;
                             return new SqlCommand( _sql, _connection as SqlConnection );
                         }
-                        case SQL.DELETE:
+                        case BudgetExecution.Command.DELETE:
                         {
                             var _sql = _sqlStatement?.CommandText;
                             return new SqlCommand( _sql, _connection as SqlConnection );
@@ -382,30 +382,30 @@ namespace BudgetExecution
         private protected DbCommand GetOleDbCommand( )
         {
             if( ( _sqlStatement != null )
-               && Enum.IsDefined( typeof( SQL ), _sqlStatement.CommandType )
+               && Enum.IsDefined( typeof( Command ), _sqlStatement.CommandType )
                && ( _connection != null ) )
             {
                 try
                 {
                     switch( _sqlStatement?.CommandType )
                     {
-                        case SQL.SELECTALL:
-                        case SQL.SELECT:
+                        case BudgetExecution.Command.SELECTALL:
+                        case BudgetExecution.Command.SELECT:
                         {
                             var _sql = _sqlStatement?.CommandText;
                             return new OleDbCommand( _sql, _connection as OleDbConnection );
                         }
-                        case SQL.INSERT:
+                        case BudgetExecution.Command.INSERT:
                         {
                             var _sql = _sqlStatement?.CommandText;
                             return new OleDbCommand( _sql, _connection as OleDbConnection );
                         }
-                        case SQL.UPDATE:
+                        case BudgetExecution.Command.UPDATE:
                         {
                             var _sql = _sqlStatement?.CommandText;
                             return new OleDbCommand( _sql, _connection as OleDbConnection );
                         }
-                        case SQL.DELETE:
+                        case BudgetExecution.Command.DELETE:
                         {
                             var _sql = _sqlStatement?.CommandText;
                             return new OleDbCommand( _sql, _connection as OleDbConnection );

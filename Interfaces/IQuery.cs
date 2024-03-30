@@ -71,7 +71,7 @@ namespace BudgetExecution
         /// <value>
         /// The type of the command.
         /// </value>
-        SQL CommandType { get; }
+        Command CommandType { get; }
 
         /// <summary>
         /// Gets the arguments.

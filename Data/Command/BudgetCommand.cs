@@ -70,7 +70,7 @@ namespace BudgetExecution
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
         /// <param name="commandType">Type of the command.</param>
-        public BudgetCommand( Source source, Provider provider, SQL commandType = SQL.SELECTALL )
+        public BudgetCommand( Source source, Provider provider, Command commandType = BudgetExecution.Command.SELECTALL )
         {
             _source = _sqlStatement.Source;
             _provider = provider;
@@ -89,7 +89,7 @@ namespace BudgetExecution
         /// <param name="provider"> The provider. </param>
         /// <param name="sqlText"> The SQL text. </param>
         /// <param name="commandType"> Type of the command. </param>
-        public BudgetCommand( Source source, Provider provider, string sqlText, SQL commandType )
+        public BudgetCommand( Source source, Provider provider, string sqlText, Command commandType )
         {
             _source = source;
             _provider = provider;
@@ -109,7 +109,7 @@ namespace BudgetExecution
         /// <param name="where"> The dictionary. </param>
         /// <param name="commandType"> </param>
         public BudgetCommand( Source source, Provider provider, IDictionary<string, object> where,
-            SQL commandType = SQL.SELECTALL )
+            Command commandType = BudgetExecution.Command.SELECTALL )
         {
             _source = source;
             _provider = provider;
@@ -130,7 +130,7 @@ namespace BudgetExecution
         /// <param name="where"> The criteria. </param>
         /// <param name="commandType"> </param>
         public BudgetCommand( Source source, Provider provider, IDictionary<string, object> update,
-            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
+            IDictionary<string, object> where, Command commandType = BudgetExecution.Command.UPDATE )
         {
             _source = source;
             _provider = provider;
@@ -147,7 +147,7 @@ namespace BudgetExecution
         /// <param name="where"> </param>
         /// <param name="commandType"> </param>
         public BudgetCommand( Source source, Provider provider, IEnumerable<string> columns,
-            IDictionary<string, object> where, SQL commandType = SQL.SELECT )
+            IDictionary<string, object> where, Command commandType = BudgetExecution.Command.SELECT )
         {
             _source = source;
             _provider = provider;
@@ -170,7 +170,7 @@ namespace BudgetExecution
         /// <param name="commandType"> Type of the command. </param>
         public BudgetCommand( Source source, Provider provider, IEnumerable<string> fields,
             IEnumerable<string> numerics, IDictionary<string, object> having,
-            SQL commandType = SQL.SELECT )
+            Command commandType = BudgetExecution.Command.SELECT )
         {
             _source = source;
             _provider = provider;

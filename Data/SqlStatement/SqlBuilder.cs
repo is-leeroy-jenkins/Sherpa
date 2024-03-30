@@ -69,7 +69,7 @@ namespace BudgetExecution
         /// <summary>
         /// 
         /// </summary>
-        private SQL _commandType;
+        private Command _commandType;
 
         /// <summary>
         /// 
@@ -133,7 +133,7 @@ namespace BudgetExecution
         /// <value>
         /// The type of the command.
         /// </value>
-        public SQL CommandType
+        public Command CommandType
         {
             get
             {
@@ -234,7 +234,7 @@ namespace BudgetExecution
         /// <param name="source"> The source. </param>
         /// <param name="commandType"> Type of the command. </param>
         /// <param name="ext"> The ext. </param>
-        public SqlBuilder( Source source, SQL commandType, EXT ext )
+        public SqlBuilder( Source source, Command commandType, EXT ext )
         {
             Source = source;
             CommandType = commandType;
@@ -278,9 +278,9 @@ namespace BudgetExecution
         /// The SQL command.
         /// </param>
         /// <returns></returns>
-        public string GetCommandText( SQL sqlCommand )
+        public string GetCommandText( Command sqlCommand )
         {
-            if( Enum.IsDefined( typeof( SQL ), sqlCommand )
+            if( Enum.IsDefined( typeof( Command ), sqlCommand )
                && ( Commands?.Any( ) == true )
                && ( Commands.Keys?.Contains( $"{sqlCommand}" ) == true ) )
             {
@@ -338,7 +338,7 @@ namespace BudgetExecution
         /// <returns></returns>
         private IDictionary<string, string> GetCommands( )
         {
-            if( Enum.IsDefined( typeof( SQL ), CommandType )
+            if( Enum.IsDefined( typeof( Command ), CommandType )
                && ( Files?.Any( ) == true ) )
             {
                 var _repository = new Dictionary<string, string>( );

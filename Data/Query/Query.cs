@@ -102,7 +102,7 @@ namespace BudgetExecution
         /// <value>
         /// The type of the command.
         /// </value>
-        public SQL CommandType
+        public Command CommandType
         {
             get
             {

@@ -43,7 +43,6 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Collections;
     using System.Collections.Generic;
     using System.Data;
     using System.Linq;
@@ -101,9 +100,12 @@ namespace BudgetExecution
             {
                 var _table = GetDataTable( );
                 var _indexes = new List<int>( );
-                foreach( DataColumn _column in _table?.Columns )
+                if( _table != null )
                 {
-                    _indexes?.Add( _column.Ordinal );
+                    foreach( DataColumn _column in _table?.Columns )
+                    {
+                        _indexes?.Add( _column.Ordinal );
+                    }
                 }
 
                 _async.SetResult( _indexes );
