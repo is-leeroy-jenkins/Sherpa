@@ -56,12 +56,115 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public abstract class FileBase : DataPath
+    public class FileBase : DataPath
     {
+        /// <summary>
+        /// The locked object
+        /// </summary>
+        private object _path;
+
+        /// <summary>
+        /// The busy
+        /// </summary>
+        private protected bool _busy;
+
         /// <summary>
         /// The exists
         /// </summary>
         private protected bool _fileExists;
+
+        /// <summary>
+        /// The size
+        /// </summary>
+        private protected long _size;
+
+        /// <summary>
+        /// The parent name
+        /// </summary>
+        private protected string _parentName;
+
+        /// <summary>
+        /// The parent path
+        /// </summary>
+        private protected string _parentPath;
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="FileBase"/> class.
+        /// </summary>
+        /// <inheritdoc />
+        protected FileBase( )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="FileBase"/> class.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <inheritdoc />
+        protected FileBase( string input ) 
+            : base( input )
+        {
+        }
+
+        /// <summary>
+        /// Begins the initialize.
+        /// </summary>
+        private protected void BeginInit( )
+        {
+            try
+            {
+                if( _path == null )
+                {
+                    _path = new object( );
+                    lock( _path )
+                    {
+                        _busy = true;
+                    }
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        _busy = true;
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Ends the initialize.
+        /// </summary>
+        private protected void EndInit( )
+        {
+            try
+            {
+                if( _path == null )
+                {
+                    _path = new object( );
+                    lock( _path )
+                    {
+                        _busy = false;
+                    }
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        _busy = false;
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
 
         /// <summary>
         /// Moves the specified file path.
@@ -89,7 +192,7 @@ namespace BudgetExecution
         /// <param name="filePath">
         /// The file path.
         /// </param>
-        public void Copy( string filePath )
+        public void CopyTo( string filePath )
         {
             try
             {
@@ -127,17 +230,22 @@ namespace BudgetExecution
         /// <returns></returns>
         private protected FileStream CreateBaseStream( )
         {
-            try
+            if( _fileExists )
             {
-                return File.Exists( _fullPath )
-                    ? new FileInfo( _fullPath )?.Create( )
-                    : default( FileStream );
+                try
+                {
+                    var _file = new FileInfo( _fullPath );
+                    var _stream = _file?.Create( );
+                    return _stream;
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                    return default( FileStream );
+                }
             }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( FileStream );
-            }
+
+            return default( FileStream );
         }
 
         /// <summary>
@@ -151,7 +259,7 @@ namespace BudgetExecution
                 try
                 {
                     var _list = new List<string>( );
-                    foreach( var _line in File.ReadAllLines( _buffer ) )
+                    foreach( var _line in File.ReadAllLines( _input ) )
                     {
                         if( !string.IsNullOrEmpty( _line ) )
                         {
@@ -184,7 +292,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _data = File.ReadAllBytes( _buffer );
+                    var _data = File.ReadAllBytes( _input );
                     return _data.Length > 0
                         ? _data
                         : default( byte[ ] );

@@ -206,7 +206,7 @@ namespace BudgetExecution
                 try
                 {
                     var _list = new List<string>( );
-                    var _paths = Directory.GetFiles( _buffer );
+                    var _paths = Directory.GetFiles( _input );
                     foreach( var _filePath in _paths )
                     {
                         var _first = Directory.GetFiles( _filePath )

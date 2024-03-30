@@ -126,7 +126,7 @@ namespace BudgetExecution
                 try
                 {
                     var _data = new Dictionary<string, FileInfo>( );
-                    var _paths = Directory.GetFiles( _buffer );
+                    var _paths = Directory.GetFiles( _input );
                     foreach( var _path in _paths )
                     {
                         if( File.Exists( _path ) )
@@ -164,7 +164,7 @@ namespace BudgetExecution
                 try
                 {
                     var _data = new Dictionary<string, DirectoryInfo>( );
-                    var _subFolders = Directory.GetDirectories( _buffer );
+                    var _subFolders = Directory.GetDirectories( _input );
                     foreach( var _path in _subFolders )
                     {
                         if( Directory.Exists( _path ) )
@@ -204,7 +204,7 @@ namespace BudgetExecution
                 try
                 {
                     var _list = new List<string>( );
-                    var _paths = Directory.GetFiles( _buffer );
+                    var _paths = Directory.GetFiles( _input );
                     foreach( var _file in _paths )
                     {
                         var _first = Directory.GetFiles( _file )

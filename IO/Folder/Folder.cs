@@ -148,7 +148,7 @@ namespace BudgetExecution
         /// <param name="dirPath"></param>
         public Folder( string dirPath )
         {
-            _buffer = dirPath;
+            _input = dirPath;
             _fullPath = dirPath;
             _folderExists = Exists( dirPath );
             _folderName = Path.GetDirectoryName( dirPath );
@@ -166,7 +166,7 @@ namespace BudgetExecution
         /// <param name="folder">The folder.</param>
         public Folder( Folder folder )
         {
-            _buffer = folder.Input;
+            _input = folder.Input;
             _fullPath = folder.FullPath;
             _folderName = folder.FolderName;
             _hasSubFiles = GetFiles( folder.FullPath )?.Length > 0;
@@ -189,7 +189,7 @@ namespace BudgetExecution
             out bool hasSubFiles, out bool hasSubFolders, out DateTime created,
             out DateTime modified )
         {
-            buffer = _buffer;
+            buffer = _input;
             fullPath = _fullPath;
             folderName = _folderName;
             hasSubFiles = _hasSubFiles;
@@ -210,7 +210,7 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( destination, nameof( destination ) );
-                Directory.Move( _buffer, destination );
+                Directory.Move( _input, destination );
             }
             catch( IOException _ex )
             {
@@ -390,7 +390,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _folder = new Folder( _buffer );
+                var _folder = new Folder( _input );
                 var _name = _folder.FolderName ?? string.Empty;
                 var _path = _folder.FullPath ?? string.Empty;
                 var _dirPath = _folder.ParentPath ?? string.Empty;

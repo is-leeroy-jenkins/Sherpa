@@ -72,11 +72,11 @@ namespace BudgetExecution
         {
             get
             {
-                return _buffer;
+                return _input;
             }
             private protected set
             {
-                _buffer = value;
+                _input = value;
             }
         }
 
@@ -193,7 +193,7 @@ namespace BudgetExecution
             get
             {
                 return _hasParent
-                    ? Directory.GetParent( _buffer )
+                    ? Directory.GetParent( _input )
                     : default( DirectoryInfo );
             }
         }
@@ -209,7 +209,7 @@ namespace BudgetExecution
             get
             {
                 return _isRooted
-                    ? Path.GetPathRoot( _buffer )
+                    ? Path.GetPathRoot( _input )
                     : string.Empty;
             }
         }
@@ -260,9 +260,7 @@ namespace BudgetExecution
         {
             get
             {
-                return _hasExtension
-                    ? Path.GetExtension( _fullPath )
-                    : string.Empty;
+                return _fileExtension;
             }
             private protected set
             {
@@ -419,10 +417,11 @@ namespace BudgetExecution
         /// </param>
         public DataPath( string input )
         {
-            _buffer = input;
+            _input = input;
             _hasExtension = Path.HasExtension( input );
+            _fileExtension = Path.GetExtension( input );
             _hasParent = !string.IsNullOrEmpty( Directory.GetParent( input )?.Name );
-            _isRooted = Path.IsPathRooted( _buffer );
+            _isRooted = Path.IsPathRooted( input );
             _absolutePath = Path.GetFullPath( input );
             _relativePath = Path.GetRelativePath( Environment.CurrentDirectory, input );
             _fileName = Path.GetFileNameWithoutExtension( input );
@@ -435,6 +434,8 @@ namespace BudgetExecution
             _pathSeparator = Path.PathSeparator;
             _folderSeparator = Path.AltDirectorySeparatorChar;
             _driveSeparator = Path.DirectorySeparatorChar;
+            _drive = Path.GetPathRoot( input );
+            _fileAttributes = File.GetAttributes( input );
         }
 
         /// <summary>
@@ -446,11 +447,12 @@ namespace BudgetExecution
         /// </param>
         public DataPath( DataPath path )
         {
-            _buffer = path.Input;
-            _hasExtension = Path.HasExtension( path.FullPath );
-            _fileName = Path.GetFileNameWithoutExtension( path.FullPath );
-            _absolutePath = Path.GetFullPath( path.FullPath );
-            _relativePath = Path.GetRelativePath( Environment.CurrentDirectory, path.FullPath );
+            _input = path.Input;
+            _hasExtension = Path.HasExtension( path.Input );
+            _fileExtension = path.Extension;
+            _fileName = path.FileName;
+            _absolutePath = path.AbsolutePath;
+            _relativePath = path.RelativePath;
             _fullPath = path.FullPath;
             _fileExtension = path.Extension;
             _length = path.Length;
@@ -461,6 +463,8 @@ namespace BudgetExecution
             _pathSeparator = path.PathSeparator;
             _folderSeparator = path.FolderSeparator;
             _driveSeparator = path.DriveSeparator;
+            _drive = path.Drive;
+            _fileAttributes = path.FileAttributes;
         }
 
         /// <summary>
@@ -471,13 +475,14 @@ namespace BudgetExecution
         /// <param name="name">The name.</param>
         /// <param name="fullPath">The full path.</param>
         /// <param name="length">The length.</param>
+        /// <param name="extension"> </param>
         /// <param name="createDate">The created.</param>
         /// <param name="modifyDate">The modified.</param>
         public void Deconstruct( out string buffer, out string absolutePath, out string name,
             out string fullPath, out long length, out string extension, out DateTime createDate,
             out DateTime modifyDate )
         {
-            buffer = _buffer;
+            buffer = _input;
             absolutePath = _absolutePath;
             name = _fileName;
             fullPath = _fullPath;
@@ -499,7 +504,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _path = new DataPath( _buffer );
+                var _path = new DataPath( _input );
                 var _extenstion = _path.Extension ?? string.Empty;
                 var _name = _path.FileName ?? string.Empty;
                 var _filePath = _path.FullPath ?? string.Empty;
@@ -511,9 +516,11 @@ namespace BudgetExecution
                 var _foldersep = _path.FolderSeparator;
                 var _root = _path.Drive;
                 var _nl = Environment.NewLine;
+                var _attrs = _path.FileAttributes;
                 var _tb = char.ToString( '\t' );
                 var _text = _nl + _tb + "File Name: " + _tb + _name + _nl + _nl +
                     _tb + "File Path: " + _tb + _filePath + _nl + _nl +
+                    _tb + "File Attributes: " + _tb + _attrs + _nl + _nl +
                     _tb + "Extension: " + _tb + _extenstion + _nl + _nl +
                     _tb + "Path Root: " + _tb + _root + _nl + _nl +
                     _tb + "Path Separator: " + _tb + _pathsep + _nl + _nl +

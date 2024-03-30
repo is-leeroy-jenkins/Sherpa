@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="SchemaType.cs" company="Terry D. Eppler">
+// <copyright file="SchemaTypes.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   SchemaType.cs
+//   SchemaTypes.cs
 // </summary>
 // ******************************************************************************************
 
@@ -49,7 +49,8 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class SchemaType
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    public class SchemaTypes
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -101,19 +102,19 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SchemaType"/> class.
+        /// <see cref="SchemaTypes"/> class.
         /// </summary>
-        public SchemaType( )
+        public SchemaTypes( )
         {
             Source = Source.SchemaTypes;
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SchemaType"/> class.
+        /// <see cref="SchemaTypes"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public SchemaType( IQuery query )
+        public SchemaTypes( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
@@ -124,10 +125,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SchemaType"/> class.
+        /// <see cref="SchemaTypes"/> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public SchemaType( IDataModel builder )
+        public SchemaTypes( IDataModel builder )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
@@ -137,10 +138,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SchemaType"/> class.
+        /// Initializes a new instance of the <see cref="SchemaTypes"/> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public SchemaType( DataRow dataRow )
+        public SchemaTypes( DataRow dataRow )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );

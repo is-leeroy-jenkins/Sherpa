@@ -59,7 +59,6 @@ namespace BudgetExecution
     /// <seealso cref="T:BudgetExecution.IProvider" />
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -68,6 +67,11 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     public abstract class DataAccess : DataSchema
     {
+        /// <summary>
+        /// The locked object
+        /// </summary>
+        private object _path;
+
         /// <summary>
         /// The busy
         /// </summary>
@@ -197,6 +201,7 @@ namespace BudgetExecution
                 _dataSet.Tables.Add( _dataTable );
                 using var _query = new BudgetQuery( _sqlStatement );
                 using var _adapter = _query.DataAdapter;
+                _adapter.FillSchema( _dataSet, SchemaType.Source, _dataTable.TableName );
                 _adapter.Fill( _dataSet, _dataTable.TableName );
                 SetColumnCaptions( _dataTable );
                 _duration = _clock.Elapsed;
@@ -416,7 +421,21 @@ namespace BudgetExecution
         {
             try
             {
-                _busy = true;
+                if( _path == null )
+                {
+                    _path = new object( );
+                    lock( _path )
+                    {
+                        _busy = true;
+                    }
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        _busy = true;
+                    }
+                }
             }
             catch( Exception _ex )
             {
@@ -431,7 +450,21 @@ namespace BudgetExecution
         {
             try
             {
-                _busy = false;
+                if( _path == null )
+                {
+                    _path = new object( );
+                    lock( _path )
+                    {
+                        _busy = false;
+                    }
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        _busy = false;
+                    }
+                }
             }
             catch( Exception _ex )
             {

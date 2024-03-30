@@ -330,7 +330,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="provider">The provider.</param>
         /// <returns></returns>
-        private protected string GetDbClientPath( Provider provider )
+        private protected string GetClientPath( Provider provider )
         {
             if( Enum.IsDefined( typeof( Provider ), provider ) )
             {
@@ -362,37 +362,35 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="filePath">The file path.</param>
         /// <returns></returns>
-        private protected string GetDbClientPath( string filePath )
+        private protected string GetClientPath( string filePath )
         {
-            if( !string.IsNullOrEmpty( filePath )
-               && HasExtension( filePath ) )
+            try
             {
-                try
-                {
-                    var _file = GetExtension( filePath )
-                        ?.Replace( ".", "" )
-                        ?.ToUpper( );
+                ThrowIf.Null( filePath, nameof( filePath ) );
+                var _file = GetExtension( filePath )
+                    ?.Replace( ".", "" )
+                    ?.ToUpper( );
 
-                    if( !string.IsNullOrEmpty( _file ) )
+                if( !string.IsNullOrEmpty( _file ) )
+                {
+                    _extension = (EXT)Enum.Parse( typeof( EXT ), _file );
+                    var _names = Enum.GetNames( typeof( EXT ) );
+                    if( _names?.Contains( _extension.ToString( ) ) == true )
                     {
-                        _extension = (EXT)Enum.Parse( typeof( EXT ), _file );
-                        var _names = Enum.GetNames( typeof( EXT ) );
-                        if( _names?.Contains( _extension.ToString( ) ) == true )
-                        {
-                            _dataPath = AppSettings[ $"{_extension}" ];
-                            return !string.IsNullOrEmpty( _dataPath )
-                                ? _dataPath
-                                : string.Empty;
-                        }
+                        _dataPath = AppSettings[ $"{_extension}" ];
+                        return !string.IsNullOrEmpty( _dataPath )
+                            ? _dataPath
+                            : string.Empty;
                     }
                 }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
 
-            return string.Empty;
+                return string.Empty;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return string.Empty;
+            }
         }
 
         /// <summary>
@@ -402,8 +400,7 @@ namespace BudgetExecution
         /// <returns></returns>
         private protected virtual string CreateConnectionString( Provider provider )
         {
-            if( Enum.IsDefined( typeof( Provider ), provider )
-               && !string.IsNullOrEmpty( _filePath ) )
+            if( Enum.IsDefined( typeof( Provider ), provider ) )
             {
                 try
                 {
@@ -415,6 +412,7 @@ namespace BudgetExecution
                 catch( Exception _ex )
                 {
                     Fail( _ex );
+                    return string.Empty;
                 }
             }
 
@@ -428,44 +426,43 @@ namespace BudgetExecution
         /// <returns></returns>
         private protected virtual string CreateConnectionString( string filePath )
         {
-            if( !string.IsNullOrEmpty( filePath )
-               && File.Exists( filePath )
-               && HasExtension( filePath ) )
+            try
             {
-                try
+                ThrowIf.Null( filePath, nameof( filePath ) );
+                var _file = GetExtension( filePath );
+                if( !string.IsNullOrEmpty( _file ) )
                 {
-                    var _file = GetExtension( filePath );
-                    if( !string.IsNullOrEmpty( _file ) )
+                    var _ext = (EXT)Enum.Parse( typeof( EXT ), _file.ToUpper( ) );
+                    var _names = Enum.GetNames( typeof( EXT ) );
+                    if( _names?.Contains( _ext.ToString( ) ) == true )
                     {
-                        var _ext = (EXT)Enum.Parse( typeof( EXT ), _file.ToUpper( ) );
-                        var _names = Enum.GetNames( typeof( EXT ) );
-                        if( _names?.Contains( _ext.ToString( ) ) == true )
-                        {
-                            _connectionString = ConnectionStrings[ $"{_ext}" ]?.ConnectionString;
-                            return !string.IsNullOrEmpty( _connectionString )
-                                ? _connectionString
-                                : string.Empty;
-                        }
+                        _connectionString = ConnectionStrings[ $"{_ext}" ]?.ConnectionString;
+                        return !string.IsNullOrEmpty( _connectionString )
+                            ? _connectionString
+                            : string.Empty;
                     }
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
 
-            return string.Empty;
+                    return string.Empty;
+                }
+
+                return string.Empty;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return string.Empty;
+            }
         }
 
         /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        private protected void Fail( Exception ex )
-        {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
-        }
+            /// Fails the specified ex.
+            /// </summary>
+            /// <param name="ex">The ex.</param>
+            private protected void Fail( Exception ex )
+            {
+                using var _error = new ErrorDialog( ex );
+                _error?.SetText( );
+                _error?.ShowDialog( );
+            }
     }
 }

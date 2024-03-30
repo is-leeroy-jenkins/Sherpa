@@ -89,12 +89,17 @@ namespace BudgetExecution
         private protected char _driveSeparator;
 
         /// <summary>
+        /// The drive 
+        /// </summary>
+        private protected string _drive;
+
+        /// <summary>
         /// Gets or sets the buffer.
         /// </summary>
         /// <value>
         /// The buffer.
         /// </value>
-        private protected string _buffer;
+        private protected string _input;
 
         /// <summary>
         /// Gets or sets the name.

@@ -134,7 +134,7 @@ namespace BudgetExecution
             _source = source;
             _provider = provider;
             _tableName = source.ToString( );
-            _filePath = GetDbClientPath( provider );
+            _filePath = GetClientPath( provider );
             _connectionString = CreateConnectionString( provider );
             _pathExtension = Path.GetExtension( _filePath )?.Replace( ".", "" );
             _fileName = Path.GetFileNameWithoutExtension( _filePath );

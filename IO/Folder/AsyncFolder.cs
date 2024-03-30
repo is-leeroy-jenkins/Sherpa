@@ -71,7 +71,7 @@ namespace BudgetExecution
         /// <param name="dirPath"></param>
         public AsyncFolder( string dirPath )
         {
-            _buffer = dirPath;
+            _input = dirPath;
             _fullPath = dirPath;
             _folderExists = Directory.Exists( dirPath );
             _folderName = Path.GetDirectoryName( dirPath );
@@ -89,7 +89,7 @@ namespace BudgetExecution
         /// <param name="folder">The folder.</param>
         public AsyncFolder( Folder folder )
         {
-            _buffer = folder.Input;
+            _input = folder.Input;
             _fullPath = folder.FullPath;
             _folderName = folder.FolderName;
             _hasSubFiles = Directory.GetFiles( folder.FullPath )?.Length > 0;
@@ -112,7 +112,7 @@ namespace BudgetExecution
             out bool hasSubFiles, out bool hasSubFolders, out DateTime created,
             out DateTime modified )
         {
-            buffer = _buffer;
+            buffer = _input;
             fullPath = _fullPath;
             folderName = _folderName;
             hasSubFiles = _hasSubFiles;
@@ -189,7 +189,7 @@ namespace BudgetExecution
                 var _async = new TaskCompletionSource<DirectoryInfo>( );
                 try
                 {
-                    var _folder = Directory.GetParent( _buffer );
+                    var _folder = Directory.GetParent( _input );
                     _async.SetResult( _folder );
                     return _async.Task;
                 }
@@ -218,7 +218,7 @@ namespace BudgetExecution
                 var _async = new TaskCompletionSource<string>( );
                 try
                 {
-                    var _name = Path.GetDirectoryName( _buffer );
+                    var _name = Path.GetDirectoryName( _input );
                     _async.SetResult( _name );
                     return _async.Task;
                 }
@@ -248,7 +248,7 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( destination, nameof( destination ) );
-                Directory.Move( _buffer, destination );
+                Directory.Move( _input, destination );
                 _async.SetResult( );
                 return _async.Task;
             }
@@ -464,7 +464,7 @@ namespace BudgetExecution
             var _async = new TaskCompletionSource<string>( );
             try
             {
-                var _file = new DataFile( _buffer );
+                var _file = new DataFile( _input );
                 var _extenstion = _file.Extension ?? string.Empty;
                 var _name = _file.FileName ?? string.Empty;
                 var _path = _file.FullPath ?? string.Empty;
