@@ -53,8 +53,19 @@ namespace BudgetExecution
     /// <inheritdoc />
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public class AsyncFolderBase : DataFile
     {
+        /// <summary>
+        /// The sub files
+        /// </summary>
+        private protected int _fileCount;
+
+        /// <summary>
+        /// The sub folders
+        /// </summary>
+        private protected int _folderCount;
+
         /// <summary>
         /// The folder exists
         /// </summary>
@@ -76,11 +87,6 @@ namespace BudgetExecution
         private protected string _folderName;
 
         /// <summary>
-        /// The parent name
-        /// </summary>
-        private protected string _parentName;
-
-        /// <summary>
         /// The parent folder
         /// </summary>
         private protected DirectoryInfo _parentFolder;
@@ -91,11 +97,42 @@ namespace BudgetExecution
         private protected DirectorySecurity _folderSecurity;
 
         /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="AsyncFolderBase"/> class.
+        /// </summary>
+        /// <inheritdoc />
+        public AsyncFolderBase( )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="AsyncFolderBase"/> class.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <inheritdoc />
+        public AsyncFolderBase( string input ) 
+            : base( input )
+        {
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.AsyncFolderBase" /> class.
+        /// </summary>
+        /// <param name="folder">The folder.</param>
+        public AsyncFolderBase( Folder folder )
+            : base( folder )
+        {
+        }
+
+        /// <summary>
         /// Gets the special folders.
         /// </summary>
         /// <returns>
         /// </returns>
-        public Task<IList<string>> GetSpecialFolderNamesAsync( )
+        public Task<IList<string>> GetSpecialNamesAsync( )
         {
             var _async = new TaskCompletionSource<IList<string>>( );
             try
@@ -113,12 +150,37 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Gets the parent asynchronous.
+        /// </summary>
+        /// <returns>
+        /// Task(DirectoryInfo)
+        /// </returns>
+        public Task<DirectoryInfo> GetParentAsync( )
+        {
+            var _async = new TaskCompletionSource<DirectoryInfo>( );
+            try
+            {
+                var _folders = new DirectoryInfo( _input );
+                _async.SetResult( _folders );
+                return _folders.Exists
+                    ? _async.Task
+                    : default( Task<DirectoryInfo> );
+            }
+            catch( IOException _ex )
+            {
+                _async.SetException( _ex );
+                Fail( _ex );
+                return default( Task<DirectoryInfo> );
+            }
+        }
+
+        /// <summary>
         /// Gets the sub file data.
         /// </summary>
         /// <returns>
         /// Dictionary
         /// </returns>
-        public Task<IDictionary<string, FileInfo>> GetSubFileDataAsync( )
+        public Task<IDictionary<string, FileInfo>> GetSubFilesAsync( )
         {
             if( _hasSubFiles )
             {
@@ -156,7 +218,7 @@ namespace BudgetExecution
         /// </summary>
         /// <returns>
         /// </returns>
-        public Task<IDictionary<string, DirectoryInfo>> GetSubDirectoryDataAsync( )
+        public Task<IDictionary<string, DirectoryInfo>> GetSubFoldersAsync( )
         {
             if( _hasSubFolders )
             {
@@ -197,34 +259,35 @@ namespace BudgetExecution
         /// </summary>
         /// <returns>
         /// </returns>
-        private protected IEnumerable<string> WalkPaths( )
+        public Task<IList<string>> WalkDownAsync( )
         {
             if( _hasSubFiles )
             {
+                var _async = new TaskCompletionSource<IList<string>>( );
                 try
                 {
                     var _list = new List<string>( );
                     var _paths = Directory.GetFiles( _input );
-                    foreach( var _file in _paths )
+                    foreach( var _fi in _paths )
                     {
-                        var _first = Directory.GetFiles( _file )
+                        var _first = Directory.GetFiles( _fi )
                             ?.Where( f => File.Exists( f ) )
                             ?.Select( f => Path.GetFullPath( f ) )
                             ?.ToList( );
 
                         _list.AddRange( _first );
-                        var _folders = Directory.GetDirectories( _file );
-                        foreach( var _folder in _folders )
+                        var _folders = Directory.GetDirectories( _fi );
+                        foreach( var _fr in _folders )
                         {
-                            if( !_folder.Contains( "My " ) )
+                            if( !_fr.Contains( "My " ) )
                             {
-                                var _second = Directory.GetFiles( _folder )
+                                var _second = Directory.GetFiles( _fr )
                                     ?.Where( s => File.Exists( s ) )
                                     ?.Select( s => Path.GetFullPath( s ) )
                                     ?.ToList( );
 
                                 _list.AddRange( _second );
-                                var _subfolders = Directory.GetDirectories( _folder );
+                                var _subfolders = Directory.GetDirectories( _fr );
                                 for( var _i = 0; _i < _subfolders.Length; _i++ )
                                 {
                                     var _path = _subfolders[ _i ];
@@ -239,18 +302,20 @@ namespace BudgetExecution
                         }
                     }
 
+                    _async.SetResult( _list );
                     return _list?.Any( ) == true
-                        ? _list
-                        : default( IEnumerable<string> );
+                        ? _async.Task
+                        : default( Task<IList<string>> );
                 }
                 catch( Exception _ex )
                 {
+                    _async.SetException( _ex );
                     Fail( _ex );
-                    return default( IEnumerable<string> );
+                    return default( Task<IList<string>> );
                 }
             }
 
-            return default( IEnumerable<string> );
+            return default( Task<IList<string>> );
         }
     }
 }

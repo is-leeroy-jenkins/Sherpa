@@ -218,14 +218,14 @@ namespace BudgetExecution
                         }
                         case Provider.SqlCe:
                         {
-                            var _sqlceConection = new SqlCeConnection( _connectionString );
-                            _async.SetResult( _sqlceConection );
+                            var _sqlCeConnection = new SqlCeConnection( _connectionString );
+                            _async.SetResult( _sqlCeConnection );
                             return _async.Task;
                         }
                         case Provider.SqlServer:
                         {
-                            var _sqlserverConnection = new SqlConnection( _connectionString );
-                            _async.SetResult( _sqlserverConnection );
+                            var _sqlConnection = new SqlConnection( _connectionString );
+                            _async.SetResult( _sqlConnection );
                             return _async.Task;
                         }
                         case Provider.Excel:
@@ -234,8 +234,8 @@ namespace BudgetExecution
                         case Provider.Access:
                         case Provider.OleDb:
                         {
-                            var _oledbConnection = new OleDbConnection( _connectionString );
-                            _async.SetResult( _oledbConnection );
+                            var _oleDbConnection = new OleDbConnection( _connectionString );
+                            _async.SetResult( _oleDbConnection );
                             return _async.Task;
                         }
                         default:

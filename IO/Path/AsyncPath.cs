@@ -46,29 +46,11 @@ namespace BudgetExecution
     using System.IO;
     using System.Security.AccessControl;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
     public class AsyncPath : AsyncPathBase
     {
-        /// <summary>
-        /// Gets or sets the buffer.
-        /// </summary>
-        /// <value>
-        /// The buffer.
-        /// </value>
-        public string Input
-        {
-            get
-            {
-                return _buffer;
-            }
-            private protected set
-            {
-                _buffer = value;
-            }
-        }
-
         /// <summary>
         /// Gets or sets the full path.
         /// </summary>
@@ -79,33 +61,11 @@ namespace BudgetExecution
         {
             get
             {
-                return !string.IsNullOrEmpty( _fullPath )
-                    ? _fullPath
-                    : string.Empty;
+                return _fullPath;
             }
             private protected set
             {
                 _fullPath = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the absolute path.
-        /// </summary>
-        /// <value>
-        /// The absolute path.
-        /// </value>
-        public string AbsolutePath
-        {
-            get
-            {
-                return !string.IsNullOrEmpty( _absolutePath )
-                    ? _absolutePath
-                    : string.Empty;
-            }
-            private protected set
-            {
-                _absolutePath = value;
             }
         }
 
@@ -119,9 +79,7 @@ namespace BudgetExecution
         {
             get
             {
-                return !string.IsNullOrEmpty( _relativePath )
-                    ? _relativePath
-                    : string.Empty;
+                return _relativePath;
             }
             private protected set
             {
@@ -139,9 +97,7 @@ namespace BudgetExecution
         {
             get
             {
-                return !string.IsNullOrEmpty( _fileName )
-                    ? _fileName
-                    : string.Empty;
+                return _fileName;
             }
             private protected set
             {
@@ -168,22 +124,38 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets or sets a value indicating
-        /// whether this instance has parent.
+        /// Gets the name of the parent.
         /// </summary>
         /// <value>
-        /// <c>true</c>
-        /// if this instance has parent;
-        /// otherwise,
-        /// <c>false</c>.
+        /// The name of the parent.
         /// </value>
-        public DirectoryInfo Parent
+        public string ParentName
         {
             get
             {
-                return _hasParent
-                    ? Directory.GetParent( _buffer )
-                    : default( DirectoryInfo );
+                return _parentName;
+            }
+            private protected set
+            {
+                _parentName = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the parent path.
+        /// </summary>
+        /// <value>
+        /// The parent path.
+        /// </value>
+        public string ParentPath
+        {
+            get
+            {
+                return _parentPath;
+            }
+            private protected set
+            {
+                _parentPath = value;
             }
         }
 
@@ -197,9 +169,11 @@ namespace BudgetExecution
         {
             get
             {
-                return _isRooted
-                    ? Path.GetPathRoot( _buffer )
-                    : string.Empty;
+                return _drive;
+            }
+            private protected set
+            {
+                _drive = value;
             }
         }
 
@@ -249,9 +223,7 @@ namespace BudgetExecution
         {
             get
             {
-                return _hasExtension
-                    ? Path.GetExtension( _fullPath )
-                    : string.Empty;
+                return _fileExtension;
             }
             private protected set
             {
@@ -408,10 +380,10 @@ namespace BudgetExecution
         /// </param>
         public AsyncPath( string input )
         {
-            _buffer = input;
+            _input = input;
             _hasExtension = Path.HasExtension( input );
             _hasParent = !string.IsNullOrEmpty( Directory.GetParent( input )?.Name );
-            _isRooted = Path.IsPathRooted( _buffer );
+            _isRooted = Path.IsPathRooted( _input );
             _absolutePath = Path.GetFullPath( input );
             _relativePath = Path.GetRelativePath( Environment.CurrentDirectory, input );
             _fileName = Path.GetFileNameWithoutExtension( input );
@@ -435,11 +407,11 @@ namespace BudgetExecution
         /// </param>
         public AsyncPath( DataPath path )
         {
-            _buffer = path.Input;
+            _input = path.Input;
             _hasExtension = Path.HasExtension( path.FullPath );
-            _fileName = Path.GetFileNameWithoutExtension( path.FullPath );
-            _absolutePath = Path.GetFullPath( path.FullPath );
-            _relativePath = Path.GetRelativePath( Environment.CurrentDirectory, path.FullPath );
+            _fileName = path.FileName;
+            _absolutePath = path.AbsolutePath;
+            _relativePath = path.RelativePath;
             _fullPath = path.FullPath;
             _fileExtension = path.Extension;
             _length = path.Length;
@@ -467,7 +439,7 @@ namespace BudgetExecution
             out string fullPath, out long length, out string extension, out DateTime createDate,
             out DateTime modifyDate )
         {
-            buffer = _buffer;
+            buffer = _input;
             absolutePath = _absolutePath;
             name = _fileName;
             fullPath = _fullPath;
@@ -489,7 +461,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _path = new DataPath( _buffer );
+                var _path = new DataPath( _input );
                 var _extenstion = _path.Extension ?? string.Empty;
                 var _name = _path.FileName ?? string.Empty;
                 var _filePath = _path.FullPath ?? string.Empty;

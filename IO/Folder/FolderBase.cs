@@ -59,12 +59,22 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    public abstract class FolderBase : DataFile
+    public class FolderBase : DataFile
     {
         /// <summary>
         /// The folder exists
         /// </summary>
         private protected bool _folderExists;
+
+        /// <summary>
+        /// The sub files
+        /// </summary>
+        private protected int _fileCount;
+
+        /// <summary>
+        /// The sub folders
+        /// </summary>
+        private protected int _folderCount;
 
         /// <summary>
         /// The sub files
@@ -82,11 +92,6 @@ namespace BudgetExecution
         private protected string _folderName;
 
         /// <summary>
-        /// The parent name
-        /// </summary>
-        private protected string _parentName;
-
-        /// <summary>
         /// The parent folder
         /// </summary>
         private protected DirectoryInfo _parentFolder;
@@ -95,6 +100,26 @@ namespace BudgetExecution
         /// The security
         /// </summary>
         private protected DirectorySecurity _folderSecurity;
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="FolderBase"/> class.
+        /// </summary>
+        /// <inheritdoc />
+        public FolderBase( )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="FolderBase"/> class.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <inheritdoc />
+        public FolderBase( string input ) 
+            : base( input )
+        {
+        }
 
         /// <summary>
         /// Gets the special folders.
@@ -123,7 +148,7 @@ namespace BudgetExecution
         /// <returns>
         /// Dictionary
         /// </returns>
-        public IDictionary<string, FileInfo> GetSubFileData( )
+        public IDictionary<string, FileInfo> GetSubFiles( )
         {
             if( _hasSubFiles )
             {
@@ -159,15 +184,15 @@ namespace BudgetExecution
         /// Gets the subdirectory data.
         /// </summary>
         /// <returns></returns>
-        public IDictionary<string, DirectoryInfo> GetSubDirectoryData( )
+        public IDictionary<string, DirectoryInfo> GetSubFolders( )
         {
             if( _hasSubFolders )
             {
                 try
                 {
                     var _data = new Dictionary<string, DirectoryInfo>( );
-                    var _subFolders = Directory.GetDirectories( _fullPath );
-                    foreach( var _path in _subFolders )
+                    var _folders = Directory.GetDirectories( _fullPath );
+                    foreach( var _path in _folders )
                     {
                         if( Directory.Exists( _path ) )
                         {
@@ -199,7 +224,7 @@ namespace BudgetExecution
         /// </summary>
         /// <returns>
         /// </returns>
-        private protected IEnumerable<string> WalkPaths( )
+        private protected IEnumerable<string> WalkDown( )
         {
             if( _hasSubFiles )
             {
@@ -207,26 +232,26 @@ namespace BudgetExecution
                 {
                     var _list = new List<string>( );
                     var _paths = Directory.GetFiles( _input );
-                    foreach( var _filePath in _paths )
+                    foreach( var _fp in _paths )
                     {
-                        var _first = Directory.GetFiles( _filePath )
+                        var _first = Directory.GetFiles( _fp )
                             ?.Where( f => File.Exists( f ) )
                             ?.Select( f => Path.GetFullPath( f ) )
                             ?.ToList( );
 
                         _list.AddRange( _first );
-                        var _folders = Directory.GetDirectories( _filePath );
-                        foreach( var _folder in _folders )
+                        var _folders = Directory.GetDirectories( _fp );
+                        foreach( var _fr in _folders )
                         {
-                            if( !_folder.Contains( "My " ) )
+                            if( !_fr.Contains( "My " ) )
                             {
-                                var _second = Directory.GetFiles( _folder )
+                                var _second = Directory.GetFiles( _fr )
                                     ?.Where( s => File.Exists( s ) )
                                     ?.Select( s => Path.GetFullPath( s ) )
                                     ?.ToList( );
 
                                 _list.AddRange( _second );
-                                var _subfolders = Directory.GetDirectories( _folder );
+                                var _subfolders = Directory.GetDirectories( _fr );
                                 for( var _i = 0; _i < _subfolders.Length; _i++ )
                                 {
                                     var _path = _subfolders[ _i ];

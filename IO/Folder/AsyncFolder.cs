@@ -43,17 +43,54 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.IO.Compression;
-    using System.Linq;
     using System.Threading.Tasks;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     public class AsyncFolder : AsyncFolderBase
     {
+        /// <summary>
+        /// Gets the file count.
+        /// </summary>
+        /// <value>
+        /// The file count.
+        /// </value>
+        public int FileCount
+        {
+            get
+            {
+                return _fileCount;
+            }
+            private protected set
+            {
+                _fileCount = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the folder count.
+        /// </summary>
+        /// <value>
+        /// The folder count.
+        /// </value>
+        public int FolderCount
+        {
+            get
+            {
+                return _folderCount;
+            }
+            private protected set
+            {
+                _folderCount = value;
+            }
+        }
+
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -68,17 +105,21 @@ namespace BudgetExecution
         /// Initializes a new instance of the
         /// <see cref="T:BudgetExecution.Folder" /> class.
         /// </summary>
-        /// <param name="dirPath"></param>
-        public AsyncFolder( string dirPath )
+        /// <param name="input"></param>
+        public AsyncFolder( string input ) 
+            : base( input )
         {
-            _input = dirPath;
-            _fullPath = dirPath;
-            _folderExists = Directory.Exists( dirPath );
-            _folderName = Path.GetDirectoryName( dirPath );
-            _hasSubFiles = Directory.GetFiles( dirPath )?.Length > 0;
-            _hasSubFolders = Directory.GetDirectories( dirPath )?.Length > 0;
-            _created = Directory.GetCreationTime( dirPath );
-            _modified = Directory.GetLastWriteTime( dirPath );
+            _input = input;
+            _fullPath = input;
+            _folderExists = Directory.Exists( input );
+            _folderName = Path.GetDirectoryName( input );
+            if( input != null )
+            {
+                _hasSubFiles = Directory.GetFiles( input )?.Length > 0;
+                _hasSubFolders = Directory.GetDirectories( input )?.Length > 0;
+                _created = Directory.GetCreationTime( input );
+                _modified = Directory.GetLastWriteTime( input );
+            }
         }
 
         /// <inheritdoc />
@@ -87,10 +128,11 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.Folder" /> class.
         /// </summary>
         /// <param name="folder">The folder.</param>
-        public AsyncFolder( Folder folder )
+        public AsyncFolder( Folder folder ) : base( folder)
         {
             _input = folder.Input;
             _fullPath = folder.FullPath;
+            _fileExists = Directory.Exists( folder.Input );
             _folderName = folder.FolderName;
             _hasSubFiles = Directory.GetFiles( folder.FullPath )?.Length > 0;
             _hasSubFolders = Directory.GetDirectories( folder.FullPath )?.Length > 0;
@@ -126,92 +168,7 @@ namespace BudgetExecution
         /// </summary>
         /// <returns>
         /// </returns>
-        public Task<IList<string>> GetSubFilesAsync( )
-        {
-            if( _hasSubFiles )
-            {
-                var _async = new TaskCompletionSource<IList<string>>( );
-                try
-                {
-                    var _files = Directory.GetFiles( _fullPath );
-                    _async.SetResult( _files );
-                    return _async.Task;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( Task<IList<string>> );
-                }
-            }
-            else
-            {
-                return default( Task<IList<string>> );
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public Task<IList<string>> GetSubFoldersAsync( )
-        {
-            if( _hasSubFolders )
-            {
-                var _async = new TaskCompletionSource<IList<string>>( );
-                try
-                {
-                    var _folders = Directory.GetDirectories( _fullPath );
-                    _async.SetResult( _folders );
-                    return _async.Task;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( Task<IList<string>> );
-                }
-            }
-            else
-            {
-                return default( Task<IList<string>> );
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public Task<DirectoryInfo> GetParentFolderAsync( )
-        {
-            if( _hasParent )
-            {
-                var _async = new TaskCompletionSource<DirectoryInfo>( );
-                try
-                {
-                    var _folder = Directory.GetParent( _input );
-                    _async.SetResult( _folder );
-                    return _async.Task;
-                }
-                catch( Exception _ex )
-                {
-                    _async.SetException( _ex );
-                    Fail( _ex );
-                    return default( Task<DirectoryInfo> );
-                }
-            }
-            else
-            {
-                return default( Task<DirectoryInfo> );
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns>
-        /// </returns>
-        public Task<string> GetFolderNameAsync( )
+        public Task<string> GetNameAsync( )
         {
             if( _folderExists )
             {
@@ -290,15 +247,23 @@ namespace BudgetExecution
         /// <returns>
         /// DirectoryInfo
         /// </returns>
-        public static Task<DirectoryInfo> GetFolderAsync( string filePath )
+        public static Task<DirectoryInfo> CreateFolderAsync( string filePath )
         {
             var _async = new TaskCompletionSource<DirectoryInfo>( );
             try
             {
                 ThrowIf.Null( filePath, nameof( filePath ) );
-                var _stream = Directory.CreateDirectory( filePath );
-                _async.SetResult( _stream );
-                return _async.Task;
+                if( Directory.Exists( filePath ) )
+                {
+                    var _message = @$"Folder at {filePath} already exists!";
+                    throw new ArgumentException( _message );
+                }
+                else
+                {
+                    var _stream = Directory.CreateDirectory( filePath );
+                    _async.SetResult( _stream );
+                    return _async.Task;
+                }
             }
             catch( Exception _ex )
             {
@@ -359,19 +324,27 @@ namespace BudgetExecution
         /// <summary>
         /// Creates the subdirectory.
         /// </summary>
-        /// <param name="dirName">The folderName.</param>
+        /// <param name="dirPath">The folderName.</param>
         /// <returns></returns>
-        public Task<DirectoryInfo> GetSubDirectoryAsync( string dirName )
+        public Task<DirectoryInfo> CreateSubFolderAsync( string dirPath )
         {
             var _async = new TaskCompletionSource<DirectoryInfo>( );
             try
             {
-                ThrowIf.Null( dirName, nameof( dirName ) );
-                var _folder = new DirectoryInfo( _fullPath )
-                    ?.CreateSubdirectory( dirName );
+                ThrowIf.Null( dirPath, nameof( dirPath ) );
+                if( Directory.Exists( dirPath ) )
+                {
+                    var _message = @$"Folder at {dirPath} already exists!";
+                    throw new ArgumentException( _message );
+                }
+                else
+                {
+                    var _folder = new DirectoryInfo( _fullPath )
+                        ?.CreateSubdirectory( dirPath );
 
-                _async.SetResult( _folder );
-                return _async.Task;
+                    _async.SetResult( _folder );
+                    return _async.Task;
+                }
             }
             catch( Exception _ex )
             {
@@ -388,7 +361,7 @@ namespace BudgetExecution
         /// <param name="destination">
         /// The fullName.
         /// </param>
-        public void TransferAsync( string destination )
+        public void MoveToAsync( string destination )
         {
             var _async = new TaskCompletionSource( );
             try
@@ -459,39 +432,44 @@ namespace BudgetExecution
         /// A <see cref="T:System.String" />
         /// that represents this instance.
         /// </returns>
-        public Task<string> ToStringAsync( )
+        public override string ToString( )
         {
-            var _async = new TaskCompletionSource<string>( );
             try
             {
-                var _file = new DataFile( _input );
-                var _extenstion = _file.Extension ?? string.Empty;
-                var _name = _file.FileName ?? string.Empty;
-                var _path = _file.FullPath ?? string.Empty;
-                var _dirPath = _file.ParentPath ?? string.Empty;
-                var _create = _file.Created;
-                var _modify = _file.Modified;
-                var _size = ( _file.Size.ToString( "N0" ) ?? "0" ) + " bytes";
+                var _folder = new Folder( _input );
+                var _name = _folder.FolderName ?? string.Empty;
+                var _path = _folder.FullPath ?? string.Empty;
+                var _dirPath = _folder.ParentPath ?? string.Empty;
+                var _create = _folder.Created;
+                var _modify = _folder.Modified;
+                var _pathsep = _folder.PathSeparator;
+                var _drivesep = _folder.DriveSeparator;
+                var _foldersep = _folder.FolderSeparator;
+                var _subfiles = _folder.FileCount;
+                var _subfolders = _folder.FileCount;
+                var _bytes = ( _folder.Size.ToString( "N0" ) ?? "0" ) + " bytes";
                 var _nl = Environment.NewLine;
                 var _tb = char.ToString( '\t' );
-                var _text = _nl + _tb + "File Name: " + _tb + _name + _nl + _nl +
-                    _tb + "File Path: " + _tb + _path + _nl + _nl +
+                var _text = _nl + _tb + "Folder Name: " + _tb + _name + _nl + _nl +
+                    _tb + "Folder Path: " + _tb + _path + _nl + _nl +
                     _tb + "Parent Path: " + _tb + _dirPath + _nl + _nl +
-                    _tb + "File Extension: " + _tb + _extenstion + _nl + _nl +
-                    _tb + "File Size: " + _tb + _size + _nl + _nl +
+                    _tb + "Sub-Files: " + _tb + _subfiles + _nl + _nl +
+                    _tb + "Sub-Folders: " + _tb + _subfolders + _nl + _nl +
+                    _tb + "File Size: " + _tb + _bytes + _nl + _nl +
                     _tb + "Created On: " + _tb + _create.ToShortDateString( ) + _nl + _nl +
-                    _tb + "Modified On: " + _tb + _modify.ToShortDateString( ) + _nl + _nl;
+                    _tb + "Modified On: " + _tb + _modify.ToShortDateString( ) + _nl + _nl +
+                    _tb + "Path Separator: " + _tb + _pathsep + _nl + _nl +
+                    _tb + "Drive Separator: " + _tb + _drivesep + _nl + _nl +
+                    _tb + "Folder Separator: " + _tb + _foldersep + _nl + _nl;
 
-                _async.SetResult( _text );
                 return !string.IsNullOrEmpty( _text )
-                    ? _async.Task
-                    : default( Task<string> );
+                    ? _text
+                    : string.Empty;
             }
             catch( IOException _ex )
             {
-                _async.SetException( _ex );
                 Fail( _ex );
-                return default( Task<string> );
+                return string.Empty;
             }
         }
     }

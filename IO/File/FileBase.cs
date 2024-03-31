@@ -56,6 +56,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     public class FileBase : DataPath
     {
         /// <summary>
@@ -169,16 +170,24 @@ namespace BudgetExecution
         /// <summary>
         /// Moves the specified file path.
         /// </summary>
-        /// <param name="filePath">
+        /// <param name="destination">
         /// The file path.
         /// </param>
-        public void Move( string filePath )
+        public virtual void MoveTo( string destination )
         {
             try
             {
-                ThrowIf.Null( filePath, nameof( filePath ) );
-                var _source = new FileInfo( _fullPath );
-                _source.MoveTo( filePath );
+                ThrowIf.Null( destination, nameof( destination ) );
+                if( File.Exists( destination ) )
+                {
+                    var _message = @$"File at {destination} already exists!";
+                    throw new ArgumentException( _message );
+                }
+                else
+                {
+                    var _source = new FileInfo( _fullPath );
+                    _source.MoveTo( destination );
+                }
             }
             catch( IOException _ex )
             {
@@ -189,16 +198,24 @@ namespace BudgetExecution
         /// <summary>
         /// Copies the specified file path.
         /// </summary>
-        /// <param name="filePath">
+        /// <param name="destination">
         /// The file path.
         /// </param>
-        public void CopyTo( string filePath )
+        public void CopyTo( string destination )
         {
             try
             {
-                ThrowIf.Null( filePath, nameof( filePath ) );
-                var _source = new FileInfo( _fullPath );
-                _source.CopyTo( filePath );
+                ThrowIf.Null( destination, nameof( destination ) );
+                if( File.Exists( destination ) )
+                {
+                    var _message = @$"File at {destination} already exists!";
+                    throw new ArgumentException( _message );
+                }
+                else
+                {
+                    var _source = new FileInfo( _fullPath );
+                    _source.CopyTo( destination );
+                }
             }
             catch( IOException _ex )
             {

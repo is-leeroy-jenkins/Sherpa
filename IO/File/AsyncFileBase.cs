@@ -49,17 +49,36 @@ namespace BudgetExecution
     using System.Linq;
     using System.Threading.Tasks;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    public abstract class AsyncFileBase : AsyncPath
+    public class AsyncFileBase : AsyncPath
     {
         /// <summary>
         /// The exists
         /// </summary>
         private protected bool _fileExists;
+
+        /// <summary>
+        /// Prevents a default instance of the
+        /// <see cref="AsyncFileBase"/> class from being created.
+        /// </summary>
+        /// <inheritdoc />
+        protected AsyncFileBase( )
+        {
+        }
+
+        /// <summary>
+        /// Prevents a default instance of the
+        /// <see cref="AsyncFileBase"/> class from being created.
+        /// </summary>
+        /// <inheritdoc />
+        protected AsyncFileBase( string input ) 
+            : base( input )
+        {
+        }
 
         /// <summary>
         /// Moves the specified file path.
@@ -84,17 +103,17 @@ namespace BudgetExecution
         /// <summary>
         /// Copies the specified file path.
         /// </summary>
-        /// <param name="filePath">
+        /// <param name="destination">
         /// The file path.
         /// </param>
-        public Task CopyAsnyc( string filePath )
+        public Task CopyToAsnyc( string destination )
         {
             var _async = new TaskCompletionSource( );
             try
             {
-                ThrowIf.Null( filePath, nameof( filePath ) );
+                ThrowIf.Null( destination, nameof( destination ) );
                 var _source = new FileInfo( _fullPath );
-                _source.CopyTo( filePath );
+                _source.CopyTo( destination );
                 _async.SetResult( );
                 return _async.Task;
             }
@@ -118,6 +137,7 @@ namespace BudgetExecution
                 {
                     File.Delete( _fullPath );
                     _async.SetResult( );
+                    return _async.Task;
                 }
 
                 return _async.Task;
@@ -165,7 +185,7 @@ namespace BudgetExecution
                 try
                 {
                     var _list = new List<string>( );
-                    foreach( var _line in File.ReadAllLines( _buffer ) )
+                    foreach( var _line in File.ReadAllLines( _input ) )
                     {
                         if( !string.IsNullOrEmpty( _line ) )
                         {
@@ -200,7 +220,7 @@ namespace BudgetExecution
                 var _async = new TaskCompletionSource<byte[ ]>( );
                 try
                 {
-                    var _data = File.ReadAllBytes( _buffer );
+                    var _data = File.ReadAllBytes( _input );
                     _async.SetResult( _data );
                     return _data.Length > 0
                         ? _async.Task

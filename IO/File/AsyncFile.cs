@@ -44,15 +44,17 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Linq;
     using System.Text.RegularExpressions;
     using System.Threading.Tasks;
     using System.Windows.Forms;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class AsyncFile : AsyncFileBase
     {
         /// <summary>
@@ -86,9 +88,10 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.DataFile" /> class.
         /// </summary>
         /// <param name="input">The input.</param>
-        public AsyncFile( string input )
+        public AsyncFile( string input ) 
+            : base( input )
         {
-            _buffer = input;
+            _input = input;
             _fileName = Path.GetFileNameWithoutExtension( input );
             _fileExists = File.Exists( input );
             _hasExtension = Path.HasExtension( input );
@@ -108,7 +111,7 @@ namespace BudgetExecution
         /// <param name="file">The file.</param>
         public AsyncFile( DataFile file )
         {
-            _buffer = file.Input;
+            _input = file.Input;
             _fileName = file.FileName;
             _fileExists = File.Exists( file.FullPath );
             _hasExtension = Path.HasExtension( file.FullPath );
@@ -140,7 +143,7 @@ namespace BudgetExecution
                 try
                 {
                     ThrowIf.Null( search, nameof( search ) );
-                    using var _stream = File.Open( _buffer, FileMode.Open );
+                    using var _stream = File.Open( _input, FileMode.Open );
                     using var _reader = new StreamReader( _stream );
                     if( _reader != null )
                     {
@@ -190,7 +193,7 @@ namespace BudgetExecution
                 var _async = new TaskCompletionSource<IList<FileInfo>>( );
                 try
                 {
-                    var _enumerable = Directory.GetDirectories( _buffer, pattern );
+                    var _enumerable = Directory.GetDirectories( _input, pattern );
                     var _list = new List<FileInfo>( );
                     foreach( var _file in _enumerable )
                     {
@@ -266,7 +269,7 @@ namespace BudgetExecution
         /// <returns>
         /// string
         /// </returns>
-        public static Task<string> OpenDialogAsnyc( )
+        public static Task<string> ShowFileDialogAsnyc( )
         {
             var _async = new TaskCompletionSource<string>( );
             try
@@ -293,7 +296,7 @@ namespace BudgetExecution
         /// </summary>
         /// <returns>
         /// </returns>
-        public Task SaveFileAsync( )
+        public Task OpenSaveDialogAsync( )
         {
             FileStream _stream = null;
             var _async = new TaskCompletionSource( );
@@ -331,39 +334,44 @@ namespace BudgetExecution
         /// A <see cref="T:System.String" />
         /// that represents this instance.
         /// </returns>
-        public Task<string> ToStringAsync( )
+        public override string ToString( )
         {
-            var _async = new TaskCompletionSource<string>( );
             try
             {
-                var _file = new DataFile( _buffer );
+                var _file = new DataFile( _input );
                 var _extenstion = _file.Extension ?? string.Empty;
                 var _name = _file.FileName ?? string.Empty;
-                var _path = _file.FullPath ?? string.Empty;
-                var _dirPath = _file.ParentPath ?? string.Empty;
+                var _filePath = _file.FullPath ?? string.Empty;
                 var _create = _file.Created;
                 var _modify = _file.Modified;
-                var _size = ( _file.Size.ToString( "N0" ) ?? "0" ) + " bytes";
+                var _len = _file.Length.ToString( "N0" ) ?? string.Empty;
+                var _pathsep = _file.PathSeparator;
+                var _drivesep = _file.DriveSeparator;
+                var _foldersep = _file.FolderSeparator;
+                var _root = _file.Drive;
                 var _nl = Environment.NewLine;
+                var _attrs = _file.FileAttributes;
                 var _tb = char.ToString( '\t' );
                 var _text = _nl + _tb + "File Name: " + _tb + _name + _nl + _nl +
-                    _tb + "File Path: " + _tb + _path + _nl + _nl +
-                    _tb + "Parent Path: " + _tb + _dirPath + _nl + _nl +
-                    _tb + "File Extension: " + _tb + _extenstion + _nl + _nl +
-                    _tb + "File Size: " + _tb + _size + _nl + _nl +
-                    _tb + "Created On: " + _tb + _create.ToShortDateString( ) + _nl + _nl +
-                    _tb + "Modified On: " + _tb + _modify.ToShortDateString( ) + _nl + _nl;
+                    _tb + "File Path: " + _tb + _filePath + _nl + _nl +
+                    _tb + "File Attributes: " + _tb + _attrs + _nl + _nl +
+                    _tb + "Extension: " + _tb + _extenstion + _nl + _nl +
+                    _tb + "Path Root: " + _tb + _root + _nl + _nl +
+                    _tb + "Path Separator: " + _tb + _pathsep + _nl + _nl +
+                    _tb + "Drive Separator: " + _tb + _drivesep + _nl + _nl +
+                    _tb + "Folder Separator: " + _tb + _foldersep + _nl + _nl +
+                    _tb + "Length: " + _tb + _len + _nl + _nl +
+                    _tb + "Created: " + _tb + _create.ToShortDateString( ) + _nl + _nl +
+                    _tb + "Modified: " + _tb + _modify.ToShortDateString( ) + _nl + _nl;
 
-                _async.SetResult( _text );
                 return !string.IsNullOrEmpty( _text )
-                    ? _async.Task
-                    : default( Task<string> );
+                    ? _text
+                    : string.Empty;
             }
             catch( IOException _ex )
             {
-                _async.SetException( _ex );
                 Fail( _ex );
-                return default( Task<string> );
+                return string.Empty;
             }
         }
     }

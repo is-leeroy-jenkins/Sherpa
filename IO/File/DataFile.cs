@@ -273,7 +273,15 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( filePath, nameof( filePath ) );
-                return new FileInfo( filePath );
+                if( File.Exists( filePath ) )
+                {
+                    var _message = @$"File at {filePath} already exists!";
+                    throw new ArgumentException( _message );
+                }
+                else
+                {
+                    return new FileInfo( filePath );
+                }
             }
             catch( Exception _ex )
             {

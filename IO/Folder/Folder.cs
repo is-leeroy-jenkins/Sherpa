@@ -46,8 +46,6 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.IO.Compression;
-    using System.Collections.Generic;
-    using System.Linq;
     using static System.IO.Directory;
 
     /// <inheritdoc />
@@ -100,34 +98,38 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets or sets the sub files.
+        /// Gets the file count.
         /// </summary>
         /// <value>
-        /// The sub files.
+        /// The file count.
         /// </value>
-        public IEnumerable<string> SubFiles
+        public int FileCount
         {
             get
             {
-                return _hasSubFiles
-                    ? GetFiles( _fullPath )
-                    : default( IEnumerable<string> );
+                return _fileCount;
+            }
+            private protected set
+            {
+                _fileCount = value;
             }
         }
 
         /// <summary>
-        /// Gets or sets the sub folders.
+        /// Gets the folder count.
         /// </summary>
         /// <value>
-        /// The sub folders.
+        /// The folder count.
         /// </value>
-        public IEnumerable<string> SubFolders
+        public int FolderCount
         {
             get
             {
-                return _hasSubFolders
-                    ? GetDirectories( _fullPath )
-                    : default( IEnumerable<string> );
+                return _folderCount;
+            }
+            private protected set
+            {
+                _folderCount = value;
             }
         }
 
@@ -145,17 +147,18 @@ namespace BudgetExecution
         /// Initializes a new instance of the
         /// <see cref="T:BudgetExecution.Folder" /> class.
         /// </summary>
-        /// <param name="dirPath"></param>
-        public Folder( string dirPath )
+        /// <param name="input"></param>
+        public Folder( string input ) 
+            : base( input )
         {
-            _input = dirPath;
-            _fullPath = dirPath;
-            _folderExists = Exists( dirPath );
-            _folderName = Path.GetDirectoryName( dirPath );
-            _hasSubFiles = GetFiles( dirPath )?.Length > 0;
-            _hasSubFolders = GetDirectories( dirPath )?.Length > 0;
-            _created = GetCreationTime( dirPath );
-            _modified = GetLastWriteTime( dirPath );
+            _input = input;
+            _fullPath = input;
+            _folderExists = Exists( input );
+            _folderName = Path.GetDirectoryName( input );
+            _hasSubFiles = GetFiles( input )?.Length > 0;
+            _hasSubFolders = GetDirectories( input )?.Length > 0;
+            _created = GetCreationTime( input );
+            _modified = GetLastWriteTime( input );
         }
 
         /// <inheritdoc />
@@ -196,26 +199,6 @@ namespace BudgetExecution
             hasSubFolders = _hasSubFolders;
             created = _created;
             modified = _modified;
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Transfers the specified folder.
-        /// </summary>
-        /// <param name="destination">
-        /// The folder.
-        /// </param>
-        public void CopyContents( string destination )
-        {
-            try
-            {
-                ThrowIf.Null( destination, nameof( destination ) );
-                Directory.Move( _input, destination );
-            }
-            catch( IOException _ex )
-            {
-                Fail( _ex );
-            }
         }
 
         /// <summary>
@@ -283,7 +266,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="destination">The destination.</param>
-        public static void CreateZipFile( string source, string destination )
+        public static void ZipFiles( string source, string destination )
         {
             try
             {
@@ -301,14 +284,26 @@ namespace BudgetExecution
         /// <summary>
         /// Creates the subdirectory.
         /// </summary>
-        /// <param name="dirName">The folderName.</param>
+        /// <param name="dirPath">The folderName.</param>
         /// <returns></returns>
-        public DirectoryInfo CreateSubDirectory( string dirName )
+        public DirectoryInfo CreateSubDirectory( string dirPath )
         {
             try
             {
-                ThrowIf.Null( dirName, nameof( dirName ) );
-                return new DirectoryInfo( _fullPath )?.CreateSubdirectory( dirName );
+                ThrowIf.Null( dirPath, nameof( dirPath ) );
+                if( Directory.Exists( dirPath ) )
+                {
+                    var _message = @$"Folder at {dirPath} already exists!";
+                    throw new ArgumentException( _message );
+                }
+                else
+                {
+                    var _stream = new DirectoryInfo( _fullPath );
+                    var _folder = _stream.CreateSubdirectory( dirPath );
+                    return _folder.Exists
+                        ? _folder
+                        : default( DirectoryInfo );
+                }
             }
             catch( Exception _ex )
             {
@@ -324,13 +319,21 @@ namespace BudgetExecution
         /// <param name="destination">
         /// The fullName.
         /// </param>
-        public void Transfer( string destination )
+        public override void MoveTo( string destination )
         {
             try
             {
                 ThrowIf.Null( destination, nameof( destination ) );
-                var _directory = new DirectoryInfo( _fullPath );
-                _directory.MoveTo( destination );
+                if( Directory.Exists( destination ) )
+                {
+                    var _message = @$"Folder at {destination} already exists!";
+                    throw new ArgumentException( _message );
+                }
+                else
+                {
+                    var _directory = new DirectoryInfo( _fullPath );
+                    _directory.MoveTo( destination );
+                }
             }
             catch( Exception _ex )
             {
@@ -345,7 +348,7 @@ namespace BudgetExecution
         /// <param name="destination">
         /// The destination.
         /// </param>
-        public void Zip( string destination )
+        public void ZipFrom( string destination )
         {
             try
             {
@@ -362,15 +365,15 @@ namespace BudgetExecution
         /// <summary>
         /// Uns the zip.
         /// </summary>
-        /// <param name="zipPath">
+        /// <param name="destination">
         /// The zipPath.
         /// </param>
-        public void UnZip( string zipPath )
+        public void UnZipTo( string destination )
         {
             try
             {
-                ThrowIf.Null( zipPath, nameof( zipPath ) );
-                ZipFile.ExtractToDirectory( zipPath, FullPath );
+                ThrowIf.Null( destination, nameof( destination ) );
+                ZipFile.ExtractToDirectory( destination, _fullPath );
             }
             catch( Exception _ex )
             {
@@ -396,9 +399,12 @@ namespace BudgetExecution
                 var _dirPath = _folder.ParentPath ?? string.Empty;
                 var _create = _folder.Created;
                 var _modify = _folder.Modified;
-                var _subfiles = _folder.SubFiles?.Count( );
-                var _subfolders = _folder.SubFolders?.Count( );
-                var _size = ( _folder.Size.ToString( "N0" ) ?? "0" ) + " bytes";
+                var _pathsep = _folder.PathSeparator;
+                var _drivesep = _folder.DriveSeparator;
+                var _foldersep = _folder.FolderSeparator;
+                var _subfiles = _folder.FileCount;
+                var _subfolders = _folder.FolderCount;
+                var _bytes = ( _folder.Size.ToString( "N0" ) ?? "0" ) + " bytes";
                 var _nl = Environment.NewLine;
                 var _tb = char.ToString( '\t' );
                 var _text = _nl + _tb + "Folder Name: " + _tb + _name + _nl + _nl +
@@ -406,9 +412,12 @@ namespace BudgetExecution
                     _tb + "Parent Path: " + _tb + _dirPath + _nl + _nl +
                     _tb + "Sub-Files: " + _tb + _subfiles + _nl + _nl +
                     _tb + "Sub-Folders: " + _tb + _subfolders + _nl + _nl +
-                    _tb + "File Size: " + _tb + _size + _nl + _nl +
+                    _tb + "File Size: " + _tb + _bytes + _nl + _nl +
                     _tb + "Created On: " + _tb + _create.ToShortDateString( ) + _nl + _nl +
-                    _tb + "Modified On: " + _tb + _modify.ToShortDateString( ) + _nl + _nl;
+                    _tb + "Modified On: " + _tb + _modify.ToShortDateString( ) + _nl + _nl +
+                    _tb + "Path Separator: " + _tb + _pathsep + _nl + _nl +
+                    _tb + "Drive Separator: " + _tb + _drivesep + _nl + _nl +
+                    _tb + "Folder Separator: " + _tb + _foldersep + _nl + _nl;
 
                 return !string.IsNullOrEmpty( _text )
                     ? _text

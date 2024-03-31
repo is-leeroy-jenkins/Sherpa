@@ -54,6 +54,11 @@ namespace BudgetExecution
     public abstract class AsyncPathBase
     {
         /// <summary>
+        /// The drive
+        /// </summary>
+        private protected string _drive;
+
+        /// <summary>
         /// The has extension
         /// </summary>
         private protected bool _hasExtension;
@@ -69,6 +74,16 @@ namespace BudgetExecution
         /// <c>false</c>.
         /// </value>
         private protected bool _hasParent;
+
+        /// <summary>
+        /// The parent name
+        /// </summary>
+        private protected string _parentName;
+
+        /// <summary>
+        /// The parent path
+        /// </summary>
+        private protected string _parentPath;
 
         /// <summary>
         /// The directory separator
@@ -91,7 +106,7 @@ namespace BudgetExecution
         /// <value>
         /// The buffer.
         /// </value>
-        private protected string _buffer;
+        private protected string _input;
 
         /// <summary>
         /// Gets or sets the name.
@@ -181,6 +196,24 @@ namespace BudgetExecution
         /// The invalid name chars
         /// </summary>
         private protected char[ ] _invalidNameChars;
+
+        /// <summary>
+        /// Gets or sets the absolute path.
+        /// </summary>
+        /// <value>
+        /// The absolute path.
+        /// </value>
+        public string AbsolutePath
+        {
+            get
+            {
+                return _absolutePath;
+            }
+            private protected set
+            {
+                _absolutePath = value;
+            }
+        }
 
         /// <summary>
         /// Fails the specified ex.
