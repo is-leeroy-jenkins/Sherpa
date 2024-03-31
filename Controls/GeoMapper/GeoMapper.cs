@@ -440,6 +440,7 @@ namespace BudgetExecution
 
             // Wire Events
             Load += OnLoad;
+            Shown += OnShown;
             MouseClick += OnRightClick;
         }
 
@@ -867,6 +868,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
+
         /// <summary>
         /// Sends the notification.
         /// </summary>
@@ -919,7 +921,6 @@ namespace BudgetExecution
                 InitializeToolStrip( );
                 InitializeLabels( );
                 InitializeTimers( );
-                FadeIn( );
             }
             catch( Exception _ex )
             {
