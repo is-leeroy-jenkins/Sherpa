@@ -78,12 +78,14 @@
             ContextMenu = new ContextMenu( );
             Map = new GMap.NET.WindowsForms.GMapControl( );
             MapTable = new System.Windows.Forms.TableLayoutPanel( );
+            MapPanel = new BackPanel( );
             HeaderTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
             ToolStripTable.SuspendLayout( );
             ToolStrip.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
             MapTable.SuspendLayout( );
+            MapPanel.SuspendLayout( );
             SuspendLayout( );
             // 
             // HeaderTable
@@ -107,7 +109,7 @@
             PictureBox.Location = new System.Drawing.Point( 1, 1 );
             PictureBox.Margin = new System.Windows.Forms.Padding( 1 );
             PictureBox.Name = "PictureBox";
-            PictureBox.Size = new System.Drawing.Size( 18, 14 );
+            PictureBox.Size = new System.Drawing.Size( 18, 18 );
             PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             PictureBox.TabIndex = 0;
             PictureBox.TabStop = false;
@@ -718,7 +720,7 @@
             TextBox.Margin = new System.Windows.Forms.Padding( 1 );
             TextBox.Name = "TextBox";
             TextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            TextBox.Size = new System.Drawing.Size( 196, 25 );
+            TextBox.Size = new System.Drawing.Size( 192, 25 );
             TextBox.Tag = "";
             TextBox.Text = "Enter Keywords";
             TextBox.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -768,12 +770,13 @@
             // ContextMenu
             // 
             ContextMenu.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ContextMenu.CanOverrideStyle = true;
             ContextMenu.DropShadowEnabled = false;
             ContextMenu.Font = new System.Drawing.Font( "Roboto", 9F );
             ContextMenu.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             ContextMenu.MetroColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             ContextMenu.Name = "ContextMenu";
-            ContextMenu.Size = new System.Drawing.Size( 126, 180 );
+            ContextMenu.Size = new System.Drawing.Size( 184, 312 );
             ContextMenu.Style = Syncfusion.Windows.Forms.Tools.ContextMenuStripEx.ContextMenuStyle.Office2016Black;
             ContextMenu.ThemeName = "Office2016Black";
             ContextMenu.ThemeStyle.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
@@ -787,6 +790,7 @@
             // 
             // Map
             // 
+            Map.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             Map.Bearing = 0F;
             Map.CanDragMap = true;
             Map.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -794,7 +798,7 @@
             Map.GrayScaleMode = false;
             Map.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
             Map.LevelsKeepInMemory = 5;
-            Map.Location = new System.Drawing.Point( 81, 17 );
+            Map.Location = new System.Drawing.Point( 1, 1 );
             Map.MarkersEnabled = true;
             Map.MaxZoom = 2;
             Map.MinZoom = 2;
@@ -809,7 +813,7 @@
             Map.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             Map.SelectedAreaFillColor = System.Drawing.Color.FromArgb( 33, 65, 105, 225 );
             Map.ShowTileGridLines = false;
-            Map.Size = new System.Drawing.Size( 1161, 556 );
+            Map.Size = new System.Drawing.Size( 1159, 569 );
             Map.TabIndex = 2;
             Map.Zoom = 0D;
             // 
@@ -820,7 +824,7 @@
             MapTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 6.26506042F ) );
             MapTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 93.73494F ) );
             MapTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 80F ) );
-            MapTable.Controls.Add( Map, 1, 1 );
+            MapTable.Controls.Add( MapPanel, 1, 1 );
             MapTable.Dock = System.Windows.Forms.DockStyle.Fill;
             MapTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.AddColumns;
             MapTable.Location = new System.Drawing.Point( 1, 25 );
@@ -829,9 +833,35 @@
             MapTable.RowCount = 3;
             MapTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 2.58899665F ) );
             MapTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 97.411F ) );
-            MapTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 80F ) );
+            MapTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 64F ) );
             MapTable.Size = new System.Drawing.Size( 1326, 657 );
             MapTable.TabIndex = 3;
+            // 
+            // MapPanel
+            // 
+            MapPanel.BackColor = System.Drawing.Color.Transparent;
+            MapPanel.BackgroundColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            MapPanel.BindingSource = null;
+            MapPanel.BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
+            MapPanel.BorderThickness = 1;
+            MapPanel.Children = null;
+            MapPanel.Controls.Add( Map );
+            MapPanel.DataFilter = null;
+            MapPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            MapPanel.Font = new System.Drawing.Font( "Roboto", 8F );
+            MapPanel.ForeColor = System.Drawing.Color.Transparent;
+            MapPanel.HoverText = null;
+            MapPanel.IsDerivedStyle = true;
+            MapPanel.Location = new System.Drawing.Point( 81, 18 );
+            MapPanel.Name = "MapPanel";
+            MapPanel.Padding = new System.Windows.Forms.Padding( 1 );
+            MapPanel.Size = new System.Drawing.Size( 1161, 571 );
+            MapPanel.Style = MetroSet_UI.Enums.Style.Custom;
+            MapPanel.StyleManager = null;
+            MapPanel.TabIndex = 3;
+            MapPanel.ThemeAuthor = "Terry D. Eppler";
+            MapPanel.ThemeName = "Budget Execution";
+            MapPanel.ToolTip = null;
             // 
             // GeoMapper
             // 
@@ -873,6 +903,7 @@
             ToolStrip.PerformLayout( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).EndInit( );
             MapTable.ResumeLayout( false );
+            MapPanel.ResumeLayout( false );
             ResumeLayout( false );
         }
 
@@ -925,5 +956,6 @@
         private ToolSeparator Separator22;
         public System.Windows.Forms.TableLayoutPanel MapTable;
         public GMap.NET.WindowsForms.GMapControl Map;
+        private BackPanel MapPanel;
     }
 }
