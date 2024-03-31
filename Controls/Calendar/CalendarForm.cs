@@ -67,7 +67,7 @@ namespace BudgetExecution
         /// <summary>
         /// The locked object
         /// </summary>
-        private static object KEY;
+        private object _path;
 
         /// <summary>
         /// The status update
@@ -82,7 +82,7 @@ namespace BudgetExecution
         /// <summary>
         /// The seconds
         /// </summary>
-        private int _seconds;
+        private const int SEC = 5;
 
         /// <summary>
         /// The busy
@@ -194,24 +194,6 @@ namespace BudgetExecution
             private set
             {
                 _time = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the seconds.
-        /// </summary>
-        /// <value>
-        /// The seconds.
-        /// </value>
-        public int Seconds
-        {
-            get
-            {
-                return _seconds;
-            }
-            private set
-            {
-                _seconds = value;
             }
         }
 
@@ -595,7 +577,6 @@ namespace BudgetExecution
 
             // Timer Properties
             _time = 0;
-            _seconds = 5;
 
             // Event Wiring
             Load += OnLoad;
@@ -610,21 +591,51 @@ namespace BudgetExecution
             try
             {
                 Opacity = 0;
-                if( _seconds != 0 )
+                if( CalendarForm.SEC != 0 )
                 {
-                    Timer = new Timer( );
-                    Timer.Interval = 10;
-                    Timer.Tick += ( sender, args ) =>
+                    var _timer = new Timer( );
+                    _timer.Interval = 1000;
+                    _timer.Tick += ( sender, args ) =>
                     {
-                        Time++;
-                        if( _time == _seconds )
+                        _time++;
+                        if( _time == CalendarForm.SEC )
                         {
-                            Timer.Stop( );
+                            _timer.Stop( );
                         }
                     };
                 }
 
                 base.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Closes the form.
+        /// </summary>
+        public new void Close( )
+        {
+            try
+            {
+                Opacity = 100;
+                if( CalendarForm.SEC != 0 )
+                {
+                    var _timer = new Timer( );
+                    _timer.Interval = 1000;
+                    _timer.Tick += ( sender, args ) =>
+                    {
+                        _time++;
+                        if( _time == CalendarForm.SEC )
+                        {
+                            _timer.Stop( );
+                        }
+                    };
+                }
+
+                base.Close( );
             }
             catch( Exception _ex )
             {
@@ -702,6 +713,7 @@ namespace BudgetExecution
                 // Timer Properties
                 Timer.Enabled = true;
                 Timer.Interval = 500;
+                Timer.Tick += OnTimerTick;
                 Timer.Start( );
             }
             catch( Exception _ex )
@@ -786,17 +798,17 @@ namespace BudgetExecution
         {
             try
             {
-                if( KEY == null )
+                if( _path == null )
                 {
-                    KEY = new object( );
-                    lock( KEY )
+                    _path = new object( );
+                    lock( _path )
                     {
                         _busy = true;
                     }
                 }
                 else
                 {
-                    lock( KEY )
+                    lock( _path )
                     {
                         _busy = true;
                     }
@@ -815,17 +827,17 @@ namespace BudgetExecution
         {
             try
             {
-                if( KEY == null )
+                if( _path == null )
                 {
-                    KEY = new object( );
-                    lock( KEY )
+                    _path = new object( );
+                    lock( _path )
                     {
                         _busy = false;
                     }
                 }
                 else
                 {
-                    lock( KEY )
+                    lock( _path )
                     {
                         _busy = false;
                     }
@@ -878,7 +890,6 @@ namespace BudgetExecution
                     if( Opacity == 0d )
                     {
                         _timer.Stop( );
-                        Close( );
                     }
 
                     Opacity -= 0.02d;
@@ -1520,6 +1531,24 @@ namespace BudgetExecution
             try
             {
                 InvokeIf( _statusUpdate );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [shown].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnShown( object sender, EventArgs e )
+        {
+            try
+            {
+                FadeIn( );
             }
             catch( Exception _ex )
             {

@@ -2385,9 +2385,10 @@
             // PictureBox
             // 
             PictureBox.Image = Resources.Images.FormImages.Application;
-            PictureBox.Location = new System.Drawing.Point( 3, 3 );
+            PictureBox.Location = new System.Drawing.Point( 1, 1 );
+            PictureBox.Margin = new System.Windows.Forms.Padding( 1 );
             PictureBox.Name = "PictureBox";
-            PictureBox.Size = new System.Drawing.Size( 18, 14 );
+            PictureBox.Size = new System.Drawing.Size( 18, 18 );
             PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             PictureBox.TabIndex = 0;
             PictureBox.TabStop = false;
@@ -2413,12 +2414,13 @@
             // ContextMenu
             // 
             ContextMenu.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ContextMenu.CanOverrideStyle = true;
             ContextMenu.DropShadowEnabled = false;
             ContextMenu.Font = new System.Drawing.Font( "Roboto", 9F );
             ContextMenu.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             ContextMenu.MetroColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             ContextMenu.Name = "ContextMenu";
-            ContextMenu.Size = new System.Drawing.Size( 126, 180 );
+            ContextMenu.Size = new System.Drawing.Size( 184, 312 );
             ContextMenu.Style = Syncfusion.Windows.Forms.Tools.ContextMenuStripEx.ContextMenuStyle.Office2016Black;
             ContextMenu.ThemeName = "Office2016Black";
             ContextMenu.ThemeStyle.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );

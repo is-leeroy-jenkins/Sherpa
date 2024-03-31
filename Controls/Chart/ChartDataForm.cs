@@ -83,7 +83,7 @@ namespace BudgetExecution
         /// <summary>
         /// The locked object
         /// </summary>
-        private static object KEY;
+        private object _path;
 
         /// <summary>
         /// The busy
@@ -869,6 +869,7 @@ namespace BudgetExecution
 
             // Event Wiring
             Load += OnLoad;
+            Shown += OnShown;
             Closing += OnClosing;
             MouseClick += OnRightClick;
         }
@@ -952,7 +953,7 @@ namespace BudgetExecution
         {
             try
             {
-                PictureBox.Size = new Size( 18, 14 );
+                PictureBox.Size = new Size( 18, 18 );
                 PictureBox.Padding = new Padding( 1 );
                 PictureBox.Margin = new Padding( 1 );
                 PictureBox.SizeMode = PictureBoxSizeMode.Zoom;
@@ -998,6 +999,7 @@ namespace BudgetExecution
                 // Timer Properties
                 Timer.Enabled = true;
                 Timer.Interval = 500;
+                Timer.Tick += OnTimerTick;
                 Timer.Start( );
             }
             catch( Exception _ex )
@@ -1084,17 +1086,17 @@ namespace BudgetExecution
         {
             try
             {
-                if( KEY == null )
+                if( _path == null )
                 {
-                    KEY = new object( );
-                    lock( KEY )
+                    _path = new object( );
+                    lock( _path )
                     {
                         _busy = true;
                     }
                 }
                 else
                 {
-                    lock( KEY )
+                    lock( _path )
                     {
                         _busy = true;
                     }
@@ -1113,17 +1115,17 @@ namespace BudgetExecution
         {
             try
             {
-                if( KEY == null )
+                if( _path == null )
                 {
-                    KEY = new object( );
-                    lock( KEY )
+                    _path = new object( );
+                    lock( _path )
                     {
                         _busy = false;
                     }
                 }
                 else
                 {
-                    lock( KEY )
+                    lock( _path )
                     {
                         _busy = false;
                     }
@@ -1263,14 +1265,14 @@ namespace BudgetExecution
         {
             try
             {
-                Opacity = 0;
+                Opacity = 100;
                 if( _seconds != 0 )
                 {
                     var _timer = new Timer( );
                     _timer.Interval = 1000;
                     _timer.Tick += ( sender, args ) =>
                     {
-                        _time--;
+                        _time++;
                         if( _time == _seconds )
                         {
                             _timer.Stop( );
@@ -1278,7 +1280,7 @@ namespace BudgetExecution
                     };
                 }
 
-                base.Show( );
+                base.Close( );
             }
             catch( Exception _ex )
             {
@@ -2751,7 +2753,6 @@ namespace BudgetExecution
                 UpdateStatus( );
                 SetActiveQueryTab( );
                 Chart.Title.Text = "Select a Data Table";
-                FadeIn( );
             }
             catch( Exception ex )
             {

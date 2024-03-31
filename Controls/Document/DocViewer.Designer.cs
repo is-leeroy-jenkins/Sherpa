@@ -68,6 +68,7 @@
             Separator14 = new ToolSeparator( );
             LookupButton = new ToolStripButton( );
             Separator16 = new ToolSeparator( );
+            MenuLabel = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt( );
             ApplicationLabel = new ToolStripLabel( );
             PictureBox = new System.Windows.Forms.PictureBox( );
             HeaderPanel = new System.Windows.Forms.TableLayoutPanel( );
@@ -79,7 +80,6 @@
             ButtonPanel = new System.Windows.Forms.FlowLayoutPanel( );
             DocumentTable = new HeaderPanel( );
             PdfViewer = new Syncfusion.Windows.Forms.PdfViewer.PdfViewerControl( );
-            MenuLabel = new Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt( );
             ToolStripTable.SuspendLayout( );
             ToolStrip.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
@@ -573,12 +573,12 @@
             TextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             TextBox.Field = Field.AccountCode;
             TextBox.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
-            TextBox.ForeColor = System.Drawing.SystemColors.Window;
+            TextBox.ForeColor = System.Drawing.SystemColors.WindowText;
             TextBox.HoverText = "Enter Keywords";
             TextBox.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             TextBox.Name = "TextBox";
             TextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            TextBox.Size = new System.Drawing.Size( 198, 25 );
+            TextBox.Size = new System.Drawing.Size( 194, 25 );
             TextBox.Tag = "";
             TextBox.Text = "Enter Keywords";
             TextBox.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -621,6 +621,18 @@
             Separator16.Padding = new System.Windows.Forms.Padding( 1 );
             Separator16.Size = new System.Drawing.Size( 6, 25 );
             // 
+            // MenuLabel
+            // 
+            MenuLabel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            MenuLabel.BackColor = System.Drawing.Color.Transparent;
+            MenuLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
+            MenuLabel.ForeColor = System.Drawing.Color.Black;
+            MenuLabel.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            MenuLabel.Name = "MenuLabel";
+            MenuLabel.Size = new System.Drawing.Size( 80, 25 );
+            MenuLabel.Text = "                     Menu:    ";
+            MenuLabel.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
             // ApplicationLabel
             // 
             ApplicationLabel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -645,7 +657,7 @@
             PictureBox.Location = new System.Drawing.Point( 1, 1 );
             PictureBox.Margin = new System.Windows.Forms.Padding( 1 );
             PictureBox.Name = "PictureBox";
-            PictureBox.Size = new System.Drawing.Size( 18, 16 );
+            PictureBox.Size = new System.Drawing.Size( 18, 18 );
             PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             PictureBox.TabIndex = 54;
             PictureBox.TabStop = false;
@@ -690,12 +702,13 @@
             // ContextMenu
             // 
             ContextMenu.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ContextMenu.CanOverrideStyle = true;
             ContextMenu.DropShadowEnabled = false;
             ContextMenu.Font = new System.Drawing.Font( "Roboto", 9F );
             ContextMenu.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             ContextMenu.MetroColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             ContextMenu.Name = "ContextMenu";
-            ContextMenu.Size = new System.Drawing.Size( 126, 180 );
+            ContextMenu.Size = new System.Drawing.Size( 184, 312 );
             ContextMenu.Style = Syncfusion.Windows.Forms.Tools.ContextMenuStripEx.ContextMenuStyle.Office2016Black;
             ContextMenu.ThemeName = "Office2016Black";
             ContextMenu.ThemeStyle.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
@@ -825,18 +838,6 @@
             PdfViewer.VerticalScrollOffset = 0;
             PdfViewer.VisualStyle = Syncfusion.Windows.Forms.PdfViewer.VisualStyle.Office2016Black;
             PdfViewer.ZoomMode = Syncfusion.Windows.Forms.PdfViewer.ZoomMode.Default;
-            // 
-            // MenuLabel
-            // 
-            MenuLabel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            MenuLabel.BackColor = System.Drawing.Color.Transparent;
-            MenuLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
-            MenuLabel.ForeColor = System.Drawing.Color.Black;
-            MenuLabel.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
-            MenuLabel.Name = "MenuLabel";
-            MenuLabel.Size = new System.Drawing.Size( 80, 25 );
-            MenuLabel.Text = "                     Menu:    ";
-            MenuLabel.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // DocViewer
             // 

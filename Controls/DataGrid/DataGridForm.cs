@@ -80,7 +80,7 @@ namespace BudgetExecution
         /// <summary>
         /// The locked object
         /// </summary>
-        private static object KEY;
+        private object _path;
 
         /// <summary>
         /// The busy
@@ -100,7 +100,7 @@ namespace BudgetExecution
         /// <summary>
         /// The seconds
         /// </summary>
-        private int _seconds;
+        private protected int _seconds;
 
         /// <summary>
         /// The count
@@ -260,24 +260,6 @@ namespace BudgetExecution
             private set
             {
                 _time = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the seconds.
-        /// </summary>
-        /// <value>
-        /// The seconds.
-        /// </value>
-        public int Seconds
-        {
-            get
-            {
-                return _seconds;
-            }
-            private set
-            {
-                _seconds = value;
             }
         }
 
@@ -793,6 +775,7 @@ namespace BudgetExecution
 
             // Form Event Wiring
             Load += OnLoad;
+            Shown += OnShown;
             MouseClick += OnRightClick;
             Closing += OnClosing;
         }
@@ -924,14 +907,14 @@ namespace BudgetExecution
         {
             try
             {
-                Opacity = 0;
+                Opacity = 100;
                 if( _seconds != 0 )
                 {
                     var _timer = new Timer( );
                     _timer.Interval = 1000;
                     _timer.Tick += ( sender, args ) =>
                     {
-                        _time--;
+                        _time++;
                         if( _time == _seconds )
                         {
                             _timer.Stop( );
@@ -939,7 +922,7 @@ namespace BudgetExecution
                     };
                 }
 
-                base.Show( );
+                base.Close( );
             }
             catch( Exception _ex )
             {
@@ -955,13 +938,7 @@ namespace BudgetExecution
             // Control Event Wiring
             try
             {
-                ExitButton.Click += null;
-                MenuButton.Click += null;
-                EditSqlButton.Click += null;
-                EditRecordButton.Click += null;
-                RefreshDataButton.Click += null;
-                RemoveFiltersButton.Click += null;
-                GroupButton.Click += null;
+                Timer.Tick += OnTimerTick;
                 QueryTabControl.SelectedIndexChanged += OnQueryTabSelectedIndexChanged;
                 TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
                 FirstComboBox.SelectedValueChanged += OnFirstComboBoxItemSelected;
@@ -978,7 +955,7 @@ namespace BudgetExecution
                 SqlServerRadioButton.CheckedChanged += OnRadioButtonChecked;
                 SqlCeRadioButton.CheckedChanged += OnRadioButtonChecked;
                 ExitButton.Click += OnExitButtonClicked;
-                MenuButton.Click += OnMainMenuButtonClicked;
+                MenuButton.Click += OnMenuButtonClicked;
                 RemoveFiltersButton.Click += OnResetDataFilterButtonClicked;
                 RefreshDataButton.Click += OnResetDataSourceButtonClicked;
                 GroupButton.Click += OnGroupButtonClicked;
@@ -987,7 +964,6 @@ namespace BudgetExecution
                 EditSqlButton.Click += OnSqlButtonClick;
                 EditRecordButton.Click += OnEditRecordButtonClicked;
                 EditColumnButton.Click += OnEditColumnButtonClicked;
-                Timer.Tick += OnTimerTick;
             }
             catch( Exception _ex )
             {
@@ -1168,14 +1144,7 @@ namespace BudgetExecution
         /// </summary>
         private void InitializeDelegates( )
         {
-            try
-            {
-                _statusUpdate += UpdateStatus;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
+            _statusUpdate += UpdateStatus;
         }
 
         /// <summary>
@@ -1185,17 +1154,17 @@ namespace BudgetExecution
         {
             try
             {
-                if( KEY == null )
+                if( _path == null )
                 {
-                    KEY = new object( );
-                    lock( KEY )
+                    _path = new object( );
+                    lock( _path )
                     {
                         _busy = true;
                     }
                 }
                 else
                 {
-                    lock( KEY )
+                    lock( _path )
                     {
                         _busy = true;
                     }
@@ -1214,17 +1183,17 @@ namespace BudgetExecution
         {
             try
             {
-                if( KEY == null )
+                if( _path == null )
                 {
-                    KEY = new object( );
-                    lock( KEY )
+                    _path = new object( );
+                    lock( _path )
                     {
                         _busy = false;
                     }
                 }
                 else
                 {
-                    lock( KEY )
+                    lock( _path )
                     {
                         _busy = false;
                     }
@@ -2156,10 +2125,10 @@ namespace BudgetExecution
         {
             try
             {
-                var _path = ConfigurationManager.AppSettings[ "ProviderImages" ];
-                if( !string.IsNullOrEmpty( _path ) )
+                var _setting = ConfigurationManager.AppSettings[ "ProviderImages" ];
+                if( !string.IsNullOrEmpty( _setting ) )
                 {
-                    var _files = Directory.GetFiles( _path );
+                    var _files = Directory.GetFiles( _setting );
                     if( _files?.Any( ) == true )
                     {
                         var _extension = _provider.ToString( );
@@ -2191,10 +2160,10 @@ namespace BudgetExecution
         {
             try
             {
-                var _path = ConfigurationManager.AppSettings[ "DialogImages" ];
-                if( !string.IsNullOrEmpty( _path ) )
+                var _setting = ConfigurationManager.AppSettings[ "DialogImages" ];
+                if( !string.IsNullOrEmpty( _setting ) )
                 {
-                    var _files = Directory.GetFiles( _path );
+                    var _files = Directory.GetFiles( _setting );
                     if( _files?.Any( ) == true )
                     {
                         switch( toolType )
@@ -2409,7 +2378,6 @@ namespace BudgetExecution
                 TableListBox.ShowScrollBar = false;
                 UpdateLabelText( );
                 UpdateStatus( );
-                FadeIn( );
             }
             catch( Exception _ex )
             {
@@ -2735,7 +2703,7 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnMainMenuButtonClicked( object sender, EventArgs e )
+        private void OnMenuButtonClicked( object sender, EventArgs e )
         {
             try
             {
@@ -3167,6 +3135,24 @@ namespace BudgetExecution
                 ClearSchemaSelections( );
                 FadeOut( );
                 Close( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [shown].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnShown( object sender, EventArgs e )
+        {
+            try
+            {
+                FadeIn( );
             }
             catch( Exception _ex )
             {

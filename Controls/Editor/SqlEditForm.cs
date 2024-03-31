@@ -78,7 +78,7 @@ namespace BudgetExecution
         /// <summary>
         /// The locked object
         /// </summary>
-        private static object KEY;
+        private object _path;
 
         /// <summary>
         /// The busy
@@ -515,6 +515,7 @@ namespace BudgetExecution
 
             // Form Even Wiring
             Load += OnLoad;
+            Shown += OnShown;
             Closing += OnClosing;
             MouseClick += OnRightClick;
         }
@@ -642,7 +643,7 @@ namespace BudgetExecution
         {
             try
             {
-                PictureBox.Size = new Size( 18, 14 );
+                PictureBox.Size = new Size( 18, 18 );
                 PictureBox.Padding = new Padding( 1 );
                 PictureBox.Margin = new Padding( 1 );
                 PictureBox.SizeMode = PictureBoxSizeMode.Zoom;
@@ -935,17 +936,17 @@ namespace BudgetExecution
         {
             try
             {
-                if( KEY == null )
+                if( _path == null )
                 {
-                    KEY = new object( );
-                    lock( KEY )
+                    _path = new object( );
+                    lock( _path )
                     {
                         _busy = true;
                     }
                 }
                 else
                 {
-                    lock( KEY )
+                    lock( _path )
                     {
                         _busy = true;
                     }
@@ -964,17 +965,17 @@ namespace BudgetExecution
         {
             try
             {
-                if( KEY == null )
+                if( _path == null )
                 {
-                    KEY = new object( );
-                    lock( KEY )
+                    _path = new object( );
+                    lock( _path )
                     {
                         _busy = false;
                     }
                 }
                 else
                 {
-                    lock( KEY )
+                    lock( _path )
                     {
                         _busy = false;
                     }
@@ -2010,7 +2011,6 @@ namespace BudgetExecution
                 _listBoxes = GetListBoxes( );
                 TabControl.SelectedIndex = 0;
                 SetActiveTab( );
-                FadeIn( );
             }
             catch( Exception _ex )
             {
@@ -2551,6 +2551,24 @@ namespace BudgetExecution
 
                 FadeOut( );
                 Close( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [shown].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnShown( object sender, EventArgs e )
+        {
+            try
+            {
+                FadeIn( );
             }
             catch( Exception _ex )
             {

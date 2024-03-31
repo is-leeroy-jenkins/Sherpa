@@ -74,7 +74,7 @@ namespace BudgetExecution
         /// <summary>
         /// The locked object
         /// </summary>
-        private static object KEY;
+        private object _path;
 
         /// <summary>
         /// The time
@@ -84,7 +84,7 @@ namespace BudgetExecution
         /// <summary>
         /// The seconds
         /// </summary>
-        private int _seconds;
+        private const int SEC = 0;
 
         /// <summary>
         /// The lat
@@ -171,24 +171,6 @@ namespace BudgetExecution
             private protected set
             {
                 _time = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the seconds.
-        /// </summary>
-        /// <value>
-        /// The seconds.
-        /// </value>
-        public int Seconds
-        {
-            get
-            {
-                return _seconds;
-            }
-            private protected set
-            {
-                _seconds = value;
             }
         }
 
@@ -436,7 +418,6 @@ namespace BudgetExecution
 
             // Timer Properties
             _time = 0;
-            _seconds = 5;
 
             // Wire Events
             Load += OnLoad;
@@ -467,7 +448,7 @@ namespace BudgetExecution
         {
             try
             {
-                CloseButton.Click += OnCloseButtonClicked;
+                CloseButton.Click += OnCloseButtonClick;
                 MenuButton.Click += OnMenuButtonClicked;
                 Timer.Tick += OnTimerTick;
             }
@@ -502,6 +483,7 @@ namespace BudgetExecution
                 // Timer Properties
                 Timer.Enabled = true;
                 Timer.Interval = 500;
+                Timer.Tick += OnTimerTick;
                 Timer.Start( );
             }
             catch( Exception _ex )
@@ -528,7 +510,7 @@ namespace BudgetExecution
                 TextBox.Font = new Font( "Roboto", 8 );
                 TextBox.Size = new Size( 200, 25 );
                 TextBox.ForeColor = Color.White;
-                TextBox.Text = "     < Enter Keywords >     ";
+                TextBox.Text = "   < Enter Keywords >   ";
                 TextBox.TextAlign = ContentAlignment.MiddleCenter;
             }
             catch( Exception _ex )
@@ -585,16 +567,16 @@ namespace BudgetExecution
             try
             {
                 Opacity = 0;
-                if( Seconds != 0 )
+                if( GeoMapper.SEC != 0 )
                 {
-                    Timer = new Timer( );
-                    Timer.Interval = 1000;
-                    Timer.Tick += ( sender, args ) =>
+                    var _timer = new Timer( );
+                    _timer.Interval = 1000;
+                    _timer.Tick += ( sender, args ) =>
                     {
-                        Time++;
-                        if( Time == Seconds )
+                        _time++;
+                        if( _time == GeoMapper.SEC )
                         {
-                            Timer.Stop( );
+                            _timer.Stop( );
                         }
                     };
                 }
@@ -614,22 +596,20 @@ namespace BudgetExecution
         {
             try
             {
-                Opacity = 0;
-                if( _seconds != 0 )
+                Opacity = 100;
+                _time = 0;
+                Timer = new Timer( );
+                Timer.Interval = 1000;
+                Timer.Tick += ( sender, args ) =>
                 {
-                    var _timer = new Timer( );
-                    _timer.Interval = 1000;
-                    _timer.Tick += ( sender, args ) =>
+                    _time--;
+                    if( _time == SEC )
                     {
-                        _time--;
-                        if( _time == _seconds )
-                        {
-                            _timer.Stop( );
-                        }
-                    };
-                }
+                        Timer.Stop( );
+                    }
+                };
 
-                base.Show( );
+                base.Close( );
             }
             catch( Exception _ex )
             {
@@ -670,17 +650,17 @@ namespace BudgetExecution
         {
             try
             {
-                if( KEY == null )
+                if( _path == null )
                 {
-                    KEY = new object( );
-                    lock( KEY )
+                    _path = new object( );
+                    lock( _path )
                     {
                         _busy = true;
                     }
                 }
                 else
                 {
-                    lock( KEY )
+                    lock( _path )
                     {
                         _busy = true;
                     }
@@ -699,17 +679,17 @@ namespace BudgetExecution
         {
             try
             {
-                if( KEY == null )
+                if( _path == null )
                 {
-                    KEY = new object( );
-                    lock( KEY )
+                    _path = new object( );
+                    lock( _path )
                     {
                         _busy = false;
                     }
                 }
                 else
                 {
-                    lock( KEY )
+                    lock( _path )
                     {
                         _busy = false;
                     }
@@ -796,7 +776,7 @@ namespace BudgetExecution
                         _timer.Stop( );
                     }
 
-                    Opacity += 0.02d;
+                    Opacity += 0.01d;
                 };
 
                 _timer.Start( );
@@ -821,10 +801,9 @@ namespace BudgetExecution
                     if( Opacity == 0d )
                     {
                         _timer.Stop( );
-                        Close( );
                     }
 
-                    Opacity -= 0.02d;
+                    Opacity -= 0.01d;
                 };
 
                 _timer.Start( );
@@ -929,17 +908,17 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [exit button clicked].
+        /// Called when [close button click].
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnCloseButtonClicked( object sender, EventArgs e )
+        private void OnCloseButtonClick( object sender, EventArgs e )
         {
             try
             {
                 FadeOut( );
-                Close( );
+                Application.Exit( );
             }
             catch( Exception _ex )
             {

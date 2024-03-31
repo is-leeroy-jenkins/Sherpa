@@ -320,6 +320,7 @@ namespace BudgetExecution
                         case ToolType.WordButton:
                         case ToolType.WebButton:
                         case ToolType.BrowseButton:
+                        case ToolType.CloseButton:
                         case ToolType.RefreshButton:
                         {
                             break;

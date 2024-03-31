@@ -419,6 +419,7 @@ namespace BudgetExecution
 
             // Form Event Wiring
             Load += OnLoad;
+            Shown += OnShown;
             Closing += OnClosing;
             MouseClick += OnRightClick;
         }
@@ -598,6 +599,24 @@ namespace BudgetExecution
             try
             {
                 _statusUpdate += UpdateStatus;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the PictureBox.
+        /// </summary>
+        private void InitializePictureBox( )
+        {
+            try
+            {
+                PictureBox.Size = new Size( 18, 18 );
+                PictureBox.Padding = new Padding( 1 );
+                PictureBox.Margin = new Padding( 1 );
+                PictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             }
             catch( Exception _ex )
             {
@@ -941,7 +960,7 @@ namespace BudgetExecution
                 InitializeIcon( );
                 InitializeToolStrip( );
                 InitializeTimer( );
-                FadeIn( );
+                InitializePictureBox( );
             }
             catch( Exception _ex )
             {
@@ -957,14 +976,7 @@ namespace BudgetExecution
         /// instance containing the event data.</param>
         private void OnTimerTick( object sender, EventArgs e )
         {
-            try
-            {
-                InvokeIf( _statusUpdate );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
+            InvokeIf( _statusUpdate );
         }
 
         /// <summary>
@@ -1169,6 +1181,24 @@ namespace BudgetExecution
                 {
                     _textBox.Text = "     < Enter Keywords >     ";
                 }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [shown].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnShown( object sender, EventArgs e )
+        {
+            try
+            {
+                FadeIn( );
             }
             catch( Exception _ex )
             {
