@@ -450,11 +450,11 @@ namespace BudgetExecution
             _input = path.Input;
             _hasExtension = Path.HasExtension( path.Input );
             _fileExtension = path.Extension;
-            _fileName = path.FileName;
+            _hasParent = !string.IsNullOrEmpty( Directory.GetParent( path.Input )?.Name );
             _absolutePath = path.AbsolutePath;
             _relativePath = path.RelativePath;
+            _fileName = path.FileName;
             _fullPath = path.FullPath;
-            _fileExtension = path.Extension;
             _length = path.Length;
             _created = path.Created;
             _modified = path.Modified;
