@@ -3,40 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\io\\path\\datapath.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:io\\path\\datapath.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\io\\network\\searchresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:io\\network\\searchresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\io\\file\\datafile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:io\\file\\datafile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\io\\network\\searchrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:io\\network\\searchrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\io\\folder\\folderbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:io\\folder\\folderbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\io\\folder\\asyncfolder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:io\\folder\\asyncfolder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\io\\folder\\asyncfolderbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:io\\folder\\asyncfolderbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\io\\file\\asyncfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:io\\file\\asyncfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\io\\path\\asyncpathbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:io\\path\\asyncpathbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\io\\file\\asyncfilebase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:io\\file\\asyncfilebase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\io\\path\\asyncpath.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:io\\path\\asyncpath.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\io\\network\\websearchbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:io\\network\\websearchbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -67,118 +43,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "FolderBase.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\IO\\Folder\\FolderBase.cs",
-              "RelativeDocumentMoniker": "IO\\Folder\\FolderBase.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\IO\\Folder\\FolderBase.cs",
-              "RelativeToolTip": "IO\\Folder\\FolderBase.cs",
-              "ViewState": "AQIAAIoAAAAAAAAAAAAgwJUAAAAWAAAA",
+              "Title": "WebSearchBase.cs",
+              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\IO\\Network\\WebSearchBase.cs",
+              "RelativeDocumentMoniker": "IO\\Network\\WebSearchBase.cs",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\IO\\Network\\WebSearchBase.cs",
+              "RelativeToolTip": "IO\\Network\\WebSearchBase.cs",
+              "ViewState": "AQIAADgAAAAAAAAAAAAkwEcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T01:11:43.567Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AsyncFolder.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\IO\\Folder\\AsyncFolder.cs",
-              "RelativeDocumentMoniker": "IO\\Folder\\AsyncFolder.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\IO\\Folder\\AsyncFolder.cs",
-              "RelativeToolTip": "IO\\Folder\\AsyncFolder.cs",
-              "ViewState": "AQIAAEMBAAAAAAAAAAAowE0BAAA7AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T00:54:10.638Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AsyncFolderBase.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\IO\\Folder\\AsyncFolderBase.cs",
-              "RelativeDocumentMoniker": "IO\\Folder\\AsyncFolderBase.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\IO\\Folder\\AsyncFolderBase.cs",
-              "RelativeToolTip": "IO\\Folder\\AsyncFolderBase.cs",
-              "ViewState": "AQIAAIMAAAAAAAAAAAAmwJUAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T00:42:55.588Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AsyncPathBase.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\IO\\Path\\AsyncPathBase.cs",
-              "RelativeDocumentMoniker": "IO\\Path\\AsyncPathBase.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\IO\\Path\\AsyncPathBase.cs",
-              "RelativeToolTip": "IO\\Path\\AsyncPathBase.cs",
-              "ViewState": "AQIAAL0AAAAAAAAAAAAuwNkAAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-30T23:09:00.89Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "AsyncPath.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\IO\\Path\\AsyncPath.cs",
-              "RelativeDocumentMoniker": "IO\\Path\\AsyncPath.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\IO\\Path\\AsyncPath.cs",
-              "RelativeToolTip": "IO\\Path\\AsyncPath.cs",
-              "ViewState": "AQIAAMcBAAAAAAAAAAAswOYBAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-30T23:08:57.157Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "AsyncFileBase.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\IO\\File\\AsyncFileBase.cs",
-              "RelativeDocumentMoniker": "IO\\File\\AsyncFileBase.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\IO\\File\\AsyncFileBase.cs",
-              "RelativeToolTip": "IO\\File\\AsyncFileBase.cs",
-              "ViewState": "AQIAAGgAAAAAAAAAAAAAAHgAAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-30T23:07:23.146Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "AsyncFile.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\IO\\File\\AsyncFile.cs",
-              "RelativeDocumentMoniker": "IO\\File\\AsyncFile.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\IO\\File\\AsyncFile.cs",
-              "RelativeToolTip": "IO\\File\\AsyncFile.cs",
-              "ViewState": "AQIAABoBAAAAAAAAAAAAwDgBAAAkAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-30T23:07:19.085Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DataFile.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\IO\\File\\DataFile.cs",
-              "RelativeDocumentMoniker": "IO\\File\\DataFile.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\IO\\File\\DataFile.cs",
-              "RelativeToolTip": "IO\\File\\DataFile.cs",
-              "ViewState": "AQIAAMMAAAAAAAAAAAAAwNIAAAAnAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-30T19:13:52.226Z",
+              "WhenOpened": "2024-03-31T13:41:23.831Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "DataPath.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\IO\\Path\\DataPath.cs",
-              "RelativeDocumentMoniker": "IO\\Path\\DataPath.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\IO\\Path\\DataPath.cs",
-              "RelativeToolTip": "IO\\Path\\DataPath.cs",
-              "ViewState": "AQIAAJoBAAAAAAAAAAAuwKwBAAAjAAAA",
+              "Title": "SearchResult.cs",
+              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\IO\\Network\\SearchResult.cs",
+              "RelativeDocumentMoniker": "IO\\Network\\SearchResult.cs",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\IO\\Network\\SearchResult.cs",
+              "RelativeToolTip": "IO\\Network\\SearchResult.cs",
+              "ViewState": "AQIAAIQAAAAAAAAAAAAswHsAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-30T18:02:37.634Z",
+              "WhenOpened": "2024-03-31T13:41:22.698Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SearchRequest.cs",
+              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\IO\\Network\\SearchRequest.cs",
+              "RelativeDocumentMoniker": "IO\\Network\\SearchRequest.cs",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\IO\\Network\\SearchRequest.cs",
+              "RelativeToolTip": "IO\\Network\\SearchRequest.cs",
+              "ViewState": "AQIAAHwAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T13:41:21.759Z",
               "EditorCaption": ""
             }
           ]

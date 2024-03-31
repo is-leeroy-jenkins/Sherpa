@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        1-20-2024
 // ******************************************************************************************
-// <copyright file="WebSearch.cs" company="Terry D. Eppler">
+// <copyright file="WebSearchBase.cs" company="Terry D. Eppler">
 //    Budget Execution is a Federal Budget, Finance, and Accounting application
 //    for analysts with the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
@@ -34,7 +34,7 @@
 //    Contact at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   WebSearch.cs
+//   WebSearchBase.cs
 // </summary>
 // ******************************************************************************************
 
@@ -48,7 +48,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    public abstract class WebSearch
+    public abstract class WebSearchBase
     {
         /// <summary>
         /// The configuration

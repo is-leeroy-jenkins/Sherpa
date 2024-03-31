@@ -61,7 +61,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class SearchRequest : WebSearch
+    public class SearchRequest : WebSearchBase
     {
         /// <summary>
         /// Gets the configuration.

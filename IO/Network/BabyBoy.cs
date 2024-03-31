@@ -46,8 +46,8 @@ namespace BudgetExecution
     using System;
     using System.Text;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -182,26 +182,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets or sets a value indicating whether
-        /// this instance is connected.
-        /// </summary>
-        /// <value>
-        /// <c>true</c> if this instance is connected;
-        /// otherwise, <c>false</c>.
-        /// </value>
-        public bool IsConnected
-        {
-            get
-            {
-                return _isConnected;
-            }
-            private set
-            {
-                _isConnected = value;
-            }
-        }
-
-        /// <summary>
         /// Initializes a new instance of the
         /// <see cref="BabyBoy"/> class.
         /// </summary>
@@ -213,7 +193,8 @@ namespace BudgetExecution
             _ipAddress = IPAddress.Any;
             _ipEndPoint = new IPEndPoint( Address, Port );
             _socket = new Socket( AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp );
-            _isConnected = false;
+            _connected = false;
+            _busy = false;
         }
 
         /// <summary>
@@ -230,7 +211,8 @@ namespace BudgetExecution
             _ipAddress = IPAddress.Parse( address );
             _ipEndPoint = new IPEndPoint( Address, port );
             _socket = new Socket( AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp );
-            _isConnected = false;
+            _connected = false;
+            _busy = false;
         }
 
         /// <summary>
@@ -247,7 +229,8 @@ namespace BudgetExecution
             _ipAddress = address;
             _ipEndPoint = new IPEndPoint( address, port );
             _socket = new Socket( AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp );
-            _isConnected = false;
+            _connected = false;
+            _busy = false;
         }
 
         /// <summary>
@@ -263,7 +246,8 @@ namespace BudgetExecution
             _ipAddress = endPoint.Address;
             _ipEndPoint = endPoint;
             _socket = new Socket( AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp );
-            _isConnected = false;
+            _connected = false;
+            _busy = false;
         }
 
         /// <summary>
@@ -279,7 +263,8 @@ namespace BudgetExecution
             _ipAddress = client.Address;
             _ipEndPoint = client.EndPoint;
             _socket = client.Socket;
-            _isConnected = client.IsConnected;
+            _connected = client.IsConnected;
+            _busy = client.IsBusy;
         }
 
         /// <summary>
@@ -292,7 +277,7 @@ namespace BudgetExecution
                 _message = "You look like a baby!";
                 _data = Encoding.ASCII.GetBytes( _message );
                 _socket.Connect( _ipEndPoint );
-                _isConnected = _socket.Connected;
+                _connected = _socket.Connected;
                 _socket.Send( _data );
                 SendNotification( _message );
             }
@@ -320,7 +305,7 @@ namespace BudgetExecution
                 else
                 {
                     _socket.Connect( _ipEndPoint );
-                    _isConnected = _socket.Connected;
+                    _connected = _socket.Connected;
                     _socket.Send( _data );
                 }
             }
@@ -349,7 +334,7 @@ namespace BudgetExecution
                 else
                 {
                     _socket.Connect( _ipEndPoint );
-                    _isConnected = _socket.Connected;
+                    _connected = _socket.Connected;
                     _socket.Send( _data );
                 }
             }

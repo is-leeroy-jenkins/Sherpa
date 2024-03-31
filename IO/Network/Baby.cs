@@ -1,17 +1,27 @@
 ﻿namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
-    using System.Linq;
     using System.Net;
     using System.Net.Sockets;
-    using System.Text;
-    using System.Threading.Tasks;
 
+    /// <summary>
+    /// 
+    /// </summary>
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public abstract class Baby
     {
+        /// <summary>
+        /// The locked object
+        /// </summary>
+        private protected object _path;
+
+        /// <summary>
+        /// The busy
+        /// </summary>
+        private protected bool _busy;
+
         /// <summary>
         /// The bytes
         /// </summary>
@@ -50,7 +60,47 @@
         /// <summary>
         /// The is connected
         /// </summary>
-        private protected bool _isConnected;
+        private protected bool _connected;
+
+        /// <summary>
+        /// Gets a value indicating whether this instance is busy.
+        /// </summary>
+        /// <value>
+        /// <c> true </c>
+        /// if this instance is busy; otherwise,
+        /// <c> false </c>
+        /// </value>
+        public bool IsBusy
+        {
+            get
+            {
+                return _busy;
+            }
+            private set
+            {
+                _busy = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether
+        /// this instance is connected.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if this instance is connected;
+        /// otherwise, <c>false</c>.
+        /// </value>
+        public bool IsConnected
+        {
+            get
+            {
+                return _connected;
+            }
+            private protected set
+            {
+                _connected = value;
+            }
+        }
 
         /// <summary>
         /// Notifies this instance.
@@ -62,6 +112,64 @@
                 ThrowIf.Null( message, nameof( message ) );
                 var _notify = new SplashMessage( message );
                 _notify.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Begins the initialize.
+        /// </summary>
+        private protected void BeginInit( )
+        {
+            try
+            {
+                if( _path == null )
+                {
+                    _path = new object( );
+                    lock( _path )
+                    {
+                        _busy = true;
+                    }
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        _busy = true;
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Ends the initialize.
+        /// </summary>
+        private protected void EndInit( )
+        {
+            try
+            {
+                if( _path == null )
+                {
+                    _path = new object( );
+                    lock( _path )
+                    {
+                        _busy = false;
+                    }
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        _busy = false;
+                    }
+                }
             }
             catch( Exception _ex )
             {
