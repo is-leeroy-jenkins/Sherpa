@@ -46,13 +46,13 @@ namespace BudgetExecution
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.WebSearchBase" />
+    /// <seealso cref="T:BudgetExecution.InnerWebs" />
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Local" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
-    public class SearchResult : WebSearchBase
+    public class SearchResult : InnerWebs
     {
         /// <summary>
         /// Gets or sets the link.

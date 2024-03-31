@@ -3,16 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\geomapper\\geomapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\geomapper\\geomapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\geomapper\\geomapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\geomapper\\geomapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\io\\network\\googlesearch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:io\\network\\googlesearch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\io\\network\\innerwebs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:io\\network\\innerwebs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\io\\network\\searchresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:io\\network\\searchresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\io\\network\\searchrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:io\\network\\searchrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\io\\network\\websearchbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:io\\network\\websearchbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\dialogs\\programprojectdialog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\dialogs\\programprojectdialog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,39 +54,77 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "WebSearchBase.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\IO\\Network\\WebSearchBase.cs",
-              "RelativeDocumentMoniker": "IO\\Network\\WebSearchBase.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\IO\\Network\\WebSearchBase.cs",
-              "RelativeToolTip": "IO\\Network\\WebSearchBase.cs",
-              "ViewState": "AQIAADgAAAAAAAAAAAAkwEcAAAAAAAAA",
+              "DocumentIndex": 0,
+              "Title": "GeoMapper.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\GeoMapper\\GeoMapper.cs",
+              "RelativeDocumentMoniker": "Controls\\GeoMapper\\GeoMapper.cs",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\GeoMapper\\GeoMapper.cs [Design]",
+              "RelativeToolTip": "Controls\\GeoMapper\\GeoMapper.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T15:39:49.267Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GeoMapper.cs",
+              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\GeoMapper\\GeoMapper.cs",
+              "RelativeDocumentMoniker": "Controls\\GeoMapper\\GeoMapper.cs",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\GeoMapper\\GeoMapper.cs",
+              "RelativeToolTip": "Controls\\GeoMapper\\GeoMapper.cs",
+              "ViewState": "AQIAAIwBAAAAAAAAAAAcwJcBAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T15:31:39.668Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ProgramProjectDialog.cs",
+              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Dialogs\\ProgramProjectDialog.cs",
+              "RelativeDocumentMoniker": "Controls\\Dialogs\\ProgramProjectDialog.cs",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Dialogs\\ProgramProjectDialog.cs",
+              "RelativeToolTip": "Controls\\Dialogs\\ProgramProjectDialog.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T14:38:49.844Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "InnerWebs.cs",
+              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\IO\\Network\\InnerWebs.cs",
+              "RelativeDocumentMoniker": "IO\\Network\\InnerWebs.cs",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\IO\\Network\\InnerWebs.cs",
+              "RelativeToolTip": "IO\\Network\\InnerWebs.cs",
+              "ViewState": "AQIAAFoAAAAAAAAAAAAAAHkAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-31T13:41:23.831Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "SearchResult.cs",
               "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\IO\\Network\\SearchResult.cs",
               "RelativeDocumentMoniker": "IO\\Network\\SearchResult.cs",
               "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\IO\\Network\\SearchResult.cs",
               "RelativeToolTip": "IO\\Network\\SearchResult.cs",
-              "ViewState": "AQIAAIQAAAAAAAAAAAAswHsAAAANAAAA",
+              "ViewState": "AQIAABcAAAAAAAAAAAAUwDgAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-31T13:41:22.698Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SearchRequest.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\IO\\Network\\SearchRequest.cs",
-              "RelativeDocumentMoniker": "IO\\Network\\SearchRequest.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\IO\\Network\\SearchRequest.cs",
-              "RelativeToolTip": "IO\\Network\\SearchRequest.cs",
-              "ViewState": "AQIAAHwAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentIndex": 2,
+              "Title": "GoogleSearch.cs",
+              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\IO\\Network\\GoogleSearch.cs",
+              "RelativeDocumentMoniker": "IO\\Network\\GoogleSearch.cs",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\IO\\Network\\GoogleSearch.cs",
+              "RelativeToolTip": "IO\\Network\\GoogleSearch.cs",
+              "ViewState": "AQIAAIEAAAAAAAAAAAAAAJ8AAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-31T13:41:21.759Z",
               "EditorCaption": ""

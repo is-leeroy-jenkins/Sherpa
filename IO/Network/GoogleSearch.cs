@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        1-20-2024
 // ******************************************************************************************
-// <copyright file="SearchRequest.cs" company="Terry D. Eppler">
+// <copyright file="GoogleSearch.cs" company="Terry D. Eppler">
 //    Budget Execution is a Federal Budget, Finance, and Accounting application
 //    for analysts with the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
@@ -34,7 +34,7 @@
 //    Contact at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   SearchRequest.cs
+//   GoogleSearch.cs
 // </summary>
 // ******************************************************************************************
 
@@ -61,7 +61,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class SearchRequest : WebSearchBase
+    public class GoogleSearch : InnerWebs
     {
         /// <summary>
         /// Gets the configuration.
@@ -101,21 +101,21 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SearchRequest"/> class.
+        /// <see cref="GoogleSearch"/> class.
         /// </summary>
-        public SearchRequest( )
+        public GoogleSearch( )
         {
             _config = ConfigurationManager.AppSettings;
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SearchRequest"/> class.
+        /// <see cref="GoogleSearch"/> class.
         /// </summary>
         /// <param name="keywords">
         /// The keywords.
         /// </param>
-        public SearchRequest( string keywords )
+        public GoogleSearch( string keywords )
         {
             _config = ConfigurationManager.AppSettings;
             _query = keywords;
@@ -123,12 +123,12 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SearchRequest"/> class.
+        /// <see cref="GoogleSearch"/> class.
         /// </summary>
         /// <param name="search">
         /// The search.
         /// </param>
-        public SearchRequest( SearchRequest search )
+        public GoogleSearch( GoogleSearch search )
         {
             _config = search.Config;
             _query = search.Query;
@@ -140,7 +140,7 @@ namespace BudgetExecution
         /// <returns>
         /// List(SearchResult)
         /// </returns>
-        public List<SearchResult> GetResults( )
+        public IList<SearchResult> GetResults( )
         {
             try
             {
@@ -170,28 +170,30 @@ namespace BudgetExecution
                             var _line = _list[ _i ].Link ?? string.Empty;
                             var _titles = _list[ _i ].Title ?? string.Empty;
                             var _htmlTitle = _list[ _i ].HtmlTitle ?? string.Empty;
-                            var _searchResults = new SearchResult( _snippet, _line, _titles, _htmlTitle );
+                            var _searchResults = new SearchResult( _snippet, _line, 
+                                _titles, _htmlTitle );
+
                             _results.Add( _searchResults );
                         }
 
                         return _results?.Any( ) == true
                             ? _results
-                            : default( List<SearchResult> );
+                            : default( IList<SearchResult> );
                     }
                     else
                     {
-                        return default( List<SearchResult> );
+                        return default( IList<SearchResult> );
                     }
                 }
                 else
                 {
-                    return default( List<SearchResult> );
+                    return default( IList<SearchResult> );
                 }
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return default( List<SearchResult> );
+                return default( IList<SearchResult> );
             }
         }
 

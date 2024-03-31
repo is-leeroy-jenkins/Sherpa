@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        1-20-2024
 // ******************************************************************************************
-// <copyright file="WebSearchBase.cs" company="Terry D. Eppler">
+// <copyright file="InnerWebs.cs" company="Terry D. Eppler">
 //    Budget Execution is a Federal Budget, Finance, and Accounting application
 //    for analysts with the US Environmental Protection Agency (US EPA).
 //    Copyright ©  2024  Terry Eppler
@@ -34,7 +34,7 @@
 //    Contact at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   WebSearchBase.cs
+//   InnerWebs.cs
 // </summary>
 // ******************************************************************************************
 
@@ -48,8 +48,19 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    public abstract class WebSearchBase
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    public abstract class InnerWebs
     {
+        /// <summary>
+        /// The locked object
+        /// </summary>
+        private protected object _path;
+
+        /// <summary>
+        /// The busy
+        /// </summary>
+        private protected bool _busy;
+
         /// <summary>
         /// The configuration
         /// </summary>
@@ -90,6 +101,84 @@ namespace BudgetExecution
                 ThrowIf.Null( message, nameof( message ) );
                 var _notify = new SplashMessage( message );
                 _notify.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether this instance is busy.
+        /// </summary>
+        /// <value>
+        /// <c> true </c>
+        /// if this instance is busy; otherwise,
+        /// <c> false </c>
+        /// </value>
+        public bool IsBusy
+        {
+            get
+            {
+                return _busy;
+            }
+            private set
+            {
+                _busy = value;
+            }
+        }
+
+        /// <summary>
+        /// Begins the initialize.
+        /// </summary>
+        private protected void BeginInit( )
+        {
+            try
+            {
+                if( _path == null )
+                {
+                    _path = new object( );
+                    lock( _path )
+                    {
+                        _busy = true;
+                    }
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        _busy = true;
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Ends the initialize.
+        /// </summary>
+        private protected void EndInit( )
+        {
+            try
+            {
+                if( _path == null )
+                {
+                    _path = new object( );
+                    lock( _path )
+                    {
+                        _busy = false;
+                    }
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        _busy = false;
+                    }
+                }
             }
             catch( Exception _ex )
             {

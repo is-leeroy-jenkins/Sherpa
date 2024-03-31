@@ -409,10 +409,10 @@ namespace BudgetExecution
             MinimumSize = new Size( 1330, 730 );
             Padding = new Padding( 1 );
             StartPosition = FormStartPosition.CenterScreen;
-            FormBorderStyle = FormBorderStyle.Sizable;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             WindowState = FormWindowState.Normal;
             SizeGripStyle = SizeGripStyle.Auto;
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             BorderColor = Color.FromArgb( 0, 120, 212 );
             BorderThickness = 1;
             BackColor = Color.FromArgb( 20, 20, 20 );
@@ -543,7 +543,7 @@ namespace BudgetExecution
         {
             try
             {
-                PictureBox.Size = new Size( 18, 14 );
+                PictureBox.Size = new Size( 18, 18 );
                 PictureBox.Padding = new Padding( 1 );
                 PictureBox.Margin = new Padding( 1 );
                 PictureBox.SizeMode = PictureBoxSizeMode.Zoom;
@@ -563,7 +563,8 @@ namespace BudgetExecution
             {
                 Map.MinZoom = 2;
                 Map.MaxZoom = 18;
-                Map.Zoom = 8;
+                Map.Zoom = 10;
+                Map.ScaleMode = ScaleModes.Integer;
                 Map.ShowCenter = true;
                 Map.MapProvider = BingMapProvider.Instance;
                 GMaps.Instance.Mode = AccessMode.ServerAndCache;
