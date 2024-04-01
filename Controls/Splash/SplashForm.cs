@@ -44,7 +44,6 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
@@ -85,42 +84,6 @@ namespace BudgetExecution
         /// </summary>
         private int _seconds;
 
-        /// <summary>
-        /// Gets or sets the time.
-        /// </summary>
-        /// <value>
-        /// The time.
-        /// </value>
-        public int Time
-        {
-            get
-            {
-                return _time;
-            }
-            private protected set
-            {
-                _time = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the seconds.
-        /// </summary>
-        /// <value>
-        /// The seconds.
-        /// </value>
-        public int Seconds
-        {
-            get
-            {
-                return _seconds;
-            }
-            private protected set
-            {
-                _seconds = value;
-            }
-        }
-
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
@@ -130,6 +93,7 @@ namespace BudgetExecution
         public SplashForm( )
         {
             InitializeComponent( );
+            InitializeDelegates( );
             RegisterCallbacks( );
 
             // Basic Properties
@@ -165,33 +129,81 @@ namespace BudgetExecution
             ControlBox = false;
 
             // Timer Properties
-            Time = 0;
-            Seconds = 5;
-            Timer.Interval = 5000;
+            _time = 0;
+            _seconds = 5;
 
             // Wire Events
             Load += OnLoad;
-            CloseButton.Click += OnClick;
+            Closing += OnClosing;
+        }
+
+        /// <summary>
+        /// Initializes the timer.
+        /// </summary>
+        private void InitializeTimer( )
+        {
+            try
+            {
+                // Timer Properties
+                Timer.Enabled = true;
+                Timer.Interval = 500;
+                Timer.Tick += OnTimerTick;
+                Timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
         /// Displays the control to the user.
         /// </summary>
-        public new virtual void Show( )
+        public new void Show( )
         {
             try
             {
                 Opacity = 0;
-                if( Seconds != 0 )
+                if( _seconds != 0 )
                 {
-                    Timer = new Timer( );
-                    Timer.Interval = 1000;
-                    Timer.Tick += ( sender, args ) =>
+                    var _timer = new Timer( );
+                    _timer.Interval = 1000;
+                    _timer.Tick += ( sender, args ) =>
                     {
-                        Time++;
-                        if( Time == Seconds )
+                        _time++;
+                        if( _time == _seconds )
                         {
-                            Timer.Stop( );
+                            _timer.Stop( );
+                        }
+                    };
+                }
+
+                base.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Closes the form.
+        /// </summary>
+        public new void Close( )
+        {
+            try
+            {
+                Opacity = 0;
+                if( _seconds != 0 )
+                {
+                    var _timer = new Timer( );
+                    _timer.Interval = 1000;
+                    _timer.Tick += ( sender, args ) =>
+                    {
+                        _time--;
+                        if( _time == _seconds )
+                        {
+                            _timer.Stop( );
                         }
                     };
                 }
@@ -243,6 +255,7 @@ namespace BudgetExecution
             try
             {
                 Timer.Tick += OnTimerTick;
+                CloseButton.Click += OnClick;
             }
             catch( Exception _ex )
             {
@@ -354,7 +367,7 @@ namespace BudgetExecution
         /// <summary>
         /// Notifications the close.
         /// </summary>
-        public void OnClose( )
+        public void OnClosing( object sender, EventArgs e )
         {
             try
             {
@@ -378,7 +391,7 @@ namespace BudgetExecution
         {
             try
             {
-                OnClose( );
+                OnClosing( );
             }
             catch( Exception _ex )
             {
