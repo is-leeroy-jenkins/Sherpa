@@ -205,10 +205,6 @@ namespace BudgetExecution
             {
                 return _busy;
             }
-            private protected set
-            {
-                _busy = value;
-            }
         }
 
         /// <inheritdoc/>
@@ -255,7 +251,7 @@ namespace BudgetExecution
 
             // Form Event Wiring
             Load += OnLoad;
-            Closing += OnClose;
+            Closing += OnClosing;
             Shown += OnShown;
         }
 
@@ -349,9 +345,69 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Fades the in Form.
+        /// Displays the control to the user.
         /// </summary>
-        private protected void FadeIn( )
+        public new void ShowDialog( )
+        {
+            try
+            {
+                Opacity = 0;
+                if( _seconds != 0 )
+                {
+                    var _timer = new Timer( );
+                    _timer.Interval = 1000;
+                    _timer.Tick += ( sender, args ) =>
+                    {
+                        _time++;
+                        if( _time == _seconds )
+                        {
+                            _timer.Stop( );
+                        }
+                    };
+                }
+
+                base.ShowDialog( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Closes the form.
+        /// </summary>
+        public new void Close( )
+        {
+            try
+            {
+                Opacity = 0;
+                if( _seconds != 0 )
+                {
+                    var _timer = new Timer( );
+                    _timer.Interval = 1000;
+                    _timer.Tick += ( sender, args ) =>
+                    {
+                        _time--;
+                        if( _time == _seconds )
+                        {
+                            _timer.Stop( );
+                        }
+                    };
+                }
+
+                base.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the in.
+        /// </summary>
+        private void FadeIn( )
         {
             try
             {
@@ -364,7 +420,7 @@ namespace BudgetExecution
                         _timer.Stop( );
                     }
 
-                    Opacity += 0.02d;
+                    Opacity += 0.01d;
                 };
 
                 _timer.Start( );
@@ -376,9 +432,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Fades the Form out and closes it.
+        /// Fades the out.
         /// </summary>
-        private protected void FadeOut( )
+        private void FadeOut( )
         {
             try
             {
@@ -389,7 +445,6 @@ namespace BudgetExecution
                     if( Opacity == 0d )
                     {
                         _timer.Stop( );
-                        Close( );
                     }
 
                     Opacity -= 0.01d;
@@ -509,6 +564,7 @@ namespace BudgetExecution
             try
             {
                 SetImage( );
+                InitializeTimer( );
                 FadeIn( );
             }
             catch( Exception _ex )
@@ -545,16 +601,18 @@ namespace BudgetExecution
         /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        public void OnClose( object sender, EventArgs e )
+        public void OnClosing( object sender, EventArgs e )
         {
             try
             {
-                Timer?.Dispose( );
                 FadeOut( );
+                Timer?.Dispose( );
                 if( PictureBox?.Image != null )
                 {
                     PictureBox.Image = null;
                 }
+
+                Close( );
             }
             catch( Exception _ex )
             {

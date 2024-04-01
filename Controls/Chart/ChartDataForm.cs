@@ -786,8 +786,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets a value indicating
-        /// whether this instance is busy.
+        /// Gets a value indicating whether this instance is busy.
         /// </summary>
         /// <value>
         /// <c> true </c>
@@ -799,10 +798,6 @@ namespace BudgetExecution
             get
             {
                 return _busy;
-            }
-            private protected set
-            {
-                _busy = value;
             }
         }
 
@@ -1265,14 +1260,14 @@ namespace BudgetExecution
         {
             try
             {
-                Opacity = 100;
+                Opacity = 0;
                 if( _seconds != 0 )
                 {
                     var _timer = new Timer( );
                     _timer.Interval = 1000;
                     _timer.Tick += ( sender, args ) =>
                     {
-                        _time++;
+                        _time--;
                         if( _time == _seconds )
                         {
                             _timer.Stop( );
@@ -1280,7 +1275,7 @@ namespace BudgetExecution
                     };
                 }
 
-                base.Close( );
+                base.Show( );
             }
             catch( Exception _ex )
             {
@@ -3361,6 +3356,13 @@ namespace BudgetExecution
                 ClearSelections( );
                 ClearCollections( );
                 FadeOut( );
+                Timer?.Dispose( );
+                if( PictureBox?.Image != null )
+                {
+                    PictureBox.Image = null;
+                }
+
+                Close( );
             }
             catch( Exception _ex )
             {

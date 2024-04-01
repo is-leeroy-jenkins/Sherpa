@@ -75,7 +75,7 @@ namespace BudgetExecution
         /// <summary>
         /// The locked object
         /// </summary>
-        private static object KEY;
+        private object _path;
 
         /// <summary>
         /// The busy
@@ -732,17 +732,15 @@ namespace BudgetExecution
         /// Gets a value indicating whether this instance is busy.
         /// </summary>
         /// <value>
-        ///   <c>true</c> if this instance is busy; otherwise, <c>false</c>.
+        /// <c> true </c>
+        /// if this instance is busy; otherwise,
+        /// <c> false </c>
         /// </value>
         public bool IsBusy
         {
             get
             {
                 return _busy;
-            }
-            private set
-            {
-                _busy = value;
             }
         }
 
@@ -813,6 +811,7 @@ namespace BudgetExecution
             // Event Wiring
             Load += OnLoad;
             Closing += OnClosing;
+            Shown += OnShown;
         }
 
         /// <inheritdoc/>
@@ -966,14 +965,16 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes the timers.
+        /// Initializes the timer.
         /// </summary>
         private void InitializeTimers( )
         {
             try
             {
+                // Timer Properties
                 Timer.Enabled = true;
                 Timer.Interval = 500;
+                Timer.Tick += OnTimerTick;
                 Timer.Start( );
             }
             catch( Exception _ex )
@@ -1068,17 +1069,17 @@ namespace BudgetExecution
         {
             try
             {
-                if( KEY == null )
+                if( _path == null )
                 {
-                    KEY = new object( );
-                    lock( KEY )
+                    _path = new object( );
+                    lock( _path )
                     {
                         _busy = true;
                     }
                 }
                 else
                 {
-                    lock( KEY )
+                    lock( _path )
                     {
                         _busy = true;
                     }
@@ -1097,17 +1098,17 @@ namespace BudgetExecution
         {
             try
             {
-                if( KEY == null )
+                if( _path == null )
                 {
-                    KEY = new object( );
-                    lock( KEY )
+                    _path = new object( );
+                    lock( _path )
                     {
                         _busy = false;
                     }
                 }
                 else
                 {
-                    lock( KEY )
+                    lock( _path )
                     {
                         _busy = false;
                     }
@@ -1386,7 +1387,7 @@ namespace BudgetExecution
                         _timer.Stop( );
                     }
 
-                    Opacity += 0.02d;
+                    Opacity += 0.01d;
                 };
 
                 _timer.Start( );
@@ -1398,7 +1399,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Fades the out and close.
+        /// Fades the out.
         /// </summary>
         private void FadeOut( )
         {
@@ -1413,7 +1414,7 @@ namespace BudgetExecution
                         _timer.Stop( );
                     }
 
-                    Opacity -= 0.02d;
+                    Opacity -= 0.01d;
                 };
 
                 _timer.Start( );
@@ -2544,6 +2545,14 @@ namespace BudgetExecution
             {
                 ClearSelections( );
                 ClearCollections( );
+                FadeOut( );
+                Timer?.Dispose( );
+                if( PictureBox?.Image != null )
+                {
+                    PictureBox.Image = null;
+                }
+
+                Close( );
             }
             catch( Exception _ex )
             {
@@ -2887,6 +2896,25 @@ namespace BudgetExecution
                 {
                     Fail( _ex );
                 }
+            }
+        }
+
+        /// <summary> Called when [shown]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        private void OnShown( object sender, EventArgs e )
+        {
+            try
+            {
+                FadeIn( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 

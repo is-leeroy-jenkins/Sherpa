@@ -230,44 +230,6 @@ namespace BudgetExecution
                             BindingSource?.MoveLast( );
                             break;
                         }
-                        case ToolType.RemoveFiltersButton:
-                        case ToolType.RefreshDataButton:
-                        case ToolType.SearchDataButton:
-                        case ToolType.GroupButton:
-                        case ToolType.ExitButton:
-                        case ToolType.ShutdownButton:
-                        case ToolType.BackButton:
-                        case ToolType.MenuButton:
-                        case ToolType.HomeButton:
-                        case ToolType.CalendarButton:
-                        case ToolType.TableButton:
-                        case ToolType.LookupButton:
-                        case ToolType.EditSqlButton:
-                        case ToolType.EditRecordButton:
-                        case ToolType.AddButton:
-                        case ToolType.AddTableButton:
-                        case ToolType.AddDatabaseButton:
-                        case ToolType.EditColumnButton:
-                        case ToolType.DeleteRecordButton:
-                        case ToolType.DeleteColumnButton:
-                        case ToolType.DeleteTableButton:
-                        case ToolType.DeleteDatabaseButton:
-                        case ToolType.AddColumnButton:
-                        case ToolType.ExcelExportButton:
-                        case ToolType.ChartButton:
-                        case ToolType.UploadButton:
-                        case ToolType.GuidanceButton:
-                        case ToolType.PdfButton:
-                        case ToolType.ClientButton:
-                        case ToolType.DeleteButton:
-                        case ToolType.EditButton:
-                        case ToolType.DataRowButton:
-                        case ToolType.CopyButton:
-                        case ToolType.AccountButton:
-                        case ToolType.AddRecordButton:
-                        {
-                            break;
-                        }
                         case ToolType.InsertButton:
                         case ToolType.UpdateButton:
                         {
@@ -275,66 +237,10 @@ namespace BudgetExecution
                             _dialog?.ShowDialog( );
                             break;
                         }
-                        case ToolType.GoButton:
-                        case ToolType.ExcelButton:
-                        case ToolType.ImportDatabaseButton:
-                        case ToolType.ImportButton:
-                        case ToolType.CsvImportButton:
-                        case ToolType.PdfImportButton:
-                        case ToolType.ExcelImportButton:
-                        case ToolType.GoogleButton:
-                        case ToolType.BlueToothButton:
-                        case ToolType.CancelRequestButton:
-                        case ToolType.CsvButton:
-                        case ToolType.CsvExportButton:
-                        case ToolType.DataConfigButton:
-                        case ToolType.EmailButton:
-                        case ToolType.ExportDatabaseButton:
-                        case ToolType.PauseButton:
-                        case ToolType.GridButton:
-                        case ToolType.PlayButton:
-                        case ToolType.DownloadButton:
-                        case ToolType.DownloadDataButton:
-                        case ToolType.DatabaseSettingsButton:
-                        case ToolType.NavigationButton:
-                        case ToolType.PdfExportButton:
-                        case ToolType.PowerPointButton:
-                        case ToolType.PrintButton:
-                        case ToolType.RedoButton:
-                        case ToolType.RemoveButton:
-                        case ToolType.SkipButton:
-                        case ToolType.SqlServerButton:
-                        case ToolType.StopButton:
-                        case ToolType.PrinterButton:
-                        case ToolType.MetricsButton:
-                        case ToolType.ExportButton:
-                        case ToolType.RewindButton:
-                        case ToolType.SettingsButton:
-                        case ToolType.TableSettingsButton:
-                        case ToolType.TransferButton:
-                        case ToolType.TransferInButton:
-                        case ToolType.TransferOutButton:
-                        case ToolType.TrashButton:
-                        case ToolType.UploadDataButton:
-                        case ToolType.UndoButton:
-                        case ToolType.WordButton:
-                        case ToolType.WebButton:
-                        case ToolType.BrowseButton:
-                        case ToolType.CloseButton:
-                        case ToolType.RefreshButton:
-                        {
-                            break;
-                        }
                         case ToolType.CalculatorButton:
                         {
                             var _calculator = new CalculationForm( );
                             _calculator?.ShowDialog( );
-                            break;
-                        }
-                        default:
-                        {
-                            var _notification = new Notification( "NOT YET IMPLEMENTED!" );
-                            _notification.Show( );
                             break;
                         }
                     }

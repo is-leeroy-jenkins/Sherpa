@@ -449,10 +449,6 @@ namespace BudgetExecution
             {
                 return _busy;
             }
-            private set
-            {
-                _busy = value;
-            }
         }
 
         /// <inheritdoc/>
@@ -767,14 +763,14 @@ namespace BudgetExecution
                 Opacity = 0;
                 if( _seconds != 0 )
                 {
-                    Timer = new Timer( );
-                    Timer.Interval = 10;
-                    Timer.Tick += ( sender, args ) =>
+                    var _timer = new Timer( );
+                    _timer.Interval = 1000;
+                    _timer.Tick += ( sender, args ) =>
                     {
                         _time++;
                         if( _time == _seconds )
                         {
-                            Timer.Stop( );
+                            _timer.Stop( );
                         }
                     };
                 }
@@ -1006,7 +1002,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Fades the form in.
+        /// Fades the in.
         /// </summary>
         private void FadeIn( )
         {
@@ -1021,7 +1017,7 @@ namespace BudgetExecution
                         _timer.Stop( );
                     }
 
-                    Opacity += 0.02d;
+                    Opacity += 0.01d;
                 };
 
                 _timer.Start( );
@@ -1033,7 +1029,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Fades the form out
+        /// Fades the out.
         /// </summary>
         private void FadeOut( )
         {
@@ -1048,7 +1044,7 @@ namespace BudgetExecution
                         _timer.Stop( );
                     }
 
-                    Opacity -= 0.02d;
+                    Opacity -= 0.01d;
                 };
 
                 _timer.Start( );

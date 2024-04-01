@@ -48,7 +48,6 @@ namespace BudgetExecution
     using System.Linq;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
-    using Timer = System.Windows.Forms.Timer;
 
     /// <summary>
     /// 
@@ -97,14 +96,6 @@ namespace BudgetExecution
         /// The time.
         /// </value>
         public int Time { get; set; }
-
-        /// <summary>
-        /// Gets or sets the seconds.
-        /// </summary>
-        /// <value>
-        /// The seconds.
-        /// </value>
-        public int Seconds { get; set; }
 
         /// <summary>
         /// Gets or sets the tiles.
@@ -278,10 +269,9 @@ namespace BudgetExecution
         {
             try
             {
-                Opacity = 0;
                 if( _seconds != 0 )
                 {
-                    var _timer = new System.Windows.Forms.Timer( );
+                    var _timer = new Timer( );
                     _timer.Interval = 1000;
                     _timer.Tick += ( sender, args ) =>
                     {
@@ -308,7 +298,6 @@ namespace BudgetExecution
         {
             try
             {
-                Opacity = 100;
                 if( _seconds != 0 )
                 {
                     var _timer = new Timer( );
@@ -947,7 +936,7 @@ namespace BudgetExecution
             try
             {
                 var _timer = new Timer( );
-                _timer.Interval = 10;
+                _timer.Interval = 100;
                 _timer.Tick += ( sender, args ) =>
                 {
                     if( Opacity == 1d )
@@ -974,7 +963,7 @@ namespace BudgetExecution
             try
             {
                 var _timer = new Timer( );
-                _timer.Interval = 10;
+                _timer.Interval = 100;
                 _timer.Tick += ( sender, args ) =>
                 {
                     if( Opacity == 0d )

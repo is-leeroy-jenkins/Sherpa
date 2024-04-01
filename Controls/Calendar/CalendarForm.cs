@@ -82,7 +82,7 @@ namespace BudgetExecution
         /// <summary>
         /// The seconds
         /// </summary>
-        private const int SEC = 5;
+        private int _seconds;
 
         /// <summary>
         /// The busy
@@ -517,10 +517,6 @@ namespace BudgetExecution
             {
                 return _busy;
             }
-            private set
-            {
-                _busy = value;
-            }
         }
 
         /// <inheritdoc />
@@ -577,9 +573,12 @@ namespace BudgetExecution
 
             // Timer Properties
             _time = 0;
+            _seconds = 5;
 
             // Event Wiring
             Load += OnLoad;
+            Closing += OnClosing;
+            Shown += OnShown;
             MouseClick += OnRightClick;
         }
 
@@ -591,14 +590,14 @@ namespace BudgetExecution
             try
             {
                 Opacity = 0;
-                if( CalendarForm.SEC != 0 )
+                if( _seconds != 0 )
                 {
                     var _timer = new Timer( );
                     _timer.Interval = 1000;
                     _timer.Tick += ( sender, args ) =>
                     {
                         _time++;
-                        if( _time == CalendarForm.SEC )
+                        if( _time == _seconds )
                         {
                             _timer.Stop( );
                         }
@@ -620,22 +619,22 @@ namespace BudgetExecution
         {
             try
             {
-                Opacity = 100;
-                if( CalendarForm.SEC != 0 )
+                Opacity = 0;
+                if( _seconds != 0 )
                 {
                     var _timer = new Timer( );
                     _timer.Interval = 1000;
                     _timer.Tick += ( sender, args ) =>
                     {
-                        _time++;
-                        if( _time == CalendarForm.SEC )
+                        _time--;
+                        if( _time == _seconds )
                         {
                             _timer.Stop( );
                         }
                     };
                 }
 
-                base.Close( );
+                base.Show( );
             }
             catch( Exception _ex )
             {
@@ -850,7 +849,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Fades the form in.
+        /// Fades the in.
         /// </summary>
         private void FadeIn( )
         {
@@ -865,7 +864,7 @@ namespace BudgetExecution
                         _timer.Stop( );
                     }
 
-                    Opacity += 0.02d;
+                    Opacity += 0.01d;
                 };
 
                 _timer.Start( );
@@ -877,7 +876,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Fades the form out.
+        /// Fades the out.
         /// </summary>
         private void FadeOut( )
         {
@@ -892,7 +891,7 @@ namespace BudgetExecution
                         _timer.Stop( );
                     }
 
-                    Opacity -= 0.02d;
+                    Opacity -= 0.01d;
                 };
 
                 _timer.Start( );
@@ -1549,6 +1548,32 @@ namespace BudgetExecution
             try
             {
                 FadeIn( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Raises the Close event. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnClosing( object sender, EventArgs e )
+        {
+            try
+            {
+                FadeOut( );
+                Timer?.Dispose( );
+                if( PictureBox?.Image != null )
+                {
+                    PictureBox.Image = null;
+                }
+
+                Close( );
             }
             catch( Exception _ex )
             {

@@ -687,10 +687,6 @@ namespace BudgetExecution
             {
                 return _busy;
             }
-            private set
-            {
-                _busy = value;
-            }
         }
 
         /// <inheritdoc />
@@ -863,15 +859,32 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes the timers.
+        /// Initializes the icon.
         /// </summary>
-        private void InitializeTimers( )
+        private void InitializePictureBox( )
+        {
+            try
+            {
+                PictureBox.Size = new Size( 18, 18 );
+                PictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the timer.
+        /// </summary>
+        private void InitializeTimer( )
         {
             try
             {
                 // Timer Properties
                 Timer.Enabled = true;
                 Timer.Interval = 500;
+                Timer.Tick += OnTimerTick;
                 Timer.Start( );
             }
             catch( Exception _ex )
@@ -1207,14 +1220,44 @@ namespace BudgetExecution
                 Opacity = 0;
                 if( _seconds != 0 )
                 {
-                    Timer = new Timer( );
-                    Timer.Interval = 1000;
-                    Timer.Tick += ( sender, args ) =>
+                    var _timer = new Timer( );
+                    _timer.Interval = 1000;
+                    _timer.Tick += ( sender, args ) =>
                     {
                         _time++;
                         if( _time == _seconds )
                         {
-                            Timer.Stop( );
+                            _timer.Stop( );
+                        }
+                    };
+                }
+
+                base.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Closes the form.
+        /// </summary>
+        public new void Close( )
+        {
+            try
+            {
+                Opacity = 0;
+                if( _seconds != 0 )
+                {
+                    var _timer = new Timer( );
+                    _timer.Interval = 1000;
+                    _timer.Tick += ( sender, args ) =>
+                    {
+                        _time--;
+                        if( _time == _seconds )
+                        {
+                            _timer.Stop( );
                         }
                     };
                 }
@@ -1230,7 +1273,7 @@ namespace BudgetExecution
         /// <summary>
         /// Fades the in.
         /// </summary>
-        private protected virtual void FadeIn( )
+        private void FadeIn( )
         {
             try
             {
@@ -1255,9 +1298,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Fades the out and close.
+        /// Fades the out.
         /// </summary>
-        private protected virtual void FadeOut( )
+        private void FadeOut( )
         {
             try
             {
@@ -1268,7 +1311,6 @@ namespace BudgetExecution
                     if( Opacity == 0d )
                     {
                         _timer.Stop( );
-                        Close( );
                     }
 
                     Opacity -= 0.01d;
@@ -1771,9 +1813,10 @@ namespace BudgetExecution
                 InitializeTitle( );
                 InitializeLabels( );
                 InitializeToolStrip( );
-                InitializeTimers( );
+                InitializeTimer( );
                 InitializeListBox( );
                 InitializePivotChart( );
+                InitializePictureBox( );
                 PopulateExecutionTables( );
                 PopulateComboBox( );
                 ClearLabels( );

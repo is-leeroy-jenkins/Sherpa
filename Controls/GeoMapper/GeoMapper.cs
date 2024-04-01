@@ -84,7 +84,7 @@ namespace BudgetExecution
         /// <summary>
         /// The seconds
         /// </summary>
-        private const int SEC = 0;
+        private int _seconds;
 
         /// <summary>
         /// The lat
@@ -418,9 +418,11 @@ namespace BudgetExecution
 
             // Timer Properties
             _time = 0;
+            _seconds = 5;
 
             // Wire Events
             Load += OnLoad;
+            Closing += OnClosing;
             Shown += OnShown;
             MouseClick += OnRightClick;
         }
@@ -562,19 +564,19 @@ namespace BudgetExecution
         /// <summary>
         /// Displays the control to the user.
         /// </summary>
-        public new virtual void Show( )
+        public new void Show( )
         {
             try
             {
                 Opacity = 0;
-                if( GeoMapper.SEC != 0 )
+                if( _seconds != 0 )
                 {
                     var _timer = new Timer( );
                     _timer.Interval = 1000;
                     _timer.Tick += ( sender, args ) =>
                     {
                         _time++;
-                        if( _time == GeoMapper.SEC )
+                        if( _time == _seconds )
                         {
                             _timer.Stop( );
                         }
@@ -596,20 +598,22 @@ namespace BudgetExecution
         {
             try
             {
-                Opacity = 100;
-                _time = 0;
-                Timer = new Timer( );
-                Timer.Interval = 1000;
-                Timer.Tick += ( sender, args ) =>
+                Opacity = 0;
+                if( _seconds != 0 )
                 {
-                    _time--;
-                    if( _time == SEC )
+                    var _timer = new Timer( );
+                    _timer.Interval = 1000;
+                    _timer.Tick += ( sender, args ) =>
                     {
-                        Timer.Stop( );
-                    }
-                };
+                        _time--;
+                        if( _time == _seconds )
+                        {
+                            _timer.Stop( );
+                        }
+                    };
+                }
 
-                base.Close( );
+                base.Show( );
             }
             catch( Exception _ex )
             {
@@ -761,7 +765,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Fades the form in.
+        /// Fades the in.
         /// </summary>
         private void FadeIn( )
         {
@@ -788,7 +792,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Fades the form out and close.
+        /// Fades the out.
         /// </summary>
         private void FadeOut( )
         {
@@ -996,6 +1000,32 @@ namespace BudgetExecution
             try
             {
                 FadeIn( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary> Raises the Close event. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnClosing( object sender, EventArgs e )
+        {
+            try
+            {
+                FadeOut( );
+                Timer?.Dispose( );
+                if( PictureBox?.Image != null )
+                {
+                    PictureBox.Image = null;
+                }
+
+                Close( );
             }
             catch( Exception _ex )
             {

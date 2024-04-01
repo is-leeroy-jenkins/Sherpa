@@ -64,8 +64,14 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWithPrivateSetter" ) ]
     public partial class GridForm : MetroForm
     {
+        /// <summary>
+        /// The locked object
+        /// </summary>
+        private object _path;
+
         /// <summary>
         /// The busy
         /// </summary>
@@ -423,8 +429,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets a value indicating whether
-        /// this instance is busy.
+        /// Gets a value indicating whether this instance is busy.
         /// </summary>
         /// <value>
         /// <c> true </c>
@@ -436,10 +441,6 @@ namespace BudgetExecution
             get
             {
                 return _busy;
-            }
-            private set
-            {
-                _busy = value;
             }
         }
 
@@ -494,8 +495,7 @@ namespace BudgetExecution
 
             // Event Wiring
             Load += OnLoad;
-            MenuButton.Click += OnMenuButtonClicked;
-            CloseButton.Click += OnCloseButtonClicked;
+            Closing += OnClosing;
         }
 
         /// <inheritdoc />
@@ -514,6 +514,64 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Begins the initialize.
+        /// </summary>
+        private void BeginInit( )
+        {
+            try
+            {
+                if( _path == null )
+                {
+                    _path = new object( );
+                    lock( _path )
+                    {
+                        _busy = true;
+                    }
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        _busy = true;
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Ends the initialize.
+        /// </summary>
+        private void EndInit( )
+        {
+            try
+            {
+                if( _path == null )
+                {
+                    _path = new object( );
+                    lock( _path )
+                    {
+                        _busy = false;
+                    }
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        _busy = false;
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Displays the control to the user.
         /// </summary>
         public new void Show( )
@@ -523,14 +581,44 @@ namespace BudgetExecution
                 Opacity = 0;
                 if( _seconds != 0 )
                 {
-                    Timer = new Timer( );
-                    Timer.Interval = 1000;
-                    Timer.Tick += ( sender, args ) =>
+                    var _timer = new Timer( );
+                    _timer.Interval = 1000;
+                    _timer.Tick += ( sender, args ) =>
                     {
                         _time++;
                         if( _time == _seconds )
                         {
-                            Timer.Stop( );
+                            _timer.Stop( );
+                        }
+                    };
+                }
+
+                base.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Closes the form.
+        /// </summary>
+        public new void Close( )
+        {
+            try
+            {
+                Opacity = 0;
+                if( _seconds != 0 )
+                {
+                    var _timer = new Timer( );
+                    _timer.Interval = 1000;
+                    _timer.Tick += ( sender, args ) =>
+                    {
+                        _time--;
+                        if( _time == _seconds )
+                        {
+                            _timer.Stop( );
                         }
                     };
                 }
@@ -572,6 +660,22 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Initializes the icon.
+        /// </summary>
+        private void InitializePictureBox( )
+        {
+            try
+            {
+                PictureBox.Size = new Size( 18, 18 );
+                PictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Initializes the labels.
         /// </summary>
         private void InitializeLabels( )
@@ -595,6 +699,7 @@ namespace BudgetExecution
                 // Timer Properties
                 Timer.Enabled = true;
                 Timer.Interval = 500;
+                Timer.Tick += OnTimerTick;
                 Timer.Start( );
             }
             catch( Exception _ex )
@@ -611,6 +716,8 @@ namespace BudgetExecution
             // Control Event Wiring
             try
             {
+                MenuButton.Click += OnMenuButtonClicked;
+                CloseButton.Click += OnCloseButtonClicked;
                 Timer.Tick += OnTimerTick;
             }
             catch( Exception _ex )
@@ -625,22 +732,6 @@ namespace BudgetExecution
         private void InitializeDelegates( )
         {
             _statusUpdate += UpdateStatus;
-        }
-
-        /// <summary>
-        /// Begins the initialize.
-        /// </summary>
-        private void BeginInit( )
-        {
-            _busy = true;
-        }
-
-        /// <summary>
-        /// Ends the initialize.
-        /// </summary>
-        private void EndInit( )
-        {
-            _busy = false;
         }
 
         /// <summary>
@@ -659,7 +750,7 @@ namespace BudgetExecution
                         _timer.Stop( );
                     }
 
-                    Opacity += 0.02d;
+                    Opacity += 0.01d;
                 };
 
                 _timer.Start( );
@@ -684,10 +775,9 @@ namespace BudgetExecution
                     if( Opacity == 0d )
                     {
                         _timer.Stop( );
-                        Close( );
                     }
 
-                    Opacity -= 0.02d;
+                    Opacity -= 0.01d;
                 };
 
                 _timer.Start( );
@@ -878,6 +968,8 @@ namespace BudgetExecution
             try
             {
                 InitializeToolStrip( );
+                InitializePictureBox( );
+                InitializeTimer( );
                 Text = string.Empty;
                 ToolStrip.Visible = true;
                 Title.TextAlign = ContentAlignment.TopLeft;
@@ -891,8 +983,6 @@ namespace BudgetExecution
                 else
                 {
                 }
-
-                FadeIn( );
             }
             catch( Exception _ex )
             {
@@ -968,6 +1058,32 @@ namespace BudgetExecution
         private void OnTimerTick( object sender, EventArgs e )
         {
             InvokeIf( _statusUpdate );
+        }
+
+        /// <summary> Raises the Close event. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnClosing( object sender, EventArgs e )
+        {
+            try
+            {
+                FadeOut( );
+                Timer?.Dispose( );
+                if( PictureBox?.Image != null )
+                {
+                    PictureBox.Image = null;
+                }
+
+                Close( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>

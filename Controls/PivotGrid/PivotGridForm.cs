@@ -67,6 +67,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
     [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWithPrivateSetter" ) ]
     public partial class PivotGridForm : MetroForm
     {
         /// <summary>
@@ -719,10 +720,6 @@ namespace BudgetExecution
             {
                 return _busy;
             }
-            private set
-            {
-                _busy = value;
-            }
         }
 
         /// <inheritdoc />
@@ -883,11 +880,11 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the icon.
         /// </summary>
-        private void InitializeIcon( )
+        private void InitializePictureBox( )
         {
             try
             {
-                PictureBox.Size = new Size( 24, 20 );
+                PictureBox.Size = new Size( 18, 18 );
                 PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             }
             catch( Exception _ex )
@@ -897,15 +894,16 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes the timers.
+        /// Initializes the timer.
         /// </summary>
-        private void InitializeTimers( )
+        private void InitializeTimer( )
         {
             try
             {
                 // Timer Properties
                 Timer.Enabled = true;
                 Timer.Interval = 500;
+                Timer.Tick += OnTimerTick;
                 Timer.Start( );
             }
             catch( Exception _ex )
@@ -1122,14 +1120,44 @@ namespace BudgetExecution
             try
             {
                 Opacity = 0;
-                if( Seconds != 0 )
+                if( _seconds != 0 )
                 {
                     var _timer = new Timer( );
                     _timer.Interval = 1000;
                     _timer.Tick += ( sender, args ) =>
                     {
-                        Time++;
-                        if( Time == Seconds )
+                        _time++;
+                        if( _time == _seconds )
+                        {
+                            _timer.Stop( );
+                        }
+                    };
+                }
+
+                base.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Closes the form.
+        /// </summary>
+        public new void Close( )
+        {
+            try
+            {
+                Opacity = 0;
+                if( _seconds != 0 )
+                {
+                    var _timer = new Timer( );
+                    _timer.Interval = 1000;
+                    _timer.Tick += ( sender, args ) =>
+                    {
+                        _time--;
+                        if( _time == _seconds )
                         {
                             _timer.Stop( );
                         }
@@ -1764,36 +1792,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Closes the form.
-        /// </summary>
-        public new void Close( )
-        {
-            try
-            {
-                Opacity = 0;
-                if( _seconds != 0 )
-                {
-                    var _timer = new Timer( );
-                    _timer.Interval = 1000;
-                    _timer.Tick += ( sender, args ) =>
-                    {
-                        _time--;
-                        if( _time == _seconds )
-                        {
-                            _timer.Stop( );
-                        }
-                    };
-                }
-
-                base.Show( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -1805,8 +1803,9 @@ namespace BudgetExecution
             {
                 InitializePivotGrid( );
                 InitializeToolStrip( );
-                InitializeTimers( );
+                InitializeTimer( );
                 InitializeLabels( );
+                InitializePictureBox( );
                 _filter = new Dictionary<string, object>( );
                 _selectedColumns = new List<string>( );
                 _selectedFields = new List<string>( );

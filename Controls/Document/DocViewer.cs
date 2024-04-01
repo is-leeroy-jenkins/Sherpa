@@ -195,10 +195,6 @@ namespace BudgetExecution
             {
                 return _busy;
             }
-            private set
-            {
-                _busy = value;
-            }
         }
 
         /// <summary>
@@ -1028,6 +1024,13 @@ namespace BudgetExecution
             try
             {
                 FadeOut( );
+                Timer?.Dispose( );
+                if( PictureBox?.Image != null )
+                {
+                    PictureBox.Image = null;
+                }
+
+                Close( );
             }
             catch( Exception _ex )
             {

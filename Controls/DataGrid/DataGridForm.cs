@@ -75,6 +75,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     [ SuppressMessage( "ReSharper", "TooWideLocalVariableScope" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWithPrivateSetter" ) ]
     public partial class DataGridForm : MetroForm
     {
         /// <summary>
@@ -711,10 +712,6 @@ namespace BudgetExecution
             {
                 return _busy;
             }
-            private set
-            {
-                _busy = value;
-            }
         }
 
         /// <inheritdoc />
@@ -907,14 +904,14 @@ namespace BudgetExecution
         {
             try
             {
-                Opacity = 100;
+                Opacity = 0;
                 if( _seconds != 0 )
                 {
                     var _timer = new Timer( );
                     _timer.Interval = 1000;
                     _timer.Tick += ( sender, args ) =>
                     {
-                        _time++;
+                        _time--;
                         if( _time == _seconds )
                         {
                             _timer.Stop( );
@@ -922,7 +919,7 @@ namespace BudgetExecution
                     };
                 }
 
-                base.Close( );
+                base.Show( );
             }
             catch( Exception _ex )
             {
@@ -3134,6 +3131,12 @@ namespace BudgetExecution
                 ClearCategoryValueSelections( );
                 ClearSchemaSelections( );
                 FadeOut( );
+                Timer?.Dispose( );
+                if( PictureBox?.Image != null )
+                {
+                    PictureBox.Image = null;
+                }
+
                 Close( );
             }
             catch( Exception _ex )
