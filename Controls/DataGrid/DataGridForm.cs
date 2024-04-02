@@ -918,7 +918,7 @@ namespace BudgetExecution
                     };
                 }
 
-                base.Show( );
+                base.Close( );
             }
             catch( Exception _ex )
             {
@@ -960,6 +960,8 @@ namespace BudgetExecution
                 EditSqlButton.Click += OnSqlButtonClick;
                 EditRecordButton.Click += OnEditRecordButtonClicked;
                 EditColumnButton.Click += OnEditColumnButtonClicked;
+                BrowseButton.Click += OnBrowserButtonClicked;
+                SaveButton.Click += OnSaveButtonClicked;
             }
             catch( Exception _ex )
             {
@@ -1060,6 +1062,12 @@ namespace BudgetExecution
                 ToolStrip.LauncherStyle = LauncherStyle.Office12;
                 ToolStrip.ImageSize = new Size( 16, 16 );
                 ToolStrip.ImageScalingSize = new Size( 16, 16 );
+                ToolStripTextBox.Size = new Size( 200, 25 );
+                ToolStripTextBox.ForeColor = Color.White;
+                ToolStripTextBox.Font = new Font( "Roboto", 8 );
+                ToolStripTextBox.Text = "  enter text  ";
+                ToolStripTextBox.TextAlign = ContentAlignment.MiddleCenter;
+                ToolStripTextBox.TextBox.TextAlign = HorizontalAlignment.Center;
             }
             catch( Exception _ex )
             {
@@ -2896,6 +2904,44 @@ namespace BudgetExecution
                 {
                     ActivateGroupTab( );
                 }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [file dialog button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnBrowserButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                var _dialog = new FileDialog( );
+                _dialog.ShowDialog( this );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [save button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnSaveButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                var _message = "THE SAVE FUCTIONALITY HAS NOT BEEN IMPLEMENTED!";
+                SendNotification( _message );
             }
             catch( Exception _ex )
             {

@@ -441,7 +441,7 @@ namespace BudgetExecution
             try
             {
                 Title.ForeColor = Color.FromArgb( 106, 189, 252 );
-                Title.TextAlign = ContentAlignment.TopLeft;
+                Title.TextAlign = ContentAlignment.TopCenter;
             }
             catch( Exception _ex )
             {
@@ -619,7 +619,7 @@ namespace BudgetExecution
                     };
                 }
 
-                base.Show( );
+                base.Close( );
             }
             catch( Exception _ex )
             {
