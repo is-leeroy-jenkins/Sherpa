@@ -633,7 +633,7 @@ namespace BudgetExecution
                     };
                 }
 
-                base.Show( );
+                base.Close( );
             }
             catch( Exception _ex )
             {
