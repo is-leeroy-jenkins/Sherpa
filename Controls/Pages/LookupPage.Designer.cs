@@ -73,7 +73,7 @@
             // 
             TabControl.ActiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            TabControl.BeforeTouchSize = new System.Drawing.Size( 1349, 517 );
+            TabControl.BeforeTouchSize = new System.Drawing.Size( 1330, 517 );
             TabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             TabControl.CanOverrideStyle = true;
             TabControl.CloseButtonBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
@@ -88,7 +88,7 @@
             TabControl.ItemSize = new System.Drawing.Size( 158, 23 );
             TabControl.Location = new System.Drawing.Point( 0, 0 );
             TabControl.Name = "TabControl";
-            TabControl.Size = new System.Drawing.Size( 1349, 517 );
+            TabControl.Size = new System.Drawing.Size( 1330, 517 );
             TabControl.TabIndex = 8;
             TabControl.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.TabStyle = typeof( Syncfusion.Windows.Forms.Tools.TabRendererMetro );
@@ -121,7 +121,7 @@
             DataTab.Location = new System.Drawing.Point( 0, 22 );
             DataTab.Name = "DataTab";
             DataTab.ShowCloseButton = true;
-            DataTab.Size = new System.Drawing.Size( 1349, 495 );
+            DataTab.Size = new System.Drawing.Size( 1330, 495 );
             DataTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataTab.TabForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             DataTab.TabIndex = 2;
@@ -660,6 +660,7 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             BorderColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionBarColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
@@ -667,7 +668,7 @@
             CaptionButtonColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionFont = new System.Drawing.Font( "Roboto", 9F );
-            ClientSize = new System.Drawing.Size( 1349, 730 );
+            ClientSize = new System.Drawing.Size( 1330, 638 );
             ControlBox = false;
             Controls.Add( SelectButton );
             Controls.Add( TabControl );
@@ -678,10 +679,10 @@
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
             MaximizeBox = false;
-            MaximumSize = new System.Drawing.Size( 1349, 730 );
+            MaximumSize = new System.Drawing.Size( 1340, 648 );
             MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             MinimizeBox = false;
-            MinimumSize = new System.Drawing.Size( 1349, 730 );
+            MinimumSize = new System.Drawing.Size( 1320, 628 );
             Name = "LookupPage";
             ShowIcon = false;
             ShowMaximizeBox = false;

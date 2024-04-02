@@ -109,7 +109,7 @@
             NextButton = new ToolStripButton( );
             NextSeparator = new ToolSeparator( );
             LastSeparator = new ToolSeparator( );
-            RemoveFiltersButton = new ToolStripButton( );
+            FilterButton = new ToolStripButton( );
             RemoveFiltersSeparator = new ToolSeparator( );
             EditRecordSeparator = new ToolSeparator( );
             EditColumnButton = new ToolStripButton( );
@@ -1767,26 +1767,26 @@
             LastSeparator.Padding = new System.Windows.Forms.Padding( 1 );
             LastSeparator.Size = new System.Drawing.Size( 6, 20 );
             // 
-            // RemoveFiltersButton
+            // FilterButton
             // 
-            RemoveFiltersButton.AutoToolTip = false;
-            RemoveFiltersButton.BackColor = System.Drawing.Color.Transparent;
-            RemoveFiltersButton.BindingSource = BindingSource;
-            RemoveFiltersButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            RemoveFiltersButton.Field = Field.AccountCode;
-            RemoveFiltersButton.Filter = null;
-            RemoveFiltersButton.Font = new System.Drawing.Font( "Roboto", 9F );
-            RemoveFiltersButton.ForeColor = System.Drawing.Color.LightGray;
-            RemoveFiltersButton.HoverText = "Reset Table Filters";
-            RemoveFiltersButton.Image = Resources.Images.ToolStripImages.FilterButton;
-            RemoveFiltersButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            RemoveFiltersButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
-            RemoveFiltersButton.Name = "RemoveFiltersButton";
-            RemoveFiltersButton.Padding = new System.Windows.Forms.Padding( 1 );
-            RemoveFiltersButton.Size = new System.Drawing.Size( 23, 25 );
-            RemoveFiltersButton.Text = "toolStripButton1";
-            RemoveFiltersButton.ToolTip = ToolTip;
-            RemoveFiltersButton.ToolType = ToolType.RemoveFiltersButton;
+            FilterButton.AutoToolTip = false;
+            FilterButton.BackColor = System.Drawing.Color.Transparent;
+            FilterButton.BindingSource = BindingSource;
+            FilterButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            FilterButton.Field = Field.AccountCode;
+            FilterButton.Filter = null;
+            FilterButton.Font = new System.Drawing.Font( "Roboto", 9F );
+            FilterButton.ForeColor = System.Drawing.Color.LightGray;
+            FilterButton.HoverText = "Reset Table Filters";
+            FilterButton.Image = Resources.Images.ToolStripImages.FilterButton;
+            FilterButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            FilterButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            FilterButton.Name = "FilterButton";
+            FilterButton.Padding = new System.Windows.Forms.Padding( 1 );
+            FilterButton.Size = new System.Drawing.Size( 23, 25 );
+            FilterButton.Text = "toolStripButton1";
+            FilterButton.ToolTip = ToolTip;
+            FilterButton.ToolType = ToolType.FilterButton;
             // 
             // RemoveFiltersSeparator
             // 
@@ -2158,7 +2158,7 @@
             ToolStrip.Image = null;
             ToolStrip.ImageDirectory = null;
             ToolStrip.ImageSize = new System.Drawing.Size( 16, 16 );
-            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { StatusLabel, TextBoxSeparator, FirstButton, FirstSeparator, PreviousButton, PreviousSeparator, NextButton, NextSeparator, LastButton, LastButtonSeparator, DataSpacer, DataLabel, EditRecordSeparator, RemoveFiltersButton, CommandLabelSeparator, RefreshDataButton, EditColumnSeparator, GroupButton, RefreshDataSeparator, EditRecordButton, GroupSeparator, EditColumnButton, ColumnSeparator, EditSqlButton, EditSqlSeparator, ToolStripTextBox, GoButton, ChartSeparator, ExcelImportButton, BrowseSeparator, BrowseButton, ExitButton, BackSeparator, MenuButton, MenuSeparator, ApplicationSeparator, MenuLabel } );
+            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { StatusLabel, TextBoxSeparator, FirstButton, FirstSeparator, PreviousButton, PreviousSeparator, NextButton, NextSeparator, LastButton, LastButtonSeparator, DataSpacer, DataLabel, EditRecordSeparator, FilterButton, CommandLabelSeparator, RefreshDataButton, EditColumnSeparator, GroupButton, RefreshDataSeparator, EditRecordButton, GroupSeparator, EditColumnButton, ColumnSeparator, EditSqlButton, EditSqlSeparator, ToolStripTextBox, GoButton, ChartSeparator, ExcelImportButton, BrowseSeparator, BrowseButton, ExitButton, BackSeparator, MenuButton, MenuSeparator, ApplicationSeparator, MenuLabel } );
             ToolStrip.LastButton = null;
             ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
             ToolStrip.Location = new System.Drawing.Point( 1, 1 );
@@ -2290,7 +2290,7 @@
             ToolStripTextBox.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             ToolStripTextBox.Name = "ToolStripTextBox";
             ToolStripTextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Size = new System.Drawing.Size( 178, 25 );
+            ToolStripTextBox.Size = new System.Drawing.Size( 196, 25 );
             ToolStripTextBox.Tag = "";
             ToolStripTextBox.ToolTip = ToolTip;
             // 
@@ -2898,7 +2898,7 @@
         /// <summary>
         /// The remove filters button
         /// </summary>
-        public ToolStripButton RemoveFiltersButton;
+        public ToolStripButton FilterButton;
         /// <summary>
         /// The remove filters separator
         /// </summary>

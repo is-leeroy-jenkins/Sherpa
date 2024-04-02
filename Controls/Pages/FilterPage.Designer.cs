@@ -383,7 +383,7 @@ partial class FilterPage
         TabControl.ActiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         TabControl.ActiveTabFont = new System.Drawing.Font( "Roboto", 8F );
         TabControl.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-        TabControl.BeforeTouchSize = new System.Drawing.Size( 1337, 544 );
+        TabControl.BeforeTouchSize = new System.Drawing.Size( 1320, 544 );
         TabControl.BindingSource = null;
         TabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
         TabControl.CanOverrideStyle = true;
@@ -403,7 +403,7 @@ partial class FilterPage
         TabControl.ItemSize = new System.Drawing.Size( 100, 30 );
         TabControl.Location = new System.Drawing.Point( 0, 0 );
         TabControl.Name = "TabControl";
-        TabControl.Size = new System.Drawing.Size( 1337, 544 );
+        TabControl.Size = new System.Drawing.Size( 1320, 544 );
         TabControl.TabIndex = 12;
         TabControl.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         TabControl.TabStyle = typeof( Syncfusion.Windows.Forms.Tools.TabRendererMetro );
@@ -432,7 +432,7 @@ partial class FilterPage
         FilterTab.Location = new System.Drawing.Point( 0, 29 );
         FilterTab.Name = "FilterTab";
         FilterTab.ShowCloseButton = false;
-        FilterTab.Size = new System.Drawing.Size( 1337, 515 );
+        FilterTab.Size = new System.Drawing.Size( 1320, 515 );
         FilterTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         FilterTab.TabFont = new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Bold );
         FilterTab.TabForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
@@ -451,7 +451,7 @@ partial class FilterPage
         FilterHeader.Margin = new System.Windows.Forms.Padding( 3 );
         FilterHeader.Name = "FilterHeader";
         FilterHeader.Padding = new System.Windows.Forms.Padding( 1 );
-        FilterHeader.Size = new System.Drawing.Size( 1337, 30 );
+        FilterHeader.Size = new System.Drawing.Size( 1320, 30 );
         FilterHeader.Style = MetroSet_UI.Enums.Style.Custom;
         FilterHeader.StyleManager = null;
         FilterHeader.TabIndex = 16;
@@ -742,7 +742,7 @@ partial class FilterPage
         TableTab.Location = new System.Drawing.Point( 0, 29 );
         TableTab.Name = "TableTab";
         TableTab.ShowCloseButton = true;
-        TableTab.Size = new System.Drawing.Size( 1337, 515 );
+        TableTab.Size = new System.Drawing.Size( 1320, 515 );
         TableTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         TableTab.TabFont = new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Bold );
         TableTab.TabForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
@@ -761,7 +761,7 @@ partial class FilterPage
         SourceHeader.Margin = new System.Windows.Forms.Padding( 3 );
         SourceHeader.Name = "SourceHeader";
         SourceHeader.Padding = new System.Windows.Forms.Padding( 1 );
-        SourceHeader.Size = new System.Drawing.Size( 1337, 30 );
+        SourceHeader.Size = new System.Drawing.Size( 1320, 30 );
         SourceHeader.Style = MetroSet_UI.Enums.Style.Custom;
         SourceHeader.StyleManager = null;
         SourceHeader.TabIndex = 15;
@@ -1162,7 +1162,7 @@ partial class FilterPage
         GroupTab.Location = new System.Drawing.Point( 0, 29 );
         GroupTab.Name = "GroupTab";
         GroupTab.ShowCloseButton = true;
-        GroupTab.Size = new System.Drawing.Size( 1337, 515 );
+        GroupTab.Size = new System.Drawing.Size( 1320, 515 );
         GroupTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         GroupTab.TabFont = new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Bold );
         GroupTab.TabForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
@@ -1181,7 +1181,7 @@ partial class FilterPage
         GroupHeader.Margin = new System.Windows.Forms.Padding( 3 );
         GroupHeader.Name = "GroupHeader";
         GroupHeader.Padding = new System.Windows.Forms.Padding( 1 );
-        GroupHeader.Size = new System.Drawing.Size( 1337, 30 );
+        GroupHeader.Size = new System.Drawing.Size( 1320, 30 );
         GroupHeader.Style = MetroSet_UI.Enums.Style.Custom;
         GroupHeader.StyleManager = null;
         GroupHeader.TabIndex = 17;
@@ -1437,7 +1437,7 @@ partial class FilterPage
         CalendarTab.Location = new System.Drawing.Point( 0, 29 );
         CalendarTab.Name = "CalendarTab";
         CalendarTab.ShowCloseButton = true;
-        CalendarTab.Size = new System.Drawing.Size( 1337, 515 );
+        CalendarTab.Size = new System.Drawing.Size( 1320, 515 );
         CalendarTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         CalendarTab.TabFont = new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Bold );
         CalendarTab.TabForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
@@ -1642,7 +1642,7 @@ partial class FilterPage
         TimeSpanHeader.Margin = new System.Windows.Forms.Padding( 3 );
         TimeSpanHeader.Name = "TimeSpanHeader";
         TimeSpanHeader.Padding = new System.Windows.Forms.Padding( 1 );
-        TimeSpanHeader.Size = new System.Drawing.Size( 1337, 30 );
+        TimeSpanHeader.Size = new System.Drawing.Size( 1320, 30 );
         TimeSpanHeader.Style = MetroSet_UI.Enums.Style.Custom;
         TimeSpanHeader.StyleManager = null;
         TimeSpanHeader.TabIndex = 18;
@@ -1892,7 +1892,7 @@ partial class FilterPage
         SqlTab.Location = new System.Drawing.Point( 0, 29 );
         SqlTab.Name = "SqlTab";
         SqlTab.ShowCloseButton = true;
-        SqlTab.Size = new System.Drawing.Size( 1337, 515 );
+        SqlTab.Size = new System.Drawing.Size( 1320, 515 );
         SqlTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         SqlTab.TabForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         SqlTab.TabIndex = 5;
@@ -2313,6 +2313,7 @@ partial class FilterPage
         // 
         AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+        AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
         BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         BorderColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         CaptionAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -2320,9 +2321,9 @@ partial class FilterPage
         CaptionBarHeight = 5;
         CaptionButtonColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-        CaptionFont = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Bold );
-        CaptionForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-        ClientSize = new System.Drawing.Size( 1337, 718 );
+        CaptionFont = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
+        CaptionForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+        ClientSize = new System.Drawing.Size( 1320, 628 );
         ControlBox = false;
         Controls.Add( ClearButton );
         Controls.Add( GroupButton );
@@ -2332,13 +2333,13 @@ partial class FilterPage
         DoubleBuffered = true;
         Font = new System.Drawing.Font( "Roboto", 9F );
         ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-        FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+        FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
         Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
         MaximizeBox = false;
-        MaximumSize = new System.Drawing.Size( 1349, 730 );
+        MaximumSize = new System.Drawing.Size( 1340, 648 );
         MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         MinimizeBox = false;
-        MinimumSize = new System.Drawing.Size( 1349, 730 );
+        MinimumSize = new System.Drawing.Size( 1320, 628 );
         Name = "FilterPage";
         ShowIcon = false;
         ShowMaximizeBox = false;

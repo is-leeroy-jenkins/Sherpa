@@ -62,6 +62,11 @@ namespace BudgetExecution
     public partial class SchemaPage : EditBase
     {
         /// <summary>
+        /// The locked object
+        /// </summary>
+        private object _path;
+
+        /// <summary>
         /// The busy
         /// </summary>
         private protected bool _busy;
@@ -179,11 +184,12 @@ namespace BudgetExecution
         {
             InitializeComponent( );
             InitializeDelegates( );
+            RegisterCallbacks( );
 
             // Basic Properties
-            Size = new Size( 1340, 648 );
+            Size = new Size( 1330, 638 );
             MaximumSize = new Size( 1340, 648 );
-            MinimumSize = new Size( 1330, 638 );
+            MinimumSize = new Size( 1320, 628 );
             WindowState = FormWindowState.Normal;
             StartPosition = FormStartPosition.CenterParent;
             FormBorderStyle = FormBorderStyle.None;
@@ -202,6 +208,7 @@ namespace BudgetExecution
             CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
             SizeGripStyle = SizeGripStyle.Hide;
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             DoubleBuffered = true;
             ShowMouseOver = false;
             MinimizeBox = false;
@@ -224,8 +231,19 @@ namespace BudgetExecution
             // Default Provider
             _provider = Provider.Access;
 
+            // Budget Attributes
+            _filter = new Dictionary<string, object>( );
+            _fields = new List<string>( );
+            _columns = new List<string>( );
+            _numerics = new List<string>( );
+            _selectedColumns = new List<string>( );
+            _selectedFields = new List<string>( );
+            _selectedNumerics = new List<string>( );
+            _dataArgs = new DataArgs( );
+
             // Wire Events
             Load += OnLoad;
+            Shown += OnShown;
         }
 
         /// <inheritdoc/>
@@ -428,13 +446,87 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Displays the control to the user.
+        /// </summary>
+        public new void ShowDialog( )
+        {
+            try
+            {
+                Opacity = 0;
+                if( _seconds != 0 )
+                {
+                    var _timer = new Timer( );
+                    _timer.Interval = 1000;
+                    _timer.Tick += ( sender, args ) =>
+                    {
+                        _time++;
+                        if( _time == _seconds )
+                        {
+                            _timer.Stop( );
+                        }
+                    };
+                }
+
+                base.ShowDialog( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Closes the form.
+        /// </summary>
+        public new void Close( )
+        {
+            try
+            {
+                Opacity = 0;
+                if( _seconds != 0 )
+                {
+                    var _timer = new Timer( );
+                    _timer.Interval = 1000;
+                    _timer.Tick += ( sender, args ) =>
+                    {
+                        _time--;
+                        if( _time == _seconds )
+                        {
+                            _timer.Stop( );
+                        }
+                    };
+                }
+
+                base.Close( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Begins the initialize.
         /// </summary>
         private void BeginInit( )
         {
             try
             {
-                _busy = true;
+                if( _path == null )
+                {
+                    _path = new object( );
+                    lock( _path )
+                    {
+                        _busy = true;
+                    }
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        _busy = true;
+                    }
+                }
             }
             catch( Exception _ex )
             {
@@ -449,7 +541,75 @@ namespace BudgetExecution
         {
             try
             {
-                _busy = false;
+                if( _path == null )
+                {
+                    _path = new object( );
+                    lock( _path )
+                    {
+                        _busy = false;
+                    }
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        _busy = false;
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the in.
+        /// </summary>
+        private void FadeIn( )
+        {
+            try
+            {
+                var _timer = new Timer( );
+                _timer.Interval = 10;
+                _timer.Tick += ( sender, args ) =>
+                {
+                    if( Opacity == 1d )
+                    {
+                        _timer.Stop( );
+                    }
+
+                    Opacity += 0.01d;
+                };
+
+                _timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the out.
+        /// </summary>
+        private void FadeOut( )
+        {
+            try
+            {
+                var _timer = new Timer( );
+                _timer.Interval = 10;
+                _timer.Tick += ( sender, args ) =>
+                {
+                    if( Opacity == 0d )
+                    {
+                        _timer.Stop( );
+                    }
+
+                    Opacity -= 0.01d;
+                };
+
+                _timer.Start( );
             }
             catch( Exception _ex )
             {
@@ -702,10 +862,6 @@ namespace BudgetExecution
                 InitializeTabControl( );
                 InitializeComboBoxes( );
                 RegisterCallbacks( );
-                _dataArgs = new DataArgs( );
-                _fields = new List<string>( );
-                _columns = new List<string>( );
-                _dates = new List<DateTime>( );
                 CloseButton.Text = "Exit";
                 PopulateTableComboBoxItems( );
                 _dataTypes = GetDataTypes( _provider );
@@ -755,6 +911,7 @@ namespace BudgetExecution
         {
             try
             {
+                FadeOut( );
                 Close( );
             }
             catch( Exception _ex )
@@ -782,6 +939,24 @@ namespace BudgetExecution
                 {
                     Fail( _ex );
                 }
+            }
+        }
+
+        /// <summary>
+        /// Called when [shown].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnShown( object sender, EventArgs e )
+        {
+            try
+            {
+                FadeIn( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
     }

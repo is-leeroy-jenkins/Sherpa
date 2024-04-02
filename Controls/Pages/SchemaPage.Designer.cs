@@ -84,7 +84,7 @@
             TabControl.ActiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.ActiveTabFont = new System.Drawing.Font( "Roboto", 9F );
             TabControl.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            TabControl.BeforeTouchSize = new System.Drawing.Size( 1328, 503 );
+            TabControl.BeforeTouchSize = new System.Drawing.Size( 1318, 503 );
             TabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             TabControl.CanOverrideStyle = true;
             TabControl.CloseButtonBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
@@ -98,7 +98,7 @@
             TabControl.ItemSize = new System.Drawing.Size( 158, 23 );
             TabControl.Location = new System.Drawing.Point( 0, 0 );
             TabControl.Name = "TabControl";
-            TabControl.Size = new System.Drawing.Size( 1328, 503 );
+            TabControl.Size = new System.Drawing.Size( 1318, 503 );
             TabControl.TabIndex = 8;
             TabControl.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.TabStyle = typeof( Syncfusion.Windows.Forms.Tools.TabRendererMetro );
@@ -132,7 +132,7 @@
             DataTab.Location = new System.Drawing.Point( 0, 22 );
             DataTab.Name = "DataTab";
             DataTab.ShowCloseButton = true;
-            DataTab.Size = new System.Drawing.Size( 1328, 481 );
+            DataTab.Size = new System.Drawing.Size( 1318, 481 );
             DataTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataTab.TabForeColor = System.Drawing.Color.LightGray;
             DataTab.TabIndex = 3;
@@ -779,7 +779,7 @@
             BusyTab.Location = new System.Drawing.Point( 0, 22 );
             BusyTab.Name = "BusyTab";
             BusyTab.ShowCloseButton = true;
-            BusyTab.Size = new System.Drawing.Size( 1328, 481 );
+            BusyTab.Size = new System.Drawing.Size( 1318, 481 );
             BusyTab.TabIndex = 4;
             BusyTab.ThemesEnabled = false;
             // 
@@ -801,7 +801,7 @@
             LoadingPanel.Location = new System.Drawing.Point( 0, 0 );
             LoadingPanel.Name = "LoadingPanel";
             LoadingPanel.Padding = new System.Windows.Forms.Padding( 1 );
-            LoadingPanel.Size = new System.Drawing.Size( 1328, 481 );
+            LoadingPanel.Size = new System.Drawing.Size( 1318, 481 );
             LoadingPanel.Style = MetroSet_UI.Enums.Style.Custom;
             LoadingPanel.StyleManager = null;
             LoadingPanel.TabIndex = 1;
@@ -841,7 +841,7 @@
             SelectButton.HoverText = "Not Yet Implemented!";
             SelectButton.HoverTextColor = System.Drawing.Color.White;
             SelectButton.IsDerivedStyle = true;
-            SelectButton.Location = new System.Drawing.Point( 153, 533 );
+            SelectButton.Location = new System.Drawing.Point( 153, 547 );
             SelectButton.Margin = new System.Windows.Forms.Padding( 0 );
             SelectButton.Name = "SelectButton";
             SelectButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
@@ -875,7 +875,7 @@
             ClearButton.HoverText = "Not Yet Implemented!";
             ClearButton.HoverTextColor = System.Drawing.Color.White;
             ClearButton.IsDerivedStyle = true;
-            ClearButton.Location = new System.Drawing.Point( 611, 533 );
+            ClearButton.Location = new System.Drawing.Point( 613, 547 );
             ClearButton.Margin = new System.Windows.Forms.Padding( 0 );
             ClearButton.Name = "ClearButton";
             ClearButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
@@ -909,7 +909,7 @@
             CloseButton.HoverText = "Exit Edit Mode";
             CloseButton.HoverTextColor = System.Drawing.Color.White;
             CloseButton.IsDerivedStyle = true;
-            CloseButton.Location = new System.Drawing.Point( 1109, 533 );
+            CloseButton.Location = new System.Drawing.Point( 1112, 547 );
             CloseButton.Margin = new System.Windows.Forms.Padding( 0 );
             CloseButton.Name = "CloseButton";
             CloseButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
@@ -932,6 +932,7 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             BorderColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionBarColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
@@ -939,7 +940,8 @@
             CaptionButtonColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionFont = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Bold );
-            ClientSize = new System.Drawing.Size( 1328, 636 );
+            CaptionForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ClientSize = new System.Drawing.Size( 1318, 626 );
             ControlBox = false;
             Controls.Add( SelectButton );
             Controls.Add( TabControl );
@@ -954,7 +956,7 @@
             MaximumSize = new System.Drawing.Size( 1340, 648 );
             MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             MinimizeBox = false;
-            MinimumSize = new System.Drawing.Size( 1340, 648 );
+            MinimumSize = new System.Drawing.Size( 1320, 628 );
             Name = "SchemaPage";
             ShowIcon = false;
             ShowMaximizeBox = false;

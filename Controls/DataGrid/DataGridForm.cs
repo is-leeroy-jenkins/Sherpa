@@ -952,7 +952,7 @@ namespace BudgetExecution
                 SqlCeRadioButton.CheckedChanged += OnRadioButtonChecked;
                 ExitButton.Click += OnExitButtonClicked;
                 MenuButton.Click += OnMenuButtonClicked;
-                RemoveFiltersButton.Click += OnResetDataFilterButtonClicked;
+                FilterButton.Click += OnResetDataFilterButtonClicked;
                 RefreshDataButton.Click += OnResetDataSourceButtonClicked;
                 GroupButton.Click += OnGroupButtonClicked;
                 FirstCalendar.SelectionChanged += OnStartDateSelected;

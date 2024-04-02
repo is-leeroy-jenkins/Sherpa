@@ -34,7 +34,7 @@ partial class SqlPage
     private void InitializeComponent( )
     {
         components = new System.ComponentModel.Container( );
-        var config1 = new Syncfusion.Windows.Forms.Edit.Implementation.Config.Config( );
+        var config2 = new Syncfusion.Windows.Forms.Edit.Implementation.Config.Config( );
         var resources = new System.ComponentModel.ComponentResourceManager( typeof( SqlPage ) );
         TabControl = new Syncfusion.Windows.Forms.Tools.TabControlAdv( );
         TabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
@@ -60,7 +60,6 @@ partial class SqlPage
         BindingSource = new System.Windows.Forms.BindingSource( components );
         FourthButton = new Button( );
         SecondButton = new Button( );
-        ContextMenu = new ContextMenu( );
         ( (System.ComponentModel.ISupportInitialize)TabControl ).BeginInit( );
         TabControl.SuspendLayout( );
         TabPage.SuspendLayout( );
@@ -82,7 +81,7 @@ partial class SqlPage
         TabControl.ActiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         TabControl.ActiveTabFont = new System.Drawing.Font( "Roboto", 9F );
         TabControl.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-        TabControl.BeforeTouchSize = new System.Drawing.Size( 1340, 556 );
+        TabControl.BeforeTouchSize = new System.Drawing.Size( 1330, 556 );
         TabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
         TabControl.BorderWidth = 1;
         TabControl.CanOverrideStyle = true;
@@ -97,7 +96,7 @@ partial class SqlPage
         TabControl.Location = new System.Drawing.Point( 0, 0 );
         TabControl.Margin = new System.Windows.Forms.Padding( 1 );
         TabControl.Name = "TabControl";
-        TabControl.Size = new System.Drawing.Size( 1340, 556 );
+        TabControl.Size = new System.Drawing.Size( 1330, 556 );
         TabControl.TabIndex = 9;
         TabControl.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         TabControl.TabStyle = typeof( Syncfusion.Windows.Forms.Tools.TabRendererMetro );
@@ -128,7 +127,7 @@ partial class SqlPage
         TabPage.Name = "TabPage";
         TabPage.Padding = new System.Windows.Forms.Padding( 1 );
         TabPage.ShowCloseButton = true;
-        TabPage.Size = new System.Drawing.Size( 1340, 534 );
+        TabPage.Size = new System.Drawing.Size( 1330, 534 );
         TabPage.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         TabPage.TabForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
         TabPage.TabIndex = 8;
@@ -150,7 +149,7 @@ partial class SqlPage
         EditorTable.RowCount = 2;
         EditorTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 2.15264177F ) );
         EditorTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 97.84736F ) );
-        EditorTable.Size = new System.Drawing.Size( 905, 509 );
+        EditorTable.Size = new System.Drawing.Size( 895, 509 );
         EditorTable.TabIndex = 5;
         // 
         // EditorPanel
@@ -171,7 +170,7 @@ partial class SqlPage
         EditorPanel.Location = new System.Drawing.Point( 3, 29 );
         EditorPanel.Name = "EditorPanel";
         EditorPanel.Padding = new System.Windows.Forms.Padding( 1 );
-        EditorPanel.Size = new System.Drawing.Size( 899, 477 );
+        EditorPanel.Size = new System.Drawing.Size( 889, 477 );
         EditorPanel.Style = MetroSet_UI.Enums.Style.Custom;
         EditorPanel.StyleManager = null;
         EditorPanel.TabIndex = 0;
@@ -192,7 +191,7 @@ partial class SqlPage
         Editor.ChangedLinesMarkingLineColor = System.Drawing.Color.FromArgb( 255, 238, 98 );
         Editor.CodeSnipptSize = new System.Drawing.Size( 100, 100 );
         Editor.ColumnGuidesMeasuringFont = new System.Drawing.Font( "Roboto", 8F );
-        Editor.Configurator = config1;
+        Editor.Configurator = config2;
         Editor.ContextChoiceBackColor = System.Drawing.SystemColors.ControlLight;
         Editor.ContextChoiceBorderColor = System.Drawing.Color.FromArgb( 233, 166, 50 );
         Editor.ContextPromptBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
@@ -218,7 +217,7 @@ partial class SqlPage
         Editor.SelectionMarginBackgroundColor = System.Drawing.SystemColors.ActiveCaption;
         Editor.SelectionTextColor = System.Drawing.Color.White;
         Editor.ShowEndOfLine = false;
-        Editor.Size = new System.Drawing.Size( 862, 441 );
+        Editor.Size = new System.Drawing.Size( 852, 441 );
         Editor.StatusBarSettings.CoordsPanel.Width = 150;
         Editor.StatusBarSettings.EncodingPanel.Width = 100;
         Editor.StatusBarSettings.FileNamePanel.Width = 100;
@@ -259,7 +258,7 @@ partial class SqlPage
         SqlCommandTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 104F ) );
         SqlCommandTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 299F ) );
         SqlCommandTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 20F ) );
-        SqlCommandTable.Size = new System.Drawing.Size( 352, 509 );
+        SqlCommandTable.Size = new System.Drawing.Size( 342, 509 );
         SqlCommandTable.TabIndex = 4;
         // 
         // ProviderTable
@@ -278,7 +277,7 @@ partial class SqlPage
         ProviderTable.RowCount = 2;
         ProviderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 9.523809F ) );
         ProviderTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 90.47619F ) );
-        ProviderTable.Size = new System.Drawing.Size( 346, 100 );
+        ProviderTable.Size = new System.Drawing.Size( 336, 100 );
         ProviderTable.TabIndex = 5;
         // 
         // SecondPanel
@@ -302,7 +301,7 @@ partial class SqlPage
         SecondPanel.Location = new System.Drawing.Point( 3, 27 );
         SecondPanel.Name = "SecondPanel";
         SecondPanel.Padding = new System.Windows.Forms.Padding( 1 );
-        SecondPanel.Size = new System.Drawing.Size( 340, 70 );
+        SecondPanel.Size = new System.Drawing.Size( 330, 70 );
         SecondPanel.Style = MetroSet_UI.Enums.Style.Custom;
         SecondPanel.StyleManager = null;
         SecondPanel.TabIndex = 3;
@@ -449,7 +448,7 @@ partial class SqlPage
         CommandTable.RowCount = 2;
         CommandTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 10F ) );
         CommandTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 90F ) );
-        CommandTable.Size = new System.Drawing.Size( 346, 96 );
+        CommandTable.Size = new System.Drawing.Size( 336, 96 );
         CommandTable.TabIndex = 1;
         // 
         // ThirdPanel
@@ -470,7 +469,7 @@ partial class SqlPage
         ThirdPanel.Location = new System.Drawing.Point( 3, 27 );
         ThirdPanel.Name = "ThirdPanel";
         ThirdPanel.Padding = new System.Windows.Forms.Padding( 1 );
-        ThirdPanel.Size = new System.Drawing.Size( 340, 66 );
+        ThirdPanel.Size = new System.Drawing.Size( 330, 66 );
         ThirdPanel.Style = MetroSet_UI.Enums.Style.Custom;
         ThirdPanel.StyleManager = null;
         ThirdPanel.TabIndex = 2;
@@ -504,7 +503,7 @@ partial class SqlPage
         SqlComboBox.Name = "SqlComboBox";
         SqlComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
         SqlComboBox.SelectedItemForeColor = System.Drawing.Color.White;
-        SqlComboBox.Size = new System.Drawing.Size( 252, 30 );
+        SqlComboBox.Size = new System.Drawing.Size( 242, 30 );
         SqlComboBox.Style = MetroSet_UI.Enums.Style.Custom;
         SqlComboBox.StyleManager = null;
         SqlComboBox.TabIndex = 0;
@@ -528,7 +527,7 @@ partial class SqlPage
         SqlStatementTable.RowCount = 2;
         SqlStatementTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 3.58422947F ) );
         SqlStatementTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 96.41577F ) );
-        SqlStatementTable.Size = new System.Drawing.Size( 346, 293 );
+        SqlStatementTable.Size = new System.Drawing.Size( 336, 293 );
         SqlStatementTable.TabIndex = 1;
         // 
         // TextPanel
@@ -549,7 +548,7 @@ partial class SqlPage
         TextPanel.Location = new System.Drawing.Point( 3, 28 );
         TextPanel.Name = "TextPanel";
         TextPanel.Padding = new System.Windows.Forms.Padding( 1 );
-        TextPanel.Size = new System.Drawing.Size( 340, 262 );
+        TextPanel.Size = new System.Drawing.Size( 330, 262 );
         TextPanel.Style = MetroSet_UI.Enums.Style.Custom;
         TextPanel.StyleManager = null;
         TextPanel.TabIndex = 1;
@@ -585,7 +584,7 @@ partial class SqlPage
         SqlListBox.SelectedValue = null;
         SqlListBox.ShowBorder = false;
         SqlListBox.ShowScrollBar = false;
-        SqlListBox.Size = new System.Drawing.Size( 311, 221 );
+        SqlListBox.Size = new System.Drawing.Size( 301, 221 );
         SqlListBox.Style = MetroSet_UI.Enums.Style.Custom;
         SqlListBox.StyleManager = null;
         SqlListBox.TabIndex = 0;
@@ -679,7 +678,7 @@ partial class SqlPage
         FourthButton.HoverText = "Close Window";
         FourthButton.HoverTextColor = System.Drawing.Color.White;
         FourthButton.IsDerivedStyle = true;
-        FourthButton.Location = new System.Drawing.Point( 1118, 581 );
+        FourthButton.Location = new System.Drawing.Point( 1106, 581 );
         FourthButton.Margin = new System.Windows.Forms.Padding( 0 );
         FourthButton.Name = "FourthButton";
         FourthButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
@@ -734,34 +733,20 @@ partial class SqlPage
         SecondButton.ThemeName = "BudgetExecution";
         SecondButton.ToolTip = null;
         // 
-        // ContextMenu
-        // 
-        ContextMenu.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-        ContextMenu.DropShadowEnabled = false;
-        ContextMenu.Font = new System.Drawing.Font( "Roboto", 9F );
-        ContextMenu.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-        ContextMenu.MetroColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-        ContextMenu.Name = "ContextMenu";
-        ContextMenu.Size = new System.Drawing.Size( 126, 180 );
-        ContextMenu.Style = Syncfusion.Windows.Forms.Tools.ContextMenuStripEx.ContextMenuStyle.Office2016Black;
-        ContextMenu.ThemeName = "Office2016Black";
-        ContextMenu.ThemeStyle.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-        ContextMenu.ThemeStyle.BorderColor = System.Drawing.Color.FromArgb( 77, 77, 77 );
-        ContextMenu.ThemeStyle.DisabledForeColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-        ContextMenu.ThemeStyle.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-        ContextMenu.ThemeStyle.HoverBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-        ContextMenu.ThemeStyle.HoverForeColor = System.Drawing.Color.White;
-        ContextMenu.ThemeStyle.PressedBackColor = System.Drawing.Color.FromArgb( 204, 204, 204 );
-        ContextMenu.ThemeStyle.PressedForeColor = System.Drawing.Color.Black;
-        // 
         // SqlPage
         // 
         AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+        AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
         BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         BorderColor = System.Drawing.Color.FromArgb( 65, 65, 65 );
-        CaptionFont = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Bold );
-        ClientSize = new System.Drawing.Size( 1340, 648 );
+        CaptionBarColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+        CaptionBarHeight = 5;
+        CaptionButtonColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+        CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+        CaptionFont = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
+        CaptionForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+        ClientSize = new System.Drawing.Size( 1330, 638 );
         ControlBox = false;
         Controls.Add( SecondButton );
         Controls.Add( ThirdButton );
@@ -769,13 +754,16 @@ partial class SqlPage
         Controls.Add( FourthButton );
         Controls.Add( TabControl );
         Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
+        ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
         FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
         Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
         MaximizeBox = false;
         MaximumSize = new System.Drawing.Size( 1340, 648 );
+        MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         MinimizeBox = false;
-        MinimumSize = new System.Drawing.Size( 1340, 648 );
+        MinimumSize = new System.Drawing.Size( 1320, 628 );
         Name = "SqlPage";
+        ShowIcon = false;
         ShowMaximizeBox = false;
         ShowMinimizeBox = false;
         SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
@@ -823,5 +811,4 @@ partial class SqlPage
     public HeaderPanel ProviderTable;
     private HeaderPanel EditorTable;
     public Button SecondButton;
-    public ContextMenu ContextMenu;
 }

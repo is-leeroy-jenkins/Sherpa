@@ -85,11 +85,11 @@
             Frame20 = new Frame( );
             Frame21 = new Frame( );
             Frame44 = new Frame( );
+            BusyTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             ToolTip = new SmallTip( );
             SelectButton = new Button( );
             RefreshButton = new Button( );
             CloseButton = new Button( );
-            BusyTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
             ( (System.ComponentModel.ISupportInitialize)TabControl ).BeginInit( );
             TabControl.SuspendLayout( );
@@ -102,7 +102,7 @@
             TabControl.ActiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.ActiveTabFont = new System.Drawing.Font( "Roboto", 9F );
             TabControl.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            TabControl.BeforeTouchSize = new System.Drawing.Size( 1338, 507 );
+            TabControl.BeforeTouchSize = new System.Drawing.Size( 1328, 507 );
             TabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             TabControl.BorderWidth = 1;
             TabControl.CanOverrideStyle = true;
@@ -118,7 +118,7 @@
             TabControl.Location = new System.Drawing.Point( 1, 1 );
             TabControl.Margin = new System.Windows.Forms.Padding( 1 );
             TabControl.Name = "TabControl";
-            TabControl.Size = new System.Drawing.Size( 1338, 507 );
+            TabControl.Size = new System.Drawing.Size( 1328, 507 );
             TabControl.TabIndex = 8;
             TabControl.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.TabStyle = typeof( Syncfusion.Windows.Forms.Tools.TabRendererMetro );
@@ -148,7 +148,7 @@
             DataTab.Name = "DataTab";
             DataTab.Padding = new System.Windows.Forms.Padding( 1 );
             DataTab.ShowCloseButton = false;
-            DataTab.Size = new System.Drawing.Size( 1338, 485 );
+            DataTab.Size = new System.Drawing.Size( 1328, 485 );
             DataTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataTab.TabForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             DataTab.TabIndex = 8;
@@ -916,6 +916,17 @@
             Frame44.Size = new System.Drawing.Size( 180, 59 );
             Frame44.TabIndex = 43;
             // 
+            // BusyTab
+            // 
+            BusyTab.Image = null;
+            BusyTab.ImageSize = new System.Drawing.Size( 16, 16 );
+            BusyTab.Location = new System.Drawing.Point( 0, 22 );
+            BusyTab.Name = "BusyTab";
+            BusyTab.ShowCloseButton = true;
+            BusyTab.Size = new System.Drawing.Size( 1338, 485 );
+            BusyTab.TabIndex = 9;
+            BusyTab.ThemesEnabled = false;
+            // 
             // ToolTip
             // 
             ToolTip.AutoPopDelay = 5000;
@@ -1038,21 +1049,11 @@
             CloseButton.ThemeName = "BudgetExecution";
             CloseButton.ToolTip = ToolTip;
             // 
-            // BusyTab
-            // 
-            BusyTab.Image = null;
-            BusyTab.ImageSize = new System.Drawing.Size( 16, 16 );
-            BusyTab.Location = new System.Drawing.Point( 0, 0 );
-            BusyTab.Name = "BusyTab";
-            BusyTab.ShowCloseButton = true;
-            BusyTab.Size = new System.Drawing.Size( 200, 100 );
-            BusyTab.TabIndex = 9;
-            BusyTab.ThemesEnabled = false;
-            // 
             // EditPage
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             BorderColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionBarColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
@@ -1061,7 +1062,7 @@
             CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionFont = new System.Drawing.Font( "Roboto", 9.75F );
             CaptionForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            ClientSize = new System.Drawing.Size( 1340, 648 );
+            ClientSize = new System.Drawing.Size( 1330, 638 );
             ControlBox = false;
             Controls.Add( SelectButton );
             Controls.Add( TabControl );
@@ -1076,7 +1077,7 @@
             MaximumSize = new System.Drawing.Size( 1340, 648 );
             MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             MinimizeBox = false;
-            MinimumSize = new System.Drawing.Size( 1340, 648 );
+            MinimumSize = new System.Drawing.Size( 1320, 628 );
             Name = "EditPage";
             Padding = new System.Windows.Forms.Padding( 1 );
             ShowIcon = false;
