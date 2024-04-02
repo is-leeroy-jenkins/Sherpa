@@ -63,12 +63,13 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWithPrivateSetter" ) ]
     public partial class DocViewer : MetroForm
     {
         /// <summary>
         /// The locked object
         /// </summary>
-        private static object KEY;
+        private object _path;
 
         /// <summary>
         /// The busy
@@ -416,7 +417,6 @@ namespace BudgetExecution
             // Form Event Wiring
             Load += OnLoad;
             Shown += OnShown;
-            Closing += OnClosing;
             MouseClick += OnRightClick;
         }
 
@@ -428,7 +428,7 @@ namespace BudgetExecution
             try
             {
                 CloseButton.Click += OnExitButtonClicked;
-                MenuButton.Click += OnMainMenuButtonClicked;
+                MenuButton.Click += OnMenuButtonClicked;
                 RefreshButton.Click += OnRefreshButtonClick;
                 BrowseButton.Click += OnFileBrowserClick;
                 LookupButton.Click += OnLookupButtonClick;
@@ -675,6 +675,36 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Closes the form.
+        /// </summary>
+        public new void Close( )
+        {
+            try
+            {
+                Opacity = 0;
+                if( _seconds != 0 )
+                {
+                    var _timer = new Timer( );
+                    _timer.Interval = 1000;
+                    _timer.Tick += ( sender, args ) =>
+                    {
+                        _time--;
+                        if( _time == _seconds )
+                        {
+                            _timer.Stop( );
+                        }
+                    };
+                }
+
+                base.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Binds the data.
         /// </summary>
         private void BindData( )
@@ -705,17 +735,17 @@ namespace BudgetExecution
         {
             try
             {
-                if( KEY == null )
+                if( _path == null )
                 {
-                    KEY = new object( );
-                    lock( KEY )
+                    _path = new object( );
+                    lock( _path )
                     {
                         _busy = true;
                     }
                 }
                 else
                 {
-                    lock( KEY )
+                    lock( _path )
                     {
                         _busy = true;
                     }
@@ -734,17 +764,17 @@ namespace BudgetExecution
         {
             try
             {
-                if( KEY == null )
+                if( _path == null )
                 {
-                    KEY = new object( );
-                    lock( KEY )
+                    _path = new object( );
+                    lock( _path )
                     {
                         _busy = false;
                     }
                 }
                 else
                 {
-                    lock( KEY )
+                    lock( _path )
                     {
                         _busy = false;
                     }
@@ -922,8 +952,8 @@ namespace BudgetExecution
                     var _row = _dataTable?.Filter( _query )
                         ?.FirstOrDefault( );
 
-                    var _path = _row?[ "Location" ].ToString( );
-                    _documentPaths.Add( _names[ _i ], _path );
+                    var _location = _row?[ "Location" ].ToString( );
+                    _documentPaths.Add( _names[ _i ], _location );
                 }
 
                 return ( _documentPaths?.Any( ) == true )
@@ -1000,37 +1030,13 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnMainMenuButtonClicked( object sender, EventArgs e )
-        {
-            try
-            {
-                OpenMainForm( );
-                Close( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Raises the Close event.
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        public void OnClosing( object sender, EventArgs e )
+        private void OnMenuButtonClicked( object sender, EventArgs e )
         {
             try
             {
                 FadeOut( );
-                Timer?.Dispose( );
-                if( PictureBox?.Image != null )
-                {
-                    PictureBox.Image = null;
-                }
-
-                Close( );
+                base.Close( );
+                OpenMainForm( );
             }
             catch( Exception _ex )
             {

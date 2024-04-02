@@ -511,7 +511,6 @@ namespace BudgetExecution
 
             // Form Even Wiring
             Load += OnLoad;
-            Shown += OnShown;
             Closing += OnClosing;
             MouseClick += OnRightClick;
         }
@@ -2067,10 +2066,10 @@ namespace BudgetExecution
                     if( _selection?.Contains( " " ) == true )
                     {
                         _selectedQuery = _selection.Replace( " ", "" );
-                        var _path = _prefix + _dbpath
+                        var _filePath = _prefix + _dbpath
                             + @$"\{_provider}\DataModels\{_selectedQuery}";
 
-                        var _files = Directory.GetFiles( _path );
+                        var _files = Directory.GetFiles( _filePath );
                         for( var _i = 0; _i < _files.Length; _i++ )
                         {
                             var _item = Path.GetFileNameWithoutExtension( _files[ _i ] );
@@ -2081,10 +2080,10 @@ namespace BudgetExecution
                     else
                     {  
                         _selectedQuery = _comboBox.SelectedItem?.ToString( );
-                        var _path = _prefix + _dbpath
+                        var _filePath = _prefix + _dbpath
                             + @$"\{_provider}\DataModels\{_selectedQuery}";
 
-                        var _names = Directory.GetFiles( _path );
+                        var _names = Directory.GetFiles( _filePath );
                         for( var _i = 0; _i < _names.Length; _i++ )
                         {
                             var _item = Path.GetFileNameWithoutExtension( _names[ _i ] );
@@ -2137,10 +2136,10 @@ namespace BudgetExecution
                     }
                     else
                     {
-                        var _path = _prefix + _dbpath
+                        var _filePath = _prefix + _dbpath
                             + @$"\{_provider}\DataModels\{_selectedCommand}\{_selectedQuery}.sql";
 
-                        using var _stream = File.OpenRead( _path );
+                        using var _stream = File.OpenRead( _filePath );
                         using var _reader = new StreamReader( _stream );
                         var _text = _reader.ReadToEnd( );
                         Editor.Text = _text;
@@ -2220,7 +2219,7 @@ namespace BudgetExecution
             try
             {
                 FadeOut( );
-                Close( );
+                base.Close( );
             }
             catch( Exception _ex )
             {
@@ -2547,24 +2546,6 @@ namespace BudgetExecution
 
                 FadeOut( );
                 Close( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [shown].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnShown( object sender, EventArgs e )
-        {
-            try
-            {
-                FadeIn( );
             }
             catch( Exception _ex )
             {

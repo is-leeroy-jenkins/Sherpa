@@ -420,9 +420,15 @@ namespace BudgetExecution
             _time = 0;
             _seconds = 5;
 
+            // Budget Collections
+            _filter = new Dictionary<string, object>( );
+            _selectedColumns = new List<string>( );
+            _selectedFields = new List<string>( );
+            _selectedNumerics = new List<string>( );
+            _dataArgs = new DataArgs( );
+
             // Wire Events
             Load += OnLoad;
-            Closing += OnClosing;
             Shown += OnShown;
             MouseClick += OnRightClick;
         }
@@ -1000,32 +1006,6 @@ namespace BudgetExecution
             try
             {
                 FadeIn( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Raises the Close event. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        public void OnClosing( object sender, EventArgs e )
-        {
-            try
-            {
-                FadeOut( );
-                Timer?.Dispose( );
-                if( PictureBox?.Image != null )
-                {
-                    PictureBox.Image = null;
-                }
-
-                Close( );
             }
             catch( Exception _ex )
             {

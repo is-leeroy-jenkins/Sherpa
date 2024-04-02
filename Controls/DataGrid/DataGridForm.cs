@@ -91,7 +91,7 @@ namespace BudgetExecution
         /// <summary>
         /// The status update
         /// </summary>
-        private System.Action _statusUpdate;
+        private System.Action _updateStatus;
 
         /// <summary>
         /// The time
@@ -101,7 +101,7 @@ namespace BudgetExecution
         /// <summary>
         /// The seconds
         /// </summary>
-        private protected int _seconds;
+        private int _seconds;
 
         /// <summary>
         /// The count
@@ -774,7 +774,6 @@ namespace BudgetExecution
             Load += OnLoad;
             Shown += OnShown;
             MouseClick += OnRightClick;
-            Closing += OnClosing;
         }
 
         /// <inheritdoc />
@@ -1141,7 +1140,7 @@ namespace BudgetExecution
         /// </summary>
         private void InitializeDelegates( )
         {
-            _statusUpdate += UpdateStatus;
+            _updateStatus += UpdateStatus;
         }
 
         /// <summary>
@@ -2246,7 +2245,7 @@ namespace BudgetExecution
         /// <summary>
         /// Updates the label text.
         /// </summary>
-        private void UpdateLabelText( )
+        private void UpdateLabels( )
         {
             try
             {
@@ -2294,7 +2293,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _form = (MainForm)Program.Windows[ nameof( MainForm ) ];
+                var _form = (MainForm)Program.Windows[ "MainForm" ];
                 _form.StartPosition = FormStartPosition.CenterScreen;
                 _form.TopMost = true;
                 _form.Visible = true;
@@ -2373,7 +2372,7 @@ namespace BudgetExecution
                 DataGrid.PascalizeHeaders( );
                 DataGrid.FormatColumns( );
                 TableListBox.ShowScrollBar = false;
-                UpdateLabelText( );
+                UpdateLabels( );
                 UpdateStatus( );
             }
             catch( Exception _ex )
@@ -2411,7 +2410,7 @@ namespace BudgetExecution
                     DataGrid.PascalizeHeaders( );
                     DataGrid.FormatColumns( );
                     QueryTabControl.SelectedIndex = 1;
-                    UpdateLabelText( );
+                    UpdateLabels( );
                     PopulateFirstComboBoxItems( );
                     ResetListBoxVisibility( );
                 }
@@ -2499,7 +2498,7 @@ namespace BudgetExecution
                     }
 
                     GetData( _filter );
-                    UpdateLabelText( );
+                    UpdateLabels( );
                     _sqlQuery = CreateSqlCommand( _filter );
                     SqlHeader.Text = _sqlQuery;
                 }
@@ -2570,7 +2569,7 @@ namespace BudgetExecution
                     }
 
                     GetData( _filter );
-                    UpdateLabelText( );
+                    UpdateLabels( );
                     _sqlQuery = CreateSqlCommand( _filter );
                 }
                 catch( Exception _ex )
@@ -2645,7 +2644,7 @@ namespace BudgetExecution
                     Filter.Add( _secondCategory, _secondValue );
                     Filter.Add( _thirdCategory, _thirdValue );
                     GetData( _filter );
-                    UpdateLabelText( );
+                    UpdateLabels( );
                     _sqlQuery = CreateSqlCommand( _filter );
                     SqlHeader.Text = _sqlQuery;
                 }
@@ -2705,8 +2704,8 @@ namespace BudgetExecution
             try
             {
                 FadeOut( );
+                base.Close( );
                 OpenMainForm( );
-                Close( );
             }
             catch( Exception _ex )
             {
@@ -2733,7 +2732,7 @@ namespace BudgetExecution
                     DataGrid.PascalizeHeaders( );
                     DataGrid.FormatColumns( );
                     PopulateFirstComboBoxItems( );
-                    UpdateLabelText( );
+                    UpdateLabels( );
                 }
             }
             catch( Exception _ex )
@@ -3067,7 +3066,7 @@ namespace BudgetExecution
             try
             {
                 ClearData( );
-                UpdateLabelText( );
+                UpdateLabels( );
                 QueryTabControl.SelectedIndex = 0;
             }
             catch( Exception _ex )
@@ -3110,34 +3109,7 @@ namespace BudgetExecution
         {
             try
             {
-                InvokeIf( _statusUpdate );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Raises the Close event.
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        public void OnClosing( object sender, EventArgs e )
-        {
-            try
-            {
-                ClearCategoryValueSelections( );
-                ClearSchemaSelections( );
-                FadeOut( );
-                Timer?.Dispose( );
-                if( PictureBox?.Image != null )
-                {
-                    PictureBox.Image = null;
-                }
-
-                Close( );
+                InvokeIf( _updateStatus );
             }
             catch( Exception _ex )
             {

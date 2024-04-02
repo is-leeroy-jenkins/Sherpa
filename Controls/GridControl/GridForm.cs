@@ -495,7 +495,7 @@ namespace BudgetExecution
 
             // Event Wiring
             Load += OnLoad;
-            Closing += OnClosing;
+            Shown += OnShown;
         }
 
         /// <inheritdoc />
@@ -1060,25 +1060,17 @@ namespace BudgetExecution
             InvokeIf( _statusUpdate );
         }
 
-        /// <summary> Raises the Close event. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        public void OnClosing( object sender, EventArgs e )
+        /// <summary>
+        /// Called when [shown].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnShown( object sender, EventArgs e )
         {
             try
             {
-                FadeOut( );
-                Timer?.Dispose( );
-                if( PictureBox?.Image != null )
-                {
-                    PictureBox.Image = null;
-                }
-
-                Close( );
+                FadeIn( );
             }
             catch( Exception _ex )
             {

@@ -391,7 +391,7 @@ namespace BudgetExecution
         {
             try
             {
-                OnClosing( );
+                Close( );
             }
             catch( Exception _ex )
             {

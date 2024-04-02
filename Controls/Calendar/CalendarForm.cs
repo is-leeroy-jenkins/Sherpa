@@ -577,7 +577,6 @@ namespace BudgetExecution
 
             // Event Wiring
             Load += OnLoad;
-            Closing += OnClosing;
             Shown += OnShown;
             MouseClick += OnRightClick;
         }
@@ -650,7 +649,7 @@ namespace BudgetExecution
             try
             {
                 CloseButton.Click += OnCloseButtonClick;
-                MenuButton.Click += OnMainMenuButtonClicked;
+                MenuButton.Click += OnMenuButtonClicked;
                 FirstCalendar.SelectionChanged += OnFirstCalendarSelectionChanged;
                 SecondCalendar.SelectionChanged += OnSecondCalendarSelectionChanged;
                 ChartButton.Click += OnChartButtonClick;
@@ -1146,7 +1145,7 @@ namespace BudgetExecution
         /// <param name="end">
         /// The end.
         /// </param>
-        private void UpdateLabelText( DateTime start, DateTime end )
+        private void UpdateLabels( DateTime start, DateTime end )
         {
             try
             {
@@ -1323,12 +1322,12 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnMainMenuButtonClicked( object sender, EventArgs e )
+        private void OnMenuButtonClicked( object sender, EventArgs e )
         {
             try
             {
                 FadeOut( );
-                Close( );
+                base.Close( );
                 OpenMainForm( );
             }
             catch( Exception _ex )
@@ -1348,7 +1347,7 @@ namespace BudgetExecution
             try
             {
                 FadeOut( );
-                Close( );
+                base.Close( );
             }
             catch( Exception _ex )
             {
@@ -1403,7 +1402,7 @@ namespace BudgetExecution
             {
                 _endDate = DateTime.Parse( SecondCalendar.SelectedDate.ToString( ) );
                 BindChart( _startDate, _endDate );
-                UpdateLabelText( _startDate, _endDate );
+                UpdateLabels( _startDate, _endDate );
             }
             catch( Exception _ex )
             {
@@ -1548,32 +1547,6 @@ namespace BudgetExecution
             try
             {
                 FadeIn( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Raises the Close event. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        public void OnClosing( object sender, EventArgs e )
-        {
-            try
-            {
-                FadeOut( );
-                Timer?.Dispose( );
-                if( PictureBox?.Image != null )
-                {
-                    PictureBox.Image = null;
-                }
-
-                Close( );
             }
             catch( Exception _ex )
             {

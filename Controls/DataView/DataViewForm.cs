@@ -778,7 +778,6 @@ namespace BudgetExecution
             Load += OnLoad;
             Shown += OnShown;
             MouseClick += OnRightClick;
-            Closing += OnClosing;
         }
 
         /// <summary>
@@ -879,7 +878,7 @@ namespace BudgetExecution
                 BindingSource.DataSource = null;
                 DataModel = null;
                 DataTable = null;
-                UpdateLabelText( );
+                UpdateLabels( );
                 SelectionTabControl.SelectedIndex = 0;
             }
             catch( Exception _ex )
@@ -1087,7 +1086,7 @@ namespace BudgetExecution
                 SqlServerRadioButton.CheckedChanged += OnRadioButtonChecked;
                 SqlCeRadioButton.CheckedChanged += OnRadioButtonChecked;
                 ExitButton.Click += OnExitButtonClicked;
-                MenuButton.Click += OnMainMenuButtonClicked;
+                MenuButton.Click += OnMenuButtonClicked;
                 RemoveFiltersButton.Click += OnRemoveFilterButtonClicked;
                 RefreshDataButton.Click += OnRefreshDataButtonClicked;
                 GroupButton.Click += OnGroupButtonClicked;
@@ -1110,7 +1109,7 @@ namespace BudgetExecution
         /// </summary>
         private void InitializeDelegates( )
         {
-            _statusUpdate += UpdateStatusLabel;
+            _statusUpdate += UpdateStatus;
         }
 
         /// <summary>
@@ -1963,7 +1962,7 @@ namespace BudgetExecution
         /// <summary>
         /// Updates the status.
         /// </summary>
-        private void UpdateStatusLabel( )
+        private void UpdateStatus( )
         {
             try
             {
@@ -1981,7 +1980,7 @@ namespace BudgetExecution
         /// <summary>
         /// Updates the label text.
         /// </summary>
-        private void UpdateLabelText( )
+        private void UpdateLabels( )
         {
             try
             {
@@ -2085,8 +2084,8 @@ namespace BudgetExecution
                     TableComboBox.SelectionStart = 0;
                 }
 
-                UpdateLabelText( );
-                UpdateStatusLabel( );
+                UpdateLabels( );
+                UpdateStatus( );
             }
             catch( Exception _ex )
             {
@@ -2121,7 +2120,7 @@ namespace BudgetExecution
                     DataGrid.DataSource = BindingSource;
                     ToolStrip.BindingSource = BindingSource;
                     SelectionTabControl.SelectedIndex = 1;
-                    UpdateLabelText( );
+                    UpdateLabels( );
                     PopulateFirstComboBoxItems( );
                     ResetListBoxVisibility( );
                 }
@@ -2207,7 +2206,7 @@ namespace BudgetExecution
                     }
 
                     GetData( _filter );
-                    UpdateLabelText( );
+                    UpdateLabels( );
                     _sqlQuery = CreateSqlText( _filter );
                 }
                 catch( Exception _ex )
@@ -2281,7 +2280,7 @@ namespace BudgetExecution
                     }
 
                     GetData( _filter );
-                    UpdateLabelText( );
+                    UpdateLabels( );
                     _sqlQuery = CreateSqlText( _filter );
                 }
                 catch( Exception _ex )
@@ -2356,7 +2355,7 @@ namespace BudgetExecution
                     _filter.Add( _secondCategory, _secondValue );
                     _filter.Add( _thirdCategory, _thirdValue );
                     GetData( _filter );
-                    UpdateLabelText( );
+                    UpdateLabels( );
                     _sqlQuery = CreateSqlText( _filter );
                 }
                 catch( Exception _ex )
@@ -2410,13 +2409,13 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnMainMenuButtonClicked( object sender, EventArgs e )
+        private void OnMenuButtonClicked( object sender, EventArgs e )
         {
             try
             {
                 FadeOut( );
+                base.Close( );
                 OpenMainForm( );
-                Close( );
             }
             catch( Exception _ex )
             {
@@ -2448,7 +2447,7 @@ namespace BudgetExecution
                     ToolStrip.BindingSource = BindingSource;
                     SelectionTabControl.SelectedIndex = 1;
                     PopulateFirstComboBoxItems( );
-                    UpdateLabelText( );
+                    UpdateLabels( );
                 }
             }
             catch( Exception _ex )
@@ -2834,27 +2833,6 @@ namespace BudgetExecution
         private void OnTimerTick( object sender, EventArgs e )
         {
             InvokeIf( _statusUpdate );
-        }
-
-        /// <summary>
-        /// Raises the Close event.
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        public void OnClosing( object sender, EventArgs e )
-        {
-            try
-            {
-                ClearSelections( );
-                ClearCollections( );
-                FadeOut( );
-                Close( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
         }
 
         /// <summary>

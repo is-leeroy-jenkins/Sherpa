@@ -78,6 +78,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWithPrivateSetter" ) ]
     public partial class ChartDataForm : MetroForm
     {
         /// <summary>
@@ -865,7 +866,6 @@ namespace BudgetExecution
             // Event Wiring
             Load += OnLoad;
             Shown += OnShown;
-            Closing += OnClosing;
             MouseClick += OnRightClick;
         }
 
@@ -894,7 +894,7 @@ namespace BudgetExecution
                 PreviousButton.Click += OnPreviousButtonClick;
                 NextButton.Click += OnNextButtonClick;
                 LastButton.Click += OnLastButtonClick;
-                MenuButton.Click += OnMainMenuButtonClicked;
+                MenuButton.Click += OnMenuButtonClicked;
                 ExitButton.Click += OnExitButtonClicked;
                 Timer.Tick += OnTimerTick;
                 QueryTabControl.SelectedIndexChanged += OnQueryTabChanged;
@@ -3073,13 +3073,13 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnMainMenuButtonClicked( object sender, EventArgs e )
+        private void OnMenuButtonClicked( object sender, EventArgs e )
         {
             try
             {
                 FadeOut( );
+                base.Close( );
                 OpenMainForm( );
-                Close( );
             }
             catch( Exception _ex )
             {
@@ -3340,33 +3340,6 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Raises the Close event.
-        /// </summary>
-        /// <param name="sender"> </param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        public void OnClosing( object sender, EventArgs e )
-        {
-            try
-            {
-                ClearSelections( );
-                ClearCollections( );
-                FadeOut( );
-                Timer?.Dispose( );
-                if( PictureBox?.Image != null )
-                {
-                    PictureBox.Image = null;
-                }
-
-                Close( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
             }
         }
 

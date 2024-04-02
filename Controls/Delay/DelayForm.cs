@@ -64,6 +64,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Local" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertSwitchStatementToSwitchExpression" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWithPrivateSetter" ) ]
     public partial class DelayForm : MetroForm
     {
         /// <summary>
@@ -216,6 +217,7 @@ namespace BudgetExecution
         public DelayForm( )
         {
             InitializeComponent( );
+            InitializeDelegates( );
             RegisterCallbacks( );
 
             // Basic Form Properties
@@ -251,7 +253,6 @@ namespace BudgetExecution
 
             // Form Event Wiring
             Load += OnLoad;
-            Closing += OnClosing;
             Shown += OnShown;
         }
 
@@ -275,6 +276,7 @@ namespace BudgetExecution
         {
             try
             {
+                InitializeTimer( );
             }
             catch( Exception _ex )
             {
@@ -307,6 +309,8 @@ namespace BudgetExecution
                 // Timer Properties
                 Timer.Enabled = true;
                 Timer.Interval = 500;
+                Timer.Tick += OnTimerTick;
+                Timer.Start( );
             }
             catch( Exception _ex )
             {
@@ -590,32 +594,6 @@ namespace BudgetExecution
             catch( Exception _ex )
             {
                 PictureBox.Image?.Dispose( );
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Raises the Close event. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        public void OnClosing( object sender, EventArgs e )
-        {
-            try
-            {
-                FadeOut( );
-                Timer?.Dispose( );
-                if( PictureBox?.Image != null )
-                {
-                    PictureBox.Image = null;
-                }
-
-                Close( );
-            }
-            catch( Exception _ex )
-            {
                 Fail( _ex );
             }
         }

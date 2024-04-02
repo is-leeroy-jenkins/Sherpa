@@ -72,12 +72,13 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Local" ) ]
     [ SuppressMessage( "ReSharper", "RedundantCheckBeforeAssignment" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWithPrivateSetter" ) ]
     public partial class SqlDataForm : EditBase
     {
         /// <summary>
         /// The locked object
         /// </summary>
-        private protected object _path;
+        private object _path;
 
         /// <summary>
         /// The busy
@@ -431,9 +432,7 @@ namespace BudgetExecution
         {
             get
             {
-                return ( _commands?.Any( ) == true )
-                    ? _commands
-                    : new List<string>( );
+                return _commands;
             }
             private set
             {
@@ -451,9 +450,7 @@ namespace BudgetExecution
         {
             get
             {
-                return ( _statements?.Any( ) == true )
-                    ? _statements
-                    : new Dictionary<string, object>( );
+                return _statements;
             }
             private set
             {
@@ -537,7 +534,6 @@ namespace BudgetExecution
             // Form Even Wiring
             Load += OnLoad;
             Shown += OnShown;
-            Closing += OnClosing;
             MouseClick += OnRightClick;
         }
 
@@ -576,7 +572,7 @@ namespace BudgetExecution
                 EditDataButton.Click += OnEditDataButtonClick;
                 TableButton.Click += OnTableButtonClick;
                 LookupButton.Click += OnLookupButtonClick;
-                MenuButton.Click += OnMainMenuButtonClicked;
+                MenuButton.Click += OnMenuButtonClicked;
                 ClientButton.Click += OnClientButtonClick;
                 TableListBox.SelectedIndexChanged += OnTableListBoxSelectionChanged;
                 ColumnListBox.SelectedIndexChanged += OnColumnListBoxSelectionChanged;
@@ -1501,10 +1497,10 @@ namespace BudgetExecution
         {
             try
             {
-                var _path = AppSettings[ "ProviderImages" ];
-                if( !string.IsNullOrEmpty( _path ) )
+                var _filePath = AppSettings[ "ProviderImages" ];
+                if( !string.IsNullOrEmpty( _filePath ) )
                 {
-                    var _files = GetFiles( _path );
+                    var _files = GetFiles( _filePath );
                     if( _files?.Any( ) == true )
                     {
                         var _name = _provider.ToString( );
@@ -1800,8 +1796,8 @@ namespace BudgetExecution
                 {
                     var _prefix = AppSettings[ "PathPrefix" ];
                     var _dbpath = AppSettings[ "DatabaseDirectory" ];
-                    var _path = _prefix + _dbpath + @$"\{provider}\DataModels\";
-                    var _names = GetDirectories( _path );
+                    var _filePath = _prefix + _dbpath + @$"\{provider}\DataModels\";
+                    var _names = GetDirectories( _filePath );
                     var _list = new List<string>( );
                     for( var _i = 0; _i < _names.Length; _i++ )
                     {
@@ -1843,8 +1839,8 @@ namespace BudgetExecution
                 {
                     var _prefix = AppSettings[ "PathPrefix" ];
                     var _dbpath = AppSettings[ "DatabaseDirectory" ];
-                    var _path = _prefix + _dbpath + @$"\{provider}\DataModels\";
-                    var _names = GetDirectories( _path );
+                    var _filePath = _prefix + _dbpath + @$"\{provider}\DataModels\";
+                    var _names = GetDirectories( _filePath );
                     var _list = new List<string>( );
                     for( var _i = 0; _i < _names.Length; _i++ )
                     {
@@ -1923,7 +1919,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _form = (MainForm)Program.Windows[ nameof( MainForm ) ];
+                var _form = (MainForm)Program.Windows[ "MainForm" ];
                 _form.StartPosition = FormStartPosition.CenterScreen;
                 _form.TopMost = true;
                 _form.Visible = true;
@@ -2456,12 +2452,12 @@ namespace BudgetExecution
         /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        private void OnMainMenuButtonClicked( object sender, EventArgs e )
+        private void OnMenuButtonClicked( object sender, EventArgs e )
         {
             try
             {
                 FadeOut( );
-                Close( );
+                base.Close( );
                 OpenMainForm( );
             }
             catch( Exception _ex )
@@ -2568,38 +2564,6 @@ namespace BudgetExecution
             try
             {
                 InvokeIf( _statusUpdate );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Raises the Close event.
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        public void OnClosing( object sender, EventArgs e )
-        {
-            try
-            {
-                ClearSelections( );
-                ClearCollections( );
-                PictureBox.Image?.Dispose( );
-                if( _dataModel != null )
-                {
-                    _dataModel = null;
-                }
-
-                if( _dataTable != null )
-                {
-                    _dataTable = null;
-                }
-
-                FadeOut( );
-                Close( );
             }
             catch( Exception _ex )
             {

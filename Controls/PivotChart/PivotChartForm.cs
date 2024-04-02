@@ -71,6 +71,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWithPrivateSetter" ) ]
     public partial class PivotChartForm : MetroForm
     {
         /// <summary>
@@ -734,6 +735,10 @@ namespace BudgetExecution
             // Default Provider
             _provider = Provider.Access;
 
+            // Timer Properties
+            _time = 0;
+            _seconds = 5;
+
             // Budget Attributes
             _labels = new Dictionary<string, Label>( );
             _filter = new Dictionary<string, object>( );
@@ -745,12 +750,10 @@ namespace BudgetExecution
             _selectedNumerics = new List<string>( );
             _dataArgs = new DataArgs( );
 
-            // Timer Properties
-            _time = 0;
-            _seconds = 5;
-
             // Wire Events
             Load += OnLoad;
+            Shown += OnShown;
+            MouseClick += OnRightClick;
         }
 
         /// <summary>
@@ -1859,8 +1862,8 @@ namespace BudgetExecution
             try
             {
                 FadeOut( );
+                base.Close( );
                 OpenMainForm( );
-                Close( );
             }
             catch( Exception _ex )
             {
@@ -2168,6 +2171,24 @@ namespace BudgetExecution
 
                 var _message = "The Pivot Button has been pressed!";
                 SendMessage( _message );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [shown].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnShown( object sender, EventArgs e )
+        {
+            try
+            {
+                FadeIn( );
             }
             catch( Exception _ex )
             {

@@ -73,7 +73,7 @@ namespace BudgetExecution
         /// <summary>
         /// The locked object
         /// </summary>
-        private static object KEY;
+        private object _path;
 
         /// <summary>
         /// The busy
@@ -730,6 +730,8 @@ namespace BudgetExecution
         public PivotGridForm( )
         {
             InitializeComponent( );
+            InitializeDelegates( );
+            RegisterCallbacks( );
 
             // Basic Properties
             Size = new Size( 1340, 740 );
@@ -761,6 +763,25 @@ namespace BudgetExecution
             MinimizeBox = false;
             MaximizeBox = false;
             ControlBox = false;
+
+            // Data Properties
+            _provider = Provider.Access;
+
+            // Timer Properties
+            _time = 0;
+            _seconds = 5;
+
+            // Budget Collections
+            _filter = new Dictionary<string, object>( );
+            _selectedColumns = new List<string>( );
+            _selectedFields = new List<string>( );
+            _selectedNumerics = new List<string>( );
+            _dataArgs = new DataArgs( );
+
+            // Event Wiring
+            Load += OnLoad;
+            Shown += OnShown;
+            MouseClick += OnRightClick;
         }
 
         /// <summary>
@@ -949,7 +970,7 @@ namespace BudgetExecution
         {
             try
             {
-                MenuButton.Click += OnMainMenuButtonClicked;
+                MenuButton.Click += OnMenuButtonClicked;
                 CloseButton.Click += OnExitButtonClicked;
                 Timer.Tick += OnTimerTick;
                 TabControl.SelectedIndexChanged += OnActiveTabChanged;
@@ -968,17 +989,17 @@ namespace BudgetExecution
         {
             try
             {
-                if( KEY == null )
+                if( _path == null )
                 {
-                    KEY = new object( );
-                    lock( KEY )
+                    _path = new object( );
+                    lock( _path )
                     {
                         _busy = true;
                     }
                 }
                 else
                 {
-                    lock( KEY )
+                    lock( _path )
                     {
                         _busy = true;
                     }
@@ -997,23 +1018,22 @@ namespace BudgetExecution
         {
             try
             {
-                if( KEY == null )
+                if( _path == null )
                 {
-                    KEY = new object( );
-                    lock( KEY )
+                    _path = new object( );
+                    lock( _path )
                     {
                         _busy = false;
                     }
                 }
                 else
                 {
-                    lock( KEY )
+                    lock( _path )
                     {
                         _busy = false;
                     }
                 }
             }
-
             catch( Exception _ex )
             {
                 Fail( _ex );
@@ -1891,13 +1911,13 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnMainMenuButtonClicked( object sender, EventArgs e )
+        private void OnMenuButtonClicked( object sender, EventArgs e )
         {
             try
             {
                 FadeOut( );
+                base.Close( );
                 OpenMainForm( );
-                Close( );
             }
             catch( Exception _ex )
             {
@@ -2059,18 +2079,16 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Raises the Close event.
+        /// Called when [shown].
         /// </summary>
-        /// <param name="sender"> </param>
+        /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        public void OnClosing( object sender, EventArgs e )
+        private void OnShown( object sender, EventArgs e )
         {
             try
             {
-                ClearSelections( );
-                ClearCollections( );
-                FadeOut( );
+                FadeIn( );
             }
             catch( Exception _ex )
             {
