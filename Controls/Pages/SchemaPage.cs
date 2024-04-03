@@ -87,6 +87,36 @@ namespace BudgetExecution
         private protected int _seconds;
 
         /// <summary>
+        /// The first category
+        /// </summary>
+        private string _firstCategory;
+
+        /// <summary>
+        /// The first value
+        /// </summary>
+        private string _firstValue;
+
+        /// <summary>
+        /// The second category
+        /// </summary>
+        private string _secondCategory;
+
+        /// <summary>
+        /// The second value
+        /// </summary>
+        private string _secondValue;
+
+        /// <summary>
+        /// The third category
+        /// </summary>
+        private string _thirdCategory;
+
+        /// <summary>
+        /// The third value
+        /// </summary>
+        private string _thirdValue;
+
+        /// <summary>
         ///  
         /// </summary>
         /// <value>
@@ -289,7 +319,7 @@ namespace BudgetExecution
                 SqlServerRadioButton.CheckedChanged += OnRadioButtonChecked;
                 SQLiteRadioButton.CheckedChanged += OnRadioButtonChecked;
                 SqlCeRadioButton.CheckedChanged += OnRadioButtonChecked;
-                CloseButton.Click += OnCloseButtonClicked;
+                CloseButton.Click += OnCloseButtonClick;
                 DataTab.MouseClick += OnRightClick;
             }
             catch( Exception _ex )
@@ -833,6 +863,26 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Clears the selections.
+        /// </summary>
+        private void ClearSelections( )
+        {
+            try
+            {
+                _thirdCategory = string.Empty;
+                _thirdValue = string.Empty;
+                _secondCategory = string.Empty;
+                _secondValue = string.Empty;
+                _firstCategory = string.Empty;
+                _firstValue = string.Empty;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Updates the labels.
         /// </summary>
         private void UpdateLabels( )
@@ -900,23 +950,25 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [close button clicked]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        private void OnCloseButtonClicked( object sender, EventArgs e )
+        /// <summary>
+        /// Called when [close button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnCloseButtonClick( object sender, EventArgs e )
         {
-            try
+            if( sender is Button _button )
             {
-                FadeOut( );
-                Close( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
+                try
+                {
+                    FadeOut( );
+                    Close( );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
             }
         }
 

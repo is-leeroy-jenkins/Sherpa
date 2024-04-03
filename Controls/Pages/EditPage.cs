@@ -616,7 +616,7 @@ namespace BudgetExecution
             // Control Event Wiring
             try
             {
-                CloseButton.Click += OnCloseButtonClicked;
+                CloseButton.Click += OnCloseButtonClick;
                 DataTab.MouseClick += OnRightClick;
                 RefreshButton.Click += OnClearButtonClicked;
             }
@@ -697,36 +697,6 @@ namespace BudgetExecution
                 }
 
                 base.ShowDialog( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Closes the form.
-        /// </summary>
-        public new void Close( )
-        {
-            try
-            {
-                Opacity = 0;
-                if( _seconds != 0 )
-                {
-                    var _timer = new Timer( );
-                    _timer.Interval = 1000;
-                    _timer.Tick += ( sender, args ) =>
-                    {
-                        _time--;
-                        if( _time == _seconds )
-                        {
-                            _timer.Stop( );
-                        }
-                    };
-                }
-
-                base.Close( );
             }
             catch( Exception _ex )
             {
@@ -1317,21 +1287,24 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [close button clicked].
+        /// Called when [close button click].
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private protected void OnCloseButtonClicked( object sender, EventArgs e )
+        private void OnCloseButtonClick( object sender, EventArgs e )
         {
-            try
+            if( sender is Button _button )
             {
-                FadeOut( );
-                Close( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
+                try
+                {
+                    FadeOut( );
+                    Close( );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
             }
         }
 

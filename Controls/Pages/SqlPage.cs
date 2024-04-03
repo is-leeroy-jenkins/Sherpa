@@ -403,7 +403,7 @@ namespace BudgetExecution
         {
             try
             {
-                FourthButton.Click += OnCloseButtonClicked;
+                FourthButton.Click += OnCloseButtonClick;
             }
             catch( Exception _ex )
             {
@@ -1279,21 +1279,24 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [close button clicked].
+        /// Called when [close button click].
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private protected void OnCloseButtonClicked( object sender, EventArgs e )
+        private void OnCloseButtonClick( object sender, EventArgs e )
         {
-            try
+            if( sender is Button _button )
             {
-                FadeOut( );
-                Close( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
+                try
+                {
+                    FadeOut( );
+                    Close( );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
             }
         }
 

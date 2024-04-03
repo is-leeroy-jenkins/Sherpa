@@ -2183,15 +2183,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    ClearSelections( );
-                    BindingSource.DataSource = null;
-                    _dataTable = null;
-                    _dataModel = null;
-                    if( Owner?.Visible == false )
-                    {
-                        Owner.Visible = true;
-                    }
-
+                    FadeOut( );
                     Close( );
                 }
                 catch( Exception _ex )

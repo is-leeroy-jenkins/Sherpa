@@ -447,10 +447,10 @@ namespace BudgetExecution
         {
             try
             {
-                PictureBox.Size = new Size( 22, 22 );
+                PictureBox.Size = new Size( 18, 18 );
                 PictureBox.Padding = new Padding( 1 );
                 PictureBox.Margin = new Padding( 1 );
-                PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                PictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             }
             catch( Exception _ex )
             {
@@ -511,6 +511,36 @@ namespace BudgetExecution
                 }
 
                 base.ShowDialog( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Closes the form.
+        /// </summary>
+        public new void Close( )
+        {
+            try
+            {
+                Opacity = 0;
+                if( _seconds != 0 )
+                {
+                    Timer = new Timer( );
+                    Timer.Interval = 1000;
+                    Timer.Tick += ( sender, args ) =>
+                    {
+                        _time--;
+                        if( _time == _seconds )
+                        {
+                            Timer.Stop( );
+                        }
+                    };
+                }
+
+                base.Close( );
             }
             catch( Exception _ex )
             {

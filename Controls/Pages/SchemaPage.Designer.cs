@@ -923,7 +923,7 @@
             CloseButton.Style = MetroSet_UI.Enums.Style.Custom;
             CloseButton.StyleManager = null;
             CloseButton.TabIndex = 6;
-            CloseButton.Text = "Exit";
+            CloseButton.Text = "Close";
             CloseButton.ThemeAuthor = "Terry D. Eppler";
             CloseButton.ThemeName = "BudgetExecution";
             CloseButton.ToolTip = ToolTip;

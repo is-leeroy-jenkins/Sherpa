@@ -301,7 +301,6 @@ namespace BudgetExecution
             // 
             TabControl.ActiveTabColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.ActiveTabFont = new System.Drawing.Font( "Roboto", 9F );
-            TabControl.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             TabControl.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             TabControl.BeforeTouchSize = new System.Drawing.Size( 951, 587 );
             TabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -368,7 +367,7 @@ namespace BudgetExecution
             EditorTable.Controls.Add( EditorPanel, 0, 1 );
             EditorTable.Font = new System.Drawing.Font( "Roboto", 9F );
             EditorTable.ForeColor = System.Drawing.Color.DarkGray;
-            EditorTable.Location = new System.Drawing.Point( 33, 7 );
+            EditorTable.Location = new System.Drawing.Point( 16, 7 );
             EditorTable.Name = "EditorTable";
             EditorTable.RowCount = 2;
             EditorTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 2.15264177F ) );
@@ -494,7 +493,7 @@ namespace BudgetExecution
             DataGridTable.RowCount = 2;
             DataGridTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 1.4678899F ) );
             DataGridTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 98.53211F ) );
-            DataGridTable.Size = new System.Drawing.Size( 908, 573 );
+            DataGridTable.Size = new System.Drawing.Size( 908, 558 );
             DataGridTable.TabIndex = 39;
             // 
             // DataGridPanel
@@ -511,7 +510,7 @@ namespace BudgetExecution
             DataGridPanel.ForeColor = System.Drawing.Color.Transparent;
             DataGridPanel.HoverText = null;
             DataGridPanel.IsDerivedStyle = true;
-            DataGridPanel.Location = new System.Drawing.Point( 3, 27 );
+            DataGridPanel.Location = new System.Drawing.Point( 3, 26 );
             DataGridPanel.Name = "DataGridPanel";
             DataGridPanel.Padding = new System.Windows.Forms.Padding( 1 );
             DataGridPanel.Size = new System.Drawing.Size( 902, 528 );
@@ -1423,7 +1422,7 @@ namespace BudgetExecution
             // 
             // SqlCommandTable
             // 
-            SqlCommandTable.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            SqlCommandTable.Anchor =  System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Right ;
             SqlCommandTable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             SqlCommandTable.ColumnCount = 1;
             SqlCommandTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 100F ) );

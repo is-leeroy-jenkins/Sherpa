@@ -29,12 +29,12 @@
         private void InitializeComponent( )
         {
             components = new System.ComponentModel.Container( );
-            var config1 = new Syncfusion.Windows.Forms.Edit.Implementation.Config.Config( );
-            var dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle( );
-            var dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle( );
-            var dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle( );
-            var dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle( );
-            var dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle( );
+            var config2 = new Syncfusion.Windows.Forms.Edit.Implementation.Config.Config( );
+            var dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle( );
+            var dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle( );
+            var dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle( );
+            var dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle( );
+            var dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle( );
             var resources = new System.ComponentModel.ComponentResourceManager( typeof( SqlEditForm ) );
             BindingSource = new System.Windows.Forms.BindingSource( components );
             ToolTip = new SmallTip( );
@@ -84,9 +84,10 @@
             ClientSeparator = new ToolSeparator( );
             BrowserButton = new ToolStripButton( );
             Separator16 = new ToolSeparator( );
-            MainMenuButton = new ToolStripButton( );
+            MenuButton = new ToolStripButton( );
             Separator17 = new ToolSeparator( );
             MenuSeparator = new ToolSeparator( );
+            ApplicationLabel = new ToolStripLabel( );
             MenuLabel = new ToolStripLabel( );
             Separator1 = new ToolSeparator( );
             Timer = new System.Windows.Forms.Timer( components );
@@ -133,7 +134,6 @@
             BusyPanel = new BackPanel( );
             Loader = new System.Windows.Forms.PictureBox( );
             ContextMenu = new ContextMenu( );
-            ApplicationLabel = new ToolStripLabel( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
             HeaderTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
@@ -462,7 +462,7 @@
             ToolStrip.Image = null;
             ToolStrip.ImageDirectory = null;
             ToolStrip.ImageSize = new System.Drawing.Size( 0, 0 );
-            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { CloseButton, Separator18, StatusLabel, NavigationSpacer, Separator2, FirstButton, Separator3, PreviousButton, Separator4, NextButton, Separator5, LastButton, Separator6, DataLabel, Separator7, GoButton, Separator8, RefreshButton, Separator9, EditSqlButton, Separator11, EditDataButton, Separator12, TableButton, TableSeparator, LookupButton, Separator13, SaveButton, Separator14, FileSystemLabel, Separator15, ClientButton, ClientSeparator, BrowserButton, Separator16, MainMenuButton, Separator17, MenuSeparator, ApplicationLabel } );
+            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { CloseButton, Separator18, StatusLabel, NavigationSpacer, Separator2, FirstButton, Separator3, PreviousButton, Separator4, NextButton, Separator5, LastButton, Separator6, DataLabel, Separator7, GoButton, Separator8, RefreshButton, Separator9, EditSqlButton, Separator11, EditDataButton, Separator12, TableButton, TableSeparator, LookupButton, Separator13, SaveButton, Separator14, FileSystemLabel, Separator15, ClientButton, ClientSeparator, BrowserButton, Separator16, MenuButton, Separator17, MenuSeparator, ApplicationLabel } );
             ToolStrip.LastButton = null;
             ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
             ToolStrip.Location = new System.Drawing.Point( 1, 1 );
@@ -994,27 +994,27 @@
             Separator16.Padding = new System.Windows.Forms.Padding( 1 );
             Separator16.Size = new System.Drawing.Size( 6, 25 );
             // 
-            // MainMenuButton
+            // MenuButton
             // 
-            MainMenuButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            MainMenuButton.AutoToolTip = false;
-            MainMenuButton.BackColor = System.Drawing.Color.Transparent;
-            MainMenuButton.BindingSource = BindingSource;
-            MainMenuButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            MainMenuButton.Field = Field.AccountCode;
-            MainMenuButton.Filter = null;
-            MainMenuButton.Font = new System.Drawing.Font( "Roboto", 9F );
-            MainMenuButton.ForeColor = System.Drawing.Color.LightGray;
-            MainMenuButton.HoverText = "Main Menu";
-            MainMenuButton.Image = Resources.Images.ToolStripImages.WebMenuButton;
-            MainMenuButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            MainMenuButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
-            MainMenuButton.Name = "MainMenuButton";
-            MainMenuButton.Padding = new System.Windows.Forms.Padding( 1 );
-            MainMenuButton.Size = new System.Drawing.Size( 23, 25 );
-            MainMenuButton.Text = "toolStripButton1";
-            MainMenuButton.ToolTip = ToolTip;
-            MainMenuButton.ToolType = ToolType.MenuButton;
+            MenuButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            MenuButton.AutoToolTip = false;
+            MenuButton.BackColor = System.Drawing.Color.Transparent;
+            MenuButton.BindingSource = BindingSource;
+            MenuButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            MenuButton.Field = Field.AccountCode;
+            MenuButton.Filter = null;
+            MenuButton.Font = new System.Drawing.Font( "Roboto", 9F );
+            MenuButton.ForeColor = System.Drawing.Color.LightGray;
+            MenuButton.HoverText = "Main Menu";
+            MenuButton.Image = Resources.Images.ToolStripImages.WebMenuButton;
+            MenuButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            MenuButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            MenuButton.Name = "MenuButton";
+            MenuButton.Padding = new System.Windows.Forms.Padding( 1 );
+            MenuButton.Size = new System.Drawing.Size( 23, 25 );
+            MenuButton.Text = "toolStripButton1";
+            MenuButton.ToolTip = ToolTip;
+            MenuButton.ToolType = ToolType.MenuButton;
             // 
             // Separator17
             // 
@@ -1032,6 +1032,24 @@
             MenuSeparator.Name = "MenuSeparator";
             MenuSeparator.Padding = new System.Windows.Forms.Padding( 1 );
             MenuSeparator.Size = new System.Drawing.Size( 6, 25 );
+            // 
+            // ApplicationLabel
+            // 
+            ApplicationLabel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            ApplicationLabel.BackColor = System.Drawing.Color.Transparent;
+            ApplicationLabel.BindingSource = null;
+            ApplicationLabel.DataFilter = null;
+            ApplicationLabel.Field = Field.AccountCode;
+            ApplicationLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
+            ApplicationLabel.ForeColor = System.Drawing.Color.Black;
+            ApplicationLabel.HoverText = null;
+            ApplicationLabel.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            ApplicationLabel.Name = "ApplicationLabel";
+            ApplicationLabel.Padding = new System.Windows.Forms.Padding( 1 );
+            ApplicationLabel.Size = new System.Drawing.Size( 94, 25 );
+            ApplicationLabel.Tag = "";
+            ApplicationLabel.Text = "                     Menu:          ";
+            ApplicationLabel.ToolTip = null;
             // 
             // MenuLabel
             // 
@@ -1184,7 +1202,7 @@
             Editor.ChangedLinesMarkingLineColor = System.Drawing.Color.FromArgb( 255, 238, 98 );
             Editor.CodeSnipptSize = new System.Drawing.Size( 100, 100 );
             Editor.ColumnGuidesMeasuringFont = new System.Drawing.Font( "Roboto", 8F );
-            Editor.Configurator = config1;
+            Editor.Configurator = config2;
             Editor.ContextChoiceBackColor = System.Drawing.SystemColors.ControlLight;
             Editor.ContextChoiceBorderColor = System.Drawing.Color.FromArgb( 233, 166, 50 );
             Editor.ContextPromptBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
@@ -1294,36 +1312,36 @@
             // DataGrid
             // 
             DataGrid.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb( 50, 50, 50 );
-            dataGridViewCellStyle1.Font = new System.Drawing.Font( "Roboto", 8F );
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb( 26, 79, 125 );
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb( 50, 50, 50 );
+            dataGridViewCellStyle6.Font = new System.Drawing.Font( "Roboto", 8F );
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb( 26, 79, 125 );
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             DataGrid.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             DataGrid.BackgroundColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             DataGrid.BindingSource = null;
             DataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             DataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             DataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font( "Roboto", 9F );
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb( 26, 79, 125 );
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font( "Roboto", 9F );
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb( 26, 79, 125 );
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DataGrid.DataFilter = null;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            dataGridViewCellStyle3.Font = new System.Drawing.Font( "Roboto", 8F );
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb( 26, 79, 125 );
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            DataGrid.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            dataGridViewCellStyle8.Font = new System.Drawing.Font( "Roboto", 8F );
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb( 26, 79, 125 );
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            DataGrid.DefaultCellStyle = dataGridViewCellStyle8;
             DataGrid.EnableHeadersVisualStyles = false;
             DataGrid.Font = new System.Drawing.Font( "Roboto", 8F );
             DataGrid.GridColor = System.Drawing.Color.FromArgb( 141, 139, 138 );
@@ -1332,22 +1350,22 @@
             DataGrid.MultiSelect = false;
             DataGrid.Name = "DataGrid";
             DataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb( 50, 50, 50 );
-            dataGridViewCellStyle4.Font = new System.Drawing.Font( "Roboto", 8F );
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            DataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb( 50, 50, 50 );
+            dataGridViewCellStyle9.Font = new System.Drawing.Font( "Roboto", 8F );
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            DataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             DataGrid.RowHeadersWidth = 20;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            dataGridViewCellStyle5.Font = new System.Drawing.Font( "Roboto", 8F );
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb( 26, 79, 125 );
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            DataGrid.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            dataGridViewCellStyle10.Font = new System.Drawing.Font( "Roboto", 8F );
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb( 26, 79, 125 );
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
+            DataGrid.RowsDefaultCellStyle = dataGridViewCellStyle10;
             DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             DataGrid.Size = new System.Drawing.Size( 851, 469 );
             DataGrid.TabIndex = 0;
@@ -2182,12 +2200,13 @@
             // ContextMenu
             // 
             ContextMenu.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ContextMenu.CanOverrideStyle = true;
             ContextMenu.DropShadowEnabled = false;
             ContextMenu.Font = new System.Drawing.Font( "Roboto", 9F );
             ContextMenu.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             ContextMenu.MetroColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             ContextMenu.Name = "ContextMenu";
-            ContextMenu.Size = new System.Drawing.Size( 126, 180 );
+            ContextMenu.Size = new System.Drawing.Size( 184, 312 );
             ContextMenu.Style = Syncfusion.Windows.Forms.Tools.ContextMenuStripEx.ContextMenuStyle.Office2016Black;
             ContextMenu.ThemeName = "Office2016Black";
             ContextMenu.ThemeStyle.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
@@ -2198,24 +2217,6 @@
             ContextMenu.ThemeStyle.HoverForeColor = System.Drawing.Color.White;
             ContextMenu.ThemeStyle.PressedBackColor = System.Drawing.Color.FromArgb( 204, 204, 204 );
             ContextMenu.ThemeStyle.PressedForeColor = System.Drawing.Color.Black;
-            // 
-            // ApplicationLabel
-            // 
-            ApplicationLabel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            ApplicationLabel.BackColor = System.Drawing.Color.Transparent;
-            ApplicationLabel.BindingSource = null;
-            ApplicationLabel.DataFilter = null;
-            ApplicationLabel.Field = Field.AccountCode;
-            ApplicationLabel.Font = new System.Drawing.Font( "Roboto", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
-            ApplicationLabel.ForeColor = System.Drawing.Color.Black;
-            ApplicationLabel.HoverText = null;
-            ApplicationLabel.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
-            ApplicationLabel.Name = "ApplicationLabel";
-            ApplicationLabel.Padding = new System.Windows.Forms.Padding( 1 );
-            ApplicationLabel.Size = new System.Drawing.Size( 94, 25 );
-            ApplicationLabel.Tag = "";
-            ApplicationLabel.Text = "                     Menu:          ";
-            ApplicationLabel.ToolTip = null;
             // 
             // SqlEditForm
             // 
@@ -2339,7 +2340,7 @@
         public ToolSeparator ClientSeparator;
         public ToolStripButton BrowserButton;
         public ToolSeparator Separator16;
-        public ToolStripButton MainMenuButton;
+        public ToolStripButton MenuButton;
         public ToolSeparator Separator17;
         public System.Windows.Forms.Timer Timer;
         public ToolSeparator Separator18;

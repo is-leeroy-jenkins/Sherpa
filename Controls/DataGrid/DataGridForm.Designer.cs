@@ -31,11 +31,11 @@
         private void InitializeComponent( )
         {
             components = new System.ComponentModel.Container( );
-            var dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle( );
-            var dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle( );
-            var dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle( );
-            var dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle( );
-            var dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle( );
+            var dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle( );
+            var dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle( );
+            var dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle( );
+            var dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle( );
+            var dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle( );
             var resources = new System.ComponentModel.ComponentResourceManager( typeof( DataGridForm ) );
             BindingSource = new System.Windows.Forms.BindingSource( components );
             ToolTip = new SmallTip( );
@@ -75,7 +75,7 @@
             Separator23 = new ToolSeparator( );
             Separator1 = new ToolSeparator( );
             Separator25 = new ToolSeparator( );
-            toolSeparator24 = new ToolSeparator( );
+            new ToolSeparator( );
             QueryTabControl = new TabControl( );
             SourceTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             SourceTable = new HeaderPanel( );
@@ -118,13 +118,12 @@
             ColumnSeparator = new ToolSeparator( );
             RefreshDataButton = new ToolStripButton( );
             RefreshDataSeparator = new ToolSeparator( );
-            SaveButton = new ToolStripButton( );
             GroupButton = new ToolStripButton( );
             GroupSeparator = new ToolSeparator( );
             EditSqlButton = new ToolStripButton( );
             EditSqlSeparator = new ToolSeparator( );
             ChartSeparator = new ToolSeparator( );
-            ExcelImportButton = new ToolStripButton( );
+            SaveButton = new ToolStripButton( );
             ExcelImportSeparator = new ToolSeparator( );
             CalendarSeparator = new ToolSeparator( );
             BrowseButton = new ToolStripButton( );
@@ -354,36 +353,36 @@
             // DataGrid
             // 
             DataGrid.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb( 50, 50, 50 );
-            dataGridViewCellStyle1.Font = new System.Drawing.Font( "Roboto", 8F );
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb( 26, 79, 125 );
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb( 50, 50, 50 );
+            dataGridViewCellStyle6.Font = new System.Drawing.Font( "Roboto", 8F );
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb( 26, 79, 125 );
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            DataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             DataGrid.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
             DataGrid.BackgroundColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             DataGrid.BindingSource = null;
             DataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             DataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             DataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font( "Roboto", 9F );
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb( 26, 79, 125 );
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font( "Roboto", 9F );
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb( 26, 79, 125 );
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DataGrid.DataFilter = null;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            dataGridViewCellStyle3.Font = new System.Drawing.Font( "Roboto", 8F );
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb( 26, 79, 125 );
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            DataGrid.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            dataGridViewCellStyle8.Font = new System.Drawing.Font( "Roboto", 8F );
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb( 26, 79, 125 );
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            DataGrid.DefaultCellStyle = dataGridViewCellStyle8;
             DataGrid.EnableHeadersVisualStyles = false;
             DataGrid.Font = new System.Drawing.Font( "Roboto", 8F );
             DataGrid.GridColor = System.Drawing.Color.FromArgb( 141, 139, 138 );
@@ -392,22 +391,22 @@
             DataGrid.MultiSelect = false;
             DataGrid.Name = "DataGrid";
             DataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb( 50, 50, 50 );
-            dataGridViewCellStyle4.Font = new System.Drawing.Font( "Roboto", 8F );
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            DataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb( 50, 50, 50 );
+            dataGridViewCellStyle9.Font = new System.Drawing.Font( "Roboto", 8F );
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            DataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             DataGrid.RowHeadersWidth = 20;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            dataGridViewCellStyle5.Font = new System.Drawing.Font( "Roboto", 8F );
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb( 26, 79, 125 );
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            DataGrid.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            dataGridViewCellStyle10.Font = new System.Drawing.Font( "Roboto", 8F );
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb( 26, 79, 125 );
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
+            DataGrid.RowsDefaultCellStyle = dataGridViewCellStyle10;
             DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             DataGrid.Size = new System.Drawing.Size( 949, 495 );
             DataGrid.TabIndex = 0;
@@ -1050,14 +1049,6 @@
             Separator25.Name = "Separator25";
             Separator25.Padding = new System.Windows.Forms.Padding( 1 );
             Separator25.Size = new System.Drawing.Size( 6, 25 );
-            // 
-            // toolSeparator24
-            // 
-            toolSeparator24.ForeColor = System.Drawing.Color.Black;
-            toolSeparator24.Margin = new System.Windows.Forms.Padding( 1 );
-            toolSeparator24.Name = "toolSeparator24";
-            toolSeparator24.Padding = new System.Windows.Forms.Padding( 1 );
-            toolSeparator24.Size = new System.Drawing.Size( 6, 26 );
             // 
             // QueryTabControl
             // 
@@ -1891,27 +1882,6 @@
             RefreshDataSeparator.Padding = new System.Windows.Forms.Padding( 1 );
             RefreshDataSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
-            // SaveButton
-            // 
-            SaveButton.AutoToolTip = false;
-            SaveButton.BackColor = System.Drawing.Color.Transparent;
-            SaveButton.BindingSource = BindingSource;
-            SaveButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            SaveButton.Field = Field.AccountCode;
-            SaveButton.Filter = null;
-            SaveButton.Font = new System.Drawing.Font( "Roboto", 9F );
-            SaveButton.ForeColor = System.Drawing.Color.LightGray;
-            SaveButton.HoverText = "Save Changes";
-            SaveButton.Image = Resources.Images.ToolStripImages.SaveButton;
-            SaveButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            SaveButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
-            SaveButton.Name = "SaveButton";
-            SaveButton.Padding = new System.Windows.Forms.Padding( 1 );
-            SaveButton.Size = new System.Drawing.Size( 23, 25 );
-            SaveButton.Text = "toolStripButton2";
-            SaveButton.ToolTip = ToolTip;
-            SaveButton.ToolType = ToolType.SaveButton;
-            // 
             // GroupButton
             // 
             GroupButton.AutoToolTip = false;
@@ -1978,27 +1948,27 @@
             ChartSeparator.Padding = new System.Windows.Forms.Padding( 1 );
             ChartSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
-            // ExcelImportButton
+            // SaveButton
             // 
-            ExcelImportButton.AutoToolTip = false;
-            ExcelImportButton.BackColor = System.Drawing.Color.Transparent;
-            ExcelImportButton.BindingSource = BindingSource;
-            ExcelImportButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            ExcelImportButton.Field = Field.AccountCode;
-            ExcelImportButton.Filter = null;
-            ExcelImportButton.Font = new System.Drawing.Font( "Roboto", 9F );
-            ExcelImportButton.ForeColor = System.Drawing.Color.LightGray;
-            ExcelImportButton.HoverText = "Excel Import";
-            ExcelImportButton.Image = Resources.Images.ToolStripImages.UploadButton;
-            ExcelImportButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            ExcelImportButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            ExcelImportButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
-            ExcelImportButton.Name = "ExcelImportButton";
-            ExcelImportButton.Padding = new System.Windows.Forms.Padding( 1 );
-            ExcelImportButton.Size = new System.Drawing.Size( 23, 25 );
-            ExcelImportButton.Text = "toolStripButton1";
-            ExcelImportButton.ToolTip = ToolTip;
-            ExcelImportButton.ToolType = ToolType.ExcelImportButton;
+            SaveButton.AutoToolTip = false;
+            SaveButton.BackColor = System.Drawing.Color.Transparent;
+            SaveButton.BindingSource = BindingSource;
+            SaveButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            SaveButton.Field = Field.AccountCode;
+            SaveButton.Filter = null;
+            SaveButton.Font = new System.Drawing.Font( "Roboto", 9F );
+            SaveButton.ForeColor = System.Drawing.Color.LightGray;
+            SaveButton.HoverText = "Save Chanes";
+            SaveButton.Image = Resources.Images.ToolStripImages.SaveAllButton;
+            SaveButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            SaveButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            SaveButton.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
+            SaveButton.Name = "SaveButton";
+            SaveButton.Padding = new System.Windows.Forms.Padding( 1 );
+            SaveButton.Size = new System.Drawing.Size( 26, 25 );
+            SaveButton.Text = "toolStripButton1";
+            SaveButton.ToolTip = ToolTip;
+            SaveButton.ToolType = ToolType.SaveButton;
             // 
             // ExcelImportSeparator
             // 
@@ -2158,7 +2128,7 @@
             ToolStrip.Image = null;
             ToolStrip.ImageDirectory = null;
             ToolStrip.ImageSize = new System.Drawing.Size( 16, 16 );
-            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { StatusLabel, TextBoxSeparator, FirstButton, FirstSeparator, PreviousButton, PreviousSeparator, NextButton, NextSeparator, LastButton, LastButtonSeparator, DataSpacer, DataLabel, EditRecordSeparator, FilterButton, CommandLabelSeparator, RefreshDataButton, EditColumnSeparator, GroupButton, RefreshDataSeparator, EditRecordButton, GroupSeparator, EditColumnButton, ColumnSeparator, EditSqlButton, EditSqlSeparator, ToolStripTextBox, GoButton, ChartSeparator, ExcelImportButton, BrowseSeparator, BrowseButton, ExitButton, BackSeparator, MenuButton, MenuSeparator, ApplicationSeparator, MenuLabel } );
+            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { StatusLabel, TextBoxSeparator, FirstButton, FirstSeparator, PreviousButton, PreviousSeparator, NextButton, NextSeparator, LastButton, LastButtonSeparator, DataSpacer, DataLabel, EditRecordSeparator, FilterButton, CommandLabelSeparator, RefreshDataButton, EditColumnSeparator, GroupButton, RefreshDataSeparator, EditRecordButton, GroupSeparator, EditColumnButton, ColumnSeparator, EditSqlButton, EditSqlSeparator, ToolStripTextBox, GoButton, ChartSeparator, SaveButton, BrowseSeparator, BrowseButton, ExitButton, BackSeparator, MenuButton, MenuSeparator, ApplicationSeparator, MenuLabel } );
             ToolStrip.LastButton = null;
             ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
             ToolStrip.Location = new System.Drawing.Point( 1, 1 );
@@ -2290,7 +2260,7 @@
             ToolStripTextBox.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             ToolStripTextBox.Name = "ToolStripTextBox";
             ToolStripTextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Size = new System.Drawing.Size( 196, 25 );
+            ToolStripTextBox.Size = new System.Drawing.Size( 184, 25 );
             ToolStripTextBox.Tag = "";
             ToolStripTextBox.ToolTip = ToolTip;
             // 
@@ -2739,10 +2709,7 @@
         /// The separator25
         /// </summary>
         public ToolSeparator Separator25;
-        /// <summary>
-        /// The tool separator24
-        /// </summary>
-        public ToolSeparator toolSeparator24;
+
         /// <summary>
         /// The drop down
         /// </summary>
@@ -2943,10 +2910,7 @@
         /// The refresh data separator
         /// </summary>
         public ToolSeparator RefreshDataSeparator;
-        /// <summary>
-        /// The save button
-        /// </summary>
-        public ToolStripButton SaveButton;
+
         /// <summary>
         /// The group button
         /// </summary>
@@ -2970,7 +2934,7 @@
         /// <summary>
         /// The excel import button
         /// </summary>
-        public ToolStripButton ExcelImportButton;
+        public ToolStripButton SaveButton;
         /// <summary>
         /// The excel import separator
         /// </summary>

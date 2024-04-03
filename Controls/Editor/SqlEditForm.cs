@@ -73,6 +73,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Local" ) ]
     [ SuppressMessage( "ReSharper", "RedundantCheckBeforeAssignment" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWithPrivateSetter" ) ]
     public partial class SqlEditForm : EditBase
     {
         /// <summary>
@@ -546,7 +547,7 @@ namespace BudgetExecution
                 EditDataButton.Click += OnEditDataButtonClick;
                 TableButton.Click += OnTableButtonClick;
                 LookupButton.Click += OnLookupButtonClick;
-                MainMenuButton.Click += OnMainMenuButtonClicked;
+                MenuButton.Click += OnMainMenuButtonClicked;
                 ClientButton.Click += OnClientButtonClick;
                 TableListBox.SelectedIndexChanged += OnTableListBoxSelectionChanged;
                 ColumnListBox.SelectedIndexChanged += OnColumnListBoxSelectionChanged;
@@ -736,14 +737,16 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes the timers.
+        /// Initializes the timer.
         /// </summary>
-        private void InitializeTimers( )
+        private void InitializeTimer( )
         {
             try
             {
+                // Timer Properties
                 Timer.Enabled = true;
                 Timer.Interval = 500;
+                Timer.Tick += OnTimerTick;
                 Timer.Start( );
             }
             catch( Exception _ex )
@@ -1430,10 +1433,10 @@ namespace BudgetExecution
         {
             try
             {
-                var _path = AppSettings[ "ProviderImages" ];
-                if( !string.IsNullOrEmpty( _path ) )
+                var _filePath = AppSettings[ "ProviderImages" ];
+                if( !string.IsNullOrEmpty( _filePath ) )
                 {
-                    var _files = Directory.GetFiles( _path );
+                    var _files = Directory.GetFiles( _filePath );
                     if( _files?.Any( ) == true )
                     {
                         var _name = _provider.ToString( );
@@ -1452,7 +1455,6 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                PictureBox.Image?.Dispose( );
                 Fail( _ex );
             }
         }
@@ -1746,8 +1748,8 @@ namespace BudgetExecution
             {
                 var _prefix = AppSettings[ "PathPrefix" ];
                 var _dbpath = AppSettings[ "DatabaseDirectory" ];
-                var _path = _prefix + _dbpath + @$"\{provider}\DataModels\";
-                var _names = Directory.GetDirectories( _path );
+                var _filePath = _prefix + _dbpath + @$"\{provider}\DataModels\";
+                var _names = Directory.GetDirectories( _filePath );
                 var _list = new List<string>( );
                 for( var _i = 0; _i < _names.Length; _i++ )
                 {
@@ -1785,8 +1787,8 @@ namespace BudgetExecution
                 {
                     var _prefix = AppSettings[ "PathPrefix" ];
                     var _dbpath = AppSettings[ "DatabaseDirectory" ];
-                    var _path = _prefix + _dbpath + @$"\{provider}\DataModels\";
-                    var _names = Directory.GetDirectories( _path );
+                    var _filePath = _prefix + _dbpath + @$"\{provider}\DataModels\";
+                    var _names = Directory.GetDirectories( _filePath );
                     var _list = new List<string>( );
                     for( var _i = 0; _i < _names.Length; _i++ )
                     {
@@ -1821,6 +1823,7 @@ namespace BudgetExecution
         {
             try
             {
+                _labels = new Dictionary<string, Label>( );
                 foreach( var _control in GetControls( ) )
                 {
                     if( _control.GetType( ) == typeof( Label ) )

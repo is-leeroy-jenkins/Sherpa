@@ -772,14 +772,16 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes the timers.
+        /// Initializes the timer.
         /// </summary>
-        private void InitializeTimers( )
+        private void InitializeTimer( )
         {
             try
             {
+                // Timer Properties
                 Timer.Enabled = true;
                 Timer.Interval = 500;
+                Timer.Tick += OnTimerTick;
                 Timer.Start( );
             }
             catch( Exception _ex )
@@ -1875,6 +1877,7 @@ namespace BudgetExecution
         {
             try
             {
+                _labels = new Dictionary<string, Label>( );
                 foreach( var _control in GetControls( ) )
                 {
                     if( _control.GetType( ) == typeof( Label ) )
@@ -2002,7 +2005,7 @@ namespace BudgetExecution
         /// <summary>
         /// Runs the client application.
         /// </summary>
-        private void RunClient( )
+        private void RunSqlClient( )
         {
             try
             {
@@ -2051,14 +2054,13 @@ namespace BudgetExecution
                 InitializeRadioButtons( );
                 SetFormIcon( );
                 InitializeLabels( );
-                InitializeTimers( );
-                TabControl.SelectedIndex = 0;
+                InitializeTimer( );
                 _tabPages = GetTabPages( );
                 _panels = GetPanels( );
                 _radioButtons = GetRadioButtons( );
                 _listBoxes = GetListBoxes( );
                 _labels = GetLabels( );
-                SetActiveTab( );
+                TabControl.SelectedIndex = 0;
             }
             catch( Exception _ex )
             {
@@ -2082,9 +2084,9 @@ namespace BudgetExecution
                     if( !string.IsNullOrEmpty( _tag ) )
                     {
                         SetProvider( _tag );
-                        GetDataTypes( _provider );
                         _commands = CreateCommandList( _provider );
                         PopulateSqlComboBox( _commands );
+                        _dataTypes = GetDataTypes( _provider );
                         PopulateDataTypeComboBoxItems( _dataTypes );
                         Title.Text = GetTitleText( );
                         SetFormIcon( );
@@ -2124,8 +2126,8 @@ namespace BudgetExecution
                 if( _selection?.Contains( " " ) == true )
                 {
                     _selectedCommand = _selection.Replace( " ", "" );
-                    var _path = _prefix + _dbpath + @$"\{_provider}\DataModels\{_selectedCommand}";
-                    var _files = GetFiles( _path );
+                    var _filePath = _prefix + _dbpath + @$"\{_provider}\DataModels\{_selectedCommand}";
+                    var _files = GetFiles( _filePath );
                     for( var _i = 0; _i < _files.Length; _i++ )
                     {
                         var _item = GetFileNameWithoutExtension( _files[ _i ] );
@@ -2136,8 +2138,8 @@ namespace BudgetExecution
                 else
                 {
                     _selectedCommand = _comboBox?.SelectedItem?.ToString( );
-                    var _path = _prefix + _dbpath + @$"\{_provider}\DataModels\{_selectedCommand}";
-                    var _names = GetFiles( _path );
+                    var _filePath = _prefix + _dbpath + @$"\{_provider}\DataModels\{_selectedCommand}";
+                    var _names = GetFiles( _filePath );
                     for( var _i = 0; _i < _names.Length; _i++ )
                     {
                         var _item = GetFileNameWithoutExtension( _names[ _i ] );
@@ -2189,10 +2191,10 @@ namespace BudgetExecution
                     }
                     else
                     {
-                        var _path = _prefix + _dbpath
+                        var _filePath = _prefix + _dbpath
                             + @$"\{_provider}\DataModels\{_selectedCommand}\{_selectedQuery}.sql";
 
-                        using var _stream = File.OpenRead( _path );
+                        using var _stream = File.OpenRead( _filePath );
                         using var _reader = new StreamReader( _stream );
                         var _text = _reader.ReadToEnd( );
                         Editor.Text = _text;
@@ -2238,7 +2240,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    //ContextMenu.Show( this, e.Location );
+                    ContextMenu.Show( this, e.Location );
                 }
                 catch( Exception _ex )
                 {
@@ -2264,30 +2266,6 @@ namespace BudgetExecution
             {
                 FadeOut( );
                 Close( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [form closed].
-        /// </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        private void OnFormClosed( object sender, EventArgs e )
-        {
-            try
-            {
-                if( Program.Windows.ContainsKey( nameof( SqlDataForm ) ) )
-                {
-                    Program.Windows.Remove( nameof( SqlDataForm ) );
-                }
             }
             catch( Exception _ex )
             {
@@ -2477,7 +2455,7 @@ namespace BudgetExecution
         /// </param>
         private void OnClientButtonClick( object sender, EventArgs e )
         {
-            RunClient( );
+            RunSqlClient( );
         }
 
         /// <summary>
