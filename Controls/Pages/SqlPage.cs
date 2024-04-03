@@ -70,6 +70,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
     public partial class SqlPage : EditBase
     {
         /// <summary>
@@ -388,7 +389,7 @@ namespace BudgetExecution
         {
             try
             {
-                _statusUpdate += UpdateStatusLabel;
+                _statusUpdate += UpdateStatus;
             }
             catch( Exception _ex )
             {
@@ -412,12 +413,18 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes the timers.
+        /// Initializes the timer.
         /// </summary>
-        private void InitializeTimers( )
+        private void InitializeTimer( )
         {
             try
             {
+                // Timer Properties
+                var _timer = new Timer( );
+                _timer.Enabled = true;
+                _timer.Interval = 500;
+                _timer.Tick += OnTimerTick;
+                _timer.Start( );
             }
             catch( Exception _ex )
             {
@@ -884,8 +891,8 @@ namespace BudgetExecution
                 {
                     var _prefix = AppSettings[ "PathPrefix" ];
                     var _dbpath = AppSettings[ "DatabaseDirectory" ];
-                    var _path = _prefix + _dbpath + @$"\{provider}\DataModels\";
-                    var _names = Directory.GetDirectories( _path );
+                    var _filePath = _prefix + _dbpath + @$"\{provider}\DataModels\";
+                    var _names = Directory.GetDirectories( _filePath );
                     var _list = new List<string>( );
                     for( var _i = 0; _i < _names.Length; _i++ )
                     {
@@ -923,8 +930,8 @@ namespace BudgetExecution
                 {
                     var _prefix = AppSettings[ "PathPrefix" ];
                     var _dbpath = AppSettings[ "DatabaseDirectory" ];
-                    var _path = _prefix + _dbpath + @$"\{provider}\DataModels\";
-                    var _names = Directory.GetDirectories( _path );
+                    var _filePath = _prefix + _dbpath + @$"\{provider}\DataModels\";
+                    var _names = Directory.GetDirectories( _filePath );
                     var _list = new List<string>( );
                     for( var _i = 0; _i < _names.Length; _i++ )
                     {
@@ -1070,14 +1077,15 @@ namespace BudgetExecution
         /// <summary>
         /// Updates the status.
         /// </summary>
-        private void UpdateStatusLabel( )
+        private void UpdateStatus( )
         {
             try
             {
                 var _dateTime = DateTime.Now;
-                var _dateString = _dateTime.ToLongDateString( );
+                var _dateString = _dateTime.ToShortDateString( );
                 var _timeString = _dateTime.ToLongTimeString( );
-                //StatusLabel.Text = _dateString + "  " + _timeString;
+                _timeString += _dateString + "  " + _timeString;
+                EditorTable.CaptionText = "SQL Text Editor  " + _timeString;
             }
             catch( Exception _ex )
             {
@@ -1157,10 +1165,10 @@ namespace BudgetExecution
                         _selectedCommand = _selection.Replace( " ", "" );
                         var _prefix = AppSettings[ "PathPrefix" ];
                         var _dbpath = AppSettings[ "DatabaseDirectory" ];
-                        var _path = _prefix + _dbpath
+                        var _filePath = _prefix + _dbpath
                             + @$"\{_provider}\DataModels\{_selectedCommand}";
 
-                        var _files = Directory.GetFiles( _path );
+                        var _files = Directory.GetFiles( _filePath );
                         for( var _i = 0; _i < _files.Length; _i++ )
                         {
                             var _item = Path.GetFileNameWithoutExtension( _files[ _i ] );
@@ -1173,10 +1181,10 @@ namespace BudgetExecution
                         _selectedCommand = _comboBox.SelectedItem?.ToString( );
                         var _prefix = AppSettings[ "PathPrefix" ];
                         var _dbpath = AppSettings[ "DatabaseDirectory" ];
-                        var _path = _prefix + _dbpath
+                        var _filePath = _prefix + _dbpath
                             + @$"\{_provider}\DataModels\{_selectedCommand}";
 
-                        var _names = Directory.GetFiles( _path );
+                        var _names = Directory.GetFiles( _filePath );
                         for( var _i = 0; _i < _names.Length; _i++ )
                         {
                             var _item = Path.GetFileNameWithoutExtension( _names[ _i ] );
@@ -1311,6 +1319,24 @@ namespace BudgetExecution
             try
             {
                 FadeIn( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [timer tick].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnTimerTick( object sender, EventArgs e )
+        {
+            try
+            {
+                InvokeIf( _statusUpdate );
             }
             catch( Exception _ex )
             {

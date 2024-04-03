@@ -34,7 +34,7 @@ partial class SqlPage
     private void InitializeComponent( )
     {
         components = new System.ComponentModel.Container( );
-        var config2 = new Syncfusion.Windows.Forms.Edit.Implementation.Config.Config( );
+        var config1 = new Syncfusion.Windows.Forms.Edit.Implementation.Config.Config( );
         var resources = new System.ComponentModel.ComponentResourceManager( typeof( SqlPage ) );
         TabControl = new Syncfusion.Windows.Forms.Tools.TabControlAdv( );
         TabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
@@ -135,7 +135,6 @@ partial class SqlPage
         // 
         // EditorTable
         // 
-        EditorTable.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
         EditorTable.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
         EditorTable.CaptionStyle = CBComponents.HeaderTableLayoutPanel.HighlightCaptionStyle.NavisionAxaptaStyle;
         EditorTable.CaptionText = "SQL Text Editor";
@@ -191,7 +190,7 @@ partial class SqlPage
         Editor.ChangedLinesMarkingLineColor = System.Drawing.Color.FromArgb( 255, 238, 98 );
         Editor.CodeSnipptSize = new System.Drawing.Size( 100, 100 );
         Editor.ColumnGuidesMeasuringFont = new System.Drawing.Font( "Roboto", 8F );
-        Editor.Configurator = config2;
+        Editor.Configurator = config1;
         Editor.ContextChoiceBackColor = System.Drawing.SystemColors.ControlLight;
         Editor.ContextChoiceBorderColor = System.Drawing.Color.FromArgb( 233, 166, 50 );
         Editor.ContextPromptBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
@@ -244,7 +243,7 @@ partial class SqlPage
         // 
         // SqlCommandTable
         // 
-        SqlCommandTable.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+        SqlCommandTable.Anchor =  System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Right ;
         SqlCommandTable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
         SqlCommandTable.ColumnCount = 1;
         SqlCommandTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 100F ) );

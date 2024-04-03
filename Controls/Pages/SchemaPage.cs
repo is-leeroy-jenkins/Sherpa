@@ -912,7 +912,7 @@ namespace BudgetExecution
                 InitializeTabControl( );
                 InitializeComboBoxes( );
                 RegisterCallbacks( );
-                CloseButton.Text = "Exit";
+                CloseButton.Text = "Close";
                 PopulateTableComboBoxItems( );
                 _dataTypes = GetDataTypes( _provider );
                 PopulateDataTypeComboBoxItems( _dataTypes );
