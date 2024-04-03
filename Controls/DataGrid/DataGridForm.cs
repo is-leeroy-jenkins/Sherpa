@@ -877,14 +877,15 @@ namespace BudgetExecution
                 Opacity = 0;
                 if( _seconds != 0 )
                 {
-                    var _timer = new Timer( );
-                    _timer.Interval = 1000;
-                    _timer.Tick += ( sender, args ) =>
+                    Timer = new Timer( );
+                    Timer.Interval = 1000;
+                    Timer.Tick += ( sender, args ) =>
                     {
                         _time++;
                         if( _time == _seconds )
                         {
-                            _timer.Stop( );
+                            Timer.Stop( );
+                            FadeOut( );
                         }
                     };
                 }
@@ -904,21 +905,7 @@ namespace BudgetExecution
         {
             try
             {
-                Opacity = 0;
-                if( _seconds != 0 )
-                {
-                    var _timer = new Timer( );
-                    _timer.Interval = 1000;
-                    _timer.Tick += ( sender, args ) =>
-                    {
-                        _time--;
-                        if( _time == _seconds )
-                        {
-                            _timer.Stop( );
-                        }
-                    };
-                }
-
+                FadeOut( );
                 base.Close( );
             }
             catch( Exception _ex )
@@ -1134,9 +1121,8 @@ namespace BudgetExecution
             {
                 // Timer Properties
                 Timer.Enabled = true;
-                Timer.Interval = 500;
+                Timer.Interval = _seconds * 1000;
                 Timer.Tick += OnTimerTick;
-                Timer.Start( );
             }
             catch( Exception _ex )
             {
@@ -1226,7 +1212,7 @@ namespace BudgetExecution
                         _timer.Stop( );
                     }
 
-                    Opacity += 0.01d;
+                    Opacity += 0.02d;
                 };
 
                 _timer.Start( );
@@ -1251,9 +1237,10 @@ namespace BudgetExecution
                     if( Opacity == 0d )
                     {
                         _timer.Stop( );
+                        Close( );
                     }
 
-                    Opacity -= 0.01d;
+                    Opacity -= 0.02d;
                 };
 
                 _timer.Start( );
@@ -2383,6 +2370,8 @@ namespace BudgetExecution
                 TableListBox.ShowScrollBar = false;
                 UpdateLabels( );
                 UpdateStatus( );
+                FadeIn( );
+                Timer.Start( );
             }
             catch( Exception _ex )
             {

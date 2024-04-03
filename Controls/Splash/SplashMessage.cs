@@ -61,15 +61,67 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Local" ) ]
     public partial class SplashMessage : MetroForm
     {
+        /// <summary>
+        /// The locked object
+        /// </summary>
+        private object _path;
+
+        /// <summary>
+        /// The busy
+        /// </summary>
+        private bool _busy;
+
+        /// <summary>
+        /// The status update
+        /// </summary>
+        private System.Action _updateStatus;
+
+        /// <summary>
+        /// The time
+        /// </summary>
+        private int _time;
+
+        /// <summary>
+        /// The seconds
+        /// </summary>
+        private int _seconds;
+
+        /// <summary>
+        /// The allow focus
+        /// </summary>
+        private bool _allowFocus;
+
+        /// <summary>
+        /// The without activation
+        /// </summary>
+        private bool _withoutActivation;
+
+        /// <summary>
+        /// The lines
+        /// </summary>
+        private IList<string> _lines;
+
         /// <summary>
         /// Gets or sets the time.
         /// </summary>
         /// <value>
         /// The time.
         /// </value>
-        public int Time { get; set; }
+        public int Time
+        {
+            get
+            {
+                return _time;
+            }
+            private set
+            {
+                _time = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the seconds.
@@ -77,7 +129,17 @@ namespace BudgetExecution
         /// <value>
         /// The seconds.
         /// </value>
-        public int Seconds { get; set; }
+        public int Seconds
+        {
+            get
+            {
+                return _seconds;
+            }
+            private set
+            {
+                _seconds = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets a value indicating whether [allow focus].
@@ -85,7 +147,17 @@ namespace BudgetExecution
         /// <value>
         ///   <c>true</c> if [allow focus]; otherwise, <c>false</c>.
         /// </value>
-        public bool AllowFocus { get; set; }
+        public bool AllowFocus
+        {
+            get
+            {
+                return _allowFocus;
+            }
+            private set
+            {
+                _allowFocus = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets a value indicating whether [shown without activation].
@@ -93,7 +165,17 @@ namespace BudgetExecution
         /// <value>
         ///   <c>true</c> if [shown without activation]; otherwise, <c>false</c>.
         /// </value>
-        public bool ShownWithoutActivation { get; set; } = true;
+        public bool ShownWithoutActivation
+        {
+            get
+            {
+                return _withoutActivation;
+            }
+            private set
+            {
+                _withoutActivation = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the lines.
@@ -101,7 +183,37 @@ namespace BudgetExecution
         /// <value>
         /// The lines.
         /// </value>
-        public List<string> Lines { get; set; }
+        public IList<string> Lines
+        {
+            get
+            {
+                return _lines;
+            }
+            private set
+            {
+                _lines = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether this instance is busy.
+        /// </summary>
+        /// <value>
+        /// <c> true </c>
+        /// if this instance is busy; otherwise,
+        /// <c> false </c>
+        /// </value>
+        public bool IsBusy
+        {
+            get
+            {
+                return _busy;
+            }
+            private set
+            {
+                _busy = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
@@ -111,6 +223,7 @@ namespace BudgetExecution
         public SplashMessage( )
         {
             InitializeComponent( );
+            RegisterCallbacks( );
 
             // Form Properties
             Size = new Size( 650, 250 );
@@ -139,11 +252,15 @@ namespace BudgetExecution
             ForeColor = Color.FromArgb( 106, 189, 252 );
             Font = new Font( "Roboto", 9 );
 
+            // Timer Settings
+            _time = 0;
+            _seconds = 5;
+
+            // Splash Attributes
+            _withoutActivation = true;
+            _lines = new List<string>( );
+
             // Wire Events
-            PictureBox.MouseClick += OnClick;
-            Title.MouseClick += OnClick;
-            Message.MouseClick += OnClick;
-            Header.MouseClick += OnClick;
             MouseClick += OnClick;
             Load += OnLoad;
         }
@@ -163,8 +280,8 @@ namespace BudgetExecution
             AnimationDirection direction = AnimationDirection.Up )
             : this( )
         {
-            Time = 0;
-            Seconds = duration;
+            _time = 0;
+            _seconds = duration;
             Timer.Interval = duration * 1000;
             Title.Text = nameof( Notification );
             Message.Text = message;
@@ -184,125 +301,24 @@ namespace BudgetExecution
             AnimationDirection direction = AnimationDirection.Up )
             : this( )
         {
-            Lines = lines.ToList( );
-            Time = 0;
-            Seconds = duration;
+            _lines = lines.ToList( );
+            _time = 0;
+            _seconds = duration;
             Timer.Interval = duration * 1000;
             Title.Text = nameof( Notification );
         }
 
         /// <summary>
-        /// Displays the control to the user.
+        /// Registers the callbacks.
         /// </summary>
-        public new void Show( )
+        private void RegisterCallbacks( )
         {
             try
             {
-                Opacity = 0;
-                if( Seconds != 0 )
-                {
-                    Timer = new Timer( );
-                    Timer.Interval = 1000;
-                    Timer.Tick += ( sender, args ) =>
-                    {
-                        Time++;
-                        if( Time == Seconds )
-                        {
-                            Timer.Stop( );
-                            FadeOut( );
-                        }
-                    };
-                }
-
-                base.Show( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Raises the Close event.
-        /// </summary>
-        public void OnClose( )
-        {
-            try
-            {
-                FadeOut( );
-                Close( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Fades the out.
-        /// </summary>
-        private void FadeOut( )
-        {
-            try
-            {
-                var _timer = new Timer( );
-                _timer.Interval = 10;
-                _timer.Tick += ( sender, args ) =>
-                {
-                    if( Opacity == 0d )
-                    {
-                        _timer.Stop( );
-                        Close( );
-                    }
-
-                    Opacity -= 0.02d;
-                };
-
-                _timer.Start( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="MouseEventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnClick( object sender, MouseEventArgs e )
-        {
-            if( e.Button == MouseButtons.Left
-               || e.Button == MouseButtons.Right )
-            {
-                try
-                {
-                    OnClose( );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Called when [load].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnLoad( object sender, EventArgs e )
-        {
-            try
-            {
-                InitializeLabels( );
-                InitializePanel( );
-                InitializeTitle( );
-                FadeIn( );
-                Timer.Start( );
+                PictureBox.MouseClick += OnClick;
+                Title.MouseClick += OnClick;
+                Message.MouseClick += OnClick;
+                Header.MouseClick += OnClick;
             }
             catch( Exception _ex )
             {
@@ -362,9 +378,56 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Displays the control to the user.
+        /// </summary>
+        public new void Show( )
+        {
+            try
+            {
+                Opacity = 0;
+                if( _seconds != 0 )
+                {
+                    Timer = new Timer( );
+                    Timer.Interval = 1000;
+                    Timer.Tick += ( sender, args ) =>
+                    {
+                        _time++;
+                        if( _time == _seconds )
+                        {
+                            Timer.Stop( );
+                            FadeOut( );
+                        }
+                    };
+                }
+
+                base.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Raises the Close event.
+        /// </summary>
+        public new void Close( )
+        {
+            try
+            {
+                FadeOut( );
+                base.Close( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Fades the in.
         /// </summary>
-        private protected virtual void FadeIn( )
+        private protected void FadeIn( )
         {
             try
             {
@@ -385,6 +448,78 @@ namespace BudgetExecution
             catch( Exception _ex )
             {
                 Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the out.
+        /// </summary>
+        private protected void FadeOut( )
+        {
+            try
+            {
+                var _timer = new Timer( );
+                _timer.Interval = 10;
+                _timer.Tick += ( sender, args ) =>
+                {
+                    if( Opacity == 0d )
+                    {
+                        _timer.Stop( );
+                        Close( );
+                    }
+
+                    Opacity -= 0.02d;
+                };
+
+                _timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnLoad( object sender, EventArgs e )
+        {
+            try
+            {
+                InitializeLabels( );
+                InitializePanel( );
+                InitializeTitle( );
+                FadeIn( );
+                Timer.Start( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnClick( object sender, MouseEventArgs e )
+        {
+            if( e.Button == MouseButtons.Left
+               || e.Button == MouseButtons.Right )
+            {
+                try
+                {
+                    Close( );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
             }
         }
 

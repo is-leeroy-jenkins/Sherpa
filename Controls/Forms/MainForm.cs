@@ -269,16 +269,18 @@ namespace BudgetExecution
         {
             try
             {
+                Opacity = 0;
                 if( _seconds != 0 )
                 {
-                    var _timer = new Timer( );
-                    _timer.Interval = 1000;
-                    _timer.Tick += ( sender, args ) =>
+                    Timer = new Timer( );
+                    Timer.Interval = 1000;
+                    Timer.Tick += ( sender, args ) =>
                     {
                         _time++;
                         if( _time == _seconds )
                         {
-                            _timer.Stop( );
+                            Timer.Stop( );
+                            FadeOut( );
                         }
                     };
                 }
@@ -298,20 +300,7 @@ namespace BudgetExecution
         {
             try
             {
-                if( _seconds != 0 )
-                {
-                    var _timer = new Timer( );
-                    _timer.Interval = 1000;
-                    _timer.Tick += ( sender, args ) =>
-                    {
-                        _time++;
-                        if( _time == _seconds )
-                        {
-                            _timer.Stop( );
-                        }
-                    };
-                }
-
+                FadeOut( );
                 base.Close( );
             }
             catch( Exception _ex )
@@ -936,7 +925,7 @@ namespace BudgetExecution
             try
             {
                 var _timer = new Timer( );
-                _timer.Interval = 100;
+                _timer.Interval = 10;
                 _timer.Tick += ( sender, args ) =>
                 {
                     if( Opacity == 1d )
@@ -944,7 +933,7 @@ namespace BudgetExecution
                         _timer.Stop( );
                     }
 
-                    Opacity += 0.01d;
+                    Opacity += 0.02d;
                 };
 
                 _timer.Start( );
@@ -963,15 +952,16 @@ namespace BudgetExecution
             try
             {
                 var _timer = new Timer( );
-                _timer.Interval = 100;
+                _timer.Interval = 10;
                 _timer.Tick += ( sender, args ) =>
                 {
                     if( Opacity == 0d )
                     {
                         _timer.Stop( );
+                        Close( );
                     }
 
-                    Opacity -= 0.01d;
+                    Opacity -= 0.02d;
                 };
 
                 _timer.Start( );
