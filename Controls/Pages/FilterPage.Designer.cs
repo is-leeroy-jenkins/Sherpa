@@ -118,6 +118,7 @@ partial class FilterPage
         SelectButton = new Button( );
         GroupButton = new Button( );
         ClearButton = new Button( );
+        Timer = new System.Windows.Forms.Timer( components );
         FirstPanel.SuspendLayout( );
         ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
         ThirdPanel.SuspendLayout( );
@@ -2309,6 +2310,11 @@ partial class FilterPage
         ClearButton.ThemeName = "Budget Execution";
         ClearButton.ToolTip = ToolTip;
         // 
+        // Timer
+        // 
+        Timer.Enabled = true;
+        Timer.Interval = 500;
+        // 
         // FilterPage
         // 
         AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
@@ -2479,4 +2485,5 @@ partial class FilterPage
     public Button SelectButton;
     public Button GroupButton;
     public Button ClearButton;
+    public System.Windows.Forms.Timer Timer;
 }

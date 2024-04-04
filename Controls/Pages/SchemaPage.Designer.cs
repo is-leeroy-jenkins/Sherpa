@@ -64,6 +64,7 @@
             SelectButton = new Button( );
             ClearButton = new Button( );
             CloseButton = new Button( );
+            Timer = new System.Windows.Forms.Timer( components );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
             ( (System.ComponentModel.ISupportInitialize)TabControl ).BeginInit( );
             TabControl.SuspendLayout( );
@@ -928,6 +929,11 @@
             CloseButton.ThemeName = "BudgetExecution";
             CloseButton.ToolTip = ToolTip;
             // 
+            // Timer
+            // 
+            Timer.Enabled = true;
+            Timer.Interval = 500;
+            // 
             // SchemaPage
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
@@ -1011,5 +1017,6 @@
         public Syncfusion.Windows.Forms.Tools.TabPageAdv BusyTab;
         public Picture Loader;
         private BackPanel LoadingPanel;
+        public System.Windows.Forms.Timer Timer;
     }
 }

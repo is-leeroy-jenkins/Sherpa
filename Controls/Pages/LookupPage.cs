@@ -464,6 +464,7 @@ namespace BudgetExecution
             // Wire Events
             Load += OnLoad;
             Shown += OnShown;
+            Closing += OnClose;
         }
 
         /// <summary>
@@ -607,21 +608,7 @@ namespace BudgetExecution
         {
             try
             {
-                Opacity = 0;
-                if( _seconds != 0 )
-                {
-                    var _timer = new Timer( );
-                    _timer.Interval = 1000;
-                    _timer.Tick += ( sender, args ) =>
-                    {
-                        _time--;
-                        if( _time == _seconds )
-                        {
-                            _timer.Stop( );
-                        }
-                    };
-                }
-
+                FadeOut( );
                 base.Close( );
             }
             catch( Exception _ex )
@@ -704,7 +691,7 @@ namespace BudgetExecution
                         _timer.Stop( );
                     }
 
-                    Opacity += 0.01d;
+                    Opacity += 0.02d;
                 };
 
                 _timer.Start( );
@@ -729,9 +716,10 @@ namespace BudgetExecution
                     if( Opacity == 0d )
                     {
                         _timer.Stop( );
+                        Close( );
                     }
 
-                    Opacity -= 0.01d;
+                    Opacity -= 0.02d;
                 };
 
                 _timer.Start( );
@@ -1156,7 +1144,6 @@ namespace BudgetExecution
         {
             try
             {
-                FadeOut( );
                 Close( );
             }
             catch( Exception _ex )
@@ -1176,6 +1163,21 @@ namespace BudgetExecution
             try
             {
                 FadeIn( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Closes the form.
+        /// </summary>
+        public void OnClose( object sender, EventArgs e )
+        {
+            try
+            {
+                FadeOut( );
             }
             catch( Exception _ex )
             {

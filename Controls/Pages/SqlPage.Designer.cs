@@ -60,6 +60,7 @@ partial class SqlPage
         BindingSource = new System.Windows.Forms.BindingSource( components );
         FourthButton = new Button( );
         SecondButton = new Button( );
+        Timer = new System.Windows.Forms.Timer( components );
         ( (System.ComponentModel.ISupportInitialize)TabControl ).BeginInit( );
         TabControl.SuspendLayout( );
         TabPage.SuspendLayout( );
@@ -732,6 +733,11 @@ partial class SqlPage
         SecondButton.ThemeName = "BudgetExecution";
         SecondButton.ToolTip = null;
         // 
+        // Timer
+        // 
+        Timer.Enabled = true;
+        Timer.Interval = 500;
+        // 
         // SqlPage
         // 
         AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
@@ -810,4 +816,5 @@ partial class SqlPage
     public HeaderPanel ProviderTable;
     private HeaderPanel EditorTable;
     public Button SecondButton;
+    public System.Windows.Forms.Timer Timer;
 }

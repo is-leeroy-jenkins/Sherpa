@@ -274,6 +274,7 @@ namespace BudgetExecution
             // Wire Events
             Load += OnLoad;
             Shown += OnShown;
+
         }
 
         /// <inheritdoc/>
@@ -304,8 +305,6 @@ namespace BudgetExecution
         {
             _dataTable = (DataTable)bindingSource.DataSource;
             BindingSource.DataSource = _dataTable;
-            _source = (Source)Enum.Parse( typeof( Source ), _dataTable.TableName );
-            _columns = _dataTable.GetColumnNames( );
         }
 
         /// <summary>
@@ -377,6 +376,7 @@ namespace BudgetExecution
                 SelectButton.ForeColor = _lightBlue;
                 CloseButton.ForeColor = _lightBlue;
                 ClearButton.ForeColor = _lightBlue;
+                CloseButton.Text = "Close";
             }
             catch( Exception _ex )
             {
@@ -478,26 +478,27 @@ namespace BudgetExecution
         /// <summary>
         /// Displays the control to the user.
         /// </summary>
-        public new void ShowDialog( )
+        public new void Show( )
         {
             try
             {
                 Opacity = 0;
                 if( _seconds != 0 )
                 {
-                    var _timer = new Timer( );
-                    _timer.Interval = 1000;
-                    _timer.Tick += ( sender, args ) =>
+                    Timer = new Timer( );
+                    Timer.Interval = _seconds * 1000;
+                    Timer.Tick += ( sender, args ) =>
                     {
                         _time++;
                         if( _time == _seconds )
                         {
-                            _timer.Stop( );
+                            Timer.Stop( );
+                            FadeIn( );
                         }
                     };
                 }
 
-                base.ShowDialog( );
+                base.Show( );
             }
             catch( Exception _ex )
             {
@@ -506,28 +507,29 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Closes the form.
+        /// Displays the control to the user.
         /// </summary>
-        public new void Close( )
+        public new void ShowDialog( )
         {
             try
             {
                 Opacity = 0;
                 if( _seconds != 0 )
                 {
-                    var _timer = new Timer( );
-                    _timer.Interval = 1000;
-                    _timer.Tick += ( sender, args ) =>
+                    Timer = new Timer( );
+                    Timer.Interval = _seconds * 1000;
+                    Timer.Tick += ( sender, args ) =>
                     {
-                        _time--;
+                        _time++;
                         if( _time == _seconds )
                         {
-                            _timer.Stop( );
+                            Timer.Stop( );
+                            FadeIn( );
                         }
                     };
                 }
 
-                base.Close( );
+                base.ShowDialog( );
             }
             catch( Exception _ex )
             {
@@ -609,7 +611,7 @@ namespace BudgetExecution
                         _timer.Stop( );
                     }
 
-                    Opacity += 0.01d;
+                    Opacity += 0.02d;
                 };
 
                 _timer.Start( );
@@ -634,9 +636,10 @@ namespace BudgetExecution
                     if( Opacity == 0d )
                     {
                         _timer.Stop( );
+                        Close( );
                     }
 
-                    Opacity -= 0.01d;
+                    Opacity -= 0.02d;
                 };
 
                 _timer.Start( );
@@ -912,7 +915,6 @@ namespace BudgetExecution
                 InitializeTabControl( );
                 InitializeComboBoxes( );
                 RegisterCallbacks( );
-                CloseButton.Text = "Close";
                 PopulateTableComboBoxItems( );
                 _dataTypes = GetDataTypes( _provider );
                 PopulateDataTypeComboBoxItems( _dataTypes );
@@ -962,7 +964,6 @@ namespace BudgetExecution
             {
                 try
                 {
-                    FadeOut( );
                     Close( );
                 }
                 catch( Exception _ex )
@@ -1005,6 +1006,21 @@ namespace BudgetExecution
             try
             {
                 FadeIn( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Closes the form.
+        /// </summary>
+        public void OnClose( object sender, EventArgs e )
+        {
+            try
+            {
+                FadeOut( );
             }
             catch( Exception _ex )
             {

@@ -526,7 +526,7 @@ namespace BudgetExecution
                 TextBox.Font = new Font( "Roboto", 8 );
                 TextBox.Size = new Size( 200, 25 );
                 TextBox.ForeColor = Color.White;
-                TextBox.Text = "   < Enter Keywords >   ";
+                TextBox.Text = "   < Enter Location >   ";
                 TextBox.TextAlign = ContentAlignment.MiddleCenter;
             }
             catch( Exception _ex )

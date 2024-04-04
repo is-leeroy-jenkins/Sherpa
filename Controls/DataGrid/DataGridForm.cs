@@ -775,6 +775,7 @@ namespace BudgetExecution
             Load += OnLoad;
             Shown += OnShown;
             MouseClick += OnRightClick;
+            Closing += OnClose;
         }
 
         /// <inheritdoc />
@@ -2978,10 +2979,18 @@ namespace BudgetExecution
             {
                 try
                 {
-                    SetScreenIcon( _button.ToolType );
-                    var _dialog = new EditPage( _source, _provider );
-                    _dialog?.ShowDialog( this );
-                    SetFormIcon( );
+                    if( BindingSource.DataSource == null )
+                    {
+                        var _message = "THE DATA SOURCE IS NULL";
+                        SendMessage( _message );
+                    }
+                    else
+                    {
+                        SetScreenIcon( _button.ToolType );
+                        var _dialog = new EditPage( _source, _provider );
+                        _dialog?.ShowDialog( this );
+                        SetFormIcon( );
+                    }
                 }
                 catch( Exception _ex )
                 {
@@ -3002,10 +3011,18 @@ namespace BudgetExecution
             {
                 try
                 {
-                    SetScreenIcon( _button.ToolType );
-                    var _dialog = new SchemaPage( _button.ToolType, BindingSource );
-                    _dialog?.ShowDialog( this );
-                    SetFormIcon( );
+                    if( BindingSource.DataSource == null )
+                    {
+                        var _message = "THE DATA SOURCE IS NULL";
+                        SendMessage( _message );
+                    }
+                    else
+                    {
+                        SetScreenIcon( _button.ToolType );
+                        var _dialog = new SchemaPage( _button.ToolType, BindingSource );
+                        _dialog?.ShowDialog( this );
+                        SetFormIcon( );
+                    }
                 }
                 catch( Exception _ex )
                 {
@@ -3047,10 +3064,18 @@ namespace BudgetExecution
             {
                 try
                 {
-                    SetScreenIcon( _button.ToolType );
-                    var _sqlDialog = new SqlPage( _source, _provider );
-                    _sqlDialog.ShowDialog( this );
-                    SetFormIcon( );
+                    if( BindingSource.DataSource == null )
+                    {
+                        var _message = "THE DATA SOURCE IS NULL";
+                        SendMessage( _message );
+                    }
+                    else
+                    {
+                        SetScreenIcon( _button.ToolType );
+                        var _sqlDialog = new SqlPage( _source, _provider );
+                        _sqlDialog.ShowDialog( this );
+                        SetFormIcon( );
+                    }
                 }
                 catch( Exception _ex )
                 {
@@ -3107,9 +3132,17 @@ namespace BudgetExecution
         {
             try
             {
-                ClearData( );
-                UpdateLabels( );
-                QueryTabControl.SelectedIndex = 0;
+                if( BindingSource.DataSource == null )
+                {
+                    var _message = "THE DATA SOURCE IS NULL";
+                    SendMessage( _message );
+                }
+                else
+                {
+                    ClearData( );
+                    UpdateLabels( );
+                    QueryTabControl.SelectedIndex = 0;
+                }
             }
             catch( Exception _ex )
             {
@@ -3170,6 +3203,21 @@ namespace BudgetExecution
             try
             {
                 FadeIn( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Closes the form.
+        /// </summary>
+        public void OnClose( object sender, EventArgs e )
+        {
+            try
+            {
+                FadeOut( );
             }
             catch( Exception _ex )
             {
