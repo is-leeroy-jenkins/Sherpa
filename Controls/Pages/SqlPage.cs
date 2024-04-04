@@ -478,7 +478,7 @@ namespace BudgetExecution
                 if( _seconds != 0 )
                 {
                     Timer = new Timer( );
-                    Timer.Interval = _seconds * 1000;
+                    Timer.Interval = 1000;
                     Timer.Tick += ( sender, args ) =>
                     {
                         _time++;
@@ -509,7 +509,7 @@ namespace BudgetExecution
                 if( _seconds != 0 )
                 {
                     Timer = new Timer( );
-                    Timer.Interval = _seconds * 1000;
+                    Timer.Interval = 1000;
                     Timer.Tick += ( sender, args ) =>
                     {
                         _time++;
@@ -522,22 +522,6 @@ namespace BudgetExecution
                 }
 
                 base.ShowDialog( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Closes the form.
-        /// </summary>
-        public new void Close( )
-        {
-            try
-            {
-                FadeOut( );
-                base.Close( );
             }
             catch( Exception _ex )
             {

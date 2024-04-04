@@ -998,22 +998,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Closes the form.
-        /// </summary>
-        public new void Close( )
-        {
-            try
-            {
-                FadeOut( );
-                base.Close( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Begins the initialize.
         /// </summary>
         private void BeginInit( )
