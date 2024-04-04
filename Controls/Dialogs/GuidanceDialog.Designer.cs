@@ -423,7 +423,7 @@ namespace BudgetExecution
             Controls.Add( HeaderTable );
             DoubleBuffered = true;
             Font = new System.Drawing.Font( "Roboto", 9F );
-            ForeColor = System.Drawing.Color.LightGray;
+            ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
             Margin = new System.Windows.Forms.Padding( 4, 3, 4, 3 );

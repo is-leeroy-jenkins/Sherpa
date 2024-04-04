@@ -280,7 +280,7 @@ namespace BudgetExecution
             // 
             // PictureBox
             // 
-            PictureBox.Image = Resources.Images.DialogImages.Message;
+            PictureBox.Image = Resources.Images.FormImages.Application;
             PictureBox.Location = new System.Drawing.Point( 3, 3 );
             PictureBox.Name = "PictureBox";
             PictureBox.Size = new System.Drawing.Size( 20, 18 );

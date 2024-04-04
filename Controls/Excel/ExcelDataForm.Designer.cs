@@ -191,7 +191,7 @@
             Spreadsheet.DefaultRowCount = 100;
             Spreadsheet.DisplayAlerts = true;
             Spreadsheet.Dock = System.Windows.Forms.DockStyle.Fill;
-            Spreadsheet.FileName = "Book2";
+            Spreadsheet.FileName = "Book1";
             Spreadsheet.Font = new System.Drawing.Font( "Roboto", 9F );
             Spreadsheet.ForeColor = System.Drawing.Color.Black;
             Spreadsheet.FormulaBarVisibility = false;
@@ -467,7 +467,7 @@
             ToolStripTextBox.Margin = new System.Windows.Forms.Padding( 1 );
             ToolStripTextBox.Name = "ToolStripTextBox";
             ToolStripTextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Size = new System.Drawing.Size( 216, 27 );
+            ToolStripTextBox.Size = new System.Drawing.Size( 214, 27 );
             ToolStripTextBox.Tag = "";
             ToolStripTextBox.ToolTip = ToolTip;
             // 

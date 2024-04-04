@@ -37,7 +37,7 @@
             BackPanel = new BackPanel( );
             Message = new Label( );
             Header.SuspendLayout( );
-            ( (System.ComponentModel.ISupportInitialize) PictureBox  ).BeginInit( );
+            ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
             BackPanel.SuspendLayout( );
             SuspendLayout( );
             // 
@@ -76,7 +76,7 @@
             // 
             Title.AutoSize = true;
             Title.Dock = System.Windows.Forms.DockStyle.Fill;
-            Title.Font = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point );
+            Title.Font = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Bold );
             Title.ForeColor = System.Drawing.Color.White;
             Title.Location = new System.Drawing.Point( 37, 0 );
             Title.Name = "Title";
@@ -88,16 +88,16 @@
             // BackPanel
             // 
             BackPanel.BackColor = System.Drawing.Color.Transparent;
-            BackPanel.BackgroundColor = System.Drawing.Color.FromArgb(   0  ,   73  ,   112   );
+            BackPanel.BackgroundColor = System.Drawing.Color.FromArgb( 0, 73, 112 );
             BackPanel.BindingSource = null;
-            BackPanel.BorderColor = System.Drawing.Color.FromArgb(   106  ,   189  ,   252   );
+            BackPanel.BorderColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             BackPanel.BorderThickness = 1;
             BackPanel.Children = null;
             BackPanel.Controls.Add( Message );
             BackPanel.Controls.Add( Header );
             BackPanel.DataFilter = null;
             BackPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            BackPanel.Font = new System.Drawing.Font( "Roboto", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            BackPanel.Font = new System.Drawing.Font( "Roboto", 8F );
             BackPanel.ForeColor = System.Drawing.Color.Transparent;
             BackPanel.HoverText = null;
             BackPanel.IsDerivedStyle = true;
@@ -117,7 +117,7 @@
             // 
             Message.BindingSource = null;
             Message.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            Message.Font = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            Message.Font = new System.Drawing.Font( "Roboto", 11.25F );
             Message.HoverText = null;
             Message.IsDerivedStyle = true;
             Message.Location = new System.Drawing.Point( 152, 92 );
@@ -138,23 +138,23 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            BackColor = System.Drawing.Color.FromArgb(   0  ,   73  ,   112   );
+            BackColor = System.Drawing.Color.FromArgb( 0, 73, 112 );
             BorderColor = System.Drawing.Color.Transparent;
-            CaptionBarColor = System.Drawing.Color.FromArgb(   0  ,   73  ,   112   );
+            CaptionBarColor = System.Drawing.Color.FromArgb( 0, 73, 112 );
             CaptionBarHeight = 5;
-            CaptionButtonColor = System.Drawing.Color.FromArgb(   0  ,   73  ,   112   );
-            CaptionButtonHoverColor = System.Drawing.Color.FromArgb(   0  ,   73  ,   112   );
-            CaptionFont = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            CaptionForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            CaptionButtonColor = System.Drawing.Color.FromArgb( 0, 73, 112 );
+            CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 0, 73, 112 );
+            CaptionFont = new System.Drawing.Font( "Roboto", 11.25F );
+            CaptionForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             ClientSize = new System.Drawing.Size( 735, 371 );
             Controls.Add( BackPanel );
-            Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            Font = new System.Drawing.Font( "Roboto", 9F );
             ForeColor = System.Drawing.Color.LightGray;
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            Icon = (System.Drawing.Icon) resources.GetObject( "$this.Icon" ) ;
+            Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
             MaximizeBox = false;
             MaximumSize = new System.Drawing.Size( 735, 371 );
-            MetroColor = System.Drawing.Color.FromArgb(   0  ,   73  ,   112   );
+            MetroColor = System.Drawing.Color.FromArgb( 0, 73, 112 );
             MinimizeBox = false;
             MinimumSize = new System.Drawing.Size( 735, 371 );
             Name = "SplashMessage";
@@ -165,7 +165,7 @@
             Text = "SplashNotification";
             Header.ResumeLayout( false );
             Header.PerformLayout( );
-            ( (System.ComponentModel.ISupportInitialize) PictureBox  ).EndInit( );
+            ( (System.ComponentModel.ISupportInitialize)PictureBox ).EndInit( );
             BackPanel.ResumeLayout( false );
             ResumeLayout( false );
         }

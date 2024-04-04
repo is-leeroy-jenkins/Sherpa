@@ -66,13 +66,13 @@
             TextBoxLayout.Controls.Add( FoundLabel, 0, 0 );
             TextBoxLayout.Dock = System.Windows.Forms.DockStyle.Top;
             TextBoxLayout.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            TextBoxLayout.Location = new System.Drawing.Point( 1, 63 );
+            TextBoxLayout.Location = new System.Drawing.Point( 0, 62 );
             TextBoxLayout.Margin = new System.Windows.Forms.Padding( 5 );
             TextBoxLayout.Name = "TextBoxLayout";
             TextBoxLayout.Padding = new System.Windows.Forms.Padding( 1 );
             TextBoxLayout.RowCount = 1;
             TextBoxLayout.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
-            TextBoxLayout.Size = new System.Drawing.Size( 686, 291 );
+            TextBoxLayout.Size = new System.Drawing.Size( 688, 291 );
             TextBoxLayout.TabIndex = 10;
             // 
             // FileList
@@ -90,7 +90,7 @@
             FileList.HoverText = null;
             FileList.IsDerivedStyle = true;
             FileList.ItemHeight = 30;
-            FileList.Location = new System.Drawing.Point( 87, 2 );
+            FileList.Location = new System.Drawing.Point( 88, 2 );
             FileList.Margin = new System.Windows.Forms.Padding( 1 );
             FileList.MultiSelect = false;
             FileList.Name = "FileList";
@@ -103,7 +103,7 @@
             FileList.SelectedValue = null;
             FileList.ShowBorder = false;
             FileList.ShowScrollBar = false;
-            FileList.Size = new System.Drawing.Size( 502, 287 );
+            FileList.Size = new System.Drawing.Size( 503, 287 );
             FileList.Style = MetroSet_UI.Enums.Style.Custom;
             FileList.StyleManager = null;
             FileList.TabIndex = 3;
@@ -140,11 +140,11 @@
             TopTablePanel.Controls.Add( PictureBox, 0, 0 );
             TopTablePanel.Controls.Add( Title, 1, 0 );
             TopTablePanel.Dock = System.Windows.Forms.DockStyle.Top;
-            TopTablePanel.Location = new System.Drawing.Point( 1, 1 );
+            TopTablePanel.Location = new System.Drawing.Point( 0, 0 );
             TopTablePanel.Name = "TopTablePanel";
             TopTablePanel.RowCount = 1;
             TopTablePanel.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            TopTablePanel.Size = new System.Drawing.Size( 686, 62 );
+            TopTablePanel.Size = new System.Drawing.Size( 688, 62 );
             TopTablePanel.TabIndex = 11;
             // 
             // PictureBox
@@ -159,7 +159,7 @@
             PictureBox.Location = new System.Drawing.Point( 3, 3 );
             PictureBox.Name = "PictureBox";
             PictureBox.Padding = new System.Windows.Forms.Padding( 1 );
-            PictureBox.Size = new System.Drawing.Size( 32, 20 );
+            PictureBox.Size = new System.Drawing.Size( 33, 20 );
             PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             PictureBox.TabIndex = 1;
             PictureBox.TabStop = false;
@@ -173,11 +173,11 @@
             Title.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
             Title.HoverText = null;
             Title.IsDerivedStyle = true;
-            Title.Location = new System.Drawing.Point( 41, 3 );
+            Title.Location = new System.Drawing.Point( 42, 3 );
             Title.Margin = new System.Windows.Forms.Padding( 3 );
             Title.Name = "Title";
             Title.Padding = new System.Windows.Forms.Padding( 1 );
-            Title.Size = new System.Drawing.Size( 642, 22 );
+            Title.Size = new System.Drawing.Size( 643, 22 );
             Title.Style = MetroSet_UI.Enums.Style.Custom;
             Title.StyleManager = null;
             Title.TabIndex = 0;
@@ -201,7 +201,7 @@
             SelectButton.HoverText = null;
             SelectButton.HoverTextColor = System.Drawing.Color.White;
             SelectButton.IsDerivedStyle = true;
-            SelectButton.Location = new System.Drawing.Point( 394, 3 );
+            SelectButton.Location = new System.Drawing.Point( 395, 3 );
             SelectButton.Name = "SelectButton";
             SelectButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             SelectButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
@@ -265,7 +265,7 @@
             CloseButton.HoverText = null;
             CloseButton.HoverTextColor = System.Drawing.Color.White;
             CloseButton.IsDerivedStyle = true;
-            CloseButton.Location = new System.Drawing.Point( 576, 3 );
+            CloseButton.Location = new System.Drawing.Point( 577, 3 );
             CloseButton.Name = "CloseButton";
             CloseButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             CloseButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
@@ -332,17 +332,17 @@
             ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 185F ) );
             ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 127F ) );
             ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 55F ) );
-            ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 112F ) );
+            ButtonTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 113F ) );
             ButtonTable.Controls.Add( ClearButton, 3, 0 );
             ButtonTable.Controls.Add( FindButton, 1, 0 );
             ButtonTable.Controls.Add( CloseButton, 6, 0 );
             ButtonTable.Controls.Add( SelectButton, 4, 0 );
             ButtonTable.Dock = System.Windows.Forms.DockStyle.Bottom;
-            ButtonTable.Location = new System.Drawing.Point( 1, 404 );
+            ButtonTable.Location = new System.Drawing.Point( 0, 431 );
             ButtonTable.Name = "ButtonTable";
             ButtonTable.RowCount = 1;
             ButtonTable.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-            ButtonTable.Size = new System.Drawing.Size( 686, 35 );
+            ButtonTable.Size = new System.Drawing.Size( 688, 35 );
             ButtonTable.TabIndex = 21;
             // 
             // ClearButton
@@ -359,7 +359,7 @@
             ClearButton.HoverText = null;
             ClearButton.HoverTextColor = System.Drawing.Color.White;
             ClearButton.IsDerivedStyle = true;
-            ClearButton.Location = new System.Drawing.Point( 209, 3 );
+            ClearButton.Location = new System.Drawing.Point( 210, 3 );
             ClearButton.Name = "ClearButton";
             ClearButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             ClearButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
@@ -382,13 +382,22 @@
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            BorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            CaptionBarColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            CaptionBarHeight = 5;
+            CaptionButtonColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionFont = new System.Drawing.Font( "Roboto", 11.25F );
-            ClientSize = new System.Drawing.Size( 688, 440 );
+            CaptionForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ClientSize = new System.Drawing.Size( 688, 466 );
             Controls.Add( ButtonTable );
             Controls.Add( MessageLabel );
             Controls.Add( TextBoxLayout );
             Controls.Add( TopTablePanel );
+            Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
+            ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             Icon = (System.Drawing.Icon)resources.GetObject( "$this.Icon" );
+            MetroColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             Name = "FolderDialog";
             ShowMaximizeBox = false;
             ShowMinimizeBox = false;

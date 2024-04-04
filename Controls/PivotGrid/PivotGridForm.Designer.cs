@@ -80,6 +80,7 @@
             CommandLabel2 = new Label( );
             CommandLabel1 = new Label( );
             MetricsTable = new System.Windows.Forms.TableLayoutPanel( );
+            MetricLabel5 = new Label( );
             MetricLabel19 = new Label( );
             MetricLabel18 = new Label( );
             MetricLabel17 = new Label( );
@@ -88,7 +89,6 @@
             MetricLabel1 = new Label( );
             MetricLabel2 = new Label( );
             MetricLabel4 = new Label( );
-            MetricLabel5 = new Label( );
             MetricLabel6 = new Label( );
             MetricLabel7 = new Label( );
             MetricLabel8 = new Label( );
@@ -1009,6 +1009,29 @@
             MetricsTable.Size = new System.Drawing.Size( 707, 106 );
             MetricsTable.TabIndex = 4;
             // 
+            // MetricLabel5
+            // 
+            MetricLabel5.BindingSource = null;
+            MetricLabel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            MetricLabel5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            MetricLabel5.Font = new System.Drawing.Font( "Roboto", 6.75F );
+            MetricLabel5.HoverText = null;
+            MetricLabel5.IsDerivedStyle = true;
+            MetricLabel5.Location = new System.Drawing.Point( 567, 3 );
+            MetricLabel5.Margin = new System.Windows.Forms.Padding( 3 );
+            MetricLabel5.Name = "MetricLabel5";
+            MetricLabel5.Padding = new System.Windows.Forms.Padding( 1 );
+            MetricLabel5.Size = new System.Drawing.Size( 137, 20 );
+            MetricLabel5.Style = MetroSet_UI.Enums.Style.Custom;
+            MetricLabel5.StyleManager = null;
+            MetricLabel5.TabIndex = 44;
+            MetricLabel5.Tag = "STAT";
+            MetricLabel5.Text = "Text";
+            MetricLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            MetricLabel5.ThemeAuthor = "Terry D. Eppler";
+            MetricLabel5.ThemeName = "BudgetExecution";
+            MetricLabel5.ToolTip = null;
+            // 
             // MetricLabel19
             // 
             MetricLabel19.BindingSource = null;
@@ -1192,29 +1215,6 @@
             MetricLabel4.ThemeAuthor = "Terry D. Eppler";
             MetricLabel4.ThemeName = "Budget Execution";
             MetricLabel4.ToolTip = null;
-            // 
-            // MetricLabel5
-            // 
-            MetricLabel5.BindingSource = null;
-            MetricLabel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            MetricLabel5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            MetricLabel5.Font = new System.Drawing.Font( "Roboto", 6.75F );
-            MetricLabel5.HoverText = null;
-            MetricLabel5.IsDerivedStyle = true;
-            MetricLabel5.Location = new System.Drawing.Point( 567, 3 );
-            MetricLabel5.Margin = new System.Windows.Forms.Padding( 3 );
-            MetricLabel5.Name = "MetricLabel5";
-            MetricLabel5.Padding = new System.Windows.Forms.Padding( 1 );
-            MetricLabel5.Size = new System.Drawing.Size( 137, 20 );
-            MetricLabel5.Style = MetroSet_UI.Enums.Style.Custom;
-            MetricLabel5.StyleManager = null;
-            MetricLabel5.TabIndex = 44;
-            MetricLabel5.Tag = "STAT";
-            MetricLabel5.Text = "Text";
-            MetricLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            MetricLabel5.ThemeAuthor = "Terry D. Eppler";
-            MetricLabel5.ThemeName = "BudgetExecution";
-            MetricLabel5.ToolTip = null;
             // 
             // MetricLabel6
             // 
@@ -1498,7 +1498,6 @@
             pivotGrid1.EditManager = null;
             pivotGrid1.Font = new System.Drawing.Font( "Roboto", 9F );
             pivotGrid1.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            pivotGrid1.GridVisualStyles = Syncfusion.Windows.Forms.GridVisualStyles.Office2016Black;
             pivotGrid1.Location = new System.Drawing.Point( 0, 0 );
             pivotGrid1.Name = "pivotGrid1";
             pivotGrid1.Size = new System.Drawing.Size( 900, 500 );
@@ -1595,12 +1594,13 @@
             // ContextMenu
             // 
             ContextMenu.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ContextMenu.CanOverrideStyle = true;
             ContextMenu.DropShadowEnabled = false;
             ContextMenu.Font = new System.Drawing.Font( "Roboto", 9F );
             ContextMenu.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             ContextMenu.MetroColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             ContextMenu.Name = "ContextMenu";
-            ContextMenu.Size = new System.Drawing.Size( 126, 180 );
+            ContextMenu.Size = new System.Drawing.Size( 184, 312 );
             ContextMenu.Style = Syncfusion.Windows.Forms.Tools.ContextMenuStripEx.ContextMenuStyle.Office2016Black;
             ContextMenu.ThemeName = "Office2016Black";
             ContextMenu.ThemeStyle.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );

@@ -518,7 +518,7 @@
             TextBox.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             TextBox.Name = "TextBox";
             TextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            TextBox.Size = new System.Drawing.Size( 216, 25 );
+            TextBox.Size = new System.Drawing.Size( 214, 25 );
             TextBox.Tag = "";
             TextBox.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             TextBox.ToolTip = ToolTip;
@@ -600,8 +600,16 @@
             // 
             DataSheet.AlphaBlendSelectionColor = System.Drawing.Color.FromArgb( 130, 80, 80, 80 );
             DataSheet.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            gridBaseStyle1.Name = "Standard";
-            gridBaseStyle1.StyleInfo.Font.Facename = "Tahoma";
+            gridBaseStyle1.Name = "Header";
+            gridBaseStyle1.StyleInfo.CellType = "Header";
+            gridBaseStyle1.StyleInfo.Font.Bold = true;
+            gridBaseStyle1.StyleInfo.Font.Facename = "Segoe UI";
+            gridBaseStyle1.StyleInfo.Font.Italic = false;
+            gridBaseStyle1.StyleInfo.Font.Size = 9F;
+            gridBaseStyle1.StyleInfo.Font.Strikeout = false;
+            gridBaseStyle1.StyleInfo.Font.Underline = false;
+            gridBaseStyle1.StyleInfo.Font.Unit = System.Drawing.GraphicsUnit.Point;
+            gridBaseStyle1.StyleInfo.VerticalAlignment = Syncfusion.Windows.Forms.Grid.GridVerticalAlignment.Middle;
             gridBaseStyle2.Name = "Row Header";
             gridBaseStyle2.StyleInfo.BaseStyle = "Header";
             gridBaseStyle2.StyleInfo.Font.Bold = true;
@@ -622,16 +630,8 @@
             gridBaseStyle3.StyleInfo.Font.Underline = false;
             gridBaseStyle3.StyleInfo.Font.Unit = System.Drawing.GraphicsUnit.Point;
             gridBaseStyle3.StyleInfo.HorizontalAlignment = Syncfusion.Windows.Forms.Grid.GridHorizontalAlignment.Center;
-            gridBaseStyle4.Name = "Header";
-            gridBaseStyle4.StyleInfo.CellType = "Header";
-            gridBaseStyle4.StyleInfo.Font.Bold = true;
-            gridBaseStyle4.StyleInfo.Font.Facename = "Segoe UI";
-            gridBaseStyle4.StyleInfo.Font.Italic = false;
-            gridBaseStyle4.StyleInfo.Font.Size = 9F;
-            gridBaseStyle4.StyleInfo.Font.Strikeout = false;
-            gridBaseStyle4.StyleInfo.Font.Underline = false;
-            gridBaseStyle4.StyleInfo.Font.Unit = System.Drawing.GraphicsUnit.Point;
-            gridBaseStyle4.StyleInfo.VerticalAlignment = Syncfusion.Windows.Forms.Grid.GridVerticalAlignment.Middle;
+            gridBaseStyle4.Name = "Standard";
+            gridBaseStyle4.StyleInfo.Font.Facename = "Tahoma";
             DataSheet.BaseStylesMap.AddRange( new Syncfusion.Windows.Forms.Grid.GridBaseStyle[ ] { gridBaseStyle1, gridBaseStyle2, gridBaseStyle3, gridBaseStyle4 } );
             DataSheet.CanOverrideStyle = true;
             DataSheet.ColCount = 50;
@@ -707,12 +707,13 @@
             // ContextMenu
             // 
             ContextMenu.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ContextMenu.CanOverrideStyle = true;
             ContextMenu.DropShadowEnabled = false;
             ContextMenu.Font = new System.Drawing.Font( "Roboto", 9F );
             ContextMenu.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             ContextMenu.MetroColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             ContextMenu.Name = "ContextMenu";
-            ContextMenu.Size = new System.Drawing.Size( 126, 180 );
+            ContextMenu.Size = new System.Drawing.Size( 184, 312 );
             ContextMenu.Style = Syncfusion.Windows.Forms.Tools.ContextMenuStripEx.ContextMenuStyle.Office2016Black;
             ContextMenu.ThemeName = "Office2016Black";
             ContextMenu.ThemeStyle.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );

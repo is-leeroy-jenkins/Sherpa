@@ -105,12 +105,12 @@
             MetricLabel14 = new Label( );
             MetricLabel15 = new Label( );
             BusyTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
+            Loader = new System.Windows.Forms.PictureBox( );
             SourcePanel = new HeaderPanel( );
             TableListBoxLayout = new BackPanel( );
             TableListBox = new ListBox( );
             ToolStripTable = new System.Windows.Forms.TableLayoutPanel( );
             ContextMenu = new ContextMenu( );
-            Loader = new System.Windows.Forms.PictureBox( );
             HeaderTable.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
@@ -126,10 +126,10 @@
             ChartSubTable.SuspendLayout( );
             MetricsTable.SuspendLayout( );
             BusyTab.SuspendLayout( );
+            ( (System.ComponentModel.ISupportInitialize)Loader ).BeginInit( );
             SourcePanel.SuspendLayout( );
             TableListBoxLayout.SuspendLayout( );
             ToolStripTable.SuspendLayout( );
-            ( (System.ComponentModel.ISupportInitialize)Loader ).BeginInit( );
             SuspendLayout( );
             // 
             // HeaderTable
@@ -1519,6 +1519,17 @@
             BusyTab.TabIndex = 2;
             BusyTab.ThemesEnabled = false;
             // 
+            // Loader
+            // 
+            Loader.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            Loader.Image = Resources.Images.LoaderImages.Loading;
+            Loader.Location = new System.Drawing.Point( 35, 5 );
+            Loader.Name = "Loader";
+            Loader.Size = new System.Drawing.Size( 991, 566 );
+            Loader.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            Loader.TabIndex = 1;
+            Loader.TabStop = false;
+            // 
             // SourcePanel
             // 
             SourcePanel.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
@@ -1616,12 +1627,13 @@
             // ContextMenu
             // 
             ContextMenu.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            ContextMenu.CanOverrideStyle = true;
             ContextMenu.DropShadowEnabled = false;
             ContextMenu.Font = new System.Drawing.Font( "Roboto", 9F );
             ContextMenu.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             ContextMenu.MetroColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             ContextMenu.Name = "ContextMenu";
-            ContextMenu.Size = new System.Drawing.Size( 126, 180 );
+            ContextMenu.Size = new System.Drawing.Size( 184, 312 );
             ContextMenu.Style = Syncfusion.Windows.Forms.Tools.ContextMenuStripEx.ContextMenuStyle.Office2016Black;
             ContextMenu.ThemeName = "Office2016Black";
             ContextMenu.ThemeStyle.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
@@ -1632,17 +1644,6 @@
             ContextMenu.ThemeStyle.HoverForeColor = System.Drawing.Color.White;
             ContextMenu.ThemeStyle.PressedBackColor = System.Drawing.Color.FromArgb( 204, 204, 204 );
             ContextMenu.ThemeStyle.PressedForeColor = System.Drawing.Color.Black;
-            // 
-            // Loader
-            // 
-            Loader.Anchor =    System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Bottom   |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
-            Loader.Image = Resources.Images.LoaderImages.Loading;
-            Loader.Location = new System.Drawing.Point( 35, 5 );
-            Loader.Name = "Loader";
-            Loader.Size = new System.Drawing.Size( 991, 566 );
-            Loader.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            Loader.TabIndex = 1;
-            Loader.TabStop = false;
             // 
             // PivotChartForm
             // 
@@ -1693,11 +1694,11 @@
             ChartSubTable.ResumeLayout( false );
             MetricsTable.ResumeLayout( false );
             BusyTab.ResumeLayout( false );
+            ( (System.ComponentModel.ISupportInitialize)Loader ).EndInit( );
             SourcePanel.ResumeLayout( false );
             TableListBoxLayout.ResumeLayout( false );
             ToolStripTable.ResumeLayout( false );
             ToolStripTable.PerformLayout( );
-            ( (System.ComponentModel.ISupportInitialize)Loader ).EndInit( );
             ResumeLayout( false );
         }
 
