@@ -293,6 +293,16 @@ namespace BudgetExecution.Resources.Images {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap DownButton {
+            get {
+                object obj = ResourceManager.GetObject("DownButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DownloadButton {
             get {
                 object obj = ResourceManager.GetObject("DownloadButton", resourceCulture);
@@ -533,6 +543,16 @@ namespace BudgetExecution.Resources.Images {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap LeftButton {
+            get {
+                object obj = ResourceManager.GetObject("LeftButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LogoutButton {
             get {
                 object obj = ResourceManager.GetObject("LogoutButton", resourceCulture);
@@ -683,6 +703,16 @@ namespace BudgetExecution.Resources.Images {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap RightButton {
+            get {
+                object obj = ResourceManager.GetObject("RightButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SaveAllButton {
             get {
                 object obj = ResourceManager.GetObject("SaveAllButton", resourceCulture);
@@ -776,6 +806,16 @@ namespace BudgetExecution.Resources.Images {
         internal static System.Drawing.Bitmap UndoButton {
             get {
                 object obj = ResourceManager.GetObject("UndoButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UpButton {
+            get {
+                object obj = ResourceManager.GetObject("UpButton", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
