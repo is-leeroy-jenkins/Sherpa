@@ -552,6 +552,7 @@ namespace BudgetExecution
                 TableListBox.SelectedIndexChanged += OnTableListBoxSelectionChanged;
                 ColumnListBox.SelectedIndexChanged += OnColumnListBoxSelectionChanged;
                 CommandComboBox.SelectedIndexChanged += OnCommandComboBoxItemSelected;
+                BrowserButton.Click += OnBrowserButtonClick;
                 Timer.Tick += OnTimerTick;
             }
             catch( Exception _ex )
@@ -2549,6 +2550,25 @@ namespace BudgetExecution
 
                 FadeOut( );
                 Close( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [file dialog button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnBrowserButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _dialog = new FileDialog( );
+                _dialog.ShowDialog( this );
             }
             catch( Exception _ex )
             {

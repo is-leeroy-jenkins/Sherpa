@@ -50,40 +50,79 @@ namespace BudgetExecution
     using static Screen;
     using static FormAnimator;
 
-    /// <summary> </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ReplaceAutoPropertyWithComputedProperty" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ValueParameterNotUsed" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Local" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
     public partial class Notification : MetroForm
     {
-        /// <summary> Gets or sets the time. </summary>
-        /// <value> The time. </value>
-        public int Time { get; set; }
+        /// <summary>
+        /// The time
+        /// </summary>
+        private int _time;
 
-        /// <summary> Gets or sets the seconds. </summary>
-        /// <value> The seconds. </value>
-        public int Seconds { get; set; }
+        /// <summary>
+        /// The seconds
+        /// </summary>
+        private int _seconds;
 
-        /// <summary> Gets or sets a value indicating whether [allow focus]. </summary>
+        /// <summary>
+        /// The allow focus
+        /// </summary>
+        private bool _allowFocus;
+
+        /// <summary>
+        /// The without activation
+        /// </summary>
+        private bool _withoutActivation;
+
+        /// <summary>
+        /// Gets or sets a value indicating whether [allow focus].
+        /// </summary>
         /// <value>
         /// <c> true </c>
         /// if [allow focus]; otherwise,
         /// <c> false </c>
         /// .
         /// </value>
-        public bool AllowFocus { get; set; }
+        public bool AllowFocus
+        {
+            get
+            {
+                return _allowFocus;
+            }
+            private set
+            {
+                _allowFocus = value;
+            }
+        }
 
-        /// <summary> Gets a value indicating whether [shown without activation]. </summary>
+        /// <summary>
+        /// Gets a value indicating whether [shown without activation].
+        /// </summary>
         /// <value>
         /// <c> true </c>
         /// if [shown without activation]; otherwise,
         /// <c> false </c>
         /// .
         /// </value>
-        public bool ShownWithoutActivation { get; } = true;
+        public bool ShownWithoutActivation
+        {
+            get
+            {
+                return _withoutActivation;
+            }
+        }
 
         /// <inheritdoc/>
         /// <summary>
@@ -94,6 +133,7 @@ namespace BudgetExecution
         public Notification( )
         {
             InitializeComponent( );
+            RegisterCallbacks( );
 
             // Form Properties
             DoubleBuffered = true;
@@ -117,12 +157,16 @@ namespace BudgetExecution
             BorderColor = Color.FromArgb( 0, 73, 112 );
             BackColor = Color.FromArgb( 0, 73, 112 );
             CaptionBarColor = Color.FromArgb( 0, 73, 112 );
-            Message.Font = new Font( "Roboto", 9, FontStyle.Bold );
-            Message.BackColor = Color.FromArgb( 0, 73, 112 );
-            Message.ForeColor = Color.White;
+
+            // Splash Attributes
+            _withoutActivation = true;
+            _time = 0;
+            _seconds = 5;
 
             // Event Wiring
             Resize += OnResized;
+            Click += OnClose;
+            Load += OnLoad;
         }
 
         /// <inheritdoc/>
@@ -140,15 +184,10 @@ namespace BudgetExecution
             AnimationDirection direction = AnimationDirection.Up )
             : this( )
         {
-            Load += OnLoad;
-            Time = 0;
-            Seconds = duration;
+            _seconds = duration;
             Timer.Interval = duration * 1000;
             Title.Text = nameof( Notification );
             Message.Text = body;
-            Click += ( s, e ) => OnClose( );
-            Message.Click += ( s, e ) => OnClose( );
-            Title.Click += ( s, e ) => OnClose( );
         }
 
         /// <inheritdoc/>
@@ -167,31 +206,61 @@ namespace BudgetExecution
             AnimationDirection direction = AnimationDirection.Up )
             : this( )
         {
-            Load += OnLoad;
-            Time = 0;
-            Seconds = duration;
+            _seconds = duration;
             Timer.Interval = duration * 1000;
             Title.Text = title;
             Message.Text = body;
-            Click += ( s, e ) => OnClose( );
-            Message.Click += ( s, e ) => OnClose( );
-            Title.Click += ( s, e ) => OnClose( );
         }
 
-        /// <summary> Displays the control to the user. </summary>
+        /// <summary>
+        /// Registers the callbacks.
+        /// </summary>
+        private void RegisterCallbacks( )
+        {
+            try
+            {
+                Message.Click += OnClose;
+                Title.Click += OnClose;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the labels.
+        /// </summary>
+        private void InitializeLabels( )
+        {
+            try
+            {
+                Message.Font = new Font( "Roboto", 9, FontStyle.Bold );
+                Message.BackColor = Color.FromArgb( 0, 73, 112 );
+                Message.ForeColor = Color.White;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Displays the control to the user.
+        /// </summary>
         public new void Show( )
         {
             try
             {
                 Opacity = 0;
-                if( Seconds != 0 )
+                if( _seconds != 0 )
                 {
                     Timer = new Timer( );
                     Timer.Interval = 1000;
                     Timer.Tick += ( sender, args ) =>
                     {
-                        Time++;
-                        if( Time == Seconds )
+                        _time++;
+                        if( _time == _seconds )
                         {
                             Timer.Stop( );
                             FadeOut( );
@@ -207,7 +276,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fades the in. </summary>
+        /// <summary>
+        /// Fades the in.
+        /// </summary>
         private void FadeIn( )
         {
             try
@@ -232,7 +303,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fades the out and close. </summary>
+        /// <summary>
+        /// Fades the out and close.
+        /// </summary>
         private void FadeOut( )
         {
             try
@@ -244,7 +317,7 @@ namespace BudgetExecution
                     if( Opacity == 0d )
                     {
                         _timer.Stop( );
-                        Close( );
+                        base.Close( );
                     }
 
                     Opacity -= 0.02d;
@@ -258,36 +331,23 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Notifications the close. </summary>
-        public void OnClose( )
-        {
-            try
-            {
-                FadeOut( );
-                Close( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Called when [load]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The
+        /// <see cref="EventArgs" />
+        /// instance containing the event data.</param>
         private void OnLoad( object sender, EventArgs e )
         {
             try
             {
-                Location = new Point( PrimaryScreen.WorkingArea.Width - Width - 5,
-                    PrimaryScreen.WorkingArea.Height - Height - 5 );
-
-                FadeIn( );
+                var _width = PrimaryScreen.WorkingArea.Width - Width - 5;
+                var _height = PrimaryScreen.WorkingArea.Height - Height - 5;
+                Location = new Point( _width, _height );
+                InitializeLabels( );
                 Timer.Start( );
+                FadeIn( );
             }
             catch( Exception _ex )
             {
@@ -295,13 +355,13 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [resized]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [resized].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The
+        /// <see cref="EventArgs" />
+        /// instance containing the event data.</param>
         private void OnResized( object sender, EventArgs e )
         {
             try
@@ -317,8 +377,26 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Notifications the close.
+        /// </summary>
+        public void OnClose( object sender, EventArgs e )
+        {
+            try
+            {
+                FadeOut( );
+                base.Close( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Get ErrorDialog Dialog.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

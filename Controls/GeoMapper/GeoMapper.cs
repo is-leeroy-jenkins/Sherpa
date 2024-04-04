@@ -457,7 +457,9 @@ namespace BudgetExecution
             try
             {
                 CloseButton.Click += OnCloseButtonClick;
-                MenuButton.Click += OnMenuButtonClicked;
+                MenuButton.Click += OnMenuButtonClick;
+                BrowseButton.Click += OnBrowserButtonClick;
+                SaveButton.Click += OnSaveButtonClick;
                 Timer.Tick += OnTimerTick;
             }
             catch( Exception _ex )
@@ -942,7 +944,7 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnMenuButtonClicked( object sender, EventArgs e )
+        private void OnMenuButtonClick( object sender, EventArgs e )
         {
             try
             {
@@ -1006,6 +1008,44 @@ namespace BudgetExecution
             try
             {
                 FadeIn( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [file dialog button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnBrowserButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _dialog = new FileDialog( );
+                _dialog.ShowDialog( this );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [save button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnSaveButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _message = "THE SAVE FUCTIONALITY HAS NOT BEEN IMPLEMENTED!";
+                SendNotification( _message );
             }
             catch( Exception _ex )
             {

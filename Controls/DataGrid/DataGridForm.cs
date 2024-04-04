@@ -878,7 +878,7 @@ namespace BudgetExecution
                 if( _seconds != 0 )
                 {
                     Timer = new Timer( );
-                    Timer.Interval = 1000;
+                    Timer.Interval = _seconds * 1000;
                     Timer.Tick += ( sender, args ) =>
                     {
                         _time++;
@@ -938,18 +938,18 @@ namespace BudgetExecution
                 SQLiteRadioButton.CheckedChanged += OnRadioButtonChecked;
                 SqlServerRadioButton.CheckedChanged += OnRadioButtonChecked;
                 SqlCeRadioButton.CheckedChanged += OnRadioButtonChecked;
-                ExitButton.Click += OnExitButtonClicked;
-                MenuButton.Click += OnMenuButtonClicked;
-                FilterButton.Click += OnResetDataFilterButtonClicked;
-                RefreshDataButton.Click += OnResetDataSourceButtonClicked;
-                GroupButton.Click += OnGroupButtonClicked;
+                ExitButton.Click += OnExitButtonClick;
+                MenuButton.Click += OnMenuButtonClick;
+                FilterButton.Click += OnResetDataFilterButtonClick;
+                RefreshDataButton.Click += OnResetDataSourceButtonClick;
+                GroupButton.Click += OnGroupButtonClick;
                 FirstCalendar.SelectionChanged += OnStartDateSelected;
                 SecondCalendar.SelectionChanged += OnEndDateSelected;
                 EditSqlButton.Click += OnSqlButtonClick;
-                EditRecordButton.Click += OnEditRecordButtonClicked;
-                EditColumnButton.Click += OnEditColumnButtonClicked;
-                BrowseButton.Click += OnBrowserButtonClicked;
-                SaveButton.Click += OnSaveButtonClicked;
+                EditRecordButton.Click += OnEditRecordButtonClick;
+                EditColumnButton.Click += OnEditColumnButtonClick;
+                BrowseButton.Click += OnBrowserButtonClick;
+                SaveButton.Click += OnSaveButtonClick;
             }
             catch( Exception _ex )
             {
@@ -1123,6 +1123,7 @@ namespace BudgetExecution
                 Timer.Enabled = true;
                 Timer.Interval = _seconds * 1000;
                 Timer.Tick += OnTimerTick;
+                Timer.Start( );
             }
             catch( Exception _ex )
             {
@@ -2117,10 +2118,10 @@ namespace BudgetExecution
         {
             try
             {
-                var _setting = ConfigurationManager.AppSettings[ "ProviderImages" ];
-                if( !string.IsNullOrEmpty( _setting ) )
+                var _filePath = ConfigurationManager.AppSettings[ "ProviderImages" ];
+                if( !string.IsNullOrEmpty( _filePath ) )
                 {
-                    var _files = Directory.GetFiles( _setting );
+                    var _files = Directory.GetFiles( _filePath );
                     if( _files?.Any( ) == true )
                     {
                         var _extension = _provider.ToString( );
@@ -2132,7 +2133,10 @@ namespace BudgetExecution
                            && File.Exists( _file ) )
                         {
                             var _image = Image.FromFile( _file );
-                            PictureBox.Image = _image;
+                            if( _image != null )
+                            {
+                                PictureBox.Image = _image;
+                            }
                         }
                     }
                 }
@@ -2152,10 +2156,10 @@ namespace BudgetExecution
         {
             try
             {
-                var _setting = ConfigurationManager.AppSettings[ "DialogImages" ];
-                if( !string.IsNullOrEmpty( _setting ) )
+                var _filePath = ConfigurationManager.AppSettings[ "DialogImages" ];
+                if( !string.IsNullOrEmpty( _filePath ) )
                 {
-                    var _files = Directory.GetFiles( _setting );
+                    var _files = Directory.GetFiles( _filePath );
                     if( _files?.Any( ) == true )
                     {
                         switch( toolType )
@@ -2179,7 +2183,10 @@ namespace BudgetExecution
                                    && File.Exists( _file ) )
                                 {
                                     var _img = Image.FromFile( _file );
-                                    PictureBox.Image = _img;
+                                    if( _img != null )
+                                    {
+                                        PictureBox.Image = _img;
+                                    }
                                 }
 
                                 break;
@@ -2371,7 +2378,6 @@ namespace BudgetExecution
                 UpdateLabels( );
                 UpdateStatus( );
                 FadeIn( );
-                Timer.Start( );
             }
             catch( Exception _ex )
             {
@@ -2659,7 +2665,7 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnTestButtonClicked( object sender, EventArgs e )
+        private void OnTestButtonClick( object sender, EventArgs e )
         {
             try
             {
@@ -2678,7 +2684,7 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnExitButtonClicked( object sender, EventArgs e )
+        private void OnExitButtonClick( object sender, EventArgs e )
         {
             try
             {
@@ -2697,7 +2703,7 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnMenuButtonClicked( object sender, EventArgs e )
+        private void OnMenuButtonClick( object sender, EventArgs e )
         {
             try
             {
@@ -2717,7 +2723,7 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnResetDataFilterButtonClicked( object sender, EventArgs e )
+        private void OnResetDataFilterButtonClick( object sender, EventArgs e )
         {
             try
             {
@@ -2886,7 +2892,7 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnGroupButtonClicked( object sender, EventArgs e )
+        private void OnGroupButtonClick( object sender, EventArgs e )
         {
             try
             {
@@ -2907,7 +2913,7 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnBrowserButtonClicked( object sender, EventArgs e )
+        private void OnBrowserButtonClick( object sender, EventArgs e )
         {
             try
             {
@@ -2926,7 +2932,7 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnSaveButtonClicked( object sender, EventArgs e )
+        private void OnSaveButtonClick( object sender, EventArgs e )
         {
             try
             {
@@ -2945,7 +2951,7 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnCalendarButtonClicked( object sender, EventArgs e )
+        private void OnCalendarButtonClick( object sender, EventArgs e )
         {
             try
             {
@@ -2966,7 +2972,7 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnEditRecordButtonClicked( object sender, EventArgs e )
+        private void OnEditRecordButtonClick( object sender, EventArgs e )
         {
             if( sender is ToolStripButton _button )
             {
@@ -2990,7 +2996,7 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnEditColumnButtonClicked( object sender, EventArgs e )
+        private void OnEditColumnButtonClick( object sender, EventArgs e )
         {
             if( sender is ToolStripButton _button )
             {
@@ -3097,7 +3103,7 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnResetDataSourceButtonClicked( object sender, EventArgs e )
+        private void OnResetDataSourceButtonClick( object sender, EventArgs e )
         {
             try
             {

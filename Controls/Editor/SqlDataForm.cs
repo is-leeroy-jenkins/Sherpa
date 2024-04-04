@@ -572,10 +572,11 @@ namespace BudgetExecution
                 EditDataButton.Click += OnEditDataButtonClick;
                 TableButton.Click += OnTableButtonClick;
                 LookupButton.Click += OnLookupButtonClick;
-                MenuButton.Click += OnMenuButtonClicked;
+                MenuButton.Click += OnMenuButtonClick;
                 ClientButton.Click += OnClientButtonClick;
                 TableListBox.SelectedIndexChanged += OnTableListBoxSelectionChanged;
                 ColumnListBox.SelectedIndexChanged += OnColumnListBoxSelectionChanged;
+                BrowserButton.Click += OnBrowserButtonClicked;
                 Timer.Tick += OnTimerTick;
             }
             catch( Exception _ex )
@@ -2430,7 +2431,7 @@ namespace BudgetExecution
         /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        private void OnMenuButtonClicked( object sender, EventArgs e )
+        private void OnMenuButtonClick( object sender, EventArgs e )
         {
             try
             {
@@ -2560,6 +2561,25 @@ namespace BudgetExecution
             try
             {
                 FadeIn( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [file dialog button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnBrowserButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                var _dialog = new FileDialog( );
+                _dialog.ShowDialog( this );
             }
             catch( Exception _ex )
             {

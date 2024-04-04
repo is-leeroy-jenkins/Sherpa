@@ -1086,17 +1086,17 @@ namespace BudgetExecution
                 SQLiteRadioButton.CheckedChanged += OnRadioButtonChecked;
                 SqlServerRadioButton.CheckedChanged += OnRadioButtonChecked;
                 SqlCeRadioButton.CheckedChanged += OnRadioButtonChecked;
-                ExitButton.Click += OnExitButtonClicked;
-                MenuButton.Click += OnMenuButtonClicked;
-                RemoveFiltersButton.Click += OnRemoveFilterButtonClicked;
-                RefreshDataButton.Click += OnRefreshDataButtonClicked;
-                GroupButton.Click += OnGroupButtonClicked;
-                CalendarButton.Click += OnCalendarButtonClicked;
+                ExitButton.Click += OnExitButtonClick;
+                MenuButton.Click += OnMenuButtonClick;
+                RemoveFiltersButton.Click += OnRemoveFilterButtonClick;
+                RefreshDataButton.Click += OnRefreshDataButtonClick;
+                GroupButton.Click += OnGroupButtonClick;
+                CalendarButton.Click += OnCalendarButtonClick;
                 FirstCalendar.SelectionChanged += OnStartDateSelected;
                 SecondCalendar.SelectionChanged += OnEndDateSelected;
                 EditSqlButton.Click += OnSqlButtonClick;
-                EditRecordButton.Click += OnEditRecordButtonClicked;
-                EditColumnButton.Click += OnEditColumnButtonClicked;
+                EditRecordButton.Click += OnEditRecordButtonClick;
+                EditColumnButton.Click += OnEditColumnButtonClick;
                 Timer.Tick += OnTimerTick;
             }
             catch( Exception _ex )
@@ -1855,10 +1855,10 @@ namespace BudgetExecution
         {
             try
             {
-                var _path = ConfigurationManager.AppSettings[ "ProviderImages" ];
-                if( !string.IsNullOrEmpty( _path ) )
+                var _filePath = ConfigurationManager.AppSettings[ "ProviderImages" ];
+                if( !string.IsNullOrEmpty( _filePath ) )
                 {
-                    var _files = Directory.GetFiles( _path );
+                    var _files = Directory.GetFiles( _filePath );
                     if( _files?.Any( ) == true )
                     {
                         var _extension = _provider.ToString( );
@@ -1870,7 +1870,10 @@ namespace BudgetExecution
                            && File.Exists( _file ) )
                         {
                             var _img = Image.FromFile( _file );
-                            PictureBox.Image = _img;
+                            if( _img != null )
+                            {
+                                PictureBox.Image = _img;
+                            }
                         }
                     }
                 }
@@ -2372,7 +2375,7 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnTestButtonClicked( object sender, EventArgs e )
+        private void OnTestButtonClick( object sender, EventArgs e )
         {
             try
             {
@@ -2391,7 +2394,7 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnExitButtonClicked( object sender, EventArgs e )
+        private void OnExitButtonClick( object sender, EventArgs e )
         {
             try
             {
@@ -2410,7 +2413,7 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnMenuButtonClicked( object sender, EventArgs e )
+        private void OnMenuButtonClick( object sender, EventArgs e )
         {
             try
             {
@@ -2430,7 +2433,7 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnRemoveFilterButtonClicked( object sender, EventArgs e )
+        private void OnRemoveFilterButtonClick( object sender, EventArgs e )
         {
             try
             {
@@ -2612,7 +2615,7 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnGroupButtonClicked( object sender, EventArgs e )
+        private void OnGroupButtonClick( object sender, EventArgs e )
         {
             try
             {
@@ -2635,7 +2638,7 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnCalendarButtonClicked( object sender, EventArgs e )
+        private void OnCalendarButtonClick( object sender, EventArgs e )
         {
             try
             {
@@ -2655,7 +2658,7 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnEditRecordButtonClicked( object sender, EventArgs e )
+        private void OnEditRecordButtonClick( object sender, EventArgs e )
         {
             if( sender is ToolStripButton _button )
             {
@@ -2679,7 +2682,7 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnEditColumnButtonClicked( object sender, EventArgs e )
+        private void OnEditColumnButtonClick( object sender, EventArgs e )
         {
             if( sender is ToolStripButton _button )
             {
@@ -2789,7 +2792,7 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnRefreshDataButtonClicked( object sender, EventArgs e )
+        private void OnRefreshDataButtonClick( object sender, EventArgs e )
         {
             try
             {

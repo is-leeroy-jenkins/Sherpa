@@ -66,19 +66,9 @@ namespace BudgetExecution
     public partial class SplashMessage : MetroForm
     {
         /// <summary>
-        /// The locked object
-        /// </summary>
-        private object _path;
-
-        /// <summary>
         /// The busy
         /// </summary>
         private bool _busy;
-
-        /// <summary>
-        /// The status update
-        /// </summary>
-        private System.Action _updateStatus;
 
         /// <summary>
         /// The time
@@ -104,42 +94,6 @@ namespace BudgetExecution
         /// The lines
         /// </summary>
         private IList<string> _lines;
-
-        /// <summary>
-        /// Gets or sets the time.
-        /// </summary>
-        /// <value>
-        /// The time.
-        /// </value>
-        public int Time
-        {
-            get
-            {
-                return _time;
-            }
-            private set
-            {
-                _time = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the seconds.
-        /// </summary>
-        /// <value>
-        /// The seconds.
-        /// </value>
-        public int Seconds
-        {
-            get
-            {
-                return _seconds;
-            }
-            private set
-            {
-                _seconds = value;
-            }
-        }
 
         /// <summary>
         /// Gets or sets a value indicating whether [allow focus].
@@ -280,7 +234,6 @@ namespace BudgetExecution
             AnimationDirection direction = AnimationDirection.Up )
             : this( )
         {
-            _time = 0;
             _seconds = duration;
             Timer.Interval = duration * 1000;
             Title.Text = nameof( Notification );
@@ -302,7 +255,6 @@ namespace BudgetExecution
             : this( )
         {
             _lines = lines.ToList( );
-            _time = 0;
             _seconds = duration;
             Timer.Interval = duration * 1000;
             Title.Text = nameof( Notification );

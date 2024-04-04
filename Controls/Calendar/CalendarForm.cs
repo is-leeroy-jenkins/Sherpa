@@ -62,6 +62,8 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWithPrivateSetter" ) ]
     public sealed partial class CalendarForm : MetroForm
     {
         /// <summary>
@@ -592,7 +594,7 @@ namespace BudgetExecution
                 if( _seconds != 0 )
                 {
                     var _timer = new Timer( );
-                    _timer.Interval = 1000;
+                    _timer.Interval = _seconds * 1000;
                     _timer.Tick += ( sender, args ) =>
                     {
                         _time++;
@@ -618,21 +620,7 @@ namespace BudgetExecution
         {
             try
             {
-                Opacity = 0;
-                if( _seconds != 0 )
-                {
-                    var _timer = new Timer( );
-                    _timer.Interval = 1000;
-                    _timer.Tick += ( sender, args ) =>
-                    {
-                        _time--;
-                        if( _time == _seconds )
-                        {
-                            _timer.Stop( );
-                        }
-                    };
-                }
-
+                FadeOut( );
                 base.Close( );
             }
             catch( Exception _ex )
@@ -656,6 +644,8 @@ namespace BudgetExecution
                 TableButton.Click += OnTableButtonClick;
                 RefreshButton.Click += OnRefreshButtonClick;
                 TabControl.SelectedIndexChanged += OnTabChanged;
+                SaveButton.Click += OnSaveButtonClick;
+                BrowseButton.Click += OnBrowserButtonClick;
                 Timer.Tick += OnTimerTick;
             }
             catch( Exception _ex )
@@ -863,7 +853,7 @@ namespace BudgetExecution
                         _timer.Stop( );
                     }
 
-                    Opacity += 0.01d;
+                    Opacity += 0.02d;
                 };
 
                 _timer.Start( );
@@ -888,9 +878,10 @@ namespace BudgetExecution
                     if( Opacity == 0d )
                     {
                         _timer.Stop( );
+                        Close( );
                     }
 
-                    Opacity -= 0.01d;
+                    Opacity -= 0.02d;
                 };
 
                 _timer.Start( );
@@ -1290,6 +1281,42 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Sends the notification.
+        /// </summary>
+        /// <param name="text">The text.</param>
+        private void SendNotification( string text )
+        {
+            try
+            {
+                ThrowIf.Null( text, nameof( text ) );
+                var _notification = new Notification( text );
+                _notification.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Sends the message.
+        /// </summary>
+        /// <param name="text">The text.</param>
+        private void SendMessage( string text )
+        {
+            try
+            {
+                ThrowIf.Null( text, nameof( text ) );
+                var _message = new SplashMessage( text );
+                _message.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -1547,6 +1574,44 @@ namespace BudgetExecution
             try
             {
                 FadeIn( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [file dialog button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnBrowserButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _dialog = new FileDialog( );
+                _dialog.ShowDialog( this );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [save button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnSaveButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _message = "THE SAVE FUCTIONALITY HAS NOT BEEN IMPLEMENTED!";
+                SendNotification( _message );
             }
             catch( Exception _ex )
             {
