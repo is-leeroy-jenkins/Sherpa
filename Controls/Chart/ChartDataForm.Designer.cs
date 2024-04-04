@@ -2389,7 +2389,7 @@
             PictureBox.Margin = new System.Windows.Forms.Padding( 1 );
             PictureBox.Name = "PictureBox";
             PictureBox.Size = new System.Drawing.Size( 18, 18 );
-            PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             PictureBox.TabIndex = 0;
             PictureBox.TabStop = false;
             // 
