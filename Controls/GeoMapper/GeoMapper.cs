@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:             BudgetExecution
 //     Author:                  Terry D. Eppler
-//     Created:                 12-10-2023
+//     Created:                 12-24-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-10-2023
+//     Last Modified On:        04-04-2024
 // ******************************************************************************************
-// <copyright file="GeoMapper.cs" company="Terry D. Eppler">
-//    Budget Execution is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+// <copyright file="Terry Eppler" company="Terry D. Eppler">
+//    Budget Execution is a small Federal Budget, Finance, and Accounting data management
+//    application for analysts with the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -31,7 +31,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    Contact at:   terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   GeoMapper.cs
@@ -460,6 +460,12 @@ namespace BudgetExecution
                 MenuButton.Click += OnMenuButtonClick;
                 BrowseButton.Click += OnBrowserButtonClick;
                 SaveButton.Click += OnSaveButtonClick;
+                UpButton.Click += OnUpButtonClick;
+                DownButton.Click += OnDownButtonClick;
+                LeftButton.Click += OnLeftButtonClick;
+                RightButton.Click += OnRightButtonClick;
+                SearchButton.Click += OnSearchButtonClick;
+                RefreshButton.Click += OnRefreshButtonClick;
                 Timer.Tick += OnTimerTick;
             }
             catch( Exception _ex )
@@ -1045,6 +1051,139 @@ namespace BudgetExecution
             try
             {
                 var _message = "THE SAVE FUCTIONALITY HAS NOT BEEN IMPLEMENTED!";
+                SendNotification( _message );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [up button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnUpButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _message = "THE UP BUTTON HAS NOT BEEN IMPLEMENTED!";
+                SendNotification( _message );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [down button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnDownButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _message = "THE DOWN BUTTON HAS NOT BEEN IMPLEMENTED!";
+                SendNotification( _message );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [left button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnLeftButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _message = "THE LEFT HAS NOT BEEN IMPLEMENTED!";
+                SendNotification( _message );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [right button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnRightButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _message = "THE RIGHT BUTTON HAS NOT BEEN IMPLEMENTED!";
+                SendNotification( _message );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [filter button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnFilterButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _message = "THE FILTER BUTTON HAS NOT BEEN IMPLEMENTED!";
+                SendNotification( _message );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [refresh button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnRefreshButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                Map.Position = new PointLatLng( _lat, _long );
+                Map.ReloadMap( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [search button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnSearchButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                var _message = "THE SEARCH BUTTON HAS NOT BEEN IMPLEMENTED!";
                 SendNotification( _message );
             }
             catch( Exception _ex )
