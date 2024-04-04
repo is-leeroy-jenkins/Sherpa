@@ -274,7 +274,6 @@ namespace BudgetExecution
             // Wire Events
             Load += OnLoad;
             Shown += OnShown;
-
         }
 
         /// <inheritdoc/>
@@ -486,14 +485,13 @@ namespace BudgetExecution
                 if( _seconds != 0 )
                 {
                     Timer = new Timer( );
-                    Timer.Interval = _seconds * 1000;
+                    Timer.Interval = 1000;
                     Timer.Tick += ( sender, args ) =>
                     {
                         _time++;
                         if( _time == _seconds )
                         {
                             Timer.Stop( );
-                            FadeIn( );
                         }
                     };
                 }
@@ -517,14 +515,13 @@ namespace BudgetExecution
                 if( _seconds != 0 )
                 {
                     Timer = new Timer( );
-                    Timer.Interval = _seconds * 1000;
+                    Timer.Interval = 1000;
                     Timer.Tick += ( sender, args ) =>
                     {
                         _time++;
                         if( _time == _seconds )
                         {
                             Timer.Stop( );
-                            FadeIn( );
                         }
                     };
                 }
@@ -636,6 +633,7 @@ namespace BudgetExecution
                     if( Opacity == 0d )
                     {
                         _timer.Stop( );
+                        _timer.Dispose( );
                         Close( );
                     }
 
@@ -1006,21 +1004,6 @@ namespace BudgetExecution
             try
             {
                 FadeIn( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Closes the form.
-        /// </summary>
-        public void OnClose( object sender, EventArgs e )
-        {
-            try
-            {
-                FadeOut( );
             }
             catch( Exception _ex )
             {
