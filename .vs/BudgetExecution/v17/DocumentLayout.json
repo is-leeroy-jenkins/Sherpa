@@ -19,10 +19,6 @@
       "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\pages\\filterpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\pages\\sqlpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\pages\\sqlpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\datagrid\\datagridform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\datagrid\\datagridform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -33,10 +29,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\editor\\sqldataform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\editor\\sqldataform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\geomapper\\geomapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\geomapper\\geomapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\calendar\\calendarform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -58,7 +50,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -78,25 +70,12 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SqlPage.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Pages\\SqlPage.cs",
-              "RelativeDocumentMoniker": "Controls\\Pages\\SqlPage.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Pages\\SqlPage.cs*",
-              "RelativeToolTip": "Controls\\Pages\\SqlPage.cs*",
-              "ViewState": "AQIAAPcBAAAAAAAAAAAmwBMCAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-04T11:27:30.754Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
               "Title": "FilterPage.cs",
               "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Pages\\FilterPage.cs",
               "RelativeDocumentMoniker": "Controls\\Pages\\FilterPage.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Pages\\FilterPage.cs*",
-              "RelativeToolTip": "Controls\\Pages\\FilterPage.cs*",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Pages\\FilterPage.cs",
+              "RelativeToolTip": "Controls\\Pages\\FilterPage.cs",
               "ViewState": "AQIAANEDAAAAAAAAAAAmwOYDAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-04T10:54:38.217Z",
@@ -117,7 +96,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "GeoMapper.cs",
               "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\GeoMapper\\GeoMapper.cs",
               "RelativeDocumentMoniker": "Controls\\GeoMapper\\GeoMapper.cs",
@@ -130,7 +109,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 9,
               "Title": "SqlEditForm.cs",
               "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Editor\\SqlEditForm.cs",
               "RelativeDocumentMoniker": "Controls\\Editor\\SqlEditForm.cs",
@@ -143,7 +122,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "SqlDataForm.cs",
               "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Editor\\SqlDataForm.cs",
               "RelativeDocumentMoniker": "Controls\\Editor\\SqlDataForm.cs",
@@ -156,7 +135,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "DataGridForm.cs",
               "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\DataGrid\\DataGridForm.cs",
               "RelativeDocumentMoniker": "Controls\\DataGrid\\DataGridForm.cs",
@@ -173,24 +152,12 @@
               "Title": "LookupPage.cs",
               "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Pages\\LookupPage.cs",
               "RelativeDocumentMoniker": "Controls\\Pages\\LookupPage.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Pages\\LookupPage.cs*",
-              "RelativeToolTip": "Controls\\Pages\\LookupPage.cs*",
-              "ViewState": "AQIAACgCAAAAAAAAAADwv0ACAAAYAAAA",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Pages\\LookupPage.cs",
+              "RelativeToolTip": "Controls\\Pages\\LookupPage.cs",
+              "ViewState": "AQIAADQCAAAAAAAAAAAAwE4CAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-04T10:57:38.078Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "GeoMapper.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\GeoMapper\\GeoMapper.cs",
-              "RelativeDocumentMoniker": "Controls\\GeoMapper\\GeoMapper.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\GeoMapper\\GeoMapper.cs [Design]",
-              "RelativeToolTip": "Controls\\GeoMapper\\GeoMapper.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-04T10:44:20.822Z",
-              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
@@ -207,7 +174,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 7,
               "Title": "CalendarForm.cs",
               "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Calendar\\CalendarForm.cs",
               "RelativeDocumentMoniker": "Controls\\Calendar\\CalendarForm.cs",
@@ -220,7 +187,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 8,
               "Title": "MainForm.cs",
               "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Forms\\MainForm.cs",
               "RelativeDocumentMoniker": "Controls\\Forms\\MainForm.cs",
