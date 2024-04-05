@@ -46,6 +46,7 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Linq;
+    using System.Threading.Tasks;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
 
@@ -1005,6 +1006,38 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Fades the in asynchronous.
+        /// </summary>
+        /// <param name="o">The o.</param>
+        /// <param name="interval">The interval.</param>
+        private async void FadeInAsync( Form o, int interval = 80 )
+        {
+            while( o.Opacity < 1.0 )
+            {
+                await Task.Delay( interval );
+                o.Opacity += 0.05;
+            }
+
+            o.Opacity = 1;
+        }
+
+        /// <summary>
+        /// Fades the out asynchronous.
+        /// </summary>
+        /// <param name="o">The o.</param>
+        /// <param name="interval">The interval.</param>
+        private async void FadeOutAsync( Form o, int interval = 80 )
+        {
+            while( o.Opacity > 0.0 )
+            {
+                await Task.Delay( interval );
+                o.Opacity -= 0.05;
+            }
+
+            o.Opacity = 0;
+        }
+
+        /// <summary>
         /// Shows the loading form.
         /// </summary>
         private void ShowLoadingForm( )
@@ -1542,6 +1575,17 @@ namespace BudgetExecution
             {
                 Fail( _ex );
             }
+        }
+
+        /// <summary>
+        /// Called when [form closing asynchronous].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="FormClosingEventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnFormClosingAsync( object sender, FormClosingEventArgs e )
+        {
+            FadeOutAsync( this, 30 );
         }
 
         /// <summary>
