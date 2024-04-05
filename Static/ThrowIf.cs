@@ -234,9 +234,9 @@ namespace BudgetExecution
 
                     break;
                 }
-                case EmailConfig _outlookConfig:
+                case EmailConfig _emailConfig:
                 {
-                    if( _outlookConfig == null )
+                    if( _emailConfig == null )
                     {
                         var _message = @$"The '{paramName}' is null!";
                         throw new ArgumentNullException( _message );
@@ -247,6 +247,16 @@ namespace BudgetExecution
                 case EmailContent _emailContent:
                 {
                     if( _emailContent == null )
+                    {
+                        var _message = @$"The '{paramName}' is null!";
+                        throw new ArgumentNullException( _message );
+                    }
+
+                    break;
+                }
+                case EmailCredential _emailCredential:
+                {
+                    if( _emailCredential == null )
                     {
                         var _message = @$"The '{paramName}' is null!";
                         throw new ArgumentNullException( _message );

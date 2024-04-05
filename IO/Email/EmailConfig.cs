@@ -45,15 +45,91 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Net.Mail;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Local" ) ]
-    public class EmailConfig : EmailSettings
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    public class EmailConfig : EmailBase
     {
+        /// <summary>
+        /// Gets the address.
+        /// </summary>
+        /// <value>
+        /// The address.
+        /// </value>
+        public string HostName
+        {
+            get
+            {
+                return _hostName;
+            }
+            private protected set
+            {
+                _hostName = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the display name.
+        /// </summary>
+        /// <value>
+        /// The display name.
+        /// </value>
+        public string DisplayName
+        {
+            get
+            {
+                return _displayName;
+            }
+            private protected set
+            {
+                _displayName = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the priority.
+        /// </summary>
+        /// <value>
+        /// The priority.
+        /// </value>
+        public MailPriority Priority
+        {
+            get
+            {
+                return _priority;
+            }
+            private protected set
+            {
+                _priority = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the sender.
+        /// </summary>
+        /// <value>
+        /// The sender.
+        /// </value>
+        public string Sender
+        {
+            get
+            {
+                return _sender;
+            }
+            private protected set
+            {
+                _sender = value;
+            }
+        }
+
         /// <summary>
         /// Gets or sets the recipient.
         /// </summary>
@@ -91,183 +167,129 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets or sets the sender.
-        /// </summary>
-        /// <value>
-        /// The sender.
-        /// </value>
-        public string Sender
-        {
-            get
-            {
-                return _sender;
-            }
-            private protected set
-            {
-                _sender = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the display name.
-        /// </summary>
-        /// <value>
-        /// The display name.
-        /// </value>
-        public string DisplayName
-        {
-            get
-            {
-                return _displayName;
-            }
-            private protected set
-            {
-                _displayName = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the subject.
-        /// </summary>
-        /// <value>
-        /// The subject.
-        /// </value>
-        public string Subject
-        {
-            get
-            {
-                return _subject;
-            }
-            private protected set
-            {
-                _subject = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the priority.
-        /// </summary>
-        /// <value>
-        /// The priority.
-        /// </value>
-        public MailPriority Priority
-        {
-            get
-            {
-                return _priority;
-            }
-            private protected set
-            {
-                _priority = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the name of the user.
-        /// </summary>
-        /// <value>
-        /// The name of the user.
-        /// </value>
-        public string UserName
-        {
-            get
-            {
-                return _userName;
-            }
-            private protected set
-            {
-                _userName = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the password.
-        /// </summary>
-        /// <value>
-        /// The password.
-        /// </value>
-        public string Password
-        {
-            get
-            {
-                return _password;
-            }
-            private protected set
-            {
-                _password = value;
-            }
-        }
-
-        /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="EmailConfig"/> class.
+        /// <see cref="EmailConfig" /> class.
         /// </summary>
+        /// <inheritdoc />
         public EmailConfig( )
         {
             _recipients = new List<string>( );
             _copies = new List<string>( );
         }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="EmailConfig"/> class.
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="subject">The subject.</param>
-        /// <param name="userName">Name of the user.</param>
-        /// <param name="secret">The pass.</param>
-        /// <param name="recipients">The recipient.</param>
-        /// <param name="copies">The copies.</param>
-        /// <param name="priority"> </param>
-        public EmailConfig( string sender, string subject, string userName, 
-            string secret, IList<string> recipients, IList<string> copies, 
-            MailPriority priority = MailPriority.Normal )
-        {
-            _sender = sender;
-            _subject = subject;
-            _userName = userName;
-            _password = secret;
-            _priority = priority;
-            _recipients = recipients;
-            _copies = copies;
-        }
-
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="EmailConfig"/> class.
+        /// <see cref="T:BudgetExecution.EmailConfig" /> class.
         /// </summary>
-        /// <param name="settings">The configuration.</param>
-        public EmailConfig( EmailConfig settings )
+        /// <param name="sender">The sender.</param>
+        /// <param name="recipients">The recipients.</param>
+        /// <param name="copies">The copies.</param>
+        /// <param name="priority">The priority.</param>
+        public EmailConfig( string sender, IList<string> recipients, IList<string> copies,
+            MailPriority priority = MailPriority.Normal ) 
+            : this( )
         {
-            _sender = settings.Sender;
-            _subject = settings.Subject;
-            _userName = settings.UserName;
-            _password = settings.Password;
-            _priority = settings.Priority;
-            _recipients = settings.Recipients;
-            _copies = settings.Copies;
+            _sender = sender;
+            _displayName = sender;
+            _recipients = recipients;
+            _copies = copies;
+            _priority = priority;
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.EmailConfig" /> class.
+        /// </summary>
+        /// <param name="config">The configuration.</param>
+        public EmailConfig( EmailConfig config )
+        {
+            _sender = config.Sender;
+            _displayName = config.DisplayName;
+            _priority = config.Priority;
+            _recipients = config.Recipients;
+            _copies = config.Copies;
         }
 
         /// <summary>
         /// Deconstructs the specified sender.
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="subject">The subject.</param>
-        /// <param name="userName">Name of the user.</param>
-        /// <param name="pass">The pass.</param>
-        /// <param name="priority">The priority.</param>
-        /// <param name="recipient">The recipient.</param>
+        /// <param name="displayName"> </param>
+        /// <param name="recipients">The recipients.</param>
         /// <param name="copies">The copies.</param>
-        public void Deconstruct( out string sender, out string subject, 
-            out string userName, out string pass, out MailPriority priority, 
-            out IList<string> recipient, out IList<string> copies )
+        /// <param name="priority"> </param>
+        public void Deconstruct( out string sender, out string displayName, 
+            out IList<string> recipients, out IList<string> copies, out MailPriority priority )
         {
             sender = _sender;
-            subject = _subject;
-            userName = _userName;
-            pass = _password;
-            priority = _priority;
-            recipient = _recipients;
+            displayName = _displayName;
+            recipients = _recipients;
             copies = _copies;
+            priority = _priority;
+        }
+
+        /// <summary>
+        /// Converts to string.
+        /// </summary>
+        /// <returns>
+        /// A <see cref="System.String" />
+        /// that represents this instance.
+        /// </returns>
+        public override string ToString( )
+        {
+            try
+            {
+                return !string.IsNullOrEmpty( _displayName )
+                    ? _displayName
+                    : string.Empty;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return string.Empty;
+            }
+        }
+
+        /// <summary>
+        /// Adds the attachment.
+        /// </summary>
+        /// <param name="address">The attachment.</param>
+        public void AddCopy( string address )
+        {
+            try
+            {
+                ThrowIf.Null( address, nameof( address ) );
+                if( !_copies.Contains( address ) )
+                {
+                    _copies?.Add( address );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Adds the recipient.
+        /// </summary>
+        /// <param name="address">The address.</param>
+        public void AddRecipient( string address )
+        {
+            try
+            {
+                ThrowIf.Null( address, nameof( address ) );
+                if( !_recipients.Contains( address ) )
+                {
+                    _recipients?.Add( address );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
     }
 }

@@ -43,14 +43,77 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Runtime.InteropServices;
+    using Office = Microsoft.Office.Interop.Outlook;
 
+    /// <summary>
+    /// 
+    /// </summary>
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantAssignment" ) ]
     public abstract class EmailManager
     {
         /// <summary>
-        /// The host name
+        /// Enumerates the folders.
         /// </summary>
-        private protected string _hostName;
+        /// <param name="folder">The folder.</param>
+        /// <param name="search">The search.</param>
+        public void EnumerateFolders( Office.Folder folder, string search )
+        {
+            try
+            {
+                Office.Folders _folders = folder.Folders;
+                if( _folders.Count > 0 )
+                {
+                    foreach( Office.Folder _child in _folders )
+                    {
+                        if( _child.FolderPath.Contains( "Inbox" )
+                           || _child.FolderPath.Contains( "Deleted" ) )
+                        {
+                            EnumerateFolders( _child, search );
+                        }
+                    }
+                }
+
+                SearchMessages( folder, search );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Iterates through all items ("messages") in a folder
+        /// </summary>
+        /// <param name="folder">The folder.</param>
+        /// <param name="search">The search.</param>
+        public void SearchMessages( Office.Folder folder, string search )
+        {
+            var _folderItems = folder.Items;
+            if( _folderItems != null )
+            {
+                try
+                {
+                    foreach( Object item in _folderItems )
+                    {
+                        Office.MailItem mailitem = (Office.MailItem)item;
+                        string body = mailitem.Body.ToLower( );
+                        if( body.Contains( search.ToLower( ) ) )
+                        {
+                        }
+                        else
+                        {
+                        }
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
 
         /// <summary>
         /// Releases the COM object.

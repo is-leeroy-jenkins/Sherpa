@@ -124,13 +124,12 @@ namespace BudgetExecution
         /// <param name="value">
         /// The value to validate.
         /// </param>
-        /// <param name="validationContext">
+        /// <param name="_context">
         /// The validation context.
         /// </param>
-        protected override ValidationResult IsValid( object value,
-            ValidationContext validationContext )
+        protected override ValidationResult IsValid( object value, ValidationContext _context )
         {
-            var _memberNames = new[ ] { validationContext?.MemberName ?? nameof( value ) };
+            var _memberNames = new[ ] { _context?.MemberName ?? nameof( value ) };
             if( ( value == null )
                || EmailValidator.Validate( (string)value, AllowTopLevelDomains,
                    AllowInternational ) )

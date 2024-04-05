@@ -40,15 +40,42 @@
 
 namespace BudgetExecution
 {
-    using System;
+    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
+    using Exception = System.Exception;
 
-    /// <summary> </summary>
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassNeverInstantiated.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class EmailContent : EmailSettings
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    public class EmailContent 
     {
+        /// <summary>
+        /// The is HTML
+        /// </summary>
+        private protected bool _isHtml;
+
+        /// <summary>
+        /// The subject
+        /// </summary>
+        private protected string _subject;
+
+        /// <summary>
+        /// The message
+        /// </summary>
+        private protected string _message;
+
+        /// <summary>
+        /// The attachments
+        /// </summary>
+        private protected IList<string> _attachments;
+
         /// <summary>
         /// Gets or sets a value indicating whether this instance is HTML.
         /// </summary>
@@ -71,6 +98,24 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Gets the subject.
+        /// </summary>
+        /// <value>
+        /// The subject.
+        /// </value>
+        public string Subject
+        {
+            get
+            {
+                return _subject;
+            }
+            private protected set
+            {
+                _subject = value;
+            }
+        }
+
+        /// <summary>
         /// Gets or sets the message.
         /// </summary>
         /// <value>
@@ -89,74 +134,88 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets or sets the attachment.
+        /// Gets or sets the attachments.
         /// </summary>
         /// <value>
-        /// The attachment.
+        /// The attachments.
         /// </value>
-        public string Attachment
+        public IList<string> Attachments
         {
             get
             {
-                return _attachment;
+                return _attachments;
             }
-            private protected set
+            set
             {
-                _attachment = value;
+                _attachments = value;
             }
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="EmailContent"/>
+        /// <see cref="T:BudgetExecution.EmailContent" />
         /// class.
         /// </summary>
         public EmailContent( )
         {
+            _attachments = new List<string>( );
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="EmailContent"/> class.
         /// </summary>
-        /// <param name="message"> The content. </param>
-        /// <param name="filePath"> Name of the attachment. </param>
-        /// <param name="isHtml"> if set to <c> true </c> [is HTML]. </param>
-        public EmailContent( string message, string filePath, bool isHtml = true )
+        /// <param name="subject"></param>
+        /// <param name="message"></param>
+        public EmailContent( string subject, string message ) 
+            : this( )
         {
             _message = message;
-            _isHtml = isHtml;
-            _attachment = filePath;
+            _subject = subject;
         }
 
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.EmailContent" /> class.
+        /// </summary>
+        /// <param name="subject">The subject.</param>
+        /// <param name="message">The message.</param>
+        /// <param name="attachments">The attachments.</param>
+        public EmailContent( string subject, string message, IList<string> attachments )
+            : this( subject, message )
+        {
+            _message = message;
+            _subject = subject;
+            _attachments = attachments;
+        }
+
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="EmailContent"/> class.
+        /// <see cref="T:BudgetExecution.EmailContent" /> class.
         /// </summary>
         /// <param name="content">The email.</param>
         public EmailContent( EmailContent content )
         {
             _message = content.Message;
-            _isHtml = content.IsHtml;
-            _attachment = content.Attachment;
+            _subject = content.Subject;
+            _attachments = content.Attachments;
         }
 
-        /// <summary> Deconstructs the specified is HTML. </summary>
-        /// <param name="isHtml">
-        /// if set to
-        /// <c> true </c>
-        /// [is HTML].
-        /// </param>
+        /// <summary>
+        /// Deconstructs the specified is HTML.
+        /// </summary>
+        /// <param name="subject"> </param>
         /// <param name="message">
         /// The content.
         /// </param>
-        /// <param name="filePath">
-        /// </param>
-        public void Deconstruct( out string message, out string filePath, out bool isHtml )
+        /// <param name="attachments"></param>
+        public void Deconstruct( out string subject, out string message, 
+            out IList<string> attachments )
         {
-            isHtml = _isHtml;
+            subject = _subject;
             message = _message;
-            filePath = _attachment;
+            attachments = _attachments;
         }
 
         /// <summary> Converts to string. </summary>
@@ -178,6 +237,34 @@ namespace BudgetExecution
                 Fail( _ex );
                 return string.Empty;
             }
+        }
+
+        /// <summary>
+        /// Adds the attachment.
+        /// </summary>
+        /// <param name="filePath">The attachment.</param>
+        public void AddAttachment( string filePath )
+        {
+            try
+            {
+                ThrowIf.Null( filePath, nameof( filePath ) );
+                _attachments.Add( filePath );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        private protected new void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }
