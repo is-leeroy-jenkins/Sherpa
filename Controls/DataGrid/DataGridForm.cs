@@ -1090,7 +1090,14 @@ namespace BudgetExecution
         /// </summary>
         private void InitializeDelegates( )
         {
-            _updateStatus += UpdateStatus;
+            try
+            {
+                _updateStatus += UpdateStatus;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>

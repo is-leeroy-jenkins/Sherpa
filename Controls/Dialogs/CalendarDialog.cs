@@ -48,6 +48,7 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Threading.Tasks;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
 
@@ -313,8 +314,14 @@ namespace BudgetExecution
             CaptionForeColor = Color.FromArgb( 106, 189, 252 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
+            WindowState = FormWindowState.Normal;
+            SizeGripStyle = SizeGripStyle.Auto;
+            AutoScaleMode = AutoScaleMode.Font;
+            DoubleBuffered = true;
+            ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
+            ControlBox = false;
 
             // Initialize Default Provider
             _provider = Provider.Access;
@@ -325,6 +332,7 @@ namespace BudgetExecution
 
             // Event Wiring
             Load += OnLoad;
+            Closing += OnFormClosing;
         }
 
         /// <inheritdoc />
@@ -410,6 +418,54 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Fades the in asynchronous.
+        /// </summary>
+        /// <param name="form">The o.</param>
+        /// <param name="interval">The interval.</param>
+        private async void FadeInAsync( Form form, int interval = 80 )
+        {
+            try
+            {
+                ThrowIf.Null( form, nameof( form ) );
+                while( form.Opacity < 1.0 )
+                {
+                    await Task.Delay( interval );
+                    form.Opacity += 0.05;
+                }
+
+                form.Opacity = 1;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the out asynchronous.
+        /// </summary>
+        /// <param name="form">The o.</param>
+        /// <param name="interval">The interval.</param>
+        private async void FadeOutAsync( Form form, int interval = 80 )
+        {
+            try
+            {
+                ThrowIf.Null( form, nameof( form ) );
+                while( form.Opacity > 0.0 )
+                {
+                    await Task.Delay( interval );
+                    form.Opacity -= 0.05;
+                }
+
+                form.Opacity = 0;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Gets the federal holidays.
         /// </summary>
         /// <returns></returns>
@@ -461,9 +517,11 @@ namespace BudgetExecution
         {
             try
             {
+                Opacity = 0;
                 InitializeButtons( );
                 InitializeIcon( );
                 InitializeLabels( );
+                FadeInAsync( this );
             }
             catch( Exception _ex )
             {
@@ -508,6 +566,24 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Called when [form closing].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnFormClosing( object sender, EventArgs e )
+        {
+            try
+            {
+                Opacity = 1;
+                FadeOutAsync( this );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
         /// <summary>
         /// Fails the specified ex.
         /// </summary>

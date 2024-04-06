@@ -46,6 +46,7 @@ namespace BudgetExecution
     using System.Drawing;
     using System.IO;
     using System.Linq;
+    using System.Threading.Tasks;
     using System.Windows.Forms;
 
     /// <inheritdoc />
@@ -60,6 +61,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     public partial class FolderDialog : DialogBase
     {
         /// <summary>
@@ -218,60 +220,7 @@ namespace BudgetExecution
 
             // Wire Events
             Load += OnLoad;
-        }
-
-        /// <summary>
-        /// Displays the control to the user.
-        /// </summary>
-        public new void Show( )
-        {
-            try
-            {
-                Opacity = 0;
-                if( Seconds != 0 )
-                {
-                    Timer = new Timer( );
-                    Timer.Interval = 1000;
-                    Timer.Tick += ( sender, args ) =>
-                    {
-                        Time++;
-                        if( Time == Seconds )
-                        {
-                            Timer.Stop( );
-                        }
-                    };
-                }
-
-                base.Show( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [load].
-        /// </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        public void OnLoad( object sender, EventArgs e )
-        {
-            try
-            {
-                InitializeTimer( );
-                InitializeLabels( );
-                InitializeButtons( );
-                PopulateListBox( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
+            Closing += OnFormClosing;
         }
 
         /// <summary>
@@ -363,6 +312,54 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Fades the in asynchronous.
+        /// </summary>
+        /// <param name="form">The o.</param>
+        /// <param name="interval">The interval.</param>
+        private async void FadeInAsync( Form form, int interval = 80 )
+        {
+            try
+            {
+                ThrowIf.Null( form, nameof( form ) );
+                while( form.Opacity < 1.0 )
+                {
+                    await Task.Delay( interval );
+                    form.Opacity += 0.05;
+                }
+
+                form.Opacity = 1;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the out asynchronous.
+        /// </summary>
+        /// <param name="form">The o.</param>
+        /// <param name="interval">The interval.</param>
+        private async void FadeOutAsync( Form form, int interval = 80 )
+        {
+            try
+            {
+                ThrowIf.Null( form, nameof( form ) );
+                while( form.Opacity > 0.0 )
+                {
+                    await Task.Delay( interval );
+                    form.Opacity -= 0.05;
+                }
+
+                form.Opacity = 0;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Populates the ListBox.
         /// </summary>
         private protected virtual void PopulateListBox( )
@@ -395,7 +392,6 @@ namespace BudgetExecution
                 try
                 {
                     var _list = new List<string>( );
-                    var _paths = new Dictionary<string, string>( );
                     foreach( var _dirPath in _searchPaths )
                     {
                         var _dirs = Directory.GetDirectories( _dirPath );
@@ -446,6 +442,32 @@ namespace BudgetExecution
             }
 
             return default( IList<string> );
+        }
+
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnLoad( object sender, EventArgs e )
+        {
+            try
+            {
+                Opacity = 0;
+                InitializeTimer( );
+                InitializeLabels( );
+                InitializeButtons( );
+                PopulateListBox( );
+                FadeInAsync( this );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -508,13 +530,12 @@ namespace BudgetExecution
         /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        private protected virtual void OnCloseButtonClicked( object sender, EventArgs e )
+        private protected void OnCloseButtonClicked( object sender, EventArgs e )
         {
             if( sender is Button )
             {
                 try
                 {
-                    FadeOut( );
                     Close( );
                 }
                 catch( Exception _ex )
@@ -535,6 +556,25 @@ namespace BudgetExecution
             try
             {
                 InvokeIf( _statusUpdate );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [form closing].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnFormClosing( object sender, EventArgs e )
+        {
+            try
+            {
+                Opacity = 1;
+                FadeOutAsync( this );
             }
             catch( Exception _ex )
             {

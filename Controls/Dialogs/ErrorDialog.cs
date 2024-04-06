@@ -46,6 +46,7 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Threading.Tasks;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
 
@@ -110,6 +111,7 @@ namespace BudgetExecution
 
             // Event Wiring
             Load += OnLoad;
+            Closing += OnFormClosing;
         }
 
         /// <inheritdoc />
@@ -172,6 +174,54 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Fades the in asynchronous.
+        /// </summary>
+        /// <param name="form">The o.</param>
+        /// <param name="interval">The interval.</param>
+        private async void FadeInAsync( Form form, int interval = 80 )
+        {
+            try
+            {
+                ThrowIf.Null( form, nameof( form ) );
+                while( form.Opacity < 1.0 )
+                {
+                    await Task.Delay( interval );
+                    form.Opacity += 0.05;
+                }
+
+                form.Opacity = 1;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the out asynchronous.
+        /// </summary>
+        /// <param name="form">The o.</param>
+        /// <param name="interval">The interval.</param>
+        private async void FadeOutAsync( Form form, int interval = 80 )
+        {
+            try
+            {
+                ThrowIf.Null( form, nameof( form ) );
+                while( form.Opacity > 0.0 )
+                {
+                    await Task.Delay( interval );
+                    form.Opacity -= 0.05;
+                }
+
+                form.Opacity = 0;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Sets the text.
         /// </summary>
         public void SetText( )
@@ -224,6 +274,7 @@ namespace BudgetExecution
         {
             try
             {
+                Opacity = 0;
                 InitializeLabels( );
                 InitializeTextBox( );
                 if( Exception != null )
@@ -231,6 +282,8 @@ namespace BudgetExecution
                     var _message = Exception.Message;
                     TextBox.Text = Exception.ToLogString( _message );
                 }
+
+                FadeInAsync( this );
             }
             catch( Exception _ex )
             {
@@ -260,7 +313,28 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
+        /// <summary>
+        /// Called when [form closing].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnFormClosing( object sender, EventArgs e )
+        {
+            try
+            {
+                Opacity = 1;
+                FadeOutAsync( this );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
         /// <param name="ex"> The ex. </param>
         private void Fail( Exception ex )
         {

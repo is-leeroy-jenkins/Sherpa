@@ -47,6 +47,7 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Threading.Tasks;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
 
@@ -54,7 +55,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameter" ) ]
@@ -102,6 +103,9 @@ namespace BudgetExecution
         public ColumnConfiguration( )
         {
             InitializeComponent( );
+            RegisterCallbacks( );
+
+            // Form Properties
             BorderColor = Color.FromArgb( 0, 120, 212 );
             FormBorderStyle = FormBorderStyle.FixedSingle;
             BorderThickness = 1;
@@ -115,12 +119,18 @@ namespace BudgetExecution
             CaptionForeColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
-            SizeGripStyle = SizeGripStyle.Auto;
+            WindowState = FormWindowState.Normal;
+            SizeGripStyle = SizeGripStyle.Hide;
+            AutoScaleMode = AutoScaleMode.Font;
+            DoubleBuffered = true;
             ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
-            Enabled = true;
-            Visible = true;
+            ControlBox = false;
+
+            // Form Events
+            Load += OnLoad;
+            Closing += OnFormClosing;
         }
 
         /// <inheritdoc />
@@ -136,74 +146,82 @@ namespace BudgetExecution
             Grid = dataGrid;
             PopUp = new System.Windows.Forms.ToolStripDropDown( );
             ColumnListBox.CheckOnClick = true;
-            ColumnListBox.ItemCheck += OnListItemChecked;
-            CloseButton.Click += OnCloseButtonClick;
-            HeaderLabel.Font = new Font( "Roboto", 10 );
-            HeaderLabel.ForeColor = Color.FromArgb( 106, 189, 252 );
-            Load += OnLoad;
         }
 
         /// <summary>
-        /// Called when [data grid right click].
+        /// Initializes the labels.
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The
-        /// <see cref="DataGridViewCellMouseEventArgs" />
-        /// instance containing the event data.</param>
-        public void OnDataGridRightClick( object sender, DataGridViewCellMouseEventArgs e )
+        private void InitializeLabels( )
         {
-            if( ( e.Button == MouseButtons.Right )
-               && ( Grid?.Columns != null ) )
+            try
             {
-                try
-                {
-                    ColumnListBox?.Items?.Clear( );
-                    if( Grid?.Columns != null )
-                    {
-                        foreach( DataGridViewColumn _c in Grid.Columns )
-                        {
-                            ColumnListBox?.Items.Add( _c.HeaderText, _c.Visible );
-                        }
-                    }
-
-                    var _columnConfiguration = new ColumnConfiguration( Grid );
-                    if( Grid != null )
-                    {
-                        _columnConfiguration.Location = Grid.PointToScreen( new Point( e.X, e.Y ) );
-                    }
-
-                    _columnConfiguration?.ShowDialog( );
-                    _columnConfiguration.TopMost = true;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
+                // Title Properties
+                HeaderLabel.Font = new Font( "Roboto", 10 );
+                HeaderLabel.ForeColor = Color.FromArgb( 106, 189, 252 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
         /// <summary>
-        /// Fails the specified ex.
+        /// Initializes the callbacks.
         /// </summary>
-        /// <param name="ex">The ex.</param>
-        protected static void Fail( Exception ex )
-        {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
-        }
-
-        /// <summary>
-        /// Called when [load].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The
-        /// <see cref="EventArgs" />
-        /// instance containing the event data.</param>
-        private void OnLoad( object sender, EventArgs e )
+        private void RegisterCallbacks( )
         {
             try
             {
+                ColumnListBox.ItemCheck += OnListItemChecked;
+                CloseButton.Click += OnCloseButtonClick;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the in asynchronous.
+        /// </summary>
+        /// <param name="form">The o.</param>
+        /// <param name="interval">The interval.</param>
+        private async void FadeInAsync( Form form, int interval = 80 )
+        {
+            try
+            {
+                ThrowIf.Null( form, nameof( form ) );
+                while( form.Opacity < 1.0 )
+                {
+                    await Task.Delay( interval );
+                    form.Opacity += 0.05;
+                }
+
+                form.Opacity = 1;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the out asynchronous.
+        /// </summary>
+        /// <param name="form">The o.</param>
+        /// <param name="interval">The interval.</param>
+        private async void FadeOutAsync( Form form, int interval = 80 )
+        {
+            try
+            {
+                ThrowIf.Null( form, nameof( form ) );
+                while( form.Opacity > 0.0 )
+                {
+                    await Task.Delay( interval );
+                    form.Opacity -= 0.05;
+                }
+
+                form.Opacity = 0;
             }
             catch( Exception _ex )
             {
@@ -236,6 +254,27 @@ namespace BudgetExecution
             }
 
             return default( ToolStripControlHost );
+        }
+
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The
+        /// <see cref="EventArgs" />
+        /// instance containing the event data.</param>
+        private void OnLoad( object sender, EventArgs e )
+        {
+            try
+            {
+                Opacity = 0;
+                InitializeLabels( );
+                FadeInAsync( this );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -280,6 +319,75 @@ namespace BudgetExecution
                     Fail( _ex );
                 }
             }
+        }
+
+        /// <summary>
+        /// Called when [data grid right click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The
+        /// <see cref="DataGridViewCellMouseEventArgs" />
+        /// instance containing the event data.</param>
+        public void OnDataGridRightClick( object sender, DataGridViewCellMouseEventArgs e )
+        {
+            if( ( e.Button == MouseButtons.Right )
+               && ( Grid?.Columns != null ) )
+            {
+                try
+                {
+                    ColumnListBox?.Items?.Clear( );
+                    if( Grid?.Columns != null )
+                    {
+                        foreach( DataGridViewColumn _c in Grid.Columns )
+                        {
+                            ColumnListBox?.Items.Add( _c.HeaderText, _c.Visible );
+                        }
+                    }
+
+                    var _columnConfiguration = new ColumnConfiguration( Grid );
+                    if( Grid != null )
+                    {
+                        _columnConfiguration.Location = Grid.PointToScreen( new Point( e.X, e.Y ) );
+                    }
+
+                    _columnConfiguration?.ShowDialog( );
+                    _columnConfiguration.TopMost = true;
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [form closing].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnFormClosing( object sender, EventArgs e )
+        {
+            try
+            {
+                Opacity = 1;
+                FadeOutAsync( this );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        protected static void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }
