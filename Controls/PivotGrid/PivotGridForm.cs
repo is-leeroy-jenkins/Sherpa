@@ -781,7 +781,7 @@ namespace BudgetExecution
 
             // Event Wiring
             Load += OnLoad;
-            Closing += OnFormClosing;
+            FormClosing += OnFormClosing;
             MouseClick += OnRightClick;
         }
 
@@ -1149,60 +1149,6 @@ namespace BudgetExecution
                 _dataTable = null;
                 TabControl.SelectedIndex = 0;
                 UpdateLabelText( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Fades the in.
-        /// </summary>
-        private void FadeIn( )
-        {
-            try
-            {
-                var _timer = new Timer( );
-                _timer.Interval = 10;
-                _timer.Tick += ( sender, args ) =>
-                {
-                    if( Opacity == 1d )
-                    {
-                        _timer.Stop( );
-                    }
-
-                    Opacity += 0.01d;
-                };
-
-                _timer.Start( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Fades the out.
-        /// </summary>
-        private void FadeOut( )
-        {
-            try
-            {
-                var _timer = new Timer( );
-                _timer.Interval = 10;
-                _timer.Tick += ( sender, args ) =>
-                {
-                    if( Opacity == 0d )
-                    {
-                        _timer.Stop( );
-                    }
-
-                    Opacity -= 0.01d;
-                };
-
-                _timer.Start( );
             }
             catch( Exception _ex )
             {

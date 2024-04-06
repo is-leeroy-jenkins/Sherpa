@@ -161,7 +161,8 @@ namespace BudgetExecution
 
             // Wire Events
             Load += OnLoad;
-            Shown += OnShown;
+            Activated += OnActivated;
+            FormClosing += OnFormClosing;
             MouseClick += OnRightClick;
         }
 
@@ -1089,11 +1090,12 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnShown( object sender, EventArgs e )
+        private void OnActivated( object sender, EventArgs e )
         {
             try
             {
-                FadeIn( );
+                Opacity = 0;
+                FadeInAsync( this );
             }
             catch( Exception _ex )
             {
@@ -1552,10 +1554,17 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="FormClosingEventArgs"/>
         /// instance containing the event data.</param>
-        private void OnFormClosingAsync( object sender, FormClosingEventArgs e )
+        private void OnFormClosing( object sender, FormClosingEventArgs e )
         {
-            Opacity = 1;
-            FadeOutAsync( this );
+            try
+            {
+                Opacity = 1;
+                FadeOutAsync( this );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>

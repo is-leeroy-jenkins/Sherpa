@@ -866,7 +866,8 @@ namespace BudgetExecution
 
             // Event Wiring
             Load += OnLoad;
-            Closing += OnFormClosing;
+            Activated += OnActivated;
+            FormClosing += OnFormClosing;
             MouseClick += OnRightClick;
         }
 
@@ -1364,60 +1365,6 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Fades the in.
-        /// </summary>
-        private void FadeIn( )
-        {
-            try
-            {
-                var _timer = new Timer( );
-                _timer.Interval = 10;
-                _timer.Tick += ( sender, args ) =>
-                {
-                    if( Opacity == 1d )
-                    {
-                        _timer.Stop( );
-                    }
-
-                    Opacity += 0.01d;
-                };
-
-                _timer.Start( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Fades the out.
-        /// </summary>
-        private void FadeOut( )
-        {
-            try
-            {
-                var _timer = new Timer( );
-                _timer.Interval = 10;
-                _timer.Tick += ( sender, args ) =>
-                {
-                    if( Opacity == 0d )
-                    {
-                        _timer.Stop( );
-                    }
-
-                    Opacity -= 0.01d;
-                };
-
-                _timer.Start( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
             }
         }
 
@@ -2717,6 +2664,7 @@ namespace BudgetExecution
         {
             try
             {
+                Opacity = 0;
                 InitializeToolStrip( );
                 InitializeTimers( );
                 InitializeLabels( );
@@ -2736,9 +2684,8 @@ namespace BudgetExecution
                 PopulateExecutionTables( );
                 UpdateStatus( );
                 SetActiveQueryTab( );
-                Opacity = 0;
-                FadeInAsync( this );
                 Chart.Title.Text = "Select a Data Table";
+                FadeInAsync( this );
             }
             catch( Exception ex )
             {
@@ -3427,6 +3374,25 @@ namespace BudgetExecution
             {
                 Opacity = 1;
                 FadeOutAsync( this );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [shown].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnActivated( object sender, EventArgs e )
+        {
+            try
+            {
+                Opacity = 0;
+                FadeInAsync( this );
             }
             catch( Exception _ex )
             {

@@ -46,6 +46,7 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Linq;
+    using System.Threading.Tasks;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using CheckState = MetroSet_UI.Enums.CheckState;
@@ -799,9 +800,8 @@ namespace BudgetExecution
 
             // Event Wiring
             Load += OnLoad;
-            Shown += OnShown;
             MouseClick += OnRightClick;
-            Closing += OnClose;
+            FormClosing += OnFormClosing;
         }
 
         /// <inheritdoc />
@@ -936,68 +936,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Displays the control to the user.
-        /// </summary>
-        public new void Show( )
-        {
-            try
-            {
-                Opacity = 0;
-                if( _seconds != 0 )
-                {
-                    Timer = new Timer( );
-                    Timer.Interval = _seconds * 1000;
-                    Timer.Tick += ( sender, args ) =>
-                    {
-                        _time++;
-                        if( _time == _seconds )
-                        {
-                            Timer.Stop( );
-                            FadeOut( );
-                        }
-                    };
-                }
-
-                base.Show( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Displays the control to the user.
-        /// </summary>
-        public new void ShowDialog( )
-        {
-            try
-            {
-                Opacity = 0;
-                if( _seconds != 0 )
-                {
-                    Timer = new Timer( );
-                    Timer.Interval = _seconds * 1000;
-                    Timer.Tick += ( sender, args ) =>
-                    {
-                        _time++;
-                        if( _time == _seconds )
-                        {
-                            Timer.Stop( );
-                            FadeOut( );
-                        }
-                    };
-                }
-
-                base.ShowDialog( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Begins the initialize.
         /// </summary>
         private void BeginInit( )
@@ -1056,25 +994,22 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Fades the in.
+        /// Fades the in asynchronous.
         /// </summary>
-        private void FadeIn( )
+        /// <param name="form">The o.</param>
+        /// <param name="interval">The interval.</param>
+        private async void FadeInAsync( Form form, int interval = 80 )
         {
             try
             {
-                var _timer = new Timer( );
-                _timer.Interval = 10;
-                _timer.Tick += ( sender, args ) =>
+                ThrowIf.Null( form, nameof( form ) );
+                while( form.Opacity < 1.0 )
                 {
-                    if( Opacity == 1d )
-                    {
-                        _timer.Stop( );
-                    }
+                    await Task.Delay( interval );
+                    form.Opacity += 0.05;
+                }
 
-                    Opacity += 0.02d;
-                };
-
-                _timer.Start( );
+                form.Opacity = 1;
             }
             catch( Exception _ex )
             {
@@ -1083,26 +1018,22 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Fades the out.
+        /// Fades the out asynchronous.
         /// </summary>
-        private void FadeOut( )
+        /// <param name="form">The o.</param>
+        /// <param name="interval">The interval.</param>
+        private async void FadeOutAsync( Form form, int interval = 80 )
         {
             try
             {
-                var _timer = new Timer( );
-                _timer.Interval = 10;
-                _timer.Tick += ( sender, args ) =>
+                ThrowIf.Null( form, nameof( form ) );
+                while( form.Opacity > 0.0 )
                 {
-                    if( Opacity == 0d )
-                    {
-                        _timer.Stop( );
-                        Close( );
-                    }
+                    await Task.Delay( interval );
+                    form.Opacity -= 0.05;
+                }
 
-                    Opacity -= 0.02d;
-                };
-
-                _timer.Start( );
+                form.Opacity = 0;
             }
             catch( Exception _ex )
             {
@@ -1741,6 +1672,7 @@ namespace BudgetExecution
         {
             try
             {
+                Opacity = 0;
                 RegisterCallbacks( );
                 InitializeRadioButtons( );
                 InitializeLabels( );
@@ -1771,6 +1703,8 @@ namespace BudgetExecution
                     AccessRadioButton.Checked = true;
                     _provider = Provider.Access;
                 }
+
+                FadeInAsync( this );
             }
             catch( Exception _ex )
             {
@@ -2363,31 +2297,17 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [shown].
+        /// Called when [form closing].
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnShown( object sender, EventArgs e )
+        private void OnFormClosing( object sender, EventArgs e )
         {
             try
             {
-                FadeIn( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Closes the form.
-        /// </summary>
-        public void OnClose( object sender, EventArgs e )
-        {
-            try
-            {
-                FadeOut( );
+                Opacity = 1;
+                FadeOutAsync( this );
             }
             catch( Exception _ex )
             {

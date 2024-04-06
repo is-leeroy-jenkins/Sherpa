@@ -332,7 +332,7 @@ namespace BudgetExecution
 
             // Event Wiring
             Load += OnLoad;
-            Closing += OnFormClosing;
+            FormClosing += OnFormClosing;
         }
 
         /// <inheritdoc />

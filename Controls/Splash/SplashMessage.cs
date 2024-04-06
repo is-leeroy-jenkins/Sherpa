@@ -49,6 +49,7 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Linq;
+    using System.Threading.Tasks;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
 
@@ -217,6 +218,7 @@ namespace BudgetExecution
             // Wire Events
             MouseClick += OnClick;
             Load += OnLoad;
+            FormClosing += OnFormClosing;
         }
 
         /// <inheritdoc />
@@ -330,29 +332,22 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Displays the control to the user.
+        /// Fades the in asynchronous.
         /// </summary>
-        public new void Show( )
+        /// <param name="form">The o.</param>
+        /// <param name="interval">The interval.</param>
+        private async void FadeInAsync( Form form, int interval = 80 )
         {
             try
             {
-                Opacity = 0;
-                if( _seconds != 0 )
+                ThrowIf.Null( form, nameof( form ) );
+                while( form.Opacity < 1.0 )
                 {
-                    Timer = new Timer( );
-                    Timer.Interval = 1000;
-                    Timer.Tick += ( sender, args ) =>
-                    {
-                        _time++;
-                        if( _time == _seconds )
-                        {
-                            Timer.Stop( );
-                            FadeOut( );
-                        }
-                    };
+                    await Task.Delay( interval );
+                    form.Opacity += 0.05;
                 }
 
-                base.Show( );
+                form.Opacity = 1;
             }
             catch( Exception _ex )
             {
@@ -361,69 +356,22 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Raises the Close event.
+        /// Fades the out asynchronous.
         /// </summary>
-        public new void Close( )
+        /// <param name="form">The o.</param>
+        /// <param name="interval">The interval.</param>
+        private async void FadeOutAsync( Form form, int interval = 80 )
         {
             try
             {
-                FadeOut( );
-                base.Close( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Fades the in.
-        /// </summary>
-        private protected void FadeIn( )
-        {
-            try
-            {
-                var _timer = new Timer( );
-                _timer.Interval = 10;
-                _timer.Tick += ( sender, args ) =>
+                ThrowIf.Null( form, nameof( form ) );
+                while( form.Opacity > 0.0 )
                 {
-                    if( Opacity == 1d )
-                    {
-                        _timer.Stop( );
-                    }
+                    await Task.Delay( interval );
+                    form.Opacity -= 0.05;
+                }
 
-                    Opacity += 0.02d;
-                };
-
-                _timer.Start( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Fades the out.
-        /// </summary>
-        private protected void FadeOut( )
-        {
-            try
-            {
-                var _timer = new Timer( );
-                _timer.Interval = 10;
-                _timer.Tick += ( sender, args ) =>
-                {
-                    if( Opacity == 0d )
-                    {
-                        _timer.Stop( );
-                        Close( );
-                    }
-
-                    Opacity -= 0.02d;
-                };
-
-                _timer.Start( );
+                form.Opacity = 0;
             }
             catch( Exception _ex )
             {
@@ -441,11 +389,11 @@ namespace BudgetExecution
         {
             try
             {
+                Opacity = 0;
                 InitializeLabels( );
                 InitializePanel( );
                 InitializeTitle( );
-                FadeIn( );
-                Timer.Start( );
+                FadeInAsync( this );
             }
             catch( Exception _ex )
             {
@@ -472,6 +420,25 @@ namespace BudgetExecution
                 {
                     Fail( _ex );
                 }
+            }
+        }
+
+        /// <summary>
+        /// Called when [form closing].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnFormClosing( object sender, EventArgs e )
+        {
+            try
+            {
+                Opacity = 1;
+                FadeOutAsync( this );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 

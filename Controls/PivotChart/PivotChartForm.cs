@@ -753,7 +753,7 @@ namespace BudgetExecution
 
             // Wire Events
             Load += OnLoad;
-            Closing += OnFormClosing;
+            FormClosing += OnFormClosing;
             MouseClick += OnRightClick;
         }
 
@@ -1081,6 +1081,54 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Fades the in asynchronous.
+        /// </summary>
+        /// <param name="form">The o.</param>
+        /// <param name="interval">The interval.</param>
+        private async void FadeInAsync( Form form, int interval = 80 )
+        {
+            try
+            {
+                ThrowIf.Null( form, nameof( form ) );
+                while( form.Opacity < 1.0 )
+                {
+                    await Task.Delay( interval );
+                    form.Opacity += 0.05;
+                }
+
+                form.Opacity = 1;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the out asynchronous.
+        /// </summary>
+        /// <param name="form">The o.</param>
+        /// <param name="interval">The interval.</param>
+        private async void FadeOutAsync( Form form, int interval = 80 )
+        {
+            try
+            {
+                ThrowIf.Null( form, nameof( form ) );
+                while( form.Opacity > 0.0 )
+                {
+                    await Task.Delay( interval );
+                    form.Opacity -= 0.05;
+                }
+
+                form.Opacity = 0;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Binds the data.
         /// </summary>
         private void GetData( )
@@ -1211,108 +1259,6 @@ namespace BudgetExecution
             {
                 Fail( _ex );
                 return default( IDictionary<string, Label> );
-            }
-        }
-
-        /// <summary>
-        /// Fades the in.
-        /// </summary>
-        private void FadeIn( )
-        {
-            try
-            {
-                var _timer = new Timer( );
-                _timer.Interval = 10;
-                _timer.Tick += ( sender, args ) =>
-                {
-                    if( Opacity == 1d )
-                    {
-                        _timer.Stop( );
-                    }
-
-                    Opacity += 0.01d;
-                };
-
-                _timer.Start( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Fades the out.
-        /// </summary>
-        private void FadeOut( )
-        {
-            try
-            {
-                var _timer = new Timer( );
-                _timer.Interval = 10;
-                _timer.Tick += ( sender, args ) =>
-                {
-                    if( Opacity == 0d )
-                    {
-                        _timer.Stop( );
-                    }
-
-                    Opacity -= 0.01d;
-                };
-
-                _timer.Start( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Fades the in asynchronous.
-        /// </summary>
-        /// <param name="form">The o.</param>
-        /// <param name="interval">The interval.</param>
-        private async void FadeInAsync( Form form, int interval = 80 )
-        {
-            try
-            {
-                ThrowIf.Null( form, nameof( form ) );
-                while( form.Opacity < 1.0 )
-                {
-                    await Task.Delay( interval );
-                    form.Opacity += 0.05;
-                }
-
-                form.Opacity = 1;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Fades the out asynchronous.
-        /// </summary>
-        /// <param name="form">The o.</param>
-        /// <param name="interval">The interval.</param>
-        private async void FadeOutAsync( Form form, int interval = 80 )
-        {
-            try
-            {
-                ThrowIf.Null( form, nameof( form ) );
-                while( form.Opacity > 0.0 )
-                {
-                    await Task.Delay( interval );
-                    form.Opacity -= 0.05;
-                }
-
-                form.Opacity = 0;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
             }
         }
 

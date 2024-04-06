@@ -534,6 +534,8 @@ namespace BudgetExecution
 
             // Form Even Wiring
             Load += OnLoad;
+            Activated += OnActivated;
+            FormClosing += OnFormClosing;
             MouseClick += OnRightClick;
         }
 
@@ -2572,6 +2574,25 @@ namespace BudgetExecution
             {
                 Opacity = 1;
                 FadeOutAsync( this );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [shown].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnActivated( object sender, EventArgs e )
+        {
+            try
+            {
+                Opacity = 0;
+                FadeInAsync( this );
             }
             catch( Exception _ex )
             {
