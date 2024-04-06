@@ -46,6 +46,7 @@ namespace BudgetExecution
     using System.Data;
     using System.Drawing;
     using System.Linq;
+    using System.Threading.Tasks;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
@@ -416,7 +417,7 @@ namespace BudgetExecution
 
             // Form Event Wiring
             Load += OnLoad;
-            Shown += OnShown;
+            Closing += OnFormClosing;
             MouseClick += OnRightClick;
         }
 
@@ -645,66 +646,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Displays the control to the user.
-        /// </summary>
-        public new void Show( )
-        {
-            try
-            {
-                Opacity = 0;
-                if( Seconds != 0 )
-                {
-                    Timer = new Timer( );
-                    Timer.Interval = 1000;
-                    Timer.Tick += ( sender, args ) =>
-                    {
-                        _time++;
-                        if( _time == _seconds )
-                        {
-                            Timer.Stop( );
-                        }
-                    };
-                }
-
-                base.Show( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Closes the form.
-        /// </summary>
-        public new void Close( )
-        {
-            try
-            {
-                Opacity = 0;
-                if( _seconds != 0 )
-                {
-                    var _timer = new Timer( );
-                    _timer.Interval = 1000;
-                    _timer.Tick += ( sender, args ) =>
-                    {
-                        _time--;
-                        if( _time == _seconds )
-                        {
-                            _timer.Stop( );
-                        }
-                    };
-                }
-
-                base.Close( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Binds the data.
         /// </summary>
         private void BindData( )
@@ -876,6 +817,54 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Fades the in asynchronous.
+        /// </summary>
+        /// <param name="form">The o.</param>
+        /// <param name="interval">The interval.</param>
+        private async void FadeInAsync( Form form, int interval = 80 )
+        {
+            try
+            {
+                ThrowIf.Null( form, nameof( form ) );
+                while( form.Opacity < 1.0 )
+                {
+                    await Task.Delay( interval );
+                    form.Opacity += 0.05;
+                }
+
+                form.Opacity = 1;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the out asynchronous.
+        /// </summary>
+        /// <param name="form">The o.</param>
+        /// <param name="interval">The interval.</param>
+        private async void FadeOutAsync( Form form, int interval = 80 )
+        {
+            try
+            {
+                ThrowIf.Null( form, nameof( form ) );
+                while( form.Opacity > 0.0 )
+                {
+                    await Task.Delay( interval );
+                    form.Opacity -= 0.05;
+                }
+
+                form.Opacity = 0;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Sends the notification.
         /// </summary>
         /// <param name="message">The message.</param>
@@ -987,6 +976,8 @@ namespace BudgetExecution
                 InitializeToolStrip( );
                 InitializeTimer( );
                 InitializePictureBox( );
+                Opacity = 0;
+                FadeInAsync( this );
             }
             catch( Exception _ex )
             {
@@ -1015,7 +1006,6 @@ namespace BudgetExecution
         {
             try
             {
-                FadeOut( );
                 Application.Exit( );
             }
             catch( Exception _ex )
@@ -1034,8 +1024,7 @@ namespace BudgetExecution
         {
             try
             {
-                FadeOut( );
-                base.Close( );
+                Close( );
                 OpenMainForm( );
             }
             catch( Exception _ex )
@@ -1198,16 +1187,17 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [shown].
+        /// Called when [form closing].
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        private void OnShown( object sender, EventArgs e )
+        private void OnFormClosing( object sender, EventArgs e )
         {
             try
             {
-                FadeIn( );
+                Opacity = 1;
+                FadeOutAsync( this );
             }
             catch( Exception _ex )
             {

@@ -46,6 +46,7 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Linq;
+    using System.Threading.Tasks;
     using System.Windows.Forms;
     using GMap.NET;
     using GMap.NET.MapProviders;
@@ -429,7 +430,7 @@ namespace BudgetExecution
 
             // Wire Events
             Load += OnLoad;
-            Shown += OnShown;
+            Closing += OnFormClosing;
             MouseClick += OnRightClick;
         }
 
@@ -833,6 +834,54 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Fades the in asynchronous.
+        /// </summary>
+        /// <param name="form">The o.</param>
+        /// <param name="interval">The interval.</param>
+        private async void FadeInAsync( Form form, int interval = 80 )
+        {
+            try
+            {
+                ThrowIf.Null( form, nameof( form ) );
+                while( form.Opacity < 1.0 )
+                {
+                    await Task.Delay( interval );
+                    form.Opacity += 0.05;
+                }
+
+                form.Opacity = 1;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the out asynchronous.
+        /// </summary>
+        /// <param name="form">The o.</param>
+        /// <param name="interval">The interval.</param>
+        private async void FadeOutAsync( Form form, int interval = 80 )
+        {
+            try
+            {
+                ThrowIf.Null( form, nameof( form ) );
+                while( form.Opacity > 0.0 )
+                {
+                    await Task.Delay( interval );
+                    form.Opacity -= 0.05;
+                }
+
+                form.Opacity = 0;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Opens the main form.
         /// </summary>
         private void OpenMainForm( )
@@ -913,11 +962,13 @@ namespace BudgetExecution
         {
             try
             {
+                Opacity = 0;
                 InitializePictureBox( );
                 InitializeMap( );
                 InitializeToolStrip( );
                 InitializeLabels( );
                 InitializeTimers( );
+                FadeInAsync( this );
             }
             catch( Exception _ex )
             {
@@ -935,7 +986,6 @@ namespace BudgetExecution
         {
             try
             {
-                FadeOut( );
                 Application.Exit( );
             }
             catch( Exception _ex )
@@ -954,7 +1004,6 @@ namespace BudgetExecution
         {
             try
             {
-                FadeOut( );
                 OpenMainForm( );
                 Close( );
             }
@@ -996,24 +1045,6 @@ namespace BudgetExecution
             try
             {
                 InvokeIf( _statusUpdate );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [shown].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnShown( object sender, EventArgs e )
-        {
-            try
-            {
-                FadeIn( );
             }
             catch( Exception _ex )
             {
@@ -1185,6 +1216,29 @@ namespace BudgetExecution
             {
                 var _message = "THE SEARCH BUTTON HAS NOT BEEN IMPLEMENTED!";
                 SendNotification( _message );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Raises the Close event.
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnFormClosing( object sender, EventArgs e )
+        {
+            try
+            {
+                Opacity = 1;
+                FadeOutAsync( this );
+                Close( );
             }
             catch( Exception _ex )
             {

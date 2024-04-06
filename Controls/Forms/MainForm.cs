@@ -264,53 +264,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Displays the control to the user.
-        /// </summary>
-        public new void Show( )
-        {
-            try
-            {
-                Opacity = 0;
-                if( _seconds != 0 )
-                {
-                    Timer = new Timer( );
-                    Timer.Interval = 1000;
-                    Timer.Tick += ( sender, args ) =>
-                    {
-                        _time++;
-                        if( _time == _seconds )
-                        {
-                            Timer.Stop( );
-                            FadeOut( );
-                        }
-                    };
-                }
-
-                base.Show( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Closes the form.
-        /// </summary>
-        public new void Close( )
-        {
-            try
-            {
-                FadeOut( );
-                base.Close( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Sends the notification.
         /// </summary>
         /// <param name="message">
@@ -974,6 +927,54 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Fades the in asynchronous.
+        /// </summary>
+        /// <param name="form">The o.</param>
+        /// <param name="interval">The interval.</param>
+        private async void FadeInAsync( Form form, int interval = 80 )
+        {
+            try
+            {
+                ThrowIf.Null( form, nameof( form ) );
+                while( form.Opacity < 1.0 )
+                {
+                    await Task.Delay( interval );
+                    form.Opacity += 0.05;
+                }
+
+                form.Opacity = 1;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the out asynchronous.
+        /// </summary>
+        /// <param name="form">The o.</param>
+        /// <param name="interval">The interval.</param>
+        private async void FadeOutAsync( Form form, int interval = 80 )
+        {
+            try
+            {
+                ThrowIf.Null( form, nameof( form ) );
+                while( form.Opacity > 0.0 )
+                {
+                    await Task.Delay( interval );
+                    form.Opacity -= 0.05;
+                }
+
+                form.Opacity = 0;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Gets the controls.
         /// </summary>
         /// <returns></returns>
@@ -1003,38 +1004,6 @@ namespace BudgetExecution
                 Fail( _ex );
                 return default( Control[ ] );
             }
-        }
-
-        /// <summary>
-        /// Fades the in asynchronous.
-        /// </summary>
-        /// <param name="o">The o.</param>
-        /// <param name="interval">The interval.</param>
-        private async void FadeInAsync( Form o, int interval = 80 )
-        {
-            while( o.Opacity < 1.0 )
-            {
-                await Task.Delay( interval );
-                o.Opacity += 0.05;
-            }
-
-            o.Opacity = 1;
-        }
-
-        /// <summary>
-        /// Fades the out asynchronous.
-        /// </summary>
-        /// <param name="o">The o.</param>
-        /// <param name="interval">The interval.</param>
-        private async void FadeOutAsync( Form o, int interval = 80 )
-        {
-            while( o.Opacity > 0.0 )
-            {
-                await Task.Delay( interval );
-                o.Opacity -= 0.05;
-            }
-
-            o.Opacity = 0;
         }
 
         /// <summary>
@@ -1084,6 +1053,8 @@ namespace BudgetExecution
                 InitializeTiles( );
                 InitializeTimer( );
                 SetTileText( );
+                Opacity = 0;
+                FadeInAsync( this );
             }
             catch( Exception _ex )
             {
@@ -1528,7 +1499,6 @@ namespace BudgetExecution
         {
             try
             {
-                FadeOut( );
                 Application.Exit( );
             }
             catch( Exception _ex )
@@ -1568,7 +1538,6 @@ namespace BudgetExecution
         {
             try
             {
-                FadeOut( );
                 Close( );
             }
             catch( Exception _ex )

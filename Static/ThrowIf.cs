@@ -92,6 +92,16 @@ namespace BudgetExecution
 
                     break;
                 }
+                case Form _form:
+                {
+                    if( _form == null )
+                    {
+                        var _message = @$"The '{paramName}' is null!";
+                        throw new ArgumentNullException( _message );
+                    }
+
+                    break;
+                }
                 case BudgetQuery _query:
                 {
                     if( _query == null )
@@ -115,16 +125,6 @@ namespace BudgetExecution
                 case DataModel _dataModel:
                 {
                     if( _dataModel == null )
-                    {
-                        var _message = @$"The '{paramName}' is null!";
-                        throw new ArgumentNullException( _message );
-                    }
-
-                    break;
-                }
-                case Form _form:
-                {
-                    if( _form == null )
                     {
                         var _message = @$"The '{paramName}' is null!";
                         throw new ArgumentNullException( _message );
