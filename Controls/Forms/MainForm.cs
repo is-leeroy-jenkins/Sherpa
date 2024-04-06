@@ -174,7 +174,7 @@ namespace BudgetExecution
             try
             {
                 ExitButton.Click += OnExitButtonClick;
-                LookupTile.Click += OnLookupTileClick;
+                LookupTile.Click += OnDataGridTileClick;
                 CalendarTile.Click += OnCalendarTileClick;
                 ProgramProjectTile.Click += OnProgramProjectTileClick;
                 MessageTile.Click += OnMessageTileClick;
@@ -508,9 +508,8 @@ namespace BudgetExecution
             try
             {
                 var _delay = new DelayForm( );
-                _delay.Owner = this;
+                _delay.TopMost = true;
                 _delay.Show( );
-                Hide( );
             }
             catch( Exception _ex )
             {
@@ -873,61 +872,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Fades the in.
-        /// </summary>
-        private protected void FadeIn( )
-        {
-            try
-            {
-                var _timer = new Timer( );
-                _timer.Interval = 10;
-                _timer.Tick += ( sender, args ) =>
-                {
-                    if( Opacity == 1d )
-                    {
-                        _timer.Stop( );
-                    }
-
-                    Opacity += 0.02d;
-                };
-
-                _timer.Start( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Fades the out.
-        /// </summary>
-        private protected void FadeOut( )
-        {
-            try
-            {
-                var _timer = new Timer( );
-                _timer.Interval = 10;
-                _timer.Tick += ( sender, args ) =>
-                {
-                    if( Opacity == 0d )
-                    {
-                        _timer.Stop( );
-                        Close( );
-                    }
-
-                    Opacity -= 0.02d;
-                };
-
-                _timer.Start( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Fades the in asynchronous.
         /// </summary>
         /// <param name="form">The o.</param>
@@ -1051,10 +995,9 @@ namespace BudgetExecution
         {
             try
             {
+                Opacity = 0;
                 InitializeTiles( );
                 InitializeTimer( );
-                SetTileText( );
-                Opacity = 0;
                 FadeInAsync( this );
             }
             catch( Exception _ex )
@@ -1167,9 +1110,16 @@ namespace BudgetExecution
         /// </param>
         private void OnBrowserTileClick( object sender, EventArgs e )
         {
-            DataMinion.RunBudgetBrowser( );
+            try
+            {
+                DataMinion.RunBudgetBrowser( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
-
+        
         /// <summary>
         /// Called when [SQL ce tile click].
         /// </summary>
@@ -1226,7 +1176,14 @@ namespace BudgetExecution
         /// </param>
         private void OnSqlServerTileClick( object sender, EventArgs e )
         {
-            OpenSqlServerEditor( );
+            try
+            {
+                OpenSqlServerEditor( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -1280,7 +1237,7 @@ namespace BudgetExecution
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        private void OnLookupTileClick( object sender, EventArgs e )
+        private void OnDataGridTileClick( object sender, EventArgs e )
         {
             try
             {

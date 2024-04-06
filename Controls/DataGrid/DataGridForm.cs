@@ -1557,11 +1557,11 @@ namespace BudgetExecution
             {
                 _dataArgs.Provider = _provider;
                 _dataArgs.Source = _source;
-                _dataArgs.Filter = _filter;
-                _dataArgs.SelectedTable = _selectedTable;
-                _dataArgs.SelectedFields = _selectedFields;
-                _dataArgs.SelectedNumerics = _selectedNumerics;
-                _dataArgs.SqlQuery = _sqlQuery;
+                _dataArgs.Filter = _filter ?? new Dictionary<string, object>( );
+                _dataArgs.SelectedTable = _selectedTable ?? string.Empty;
+                _dataArgs.SelectedFields = _selectedFields ?? new List<string>( );
+                _dataArgs.SelectedNumerics = _selectedNumerics ?? new List<string>( );
+                _dataArgs.SqlQuery = _sqlQuery ?? string.Empty;
             }
             catch( Exception _ex )
             {
@@ -2299,6 +2299,23 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Shows the delay form.
+        /// </summary>
+        private void ShowDelayForm( )
+        {
+            try
+            {
+                var _delay = new DelayForm( );
+                _delay.TopMost = true;
+                _delay.Show( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -2308,6 +2325,7 @@ namespace BudgetExecution
         {
             try
             {
+                Opacity = 0;
                 ClearCategoryValueSelections( );
                 InitializeRadioButtons( );
                 InitializePictureBox( );
@@ -2332,7 +2350,6 @@ namespace BudgetExecution
                 TableListBox.ShowScrollBar = false;
                 UpdateLabels( );
                 UpdateStatus( );
-                Opacity = 0;
                 FadeInAsync( this );
             }
             catch( Exception _ex )
@@ -2662,7 +2679,7 @@ namespace BudgetExecution
         {
             try
             {
-                base.Close( );
+                Close( );
                 OpenMainForm( );
             }
             catch( Exception _ex )
@@ -2872,7 +2889,8 @@ namespace BudgetExecution
             try
             {
                 var _dialog = new FileDialog( );
-                _dialog.ShowDialog( this );
+                _dialog.Owner = this;
+                _dialog.Show( );
             }
             catch( Exception _ex )
             {

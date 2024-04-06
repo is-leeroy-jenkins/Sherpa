@@ -3,24 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\delay\\delayform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\delay\\delayform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\excel\\exceldataform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\excel\\exceldataform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\dataview\\dataviewform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\dataview\\dataviewform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\datagrid\\datagridform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\datagrid\\datagridform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\dialogs\\filedialog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\dialogs\\filedialog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\dialogs\\filedialog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\dialogs\\filedialog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,67 +42,40 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DataViewForm.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\DataView\\DataViewForm.cs",
-              "RelativeDocumentMoniker": "Controls\\DataView\\DataViewForm.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\DataView\\DataViewForm.cs",
-              "RelativeToolTip": "Controls\\DataView\\DataViewForm.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAABTAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-06T16:16:09.646Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ExcelDataForm.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Excel\\ExcelDataForm.cs",
-              "RelativeDocumentMoniker": "Controls\\Excel\\ExcelDataForm.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Excel\\ExcelDataForm.cs",
-              "RelativeToolTip": "Controls\\Excel\\ExcelDataForm.cs",
-              "ViewState": "AQIAABYDAAAAAAAAAAAUwCQDAAAgAAAA",
+              "Title": "FileDialog.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Dialogs\\FileDialog.cs",
+              "RelativeDocumentMoniker": "Controls\\Dialogs\\FileDialog.cs",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Dialogs\\FileDialog.cs [Design]",
+              "RelativeToolTip": "Controls\\Dialogs\\FileDialog.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-06T16:07:32.302Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-06T20:33:03.511Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "MainForm.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Forms\\MainForm.cs",
-              "RelativeDocumentMoniker": "Controls\\Forms\\MainForm.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Forms\\MainForm.cs",
-              "RelativeToolTip": "Controls\\Forms\\MainForm.cs",
-              "ViewState": "AQIAAIwAAAAAAAAAAAAgwKIAAAAbAAAA",
+              "DocumentIndex": 2,
+              "Title": "FileDialog.cs",
+              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Dialogs\\FileDialog.cs",
+              "RelativeDocumentMoniker": "Controls\\Dialogs\\FileDialog.cs",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Dialogs\\FileDialog.cs",
+              "RelativeToolTip": "Controls\\Dialogs\\FileDialog.cs",
+              "ViewState": "AQIAAPsCAAAAAAAAAAAowAsDAAA1AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-06T15:56:05.215Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "DataGridForm.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\DataGrid\\DataGridForm.cs",
-              "RelativeDocumentMoniker": "Controls\\DataGrid\\DataGridForm.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\DataGrid\\DataGridForm.cs",
-              "RelativeToolTip": "Controls\\DataGrid\\DataGridForm.cs",
-              "ViewState": "AQIAADoMAAAAAAAAAAAAwEoMAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-06T15:07:20.674Z",
+              "WhenOpened": "2024-04-06T20:17:42.213Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "DelayForm.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Delay\\DelayForm.cs",
-              "RelativeDocumentMoniker": "Controls\\Delay\\DelayForm.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Delay\\DelayForm.cs",
-              "RelativeToolTip": "Controls\\Delay\\DelayForm.cs",
-              "ViewState": "AQIAAOgAAAAAAAAAAAAgwAABAAApAAAA",
+              "Title": "DataGridForm.cs",
+              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\DataGrid\\DataGridForm.cs",
+              "RelativeDocumentMoniker": "Controls\\DataGrid\\DataGridForm.cs",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\DataGrid\\DataGridForm.cs",
+              "RelativeToolTip": "Controls\\DataGrid\\DataGridForm.cs",
+              "ViewState": "AQIAAC4LAAAAAAAAAAAkwEsLAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-06T15:06:56.723Z",
+              "WhenOpened": "2024-04-06T20:11:27.076Z",
               "EditorCaption": ""
             }
           ]
