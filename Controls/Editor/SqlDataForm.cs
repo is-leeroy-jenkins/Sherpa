@@ -2572,7 +2572,6 @@ namespace BudgetExecution
             {
                 Opacity = 1;
                 FadeOutAsync( this );
-                Close( );
             }
             catch( Exception _ex )
             {

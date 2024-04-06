@@ -452,8 +452,8 @@ namespace BudgetExecution
             try
             {
                 var _programs = new ProgramProjectDialog( );
-                _programs.Owner = this;
                 _programs.StartPosition = FormStartPosition.CenterScreen;
+                _programs.Owner = this;
                 _programs.Show( );
                 Hide( );
             }
@@ -1554,7 +1554,8 @@ namespace BudgetExecution
         /// instance containing the event data.</param>
         private void OnFormClosingAsync( object sender, FormClosingEventArgs e )
         {
-            FadeOutAsync( this, 30 );
+            Opacity = 1;
+            FadeOutAsync( this );
         }
 
         /// <summary>

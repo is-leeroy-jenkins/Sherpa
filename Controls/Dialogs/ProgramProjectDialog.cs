@@ -46,6 +46,7 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Text;
+    using System.Threading.Tasks;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Timer = System.Windows.Forms.Timer;
@@ -64,6 +65,11 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     public partial class ProgramProjectDialog : MetroForm
     {
+        /// <summary>
+        /// The locked object
+        /// </summary>
+        private object _path;
+
         /// <summary>
         /// The busy
         /// </summary>
@@ -426,11 +432,6 @@ namespace BudgetExecution
             ForeColor = Color.FromArgb( 106, 189, 252 );
             Font = new Font( "Roboto", 9 );
             BorderColor = Color.FromArgb( 0, 120, 212 );
-            BorderThickness = 1;
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            StartPosition = FormStartPosition.CenterParent;
-            ShowIcon = false;
-            ShowInTaskbar = true;
             MetroColor = Color.FromArgb( 20, 20, 20 );
             CaptionAlign = HorizontalAlignment.Center;
             CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
@@ -439,9 +440,18 @@ namespace BudgetExecution
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
             CaptionBarHeight = 5;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            StartPosition = FormStartPosition.CenterParent;
+            WindowState = FormWindowState.Normal;
+            SizeGripStyle = SizeGripStyle.Auto;
+            AutoScaleMode = AutoScaleMode.Font;
+            ShowIcon = false;
+            ShowInTaskbar = true;
+            DoubleBuffered = true;
             ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
+            ControlBox = false;
 
             // Bind DataSource
             _source = Source.ProgramProjectDescriptions;
@@ -457,6 +467,7 @@ namespace BudgetExecution
 
             // Event Wiring
             Load += OnLoad;
+            FormClosing += OnFormClosing;
             MouseClick += OnRightClick;
         }
 
@@ -601,7 +612,21 @@ namespace BudgetExecution
         {
             try
             {
-                _busy = true;
+                if( _path == null )
+                {
+                    _path = new object( );
+                    lock( _path )
+                    {
+                        _busy = true;
+                    }
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        _busy = true;
+                    }
+                }
             }
             catch( Exception _ex )
             {
@@ -616,7 +641,69 @@ namespace BudgetExecution
         {
             try
             {
-                _busy = false;
+                if( _path == null )
+                {
+                    _path = new object( );
+                    lock( _path )
+                    {
+                        _busy = false;
+                    }
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        _busy = false;
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the in asynchronous.
+        /// </summary>
+        /// <param name="form">The o.</param>
+        /// <param name="interval">The interval.</param>
+        private async void FadeInAsync( Form form, int interval = 10 )
+        {
+            try
+            {
+                ThrowIf.Null( form, nameof( form ) );
+                while( form.Opacity < 1.0 )
+                {
+                    await Task.Delay( interval );
+                    form.Opacity += 0.02;
+                }
+
+                form.Opacity = 1;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the out asynchronous.
+        /// </summary>
+        /// <param name="form">The o.</param>
+        /// <param name="interval">The interval.</param>
+        private async void FadeOutAsync( Form form, int interval = 50 )
+        {
+            try
+            {
+                ThrowIf.Null( form, nameof( form ) );
+                while( form.Opacity > 0.0 )
+                {
+                    await Task.Delay( interval );
+                    form.Opacity -= 0.01;
+                }
+
+                form.Opacity = 0;
             }
             catch( Exception _ex )
             {
@@ -635,90 +722,6 @@ namespace BudgetExecution
                 _dataArgs.Source = _source;
                 _dataArgs.Filter = _filter;
                 _dataArgs.SqlQuery = _sqlQuery;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Displays the control to the user.
-        /// </summary>
-        public new void Show( )
-        {
-            try
-            {
-                Opacity = 0;
-                if( Seconds != 0 )
-                {
-                    Timer = new Timer( );
-                    Timer.Interval = 10;
-                    Timer.Tick += ( sender, args ) =>
-                    {
-                        _time++;
-                        if( _time == _seconds )
-                        {
-                            Timer.Stop( );
-                        }
-                    };
-                }
-
-                base.Show( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Fades the in.
-        /// </summary>
-        private void FadeIn( )
-        {
-            try
-            {
-                var _timer = new Timer( );
-                _timer.Interval = 10;
-                _timer.Tick += ( sender, args ) =>
-                {
-                    if( Opacity == 1d )
-                    {
-                        _timer.Stop( );
-                    }
-
-                    Opacity += 0.02d;
-                };
-
-                _timer.Start( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Fades the out.
-        /// </summary>
-        private void FadeOut( )
-        {
-            try
-            {
-                var _timer = new Timer( );
-                _timer.Interval = 10;
-                _timer.Tick += ( sender, args ) =>
-                {
-                    if( Opacity == 0d )
-                    {
-                        _timer.Stop( );
-                    }
-
-                    Opacity -= 0.02d;
-                };
-
-                _timer.Start( );
             }
             catch( Exception _ex )
             {
@@ -877,6 +880,7 @@ namespace BudgetExecution
         {
             try
             {
+                Opacity = 0;
                 InitializeTimers( );
                 InitializeLabels( );
                 InitializeButtons( );
@@ -904,7 +908,7 @@ namespace BudgetExecution
                     ComboBox.Visible = true;
                 }
 
-                FadeIn( );
+                FadeInAsync( this );
             }
             catch( Exception _ex )
             {
@@ -940,7 +944,6 @@ namespace BudgetExecution
         {
             try
             {
-                FadeOut( );
                 Close( );
                 OpenMainForm( );
             }
@@ -1062,6 +1065,25 @@ namespace BudgetExecution
             try
             {
                 InvokeIf( _statusUpdate );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [form closing].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnFormClosing( object sender, EventArgs e )
+        {
+            try
+            {
+                Opacity = 1;
+                FadeOutAsync( this );
             }
             catch( Exception _ex )
             {

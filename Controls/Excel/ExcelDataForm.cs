@@ -880,7 +880,7 @@ namespace BudgetExecution
                 LookupButton.Click += OnLookupButtonClicked;
                 CloseButton.Click += OnCloseButtonClick;
                 BrowseButton.Click += OnBrowserButtonClick;
-                MenuButton.Click += OnMainMenuButtonClicked;
+                MenuButton.Click += OnMenuButtonClicked;
                 ExcelButton.Click += OnExcelButtonClicked;
                 TabControl.SelectedIndexChanged += OnActiveTabChanged;
                 Timer.Tick += OnTimerTick;
@@ -1121,66 +1121,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Displays the control to the user.
-        /// </summary>
-        public new void Show( )
-        {
-            try
-            {
-                Opacity = 0;
-                if( _seconds != 0 )
-                {
-                    var _timer = new Timer( );
-                    _timer.Interval = 1000;
-                    _timer.Tick += ( sender, args ) =>
-                    {
-                        _time++;
-                        if( _time == _seconds )
-                        {
-                            _timer.Stop( );
-                        }
-                    };
-                }
-
-                base.Show( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Closes the form.
-        /// </summary>
-        public new void Close( )
-        {
-            try
-            {
-                Opacity = 0;
-                if( _seconds != 0 )
-                {
-                    var _timer = new Timer( );
-                    _timer.Interval = 1000;
-                    _timer.Tick += ( sender, args ) =>
-                    {
-                        _time--;
-                        if( _time == _seconds )
-                        {
-                            _timer.Stop( );
-                        }
-                    };
-                }
-
-                base.Close( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Clears the data.
         /// </summary>
         public void ClearData( )
@@ -1372,60 +1312,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Fades the in.
-        /// </summary>
-        private void FadeIn( )
-        {
-            try
-            {
-                var _timer = new Timer( );
-                _timer.Interval = 10;
-                _timer.Tick += ( sender, args ) =>
-                {
-                    if( Opacity == 1d )
-                    {
-                        _timer.Stop( );
-                    }
-
-                    Opacity += 0.01d;
-                };
-
-                _timer.Start( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Fades the out.
-        /// </summary>
-        private void FadeOut( )
-        {
-            try
-            {
-                var _timer = new Timer( );
-                _timer.Interval = 10;
-                _timer.Tick += ( sender, args ) =>
-                {
-                    if( Opacity == 0d )
-                    {
-                        _timer.Stop( );
-                    }
-
-                    Opacity -= 0.01d;
-                };
-
-                _timer.Start( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Fades the in asynchronous.
         /// </summary>
         /// <param name="form">The o.</param>
@@ -1476,7 +1362,7 @@ namespace BudgetExecution
         /// <summary>
         /// Notifies this instance.
         /// </summary>
-        private void PostMessage( string message )
+        private void SendMessage( string message )
         {
             try
             {
@@ -2539,7 +2425,6 @@ namespace BudgetExecution
         {
             try
             {
-                FadeOut( );
                 Application.Exit( );
             }
             catch( Exception _ex )
@@ -2557,11 +2442,10 @@ namespace BudgetExecution
         /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        private void OnMainMenuButtonClicked( object sender, EventArgs e )
+        private void OnMenuButtonClicked( object sender, EventArgs e )
         {
             try
             {
-                FadeOut( );
                 Close( );
                 OpenMainForm( );
             }
@@ -2936,7 +2820,6 @@ namespace BudgetExecution
             {
                 Opacity = 1;
                 FadeOutAsync( this );
-                Close( );
             }
             catch( Exception _ex )
             {

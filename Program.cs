@@ -74,7 +74,7 @@ namespace BudgetExecution
             Application.SetCompatibleTextRenderingDefault( false );
             Windows = new Dictionary<string, Form>( );
             var _mainForm = new MainForm( );
-            Program.Windows.Add( nameof( MainForm ), _mainForm );
+            Program.Windows.Add( "MainForm", _mainForm );
             Application.Run( _mainForm );
         }
     }

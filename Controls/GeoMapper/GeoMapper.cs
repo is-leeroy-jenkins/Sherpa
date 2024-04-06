@@ -430,7 +430,7 @@ namespace BudgetExecution
 
             // Wire Events
             Load += OnLoad;
-            Closing += OnFormClosing;
+            FormClosing += OnFormClosing;
             MouseClick += OnRightClick;
         }
 
@@ -569,66 +569,6 @@ namespace BudgetExecution
                 Map.MapProvider = BingMapProvider.Instance;
                 GMaps.Instance.Mode = AccessMode.ServerAndCache;
                 Map.Position = new PointLatLng( _lat, _long );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Displays the control to the user.
-        /// </summary>
-        public new void Show( )
-        {
-            try
-            {
-                Opacity = 0;
-                if( _seconds != 0 )
-                {
-                    var _timer = new Timer( );
-                    _timer.Interval = 1000;
-                    _timer.Tick += ( sender, args ) =>
-                    {
-                        _time++;
-                        if( _time == _seconds )
-                        {
-                            _timer.Stop( );
-                        }
-                    };
-                }
-
-                base.Show( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Closes the form.
-        /// </summary>
-        public new void Close( )
-        {
-            try
-            {
-                Opacity = 0;
-                if( _seconds != 0 )
-                {
-                    var _timer = new Timer( );
-                    _timer.Interval = 1000;
-                    _timer.Tick += ( sender, args ) =>
-                    {
-                        _time--;
-                        if( _time == _seconds )
-                        {
-                            _timer.Stop( );
-                        }
-                    };
-                }
-
-                base.Close( );
             }
             catch( Exception _ex )
             {
@@ -780,60 +720,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Fades the in.
-        /// </summary>
-        private void FadeIn( )
-        {
-            try
-            {
-                var _timer = new Timer( );
-                _timer.Interval = 10;
-                _timer.Tick += ( sender, args ) =>
-                {
-                    if( Opacity == 1d )
-                    {
-                        _timer.Stop( );
-                    }
-
-                    Opacity += 0.01d;
-                };
-
-                _timer.Start( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Fades the out.
-        /// </summary>
-        private void FadeOut( )
-        {
-            try
-            {
-                var _timer = new Timer( );
-                _timer.Interval = 10;
-                _timer.Tick += ( sender, args ) =>
-                {
-                    if( Opacity == 0d )
-                    {
-                        _timer.Stop( );
-                    }
-
-                    Opacity -= 0.01d;
-                };
-
-                _timer.Start( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Fades the in asynchronous.
         /// </summary>
         /// <param name="form">The o.</param>
@@ -888,7 +774,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _form = (MainForm)Program.Windows[ nameof( MainForm ) ];
+                var _form = (MainForm)Program.Windows[ "MainForm" ];
                 _form.StartPosition = FormStartPosition.CenterScreen;
                 _form.TopMost = true;
                 _form.Visible = true;
@@ -1004,8 +890,8 @@ namespace BudgetExecution
         {
             try
             {
-                OpenMainForm( );
                 Close( );
+                OpenMainForm( );
             }
             catch( Exception _ex )
             {
@@ -1238,7 +1124,6 @@ namespace BudgetExecution
             {
                 Opacity = 1;
                 FadeOutAsync( this );
-                Close( );
             }
             catch( Exception _ex )
             {

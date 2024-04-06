@@ -43,6 +43,7 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Threading.Tasks;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Timer = System.Windows.Forms.Timer;
@@ -59,6 +60,26 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
     public partial class MessageDialog : MetroForm
     {
+        /// <summary>
+        /// The busy
+        /// </summary>
+        private bool _busy;
+
+        /// <summary>
+        /// The status update
+        /// </summary>
+        private Action _updateStatus;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private int _time;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private int _seconds;
+
         /// <summary>
         /// The data
         /// </summary>
@@ -81,22 +102,6 @@ namespace BudgetExecution
         /// Gets or sets the text associated with this control.
         /// </summary>
         public string Data { get; set; }
-
-        /// <summary>
-        /// Gets or sets the time.
-        /// </summary>
-        /// <value>
-        /// The time.
-        /// </value>
-        public int Time { get; set; }
-
-        /// <summary>
-        /// Gets or sets the seconds.
-        /// </summary>
-        /// <value>
-        /// The seconds.
-        /// </value>
-        public int Seconds { get; set; }
 
         /// <inheritdoc />
         /// <summary>
@@ -134,11 +139,12 @@ namespace BudgetExecution
             MaximizeBox = false;
 
             // Timer Properties
-            Time = 0;
-            Seconds = 5;
+            _time = 0;
+            _seconds = 5;
 
             // Wire Events
             Load += OnLoad;
+            Closing += OnFormClosing;
         }
 
         /// <inheritdoc />
@@ -287,28 +293,22 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Displays the control to the user.
+        /// Invokes if needed.
         /// </summary>
-        public new void Show( )
+        /// <param name="action">The action.</param>
+        public void InvokeIf( System.Action action )
         {
             try
             {
-                Opacity = 0;
-                if( Seconds != 0 )
+                ThrowIf.Null( action, nameof( action ) );
+                if( InvokeRequired )
                 {
-                    Timer = new Timer( );
-                    Timer.Interval = 10;
-                    Timer.Tick += ( sender, args ) =>
-                    {
-                        Time++;
-                        if( Time == Seconds )
-                        {
-                            Timer.Stop( );
-                        }
-                    };
+                    BeginInvoke( action );
                 }
-
-                base.Show( );
+                else
+                {
+                    action.Invoke( );
+                }
             }
             catch( Exception _ex )
             {
@@ -371,6 +371,54 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Fades the in asynchronous.
+        /// </summary>
+        /// <param name="form">The o.</param>
+        /// <param name="interval">The interval.</param>
+        private async void FadeInAsync( Form form, int interval = 80 )
+        {
+            try
+            {
+                ThrowIf.Null( form, nameof( form ) );
+                while( form.Opacity < 1.0 )
+                {
+                    await Task.Delay( interval );
+                    form.Opacity += 0.05;
+                }
+
+                form.Opacity = 1;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the out asynchronous.
+        /// </summary>
+        /// <param name="form">The o.</param>
+        /// <param name="interval">The interval.</param>
+        private async void FadeOutAsync( Form form, int interval = 80 )
+        {
+            try
+            {
+                ThrowIf.Null( form, nameof( form ) );
+                while( form.Opacity > 0.0 )
+                {
+                    await Task.Delay( interval );
+                    form.Opacity -= 0.05;
+                }
+
+                form.Opacity = 0;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -380,11 +428,12 @@ namespace BudgetExecution
         {
             try
             {
+                Opacity = 0;
                 InitializeButtons( );
                 InitializeTimers( );
                 InitializeText( );
                 InitializeDialogs( );
-                FadeIn( );
+                FadeInAsync( this );
             }
             catch( Exception _ex )
             {
@@ -405,7 +454,6 @@ namespace BudgetExecution
             {
                 try
                 {
-                    FadeOut( );
                     Close( );
                 }
                 catch( Exception _ex )
@@ -428,7 +476,6 @@ namespace BudgetExecution
             {
                 try
                 {
-                    FadeOut( );
                     Close( );
                 }
                 catch( Exception _ex )
@@ -502,6 +549,43 @@ namespace BudgetExecution
                 {
                     Fail( _ex );
                 }
+            }
+        }
+
+        /// <summary>
+        /// Called when [timer tick].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnTimerTick( object sender, EventArgs e )
+        {
+            try
+            {
+                InvokeIf( _updateStatus );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [form closing].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnFormClosing( object sender, EventArgs e )
+        {
+            try
+            {
+                Opacity = 1;
+                FadeOutAsync( this );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
