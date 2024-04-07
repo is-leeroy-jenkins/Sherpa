@@ -61,23 +61,23 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
-    [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
-    [ SuppressMessage( "ReSharper", "ReturnValueOfPureMethodIsNotUsed" ) ]
-    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
-    [ SuppressMessage( "ReSharper", "TooWideLocalVariableScope" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWithPrivateSetter" ) ]
-    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
+    [SuppressMessage( "ReSharper", "RedundantBoolCompare" )]
+    [SuppressMessage( "ReSharper", "ReturnValueOfPureMethodIsNotUsed" )]
+    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
+    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
+    [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
+    [SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" )]
+    [SuppressMessage( "ReSharper", "ConvertToAutoProperty" )]
+    [SuppressMessage( "ReSharper", "TooWideLocalVariableScope" )]
+    [SuppressMessage( "ReSharper", "ConvertToAutoPropertyWithPrivateSetter" )]
+    [SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" )]
     public partial class DataGridForm : MetroForm
     {
         /// <summary>
@@ -776,7 +776,6 @@ namespace BudgetExecution
             Load += OnLoad;
             Activated += OnActivated;
             FormClosing += OnFormClosing;
-            MouseClick += OnRightClick;
         }
 
         /// <inheritdoc />
@@ -940,7 +939,7 @@ namespace BudgetExecution
                 PictureBox.Size = new Size( 18, 18 );
                 PictureBox.Padding = new Padding( 1 );
                 PictureBox.Margin = new Padding( 1 );
-                PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                PictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             }
             catch( Exception _ex )
             {
@@ -1076,7 +1075,7 @@ namespace BudgetExecution
             {
                 // Timer Properties
                 Timer.Enabled = true;
-                Timer.Interval = _seconds * 1000;
+                Timer.Interval = 80;
                 Timer.Tick += OnTimerTick;
                 Timer.Start( );
             }
@@ -2889,8 +2888,7 @@ namespace BudgetExecution
             try
             {
                 var _dialog = new FileDialog( );
-                _dialog.Owner = this;
-                _dialog.Show( );
+                _dialog.ShowDialog( this );
             }
             catch( Exception _ex )
             {

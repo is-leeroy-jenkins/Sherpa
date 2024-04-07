@@ -103,42 +103,6 @@ namespace BudgetExecution
         private Bitmap _loader;
 
         /// <summary>
-        /// Gets or sets the time.
-        /// </summary>
-        /// <value>
-        /// The time.
-        /// </value>
-        public int Time
-        {
-            get
-            {
-                return _time;
-            }
-            private protected set
-            {
-                _time = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the seconds.
-        /// </summary>
-        /// <value>
-        /// The seconds.
-        /// </value>
-        public int Seconds
-        {
-            get
-            {
-                return _seconds;
-            }
-            private protected set
-            {
-                _seconds = value;
-            }
-        }
-
-        /// <summary>
         /// Gets or sets the picture.
         /// </summary>
         /// <value>
@@ -307,7 +271,7 @@ namespace BudgetExecution
             {
                 // Timer Properties
                 Timer.Enabled = true;
-                Timer.Interval = 500;
+                Timer.Interval = 80;
                 Timer.Tick += OnTimerTick;
                 Timer.Start( );
             }

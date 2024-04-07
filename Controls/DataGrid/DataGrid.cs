@@ -62,6 +62,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
     public class DataGrid : DataGridView
     {
         /// <summary>
@@ -163,10 +164,6 @@ namespace BudgetExecution
             AlternatingRowsDefaultCellStyle.Font = new Font( "Roboto", 8 );
             AlternatingRowsDefaultCellStyle.SelectionBackColor = Color.FromArgb( 26, 79, 125 );
             AlternatingRowsDefaultCellStyle.SelectionForeColor = Color.White;
-
-            // Epilog
-            Visible = true;
-            Enabled = true;
 
             // Wire Events
             ColumnHeaderMouseClick += OnColumnHeaderClick;
@@ -285,9 +282,9 @@ namespace BudgetExecution
                     {
                         var _c = Columns[ _i ];
                         _columnConfig.ColumnListBox?.Items.Add( _c.HeaderText, _c.Visible );
+                        _columnConfig.TopMost = true;
+                        _columnConfig?.Show( );
                     }
-
-                    _columnConfig.TopMost = true;
                 }
                 catch( Exception _ex )
                 {
@@ -318,8 +315,7 @@ namespace BudgetExecution
                             _editDialog.ShowDialog( );
                             CurrentCell.Value = _editDialog.Editor.Text;
                         }
-                        else if( ( _value?.Length >= 6 )
-                                && ( _value.Length <= 9 )
+                        else if( _value?.Length is >= 6 and <= 9
                                 && ( _value?.Substring( 0, 3 ) == "000" ) )
                         {
                             var _code = _value.Substring( 4, 2 );

@@ -37,7 +37,7 @@ namespace BudgetExecution
         /// </summary>
         private void InitializeComponent( )
         {
-            var captionImage1 = new Syncfusion.Windows.Forms.CaptionImage( );
+            var captionImage2 = new Syncfusion.Windows.Forms.CaptionImage( );
             var resources = new ComponentResourceManager( typeof( ColumnConfiguration ) );
             ColumnListBox = new CheckedListBox( );
             ColumnConfigPanel = new Panel( );
@@ -155,12 +155,12 @@ namespace BudgetExecution
             CaptionButtonHoverColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             CaptionFont = new System.Drawing.Font( "Roboto", 8.25F );
             CaptionForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            captionImage1.BackColor = System.Drawing.Color.Transparent;
-            captionImage1.ForeColor = System.Drawing.Color.FromArgb( 15, 15, 15 );
-            captionImage1.Location = new System.Drawing.Point( 10, 5 );
-            captionImage1.Name = "Image";
-            captionImage1.Size = new System.Drawing.Size( 16, 16 );
-            CaptionImages.Add( captionImage1 );
+            captionImage2.BackColor = System.Drawing.Color.Transparent;
+            captionImage2.ForeColor = System.Drawing.Color.FromArgb( 15, 15, 15 );
+            captionImage2.Location = new System.Drawing.Point( 10, 5 );
+            captionImage2.Name = "Image";
+            captionImage2.Size = new System.Drawing.Size( 16, 16 );
+            CaptionImages.Add( captionImage2 );
             ClientSize = new System.Drawing.Size( 238, 339 );
             ControlBox = false;
             Controls.Add( HeaderLabel );

@@ -695,6 +695,10 @@ namespace BudgetExecution
             SelectButton.ThemeName = "Budget Execution";
             SelectButton.ToolTip = null;
             // 
+            // Timer
+            // 
+            Timer.Interval = 80;
+            // 
             // ButtonTable
             // 
             ButtonTable.ColumnCount = 7;

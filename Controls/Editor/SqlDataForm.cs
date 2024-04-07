@@ -172,42 +172,6 @@ namespace BudgetExecution
         private IDictionary<string, object> _statements;
 
         /// <summary>
-        /// Gets the time.
-        /// </summary>
-        /// <value>
-        /// The time.
-        /// </value>
-        public int Time
-        {
-            get
-            {
-                return _time;
-            }
-            private set
-            {
-                _time = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the seconds.
-        /// </summary>
-        /// <value>
-        /// The seconds.
-        /// </value>
-        public int Seconds
-        {
-            get
-            {
-                return _seconds;
-            }
-            private set
-            {
-                _seconds = value;
-            }
-        }
-
-        /// <summary>
         /// Gets the count.
         /// </summary>
         /// <value>
@@ -222,24 +186,6 @@ namespace BudgetExecution
             private set
             {
                 _count = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the hover text.
-        /// </summary>
-        /// <value>
-        /// The hover text.
-        /// </value>
-        public string HoverText
-        {
-            get
-            {
-                return _hoverText;
-            }
-            private set
-            {
-                _hoverText = value;
             }
         }
 
@@ -783,7 +729,7 @@ namespace BudgetExecution
             {
                 // Timer Properties
                 Timer.Enabled = true;
-                Timer.Interval = 500;
+                Timer.Interval = 80;
                 Timer.Tick += OnTimerTick;
                 Timer.Start( );
             }

@@ -103,7 +103,6 @@ namespace BudgetExecution
         public ColumnConfiguration( )
         {
             InitializeComponent( );
-            RegisterCallbacks( );
 
             // Form Properties
             BorderColor = Color.FromArgb( 0, 120, 212 );
@@ -127,10 +126,6 @@ namespace BudgetExecution
             MinimizeBox = false;
             MaximizeBox = false;
             ControlBox = false;
-
-            // Form Events
-            Load += OnLoad;
-            Closing += OnFormClosing;
         }
 
         /// <inheritdoc />
@@ -146,6 +141,11 @@ namespace BudgetExecution
             Grid = dataGrid;
             PopUp = new System.Windows.Forms.ToolStripDropDown( );
             ColumnListBox.CheckOnClick = true;
+
+            // Form Events
+            ColumnListBox.ItemCheck += OnListItemChecked;
+            CloseButton.Click += OnCloseButtonClick;
+            Load += OnLoad;
         }
 
         /// <summary>
@@ -267,9 +267,8 @@ namespace BudgetExecution
         {
             try
             {
-                Opacity = 0;
-                InitializeLabels( );
-                FadeInAsync( this );
+                HeaderLabel.Font = new Font( "Roboto", 10 );
+                HeaderLabel.ForeColor = Color.FromArgb( 106, 189, 252 );
             }
             catch( Exception _ex )
             {
@@ -348,10 +347,9 @@ namespace BudgetExecution
                     if( Grid != null )
                     {
                         _columnConfiguration.Location = Grid.PointToScreen( new Point( e.X, e.Y ) );
+                        _columnConfiguration.TopMost = true;
+                        _columnConfiguration?.Show( );
                     }
-
-                    _columnConfiguration?.ShowDialog( );
-                    _columnConfiguration.TopMost = true;
                 }
                 catch( Exception _ex )
                 {
@@ -372,6 +370,25 @@ namespace BudgetExecution
             {
                 Opacity = 1;
                 FadeOutAsync( this );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [shown].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnActivated( object sender, EventArgs e )
+        {
+            try
+            {
+                Opacity = 0;
+                FadeInAsync( this );
             }
             catch( Exception _ex )
             {

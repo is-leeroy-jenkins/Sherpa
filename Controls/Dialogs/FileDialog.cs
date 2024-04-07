@@ -61,44 +61,9 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public partial class FileDialog : DialogBase
     {
-        /// <summary>
-        /// Gets or sets the time.
-        /// </summary>
-        /// <value>
-        /// The time.
-        /// </value>
-        public int Time
-        {
-            get
-            {
-                return _time;
-            }
-            private protected set
-            {
-                _time = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the seconds.
-        /// </summary>
-        /// <value>
-        /// The seconds.
-        /// </value>
-        public int Seconds
-        {
-            get
-            {
-                return _seconds;
-            }
-            private protected set
-            {
-                _seconds = value;
-            }
-        }
-
         /// <summary>
         /// Gets or sets the extension.
         /// </summary>
@@ -281,7 +246,8 @@ namespace BudgetExecution
 
             // Event Wiring
             Load += OnLoad;
-            Closing += OnFormClosing;
+            Activated += OnActivated;
+            FormClosing += OnFormClosing;
         }
 
         /// <inheritdoc />
@@ -396,7 +362,7 @@ namespace BudgetExecution
             {
                 // Timer Properties
                 Timer.Enabled = true;
-                Timer.Interval = 500;
+                Timer.Interval = 80;
                 Timer.Tick += OnTimerTick;
                 Timer.Start( );
             }
@@ -733,6 +699,8 @@ namespace BudgetExecution
             {
                 Opacity = 0;
                 _filePaths = CreateListViewFilePaths( );
+                FoundLabel.Text = "Found : " + _filePaths?.Count ?? "0";
+                Title.Text = $"{_extension} File Search";
                 InitializeLabels( );
                 InitializeButtons( );
                 InitializeDialogs( );
@@ -740,8 +708,6 @@ namespace BudgetExecution
                 RegisterRadioButtonEvents( );
                 SetImage( );
                 InitializeRadioButtons( );
-                FoundLabel.Text = "Found : " + _filePaths?.Count ?? "0";
-                Title.Text = $"{_extension} File Search";
                 PopulateListBox( );
                 FadeInAsync( this );
             }
@@ -879,7 +845,7 @@ namespace BudgetExecution
         /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        private protected virtual void OnCloseButtonClicked( object sender, EventArgs e )
+        private protected void OnCloseButtonClicked( object sender, EventArgs e )
         {
             if( sender is Button )
             {
@@ -906,6 +872,25 @@ namespace BudgetExecution
             {
                 Opacity = 1;
                 FadeOutAsync( this );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [shown].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnActivated( object sender, EventArgs e )
+        {
+            try
+            {
+                Opacity = 0;
+                FadeInAsync( this );
             }
             catch( Exception _ex )
             {

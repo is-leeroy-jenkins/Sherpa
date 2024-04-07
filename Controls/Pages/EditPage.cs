@@ -68,6 +68,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
     [ SuppressMessage( "ReSharper", "MergeConditionalExpression" ) ]
     [ SuppressMessage( "ReSharper", "MergeCastWithTypeCheck" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
     public partial class EditPage : EditBase
     {
         /// <summary>
@@ -159,42 +160,6 @@ namespace BudgetExecution
         /// The frames
         /// </summary>
         private IList<Frame> _frames;
-
-        /// <summary>
-        /// Gets or sets the time.
-        /// </summary>
-        /// <value>
-        /// The time.
-        /// </value>
-        public int Time
-        {
-            get
-            {
-                return _time;
-            }
-            private set
-            {
-                _time = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the seconds.
-        /// </summary>
-        /// <value>
-        /// The seconds.
-        /// </value>
-        public int Seconds
-        {
-            get
-            {
-                return _seconds;
-            }
-            private set
-            {
-                _seconds = value;
-            }
-        }
 
         /// <summary>
         /// Gets the first category.
@@ -511,6 +476,7 @@ namespace BudgetExecution
 
             // Form Event Wiring
             Load += OnLoad;
+            Activated += OnActivated;
             Closing += OnFormClosing;
             MouseClick += OnRightClick;
         }
@@ -1284,7 +1250,9 @@ namespace BudgetExecution
         {
             try
             {
-                Close( );
+                ClearData( );
+                ClearComboBoxes( );
+                ClearListBoxes( );
             }
             catch( Exception _ex )
             {
@@ -1311,5 +1279,23 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Called when [shown].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnActivated( object sender, EventArgs e )
+        {
+            try
+            {
+                Opacity = 0;
+                FadeInAsync( this );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
     }
 }

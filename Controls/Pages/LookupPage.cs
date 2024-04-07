@@ -97,11 +97,6 @@ namespace BudgetExecution
         private int _count;
 
         /// <summary>
-        /// The hover text
-        /// </summary>
-        private string _hoverText;
-
-        /// <summary>
         /// The first category
         /// </summary>
         private string _firstCategory;
@@ -142,24 +137,6 @@ namespace BudgetExecution
         private string _fourthValue;
 
         /// <summary>
-        /// Gets the time.
-        /// </summary>
-        /// <value>
-        /// The time.
-        /// </value>
-        public int Time
-        {
-            get
-            {
-                return _time;
-            }
-            private set
-            {
-                _time = value;
-            }
-        }
-
-        /// <summary>
         /// Gets the seconds.
         /// </summary>
         /// <value>
@@ -192,24 +169,6 @@ namespace BudgetExecution
             private set
             {
                 _count = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the hover text.
-        /// </summary>
-        /// <value>
-        /// The hover text.
-        /// </value>
-        public virtual string HoverText
-        {
-            get
-            {
-                return _hoverText;
-            }
-            private set
-            {
-                _hoverText = value;
             }
         }
 
@@ -464,6 +423,7 @@ namespace BudgetExecution
 
             // Wire Events
             Load += OnLoad;
+            Activated += OnActivated;
             FormClosing += OnFormClosing;
         }
 
@@ -1056,8 +1016,10 @@ namespace BudgetExecution
         {
             try
             {
+                ClearComboBoxes( );
                 ClearSelections( );
                 ClearListBoxes( );
+                ClearData( );
             }
             catch( Exception _ex )
             {
@@ -1113,6 +1075,25 @@ namespace BudgetExecution
             {
                 Opacity = 1;
                 FadeOutAsync( this );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [shown].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnActivated( object sender, EventArgs e )
+        {
+            try
+            {
+                Opacity = 0;
+                FadeInAsync( this );
             }
             catch( Exception _ex )
             {

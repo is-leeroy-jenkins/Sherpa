@@ -499,7 +499,7 @@ namespace BudgetExecution
             {
                 // Timer Properties
                 Timer.Enabled = true;
-                Timer.Interval = 500;
+                Timer.Interval = 80;
                 Timer.Tick += OnTimerTick;
                 Timer.Start( );
             }

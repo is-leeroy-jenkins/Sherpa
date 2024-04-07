@@ -2259,7 +2259,7 @@
             ToolStripTextBox.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             ToolStripTextBox.Name = "ToolStripTextBox";
             ToolStripTextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Size = new System.Drawing.Size( 180, 25 );
+            ToolStripTextBox.Size = new System.Drawing.Size( 168, 25 );
             ToolStripTextBox.Tag = "";
             ToolStripTextBox.ToolTip = ToolTip;
             // 
@@ -2431,14 +2431,14 @@
             PictureBox.Margin = new System.Windows.Forms.Padding( 1 );
             PictureBox.Name = "PictureBox";
             PictureBox.Size = new System.Drawing.Size( 18, 18 );
-            PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             PictureBox.TabIndex = 54;
             PictureBox.TabStop = false;
             // 
             // Timer
             // 
             Timer.Enabled = true;
-            Timer.Interval = 500;
+            Timer.Interval = 80;
             // 
             // GridHeaderPanel
             // 
