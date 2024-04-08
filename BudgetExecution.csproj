@@ -84,6 +84,7 @@
     <PackageReference Include="ScottPlot.WinForms" Version="5.0.21" />
     <PackageReference Include="Syncfusion.Chart.Base" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Chart.Windows" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.Diagram.Windows" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Edit.Windows" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Gauge.Windows" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Grid.Grouping.Windows" Version="24.1.41" />
@@ -92,6 +93,7 @@
     <PackageReference Include="Syncfusion.Licensing" Version="24.1.41" />
     <PackageReference Include="Syncfusion.Pdf.WinForms" Version="24.1.41" />
     <PackageReference Include="Syncfusion.PdfViewer.Windows" Version="24.1.41" />
+    <PackageReference Include="Syncfusion.PivotAnalysis.Base" Version="24.1.41" />
     <PackageReference Include="Syncfusion.PivotChart.Windows" Version="24.1.41" />
     <PackageReference Include="Syncfusion.PivotTable.WinForms" Version="24.1.41" />
     <PackageReference Include="Syncfusion.SfDataGrid.WinForms" Version="24.1.41" />
@@ -118,6 +120,12 @@
     <PackageReference Include="WinForms.DataVisualization" Version="1.9.1" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="BudgetExecution.Winforms.Charts">
+      <HintPath>Libraries\BudgetExecution.Winforms.Charts.dll</HintPath>
+    </Reference>
+    <Reference Include="BudgetExecution.Winforms.Metro">
+      <HintPath>Libraries\BudgetExecution.Winforms.Metro.dll</HintPath>
+    </Reference>
     <Reference Include="C1.Win.4.8">
       <HintPath>Libraries\C1.Win.4.8.dll</HintPath>
     </Reference>
@@ -169,9 +177,6 @@
     </Reference>
     <Reference Include="WinFormsExcel">
       <HintPath>Libraries\WinFormsExcel.dll</HintPath>
-    </Reference>
-    <Reference Include="Zeroit.Framework.BasicCharts">
-      <HintPath>Libraries\Zeroit.Framework.BasicCharts.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

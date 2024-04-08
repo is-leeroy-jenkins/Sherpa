@@ -688,17 +688,17 @@
     <s:Boolean x:Key="/Default/CodeStyle/EditorConfig/ShowEditorConfigStatusBarIndicator/@EntryValue">True</s:Boolean>
     <s:Boolean x:Key="/Default/CodeStyle/EditorConfig/SyncToVisualStudio/@EntryValue">True</s:Boolean>
     <s:String x:Key="/Default/CodeStyle/FileHeader/FileHeaderText/@EntryValue">******************************************************************************************&#xD;
-    Assembly:             Baby&#xD;
+    Assembly:             BudgetExecution&#xD;
     Author:                  Terry D. Eppler&#xD;
     Created:                 ${File.CreatedMonth}-${File.CreatedDay}-${File.CreatedYear}&#xD;
 &#xD;
     Last Modified By:        Terry D. Eppler&#xD;
     Last Modified On:        ${CurrentDate.Month}-${CurrentDate.Day}-${CurrentDate.Year}&#xD;
 ******************************************************************************************&#xD;
-&lt;copyright file="${User.Name}.cs" company="Terry D. Eppler"&gt;&#xD;
+&lt;copyright file="${User.Name}" company="Terry D. Eppler"&gt;&#xD;
    Baby is a small web browser used in a Federal Budget, Finance, and Accounting application for the&#xD;
    US Environmental Protection Agency (US EPA).&#xD;
-   Copyright ©  2023  Terry Eppler&#xD;
+   Copyright ©  2024  Terry Eppler&#xD;
 &#xD;
    Permission is hereby granted, free of charge, to any person obtaining a copy&#xD;
    of this software and associated documentation files (the “Software”),&#xD;
@@ -723,7 +723,7 @@
    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov&#xD;
 &lt;/copyright&gt;&#xD;
 &lt;summary&gt;&#xD;
-  ${File.FileName}.cs&#xD;
+  ${File.FileName}&#xD;
 &lt;/summary&gt;&#xD;
 ******************************************************************************************&#xD;
 </s:String>

@@ -1,15 +1,15 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:             BudgetExecution
 //     Author:                  Terry D. Eppler
-//     Created:                 12-18-2023
+//     Created:                 12-24-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        12-18-2023
+//     Last Modified On:        04-07-2024
 // ******************************************************************************************
-// <copyright file="DataGridForm.cs" company="Terry D. Eppler">
-//    Budget Execution is a Federal Budget, Finance, and Accounting application
-//    for the US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+// <copyright file="Terry Eppler" company="Terry D. Eppler">
+//    Budget Execution is a small Federal Budget, Finance, and Accounting data management
+//    application for analysts with the US Environmental Protection Agency (US EPA).
+//    Copyright ©  2024  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
 //    of this software and associated documentation files (the “Software”),
@@ -31,7 +31,7 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    Contact at: terryeppler@gmail.com or eppler.terry@epa.gov
+//    You can contact me at:  terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
 //   DataGridForm.cs
@@ -53,6 +53,7 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
+    using Action = System.Action;
     using Application = System.Windows.Forms.Application;
     using Control = System.Windows.Forms.Control;
     using Image = System.Drawing.Image;
@@ -61,23 +62,23 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
-    [SuppressMessage( "ReSharper", "RedundantBoolCompare" )]
-    [SuppressMessage( "ReSharper", "ReturnValueOfPureMethodIsNotUsed" )]
-    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
-    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
-    [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
-    [SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" )]
-    [SuppressMessage( "ReSharper", "ConvertToAutoProperty" )]
-    [SuppressMessage( "ReSharper", "TooWideLocalVariableScope" )]
-    [SuppressMessage( "ReSharper", "ConvertToAutoPropertyWithPrivateSetter" )]
-    [SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" )]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
+    [ SuppressMessage( "ReSharper", "ReturnValueOfPureMethodIsNotUsed" ) ]
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "TooWideLocalVariableScope" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWithPrivateSetter" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
     public partial class DataGridForm : MetroForm
     {
         /// <summary>
@@ -93,7 +94,7 @@ namespace BudgetExecution
         /// <summary>
         /// The status update
         /// </summary>
-        private System.Action _updateStatus;
+        private Action _updateStatus;
 
         /// <summary>
         /// The time
@@ -238,14 +239,8 @@ namespace BudgetExecution
         /// </value>
         public DataRow Current
         {
-            get
-            {
-                return _current;
-            }
-            private set
-            {
-                _current = value;
-            }
+            get => _current;
+            private set => _current = value;
         }
 
         /// <summary>
@@ -256,14 +251,8 @@ namespace BudgetExecution
         /// </value>
         public int Time
         {
-            get
-            {
-                return _time;
-            }
-            private set
-            {
-                _time = value;
-            }
+            get => _time;
+            private set => _time = value;
         }
 
         /// <summary>
@@ -274,14 +263,8 @@ namespace BudgetExecution
         /// </value>
         public int Count
         {
-            get
-            {
-                return _count;
-            }
-            private set
-            {
-                _count = value;
-            }
+            get => _count;
+            private set => _count = value;
         }
 
         /// <summary>
@@ -292,14 +275,8 @@ namespace BudgetExecution
         /// </value>
         public virtual string HoverText
         {
-            get
-            {
-                return _hoverText;
-            }
-            private set
-            {
-                _hoverText = value;
-            }
+            get => _hoverText;
+            private set => _hoverText = value;
         }
 
         /// <summary>
@@ -310,14 +287,8 @@ namespace BudgetExecution
         /// </value>
         public string SelectedTable
         {
-            get
-            {
-                return _selectedTable;
-            }
-            private set
-            {
-                _selectedTable = value;
-            }
+            get => _selectedTable;
+            private set => _selectedTable = value;
         }
 
         /// <summary>
@@ -328,14 +299,8 @@ namespace BudgetExecution
         /// </value>
         public string FirstCategory
         {
-            get
-            {
-                return _firstCategory;
-            }
-            private set
-            {
-                _firstCategory = value;
-            }
+            get => _firstCategory;
+            private set => _firstCategory = value;
         }
 
         /// <summary>
@@ -346,14 +311,8 @@ namespace BudgetExecution
         /// </value>
         public string FirstValue
         {
-            get
-            {
-                return _firstValue;
-            }
-            private set
-            {
-                _firstValue = value;
-            }
+            get => _firstValue;
+            private set => _firstValue = value;
         }
 
         /// <summary>
@@ -364,14 +323,8 @@ namespace BudgetExecution
         /// </value>
         public string SecondCategory
         {
-            get
-            {
-                return _secondCategory;
-            }
-            private set
-            {
-                _secondCategory = value;
-            }
+            get => _secondCategory;
+            private set => _secondCategory = value;
         }
 
         /// <summary>
@@ -382,14 +335,8 @@ namespace BudgetExecution
         /// </value>
         public string SecondValue
         {
-            get
-            {
-                return _secondValue;
-            }
-            private set
-            {
-                _secondValue = value;
-            }
+            get => _secondValue;
+            private set => _secondValue = value;
         }
 
         /// <summary>
@@ -400,14 +347,8 @@ namespace BudgetExecution
         /// </value>
         public string ThirdCategory
         {
-            get
-            {
-                return _thirdCategory;
-            }
-            private set
-            {
-                _thirdCategory = value;
-            }
+            get => _thirdCategory;
+            private set => _thirdCategory = value;
         }
 
         /// <summary>
@@ -418,14 +359,8 @@ namespace BudgetExecution
         /// </value>
         public string ThirdValue
         {
-            get
-            {
-                return _thirdValue;
-            }
-            private set
-            {
-                _thirdValue = value;
-            }
+            get => _thirdValue;
+            private set => _thirdValue = value;
         }
 
         /// <summary>
@@ -436,14 +371,8 @@ namespace BudgetExecution
         /// </value>
         public string FourthCategory
         {
-            get
-            {
-                return _fourthCategory;
-            }
-            private set
-            {
-                _fourthCategory = value;
-            }
+            get => _fourthCategory;
+            private set => _fourthCategory = value;
         }
 
         /// <summary>
@@ -454,14 +383,8 @@ namespace BudgetExecution
         /// </value>
         public string FourthValue
         {
-            get
-            {
-                return _fourthValue;
-            }
-            private set
-            {
-                _fourthValue = value;
-            }
+            get => _fourthValue;
+            private set => _fourthValue = value;
         }
 
         /// <summary>
@@ -472,14 +395,8 @@ namespace BudgetExecution
         /// </value>
         public string SqlQuery
         {
-            get
-            {
-                return _sqlQuery;
-            }
-            private set
-            {
-                _sqlQuery = value;
-            }
+            get => _sqlQuery;
+            private set => _sqlQuery = value;
         }
 
         /// <summary>
@@ -490,16 +407,11 @@ namespace BudgetExecution
         /// </value>
         public IList<string> Columns
         {
-            get
-            {
-                return _columns?.Any( ) == true
+            get =>
+                _columns?.Any( ) == true
                     ? _columns
                     : new List<string>( );
-            }
-            private set
-            {
-                _columns = value;
-            }
+            private set => _columns = value;
         }
 
         /// <summary>
@@ -510,14 +422,8 @@ namespace BudgetExecution
         /// </value>
         public DataBuilder DataModel
         {
-            get
-            {
-                return _dataModel;
-            }
-            private set
-            {
-                _dataModel = value;
-            }
+            get => _dataModel;
+            private set => _dataModel = value;
         }
 
         /// <summary>
@@ -528,14 +434,8 @@ namespace BudgetExecution
         /// </value>
         public DataTable DataTable
         {
-            get
-            {
-                return _dataTable;
-            }
-            private set
-            {
-                _dataTable = value;
-            }
+            get => _dataTable;
+            private set => _dataTable = value;
         }
 
         /// <summary>
@@ -546,14 +446,8 @@ namespace BudgetExecution
         /// </value>
         public IDictionary<string, object> Filter
         {
-            get
-            {
-                return _filter;
-            }
-            private set
-            {
-                _filter = value;
-            }
+            get => _filter;
+            private set => _filter = value;
         }
 
         /// <summary>
@@ -564,14 +458,8 @@ namespace BudgetExecution
         /// </value>
         public IList<string> Fields
         {
-            get
-            {
-                return _fields;
-            }
-            private set
-            {
-                _fields = value;
-            }
+            get => _fields;
+            private set => _fields = value;
         }
 
         /// <summary>
@@ -582,14 +470,8 @@ namespace BudgetExecution
         /// </value>
         public IList<string> Numerics
         {
-            get
-            {
-                return _numerics;
-            }
-            private set
-            {
-                _numerics = value;
-            }
+            get => _numerics;
+            private set => _numerics = value;
         }
 
         /// <summary>
@@ -600,14 +482,8 @@ namespace BudgetExecution
         /// </value>
         public IList<string> SelectedColumns
         {
-            get
-            {
-                return _selectedColumns;
-            }
-            private set
-            {
-                _selectedColumns = value;
-            }
+            get => _selectedColumns;
+            private set => _selectedColumns = value;
         }
 
         /// <summary>
@@ -618,14 +494,8 @@ namespace BudgetExecution
         /// </value>
         public IList<string> SelectedFields
         {
-            get
-            {
-                return _selectedFields;
-            }
-            private set
-            {
-                _selectedFields = value;
-            }
+            get => _selectedFields;
+            private set => _selectedFields = value;
         }
 
         /// <summary>
@@ -636,14 +506,8 @@ namespace BudgetExecution
         /// </value>
         public IList<string> SelectedNumerics
         {
-            get
-            {
-                return _selectedNumerics;
-            }
-            private set
-            {
-                _selectedNumerics = value;
-            }
+            get => _selectedNumerics;
+            private set => _selectedNumerics = value;
         }
 
         /// <summary>
@@ -654,14 +518,8 @@ namespace BudgetExecution
         /// </value>
         public Source Source
         {
-            get
-            {
-                return _source;
-            }
-            private set
-            {
-                _source = value;
-            }
+            get => _source;
+            private set => _source = value;
         }
 
         /// <summary>
@@ -672,14 +530,8 @@ namespace BudgetExecution
         /// </value>
         public Provider Provider
         {
-            get
-            {
-                return _provider;
-            }
-            private set
-            {
-                _provider = value;
-            }
+            get => _provider;
+            private set => _provider = value;
         }
 
         /// <summary>
@@ -690,14 +542,8 @@ namespace BudgetExecution
         /// </value>
         public DataArgs DataArgs
         {
-            get
-            {
-                return _dataArgs;
-            }
-            private set
-            {
-                _dataArgs = value;
-            }
+            get => _dataArgs;
+            private set => _dataArgs = value;
         }
 
         /// <summary>
@@ -708,13 +554,7 @@ namespace BudgetExecution
         /// if this instance is busy; otherwise,
         /// <c> false </c>
         /// </value>
-        public bool IsBusy
-        {
-            get
-            {
-                return _busy;
-            }
-        }
+        public bool IsBusy => _busy;
 
         /// <inheritdoc />
         /// <summary>
@@ -848,7 +688,7 @@ namespace BudgetExecution
         /// Invokes if needed.
         /// </summary>
         /// <param name="action">The action.</param>
-        public void InvokeIf( System.Action action )
+        public void InvokeIf( Action action )
         {
             try
             {

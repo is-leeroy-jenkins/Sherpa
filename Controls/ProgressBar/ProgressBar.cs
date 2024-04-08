@@ -33,17 +33,17 @@ namespace BudgetExecution
             FontColor = Color.White;
             ProgressOrientation = Orientation.Horizontal;
             BackgroundStyle = ProgressBarBackgroundStyles.MultipleGradient;
-            Maximum = 100;
-            Minimum = 0;
-            SegmentWidth = 12;
-            Step = 10;
-            ForeSegments = false;
-            BackSegments = false;
             ProgressStyle = ProgressBarStyles.Metro;
             TextAlignment = TextAlignment.Center;
             TextOrientation = Orientation.Horizontal;
             TextStyle = ProgressBarTextStyles.Percentage;
+            Maximum = 100;
+            Minimum = 0;
+            SegmentWidth = 12;
+            Step = 10;
             Value = 50;
+            ForeSegments = false;
+            BackSegments = false;
         }
     }
 }

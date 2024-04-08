@@ -73,11 +73,6 @@ namespace BudgetExecution
         private bool _busy;
 
         /// <summary>
-        /// The status update
-        /// </summary>
-        private Action _statusUpdate;
-
-        /// <summary>
         /// The seconds
         /// </summary>
         private int _seconds;
@@ -181,8 +176,6 @@ namespace BudgetExecution
         public DelayForm( )
         {
             InitializeComponent( );
-            InitializeDelegates( );
-            RegisterCallbacks( );
 
             // Basic Form Properties
             Size = new Size( 1340, 740 );
@@ -190,7 +183,7 @@ namespace BudgetExecution
             MinimumSize = new Size( 1330, 730 );
             Padding = new Padding( 1 );
             StartPosition = FormStartPosition.CenterScreen;
-            FormBorderStyle = FormBorderStyle.Sizable;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             WindowState = FormWindowState.Normal;
             SizeGripStyle = SizeGripStyle.Auto;
             AutoScaleMode = AutoScaleMode.Font;
@@ -217,6 +210,7 @@ namespace BudgetExecution
 
             // Form Event Wiring
             Load += OnLoad;
+            Click += OnClick;
         }
 
         /// <inheritdoc/>
@@ -230,55 +224,6 @@ namespace BudgetExecution
             : this( )
         {
             _status = status;
-        }
-
-        /// <summary>
-        /// Initializes the callbacks.
-        /// </summary>
-        private void RegisterCallbacks( ) 
-        {
-            try
-            {
-                InitializeTimer( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the delegates.
-        /// </summary>
-        private void InitializeDelegates( )
-        {
-            try
-            {
-                _statusUpdate += Close;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the timer.
-        /// </summary>
-        private void InitializeTimer( )
-        {
-            try
-            {
-                // Timer Properties
-                Timer.Enabled = true;
-                Timer.Interval = 80;
-                Timer.Tick += OnTimerTick;
-                Timer.Start( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
         }
 
         /// <summary>
@@ -437,7 +382,6 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                PictureBox.Image?.Dispose( );
                 Fail( _ex );
             }
         }
@@ -449,30 +393,11 @@ namespace BudgetExecution
         /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        public void OnLoad( object sender, EventArgs e )
+        private void OnLoad( object sender, EventArgs e )
         {
             try
             {
                 SetImage( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary> Called when [tick]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        public void OnTimerTick( object sender, EventArgs e )
-        {
-            try
-            {
-                InvokeIf( _statusUpdate );
             }
             catch( Exception _ex )
             {
@@ -487,7 +412,7 @@ namespace BudgetExecution
         /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        public void OnCloseButtonClicked( object sender, EventArgs e )
+        public void OnClick( object sender, EventArgs e )
         {
             try
             {

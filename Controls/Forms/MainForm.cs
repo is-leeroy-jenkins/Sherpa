@@ -66,6 +66,11 @@ namespace BudgetExecution
     public partial class MainForm : MetroForm
     {
         /// <summary>
+        /// The locked object
+        /// </summary>
+        private object _path;
+
+        /// <summary>
         /// The time
         /// </summary>
         private int _time;
@@ -91,25 +96,12 @@ namespace BudgetExecution
         private Action _endLoad;
 
         /// <summary>
-        /// Gets or sets the time.xc c
-        /// </summary>
-        /// <value>
-        /// The time.
-        /// </value>
-        public int Time { get; set; }
-
-        /// <summary>
         /// Gets or sets the tiles.
         /// </summary>
         /// <value>
         /// The tiles.
         /// </value>
         public IEnumerable<Tile> Tiles { get; set; }
-
-        /// <summary>
-        /// The loader
-        /// </summary>
-        private DelayForm _loader;
 
         /// <inheritdoc />
         /// <summary>
@@ -191,7 +183,7 @@ namespace BudgetExecution
                 BrowserTile.Click += OnBrowserTileClick;
                 MessageTile.Click += OnMessageTileClick;
                 SqlServerTile.Click += OnSqlServerTileClick;
-                TestButton.Click += OnTestButtonClick;
+                TestButtonA.Click += OnTestButtonClick;
                 AccessTile.Click += OnAccessTileClick;
                 MapTile.Click += OnMapTileClick;
                 PivotTile.Click += OnPivotTileClick;
@@ -255,8 +247,7 @@ namespace BudgetExecution
         {
             try
             {
-                _beginLoad += ShowLoadingForm;
-                _endLoad += CloseLoadingForm;
+                _beginLoad += OpenDelayForm;
             }
             catch( Exception _ex )
             {
@@ -414,7 +405,7 @@ namespace BudgetExecution
         /// <summary>
         /// Opens the SQL client.
         /// </summary>
-        private void OpenSqlClient( )
+        private void LaunchSqlClient( )
         {
             try
             {
@@ -465,69 +456,19 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Shows the edit dialog.
-        /// </summary>
-        private void ShowEditDialog( )
-        {
-            try
-            {
-                var _editor = new EditPage( );
-                _editor.Owner = this;
-                _editor.Show( );
-                Hide( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Shows the lookup dialog.
-        /// </summary>
-        private void ShowLookupDialog( )
-        {
-            try
-            {
-                var _editor = new LookupPage( );
-                _editor.Owner = this;
-                _editor.Show( );
-                Hide( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Shows the delay form.
-        /// </summary>
-        private void ShowDelayForm( )
-        {
-            try
-            {
-                var _delay = new DelayForm( );
-                _delay.TopMost = true;
-                _delay.Show( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Shows the sheet form.
         /// </summary>
-        private void ShowSheetForm( )
+        private void OpenGridForm( )
         {
             try
             {
                 var _data = new DataBuilder( Source.BudgetContacts );
                 var _table = _data.DataTable;
                 var _grid = new GridForm( _table );
+                _grid.Owner = this;
+                _grid.StartPosition = FormStartPosition.CenterScreen;
                 _grid.Show( );
+                Hide( );
             }
             catch( Exception _ex )
             {
@@ -566,8 +507,9 @@ namespace BudgetExecution
             {
                 var _dialog = new FileDialog( );
                 _dialog.Owner = this;
+                _dialog.StartPosition = FormStartPosition.CenterScreen;
                 _dialog.Show( );
-                Hide( );
+                _dialog.Focus( );
             }
             catch( Exception _ex )
             {
@@ -598,7 +540,7 @@ namespace BudgetExecution
         /// <summary>
         /// Opens the fiscal year form.
         /// </summary>
-        private void OpenFiscalYearForm( )
+        private void OpenCalendarForm( )
         {
             try
             {
@@ -674,7 +616,7 @@ namespace BudgetExecution
         /// <summary>
         /// Opens the excel data form.
         /// </summary>
-        private void OpenExcelDataForm( )
+        private void OpenExcelForm( )
         {
             try
             {
@@ -785,7 +727,7 @@ namespace BudgetExecution
         /// <summary>
         /// Opens the calculation form.
         /// </summary>
-        private void OpenCalculationForm( )
+        private void OpenCalculator( )
         {
             try
             {
@@ -844,11 +786,25 @@ namespace BudgetExecution
         /// <summary>
         /// Begins the initialize.
         /// </summary>
-        private protected void BeginInit( )
+        private void BeginInit( )
         {
             try
             {
-                _busy = true;
+                if( _path == null )
+                {
+                    _path = new object( );
+                    lock( _path )
+                    {
+                        _busy = true;
+                    }
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        _busy = true;
+                    }
+                }
             }
             catch( Exception _ex )
             {
@@ -859,11 +815,25 @@ namespace BudgetExecution
         /// <summary>
         /// Ends the initialize.
         /// </summary>
-        private protected void EndInit( )
+        private void EndInit( )
         {
             try
             {
-                _busy = false;
+                if( _path == null )
+                {
+                    _path = new object( );
+                    lock( _path )
+                    {
+                        _busy = false;
+                    }
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        _busy = false;
+                    }
+                }
             }
             catch( Exception _ex )
             {
@@ -954,30 +924,12 @@ namespace BudgetExecution
         /// <summary>
         /// Shows the loading form.
         /// </summary>
-        private void ShowLoadingForm( )
+        private void OpenDelayForm( )
         {
             try
             {
-                BeginInit( );
-                _loader = new DelayForm( Status.Processing );
-                _loader.StartPosition = FormStartPosition.CenterParent;
+                var _loader = new DelayForm( Status.Loading );
                 _loader.ShowDialog( this );
-                EndInit( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Closes the loading form.
-        /// </summary>
-        private void CloseLoadingForm( )
-        {
-            try
-            {
-                _loader?.Close( );
             }
             catch( Exception _ex )
             {
@@ -1221,7 +1173,7 @@ namespace BudgetExecution
         {
             try
             {
-                OpenExcelDataForm( );
+                OpenExcelForm( );
             }
             catch( Exception _ex )
             {
@@ -1359,7 +1311,7 @@ namespace BudgetExecution
         {
             try
             {
-                OpenCalculationForm( );
+                OpenCalculator( );
             }
             catch( Exception _ex )
             {
@@ -1399,7 +1351,7 @@ namespace BudgetExecution
         {
             try
             {
-                OpenFiscalYearForm( );
+                OpenCalendarForm( );
             }
             catch( Exception _ex )
             {
@@ -1419,7 +1371,7 @@ namespace BudgetExecution
         {
             try
             {
-                ShowDelayForm( );
+                OpenDelayForm( );
             }
             catch( Exception _ex )
             {

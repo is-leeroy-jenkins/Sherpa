@@ -67,11 +67,11 @@ namespace BudgetExecution
         [ STAThread ]
         public static void Main( )
         {
+            Application.EnableVisualStyles( );
+            Application.SetCompatibleTextRenderingDefault( false );
             var _key = ConfigurationManager.AppSettings[ "UI" ];
             SyncfusionLicenseProvider.RegisterLicense( _key );
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
-            Application.EnableVisualStyles( );
-            Application.SetCompatibleTextRenderingDefault( false );
             Windows = new Dictionary<string, Form>( );
             var _mainForm = new MainForm( );
             Program.Windows.Add( "MainForm", _mainForm );
