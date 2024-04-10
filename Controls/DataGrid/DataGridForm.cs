@@ -239,8 +239,14 @@ namespace BudgetExecution
         /// </value>
         public DataRow Current
         {
-            get => _current;
-            private set => _current = value;
+            get
+            {
+                return _current;
+            }
+            private set
+            {
+                _current = value;
+            }
         }
 
         /// <summary>
@@ -251,8 +257,14 @@ namespace BudgetExecution
         /// </value>
         public int Time
         {
-            get => _time;
-            private set => _time = value;
+            get
+            {
+                return _time;
+            }
+            private set
+            {
+                _time = value;
+            }
         }
 
         /// <summary>
@@ -263,22 +275,16 @@ namespace BudgetExecution
         /// </value>
         public int Count
         {
-            get => _count;
-            private set => _count = value;
+            get
+            {
+                return _count;
+            }
+            private set
+            {
+                _count = value;
+            }
         }
-
-        /// <summary>
-        /// Gets the hover text.
-        /// </summary>
-        /// <value>
-        /// The hover text.
-        /// </value>
-        public virtual string HoverText
-        {
-            get => _hoverText;
-            private set => _hoverText = value;
-        }
-
+        
         /// <summary>
         /// Gets the selected table.
         /// </summary>
@@ -287,8 +293,14 @@ namespace BudgetExecution
         /// </value>
         public string SelectedTable
         {
-            get => _selectedTable;
-            private set => _selectedTable = value;
+            get
+            {
+                return _selectedTable;
+            }
+            private set
+            {
+                _selectedTable = value;
+            }
         }
 
         /// <summary>
@@ -299,8 +311,14 @@ namespace BudgetExecution
         /// </value>
         public string FirstCategory
         {
-            get => _firstCategory;
-            private set => _firstCategory = value;
+            get
+            {
+                return _firstCategory;
+            }
+            private set
+            {
+                _firstCategory = value;
+            }
         }
 
         /// <summary>
@@ -311,8 +329,14 @@ namespace BudgetExecution
         /// </value>
         public string FirstValue
         {
-            get => _firstValue;
-            private set => _firstValue = value;
+            get
+            {
+                return _firstValue;
+            }
+            private set
+            {
+                _firstValue = value;
+            }
         }
 
         /// <summary>
@@ -323,8 +347,14 @@ namespace BudgetExecution
         /// </value>
         public string SecondCategory
         {
-            get => _secondCategory;
-            private set => _secondCategory = value;
+            get
+            {
+                return _secondCategory;
+            }
+            private set
+            {
+                _secondCategory = value;
+            }
         }
 
         /// <summary>
@@ -335,8 +365,14 @@ namespace BudgetExecution
         /// </value>
         public string SecondValue
         {
-            get => _secondValue;
-            private set => _secondValue = value;
+            get
+            {
+                return _secondValue;
+            }
+            private set
+            {
+                _secondValue = value;
+            }
         }
 
         /// <summary>
@@ -347,8 +383,14 @@ namespace BudgetExecution
         /// </value>
         public string ThirdCategory
         {
-            get => _thirdCategory;
-            private set => _thirdCategory = value;
+            get
+            {
+                return _thirdCategory;
+            }
+            private set
+            {
+                _thirdCategory = value;
+            }
         }
 
         /// <summary>
@@ -359,8 +401,14 @@ namespace BudgetExecution
         /// </value>
         public string ThirdValue
         {
-            get => _thirdValue;
-            private set => _thirdValue = value;
+            get
+            {
+                return _thirdValue;
+            }
+            private set
+            {
+                _thirdValue = value;
+            }
         }
 
         /// <summary>
@@ -371,8 +419,14 @@ namespace BudgetExecution
         /// </value>
         public string FourthCategory
         {
-            get => _fourthCategory;
-            private set => _fourthCategory = value;
+            get
+            {
+                return _fourthCategory;
+            }
+            private set
+            {
+                _fourthCategory = value;
+            }
         }
 
         /// <summary>
@@ -383,8 +437,14 @@ namespace BudgetExecution
         /// </value>
         public string FourthValue
         {
-            get => _fourthValue;
-            private set => _fourthValue = value;
+            get
+            {
+                return _fourthValue;
+            }
+            private set
+            {
+                _fourthValue = value;
+            }
         }
 
         /// <summary>
@@ -395,8 +455,14 @@ namespace BudgetExecution
         /// </value>
         public string SqlQuery
         {
-            get => _sqlQuery;
-            private set => _sqlQuery = value;
+            get
+            {
+                return _sqlQuery;
+            }
+            private set
+            {
+                _sqlQuery = value;
+            }
         }
 
         /// <summary>
@@ -407,11 +473,14 @@ namespace BudgetExecution
         /// </value>
         public IList<string> Columns
         {
-            get =>
-                _columns?.Any( ) == true
-                    ? _columns
-                    : new List<string>( );
-            private set => _columns = value;
+            get
+            {
+                return _columns;
+            }
+            private set
+            {
+                _columns = value;
+            }
         }
 
         /// <summary>
@@ -422,8 +491,14 @@ namespace BudgetExecution
         /// </value>
         public DataBuilder DataModel
         {
-            get => _dataModel;
-            private set => _dataModel = value;
+            get
+            {
+                return _dataModel;
+            }
+            private set
+            {
+                _dataModel = value;
+            }
         }
 
         /// <summary>
@@ -434,8 +509,14 @@ namespace BudgetExecution
         /// </value>
         public DataTable DataTable
         {
-            get => _dataTable;
-            private set => _dataTable = value;
+            get
+            {
+                return _dataTable;
+            }
+            private set
+            {
+                _dataTable = value;
+            }
         }
 
         /// <summary>
@@ -446,8 +527,14 @@ namespace BudgetExecution
         /// </value>
         public IDictionary<string, object> Filter
         {
-            get => _filter;
-            private set => _filter = value;
+            get
+            {
+                return _filter;
+            }
+            private set
+            {
+                _filter = value;
+            }
         }
 
         /// <summary>
@@ -458,8 +545,14 @@ namespace BudgetExecution
         /// </value>
         public IList<string> Fields
         {
-            get => _fields;
-            private set => _fields = value;
+            get
+            {
+                return _fields;
+            }
+            private set
+            {
+                _fields = value;
+            }
         }
 
         /// <summary>
@@ -470,8 +563,14 @@ namespace BudgetExecution
         /// </value>
         public IList<string> Numerics
         {
-            get => _numerics;
-            private set => _numerics = value;
+            get
+            {
+                return _numerics;
+            }
+            private set
+            {
+                _numerics = value;
+            }
         }
 
         /// <summary>
@@ -482,8 +581,14 @@ namespace BudgetExecution
         /// </value>
         public IList<string> SelectedColumns
         {
-            get => _selectedColumns;
-            private set => _selectedColumns = value;
+            get
+            {
+                return _selectedColumns;
+            }
+            private set
+            {
+                _selectedColumns = value;
+            }
         }
 
         /// <summary>
@@ -494,8 +599,14 @@ namespace BudgetExecution
         /// </value>
         public IList<string> SelectedFields
         {
-            get => _selectedFields;
-            private set => _selectedFields = value;
+            get
+            {
+                return _selectedFields;
+            }
+            private set
+            {
+                _selectedFields = value;
+            }
         }
 
         /// <summary>
@@ -506,8 +617,14 @@ namespace BudgetExecution
         /// </value>
         public IList<string> SelectedNumerics
         {
-            get => _selectedNumerics;
-            private set => _selectedNumerics = value;
+            get
+            {
+                return _selectedNumerics;
+            }
+            private set
+            {
+                _selectedNumerics = value;
+            }
         }
 
         /// <summary>
@@ -518,8 +635,14 @@ namespace BudgetExecution
         /// </value>
         public Source Source
         {
-            get => _source;
-            private set => _source = value;
+            get
+            {
+                return _source;
+            }
+            private set
+            {
+                _source = value;
+            }
         }
 
         /// <summary>
@@ -530,8 +653,14 @@ namespace BudgetExecution
         /// </value>
         public Provider Provider
         {
-            get => _provider;
-            private set => _provider = value;
+            get
+            {
+                return _provider;
+            }
+            private set
+            {
+                _provider = value;
+            }
         }
 
         /// <summary>
@@ -542,8 +671,14 @@ namespace BudgetExecution
         /// </value>
         public DataArgs DataArgs
         {
-            get => _dataArgs;
-            private set => _dataArgs = value;
+            get
+            {
+                return _dataArgs;
+            }
+            private set
+            {
+                _dataArgs = value;
+            }
         }
 
         /// <summary>
@@ -554,7 +689,27 @@ namespace BudgetExecution
         /// if this instance is busy; otherwise,
         /// <c> false </c>
         /// </value>
-        public bool IsBusy => _busy;
+        public bool IsBusy
+        {
+            get
+            {
+                if( _path == null )
+                {
+                    _path = new object( );
+                    lock( _path )
+                    {
+                        return _busy;
+                    }
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        return _busy;
+                    }
+                }
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
@@ -759,9 +914,9 @@ namespace BudgetExecution
             try
             {
                 QueryTabControl.ActiveTabForeColor = Color.FromArgb( 20, 20, 20 );
-                SourceTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
-                FilterTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
-                GroupTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
+                SourceTab.TabForeColor = Color.FromArgb( 20, 20, 20 );
+                FilterTab.TabForeColor = Color.FromArgb( 20, 20, 20 );
+                GroupTab.TabForeColor = Color.FromArgb( 20, 20, 20 );
             }
             catch( Exception _ex )
             {
@@ -914,10 +1069,9 @@ namespace BudgetExecution
             try
             {
                 // Timer Properties
-                Timer.Enabled = true;
                 Timer.Interval = 80;
                 Timer.Tick += OnTimerTick;
-                Timer.Start( );
+                Timer.Enabled = false;
             }
             catch( Exception _ex )
             {
@@ -1187,11 +1341,11 @@ namespace BudgetExecution
                         SecondListBox.Items?.Clear( );
                     }
 
-                    if( !string.IsNullOrEmpty( FirstValue ) )
+                    if( !string.IsNullOrEmpty( _firstValue ) )
                     {
                         foreach( var _item in _fields )
                         {
-                            if( !_item.Equals( FirstCategory ) )
+                            if( !_item.Equals( _firstCategory ) )
                             {
                                 SecondComboBox.Items?.Add( _item );
                             }
@@ -1666,10 +1820,10 @@ namespace BudgetExecution
             {
                 ClearListBoxes( );
                 ClearComboBoxes( );
-                SourceTabPage.TabVisible = true;
-                FilterTabPage.TabVisible = false;
-                GroupTabPage.TabVisible = false;
-                CalendarTabPage.TabVisible = false;
+                SourceTab.TabVisible = true;
+                FilterTab.TabVisible = false;
+                GroupTab.TabVisible = false;
+                CalendarTab.TabVisible = false;
                 ProviderTable.Visible = true;
                 SetFormIcon( );
                 TableComboBox.SelectionStart = 0;
@@ -1689,10 +1843,10 @@ namespace BudgetExecution
             {
                 ClearListBoxes( );
                 ClearComboBoxes( );
-                FilterTabPage.TabVisible = true;
-                SourceTabPage.TabVisible = false;
-                GroupTabPage.TabVisible = false;
-                CalendarTabPage.TabVisible = false;
+                FilterTab.TabVisible = true;
+                SourceTab.TabVisible = false;
+                GroupTab.TabVisible = false;
+                CalendarTab.TabVisible = false;
                 DataLabelTable.Visible = true;
                 ProviderTable.Visible = false;
                 PopulateFirstComboBoxItems( );
@@ -1712,10 +1866,10 @@ namespace BudgetExecution
             try
             {
                 ClearListBoxes( );
-                GroupTabPage.TabVisible = true;
-                FilterTabPage.TabVisible = false;
-                SourceTabPage.TabVisible = false;
-                CalendarTabPage.TabVisible = false;
+                GroupTab.TabVisible = true;
+                FilterTab.TabVisible = false;
+                SourceTab.TabVisible = false;
+                CalendarTab.TabVisible = false;
                 DataLabelTable.Visible = true;
                 ProviderTable.Visible = false;
                 PopulateFieldListBox( );
@@ -1735,10 +1889,10 @@ namespace BudgetExecution
             try
             {
                 ClearListBoxes( );
-                CalendarTabPage.TabVisible = true;
-                GroupTabPage.TabVisible = false;
-                FilterTabPage.TabVisible = false;
-                SourceTabPage.TabVisible = false;
+                CalendarTab.TabVisible = true;
+                GroupTab.TabVisible = false;
+                FilterTab.TabVisible = false;
+                SourceTab.TabVisible = false;
                 ProviderTable.Visible = false;
                 DataLabelTable.Visible = true;
                 FirstCalendarTable.CaptionText = $"Start Date: {FirstCalendar.SelectedDate}";
@@ -1757,10 +1911,10 @@ namespace BudgetExecution
         {
             try
             {
-                BusyTabPage.TabVisible = true;
-                GroupTabPage.TabVisible = false;
-                FilterTabPage.TabVisible = false;
-                SourceTabPage.TabVisible = false;
+                BusyScreen.TabVisible = true;
+                GroupTab.TabVisible = false;
+                FilterTab.TabVisible = false;
+                SourceTab.TabVisible = false;
                 ProviderTable.Visible = false;
             }
             catch( Exception _ex )
@@ -2659,8 +2813,8 @@ namespace BudgetExecution
         {
             try
             {
-                ReadyTabPage.TabVisible = true;
-                BusyTabPage.TabVisible = false;
+                ReadyScreen.TabVisible = true;
+                BusyScreen.TabVisible = false;
                 switch( QueryTabControl.SelectedIndex )
                 {
                     case 0:

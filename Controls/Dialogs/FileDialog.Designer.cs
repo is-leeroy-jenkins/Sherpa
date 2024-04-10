@@ -551,7 +551,7 @@ namespace BudgetExecution
             PictureBox.Margin = new Padding( 1 );
             PictureBox.Name = "PictureBox";
             PictureBox.Padding = new Padding( 1 );
-            PictureBox.Size = new System.Drawing.Size( 18, 18 );
+            PictureBox.Size = new System.Drawing.Size( 20, 18 );
             PictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             PictureBox.TabIndex = 1;
             PictureBox.TabStop = false;

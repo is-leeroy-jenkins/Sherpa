@@ -65,6 +65,11 @@ namespace BudgetExecution
     public partial class CalendarDialog : MetroForm
     {
         /// <summary>
+        /// The path
+        /// </summary>
+        private object _path;
+
+        /// <summary>
         /// The busy
         /// </summary>
         private bool _busy;
@@ -275,11 +280,21 @@ namespace BudgetExecution
         {
             get
             {
-                return _busy;
-            }
-            private set
-            {
-                _busy = value;
+                if( _path == null )
+                {
+                    _path = new object( );
+                    lock( _path )
+                    {
+                        return _busy;
+                    }
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        return _busy;
+                    }
+                }
             }
         }
 
@@ -332,6 +347,7 @@ namespace BudgetExecution
 
             // Event Wiring
             Load += OnLoad;
+            Activated += OnActivated;
             FormClosing += OnFormClosing;
         }
 
@@ -410,6 +426,64 @@ namespace BudgetExecution
             {
                 CloseButton.Click += OnCloseButtonClicked;
                 Calendar.SelectionChanged += OnSelectionChanged;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Begins the initialize.
+        /// </summary>
+        private void BeginInit( )
+        {
+            try
+            {
+                if( _path == null )
+                {
+                    _path = new object( );
+                    lock( _path )
+                    {
+                        _busy = true;
+                    }
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        _busy = true;
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Ends the initialize.
+        /// </summary>
+        private void EndInit( )
+        {
+            try
+            {
+                if( _path == null )
+                {
+                    _path = new object( );
+                    lock( _path )
+                    {
+                        _busy = false;
+                    }
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        _busy = false;
+                    }
+                }
             }
             catch( Exception _ex )
             {
@@ -584,6 +658,26 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
+
+        /// <summary>
+        /// Called when [shown].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnActivated( object sender, EventArgs e )
+        {
+            try
+            {
+                Opacity = 0;
+                FadeInAsync( this );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
         /// <summary>
         /// Fails the specified ex.
         /// </summary>

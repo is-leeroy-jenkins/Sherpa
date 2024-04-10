@@ -211,6 +211,7 @@ namespace BudgetExecution
             // Form Event Wiring
             Load += OnLoad;
             Click += OnClick;
+            FormClosing += OnFormClosing;
         }
 
         /// <inheritdoc/>

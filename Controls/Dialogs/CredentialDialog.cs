@@ -41,11 +41,13 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
 
     /// <summary>
     /// 
     /// </summary>
     /// <seealso cref="Ookii.Dialogs.WinForms.CredentialDialog" />
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class CredentialDialog : Ookii.Dialogs.WinForms.CredentialDialog
     {
         /// <summary>

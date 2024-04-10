@@ -129,7 +129,6 @@ namespace BudgetExecution
             MessageTile = new Tile( );
             MapTile = new Tile( );
             PivotTile = new Tile( );
-            TestButtonB = new Button( );
             ExitButton = new Button( );
             BrowserTable = new HeaderPanel( );
             BrowserPanel = new BackPanel( );
@@ -143,7 +142,7 @@ namespace BudgetExecution
             ResourcePanel = new BackPanel( );
             Timer = new System.Windows.Forms.Timer( components );
             ContextMenu = new ContextMenu( );
-            TestButtonA = new Button( );
+            TestButton = new Button( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
             BrowserTable.SuspendLayout( );
             BrowserPanel.SuspendLayout( );
@@ -951,39 +950,6 @@ namespace BudgetExecution
             PivotTile.ToolTip = ToolTip;
             PivotTile.TurnLiveTileOn = true;
             // 
-            // TestButtonB
-            // 
-            TestButtonB.Anchor =   System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
-            TestButtonB.BindingSource = null;
-            TestButtonB.DataFilter = null;
-            TestButtonB.DisabledBackColor = System.Drawing.Color.Transparent;
-            TestButtonB.DisabledBorderColor = System.Drawing.Color.Transparent;
-            TestButtonB.DisabledForeColor = System.Drawing.Color.Transparent;
-            TestButtonB.Font = new System.Drawing.Font( "Roboto", 8F );
-            TestButtonB.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            TestButtonB.HoverBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
-            TestButtonB.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
-            TestButtonB.HoverText = null;
-            TestButtonB.HoverTextColor = System.Drawing.Color.LightSteelBlue;
-            TestButtonB.IsDerivedStyle = true;
-            TestButtonB.Location = new System.Drawing.Point( 1153, 4 );
-            TestButtonB.Name = "TestButtonB";
-            TestButtonB.NormalBorderColor = System.Drawing.Color.Transparent;
-            TestButtonB.NormalColor = System.Drawing.Color.Transparent;
-            TestButtonB.NormalTextColor = System.Drawing.Color.Transparent;
-            TestButtonB.Padding = new System.Windows.Forms.Padding( 1 );
-            TestButtonB.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            TestButtonB.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            TestButtonB.PressTextColor = System.Drawing.Color.White;
-            TestButtonB.Size = new System.Drawing.Size( 78, 26 );
-            TestButtonB.Style = MetroSet_UI.Enums.Style.Custom;
-            TestButtonB.StyleManager = null;
-            TestButtonB.TabIndex = 6;
-            TestButtonB.Text = "Test B";
-            TestButtonB.ThemeAuthor = "Terry D. Eppler";
-            TestButtonB.ThemeName = "BudgetExecution";
-            TestButtonB.ToolTip = ToolTip;
-            // 
             // ExitButton
             // 
             ExitButton.Anchor =  System.Windows.Forms.AnchorStyles.Bottom  |  System.Windows.Forms.AnchorStyles.Right ;
@@ -1256,8 +1222,7 @@ namespace BudgetExecution
             // 
             // Timer
             // 
-            Timer.Enabled = true;
-            Timer.Interval = 5000;
+            Timer.Interval = 80;
             // 
             // ContextMenu
             // 
@@ -1281,38 +1246,38 @@ namespace BudgetExecution
             ContextMenu.ThemeStyle.PressedBackColor = System.Drawing.Color.FromArgb( 204, 204, 204 );
             ContextMenu.ThemeStyle.PressedForeColor = System.Drawing.Color.Black;
             // 
-            // TestButtonA
+            // TestButton
             // 
-            TestButtonA.Anchor =   System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
-            TestButtonA.BindingSource = null;
-            TestButtonA.DataFilter = null;
-            TestButtonA.DisabledBackColor = System.Drawing.Color.Transparent;
-            TestButtonA.DisabledBorderColor = System.Drawing.Color.Transparent;
-            TestButtonA.DisabledForeColor = System.Drawing.Color.Transparent;
-            TestButtonA.Font = new System.Drawing.Font( "Roboto", 8F );
-            TestButtonA.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            TestButtonA.HoverBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
-            TestButtonA.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
-            TestButtonA.HoverText = null;
-            TestButtonA.HoverTextColor = System.Drawing.Color.LightSteelBlue;
-            TestButtonA.IsDerivedStyle = true;
-            TestButtonA.Location = new System.Drawing.Point( 704, 4 );
-            TestButtonA.Name = "TestButtonA";
-            TestButtonA.NormalBorderColor = System.Drawing.Color.Transparent;
-            TestButtonA.NormalColor = System.Drawing.Color.Transparent;
-            TestButtonA.NormalTextColor = System.Drawing.Color.Transparent;
-            TestButtonA.Padding = new System.Windows.Forms.Padding( 1 );
-            TestButtonA.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            TestButtonA.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            TestButtonA.PressTextColor = System.Drawing.Color.White;
-            TestButtonA.Size = new System.Drawing.Size( 78, 26 );
-            TestButtonA.Style = MetroSet_UI.Enums.Style.Custom;
-            TestButtonA.StyleManager = null;
-            TestButtonA.TabIndex = 20;
-            TestButtonA.Text = "Test A";
-            TestButtonA.ThemeAuthor = "Terry D. Eppler";
-            TestButtonA.ThemeName = "BudgetExecution";
-            TestButtonA.ToolTip = ToolTip;
+            TestButton.Anchor =   System.Windows.Forms.AnchorStyles.Top  |  System.Windows.Forms.AnchorStyles.Left   |  System.Windows.Forms.AnchorStyles.Right ;
+            TestButton.BindingSource = null;
+            TestButton.DataFilter = null;
+            TestButton.DisabledBackColor = System.Drawing.Color.Transparent;
+            TestButton.DisabledBorderColor = System.Drawing.Color.Transparent;
+            TestButton.DisabledForeColor = System.Drawing.Color.Transparent;
+            TestButton.Font = new System.Drawing.Font( "Roboto", 8F );
+            TestButton.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            TestButton.HoverBorderColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
+            TestButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
+            TestButton.HoverText = null;
+            TestButton.HoverTextColor = System.Drawing.Color.LightSteelBlue;
+            TestButton.IsDerivedStyle = true;
+            TestButton.Location = new System.Drawing.Point( 704, 4 );
+            TestButton.Name = "TestButton";
+            TestButton.NormalBorderColor = System.Drawing.Color.Transparent;
+            TestButton.NormalColor = System.Drawing.Color.Transparent;
+            TestButton.NormalTextColor = System.Drawing.Color.Transparent;
+            TestButton.Padding = new System.Windows.Forms.Padding( 1 );
+            TestButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            TestButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            TestButton.PressTextColor = System.Drawing.Color.White;
+            TestButton.Size = new System.Drawing.Size( 78, 26 );
+            TestButton.Style = MetroSet_UI.Enums.Style.Custom;
+            TestButton.StyleManager = null;
+            TestButton.TabIndex = 20;
+            TestButton.Text = "Test A";
+            TestButton.ThemeAuthor = "Terry D. Eppler";
+            TestButton.ThemeName = "BudgetExecution";
+            TestButton.ToolTip = ToolTip;
             // 
             // MainForm
             // 
@@ -1328,14 +1293,13 @@ namespace BudgetExecution
             CaptionForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             ClientSize = new System.Drawing.Size( 1328, 729 );
             ContextMenuStrip = ContextMenu;
-            Controls.Add( TestButtonA );
+            Controls.Add( TestButton );
             Controls.Add( ResourceTable );
             Controls.Add( DataManagementTable );
             Controls.Add( UtilityTable );
             Controls.Add( ClientTable );
             Controls.Add( BrowserTable );
             Controls.Add( ExitButton );
-            Controls.Add( TestButtonB );
             DoubleBuffered = true;
             Font = new System.Drawing.Font( "Roboto", 9F );
             ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
@@ -1401,6 +1365,6 @@ namespace BudgetExecution
         public ContextMenu ContextMenu;
         public Tile MapTile;
         public Tile PivotTile;
-        public Button TestButtonA;
+        public Button TestButton;
     }
 }

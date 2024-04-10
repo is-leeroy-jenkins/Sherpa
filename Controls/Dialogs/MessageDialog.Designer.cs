@@ -81,7 +81,7 @@ namespace BudgetExecution
             // 
             // Timer
             // 
-            Timer.Enabled = true;
+            Timer.Interval = 80;
             // 
             // ButtonTable
             // 
@@ -281,10 +281,11 @@ namespace BudgetExecution
             // PictureBox
             // 
             PictureBox.Image = Resources.Images.FormImages.Application;
-            PictureBox.Location = new System.Drawing.Point( 3, 3 );
+            PictureBox.Location = new System.Drawing.Point( 1, 1 );
+            PictureBox.Margin = new Padding( 1 );
             PictureBox.Name = "PictureBox";
             PictureBox.Size = new System.Drawing.Size( 20, 18 );
-            PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            PictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             PictureBox.TabIndex = 0;
             PictureBox.TabStop = false;
             // 

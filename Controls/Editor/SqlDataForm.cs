@@ -417,7 +417,21 @@ namespace BudgetExecution
         {
             get
             {
-                return _busy;
+                if( _path == null )
+                {
+                    _path = new object( );
+                    lock( _path )
+                    {
+                        return _busy;
+                    }
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        return _busy;
+                    }
+                }
             }
         }
 
@@ -728,10 +742,9 @@ namespace BudgetExecution
             try
             {
                 // Timer Properties
-                Timer.Enabled = true;
                 Timer.Interval = 80;
                 Timer.Tick += OnTimerTick;
-                Timer.Start( );
+                Timer.Enabled = false;
             }
             catch( Exception _ex )
             {

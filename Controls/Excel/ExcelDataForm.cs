@@ -968,15 +968,14 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes the timer.
         /// </summary>
-        private void InitializeTimers( )
+        private void InitializeTimer( )
         {
             try
             {
                 // Timer Properties
-                Timer.Enabled = true;
-                Timer.Interval = 500;
+                Timer.Interval = 80;
                 Timer.Tick += OnTimerTick;
-                Timer.Start( );
+                Timer.Enabled = false;
             }
             catch( Exception _ex )
             {
@@ -2194,7 +2193,7 @@ namespace BudgetExecution
             try
             {
                 Opacity = 0;
-                InitializeTimers( );
+                InitializeTimer( );
                 InitializeToolStrip( );
                 InitializeLabels( );
                 InitializeIcon( );

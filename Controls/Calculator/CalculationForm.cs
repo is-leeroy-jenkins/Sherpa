@@ -46,7 +46,9 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Threading.Tasks;
     using System.Windows.Forms;
+    using Microsoft.VisualBasic.CompilerServices;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
     using Timer = System.Windows.Forms.Timer;
@@ -62,6 +64,16 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public partial class CalculationForm : MetroForm
     {
+        /// <summary>
+        /// The path
+        /// </summary>
+        private object _path;
+
+        /// <summary>
+        /// The busy
+        /// </summary>
+        private bool _busy;
+
         /// <summary>
         /// The time
         /// </summary>
@@ -83,42 +95,6 @@ namespace BudgetExecution
         private System.Action _statusUpdate;
 
         /// <summary>
-        /// Gets or sets the time.
-        /// </summary>
-        /// <value>
-        /// The time.
-        /// </value>
-        public int Time
-        {
-            get
-            {
-                return _time;
-            }
-            private protected set
-            {
-                _time = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the seconds.
-        /// </summary>
-        /// <value>
-        /// The seconds.
-        /// </value>
-        public int Seconds
-        {
-            get
-            {
-                return _seconds;
-            }
-            private protected set
-            {
-                _seconds = value;
-            }
-        }
-
-        /// <summary>
         /// Gets or sets the initial value.
         /// </summary>
         /// <value>
@@ -133,6 +109,36 @@ namespace BudgetExecution
             private protected set
             {
                 _initialValue = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether this instance is busy.
+        /// </summary>
+        /// <value>
+        /// <c> true </c>
+        /// if this instance is busy; otherwise,
+        /// <c> false </c>
+        /// </value>
+        public bool IsBusy
+        {
+            get
+            {
+                if( _path == null )
+                {
+                    _path = new object( );
+                    lock( _path )
+                    {
+                        return _busy;
+                    }
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        return _busy;
+                    }
+                }
             }
         }
 
@@ -168,8 +174,8 @@ namespace BudgetExecution
 
             // Event Wiring
             Load += OnLoad;
-            Closing += OnClosing;
-            Shown += OnShown;
+            Activated += OnActivated;
+            FormClosing += OnFormClosing;
         }
 
         /// <inheritdoc/>
@@ -256,17 +262,16 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes the timers.
+        /// Initializes the timer.
         /// </summary>
         private void InitializeTimer( )
         {
             try
             {
                 // Timer Properties
-                Timer.Enabled = true;
-                Timer.Interval = 500;
+                Timer.Interval = 80;
                 Timer.Tick += OnTimerTick;
-                Timer.Start( );
+                Timer.Enabled = false;
             }
             catch( Exception _ex )
             {
@@ -290,115 +295,27 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Shows the dialog.
+        /// Begins the initialize.
         /// </summary>
-        public new void ShowDialog( )
+        private void BeginInit( )
         {
             try
             {
-                Opacity = 0;
-                if( Seconds != 0 )
+                if( _path == null )
                 {
-                    Timer = new Timer( );
-                    Timer.Interval = 10;
-                    Timer.Tick += ( sender, args ) =>
+                    _path = new object( );
+                    lock( _path )
                     {
-                        _time++;
-                        if( _time == _seconds )
-                        {
-                            Timer.Stop( );
-                        }
-                    };
-                }
-
-                base.Show( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Displays the control to the user.
-        /// </summary>
-        public new void Show( )
-        {
-            try
-            {
-                Opacity = 0;
-                if( Seconds != 0 )
-                {
-                    Timer = new Timer( );
-                    Timer.Interval = 10;
-                    Timer.Tick += ( sender, args ) =>
-                    {
-                        _time++;
-                        if( _time == _seconds )
-                        {
-                            Timer.Stop( );
-                        }
-                    };
-                }
-
-                base.Show( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Closes the form.
-        /// </summary>
-        public new void Close( )
-        {
-            try
-            {
-                Opacity = 0;
-                if( _seconds != 0 )
-                {
-                    var _timer = new Timer( );
-                    _timer.Interval = 1000;
-                    _timer.Tick += ( sender, args ) =>
-                    {
-                        _time--;
-                        if( _time == _seconds )
-                        {
-                            _timer.Stop( );
-                        }
-                    };
-                }
-
-                base.Show( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Fades the in.
-        /// </summary>
-        private void FadeIn( )
-        {
-            try
-            {
-                var _timer = new Timer( );
-                _timer.Interval = 10;
-                _timer.Tick += ( sender, args ) =>
-                {
-                    if( Opacity == 1d )
-                    {
-                        _timer.Stop( );
+                        _busy = true;
                     }
-
-                    Opacity += 0.02d;
-                };
-
-                _timer.Start( );
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        _busy = true;
+                    }
+                }
             }
             catch( Exception _ex )
             {
@@ -407,25 +324,75 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Fades the out and close.
+        /// Ends the initialize.
         /// </summary>
-        private void FadeOut( )
+        private void EndInit( )
         {
             try
             {
-                var _timer = new Timer( );
-                _timer.Interval = 10;
-                _timer.Tick += ( sender, args ) =>
+                if( _path == null )
                 {
-                    if( Opacity == 0d )
+                    _path = new object( );
+                    lock( _path )
                     {
-                        _timer.Stop( );
+                        _busy = false;
                     }
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        _busy = false;
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
 
-                    Opacity -= 0.02d;
-                };
+        /// <summary>
+        /// Fades the in asynchronous.
+        /// </summary>
+        /// <param name="form">The o.</param>
+        /// <param name="interval">The interval.</param>
+        private async void FadeInAsync( Form form, int interval = 80 )
+        {
+            try
+            {
+                ThrowIf.Null( form, nameof( form ) );
+                while( form.Opacity < 1.0 )
+                {
+                    await Task.Delay( interval );
+                    form.Opacity += 0.05;
+                }
 
-                _timer.Start( );
+                form.Opacity = 1;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Fades the out asynchronous.
+        /// </summary>
+        /// <param name="form">The o.</param>
+        /// <param name="interval">The interval.</param>
+        private async void FadeOutAsync( Form form, int interval = 80 )
+        {
+            try
+            {
+                ThrowIf.Null( form, nameof( form ) );
+                while( form.Opacity > 0.0 )
+                {
+                    await Task.Delay( interval );
+                    form.Opacity -= 0.05;
+                }
+
+                form.Opacity = 0;
             }
             catch( Exception _ex )
             {
@@ -556,7 +523,6 @@ namespace BudgetExecution
         {
             try
             {
-                FadeOut( );
                 Close( );
             }
             catch( Exception _ex )
@@ -621,35 +587,17 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Raises the Close event.
+        /// Called when [form closing].
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.</param>
-        public void OnClosing( object sender, EventArgs e )
+        private void OnFormClosing( object sender, EventArgs e )
         {
             try
             {
-                FadeOut( );
-                Close( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [shown].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnShown( object sender, EventArgs e )
-        {
-            try
-            {
-                FadeIn( );
+                Opacity = 1;
+                FadeOutAsync( this );
             }
             catch( Exception _ex )
             {
@@ -688,6 +636,25 @@ namespace BudgetExecution
             {
                 CalculatorButton.BackColor = Color.Transparent;
                 CalculatorButton.HoverText = string.Empty;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [shown].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnActivated( object sender, EventArgs e )
+        {
+            try
+            {
+                Opacity = 0;
+                FadeInAsync( this );
             }
             catch( Exception _ex )
             {

@@ -76,12 +76,12 @@
             Separator1 = new ToolSeparator( );
             Separator25 = new ToolSeparator( );
             QueryTabControl = new TabControl( );
-            SourceTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
+            SourceTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             SourceTable = new HeaderPanel( );
             TableComboBox = new ComboBox( );
             TablePanel = new BackPanel( );
             TableListBox = new ListBox( );
-            FilterTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
+            FilterTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             FilterTable = new System.Windows.Forms.TableLayoutPanel( );
             SecondTable = new HeaderPanel( );
             SecondListBoxPanel = new BackPanel( );
@@ -91,8 +91,8 @@
             ThirdListBoxPanel = new BackPanel( );
             ThirdListBox = new ListBox( );
             ThirdComboBox = new ComboBox( );
-            GroupTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
-            CalendarTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
+            GroupTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
+            CalendarTab = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             TimeSpanTable = new System.Windows.Forms.TableLayoutPanel( );
             ProviderTable = new System.Windows.Forms.TableLayoutPanel( );
             SQLiteRadioButton = new RadioButton( );
@@ -157,8 +157,8 @@
             Timer = new System.Windows.Forms.Timer( components );
             GridHeaderPanel = new HeaderPanel( );
             DataTabControl = new TabControl( );
-            ReadyTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
-            BusyTabPage = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
+            ReadyScreen = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
+            BusyScreen = new Syncfusion.Windows.Forms.Tools.TabPageAdv( );
             Loader = new System.Windows.Forms.PictureBox( );
             ToolStripTable = new System.Windows.Forms.TableLayoutPanel( );
             ContextMenu = new ContextMenu( );
@@ -178,17 +178,17 @@
             FirstListBoxPanel.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)QueryTabControl ).BeginInit( );
             QueryTabControl.SuspendLayout( );
-            SourceTabPage.SuspendLayout( );
+            SourceTab.SuspendLayout( );
             SourceTable.SuspendLayout( );
             TablePanel.SuspendLayout( );
-            FilterTabPage.SuspendLayout( );
+            FilterTab.SuspendLayout( );
             FilterTable.SuspendLayout( );
             SecondTable.SuspendLayout( );
             SecondListBoxPanel.SuspendLayout( );
             ThirdTable.SuspendLayout( );
             ThirdListBoxPanel.SuspendLayout( );
-            GroupTabPage.SuspendLayout( );
-            CalendarTabPage.SuspendLayout( );
+            GroupTab.SuspendLayout( );
+            CalendarTab.SuspendLayout( );
             TimeSpanTable.SuspendLayout( );
             ProviderTable.SuspendLayout( );
             ToolStrip.SuspendLayout( );
@@ -197,8 +197,8 @@
             GridHeaderPanel.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)DataTabControl ).BeginInit( );
             DataTabControl.SuspendLayout( );
-            ReadyTabPage.SuspendLayout( );
-            BusyTabPage.SuspendLayout( );
+            ReadyScreen.SuspendLayout( );
+            BusyScreen.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)Loader ).BeginInit( );
             ToolStripTable.SuspendLayout( );
             SuspendLayout( );
@@ -1061,10 +1061,10 @@
             QueryTabControl.BorderWidth = 1;
             QueryTabControl.CanOverrideStyle = true;
             QueryTabControl.CloseButtonBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            QueryTabControl.Controls.Add( SourceTabPage );
-            QueryTabControl.Controls.Add( FilterTabPage );
-            QueryTabControl.Controls.Add( GroupTabPage );
-            QueryTabControl.Controls.Add( CalendarTabPage );
+            QueryTabControl.Controls.Add( SourceTab );
+            QueryTabControl.Controls.Add( FilterTab );
+            QueryTabControl.Controls.Add( GroupTab );
+            QueryTabControl.Controls.Add( CalendarTab );
             QueryTabControl.FixedSingleBorderColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             QueryTabControl.FocusOnTabClick = false;
             QueryTabControl.Font = new System.Drawing.Font( "Roboto", 9F );
@@ -1090,17 +1090,17 @@
             QueryTabControl.ThemeStyle.TabStyle.SeparatorColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             QueryTabControl.ToolTip = ToolTip;
             // 
-            // SourceTabPage
+            // SourceTab
             // 
-            SourceTabPage.Controls.Add( SourceTable );
-            SourceTabPage.Image = null;
-            SourceTabPage.ImageSize = new System.Drawing.Size( 16, 16 );
-            SourceTabPage.Location = new System.Drawing.Point( 0, 9 );
-            SourceTabPage.Name = "SourceTabPage";
-            SourceTabPage.ShowCloseButton = true;
-            SourceTabPage.Size = new System.Drawing.Size( 309, 623 );
-            SourceTabPage.TabIndex = 5;
-            SourceTabPage.ThemesEnabled = false;
+            SourceTab.Controls.Add( SourceTable );
+            SourceTab.Image = null;
+            SourceTab.ImageSize = new System.Drawing.Size( 16, 16 );
+            SourceTab.Location = new System.Drawing.Point( 0, 9 );
+            SourceTab.Name = "SourceTab";
+            SourceTab.ShowCloseButton = true;
+            SourceTab.Size = new System.Drawing.Size( 309, 623 );
+            SourceTab.TabIndex = 5;
+            SourceTab.ThemesEnabled = false;
             // 
             // SourceTable
             // 
@@ -1219,20 +1219,20 @@
             TableListBox.ThemeName = "Budget Execution";
             TableListBox.ToolTip = null;
             // 
-            // FilterTabPage
+            // FilterTab
             // 
-            FilterTabPage.Controls.Add( FilterTable );
-            FilterTabPage.Image = null;
-            FilterTabPage.ImageSize = new System.Drawing.Size( 16, 16 );
-            FilterTabPage.Location = new System.Drawing.Point( 0, 9 );
-            FilterTabPage.Name = "FilterTabPage";
-            FilterTabPage.ShowCloseButton = true;
-            FilterTabPage.Size = new System.Drawing.Size( 309, 623 );
-            FilterTabPage.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            FilterTabPage.TabFont = new System.Drawing.Font( "Roboto", 8.25F );
-            FilterTabPage.TabForeColor = System.Drawing.Color.DarkGray;
-            FilterTabPage.TabIndex = 1;
-            FilterTabPage.ThemesEnabled = false;
+            FilterTab.Controls.Add( FilterTable );
+            FilterTab.Image = null;
+            FilterTab.ImageSize = new System.Drawing.Size( 16, 16 );
+            FilterTab.Location = new System.Drawing.Point( 0, 9 );
+            FilterTab.Name = "FilterTab";
+            FilterTab.ShowCloseButton = true;
+            FilterTab.Size = new System.Drawing.Size( 309, 623 );
+            FilterTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            FilterTab.TabFont = new System.Drawing.Font( "Roboto", 8.25F );
+            FilterTab.TabForeColor = System.Drawing.Color.DarkGray;
+            FilterTab.TabIndex = 1;
+            FilterTab.ThemesEnabled = false;
             // 
             // FilterTable
             // 
@@ -1483,33 +1483,33 @@
             ThirdComboBox.ThemeName = "Budget Execution";
             ThirdComboBox.ToolTip = null;
             // 
-            // GroupTabPage
+            // GroupTab
             // 
-            GroupTabPage.Controls.Add( NumericsTable );
-            GroupTabPage.Controls.Add( FieldsTable );
-            GroupTabPage.Image = null;
-            GroupTabPage.ImageSize = new System.Drawing.Size( 16, 16 );
-            GroupTabPage.Location = new System.Drawing.Point( 0, 9 );
-            GroupTabPage.Name = "GroupTabPage";
-            GroupTabPage.ShowCloseButton = true;
-            GroupTabPage.Size = new System.Drawing.Size( 309, 623 );
-            GroupTabPage.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            GroupTabPage.TabFont = new System.Drawing.Font( "Roboto", 8.25F );
-            GroupTabPage.TabForeColor = System.Drawing.Color.DarkGray;
-            GroupTabPage.TabIndex = 2;
-            GroupTabPage.ThemesEnabled = false;
+            GroupTab.Controls.Add( NumericsTable );
+            GroupTab.Controls.Add( FieldsTable );
+            GroupTab.Image = null;
+            GroupTab.ImageSize = new System.Drawing.Size( 16, 16 );
+            GroupTab.Location = new System.Drawing.Point( 0, 9 );
+            GroupTab.Name = "GroupTab";
+            GroupTab.ShowCloseButton = true;
+            GroupTab.Size = new System.Drawing.Size( 309, 623 );
+            GroupTab.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            GroupTab.TabFont = new System.Drawing.Font( "Roboto", 8.25F );
+            GroupTab.TabForeColor = System.Drawing.Color.DarkGray;
+            GroupTab.TabIndex = 2;
+            GroupTab.ThemesEnabled = false;
             // 
-            // CalendarTabPage
+            // CalendarTab
             // 
-            CalendarTabPage.Controls.Add( TimeSpanTable );
-            CalendarTabPage.Image = null;
-            CalendarTabPage.ImageSize = new System.Drawing.Size( 16, 16 );
-            CalendarTabPage.Location = new System.Drawing.Point( 0, 9 );
-            CalendarTabPage.Name = "CalendarTabPage";
-            CalendarTabPage.ShowCloseButton = true;
-            CalendarTabPage.Size = new System.Drawing.Size( 309, 623 );
-            CalendarTabPage.TabIndex = 4;
-            CalendarTabPage.ThemesEnabled = false;
+            CalendarTab.Controls.Add( TimeSpanTable );
+            CalendarTab.Image = null;
+            CalendarTab.ImageSize = new System.Drawing.Size( 16, 16 );
+            CalendarTab.Location = new System.Drawing.Point( 0, 9 );
+            CalendarTab.Name = "CalendarTab";
+            CalendarTab.ShowCloseButton = true;
+            CalendarTab.Size = new System.Drawing.Size( 309, 623 );
+            CalendarTab.TabIndex = 4;
+            CalendarTab.ThemesEnabled = false;
             // 
             // TimeSpanTable
             // 
@@ -2259,7 +2259,7 @@
             ToolStripTextBox.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             ToolStripTextBox.Name = "ToolStripTextBox";
             ToolStripTextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Size = new System.Drawing.Size( 168, 25 );
+            ToolStripTextBox.Size = new System.Drawing.Size( 164, 25 );
             ToolStripTextBox.Tag = "";
             ToolStripTextBox.ToolTip = ToolTip;
             // 
@@ -2471,8 +2471,8 @@
             DataTabControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
             DataTabControl.CanOverrideStyle = true;
             DataTabControl.CloseButtonBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            DataTabControl.Controls.Add( ReadyTabPage );
-            DataTabControl.Controls.Add( BusyTabPage );
+            DataTabControl.Controls.Add( ReadyScreen );
+            DataTabControl.Controls.Add( BusyScreen );
             DataTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             DataTabControl.FocusOnTabClick = false;
             DataTabControl.Font = new System.Drawing.Font( "Roboto", 9F );
@@ -2490,6 +2490,7 @@
             DataTabControl.ThemeStyle.BackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataTabControl.ThemeStyle.BorderColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataTabControl.ThemeStyle.BorderFillColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            DataTabControl.ThemeStyle.PrimitiveButtonStyle.DisabledNextPageImage = null;
             DataTabControl.ThemeStyle.TabPanelBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataTabControl.ThemeStyle.TabStyle.ActiveBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataTabControl.ThemeStyle.TabStyle.ActiveFont = new System.Drawing.Font( "Roboto", 8F );
@@ -2497,33 +2498,33 @@
             DataTabControl.ThemeStyle.TabStyle.SeparatorColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
             DataTabControl.ToolTip = null;
             // 
-            // ReadyTabPage
+            // ReadyScreen
             // 
-            ReadyTabPage.Controls.Add( DataGridPanel );
-            ReadyTabPage.Image = null;
-            ReadyTabPage.ImageSize = new System.Drawing.Size( 16, 16 );
-            ReadyTabPage.Location = new System.Drawing.Point( 0, 4 );
-            ReadyTabPage.Name = "ReadyTabPage";
-            ReadyTabPage.ShowCloseButton = true;
-            ReadyTabPage.Size = new System.Drawing.Size( 989, 539 );
-            ReadyTabPage.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            ReadyTabPage.TabForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            ReadyTabPage.TabIndex = 1;
-            ReadyTabPage.ThemesEnabled = false;
+            ReadyScreen.Controls.Add( DataGridPanel );
+            ReadyScreen.Image = null;
+            ReadyScreen.ImageSize = new System.Drawing.Size( 16, 16 );
+            ReadyScreen.Location = new System.Drawing.Point( 0, 4 );
+            ReadyScreen.Name = "ReadyScreen";
+            ReadyScreen.ShowCloseButton = true;
+            ReadyScreen.Size = new System.Drawing.Size( 989, 539 );
+            ReadyScreen.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            ReadyScreen.TabForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ReadyScreen.TabIndex = 1;
+            ReadyScreen.ThemesEnabled = false;
             // 
-            // BusyTabPage
+            // BusyScreen
             // 
-            BusyTabPage.Controls.Add( Loader );
-            BusyTabPage.Image = null;
-            BusyTabPage.ImageSize = new System.Drawing.Size( 16, 16 );
-            BusyTabPage.Location = new System.Drawing.Point( 0, 4 );
-            BusyTabPage.Name = "BusyTabPage";
-            BusyTabPage.ShowCloseButton = true;
-            BusyTabPage.Size = new System.Drawing.Size( 989, 539 );
-            BusyTabPage.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            BusyTabPage.TabForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            BusyTabPage.TabIndex = 2;
-            BusyTabPage.ThemesEnabled = false;
+            BusyScreen.Controls.Add( Loader );
+            BusyScreen.Image = null;
+            BusyScreen.ImageSize = new System.Drawing.Size( 16, 16 );
+            BusyScreen.Location = new System.Drawing.Point( 0, 4 );
+            BusyScreen.Name = "BusyScreen";
+            BusyScreen.ShowCloseButton = true;
+            BusyScreen.Size = new System.Drawing.Size( 989, 539 );
+            BusyScreen.TabBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            BusyScreen.TabForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            BusyScreen.TabIndex = 2;
+            BusyScreen.ThemesEnabled = false;
             // 
             // Loader
             // 
@@ -2623,17 +2624,17 @@
             FirstListBoxPanel.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize)QueryTabControl ).EndInit( );
             QueryTabControl.ResumeLayout( false );
-            SourceTabPage.ResumeLayout( false );
+            SourceTab.ResumeLayout( false );
             SourceTable.ResumeLayout( false );
             TablePanel.ResumeLayout( false );
-            FilterTabPage.ResumeLayout( false );
+            FilterTab.ResumeLayout( false );
             FilterTable.ResumeLayout( false );
             SecondTable.ResumeLayout( false );
             SecondListBoxPanel.ResumeLayout( false );
             ThirdTable.ResumeLayout( false );
             ThirdListBoxPanel.ResumeLayout( false );
-            GroupTabPage.ResumeLayout( false );
-            CalendarTabPage.ResumeLayout( false );
+            GroupTab.ResumeLayout( false );
+            CalendarTab.ResumeLayout( false );
             TimeSpanTable.ResumeLayout( false );
             ProviderTable.ResumeLayout( false );
             ToolStrip.ResumeLayout( false );
@@ -2643,8 +2644,8 @@
             GridHeaderPanel.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize)DataTabControl ).EndInit( );
             DataTabControl.ResumeLayout( false );
-            ReadyTabPage.ResumeLayout( false );
-            BusyTabPage.ResumeLayout( false );
+            ReadyScreen.ResumeLayout( false );
+            BusyScreen.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize)Loader ).EndInit( );
             ToolStripTable.ResumeLayout( false );
             ToolStripTable.PerformLayout( );
@@ -2736,7 +2737,7 @@
         /// <summary>
         /// The filter tab page
         /// </summary>
-        public Syncfusion.Windows.Forms.Tools.TabPageAdv FilterTabPage;
+        public Syncfusion.Windows.Forms.Tools.TabPageAdv FilterTab;
         /// <summary>
         /// The second ComboBox
         /// </summary>
@@ -2764,7 +2765,7 @@
         /// <summary>
         /// The group tab page
         /// </summary>
-        public Syncfusion.Windows.Forms.Tools.TabPageAdv GroupTabPage;
+        public Syncfusion.Windows.Forms.Tools.TabPageAdv GroupTab;
         /// <summary>
         /// The field panel
         /// </summary>
@@ -2792,7 +2793,7 @@
         /// <summary>
         /// The calendar tab page
         /// </summary>
-        public Syncfusion.Windows.Forms.Tools.TabPageAdv CalendarTabPage;
+        public Syncfusion.Windows.Forms.Tools.TabPageAdv CalendarTab;
         /// <summary>
         /// The time span table
         /// </summary>
@@ -2824,7 +2825,7 @@
         /// <summary>
         /// The source tab page
         /// </summary>
-        public Syncfusion.Windows.Forms.Tools.TabPageAdv SourceTabPage;
+        public Syncfusion.Windows.Forms.Tools.TabPageAdv SourceTab;
         /// <summary>
         /// The tool strip separator
         /// </summary>
@@ -3130,10 +3131,7 @@
         /// The loader
         /// </summary>
         public System.Windows.Forms.PictureBox Loader;
-        /// <summary>
-        /// The ready tab
-        /// </summary>
-        public Syncfusion.Windows.Forms.Tools.TabPageAdv ReadyTab;
+
         /// <summary>
         /// The tool strip table
         /// </summary>
@@ -3177,10 +3175,10 @@
         /// <summary>
         /// The busy tab page
         /// </summary>
-        public Syncfusion.Windows.Forms.Tools.TabPageAdv BusyTabPage;
+        public Syncfusion.Windows.Forms.Tools.TabPageAdv BusyScreen;
         /// <summary>
         /// The ready tab page
         /// </summary>
-        public Syncfusion.Windows.Forms.Tools.TabPageAdv ReadyTabPage;
+        public Syncfusion.Windows.Forms.Tools.TabPageAdv ReadyScreen;
     }
 }

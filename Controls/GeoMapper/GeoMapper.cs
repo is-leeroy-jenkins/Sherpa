@@ -430,6 +430,7 @@ namespace BudgetExecution
 
             // Wire Events
             Load += OnLoad;
+            Activated += OnActivated;
             FormClosing += OnFormClosing;
             MouseClick += OnRightClick;
         }
@@ -491,17 +492,16 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes the timers.
+        /// Initializes the timer.
         /// </summary>
-        private void InitializeTimers( )
+        private void InitializeTimer( )
         {
             try
             {
                 // Timer Properties
-                Timer.Enabled = true;
                 Timer.Interval = 80;
                 Timer.Tick += OnTimerTick;
-                Timer.Start( );
+                Timer.Enabled = false;
             }
             catch( Exception _ex )
             {
@@ -543,7 +543,7 @@ namespace BudgetExecution
         {
             try
             {
-                PictureBox.Size = new Size( 18, 18 );
+                PictureBox.Size = new Size( 20, 18 );
                 PictureBox.Padding = new Padding( 1 );
                 PictureBox.Margin = new Padding( 1 );
                 PictureBox.SizeMode = PictureBoxSizeMode.Zoom;
@@ -853,7 +853,7 @@ namespace BudgetExecution
                 InitializeMap( );
                 InitializeToolStrip( );
                 InitializeLabels( );
-                InitializeTimers( );
+                InitializeTimer( );
                 FadeInAsync( this );
             }
             catch( Exception _ex )
@@ -1124,6 +1124,25 @@ namespace BudgetExecution
             {
                 Opacity = 1;
                 FadeOutAsync( this );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [shown].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnActivated( object sender, EventArgs e )
+        {
+            try
+            {
+                Opacity = 0;
+                FadeInAsync( this );
             }
             catch( Exception _ex )
             {

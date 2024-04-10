@@ -91,11 +91,6 @@ namespace BudgetExecution
         private Action _beginLoad;
 
         /// <summary>
-        /// The end load
-        /// </summary>
-        private Action _endLoad;
-
-        /// <summary>
         /// Gets or sets the tiles.
         /// </summary>
         /// <value>
@@ -183,11 +178,10 @@ namespace BudgetExecution
                 BrowserTile.Click += OnBrowserTileClick;
                 MessageTile.Click += OnMessageTileClick;
                 SqlServerTile.Click += OnSqlServerTileClick;
-                TestButtonA.Click += OnTestButtonClick;
+                TestButton.Click += OnTestButtonClick;
                 AccessTile.Click += OnAccessTileClick;
                 MapTile.Click += OnMapTileClick;
                 PivotTile.Click += OnPivotTileClick;
-                Timer.Tick += OnTimerTick;
             }
             catch( Exception _ex )
             {
@@ -214,25 +208,6 @@ namespace BudgetExecution
                         _tile.TurnLiveTileOn = true;
                     }
                 }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the timer.
-        /// </summary>
-        private void InitializeTimer( )
-        {
-            try
-            {
-                // Timer Properties
-                Timer.Interval = 500;
-                Timer.Tick += OnTimerTick;
-                Timer.Enabled = true;
-                Timer.Start( );
             }
             catch( Exception _ex )
             {
@@ -947,10 +922,7 @@ namespace BudgetExecution
         {
             try
             {
-                Opacity = 0;
                 InitializeTiles( );
-                InitializeTimer( );
-                FadeInAsync( this );
             }
             catch( Exception _ex )
             {
@@ -1274,24 +1246,6 @@ namespace BudgetExecution
             try
             {
                 InvokeIf( _beginLoad );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [timer tick].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnTimerTick( object sender, EventArgs e )
-        {
-            try
-            {
-                InvokeIf( _endLoad );
             }
             catch( Exception _ex )
             {

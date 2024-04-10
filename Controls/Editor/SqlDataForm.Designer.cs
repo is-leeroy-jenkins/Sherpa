@@ -2415,7 +2415,6 @@ namespace BudgetExecution
             // 
             // Timer
             // 
-            Timer.Enabled = true;
             Timer.Interval = 80;
             // 
             // ToolStripTable

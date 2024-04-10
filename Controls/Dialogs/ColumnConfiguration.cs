@@ -146,6 +146,7 @@ namespace BudgetExecution
             ColumnListBox.ItemCheck += OnListItemChecked;
             CloseButton.Click += OnCloseButtonClick;
             Load += OnLoad;
+            Activated += OnActivated;
         }
 
         /// <summary>

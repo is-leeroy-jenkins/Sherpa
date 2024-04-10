@@ -144,6 +144,7 @@ namespace BudgetExecution
 
             // Wire Events
             Load += OnLoad;
+            Activated += OnActivated;
             Closing += OnFormClosing;
         }
 
@@ -252,16 +253,16 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes the timers.
+        /// Initializes the timer.
         /// </summary>
-        private void InitializeTimers( )
+        private void InitializeTimer( )
         {
             try
             {
                 // Timer Properties
-                Timer.Enabled = true;
-                Timer.Interval = 500;
-                Timer.Start( );
+                Timer.Interval = 80;
+                Timer.Tick += OnTimerTick;
+                Timer.Enabled = false;
             }
             catch( Exception _ex )
             {
@@ -430,7 +431,7 @@ namespace BudgetExecution
             {
                 Opacity = 0;
                 InitializeButtons( );
-                InitializeTimers( );
+                InitializeTimer( );
                 InitializeText( );
                 InitializeDialogs( );
                 FadeInAsync( this );
@@ -582,6 +583,25 @@ namespace BudgetExecution
             {
                 Opacity = 1;
                 FadeOutAsync( this );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [shown].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnActivated( object sender, EventArgs e )
+        {
+            try
+            {
+                Opacity = 0;
+                FadeInAsync( this );
             }
             catch( Exception _ex )
             {

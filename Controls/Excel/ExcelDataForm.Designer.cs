@@ -329,6 +329,10 @@
             LabelSeparator.Padding = new System.Windows.Forms.Padding( 1 );
             LabelSeparator.Size = new System.Drawing.Size( 6, 28 );
             // 
+            // Timer
+            // 
+            Timer.Interval = 50;
+            // 
             // ToolStripTable
             // 
             ToolStripTable.ColumnCount = 1;
@@ -467,7 +471,7 @@
             ToolStripTextBox.Margin = new System.Windows.Forms.Padding( 1 );
             ToolStripTextBox.Name = "ToolStripTextBox";
             ToolStripTextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Size = new System.Drawing.Size( 214, 27 );
+            ToolStripTextBox.Size = new System.Drawing.Size( 212, 27 );
             ToolStripTextBox.Tag = "";
             ToolStripTextBox.ToolTip = ToolTip;
             // 

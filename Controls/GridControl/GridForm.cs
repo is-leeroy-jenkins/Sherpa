@@ -496,6 +496,7 @@ namespace BudgetExecution
 
             // Event Wiring
             Load += OnLoad;
+            Activated += OnActivated;
             Closing += OnFormClosing;
         }
 
@@ -667,7 +668,7 @@ namespace BudgetExecution
         {
             try
             {
-                PictureBox.Size = new Size( 18, 18 );
+                PictureBox.Size = new Size( 20, 18 );
                 PictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             }
             catch( Exception _ex )
@@ -698,10 +699,9 @@ namespace BudgetExecution
             try
             {
                 // Timer Properties
-                Timer.Enabled = true;
-                Timer.Interval = 500;
+                Timer.Interval = 80;
                 Timer.Tick += OnTimerTick;
-                Timer.Start( );
+                Timer.Enabled = false;
             }
             catch( Exception _ex )
             {
@@ -1131,6 +1131,26 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
+
+        /// <summary>
+        /// Called when [shown].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnActivated( object sender, EventArgs e )
+        {
+            try
+            {
+                Opacity = 0;
+                FadeInAsync( this );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
         /// <summary>
         /// Fails the specified ex.
         /// </summary>

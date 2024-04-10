@@ -99,7 +99,7 @@
             PictureBox.Location = new System.Drawing.Point( 1, 1 );
             PictureBox.Margin = new System.Windows.Forms.Padding( 1 );
             PictureBox.Name = "PictureBox";
-            PictureBox.Size = new System.Drawing.Size( 18, 16 );
+            PictureBox.Size = new System.Drawing.Size( 20, 18 );
             PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             PictureBox.TabIndex = 0;
             PictureBox.TabStop = false;
@@ -518,7 +518,7 @@
             TextBox.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             TextBox.Name = "TextBox";
             TextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            TextBox.Size = new System.Drawing.Size( 214, 25 );
+            TextBox.Size = new System.Drawing.Size( 212, 25 );
             TextBox.Tag = "";
             TextBox.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             TextBox.ToolTip = ToolTip;
@@ -596,6 +596,10 @@
             ApplicationLabel.Text = "                    Menu:         ";
             ApplicationLabel.ToolTip = null;
             // 
+            // Timer
+            // 
+            Timer.Interval = 80;
+            // 
             // DataSheet
             // 
             DataSheet.AlphaBlendSelectionColor = System.Drawing.Color.FromArgb( 130, 80, 80, 80 );
@@ -610,7 +614,7 @@
             gridBaseStyle1.StyleInfo.Font.Underline = false;
             gridBaseStyle1.StyleInfo.Font.Unit = System.Drawing.GraphicsUnit.Point;
             gridBaseStyle1.StyleInfo.VerticalAlignment = Syncfusion.Windows.Forms.Grid.GridVerticalAlignment.Middle;
-            gridBaseStyle2.Name = "Row Header";
+            gridBaseStyle2.Name = "Column Header";
             gridBaseStyle2.StyleInfo.BaseStyle = "Header";
             gridBaseStyle2.StyleInfo.Font.Bold = true;
             gridBaseStyle2.StyleInfo.Font.Facename = "Segoe UI";
@@ -620,7 +624,7 @@
             gridBaseStyle2.StyleInfo.Font.Underline = false;
             gridBaseStyle2.StyleInfo.Font.Unit = System.Drawing.GraphicsUnit.Point;
             gridBaseStyle2.StyleInfo.HorizontalAlignment = Syncfusion.Windows.Forms.Grid.GridHorizontalAlignment.Center;
-            gridBaseStyle3.Name = "Column Header";
+            gridBaseStyle3.Name = "Row Header";
             gridBaseStyle3.StyleInfo.BaseStyle = "Header";
             gridBaseStyle3.StyleInfo.Font.Bold = true;
             gridBaseStyle3.StyleInfo.Font.Facename = "Segoe UI";

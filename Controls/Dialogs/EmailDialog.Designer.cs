@@ -910,10 +910,11 @@ partial class EmailDialog
         // PictureBox
         // 
         PictureBox.Image = Resources.Images.FormImages.Application;
-        PictureBox.Location = new System.Drawing.Point( 3, 3 );
+        PictureBox.Location = new System.Drawing.Point( 1, 1 );
+        PictureBox.Margin = new System.Windows.Forms.Padding( 1 );
         PictureBox.Name = "PictureBox";
         PictureBox.Size = new System.Drawing.Size( 20, 18 );
-        PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+        PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
         PictureBox.TabIndex = 0;
         PictureBox.TabStop = false;
         // 
@@ -941,8 +942,7 @@ partial class EmailDialog
         // 
         // Timer
         // 
-        Timer.Enabled = true;
-        Timer.Interval = 500;
+        Timer.Interval = 80;
         // 
         // ContextMenu
         // 

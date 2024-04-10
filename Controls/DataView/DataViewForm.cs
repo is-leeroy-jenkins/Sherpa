@@ -134,16 +134,6 @@ namespace BudgetExecution
         private string _thirdValue;
 
         /// <summary>
-        /// The fourth category
-        /// </summary>
-        private string _fourthCategory;
-
-        /// <summary>
-        /// The fourth value
-        /// </summary>
-        private string _fourthValue;
-
-        /// <summary>
         /// The SQL command
         /// </summary>
         private string _sqlQuery;
@@ -495,7 +485,21 @@ namespace BudgetExecution
         {
             get
             {
-                return _busy;
+                if( _path == null )
+                {
+                    _path = new object( );
+                    lock( _path )
+                    {
+                        return _busy;
+                    }
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        return _busy;
+                    }
+                }
             }
         }
 
@@ -766,9 +770,9 @@ namespace BudgetExecution
             try
             {
                 // Timer Properties
-                Timer.Enabled = true;
                 Timer.Interval = 80;
-                Timer.Start( );
+                Timer.Tick += OnTimerTick;
+                Timer.Enabled = false;
             }
             catch( Exception _ex )
             {
@@ -831,7 +835,14 @@ namespace BudgetExecution
         /// </summary>
         private void InitializeDelegates( )
         {
-            _statusUpdate += UpdateStatus;
+            try
+            {
+                _statusUpdate += UpdateStatus;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>

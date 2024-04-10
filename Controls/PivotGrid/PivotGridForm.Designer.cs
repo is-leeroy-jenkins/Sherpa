@@ -1588,8 +1588,7 @@
             // 
             // Timer
             // 
-            Timer.Enabled = true;
-            Timer.Interval = 500;
+            Timer.Interval = 80;
             // 
             // ContextMenu
             // 
