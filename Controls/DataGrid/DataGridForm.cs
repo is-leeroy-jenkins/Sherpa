@@ -110,12 +110,7 @@ namespace BudgetExecution
         /// The count
         /// </summary>
         private int _count;
-
-        /// <summary>
-        /// The hover text
-        /// </summary>
-        private string _hoverText;
-
+        
         /// <summary>
         /// The selected table
         /// </summary>
@@ -302,151 +297,7 @@ namespace BudgetExecution
                 _selectedTable = value;
             }
         }
-
-        /// <summary>
-        /// Gets the first category.
-        /// </summary>
-        /// <value>
-        /// The first category.
-        /// </value>
-        public string FirstCategory
-        {
-            get
-            {
-                return _firstCategory;
-            }
-            private set
-            {
-                _firstCategory = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the first value.
-        /// </summary>
-        /// <value>
-        /// The first value.
-        /// </value>
-        public string FirstValue
-        {
-            get
-            {
-                return _firstValue;
-            }
-            private set
-            {
-                _firstValue = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the second category.
-        /// </summary>
-        /// <value>
-        /// The second category.
-        /// </value>
-        public string SecondCategory
-        {
-            get
-            {
-                return _secondCategory;
-            }
-            private set
-            {
-                _secondCategory = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the second value.
-        /// </summary>
-        /// <value>
-        /// The second value.
-        /// </value>
-        public string SecondValue
-        {
-            get
-            {
-                return _secondValue;
-            }
-            private set
-            {
-                _secondValue = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the third category.
-        /// </summary>
-        /// <value>
-        /// The third category.
-        /// </value>
-        public string ThirdCategory
-        {
-            get
-            {
-                return _thirdCategory;
-            }
-            private set
-            {
-                _thirdCategory = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the third value.
-        /// </summary>
-        /// <value>
-        /// The third value.
-        /// </value>
-        public string ThirdValue
-        {
-            get
-            {
-                return _thirdValue;
-            }
-            private set
-            {
-                _thirdValue = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the fourth category.
-        /// </summary>
-        /// <value>
-        /// The fourth category.
-        /// </value>
-        public string FourthCategory
-        {
-            get
-            {
-                return _fourthCategory;
-            }
-            private set
-            {
-                _fourthCategory = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the fourth value.
-        /// </summary>
-        /// <value>
-        /// The fourth value.
-        /// </value>
-        public string FourthValue
-        {
-            get
-            {
-                return _fourthValue;
-            }
-            private set
-            {
-                _fourthValue = value;
-            }
-        }
-
+        
         /// <summary>
         /// Gets the SQL command.
         /// </summary>
@@ -662,25 +513,7 @@ namespace BudgetExecution
                 _provider = value;
             }
         }
-
-        /// <summary>
-        /// Gets the data arguments.
-        /// </summary>
-        /// <value>
-        /// The data arguments.
-        /// </value>
-        public DataArgs DataArgs
-        {
-            get
-            {
-                return _dataArgs;
-            }
-            private set
-            {
-                _dataArgs = value;
-            }
-        }
-
+        
         /// <summary>
         /// Gets a value indicating whether this instance is busy.
         /// </summary>

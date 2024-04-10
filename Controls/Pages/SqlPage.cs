@@ -239,6 +239,36 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Gets a value indicating whether this instance is busy.
+        /// </summary>
+        /// <value>
+        /// <c> true </c>
+        /// if this instance is busy; otherwise,
+        /// <c> false </c>
+        /// </value>
+        public bool IsBusy
+        {
+            get
+            {
+                if( _path == null )
+                {
+                    _path = new object( );
+                    lock( _path )
+                    {
+                        return _busy;
+                    }
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        return _busy;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
         /// Initializes a new instance of the
         /// <see cref="SqlPage"/> class.
         /// </summary>
@@ -407,27 +437,14 @@ namespace BudgetExecution
         {
             try
             {
+                AccessRadioButton.Click += OnRadioButtonChecked;
+                SQLiteRadioButton.Click += OnRadioButtonChecked;
+                SqlCeRadioButton.Click += OnRadioButtonChecked;
+                SqlServerRadioButton.Click += OnRadioButtonChecked;
+                SqlComboBox.SelectedValueChanged += OnComboBoxItemSelected;
+                SqlListBox.SelectedValueChanged += OnListBoxItemSelected;
+                FirstButton.Click += OnClearButtonClick;
                 FourthButton.Click += OnCloseButtonClick;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the timer.
-        /// </summary>
-        private void InitializeTimer( )
-        {
-            try
-            {
-                // Timer Properties
-                var _timer = new Timer( );
-                _timer.Enabled = true;
-                _timer.Interval = 500;
-                _timer.Tick += OnTimerTick;
-                _timer.Start( );
             }
             catch( Exception _ex )
             {
@@ -444,6 +461,24 @@ namespace BudgetExecution
             {
                 ThirdButton.Text = "Save";
                 FourthButton.Text = "Exit";
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the timer.
+        /// </summary>
+        private void InitializeTimer( )
+        {
+            try
+            {
+                // Timer Properties
+                Timer.Interval = 80;
+                Timer.Tick += OnTimerTick;
+                Timer.Enabled = false;
             }
             catch( Exception _ex )
             {
@@ -1042,13 +1077,7 @@ namespace BudgetExecution
             {
                 Opacity = 0;
                 AccessRadioButton.Checked = true;
-                AccessRadioButton.Click += OnRadioButtonChecked;
-                SQLiteRadioButton.Click += OnRadioButtonChecked;
-                SqlCeRadioButton.Click += OnRadioButtonChecked;
-                SqlServerRadioButton.Click += OnRadioButtonChecked;
-                SqlComboBox.SelectedValueChanged += OnComboBoxItemSelected;
-                SqlListBox.SelectedValueChanged += OnListBoxItemSelected;
-                FirstButton.Click += OnClearButtonClick;
+                InitializeTimer( );
                 InitializeEditor( );
                 BindData( );
                 FadeInAsync( this );
@@ -1216,7 +1245,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    //FormMenu.Show( this, e.Location );
+                    //ContextMenu.Show( this, e.Location );
                 }
                 catch( Exception _ex )
                 {
