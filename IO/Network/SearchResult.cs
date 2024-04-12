@@ -52,7 +52,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Local" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
-    public class SearchResult : InnerWebs
+    public class SearchResult : WebSearch
     {
         /// <summary>
         /// Gets or sets the link.
@@ -126,17 +126,19 @@ namespace BudgetExecution
             }
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SearchResult"/> class.
+        /// <see cref="T:BudgetExecution.SearchResult" /> class.
         /// </summary>
         public SearchResult( )
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SearchResult"/> class.
+        /// <see cref="T:BudgetExecution.SearchResult" /> class.
         /// </summary>
         /// <param name="link">The link.</param>
         /// <param name="name">The name.</param>
@@ -150,9 +152,10 @@ namespace BudgetExecution
             _title = title;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SearchResult"/> class.
+        /// <see cref="T:BudgetExecution.SearchResult" /> class.
         /// </summary>
         /// <param name="result">The result.</param>
         public SearchResult( SearchResult result )
@@ -177,6 +180,18 @@ namespace BudgetExecution
             name = _name;
             content = _content;
             title = _title;
+        }
+
+        /// <summary>
+        /// Converts to string.
+        /// </summary>
+        /// <returns>
+        /// A <see cref="System.String" />
+        /// that represents this instance.
+        /// </returns>
+        public override string ToString( )
+        {
+            return _link;
         }
     }
 }

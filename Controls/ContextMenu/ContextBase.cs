@@ -60,42 +60,42 @@ namespace BudgetExecution
         /// <summary>
         /// The file option
         /// </summary>
-        private protected ToolStripMenuItemExt _browseFile;
+        private protected ToolStripMenuItemExt _file;
 
         /// <summary>
         /// The folder option
         /// </summary>
-        private protected ToolStripMenuItemExt _browseFolder;
+        private protected ToolStripMenuItemExt _folder;
 
         /// <summary>
         /// The calculator option
         /// </summary>
-        private protected ToolStripMenuItemExt _budgetCalculator;
+        private protected ToolStripMenuItemExt _calculator;
 
         /// <summary>
         /// The budget calendar option
         /// </summary>
-        private protected ToolStripMenuItemExt _budgetCalendar;
+        private protected ToolStripMenuItemExt _calendar;
 
         /// <summary>
         /// The budget guidance option
         /// </summary>
-        private protected ToolStripMenuItemExt _budgetGuidance;
+        private protected ToolStripMenuItemExt _guidance;
 
         /// <summary>
         /// The save changes option
         /// </summary>
-        private protected ToolStripMenuItemExt _saveChanges;
+        private protected ToolStripMenuItemExt _save;
 
         /// <summary>
         /// The One Drive option
         /// </summary>
-        private protected ToolStripMenuItemExt _oneDrive;
+        private protected ToolStripMenuItemExt _storage;
 
         /// <summary>
         /// The exit application option
         /// </summary>
-        private protected ToolStripMenuItemExt _exitApplication;
+        private protected ToolStripMenuItemExt _exit;
 
         /// <summary>
         /// The win10 calculator option
@@ -105,12 +105,12 @@ namespace BudgetExecution
         /// <summary>
         /// The win10 clock option
         /// </summary>
-        private protected ToolStripMenuItemExt _windowsClock;
+        private protected ToolStripMenuItemExt _clock;
 
         /// <summary>
         /// The win10 Maps option
         /// </summary>
-        private protected ToolStripMenuItemExt _windowsMaps;
+        private protected ToolStripMenuItemExt _maps;
 
         /// <summary>
         /// The control panel option
@@ -125,7 +125,7 @@ namespace BudgetExecution
         /// <summary>
         /// The task manager option
         /// </summary>
-        private protected ToolStripMenuItemExt _windowsMediaPlayer;
+        private protected ToolStripMenuItemExt _mediaPlayer;
 
         /// <summary>
         /// Creates the file option.
@@ -133,11 +133,11 @@ namespace BudgetExecution
         /// <returns>
         /// ToolStripMenuItemExt
         /// </returns>
-        private protected ToolStripMenuItemExt CreateBrowseFileItem( )
+        private protected ToolStripMenuItemExt CreateFileItem( )
         {
             try
             {
-                var _name = MenuOption.BrowseFile.ToString( );
+                var _name = MenuOption.File.ToString( );
                 var _caption = _name.SplitPascal( );
                 var _item = new ToolStripMenuItemExt( );
                 _item.TextAlign = ContentAlignment.MiddleCenter;
@@ -166,11 +166,11 @@ namespace BudgetExecution
         /// <returns>
         /// ToolStripMenuItemExt
         /// </returns>
-        private protected ToolStripMenuItemExt CreateBrowseFolderItem( )
+        private protected ToolStripMenuItemExt CreateFolderItem( )
         {
             try
             {
-                var _name = MenuOption.BrowseFolder.ToString( );
+                var _name = MenuOption.Folder.ToString( );
                 var _caption = _name.SplitPascal( );
                 var _item = new ToolStripMenuItemExt( );
                 _item.TextAlign = ContentAlignment.MiddleCenter;
@@ -199,11 +199,11 @@ namespace BudgetExecution
         /// <returns>
         /// ToolStripMenuItemExt
         /// </returns>
-        private protected ToolStripMenuItemExt CreateBudgetCalculatorItem( )
+        private protected ToolStripMenuItemExt CreateCalculatorItem( )
         {
             try
             {
-                var _name = MenuOption.BudgetCalculator.ToString( );
+                var _name = MenuOption.Calculator.ToString( );
                 var _caption = _name.SplitPascal( );
                 var _item = new ToolStripMenuItemExt( );
                 _item.TextAlign = ContentAlignment.MiddleCenter;
@@ -213,7 +213,7 @@ namespace BudgetExecution
                 _item.BackColor = Color.FromArgb( 45, 45, 45 );
                 _item.ForeColor = Color.FromArgb( 106, 189, 252 );
                 _item.Text = $"{_caption}";
-                _item.Tag = MenuOption.BudgetCalculator.ToString( );
+                _item.Tag = MenuOption.Calculator.ToString( );
                 _item.Checked = false;
                 _item.MouseDown += OnItemClicked;
                 Items.Add( _item );
@@ -232,11 +232,11 @@ namespace BudgetExecution
         /// <returns>
         /// ToolStripMenuItemExt
         /// </returns>
-        private protected ToolStripMenuItemExt CreateBudgetCalendarItem( )
+        private protected ToolStripMenuItemExt CreateCalendarItem( )
         {
             try
             {
-                var _name = MenuOption.BudgetCalendar.ToString( );
+                var _name = MenuOption.Calendar.ToString( );
                 var _caption = _name.SplitPascal( );
                 var _item = new ToolStripMenuItemExt( );
                 _item.TextAlign = ContentAlignment.MiddleCenter;
@@ -265,11 +265,11 @@ namespace BudgetExecution
         /// <returns>
         /// ToolStripMenuItemExt
         /// </returns>
-        private protected ToolStripMenuItemExt CreateBudgetGuidanceItem( )
+        private protected ToolStripMenuItemExt CreateDocumentationItem( )
         {
             try
             {
-                var _name = MenuOption.BudgetGuidance.ToString( );
+                var _name = MenuOption.Documentation.ToString( );
                 var _caption = _name.SplitPascal( );
                 var _item = new ToolStripMenuItemExt( );
                 _item.TextAlign = ContentAlignment.MiddleCenter;
@@ -298,11 +298,11 @@ namespace BudgetExecution
         /// <returns>
         /// ToolStripMenuItemExt
         /// </returns>
-        private protected ToolStripMenuItemExt CreateSaveChangesItem( )
+        private protected ToolStripMenuItemExt CreateSaveItem( )
         {
             try
             {
-                var _name = MenuOption.SaveChanges.ToString( );
+                var _name = MenuOption.Save.ToString( );
                 var _caption = _name.SplitPascal( );
                 var _item = new ToolStripMenuItemExt( );
                 _item.TextAlign = ContentAlignment.MiddleCenter;
@@ -331,11 +331,11 @@ namespace BudgetExecution
         /// <returns>
         /// ToolStripMenuItemExt
         /// </returns>
-        private protected ToolStripMenuItemExt CreateExitApplicationItem( )
+        private protected ToolStripMenuItemExt CreateExitItem( )
         {
             try
             {
-                var _name = MenuOption.ExitApplication.ToString( );
+                var _name = MenuOption.Exit.ToString( );
                 var _caption = _name.SplitPascal( );
                 var _item = new ToolStripMenuItemExt( );
                 _item.TextAlign = ContentAlignment.MiddleCenter;
@@ -377,28 +377,28 @@ namespace BudgetExecution
                         var _option = Enum.Parse( typeof( MenuOption ), _name );
                         switch( _option )
                         {
-                            case MenuOption.BrowseFile:
+                            case MenuOption.File:
                             {
-                                var _file = new FileDialog( );
-                                _file.Location = e.Location;
-                                _file.ShowDialog( );
+                                var _fileDialog = new FileDialog( );
+                                _fileDialog.Location = e.Location;
+                                _fileDialog.ShowDialog( );
                                 break;
                             }
-                            case MenuOption.BrowseFolder:
+                            case MenuOption.Folder:
                             {
-                                var _file = new FolderDialog( );
-                                _file.Location = e.Location;
-                                _file.ShowDialog( );
+                                var _folderDialog = new FolderDialog( );
+                                _folderDialog.Location = e.Location;
+                                _folderDialog.ShowDialog( );
                                 break;
                             }
-                            case MenuOption.BudgetCalculator:
+                            case MenuOption.Calculator:
                             {
-                                var _form = new CalculationForm( );
-                                _form.Location = e.Location;
-                                _form.ShowDialog( );
+                                var _calculationForm = new CalculationForm( );
+                                _calculationForm.Location = e.Location;
+                                _calculationForm.ShowDialog( );
                                 break;
                             }
-                            case MenuOption.WindowsCalendar:
+                            case MenuOption.Calendar:
                             {
                                 WinMinion.LaunchCalendar( );
                                 break;
@@ -413,35 +413,30 @@ namespace BudgetExecution
                                 WinMinion.LaunchTaskManager( );
                                 break;
                             }
-                            case MenuOption.WindowsCalculator:
+                            case MenuOption.Documentation:
                             {
-                                WinMinion.LaunchCalculator( );
+                                var _docViewer = new DocViewer( );
+                                _docViewer.ShowDialog( );
                                 break;
                             }
-                            case MenuOption.BudgetGuidance:
-                            {
-                                var _guidance = new DocViewer( );
-                                _guidance.ShowDialog( );
-                                break;
-                            }
-                            case MenuOption.OneDrive:
+                            case MenuOption.Storage:
                             {
                                 WinMinion.LaunchOneDrive( );
                                 break;
                             }
-                            case MenuOption.SaveChanges:
+                            case MenuOption.Save:
                             {
                                 var _msg = "NOT YET IMPLEMENTED!!";
                                 var _notification = new Notification( _msg );
                                 _notification.Show( );
                                 break;
                             }
-                            case MenuOption.WindowsClock:
+                            case MenuOption.Clock:
                             {
                                 WinMinion.LaunchClock( );
                                 break;
                             }
-                            case MenuOption.WindowsMaps:
+                            case MenuOption.Maps:
                             {
                                 WinMinion.LaunchMaps( );
                                 break;
@@ -451,7 +446,7 @@ namespace BudgetExecution
                                 WinMinion.LaunchMediaPlayer( );
                                 break;
                             }
-                            case MenuOption.ExitApplication:
+                            case MenuOption.Exit:
                             {
                                 Application.Exit( );
                                 break;

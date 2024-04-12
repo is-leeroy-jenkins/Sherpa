@@ -81,20 +81,19 @@ namespace BudgetExecution
             ThemeStyle.BorderColor = Color.FromArgb( 0, 120, 212 );
 
             // Menu Items
-            _browseFile = CreateBrowseFileItem( );
-            _browseFolder = CreateBrowseFolderItem( );
-            _budgetCalculator = CreateBudgetCalculatorItem( );
-            _windowsCalculator = CreateWindowsCalculatorItem( );
-            _budgetCalendar = CreateBudgetCalendarItem( );
+            _file = CreateFileItem( );
+            _folder = CreateFolderItem( );
+            _save = CreateSaveItem( );
+            _exit = CreateExitItem( );
+            _calculator = CreateCalculatorItem( );
+            _calendar = CreateCalendarItem( );
+            _guidance = CreateDocumentationItem( );
+            _clock = CreateClockItem( );
+            _maps = CreateMapsItem( );
+            _storage = CreateStorageItem( );
             _controlPanel = CreateControlPanelItem( );
             _taskManager = CreateTaskManagerItem( );
-            _budgetGuidance = CreateBudgetGuidanceItem( );
-            _windowsClock = CreateWindowsClockItem( );
-            _saveChanges = CreateSaveChangesItem( );
-            _windowsMaps = CreateMapsItem( );
-            _oneDrive = CreateOneDriveItem( );
-            _windowsMediaPlayer = CreateWindowsMediaPlayerItem( );
-            _exitApplication = CreateExitApplicationItem( );
+            _mediaPlayer = CreateMediaPlayerItem( );
         }
 
         /// <summary>
@@ -161,45 +160,14 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Creates the windows calculator option.
-        /// </summary>
-        /// <returns></returns>
-        private ToolStripMenuItemExt CreateWindowsCalculatorItem( )
-        {
-            try
-            {
-                var _name = MenuOption.WindowsCalculator.ToString( );
-                var _caption = _name.SplitPascal( );
-                var _item = new ToolStripMenuItemExt( );
-                _item.TextAlign = ContentAlignment.MiddleCenter;
-                _item.Font = new Font( "Roboto", 9 );
-                _item.Name = _name;
-                _item.Size = new Size( 198, 24 );
-                _item.BackColor = Color.FromArgb( 45, 45, 45 );
-                _item.ForeColor = Color.FromArgb( 106, 189, 252 );
-                _item.Text = $"{_caption}";
-                _item.Tag = _name;
-                _item.Checked = false;
-                _item.MouseDown += OnItemClicked;
-                Items.Add( _item );
-                return _item;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( ToolStripMenuItemExt );
-            }
-        }
-
-        /// <summary>
         /// Creates the one drive option.
         /// </summary>
         /// <returns></returns>
-        private ToolStripMenuItemExt CreateOneDriveItem( )
+        private ToolStripMenuItemExt CreateStorageItem( )
         {
             try
             {
-                var _name = MenuOption.OneDrive.ToString( );
+                var _name = MenuOption.Storage.ToString( );
                 var _caption = _name.SplitPascal( );
                 var _item = new ToolStripMenuItemExt( );
                 _item.TextAlign = ContentAlignment.MiddleCenter;
@@ -230,7 +198,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _name = MenuOption.WindowsMaps.ToString( );
+                var _name = MenuOption.Maps.ToString( );
                 var _caption = _name.SplitPascal( );
                 var _item = new ToolStripMenuItemExt( );
                 _item.TextAlign = ContentAlignment.MiddleCenter;
@@ -259,11 +227,11 @@ namespace BudgetExecution
         /// <returns>
         /// ToolStripMenuItemExt
         /// </returns>
-        private ToolStripMenuItemExt CreateWindowsClockItem( )
+        private ToolStripMenuItemExt CreateClockItem( )
         {
             try
             {
-                var _name = MenuOption.WindowsClock.ToString( );
+                var _name = MenuOption.Clock.ToString( );
                 var _caption = _name.SplitPascal( );
                 var _item = new ToolStripMenuItemExt( );
                 _item.TextAlign = ContentAlignment.MiddleCenter;
@@ -290,7 +258,7 @@ namespace BudgetExecution
         /// Creates the windows media player option.
         /// </summary>
         /// <returns></returns>
-        private protected ToolStripMenuItemExt CreateWindowsMediaPlayerItem( )
+        private protected ToolStripMenuItemExt CreateMediaPlayerItem( )
         {
             try
             {

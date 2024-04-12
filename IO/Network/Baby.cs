@@ -3,13 +3,16 @@
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Net;
+    using System.Net.NetworkInformation;
     using System.Net.Sockets;
-
+    using System.Text;
+    
     /// <summary>
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public abstract class Baby
     {
         /// <summary>
@@ -74,11 +77,21 @@
         {
             get
             {
-                return _busy;
-            }
-            private set
-            {
-                _busy = value;
+                if( _path == null )
+                {
+                    _path = new object( );
+                    lock( _path )
+                    {
+                        return _busy;
+                    }
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        return _busy;
+                    }
+                }
             }
         }
 
@@ -100,6 +113,39 @@
             {
                 _connected = value;
             }
+        }
+
+        /// <summary>
+        /// Pings the network.
+        /// </summary>
+        /// <param name="ipAddress">
+        /// The host name or address.
+        /// </param>
+        /// <returns>
+        /// bool
+        /// </returns>
+        private protected bool PingNetwork( string ipAddress )
+        {
+            bool _status = false;
+            try
+            {
+                ThrowIf.Null( ipAddress, nameof( ipAddress ) );
+                using var _ping = new Ping( );
+                var _buffer = Encoding.ASCII.GetBytes( "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" );
+                var _timeout = 5000; // 5sg
+                var _reply = _ping.Send( ipAddress, _timeout, _buffer );
+                if( _reply != null )
+                {
+                    _status = _reply.Status == IPStatus.Success;
+                }
+            }
+            catch( Exception _ex )
+            {
+                _status = false;
+                Fail( _ex );
+            }
+
+            return _status;
         }
 
         /// <summary>

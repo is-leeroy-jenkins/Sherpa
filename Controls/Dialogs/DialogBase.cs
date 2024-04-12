@@ -147,30 +147,26 @@
                 if( _searchPaths?.Any( ) == true )
                 {
                     var _list = new List<string>( );
-                    foreach( var _filePath in _searchPaths )
+                    var _pattern = "*." + _fileExtension;
+                    for( var _index = 0; _index < _searchPaths.Count; _index++ )
                     {
-                        var _first = GetFiles( _filePath )
-                            ?.Where( f => f.EndsWith( _fileExtension ) )
+                        var _path = _searchPaths[ _index ];
+                        var _first = EnumerateDirectories( _path )
+                            ?.Where( s => s.Contains( "My" ) == false )
                             ?.Select( f => Path.GetFullPath( f ) )
                             ?.ToList( );
-
-                        _list.AddRange( _first );
-                        var _dirs = GetDirectories( _filePath );
-                        for( var _i = 0; _i < _dirs.Length; _i++ )
+                        
+                        for( int i = 0; i < _first.Count; i++ )
                         {
-                            var _dir = _dirs[ _i ];
-                            if( !_dir.Contains( "My " ) )
-                            {
-                                var _second = GetFiles( _dir )
-                                    ?.Where( s => s.EndsWith( _fileExtension ) )
-                                    ?.Select( s => Path.GetFullPath( s ) )
-                                    ?.ToList( );
-
-                                _list.AddRange( _second );
-                            }
+                            var _second = EnumerateFiles( _first[ i ], _pattern,
+                                    SearchOption.AllDirectories )
+                                ?.Select( s => Path.GetFullPath( s ) )
+                                ?.ToList( );
+                            
+                            _list.AddRange( _second );
                         }
                     }
-
+                    
                     return _list?.Any( ) == true
                         ? _list
                         : default( IList<string> );
@@ -201,6 +197,7 @@
                     GetFolderPath( SpecialFolder.DesktopDirectory ),
                     GetFolderPath( SpecialFolder.Personal ),
                     GetFolderPath( SpecialFolder.Recent ),
+                    Environment.CurrentDirectory,
                     @"C:\Users\terry\source\repos\BudgetExecution\Resources\Documents",
                     _current
                 };

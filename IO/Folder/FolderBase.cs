@@ -106,7 +106,7 @@ namespace BudgetExecution
         /// <see cref="FolderBase"/> class.
         /// </summary>
         /// <inheritdoc />
-        public FolderBase( )
+        protected FolderBase( )
         {
         }
 
@@ -116,7 +116,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="input">The input.</param>
         /// <inheritdoc />
-        public FolderBase( string input ) 
+        protected FolderBase( string input ) 
             : base( input )
         {
         }
@@ -155,12 +155,14 @@ namespace BudgetExecution
                 try
                 {
                     var _data = new Dictionary<string, FileInfo>( );
-                    var _paths = Directory.GetFiles( _fullPath );
+                    var _paths = Directory.EnumerateFiles( _fullPath, "*",
+                        SearchOption.AllDirectories );
+
                     foreach( var _path in _paths )
                     {
                         if( File.Exists( _path ) )
                         {
-                            var _name = Path.GetFileNameWithoutExtension( _path );
+                            var _name = Path.GetFileName( _path );
                             var _subFile = new FileInfo( _path );
                             _data.Add( _name, _subFile );
                         }
@@ -191,7 +193,9 @@ namespace BudgetExecution
                 try
                 {
                     var _data = new Dictionary<string, DirectoryInfo>( );
-                    var _folders = Directory.GetDirectories( _fullPath );
+                    var _folders = Directory.EnumerateDirectories( _fullPath, "*",
+                        SearchOption.AllDirectories );
+
                     foreach( var _path in _folders )
                     {
                         if( Directory.Exists( _path ) )

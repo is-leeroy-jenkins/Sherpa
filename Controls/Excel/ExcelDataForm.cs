@@ -950,14 +950,16 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes the icon.
+        /// Initializes the PictureBox.
         /// </summary>
-        private void InitializeIcon( )
+        private void InitializePictureBox( )
         {
             try
             {
-                PictureBox.Size = new Size( 18, 18 );
-                PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                PictureBox.Size = new Size( 20, 18 );
+                PictureBox.Padding = new Padding( 1 );
+                PictureBox.Margin = new Padding( 1 );
+                PictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             }
             catch( Exception _ex )
             {
@@ -2196,7 +2198,7 @@ namespace BudgetExecution
                 InitializeTimer( );
                 InitializeToolStrip( );
                 InitializeLabels( );
-                InitializeIcon( );
+                InitializePictureBox( );
                 Ribbon.Size = new Size( 1338, 128 );
                 Header.ForeColor = Color.FromArgb( 106, 189, 252 );
                 Header.Font = new Font( "Roboto", 10 );

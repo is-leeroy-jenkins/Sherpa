@@ -864,13 +864,15 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes the icon.
+        /// Initializes the PictureBox.
         /// </summary>
         private void InitializePictureBox( )
         {
             try
             {
-                PictureBox.Size = new Size( 18, 18 );
+                PictureBox.Size = new Size( 20, 18 );
+                PictureBox.Padding = new Padding( 1 );
+                PictureBox.Margin = new Padding( 1 );
                 PictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             }
             catch( Exception _ex )

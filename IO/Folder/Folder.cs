@@ -156,7 +156,9 @@ namespace BudgetExecution
             _folderExists = Exists( input );
             _folderName = Path.GetDirectoryName( input );
             _hasSubFiles = GetFiles( input )?.Length > 0;
+            _fileCount = GetFiles( input ).Length;
             _hasSubFolders = GetDirectories( input )?.Length > 0;
+            _folderCount = GetDirectories( input ).Length;
             _created = GetCreationTime( input );
             _modified = GetLastWriteTime( input );
         }

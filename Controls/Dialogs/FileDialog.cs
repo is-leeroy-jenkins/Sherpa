@@ -241,7 +241,6 @@ namespace BudgetExecution
             _extension = EXT.XLSX;
             _fileExtension = _extension.ToString( ).ToLower( );
             _searchPaths = CreateInitialDirectoryPaths( );
-            _filePaths = CreateListViewFilePaths( );
             _radioButtons = GetRadioButtons( );
 
             // Event Wiring
@@ -262,7 +261,6 @@ namespace BudgetExecution
             _extension = extension;
             _fileExtension = _extension.ToString( ).ToLower( );
             _searchPaths = CreateInitialDirectoryPaths( );
-            _filePaths = CreateListViewFilePaths( );
         }
 
         /// <summary>

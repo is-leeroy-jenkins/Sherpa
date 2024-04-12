@@ -394,5 +394,27 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
+
+        /// <summary>
+        /// Converts to string.
+        /// </summary>
+        /// <returns>
+        /// A <see cref="System.String" />
+        /// that represents this instance.
+        /// </returns>
+        public override string ToString( )
+        {
+            try
+            {
+                return !string.IsNullOrEmpty( _emailContent?.Message )
+                    ? _emailContent.Message
+                    : string.Empty;
+            }
+            catch( System.Exception _ex )
+            {
+                Fail( _ex );
+                return string.Empty;
+            }
+        }
     }
 }

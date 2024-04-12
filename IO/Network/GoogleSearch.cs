@@ -42,7 +42,6 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
-    using System.Collections.Specialized;
     using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
@@ -61,26 +60,18 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class GoogleSearch : InnerWebs
+    public class GoogleSearch : WebSearch
     {
         /// <summary>
-        /// Gets the configuration.
+        /// The key
         /// </summary>
-        /// <value>
-        /// The configuration.
-        /// </value>
-        public NameValueCollection Config
-        {
-            get
-            {
-                return _config;
-            }
-            private set
-            {
-                _config = value;
-            }
-        }
+        private readonly string _key;
 
+        /// <summary>
+        /// The engine
+        /// </summary>
+        private readonly string _engine;
+        
         /// <summary>
         /// Gets or sets the query.
         /// </summary>
@@ -99,39 +90,29 @@ namespace BudgetExecution
             }
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="GoogleSearch"/> class.
+        /// <see cref="T:BudgetExecution.GoogleSearch" /> class.
         /// </summary>
         public GoogleSearch( )
         {
-            _config = ConfigurationManager.AppSettings;
+            _key = ConfigurationManager.AppSettings[ "ApiKey" ];
+            _engine = ConfigurationManager.AppSettings[ "SearchEngineId" ];
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="GoogleSearch"/> class.
+        /// <see cref="T:BudgetExecution.GoogleSearch" /> class.
         /// </summary>
         /// <param name="keywords">
         /// The keywords.
         /// </param>
-        public GoogleSearch( string keywords )
+        public GoogleSearch( string keywords ) 
+            : this( )
         {
-            _config = ConfigurationManager.AppSettings;
             _query = keywords;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="GoogleSearch"/> class.
-        /// </summary>
-        /// <param name="search">
-        /// The search.
-        /// </param>
-        public GoogleSearch( GoogleSearch search )
-        {
-            _config = search.Config;
-            _query = search.Query;
         }
 
         /// <summary>
@@ -147,7 +128,7 @@ namespace BudgetExecution
                 var _count = 0;
                 var _results = new List<SearchResult>( );
                 var _initializer = new BaseClientService.Initializer( );
-                _initializer.ApiKey = _config[ "ApiKey" ];
+                _initializer.ApiKey = _key;
                 var _customSearch = new CustomsearchService( _initializer );
                 var _searchRequest = _customSearch
                     ?.Cse
@@ -156,7 +137,7 @@ namespace BudgetExecution
                 if( _searchRequest != null )
                 {
                     _searchRequest.Q = _query;
-                    _searchRequest.Cx = _config[ "SearchEngineId" ];
+                    _searchRequest.Cx = _engine;
                     _searchRequest.Start = _count;
                     var _list = _searchRequest.Execute( )
                         ?.Items
@@ -167,10 +148,10 @@ namespace BudgetExecution
                         for( var _i = 0; _i < _list.Count; _i++ )
                         {
                             var _snippet = _list[ _i ].Snippet ?? string.Empty;
-                            var _line = _list[ _i ].Link ?? string.Empty;
+                            var _lines = _list[ _i ].Link ?? string.Empty;
                             var _titles = _list[ _i ].Title ?? string.Empty;
                             var _htmlTitle = _list[ _i ].HtmlTitle ?? string.Empty;
-                            var _searchResults = new SearchResult( _snippet, _line, 
+                            var _searchResults = new SearchResult( _snippet, _lines, 
                                 _titles, _htmlTitle );
 
                             _results.Add( _searchResults );
@@ -211,7 +192,7 @@ namespace BudgetExecution
                 var _count = 0;
                 var _results = new List<SearchResult>( );
                 var _initializer = new BaseClientService.Initializer( );
-                _initializer.ApiKey = _config[ "ApiKey" ];
+                _initializer.ApiKey = _key;
                 var _customSearch = new CustomsearchService( _initializer );
                 var _searchRequest = _customSearch
                     ?.Cse
@@ -220,7 +201,7 @@ namespace BudgetExecution
                 if( _searchRequest != null )
                 {
                     _searchRequest.Q = _query;
-                    _searchRequest.Cx = _config[ "SearchEngineId" ];
+                    _searchRequest.Cx = _engine;
                     _searchRequest.Start = _count;
                     var _list = _searchRequest.Execute( )
                         ?.Items
@@ -259,21 +240,6 @@ namespace BudgetExecution
                 Fail( _ex );
                 return default( Task<IList<SearchResult>> );
             }
-        }
-
-        /// <summary>
-        /// Deconstructs the specified configuration.
-        /// </summary>
-        /// <param name="config">
-        /// The configuration.
-        /// </param>
-        /// <param name="query">
-        /// The query.
-        /// </param>
-        public void Deconstruct( out NameValueCollection config, out string query )
-        {
-            config = _config;
-            query = _query;
         }
     }
 }
