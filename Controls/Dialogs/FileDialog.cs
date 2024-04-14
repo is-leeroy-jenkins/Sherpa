@@ -44,11 +44,11 @@ namespace BudgetExecution
     using System.Collections;
     using System.Collections.Generic;
     using System.Configuration;
+    using System.Diagnostics;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.IO;
     using System.Linq;
-    using System.Threading.Tasks;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using static System.Environment;
@@ -66,6 +66,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
     public partial class FileDialog : MetroForm
     {
         /// <summary>
@@ -97,6 +98,11 @@ namespace BudgetExecution
         /// The seconds
         /// </summary>
         private protected int _seconds;
+
+        /// <summary>
+        /// The duration
+        /// </summary>
+        private protected double _duration;
 
         /// <summary>
         /// The data
@@ -376,6 +382,7 @@ namespace BudgetExecution
             _radioButtons = GetRadioButtons( );
             _searchPaths = CreateInitialDirectoryPaths( );
             _filePaths = GetFilePaths( );
+            _count = _filePaths.Count;
 
             // Event Wiring
             Load += OnLoad;
@@ -427,7 +434,10 @@ namespace BudgetExecution
                 Title.Text = $"{_extension} File Search";
 
                 // Found Label Proerties
-                FoundLabel.Text = $"Found : {_filePaths?.Count}";
+                var _nl = Environment.NewLine;
+                FoundLabel.Font = new Font( "Roboto", 8 );
+                FoundLabel.Text = "Found: " + $"{_count:N1} files" + _nl
+                    + "Time: " + $"{_duration:N1} ms";
             }
             catch( Exception _ex )
             {
@@ -545,14 +555,56 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Updates the status.
+        /// Begins the initialize.
         /// </summary>
-        private void UpdateStatus( )
+        private void BeginInit( )
         {
             try
             {
-                var _now = DateTime.Now;
-                StatusLabel.Text = $"{_now.ToShortDateString( )}   {_now.ToLongTimeString( )}";
+                if( _path == null )
+                {
+                    _path = new object( );
+                    lock( _path )
+                    {
+                        _busy = true;
+                    }
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        _busy = true;
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Ends the initialize.
+        /// </summary>
+        private void EndInit( )
+        {
+            try
+            {
+                if( _path == null )
+                {
+                    _path = new object( );
+                    lock( _path )
+                    {
+                        _busy = false;
+                    }
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        _busy = false;
+                    }
+                }
             }
             catch( Exception _ex )
             {
@@ -645,7 +697,7 @@ namespace BudgetExecution
                     case EXT.PDF:
                     {
                         PdfRadioButton.Checked = true;
-                        _image = Resources.Images.ExtensionImages.XLSX;
+                        _image = Resources.Images.ExtensionImages.PDF;
                         break;
                     }
                     case EXT.CSV:
@@ -669,6 +721,8 @@ namespace BudgetExecution
                     }
                     case EXT.DB:
                     {
+                        SQLiteRadioButton.Checked = true;
+                        _image = Resources.Images.ExtensionImages.DB;
                         break;
                     }
                     case EXT.DLL:
@@ -780,7 +834,7 @@ namespace BudgetExecution
 
                             var _stream = File.Open( _file, FileMode.Open );
                             var _img = Image.FromStream( _stream );
-                            return new Bitmap( _img, 18, 18 );
+                            return new Bitmap( _img, 20, 18 );
                         }
                     }
                 }
@@ -843,6 +897,9 @@ namespace BudgetExecution
         {
             try
             {
+                BeginInit( );
+                var _watch = new Stopwatch( );
+                _watch.Start( );
                 var _list = new List<string>( );
                 var _pattern = "*" + _fileExtension;
                 for( var _i = 0; _i < _searchPaths.Count; _i++ )
@@ -869,7 +926,10 @@ namespace BudgetExecution
                         _list.AddRange( _lowerLevelFiles );
                     }
                 }
-                
+
+                EndInit( );
+                _watch.Stop( );
+                _duration = _watch.Elapsed.TotalMilliseconds;
                 return _list;
             }
             catch( Exception _ex )
@@ -985,6 +1045,22 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Updates the status.
+        /// </summary>
+        private void UpdateStatus( )
+        {
+            try
+            {
+                var _now = DateTime.Now;
+                StatusLabel.Text = $"{_now.ToLongTimeString( )}";
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -995,15 +1071,14 @@ namespace BudgetExecution
         {
             try
             {
-                CreateListViewFilePaths( );
                 PopulateListBox( );
                 InitializeLabels( );
                 InitializeButtons( );
                 InitializeDialogs( );
                 InitializeTimer( );
+                InitializeRadioButtons( );
                 RegisterRadioButtonEvents( );
                 SetImage( );
-                InitializeRadioButtons( );
                 Timer.Start( );
             }
             catch( Exception _ex )
@@ -1016,7 +1091,7 @@ namespace BudgetExecution
         /// Called when [RadioButton selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        private protected virtual void OnRadioButtonSelected( object sender )
+        private protected void OnRadioButtonSelected( object sender )
         {
             try
             {
@@ -1027,10 +1102,12 @@ namespace BudgetExecution
                     ?.Trim( ".".ToCharArray( ) )
                     ?.ToUpper( );
 
-                CreateListViewFilePaths( );
-                PopulateListBox( );
+                _filePaths = GetFilePaths( );
+                _count = _filePaths.Count;
+                PopulateListBox( _filePaths );
                 Title.Text = $"{_ext} File Search";
-                FoundLabel.Text = $"Found: {_filePaths.Count}";
+                var _nl = Environment.NewLine;
+                FoundLabel.Text = $"Found: {_count} files" + _nl + $"Time: {_duration} ms";
                 PictureBox.ImageLocation = _filePath + $@"\{_ext.ToUpper( )}.png";
             }
             catch( Exception _ex )
@@ -1146,6 +1223,7 @@ namespace BudgetExecution
             {
                 try
                 {
+                    Timer?.Dispose( );
                     Close( );
                 }
                 catch( Exception _ex )

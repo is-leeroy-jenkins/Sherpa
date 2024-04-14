@@ -98,6 +98,36 @@ namespace BudgetExecution
         /// </value>
         public IEnumerable<Tile> Tiles { get; set; }
 
+        /// <summary>
+        /// Gets a value indicating whether this instance is busy.
+        /// </summary>
+        /// <value>
+        /// <c> true </c>
+        /// if this instance is busy; otherwise,
+        /// <c> false </c>
+        /// </value>
+        public bool IsBusy
+        {
+            get
+            {
+                if( _path == null )
+                {
+                    _path = new object( );
+                    lock( _path )
+                    {
+                        return _busy;
+                    }
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        return _busy;
+                    }
+                }
+            }
+        }
+
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -923,6 +953,8 @@ namespace BudgetExecution
             try
             {
                 InitializeTiles( );
+                Opacity = 0;
+                FadeInAsync( this );
             }
             catch( Exception _ex )
             {
@@ -1421,6 +1453,7 @@ namespace BudgetExecution
         {
             try
             {
+                Timer?.Dispose( );
                 Opacity = 1;
                 FadeOutAsync( this );
             }

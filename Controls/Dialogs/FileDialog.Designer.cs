@@ -62,12 +62,13 @@ namespace BudgetExecution
             Title = new Label( );
             StatusLabel = new Label( );
             PathLabel = new Label( );
-            CloseButton = new Button( );
-            BrowseButton = new Button( );
-            SelectButton = new Button( );
             Timer = new System.Windows.Forms.Timer( components );
-            ButtonTable = new TableLayoutPanel( );
             OpenDialog = new OpenDialog( );
+            ButtonTable = new TableLayoutPanel( );
+            ClearButton = new Button( );
+            BrowseButton = new Button( );
+            CloseButton = new Button( );
+            SelectButton = new Button( );
             TextBoxLayout.SuspendLayout( );
             CheckBoxLayout.SuspendLayout( );
             ( (ISupportInitialize)BindingSource ).BeginInit( );
@@ -515,11 +516,10 @@ namespace BudgetExecution
             FoundLabel.Margin = new Padding( 3 );
             FoundLabel.Name = "FoundLabel";
             FoundLabel.Padding = new Padding( 1 );
-            FoundLabel.Size = new System.Drawing.Size( 85, 33 );
+            FoundLabel.Size = new System.Drawing.Size( 85, 32 );
             FoundLabel.Style = MetroSet_UI.Enums.Style.Custom;
             FoundLabel.StyleManager = null;
             FoundLabel.TabIndex = 4;
-            FoundLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             FoundLabel.ThemeAuthor = "Terry D. Eppler";
             FoundLabel.ThemeName = "BudgetExecution";
             FoundLabel.ToolTip = null;
@@ -624,37 +624,67 @@ namespace BudgetExecution
             PathLabel.ThemeName = "BudgetExecution";
             PathLabel.ToolTip = null;
             // 
-            // CloseButton
+            // Timer
             // 
-            CloseButton.BindingSource = null;
-            CloseButton.DataFilter = null;
-            CloseButton.DisabledBackColor = System.Drawing.Color.Transparent;
-            CloseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
-            CloseButton.DisabledForeColor = System.Drawing.Color.Transparent;
-            CloseButton.Font = new System.Drawing.Font( "Roboto", 8F );
-            CloseButton.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
-            CloseButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
-            CloseButton.HoverText = null;
-            CloseButton.HoverTextColor = System.Drawing.Color.White;
-            CloseButton.IsDerivedStyle = true;
-            CloseButton.Location = new System.Drawing.Point( 570, 3 );
-            CloseButton.Name = "CloseButton";
-            CloseButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
-            CloseButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
-            CloseButton.NormalTextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            CloseButton.Padding = new Padding( 1 );
-            CloseButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            CloseButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            CloseButton.PressTextColor = System.Drawing.Color.White;
-            CloseButton.Size = new System.Drawing.Size( 101, 29 );
-            CloseButton.Style = MetroSet_UI.Enums.Style.Custom;
-            CloseButton.StyleManager = null;
-            CloseButton.TabIndex = 14;
-            CloseButton.Text = "Close";
-            CloseButton.ThemeAuthor = "Terry D. Eppler";
-            CloseButton.ThemeName = "Budget Execution";
-            CloseButton.ToolTip = null;
+            Timer.Interval = 80;
+            // 
+            // OpenDialog
+            // 
+            OpenDialog.Filter = null;
+            // 
+            // ButtonTable
+            // 
+            ButtonTable.ColumnCount = 7;
+            ButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 18.2242985F ) );
+            ButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 81.7757F ) );
+            ButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Absolute, 35F ) );
+            ButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Absolute, 185F ) );
+            ButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Absolute, 127F ) );
+            ButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Absolute, 55F ) );
+            ButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Absolute, 113F ) );
+            ButtonTable.Controls.Add( ClearButton, 3, 0 );
+            ButtonTable.Controls.Add( BrowseButton, 1, 0 );
+            ButtonTable.Controls.Add( CloseButton, 6, 0 );
+            ButtonTable.Controls.Add( SelectButton, 4, 0 );
+            ButtonTable.Dock = DockStyle.Bottom;
+            ButtonTable.Location = new System.Drawing.Point( 0, 404 );
+            ButtonTable.Name = "ButtonTable";
+            ButtonTable.RowCount = 1;
+            ButtonTable.RowStyles.Add( new RowStyle( SizeType.Percent, 50F ) );
+            ButtonTable.Size = new System.Drawing.Size( 688, 35 );
+            ButtonTable.TabIndex = 22;
+            // 
+            // ClearButton
+            // 
+            ClearButton.BindingSource = null;
+            ClearButton.DataFilter = null;
+            ClearButton.DisabledBackColor = System.Drawing.Color.Transparent;
+            ClearButton.DisabledBorderColor = System.Drawing.Color.Transparent;
+            ClearButton.DisabledForeColor = System.Drawing.Color.Transparent;
+            ClearButton.Font = new System.Drawing.Font( "Roboto", 8F );
+            ClearButton.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            ClearButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            ClearButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
+            ClearButton.HoverText = null;
+            ClearButton.HoverTextColor = System.Drawing.Color.White;
+            ClearButton.IsDerivedStyle = true;
+            ClearButton.Location = new System.Drawing.Point( 210, 3 );
+            ClearButton.Name = "ClearButton";
+            ClearButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
+            ClearButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
+            ClearButton.NormalTextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            ClearButton.Padding = new Padding( 1 );
+            ClearButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            ClearButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            ClearButton.PressTextColor = System.Drawing.Color.White;
+            ClearButton.Size = new System.Drawing.Size( 90, 29 );
+            ClearButton.Style = MetroSet_UI.Enums.Style.Custom;
+            ClearButton.StyleManager = null;
+            ClearButton.TabIndex = 22;
+            ClearButton.Text = "Clear";
+            ClearButton.ThemeAuthor = "Terry D. Eppler";
+            ClearButton.ThemeName = "Budget Execution";
+            ClearButton.ToolTip = null;
             // 
             // BrowseButton
             // 
@@ -670,7 +700,7 @@ namespace BudgetExecution
             BrowseButton.HoverText = null;
             BrowseButton.HoverTextColor = System.Drawing.Color.White;
             BrowseButton.IsDerivedStyle = true;
-            BrowseButton.Location = new System.Drawing.Point( 47, 3 );
+            BrowseButton.Location = new System.Drawing.Point( 34, 3 );
             BrowseButton.Name = "BrowseButton";
             BrowseButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             BrowseButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
@@ -679,14 +709,46 @@ namespace BudgetExecution
             BrowseButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             BrowseButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             BrowseButton.PressTextColor = System.Drawing.Color.White;
-            BrowseButton.Size = new System.Drawing.Size( 110, 29 );
+            BrowseButton.Size = new System.Drawing.Size( 90, 29 );
             BrowseButton.Style = MetroSet_UI.Enums.Style.Custom;
             BrowseButton.StyleManager = null;
-            BrowseButton.TabIndex = 15;
+            BrowseButton.TabIndex = 18;
             BrowseButton.Text = "Browse";
             BrowseButton.ThemeAuthor = "Terry D. Eppler";
             BrowseButton.ThemeName = "Budget Execution";
             BrowseButton.ToolTip = null;
+            // 
+            // CloseButton
+            // 
+            CloseButton.BindingSource = null;
+            CloseButton.DataFilter = null;
+            CloseButton.DisabledBackColor = System.Drawing.Color.Transparent;
+            CloseButton.DisabledBorderColor = System.Drawing.Color.Transparent;
+            CloseButton.DisabledForeColor = System.Drawing.Color.Transparent;
+            CloseButton.Font = new System.Drawing.Font( "Roboto", 8F );
+            CloseButton.ForeColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            CloseButton.HoverBorderColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            CloseButton.HoverColor = System.Drawing.Color.FromArgb( 17, 53, 84 );
+            CloseButton.HoverText = null;
+            CloseButton.HoverTextColor = System.Drawing.Color.White;
+            CloseButton.IsDerivedStyle = true;
+            CloseButton.Location = new System.Drawing.Point( 577, 3 );
+            CloseButton.Name = "CloseButton";
+            CloseButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
+            CloseButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
+            CloseButton.NormalTextColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            CloseButton.Padding = new Padding( 1 );
+            CloseButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            CloseButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            CloseButton.PressTextColor = System.Drawing.Color.White;
+            CloseButton.Size = new System.Drawing.Size( 90, 29 );
+            CloseButton.Style = MetroSet_UI.Enums.Style.Custom;
+            CloseButton.StyleManager = null;
+            CloseButton.TabIndex = 17;
+            CloseButton.Text = "Close";
+            CloseButton.ThemeAuthor = "Terry D. Eppler";
+            CloseButton.ThemeName = "Budget Execution";
+            CloseButton.ToolTip = null;
             // 
             // SelectButton
             // 
@@ -702,7 +764,7 @@ namespace BudgetExecution
             SelectButton.HoverText = null;
             SelectButton.HoverTextColor = System.Drawing.Color.White;
             SelectButton.IsDerivedStyle = true;
-            SelectButton.Location = new System.Drawing.Point( 289, 3 );
+            SelectButton.Location = new System.Drawing.Point( 395, 3 );
             SelectButton.Name = "SelectButton";
             SelectButton.NormalBorderColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
             SelectButton.NormalColor = System.Drawing.Color.FromArgb( 40, 40, 40 );
@@ -711,43 +773,14 @@ namespace BudgetExecution
             SelectButton.PressBorderColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             SelectButton.PressColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
             SelectButton.PressTextColor = System.Drawing.Color.White;
-            SelectButton.Size = new System.Drawing.Size( 110, 29 );
+            SelectButton.Size = new System.Drawing.Size( 90, 29 );
             SelectButton.Style = MetroSet_UI.Enums.Style.Custom;
             SelectButton.StyleManager = null;
-            SelectButton.TabIndex = 16;
-            SelectButton.Text = "Ok";
+            SelectButton.TabIndex = 19;
+            SelectButton.Text = "Select";
             SelectButton.ThemeAuthor = "Terry D. Eppler";
             SelectButton.ThemeName = "Budget Execution";
             SelectButton.ToolTip = null;
-            // 
-            // Timer
-            // 
-            Timer.Interval = 80;
-            // 
-            // ButtonTable
-            // 
-            ButtonTable.ColumnCount = 7;
-            ButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 50F ) );
-            ButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Absolute, 22F ) );
-            ButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Absolute, 242F ) );
-            ButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Absolute, 208F ) );
-            ButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Absolute, 73F ) );
-            ButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Absolute, 107F ) );
-            ButtonTable.ColumnStyles.Add( new ColumnStyle( SizeType.Absolute, 14F ) );
-            ButtonTable.Controls.Add( CloseButton, 5, 0 );
-            ButtonTable.Controls.Add( SelectButton, 3, 0 );
-            ButtonTable.Controls.Add( BrowseButton, 2, 0 );
-            ButtonTable.Dock = DockStyle.Bottom;
-            ButtonTable.Location = new System.Drawing.Point( 0, 404 );
-            ButtonTable.Name = "ButtonTable";
-            ButtonTable.RowCount = 1;
-            ButtonTable.RowStyles.Add( new RowStyle( SizeType.Percent, 50F ) );
-            ButtonTable.Size = new System.Drawing.Size( 688, 35 );
-            ButtonTable.TabIndex = 17;
-            // 
-            // OpenDialog
-            // 
-            OpenDialog.Filter = null;
             // 
             // FileDialog
             // 
@@ -815,13 +848,14 @@ namespace BudgetExecution
         public RadioButton SqlServerRadioButton;
         public RadioButton WordRadioButton;
         public RadioButton PdfRadioButton;
-        public Button CloseButton;
-        public Button BrowseButton;
-        public Button SelectButton;
         public System.Windows.Forms.Timer Timer;
-        public TableLayoutPanel ButtonTable;
         public OpenDialog OpenDialog;
         public Label StatusLabel;
+        public TableLayoutPanel ButtonTable;
+        public Button ClearButton;
+        public Button BrowseButton;
+        public Button CloseButton;
+        public Button SelectButton;
     }
 
 }

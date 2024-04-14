@@ -41,14 +41,15 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Collections;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.IO;
     using System.Linq;
-    using System.Threading.Tasks;
     using System.Windows.Forms;
-
+    using Syncfusion.Windows.Forms;
+    
     /// <inheritdoc />
     /// <summary>
     /// </summary>
@@ -62,7 +63,8 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
-    public partial class FolderDialog : DialogBase
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    public partial class FolderDialog : MetroForm
     {
         /// <summary>
         /// The dir paths
@@ -70,38 +72,95 @@ namespace BudgetExecution
         private IList<string> _dirPaths;
 
         /// <summary>
-        /// Gets or sets the time.
+        /// The locked object
         /// </summary>
-        /// <value>
-        /// The time.
-        /// </value>
-        public int Time
-        {
-            get
-            {
-                return _time;
-            }
-            private protected set
-            {
-                _time = value;
-            }
-        }
+        private protected object _path;
 
         /// <summary>
-        /// Gets or sets the seconds.
+        /// The busy
+        /// </summary>
+        private protected bool _busy;
+
+        /// <summary>
+        /// The status update
+        /// </summary>
+        private protected Action _statusUpdate;
+
+        /// <summary>
+        /// The time
+        /// </summary>
+        private protected int _time;
+
+        /// <summary>
+        /// The count
+        /// </summary>
+        private protected int _count;
+
+        /// <summary>
+        /// The seconds
+        /// </summary>
+        private protected int _seconds;
+
+        /// <summary>
+        /// The duration
+        /// </summary>
+        private protected double _duration;
+
+        /// <summary>
+        /// The data
+        /// </summary>
+        private protected string _data;
+
+        /// <summary>
+        /// The selected path
+        /// </summary>
+        private protected string _selectedPath;
+
+        /// <summary>
+        /// The selected file
+        /// </summary>
+        private protected string _selectedFile;
+
+        /// <summary>
+        /// The initial directory
+        /// </summary>
+        private protected string _initialDirectory;
+
+        /// <summary>
+        /// The file paths
+        /// </summary>
+        private protected IList<string> _filePaths;
+
+        /// <summary>
+        /// The initial dir paths
+        /// </summary>
+        private protected IList<string> _searchPaths;
+
+        /// <summary>
+        /// The radio buttons
+        /// </summary>
+        private protected IList<RadioButton> _radioButtons;
+
+        /// <summary>
+        /// The image
+        /// </summary>
+        private protected Bitmap _image;
+
+        /// <summary>
+        /// Gets or sets the initial dir paths.
         /// </summary>
         /// <value>
-        /// The seconds.
+        /// The initial dir paths.
         /// </value>
-        public int Seconds
+        public IList<string> SearhPaths
         {
             get
             {
-                return _seconds;
+                return _searchPaths;
             }
             private protected set
             {
-                _seconds = value;
+                _searchPaths = value;
             }
         }
 
@@ -129,7 +188,17 @@ namespace BudgetExecution
         /// <value>
         /// The selected path.
         /// </value>
-        public string SelectedPath { get; set; }
+        public string SelectedPath
+        {
+            get
+            {
+                return _selectedPath;
+            }
+            private protected set
+            {
+                _selectedPath = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the initial dir paths.
@@ -215,13 +284,11 @@ namespace BudgetExecution
             _seconds = 5;
 
             // Budget Properties
-            _searchPaths = CreateInitialDirectoryPaths( );
+            _searchPaths = CreateInitialSearchPaths( );
             _dirPaths = GetListViewFolderPaths( );
 
             // Wire Events
             Load += OnLoad;
-            Activated += OnActivated;
-            FormClosing += OnFormClosing;
         }
 
         /// <summary>
@@ -312,50 +379,20 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Fades the in asynchronous.
+        /// Invokes if needed.
         /// </summary>
-        /// <param name="form">The o.</param>
-        /// <param name="interval">The interval.</param>
-        private async void FadeInAsync( Form form, int interval = 80 )
+        /// <param name="action">
+        /// The action.
+        /// </param>
+        private protected void InvokeIf( Action action )
         {
-            try
+            if( InvokeRequired )
             {
-                ThrowIf.Null( form, nameof( form ) );
-                while( form.Opacity < 1.0 )
-                {
-                    await Task.Delay( interval );
-                    form.Opacity += 0.05;
-                }
-
-                form.Opacity = 1;
+                BeginInvoke( action );
             }
-            catch( Exception _ex )
+            else
             {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Fades the out asynchronous.
-        /// </summary>
-        /// <param name="form">The o.</param>
-        /// <param name="interval">The interval.</param>
-        private async void FadeOutAsync( Form form, int interval = 80 )
-        {
-            try
-            {
-                ThrowIf.Null( form, nameof( form ) );
-                while( form.Opacity > 0.0 )
-                {
-                    await Task.Delay( interval );
-                    form.Opacity -= 0.05;
-                }
-
-                form.Opacity = 0;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
+                action.Invoke( );
             }
         }
 
@@ -368,16 +405,46 @@ namespace BudgetExecution
             {
                 if( _dirPaths?.Any( ) == true )
                 {
-                    _dirPaths.Clear( );
-                    foreach( var _path in _dirPaths )
+                    foreach( var _folder in _dirPaths )
                     {
-                        FileList.Items.Add( _path );
+                        FileList.Items.Add( _folder );
                     }
                 }
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Gets the initial dir paths.
+        /// </summary>
+        /// <returns>
+        /// IList(string)
+        /// </returns>
+        private protected IList<string> CreateInitialSearchPaths( )
+        {
+            try
+            {
+                var _current = Environment.CurrentDirectory;
+                var _list = new List<string>
+                {
+                    Environment.GetFolderPath( Environment.SpecialFolder.DesktopDirectory ),
+                    Environment.GetFolderPath( Environment.SpecialFolder.Personal ),
+                    Environment.GetFolderPath( Environment.SpecialFolder.Recent ),
+                    @"C:\Users\terry\source\repos\BudgetExecution\Resources\Documents",
+                    _current
+                };
+
+                return _list?.Any( ) == true
+                    ? _list
+                    : default( IList<string> );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IList<string> );
             }
         }
 
@@ -391,7 +458,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _list = new List<string>( );
+                    _dirPaths = new List<string>( );
                     foreach( var _dirPath in _searchPaths )
                     {
                         var _dirs = Directory.GetDirectories( _dirPath );
@@ -404,25 +471,25 @@ namespace BudgetExecution
                                 var _dirpath = Path.GetFullPath( _dir );
                                 if( _name != null )
                                 {
-                                    _list.Add( _dirpath );
+                                    _dirPaths.Add( _dirpath );
                                 }
 
                                 var _second = Directory.GetDirectories( _dirpath );
                                 if( _second?.Any( ) == true )
                                 {
-                                    _list.AddRange( _second );
+                                    _dirPaths.AddRange( _second );
                                 }
 
                                 var _subDir = Directory.GetDirectories( _dir );
                                 for( var _i = 0; _i < _subDir.Length; _i++ )
                                 {
-                                    var _path = _subDir[ _i ];
-                                    if( !string.IsNullOrEmpty( _path ) )
+                                    var _directory = _subDir[ _i ];
+                                    if( !string.IsNullOrEmpty( _directory ) )
                                     {
-                                        var _last = Directory.GetDirectories( _path );
+                                        var _last = Directory.GetDirectories( _directory );
                                         if( _last?.Any( ) == true )
                                         {
-                                            _list.AddRange( _last );
+                                            _dirPaths.AddRange( _last );
                                         }
                                     }
                                 }
@@ -430,8 +497,8 @@ namespace BudgetExecution
                         }
                     }
 
-                    return _list?.Any( ) == true
-                        ? _list
+                    return _dirPaths?.Any( ) == true
+                        ? _dirPaths
                         : default( IList<string> );
                 }
                 catch( Exception _ex )
@@ -442,6 +509,77 @@ namespace BudgetExecution
             }
 
             return default( IList<string> );
+        }
+
+        /// <summary>
+        /// Clears the radio buttons.
+        /// </summary>
+        private protected void ClearRadioButtons( )
+        {
+            try
+            {
+                foreach( var _radioButton in _radioButtons )
+                {
+                    _radioButton.CheckedChanged += null;
+                    _radioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Gets the controls.
+        /// </summary>
+        /// <returns>
+        /// </returns>
+        private protected IEnumerable<Control> GetControls( )
+        {
+            var _list = new List<Control>( );
+            var _queue = new Queue( );
+            try
+            {
+                _queue.Enqueue( Controls );
+                while( _queue.Count > 0 )
+                {
+                    var _collection = (Control.ControlCollection)_queue.Dequeue( );
+                    if( _collection?.Count > 0 )
+                    {
+                        foreach( Control _control in _collection )
+                        {
+                            _list.Add( _control );
+                            _queue.Enqueue( _control.Controls );
+                        }
+                    }
+                }
+
+                return _list?.Any( ) == true
+                    ? _list.ToArray( )
+                    : default( Control[ ] );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( Control[ ] );
+            }
+        }
+
+        /// <summary>
+        /// Updates the status.
+        /// </summary>
+        private void UpdateStatus( )
+        {
+            try
+            {
+                var _now = DateTime.Now;
+                StatusLabel.Text = $"{_now.ToLongTimeString( )}";
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -457,12 +595,10 @@ namespace BudgetExecution
         {
             try
             {
-                Opacity = 0;
                 InitializeTimer( );
                 InitializeLabels( );
                 InitializeButtons( );
                 PopulateListBox( );
-                FadeInAsync( this );
             }
             catch( Exception _ex )
             {
@@ -506,9 +642,9 @@ namespace BudgetExecution
             {
                 try
                 {
-                    Dialog = new FolderBrowserDialog( );
-                    Dialog.ShowDialog( );
-                    _selectedPath = Dialog.SelectedPath;
+                    FolderBrowser = new FolderBrowserDialog( );
+                    FolderBrowser.ShowDialog( );
+                    _selectedPath = FolderBrowser.SelectedPath;
                     if( !string.IsNullOrEmpty( _selectedPath ) )
                     {
                         SelectedPath = _selectedPath;
@@ -536,6 +672,7 @@ namespace BudgetExecution
             {
                 try
                 {
+                    Timer?.Dispose( );
                     Close( );
                 }
                 catch( Exception _ex )
@@ -564,41 +701,16 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [form closing].
+        /// Fails the specified ex.
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnFormClosing( object sender, EventArgs e )
+        /// <param name="ex">
+        /// The ex.
+        /// </param>
+        private protected void Fail( Exception ex )
         {
-            try
-            {
-                Opacity = 1;
-                FadeOutAsync( this );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [shown].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnActivated( object sender, EventArgs e )
-        {
-            try
-            {
-                Opacity = 0;
-                FadeInAsync( this );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

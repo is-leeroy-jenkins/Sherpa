@@ -39,13 +39,14 @@
             SelectButton = new Button( );
             FindButton = new Button( );
             CloseButton = new Button( );
-            Dialog = new System.Windows.Forms.FolderBrowserDialog( );
+            FolderBrowser = new System.Windows.Forms.FolderBrowserDialog( );
             ToolTip = new SmallTip( );
             BindingSource = new System.Windows.Forms.BindingSource( components );
             Timer = new System.Windows.Forms.Timer( components );
             MessageLabel = new Label( );
             ButtonTable = new System.Windows.Forms.TableLayoutPanel( );
             ClearButton = new Button( );
+            StatusLabel = new Label( );
             TextBoxLayout.SuspendLayout( );
             TopTablePanel.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)PictureBox ).BeginInit( );
@@ -134,11 +135,13 @@
             // TopTablePanel
             // 
             TopTablePanel.BackColor = System.Drawing.Color.Transparent;
-            TopTablePanel.ColumnCount = 2;
+            TopTablePanel.ColumnCount = 3;
             TopTablePanel.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 5.668605F ) );
             TopTablePanel.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 94.3314F ) );
+            TopTablePanel.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 120F ) );
             TopTablePanel.Controls.Add( PictureBox, 0, 0 );
             TopTablePanel.Controls.Add( Title, 1, 0 );
+            TopTablePanel.Controls.Add( StatusLabel, 2, 0 );
             TopTablePanel.Dock = System.Windows.Forms.DockStyle.Top;
             TopTablePanel.Location = new System.Drawing.Point( 0, 0 );
             TopTablePanel.Name = "TopTablePanel";
@@ -159,7 +162,7 @@
             PictureBox.Location = new System.Drawing.Point( 3, 3 );
             PictureBox.Name = "PictureBox";
             PictureBox.Padding = new System.Windows.Forms.Padding( 1 );
-            PictureBox.Size = new System.Drawing.Size( 33, 20 );
+            PictureBox.Size = new System.Drawing.Size( 26, 20 );
             PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             PictureBox.TabIndex = 1;
             PictureBox.TabStop = false;
@@ -173,11 +176,11 @@
             Title.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
             Title.HoverText = null;
             Title.IsDerivedStyle = true;
-            Title.Location = new System.Drawing.Point( 42, 3 );
+            Title.Location = new System.Drawing.Point( 35, 3 );
             Title.Margin = new System.Windows.Forms.Padding( 3 );
             Title.Name = "Title";
             Title.Padding = new System.Windows.Forms.Padding( 1 );
-            Title.Size = new System.Drawing.Size( 643, 22 );
+            Title.Size = new System.Drawing.Size( 529, 22 );
             Title.Style = MetroSet_UI.Enums.Style.Custom;
             Title.StyleManager = null;
             Title.TabIndex = 0;
@@ -303,6 +306,10 @@
             ToolTip.TipText = null;
             ToolTip.TipTitle = null;
             // 
+            // Timer
+            // 
+            Timer.Interval = 80;
+            // 
             // MessageLabel
             // 
             MessageLabel.BindingSource = null;
@@ -377,6 +384,26 @@
             ClearButton.ThemeName = "Budget Execution";
             ClearButton.ToolTip = null;
             // 
+            // StatusLabel
+            // 
+            StatusLabel.BindingSource = null;
+            StatusLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            StatusLabel.Font = new System.Drawing.Font( "Roboto", 8F );
+            StatusLabel.HoverText = null;
+            StatusLabel.IsDerivedStyle = true;
+            StatusLabel.Location = new System.Drawing.Point( 570, 3 );
+            StatusLabel.Margin = new System.Windows.Forms.Padding( 3 );
+            StatusLabel.Name = "StatusLabel";
+            StatusLabel.Padding = new System.Windows.Forms.Padding( 1 );
+            StatusLabel.Size = new System.Drawing.Size( 115, 23 );
+            StatusLabel.Style = MetroSet_UI.Enums.Style.Custom;
+            StatusLabel.StyleManager = null;
+            StatusLabel.TabIndex = 2;
+            StatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            StatusLabel.ThemeAuthor = "Terry D. Eppler";
+            StatusLabel.ThemeName = "Budget Execution";
+            StatusLabel.ToolTip = ToolTip;
+            // 
             // FolderDialog
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
@@ -421,12 +448,13 @@
         public Button SelectButton;
         public Button FindButton;
         public Button CloseButton;
-        public System.Windows.Forms.FolderBrowserDialog Dialog;
+        public System.Windows.Forms.FolderBrowserDialog FolderBrowser;
         public SmallTip ToolTip;
         public System.Windows.Forms.BindingSource BindingSource;
         public System.Windows.Forms.Timer Timer;
         public Label MessageLabel;
         public System.Windows.Forms.TableLayoutPanel ButtonTable;
         public Button ClearButton;
+        public Label StatusLabel;
     }
 }

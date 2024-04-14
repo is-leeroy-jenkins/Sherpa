@@ -11,52 +11,16 @@
       "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\dialogs\\filedialog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\dialogs\\dialogbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\dialogs\\dialogbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\data\\connection\\budgetconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:data\\connection\\budgetconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\datagrid\\datagridform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\datagrid\\datagridform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\data\\query\\query.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:data\\query\\query.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\data\\query\\budgetquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:data\\query\\budgetquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\data\\adapter\\adapterbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:data\\adapter\\adapterbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\data\\connection\\connectionbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:data\\connection\\connectionbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\data\\query\\querybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:data\\query\\querybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\data\\adapter\\budgetadapter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:data\\adapter\\budgetadapter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\data\\sqlstatement\\sqlbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:data\\sqlstatement\\sqlbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\data\\sqlstatement\\sqlbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:data\\sqlstatement\\sqlbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\data\\sqlstatement\\sqlstatement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:data\\sqlstatement\\sqlstatement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\controls\\dialogs\\dialogbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:controls\\dialogs\\dialogbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -66,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -93,8 +57,47 @@
               "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Dialogs\\FileDialog.cs [Design]*",
               "RelativeToolTip": "Controls\\Dialogs\\FileDialog.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-14T00:25:56.978Z",
+              "WhenOpened": "2024-04-14T11:57:06.246Z",
               "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MainForm.cs",
+              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Forms\\MainForm.cs",
+              "RelativeDocumentMoniker": "Controls\\Forms\\MainForm.cs",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Forms\\MainForm.cs",
+              "RelativeToolTip": "Controls\\Forms\\MainForm.cs",
+              "ViewState": "AQIAAOkBAAAAAAAAAAAAADIDAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T10:54:40.437Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DataGridForm.cs",
+              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\DataGrid\\DataGridForm.cs",
+              "RelativeDocumentMoniker": "Controls\\DataGrid\\DataGridForm.cs",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\DataGrid\\DataGridForm.cs",
+              "RelativeToolTip": "Controls\\DataGrid\\DataGridForm.cs",
+              "ViewState": "AQIAAIYKAAAAAAAAAADwv6AKAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T10:49:41.482Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DialogBase.cs",
+              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Dialogs\\DialogBase.cs",
+              "RelativeDocumentMoniker": "Controls\\Dialogs\\DialogBase.cs",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Dialogs\\DialogBase.cs",
+              "RelativeToolTip": "Controls\\Dialogs\\DialogBase.cs",
+              "ViewState": "AQIAAGwAAAAAAAAAAAAAAH8AAABAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T10:45:47.864Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -104,165 +107,9 @@
               "RelativeDocumentMoniker": "Controls\\Dialogs\\FileDialog.cs",
               "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Dialogs\\FileDialog.cs*",
               "RelativeToolTip": "Controls\\Dialogs\\FileDialog.cs*",
-              "ViewState": "AQIAAFkBAAAAAAAAAAAAAHwBAAAbAAAA",
+              "ViewState": "AQIAABMEAAAAAAAAAAAAACwEAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-13T19:15:10.621Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DialogBase.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Dialogs\\DialogBase.cs",
-              "RelativeDocumentMoniker": "Controls\\Dialogs\\DialogBase.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\Dialogs\\DialogBase.cs",
-              "RelativeToolTip": "Controls\\Dialogs\\DialogBase.cs",
-              "ViewState": "AQIAAAMBAAAAAAAAAAAcwCoBAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-13T18:42:22.806Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "BudgetConnection.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Data\\Connection\\BudgetConnection.cs",
-              "RelativeDocumentMoniker": "Data\\Connection\\BudgetConnection.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Data\\Connection\\BudgetConnection.cs",
-              "RelativeToolTip": "Data\\Connection\\BudgetConnection.cs",
-              "ViewState": "AQIAAEIAAAAAAAAAAAAAAFcAAAAjAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-12T23:15:19.07Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ConnectionBase.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Data\\Connection\\ConnectionBase.cs",
-              "RelativeDocumentMoniker": "Data\\Connection\\ConnectionBase.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Data\\Connection\\ConnectionBase.cs",
-              "RelativeToolTip": "Data\\Connection\\ConnectionBase.cs",
-              "ViewState": "AQIAALEBAAAAAAAAAAAIwJgBAABKAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-12T23:13:41.609Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "BudgetQuery.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Data\\Query\\BudgetQuery.cs",
-              "RelativeDocumentMoniker": "Data\\Query\\BudgetQuery.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Data\\Query\\BudgetQuery.cs",
-              "RelativeToolTip": "Data\\Query\\BudgetQuery.cs",
-              "ViewState": "AQIAAB0AAAAAAAAAAAAmwDwAAAAWAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-12T23:12:07.029Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Query.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Data\\Query\\Query.cs",
-              "RelativeDocumentMoniker": "Data\\Query\\Query.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Data\\Query\\Query.cs",
-              "RelativeToolTip": "Data\\Query\\Query.cs",
-              "ViewState": "AQIAALQAAAAAAAAAAAAAAMUAAAAkAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-12T23:11:40.254Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "QueryBase.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Data\\Query\\QueryBase.cs",
-              "RelativeDocumentMoniker": "Data\\Query\\QueryBase.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Data\\Query\\QueryBase.cs",
-              "RelativeToolTip": "Data\\Query\\QueryBase.cs",
-              "ViewState": "AQIAAFoAAAAAAAAAAADwvzgAAAAWAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-12T23:11:34.764Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "DataGridForm.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\DataGrid\\DataGridForm.cs",
-              "RelativeDocumentMoniker": "Controls\\DataGrid\\DataGridForm.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Controls\\DataGrid\\DataGridForm.cs",
-              "RelativeToolTip": "Controls\\DataGrid\\DataGridForm.cs",
-              "ViewState": "AQIAALIKAAAAAAAAAADwv60KAABEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-12T23:11:05.859Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "AdapterBase.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Data\\Adapter\\AdapterBase.cs",
-              "RelativeDocumentMoniker": "Data\\Adapter\\AdapterBase.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Data\\Adapter\\AdapterBase.cs",
-              "RelativeToolTip": "Data\\Adapter\\AdapterBase.cs",
-              "ViewState": "AQIAANYAAAAAAAAAAAAAAMoAAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-12T23:10:12.273Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "SqlBase.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Data\\SqlStatement\\SqlBase.cs",
-              "RelativeDocumentMoniker": "Data\\SqlStatement\\SqlBase.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Data\\SqlStatement\\SqlBase.cs",
-              "RelativeToolTip": "Data\\SqlStatement\\SqlBase.cs",
-              "ViewState": "AQIAADIAAAAAAAAAAAAAAEgBAAAxAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-12T22:54:49.148Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "SqlBuilder.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Data\\SqlStatement\\SqlBuilder.cs",
-              "RelativeDocumentMoniker": "Data\\SqlStatement\\SqlBuilder.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Data\\SqlStatement\\SqlBuilder.cs",
-              "RelativeToolTip": "Data\\SqlStatement\\SqlBuilder.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-12T22:54:47.37Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "SqlStatement.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Data\\SqlStatement\\SqlStatement.cs",
-              "RelativeDocumentMoniker": "Data\\SqlStatement\\SqlStatement.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Data\\SqlStatement\\SqlStatement.cs",
-              "RelativeToolTip": "Data\\SqlStatement\\SqlStatement.cs",
-              "ViewState": "AQIAAMAAAAAAAAAAAAAAwOEAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-12T22:54:13.766Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "BudgetAdapter.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Data\\Adapter\\BudgetAdapter.cs",
-              "RelativeDocumentMoniker": "Data\\Adapter\\BudgetAdapter.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Data\\Adapter\\BudgetAdapter.cs",
-              "RelativeToolTip": "Data\\Adapter\\BudgetAdapter.cs",
-              "ViewState": "AQIAAEwBAAAAAAAAAAAkwF8BAAA5AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-12T22:50:15.73Z",
+              "WhenOpened": "2024-04-14T10:45:03.202Z",
               "EditorCaption": ""
             }
           ]

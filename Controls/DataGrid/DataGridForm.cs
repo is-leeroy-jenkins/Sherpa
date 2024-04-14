@@ -2717,7 +2717,7 @@ namespace BudgetExecution
             try
             {
                 var _dialog = new FileDialog( EXT.XLSX );
-                _dialog.ShowDialog( );
+                _dialog.ShowDialog( this );
             }
             catch( Exception _ex )
             {

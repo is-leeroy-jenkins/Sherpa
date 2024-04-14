@@ -10,7 +10,6 @@
     using System.Linq;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
-    using static System.Environment;
     using CheckState = MetroSet_UI.Enums.CheckState;
 
     /// <summary>
@@ -113,17 +112,6 @@
         {
         }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DialogBase" /> class.
-        /// </summary>
-        /// <param name="extension">The extension.</param>
-        protected DialogBase( EXT extension ) 
-            : this( )
-        {
-        }
-
         /// <summary>
         /// Gets the image.
         /// </summary>
@@ -160,124 +148,7 @@
 
             return default( Bitmap );
         }
-
-        /// <summary>
-        /// Gets the ListView paths.
-        /// </summary>
-        /// <returns></returns>
-        private protected void CreateListViewFilePaths( )
-        {
-            try
-            {
-                _filePaths?.Clear( );
-                var _pattern = "*." + _fileExtension;
-                for( var _i = 0; _i < _searchPaths.Count; _i++ )
-                {
-                    var _dirPath = _searchPaths[ _i ];
-                    var _parent = Directory.CreateDirectory( _dirPath );
-                    var _folders = _parent.GetDirectories( )
-                        ?.Where( s => s.Name.Contains( "My" ) == false )
-                        ?.Select( s => s.FullName )
-                        ?.ToList( );
-                    
-                    var _topLevelFiles = _parent.GetFiles( _pattern, SearchOption.TopDirectoryOnly )
-                        ?.Select( f => f.FullName )
-                        ?.ToArray( );
-                    
-                    _filePaths.AddRange( _topLevelFiles );
-                    for( int _k = 0; _k < _folders.Count; _k++ )
-                    {
-                        var _folder = Directory.CreateDirectory( _folders[ _k ] );
-                        var _lowerLevelFiles = _folder.GetFiles( _pattern, SearchOption.AllDirectories )
-                            ?.Select( s => s.FullName )
-                            ?.ToArray( );
-                        
-                        _filePaths.AddRange( _lowerLevelFiles );
-                    }
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Gets the file paths.
-        /// </summary>
-        /// <returns></returns>
-        private protected IList<string> GetFilePaths( )
-        {
-            try
-            {
-                var _list = new List<string>( );
-                var _pattern = "*" + _fileExtension;
-                for( var _i = 0; _i < _searchPaths.Count; _i++ )
-                {
-                    var _dirPath = _searchPaths[ _i ];
-                    var _parent = Directory.CreateDirectory( _dirPath );
-                    var _folders = _parent.GetDirectories( )
-                        ?.Where( s => s.Name.StartsWith( "My" ) == false )
-                        ?.Select( s => s.FullName )
-                        ?.ToList( );
-
-                    var _files = _parent.GetFiles( _pattern, SearchOption.TopDirectoryOnly )
-                        ?.Select( f => f.FullName )
-                        ?.ToArray( );
-
-                    _list.AddRange( _files );
-                    for( int _k = 0; _k < _folders.Count; _k++ )
-                    {
-                        var _folder = Directory.CreateDirectory( _folders[ _k ] );
-                        var _items = _folder.GetFiles( _pattern, SearchOption.AllDirectories )
-                            ?.Select( s => s.FullName )
-                            ?.ToArray( );
-
-                        _list.AddRange( _items );
-                    }
-                }
-                
-                return _list;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( IList<string> );
-            }
-        }
-
-        /// <summary>
-        /// Gets the initial dir paths.
-        /// </summary>
-        /// <returns>
-        /// IList(string)
-        /// </returns>
-        private protected IList<string> CreateInitialDirectoryPaths( )
-        {
-            try
-            {
-                var _current = CurrentDirectory;
-                var _list = new List<string>
-                {
-                    GetFolderPath( SpecialFolder.DesktopDirectory ),
-                    GetFolderPath( SpecialFolder.Personal ),
-                    GetFolderPath( SpecialFolder.Recent ),
-                    Environment.CurrentDirectory,
-                    @"C:\Users\terry\source\repos\BudgetExecution\Resources\Documents",
-                    _current
-                };
-
-                return _list?.Any( ) == true
-                    ? _list
-                    : default( IList<string> );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( IList<string> );
-            }
-        }
-
+        
         /// <summary>
         /// Clears the radio buttons.
         /// </summary>
