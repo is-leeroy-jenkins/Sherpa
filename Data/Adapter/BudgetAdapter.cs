@@ -54,6 +54,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertSwitchStatementToSwitchExpression" ) ]
     public class BudgetAdapter : AdapterBase, IBudgetAdapter
     {
         /// <inheritdoc />
@@ -431,8 +432,7 @@ namespace BudgetExecution
         /// </returns>
         public Task<DbDataAdapter> CreateAsync( )
         {
-            if( Enum.IsDefined( typeof( Provider ), _provider )
-               && !string.IsNullOrEmpty( _commandText ) )
+            if( !string.IsNullOrEmpty( _commandText ) )
             {
                 var _async = new TaskCompletionSource<DbDataAdapter>( );
                 try

@@ -53,14 +53,15 @@ namespace BudgetExecution
             SqlServerRadioButton = new RadioButton( );
             WordRadioButton = new RadioButton( );
             PdfRadioButton = new RadioButton( );
-            FileList = new ListBox( );
+            FileListBox = new ListBox( );
             BindingSource = new BindingSource( components );
             ToolTip = new SmallTip( );
             FoundLabel = new Label( );
             TopTablePanel = new TableLayoutPanel( );
             PictureBox = new Picture( );
             Title = new Label( );
-            MessageLabel = new Label( );
+            StatusLabel = new Label( );
+            PathLabel = new Label( );
             CloseButton = new Button( );
             BrowseButton = new Button( );
             SelectButton = new Button( );
@@ -80,12 +81,12 @@ namespace BudgetExecution
             TextBoxLayout.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             TextBoxLayout.BackColor = System.Drawing.Color.Transparent;
             TextBoxLayout.ColumnCount = 3;
-            TextBoxLayout.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 12.55012F ) );
-            TextBoxLayout.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 70.99126F ) );
+            TextBoxLayout.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 13.2653065F ) );
+            TextBoxLayout.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 70.1166153F ) );
             TextBoxLayout.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 16.4723F ) );
             TextBoxLayout.ColumnStyles.Add( new ColumnStyle( SizeType.Absolute, 20F ) );
             TextBoxLayout.Controls.Add( CheckBoxLayout, 2, 0 );
-            TextBoxLayout.Controls.Add( FileList, 1, 0 );
+            TextBoxLayout.Controls.Add( FileListBox, 1, 0 );
             TextBoxLayout.Controls.Add( FoundLabel, 0, 0 );
             TextBoxLayout.Dock = DockStyle.Top;
             TextBoxLayout.GrowStyle = TableLayoutPanelGrowStyle.FixedSize;
@@ -446,41 +447,41 @@ namespace BudgetExecution
             PdfRadioButton.ThemeName = "Budget Execution";
             PdfRadioButton.ToolTip = null;
             // 
-            // FileList
+            // FileListBox
             // 
-            FileList.BackColor = System.Drawing.Color.FromArgb( 35, 35, 35 );
-            FileList.BindingSource = BindingSource;
-            FileList.BorderColor = System.Drawing.Color.Gray;
-            FileList.DataFilter = null;
-            FileList.DisabledBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            FileList.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
-            FileList.Dock = DockStyle.Fill;
-            FileList.Font = new System.Drawing.Font( "Roboto", 8.25F );
-            FileList.HoveredItemBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
-            FileList.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
-            FileList.HoverText = null;
-            FileList.IsDerivedStyle = true;
-            FileList.ItemHeight = 30;
-            FileList.Location = new System.Drawing.Point( 88, 2 );
-            FileList.Margin = new Padding( 1 );
-            FileList.MultiSelect = false;
-            FileList.Name = "FileList";
-            FileList.Padding = new Padding( 1 );
-            FileList.SelectedIndex = -1;
-            FileList.SelectedItem = null;
-            FileList.SelectedItemBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
-            FileList.SelectedItemColor = System.Drawing.Color.White;
-            FileList.SelectedText = null;
-            FileList.SelectedValue = null;
-            FileList.ShowBorder = false;
-            FileList.ShowScrollBar = false;
-            FileList.Size = new System.Drawing.Size( 484, 287 );
-            FileList.Style = MetroSet_UI.Enums.Style.Custom;
-            FileList.StyleManager = null;
-            FileList.TabIndex = 3;
-            FileList.ThemeAuthor = "Terry D. Eppler";
-            FileList.ThemeName = "BudgetExecution";
-            FileList.ToolTip = ToolTip;
+            FileListBox.BackColor = System.Drawing.Color.FromArgb( 35, 35, 35 );
+            FileListBox.BindingSource = BindingSource;
+            FileListBox.BorderColor = System.Drawing.Color.Gray;
+            FileListBox.DataFilter = null;
+            FileListBox.DisabledBackColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            FileListBox.DisabledForeColor = System.Drawing.Color.FromArgb( 20, 20, 20 );
+            FileListBox.Dock = DockStyle.Fill;
+            FileListBox.Font = new System.Drawing.Font( "Roboto", 8.25F );
+            FileListBox.HoveredItemBackColor = System.Drawing.Color.FromArgb( 50, 93, 129 );
+            FileListBox.HoveredItemColor = System.Drawing.Color.LightSteelBlue;
+            FileListBox.HoverText = null;
+            FileListBox.IsDerivedStyle = true;
+            FileListBox.ItemHeight = 30;
+            FileListBox.Location = new System.Drawing.Point( 93, 2 );
+            FileListBox.Margin = new Padding( 1 );
+            FileListBox.MultiSelect = false;
+            FileListBox.Name = "FileListBox";
+            FileListBox.Padding = new Padding( 1 );
+            FileListBox.SelectedIndex = -1;
+            FileListBox.SelectedItem = null;
+            FileListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb( 0, 120, 212 );
+            FileListBox.SelectedItemColor = System.Drawing.Color.White;
+            FileListBox.SelectedText = null;
+            FileListBox.SelectedValue = null;
+            FileListBox.ShowBorder = false;
+            FileListBox.ShowScrollBar = false;
+            FileListBox.Size = new System.Drawing.Size( 479, 287 );
+            FileListBox.Style = MetroSet_UI.Enums.Style.Custom;
+            FileListBox.StyleManager = null;
+            FileListBox.TabIndex = 3;
+            FileListBox.ThemeAuthor = "Terry D. Eppler";
+            FileListBox.ThemeName = "BudgetExecution";
+            FileListBox.ToolTip = ToolTip;
             // 
             // ToolTip
             // 
@@ -505,6 +506,7 @@ namespace BudgetExecution
             // FoundLabel
             // 
             FoundLabel.BindingSource = null;
+            FoundLabel.Dock = DockStyle.Top;
             FoundLabel.FlatStyle = FlatStyle.Flat;
             FoundLabel.Font = new System.Drawing.Font( "Roboto", 8.25F );
             FoundLabel.HoverText = null;
@@ -513,7 +515,7 @@ namespace BudgetExecution
             FoundLabel.Margin = new Padding( 3 );
             FoundLabel.Name = "FoundLabel";
             FoundLabel.Padding = new Padding( 1 );
-            FoundLabel.Size = new System.Drawing.Size( 79, 23 );
+            FoundLabel.Size = new System.Drawing.Size( 85, 33 );
             FoundLabel.Style = MetroSet_UI.Enums.Style.Custom;
             FoundLabel.StyleManager = null;
             FoundLabel.TabIndex = 4;
@@ -525,11 +527,13 @@ namespace BudgetExecution
             // TopTablePanel
             // 
             TopTablePanel.BackColor = System.Drawing.Color.Transparent;
-            TopTablePanel.ColumnCount = 2;
-            TopTablePanel.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 5.668605F ) );
-            TopTablePanel.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 94.3314F ) );
+            TopTablePanel.ColumnCount = 3;
+            TopTablePanel.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 6.49350643F ) );
+            TopTablePanel.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 93.50649F ) );
+            TopTablePanel.ColumnStyles.Add( new ColumnStyle( SizeType.Absolute, 164F ) );
             TopTablePanel.Controls.Add( PictureBox, 0, 0 );
             TopTablePanel.Controls.Add( Title, 1, 0 );
+            TopTablePanel.Controls.Add( StatusLabel, 2, 0 );
             TopTablePanel.Dock = DockStyle.Top;
             TopTablePanel.Location = new System.Drawing.Point( 0, 0 );
             TopTablePanel.Name = "TopTablePanel";
@@ -565,11 +569,11 @@ namespace BudgetExecution
             Title.Font = new System.Drawing.Font( "Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0 );
             Title.HoverText = null;
             Title.IsDerivedStyle = true;
-            Title.Location = new System.Drawing.Point( 42, 3 );
+            Title.Location = new System.Drawing.Point( 37, 3 );
             Title.Margin = new Padding( 3 );
             Title.Name = "Title";
             Title.Padding = new Padding( 1 );
-            Title.Size = new System.Drawing.Size( 643, 21 );
+            Title.Size = new System.Drawing.Size( 483, 21 );
             Title.Style = MetroSet_UI.Enums.Style.Custom;
             Title.StyleManager = null;
             Title.TabIndex = 0;
@@ -579,25 +583,46 @@ namespace BudgetExecution
             Title.ThemeName = "BudgetExecution";
             Title.ToolTip = null;
             // 
-            // MessageLabel
+            // StatusLabel
             // 
-            MessageLabel.BindingSource = null;
-            MessageLabel.FlatStyle = FlatStyle.Flat;
-            MessageLabel.Font = new System.Drawing.Font( "Roboto", 8.25F );
-            MessageLabel.HoverText = null;
-            MessageLabel.IsDerivedStyle = true;
-            MessageLabel.Location = new System.Drawing.Point( 90, 363 );
-            MessageLabel.Margin = new Padding( 3 );
-            MessageLabel.Name = "MessageLabel";
-            MessageLabel.Padding = new Padding( 1 );
-            MessageLabel.Size = new System.Drawing.Size( 488, 23 );
-            MessageLabel.Style = MetroSet_UI.Enums.Style.Custom;
-            MessageLabel.StyleManager = null;
-            MessageLabel.TabIndex = 12;
-            MessageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            MessageLabel.ThemeAuthor = "Terry D. Eppler";
-            MessageLabel.ThemeName = "BudgetExecution";
-            MessageLabel.ToolTip = null;
+            StatusLabel.BindingSource = null;
+            StatusLabel.FlatStyle = FlatStyle.Flat;
+            StatusLabel.Font = new System.Drawing.Font( "Roboto", 8F );
+            StatusLabel.HoverText = null;
+            StatusLabel.IsDerivedStyle = true;
+            StatusLabel.Location = new System.Drawing.Point( 526, 3 );
+            StatusLabel.Margin = new Padding( 3 );
+            StatusLabel.Name = "StatusLabel";
+            StatusLabel.Padding = new Padding( 1 );
+            StatusLabel.Size = new System.Drawing.Size( 159, 21 );
+            StatusLabel.Style = MetroSet_UI.Enums.Style.Custom;
+            StatusLabel.StyleManager = null;
+            StatusLabel.TabIndex = 2;
+            StatusLabel.Text = "label1";
+            StatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            StatusLabel.ThemeAuthor = "Terry D. Eppler";
+            StatusLabel.ThemeName = "Budget Execution";
+            StatusLabel.ToolTip = ToolTip;
+            // 
+            // PathLabel
+            // 
+            PathLabel.BindingSource = null;
+            PathLabel.FlatStyle = FlatStyle.Flat;
+            PathLabel.Font = new System.Drawing.Font( "Roboto", 8.25F );
+            PathLabel.HoverText = null;
+            PathLabel.IsDerivedStyle = true;
+            PathLabel.Location = new System.Drawing.Point( 90, 363 );
+            PathLabel.Margin = new Padding( 3 );
+            PathLabel.Name = "PathLabel";
+            PathLabel.Padding = new Padding( 1 );
+            PathLabel.Size = new System.Drawing.Size( 488, 35 );
+            PathLabel.Style = MetroSet_UI.Enums.Style.Custom;
+            PathLabel.StyleManager = null;
+            PathLabel.TabIndex = 12;
+            PathLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            PathLabel.ThemeAuthor = "Terry D. Eppler";
+            PathLabel.ThemeName = "BudgetExecution";
+            PathLabel.ToolTip = null;
             // 
             // CloseButton
             // 
@@ -740,7 +765,7 @@ namespace BudgetExecution
             ClientSize = new System.Drawing.Size( 688, 439 );
             ControlBox = false;
             Controls.Add( ButtonTable );
-            Controls.Add( MessageLabel );
+            Controls.Add( PathLabel );
             Controls.Add( TextBoxLayout );
             Controls.Add( TopTablePanel );
             DoubleBuffered = true;
@@ -775,9 +800,9 @@ namespace BudgetExecution
         public Label Title;
         public BindingSource BindingSource;
         public Picture PictureBox;
-        public ListBox FileList;
+        public ListBox FileListBox;
         public Label FoundLabel;
-        public Label MessageLabel;
+        public Label PathLabel;
         public RadioButton LibraryRadioButton;
         public RadioButton PowerPointRadioButton;
         public RadioButton ExecutableRadioButton;
@@ -796,6 +821,7 @@ namespace BudgetExecution
         public System.Windows.Forms.Timer Timer;
         public TableLayoutPanel ButtonTable;
         public OpenDialog OpenDialog;
+        public Label StatusLabel;
     }
 
 }

@@ -61,6 +61,16 @@ namespace BudgetExecution
     public abstract class AsyncBase : ISource, IProvider, IDisposable
     {
         /// <summary>
+        /// The locked object
+        /// </summary>
+        private object _path;
+
+        /// <summary>
+        /// The busy
+        /// </summary>
+        private bool _busy;
+
+        /// <summary>
         /// The source
         /// </summary>
         private protected Source _source;
@@ -103,7 +113,7 @@ namespace BudgetExecution
         /// <summary>
         /// The is disposed
         /// </summary>
-        private protected bool _isDisposed;
+        private protected bool _disposed;
 
         /// <summary>
         /// The data columns
@@ -259,11 +269,11 @@ namespace BudgetExecution
         {
             get
             {
-                return _isDisposed;
+                return _disposed;
             }
             private protected set
             {
-                _isDisposed = true;
+                _disposed = true;
             }
         }
 
@@ -413,6 +423,36 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Gets a value indicating whether this instance is busy.
+        /// </summary>
+        /// <value>
+        /// <c> true </c>
+        /// if this instance is busy; otherwise,
+        /// <c> false </c>
+        /// </value>
+        public bool IsBusy
+        {
+            get
+            {
+                if( _path == null )
+                {
+                    _path = new object( );
+                    lock( _path )
+                    {
+                        return _busy;
+                    }
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        return _busy;
+                    }
+                }
+            }
+        }
+
         /// <inheritdoc />
         /// <summary>
         /// Performs application-defined tasks associated with freeing,
@@ -439,7 +479,7 @@ namespace BudgetExecution
                 _connection?.Dispose( );
                 _dataAdapter?.Dispose( );
                 _dataReader?.Dispose( );
-                _isDisposed = true;
+                _disposed = true;
             }
         }
 

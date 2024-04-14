@@ -59,6 +59,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ValueParameterNotUsed" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MergeConditionalExpression" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class AsyncQuery : AsyncBase 
     {
         /// <inheritdoc/>
@@ -88,7 +89,7 @@ namespace BudgetExecution
             _connection = new BudgetConnection( source, provider ).Create( );
             _sqlStatement = new SqlStatement( source, provider, commandType );
             _dataAdapter = GetAdapterAsync( );
-            _isDisposed = false;
+            _disposed = false;
         }
 
         /// <inheritdoc/>
@@ -110,7 +111,7 @@ namespace BudgetExecution
             _connection = new BudgetConnection( source, provider ).Create( );
             _sqlStatement = new SqlStatement( source, provider, where, commandType );
             _dataAdapter = GetAdapterAsync( );
-            _isDisposed = false;
+            _disposed = false;
         }
 
         /// <inheritdoc/>
@@ -133,7 +134,7 @@ namespace BudgetExecution
             _connection = new BudgetConnection( source, provider ).Create( );
             _sqlStatement = new SqlStatement( source, provider, updates, where, commandType );
             _dataAdapter = GetAdapterAsync( );
-            _isDisposed = false;
+            _disposed = false;
         }
 
         /// <inheritdoc/>
@@ -157,7 +158,7 @@ namespace BudgetExecution
             _connection = new BudgetConnection( source, provider ).Create( );
             _sqlStatement = new SqlStatement( source, provider, columns, where, commandType );
             _dataAdapter = GetAdapterAsync( );
-            _isDisposed = false;
+            _disposed = false;
         }
 
         /// <inheritdoc/>
@@ -182,7 +183,7 @@ namespace BudgetExecution
             _connection = new BudgetConnection( source, provider ).Create( );
             _sqlStatement = new SqlStatement( source, provider, columns, having, commandType );
             _dataAdapter = GetAdapterAsync( );
-            _isDisposed = false;
+            _disposed = false;
         }
 
         /// <inheritdoc/>
@@ -201,7 +202,7 @@ namespace BudgetExecution
             _connection = new BudgetConnection( source, provider ).Create( );
             _sqlStatement = new SqlStatement( source, provider, sqlText );
             _dataAdapter = GetAdapterAsync( );
-            _isDisposed = false;
+            _disposed = false;
             _criteria = null;
         }
 
@@ -235,7 +236,7 @@ namespace BudgetExecution
             _source = Source.External;
             _sqlStatement = new SqlStatement( _source, _provider, sqlText );
             _dataAdapter = GetAdapterAsync( );
-            _isDisposed = false;
+            _disposed = false;
         }
 
         /// <inheritdoc/>
@@ -257,7 +258,7 @@ namespace BudgetExecution
             _connection = new BudgetConnection( _source, _provider ).Create( );
             _sqlStatement = new SqlStatement( _source, _provider, where, commandType );
             _dataAdapter = GetAdapterAsync( );
-            _isDisposed = false;
+            _disposed = false;
         }
 
         /// <inheritdoc/>
@@ -275,78 +276,73 @@ namespace BudgetExecution
             _connection = new BudgetConnection( _source, _provider ).Create( );
             _sqlStatement = sqlStatement;
             _dataAdapter = GetAdapterAsync( );
-            _isDisposed = false;
+            _disposed = false;
         }
-
+        
         /// <summary>
         /// Gets the adapter.
         /// </summary>
         /// <returns></returns>
         public Task<DbDataAdapter> GetAdapterAsync( )
         {
-            if( _connection != null
-               && _sqlStatement != null )
+            var _async = new TaskCompletionSource<DbDataAdapter>( );
+            try
             {
-                var _async = new TaskCompletionSource<DbDataAdapter>( );
-                try
+                var _commandText = _sqlStatement.CommandText;
+                var _connString = _connection.ConnectionString;
+                switch( _provider )
                 {
-                    var _commandText = _sqlStatement.CommandText;
-                    var _connString = _connection.ConnectionString;
-                    switch( _provider )
+                    case Provider.Excel:
+                    case Provider.CSV:
+                    case Provider.OleDb:
+                    case Provider.Access:
                     {
-                        case Provider.Excel:
-                        case Provider.CSV:
-                        case Provider.OleDb:
-                        case Provider.Access:
-                        {
-                            var _adapter = new OleDbDataAdapter( _commandText, _connString );
-                            _async.SetResult( _adapter );
-                            return ( _adapter != null )
-                                ? _async.Task
-                                : default( Task<DbDataAdapter> );
-                        }
-                        case Provider.SQLite:
-                        {
-                            var _adapter = new SQLiteDataAdapter( _commandText, _connString );
-                            _async.SetResult( _adapter );
-                            return ( _adapter != null )
-                                ? _async.Task
-                                : default( Task<DbDataAdapter> );
-                        }
-                        case Provider.SqlCe:
-                        {
-                            var _adapter = new SqlCeDataAdapter( _commandText, _connString );
-                            _async.SetResult( _adapter );
-                            return ( _adapter != null )
-                                ? _async.Task
-                                : default( Task<DbDataAdapter> );
-                        }
-                        case Provider.SqlServer:
-                        {
-                            var _adapter = new SqlDataAdapter( _commandText, _connString );
-                            _async.SetResult( _adapter );
-                            return ( _adapter != null )
-                                ? _async.Task
-                                : default( Task<DbDataAdapter> );
-                        }
-                        default:
-                        {
-                            var _adapter = new OleDbDataAdapter( _commandText, _connString );
-                            _async.SetResult( _adapter );
-                            return ( _adapter != null )
-                                ? _async.Task
-                                : default( Task<DbDataAdapter> );
-                        }
+                        var _adapter = new OleDbDataAdapter( _commandText, _connString );
+                        _async.SetResult( _adapter );
+                        return ( _adapter != null )
+                            ? _async.Task
+                            : default( Task<DbDataAdapter> );
+                    }
+                    case Provider.SQLite:
+                    {
+                        var _adapter = new SQLiteDataAdapter( _commandText, _connString );
+                        _async.SetResult( _adapter );
+                        return ( _adapter != null )
+                            ? _async.Task
+                            : default( Task<DbDataAdapter> );
+                    }
+                    case Provider.SqlCe:
+                    {
+                        var _adapter = new SqlCeDataAdapter( _commandText, _connString );
+                        _async.SetResult( _adapter );
+                        return ( _adapter != null )
+                            ? _async.Task
+                            : default( Task<DbDataAdapter> );
+                    }
+                    case Provider.SqlServer:
+                    {
+                        var _adapter = new SqlDataAdapter( _commandText, _connString );
+                        _async.SetResult( _adapter );
+                        return ( _adapter != null )
+                            ? _async.Task
+                            : default( Task<DbDataAdapter> );
+                    }
+                    default:
+                    {
+                        var _adapter = new OleDbDataAdapter( _commandText, _connString );
+                        _async.SetResult( _adapter );
+                        return ( _adapter != null )
+                            ? _async.Task
+                            : default( Task<DbDataAdapter> );
                     }
                 }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( Task<DbDataAdapter> );
-                }
             }
-
-            return default( Task<DbDataAdapter> );
+            catch( Exception _ex )
+            {
+                _async.SetException( _ex );
+                Fail( _ex );
+                return default( Task<DbDataAdapter> );
+            }
         }
     }
 }

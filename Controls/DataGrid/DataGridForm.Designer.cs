@@ -45,13 +45,13 @@
             Separator13 = new ToolSeparator( );
             Separator15 = new ToolSeparator( );
             GridPanel = new BackPanel( );
-            GridLabel1 = new Label( );
+            GridHeaderLabel1 = new Label( );
             DataGridPanel = new BackPanel( );
             DataGrid = new DataGrid( );
             DataLabelTable = new System.Windows.Forms.TableLayoutPanel( );
-            GridLabel2 = new Label( );
-            GridLabel4 = new Label( );
-            GridLabel3 = new Label( );
+            GridHeaderLabel2 = new Label( );
+            GridHeaderLabel4 = new Label( );
+            GridHeaderLabel3 = new Label( );
             SecondCalendarTable = new HeaderPanel( );
             SecondCalendarPanel = new BackPanel( );
             SecondCalendar = new Syncfusion.WinForms.Input.SfCalendar( );
@@ -100,38 +100,38 @@
             AccessRadioButton = new RadioButton( );
             SqlCeRadioButton = new RadioButton( );
             ToolStripSeparator = new ToolSeparator( );
-            TextBoxSeparator = new ToolSeparator( );
+            StatusLabelSeparator = new ToolSeparator( );
             FirstButton = new ToolStripButton( );
-            FirstSeparator = new ToolSeparator( );
+            FirstButtonSeparator = new ToolSeparator( );
             PreviousButton = new ToolStripButton( );
-            PreviousSeparator = new ToolSeparator( );
+            PreviousButtonSeparator = new ToolSeparator( );
             NextButton = new ToolStripButton( );
-            NextSeparator = new ToolSeparator( );
+            NextButtonSeparator = new ToolSeparator( );
             LastSeparator = new ToolSeparator( );
             FilterButton = new ToolStripButton( );
             RemoveFiltersSeparator = new ToolSeparator( );
-            EditRecordSeparator = new ToolSeparator( );
+            DataLabelSeparator = new ToolSeparator( );
             EditColumnButton = new ToolStripButton( );
-            EditColumnSeparator = new ToolSeparator( );
+            RefreshDataButtonSeparator = new ToolSeparator( );
             EditRecordButton = new ToolStripButton( );
-            ColumnSeparator = new ToolSeparator( );
+            EditColumnButtonSeparator = new ToolSeparator( );
             RefreshDataButton = new ToolStripButton( );
-            RefreshDataSeparator = new ToolSeparator( );
+            GroupButtonSeparator = new ToolSeparator( );
             GroupButton = new ToolStripButton( );
-            GroupSeparator = new ToolSeparator( );
+            EditRecordButtonSeparator = new ToolSeparator( );
             EditSqlButton = new ToolStripButton( );
-            EditSqlSeparator = new ToolSeparator( );
-            ChartSeparator = new ToolSeparator( );
+            EditSqlButtonSeparator = new ToolSeparator( );
+            SearchButtonSeparator = new ToolSeparator( );
             SaveButton = new ToolStripButton( );
             ExcelImportSeparator = new ToolSeparator( );
             CalendarSeparator = new ToolSeparator( );
             BrowseButton = new ToolStripButton( );
-            BrowseSeparator = new ToolSeparator( );
+            SaveButtonSeparator = new ToolSeparator( );
             WebSeparator = new ToolSeparator( );
             ComboBoxSeparator = new ToolSeparator( );
-            BackSeparator = new ToolSeparator( );
+            BrowseButtonSeparator = new ToolSeparator( );
             MenuButton = new ToolStripButton( );
-            MenuSeparator = new ToolSeparator( );
+            MenuButtonSeparator = new ToolSeparator( );
             ExitButton = new ToolStripButton( );
             ToolStrip = new ToolStrip( );
             StatusLabel = new ToolStripLabel( );
@@ -139,9 +139,9 @@
             LastButtonSeparator = new ToolSeparator( );
             DataSpacer = new ToolStripLabel( );
             DataLabel = new ToolStripLabel( );
-            CommandLabelSeparator = new ToolSeparator( );
+            FilterButtonSeparator = new ToolSeparator( );
             ToolStripTextBox = new ToolStripTextBox( );
-            GoButton = new ToolStripButton( );
+            SearchButton = new ToolStripButton( );
             ApplicationSeparator = new ToolSeparator( );
             MenuLabel = new ToolStripLabel( );
             ExitSeparator = new ToolSeparator( );
@@ -162,6 +162,8 @@
             Loader = new System.Windows.Forms.PictureBox( );
             ToolStripTable = new System.Windows.Forms.TableLayoutPanel( );
             ContextMenu = new ContextMenu( );
+            ToolStripTextBoxSeparator = new ToolSeparator( );
+            ProgressBar = new System.Windows.Forms.ToolStripProgressBar( );
             ( (System.ComponentModel.ISupportInitialize)BindingSource ).BeginInit( );
             DataGridPanel.SuspendLayout( );
             ( (System.ComponentModel.ISupportInitialize)DataGrid ).BeginInit( );
@@ -301,27 +303,27 @@
             GridPanel.ThemeName = "BudgetExecution";
             GridPanel.ToolTip = null;
             // 
-            // GridLabel1
+            // GridHeaderLabel1
             // 
-            GridLabel1.BindingSource = null;
-            GridLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            GridLabel1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            GridLabel1.Font = new System.Drawing.Font( "Roboto", 8.25F );
-            GridLabel1.HoverText = null;
-            GridLabel1.IsDerivedStyle = true;
-            GridLabel1.Location = new System.Drawing.Point( 3, 3 );
-            GridLabel1.Margin = new System.Windows.Forms.Padding( 3 );
-            GridLabel1.Name = "GridLabel1";
-            GridLabel1.Padding = new System.Windows.Forms.Padding( 1 );
-            GridLabel1.Size = new System.Drawing.Size( 157, 19 );
-            GridLabel1.Style = MetroSet_UI.Enums.Style.Custom;
-            GridLabel1.StyleManager = null;
-            GridLabel1.TabIndex = 33;
-            GridLabel1.Text = "Source";
-            GridLabel1.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            GridLabel1.ThemeAuthor = "Terry D. Eppler";
-            GridLabel1.ThemeName = "BudgetExecution";
-            GridLabel1.ToolTip = null;
+            GridHeaderLabel1.BindingSource = null;
+            GridHeaderLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            GridHeaderLabel1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            GridHeaderLabel1.Font = new System.Drawing.Font( "Roboto", 8.25F );
+            GridHeaderLabel1.HoverText = null;
+            GridHeaderLabel1.IsDerivedStyle = true;
+            GridHeaderLabel1.Location = new System.Drawing.Point( 3, 3 );
+            GridHeaderLabel1.Margin = new System.Windows.Forms.Padding( 3 );
+            GridHeaderLabel1.Name = "GridHeaderLabel1";
+            GridHeaderLabel1.Padding = new System.Windows.Forms.Padding( 1 );
+            GridHeaderLabel1.Size = new System.Drawing.Size( 157, 19 );
+            GridHeaderLabel1.Style = MetroSet_UI.Enums.Style.Custom;
+            GridHeaderLabel1.StyleManager = null;
+            GridHeaderLabel1.TabIndex = 33;
+            GridHeaderLabel1.Text = "Source";
+            GridHeaderLabel1.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            GridHeaderLabel1.ThemeAuthor = "Terry D. Eppler";
+            GridHeaderLabel1.ThemeName = "BudgetExecution";
+            GridHeaderLabel1.ToolTip = null;
             // 
             // DataGridPanel
             // 
@@ -418,10 +420,10 @@
             DataLabelTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 46.0750847F ) );
             DataLabelTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 126F ) );
             DataLabelTable.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Absolute, 560F ) );
-            DataLabelTable.Controls.Add( GridLabel2, 1, 0 );
-            DataLabelTable.Controls.Add( GridLabel4, 3, 0 );
-            DataLabelTable.Controls.Add( GridLabel1, 0, 0 );
-            DataLabelTable.Controls.Add( GridLabel3, 2, 0 );
+            DataLabelTable.Controls.Add( GridHeaderLabel2, 1, 0 );
+            DataLabelTable.Controls.Add( GridHeaderLabel4, 3, 0 );
+            DataLabelTable.Controls.Add( GridHeaderLabel1, 0, 0 );
+            DataLabelTable.Controls.Add( GridHeaderLabel3, 2, 0 );
             DataLabelTable.Dock = System.Windows.Forms.DockStyle.Bottom;
             DataLabelTable.Location = new System.Drawing.Point( 3, 22 );
             DataLabelTable.Name = "DataLabelTable";
@@ -430,71 +432,71 @@
             DataLabelTable.Size = new System.Drawing.Size( 989, 25 );
             DataLabelTable.TabIndex = 1;
             // 
-            // GridLabel2
+            // GridHeaderLabel2
             // 
-            GridLabel2.BindingSource = null;
-            GridLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            GridLabel2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            GridLabel2.Font = new System.Drawing.Font( "Roboto", 8.25F );
-            GridLabel2.HoverText = null;
-            GridLabel2.IsDerivedStyle = true;
-            GridLabel2.Location = new System.Drawing.Point( 166, 3 );
-            GridLabel2.Margin = new System.Windows.Forms.Padding( 3 );
-            GridLabel2.Name = "GridLabel2";
-            GridLabel2.Padding = new System.Windows.Forms.Padding( 1 );
-            GridLabel2.Size = new System.Drawing.Size( 133, 19 );
-            GridLabel2.Style = MetroSet_UI.Enums.Style.Custom;
-            GridLabel2.StyleManager = null;
-            GridLabel2.TabIndex = 44;
-            GridLabel2.Text = "Source";
-            GridLabel2.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            GridLabel2.ThemeAuthor = "Terry D. Eppler";
-            GridLabel2.ThemeName = "BudgetExecution";
-            GridLabel2.ToolTip = null;
+            GridHeaderLabel2.BindingSource = null;
+            GridHeaderLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            GridHeaderLabel2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            GridHeaderLabel2.Font = new System.Drawing.Font( "Roboto", 8.25F );
+            GridHeaderLabel2.HoverText = null;
+            GridHeaderLabel2.IsDerivedStyle = true;
+            GridHeaderLabel2.Location = new System.Drawing.Point( 166, 3 );
+            GridHeaderLabel2.Margin = new System.Windows.Forms.Padding( 3 );
+            GridHeaderLabel2.Name = "GridHeaderLabel2";
+            GridHeaderLabel2.Padding = new System.Windows.Forms.Padding( 1 );
+            GridHeaderLabel2.Size = new System.Drawing.Size( 133, 19 );
+            GridHeaderLabel2.Style = MetroSet_UI.Enums.Style.Custom;
+            GridHeaderLabel2.StyleManager = null;
+            GridHeaderLabel2.TabIndex = 44;
+            GridHeaderLabel2.Text = "Source";
+            GridHeaderLabel2.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            GridHeaderLabel2.ThemeAuthor = "Terry D. Eppler";
+            GridHeaderLabel2.ThemeName = "BudgetExecution";
+            GridHeaderLabel2.ToolTip = null;
             // 
-            // GridLabel4
+            // GridHeaderLabel4
             // 
-            GridLabel4.BindingSource = null;
-            GridLabel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            GridLabel4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            GridLabel4.Font = new System.Drawing.Font( "Roboto", 8.25F );
-            GridLabel4.HoverText = null;
-            GridLabel4.IsDerivedStyle = true;
-            GridLabel4.Location = new System.Drawing.Point( 431, 3 );
-            GridLabel4.Margin = new System.Windows.Forms.Padding( 3 );
-            GridLabel4.Name = "GridLabel4";
-            GridLabel4.Padding = new System.Windows.Forms.Padding( 1 );
-            GridLabel4.Size = new System.Drawing.Size( 555, 19 );
-            GridLabel4.Style = MetroSet_UI.Enums.Style.Custom;
-            GridLabel4.StyleManager = null;
-            GridLabel4.TabIndex = 44;
-            GridLabel4.Text = "Source";
-            GridLabel4.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            GridLabel4.ThemeAuthor = "Terry D. Eppler";
-            GridLabel4.ThemeName = "BudgetExecution";
-            GridLabel4.ToolTip = null;
+            GridHeaderLabel4.BindingSource = null;
+            GridHeaderLabel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            GridHeaderLabel4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            GridHeaderLabel4.Font = new System.Drawing.Font( "Roboto", 8.25F );
+            GridHeaderLabel4.HoverText = null;
+            GridHeaderLabel4.IsDerivedStyle = true;
+            GridHeaderLabel4.Location = new System.Drawing.Point( 431, 3 );
+            GridHeaderLabel4.Margin = new System.Windows.Forms.Padding( 3 );
+            GridHeaderLabel4.Name = "GridHeaderLabel4";
+            GridHeaderLabel4.Padding = new System.Windows.Forms.Padding( 1 );
+            GridHeaderLabel4.Size = new System.Drawing.Size( 555, 19 );
+            GridHeaderLabel4.Style = MetroSet_UI.Enums.Style.Custom;
+            GridHeaderLabel4.StyleManager = null;
+            GridHeaderLabel4.TabIndex = 44;
+            GridHeaderLabel4.Text = "Source";
+            GridHeaderLabel4.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            GridHeaderLabel4.ThemeAuthor = "Terry D. Eppler";
+            GridHeaderLabel4.ThemeName = "BudgetExecution";
+            GridHeaderLabel4.ToolTip = ToolTip;
             // 
-            // GridLabel3
+            // GridHeaderLabel3
             // 
-            GridLabel3.BindingSource = null;
-            GridLabel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            GridLabel3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            GridLabel3.Font = new System.Drawing.Font( "Roboto", 8.25F );
-            GridLabel3.HoverText = null;
-            GridLabel3.IsDerivedStyle = true;
-            GridLabel3.Location = new System.Drawing.Point( 305, 3 );
-            GridLabel3.Margin = new System.Windows.Forms.Padding( 3 );
-            GridLabel3.Name = "GridLabel3";
-            GridLabel3.Padding = new System.Windows.Forms.Padding( 1 );
-            GridLabel3.Size = new System.Drawing.Size( 120, 19 );
-            GridLabel3.Style = MetroSet_UI.Enums.Style.Custom;
-            GridLabel3.StyleManager = null;
-            GridLabel3.TabIndex = 43;
-            GridLabel3.Text = "Source";
-            GridLabel3.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            GridLabel3.ThemeAuthor = "Terry D. Eppler";
-            GridLabel3.ThemeName = "BudgetExecution";
-            GridLabel3.ToolTip = null;
+            GridHeaderLabel3.BindingSource = null;
+            GridHeaderLabel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            GridHeaderLabel3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            GridHeaderLabel3.Font = new System.Drawing.Font( "Roboto", 8.25F );
+            GridHeaderLabel3.HoverText = null;
+            GridHeaderLabel3.IsDerivedStyle = true;
+            GridHeaderLabel3.Location = new System.Drawing.Point( 305, 3 );
+            GridHeaderLabel3.Margin = new System.Windows.Forms.Padding( 3 );
+            GridHeaderLabel3.Name = "GridHeaderLabel3";
+            GridHeaderLabel3.Padding = new System.Windows.Forms.Padding( 1 );
+            GridHeaderLabel3.Size = new System.Drawing.Size( 120, 19 );
+            GridHeaderLabel3.Style = MetroSet_UI.Enums.Style.Custom;
+            GridHeaderLabel3.StyleManager = null;
+            GridHeaderLabel3.TabIndex = 43;
+            GridHeaderLabel3.Text = "Source";
+            GridHeaderLabel3.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            GridHeaderLabel3.ThemeAuthor = "Terry D. Eppler";
+            GridHeaderLabel3.ThemeName = "BudgetExecution";
+            GridHeaderLabel3.ToolTip = null;
             // 
             // SecondCalendarTable
             // 
@@ -1655,13 +1657,13 @@
             ToolStripSeparator.Padding = new System.Windows.Forms.Padding( 1 );
             ToolStripSeparator.Size = new System.Drawing.Size( 6, 28 );
             // 
-            // TextBoxSeparator
+            // StatusLabelSeparator
             // 
-            TextBoxSeparator.ForeColor = System.Drawing.Color.Black;
-            TextBoxSeparator.Margin = new System.Windows.Forms.Padding( 1 );
-            TextBoxSeparator.Name = "TextBoxSeparator";
-            TextBoxSeparator.Padding = new System.Windows.Forms.Padding( 1 );
-            TextBoxSeparator.Size = new System.Drawing.Size( 6, 25 );
+            StatusLabelSeparator.ForeColor = System.Drawing.Color.Black;
+            StatusLabelSeparator.Margin = new System.Windows.Forms.Padding( 1 );
+            StatusLabelSeparator.Name = "StatusLabelSeparator";
+            StatusLabelSeparator.Padding = new System.Windows.Forms.Padding( 1 );
+            StatusLabelSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
             // FirstButton
             // 
@@ -1683,13 +1685,13 @@
             FirstButton.ToolTip = ToolTip;
             FirstButton.ToolType = ToolType.FirstButton;
             // 
-            // FirstSeparator
+            // FirstButtonSeparator
             // 
-            FirstSeparator.ForeColor = System.Drawing.Color.Black;
-            FirstSeparator.Margin = new System.Windows.Forms.Padding( 1 );
-            FirstSeparator.Name = "FirstSeparator";
-            FirstSeparator.Padding = new System.Windows.Forms.Padding( 1 );
-            FirstSeparator.Size = new System.Drawing.Size( 6, 25 );
+            FirstButtonSeparator.ForeColor = System.Drawing.Color.Black;
+            FirstButtonSeparator.Margin = new System.Windows.Forms.Padding( 1 );
+            FirstButtonSeparator.Name = "FirstButtonSeparator";
+            FirstButtonSeparator.Padding = new System.Windows.Forms.Padding( 1 );
+            FirstButtonSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
             // PreviousButton
             // 
@@ -1712,13 +1714,13 @@
             PreviousButton.ToolTip = ToolTip;
             PreviousButton.ToolType = ToolType.NS;
             // 
-            // PreviousSeparator
+            // PreviousButtonSeparator
             // 
-            PreviousSeparator.ForeColor = System.Drawing.Color.Black;
-            PreviousSeparator.Margin = new System.Windows.Forms.Padding( 1 );
-            PreviousSeparator.Name = "PreviousSeparator";
-            PreviousSeparator.Padding = new System.Windows.Forms.Padding( 1 );
-            PreviousSeparator.Size = new System.Drawing.Size( 6, 25 );
+            PreviousButtonSeparator.ForeColor = System.Drawing.Color.Black;
+            PreviousButtonSeparator.Margin = new System.Windows.Forms.Padding( 1 );
+            PreviousButtonSeparator.Name = "PreviousButtonSeparator";
+            PreviousButtonSeparator.Padding = new System.Windows.Forms.Padding( 1 );
+            PreviousButtonSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
             // NextButton
             // 
@@ -1741,13 +1743,13 @@
             NextButton.ToolTip = ToolTip;
             NextButton.ToolType = ToolType.NextButton;
             // 
-            // NextSeparator
+            // NextButtonSeparator
             // 
-            NextSeparator.ForeColor = System.Drawing.Color.Black;
-            NextSeparator.Margin = new System.Windows.Forms.Padding( 1 );
-            NextSeparator.Name = "NextSeparator";
-            NextSeparator.Padding = new System.Windows.Forms.Padding( 1 );
-            NextSeparator.Size = new System.Drawing.Size( 6, 25 );
+            NextButtonSeparator.ForeColor = System.Drawing.Color.Black;
+            NextButtonSeparator.Margin = new System.Windows.Forms.Padding( 1 );
+            NextButtonSeparator.Name = "NextButtonSeparator";
+            NextButtonSeparator.Padding = new System.Windows.Forms.Padding( 1 );
+            NextButtonSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
             // LastSeparator
             // 
@@ -1786,13 +1788,13 @@
             RemoveFiltersSeparator.Padding = new System.Windows.Forms.Padding( 1 );
             RemoveFiltersSeparator.Size = new System.Drawing.Size( 6, 28 );
             // 
-            // EditRecordSeparator
+            // DataLabelSeparator
             // 
-            EditRecordSeparator.ForeColor = System.Drawing.Color.Black;
-            EditRecordSeparator.Margin = new System.Windows.Forms.Padding( 1 );
-            EditRecordSeparator.Name = "EditRecordSeparator";
-            EditRecordSeparator.Padding = new System.Windows.Forms.Padding( 1 );
-            EditRecordSeparator.Size = new System.Drawing.Size( 6, 25 );
+            DataLabelSeparator.ForeColor = System.Drawing.Color.Black;
+            DataLabelSeparator.Margin = new System.Windows.Forms.Padding( 1 );
+            DataLabelSeparator.Name = "DataLabelSeparator";
+            DataLabelSeparator.Padding = new System.Windows.Forms.Padding( 1 );
+            DataLabelSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
             // EditColumnButton
             // 
@@ -1815,13 +1817,13 @@
             EditColumnButton.ToolTip = ToolTip;
             EditColumnButton.ToolType = ToolType.EditColumnButton;
             // 
-            // EditColumnSeparator
+            // RefreshDataButtonSeparator
             // 
-            EditColumnSeparator.ForeColor = System.Drawing.Color.Black;
-            EditColumnSeparator.Margin = new System.Windows.Forms.Padding( 1 );
-            EditColumnSeparator.Name = "EditColumnSeparator";
-            EditColumnSeparator.Padding = new System.Windows.Forms.Padding( 1 );
-            EditColumnSeparator.Size = new System.Drawing.Size( 6, 25 );
+            RefreshDataButtonSeparator.ForeColor = System.Drawing.Color.Black;
+            RefreshDataButtonSeparator.Margin = new System.Windows.Forms.Padding( 1 );
+            RefreshDataButtonSeparator.Name = "RefreshDataButtonSeparator";
+            RefreshDataButtonSeparator.Padding = new System.Windows.Forms.Padding( 1 );
+            RefreshDataButtonSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
             // EditRecordButton
             // 
@@ -1844,13 +1846,13 @@
             EditRecordButton.ToolTip = ToolTip;
             EditRecordButton.ToolType = ToolType.EditRecordButton;
             // 
-            // ColumnSeparator
+            // EditColumnButtonSeparator
             // 
-            ColumnSeparator.ForeColor = System.Drawing.Color.Black;
-            ColumnSeparator.Margin = new System.Windows.Forms.Padding( 1 );
-            ColumnSeparator.Name = "ColumnSeparator";
-            ColumnSeparator.Padding = new System.Windows.Forms.Padding( 1 );
-            ColumnSeparator.Size = new System.Drawing.Size( 6, 25 );
+            EditColumnButtonSeparator.ForeColor = System.Drawing.Color.Black;
+            EditColumnButtonSeparator.Margin = new System.Windows.Forms.Padding( 1 );
+            EditColumnButtonSeparator.Name = "EditColumnButtonSeparator";
+            EditColumnButtonSeparator.Padding = new System.Windows.Forms.Padding( 1 );
+            EditColumnButtonSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
             // RefreshDataButton
             // 
@@ -1873,13 +1875,13 @@
             RefreshDataButton.ToolTip = ToolTip;
             RefreshDataButton.ToolType = ToolType.RefreshDataButton;
             // 
-            // RefreshDataSeparator
+            // GroupButtonSeparator
             // 
-            RefreshDataSeparator.ForeColor = System.Drawing.Color.Black;
-            RefreshDataSeparator.Margin = new System.Windows.Forms.Padding( 1 );
-            RefreshDataSeparator.Name = "RefreshDataSeparator";
-            RefreshDataSeparator.Padding = new System.Windows.Forms.Padding( 1 );
-            RefreshDataSeparator.Size = new System.Drawing.Size( 6, 25 );
+            GroupButtonSeparator.ForeColor = System.Drawing.Color.Black;
+            GroupButtonSeparator.Margin = new System.Windows.Forms.Padding( 1 );
+            GroupButtonSeparator.Name = "GroupButtonSeparator";
+            GroupButtonSeparator.Padding = new System.Windows.Forms.Padding( 1 );
+            GroupButtonSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
             // GroupButton
             // 
@@ -1902,13 +1904,13 @@
             GroupButton.ToolTip = ToolTip;
             GroupButton.ToolType = ToolType.GroupButton;
             // 
-            // GroupSeparator
+            // EditRecordButtonSeparator
             // 
-            GroupSeparator.ForeColor = System.Drawing.Color.Black;
-            GroupSeparator.Margin = new System.Windows.Forms.Padding( 1 );
-            GroupSeparator.Name = "GroupSeparator";
-            GroupSeparator.Padding = new System.Windows.Forms.Padding( 1 );
-            GroupSeparator.Size = new System.Drawing.Size( 6, 25 );
+            EditRecordButtonSeparator.ForeColor = System.Drawing.Color.Black;
+            EditRecordButtonSeparator.Margin = new System.Windows.Forms.Padding( 1 );
+            EditRecordButtonSeparator.Name = "EditRecordButtonSeparator";
+            EditRecordButtonSeparator.Padding = new System.Windows.Forms.Padding( 1 );
+            EditRecordButtonSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
             // EditSqlButton
             // 
@@ -1931,21 +1933,21 @@
             EditSqlButton.ToolTip = ToolTip;
             EditSqlButton.ToolType = ToolType.EditSqlButton;
             // 
-            // EditSqlSeparator
+            // EditSqlButtonSeparator
             // 
-            EditSqlSeparator.ForeColor = System.Drawing.Color.Black;
-            EditSqlSeparator.Margin = new System.Windows.Forms.Padding( 1 );
-            EditSqlSeparator.Name = "EditSqlSeparator";
-            EditSqlSeparator.Padding = new System.Windows.Forms.Padding( 1 );
-            EditSqlSeparator.Size = new System.Drawing.Size( 6, 25 );
+            EditSqlButtonSeparator.ForeColor = System.Drawing.Color.Black;
+            EditSqlButtonSeparator.Margin = new System.Windows.Forms.Padding( 1 );
+            EditSqlButtonSeparator.Name = "EditSqlButtonSeparator";
+            EditSqlButtonSeparator.Padding = new System.Windows.Forms.Padding( 1 );
+            EditSqlButtonSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
-            // ChartSeparator
+            // SearchButtonSeparator
             // 
-            ChartSeparator.ForeColor = System.Drawing.Color.Black;
-            ChartSeparator.Margin = new System.Windows.Forms.Padding( 1 );
-            ChartSeparator.Name = "ChartSeparator";
-            ChartSeparator.Padding = new System.Windows.Forms.Padding( 1 );
-            ChartSeparator.Size = new System.Drawing.Size( 6, 25 );
+            SearchButtonSeparator.ForeColor = System.Drawing.Color.Black;
+            SearchButtonSeparator.Margin = new System.Windows.Forms.Padding( 1 );
+            SearchButtonSeparator.Name = "SearchButtonSeparator";
+            SearchButtonSeparator.Padding = new System.Windows.Forms.Padding( 1 );
+            SearchButtonSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
             // SaveButton
             // 
@@ -2006,13 +2008,13 @@
             BrowseButton.ToolTip = ToolTip;
             BrowseButton.ToolType = ToolType.BrowseButton;
             // 
-            // BrowseSeparator
+            // SaveButtonSeparator
             // 
-            BrowseSeparator.ForeColor = System.Drawing.Color.Black;
-            BrowseSeparator.Margin = new System.Windows.Forms.Padding( 1 );
-            BrowseSeparator.Name = "BrowseSeparator";
-            BrowseSeparator.Padding = new System.Windows.Forms.Padding( 1 );
-            BrowseSeparator.Size = new System.Drawing.Size( 6, 25 );
+            SaveButtonSeparator.ForeColor = System.Drawing.Color.Black;
+            SaveButtonSeparator.Margin = new System.Windows.Forms.Padding( 1 );
+            SaveButtonSeparator.Name = "SaveButtonSeparator";
+            SaveButtonSeparator.Padding = new System.Windows.Forms.Padding( 1 );
+            SaveButtonSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
             // WebSeparator
             // 
@@ -2030,14 +2032,14 @@
             ComboBoxSeparator.Padding = new System.Windows.Forms.Padding( 1 );
             ComboBoxSeparator.Size = new System.Drawing.Size( 6, 28 );
             // 
-            // BackSeparator
+            // BrowseButtonSeparator
             // 
-            BackSeparator.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            BackSeparator.ForeColor = System.Drawing.Color.Black;
-            BackSeparator.Margin = new System.Windows.Forms.Padding( 1 );
-            BackSeparator.Name = "BackSeparator";
-            BackSeparator.Padding = new System.Windows.Forms.Padding( 1 );
-            BackSeparator.Size = new System.Drawing.Size( 6, 25 );
+            BrowseButtonSeparator.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            BrowseButtonSeparator.ForeColor = System.Drawing.Color.Black;
+            BrowseButtonSeparator.Margin = new System.Windows.Forms.Padding( 1 );
+            BrowseButtonSeparator.Name = "BrowseButtonSeparator";
+            BrowseButtonSeparator.Padding = new System.Windows.Forms.Padding( 1 );
+            BrowseButtonSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
             // MenuButton
             // 
@@ -2061,13 +2063,13 @@
             MenuButton.ToolTip = ToolTip;
             MenuButton.ToolType = ToolType.MenuButton;
             // 
-            // MenuSeparator
+            // MenuButtonSeparator
             // 
-            MenuSeparator.ForeColor = System.Drawing.Color.Black;
-            MenuSeparator.Margin = new System.Windows.Forms.Padding( 1 );
-            MenuSeparator.Name = "MenuSeparator";
-            MenuSeparator.Padding = new System.Windows.Forms.Padding( 1 );
-            MenuSeparator.Size = new System.Drawing.Size( 6, 25 );
+            MenuButtonSeparator.ForeColor = System.Drawing.Color.Black;
+            MenuButtonSeparator.Margin = new System.Windows.Forms.Padding( 1 );
+            MenuButtonSeparator.Name = "MenuButtonSeparator";
+            MenuButtonSeparator.Padding = new System.Windows.Forms.Padding( 1 );
+            MenuButtonSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
             // ExitButton
             // 
@@ -2127,7 +2129,7 @@
             ToolStrip.Image = null;
             ToolStrip.ImageDirectory = null;
             ToolStrip.ImageSize = new System.Drawing.Size( 16, 16 );
-            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { StatusLabel, TextBoxSeparator, FirstButton, FirstSeparator, PreviousButton, PreviousSeparator, NextButton, NextSeparator, LastButton, LastButtonSeparator, DataSpacer, DataLabel, EditRecordSeparator, FilterButton, CommandLabelSeparator, RefreshDataButton, EditColumnSeparator, GroupButton, RefreshDataSeparator, EditRecordButton, GroupSeparator, EditColumnButton, ColumnSeparator, EditSqlButton, EditSqlSeparator, ToolStripTextBox, GoButton, ChartSeparator, SaveButton, BrowseSeparator, BrowseButton, ExitButton, BackSeparator, MenuButton, MenuSeparator, ApplicationSeparator, MenuLabel } );
+            ToolStrip.Items.AddRange( new System.Windows.Forms.ToolStripItem[ ] { StatusLabel, StatusLabelSeparator, FirstButton, FirstButtonSeparator, PreviousButton, PreviousButtonSeparator, NextButton, NextButtonSeparator, LastButton, LastButtonSeparator, DataSpacer, DataLabel, DataLabelSeparator, FilterButton, FilterButtonSeparator, RefreshDataButton, RefreshDataButtonSeparator, GroupButton, GroupButtonSeparator, EditRecordButton, EditRecordButtonSeparator, EditColumnButton, EditColumnButtonSeparator, EditSqlButton, EditSqlButtonSeparator, ToolStripTextBox, SearchButtonSeparator, SearchButton, ToolStripTextBoxSeparator, SaveButton, SaveButtonSeparator, BrowseButton, ExitButton, BrowseButtonSeparator, MenuButton, MenuButtonSeparator, ProgressBar, ApplicationSeparator, MenuLabel } );
             ToolStrip.LastButton = null;
             ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
             ToolStrip.Location = new System.Drawing.Point( 1, 1 );
@@ -2239,13 +2241,13 @@
             DataLabel.Text = "        Data:";
             DataLabel.ToolTip = null;
             // 
-            // CommandLabelSeparator
+            // FilterButtonSeparator
             // 
-            CommandLabelSeparator.ForeColor = System.Drawing.Color.Black;
-            CommandLabelSeparator.Margin = new System.Windows.Forms.Padding( 1 );
-            CommandLabelSeparator.Name = "CommandLabelSeparator";
-            CommandLabelSeparator.Padding = new System.Windows.Forms.Padding( 1 );
-            CommandLabelSeparator.Size = new System.Drawing.Size( 6, 25 );
+            FilterButtonSeparator.ForeColor = System.Drawing.Color.Black;
+            FilterButtonSeparator.Margin = new System.Windows.Forms.Padding( 1 );
+            FilterButtonSeparator.Name = "FilterButtonSeparator";
+            FilterButtonSeparator.Padding = new System.Windows.Forms.Padding( 1 );
+            FilterButtonSeparator.Size = new System.Drawing.Size( 6, 25 );
             // 
             // ToolStripTextBox
             // 
@@ -2259,30 +2261,30 @@
             ToolStripTextBox.Margin = new System.Windows.Forms.Padding( 5, 1, 5, 1 );
             ToolStripTextBox.Name = "ToolStripTextBox";
             ToolStripTextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Size = new System.Drawing.Size( 160, 25 );
+            ToolStripTextBox.Size = new System.Drawing.Size( 156, 25 );
             ToolStripTextBox.Tag = "";
             ToolStripTextBox.ToolTip = ToolTip;
             // 
-            // GoButton
+            // SearchButton
             // 
-            GoButton.AutoToolTip = false;
-            GoButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
-            GoButton.BindingSource = BindingSource;
-            GoButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            GoButton.Field = Field.AccountCode;
-            GoButton.Filter = null;
-            GoButton.Font = new System.Drawing.Font( "Roboto", 9F );
-            GoButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
-            GoButton.HoverText = "Search for it";
-            GoButton.Image = Resources.Images.ToolStripImages.GoButton;
-            GoButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            GoButton.Margin = new System.Windows.Forms.Padding( 3 );
-            GoButton.Name = "GoButton";
-            GoButton.Padding = new System.Windows.Forms.Padding( 1 );
-            GoButton.Size = new System.Drawing.Size( 23, 21 );
-            GoButton.Text = "toolStripButton1";
-            GoButton.ToolTip = ToolTip;
-            GoButton.ToolType = ToolType.GoButton;
+            SearchButton.AutoToolTip = false;
+            SearchButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
+            SearchButton.BindingSource = BindingSource;
+            SearchButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            SearchButton.Field = Field.AccountCode;
+            SearchButton.Filter = null;
+            SearchButton.Font = new System.Drawing.Font( "Roboto", 9F );
+            SearchButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
+            SearchButton.HoverText = "Search for it";
+            SearchButton.Image = Resources.Images.ToolStripImages.WebLookUpButton;
+            SearchButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            SearchButton.Margin = new System.Windows.Forms.Padding( 3 );
+            SearchButton.Name = "SearchButton";
+            SearchButton.Padding = new System.Windows.Forms.Padding( 1 );
+            SearchButton.Size = new System.Drawing.Size( 23, 21 );
+            SearchButton.Text = "toolStripButton1";
+            SearchButton.ToolTip = ToolTip;
+            SearchButton.ToolType = ToolType.GoButton;
             // 
             // ApplicationSeparator
             // 
@@ -2571,6 +2573,20 @@
             ContextMenu.ThemeStyle.PressedBackColor = System.Drawing.Color.FromArgb( 204, 204, 204 );
             ContextMenu.ThemeStyle.PressedForeColor = System.Drawing.Color.Black;
             // 
+            // ToolStripTextBoxSeparator
+            // 
+            ToolStripTextBoxSeparator.ForeColor = System.Drawing.Color.Black;
+            ToolStripTextBoxSeparator.Margin = new System.Windows.Forms.Padding( 1 );
+            ToolStripTextBoxSeparator.Name = "ToolStripTextBoxSeparator";
+            ToolStripTextBoxSeparator.Padding = new System.Windows.Forms.Padding( 1 );
+            ToolStripTextBoxSeparator.Size = new System.Drawing.Size( 6, 25 );
+            // 
+            // ProgressBar
+            // 
+            ProgressBar.Name = "ProgressBar";
+            ProgressBar.Size = new System.Drawing.Size( 100, 24 );
+            ProgressBar.Visible = false;
+            // 
             // DataGridForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
@@ -2688,7 +2704,7 @@
         /// <summary>
         /// The grid label1
         /// </summary>
-        public Label GridLabel1;
+        public Label GridHeaderLabel1;
         /// <summary>
         /// The separator1
         /// </summary>
@@ -2717,11 +2733,11 @@
         /// <summary>
         /// The grid label3
         /// </summary>
-        public Label GridLabel3;
+        public Label GridHeaderLabel3;
         /// <summary>
         /// The grid label4
         /// </summary>
-        public Label GridLabel4;
+        public Label GridHeaderLabel4;
         /// <summary>
         /// The data label table
         /// </summary>
@@ -2729,7 +2745,7 @@
         /// <summary>
         /// The grid label2
         /// </summary>
-        public Label GridLabel2;
+        public Label GridHeaderLabel2;
         /// <summary>
         /// The query tab control
         /// </summary>
@@ -2833,7 +2849,7 @@
         /// <summary>
         /// The text box separator
         /// </summary>
-        public ToolSeparator TextBoxSeparator;
+        public ToolSeparator StatusLabelSeparator;
         /// <summary>
         /// The first button
         /// </summary>
@@ -2841,7 +2857,7 @@
         /// <summary>
         /// The first separator
         /// </summary>
-        public ToolSeparator FirstSeparator;
+        public ToolSeparator FirstButtonSeparator;
         /// <summary>
         /// The previous button
         /// </summary>
@@ -2849,7 +2865,7 @@
         /// <summary>
         /// The previous separator
         /// </summary>
-        public ToolSeparator PreviousSeparator;
+        public ToolSeparator PreviousButtonSeparator;
         /// <summary>
         /// The next button
         /// </summary>
@@ -2857,7 +2873,7 @@
         /// <summary>
         /// The next separator
         /// </summary>
-        public ToolSeparator NextSeparator;
+        public ToolSeparator NextButtonSeparator;
         /// <summary>
         /// The last separator
         /// </summary>
@@ -2877,7 +2893,7 @@
         /// <summary>
         /// The edit record separator
         /// </summary>
-        public ToolSeparator EditRecordSeparator;
+        public ToolSeparator DataLabelSeparator;
         /// <summary>
         /// The edit column button
         /// </summary>
@@ -2885,7 +2901,7 @@
         /// <summary>
         /// The edit column separator
         /// </summary>
-        public ToolSeparator EditColumnSeparator;
+        public ToolSeparator RefreshDataButtonSeparator;
         /// <summary>
         /// The delete record button
         /// </summary>
@@ -2901,7 +2917,7 @@
         /// <summary>
         /// The column separator
         /// </summary>
-        public ToolSeparator ColumnSeparator;
+        public ToolSeparator EditColumnButtonSeparator;
         /// <summary>
         /// The refresh data button
         /// </summary>
@@ -2909,7 +2925,7 @@
         /// <summary>
         /// The refresh data separator
         /// </summary>
-        public ToolSeparator RefreshDataSeparator;
+        public ToolSeparator GroupButtonSeparator;
 
         /// <summary>
         /// The group button
@@ -2918,7 +2934,7 @@
         /// <summary>
         /// The group separator
         /// </summary>
-        public ToolSeparator GroupSeparator;
+        public ToolSeparator EditRecordButtonSeparator;
         /// <summary>
         /// The edit SQL button
         /// </summary>
@@ -2926,11 +2942,11 @@
         /// <summary>
         /// The edit SQL separator
         /// </summary>
-        public ToolSeparator EditSqlSeparator;
+        public ToolSeparator EditSqlButtonSeparator;
         /// <summary>
         /// The chart separator
         /// </summary>
-        public ToolSeparator ChartSeparator;
+        public ToolSeparator SearchButtonSeparator;
         /// <summary>
         /// The excel import button
         /// </summary>
@@ -2950,7 +2966,7 @@
         /// <summary>
         /// The browse separator
         /// </summary>
-        public ToolSeparator BrowseSeparator;
+        public ToolSeparator SaveButtonSeparator;
         /// <summary>
         /// The web separator
         /// </summary>
@@ -2962,7 +2978,7 @@
         /// <summary>
         /// The back separator
         /// </summary>
-        public ToolSeparator BackSeparator;
+        public ToolSeparator BrowseButtonSeparator;
         /// <summary>
         /// The menu button
         /// </summary>
@@ -2970,7 +2986,7 @@
         /// <summary>
         /// The menu separator
         /// </summary>
-        public ToolSeparator MenuSeparator;
+        public ToolSeparator MenuButtonSeparator;
         /// <summary>
         /// The exit button
         /// </summary>
@@ -3086,7 +3102,7 @@
         /// <summary>
         /// The command label separator
         /// </summary>
-        public ToolSeparator CommandLabelSeparator;
+        public ToolSeparator FilterButtonSeparator;
         /// <summary>
         /// The filter spacer
         /// </summary>
@@ -3159,7 +3175,7 @@
         /// <summary>
         /// The go button
         /// </summary>
-        public ToolStripButton GoButton;
+        public ToolStripButton SearchButton;
         /// <summary>
         /// The context menu
         /// </summary>
@@ -3180,5 +3196,7 @@
         /// The ready tab page
         /// </summary>
         public Syncfusion.Windows.Forms.Tools.TabPageAdv ReadyScreen;
+        public ToolSeparator ToolStripTextBoxSeparator;
+        public System.Windows.Forms.ToolStripProgressBar ProgressBar;
     }
 }

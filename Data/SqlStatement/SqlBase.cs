@@ -52,6 +52,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertSwitchStatementToSwitchExpression" ) ]
     public abstract class SqlBase
     {
         /// <summary>

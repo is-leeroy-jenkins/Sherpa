@@ -11,7 +11,6 @@
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using static System.Environment;
-    using static System.IO.Directory;
     using CheckState = MetroSet_UI.Enums.CheckState;
 
     /// <summary>
@@ -26,14 +25,29 @@
     public partial class DialogBase : MetroForm
     {
         /// <summary>
+        /// The locked object
+        /// </summary>
+        private protected object _path;
+
+        /// <summary>
+        /// The busy
+        /// </summary>
+        private protected bool _busy;
+
+        /// <summary>
         /// The status update
         /// </summary>
-        private protected System.Action _statusUpdate;
+        private protected Action _statusUpdate;
 
         /// <summary>
         /// The time
         /// </summary>
         private protected int _time;
+
+        /// <summary>
+        /// The count
+        /// </summary>
+        private protected int _count;
 
         /// <summary>
         /// The seconds
@@ -99,6 +113,17 @@
         {
         }
 
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.DialogBase" /> class.
+        /// </summary>
+        /// <param name="extension">The extension.</param>
+        protected DialogBase( EXT extension ) 
+            : this( )
+        {
+        }
+
         /// <summary>
         /// Gets the image.
         /// </summary>
@@ -109,10 +134,10 @@
             {
                 try
                 {
-                    var _path = AppSettings[ "ExtensionImages" ];
-                    if( _path != null )
+                    var _filePath = AppSettings[ "ExtensionImages" ];
+                    if( _filePath != null )
                     {
-                        var _files = Directory.GetFiles( _path );
+                        var _files = Directory.GetFiles( _filePath );
                         if( _files?.Any( ) == true )
                         {
                             var _ext = _fileExtension.TrimStart( '.' ).ToUpper( );
@@ -140,45 +165,85 @@
         /// Gets the ListView paths.
         /// </summary>
         /// <returns></returns>
-        private protected IList<string> CreateListViewFilePaths( )
+        private protected void CreateListViewFilePaths( )
         {
             try
             {
-                if( _searchPaths?.Any( ) == true )
+                _filePaths?.Clear( );
+                var _pattern = "*." + _fileExtension;
+                for( var _i = 0; _i < _searchPaths.Count; _i++ )
                 {
-                    var _list = new List<string>( );
-                    var _pattern = "*." + _fileExtension;
-                    for( var _index = 0; _index < _searchPaths.Count; _index++ )
-                    {
-                        var _path = _searchPaths[ _index ];
-                        var _first = EnumerateDirectories( _path )
-                            ?.Where( s => s.Contains( "My" ) == false )
-                            ?.Select( f => Path.GetFullPath( f ) )
-                            ?.ToList( );
-                        
-                        for( int i = 0; i < _first.Count; i++ )
-                        {
-                            var _second = EnumerateFiles( _first[ i ], _pattern,
-                                    SearchOption.AllDirectories )
-                                ?.Select( s => Path.GetFullPath( s ) )
-                                ?.ToList( );
-                            
-                            _list.AddRange( _second );
-                        }
-                    }
+                    var _dirPath = _searchPaths[ _i ];
+                    var _parent = Directory.CreateDirectory( _dirPath );
+                    var _folders = _parent.GetDirectories( )
+                        ?.Where( s => s.Name.Contains( "My" ) == false )
+                        ?.Select( s => s.FullName )
+                        ?.ToList( );
                     
-                    return _list?.Any( ) == true
-                        ? _list
-                        : default( IList<string> );
+                    var _topLevelFiles = _parent.GetFiles( _pattern, SearchOption.TopDirectoryOnly )
+                        ?.Select( f => f.FullName )
+                        ?.ToArray( );
+                    
+                    _filePaths.AddRange( _topLevelFiles );
+                    for( int _k = 0; _k < _folders.Count; _k++ )
+                    {
+                        var _folder = Directory.CreateDirectory( _folders[ _k ] );
+                        var _lowerLevelFiles = _folder.GetFiles( _pattern, SearchOption.AllDirectories )
+                            ?.Select( s => s.FullName )
+                            ?.ToArray( );
+                        
+                        _filePaths.AddRange( _lowerLevelFiles );
+                    }
                 }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Gets the file paths.
+        /// </summary>
+        /// <returns></returns>
+        private protected IList<string> GetFilePaths( )
+        {
+            try
+            {
+                var _list = new List<string>( );
+                var _pattern = "*" + _fileExtension;
+                for( var _i = 0; _i < _searchPaths.Count; _i++ )
+                {
+                    var _dirPath = _searchPaths[ _i ];
+                    var _parent = Directory.CreateDirectory( _dirPath );
+                    var _folders = _parent.GetDirectories( )
+                        ?.Where( s => s.Name.StartsWith( "My" ) == false )
+                        ?.Select( s => s.FullName )
+                        ?.ToList( );
+
+                    var _files = _parent.GetFiles( _pattern, SearchOption.TopDirectoryOnly )
+                        ?.Select( f => f.FullName )
+                        ?.ToArray( );
+
+                    _list.AddRange( _files );
+                    for( int _k = 0; _k < _folders.Count; _k++ )
+                    {
+                        var _folder = Directory.CreateDirectory( _folders[ _k ] );
+                        var _items = _folder.GetFiles( _pattern, SearchOption.AllDirectories )
+                            ?.Select( s => s.FullName )
+                            ?.ToArray( );
+
+                        _list.AddRange( _items );
+                    }
+                }
+                
+                return _list;
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
                 return default( IList<string> );
             }
-
-            return default( IList<string> );
         }
 
         /// <summary>
@@ -247,60 +312,6 @@
             else
             {
                 action.Invoke( );
-            }
-        }
-
-        /// <summary>
-        /// Fades the in.
-        /// </summary>
-        private protected void FadeIn( )
-        {
-            try
-            {
-                var _timer = new Timer( );
-                _timer.Interval = 10;
-                _timer.Tick += ( sender, args ) =>
-                {
-                    if( Opacity == 1d )
-                    {
-                        _timer.Stop( );
-                    }
-
-                    Opacity += 0.05d;
-                };
-
-                _timer.Start( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Fades the out.
-        /// </summary>
-        private protected void FadeOut( )
-        {
-            try
-            {
-                var _timer = new Timer( );
-                _timer.Interval = 10;
-                _timer.Tick += ( sender, args ) =>
-                {
-                    if( Opacity == 0d )
-                    {
-                        _timer.Stop( );
-                    }
-
-                    Opacity -= 0.05d;
-                };
-
-                _timer.Start( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
             }
         }
 

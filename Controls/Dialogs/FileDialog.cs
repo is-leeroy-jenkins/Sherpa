@@ -41,13 +41,16 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Collections;
     using System.Collections.Generic;
     using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
     using System.Windows.Forms;
+    using Syncfusion.Windows.Forms;
     using static System.Environment;
 
     /// <inheritdoc />
@@ -62,8 +65,89 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    public partial class FileDialog : DialogBase
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    public partial class FileDialog : MetroForm
     {
+        /// <summary>
+        /// The locked object
+        /// </summary>
+        private protected object _path;
+
+        /// <summary>
+        /// The busy
+        /// </summary>
+        private protected bool _busy;
+
+        /// <summary>
+        /// The status update
+        /// </summary>
+        private protected Action _statusUpdate;
+
+        /// <summary>
+        /// The time
+        /// </summary>
+        private protected int _time;
+
+        /// <summary>
+        /// The count
+        /// </summary>
+        private protected int _count;
+
+        /// <summary>
+        /// The seconds
+        /// </summary>
+        private protected int _seconds;
+
+        /// <summary>
+        /// The data
+        /// </summary>
+        private protected string _data;
+
+        /// <summary>
+        /// The selected path
+        /// </summary>
+        private protected string _selectedPath;
+
+        /// <summary>
+        /// The selected file
+        /// </summary>
+        private protected string _selectedFile;
+
+        /// <summary>
+        /// The initial directory
+        /// </summary>
+        private protected string _initialDirectory;
+
+        /// <summary>
+        /// The file extension
+        /// </summary>
+        private protected string _fileExtension;
+
+        /// <summary>
+        /// The extension
+        /// </summary>
+        private protected EXT _extension;
+
+        /// <summary>
+        /// The file paths
+        /// </summary>
+        private protected IList<string> _filePaths;
+
+        /// <summary>
+        /// The initial dir paths
+        /// </summary>
+        private protected IList<string> _searchPaths;
+
+        /// <summary>
+        /// The radio buttons
+        /// </summary>
+        private protected IList<RadioButton> _radioButtons;
+
+        /// <summary>
+        /// The image
+        /// </summary>
+        private protected Bitmap _image;
+
         /// <summary>
         /// Gets or sets the extension.
         /// </summary>
@@ -190,13 +274,42 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Gets a value indicating whether this instance is busy.
+        /// </summary>
+        /// <value>
+        /// <c> true </c>
+        /// if this instance is busy; otherwise,
+        /// <c> false </c>
+        /// </value>
+        public bool IsBusy
+        {
+            get
+            {
+                if( _path == null )
+                {
+                    _path = new object( );
+                    lock( _path )
+                    {
+                        return _busy;
+                    }
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        return _busy;
+                    }
+                }
+            }
+        }
+
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="T:BudgetExecution.FileDialog" /> class.
         /// </summary>
         public FileDialog( ) 
-            : base( )
         {
             InitializeComponent( );
             InitializeDelegates( );
@@ -240,13 +353,12 @@ namespace BudgetExecution
             // Budget Properties
             _extension = EXT.XLSX;
             _fileExtension = _extension.ToString( ).ToLower( );
-            _searchPaths = CreateInitialDirectoryPaths( );
             _radioButtons = GetRadioButtons( );
+            _searchPaths = CreateInitialDirectoryPaths( );
+            _filePaths = new List<string>( );
 
             // Event Wiring
             Load += OnLoad;
-            Activated += OnActivated;
-            FormClosing += OnFormClosing;
         }
 
         /// <inheritdoc />
@@ -255,12 +367,18 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.FileDialog" /> class.
         /// </summary>
         /// <param name="extension">The extension.</param>
-        public FileDialog( EXT extension )
+        public FileDialog( EXT extension ) 
             : this( )
         {
+            // Budget Properties
             _extension = extension;
             _fileExtension = _extension.ToString( ).ToLower( );
+            _radioButtons = GetRadioButtons( );
             _searchPaths = CreateInitialDirectoryPaths( );
+            _filePaths = GetFilePaths( );
+
+            // Event Wiring
+            Load += OnLoad;
         }
 
         /// <summary>
@@ -270,7 +388,7 @@ namespace BudgetExecution
         {
             try
             {
-                FileList.SelectedValueChanged += OnListBoxItemSelected;
+                FileListBox.SelectedValueChanged += OnListBoxItemSelected;
                 BrowseButton.Click += OnBrowseButtonClicked;
                 CloseButton.Click += OnCloseButtonClicked;
                 Timer.Tick += OnTimerTick;
@@ -306,6 +424,10 @@ namespace BudgetExecution
                 // Title Properties
                 Title.ForeColor = Color.FromArgb( 106, 189, 252 );
                 Title.TextAlign = ContentAlignment.TopLeft;
+                Title.Text = $"{_extension} File Search";
+
+                // Found Label Proerties
+                FoundLabel.Text = $"Found : {_filePaths?.Count}";
             }
             catch( Exception _ex )
             {
@@ -423,54 +545,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Fades the in asynchronous.
-        /// </summary>
-        /// <param name="form">The o.</param>
-        /// <param name="interval">The interval.</param>
-        private async void FadeInAsync( Form form, int interval = 80 )
-        {
-            try
-            {
-                ThrowIf.Null( form, nameof( form ) );
-                while( form.Opacity < 1.0 )
-                {
-                    await Task.Delay( interval );
-                    form.Opacity += 0.05;
-                }
-
-                form.Opacity = 1;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Fades the out asynchronous.
-        /// </summary>
-        /// <param name="form">The o.</param>
-        /// <param name="interval">The interval.</param>
-        private async void FadeOutAsync( Form form, int interval = 80 )
-        {
-            try
-            {
-                ThrowIf.Null( form, nameof( form ) );
-                while( form.Opacity > 0.0 )
-                {
-                    await Task.Delay( interval );
-                    form.Opacity -= 0.05;
-                }
-
-                form.Opacity = 0;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Updates the status.
         /// </summary>
         private void UpdateStatus( )
@@ -478,7 +552,7 @@ namespace BudgetExecution
             try
             {
                 var _now = DateTime.Now;
-                MessageLabel.Text = $"{_now.ToShortDateString( )} - {_now.ToLongTimeString( )}";
+                StatusLabel.Text = $"{_now.ToShortDateString( )}   {_now.ToLongTimeString( )}";
             }
             catch( Exception _ex )
             {
@@ -493,12 +567,12 @@ namespace BudgetExecution
         {
             try
             {
+                FileListBox.Items?.Clear( );
                 if( _filePaths?.Any( ) == true )
                 {
-                    FileList.Items?.Clear( );
-                    foreach( var _path in _filePaths )
+                    foreach( var _item in _filePaths )
                     {
-                        FileList.Items.Add( _path );
+                        FileListBox.Items.Add( _item );
                     }
                 }
             }
@@ -517,14 +591,14 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( filePaths, nameof( filePaths ) );
-                FileList.Items?.Clear( );
+                FileListBox.Items?.Clear( );
                 var _paths = filePaths.ToArray( );
                 for( var _i = 0; _i < _paths.Length; _i++ )
                 {
-                    var _path = _paths[ _i ];
-                    if( !string.IsNullOrEmpty( _path ) )
+                    var _item = _paths[ _i ];
+                    if( !string.IsNullOrEmpty( _item ) )
                     {
-                        FileList?.Items?.Add( _path );
+                        FileListBox?.Items?.Add( _item );
                     }
                 }
             }
@@ -682,6 +756,233 @@ namespace BudgetExecution
                 return default( IList<RadioButton> );
             }
         }
+        
+        /// <summary>
+        /// Gets the image.
+        /// </summary>
+        /// <returns></returns>
+        private protected Image GetImage( )
+        {
+            if( !string.IsNullOrEmpty( _fileExtension ) )
+            {
+                try
+                {
+                    var _filePath = ConfigurationManager.AppSettings[ "ExtensionImages" ];
+                    if( _filePath != null )
+                    {
+                        var _files = Directory.GetFiles( _filePath );
+                        if( _files?.Any( ) == true )
+                        {
+                            var _ext = _fileExtension.TrimStart( '.' ).ToUpper( );
+                            var _file = _files
+                                ?.Where( f => f.Contains( _ext ) )
+                                ?.First( );
+
+                            var _stream = File.Open( _file, FileMode.Open );
+                            var _img = Image.FromStream( _stream );
+                            return new Bitmap( _img, 18, 18 );
+                        }
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                    return default( Bitmap );
+                }
+            }
+
+            return default( Bitmap );
+        }
+
+        /// <summary>
+        /// Gets the ListView paths.
+        /// </summary>
+        /// <returns></returns>
+        private protected void CreateListViewFilePaths( )
+        {
+            try
+            {
+                _filePaths?.Clear( );
+                var _pattern = "*." + _fileExtension;
+                for( var _i = 0; _i < _searchPaths.Count; _i++ )
+                {
+                    var _dirPath = _searchPaths[ _i ];
+                    var _parent = Directory.CreateDirectory( _dirPath );
+                    var _folders = _parent.GetDirectories( )
+                        ?.Where( s => s.Name.Contains( "My" ) == false )
+                        ?.Select( s => s.FullName )
+                        ?.ToList( );
+                    
+                    var _topLevelFiles = _parent.GetFiles( _pattern, SearchOption.TopDirectoryOnly )
+                        ?.Select( f => f.FullName )
+                        ?.ToArray( );
+                    
+                    _filePaths.AddRange( _topLevelFiles );
+                    for( int _k = 0; _k < _folders.Count; _k++ )
+                    {
+                        var _folder = Directory.CreateDirectory( _folders[ _k ] );
+                        var _lowerLevelFiles = _folder.GetFiles( _pattern, SearchOption.AllDirectories )
+                            ?.Select( s => s.FullName )
+                            ?.ToArray( );
+                        
+                        _filePaths.AddRange( _lowerLevelFiles );
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Gets the file paths.
+        /// </summary>
+        /// <returns></returns>
+        private protected IList<string> GetFilePaths( )
+        {
+            try
+            {
+                var _list = new List<string>( );
+                var _pattern = "*" + _fileExtension;
+                for( var _i = 0; _i < _searchPaths.Count; _i++ )
+                {
+                    var _dirPath = _searchPaths[ _i ];
+                    var _parent = Directory.CreateDirectory( _dirPath );
+                    var _folders = _parent.GetDirectories( )
+                        ?.Where( s => s.Name.StartsWith( "My" ) == false )
+                        ?.Select( s => s.FullName )
+                        ?.ToList( );
+
+                    var _topLevelFiles = _parent.GetFiles( _pattern, SearchOption.TopDirectoryOnly )
+                        ?.Select( f => f.FullName )
+                        ?.ToArray( );
+
+                    _list.AddRange( _topLevelFiles );
+                    for( int _k = 0; _k < _folders.Count; _k++ )
+                    {
+                        var _folder = Directory.CreateDirectory( _folders[ _k ] );
+                        var _lowerLevelFiles = _folder.GetFiles( _pattern, SearchOption.AllDirectories )
+                            ?.Select( s => s.FullName )
+                            ?.ToArray( );
+
+                        _list.AddRange( _lowerLevelFiles );
+                    }
+                }
+                
+                return _list;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IList<string> );
+            }
+        }
+
+        /// <summary>
+        /// Gets the initial dir paths.
+        /// </summary>
+        /// <returns>
+        /// IList(string)
+        /// </returns>
+        private protected IList<string> CreateInitialDirectoryPaths( )
+        {
+            try
+            {
+                var _current = CurrentDirectory;
+                var _list = new List<string>
+                {
+                    GetFolderPath( SpecialFolder.DesktopDirectory ),
+                    GetFolderPath( SpecialFolder.Personal ),
+                    GetFolderPath( SpecialFolder.Recent ),
+                    Environment.CurrentDirectory,
+                    @"C:\Users\terry\source\repos\BudgetExecution\Resources\Documents",
+                    _current
+                };
+
+                return _list?.Any( ) == true
+                    ? _list
+                    : default( IList<string> );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IList<string> );
+            }
+        }
+
+        /// <summary>
+        /// Clears the radio buttons.
+        /// </summary>
+        private protected void ClearRadioButtons( )
+        {
+            try
+            {
+                foreach( var _radioButton in _radioButtons )
+                {
+                    _radioButton.CheckedChanged += null;
+                    _radioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Invokes if needed.
+        /// </summary>
+        /// <param name="action">
+        /// The action.
+        /// </param>
+        private protected void InvokeIf( Action action )
+        {
+            if( InvokeRequired )
+            {
+                BeginInvoke( action );
+            }
+            else
+            {
+                action.Invoke( );
+            }
+        }
+
+        /// <summary>
+        /// Gets the controls.
+        /// </summary>
+        /// <returns>
+        /// </returns>
+        private protected IEnumerable<Control> GetControls( )
+        {
+            var _list = new List<Control>( );
+            var _queue = new Queue( );
+            try
+            {
+                _queue.Enqueue( Controls );
+                while( _queue.Count > 0 )
+                {
+                    var _collection = (Control.ControlCollection)_queue.Dequeue( );
+                    if( _collection?.Count > 0 )
+                    {
+                        foreach( Control _control in _collection )
+                        {
+                            _list.Add( _control );
+                            _queue.Enqueue( _control.Controls );
+                        }
+                    }
+                }
+
+                return _list?.Any( ) == true
+                    ? _list.ToArray( )
+                    : default( Control[ ] );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( Control[ ] );
+            }
+        }
 
         /// <summary>
         /// Called when [load].
@@ -690,14 +991,12 @@ namespace BudgetExecution
         /// <param name="e">The <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        public void OnLoad( object sender, EventArgs e )
+        private void OnLoad( object sender, EventArgs e )
         {
             try
             {
-                Opacity = 0;
-                _filePaths = CreateListViewFilePaths( );
-                FoundLabel.Text = "Found : " + _filePaths?.Count ?? "0";
-                Title.Text = $"{_extension} File Search";
+                CreateListViewFilePaths( );
+                PopulateListBox( );
                 InitializeLabels( );
                 InitializeButtons( );
                 InitializeDialogs( );
@@ -705,8 +1004,7 @@ namespace BudgetExecution
                 RegisterRadioButtonEvents( );
                 SetImage( );
                 InitializeRadioButtons( );
-                PopulateListBox( );
-                FadeInAsync( this );
+                Timer.Start( );
             }
             catch( Exception _ex )
             {
@@ -724,16 +1022,16 @@ namespace BudgetExecution
             {
                 var _radioButton = sender as RadioButton;
                 _fileExtension = _radioButton?.Result;
-                var _path = ConfigurationManager.AppSettings[ "ExtensionImages" ];
+                var _filePath = ConfigurationManager.AppSettings[ "ExtensionImages" ];
                 var _ext = _radioButton.Tag?.ToString( )
                     ?.Trim( ".".ToCharArray( ) )
                     ?.ToUpper( );
 
-                _filePaths = CreateListViewFilePaths( );
-                Title.Text = $"{_ext} File Search";
-                FoundLabel.Text = "Found: " + _filePaths?.ToList( )?.Count ?? "0";
+                CreateListViewFilePaths( );
                 PopulateListBox( );
-                PictureBox.ImageLocation = _path + $@"\{_ext.ToUpper( )}.png";
+                Title.Text = $"{_ext} File Search";
+                FoundLabel.Text = $"Found: {_filePaths.Count}";
+                PictureBox.ImageLocation = _filePath + $@"\{_ext.ToUpper( )}.png";
             }
             catch( Exception _ex )
             {
@@ -753,7 +1051,7 @@ namespace BudgetExecution
                 try
                 {
                     _selectedPath = _listBox.SelectedItem?.ToString( );
-                    MessageLabel.Text = _selectedPath;
+                    PathLabel.Text = _selectedPath;
                 }
                 catch( Exception _ex )
                 {
@@ -805,8 +1103,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    MessageLabel.Text = string.Empty;
-                    FileList.SelectedValue = string.Empty;
+                    PathLabel.Text = string.Empty;
+                    FileListBox.SelectedValue = string.Empty;
                 }
                 catch( Exception _ex )
                 {
@@ -858,41 +1156,16 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [form closing].
+        /// Fails the specified ex.
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnFormClosing( object sender, EventArgs e )
+        /// <param name="ex">
+        /// The ex.
+        /// </param>
+        private protected void Fail( Exception ex )
         {
-            try
-            {
-                Opacity = 1;
-                FadeOutAsync( this );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [shown].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnActivated( object sender, EventArgs e )
-        {
-            try
-            {
-                Opacity = 0;
-                FadeInAsync( this );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

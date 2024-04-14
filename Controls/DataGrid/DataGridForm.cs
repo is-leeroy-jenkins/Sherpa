@@ -94,7 +94,12 @@ namespace BudgetExecution
         /// <summary>
         /// The status update
         /// </summary>
-        private Action _updateStatus;
+        private Action _statusUpdate;
+
+        /// <summary>
+        /// The status update
+        /// </summary>
+        private Action _progressUpdate;
 
         /// <summary>
         /// The time
@@ -243,25 +248,7 @@ namespace BudgetExecution
                 _current = value;
             }
         }
-
-        /// <summary>
-        /// Gets the time.
-        /// </summary>
-        /// <value>
-        /// The time.
-        /// </value>
-        public int Time
-        {
-            get
-            {
-                return _time;
-            }
-            private set
-            {
-                _time = value;
-            }
-        }
-
+        
         /// <summary>
         /// Gets the count.
         /// </summary>
@@ -782,17 +769,17 @@ namespace BudgetExecution
         {
             try
             {
-                GridLabel1.Font = new Font( "Roboto", 8 );
-                GridLabel1.ForeColor = Color.FromArgb( 106, 189, 252 );
-                GridLabel2.Font = new Font( "Roboto", 8 );
-                GridLabel2.ForeColor = Color.FromArgb( 106, 189, 252 );
-                GridLabel2.Text = string.Empty;
-                GridLabel3.Font = new Font( "Roboto", 8 );
-                GridLabel3.ForeColor = Color.FromArgb( 106, 189, 252 );
-                GridLabel3.Text = string.Empty;
-                GridLabel4.Font = new Font( "Roboto", 8 );
-                GridLabel4.ForeColor = Color.FromArgb( 106, 189, 252 );
-                GridLabel4.Text = string.Empty;
+                GridHeaderLabel1.Font = new Font( "Roboto", 8 );
+                GridHeaderLabel1.ForeColor = Color.FromArgb( 106, 189, 252 );
+                GridHeaderLabel2.Font = new Font( "Roboto", 8 );
+                GridHeaderLabel2.ForeColor = Color.FromArgb( 106, 189, 252 );
+                GridHeaderLabel2.Text = string.Empty;
+                GridHeaderLabel3.Font = new Font( "Roboto", 8 );
+                GridHeaderLabel3.ForeColor = Color.FromArgb( 106, 189, 252 );
+                GridHeaderLabel3.Text = string.Empty;
+                GridHeaderLabel4.Font = new Font( "Roboto", 8 );
+                GridHeaderLabel4.ForeColor = Color.FromArgb( 106, 189, 252 );
+                GridHeaderLabel4.Text = string.Empty;
             }
             catch( Exception _ex )
             {
@@ -919,7 +906,7 @@ namespace BudgetExecution
         {
             try
             {
-                _updateStatus += UpdateStatus;
+                _statusUpdate += UpdateStatus;
             }
             catch( Exception _ex )
             {
@@ -2029,40 +2016,54 @@ namespace BudgetExecution
         /// <summary>
         /// Updates the label text.
         /// </summary>
-        private void UpdateLabels( )
+        private void UpdateHeaderLabels( )
         {
             try
             {
                 if( !string.IsNullOrEmpty( _selectedTable ) )
                 {
-                    var _table = _selectedTable?.SplitPascal( ) ?? string.Empty;
+                    var _tableSelected = _selectedTable?.SplitPascal( ) ?? string.Empty;
                     var _records = _dataTable.Rows.Count.ToString( "#,###" ) ?? "0";
                     var _cols = _fields?.Count ?? 0;
                     var _nums = _numerics?.Count ?? 0;
-                    var _selectedCols = _selectedFields?.Count ?? 0;
-                    var _selectedNums = _selectedNumerics?.Count ?? 0;
-                    HeaderLabel.Text = $"{_table} ";
-                    GridLabel1.Text = $"Data Provider: {_provider}";
-                    GridLabel2.Text = $"Records: {_records}";
-                    GridLabel3.Text = $"Total Fields: {_cols}";
-                    GridLabel4.Text = $"Total Measures: {_nums}";
-                    FieldsTable.CaptionText = $"Selected Fields: {_selectedCols}";
-                    NumericsTable.CaptionText = $"Selected Measures: {_selectedNums}";
+                    var _colSelected = _selectedFields?.Count ?? 0;
+                    var _numSelected = _selectedNumerics?.Count ?? 0;
+                    HeaderLabel.Text = $"{_tableSelected} ";
+                    GridHeaderLabel1.Text = $"Data Provider: {_provider}";
+                    GridHeaderLabel2.Text = $"Records: {_records}";
+                    GridHeaderLabel3.Text = $"Total Fields: {_cols}";
+                    GridHeaderLabel4.Text = $"Total Measures: {_nums}";
+                    FieldsTable.CaptionText = $"Selected Fields: {_colSelected}";
+                    NumericsTable.CaptionText = $"Selected Measures: {_numSelected}";
                     FirstCalendarTable.CaptionText = $"Start Date: {FirstCalendar.SelectedDate}";
                     SecondCalendarTable.CaptionText = $"End Date: {SecondCalendar.SelectedDate}";
                 }
                 else
                 {
                     HeaderLabel.Text = $"{_provider} Database ";
-                    GridLabel1.Text = $"Provider:  {_provider}";
-                    GridLabel2.Text = "Total Records: 0.0";
-                    GridLabel3.Text = "Total Fields: 0.0";
-                    GridLabel4.Text = "Total Measures: 0.0";
-                    FieldsTable.CaptionText = "Selected Fields: 0.0";
-                    NumericsTable.CaptionText = "Selected Measures: 0.0";
+                    GridHeaderLabel1.Text = $"Provider:  {_provider}";
+                    GridHeaderLabel2.Text = "Total Records: --";
+                    GridHeaderLabel3.Text = "Total Fields: --";
+                    GridHeaderLabel4.Text = "Total Measures: --";
+                    FieldsTable.CaptionText = "Selected Fields: --";
+                    NumericsTable.CaptionText = "Selected Measures: --";
                     FirstCalendarTable.CaptionText = "Start Date: --";
                     SecondCalendarTable.CaptionText = "End Date: --";
                 }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Updates the progress.
+        /// </summary>
+        private void UpdateProgress( )
+        {
+            try
+            {
             }
             catch( Exception _ex )
             {
@@ -2174,7 +2175,8 @@ namespace BudgetExecution
                 DataGrid.PascalizeHeaders( );
                 DataGrid.FormatColumns( );
                 TableListBox.ShowScrollBar = false;
-                UpdateLabels( );
+                Timer.Start( );
+                UpdateHeaderLabels( );
                 UpdateStatus( );
                 FadeInAsync( this );
             }
@@ -2213,7 +2215,7 @@ namespace BudgetExecution
                     DataGrid.PascalizeHeaders( );
                     DataGrid.FormatColumns( );
                     QueryTabControl.SelectedIndex = 1;
-                    UpdateLabels( );
+                    UpdateHeaderLabels( );
                     PopulateFirstComboBoxItems( );
                     ResetListBoxVisibility( );
                 }
@@ -2297,11 +2299,11 @@ namespace BudgetExecution
                     if( GroupButton.Visible == false )
                     {
                         GroupButton.Visible = true;
-                        GroupSeparator.Visible = true;
+                        EditRecordButtonSeparator.Visible = true;
                     }
 
                     GetData( _filter );
-                    UpdateLabels( );
+                    UpdateHeaderLabels( );
                     _sqlQuery = CreateSqlCommand( _filter );
                     SqlHeader.Text = _sqlQuery;
                 }
@@ -2372,7 +2374,7 @@ namespace BudgetExecution
                     }
 
                     GetData( _filter );
-                    UpdateLabels( );
+                    UpdateHeaderLabels( );
                     _sqlQuery = CreateSqlCommand( _filter );
                 }
                 catch( Exception _ex )
@@ -2447,7 +2449,7 @@ namespace BudgetExecution
                     Filter.Add( _secondCategory, _secondValue );
                     Filter.Add( _thirdCategory, _thirdValue );
                     GetData( _filter );
-                    UpdateLabels( );
+                    UpdateHeaderLabels( );
                     _sqlQuery = CreateSqlCommand( _filter );
                     SqlHeader.Text = _sqlQuery;
                 }
@@ -2533,7 +2535,7 @@ namespace BudgetExecution
                     DataGrid.PascalizeHeaders( );
                     DataGrid.FormatColumns( );
                     PopulateFirstComboBoxItems( );
-                    UpdateLabels( );
+                    UpdateHeaderLabels( );
                 }
             }
             catch( Exception _ex )
@@ -2714,8 +2716,8 @@ namespace BudgetExecution
         {
             try
             {
-                var _dialog = new FileDialog( );
-                _dialog.ShowDialog( this );
+                var _dialog = new FileDialog( EXT.XLSX );
+                _dialog.ShowDialog( );
             }
             catch( Exception _ex )
             {
@@ -2936,7 +2938,7 @@ namespace BudgetExecution
                 else
                 {
                     ClearData( );
-                    UpdateLabels( );
+                    UpdateHeaderLabels( );
                     QueryTabControl.SelectedIndex = 0;
                 }
             }
@@ -2980,7 +2982,7 @@ namespace BudgetExecution
         {
             try
             {
-                InvokeIf( _updateStatus );
+                InvokeIf( _statusUpdate );
             }
             catch( Exception _ex )
             {
@@ -2997,7 +2999,8 @@ namespace BudgetExecution
         private void OnFormClosing( object sender, EventArgs e )
         {
             try
-            {
+            { 
+                Timer?.Dispose( );
                 Opacity = 1;
                 FadeOutAsync( this );
             }
