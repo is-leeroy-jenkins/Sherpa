@@ -49,6 +49,8 @@ namespace BudgetExecution
     using System.Drawing;
     using System.IO;
     using System.Linq;
+    using System.Runtime.CompilerServices;
+    using System.Threading.Tasks;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using static System.Environment;
@@ -318,7 +320,6 @@ namespace BudgetExecution
         public FileDialog( ) 
         {
             InitializeComponent( );
-            InitializeDelegates( );
             RegisterCallbacks( );
 
             // Basic Properties
@@ -361,7 +362,6 @@ namespace BudgetExecution
             _fileExtension = _extension.ToString( ).ToLower( );
             _radioButtons = GetRadioButtons( );
             _searchPaths = CreateInitialDirectoryPaths( );
-            _filePaths = new List<string>( );
 
             // Event Wiring
             Load += OnLoad;
@@ -398,22 +398,6 @@ namespace BudgetExecution
                 FileListBox.SelectedValueChanged += OnListBoxItemSelected;
                 BrowseButton.Click += OnBrowseButtonClicked;
                 CloseButton.Click += OnCloseButtonClicked;
-                Timer.Tick += OnTimerTick;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the delegates.
-        /// </summary>
-        private void InitializeDelegates( )
-        {
-            try
-            {
-                _statusUpdate += UpdateStatus;
             }
             catch( Exception _ex )
             {
@@ -434,10 +418,13 @@ namespace BudgetExecution
                 Title.Text = $"{_extension} File Search";
 
                 // Found Label Proerties
-                var _nl = Environment.NewLine;
-                FoundLabel.Font = new Font( "Roboto", 8 );
-                FoundLabel.Text = "Found: " + $"{_count:N1} files" + _nl
-                    + "Time: " + $"{_duration:N1} ms";
+                var _font = new Font( "Roboto", 8 );
+                FileLabel.Font = _font;
+                FoundLabel.Font = _font;
+                TimeLabel.Font = _font;
+                DurationLabel.Font = _font;
+                FoundLabel.Text = $"{_count}";
+                DurationLabel.Text = $"{_duration:N1} ms";
             }
             catch( Exception _ex )
             {
@@ -476,24 +463,6 @@ namespace BudgetExecution
             {
                 OpenDialog.Title = "Browse File System";
                 OpenDialog.InitialDirectory = Environment.CurrentDirectory;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Initializes the timer.
-        /// </summary>
-        private void InitializeTimer( )
-        {
-            try
-            {
-                // Timer Properties
-                Timer.Interval = 80;
-                Timer.Tick += OnTimerTick;
-                Timer.Enabled = false;
             }
             catch( Exception _ex )
             {
@@ -1045,22 +1014,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Updates the status.
-        /// </summary>
-        private void UpdateStatus( )
-        {
-            try
-            {
-                var _now = DateTime.Now;
-                StatusLabel.Text = $"{_now.ToLongTimeString( )}";
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -1071,15 +1024,15 @@ namespace BudgetExecution
         {
             try
             {
+                _filePaths = GetFilePaths( );
+                _count = _filePaths.Count;
                 PopulateListBox( );
                 InitializeLabels( );
                 InitializeButtons( );
                 InitializeDialogs( );
-                InitializeTimer( );
                 InitializeRadioButtons( );
                 RegisterRadioButtonEvents( );
                 SetImage( );
-                Timer.Start( );
             }
             catch( Exception _ex )
             {
@@ -1101,14 +1054,14 @@ namespace BudgetExecution
                 var _ext = _radioButton.Tag?.ToString( )
                     ?.Trim( ".".ToCharArray( ) )
                     ?.ToUpper( );
-
+                
                 _filePaths = GetFilePaths( );
                 _count = _filePaths.Count;
                 PopulateListBox( _filePaths );
                 Title.Text = $"{_ext} File Search";
-                var _nl = Environment.NewLine;
-                FoundLabel.Text = $"Found: {_count} files" + _nl + $"Time: {_duration} ms";
-                PictureBox.ImageLocation = _filePath + $@"\{_ext.ToUpper( )}.png";
+                FoundLabel.Text = $"{_count:N1}";
+                DurationLabel.Text = $"{_duration:N1}";
+                SetImage( );
             }
             catch( Exception _ex )
             {
@@ -1191,24 +1144,6 @@ namespace BudgetExecution
         }
         
         /// <summary>
-        /// Called when [timer tick].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnTimerTick( object sender, EventArgs e )
-        {
-            try
-            {
-                InvokeIf( _statusUpdate );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Called when [close button clicked].
         /// </summary>
         /// <param name="sender"> The sender. </param>
@@ -1223,7 +1158,6 @@ namespace BudgetExecution
             {
                 try
                 {
-                    Timer?.Dispose( );
                     Close( );
                 }
                 catch( Exception _ex )

@@ -40,6 +40,11 @@ namespace BudgetExecution
             components = new Container( );
             var resources = new ComponentResourceManager( typeof( FileDialog ) );
             TextBoxLayout = new TableLayoutPanel( );
+            LabelTable = new TableLayoutPanel( );
+            FileLabel = new Label( );
+            FoundLabel = new Label( );
+            TimeLabel = new Label( );
+            DurationLabel = new Label( );
             CheckBoxLayout = new TableLayoutPanel( );
             LibraryRadioButton = new RadioButton( );
             PowerPointRadioButton = new RadioButton( );
@@ -56,7 +61,6 @@ namespace BudgetExecution
             FileListBox = new ListBox( );
             BindingSource = new BindingSource( components );
             ToolTip = new SmallTip( );
-            FoundLabel = new Label( );
             TopTablePanel = new TableLayoutPanel( );
             PictureBox = new Picture( );
             Title = new Label( );
@@ -70,6 +74,7 @@ namespace BudgetExecution
             CloseButton = new Button( );
             SelectButton = new Button( );
             TextBoxLayout.SuspendLayout( );
+            LabelTable.SuspendLayout( );
             CheckBoxLayout.SuspendLayout( );
             ( (ISupportInitialize)BindingSource ).BeginInit( );
             TopTablePanel.SuspendLayout( );
@@ -82,13 +87,13 @@ namespace BudgetExecution
             TextBoxLayout.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             TextBoxLayout.BackColor = System.Drawing.Color.Transparent;
             TextBoxLayout.ColumnCount = 3;
-            TextBoxLayout.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 13.2653065F ) );
-            TextBoxLayout.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 70.1166153F ) );
-            TextBoxLayout.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 16.4723F ) );
+            TextBoxLayout.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 15.16035F ) );
+            TextBoxLayout.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 68.8046646F ) );
+            TextBoxLayout.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 16.0349846F ) );
             TextBoxLayout.ColumnStyles.Add( new ColumnStyle( SizeType.Absolute, 20F ) );
+            TextBoxLayout.Controls.Add( LabelTable, 0, 0 );
             TextBoxLayout.Controls.Add( CheckBoxLayout, 2, 0 );
             TextBoxLayout.Controls.Add( FileListBox, 1, 0 );
-            TextBoxLayout.Controls.Add( FoundLabel, 0, 0 );
             TextBoxLayout.Dock = DockStyle.Top;
             TextBoxLayout.GrowStyle = TableLayoutPanelGrowStyle.FixedSize;
             TextBoxLayout.Location = new System.Drawing.Point( 0, 64 );
@@ -99,6 +104,114 @@ namespace BudgetExecution
             TextBoxLayout.RowStyles.Add( new RowStyle( SizeType.Percent, 100F ) );
             TextBoxLayout.Size = new System.Drawing.Size( 688, 291 );
             TextBoxLayout.TabIndex = 5;
+            // 
+            // LabelTable
+            // 
+            LabelTable.ColumnCount = 2;
+            LabelTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 45.0980377F ) );
+            LabelTable.ColumnStyles.Add( new ColumnStyle( SizeType.Percent, 54.9019623F ) );
+            LabelTable.Controls.Add( FileLabel, 0, 0 );
+            LabelTable.Controls.Add( FoundLabel, 1, 0 );
+            LabelTable.Controls.Add( TimeLabel, 0, 1 );
+            LabelTable.Controls.Add( DurationLabel, 1, 1 );
+            LabelTable.Dock = DockStyle.Fill;
+            LabelTable.Location = new System.Drawing.Point( 2, 2 );
+            LabelTable.Margin = new Padding( 1 );
+            LabelTable.Name = "LabelTable";
+            LabelTable.RowCount = 3;
+            LabelTable.RowStyles.Add( new RowStyle( SizeType.Percent, 50.9090919F ) );
+            LabelTable.RowStyles.Add( new RowStyle( SizeType.Percent, 49.0909081F ) );
+            LabelTable.RowStyles.Add( new RowStyle( SizeType.Absolute, 227F ) );
+            LabelTable.Size = new System.Drawing.Size( 102, 287 );
+            LabelTable.TabIndex = 23;
+            // 
+            // FileLabel
+            // 
+            FileLabel.BindingSource = null;
+            FileLabel.Dock = DockStyle.Fill;
+            FileLabel.FlatStyle = FlatStyle.Flat;
+            FileLabel.Font = new System.Drawing.Font( "Roboto", 8.25F );
+            FileLabel.HoverText = null;
+            FileLabel.IsDerivedStyle = true;
+            FileLabel.Location = new System.Drawing.Point( 1, 1 );
+            FileLabel.Margin = new Padding( 1 );
+            FileLabel.Name = "FileLabel";
+            FileLabel.Padding = new Padding( 1 );
+            FileLabel.Size = new System.Drawing.Size( 44, 28 );
+            FileLabel.Style = MetroSet_UI.Enums.Style.Custom;
+            FileLabel.StyleManager = null;
+            FileLabel.TabIndex = 4;
+            FileLabel.Text = "Files:";
+            FileLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            FileLabel.ThemeAuthor = "Terry D. Eppler";
+            FileLabel.ThemeName = "BudgetExecution";
+            FileLabel.ToolTip = null;
+            // 
+            // FoundLabel
+            // 
+            FoundLabel.BindingSource = null;
+            FoundLabel.Dock = DockStyle.Fill;
+            FoundLabel.FlatStyle = FlatStyle.Flat;
+            FoundLabel.Font = new System.Drawing.Font( "Roboto", 8F );
+            FoundLabel.HoverText = null;
+            FoundLabel.IsDerivedStyle = true;
+            FoundLabel.Location = new System.Drawing.Point( 47, 1 );
+            FoundLabel.Margin = new Padding( 1 );
+            FoundLabel.Name = "FoundLabel";
+            FoundLabel.Padding = new Padding( 1 );
+            FoundLabel.Size = new System.Drawing.Size( 54, 28 );
+            FoundLabel.Style = MetroSet_UI.Enums.Style.Custom;
+            FoundLabel.StyleManager = null;
+            FoundLabel.TabIndex = 5;
+            FoundLabel.Text = "label1";
+            FoundLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            FoundLabel.ThemeAuthor = "Terry D. Eppler";
+            FoundLabel.ThemeName = "Budget Execution";
+            FoundLabel.ToolTip = null;
+            // 
+            // TimeLabel
+            // 
+            TimeLabel.BindingSource = null;
+            TimeLabel.Dock = DockStyle.Fill;
+            TimeLabel.FlatStyle = FlatStyle.Flat;
+            TimeLabel.Font = new System.Drawing.Font( "Roboto", 8F );
+            TimeLabel.HoverText = null;
+            TimeLabel.IsDerivedStyle = true;
+            TimeLabel.Location = new System.Drawing.Point( 1, 31 );
+            TimeLabel.Margin = new Padding( 1 );
+            TimeLabel.Name = "TimeLabel";
+            TimeLabel.Padding = new Padding( 1 );
+            TimeLabel.Size = new System.Drawing.Size( 44, 27 );
+            TimeLabel.Style = MetroSet_UI.Enums.Style.Custom;
+            TimeLabel.StyleManager = null;
+            TimeLabel.TabIndex = 6;
+            TimeLabel.Text = "Time:";
+            TimeLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            TimeLabel.ThemeAuthor = "Terry D. Eppler";
+            TimeLabel.ThemeName = "Budget Execution";
+            TimeLabel.ToolTip = null;
+            // 
+            // DurationLabel
+            // 
+            DurationLabel.BindingSource = null;
+            DurationLabel.Dock = DockStyle.Fill;
+            DurationLabel.FlatStyle = FlatStyle.Flat;
+            DurationLabel.Font = new System.Drawing.Font( "Roboto", 8F );
+            DurationLabel.HoverText = null;
+            DurationLabel.IsDerivedStyle = true;
+            DurationLabel.Location = new System.Drawing.Point( 47, 31 );
+            DurationLabel.Margin = new Padding( 1 );
+            DurationLabel.Name = "DurationLabel";
+            DurationLabel.Padding = new Padding( 1 );
+            DurationLabel.Size = new System.Drawing.Size( 54, 27 );
+            DurationLabel.Style = MetroSet_UI.Enums.Style.Custom;
+            DurationLabel.StyleManager = null;
+            DurationLabel.TabIndex = 7;
+            DurationLabel.Text = "label3";
+            DurationLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            DurationLabel.ThemeAuthor = "Terry D. Eppler";
+            DurationLabel.ThemeName = "Budget Execution";
+            DurationLabel.ToolTip = null;
             // 
             // CheckBoxLayout
             // 
@@ -118,7 +231,7 @@ namespace BudgetExecution
             CheckBoxLayout.Controls.Add( WordRadioButton, 0, 1 );
             CheckBoxLayout.Controls.Add( PdfRadioButton, 0, 0 );
             CheckBoxLayout.Dock = DockStyle.Fill;
-            CheckBoxLayout.Location = new System.Drawing.Point( 576, 4 );
+            CheckBoxLayout.Location = new System.Drawing.Point( 580, 4 );
             CheckBoxLayout.Name = "CheckBoxLayout";
             CheckBoxLayout.RowCount = 12;
             CheckBoxLayout.RowStyles.Add( new RowStyle( SizeType.Percent, 8.333765F ) );
@@ -133,7 +246,7 @@ namespace BudgetExecution
             CheckBoxLayout.RowStyles.Add( new RowStyle( SizeType.Percent, 8.333765F ) );
             CheckBoxLayout.RowStyles.Add( new RowStyle( SizeType.Percent, 8.333765F ) );
             CheckBoxLayout.RowStyles.Add( new RowStyle( SizeType.Percent, 8.332569F ) );
-            CheckBoxLayout.Size = new System.Drawing.Size( 108, 283 );
+            CheckBoxLayout.Size = new System.Drawing.Size( 104, 283 );
             CheckBoxLayout.TabIndex = 2;
             // 
             // LibraryRadioButton
@@ -152,7 +265,7 @@ namespace BudgetExecution
             LibraryRadioButton.Location = new System.Drawing.Point( 3, 256 );
             LibraryRadioButton.Name = "LibraryRadioButton";
             LibraryRadioButton.Result = null;
-            LibraryRadioButton.Size = new System.Drawing.Size( 102, 17 );
+            LibraryRadioButton.Size = new System.Drawing.Size( 98, 17 );
             LibraryRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
             LibraryRadioButton.StyleManager = null;
             LibraryRadioButton.TabIndex = 15;
@@ -178,7 +291,7 @@ namespace BudgetExecution
             PowerPointRadioButton.Location = new System.Drawing.Point( 3, 187 );
             PowerPointRadioButton.Name = "PowerPointRadioButton";
             PowerPointRadioButton.Result = null;
-            PowerPointRadioButton.Size = new System.Drawing.Size( 102, 17 );
+            PowerPointRadioButton.Size = new System.Drawing.Size( 98, 17 );
             PowerPointRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
             PowerPointRadioButton.StyleManager = null;
             PowerPointRadioButton.TabIndex = 21;
@@ -204,7 +317,7 @@ namespace BudgetExecution
             ExecutableRadioButton.Location = new System.Drawing.Point( 3, 233 );
             ExecutableRadioButton.Name = "ExecutableRadioButton";
             ExecutableRadioButton.Result = null;
-            ExecutableRadioButton.Size = new System.Drawing.Size( 102, 17 );
+            ExecutableRadioButton.Size = new System.Drawing.Size( 98, 17 );
             ExecutableRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
             ExecutableRadioButton.StyleManager = null;
             ExecutableRadioButton.TabIndex = 14;
@@ -230,7 +343,7 @@ namespace BudgetExecution
             TextRadioButton.Location = new System.Drawing.Point( 3, 164 );
             TextRadioButton.Name = "TextRadioButton";
             TextRadioButton.Result = null;
-            TextRadioButton.Size = new System.Drawing.Size( 102, 17 );
+            TextRadioButton.Size = new System.Drawing.Size( 98, 17 );
             TextRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
             TextRadioButton.StyleManager = null;
             TextRadioButton.TabIndex = 20;
@@ -256,7 +369,7 @@ namespace BudgetExecution
             SqlCeRadioButton.Location = new System.Drawing.Point( 3, 210 );
             SqlCeRadioButton.Name = "SqlCeRadioButton";
             SqlCeRadioButton.Result = null;
-            SqlCeRadioButton.Size = new System.Drawing.Size( 102, 17 );
+            SqlCeRadioButton.Size = new System.Drawing.Size( 98, 17 );
             SqlCeRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
             SqlCeRadioButton.StyleManager = null;
             SqlCeRadioButton.TabIndex = 13;
@@ -282,7 +395,7 @@ namespace BudgetExecution
             ExcelRadioButton.Location = new System.Drawing.Point( 3, 141 );
             ExcelRadioButton.Name = "ExcelRadioButton";
             ExcelRadioButton.Result = null;
-            ExcelRadioButton.Size = new System.Drawing.Size( 102, 17 );
+            ExcelRadioButton.Size = new System.Drawing.Size( 98, 17 );
             ExcelRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
             ExcelRadioButton.StyleManager = null;
             ExcelRadioButton.TabIndex = 19;
@@ -308,7 +421,7 @@ namespace BudgetExecution
             CsvRadioButton.Location = new System.Drawing.Point( 3, 118 );
             CsvRadioButton.Name = "CsvRadioButton";
             CsvRadioButton.Result = null;
-            CsvRadioButton.Size = new System.Drawing.Size( 102, 17 );
+            CsvRadioButton.Size = new System.Drawing.Size( 98, 17 );
             CsvRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
             CsvRadioButton.StyleManager = null;
             CsvRadioButton.TabIndex = 18;
@@ -334,7 +447,7 @@ namespace BudgetExecution
             AccessRadioButton.Location = new System.Drawing.Point( 3, 95 );
             AccessRadioButton.Name = "AccessRadioButton";
             AccessRadioButton.Result = null;
-            AccessRadioButton.Size = new System.Drawing.Size( 102, 17 );
+            AccessRadioButton.Size = new System.Drawing.Size( 98, 17 );
             AccessRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
             AccessRadioButton.StyleManager = null;
             AccessRadioButton.TabIndex = 17;
@@ -360,7 +473,7 @@ namespace BudgetExecution
             SQLiteRadioButton.Location = new System.Drawing.Point( 3, 72 );
             SQLiteRadioButton.Name = "SQLiteRadioButton";
             SQLiteRadioButton.Result = null;
-            SQLiteRadioButton.Size = new System.Drawing.Size( 102, 17 );
+            SQLiteRadioButton.Size = new System.Drawing.Size( 98, 17 );
             SQLiteRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
             SQLiteRadioButton.StyleManager = null;
             SQLiteRadioButton.TabIndex = 16;
@@ -386,7 +499,7 @@ namespace BudgetExecution
             SqlServerRadioButton.Location = new System.Drawing.Point( 3, 49 );
             SqlServerRadioButton.Name = "SqlServerRadioButton";
             SqlServerRadioButton.Result = null;
-            SqlServerRadioButton.Size = new System.Drawing.Size( 102, 17 );
+            SqlServerRadioButton.Size = new System.Drawing.Size( 98, 17 );
             SqlServerRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
             SqlServerRadioButton.StyleManager = null;
             SqlServerRadioButton.TabIndex = 15;
@@ -412,7 +525,7 @@ namespace BudgetExecution
             WordRadioButton.Location = new System.Drawing.Point( 3, 26 );
             WordRadioButton.Name = "WordRadioButton";
             WordRadioButton.Result = null;
-            WordRadioButton.Size = new System.Drawing.Size( 102, 17 );
+            WordRadioButton.Size = new System.Drawing.Size( 98, 17 );
             WordRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
             WordRadioButton.StyleManager = null;
             WordRadioButton.TabIndex = 14;
@@ -438,7 +551,7 @@ namespace BudgetExecution
             PdfRadioButton.Location = new System.Drawing.Point( 3, 3 );
             PdfRadioButton.Name = "PdfRadioButton";
             PdfRadioButton.Result = null;
-            PdfRadioButton.Size = new System.Drawing.Size( 102, 17 );
+            PdfRadioButton.Size = new System.Drawing.Size( 98, 17 );
             PdfRadioButton.Style = MetroSet_UI.Enums.Style.Custom;
             PdfRadioButton.StyleManager = null;
             PdfRadioButton.TabIndex = 13;
@@ -463,7 +576,7 @@ namespace BudgetExecution
             FileListBox.HoverText = null;
             FileListBox.IsDerivedStyle = true;
             FileListBox.ItemHeight = 30;
-            FileListBox.Location = new System.Drawing.Point( 93, 2 );
+            FileListBox.Location = new System.Drawing.Point( 106, 2 );
             FileListBox.Margin = new Padding( 1 );
             FileListBox.MultiSelect = false;
             FileListBox.Name = "FileListBox";
@@ -476,7 +589,7 @@ namespace BudgetExecution
             FileListBox.SelectedValue = null;
             FileListBox.ShowBorder = false;
             FileListBox.ShowScrollBar = false;
-            FileListBox.Size = new System.Drawing.Size( 479, 287 );
+            FileListBox.Size = new System.Drawing.Size( 470, 287 );
             FileListBox.Style = MetroSet_UI.Enums.Style.Custom;
             FileListBox.StyleManager = null;
             FileListBox.TabIndex = 3;
@@ -503,26 +616,6 @@ namespace BudgetExecution
             ToolTip.TipIcon = ToolTipIcon.Info;
             ToolTip.TipText = null;
             ToolTip.TipTitle = null;
-            // 
-            // FoundLabel
-            // 
-            FoundLabel.BindingSource = null;
-            FoundLabel.Dock = DockStyle.Top;
-            FoundLabel.FlatStyle = FlatStyle.Flat;
-            FoundLabel.Font = new System.Drawing.Font( "Roboto", 8.25F );
-            FoundLabel.HoverText = null;
-            FoundLabel.IsDerivedStyle = true;
-            FoundLabel.Location = new System.Drawing.Point( 4, 4 );
-            FoundLabel.Margin = new Padding( 3 );
-            FoundLabel.Name = "FoundLabel";
-            FoundLabel.Padding = new Padding( 1 );
-            FoundLabel.Size = new System.Drawing.Size( 85, 32 );
-            FoundLabel.Style = MetroSet_UI.Enums.Style.Custom;
-            FoundLabel.StyleManager = null;
-            FoundLabel.TabIndex = 4;
-            FoundLabel.ThemeAuthor = "Terry D. Eppler";
-            FoundLabel.ThemeName = "BudgetExecution";
-            FoundLabel.ToolTip = null;
             // 
             // TopTablePanel
             // 
@@ -816,6 +909,7 @@ namespace BudgetExecution
             SizeGripStyle = SizeGripStyle.Hide;
             StartPosition = FormStartPosition.CenterScreen;
             TextBoxLayout.ResumeLayout( false );
+            LabelTable.ResumeLayout( false );
             CheckBoxLayout.ResumeLayout( false );
             ( (ISupportInitialize)BindingSource ).EndInit( );
             TopTablePanel.ResumeLayout( false );
@@ -834,7 +928,7 @@ namespace BudgetExecution
         public BindingSource BindingSource;
         public Picture PictureBox;
         public ListBox FileListBox;
-        public Label FoundLabel;
+        public Label FileLabel;
         public Label PathLabel;
         public RadioButton LibraryRadioButton;
         public RadioButton PowerPointRadioButton;
@@ -856,6 +950,11 @@ namespace BudgetExecution
         public Button BrowseButton;
         public Button CloseButton;
         public Button SelectButton;
+        private Label TimeLabel;
+        public Label FoundLabel;
+        public Label DurationLabel;
+        private Label label3;
+        public TableLayoutPanel LabelTable;
     }
 
 }

@@ -2022,33 +2022,33 @@ namespace BudgetExecution
             {
                 if( !string.IsNullOrEmpty( _selectedTable ) )
                 {
-                    var _tableSelected = _selectedTable?.SplitPascal( ) ?? string.Empty;
-                    var _records = _dataTable.Rows.Count.ToString( "#,###" ) ?? "0";
-                    var _cols = _fields?.Count ?? 0;
-                    var _nums = _numerics?.Count ?? 0;
-                    var _colSelected = _selectedFields?.Count ?? 0;
-                    var _numSelected = _selectedNumerics?.Count ?? 0;
-                    HeaderLabel.Text = $"{_tableSelected} ";
-                    GridHeaderLabel1.Text = $"Data Provider: {_provider}";
-                    GridHeaderLabel2.Text = $"Records: {_records}";
-                    GridHeaderLabel3.Text = $"Total Fields: {_cols}";
-                    GridHeaderLabel4.Text = $"Total Measures: {_nums}";
-                    FieldsTable.CaptionText = $"Selected Fields: {_colSelected}";
-                    NumericsTable.CaptionText = $"Selected Measures: {_numSelected}";
+                    var _tableSelected = _selectedTable?.SplitPascal( ) ?? "None";
+                    var _records = _dataTable.Rows.Count.ToString( "#,###" ) ?? "0.0";
+                    var _cols = $"{_fields?.Count}" ?? "0.0";
+                    var _nums = $"{_numerics?.Count}" ?? "0.0";
+                    var _colSelected = $"{_selectedFields?.Count}" ?? "0.0";
+                    var _numSelected = $"{_selectedNumerics?.Count}" ?? "0.0";
+                    HeaderLabel.Text = $"{_tableSelected}" ?? "0.0";
+                    GridHeaderLabel1.Text = $"Data Provider: {_provider}" ?? "None";
+                    GridHeaderLabel2.Text = $"Records: {_records}" ?? "0.0";
+                    GridHeaderLabel3.Text = $"Total Fields: {_cols}" ?? "0.0";
+                    GridHeaderLabel4.Text = $"Total Measures: {_nums}" ?? "0.0";
+                    FieldsTable.CaptionText = $"Selected Fields: {_colSelected}" ?? "0.0";
+                    NumericsTable.CaptionText = $"Selected Measures: {_numSelected}" ?? "0.0";
                     FirstCalendarTable.CaptionText = $"Start Date: {FirstCalendar.SelectedDate}";
                     SecondCalendarTable.CaptionText = $"End Date: {SecondCalendar.SelectedDate}";
                 }
                 else
                 {
                     HeaderLabel.Text = $"{_provider} Database ";
-                    GridHeaderLabel1.Text = $"Provider:  {_provider}";
-                    GridHeaderLabel2.Text = "Total Records: --";
-                    GridHeaderLabel3.Text = "Total Fields: --";
-                    GridHeaderLabel4.Text = "Total Measures: --";
-                    FieldsTable.CaptionText = "Selected Fields: --";
-                    NumericsTable.CaptionText = "Selected Measures: --";
-                    FirstCalendarTable.CaptionText = "Start Date: --";
-                    SecondCalendarTable.CaptionText = "End Date: --";
+                    GridHeaderLabel1.Text = $"Provider:  {_provider}" ?? "None";
+                    GridHeaderLabel2.Text = "Total Records: 0.0";
+                    GridHeaderLabel3.Text = "Total Fields: 0.0";
+                    GridHeaderLabel4.Text = "Total Measures: 0.0";
+                    FieldsTable.CaptionText = "Selected Fields: 0.0";
+                    NumericsTable.CaptionText = "Selected Measures: 0.0";
+                    FirstCalendarTable.CaptionText = "Start Date: None";
+                    SecondCalendarTable.CaptionText = "End Date: None";
                 }
             }
             catch( Exception _ex )
@@ -2716,8 +2716,8 @@ namespace BudgetExecution
         {
             try
             {
-                var _dialog = new FileDialog( EXT.XLSX );
-                _dialog.ShowDialog( this );
+                var _dialog = new FileDialog( );
+                _dialog.ShowDialog( );
             }
             catch( Exception _ex )
             {
