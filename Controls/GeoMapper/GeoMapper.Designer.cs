@@ -274,8 +274,6 @@
             LeftButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             LeftButton.BindingSource = BindingSource;
             LeftButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            LeftButton.Field = Field.AccountCode;
-            LeftButton.Filter = null;
             LeftButton.Font = new System.Drawing.Font( "Roboto", 9F );
             LeftButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             LeftButton.HoverText = "Left";
@@ -323,8 +321,6 @@
             RightButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             RightButton.BindingSource = BindingSource;
             RightButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            RightButton.Field = Field.AccountCode;
-            RightButton.Filter = null;
             RightButton.Font = new System.Drawing.Font( "Roboto", 9F );
             RightButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             RightButton.HoverText = "Right";
@@ -377,8 +373,6 @@
             SearchButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             SearchButton.BindingSource = BindingSource;
             SearchButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            SearchButton.Field = Field.AccountCode;
-            SearchButton.Filter = null;
             SearchButton.Font = new System.Drawing.Font( "Roboto", 9F );
             SearchButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             SearchButton.HoverText = "Begin Search";
@@ -405,8 +399,6 @@
             UpButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             UpButton.BindingSource = BindingSource;
             UpButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            UpButton.Field = Field.AccountCode;
-            UpButton.Filter = null;
             UpButton.Font = new System.Drawing.Font( "Roboto", 9F );
             UpButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             UpButton.HoverText = "Next Location";
@@ -434,8 +426,6 @@
             DownButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             DownButton.BindingSource = BindingSource;
             DownButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            DownButton.Field = Field.AccountCode;
-            DownButton.Filter = null;
             DownButton.Font = new System.Drawing.Font( "Roboto", 9F );
             DownButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             DownButton.HoverText = "Down";
@@ -505,8 +495,6 @@
             FilterButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             FilterButton.BindingSource = BindingSource;
             FilterButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            FilterButton.Field = Field.AccountCode;
-            FilterButton.Filter = null;
             FilterButton.Font = new System.Drawing.Font( "Roboto", 9F );
             FilterButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             FilterButton.HoverText = "Filter Locations";
@@ -534,8 +522,6 @@
             RefreshButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             RefreshButton.BindingSource = BindingSource;
             RefreshButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            RefreshButton.Field = Field.AccountCode;
-            RefreshButton.Filter = null;
             RefreshButton.Font = new System.Drawing.Font( "Roboto", 9F );
             RefreshButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             RefreshButton.HoverText = "Reset Map";
@@ -605,8 +591,6 @@
             BrowseButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             BrowseButton.BindingSource = BindingSource;
             BrowseButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            BrowseButton.Field = Field.AccountCode;
-            BrowseButton.Filter = null;
             BrowseButton.Font = new System.Drawing.Font( "Roboto", 9F );
             BrowseButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             BrowseButton.HoverText = "Browse System Files";
@@ -634,8 +618,6 @@
             SaveButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             SaveButton.BindingSource = BindingSource;
             SaveButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            SaveButton.Field = Field.AccountCode;
-            SaveButton.Filter = null;
             SaveButton.Font = new System.Drawing.Font( "Roboto", 9F );
             SaveButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             SaveButton.HoverText = "Save Changes";
@@ -690,8 +672,6 @@
             CloseButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             CloseButton.BindingSource = BindingSource;
             CloseButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            CloseButton.Field = Field.AccountCode;
-            CloseButton.Filter = null;
             CloseButton.Font = new System.Drawing.Font( "Roboto", 9F );
             CloseButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             CloseButton.HoverText = null;
@@ -721,8 +701,6 @@
             MenuButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             MenuButton.BindingSource = BindingSource;
             MenuButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            MenuButton.Field = Field.AccountCode;
-            MenuButton.Filter = null;
             MenuButton.Font = new System.Drawing.Font( "Roboto", 9F );
             MenuButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             MenuButton.HoverText = "Return to Menu";

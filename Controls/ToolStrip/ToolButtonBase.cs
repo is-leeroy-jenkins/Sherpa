@@ -44,7 +44,6 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Forms;
 
@@ -72,15 +71,7 @@ namespace BudgetExecution
         /// The binding source.
         /// </value>
         public virtual BindingSource BindingSource { get; set; }
-
-        /// <summary>
-        /// Gets or sets the field.
-        /// </summary>
-        /// <value>
-        /// The field.
-        /// </value>
-        public virtual Field Field { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the hover text.
         /// </summary>
@@ -88,15 +79,7 @@ namespace BudgetExecution
         /// The hover text.
         /// </value>
         public virtual string HoverText { get; set; }
-
-        /// <summary>
-        /// Gets or sets the data filter.
-        /// </summary>
-        /// <value>
-        /// The data filter.
-        /// </value>
-        public virtual IDictionary<string, object> Filter { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the type of the tool.
         /// </summary>

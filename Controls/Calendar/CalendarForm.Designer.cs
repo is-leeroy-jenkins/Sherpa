@@ -390,8 +390,6 @@ namespace BudgetExecution
             FirstButton.BackColor = System.Drawing.Color.Transparent;
             FirstButton.BindingSource = BindingSource;
             FirstButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            FirstButton.Field = Field.AccountCode;
-            FirstButton.Filter = null;
             FirstButton.Font = new System.Drawing.Font( "Roboto", 9F );
             FirstButton.ForeColor = System.Drawing.Color.LightGray;
             FirstButton.HoverText = "First Date";
@@ -419,8 +417,6 @@ namespace BudgetExecution
             PreviousButton.BackColor = System.Drawing.Color.Transparent;
             PreviousButton.BindingSource = BindingSource;
             PreviousButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            PreviousButton.Field = Field.AccountCode;
-            PreviousButton.Filter = null;
             PreviousButton.Font = new System.Drawing.Font( "Roboto", 9F );
             PreviousButton.ForeColor = System.Drawing.Color.LightGray;
             PreviousButton.HoverText = "Previous Date";
@@ -448,8 +444,6 @@ namespace BudgetExecution
             NextButton.BackColor = System.Drawing.Color.Transparent;
             NextButton.BindingSource = BindingSource;
             NextButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            NextButton.Field = Field.AccountCode;
-            NextButton.Filter = null;
             NextButton.Font = new System.Drawing.Font( "Roboto", 9F );
             NextButton.ForeColor = System.Drawing.Color.LightGray;
             NextButton.HoverText = "Next Date";
@@ -477,8 +471,6 @@ namespace BudgetExecution
             LastButton.BackColor = System.Drawing.Color.Transparent;
             LastButton.BindingSource = BindingSource;
             LastButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            LastButton.Field = Field.AccountCode;
-            LastButton.Filter = null;
             LastButton.Font = new System.Drawing.Font( "Roboto", 9F );
             LastButton.ForeColor = System.Drawing.Color.LightGray;
             LastButton.HoverText = "Last Date";
@@ -558,8 +550,6 @@ namespace BudgetExecution
             CloseButton.BackColor = System.Drawing.Color.Transparent;
             CloseButton.BindingSource = BindingSource;
             CloseButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            CloseButton.Field = Field.AccountCode;
-            CloseButton.Filter = null;
             CloseButton.Font = new System.Drawing.Font( "Roboto", 9F );
             CloseButton.ForeColor = System.Drawing.Color.LightGray;
             CloseButton.HoverText = "Close Application";
@@ -579,8 +569,6 @@ namespace BudgetExecution
             BrowseButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             BrowseButton.BindingSource = null;
             BrowseButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            BrowseButton.Field = Field.AccountCode;
-            BrowseButton.Filter = null;
             BrowseButton.Font = new System.Drawing.Font( "Roboto", 9F );
             BrowseButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             BrowseButton.HoverText = null;
@@ -608,8 +596,6 @@ namespace BudgetExecution
             SaveButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             SaveButton.BindingSource = BindingSource;
             SaveButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            SaveButton.Field = Field.AccountCode;
-            SaveButton.Filter = null;
             SaveButton.Font = new System.Drawing.Font( "Roboto", 9F );
             SaveButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             SaveButton.HoverText = "Save Changes";
@@ -662,8 +648,6 @@ namespace BudgetExecution
             RefreshButton.BackColor = System.Drawing.Color.Transparent;
             RefreshButton.BindingSource = BindingSource;
             RefreshButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            RefreshButton.Field = Field.AccountCode;
-            RefreshButton.Filter = null;
             RefreshButton.Font = new System.Drawing.Font( "Roboto", 9F );
             RefreshButton.ForeColor = System.Drawing.Color.LightGray;
             RefreshButton.HoverText = "Refresh Data";
@@ -699,8 +683,6 @@ namespace BudgetExecution
             TableButton.BackColor = System.Drawing.Color.Transparent;
             TableButton.BindingSource = BindingSource;
             TableButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            TableButton.Field = Field.AccountCode;
-            TableButton.Filter = null;
             TableButton.Font = new System.Drawing.Font( "Roboto", 9F );
             TableButton.ForeColor = System.Drawing.Color.LightGray;
             TableButton.HoverText = "View Data";
@@ -737,8 +719,6 @@ namespace BudgetExecution
             ChartButton.BackColor = System.Drawing.Color.Transparent;
             ChartButton.BindingSource = BindingSource;
             ChartButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            ChartButton.Field = Field.AccountCode;
-            ChartButton.Filter = null;
             ChartButton.Font = new System.Drawing.Font( "Roboto", 9F );
             ChartButton.ForeColor = System.Drawing.Color.LightGray;
             ChartButton.HoverText = "Charts";
@@ -767,8 +747,6 @@ namespace BudgetExecution
             MenuButton.BackColor = System.Drawing.Color.Transparent;
             MenuButton.BindingSource = BindingSource;
             MenuButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            MenuButton.Field = Field.AccountCode;
-            MenuButton.Filter = null;
             MenuButton.Font = new System.Drawing.Font( "Roboto", 9F );
             MenuButton.ForeColor = System.Drawing.Color.LightGray;
             MenuButton.HoverText = "Main Menu";

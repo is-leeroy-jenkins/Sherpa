@@ -489,8 +489,6 @@
             GoButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             GoButton.BindingSource = BindingSource;
             GoButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            GoButton.Field = Field.AccountCode;
-            GoButton.Filter = null;
             GoButton.Font = new System.Drawing.Font( "Roboto", 9F );
             GoButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             GoButton.HoverText = "Search for it";
@@ -545,8 +543,6 @@
             BrowseButton.BackColor = System.Drawing.Color.Transparent;
             BrowseButton.BindingSource = BindingSource;
             BrowseButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            BrowseButton.Field = Field.AccountCode;
-            BrowseButton.Filter = null;
             BrowseButton.Font = new System.Drawing.Font( "Roboto", 9F );
             BrowseButton.ForeColor = System.Drawing.Color.LightGray;
             BrowseButton.HoverText = "Browse Files";
@@ -574,8 +570,6 @@
             SaveButton.BackColor = System.Drawing.Color.Transparent;
             SaveButton.BindingSource = BindingSource;
             SaveButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            SaveButton.Field = Field.AccountCode;
-            SaveButton.Filter = null;
             SaveButton.Font = new System.Drawing.Font( "Roboto", 9F );
             SaveButton.ForeColor = System.Drawing.Color.LightGray;
             SaveButton.HoverText = "Save Changes";
@@ -638,8 +632,6 @@
             RefreshButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             RefreshButton.BindingSource = BindingSource;
             RefreshButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            RefreshButton.Field = Field.AccountCode;
-            RefreshButton.Filter = null;
             RefreshButton.Font = new System.Drawing.Font( "Roboto", 9F );
             RefreshButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             RefreshButton.HoverText = "Reset Data";
@@ -667,8 +659,6 @@
             LookupButton.BackColor = System.Drawing.Color.Transparent;
             LookupButton.BindingSource = BindingSource;
             LookupButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            LookupButton.Field = Field.AccountCode;
-            LookupButton.Filter = null;
             LookupButton.Font = new System.Drawing.Font( "Roboto", 9F );
             LookupButton.ForeColor = System.Drawing.Color.LightGray;
             LookupButton.HoverText = "Lookup Data";
@@ -706,8 +696,6 @@
             CloseButton.BackColor = System.Drawing.Color.Transparent;
             CloseButton.BindingSource = BindingSource;
             CloseButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            CloseButton.Field = Field.AccountCode;
-            CloseButton.Filter = null;
             CloseButton.Font = new System.Drawing.Font( "Roboto", 9F );
             CloseButton.ForeColor = System.Drawing.Color.LightGray;
             CloseButton.HoverText = "Shut Down";
@@ -737,8 +725,6 @@
             MenuButton.BackColor = System.Drawing.Color.Transparent;
             MenuButton.BindingSource = BindingSource;
             MenuButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            MenuButton.Field = Field.AccountCode;
-            MenuButton.Filter = null;
             MenuButton.Font = new System.Drawing.Font( "Roboto", 9F );
             MenuButton.ForeColor = System.Drawing.Color.LightGray;
             MenuButton.HoverText = "Main Menu";
@@ -784,8 +770,6 @@
             ExcelButton.BackColor = System.Drawing.Color.FromArgb( 45, 45, 45 );
             ExcelButton.BindingSource = BindingSource;
             ExcelButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            ExcelButton.Field = Field.AccountCode;
-            ExcelButton.Filter = null;
             ExcelButton.Font = new System.Drawing.Font( "Roboto", 9F );
             ExcelButton.ForeColor = System.Drawing.Color.FromArgb( 106, 189, 252 );
             ExcelButton.HoverText = "View Spreadsheet";

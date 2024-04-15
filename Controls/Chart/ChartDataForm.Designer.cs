@@ -1114,8 +1114,6 @@
             FirstButton.BackColor = System.Drawing.Color.Transparent;
             FirstButton.BindingSource = BindingSource;
             FirstButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            FirstButton.Field = Field.AccountCode;
-            FirstButton.Filter = null;
             FirstButton.Font = new System.Drawing.Font( "Roboto", 9F );
             FirstButton.ForeColor = System.Drawing.Color.LightGray;
             FirstButton.HoverText = "First Record";
@@ -1209,8 +1207,6 @@
             PreviousButton.BackColor = System.Drawing.Color.Transparent;
             PreviousButton.BindingSource = BindingSource;
             PreviousButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            PreviousButton.Field = Field.AccountCode;
-            PreviousButton.Filter = null;
             PreviousButton.Font = new System.Drawing.Font( "Roboto", 9F );
             PreviousButton.ForeColor = System.Drawing.Color.LightGray;
             PreviousButton.HoverText = "Previous Button";
@@ -1238,8 +1234,6 @@
             NextButton.BackColor = System.Drawing.Color.Transparent;
             NextButton.BindingSource = BindingSource;
             NextButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            NextButton.Field = Field.AccountCode;
-            NextButton.Filter = null;
             NextButton.Font = new System.Drawing.Font( "Roboto", 9F );
             NextButton.ForeColor = System.Drawing.Color.LightGray;
             NextButton.HoverText = "Next Record";
@@ -1267,8 +1261,6 @@
             LastButton.BackColor = System.Drawing.Color.Transparent;
             LastButton.BindingSource = BindingSource;
             LastButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            LastButton.Field = Field.AccountCode;
-            LastButton.Filter = null;
             LastButton.Font = new System.Drawing.Font( "Roboto", 9F );
             LastButton.ForeColor = System.Drawing.Color.LightGray;
             LastButton.HoverText = "Last Record";
@@ -1338,8 +1330,6 @@
             RefreshDataButton.BackColor = System.Drawing.Color.Transparent;
             RefreshDataButton.BindingSource = BindingSource;
             RefreshDataButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            RefreshDataButton.Field = Field.AccountCode;
-            RefreshDataButton.Filter = null;
             RefreshDataButton.Font = new System.Drawing.Font( "Roboto", 9F );
             RefreshDataButton.ForeColor = System.Drawing.Color.LightGray;
             RefreshDataButton.HoverText = "Reset Query";
@@ -1367,8 +1357,6 @@
             RemoveFiltersButton.BackColor = System.Drawing.Color.Transparent;
             RemoveFiltersButton.BindingSource = BindingSource;
             RemoveFiltersButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            RemoveFiltersButton.Field = Field.AccountCode;
-            RemoveFiltersButton.Filter = null;
             RemoveFiltersButton.Font = new System.Drawing.Font( "Roboto", 9F );
             RemoveFiltersButton.ForeColor = System.Drawing.Color.LightGray;
             RemoveFiltersButton.HoverText = "Filter Records";
@@ -1396,8 +1384,6 @@
             GroupButton.BackColor = System.Drawing.Color.Transparent;
             GroupButton.BindingSource = BindingSource;
             GroupButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            GroupButton.Field = Field.AccountCode;
-            GroupButton.Filter = null;
             GroupButton.Font = new System.Drawing.Font( "Roboto", 9F );
             GroupButton.ForeColor = System.Drawing.Color.LightGray;
             GroupButton.HoverText = "Group Columns";
@@ -1426,8 +1412,6 @@
             ExitButton.BackColor = System.Drawing.Color.Transparent;
             ExitButton.BindingSource = BindingSource;
             ExitButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            ExitButton.Field = Field.AccountCode;
-            ExitButton.Filter = null;
             ExitButton.Font = new System.Drawing.Font( "Roboto", 9F );
             ExitButton.ForeColor = System.Drawing.Color.LightGray;
             ExitButton.HoverText = "Exit Application";
@@ -1457,8 +1441,6 @@
             MenuButton.BackColor = System.Drawing.Color.Transparent;
             MenuButton.BindingSource = BindingSource;
             MenuButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            MenuButton.Field = Field.AccountCode;
-            MenuButton.Filter = null;
             MenuButton.Font = new System.Drawing.Font( "Roboto", 9F );
             MenuButton.ForeColor = System.Drawing.Color.LightGray;
             MenuButton.HoverText = "Main Menu";

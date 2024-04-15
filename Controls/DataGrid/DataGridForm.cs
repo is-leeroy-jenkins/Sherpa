@@ -1920,7 +1920,7 @@ namespace BudgetExecution
         /// Sets the icon.
         /// </summary>
         /// <param name="toolType">The toolType.</param>
-        private void SetScreenIcon( ToolType toolType )
+        private void SetPictureBoxImage( ToolType toolType )
         {
             try
             {
@@ -1950,7 +1950,7 @@ namespace BudgetExecution
                                 if( !string.IsNullOrEmpty( _file )
                                    && File.Exists( _file ) )
                                 {
-                                    var _img = Image.FromFile( _file );
+                                    using var _img = Image.FromFile( _file );
                                     if( _img != null )
                                     {
                                         PictureBox.Image = _img;
@@ -2152,7 +2152,6 @@ namespace BudgetExecution
         {
             try
             {
-                Opacity = 0;
                 ClearCategoryValueSelections( );
                 InitializeRadioButtons( );
                 InitializePictureBox( );
@@ -2178,6 +2177,7 @@ namespace BudgetExecution
                 Timer.Start( );
                 UpdateHeaderLabels( );
                 UpdateStatus( );
+                Opacity = 0;
                 FadeInAsync( this );
             }
             catch( Exception _ex )
@@ -2716,8 +2716,8 @@ namespace BudgetExecution
         {
             try
             {
-                var _dialog = new FileDialog( );
-                _dialog.ShowDialog( );
+                var _fileDialog = new FileDialog( );
+                _fileDialog.ShowDialog( this );
             }
             catch( Exception _ex )
             {
@@ -2735,7 +2735,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _message = "THE SAVE FUCTIONALITY HAS NOT BEEN IMPLEMENTED!";
+                var _message = "THE SAVE BUTTON HAS NOT BEEN IMPLEMENTED!";
                 SendNotification( _message );
             }
             catch( Exception _ex )
@@ -2784,7 +2784,6 @@ namespace BudgetExecution
                     }
                     else
                     {
-                        SetScreenIcon( _button.ToolType );
                         var _dialog = new EditPage( _source, _provider );
                         _dialog?.ShowDialog( this );
                         SetFormIcon( );
@@ -2816,7 +2815,6 @@ namespace BudgetExecution
                     }
                     else
                     {
-                        SetScreenIcon( _button.ToolType );
                         var _dialog = new SchemaPage( _button.ToolType, BindingSource );
                         _dialog?.ShowDialog( this );
                         SetFormIcon( );
@@ -2869,9 +2867,9 @@ namespace BudgetExecution
                     }
                     else
                     {
-                        SetScreenIcon( _button.ToolType );
-                        var _sqlDialog = new SqlPage( _source, _provider );
-                        _sqlDialog.ShowDialog( this );
+                        SetPictureBoxImage( _button.ToolType );
+                        var _sqlPage = new SqlPage( _source, _provider );
+                        _sqlPage.ShowDialog( this );
                         SetFormIcon( );
                     }
                 }

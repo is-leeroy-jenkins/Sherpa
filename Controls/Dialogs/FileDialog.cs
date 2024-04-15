@@ -49,8 +49,6 @@ namespace BudgetExecution
     using System.Drawing;
     using System.IO;
     using System.Linq;
-    using System.Runtime.CompilerServices;
-    using System.Threading.Tasks;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using static System.Environment;
@@ -144,7 +142,7 @@ namespace BudgetExecution
         /// <summary>
         /// The initial dir paths
         /// </summary>
-        private protected IList<string> _searchPaths;
+        private protected IList<string> _initialPaths;
 
         /// <summary>
         /// The radio buttons
@@ -155,25 +153,7 @@ namespace BudgetExecution
         /// The image
         /// </summary>
         private protected Bitmap _image;
-
-        /// <summary>
-        /// Gets or sets the extension.
-        /// </summary>
-        /// <value>
-        /// The extension.
-        /// </value>
-        public EXT Extension
-        {
-            get
-            {
-                return _extension;
-            }
-            private protected set
-            {
-                _extension = value;
-            }
-        }
-
+        
         /// <summary>
         /// Gets or sets the file extension.
         /// </summary>
@@ -191,25 +171,7 @@ namespace BudgetExecution
                 _fileExtension = value;
             }
         }
-
-        /// <summary>
-        /// Gets or sets the initial dir paths.
-        /// </summary>
-        /// <value>
-        /// The initial dir paths.
-        /// </value>
-        public IList<string> SearhPaths
-        {
-            get
-            {
-                return _searchPaths;
-            }
-            private protected set
-            {
-                _searchPaths = value;
-            }
-        }
-
+        
         /// <summary>
         /// Gets or sets the file paths.
         /// </summary>
@@ -361,7 +323,7 @@ namespace BudgetExecution
             _extension = EXT.XLSX;
             _fileExtension = _extension.ToString( ).ToLower( );
             _radioButtons = GetRadioButtons( );
-            _searchPaths = CreateInitialDirectoryPaths( );
+            _initialPaths = CreateInitialDirectoryPaths( );
 
             // Event Wiring
             Load += OnLoad;
@@ -380,7 +342,7 @@ namespace BudgetExecution
             _extension = extension;
             _fileExtension = _extension.ToString( ).ToLower( );
             _radioButtons = GetRadioButtons( );
-            _searchPaths = CreateInitialDirectoryPaths( );
+            _initialPaths = CreateInitialDirectoryPaths( );
             _filePaths = GetFilePaths( );
             _count = _filePaths.Count;
 
@@ -827,9 +789,9 @@ namespace BudgetExecution
             {
                 _filePaths?.Clear( );
                 var _pattern = "*." + _fileExtension;
-                for( var _i = 0; _i < _searchPaths.Count; _i++ )
+                for( var _i = 0; _i < _initialPaths.Count; _i++ )
                 {
-                    var _dirPath = _searchPaths[ _i ];
+                    var _dirPath = _initialPaths[ _i ];
                     var _parent = Directory.CreateDirectory( _dirPath );
                     var _folders = _parent.GetDirectories( )
                         ?.Where( s => s.Name.Contains( "My" ) == false )
@@ -871,9 +833,9 @@ namespace BudgetExecution
                 _watch.Start( );
                 var _list = new List<string>( );
                 var _pattern = "*" + _fileExtension;
-                for( var _i = 0; _i < _searchPaths.Count; _i++ )
+                for( var _i = 0; _i < _initialPaths.Count; _i++ )
                 {
-                    var _dirPath = _searchPaths[ _i ];
+                    var _dirPath = _initialPaths[ _i ];
                     var _parent = Directory.CreateDirectory( _dirPath );
                     var _folders = _parent.GetDirectories( )
                         ?.Where( s => s.Name.StartsWith( "My" ) == false )
