@@ -58,16 +58,16 @@ namespace BudgetExecution
     /// <summary>
     /// </summary>
     /// <seealso cref="T:Syncfusion.Windows.Forms.MetroForm" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
-    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
-    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
+    [SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" )]
+    [SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" )]
+    [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
+    [SuppressMessage( "ReSharper", "InconsistentNaming" )]
+    [SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" )]
     public partial class FileDialog : MetroForm
     {
         /// <summary>
@@ -154,7 +154,7 @@ namespace BudgetExecution
         /// The image
         /// </summary>
         private protected Bitmap _image;
-        
+
         /// <summary>
         /// Gets or sets the file extension.
         /// </summary>
@@ -172,7 +172,7 @@ namespace BudgetExecution
                 _fileExtension = value;
             }
         }
-        
+
         /// <summary>
         /// Gets or sets the file paths.
         /// </summary>
@@ -280,7 +280,7 @@ namespace BudgetExecution
         /// Initializes a new instance of the
         /// <see cref="T:BudgetExecution.FileDialog" /> class.
         /// </summary>
-        public FileDialog( ) 
+        public FileDialog( )
         {
             InitializeComponent( );
             InitializeDelegates( );
@@ -337,7 +337,7 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.FileDialog" /> class.
         /// </summary>
         /// <param name="extension">The extension.</param>
-        public FileDialog( EXT extension ) 
+        public FileDialog( EXT extension )
             : this( )
         {
             // Budget Properties
@@ -374,7 +374,7 @@ namespace BudgetExecution
             {
                 // Title Properties
                 Title.ForeColor = Color.FromArgb( 106, 189, 252 );
-                Title.TextAlign = ContentAlignment.TopLeft;
+                Title.TextAlign = ContentAlignment.TopCenter;
                 Title.Text = $"{_extension} File Search";
 
                 // Found Label Proerties
@@ -383,9 +383,9 @@ namespace BudgetExecution
                 FoundLabel.Font = _font;
                 DurationLabel.Font = _font;
                 DurationLabel.Font = _font;
-                FoundLabel.Text = $"Files:  {_count:N0}";
+                FoundLabel.Text = $"Files: {_count:N0}";
                 FoundLabel.TextAlign = ContentAlignment.BottomLeft;
-                DurationLabel.Text = $"Time:  {_duration:N1} ms";
+                DurationLabel.Text = $"Time: {_duration:N0} ms";
                 DurationLabel.TextAlign = ContentAlignment.TopLeft;
             }
             catch( Exception _ex )
@@ -706,7 +706,7 @@ namespace BudgetExecution
                 return default( IList<RadioButton> );
             }
         }
-        
+
         /// <summary>
         /// Gets the image.
         /// </summary>
@@ -762,11 +762,11 @@ namespace BudgetExecution
                         ?.Where( s => s.Name.Contains( "My" ) == false )
                         ?.Select( s => s.FullName )
                         ?.ToList( );
-                    
+
                     var _topLevelFiles = _parent.GetFiles( _pattern, SearchOption.TopDirectoryOnly )
                         ?.Select( f => f.FullName )
                         ?.ToArray( );
-                    
+
                     _filePaths.AddRange( _topLevelFiles );
                     for( int _k = 0; _k < _folders.Count; _k++ )
                     {
@@ -774,7 +774,7 @@ namespace BudgetExecution
                         var _lowerLevelFiles = _folder.GetFiles( _pattern, SearchOption.AllDirectories )
                             ?.Select( s => s.FullName )
                             ?.ToArray( );
-                        
+
                         _filePaths.AddRange( _lowerLevelFiles );
                     }
                 }
@@ -999,15 +999,11 @@ namespace BudgetExecution
                 var _ext = _radioButton.Tag?.ToString( )
                     ?.Trim( ".".ToCharArray( ) )
                     ?.ToUpper( );
-                
+
                 _filePaths = GetFilePaths( );
                 _count = _filePaths.Count;
                 PopulateListBox( _filePaths );
-                Title.Text = $"{_ext} File Search";
-                FoundLabel.Text = $"Files:  {_count:N0}";
-                FoundLabel.TextAlign = ContentAlignment.BottomLeft;
-                DurationLabel.Text = $"Time:  {_duration:N1} ms";
-                DurationLabel.TextAlign = ContentAlignment.BottomLeft;
+                UpdateLabels( );
                 SetImage( );
             }
             catch( Exception _ex )
@@ -1016,6 +1012,26 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Updates the labels.
+        /// </summary>
+        private void UpdateLabels( )
+        {
+            try
+            {
+                var _ext = _fileExtension.ToUpper( );
+                Title.Text = $"{_ext} File Search";
+                FoundLabel.Text = $"Files: {_count:N0}";
+                FoundLabel.TextAlign = ContentAlignment.BottomLeft;
+                DurationLabel.Text = $"Time: {_duration:N0} ms";
+                DurationLabel.TextAlign = ContentAlignment.BottomLeft;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+        
         /// <summary>
         /// Called when [path selected].
         /// </summary>
@@ -1089,7 +1105,7 @@ namespace BudgetExecution
                 }
             }
         }
-        
+
         /// <summary>
         /// Called when [close button clicked].
         /// </summary>
