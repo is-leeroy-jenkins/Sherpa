@@ -381,14 +381,14 @@ namespace BudgetExecution
                             {
                                 var _fileDialog = new FileDialog( );
                                 _fileDialog.Location = e.Location;
-                                _fileDialog.ShowDialog( );
+                                _fileDialog.ShowDialog( this );
                                 break;
                             }
                             case MenuOption.Folder:
                             {
                                 var _folderDialog = new FolderDialog( );
                                 _folderDialog.Location = e.Location;
-                                _folderDialog.ShowDialog( );
+                                _folderDialog.ShowDialog( this );
                                 break;
                             }
                             case MenuOption.Calculator:

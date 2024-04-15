@@ -53,7 +53,8 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using static System.Environment;
-
+    using CheckState = MetroSet_UI.Enums.CheckState;
+    
     /// <inheritdoc />
     /// <summary>
     /// </summary>
@@ -378,14 +379,14 @@ namespace BudgetExecution
                 Title.Text = $"{_extension} File Search";
 
                 // Found Label Proerties
-                var _font = new Font( "Roboto", 8 );
+                var _font = new Font( "Roboto", 7 );
                 FoundLabel.Font = _font;
                 FoundLabel.Font = _font;
                 DurationLabel.Font = _font;
                 DurationLabel.Font = _font;
-                FoundLabel.Text = $"Files: {_count:N0}";
+                FoundLabel.Text = $"Files:  {_count:N0}";
                 FoundLabel.TextAlign = ContentAlignment.BottomLeft;
-                DurationLabel.Text = $"Time: {_duration:N0} ms";
+                DurationLabel.Text = $"Time:  {_duration:N0} ms";
                 DurationLabel.TextAlign = ContentAlignment.TopLeft;
             }
             catch( Exception _ex )
@@ -633,7 +634,7 @@ namespace BudgetExecution
             {
                 foreach( var _radioButton in _radioButtons )
                 {
-                    _radioButton.CheckedChanged += OnRadioButtonSelected;
+                    _radioButton.Click += OnRadioButtonSelected;
                 }
             }
             catch( Exception _ex )
@@ -649,22 +650,90 @@ namespace BudgetExecution
         {
             try
             {
-                _image = _extension switch
+                PictureBox.Image = null;
+                switch( _extension )
                 {
-                    EXT.XLS or EXT.XLSX => Resources.Images.ExtensionImages.XLSX,
-                    EXT.PDF => Resources.Images.ExtensionImages.PDF,
-                    EXT.CSV => Resources.Images.ExtensionImages.CSV,
-                    EXT.PPT => Resources.Images.ExtensionImages.PPTX,
-                    EXT.MDB or EXT.ACCDB => Resources.Images.ExtensionImages.ACCDB,
-                    EXT.DB => Resources.Images.ExtensionImages.DB,
-                    EXT.DLL => Resources.Images.ExtensionImages.DLL,
-                    EXT.DOC or EXT.DOCX => Resources.Images.ExtensionImages.DOCX,
-                    EXT.EXE => Resources.Images.ExtensionImages.EXE,
-                    EXT.MDF => Resources.Images.ExtensionImages.MDF,
-                    EXT.SDF => Resources.Images.ExtensionImages.SDF,
-                    EXT.TXT => Resources.Images.ExtensionImages.TXT,
-                    _ => Resources.Images.ExtensionImages.XLSX
-                };
+                    case EXT.XLS:
+                    case EXT.XLSX:
+                    {
+                        _image = Resources.Images.ExtensionImages.XLSX;
+                        PictureBox.Image = _image;
+                        break;
+                    }
+                    case EXT.PDF:
+                    {
+                        _image = Resources.Images.ExtensionImages.PDF;
+                        PictureBox.Image = _image;
+                        break;
+                    }
+                    case EXT.CSV:
+                    {
+                        _image = Resources.Images.ExtensionImages.CSV;
+                        PictureBox.Image = _image;
+                        break;
+                    }
+                    case EXT.PPT:
+                    {
+                        _image = Resources.Images.ExtensionImages.PPTX;
+                        PictureBox.Image = _image;
+                        break;
+                    }
+                    case EXT.MDB:
+                    case EXT.ACCDB:
+                    {
+                        _image = Resources.Images.ExtensionImages.ACCDB;
+                        PictureBox.Image = _image;
+                        break;
+                    }
+                    case EXT.DB:
+                    {
+                        _image = Resources.Images.ExtensionImages.DB;
+                        PictureBox.Image = _image;
+                        break;
+                    }
+                    case EXT.DLL:
+                    {
+                        _image = Resources.Images.ExtensionImages.DLL;
+                        PictureBox.Image = _image;
+                        break;
+                    }
+                    case EXT.DOC:
+                    case EXT.DOCX:
+                    {
+                        _image = Resources.Images.ExtensionImages.DOCX;
+                        PictureBox.Image = _image;
+                        break;
+                    }
+                    case EXT.EXE:
+                    {
+                        _image = Resources.Images.ExtensionImages.EXE;
+                        break;
+                    }
+                    case EXT.MDF:
+                    {
+                        _image = Resources.Images.ExtensionImages.MDF;
+                        PictureBox.Image = _image;
+                        break;
+                    }
+                    case EXT.SDF:
+                    {
+                        _image = Resources.Images.ExtensionImages.SDF;
+                        PictureBox.Image = _image;
+                        break;
+                    }
+                    case EXT.TXT:
+                    {
+                        _image = Resources.Images.ExtensionImages.TXT;
+                        PictureBox.Image = _image;
+                        break;
+                    }
+                    default:
+                    {
+                        _image = Resources.Images.ExtensionImages.XLSX;
+                        PictureBox.Image = _image;
+                        break;
+                    }
+                }
             }
             catch( Exception _ex )
             {
@@ -990,16 +1059,14 @@ namespace BudgetExecution
         /// Called when [RadioButton selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        private protected void OnRadioButtonSelected( object sender )
+        private protected void OnRadioButtonSelected( object sender, EventArgs e )
         {
             try
             {
                 var _radioButton = sender as RadioButton;
-                _fileExtension = _radioButton?.Result;
-                var _ext = _radioButton.Tag?.ToString( )
-                    ?.Trim( ".".ToCharArray( ) )
-                    ?.ToUpper( );
-
+                _radioButton.CheckState = CheckState.Checked;
+                _fileExtension = _radioButton.Result.Replace( ".", "" );
+                _extension = (EXT)Enum.Parse( typeof( EXT ), _fileExtension.ToUpper( ) );
                 _filePaths = GetFilePaths( );
                 _count = _filePaths.Count;
                 PopulateListBox( _filePaths );
@@ -1021,9 +1088,9 @@ namespace BudgetExecution
             {
                 var _ext = _fileExtension.ToUpper( );
                 Title.Text = $"{_ext} File Search";
-                FoundLabel.Text = $"Files: {_count:N0}";
+                FoundLabel.Text = $"Files:  {_count:N0}";
                 FoundLabel.TextAlign = ContentAlignment.BottomLeft;
-                DurationLabel.Text = $"Time: {_duration:N0} ms";
+                DurationLabel.Text = $"Time:  {_duration:N0} ms";
                 DurationLabel.TextAlign = ContentAlignment.BottomLeft;
             }
             catch( Exception _ex )
