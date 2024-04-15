@@ -44,6 +44,7 @@ namespace BudgetExecution
     using System.Collections;
     using System.Collections.Generic;
     using System.Configuration;
+    using System.Data;
     using System.Diagnostics;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
@@ -282,6 +283,7 @@ namespace BudgetExecution
         public FileDialog( ) 
         {
             InitializeComponent( );
+            InitializeDelegates( );
             RegisterCallbacks( );
 
             // Basic Properties
@@ -343,11 +345,6 @@ namespace BudgetExecution
             _fileExtension = _extension.ToString( ).ToLower( );
             _radioButtons = GetRadioButtons( );
             _initialPaths = CreateInitialDirectoryPaths( );
-            _filePaths = GetFilePaths( );
-            _count = _filePaths.Count;
-
-            // Event Wiring
-            Load += OnLoad;
         }
 
         /// <summary>
@@ -360,6 +357,7 @@ namespace BudgetExecution
                 FileListBox.SelectedValueChanged += OnListBoxItemSelected;
                 BrowseButton.Click += OnBrowseButtonClicked;
                 CloseButton.Click += OnCloseButtonClicked;
+                Timer.Tick += OnTimerTick;
             }
             catch( Exception _ex )
             {
@@ -381,12 +379,14 @@ namespace BudgetExecution
 
                 // Found Label Proerties
                 var _font = new Font( "Roboto", 8 );
-                FileLabel.Font = _font;
                 FoundLabel.Font = _font;
-                TimeLabel.Font = _font;
+                FoundLabel.Font = _font;
                 DurationLabel.Font = _font;
-                FoundLabel.Text = $"{_count}";
-                DurationLabel.Text = $"{_duration:N1} ms";
+                DurationLabel.Font = _font;
+                FoundLabel.Text = $"Files:  {_count:N0}";
+                FoundLabel.TextAlign = ContentAlignment.BottomLeft;
+                DurationLabel.Text = $"Time:  {_duration:N1} ms";
+                DurationLabel.TextAlign = ContentAlignment.TopLeft;
             }
             catch( Exception _ex )
             {
@@ -478,6 +478,39 @@ namespace BudgetExecution
                 PictureBox.Padding = new Padding( 1 );
                 PictureBox.Margin = new Padding( 1 );
                 PictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the timer.
+        /// </summary>
+        private void InitializeTimer( )
+        {
+            try
+            {
+                // Timer Properties
+                Timer.Interval = 80;
+                Timer.Tick += OnTimerTick;
+                Timer.Enabled = false;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the delegates.
+        /// </summary>
+        private void InitializeDelegates( )
+        {
+            try
+            {
+                _statusUpdate += UpdateStatus;
             }
             catch( Exception _ex )
             {
@@ -616,90 +649,22 @@ namespace BudgetExecution
         {
             try
             {
-                switch( _extension )
-                { 
-                    case EXT.XLS:
-                    case EXT.XLSX:
-                    {
-                        ExcelRadioButton.Checked = true;
-                        _image = Resources.Images.ExtensionImages.XLSX;
-                        break;
-                    }
-                    case EXT.PDF:
-                    {
-                        PdfRadioButton.Checked = true;
-                        _image = Resources.Images.ExtensionImages.PDF;
-                        break;
-                    }
-                    case EXT.CSV:
-                    {
-                        CsvRadioButton.Checked = true;
-                        _image = Resources.Images.ExtensionImages.CSV;
-                        break;
-                    }
-                    case EXT.PPT:
-                    {
-                        PowerPointRadioButton.Checked = true;
-                        _image = Resources.Images.ExtensionImages.PPTX;
-                        break;
-                    }
-                    case EXT.MDB:
-                    case EXT.ACCDB:
-                    {
-                        AccessRadioButton.Checked = true;
-                        _image = Resources.Images.ExtensionImages.ACCDB;
-                        break;
-                    }
-                    case EXT.DB:
-                    {
-                        SQLiteRadioButton.Checked = true;
-                        _image = Resources.Images.ExtensionImages.DB;
-                        break;
-                    }
-                    case EXT.DLL:
-                    {
-                        LibraryRadioButton.Checked = true;
-                        _image = Resources.Images.ExtensionImages.DLL;
-                        break;
-                    }
-                    case EXT.DOC:
-                    case EXT.DOCX:
-                    {
-                        WordRadioButton.Checked = true;
-                        _image = Resources.Images.ExtensionImages.DOCX;
-                        break;
-                    }
-                    case EXT.EXE:
-                    {
-                        ExecutableRadioButton.Checked = true;
-                        _image = Resources.Images.ExtensionImages.EXE;
-                        break;
-                    }
-                    case EXT.MDF:
-                    {
-                        SqlServerRadioButton.Checked = true;
-                        _image = Resources.Images.ExtensionImages.MDF;
-                        break;
-                    }
-                    case EXT.SDF:
-                    {
-                        SqlCeRadioButton.Checked = true;
-                        _image = Resources.Images.ExtensionImages.SDF;
-                        break;
-                    }
-                    case EXT.TXT:
-                    {
-                        TextRadioButton.Checked = true;
-                        _image = Resources.Images.ExtensionImages.TXT;
-                        break;
-                    }
-                    default:
-                    {
-                        ExcelRadioButton.Checked = true;
-                        _image = Resources.Images.ExtensionImages.XLSX;
-                        break;
-                    }
-                }
+                _image = _extension switch
+                {
+                    EXT.XLS or EXT.XLSX => Resources.Images.ExtensionImages.XLSX,
+                    EXT.PDF => Resources.Images.ExtensionImages.PDF,
+                    EXT.CSV => Resources.Images.ExtensionImages.CSV,
+                    EXT.PPT => Resources.Images.ExtensionImages.PPTX,
+                    EXT.MDB or EXT.ACCDB => Resources.Images.ExtensionImages.ACCDB,
+                    EXT.DB => Resources.Images.ExtensionImages.DB,
+                    EXT.DLL => Resources.Images.ExtensionImages.DLL,
+                    EXT.DOC or EXT.DOCX => Resources.Images.ExtensionImages.DOCX,
+                    EXT.EXE => Resources.Images.ExtensionImages.EXE,
+                    EXT.MDF => Resources.Images.ExtensionImages.MDF,
+                    EXT.SDF => Resources.Images.ExtensionImages.SDF,
+                    EXT.TXT => Resources.Images.ExtensionImages.TXT,
+                    _ => Resources.Images.ExtensionImages.XLSX
+                };
             }
             catch( Exception _ex )
             {
@@ -976,6 +941,22 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Updates the status.
+        /// </summary>
+        private void UpdateStatus( )
+        {
+            try
+            {
+                var _now = DateTime.Now;
+                StatusLabel.Text = $" {_now.ToLongTimeString( )}";
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Called when [load].
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -988,6 +969,8 @@ namespace BudgetExecution
             {
                 _filePaths = GetFilePaths( );
                 _count = _filePaths.Count;
+                ExcelRadioButton.Checked = true;
+                InitializeTimer( );
                 PopulateListBox( );
                 InitializeLabels( );
                 InitializeButtons( );
@@ -995,6 +978,7 @@ namespace BudgetExecution
                 InitializeRadioButtons( );
                 RegisterRadioButtonEvents( );
                 SetImage( );
+                Timer.Start( );
             }
             catch( Exception _ex )
             {
@@ -1012,7 +996,6 @@ namespace BudgetExecution
             {
                 var _radioButton = sender as RadioButton;
                 _fileExtension = _radioButton?.Result;
-                var _filePath = ConfigurationManager.AppSettings[ "ExtensionImages" ];
                 var _ext = _radioButton.Tag?.ToString( )
                     ?.Trim( ".".ToCharArray( ) )
                     ?.ToUpper( );
@@ -1021,8 +1004,10 @@ namespace BudgetExecution
                 _count = _filePaths.Count;
                 PopulateListBox( _filePaths );
                 Title.Text = $"{_ext} File Search";
-                FoundLabel.Text = $"{_count:N1}";
-                DurationLabel.Text = $"{_duration:N1}";
+                FoundLabel.Text = $"Files:  {_count:N0}";
+                FoundLabel.TextAlign = ContentAlignment.BottomLeft;
+                DurationLabel.Text = $"Time:  {_duration:N1} ms";
+                DurationLabel.TextAlign = ContentAlignment.BottomLeft;
                 SetImage( );
             }
             catch( Exception _ex )
@@ -1126,6 +1111,24 @@ namespace BudgetExecution
                 {
                     Fail( _ex );
                 }
+            }
+        }
+
+        /// <summary>
+        /// Called when [timer tick].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/>
+        /// instance containing the event data.</param>
+        private void OnTimerTick( object sender, EventArgs e )
+        {
+            try
+            {
+                InvokeIf( _statusUpdate );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
