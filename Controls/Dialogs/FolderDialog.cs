@@ -152,7 +152,7 @@ namespace BudgetExecution
         /// <value>
         /// The initial dir paths.
         /// </value>
-        public IList<string> SearhPaths
+        public IList<string> SearchPaths
         {
             get
             {
@@ -246,6 +246,7 @@ namespace BudgetExecution
             : base( )
         {
             InitializeComponent( );
+            InitializeDelegates( );
             RegisterCallbacks( );
 
             // Form Settings
@@ -371,6 +372,21 @@ namespace BudgetExecution
                 CloseButton.ForeColor = Color.FromArgb( 106, 189, 252 );
                 FindButton.ForeColor = Color.FromArgb( 106, 189, 252 );
                 SelectButton.ForeColor = Color.FromArgb( 106, 189, 252 );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the delegates.
+        /// </summary>
+        private void InitializeDelegates( )
+        {
+            try
+            {
+                _statusUpdate += UpdateStatus;
             }
             catch( Exception _ex )
             {
@@ -599,6 +615,7 @@ namespace BudgetExecution
                 InitializeLabels( );
                 InitializeButtons( );
                 PopulateListBox( );
+                Timer.Start( );
             }
             catch( Exception _ex )
             {

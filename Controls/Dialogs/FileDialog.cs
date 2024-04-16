@@ -44,7 +44,6 @@ namespace BudgetExecution
     using System.Collections;
     using System.Collections.Generic;
     using System.Configuration;
-    using System.Data;
     using System.Diagnostics;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
@@ -946,7 +945,7 @@ namespace BudgetExecution
                 foreach( var _radioButton in _radioButtons )
                 {
                     _radioButton.CheckedChanged += null;
-                    _radioButton.CheckState = MetroSet_UI.Enums.CheckState.Unchecked;
+                    _radioButton.CheckState = CheckState.Unchecked;
                 }
             }
             catch( Exception _ex )
@@ -1054,11 +1053,12 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Called when [RadioButton selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
+        /// <param name = "e" > </param>
         private protected void OnRadioButtonSelected( object sender, EventArgs e )
         {
             try

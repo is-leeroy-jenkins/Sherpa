@@ -741,7 +741,21 @@ namespace BudgetExecution
         {
             get
             {
-                return _busy;
+                if( _path == null )
+                {
+                    _path = new object( );
+                    lock( _path )
+                    {
+                        return _busy;
+                    }
+                }
+                else
+                {
+                    lock( _path )
+                    {
+                        return _busy;
+                    }
+                }
             }
         }
 
@@ -1073,6 +1087,7 @@ namespace BudgetExecution
             {
                 if( _path == null )
                 {
+
                     _path = new object( );
                     lock( _path )
                     {

@@ -2716,8 +2716,8 @@ namespace BudgetExecution
         {
             try
             {
-                var _fileDialog = new FileDialog( );
-                _fileDialog.ShowDialog( this );
+                var _folderDialog = new FolderDialog( );
+                _folderDialog.ShowDialog( this );
             }
             catch( Exception _ex )
             {

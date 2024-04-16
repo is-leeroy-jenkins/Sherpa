@@ -111,8 +111,6 @@ namespace BudgetExecution
 
             // Event Wiring
             Load += OnLoad;
-            Activated += OnActivated;
-            Closing += OnFormClosing;
         }
 
         /// <inheritdoc />
@@ -139,7 +137,7 @@ namespace BudgetExecution
         public ErrorDialog( string message )
             : this( )
         {
-            Exception = null;
+            Exception = new Exception( message );
             TextBox.Text = message;
         }
 
@@ -148,49 +146,9 @@ namespace BudgetExecution
         /// </summary>
         private void RegisterCallbacks( )
         {
-            CloseButton.Click += OnCloseButtonClick;
-        }
-
-        /// <summary>
-        /// Initializes the labels.
-        /// </summary>
-        private void InitializeLabels( )
-        {
-            // Header Label Properties
-            Title.ForeColor = Color.Red;
-            Title.TextAlign = ContentAlignment.MiddleLeft;
-        }
-
-        /// <summary>
-        /// Initializes the text box.
-        /// </summary>
-        private void InitializeTextBox( )
-        {
-            // TextBox Properties
-            TextBox.Font = new Font( "Roboto", 8 );
-            TextBox.ForeColor = Color.FromArgb( 106, 189, 252 );
-            TextBox.BackColor = Color.FromArgb( 40, 40, 40 );
-            TextBox.BorderColor = Color.Maroon;
-            TextBox.HoverColor = Color.Maroon;
-        }
-
-        /// <summary>
-        /// Fades the in asynchronous.
-        /// </summary>
-        /// <param name="form">The o.</param>
-        /// <param name="interval">The interval.</param>
-        private async void FadeInAsync( Form form, int interval = 80 )
-        {
             try
             {
-                ThrowIf.Null( form, nameof( form ) );
-                while( form.Opacity < 1.0 )
-                {
-                    await Task.Delay( interval );
-                    form.Opacity += 0.05;
-                }
-
-                form.Opacity = 1;
+                CloseButton.Click += OnCloseButtonClick;
             }
             catch( Exception _ex )
             {
@@ -199,22 +157,35 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Fades the out asynchronous.
+        /// Initializes the labels.
         /// </summary>
-        /// <param name="form">The o.</param>
-        /// <param name="interval">The interval.</param>
-        private async void FadeOutAsync( Form form, int interval = 80 )
+        private void InitializeLabels( )
         {
             try
             {
-                ThrowIf.Null( form, nameof( form ) );
-                while( form.Opacity > 0.0 )
-                {
-                    await Task.Delay( interval );
-                    form.Opacity -= 0.05;
-                }
+                // Header Label Properties
+                Title.ForeColor = Color.Red;
+                Title.TextAlign = ContentAlignment.MiddleLeft;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
 
-                form.Opacity = 0;
+        /// <summary>
+        /// Initializes the text box.
+        /// </summary>
+        private void InitializeTextBox( )
+        {
+            try
+            {
+                // TextBox Properties
+                TextBox.Font = new Font( "Roboto", 8 );
+                TextBox.ForeColor = Color.FromArgb( 106, 189, 252 );
+                TextBox.BackColor = Color.FromArgb( 40, 40, 40 );
+                TextBox.BorderColor = Color.Maroon;
+                TextBox.HoverColor = Color.Maroon;
             }
             catch( Exception _ex )
             {
@@ -261,7 +232,14 @@ namespace BudgetExecution
         /// <param name="msg">The MSG.</param>
         public void SetText( string msg = "" )
         {
-            TextBox.Text = msg;
+            try
+            {
+                TextBox.Text = msg;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary> Called when [load]. </summary>
@@ -275,7 +253,6 @@ namespace BudgetExecution
         {
             try
             {
-                Opacity = 0;
                 InitializeLabels( );
                 InitializeTextBox( );
                 if( Exception != null )
@@ -283,8 +260,6 @@ namespace BudgetExecution
                     var _message = Exception.Message;
                     TextBox.Text = Exception.ToLogString( _message );
                 }
-
-                FadeInAsync( this );
             }
             catch( Exception _ex )
             {
@@ -311,44 +286,6 @@ namespace BudgetExecution
                 {
                     Fail( _ex );
                 }
-            }
-        }
-
-        /// <summary>
-        /// Called when [form closing].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnFormClosing( object sender, EventArgs e )
-        {
-            try
-            {
-                Opacity = 1;
-                FadeOutAsync( this );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [shown].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.</param>
-        private void OnActivated( object sender, EventArgs e )
-        {
-            try
-            {
-                Opacity = 0;
-                FadeInAsync( this );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
             }
         }
 
