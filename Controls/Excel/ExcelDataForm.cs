@@ -112,12 +112,7 @@ namespace BudgetExecution
         /// The column count
         /// </summary>
         private int _colCount;
-
-        /// <summary>
-        /// The hover text
-        /// </summary>
-        private string _hoverText;
-
+        
         /// <summary>
         /// The selected dataTable
         /// </summary>
@@ -260,43 +255,7 @@ namespace BudgetExecution
                 _current = value;
             }
         }
-
-        /// <summary>
-        /// Gets the time.
-        /// </summary>
-        /// <value>
-        /// The time.
-        /// </value>
-        public int Time
-        {
-            get
-            {
-                return _time;
-            }
-            private set
-            {
-                _time = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the seconds.
-        /// </summary>
-        /// <value>
-        /// The seconds.
-        /// </value>
-        public int Seconds
-        {
-            get
-            {
-                return _seconds;
-            }
-            private set
-            {
-                _seconds = value;
-            }
-        }
-
+        
         /// <summary>
         /// Gets the count.
         /// </summary>
@@ -314,25 +273,7 @@ namespace BudgetExecution
                 _count = value;
             }
         }
-
-        /// <summary>
-        /// Gets the hover text.
-        /// </summary>
-        /// <value>
-        /// The hover text.
-        /// </value>
-        public virtual string HoverText
-        {
-            get
-            {
-                return _hoverText;
-            }
-            private set
-            {
-                _hoverText = value;
-            }
-        }
-
+        
         /// <summary>
         /// Gets the selected dataTable.
         /// </summary>
@@ -350,151 +291,7 @@ namespace BudgetExecution
                 _selectedTable = value;
             }
         }
-
-        /// <summary>
-        /// Gets the first category.
-        /// </summary>
-        /// <value>
-        /// The first category.
-        /// </value>
-        public string FirstCategory
-        {
-            get
-            {
-                return _firstCategory;
-            }
-            private set
-            {
-                _firstCategory = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the first value.
-        /// </summary>
-        /// <value>
-        /// The first value.
-        /// </value>
-        public string FirstValue
-        {
-            get
-            {
-                return _firstValue;
-            }
-            private set
-            {
-                _firstValue = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the second category.
-        /// </summary>
-        /// <value>
-        /// The second category.
-        /// </value>
-        public string SecondCategory
-        {
-            get
-            {
-                return _secondCategory;
-            }
-            private set
-            {
-                _secondCategory = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the second value.
-        /// </summary>
-        /// <value>
-        /// The second value.
-        /// </value>
-        public string SecondValue
-        {
-            get
-            {
-                return _secondValue;
-            }
-            private set
-            {
-                _secondValue = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the third category.
-        /// </summary>
-        /// <value>
-        /// The third category.
-        /// </value>
-        public string ThirdCategory
-        {
-            get
-            {
-                return _thirdCategory;
-            }
-            private set
-            {
-                _thirdCategory = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the third value.
-        /// </summary>
-        /// <value>
-        /// The third value.
-        /// </value>
-        public string ThirdValue
-        {
-            get
-            {
-                return _thirdValue;
-            }
-            private set
-            {
-                _thirdValue = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the fourth category.
-        /// </summary>
-        /// <value>
-        /// The fourth category.
-        /// </value>
-        public string FourthCategory
-        {
-            get
-            {
-                return _fourthCategory;
-            }
-            private set
-            {
-                _fourthCategory = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the fourth value.
-        /// </summary>
-        /// <value>
-        /// The fourth value.
-        /// </value>
-        public string FourthValue
-        {
-            get
-            {
-                return _fourthValue;
-            }
-            private set
-            {
-                _fourthValue = value;
-            }
-        }
-
+        
         /// <summary>
         /// Gets the SQL query.
         /// </summary>
@@ -674,61 +471,7 @@ namespace BudgetExecution
                 _selectedNumerics = value;
             }
         }
-
-        /// <summary>
-        /// Gets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
-        public Source Source
-        {
-            get
-            {
-                return _source;
-            }
-            private set
-            {
-                _source = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the provider.
-        /// </summary>
-        /// <value>
-        /// The provider.
-        /// </value>
-        public Provider Provider
-        {
-            get
-            {
-                return _provider;
-            }
-            private set
-            {
-                _provider = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the data arguments.
-        /// </summary>
-        /// <value>
-        /// The data arguments.
-        /// </value>
-        public DataArgs DataArgs
-        {
-            get
-            {
-                return _dataArgs;
-            }
-            private set
-            {
-                _dataArgs = value;
-            }
-        }
-
+        
         /// <summary>
         /// Gets a value indicating whether this instance is busy.
         /// </summary>
@@ -1079,6 +822,81 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Sets the worksheet properties.
+        /// </summary>
+        /// <param name="dataTable"> The data dataTable. </param>
+        private void InitializeWorksheet( DataTable dataTable )
+        {
+            try
+            {
+                ThrowIf.Null( dataTable, nameof( dataTable ) );
+                _rowCount = dataTable.Rows.Count;
+                _colCount = dataTable.Columns.Count;
+                Spreadsheet.DisplayAlerts = false;
+                Spreadsheet.Font = new Font( "Roboto", 9 );
+                Spreadsheet.AllowCellContextMenu = true;
+                Spreadsheet.CanApplyTheme = true;
+                Spreadsheet.CanOverrideStyle = true;
+                Spreadsheet.Margin = new Padding( 1 );
+                Spreadsheet.Padding = new Padding( 1 );
+                Spreadsheet.ForeColor = Color.Black;
+                Spreadsheet.DefaultColumnCount = _rowCount;
+                Spreadsheet.DefaultRowCount = _colCount;
+                Spreadsheet.AllowZooming = true;
+                Spreadsheet.AllowFiltering = true;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the worksheet properties.
+        /// </summary>
+        private void InitializeWorksheet( )
+        {
+            try
+            {
+                var _sheet = Spreadsheet?.Workbook?.ActiveSheet;
+                _rowCount = _sheet.Rows.Length;
+                _colCount = _sheet.Columns.Length;
+                Spreadsheet.DisplayAlerts = false;
+                Spreadsheet.Font = new Font( "Roboto", 9 );
+                Spreadsheet.AllowCellContextMenu = true;
+                Spreadsheet.CanApplyTheme = true;
+                Spreadsheet.CanOverrideStyle = true;
+                Spreadsheet.Margin = new Padding( 1 );
+                Spreadsheet.Padding = new Padding( 1 );
+                Spreadsheet.ForeColor = Color.Black;
+                Spreadsheet.AllowZooming = true;
+                Spreadsheet.AllowFiltering = true;
+                Spreadsheet.DefaultColumnCount = _colCount;
+                Spreadsheet.DefaultRowCount = _rowCount;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Initializes the ribbon.
+        /// </summary>
+        private void InitializeRibbon( )
+        {
+            try
+            {
+                Ribbon.Size = new Size( 1338, 128 );
+                Ribbon.Spreadsheet = Spreadsheet;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Begins the initialize.
         /// </summary>
         private void BeginInit( )
@@ -1087,7 +905,6 @@ namespace BudgetExecution
             {
                 if( _path == null )
                 {
-
                     _path = new object( );
                     lock( _path )
                     {
@@ -1242,6 +1059,24 @@ namespace BudgetExecution
                 FirstListBox.Items?.Clear( );
                 SecondListBox.Items?.Clear( );
                 ThirdListBox.Items?.Clear( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the filter.
+        /// </summary>
+        private void ClearFilter( )
+        {
+            try
+            {
+                if( _filter?.Any( ) == true )
+                {
+                    _filter.Clear( );
+                }
             }
             catch( Exception _ex )
             {
@@ -1436,66 +1271,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
-        /// <summary>
-        /// Sets the worksheet properties.
-        /// </summary>
-        /// <param name="dataTable"> The data dataTable. </param>
-        private void InitializeWorksheet( DataTable dataTable )
-        {
-            try
-            {
-                ThrowIf.Null( dataTable, nameof( dataTable ) );
-                _rowCount = dataTable.Rows.Count;
-                _colCount = dataTable.Columns.Count;
-                Spreadsheet.DisplayAlerts = false;
-                Spreadsheet.Font = new Font( "Roboto", 9 );
-                Spreadsheet.AllowCellContextMenu = true;
-                Spreadsheet.CanApplyTheme = true;
-                Spreadsheet.CanOverrideStyle = true;
-                Spreadsheet.Margin = new Padding( 1 );
-                Spreadsheet.Padding = new Padding( 1 );
-                Spreadsheet.ForeColor = Color.Black;
-                Spreadsheet.DefaultColumnCount = _rowCount;
-                Spreadsheet.DefaultRowCount = _colCount;
-                Spreadsheet.AllowZooming = true;
-                Spreadsheet.AllowFiltering = true;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Sets the worksheet properties.
-        /// </summary>
-        private void InitializeWorksheet( )
-        {
-            try
-            {
-                var _sheet = Spreadsheet?.Workbook?.ActiveSheet;
-                _rowCount = _sheet.Rows.Length;
-                _colCount = _sheet.Columns.Length;
-                Spreadsheet.DisplayAlerts = false;
-                Spreadsheet.Font = new Font( "Roboto", 9 );
-                Spreadsheet.AllowCellContextMenu = true;
-                Spreadsheet.CanApplyTheme = true;
-                Spreadsheet.CanOverrideStyle = true;
-                Spreadsheet.Margin = new Padding( 1 );
-                Spreadsheet.Padding = new Padding( 1 );
-                Spreadsheet.ForeColor = Color.Black;
-                Spreadsheet.AllowZooming = true;
-                Spreadsheet.AllowFiltering = true;
-                Spreadsheet.DefaultColumnCount = _colCount;
-                Spreadsheet.DefaultRowCount = _rowCount;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
+        
         /// <summary>
         /// Sets the active grid configuration.
         /// </summary>
@@ -2214,11 +1990,7 @@ namespace BudgetExecution
                 InitializeToolStrip( );
                 InitializeLabels( );
                 InitializePictureBox( );
-                Ribbon.Size = new Size( 1338, 128 );
-                Header.ForeColor = Color.FromArgb( 106, 189, 252 );
-                Header.Font = new Font( "Roboto", 10 );
-                Header.TextAlign = ContentAlignment.TopCenter;
-                Ribbon.Spreadsheet = Spreadsheet;
+                InitializeRibbon( );
                 FilterSeparator.Visible = false;
                 FadeInAsync( this );
             }
@@ -2227,7 +1999,7 @@ namespace BudgetExecution
                 Fail( _ex );
             }
         }
-
+        
         /// <summary>
         /// Called when [cell enter].
         /// </summary>
@@ -2442,7 +2214,7 @@ namespace BudgetExecution
         {
             try
             {
-                Application.Exit( );
+                Close( );
             }
             catch( Exception _ex )
             {
@@ -2480,7 +2252,14 @@ namespace BudgetExecution
         /// instance containing the event data.</param>
         private void OnTimerTick( object sender, EventArgs e )
         {
-            InvokeIf( _statusUpdate );
+            try
+            {
+                InvokeIf( _statusUpdate );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
         }
 
         /// <summary>
@@ -2536,15 +2315,15 @@ namespace BudgetExecution
                     ClearCollections( );
                     ToolStrip.Visible = true;
                     var _title = _listBox.SelectedValue?.ToString( );
-                    SelectedTable = _title?.Replace( " ", "" );
-                    Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
-                    DataModel = new DataBuilder( Source, Provider );
-                    DataTable = DataModel.DataTable;
-                    BindingSource.DataSource = DataModel.DataTable;
+                    _selectedTable = _title?.Replace( " ", "" );
+                    _source = (Source)Enum.Parse( typeof( Source ), _selectedTable );
+                    _dataModel = new DataBuilder( _source, _provider );
+                    _dataTable = _dataModel.DataTable;
+                    BindingSource.DataSource = _dataModel.DataTable;
                     ToolStrip.BindingSource = BindingSource;
-                    Columns = DataModel.ColumnNames;
-                    Fields = DataModel.Fields;
-                    Numerics = DataModel.Numerics;
+                    _columns = _dataModel.ColumnNames;
+                    _fields = _dataModel.Fields;
+                    _numerics = _dataModel.Numerics;
                     PopulateFirstComboBoxItems( );
                 }
                 catch( Exception _ex )
@@ -2565,19 +2344,19 @@ namespace BudgetExecution
             {
                 try
                 {
-                    FirstCategory = string.Empty;
-                    FirstValue = string.Empty;
-                    SecondCategory = string.Empty;
-                    SecondValue = string.Empty;
-                    ThirdCategory = string.Empty;
-                    ThirdValue = string.Empty;
+                    _firstCategory = string.Empty;
+                    _firstValue = string.Empty;
+                    _secondCategory = string.Empty;
+                    _secondValue = string.Empty;
+                    _thirdCategory = string.Empty;
+                    _thirdValue = string.Empty;
                     FirstListBox.Items?.Clear( );
-                    FirstCategory = _comboBox.SelectedItem?.ToString( );
+                    _firstCategory = _comboBox.SelectedItem?.ToString( );
                     ClearListBoxes( );
-                    if( !string.IsNullOrEmpty( FirstCategory ) )
+                    if( !string.IsNullOrEmpty( _firstCategory ) )
                     {
-                        DataModel = new DataBuilder( Source, Provider );
-                        var _data = DataModel.DataElements[ FirstCategory ];
+                        _dataModel = new DataBuilder( _source, _provider );
+                        var _data = _dataModel.DataElements[ _firstCategory ];
                         foreach( var _item in _data )
                         {
                             FirstListBox.Items?.Add( _item );
@@ -2601,13 +2380,13 @@ namespace BudgetExecution
             {
                 try
                 {
-                    if( Filter.Keys.Count > 0 )
+                    if( _filter.Keys.Count > 0 )
                     {
-                        Filter.Clear( );
+                        _filter.Clear( );
                     }
 
-                    FirstValue = _listBox.SelectedValue?.ToString( );
-                    Filter.Add( FirstCategory, FirstValue );
+                    _firstValue = _listBox.SelectedValue?.ToString( );
+                    _filter.Add( _firstCategory, _firstValue );
                     PopulateSecondComboBoxItems( );
                 }
                 catch( Exception _ex )
@@ -2628,20 +2407,20 @@ namespace BudgetExecution
             {
                 try
                 {
-                    SqlQuery = string.Empty;
-                    SecondCategory = string.Empty;
-                    SecondValue = string.Empty;
-                    ThirdCategory = string.Empty;
-                    ThirdValue = string.Empty;
+                    _sqlQuery = string.Empty;
+                    _secondCategory = string.Empty;
+                    _secondValue = string.Empty;
+                    _thirdCategory = string.Empty;
+                    _thirdValue = string.Empty;
                     if( SecondListBox.Items?.Count > 0 )
                     {
                         SecondListBox.Items?.Clear( );
                     }
 
-                    SecondCategory = _comboBox.SelectedItem?.ToString( );
-                    if( !string.IsNullOrEmpty( SecondCategory ) )
+                    _secondCategory = _comboBox.SelectedItem?.ToString( );
+                    if( !string.IsNullOrEmpty( _secondCategory ) )
                     {
-                        var _data = DataModel.DataElements[ SecondCategory ];
+                        var _data = _dataModel.DataElements[ _secondCategory ];
                         foreach( var _item in _data )
                         {
                             SecondListBox.Items?.Add( _item );
@@ -2665,14 +2444,14 @@ namespace BudgetExecution
             {
                 try
                 {
-                    if( Filter.Keys?.Count > 0 )
+                    if( _filter.Keys?.Count > 0 )
                     {
-                        Filter.Clear( );
+                        _filter.Clear( );
                     }
 
-                    SecondValue = _listBox.SelectedValue?.ToString( );
-                    Filter.Add( FirstCategory, FirstValue );
-                    Filter.Add( SecondCategory, SecondValue );
+                    _secondValue = _listBox.SelectedValue?.ToString( );
+                    _filter.Add( _firstCategory, _firstValue );
+                    _filter.Add( _secondCategory, _secondValue );
                     PopulateThirdComboBoxItems( );
                 }
                 catch( Exception _ex )
@@ -2693,17 +2472,17 @@ namespace BudgetExecution
             {
                 try
                 {
-                    ThirdCategory = string.Empty;
-                    ThirdValue = string.Empty;
+                    _thirdCategory = string.Empty;
+                    _thirdValue = string.Empty;
                     if( ThirdListBox.Items?.Count > 0 )
                     {
                         ThirdListBox.Items?.Clear( );
                     }
 
-                    ThirdCategory = _comboBox.SelectedItem?.ToString( );
-                    if( !string.IsNullOrEmpty( ThirdCategory ) )
+                    _thirdCategory = _comboBox.SelectedItem?.ToString( );
+                    if( !string.IsNullOrEmpty( _thirdCategory ) )
                     {
-                        var _data = DataModel?.DataElements[ ThirdCategory ];
+                        var _data = _dataModel?.DataElements[ _thirdCategory ];
                         if( _data?.Any( ) == true )
                         {
                             foreach( var _item in _data )
@@ -2730,9 +2509,9 @@ namespace BudgetExecution
             {
                 try
                 {
-                    if( Filter.Keys.Count > 0 )
+                    if( _filter.Keys.Count > 0 )
                     {
-                        Filter.Clear( );
+                        _filter.Clear( );
                     }
 
                     if( ThirdListBox.Items.Count > 0 )
@@ -2740,10 +2519,10 @@ namespace BudgetExecution
                         ThirdListBox.Items?.Clear( );
                     }
 
-                    ThirdValue = _listBox.SelectedValue?.ToString( );
-                    Filter.Add( FirstCategory, FirstValue );
-                    Filter.Add( SecondCategory, SecondValue );
-                    Filter.Add( ThirdCategory, ThirdValue );
+                    _thirdValue = _listBox.SelectedValue?.ToString( );
+                    _filter.Add( _firstCategory, _firstValue );
+                    _filter.Add( _secondCategory, _secondValue );
+                    _filter.Add( _thirdCategory, _thirdValue );
                     TabControl.SelectedIndex = 0;
                 }
                 catch( Exception _ex )
@@ -2806,7 +2585,7 @@ namespace BudgetExecution
                 try
                 {
                     ClearListBoxes( );
-                    Provider = _button.Tag switch
+                    _provider = _button.Tag switch
                     {
                         "SQLite" => Provider.SQLite,
                         "Access" => Provider.Access,
