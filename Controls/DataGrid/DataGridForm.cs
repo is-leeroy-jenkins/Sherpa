@@ -1403,6 +1403,61 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Clears the selections.
+        /// </summary>
+        private void ClearSelections( )
+        {
+            try
+            {
+                _fourthCategory = string.Empty;
+                _fourthValue = string.Empty;
+                _thirdCategory = string.Empty;
+                _thirdValue = string.Empty;
+                _secondCategory = string.Empty;
+                _secondValue = string.Empty;
+                _firstCategory = string.Empty;
+                _firstValue = string.Empty;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the collections.
+        /// </summary>
+        private void ClearCollections( )
+        {
+            try
+            {
+                if( _filter?.Any( ) == true )
+                {
+                    _filter.Clear( );
+                }
+
+                if( _selectedColumns?.Any( ) == true )
+                {
+                    _selectedColumns.Clear( );
+                }
+
+                if( _selectedFields?.Any( ) == true )
+                {
+                    _selectedFields.Clear( );
+                }
+
+                if( _selectedNumerics?.Any( ) == true )
+                {
+                    _selectedNumerics.Clear( );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Clears the filter.
         /// </summary>
         private void ClearFilter( )
@@ -1632,20 +1687,129 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Sets the active tab.
+        /// </summary>
+        private void SetActiveQueryTab( )
+        {
+            try
+            {
+                switch( QueryTabControl.SelectedIndex )
+                {
+                    // Source Tab
+                    case 0:
+                    {
+                        ClearSelections( );
+                        ClearCollections( );
+                        ClearListBoxes( );
+                        ClearComboBoxes( );
+                        ActivateSourceTab( );
+                        SetFormIcon( );
+                        break;
+                    }
+                    // Filter Tab
+                    case 1:
+                    {
+                        ClearSelections( );
+                        ClearCollections( );
+                        ClearListBoxes( );
+                        ClearComboBoxes( );
+                        PopulateExecutionTables( );
+                        ActivateFilterTab( );
+                        PopulateFirstComboBoxItems( );
+                        ResetListBoxVisibility( );
+                        break;
+                    }
+                    // Group Tab
+                    case 2:
+                    {
+                        ClearSelections( );
+                        ClearCollections( );
+                        ClearListBoxes( );
+                        ActivateGroupTab( );
+                        PopulateFieldListBox( );
+                        PopulateNumericListBox( );
+                        break;
+                    }
+                    // Calendar Tab
+                    case 3:
+                    {
+                        ClearSelections( );
+                        ClearCollections( );
+                        ClearListBoxes( );
+                        ActivateCalendarTab( );
+                        break;
+                    }
+                    // Default Case
+                    default:
+                    {
+                        ClearSelections( );
+                        ClearCollections( );
+                        ActivateSourceTab( );
+                        break;
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the active tab.
+        /// </summary>
+        private void SetActiveDataTab( )
+        {
+            try
+            {
+                switch( DataTabControl.SelectedIndex )
+                {
+                    // Data Tab
+                    case 0:
+                    {
+                        ClearSelections( );
+                        ClearCollections( );
+                        ClearListBoxes( );
+                        ClearComboBoxes( );
+                        ActivateDataTab( );
+                        break;
+                    }
+                    // Busy Tab
+                    case 1:
+                    {
+                        ActivateBusyTab( );
+                        break;
+                    }
+                    // Default Case
+                    default:
+                    {
+                        ClearSelections( );
+                        ClearCollections( );
+                        ClearListBoxes( );
+                        ClearComboBoxes( );
+                        ActivateDataTab( );
+                        break;
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Activates the source tab.
         /// </summary>
         private void ActivateSourceTab( )
         {
             try
             {
-                ClearListBoxes( );
-                ClearComboBoxes( );
                 SourceTab.TabVisible = true;
                 FilterTab.TabVisible = false;
                 GroupTab.TabVisible = false;
                 CalendarTab.TabVisible = false;
                 ProviderTable.Visible = true;
-                SetFormIcon( );
                 TableComboBox.SelectionStart = 0;
             }
             catch( Exception _ex )
@@ -1661,16 +1825,12 @@ namespace BudgetExecution
         {
             try
             {
-                ClearListBoxes( );
-                ClearComboBoxes( );
                 FilterTab.TabVisible = true;
                 SourceTab.TabVisible = false;
                 GroupTab.TabVisible = false;
                 CalendarTab.TabVisible = false;
                 DataLabelTable.Visible = true;
                 ProviderTable.Visible = false;
-                PopulateFirstComboBoxItems( );
-                ResetListBoxVisibility( );
             }
             catch( Exception _ex )
             {
@@ -1685,15 +1845,12 @@ namespace BudgetExecution
         {
             try
             {
-                ClearListBoxes( );
                 GroupTab.TabVisible = true;
                 FilterTab.TabVisible = false;
                 SourceTab.TabVisible = false;
                 CalendarTab.TabVisible = false;
                 DataLabelTable.Visible = true;
                 ProviderTable.Visible = false;
-                PopulateFieldListBox( );
-                PopulateNumericListBox( );
             }
             catch( Exception _ex )
             {
@@ -1708,7 +1865,6 @@ namespace BudgetExecution
         {
             try
             {
-                ClearListBoxes( );
                 CalendarTab.TabVisible = true;
                 GroupTab.TabVisible = false;
                 FilterTab.TabVisible = false;
@@ -1736,6 +1892,20 @@ namespace BudgetExecution
                 FilterTab.TabVisible = false;
                 SourceTab.TabVisible = false;
                 ProviderTable.Visible = false;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Activates the busy tab.
+        /// </summary>
+        private void ActivateDataTab( )
+        {
+            try
+            {
             }
             catch( Exception _ex )
             {

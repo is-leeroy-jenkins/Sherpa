@@ -1713,26 +1713,14 @@ namespace BudgetExecution
                     {
                         ClearSelections( );
                         ClearCollections( );
-                        DataTab.TabVisible = true;
-                        QueryTab.TabVisible = false;
-                        BusyTab.TabVisible = false;
-                        ExcelButton.Visible = false;
-                        ExcelSeparator.Visible = false;
-                        LookupButton.Visible = true;
-                        LookupSeparator.Visible = true;
+                        ActivateDataTab( );
                         break;
                     }
                     // Query Tab
                     case 1:
                     {
                         PopulateExecutionTables( );
-                        QueryTab.TabVisible = true;
-                        DataTab.TabVisible = false;
-                        BusyTab.TabVisible = false;
-                        ExcelButton.Visible = true;
-                        ExcelSeparator.Visible = true;
-                        LookupButton.Visible = false;
-                        LookupSeparator.Visible = false;
+                        ActivateQueryTab( );
                         break;
                     }
                     // Busy Tab
@@ -1740,13 +1728,7 @@ namespace BudgetExecution
                     {
                         ClearSelections( );
                         ClearCollections( );
-                        BusyTab.TabVisible = true;
-                        QueryTab.TabVisible = false;
-                        DataTab.TabVisible = false;
-                        ExcelButton.Visible = false;
-                        ExcelSeparator.Visible = false;
-                        LookupButton.Visible = false;
-                        LookupSeparator.Visible = false;
+                        ActivateBusyTab( );
                         break;
                     }
                     // Default Case
@@ -1764,6 +1746,69 @@ namespace BudgetExecution
                         break;
                     }
                 }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Activates the data tab.
+        /// </summary>
+        private void ActivateDataTab( )
+        {
+            try
+            {
+                DataTab.TabVisible = true;
+                QueryTab.TabVisible = false;
+                BusyTab.TabVisible = false;
+                ExcelButton.Visible = false;
+                ExcelSeparator.Visible = false;
+                LookupButton.Visible = true;
+                LookupSeparator.Visible = true;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Activates the lookup tab.
+        /// </summary>
+        private void ActivateQueryTab( )
+        {
+            try
+            {
+                QueryTab.TabVisible = true;
+                DataTab.TabVisible = false;
+                BusyTab.TabVisible = false;
+                ExcelButton.Visible = true;
+                ExcelSeparator.Visible = true;
+                LookupButton.Visible = false;
+                LookupSeparator.Visible = false;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Activates the busy tab.
+        /// </summary>
+        private void ActivateBusyTab( )
+        {
+            try
+            {
+                BusyTab.TabVisible = true;
+                QueryTab.TabVisible = false;
+                DataTab.TabVisible = false;
+                ExcelButton.Visible = false;
+                ExcelSeparator.Visible = false;
+                LookupButton.Visible = false;
+                LookupSeparator.Visible = false;
             }
             catch( Exception _ex )
             {
