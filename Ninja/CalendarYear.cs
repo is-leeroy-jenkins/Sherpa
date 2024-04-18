@@ -43,70 +43,177 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.FederalHoliday" />
+    /// <seealso cref="T:BudgetExecution.FederalHoliday" />
     [SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     public abstract class CalendarYear : FederalHoliday
     {
+        /// <summary>
+        /// The work days
+        /// </summary>
+        private protected double _workDays;
+
+        /// <summary>
+        /// The week days
+        /// </summary>
+        private protected double _weekDays;
+
+        /// <summary>
+        /// The week ends
+        /// </summary>
+        private protected double _weekEnds;
+
+        /// <summary>
+        /// The current date
+        /// </summary>
+        private protected DateOnly _currentDate;
+
+        /// <summary>
+        /// The current day
+        /// </summary>
+        private protected int _currentDay;
+
+        /// <summary>
+        /// The current month
+        /// </summary>
+        private protected int _currentMonth;
+
+        /// <summary>
+        /// The current year
+        /// </summary>
+        private protected int _currentYear;
+
         /// <summary>
         /// Gets or sets the work days.
         /// </summary>
         /// <value>
         /// The work days.
         /// </value>
-        public virtual double WorkDays { get; set; }
-
+        public double WorkDays
+        {
+            get
+            {
+                return _workDays;
+            }
+            private protected set
+            {
+                _workDays = value;
+            }
+        }
+        
         /// <summary>
         /// Gets or sets the week days.
         /// </summary>
         /// <value>
         /// The week days.
         /// </value>
-        public virtual double WeekDays { get; set; }
-
+        public double WeekDays
+        {
+            get
+            {
+                return _weekDays;
+            }
+            private protected set
+            {
+                _weekDays = value;
+            }
+        }
+        
         /// <summary>
         /// Gets or sets the week ends.
         /// </summary>
         /// <value>
         /// The week ends.
         /// </value>
-        public virtual double WeekEnds { get; set; }
-
+        public double WeekEnds
+        {
+            get
+            {
+                return _weekEnds;
+            }
+            private protected set
+            {
+                _weekEnds = value;
+            }
+        }
+        
         /// <summary>
         /// Gets or sets the current date.
         /// </summary>
         /// <value>
         /// The current date.
         /// </value>
-        public virtual DateTime CurrentDate { get; set; }
-
+        public DateOnly CurrentDate
+        {
+            get
+            {
+                return _currentDate;
+            }
+            private protected set
+            {
+                _currentDate = value;
+            }
+        }
+        
         /// <summary>
         /// Gets or sets the current month.
         /// </summary>
         /// <value>
         /// The current month.
         /// </value>
-        public virtual int CurrentMonth { get; set; }
-
+        public int CurrentMonth
+        {
+            get
+            {
+                return _currentMonth;
+            }
+            private protected set
+            {
+                _currentMonth = value;
+            }
+        }
+        
         /// <summary>
         /// Gets or sets the current day.
         /// </summary>
         /// <value>
         /// The current day.
         /// </value>
-        public virtual int CurrentDay { get; set; }
-
+        public int CurrentDay
+        {
+            get
+            {
+                return _currentDay;
+            }
+            private protected set
+            {
+                _currentDay = value;
+            }
+        }
+        
         /// <summary>
         /// Gets or sets the current year.
         /// </summary>
         /// <value>
         /// The current year.
         /// </value>
-        public virtual int CurrentYear { get; set; }
+        public int CurrentYear
+        {
+            get
+            {
+                return _currentYear;
+            }
+            private protected set
+            {
+                _currentYear = value;
+            }
+        }
     }
 }

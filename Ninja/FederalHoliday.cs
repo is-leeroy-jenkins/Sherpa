@@ -49,15 +49,83 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     public abstract class FederalHoliday
     {
+        /// <summary>
+        /// The columbus day
+        /// </summary>
+        private protected DateOnly _columbusDay;
+
+        /// <summary>
+        /// The veterans day
+        /// </summary>
+        private protected DateOnly _veteransDay;
+
+        /// <summary>
+        /// The thanksgiving day
+        /// </summary>
+        private protected DateOnly _thanksgivingDay;
+
+        /// <summary>
+        /// The christmas day
+        /// </summary>
+        private protected DateOnly _christmasDay;
+
+        /// <summary>
+        /// The new years day
+        /// </summary>
+        private protected DateOnly _newYearsDay;
+
+        /// <summary>
+        /// The martin luther king day
+        /// </summary>
+        private protected DateOnly _martinLutherKingDay;
+
+        /// <summary>
+        /// The presidents day
+        /// </summary>
+        private protected DateOnly _presidentsDay;
+
+        /// <summary>
+        /// The memorial day
+        /// </summary>
+        private protected DateOnly _memorialDay;
+
+        /// <summary>
+        /// The juneteenth day
+        /// </summary>
+        private protected DateOnly _juneteenthDay;
+
+        /// <summary>
+        /// The independence day
+        /// </summary>
+        private protected DateOnly _independenceDay;
+
+        /// <summary>
+        /// The labor day
+        /// </summary>
+        private protected DateOnly _laborDay;
+        
         /// <summary>
         /// Gets or sets the columbus day.
         /// </summary>
         /// <value>
         /// The columbus day.
         /// </value>
-        public virtual DateOnly ColumbusDay { get; set; }
+        public DateOnly ColumbusDay
+        {
+            get
+            {
+                return _columbusDay;
+            }
+            private protected set
+            {
+                _columbusDay = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the veterans day.
@@ -65,7 +133,17 @@ namespace BudgetExecution
         /// <value>
         /// The veterans day.
         /// </value>
-        public virtual DateOnly VeteransDay { get; set; }
+        public DateOnly VeteransDay
+        {
+            get
+            {
+                return _veteransDay;
+            }
+            private protected set
+            {
+                _veteransDay = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the thanksgiving day.
@@ -73,7 +151,17 @@ namespace BudgetExecution
         /// <value>
         /// The thanksgiving day.
         /// </value>
-        public virtual DateOnly ThanksgivingDay { get; set; }
+        public DateOnly ThanksgivingDay
+        {
+            get
+            {
+                return _thanksgivingDay;
+            }
+            private protected set
+            {
+                _thanksgivingDay = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the christmas day.
@@ -81,7 +169,17 @@ namespace BudgetExecution
         /// <value>
         /// The christmas day.
         /// </value>
-        public virtual DateOnly ChristmasDay { get; set; }
+        public DateOnly ChristmasDay
+        {
+            get
+            {
+                return _christmasDay;
+            }
+            private protected set
+            {
+                _christmasDay = value;
+            }
+        }
 
         /// <summary>
         /// Creates new yearsday.
@@ -89,7 +187,17 @@ namespace BudgetExecution
         /// <value>
         /// The new years day.
         /// </value>
-        public virtual DateOnly NewYearsDay { get; set; }
+        public DateOnly NewYearsDay
+        {
+            get
+            {
+                return _newYearsDay;
+            }
+            private protected set
+            {
+                _newYearsDay = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the martin luther king day.
@@ -97,7 +205,17 @@ namespace BudgetExecution
         /// <value>
         /// The martin luther king day.
         /// </value>
-        public virtual DateOnly MartinLutherKingDay { get; set; }
+        public DateOnly MartinLutherKingDay
+        {
+            get
+            {
+                return _martinLutherKingDay;
+            }
+            private protected set
+            {
+                _martinLutherKingDay = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the presidents day.
@@ -105,7 +223,17 @@ namespace BudgetExecution
         /// <value>
         /// The presidents day.
         /// </value>
-        public virtual DateOnly PresidentsDay { get; set; }
+        public DateOnly PresidentsDay
+        {
+            get
+            {
+                return _presidentsDay;
+            }
+            private protected set
+            {
+                _presidentsDay = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the memorial day.
@@ -113,7 +241,17 @@ namespace BudgetExecution
         /// <value>
         /// The memorial day.
         /// </value>
-        public virtual DateOnly MemorialDay { get; set; }
+        public DateOnly MemorialDay
+        {
+            get
+            {
+                return _memorialDay;
+            }
+            private protected set
+            {
+                _memorialDay = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the juneteenth day.
@@ -121,7 +259,17 @@ namespace BudgetExecution
         /// <value>
         /// The juneteenth day.
         /// </value>
-        public virtual DateOnly JuneteenthDay { get; set; }
+        public DateOnly JuneteenthDay
+        {
+            get
+            {
+                return _juneteenthDay;
+            }
+            private protected set
+            {
+                _juneteenthDay = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the independence day.
@@ -129,7 +277,17 @@ namespace BudgetExecution
         /// <value>
         /// The independence day.
         /// </value>
-        public virtual DateOnly IndependenceDay { get; set; }
+        public DateOnly IndependenceDay
+        {
+            get
+            {
+                return _independenceDay;
+            }
+            private protected set
+            {
+                _independenceDay = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the labor day.
@@ -137,7 +295,17 @@ namespace BudgetExecution
         /// <value>
         /// The labor day.
         /// </value>
-        public virtual DateOnly LaborDay { get; set; }
+        public DateOnly LaborDay
+        {
+            get
+            {
+                return _laborDay;
+            }
+            private protected set
+            {
+                _laborDay = value;
+            }
+        }
 
         /// <summary>
         /// Fails the specified ex.
