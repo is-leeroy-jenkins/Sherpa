@@ -189,6 +189,11 @@ namespace BudgetExecution
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="Deobligations"/> class.
+        /// </summary>
+        /// <param name="deobligation">The deobligation.</param>
         public Deobligations( Deobligations deobligation )
         {
             ID = deobligation.ID;

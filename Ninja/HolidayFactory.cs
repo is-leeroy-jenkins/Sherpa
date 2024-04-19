@@ -46,62 +46,127 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
 
+    /// <inheritdoc />
     /// <summary> </summary>
-    /// <seealso cref="BudgetExecution.FederalHoliday"/>
+    /// <seealso cref="T:BudgetExecution.FederalHoliday" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     public class HolidayFactory : FederalHoliday
     {
-        /// <summary> Gets or sets the arguments. </summary>
-        /// <value> The arguments. </value>
-        public IDictionary<string, object> Args { get; set; }
-
-        /// <summary> Gets or sets the source. </summary>
-        /// <value> The source. </value>
-        public Source Source { get; set; }
-
-        /// <summary> Gets or sets the record. </summary>
-        /// <value> The record. </value>
-        public DataRow Record { get; set; }
+        /// <summary>
+        /// The arguments
+        /// </summary>
+        private IDictionary<string, object> _map;
 
         /// <summary>
+        /// The source
+        /// </summary>
+        private Source _source;
+
+        /// <summary>
+        /// The record
+        /// </summary>
+        private DataRow _record;
+        
+        /// <summary>
+        /// Gets or sets the arguments.
+        /// </summary>
+        /// <value>
+        /// The arguments.
+        /// </value>
+        public IDictionary<string, object> Map
+        {
+            get
+            {
+                return _map;
+            }
+            private protected set
+            {
+                _map = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the source.
+        /// </summary>
+        /// <value>
+        /// The source.
+        /// </value>
+        public Source Source
+        {
+            get
+            {
+                return _source;
+            }
+            private protected set
+            {
+                _source = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the record.
+        /// </summary>
+        /// <value>
+        /// The record.
+        /// </value>
+        public DataRow Record
+        {
+            get
+            {
+                return _record;
+            }
+            private protected set
+            {
+                _record = value;
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="HolidayFactory"/>
+        /// <see cref="T:BudgetExecution.HolidayFactory" />
         /// class.
         /// </summary>
         public HolidayFactory( )
         {
+            _source = Source.FederalHolidays;
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="HolidayFactory"/>
+        /// <see cref="HolidayFactory" />
         /// class.
         /// </summary>
-        /// <param name="dataRow"> The data row. </param>
+        /// <param name="dataRow">The data row.</param>
         public HolidayFactory( DataRow dataRow )
         {
-            Record = dataRow;
-            NewYearsDay = DateOnly.Parse( dataRow[ "NewYears" ].ToString( ) );
-            MartinLutherKingDay = DateOnly.Parse( dataRow[ "MartinLutherKing" ].ToString( ) );
-            PresidentsDay = DateOnly.Parse( dataRow[ "PresidentsDay" ].ToString( ) );
-            MemorialDay = DateOnly.Parse( dataRow[ "Memorial" ].ToString( ) );
-            VeteransDay = DateOnly.Parse( dataRow[ "Veterans" ].ToString( ) );
-            LaborDay = DateOnly.Parse( dataRow[ "Labor" ].ToString( ) );
-            IndependenceDay = DateOnly.Parse( dataRow[ "Independence" ].ToString( ) );
-            ColumbusDay = DateOnly.Parse( dataRow[ "Columbus" ].ToString( ) );
-            ThanksgivingDay = DateOnly.Parse( dataRow[ "Thanksgiving" ].ToString( ) );
-            ChristmasDay = DateOnly.Parse( dataRow[ "Christmas" ].ToString( ) );
-            Args = Record?.ToDictionary( );
+            _record = dataRow;
+            _newYearsDay = DateOnly.Parse( dataRow[ "NewYears" ].ToString( ) );
+            _martinLutherKingDay = DateOnly.Parse( dataRow[ "MartinLutherKing" ].ToString( ) );
+            _presidentsDay = DateOnly.Parse( dataRow[ "PresidentsDay" ].ToString( ) );
+            _memorialDay = DateOnly.Parse( dataRow[ "Memorial" ].ToString( ) );
+            _veteransDay = DateOnly.Parse( dataRow[ "Veterans" ].ToString( ) );
+            _laborDay = DateOnly.Parse( dataRow[ "Labor" ].ToString( ) );
+            _independenceDay = DateOnly.Parse( dataRow[ "Independence" ].ToString( ) );
+            _columbusDay = DateOnly.Parse( dataRow[ "Columbus" ].ToString( ) );
+            _thanksgivingDay = DateOnly.Parse( dataRow[ "Thanksgiving" ].ToString( ) );
+            _christmasDay = DateOnly.Parse( dataRow[ "Christmas" ].ToString( ) );
+            _map = Record?.ToDictionary( );
         }
 
-        /// <summary> Gets the federal holidays. </summary>
-        /// <param name="dict"> The dictionary. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the federal holidays.
+        /// </summary>
+        /// <param name="dict">The dictionary.</param>
+        /// <returns></returns>
         public IDictionary<string, DateTime> GetFederalHolidays( IDictionary<string, string> dict )
         {
             try
@@ -123,9 +188,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the national holidays. </summary>
-        /// <param name="dict"> The dictionary. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the national holidays.
+        /// </summary>
+        /// <param name="dict">The dictionary.</param>
+        /// <returns></returns>
         public IDictionary<string, DateTime> GetNationalHolidays( IDictionary<string, string> dict )
         {
             try
@@ -147,14 +214,16 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Converts to dictionary. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Converts to dictionary.
+        /// </summary>
+        /// <returns></returns>
         public IDictionary<string, object> ToDictionary( )
         {
             try
             {
-                return Args.Count > 0
-                    ? Args
+                return _map.Count > 0
+                    ? _map
                     : default( IDictionary<string, object> );
             }
             catch( Exception _ex )

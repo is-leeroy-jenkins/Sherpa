@@ -55,87 +55,245 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     public abstract class FiscalYear : CalendarYear
     {
+        /// <summary>
+        /// The identifier
+        /// 
+        /// </summary>
+        private protected int _id;
+
+        /// <summary>
+        /// The bfy
+        /// </summary>
+        private protected string _bfy;
+
+        /// <summary>
+        /// The efy
+        /// </summary>
+        private protected string _efy;
+
+        /// <summary>
+        /// The first year
+        /// </summary>
+        private protected string _firstYear;
+
+        /// <summary>
+        /// The last year
+        /// </summary>
+        private protected string _lastYear;
+
+        /// <summary>
+        /// The expiring year
+        /// </summary>
+        private protected string _expiringYear;
+
+        /// <summary>
+        /// The input year
+        /// </summary>
+        private protected string _inputYear;
+
+        /// <summary>
+        /// The start date
+        /// </summary>
+        private protected DateOnly _startDate;
+
+        /// <summary>
+        /// The end date
+        /// </summary>
+        private protected DateOnly _endDate;
+
+        /// <summary>
+        /// The cancellation date
+        /// </summary>
+        private protected DateOnly _cancellationDate;
+
+        /// <summary>
+        /// The expiration date
+        /// </summary>
+        private protected DateOnly _expirationDate;
+
         /// <summary>
         /// Gets or sets the identifier.
         /// </summary>
         /// <value>
         /// The identifier.
         /// </value>
-        public virtual int ID { get; set; }
-
+        public int ID
+        {
+            get
+            {
+                return _id;
+            }
+            private protected set
+            {
+                _id = value;
+            }
+        }
+        
         /// <summary>
         /// Gets or sets the bfy.
         /// </summary>
         /// <value>
         /// The bfy.
         /// </value>
-        public virtual string BFY { get; set; }
-
+        public string BFY
+        {
+            get
+            {
+                return _bfy;
+            }
+            private protected set
+            {
+                _bfy = value;
+            }
+        }
+        
         /// <summary>
         /// Gets or sets the efy.
         /// </summary>
         /// <value>
         /// The efy.
         /// </value>
-        public virtual string Efy { get; set; }
-
+        public string EFY
+        {
+            get
+            {
+                return _efy;
+            }
+            private protected set
+            {
+                _efy = value;
+            }
+        }
+        
         /// <summary>
         /// Gets or sets the first year.
         /// </summary>
         /// <value>
         /// The first year.
         /// </value>
-        public virtual string FirstYear { get; set; }
-
+        public string FirstYear
+        {
+            get
+            {
+                return _firstYear;
+            }
+            private protected set
+            {
+                _firstYear = value;
+            }
+        }
+        
         /// <summary>
         /// Gets or sets the last year.
         /// </summary>
         /// <value>
         /// The last year.
         /// </value>
-        public virtual string LastYear { get; set; }
-
+        public string LastYear
+        {
+            get
+            {
+                return _lastYear;
+            }
+            private protected set
+            {
+                _lastYear = value;
+            }
+        }
+        
         /// <summary>
         /// Gets or sets the expiring year.
         /// </summary>
         /// <value>
         /// The expiring year.
         /// </value>
-        public virtual string ExpiringYear { get; set; }
-
+        public string ExpiringYear
+        {
+            get
+            {
+                return _expiringYear;
+            }
+            private protected set
+            {
+                _expiringYear = value;
+            }
+        }
+        
         /// <summary>
         /// Gets or sets the input year.
         /// </summary>
         /// <value>
         /// The input year.
         /// </value>
-        public virtual string InputYear { get; set; }
-
+        public string InputYear
+        {
+            get
+            {
+                return _inputYear;
+            }
+            private protected set
+            {
+                _inputYear = value;
+            }
+        }
+        
         /// <summary>
         /// Gets or sets the start date.
         /// </summary>
         /// <value>
         /// The start date.
         /// </value>
-        public virtual DateOnly StartDate { get; set; }
-
+        public DateOnly StartDate
+        {
+            get
+            {
+                return _startDate;
+            }
+            private protected set
+            {
+                _startDate = value;
+            }
+        }
+        
         /// <summary>
         /// Gets or sets the end date.
         /// </summary>
         /// <value>
         /// The end date.
         /// </value>
-        public virtual DateOnly EndDate { get; set; }
-
+        public DateOnly EndDate
+        {
+            get
+            {
+                return _endDate;
+            }
+            private protected set
+            {
+                _endDate = value;
+            }
+        }
+        
         /// <summary>
         /// Gets or sets the cancellation date.
         /// </summary>
         /// <value>
         /// The cancellation date.
         /// </value>
-        public virtual DateOnly CancellationDate { get; set; }
+        public DateOnly CancellationDate
+        {
+            get
+            {
+                return _cancellationDate;
+            }
+            private protected set
+            {
+                _cancellationDate = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the expiration date.
@@ -143,7 +301,17 @@ namespace BudgetExecution
         /// <value>
         /// The expiration date.
         /// </value>
-        public virtual DateOnly ExpirationDate { get; set; }
+        public DateOnly ExpirationDate
+        {
+            get
+            {
+                return _expirationDate;
+            }
+            private protected set
+            {
+                _expirationDate = value;
+            }
+        }
 
         /// <summary>
         /// Determines whether this instance is current.
@@ -169,7 +337,8 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="bfy">The bfy.</param>
         /// <returns></returns>
-        private protected IDictionary<string, object> SetArgs( string bfy )
+        private protected IDictionary<string, object> SetArgs
+            ( string bfy )
         {
             if( !string.IsNullOrEmpty( bfy )
                && ( bfy.Length == 4 )
@@ -191,6 +360,16 @@ namespace BudgetExecution
             }
 
             return default( IDictionary<string, object> );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="FiscalYear"/> class.
+        /// </summary>
+        /// <inheritdoc />
+        protected FiscalYear( ) 
+            : base( )
+        {
         }
     }
 }

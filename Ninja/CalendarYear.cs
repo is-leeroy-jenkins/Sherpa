@@ -53,6 +53,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     public abstract class CalendarYear : FederalHoliday
     {
         /// <summary>
@@ -214,6 +215,16 @@ namespace BudgetExecution
             {
                 _currentYear = value;
             }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.CalendarYear" /> class.
+        /// </summary>
+        protected CalendarYear( ) 
+            : base( )
+        {
         }
     }
 }

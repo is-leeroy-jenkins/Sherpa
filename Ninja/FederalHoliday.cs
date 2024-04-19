@@ -55,6 +55,11 @@ namespace BudgetExecution
     public abstract class FederalHoliday
     {
         /// <summary>
+        /// The source
+        /// </summary>
+        private Source _source;
+
+        /// <summary>
         /// The columbus day
         /// </summary>
         private protected DateOnly _columbusDay;
@@ -305,6 +310,33 @@ namespace BudgetExecution
             {
                 _laborDay = value;
             }
+        }
+
+        /// <summary>
+        /// Gets or sets the source.
+        /// </summary>
+        /// <value>
+        /// The source.
+        /// </value>
+        public Source Source
+        {
+            get
+            {
+                return _source;
+            }
+            private protected set
+            {
+                _source = value;
+            }
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="FederalHoliday"/> class.
+        /// </summary>
+        protected FederalHoliday( )
+        {
+            _source = Source.FederalHolidays;
         }
 
         /// <summary>

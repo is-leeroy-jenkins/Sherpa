@@ -61,7 +61,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
-    public class BudgetFiscalYears : FiscalYear
+    public class BudgetFiscalYear : FiscalYear
     {
         /// <summary>
         /// The source
@@ -178,12 +178,13 @@ namespace BudgetExecution
             }
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BudgetFiscalYears"/>
+        /// <see cref="T:BudgetExecution.BudgetFiscalYear" />
         /// class.
         /// </summary>
-        public BudgetFiscalYears( )
+        public BudgetFiscalYear( )
         {
             _source = Source.FiscalYears;
             _currentDate = DateOnly.FromDateTime( DateTime.Today );
@@ -199,23 +200,23 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="bfy"> The bfy. </param>
-        public BudgetFiscalYears( string bfy )
+        public BudgetFiscalYear( string bfy )
             : this( )
         {
             _inputYear = bfy;
-            _record = new DataBuilder( Source, SetArgs( bfy ) )?.Record;
-            _id = int.Parse( Record[ "FiscalYearId" ].ToString( ) );
-            _firstYear = Record[ "FirstYear" ].ToString( );
-            _lastYear = Record[ "LastYEar" ].ToString( );
-            _availability = Record[ "Availability" ].ToString( );
-            _workDays = double.Parse( Record[ "WorkDays" ].ToString( ) );
-            _weekDays = double.Parse( Record[ "WeekDays" ].ToString( ) );
-            _weekEnds = double.Parse( Record[ "WeekEnds" ].ToString( ) );
-            _expiringYear = Record[ "ExpiringYear" ].ToString( );
-            _startDate = DateOnly.Parse( Record[ "StartDate" ].ToString( ) );
-            _endDate = DateOnly.Parse( Record[ "EndDate" ].ToString( ) );
-            _cancellationDate = DateOnly.Parse( Record[ "CancellationDate" ].ToString( ) );
-            _holidays = new HolidayFactory( Record );
+            _record = new DataBuilder( _source, SetArgs( bfy ) )?.Record;
+            _id = int.Parse( _record[ "FiscalYearsId" ].ToString( ) );
+            _firstYear = _record[ "FirstYear" ].ToString( );
+            _lastYear = _record[ "LastYEar" ].ToString( );
+            _availability = _record[ "Availability" ].ToString( );
+            _workDays = double.Parse( _record[ "WorkDays" ].ToString( ) );
+            _weekDays = double.Parse( _record[ "WeekDays" ].ToString( ) );
+            _weekEnds = double.Parse( _record[ "WeekEnds" ].ToString( ) );
+            _expiringYear = _record[ "ExpiringYear" ].ToString( );
+            _startDate = DateOnly.Parse( _record[ "StartDate" ].ToString( ) );
+            _endDate = DateOnly.Parse( _record[ "EndDate" ].ToString( ) );
+            _cancellationDate = DateOnly.Parse( _record[ "CancellationDate" ].ToString( ) );
+            _holidays = new HolidayFactory( _record );
         }
 
         /// <inheritdoc />
@@ -225,22 +226,26 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
-        public BudgetFiscalYears( IQuery query )
-            : this( )
+        public BudgetFiscalYear( IQuery query )
         {
+            _source = query.Source;
+            _currentDate = DateOnly.FromDateTime( DateTime.Today );
+            _currentYear = DateTime.Now.Year;
+            _currentMonth = DateTime.Now.Month;
+            _currentDay = DateTime.Now.Day;
             _record = new DataBuilder( query )?.Record;
-            _id = int.Parse( Record[ "FiscalYearId" ].ToString( ) );
-            _firstYear = Record[ "FirstYear" ].ToString( );
-            _lastYear = Record[ "LastYEar" ].ToString( );
-            _availability = Record[ "Availability" ].ToString( );
-            _workDays = double.Parse( Record[ "WorkDays" ].ToString( ) );
-            _weekDays = double.Parse( Record[ "WeekDays" ].ToString( ) );
-            _weekEnds = double.Parse( Record[ "WeekEnds" ].ToString( ) );
-            _expiringYear = Record[ "ExpiringYear" ].ToString( );
-            _startDate = DateOnly.Parse( Record[ "StartDate" ].ToString( ) );
-            _endDate = DateOnly.Parse( Record[ "EndDate" ].ToString( ) );
-            _cancellationDate = DateOnly.Parse( Record[ "CancellationDate" ].ToString( ) );
-            _holidays = new HolidayFactory( Record );
+            _id = int.Parse( _record[ "FiscalYearsId" ].ToString( ) );
+            _firstYear = _record[ "FirstYear" ].ToString( );
+            _lastYear = _record[ "LastYEar" ].ToString( );
+            _availability = _record[ "Availability" ].ToString( );
+            _workDays = double.Parse( _record[ "WorkDays" ].ToString( ) );
+            _weekDays = double.Parse( _record[ "WeekDays" ].ToString( ) );
+            _weekEnds = double.Parse( _record[ "WeekEnds" ].ToString( ) );
+            _expiringYear = _record[ "ExpiringYear" ].ToString( );
+            _startDate = DateOnly.Parse( _record[ "StartDate" ].ToString( ) );
+            _endDate = DateOnly.Parse( _record[ "EndDate" ].ToString( ) );
+            _cancellationDate = DateOnly.Parse( _record[ "CancellationDate" ].ToString( ) );
+            _holidays = new HolidayFactory( _record );
         }
 
         /// <inheritdoc />
@@ -250,24 +255,30 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="dataBuilder"> The data builder. </param>
-        public BudgetFiscalYears( IDataModel dataBuilder )
-            : this( )
+        public BudgetFiscalYear( IDataModel dataBuilder )
         {
+            _source = dataBuilder.Source;
+            _currentDate = DateOnly.FromDateTime( DateTime.Today );
+            _currentYear = DateTime.Now.Year;
+            _currentMonth = DateTime.Now.Month;
+            _currentDay = DateTime.Now.Day;
             _record = dataBuilder.Record;
-            _id = int.Parse( Record[ "FiscalYearsId" ].ToString( ) );
-            _bfy = Record[ "BFY" ].ToString( );
-            _efy = Record[ "EFY" ].ToString( );
-            _firstYear = Record[ "FirstYear" ].ToString( );
-            _lastYear = Record[ "LastYEar" ].ToString( );
-            _availability = Record?[ "Availability" ].ToString( );
-            _workDays = double.Parse( Record[ "WorkDays" ].ToString( ) );
-            _weekDays = double.Parse( Record[ "WeekDays" ].ToString( ) );
-            _weekEnds = double.Parse( Record[ "WeekEnds" ].ToString( ) );
-            _expiringYear = Record[ "ExpiringYear" ].ToString( );
-            _startDate = DateOnly.Parse( Record[ "StartDate" ].ToString( ) );
-            _endDate = DateOnly.Parse( Record[ "EndDate" ].ToString( ) );
-            _cancellationDate = DateOnly.Parse( Record[ "CancellationDate" ].ToString( ) );
-            _holidays = new HolidayFactory( Record );
+            _id = int.Parse( dataBuilder.Record[ "FiscalYearsId" ].ToString( ) );
+            _bfy = _record[ "BFY" ].ToString( );
+            _efy = _record[ "EFY" ].ToString( );
+            _firstYear = _record[ "FirstYear" ].ToString( );
+            _lastYear = _record[ "LastYEar" ].ToString( );
+            _availability = _record[ "Availability" ].ToString( );
+            _workDays = double.Parse( _record[ "WorkDays" ].ToString( ) );
+            _weekDays = double.Parse( _record[ "WeekDays" ].ToString( ) );
+            _weekEnds = double.Parse( _record[ "WeekEnds" ].ToString( ) );
+            _expiringYear = _record[ "ExpiringYear" ].ToString( );
+            _startDate = DateOnly.Parse( _record[ "StartDate" ].ToString( ) );
+            _endDate = DateOnly.Parse( _record[ "EndDate" ].ToString( ) );
+            _cancellationDate = 
+                DateOnly.Parse( dataBuilder.Record[ "CancellationDate" ].ToString( ) );
+
+            _holidays = new HolidayFactory( _record );
         }
 
         /// <inheritdoc />
@@ -277,7 +288,7 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
-        public BudgetFiscalYears( DataRow dataRow )
+        public BudgetFiscalYear( DataRow dataRow )
             : this( )
         {
             _record = dataRow;
@@ -305,21 +316,23 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="fiscalYear"> The fiscal year. </param>
-        public BudgetFiscalYears( BudgetFiscalYears fiscalYear )
+        public BudgetFiscalYear( BudgetFiscalYear fiscalYear )
             : this( )
         {
-            ID = fiscalYear.ID;
-            BFY = fiscalYear.BFY;
-            EFY = fiscalYear.EFY;
-            FirstYear = fiscalYear.FirstYear;
-            LastYear = fiscalYear.LastYear;
-            WorkDays = fiscalYear.WorkDays;
-            WeekDays = fiscalYear.WeekDays;
-            WeekEnds = fiscalYear.WeekEnds;
-            ExpiringYear = fiscalYear.ExpiringYear;
-            StartDate = fiscalYear.StartDate;
-            EndDate = fiscalYear.EndDate;
-            CancellationDate = fiscalYear.CancellationDate;
+            _id = fiscalYear.ID;
+            _bfy = fiscalYear.BFY;
+            _efy = fiscalYear.EFY;
+            _firstYear = fiscalYear.FirstYear;
+            _lastYear = fiscalYear.LastYear;
+            _availability = fiscalYear.Availability;
+            _workDays = fiscalYear.WorkDays;
+            _weekDays = fiscalYear.WeekDays;
+            _weekEnds = fiscalYear.WeekEnds;
+            _expiringYear = fiscalYear.ExpiringYear;
+            _startDate = fiscalYear.StartDate;
+            _endDate = fiscalYear.EndDate;
+            _cancellationDate = fiscalYear.CancellationDate;
+            _holidays = fiscalYear.Holidays;
         }
 
         /// <summary> Gets the federal holidays. </summary>
@@ -329,7 +342,7 @@ namespace BudgetExecution
             try
             {
                 var _map = new Dictionary<Holiday, DateOnly>( );
-                var _day = new HolidayFactory( Record );
+                var _day = new HolidayFactory( _record );
                 _map.Add( Holiday.NewYears, _day.ChristmasDay );
                 _map.Add( Holiday.MartinLutherKing, _day.MartinLutherKingDay );
                 _map.Add( Holiday.Memorial, _day.MemorialDay );
@@ -415,16 +428,16 @@ namespace BudgetExecution
         /// Gets the budget fiscal year.
         /// </summary>
         /// <returns> </returns>
-        public BudgetFiscalYears GetBudgetFiscalYear( )
+        public BudgetFiscalYear GetBudgetFiscalYear( )
         {
             try
             {
-                return MemberwiseClone( ) as BudgetFiscalYears;
+                return MemberwiseClone( ) as BudgetFiscalYear;
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return default( BudgetFiscalYears );
+                return default( BudgetFiscalYear );
             }
         }
     }
