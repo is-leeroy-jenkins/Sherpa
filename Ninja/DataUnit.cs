@@ -45,7 +45,8 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
-
+    using Excel;
+    
     /// <inheritdoc />
     /// <summary>
     /// </summary>
@@ -53,56 +54,235 @@ namespace BudgetExecution
     /// <seealso cref="T:BudgetExecution.ISource" />
     /// <seealso cref="T:BudgetExecution.IProvider" />
     [SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
-    public abstract class DataUnit : IDataUnit, ISource, IProvider
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertIfStatementToReturnStatement" ) ]
+    public abstract class DataUnit : IDataUnit
     {
-        /// <inheritdoc />
+        /// <summary>
+        /// The identifier
+        /// </summary>
+        private protected int _id;
+
+        /// <summary>
+        /// The name
+        /// </summary>
+        private protected string _name;
+
+        /// <summary>
+        /// The code
+        /// </summary>
+        private protected string _code;
+
+        /// <summary>
+        /// The record
+        /// </summary>
+        private protected DataRow _record;
+
+        /// <summary>
+        /// The data
+        /// </summary>
+        private protected IDictionary<string, object> _data;
+
+        /// <summary>
+        /// The source
+        /// </summary>
+        private protected Source _source;
+
+        /// <summary>
+        /// The provider
+        /// </summary>
+        private protected Provider _provider;
+
+        /// <summary>
+        /// The value
+        /// </summary>
+        private protected object _value;
+
         /// <summary>
         /// </summary>
-        public virtual int ID { get; set; }
+        /// <inheritdoc />
+        public int ID
+        {
+            get
+            {
+                return _id;
+            }
+            private protected set
+            {
+                _id = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
         /// Gets the field.
         /// </summary>
-        public virtual string Code { get; set; }
+        public string Code
+        {
+            get
+            {
+                return _code;
+            }
+            private protected set
+            {
+                _code = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
         /// The name
         /// </summary>
-        public virtual string Name { get; set; }
+        public string Name
+        {
+            get
+            {
+                return _name;
+            }
+            private protected set
+            {
+                _name = value;
+            }
+        }
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets or sets the value.
         /// </summary>
         /// <value>
         /// The value.
         /// </value>
-        public virtual object Value { get; set; }
+        public object Value
+        {
+            get
+            {
+                return _value;
+            }
+            private protected set
+            {
+                _value = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
         /// </summary>
-        public virtual DataRow Record { get; set; }
+        public DataRow Record
+        {
+            get
+            {
+                return _record;
+            }
+            private protected set
+            {
+                _record = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
         /// </summary>
-        public virtual Provider Provider { get; set; }
+        public Provider Provider
+        {
+            get
+            {
+                return _provider;
+            }
+            private protected set
+            {
+                _provider = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
         /// Gets the source.
         /// </summary>
-        public virtual Source Source { get; set; }
+        public Source Source
+        {
+            get
+            {
+                return _source;
+            }
+            private protected set
+            {
+                _source = value;
+            }
+        }
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets or sets the data.
         /// </summary>
         /// <value>
         /// The data.
         /// </value>
-        public virtual IDictionary<string, object> Data { get; set; }
+        public IDictionary<string, object> Data
+        {
+            get
+            {
+                return _data;
+            }
+            private protected set
+            {
+                _data = value;
+            }
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="DataUnit"/> class.
+        /// </summary>
+        protected DataUnit( )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="DataUnit"/> class.
+        /// </summary>
+        /// <param name="dataBuilder">The query.</param>
+        protected DataUnit( IDataModel dataBuilder )
+        {
+            _source = dataBuilder.Source;
+            _provider = dataBuilder.Provider;
+            _record = dataBuilder.Record;
+            _id = int.Parse( _record[ 0 ].ToString( ) ?? "0" );
+            _data = _record.ToDictionary( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="DataUnit"/> class.
+        /// </summary>
+        /// <param name="query">The query.</param>
+        protected DataUnit( IQuery query ) 
+        {
+            _source = query.Source;
+            _provider = query.Provider;
+            _record = new DataBuilder( query ).Record;
+            _id = int.Parse( _record[ 0 ].ToString( ) ?? "0" );
+            _data = _record.ToDictionary( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="DataUnit"/> class.
+        /// </summary>
+        /// <param name="dataRow">The data row.</param>
+        protected DataUnit( DataRow dataRow ) 
+        {
+            _record = dataRow;
+            _data = _record.ToDictionary( );
+            _id = int.Parse( _record[ 0 ].ToString( ) ?? "0" );
+            _code = _record[ "Code" ].ToString( );
+            _name = _record[ "Name" ].ToString( );
+        }
 
         /// <inheritdoc />
         /// <summary>
@@ -153,9 +333,9 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( dict, nameof( dict ) );
-                var _name = dict.Keys?.First( );
-                var _value = dict[ _name ];
-                return _value.Equals( Code ) && _name.Equals( Name );
+                var _keys = dict.Keys?.First( );
+                var _vals = dict[ _keys ];
+                return _vals.Equals( Code ) && _keys.Equals( Name );
             }
             catch( Exception _ex )
             {
@@ -164,6 +344,7 @@ namespace BudgetExecution
             }
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Determines whether the specified primary is match.
         /// </summary>
@@ -194,20 +375,17 @@ namespace BudgetExecution
             return false;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets the identifier.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
-        /// <param name="primaryKey">The primary key.</param>
         /// <returns></returns>
-        public virtual int GetId( DataRow dataRow, string primaryKey )
+        public virtual int GetId( )
         {
             try
             {
-                ThrowIf.Null( dataRow, nameof( dataRow ) );
-                ThrowIf.Null( primaryKey, nameof( primaryKey ) );
-                return !string.IsNullOrEmpty( primaryKey ) && ( dataRow != null )
-                    ? int.Parse( dataRow[ $"{primaryKey}" ].ToString( ) ?? string.Empty )
+                return _record != null 
+                    ? int.Parse( _record[ 0 ].ToString( ) ?? "0" )
                     : -1;
             }
             catch( Exception _ex )
@@ -217,6 +395,7 @@ namespace BudgetExecution
             }
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets the identifier.
         /// </summary>

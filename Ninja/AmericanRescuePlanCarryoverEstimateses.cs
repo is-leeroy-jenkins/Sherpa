@@ -48,7 +48,7 @@ namespace BudgetExecution
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class AmericanRescuePlanCarryoverEstimateses : AnnualCarryoverEstimates
+    public class AmericanRescuePlanCarryoverEstimateses : AnnualCarryoverEstimate
     {
         /// <inheritdoc/>
         /// <summary>

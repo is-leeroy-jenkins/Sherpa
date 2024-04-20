@@ -41,6 +41,7 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
     /// <inheritdoc />
@@ -48,11 +49,52 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="T:BudgetExecution.DataUnit" />
     /// <seealso cref="T:BudgetExecution.IBudgetUnit" />
-    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    public abstract class BudgetUnit : DataUnit, IBudgetUnit
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
+    public abstract class BudgetUnit : DataUnit
     {
+        /// <summary>
+        /// The bfy
+        /// </summary>
+        private protected string _bfy;
+
+        /// <summary>
+        /// The efy
+        /// </summary>
+        private protected string _efy;
+
+        /// <summary>
+        /// The fund code
+        /// </summary>
+        private protected string _fundCode;
+
+        /// <summary>
+        /// The fund name
+        /// </summary>
+        private protected string _fundName;
+
+        /// <summary>
+        /// The treasury account code
+        /// </summary>
+        private protected string _treasuryAccountCode;
+
+        /// <summary>
+        /// The treasury account name
+        /// </summary>
+        private protected string _treasuryAccountName;
+
+        /// <summary>
+        /// The budget account code
+        /// </summary>
+        private protected string _budgetAccountCode;
+
+        /// <summary>
+        /// The budget account name
+        /// </summary>
+        private protected string _budgetAccountName;
+
         /// <inheritdoc />
         /// <summary>
         /// Gets or sets the bfy.
@@ -60,7 +102,17 @@ namespace BudgetExecution
         /// <value>
         /// The bfy.
         /// </value>
-        public virtual string BFY { get; set; }
+        public string BFY
+        {
+            get
+            {
+                return _bfy;
+            }
+            private protected set
+            {
+                _bfy = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
@@ -69,7 +121,17 @@ namespace BudgetExecution
         /// <value>
         /// The efy.
         /// </value>
-        public virtual string EFY { get; set; }
+        public string EFY
+        {
+            get
+            {
+                return _efy;
+            }
+            private protected set
+            {
+                _efy = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
@@ -78,7 +140,17 @@ namespace BudgetExecution
         /// <value>
         /// The fund code.
         /// </value>
-        public virtual string FundCode { get; set; }
+        public string FundCode
+        {
+            get
+            {
+                return _fundCode;
+            }
+            private protected set
+            {
+                _fundCode = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
@@ -87,7 +159,17 @@ namespace BudgetExecution
         /// <value>
         /// The name of the fund.
         /// </value>
-        public virtual string FundName { get; set; }
+        public string FundName
+        {
+            get
+            {
+                return _fundName;
+            }
+            private protected set
+            {
+                _fundName = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
@@ -96,7 +178,17 @@ namespace BudgetExecution
         /// <value>
         /// The treasury account code.
         /// </value>
-        public virtual string TreasuryAccountCode { get; set; }
+        public string TreasuryAccountCode
+        {
+            get
+            {
+                return _treasuryAccountCode;
+            }
+            private protected set
+            {
+                _treasuryAccountCode = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
@@ -105,7 +197,17 @@ namespace BudgetExecution
         /// <value>
         /// The name of the treasury account.
         /// </value>
-        public virtual string TreasuryAccountName { get; set; }
+        public string TreasuryAccountName
+        {
+            get
+            {
+                return _treasuryAccountName;
+            }
+            private protected set
+            {
+                _treasuryAccountName = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
@@ -114,7 +216,17 @@ namespace BudgetExecution
         /// <value>
         /// The budget account code.
         /// </value>
-        public virtual string BudgetAccountCode { get; set; }
+        public string BudgetAccountCode
+        {
+            get
+            {
+                return _budgetAccountCode;
+            }
+            private protected set
+            {
+                _budgetAccountCode = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
@@ -123,6 +235,86 @@ namespace BudgetExecution
         /// <value>
         /// The name of the budget account.
         /// </value>
-        public virtual string BudgetAccountName { get; set; }
+        public string BudgetAccountName
+        {
+            get
+            {
+                return _budgetAccountName;
+            }
+            private protected set
+            {
+                _budgetAccountName = value;
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.BudgetUnit" /> class.
+        /// </summary>
+        protected BudgetUnit( ) 
+            : base( )
+        {
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.BudgetUnit" /> class.
+        /// </summary>
+        /// <param name="query">The query.</param>
+        protected BudgetUnit( IQuery query ) 
+            : base( query )
+        {
+            _record = new DataBuilder( query ).Record;
+            _bfy = _record[ "BFY" ].ToString( );
+            _efy = _record[ "EFY" ].ToString( );
+            _fundCode = _record[ "FundCode" ].ToString( );
+            _fundName = _record[ "FundName" ].ToString( );
+            _treasuryAccountCode = _record[ "TreasuryAccountCode" ].ToString( );
+            _treasuryAccountName = _record[ "TreasuryAccountName" ].ToString( );
+            _budgetAccountCode = _record[ "BudgetAccountCode" ].ToString( );
+            _budgetAccountName = _record[ "BudgetAccountName" ].ToString( );
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.BudgetUnit" /> class.
+        /// </summary>
+        /// <param name="dataBuilder">The query.</param>
+        protected BudgetUnit( IDataModel dataBuilder ) 
+            : base( dataBuilder )
+        {
+            _record = dataBuilder.Record;
+            _bfy = _record[ "BFY" ].ToString( );
+            _efy = _record[ "EFY" ].ToString( );
+            _fundCode = _record[ "FundCode" ].ToString( );
+            _fundName = _record[ "FundName" ].ToString( );
+            _treasuryAccountCode = _record[ "TreasuryAccountCode" ].ToString( );
+            _treasuryAccountName = _record[ "TreasuryAccountName" ].ToString( );
+            _budgetAccountCode = _record[ "BudgetAccountCode" ].ToString( );
+            _budgetAccountName = _record[ "BudgetAccountName" ].ToString( );
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.BudgetUnit" /> class.
+        /// </summary>
+        /// <param name="dataRow">The data row.</param>
+        protected BudgetUnit( DataRow dataRow ) 
+            : base( dataRow )
+        {
+            _record = dataRow;
+            _bfy = dataRow[ "BFY" ].ToString( );
+            _efy = dataRow[ "EFY" ].ToString( );
+            _fundCode = dataRow[ "FundCode" ].ToString( );
+            _fundName = dataRow[ "FundName" ].ToString( );
+            _treasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString( );
+            _treasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString( );
+            _budgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
+            _budgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
+        }
     }
 }

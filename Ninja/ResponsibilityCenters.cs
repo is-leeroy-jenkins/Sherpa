@@ -61,12 +61,12 @@ namespace BudgetExecution
         /// Gets the source.
         /// </summary>
         /// <inheritdoc />
-        public override Source Source { get; set; }
+        public Source Source { get; set; }
 
         /// <summary>
         /// </summary>
         /// <inheritdoc />
-        public override DataRow Record { get; set; }
+        public DataRow Record { get; set; }
 
         /// <summary>
         /// Gets or sets the data.
@@ -74,12 +74,12 @@ namespace BudgetExecution
         /// <value>
         /// The data.
         /// </value>
-        public override IDictionary<string, object> Data { get; set; }
+        public IDictionary<string, object> Data { get; set; }
 
         /// <summary>
         /// </summary>
         /// <inheritdoc />
-        public override int ID { get; set; }
+        public int ID { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the

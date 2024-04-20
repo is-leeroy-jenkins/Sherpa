@@ -167,15 +167,15 @@ namespace BudgetExecution
 
         /// <inheritdoc/>
         /// <summary> Gets the source. </summary>
-        public override Source Source { get; set; }
+        public Source Source { get; set; }
 
         /// <inheritdoc/>
         /// <summary> </summary>
-        public override DataRow Record { get; set; }
+        public DataRow Record { get; set; }
 
         /// <summary> Gets or sets the data. </summary>
         /// <value> The data. </value>
-        public override IDictionary<string, object> Data { get; set; }
+        public IDictionary<string, object> Data { get; set; }
 
         /// <inheritdoc/>
         /// <summary>

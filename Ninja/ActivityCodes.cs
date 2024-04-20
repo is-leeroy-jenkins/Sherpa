@@ -53,10 +53,10 @@ namespace BudgetExecution
     public class ActivityCode : DataUnit
     {
         /// <summary> Gets the source. </summary>
-        public override Source Source { get; set; }
+        public Source Source { get; set; }
 
         /// <summary> </summary>
-        public override DataRow Record { get; set; }
+        public DataRow Record { get; set; }
 
         /// <summary> Gets or sets the description. </summary>
         /// <value> The description. </value>

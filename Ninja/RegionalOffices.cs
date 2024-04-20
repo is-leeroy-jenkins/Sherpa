@@ -51,52 +51,8 @@ namespace BudgetExecution
     /// <seealso cref="T:BudgetExecution.ResourcePlanningOffices" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class RegionalOffices : ResourcePlanningOffices
+    public class RegionalOffices : ResourcePlanningOffice
     {
-        /// <summary>
-        /// </summary>
-        /// <inheritdoc />
-        public override int ID { get; set; }
-
-        /// <summary>
-        /// Gets or sets the resource planning offices identifier.
-        /// </summary>
-        /// <value>
-        /// The resource planning offices identifier.
-        /// </value>
-        public int ResourcePlanningOfficesId { get; set; }
-
-        /// <summary>
-        /// Gets the field.
-        /// </summary>
-        /// <inheritdoc />
-        public override string Code { get; set; }
-
-        /// <summary>
-        /// The name
-        /// </summary>
-        /// <inheritdoc />
-        public override string Name { get; set; }
-
-        /// <summary>
-        /// Gets the source.
-        /// </summary>
-        /// <inheritdoc />
-        public override Source Source { get; set; }
-
-        /// <summary>
-        /// </summary>
-        /// <inheritdoc />
-        public override DataRow Record { get; set; }
-
-        /// <summary>
-        /// Gets or sets the map.
-        /// </summary>
-        /// <value>
-        /// The map.
-        /// </value>
-        public IDictionary<string, object> Map { get; set; }
-
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -104,6 +60,7 @@ namespace BudgetExecution
         /// </summary>
         public RegionalOffices( )
         {
+            _source = Source.RegionalOffices;
         }
 
         /// <summary>
@@ -112,10 +69,13 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="query">The query.</param>
         /// <inheritdoc />
-        public RegionalOffices( IQuery query )
+        public RegionalOffices( IQuery query ) 
+            : base( query )
         {
-            Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
+            _record = new DataBuilder( query ).Record;
+            _name = _record?[ "Name" ].ToString( );
+            _code = _record?[ "Code" ].ToString( );
+            _data = _record?.ToDictionary( );
         }
 
         /// <inheritdoc />
@@ -124,10 +84,13 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.RegionalOffices" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public RegionalOffices( IDataModel builder )
+        public RegionalOffices( IDataModel builder ) 
+            : base( builder )
         {
-            Record = builder.Record;
-            Data = Record.ToDictionary( );
+            _record = builder.Record;
+            _name = _record?[ "Name" ].ToString( );
+            _code = _record?[ "Code" ].ToString( );
+            _data = _record?.ToDictionary( );
         }
 
         /// <summary>
@@ -136,10 +99,13 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         /// <inheritdoc />
-        public RegionalOffices( DataRow dataRow )
+        public RegionalOffices( DataRow dataRow ) 
+            : base( dataRow )
         {
-            Record = dataRow;
-            Data = dataRow.ToDictionary( );
+            _record = dataRow;
+            _name = dataRow[ "Name" ].ToString( );
+            _code = dataRow[ "Code" ].ToString( );
+            _data = dataRow.ToDictionary( );
         }
     }
 }

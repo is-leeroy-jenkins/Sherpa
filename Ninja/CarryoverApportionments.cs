@@ -57,7 +57,7 @@ namespace BudgetExecution
         /// <summary>
         /// </summary>
         /// <inheritdoc />
-        public override int ID { get; set; }
+        public int ID { get; set; }
 
         /// <summary>
         /// Gets or sets the budget account.

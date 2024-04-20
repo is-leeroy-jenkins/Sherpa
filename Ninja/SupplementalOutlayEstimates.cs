@@ -46,7 +46,7 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class SupplementalOutlayEstimates : AnnualCarryoverEstimates
+    public class SupplementalOutlayEstimates : AnnualCarryoverEstimate
     {
         /// <summary>
         /// Initializes a new instance of the

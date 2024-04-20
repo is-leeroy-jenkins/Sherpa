@@ -54,7 +54,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    public class StatusOfFunds : PRC, IStatusOfFunds
+    public class StatusOfFunds : PRC 
     {
         /// <inheritdoc />
         /// <summary>

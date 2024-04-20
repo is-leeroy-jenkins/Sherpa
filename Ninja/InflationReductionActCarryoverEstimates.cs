@@ -47,7 +47,7 @@ namespace BudgetExecution
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameterInConstructor" ) ]
-    public class InflationReductionActCarryoverEstimates : AnnualCarryoverEstimates
+    public class InflationReductionActCarryoverEstimates : AnnualCarryoverEstimate
     {
         /// <summary>
         /// Initializes a new instance of the

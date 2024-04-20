@@ -60,12 +60,12 @@ namespace BudgetExecution
         /// Gets the source.
         /// </summary>
         /// <inheritdoc />
-        public override Source Source { get; set; }
+        public Source Source { get; set; }
 
         /// <summary>
         /// </summary>
         /// <inheritdoc />
-        public override int ID { get; set; }
+        public int ID { get; set; }
 
         /// <summary>
         /// Gets or sets the status of funds identifier.

@@ -64,36 +64,6 @@ namespace BudgetExecution
         public DateOnly LastDocumentDate { get; set; }
 
         /// <summary>
-        /// Gets the source.
-        /// </summary>
-        /// <inheritdoc />
-        public override Source Source { get; set; }
-
-        /// <summary>
-        /// </summary>
-        /// <inheritdoc />
-        public override Provider Provider { get; set; }
-
-        /// <summary>
-        /// </summary>
-        /// <inheritdoc />
-        public override DataRow Record { get; set; }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets or sets the data.
-        /// </summary>
-        /// <value>
-        /// The data.
-        /// </value>
-        public override IDictionary<string, object> Data { get; set; }
-
-        /// <summary>
-        /// </summary>
-        /// <inheritdoc />
-        public override int ID { get; set; }
-
-        /// <summary>
         /// Gets or sets the fund.
         /// </summary>
         /// <value>
