@@ -318,9 +318,6 @@ namespace BudgetExecution
             _budgeted = double.Parse( _record[ "Budgeted" ].ToString( ) ?? "0.0" );
             _posted = double.Parse( _record[ "Posted" ].ToString( ) ?? "0" );
             _openCommitments = double.Parse( _record[ "OpenCommitments" ].ToString( ) ?? "0.0" );
-            _unliquidatedObligations =
-                double.Parse( _record[ "UnliquidatedObligations" ].ToString( ) ?? "0.0" );
-
             _obligations = double.Parse( _record[ "Obligations" ].ToString( ) ?? "0.0" );
             _expenditures = double.Parse( _record[ "Expenditures" ].ToString( ) ?? "0.0" );
             _used = double.Parse( _record[ "Used" ].ToString( ) ?? "0.0" );
@@ -339,6 +336,8 @@ namespace BudgetExecution
             _treasuryAccountName = _record[ "TreasuryAccountName" ].ToString( );
             _budgetAccountCode = _record[ "BudgetAccountCode" ].ToString( );
             _budgetAccountName = _record[ "BudgetAccountName" ].ToString( );
+            _unliquidatedObligations =
+                double.Parse( _record[ "UnliquidatedObligations" ].ToString( ) ?? "0.0" );
         }
 
         /// <inheritdoc />
@@ -359,13 +358,26 @@ namespace BudgetExecution
             _budgeted = double.Parse( _record[ "Budgeted" ].ToString( ) ?? "0.0" );
             _posted = double.Parse( _record[ "Posted" ].ToString( ) ?? "0" );
             _openCommitments = double.Parse( _record[ "OpenCommitments" ].ToString( ) ?? "0.0" );
-            _unliquidatedObligations =
-                double.Parse( _record[ "UnliquidatedObligations" ].ToString( ) ?? "0.0" );
-
             _obligations = double.Parse( _record[ "Obligations" ].ToString( ) ?? "0.0" );
             _expenditures = double.Parse( _record[ "Expenditures" ].ToString( ) ?? "0.0" );
             _used = double.Parse( _record[ "Used" ].ToString( ) ?? "0.0" );
             _available = double.Parse( _record[ "Available" ].ToString( ) ?? "0.0" );
+            _programProjectCode = _record[ "ProgramProjectCode" ].ToString( );
+            _programProjectName = _record[ "ProgramProjectName" ].ToString( );
+            _programAreaCode = _record[ "ProgramAreaCode" ].ToString( );
+            _programAreaName = _record[ "ProgramAreaName" ].ToString( );
+            _npmCode = _record[ "NpmCode" ].ToString( );
+            _npmName = _record[ "NpmName" ].ToString( );
+            _goalCode = _record[ "GoalCode" ].ToString( );
+            _goalName = _record[ "GoalName" ].ToString( );
+            _objectiveCode = _record[ "ObjectiveCode" ].ToString( );
+            _objectiveName = _record[ "ObjectiveName" ].ToString( );
+            _treasuryAccountCode = _record[ "TreasuryAccountCode" ].ToString( );
+            _treasuryAccountName = _record[ "TreasuryAccountName" ].ToString( );
+            _budgetAccountCode = _record[ "BudgetAccountCode" ].ToString( );
+            _budgetAccountName = _record[ "BudgetAccountName" ].ToString( );
+            _unliquidatedObligations =
+                double.Parse( _record[ "UnliquidatedObligations" ].ToString( ) ?? "0.0" );
         }
 
         /// <inheritdoc />
@@ -382,17 +394,30 @@ namespace BudgetExecution
             _data = dataRow.ToDictionary( );
             _id = int.Parse( dataRow[ "StatusOfFundsId" ].ToString( ) ?? "0" );
             _budgetLevel = dataRow[ "BudgetLevel" ].ToString( );
-            _amount = double.Parse( _record[ "Amount" ].ToString( ) ?? "0.0" );
-            _budgeted = double.Parse( _record[ "Budgeted" ].ToString( ) ?? "0.0" );
-            _posted = double.Parse( _record[ "Posted" ].ToString( ) ?? "0" );
-            _openCommitments = double.Parse( _record[ "OpenCommitments" ].ToString( ) ?? "0.0" );
+            _amount = double.Parse( dataRow[ "Amount" ].ToString( ) ?? "0.0" );
+            _budgeted = double.Parse( dataRow[ "Budgeted" ].ToString( ) ?? "0.0" );
+            _posted = double.Parse( dataRow[ "Posted" ].ToString( ) ?? "0" );
+            _openCommitments = double.Parse( dataRow[ "OpenCommitments" ].ToString( ) ?? "0.0" );
+            _obligations = double.Parse( dataRow[ "Obligations" ].ToString( ) ?? "0.0" );
+            _expenditures = double.Parse( dataRow[ "Expenditures" ].ToString( ) ?? "0.0" );
+            _used = double.Parse( dataRow[ "Used" ].ToString( ) ?? "0.0" );
+            _available = double.Parse( dataRow[ "Available" ].ToString( ) ?? "0.0" );
+            _programProjectCode = dataRow[ "ProgramProjectCode" ].ToString( );
+            _programProjectName = dataRow[ "ProgramProjectName" ].ToString( );
+            _programAreaCode = dataRow[ "ProgramAreaCode" ].ToString( );
+            _programAreaName = dataRow[ "ProgramAreaName" ].ToString( );
+            _npmCode = dataRow[ "NpmCode" ].ToString( );
+            _npmName = dataRow[ "NpmName" ].ToString( );
+            _goalCode = dataRow[ "GoalCode" ].ToString( );
+            _goalName = dataRow[ "GoalName" ].ToString( );
+            _objectiveCode = dataRow[ "ObjectiveCode" ].ToString( );
+            _objectiveName = dataRow[ "ObjectiveName" ].ToString( );
+            _treasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString( );
+            _treasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString( );
+            _budgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
+            _budgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
             _unliquidatedObligations =
-                double.Parse( _record[ "UnliquidatedObligations" ].ToString( ) ?? "0.0" );
-
-            _obligations = double.Parse( _record[ "Obligations" ].ToString( ) ?? "0.0" );
-            _expenditures = double.Parse( _record[ "Expenditures" ].ToString( ) ?? "0.0" );
-            _used = double.Parse( _record[ "Used" ].ToString( ) ?? "0.0" );
-            _available = double.Parse( _record[ "Available" ].ToString( ) ?? "0.0" );
+                double.Parse( dataRow[ "UnliquidatedObligations" ].ToString( ) ?? "0.0" );
         }
 
         /// <inheritdoc />
@@ -411,13 +436,26 @@ namespace BudgetExecution
             _budgeted = double.Parse( _record[ "Budgeted" ].ToString( ) ?? "0.0" );
             _posted = double.Parse( _record[ "Posted" ].ToString( ) ?? "0" );
             _openCommitments = double.Parse( _record[ "OpenCommitments" ].ToString( ) ?? "0.0" );
-            _unliquidatedObligations =
-                double.Parse( _record[ "UnliquidatedObligations" ].ToString( ) ?? "0.0" );
-
             _obligations = double.Parse( _record[ "Obligations" ].ToString( ) ?? "0.0" );
             _expenditures = double.Parse( _record[ "Expenditures" ].ToString( ) ?? "0.0" );
             _used = double.Parse( _record[ "Used" ].ToString( ) ?? "0.0" );
             _available = double.Parse( _record[ "Available" ].ToString( ) ?? "0.0" );
+            _programProjectCode = _record[ "ProgramProjectCode" ].ToString( );
+            _programProjectName = _record[ "ProgramProjectName" ].ToString( );
+            _programAreaCode = _record[ "ProgramAreaCode" ].ToString( );
+            _programAreaName = _record[ "ProgramAreaName" ].ToString( );
+            _npmCode = _record[ "NpmCode" ].ToString( );
+            _npmName = _record[ "NpmName" ].ToString( );
+            _goalCode = _record[ "GoalCode" ].ToString( );
+            _goalName = _record[ "GoalName" ].ToString( );
+            _objectiveCode = _record[ "ObjectiveCode" ].ToString( );
+            _objectiveName = _record[ "ObjectiveName" ].ToString( );
+            _treasuryAccountCode = _record[ "TreasuryAccountCode" ].ToString( );
+            _treasuryAccountName = _record[ "TreasuryAccountName" ].ToString( );
+            _budgetAccountCode = _record[ "BudgetAccountCode" ].ToString( );
+            _budgetAccountName = _record[ "BudgetAccountName" ].ToString( );
+            _unliquidatedObligations =
+                double.Parse( _record[ "UnliquidatedObligations" ].ToString( ) ?? "0.0" );
         }
 
         /// <inheritdoc />

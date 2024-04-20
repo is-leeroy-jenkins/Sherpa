@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="RegionalAuthority.cs" company="Terry D. Eppler">
+// <copyright file="OperatingPlan.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   RegionalAuthority.cs
+//   OperatingPlan.cs
 // </summary>
 // ******************************************************************************************
 
@@ -43,37 +43,37 @@ namespace BudgetExecution
     using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    
+
     /// <inheritdoc />
     /// <summary> </summary>
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class RegionalAuthority : StatusOfFunds
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    public class OperatingPlan : Allocation
     {
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.RegionalAuthority" />
+        /// <see cref="T:BudgetExecution.OperatingPlans" />
         /// class.
         /// </summary>
-        public RegionalAuthority( )
+        public OperatingPlan( )
         {
-            _source = Source.RegionalAuthority;
         }
 
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.RegionalAuthority" />
+        /// <see cref="T:BudgetExecution.OperatingPlans" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
-        public RegionalAuthority( IQuery query )
+        public OperatingPlan( IQuery query )
         {
             _record = new DataBuilder( query ).Record;
-            _data = _record.ToDictionary( );
-            _id = int.Parse( _record[ "RegionalAuthorityId" ].ToString( ) ?? "0" );
+            _id = int.Parse( _record[ "OperatingPlansId" ].ToString( ) ?? "0" );
+            _data = Record.ToDictionary( );
             _budgetLevel = _record[ "BudgetLevel" ].ToString( );
             _bfy = _record[ "BFY" ].ToString( );
             _efy = _record[ "EFY" ].ToString( );
@@ -89,13 +89,6 @@ namespace BudgetExecution
             _bocCode = _record[ "BocCode" ].ToString( );
             _bocName = _record[ "BocName" ].ToString( );
             _amount = double.Parse( _record[ "Amount" ].ToString( ) ?? "0.0" );
-            _budgeted = double.Parse( _record[ "Budgeted" ].ToString( ) ?? "0.0" );
-            _posted = double.Parse( _record[ "Posted" ].ToString( ) ?? "0" );
-            _openCommitments = double.Parse( _record[ "OpenCommitments" ].ToString( ) ?? "0.0" );
-            _obligations = double.Parse( _record[ "Obligations" ].ToString( ) ?? "0.0" );
-            _expenditures = double.Parse( _record[ "Expenditures" ].ToString( ) ?? "0.0" );
-            _used = double.Parse( _record[ "Used" ].ToString( ) ?? "0.0" );
-            _available = double.Parse( _record[ "Available" ].ToString( ) ?? "0.0" );
             _programProjectCode = _record[ "ProgramProjectCode" ].ToString( );
             _programProjectName = _record[ "ProgramProjectName" ].ToString( );
             _programAreaCode = _record[ "ProgramAreaCode" ].ToString( );
@@ -115,15 +108,15 @@ namespace BudgetExecution
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.RegionalAuthority" />
+        /// <see cref="T:BudgetExecution.OperatingPlans" />
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
-        public RegionalAuthority( IDataModel builder )
+        public OperatingPlan( IDataModel builder )
         {
             _record = builder.Record;
-            _data = Record.ToDictionary( );
-            _id = int.Parse( _record[ "RegionalAuthorityId" ].ToString( ) ?? "0" );
+            _data = _record.ToDictionary( );
+            _id = int.Parse( _record[ "OperatingPlansId" ].ToString( ) ?? "0" );
             _budgetLevel = _record[ "BudgetLevel" ].ToString( );
             _bfy = _record[ "BFY" ].ToString( );
             _efy = _record[ "EFY" ].ToString( );
@@ -139,13 +132,6 @@ namespace BudgetExecution
             _bocCode = _record[ "BocCode" ].ToString( );
             _bocName = _record[ "BocName" ].ToString( );
             _amount = double.Parse( _record[ "Amount" ].ToString( ) ?? "0.0" );
-            _budgeted = double.Parse( _record[ "Budgeted" ].ToString( ) ?? "0.0" );
-            _posted = double.Parse( _record[ "Posted" ].ToString( ) ?? "0" );
-            _openCommitments = double.Parse( _record[ "OpenCommitments" ].ToString( ) ?? "0.0" );
-            _obligations = double.Parse( _record[ "Obligations" ].ToString( ) ?? "0.0" );
-            _expenditures = double.Parse( _record[ "Expenditures" ].ToString( ) ?? "0.0" );
-            _used = double.Parse( _record[ "Used" ].ToString( ) ?? "0.0" );
-            _available = double.Parse( _record[ "Available" ].ToString( ) ?? "0.0" );
             _programProjectCode = _record[ "ProgramProjectCode" ].ToString( );
             _programProjectName = _record[ "ProgramProjectName" ].ToString( );
             _programAreaCode = _record[ "ProgramAreaCode" ].ToString( );
@@ -160,22 +146,20 @@ namespace BudgetExecution
             _treasuryAccountName = _record[ "TreasuryAccountName" ].ToString( );
             _budgetAccountCode = _record[ "BudgetAccountCode" ].ToString( );
             _budgetAccountName = _record[ "BudgetAccountName" ].ToString( );
-            _unliquidatedObligations =
-                double.Parse( _record[ "UnliquidatedObligations" ].ToString( ) ?? "0.0" );
         }
 
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.RegionalAuthority" />
+        /// <see cref="T:BudgetExecution.OperatingPlans" />
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
-        public RegionalAuthority( DataRow dataRow )
+        public OperatingPlan( DataRow dataRow )
         {
             _record = dataRow;
             _data = dataRow.ToDictionary( );
-            _id = int.Parse( dataRow[ "RegionalAuthorityId" ].ToString( ) ?? "0" );
+            _id = int.Parse( dataRow[ "OperatingPlansId" ].ToString( ) ?? "0" );
             _budgetLevel = dataRow[ "BudgetLevel" ].ToString( );
             _bfy = dataRow[ "BFY" ].ToString( );
             _efy = dataRow[ "EFY" ].ToString( );
@@ -191,13 +175,6 @@ namespace BudgetExecution
             _bocCode = dataRow[ "BocCode" ].ToString( );
             _bocName = dataRow[ "BocName" ].ToString( );
             _amount = double.Parse( dataRow[ "Amount" ].ToString( ) ?? "0.0" );
-            _budgeted = double.Parse( dataRow[ "Budgeted" ].ToString( ) ?? "0.0" );
-            _posted = double.Parse( dataRow[ "Posted" ].ToString( ) ?? "0" );
-            _openCommitments = double.Parse( dataRow[ "OpenCommitments" ].ToString( ) ?? "0.0" );
-            _obligations = double.Parse( dataRow[ "Obligations" ].ToString( ) ?? "0.0" );
-            _expenditures = double.Parse( dataRow[ "Expenditures" ].ToString( ) ?? "0.0" );
-            _used = double.Parse( dataRow[ "Used" ].ToString( ) ?? "0.0" );
-            _available = double.Parse( dataRow[ "Available" ].ToString( ) ?? "0.0" );
             _programProjectCode = dataRow[ "ProgramProjectCode" ].ToString( );
             _programProjectName = dataRow[ "ProgramProjectName" ].ToString( );
             _programAreaCode = dataRow[ "ProgramAreaCode" ].ToString( );
@@ -212,16 +189,13 @@ namespace BudgetExecution
             _treasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString( );
             _budgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
             _budgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
-            _unliquidatedObligations =
-                double.Parse( dataRow[ "UnliquidatedObligations" ].ToString( ) ?? "0.0" );
         }
 
         /// <inheritdoc />
         /// <summary>
         /// </summary>
         /// <param name="allocations"></param>
-        public RegionalAuthority( Allocation allocations )
-            : this( )
+        public OperatingPlan( Allocation allocations )
         {
             _id = allocations.ID;
             _budgetLevel = allocations.BudgetLevel;
@@ -239,14 +213,6 @@ namespace BudgetExecution
             _bocCode = allocations.BocCode;
             _bocName = allocations.BocName;
             _amount = allocations.Amount;
-            _budgeted = allocations.Budgeted;
-            _posted = allocations.Posted;
-            _openCommitments = allocations.OpenCommitments;
-            _obligations = allocations.Obligations;
-            _unliquidatedObligations = allocations.UnliquidatedObligations;
-            _expenditures = allocations.Expenditures;
-            _used = allocations.Used;
-            _available = allocations.Available;
             _programProjectCode = allocations.ProgramProjectCode;
             _programProjectName = allocations.ProgramProjectName;
             _programAreaCode = allocations.ProgramAreaCode;

@@ -1,13 +1,9 @@
 ﻿namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-
+    
     /// <inheritdoc />
     /// <summary>
     /// </summary>
@@ -34,7 +30,7 @@
         /// <summary>
         /// The documnet type
         /// </summary>
-        private protected string _documnetType;
+        private protected string _documentType;
 
         /// <summary>
         /// The document number
@@ -177,11 +173,11 @@
         {
             get
             {
-                return _documnetType;
+                return _documentType;
             }
             private protected set
             {
-                _documnetType = value;
+                _documentType = value;
             }
         }
 
@@ -244,7 +240,7 @@
             _budgetLevel = _record[ "BudgetLevel" ].ToString( );
             _fund = _record[ "Fund" ].ToString( );
             _documentNumber = _record[ "DocumnetNumber" ].ToString( );
-            _documnetType = _record[ "DocumentType" ].ToString( );
+            _documentType = _record[ "DocumentType" ].ToString( );
             _processedDate = DateOnly.Parse( _record[ "ProcessedDate" ].ToString( ) );
             _budgetingControls = _record[ "BudgetingControls" ].ToString( );
             _postingControls = _record[ "PostingControls" ].ToString( );
@@ -273,7 +269,7 @@
             _budgetLevel = _record[ "BudgetLevel" ].ToString( );
             _fund = _record[ "Fund" ].ToString( );
             _documentNumber = _record[ "DocumnetNumber" ].ToString( );
-            _documnetType = _record[ "DocumentType" ].ToString( );
+            _documentType = _record[ "DocumentType" ].ToString( );
             _processedDate = DateOnly.Parse( _record[ "ProcessedDate" ].ToString( ) );
             _budgetingControls = _record[ "BudgetingControls" ].ToString( );
             _postingControls = _record[ "PostingControls" ].ToString( );
@@ -301,7 +297,7 @@
             _budgetLevel = dataRow[ "BudgetLevel" ].ToString( );
             _fund = dataRow[ "Fund" ].ToString( );
             _documentNumber = dataRow[ "DocumnetNumber" ].ToString( );
-            _documnetType = dataRow[ "DocumentType" ].ToString( );
+            _documentType = dataRow[ "DocumentType" ].ToString( );
             _processedDate = DateOnly.Parse( dataRow[ "ProcessedDate" ].ToString( ) );
             _budgetingControls = dataRow[ "BudgetingControls" ].ToString( );
             _postingControls = dataRow[ "PostingControls" ].ToString( );

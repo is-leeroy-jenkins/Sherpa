@@ -441,36 +441,37 @@ namespace BudgetExecution
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.AppropriationDocument" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.AppropriationDocument" /> class.
         /// </summary>
         /// <param name="document">The document.</param>
         public AppropriationDocument( AppropriationDocument document )
         {
-            ID = document.ID;
-            BFY = document.BFY;
-            EFY = document.EFY;
-            Fund = document.Fund;
-            FundCode = document.FundCode;
-            DocumentType = document.DocumentType;
-            DocumentNumber = document.DocumentNumber;
-            ProcessedDate = document.ProcessedDate;
-            BudgetingControls = document.BudgetingControls;
-            PostingControls = document.PostingControls;
-            PreCommitmentControls = document.PreCommitmentControls;
-            CommitmentControls = document.CommitmentControls;
-            ObligationControls = document.ObligationControls;
-            AccrualControls = document.AccrualControls;
-            ExpenditureControls = document.ExpenditureControls;
-            Budgeted = document.Budgeted;
-            Posted = document.Posted;
-            CarryoverOut = document.CarryoverOut;
-            CarryoverIn = document.CarryoverIn;
-            Recoveries = document.Recoveries;
-            Reimbursements = document.Reimbursements;
-            TreasuryAccountCode = document.TreasuryAccountCode;
-            TreasuryAccountName = document.TreasuryAccountName;
-            BudgetAccountCode = document.BudgetAccountCode;
-            BudgetAccountName = document.BudgetAccountName;
+            _id = document.ID;
+            _bfy = document.BFY;
+            _efy = document.EFY;
+            _fund = document.Fund;
+            _fundCode = document.FundCode;
+            _documentType = document.DocumentType;
+            _documentNumber = document.DocumentNumber;
+            _processedDate = document.ProcessedDate;
+            _budgetingControls = document.BudgetingControls;
+            _postingControls = document.PostingControls;
+            _preCommitmentControls = document.PreCommitmentControls;
+            _commitmentControls = document.CommitmentControls;
+            _obligationControls = document.ObligationControls;
+            _accrualControls = document.AccrualControls;
+            _expenditureControls = document.ExpenditureControls;
+            _budgeted = document.Budgeted;
+            _posted = document.Posted;
+            _carryoverOut = document.CarryoverOut;
+            _carryoverIn = document.CarryoverIn;
+            _recoveries = document.Recoveries;
+            _reimbursements = document.Reimbursements;
+            _treasuryAccountCode = document.TreasuryAccountCode;
+            _treasuryAccountName = document.TreasuryAccountName;
+            _budgetAccountCode = document.BudgetAccountCode;
+            _budgetAccountName = document.BudgetAccountName;
         }
     }
 }

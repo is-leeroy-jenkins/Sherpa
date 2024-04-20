@@ -44,217 +44,190 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
-    /// <summary> </summary>
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameterInConstructor" ) ]
-    public class PayrollAuthority : Allocations
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    public class PayrollAuthority : Allocation
     {
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="PayrollAuthority"/>
+        /// <see cref="T:BudgetExecution.PayrollAuthority" />
         /// class.
         /// </summary>
         public PayrollAuthority( )
         {
-            Source = Source.PayrollAuthority;
+            _source = Source.PayrollAuthority;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="PayrollAuthority"/>
+        /// <see cref="T:BudgetExecution.PayrollAuthority" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
         public PayrollAuthority( IQuery query )
         {
-            Source = query.Source;
-            Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "PayrollAuthorityId" ].ToString( ) ?? "0" );
-            BudgetLevel = Record[ "BudgetLevel" ].ToString( );
-            BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
-            FundCode = Record[ "FundCode" ].ToString( );
-            FundName = Record[ "FundName" ].ToString( );
-            RpioCode = Record[ "RpioCode" ].ToString( );
-            RpioName = Record[ "RpioName" ].ToString( );
-            AhCode = Record[ "AhCode" ].ToString( );
-            AhName = Record[ "AhName" ].ToString( );
-            OrgCode = Record[ "OrgCode" ].ToString( );
-            OrgName = Record[ "OrgName" ].ToString( );
-            AccountCode = Record[ "AccountCode" ].ToString( );
-            BocCode = Record[ "BocCode" ].ToString( );
-            BocName = Record[ "BocName" ].ToString( );
-            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
-            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? "0" );
-            Posted = double.Parse( Record[ "Posted" ].ToString( ) ?? "0" );
-            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
-            UnliquidatedObligations = double.Parse( Record[ "ULO" ].ToString( ) ?? "0" );
-            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
-            Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) ?? "0" );
-            Used = double.Parse( Record[ "Used" ].ToString( ) ?? "0" );
-            Available = double.Parse( Record[ "Available" ].ToString( ) ?? "0" );
-            ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
-            ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
-            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
-            ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
-            NpmCode = Record[ "NpmCode" ].ToString( );
-            NpmName = Record[ "NpmName" ].ToString( );
-            GoalCode = Record[ "GoalCode" ].ToString( );
-            GoalName = Record[ "GoalName" ].ToString( );
-            ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
-            ObjectiveName = Record[ "ObjectiveName" ].ToString( );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
+            _record = new DataBuilder( query ).Record;
+            _data = Record.ToDictionary( );
+            _id = int.Parse( Record[ "PayrollAuthorityId" ].ToString( ) ?? "0" );
+            _budgetLevel = _record[ "BudgetLevel" ].ToString( );
+            _bfy = _record[ "BFY" ].ToString( );
+            _efy = _record[ "EFY" ].ToString( );
+            _fundCode = _record[ "FundCode" ].ToString( );
+            _fundName = _record[ "FundName" ].ToString( );
+            _rpioCode = _record[ "RpioCode" ].ToString( );
+            _rpioName = _record[ "RpioName" ].ToString( );
+            _ahCode = _record[ "AhCode" ].ToString( );
+            _ahName = _record[ "AhName" ].ToString( );
+            _orgCode = _record[ "OrgCode" ].ToString( );
+            _orgName = _record[ "OrgName" ].ToString( );
+            _accountCode = _record[ "AccountCode" ].ToString( );
+            _bocCode = _record[ "BocCode" ].ToString( );
+            _bocName = _record[ "BocName" ].ToString( );
+            _amount = double.Parse( _record[ "Amount" ].ToString( ) ?? "0.0" );
+            _programProjectCode = _record[ "ProgramProjectCode" ].ToString( );
+            _programProjectName = _record[ "ProgramProjectName" ].ToString( );
+            _programAreaCode = _record[ "ProgramAreaCode" ].ToString( );
+            _programAreaName = _record[ "ProgramAreaName" ].ToString( );
+            _npmCode = _record[ "NpmCode" ].ToString( );
+            _npmName = _record[ "NpmName" ].ToString( );
+            _goalCode = _record[ "GoalCode" ].ToString( );
+            _goalName = _record[ "GoalName" ].ToString( );
+            _objectiveCode = _record[ "ObjectiveCode" ].ToString( );
+            _objectiveName = _record[ "ObjectiveName" ].ToString( );
+            _treasuryAccountCode = _record[ "TreasuryAccountCode" ].ToString( );
+            _treasuryAccountName = _record[ "TreasuryAccountName" ].ToString( );
+            _budgetAccountCode = _record[ "BudgetAccountCode" ].ToString( );
+            _budgetAccountName = _record[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="PayrollAuthority"/>
+        /// <see cref="T:BudgetExecution.PayrollAuthority" />
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
         public PayrollAuthority( IDataModel builder )
         {
-            Source = builder.Source;
-            Record = builder.Record;
-            Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "PayrollAuthorityId" ].ToString( ) ?? "0" );
-            BudgetLevel = Record[ "BudgetLevel" ].ToString( );
-            BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
-            FundCode = Record[ "FundCode" ].ToString( );
-            FundName = Record[ "FundName" ].ToString( );
-            RpioCode = Record[ "RpioCode" ].ToString( );
-            RpioName = Record[ "RpioName" ].ToString( );
-            AhCode = Record[ "AhCode" ].ToString( );
-            AhName = Record[ "AhName" ].ToString( );
-            OrgCode = Record[ "OrgCode" ].ToString( );
-            OrgName = Record[ "OrgName" ].ToString( );
-            AccountCode = Record[ "AccountCode" ].ToString( );
-            BocCode = Record[ "BocCode" ].ToString( );
-            BocName = Record[ "BocName" ].ToString( );
-            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
-            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? "0" );
-            Posted = double.Parse( Record[ "Posted" ].ToString( ) ?? "0" );
-            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
-            UnliquidatedObligations = double.Parse( Record[ "ULO" ].ToString( ) ?? "0" );
-            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
-            Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) ?? "0" );
-            Used = double.Parse( Record[ "Used" ].ToString( ) ?? "0" );
-            Available = double.Parse( Record[ "Available" ].ToString( ) ?? "0" );
-            ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
-            ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
-            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
-            ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
-            NpmCode = Record[ "NpmCode" ].ToString( );
-            NpmName = Record[ "NpmName" ].ToString( );
-            GoalCode = Record[ "GoalCode" ].ToString( );
-            GoalName = Record[ "GoalName" ].ToString( );
-            ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
-            ObjectiveName = Record[ "ObjectiveName" ].ToString( );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
+            _record = builder.Record;
+            _data = _record.ToDictionary( );
+            _id = int.Parse( _record[ "PayrollAuthorityId" ].ToString( ) ?? "0" );
+            _budgetLevel = _record[ "BudgetLevel" ].ToString( );
+            _bfy = _record[ "BFY" ].ToString( );
+            _efy = _record[ "EFY" ].ToString( );
+            _fundCode = _record[ "FundCode" ].ToString( );
+            _fundName = _record[ "FundName" ].ToString( );
+            _rpioCode = _record[ "RpioCode" ].ToString( );
+            _rpioName = _record[ "RpioName" ].ToString( );
+            _ahCode = _record[ "AhCode" ].ToString( );
+            _ahName = _record[ "AhName" ].ToString( );
+            _orgCode = _record[ "OrgCode" ].ToString( );
+            _orgName = _record[ "OrgName" ].ToString( );
+            _accountCode = _record[ "AccountCode" ].ToString( );
+            _bocCode = _record[ "BocCode" ].ToString( );
+            _bocName = _record[ "BocName" ].ToString( );
+            _amount = double.Parse( _record[ "Amount" ].ToString( ) ?? "0.0" );
+            _programProjectCode = _record[ "ProgramProjectCode" ].ToString( );
+            _programProjectName = _record[ "ProgramProjectName" ].ToString( );
+            _programAreaCode = _record[ "ProgramAreaCode" ].ToString( );
+            _programAreaName = _record[ "ProgramAreaName" ].ToString( );
+            _npmCode = _record[ "NpmCode" ].ToString( );
+            _npmName = _record[ "NpmName" ].ToString( );
+            _goalCode = _record[ "GoalCode" ].ToString( );
+            _goalName = _record[ "GoalName" ].ToString( );
+            _objectiveCode = _record[ "ObjectiveCode" ].ToString( );
+            _objectiveName = _record[ "ObjectiveName" ].ToString( );
+            _treasuryAccountCode = _record[ "TreasuryAccountCode" ].ToString( );
+            _treasuryAccountName = _record[ "TreasuryAccountName" ].ToString( );
+            _budgetAccountCode = _record[ "BudgetAccountCode" ].ToString( );
+            _budgetAccountName = _record[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="PayrollAuthority"/>
+        /// <see cref="T:BudgetExecution.PayrollAuthority" />
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
         public PayrollAuthority( DataRow dataRow )
         {
-            Source = Source.PayrollAuthority;
-            Record = dataRow;
-            Data = dataRow.ToDictionary( );
-            ID = int.Parse( dataRow[ "PayrollAuthorityId" ].ToString( ) ?? "0" );
-            BudgetLevel = dataRow[ "BudgetLevel" ].ToString( );
-            BFY = dataRow[ "BFY" ].ToString( );
-            EFY = dataRow[ "EFY" ].ToString( );
-            FundCode = dataRow[ "FundCode" ].ToString( );
-            FundName = dataRow[ "FundName" ].ToString( );
-            RpioCode = dataRow[ "RpioCode" ].ToString( );
-            RpioName = dataRow[ "RpioName" ].ToString( );
-            AhCode = dataRow[ "AhCode" ].ToString( );
-            AhName = dataRow[ "AhName" ].ToString( );
-            OrgCode = dataRow[ "OrgCode" ].ToString( );
-            OrgName = dataRow[ "OrgName" ].ToString( );
-            AccountCode = dataRow[ "AccountCode" ].ToString( );
-            BocCode = dataRow[ "BocCode" ].ToString( );
-            BocName = dataRow[ "BocName" ].ToString( );
-            Amount = double.Parse( dataRow[ "Amount" ].ToString( ) ?? "0" );
-            Budgeted = double.Parse( dataRow[ "Budgeted" ].ToString( ) ?? "0" );
-            Posted = double.Parse( dataRow[ "Posted" ].ToString( ) ?? "0" );
-            OpenCommitments = double.Parse( dataRow[ "OpenCommitments" ].ToString( ) ?? "0" );
-            UnliquidatedObligations = double.Parse( dataRow[ "ULO" ].ToString( ) ?? "0" );
-            Obligations = double.Parse( dataRow[ "Obligations" ].ToString( ) ?? "0" );
-            Expenditures = double.Parse( dataRow[ "Expenditures" ].ToString( ) ?? "0" );
-            Used = double.Parse( dataRow[ "Used" ].ToString( ) ?? "0" );
-            Available = double.Parse( dataRow[ "Available" ].ToString( ) ?? "0" );
-            ProgramProjectCode = dataRow[ "ProgramProjectCode" ].ToString( );
-            ProgramProjectName = dataRow[ "ProgramProjectName" ].ToString( );
-            ProgramAreaCode = dataRow[ "ProgramAreaCode" ].ToString( );
-            ProgramAreaName = dataRow[ "ProgramAreaName" ].ToString( );
-            NpmCode = dataRow[ "NpmCode" ].ToString( );
-            NpmName = dataRow[ "NpmName" ].ToString( );
-            GoalCode = dataRow[ "GoalCode" ].ToString( );
-            GoalName = dataRow[ "GoalName" ].ToString( );
-            ObjectiveCode = dataRow[ "ObjectiveCode" ].ToString( );
-            ObjectiveName = dataRow[ "ObjectiveName" ].ToString( );
-            TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString( );
-            TreasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString( );
-            BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
-            BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
+            _record = dataRow;
+            _data = dataRow.ToDictionary( );
+            _id = int.Parse( dataRow[ "PayrollAuthorityId" ].ToString( ) ?? "0" );
+            _budgetLevel = dataRow[ "BudgetLevel" ].ToString( );
+            _bfy = dataRow[ "BFY" ].ToString( );
+            _efy = dataRow[ "EFY" ].ToString( );
+            _fundCode = dataRow[ "FundCode" ].ToString( );
+            _fundName = dataRow[ "FundName" ].ToString( );
+            _rpioCode = dataRow[ "RpioCode" ].ToString( );
+            _rpioName = dataRow[ "RpioName" ].ToString( );
+            _ahCode = dataRow[ "AhCode" ].ToString( );
+            _ahName = dataRow[ "AhName" ].ToString( );
+            _orgCode = dataRow[ "OrgCode" ].ToString( );
+            _orgName = dataRow[ "OrgName" ].ToString( );
+            _accountCode = dataRow[ "AccountCode" ].ToString( );
+            _bocCode = dataRow[ "BocCode" ].ToString( );
+            _bocName = dataRow[ "BocName" ].ToString( );
+            _amount = double.Parse( dataRow[ "Amount" ].ToString( ) ?? "0.0" );
+            _programProjectCode = dataRow[ "ProgramProjectCode" ].ToString( );
+            _programProjectName = dataRow[ "ProgramProjectName" ].ToString( );
+            _programAreaCode = dataRow[ "ProgramAreaCode" ].ToString( );
+            _programAreaName = dataRow[ "ProgramAreaName" ].ToString( );
+            _npmCode = dataRow[ "NpmCode" ].ToString( );
+            _npmName = dataRow[ "NpmName" ].ToString( );
+            _goalCode = dataRow[ "GoalCode" ].ToString( );
+            _goalName = dataRow[ "GoalName" ].ToString( );
+            _objectiveCode = dataRow[ "ObjectiveCode" ].ToString( );
+            _objectiveName = dataRow[ "ObjectiveName" ].ToString( );
+            _treasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString( );
+            _treasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString( );
+            _budgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
+            _budgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="PayrollAuthority"/>
+        /// <see cref="T:BudgetExecution.PayrollAuthority" />
         /// class.
         /// </summary>
         /// <param name="pay"> The pay. </param>
         public PayrollAuthority( PayrollAuthority pay )
         {
-            ID = pay.ID;
-            BudgetLevel = pay.BudgetLevel;
-            BFY = pay.BFY;
-            EFY = pay.EFY;
-            FundCode = pay.FundCode;
-            FundName = pay.FundName;
-            RpioCode = pay.RpioCode;
-            RpioName = pay.RpioName;
-            AhCode = pay.AhCode;
-            AhName = pay.AhName;
-            OrgCode = pay.OrgCode;
-            OrgName = pay.OrgName;
-            AccountCode = pay.AccountCode;
-            BocCode = pay.BocCode;
-            BocName = pay.BocName;
-            Amount = pay.Amount;
-            Budgeted = pay.Budgeted;
-            Posted = pay.Posted;
-            OpenCommitments = pay.OpenCommitments;
-            UnliquidatedObligations = pay.UnliquidatedObligations;
-            Obligations = pay.Obligations;
-            Expenditures = pay.Expenditures;
-            Used = pay.Used;
-            Available = pay.Available;
-            ProgramProjectCode = pay.ProgramProjectCode;
-            ProgramProjectName = pay.ProgramProjectName;
-            ProgramAreaCode = pay.ProgramAreaCode;
-            ProgramAreaName = pay.ProgramAreaName;
-            NpmCode = pay.NpmCode;
-            NpmName = pay.NpmName;
-            TreasuryAccountCode = pay.TreasuryAccountCode;
-            TreasuryAccountName = pay.TreasuryAccountName;
-            BudgetAccountCode = pay.BudgetAccountCode;
-            BudgetAccountName = pay.BudgetAccountName;
+            _id = pay.ID;
+            _budgetLevel = pay.BudgetLevel;
+            _bfy = pay.BFY;
+            _efy = pay.EFY;
+            _fundCode = pay.FundCode;
+            _fundName = pay.FundName;
+            _rpioCode = pay.RpioCode;
+            _rpioName = pay.RpioName;
+            _ahCode = pay.AhCode;
+            _ahName = pay.AhName;
+            _orgCode = pay.OrgCode;
+            _orgName = pay.OrgName;
+            _accountCode = pay.AccountCode;
+            _bocCode = pay.BocCode;
+            _bocName = pay.BocName;
+            _amount = pay.Amount;
+            _programProjectCode = pay.ProgramProjectCode;
+            _programProjectName = pay.ProgramProjectName;
+            _programAreaCode = pay.ProgramAreaCode;
+            _programAreaName = pay.ProgramAreaName;
+            _npmCode = pay.NpmCode;
+            _npmName = pay.NpmName;
+            _treasuryAccountCode = pay.TreasuryAccountCode;
+            _treasuryAccountName = pay.TreasuryAccountName;
+            _budgetAccountCode = pay.BudgetAccountCode;
+            _budgetAccountName = pay.BudgetAccountName;
         }
     }
 }

@@ -48,6 +48,7 @@ namespace BudgetExecution
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     public class Appropriation : BudgetUnit
     {
         /// <inheritdoc />
@@ -56,7 +57,8 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.Appropriations" />
         /// class.
         /// </summary>
-        public Appropriation( )
+        public Appropriation( ) 
+            : base( )
         {
             _source = Source.Appropriations;
         }
