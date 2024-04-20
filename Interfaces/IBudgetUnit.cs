@@ -56,7 +56,7 @@ namespace BudgetExecution
         /// <value>
         /// The bfy.
         /// </value>
-        public string BFY { get; set; }
+        public string BFY { get; }
 
         /// <summary>
         /// Gets or sets the efy.
@@ -64,7 +64,7 @@ namespace BudgetExecution
         /// <value>
         /// The efy.
         /// </value>
-        public string EFY { get; set; }
+        public string EFY { get; }
 
         /// <summary>
         /// Gets or sets the fund code.
@@ -72,7 +72,7 @@ namespace BudgetExecution
         /// <value>
         /// The fund code.
         /// </value>
-        public string FundCode { get; set; }
+        public string FundCode { get; }
 
         /// <summary>
         /// Gets or sets the name of the fund.
@@ -80,7 +80,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the fund.
         /// </value>
-        public string FundName { get; set; }
+        public string FundName { get; }
 
         /// <summary>
         /// Gets or sets the treasury account code.
@@ -88,7 +88,7 @@ namespace BudgetExecution
         /// <value>
         /// The treasury account code.
         /// </value>
-        public string TreasuryAccountCode { get; set; }
+        public string TreasuryAccountCode { get; }
 
         /// <summary>
         /// Gets or sets the name of the treasury account.
@@ -96,7 +96,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the treasury account.
         /// </value>
-        public string TreasuryAccountName { get; set; }
+        public string TreasuryAccountName { get; }
 
         /// <summary>
         /// Gets or sets the budget account code.
@@ -104,7 +104,7 @@ namespace BudgetExecution
         /// <value>
         /// The budget account code.
         /// </value>
-        public string BudgetAccountCode { get; set; }
+        public string BudgetAccountCode { get; }
 
         /// <summary>
         /// Gets or sets the name of the budget account.
@@ -112,6 +112,6 @@ namespace BudgetExecution
         /// <value>
         /// The name of the budget account.
         /// </value>
-        public string BudgetAccountName { get; set; }
+        public string BudgetAccountName { get; }
     }
 }
