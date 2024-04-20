@@ -44,196 +44,305 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-
+    
     /// <inheritdoc />
     /// <summary>
     /// </summary>
     /// <seealso cref="T:BudgetExecution.BudgetUnit" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     public abstract class PRC : BudgetAccount
     {
         /// <summary>
-        /// Gets or sets the activity code.
+        /// The budget level
+        /// </summary>
+        private protected string _budgetLevel;
+
+        /// <summary>
+        /// The rpio code
+        /// </summary>
+        private protected string _rpioCode;
+        
+        /// <summary>
+        /// The rpio name
+        /// </summary>
+        private protected string _rpioName;
+        
+        /// <summary>
+        /// The ah code
+        /// </summary>
+        private protected string _ahCode;
+        
+        /// <summary>
+        /// The ah name
+        /// </summary>
+        private protected string _ahName;
+        
+        /// <summary>
+        /// The org code
+        /// </summary>
+        private protected string _orgCode;
+        
+        /// <summary>
+        /// The org name
+        /// </summary>
+        private protected string _orgName;
+        
+        /// <summary>
+        /// The account code
+        /// </summary>
+        private protected string _accountCode;
+        
+        /// <summary>
+        /// The boc code
+        /// </summary>
+        private protected string _bocCode;
+        
+        /// <summary>
+        /// The boc name
+        /// </summary>
+        private protected string _bocName;
+        
+        /// <summary>
+        /// The rc code
+        /// </summary>
+        private protected string _rcCode;
+        
+        /// <summary>
+        /// The rc name
+        /// </summary>
+        private protected string _rcName;
+        
+        /// <summary>
+        /// The program area code
+        /// </summary>
+        private protected string _programAreaCode;
+        
+        /// <summary>
+        /// The program area name
+        /// </summary>
+        private protected string _programAreaName;
+        
+        /// <summary>
+        /// Gets or sets the budget level.
         /// </summary>
         /// <value>
-        /// The activity code.
+        /// The budget level.
         /// </value>
-        public string ActivityCode
+        public string BudgetLevel
         {
             get
             {
-                return _activityCoede;
+                return _budgetLevel;
             }
             private protected set
             {
-                _activityCoede = value;
+                _budgetLevel = value;
             }
         }
         
         /// <summary>
-        /// Gets or sets the name of the activity.
+        /// Gets or sets the rpio code.
         /// </summary>
         /// <value>
-        /// The name of the activity.
+        /// The rpio code.
         /// </value>
-        public string ActivityName
+        public string RpioCode
         {
             get
             {
-                return _activityName;
+                return _rpioCode;
             }
             private protected set
             {
-                _activityName = value;
+                _rpioCode = value;
             }
         }
         
         /// <summary>
-        /// Gets or sets the NPM code.
+        /// Gets or sets the name of the rpio.
         /// </summary>
         /// <value>
-        /// The NPM code.
+        /// The name of the rpio.
         /// </value>
-        public string NpmCode
+        public string RpioName
         {
             get
             {
-                return _npmCode;
+                return _rpioName;
             }
             private protected set
             {
-                _npmCode = value;
+                _rpioName = value;
             }
         }
         
         /// <summary>
-        /// Gets or sets the name of the NPM.
+        /// Gets or sets the ah code.
         /// </summary>
         /// <value>
-        /// The name of the NPM.
+        /// The ah code.
         /// </value>
-        public string NpmName
+        public string AhCode
         {
             get
             {
-                return _npmName;
+                return _ahCode;
             }
             private protected set
             {
-                _npmName = value;
+                _ahCode = value;
             }
         }
         
         /// <summary>
-        /// Gets or sets the goal code.
+        /// Gets or sets the name of the ah.
         /// </summary>
         /// <value>
-        /// The goal code.
+        /// The name of the ah.
         /// </value>
-        public string GoalCode
+        public string AhName
         {
             get
             {
-                return _goalCode;
+                return _ahName;
             }
             private protected set
             {
-                _goalCode = value;
+                _ahCode = value;
             }
         }
         
         /// <summary>
-        /// Gets or sets the name of the goal.
+        /// Gets or sets the org code.
         /// </summary>
         /// <value>
-        /// The name of the goal.
+        /// The org code.
         /// </value>
-        public string GoalName
+        public string OrgCode
         {
             get
             {
-                return _goalName;
+                return _orgCode;
             }
             private protected set
             {
-                _goalName = value;
+                _orgCode = value;
             }
         }
         
         /// <summary>
-        /// Gets or sets the objective code.
+        /// Gets or sets the name of the org.
         /// </summary>
         /// <value>
-        /// The objective code.
+        /// The name of the org.
         /// </value>
-        public string ObjectiveCode
+        public string OrgName
         {
             get
             {
-                return _objectiveCode;
+                return _orgName;
             }
             private protected set
             {
-                _objectiveCode = value;
+                _orgName = value;
             }
         }
         
         /// <summary>
-        /// Gets or sets the name of the objective.
+        /// Gets or sets the account code.
         /// </summary>
         /// <value>
-        /// The name of the objective.
+        /// The account code.
         /// </value>
-        public string ObjectiveName
+        public string AccountCode
         {
             get
             {
-                return _objectiveName;
+                return _accountCode;
             }
             private protected set
             {
-                _objectiveName = value;
+                _accountCode = value;
             }
         }
         
         /// <summary>
-        /// Gets or sets the program project code.
+        /// Gets or sets the boc code.
         /// </summary>
         /// <value>
-        /// The program project code.
+        /// The boc code.
         /// </value>
-        public string ProgramProjectCode
+        public string BocCode
         {
             get
             {
-                return _programProjectCode;
+                return _bocCode;
             }
             private protected set
             {
-                _programProjectCode = value;
+                _bocCode = value;
             }
         }
         
         /// <summary>
-        /// Gets or sets the name of the program project.
+        /// Gets or sets the name of the boc.
         /// </summary>
         /// <value>
-        /// The name of the program project.
+        /// The name of the boc.
         /// </value>
-        public string ProgramProjectName
+        public string BocName
         {
             get
             {
-                return _programProjectName;
+                return _bocName;
             }
             private protected set
             {
-                _programProjectName = value;
+                _bocName = value;
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the rc code.
+        /// </summary>
+        /// <value>
+        /// The rc code.
+        /// </value>
+        public string RcCode
+        {
+            get
+            {
+                return _rcCode;
+            }
+            private protected set
+            {
+                _rcCode = value;
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the name of the rc.
+        /// </summary>
+        /// <value>
+        /// The name of the rc.
+        /// </value>
+        public string RcName
+        {
+            get
+            {
+                return _rcName;
+            }
+            private protected set
+            {
+                _rcName = value;
             }
         }
         
@@ -272,30 +381,28 @@ namespace BudgetExecution
                 _programAreaName = value;
             }
         }
-
+        
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="T:BudgetExecution.PRC" /> class.
         /// </summary>
-        protected PRC( )
+        protected PRC( ) 
+            : base( )
         {
         }
-
+        
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="T:BudgetExecution.PRC" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        protected PRC( IQuery query ) : base( query )
+        protected PRC( IQuery query )
+            : base( query )
         {
             _record = new DataBuilder( query ).Record;
-            _data = _record.ToDictionary( );
-            _bfy = _record[ "BFY" ].ToString( );
-            _efy = _record[ "EFY" ].ToString( );
-            _fundCode = _record[ "FundCode" ].ToString( );
-            _fundName = _record[ "FundName" ].ToString( );
+            _budgetLevel = _record[ "BudgetLevel" ].ToString( );
             _rpioCode = _record[ "RpioCode" ].ToString( );
             _rpioName = _record[ "RpioName" ].ToString( );
             _ahCode = _record[ "AhCode" ].ToString( );
@@ -305,18 +412,14 @@ namespace BudgetExecution
             _accountCode = _record[ "AccountCode" ].ToString( );
             _bocCode = _record[ "BocCode" ].ToString( );
             _bocName = _record[ "BocName" ].ToString( );
-            _programProjectCode = _record[ "ProgramProjectCode" ].ToString( );
-            _programProjectName = _record[ "ProgramProjectName" ].ToString( );
+            _rcCode = _record[ "RcCode" ].ToString( );
+            _rcName = _record[ "RcName" ].ToString( );
+            _bocCode = _record[ "BocCode" ].ToString( );
+            _bocName = _record[ "BocName" ].ToString( );
             _programAreaCode = _record[ "ProgramAreaCode" ].ToString( );
             _programAreaName = _record[ "ProgramAreaName" ].ToString( );
-            _npmCode = _record[ "NpmCode" ].ToString( );
-            _npmName = _record[ "NpmName" ].ToString( );
-            _goalCode = _record[ "GoalCode" ].ToString( );
-            _goalName = _record[ "GoalName" ].ToString( );
-            _objectiveCode = _record[ "ObjectiveCode" ].ToString( );
-            _objectiveName = _record[ "ObjectiveName" ].ToString( );
         }
-
+        
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -327,10 +430,6 @@ namespace BudgetExecution
         {
             _record = dataBuilder.Record;
             _data = _record.ToDictionary( );
-            _bfy = _record[ "BFY" ].ToString( );
-            _efy = _record[ "EFY" ].ToString( );
-            _fundCode = _record[ "FundCode" ].ToString( );
-            _fundName = _record[ "FundName" ].ToString( );
             _rpioCode = _record[ "RpioCode" ].ToString( );
             _rpioName = _record[ "RpioName" ].ToString( );
             _ahCode = _record[ "AhCode" ].ToString( );
@@ -340,18 +439,10 @@ namespace BudgetExecution
             _accountCode = _record[ "AccountCode" ].ToString( );
             _bocCode = _record[ "BocCode" ].ToString( );
             _bocName = _record[ "BocName" ].ToString( );
-            _programProjectCode = _record[ "ProgramProjectCode" ].ToString( );
-            _programProjectName = _record[ "ProgramProjectName" ].ToString( );
             _programAreaCode = _record[ "ProgramAreaCode" ].ToString( );
             _programAreaName = _record[ "ProgramAreaName" ].ToString( );
-            _npmCode = _record[ "NpmCode" ].ToString( );
-            _npmName = _record[ "NpmName" ].ToString( );
-            _goalCode = _record[ "GoalCode" ].ToString( );
-            _goalName = _record[ "GoalName" ].ToString( );
-            _objectiveCode = _record[ "ObjectiveCode" ].ToString( );
-            _objectiveName = _record[ "ObjectiveName" ].ToString( );
         }
-
+        
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="T:BudgetExecution.PRC" /> class.
@@ -361,10 +452,6 @@ namespace BudgetExecution
         {
             _record = dataRow;
             _data = dataRow.ToDictionary( );
-            _bfy = dataRow[ "BFY" ].ToString( );
-            _efy = dataRow[ "EFY" ].ToString( );
-            _fundCode = dataRow[ "FundCode" ].ToString( );
-            _fundName = dataRow[ "FundName" ].ToString( );
             _rpioCode = dataRow[ "RpioCode" ].ToString( );
             _rpioName = dataRow[ "RpioName" ].ToString( );
             _ahCode = dataRow[ "AhCode" ].ToString( );
@@ -374,18 +461,10 @@ namespace BudgetExecution
             _accountCode = dataRow[ "AccountCode" ].ToString( );
             _bocCode = dataRow[ "BocCode" ].ToString( );
             _bocName = dataRow[ "BocName" ].ToString( );
-            _programProjectCode = dataRow[ "ProgramProjectCode" ].ToString( );
-            _programProjectName = dataRow[ "ProgramProjectName" ].ToString( );
             _programAreaCode = dataRow[ "ProgramAreaCode" ].ToString( );
             _programAreaName = dataRow[ "ProgramAreaName" ].ToString( );
-            _npmCode = dataRow[ "NpmCode" ].ToString( );
-            _npmName = dataRow[ "NpmName" ].ToString( );
-            _goalCode = dataRow[ "GoalCode" ].ToString( );
-            _goalName = dataRow[ "GoalName" ].ToString( );
-            _objectiveCode = dataRow[ "ObjectiveCode" ].ToString( );
-            _objectiveName = dataRow[ "ObjectiveName" ].ToString( );
         }
-
+        
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -396,10 +475,6 @@ namespace BudgetExecution
         {
             _record = new DataBuilder( _source, map )?.Record;
             _data = _record.ToDictionary( );
-            _bfy = _record[ "BFY" ].ToString( );
-            _efy = _record[ "EFY" ].ToString( );
-            _fundCode = _record[ "FundCode" ].ToString( );
-            _fundName = _record[ "FundName" ].ToString( );
             _rpioCode = _record[ "RpioCode" ].ToString( );
             _rpioName = _record[ "RpioName" ].ToString( );
             _ahCode = _record[ "AhCode" ].ToString( );
@@ -413,81 +488,6 @@ namespace BudgetExecution
             _programProjectName = _record[ "ProgramProjectName" ].ToString( );
             _programAreaCode = _record[ "ProgramAreaCode" ].ToString( );
             _programAreaName = _record[ "ProgramAreaName" ].ToString( );
-            _npmCode = _record[ "NpmCode" ].ToString( );
-            _npmName = _record[ "NpmName" ].ToString( );
-            _goalCode = _record[ "GoalCode" ].ToString( );
-            _goalName = _record[ "GoalName" ].ToString( );
-            _objectiveCode = _record[ "ObjectiveCode" ].ToString( );
-            _objectiveName = _record[ "ObjectiveName" ].ToString( );
-        }
-
-        /// <summary>
-        /// Gets the field.
-        /// </summary>
-        /// <param name="dataRow">The data row.</param>
-        /// <param name="field">The field.</param>
-        /// <returns></returns>
-        public virtual string GetField( DataRow dataRow, string field )
-        {
-            if( ( dataRow != null )
-               && !string.IsNullOrEmpty( field ) )
-            {
-                try
-                {
-                    return dataRow[ field ].ToString( );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( string );
-                }
-            }
-
-            return default( string );
-        }
-
-        /// <summary>
-        /// Gets the amount.
-        /// </summary>
-        /// <param name="dataRow">The data row.</param>
-        /// <param name="numeric">The numeric.</param>
-        /// <returns></returns>
-        public virtual double GetAmount( DataRow dataRow, string numeric )
-        {
-            if( ( dataRow != null )
-               && !string.IsNullOrEmpty( numeric ) )
-            {
-                try
-                {
-                    return double.Parse( dataRow[ numeric ]?.ToString( ) ?? string.Empty );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( double );
-                }
-            }
-
-            return default( double );
-        }
-
-        /// <summary>
-        /// Converts to dictionary.
-        /// </summary>
-        /// <returns></returns>
-        public virtual IDictionary<string, object> ToDictionary( )
-        {
-            try
-            {
-                return Record.ItemArray != null
-                    ? Record.ToDictionary( )
-                    : default( IDictionary<string, object> );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( IDictionary<string, object> );
-            }
         }
     }
 }

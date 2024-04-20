@@ -45,7 +45,6 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
-    using Excel;
     
     /// <inheritdoc />
     /// <summary>
@@ -53,7 +52,7 @@ namespace BudgetExecution
     /// <seealso cref="T:BudgetExecution.IDataUnit" />
     /// <seealso cref="T:BudgetExecution.ISource" />
     /// <seealso cref="T:BudgetExecution.IProvider" />
-    [SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]

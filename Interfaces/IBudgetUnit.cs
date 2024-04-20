@@ -48,6 +48,7 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="T:BudgetExecution.IDataUnit" />
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public interface IBudgetUnit : IDataUnit
     {
         /// <summary>
@@ -61,6 +62,7 @@ namespace BudgetExecution
         /// <summary>
         /// Gets or sets the efy.
         /// </summary>
+        /// 
         /// <value>
         /// The efy.
         /// </value>
@@ -81,6 +83,14 @@ namespace BudgetExecution
         /// The name of the fund.
         /// </value>
         public string FundName { get; }
+
+        /// <summary>
+        /// Gets the main account.
+        /// </summary>
+        /// <value>
+        /// The main account.
+        /// </value>
+        public string MainAccount { get; }
 
         /// <summary>
         /// Gets or sets the treasury account code.

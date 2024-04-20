@@ -159,9 +159,10 @@ namespace BudgetExecution
             _data = Record?.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AllowanceHolder"/>
+        /// <see cref="T:BudgetExecution.AllowanceHolder" />
         /// class.
         /// </summary>
         /// <param name="allowanceHolder"> The allowance holder. </param>

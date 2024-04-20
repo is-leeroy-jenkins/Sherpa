@@ -53,6 +53,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     public abstract class BudgetUnit : DataUnit
     {
         /// <summary>
@@ -74,6 +75,11 @@ namespace BudgetExecution
         /// The fund name
         /// </summary>
         private protected string _fundName;
+
+        /// <summary>
+        /// The main account
+        /// </summary>
+        private protected string _mainAccount;
 
         /// <summary>
         /// The treasury account code
@@ -168,6 +174,24 @@ namespace BudgetExecution
             private protected set
             {
                 _fundName = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the main account.
+        /// </summary>
+        /// <value>
+        /// The main account.
+        /// </value>
+        public string MainAccount
+        {
+            get
+            {
+                return _mainAccount;
+            }
+            private protected set
+            {
+                _mainAccount = value;
             }
         }
 
@@ -266,11 +290,13 @@ namespace BudgetExecution
         protected BudgetUnit( IQuery query ) 
             : base( query )
         {
+            _source = query.Source;
             _record = new DataBuilder( query ).Record;
             _bfy = _record[ "BFY" ].ToString( );
             _efy = _record[ "EFY" ].ToString( );
             _fundCode = _record[ "FundCode" ].ToString( );
             _fundName = _record[ "FundName" ].ToString( );
+            _mainAccount = _record[ "MainAccount" ].ToString( );
             _treasuryAccountCode = _record[ "TreasuryAccountCode" ].ToString( );
             _treasuryAccountName = _record[ "TreasuryAccountName" ].ToString( );
             _budgetAccountCode = _record[ "BudgetAccountCode" ].ToString( );
@@ -286,11 +312,13 @@ namespace BudgetExecution
         protected BudgetUnit( IDataModel dataBuilder ) 
             : base( dataBuilder )
         {
+            _source = dataBuilder.Source;
             _record = dataBuilder.Record;
             _bfy = _record[ "BFY" ].ToString( );
             _efy = _record[ "EFY" ].ToString( );
             _fundCode = _record[ "FundCode" ].ToString( );
             _fundName = _record[ "FundName" ].ToString( );
+            _mainAccount = _record[ "MainAccount" ].ToString( );
             _treasuryAccountCode = _record[ "TreasuryAccountCode" ].ToString( );
             _treasuryAccountName = _record[ "TreasuryAccountName" ].ToString( );
             _budgetAccountCode = _record[ "BudgetAccountCode" ].ToString( );
@@ -311,6 +339,7 @@ namespace BudgetExecution
             _efy = dataRow[ "EFY" ].ToString( );
             _fundCode = dataRow[ "FundCode" ].ToString( );
             _fundName = dataRow[ "FundName" ].ToString( );
+            _mainAccount = dataRow[ "MainAccount" ].ToString( );
             _treasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString( );
             _treasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString( );
             _budgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );

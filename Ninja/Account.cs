@@ -60,12 +60,6 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class Account : PRC
     {
-        /// <summary>
-        /// Gets or sets the agency activity.
-        /// </summary>
-        /// <value> The agency activity. </value>
-        public string AgencyActivity { get; set; }
-
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
@@ -74,7 +68,7 @@ namespace BudgetExecution
         /// </summary>
         public Account( )
         {
-            Source = Source.Accounts;
+            _source = Source.Accounts;
         }
 
         /// <inheritdoc/>
@@ -87,17 +81,20 @@ namespace BudgetExecution
         public Account( IQuery query )
             : base( query )
         {
-            Source = Source.Accounts;
-            Record = new DataBuilder( query )?.Record;
-            ID = int.Parse( Record[ "AccountsId" ]?.ToString( ) );
-            NpmCode = Record[ "NpmCode" ].ToString( );
-            ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
-            ActivityCode = Record[ "ActivityCode" ].ToString( );
-            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
-            GoalCode = Record[ "GoalCode" ].ToString( );
-            ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
-            ActivityCode = Record[ "ActivityCode" ].ToString( );
-            Data = Record?.ToDictionary( );
+            _source = query.Source;
+            _record = new DataBuilder( query )?.Record;
+            _id = int.Parse( _record[ "AccountsId" ]?.ToString( ) );
+            _goalCode = _record[ "GoalCode" ].ToString( );
+            _goalName = _record[ "GoalName" ].ToString( );
+            _objectiveCode = _record[ "ObjectiveCode" ].ToString( );
+            _objectiveName = _record[ "ObjectiveName" ].ToString( );
+            _npmCode = _record[ "NpmCode" ].ToString( );
+            _npmName = _record[ "NpmName" ].ToString( );
+            _programProjectCode = _record[ "ProgramProjectCode" ].ToString( );
+            _programProjectName = _record[ "ProgramProjectName" ].ToString( );
+            _activityCode = _record[ "ActivityCode" ].ToString( );
+            _activityName = _record[ "ActivityName" ].ToString( );
+            _data = _record?.ToDictionary( );
         }
 
         /// <inheritdoc/>
@@ -110,22 +107,20 @@ namespace BudgetExecution
         public Account( IDataModel dataBuilder )
             : base( dataBuilder )
         {
-            Source = Source.Accounts;
-            Record = dataBuilder?.Record;
-            ID = int.Parse( Record?[ "AccountsId" ]?.ToString( ) );
-            GoalCode = Record?[ "GoalCode" ].ToString( );
-            GoalName = Record?[ "GoalName" ].ToString( );
-            ObjectiveCode = Record?[ "ObjectiveCode" ].ToString( );
-            ObjectiveName = Record?[ "ObjectiveName" ].ToString( );
-            NpmCode = Record?[ "NpmCode" ].ToString( );
-            NpmName = Record?[ "NpmName" ].ToString( );
-            ProgramProjectCode = Record?[ "ProgramProjectCode" ].ToString( );
-            ProgramProjectName = Record?[ "ProgramProjectName" ].ToString( );
-            ActivityCode = Record?[ "ActivityCode" ].ToString( );
-            ActivityName = Record?[ "ActivityName" ].ToString( );
-            ProgramAreaCode = Record?[ "ProgramAreaCode" ].ToString( );
-            ProgramAreaName = Record?[ "ProgramAreaName" ].ToString( );
-            Data = Record?.ToDictionary( );
+            _source = Source.Accounts;
+            _record = dataBuilder.Record;
+            _id = int.Parse( _record[ "AccountsId" ]?.ToString( ) );
+            _goalCode = _record[ "GoalCode" ].ToString( );
+            _goalName = _record[ "GoalName" ].ToString( );
+            _objectiveCode = _record[ "ObjectiveCode" ].ToString( );
+            _objectiveName = _record[ "ObjectiveName" ].ToString( );
+            _npmCode = _record[ "NpmCode" ].ToString( );
+            _npmName = _record[ "NpmName" ].ToString( );
+            _programProjectCode = _record[ "ProgramProjectCode" ].ToString( );
+            _programProjectName = _record[ "ProgramProjectName" ].ToString( );
+            _activityCode = _record[ "ActivityCode" ].ToString( );
+            _activityName = _record[ "ActivityName" ].ToString( );
+            _data = _record?.ToDictionary( );
         }
 
         /// <inheritdoc/>
@@ -137,22 +132,20 @@ namespace BudgetExecution
         /// <param name="dataRow"> The data row. </param>
         public Account( DataRow dataRow )
         {
-            Source = Source.Accounts;
-            Record = dataRow;
-            ID = int.Parse( Record[ "AccountsId" ]?.ToString( ) );
-            GoalCode = dataRow[ "GoalCode" ].ToString( );
-            GoalName = dataRow[ "GoalName" ].ToString( );
-            ObjectiveCode = dataRow[ "ObjectiveCode" ].ToString( );
-            ObjectiveName = dataRow[ "ObjectiveName" ].ToString( );
-            NpmCode = dataRow[ "NpmCode" ].ToString( );
-            NpmName = dataRow[ "NpmName" ].ToString( );
-            ProgramProjectCode = dataRow[ "ProgramProjectCode" ].ToString( );
-            ProgramProjectName = dataRow[ "ProgramProjectName" ].ToString( );
-            ActivityCode = dataRow[ "ActivityCode" ].ToString( );
-            ActivityName = dataRow[ "ActivityName" ].ToString( );
-            ProgramAreaCode = dataRow[ "ProgramAreaCode" ].ToString( );
-            ProgramAreaName = dataRow[ "ProgramAreaName" ].ToString( );
-            Data = Record?.ToDictionary( );
+            _source = Source.Accounts;
+            _record = dataRow;
+            _id = int.Parse( dataRow[ "AccountsId" ]?.ToString( ) );
+            _goalCode = dataRow[ "GoalCode" ].ToString( );
+            _goalName = dataRow[ "GoalName" ].ToString( );
+            _objectiveCode = dataRow[ "ObjectiveCode" ].ToString( );
+            _objectiveName = dataRow[ "ObjectiveName" ].ToString( );
+            _npmCode = dataRow[ "NpmCode" ].ToString( );
+            _npmName = dataRow[ "NpmName" ].ToString( );
+            _programProjectCode = dataRow[ "ProgramProjectCode" ].ToString( );
+            _programProjectName = dataRow[ "ProgramProjectName" ].ToString( );
+            _activityCode = dataRow[ "ActivityCode" ].ToString( );
+            _activityName = dataRow[ "ActivityName" ].ToString( );
+            _data = dataRow?.ToDictionary( );
         }
 
         /// <inheritdoc/>
@@ -166,21 +159,19 @@ namespace BudgetExecution
         /// </param>
         public Account( string code )
         {
-            Record = new DataBuilder( Source, GetArgs( code ) )?.Record;
-            ID = int.Parse( Record[ "AccountsId" ]?.ToString( ) );
-            GoalCode = Record?[ "GoalCode" ].ToString( );
-            GoalName = Record?[ "GoalName" ].ToString( );
-            ObjectiveCode = Record?[ "ObjectiveCode" ].ToString( );
-            ObjectiveName = Record?[ "ObjectiveName" ].ToString( );
-            NpmCode = Record?[ "NpmCode" ].ToString( );
-            NpmName = Record?[ "NpmName" ].ToString( );
-            ProgramProjectCode = Record?[ "ProgramProjectCode" ].ToString( );
-            ProgramProjectName = Record?[ "ProgramProjectName" ].ToString( );
-            ActivityCode = Record?[ "ActivityCode" ].ToString( );
-            ActivityName = Record?[ "ActivityName" ].ToString( );
-            ProgramAreaCode = Record?[ "ProgramAreaCode" ].ToString( );
-            ProgramAreaName = Record?[ "ProgramAreaName" ].ToString( );
-            Data = Record?.ToDictionary( );
+            _record = new DataBuilder( Source, GetArgs( code ) )?.Record;
+            _id = int.Parse( _record[ "AccountsId" ]?.ToString( ) );
+            _goalCode = _record[ "GoalCode" ].ToString( );
+            _goalName = _record[ "GoalName" ].ToString( );
+            _objectiveCode = _record[ "ObjectiveCode" ].ToString( );
+            _objectiveName = _record[ "ObjectiveName" ].ToString( );
+            _npmCode = _record[ "NpmCode" ].ToString( );
+            _npmName = _record[ "NpmName" ].ToString( );
+            _programProjectCode = _record[ "ProgramProjectCode" ].ToString( );
+            _programProjectName = _record[ "ProgramProjectName" ].ToString( );
+            _activityCode = _record[ "ActivityCode" ].ToString( );
+            _activityName = _record[ "ActivityName" ].ToString( );
+            _data = _record?.ToDictionary( );
         }
 
         /// <inheritdoc/>

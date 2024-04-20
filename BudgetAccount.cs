@@ -307,6 +307,8 @@ namespace BudgetExecution
         protected BudgetAccount( IQuery query ) 
             : base( query )
         {
+            _source = query.Source;
+            _record = new DataBuilder( query ).Record;
             _goalCode = _record[ "GoalCode" ].ToString( );
             _goalName = _record[ "GoalName" ].ToString( );
             _objectiveCode = _record[ "ObjectiveCode" ].ToString( );
@@ -328,6 +330,7 @@ namespace BudgetExecution
         protected BudgetAccount( IDataModel dataBuilder ) 
             : base( dataBuilder )
         {
+            _source = dataBuilder.Source;
             _record = dataBuilder.Record;
             _goalCode = _record[ "GoalCode" ].ToString( );
             _goalName = _record[ "GoalName" ].ToString( );
@@ -348,7 +351,7 @@ namespace BudgetExecution
         /// <param name="dataRow">The data row.</param>
         /// <inheritdoc />
         protected BudgetAccount( DataRow dataRow ) 
-            : base( dataRow)
+            : base( dataRow )
         {
             _record = dataRow;
             _goalCode = dataRow[ "GoalCode" ].ToString( );

@@ -51,9 +51,10 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class AccountingEvent : DataUnit
     {
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AccountingEvent"/>
+        /// <see cref="T:BudgetExecution.AccountingEvent" />
         /// class.
         /// </summary>
         public AccountingEvent( )

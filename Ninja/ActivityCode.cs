@@ -50,21 +50,21 @@ namespace BudgetExecution
     /// <seealso cref="T:BudgetExecution.DataUnit"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class ActivityCode : DataUnit
     {
-        /// <summary> Gets the source. </summary>
-        public Source Source { get; set; }
-
-        /// <summary> </summary>
-        public DataRow Record { get; set; }
-
-        /// <summary> Gets or sets the description. </summary>
-        /// <value> The description. </value>
+        /// <summary>
+        /// Gets or sets the description.
+        /// </summary>
+        /// <value>
+        /// The description.
+        /// </value>
         public string Description { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ActivityCode"/>
+        /// <see cref="T:BudgetExecution.ActivityCode" />
         /// class.
         /// </summary>
         public ActivityCode( )
@@ -72,87 +72,94 @@ namespace BudgetExecution
             Source = Source.ActivityCodes;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ActivityCode"/>
+        /// <see cref="T:BudgetExecution.ActivityCode" />
         /// class.
         /// </summary>
-        /// <param name="query"> The query. </param>
+        /// <param name="query">The query.</param>
         public ActivityCode( IQuery query )
             : this( )
         {
-            Record = new DataBuilder( query )?.Record;
-            ID = int.Parse( Record[ "ActivityCodesId" ].ToString( ) ?? "0" );
-            Name = Record[ $"{Field.ActivityName}" ].ToString( );
-            Code = Record[ $"{Field.ActivityCode}" ].ToString( );
-            Data = Record?.ToDictionary( );
+            _record = new DataBuilder( query )?.Record;
+            _id = int.Parse( _record[ "ActivityCodesId" ].ToString( ) ?? "0" );
+            _name = _record[ "ActivityName" ].ToString( );
+            _code = _record[ "ActivityCode" ].ToString( );
+            _data = _record?.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ActivityCode"/>
+        /// <see cref="T:BudgetExecution.ActivityCode" />
         /// class.
         /// </summary>
-        /// <param name="builder"> The builder. </param>
+        /// <param name="builder">The builder.</param>
         public ActivityCode( IDataModel builder )
             : this( )
         {
-            Record = builder?.Record;
-            ID = int.Parse( Record?[ "ActivityCodesId" ].ToString( ) ?? "0" );
-            Name = Record?[ "ActivityName" ].ToString( );
-            Code = Record?[ "ActivityCode" ].ToString( );
-            Data = Record?.ToDictionary( );
+            _record = builder.Record;
+            _id = int.Parse( _record[ "ActivityCodesId" ].ToString( ) ?? "0" );
+            _name = _record[ "ActivityName" ].ToString( );
+            _code = _record[ "ActivityCode" ].ToString( );
+            _data = _record?.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ActivityCode"/>
+        /// <see cref="T:BudgetExecution.ActivityCode" />
         /// class.
         /// </summary>
-        /// <param name="dataRow"> The data row. </param>
+        /// <param name="dataRow">The data row.</param>
         public ActivityCode( DataRow dataRow )
             : this( )
         {
-            Record = dataRow;
-            ID = int.Parse( Record[ "ActivityCodesId" ].ToString( ) ?? "0" );
-            Name = dataRow[ "ActivityName" ].ToString( );
-            Code = dataRow[ "ActivityCode" ].ToString( );
-            Data = dataRow?.ToDictionary( );
+            _record = dataRow;
+            _id = int.Parse( Record[ "ActivityCodesId" ].ToString( ) ?? "0" );
+            _name = dataRow[ "ActivityName" ].ToString( );
+            _code = dataRow[ "ActivityCode" ].ToString( );
+            _data = dataRow?.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ActivityCode"/>
+        /// <see cref="T:BudgetExecution.ActivityCode" />
         /// class.
         /// </summary>
-        /// <param name="code"> The code. </param>
+        /// <param name="code">The code.</param>
         public ActivityCode( string code )
             : this( )
         {
-            Record = new DataBuilder( Source, GetArgs( code ) )?.Record;
-            ID = int.Parse( Record[ "ActivityCodesId" ].ToString( ) ?? "0" );
-            Name = Record[ "ActivityName" ].ToString( );
-            Code = Record[ "ActivityCode" ].ToString( );
-            Data = Record?.ToDictionary( );
+            _record = new DataBuilder( Source, GetArgs( code ) )?.Record;
+            _id = int.Parse( _record[ "ActivityCodesId" ].ToString( ) ?? "0" );
+            _name = _record[ "ActivityName" ].ToString( );
+            _code = _record[ "ActivityCode" ].ToString( );
+            _data = _record?.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ActivityCode"/>
+        /// <see cref="T:BudgetExecution.ActivityCode" />
         /// class.
         /// </summary>
-        /// <param name="activityCode"> The activity code. </param>
+        /// <param name="activityCode">The activity code.</param>
         public ActivityCode( ActivityCode activityCode )
             : this( )
         {
-            ID = activityCode.ID;
-            Code = activityCode.Code;
-            Name = activityCode.Name;
+            _id = activityCode.ID;
+            _code = activityCode.Code;
+            _name = activityCode.Name;
         }
 
-        /// <summary> Gets the arguments. </summary>
-        /// <param name="code"> The code. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the arguments.
+        /// </summary>
+        /// <param name="code">The code.</param>
+        /// <returns></returns>
         private IDictionary<string, object> GetArgs( string code )
         {
             if( !string.IsNullOrEmpty( code ) )

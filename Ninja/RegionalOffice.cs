@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="Appropriation.cs" company="Terry D. Eppler">
+// <copyright file="RegionalOffice.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,97 +34,78 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   Appropriation.cs
+//   RegionalOffice.cs
 // </summary>
 // ******************************************************************************************
 
 namespace BudgetExecution
 {
     using System;
+    using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
-    /// <inheritdoc/>
-    /// <summary> </summary>
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:BudgetExecution.ResourcePlanningOffices" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class Appropriations : DataUnit
+    public class RegionalOffice : ResourcePlanningOffice
     {
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Appropriations"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.RegionalOffices" /> class.
         /// </summary>
-        public Appropriations( )
+        public RegionalOffice( )
         {
-            Source = Source.Appropriations;
-        }
-
-        /// <inheritdoc/>
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Appropriation"/>
-        /// class.
-        /// </summary>
-        /// <param name="query"> The query. </param>
-        public Appropriations( IQuery query )
-            : this( )
-        {
-            Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "AppropriationsId" ].ToString( ) ?? "0" );
-            Name = Record?[ "Name" ].ToString( );
-            Code = Record?[ "Code" ].ToString( );
-            Data = Record?.ToDictionary( );
-        }
-
-        /// <inheritdoc/>
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Appropriation"/>
-        /// class.
-        /// </summary>
-        /// <param name="builder"> The builder. </param>
-        public Appropriations( IDataModel builder )
-            : this( )
-        {
-            Record = builder.Record;
-            Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "AppropriationsId" ].ToString( ) ?? "0" );
-            Name = Record?[ "Name" ].ToString( );
-            Code = Record?[ "Code" ].ToString( );
-            Data = Record?.ToDictionary( );
-        }
-
-        /// <inheritdoc/>
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Appropriation"/>
-        /// class.
-        /// </summary>
-        /// <param name="dataRow"> The data row. </param>
-        public Appropriations( DataRow dataRow )
-            : this( )
-        {
-            Record = dataRow;
-            Data = dataRow.ToDictionary( );
-            ID = int.Parse( Record[ "AppropriationsId" ].ToString( ) ?? "0" );
-            Name = Record?[ "Name" ].ToString( );
-            Code = Record?[ "Code" ].ToString( );
-            Data = Record?.ToDictionary( );
+            _source = Source.RegionalOffices;
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Appropriations"/>
-        /// class.
+        /// <see cref="RegionalOffice"/> class.
         /// </summary>
-        /// <param name="appropriation"> The appropriation. </param>
-        public Appropriations( Appropriations appropriation )
+        /// <param name="query">The query.</param>
+        /// <inheritdoc />
+        public RegionalOffice( IQuery query ) 
+            : base( query )
         {
-            ID = appropriation.ID;
-            Code = appropriation.Code;
-            Name = appropriation.Name;
+            _record = new DataBuilder( query ).Record;
+            _name = _record?[ "Name" ].ToString( );
+            _code = _record?[ "Code" ].ToString( );
+            _data = _record?.ToDictionary( );
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.RegionalOffices" /> class.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        public RegionalOffice( IDataModel builder ) 
+            : base( builder )
+        {
+            _record = builder.Record;
+            _name = _record?[ "Name" ].ToString( );
+            _code = _record?[ "Code" ].ToString( );
+            _data = _record?.ToDictionary( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="RegionalOffice"/> class.
+        /// </summary>
+        /// <param name="dataRow">The data row.</param>
+        /// <inheritdoc />
+        public RegionalOffice( DataRow dataRow ) 
+            : base( dataRow )
+        {
+            _record = dataRow;
+            _name = dataRow[ "Name" ].ToString( );
+            _code = dataRow[ "Code" ].ToString( );
+            _data = dataRow.ToDictionary( );
         }
     }
 }
