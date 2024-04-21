@@ -51,6 +51,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     public class ApplicationTable
     {
         /// <summary>
@@ -210,7 +211,7 @@ namespace BudgetExecution
         public ApplicationTable( IQuery query )
         {
             _record = new DataBuilder( query ).Record;
-            _data = Record.ToDictionary( );
+            _data = _record.ToDictionary( );
             _id = int.Parse( _record[ "ApplicationTablesId" ].ToString( ) ?? "0" );
             _tableName = _record[ "TableName" ].ToString( );
             _model = _record[ "Model" ].ToString( );

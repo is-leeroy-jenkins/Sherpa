@@ -53,25 +53,28 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class Objectives : DataUnit
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    public class Objective : DataUnit
     {
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Objectives"/>
+        /// <see cref="T:BudgetExecution.Objective" />
         /// class.
         /// </summary>
-        public Objectives( )
+        public Objective( )
         {
             Source = Source.Objectives;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Objectives"/>
+        /// <see cref="T:BudgetExecution.Objective" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
-        public Objectives( IQuery query )
+        public Objective( IQuery query )
         {
             Record = new DataBuilder( query )?.Record;
             ID = int.Parse( Record?[ "ObjectivesId" ].ToString( ) ?? string.Empty );
@@ -80,13 +83,14 @@ namespace BudgetExecution
             Data = Record?.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Objectives"/>
+        /// <see cref="T:BudgetExecution.Objective" />
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
-        public Objectives( IDataModel builder )
+        public Objective( IDataModel builder )
         {
             Record = builder?.Record;
             ID = int.Parse( Record?[ "ObjectivesId" ].ToString( ) ?? string.Empty );
@@ -102,7 +106,7 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="dataRow"> The dataRow. </param>
-        public Objectives( DataRow dataRow )
+        public Objective( DataRow dataRow )
             : this( )
         {
             Record = dataRow;
@@ -112,13 +116,14 @@ namespace BudgetExecution
             Data = dataRow?.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Objectives"/>
+        /// <see cref="T:BudgetExecution.Objective" />
         /// class.
         /// </summary>
         /// <param name="code"> The code. </param>
-        public Objectives( string code )
+        public Objective( string code )
         {
             Record = new DataBuilder( Source, SetArgs( code ) )?.Record;
             ID = int.Parse( Record?[ "ObjectivesId" ].ToString( ) ?? string.Empty );
@@ -127,13 +132,14 @@ namespace BudgetExecution
             Data = Record?.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Objectives"/>
+        /// <see cref="T:BudgetExecution.Objective" />
         /// class.
         /// </summary>
         /// <param name="objective"> The objective. </param>
-        public Objectives( Objectives objective )
+        public Objective( Objective objective )
         {
             ID = objective.ID;
             Code = objective.Code;
@@ -156,7 +162,7 @@ namespace BudgetExecution
                 }
                 catch( Exception _ex )
                 {
-                    Objectives.Fail( _ex );
+                    Objective.Fail( _ex );
                     return default( IDictionary<string, object> );
                 }
             }

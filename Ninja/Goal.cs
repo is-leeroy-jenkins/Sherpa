@@ -54,93 +54,102 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    public class Goals : DataUnit
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    public class Goal : DataUnit
     {
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Goals"/>
+        /// <see cref="T:BudgetExecution.Goal" />
         /// class.
         /// </summary>
-        public Goals( )
+        public Goal( )
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Goals"/>
+        /// <see cref="T:BudgetExecution.Goal" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
-        public Goals( IQuery query )
+        public Goal( IQuery query )
         {
-            Record = new DataBuilder( query )?.Record;
-            ID = int.Parse( Record[ "GoalsId" ].ToString( ) );
-            Code = Record[ "Code" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
-            Data = Record?.ToDictionary( );
+            _record = new DataBuilder( query )?.Record;
+            _id = int.Parse( Record[ "GoalsId" ].ToString( ) );
+            _code = _record[ "Code" ].ToString( );
+            _name = _record[ "Name" ].ToString( );
+            _data = _record?.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Goals"/>
+        /// <see cref="T:BudgetExecution.Goal" />
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
-        public Goals( IDataModel builder )
+        public Goal( IDataModel builder )
         {
-            Record = builder?.Record;
-            ID = int.Parse( Record[ "GoalsId" ].ToString( ) );
-            Code = Record[ "Code" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
-            Data = Record?.ToDictionary( );
+            _record = builder.Record;
+            _id = int.Parse( _record[ "GoalsId" ].ToString( ) );
+            _code = _record[ "Code" ].ToString( );
+            _name = _record[ "Name" ].ToString( );
+            _data = _record?.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Goals"/>
+        /// <see cref="T:BudgetExecution.Goal" />
         /// class.
         /// </summary>
         /// <param name="dataRow"> The dataRow. </param>
-        public Goals( DataRow dataRow )
+        public Goal( DataRow dataRow )
         {
             Record = dataRow;
-            ID = int.Parse( Record[ "GoalsId" ].ToString( ) );
-            Code = Record[ "Code" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
-            Data = Record?.ToDictionary( );
+            _id = int.Parse( dataRow[ "GoalsId" ].ToString( ) );
+            _code = dataRow[ "Code" ].ToString( );
+            _name = dataRow[ "Name" ].ToString( );
+            _data = dataRow?.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Goals"/>
+        /// <see cref="T:BudgetExecution.Goal" />
         /// class.
         /// </summary>
         /// <param name="code"> The code. </param>
-        public Goals( string code )
+        public Goal( string code )
         {
-            Record = new DataBuilder( Source, GetArgs( code ) )?.Record;
-            ID = int.Parse( Record[ "GoalsId" ].ToString( ) );
-            Code = Record[ "Code" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
-            Data = Record?.ToDictionary( );
+            _record = new DataBuilder( _source, GetArgs( code ) )?.Record;
+            _id = int.Parse( _record[ "GoalsId" ].ToString( ) );
+            _code = _record[ "Code" ].ToString( );
+            _name = _record[ "Name" ].ToString( );
+            _data = _record?.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Goals"/>
+        /// <see cref="T:BudgetExecution.Goal" />
         /// class.
         /// </summary>
         /// <param name="goal"> The goal. </param>
-        public Goals( Goals goal )
+        public Goal( Goal goal )
         {
-            ID = goal.ID;
-            Code = goal.Code;
-            Name = goal.Name;
+            _id = goal.ID;
+            _code = goal.Code;
+            _name = goal.Name;
         }
 
-        /// <summary> Sets the arguments. </summary>
-        /// <param name="goal"> The goal. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Sets the arguments.
+        /// </summary>
+        /// <param name="goal">The goal.</param>
+        /// <returns></returns>
         public IDictionary<string, object> GetArgs( int goal )
         {
             if( ( goal > 0 )
@@ -160,8 +169,10 @@ namespace BudgetExecution
             return default( IDictionary<string, object> );
         }
 
-        /// <summary> Gets the source. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the source.
+        /// </summary>
+        /// <returns></returns>
         public Source GetSource( )
         {
             try
@@ -177,9 +188,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the arguments. </summary>
-        /// <param name="code"> The code. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Sets the arguments.
+        /// </summary>
+        /// <param name="code">The code.</param>
+        /// <returns></returns>
         private IDictionary<string, object> GetArgs( string code )
         {
             if( !string.IsNullOrEmpty( code ) )

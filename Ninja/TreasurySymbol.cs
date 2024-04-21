@@ -50,7 +50,7 @@ namespace BudgetExecution
     /// <seealso cref="T:BudgetExecution.Fund" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class TreasurySymbols : Funds
+    public class TreasurySymbol : Fund
     {
         /// <summary>
         /// Gets or sets the short key.
@@ -101,40 +101,40 @@ namespace BudgetExecution
         public string PreventNewUse { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TreasurySymbols"/> class.
+        /// Initializes a new instance of the <see cref="TreasurySymbol"/> class.
         /// </summary>
-        public TreasurySymbols( )
+        public TreasurySymbol( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TreasurySymbols"/> class.
+        /// Initializes a new instance of the <see cref="TreasurySymbol"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
         /// <inheritdoc />
-        public TreasurySymbols( IQuery query )
+        public TreasurySymbol( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TreasurySymbols"/> class.
+        /// Initializes a new instance of the <see cref="TreasurySymbol"/> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
         /// <inheritdoc />
-        public TreasurySymbols( IDataModel builder )
+        public TreasurySymbol( IDataModel builder )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TreasurySymbols"/> class.
+        /// Initializes a new instance of the <see cref="TreasurySymbol"/> class.
         /// </summary>
         /// <param name="dataRow">The Data.</param>
         /// <inheritdoc />
-        public TreasurySymbols( DataRow dataRow )
+        public TreasurySymbol( DataRow dataRow )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );

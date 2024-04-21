@@ -48,19 +48,60 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="BudgetExecution.DataUnit" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "InheritdocConsiderUsage" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class BudgetContacts : DataUnit
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    public class BudgetContact : DataUnit
     {
+        /// <summary>
+        /// The first name
+        /// </summary>
+        private string _firstName;
+
+        /// <summary>
+        /// The last name
+        /// </summary>
+        private string _lastName;
+
+        /// <summary>
+        /// The full name
+        /// </summary>
+        private string _fullName;
+
+        /// <summary>
+        /// The email address
+        /// </summary>
+        private string _emailAddress;
+
+        /// <summary>
+        /// The rpio
+        /// </summary>
+        private string _rpio;
+
+        /// <summary>
+        /// The section
+        /// </summary>
+        private string _section;
+        
         /// <summary>
         /// Gets or sets the first name.
         /// </summary>
         /// <value>
         /// The first name.
         /// </value>
-        public string FirstName { get; set; }
+        public string FirstName
+        {
+            get
+            {
+                return _firstName;
+            }
+            private set
+            {
+                _firstName = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the last name.
@@ -68,7 +109,17 @@ namespace BudgetExecution
         /// <value>
         /// The last name.
         /// </value>
-        public string LastName { get; set; }
+        public string LastName
+        {
+            get
+            {
+                return _lastName;
+            }
+            private set
+            {
+                _lastName = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the full name.
@@ -76,7 +127,17 @@ namespace BudgetExecution
         /// <value>
         /// The full name.
         /// </value>
-        public string FullName { get; set; }
+        public string FullName
+        {
+            get
+            {
+                return _fullName;
+            }
+            private set
+            {
+                _fullName = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the email address.
@@ -84,7 +145,17 @@ namespace BudgetExecution
         /// <value>
         /// The email address.
         /// </value>
-        public string EmailAddress { get; set; }
+        public string EmailAddress
+        {
+            get
+            {
+                return _emailAddress;
+            }
+            private set
+            {
+                _emailAddress = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the rpio.
@@ -92,7 +163,17 @@ namespace BudgetExecution
         /// <value>
         /// The rpio.
         /// </value>
-        public string RPIO { get; set; }
+        public string RPIO
+        {
+            get
+            {
+                return _rpio;
+            }
+            private set
+            {
+                _rpio = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the section.
@@ -100,72 +181,82 @@ namespace BudgetExecution
         /// <value>
         /// The section.
         /// </value>
-        public string Section { get; set; }
+        public string Section
+        {
+            get
+            {
+                return _section;
+            }
+            private set
+            {
+                _section = value;
+            }
+        }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BudgetContacts"/> class.
+        /// <see cref="BudgetContact"/> class.
         /// </summary>
-        public BudgetContacts( )
+        public BudgetContact( )
         {
             Source = Source.BudgetContacts;
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BudgetContacts"/> class.
+        /// <see cref="BudgetContact"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public BudgetContacts( IQuery query )
+        public BudgetContact( IQuery query )
             : this( )
         {
-            Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "ContactsId" ].ToString( ) ?? "0" );
-            FirstName = Record[ "FirstName" ].ToString( );
-            LastName = Record[ "LastName" ].ToString( );
-            FullName = Record[ "FullName" ].ToString( );
-            RPIO = Record[ "RPIO" ].ToString( );
-            EmailAddress = Record[ "EmailAddress" ].ToString( );
-            Section = Record[ "Section" ].ToString( );
+            _record = new DataBuilder( query ).Record;
+            _data = _record.ToDictionary( );
+            _id = int.Parse( _record[ "BudgetContactsId" ].ToString( ) ?? "0" );
+            _firstName = _record[ "FirstName" ].ToString( );
+            _lastName = _record[ "LastName" ].ToString( );
+            _fullName = _record[ "FullName" ].ToString( );
+            _rpio = _record[ "RPIO" ].ToString( );
+            _emailAddress = _record[ "EmailAddress" ].ToString( );
+            _section = _record[ "Section" ].ToString( );
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BudgetContacts"/> class.
+        /// <see cref="BudgetContact"/> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public BudgetContacts( IDataModel builder )
+        public BudgetContact( IDataModel builder )
             : this( )
         {
-            Record = builder.Record;
-            Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "ContactsId" ].ToString( ) ?? "0" );
-            FirstName = Record[ "FirstName" ].ToString( );
-            LastName = Record[ "LastName" ].ToString( );
-            FullName = Record[ "FullName" ].ToString( );
-            RPIO = Record[ "RPIO" ].ToString( );
-            EmailAddress = Record[ "EmailAddress" ].ToString( );
-            Section = Record[ "Section" ].ToString( );
+            _record = builder.Record;
+            _data = Record.ToDictionary( );
+            _id = int.Parse( Record[ "BudgetContactsId" ].ToString( ) ?? "0" );
+            _firstName = _record[ "FirstName" ].ToString( );
+            _lastName = _record[ "LastName" ].ToString( );
+            _fullName = _record[ "FullName" ].ToString( );
+            _rpio = _record[ "RPIO" ].ToString( );
+            _emailAddress = _record[ "EmailAddress" ].ToString( );
+            _section = _record[ "Section" ].ToString( );
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BudgetContacts"/> class.
+        /// <see cref="BudgetContact"/> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public BudgetContacts( DataRow dataRow )
+        public BudgetContact( DataRow dataRow )
             : this( )
         {
-            Record = dataRow;
-            Data = dataRow.ToDictionary( );
-            ID = int.Parse( dataRow[ "ContactsId" ].ToString( ) ?? "0" );
-            FirstName = dataRow[ "FirstName" ].ToString( );
-            LastName = dataRow[ "LastName" ].ToString( );
-            FullName = dataRow[ "FullName" ].ToString( );
-            RPIO = dataRow[ "RPIO" ].ToString( );
-            EmailAddress = dataRow[ "EmailAddress" ].ToString( );
-            Section = dataRow[ "Section" ].ToString( );
+            _record = dataRow;
+            _data = dataRow.ToDictionary( );
+            _id = int.Parse( dataRow[ "BudgetContactsId" ].ToString( ) ?? "0" );
+            _firstName = dataRow[ "FirstName" ].ToString( );
+            _lastName = dataRow[ "LastName" ].ToString( );
+            _fullName = dataRow[ "FullName" ].ToString( );
+            _rpio = dataRow[ "RPIO" ].ToString( );
+            _emailAddress = dataRow[ "EmailAddress" ].ToString( );
+            _section = dataRow[ "Section" ].ToString( );
         }
     }
 }

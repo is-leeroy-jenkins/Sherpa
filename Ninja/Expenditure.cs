@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="Deobligation.cs" company="Terry D. Eppler">
+// <copyright file="Expenditure.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   Deobligation.cs
+//   Expenditure.cs
 // </summary>
 // ******************************************************************************************
 
@@ -48,30 +48,31 @@ namespace BudgetExecution
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    [ SuppressMessage( "ReSharper", "InheritdocConsiderUsage" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class Deobligations : Obligations
+    public class Expenditure : Obligation
     {
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Deobligations"/>
+        /// <see cref="T:BudgetExecution.Expenditures" />
         /// class.
         /// </summary>
-        public Deobligations( )
+        public Expenditure( )
         {
-            Source = Source.Deobligations;
+            Source = Source.Expenditures;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Deobligations"/>
+        /// <see cref="T:BudgetExecution.Expenditures" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
-        public Deobligations( IQuery query )
+        public Expenditure( IQuery query )
             : base( query )
         {
-            Source = Source.Deobligations;
+            Source = Source.Expenditures;
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
             BFY = Record[ "BFY" ].ToString( );
@@ -87,7 +88,7 @@ namespace BudgetExecution
             AccountCode = Record[ "AccountCode" ].ToString( );
             BocCode = Record[ "BocCode" ].ToString( );
             BocName = Record[ "BocName" ].ToString( );
-            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
+            Amount = double.Parse( Record[ "Expenditures" ].ToString( ) ?? "0" );
             ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
             ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
@@ -104,17 +105,17 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
-        /// <inheritdoc/>
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Deobligation"/>
+        /// <see cref="T:BudgetExecution.Expenditures" />
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
-        public Deobligations( IDataModel builder )
+        public Expenditure( IDataModel builder )
             : base( builder )
         {
-            Source = Source.Deobligations;
+            Source = Source.Expenditures;
             Record = builder.Record;
             Data = Record.ToDictionary( );
             BFY = Record[ "BFY" ].ToString( );
@@ -130,7 +131,7 @@ namespace BudgetExecution
             AccountCode = Record[ "AccountCode" ].ToString( );
             BocCode = Record[ "BocCode" ].ToString( );
             BocName = Record[ "BocName" ].ToString( );
-            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
+            Amount = double.Parse( Record[ "Expenditures" ].ToString( ) ?? "0" );
             ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
             ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
@@ -147,16 +148,17 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Deobligations"/>
+        /// <see cref="T:BudgetExecution.Expenditures" />
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
-        public Deobligations( DataRow dataRow )
+        public Expenditure( DataRow dataRow )
             : base( dataRow )
         {
-            Source = Source.Deobligations;
+            Source = Source.Expenditures;
             Record = dataRow;
             Data = dataRow.ToDictionary( );
             BFY = dataRow[ "BFY" ].ToString( );
@@ -172,7 +174,7 @@ namespace BudgetExecution
             AccountCode = dataRow[ "AccountCode" ].ToString( );
             BocCode = dataRow[ "BocCode" ].ToString( );
             BocName = dataRow[ "BocName" ].ToString( );
-            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
+            Amount = double.Parse( Record[ "Expenditures" ].ToString( ) ?? "0" );
             ProgramProjectCode = dataRow[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = dataRow[ "ProgramProjectName" ].ToString( );
             ProgramAreaCode = dataRow[ "ProgramAreaCode" ].ToString( );
@@ -189,42 +191,40 @@ namespace BudgetExecution
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Deobligations"/> class.
+        /// <see cref="T:BudgetExecution.Expenditures" /> class.
         /// </summary>
-        /// <param name="deobligation">The deobligation.</param>
-        public Deobligations( Deobligations deobligation )
+        /// <param name="expense">The expense.</param>
+        public Expenditure( Expenditure expense )
         {
-            ID = deobligation.ID;
-            BFY = deobligation.BFY;
-            EFY = deobligation.EFY;
-            FundCode = deobligation.FundCode;
-            FundName = deobligation.FundName;
-            RpioCode = deobligation.RpioCode;
-            RpioName = deobligation.RpioName;
-            AhCode = deobligation.AhCode;
-            AhName = deobligation.AhName;
-            OrgCode = deobligation.OrgCode;
-            OrgName = deobligation.OrgName;
-            AccountCode = deobligation.AccountCode;
-            BocCode = deobligation.BocCode;
-            BocName = deobligation.BocName;
-            Amount = deobligation.Amount;
-            ProgramProjectCode = deobligation.ProgramProjectCode;
-            ProgramProjectName = deobligation.ProgramProjectName;
-            ProgramAreaCode = deobligation.ProgramAreaCode;
-            ProgramAreaName = deobligation.ProgramAreaName;
-            NpmCode = deobligation.NpmCode;
-            NpmName = deobligation.NpmName;
-            GoalCode = deobligation.GoalCode;
-            GoalName = deobligation.GoalName;
-            ObjectiveCode = deobligation.ObjectiveCode;
-            ObjectiveName = deobligation.ObjectiveName;
-            TreasuryAccountCode = deobligation.TreasuryAccountCode;
-            TreasuryAccountName = deobligation.TreasuryAccountName;
-            BudgetAccountCode = deobligation.BudgetAccountCode;
-            BudgetAccountName = deobligation.BudgetAccountName;
+            ID = expense.ID;
+            BudgetLevel = expense.BudgetLevel;
+            BFY = expense.BFY;
+            EFY = expense.EFY;
+            FundCode = expense.FundCode;
+            FundName = expense.FundName;
+            RpioCode = expense.RpioCode;
+            RpioName = expense.RpioName;
+            AhCode = expense.AhCode;
+            AhName = expense.AhName;
+            OrgCode = expense.OrgCode;
+            OrgName = expense.OrgName;
+            AccountCode = expense.AccountCode;
+            BocCode = expense.BocCode;
+            BocName = expense.BocName;
+            Amount = expense.Amount;
+            ProgramProjectCode = expense.ProgramProjectCode;
+            ProgramProjectName = expense.ProgramProjectName;
+            ProgramAreaCode = expense.ProgramAreaCode;
+            ProgramAreaName = expense.ProgramAreaName;
+            NpmCode = expense.NpmCode;
+            NpmName = expense.NpmName;
+            TreasuryAccountCode = expense.TreasuryAccountCode;
+            TreasuryAccountName = expense.TreasuryAccountName;
+            BudgetAccountCode = expense.BudgetAccountCode;
+            BudgetAccountName = expense.BudgetAccountName;
         }
     }
 }

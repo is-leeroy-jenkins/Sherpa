@@ -50,7 +50,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class OpenCommitments : Obligations
+    public class OpenCommitment : Obligation
     {
         /// <inheritdoc />
         /// <summary>
@@ -58,7 +58,7 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.OpenCommitments" />
         /// class.
         /// </summary>
-        public OpenCommitments( )
+        public OpenCommitment( )
         {
             Source = Source.OpenCommitments;
         }
@@ -70,7 +70,7 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
-        public OpenCommitments( IQuery query )
+        public OpenCommitment( IQuery query )
             : base( query )
         {
             Source = Source.OpenCommitments;
@@ -113,7 +113,7 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
-        public OpenCommitments( IDataModel builder )
+        public OpenCommitment( IDataModel builder )
             : base( builder )
         {
             Source = Source.OpenCommitments;
@@ -156,7 +156,7 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
-        public OpenCommitments( DataRow dataRow )
+        public OpenCommitment( DataRow dataRow )
             : base( dataRow )
         {
             Source = Source.OpenCommitments;
@@ -198,7 +198,7 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.OpenCommitments" /> class.
         /// </summary>
         /// <param name="commitment">The commitment.</param>
-        public OpenCommitments( OpenCommitments commitment )
+        public OpenCommitment( OpenCommitment commitment )
         {
             ID = commitment.ID;
             BFY = commitment.BFY;

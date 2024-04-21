@@ -48,7 +48,7 @@ namespace BudgetExecution
     using System.Threading;
 
     /// <summary> </summary>
-    public class ObligationActivity : Obligations
+    public class ObligationActivity : Obligation
     {
         /// <summary>
         /// Initializes a new instance of the
@@ -192,7 +192,7 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="obligation"> The obligation. </param>
-        public ObligationActivity( Obligations obligation )
+        public ObligationActivity( Obligation obligation )
         {
             ID = obligation.ID;
             BFY = obligation.BFY;

@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="AnnualCarryoverEstimate.cs" company="Terry D. Eppler">
+// <copyright file="JobsActCarryoverEstimate.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   AnnualCarryoverEstimate.cs
+//   JobsActCarryoverEstimate.cs
 // </summary>
 // ******************************************************************************************
 
@@ -46,199 +46,36 @@ namespace BudgetExecution
 
     /// <inheritdoc />
     /// <summary> </summary>
-    /// <seealso cref="T:BudgetExecution.BudgetUnit" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
-    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    public class AnnualCarryoverEstimate : BudgetUnit
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
+    public class JobsActCarryoverEstimate : SupplementalCarryoverEstimate
     {
+        /// <inheritdoc />
         /// <summary>
-        /// The rpio code
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.JobsActCarryoverEstimates" />
+        /// class.
         /// </summary>
-        private protected string _rpioCode;
-
-        /// <summary>
-        /// The rpio name
-        /// </summary>
-        private protected string _rpioName;
-
-        /// <summary>
-        /// The amount
-        /// </summary>
-        private protected double _amount;
-
-        /// <summary>
-        /// The open commitments
-        /// </summary>
-        private protected double _openCommitments;
-
-        /// <summary>
-        /// The obligations
-        /// </summary>
-        private protected double _obligations;
-
-        /// <summary>
-        /// The available
-        /// </summary>
-        private protected double _available;
-
-        /// <summary>
-        /// The estimate
-        /// </summary>
-        private protected double _estimate;
-        
-        /// <summary>
-        /// Gets or sets the rpio code.
-        /// </summary>
-        /// <value>
-        /// The rpio code.
-        /// </value>
-        public string RpioCode
+        public JobsActCarryoverEstimate( ) 
+            : base( )
         {
-            get
-            {
-                return _rpioCode;
-            }
-            private protected set
-            {
-                _rpioCode = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the name of the rpio.
-        /// </summary>
-        /// <value>
-        /// The name of the rpio.
-        /// </value>
-        public string RpioName
-        {
-            get
-            {
-                return _rpioName;
-            }
-            private protected set
-            {
-                _rpioName = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the amount.
-        /// </summary>
-        /// <value>
-        /// The amount.
-        /// </value>
-        public double Amount
-        {
-            get
-            {
-                return _amount;
-            }
-            private protected set
-            {
-                _amount = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the open commitments.
-        /// </summary>
-        /// <value>
-        /// The open commitments.
-        /// </value>
-        public double OpenCommitments
-        {
-            get
-            {
-                return _openCommitments;
-            }
-            private protected set
-            {
-                _openCommitments = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the obligations.
-        /// </summary>
-        /// <value>
-        /// The obligations.
-        /// </value>
-        public double Obligations
-        {
-            get
-            {
-                return _obligations;
-            }
-            private protected set
-            {
-                _obligations = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the available.
-        /// </summary>
-        /// <value>
-        /// The available.
-        /// </value>
-        public double Available
-        {
-            get
-            {
-                return _available;
-            }
-            private protected set
-            {
-                _available = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the estimate.
-        /// </summary>
-        /// <value>
-        /// The estimate.
-        /// </value>
-        public double Estimate
-        {
-            get
-            {
-                return _estimate;
-            }
-            private protected set
-            {
-                _estimate = value;
-            }
+            _source = Source.JobsActCarryoverEstimates;
         }
 
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AnnualCarryoverEstimate" />
+        /// <see cref="T:BudgetExecution.JobsActCarryoverEstimate" />
         /// class.
         /// </summary>
-        public AnnualCarryoverEstimate( )
+        /// <param name="query"> The query. </param>
+        public JobsActCarryoverEstimate( IQuery query )
+            : base( query )
         {
-            _source = Source.AnnualCarryoverEstimates;
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AnnualCarryoverEstimates" />
-        /// class.
-        /// </summary>
-        /// <param name="query">The query.</param>
-        public AnnualCarryoverEstimate( IQuery query )
-            : this( )
-        {
-            _record = new DataBuilder( query ).Record;
-            _data = _record.ToDictionary( );
-            _id = int.Parse( _record[ "AnnualCarryoverEstimatesId" ].ToString( ) ?? "0" );
+            Record = new DataBuilder( query ).Record;
+            Data = Record.ToDictionary( );
+            _id = int.Parse( Record[ "JobsActCarryoverEstimatesId" ].ToString( ) ?? "0" );
             _bfy = _record[ "BFY" ].ToString( );
             _efy = _record[ "EFY" ].ToString( );
             _fundCode = _record[ "FundCode" ].ToString( );
@@ -248,8 +85,8 @@ namespace BudgetExecution
             _amount = double.Parse( _record[ "Amount" ].ToString( ) ?? "0" );
             _openCommitments = double.Parse( _record[ "OpenCommitments" ].ToString( ) ?? "0" );
             _obligations = double.Parse( _record[ "Obligations" ].ToString( ) ?? "0" );
-            _available = double.Parse( _record[ "Available" ].ToString( ) ?? "0" );
             _estimate = double.Parse( _record[ "Estimate" ].ToString( ) ?? "0" );
+            _available = double.Parse( _record[ "Available" ].ToString( ) ?? "0" );
             _treasuryAccountCode = _record[ "TreasuryAccountCode" ].ToString( );
             _treasuryAccountName = _record[ "TreasuryAccountName" ].ToString( );
             _budgetAccountCode = _record[ "BudgetAccountCode" ].ToString( );
@@ -259,16 +96,16 @@ namespace BudgetExecution
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AnnualCarryoverEstimates" />
+        /// <see cref="T:BudgetExecution.JobsActCarryoverEstimate" />
         /// class.
         /// </summary>
-        /// <param name="builder">The builder.</param>
-        public AnnualCarryoverEstimate( IDataModel builder )
+        /// <param name="builder"> The builder. </param>
+        public JobsActCarryoverEstimate( IDataModel builder )
             : this( )
         {
             _record = builder.Record;
-            _data = _record.ToDictionary( );
-            _id = int.Parse( _record[ "AnnualCarryoverEstimatesId" ].ToString( ) ?? "0" );
+            _data = Record.ToDictionary( );
+            _id = int.Parse( Record[ "JobsActCarryoverEstimatesId" ].ToString( ) ?? "0" );
             _bfy = _record[ "BFY" ].ToString( );
             _efy = _record[ "EFY" ].ToString( );
             _fundCode = _record[ "FundCode" ].ToString( );
@@ -278,8 +115,8 @@ namespace BudgetExecution
             _amount = double.Parse( _record[ "Amount" ].ToString( ) ?? "0" );
             _openCommitments = double.Parse( _record[ "OpenCommitments" ].ToString( ) ?? "0" );
             _obligations = double.Parse( _record[ "Obligations" ].ToString( ) ?? "0" );
-            _available = double.Parse( _record[ "Available" ].ToString( ) ?? "0" );
             _estimate = double.Parse( _record[ "Estimate" ].ToString( ) ?? "0" );
+            _available = double.Parse( _record[ "Available" ].ToString( ) ?? "0" );
             _treasuryAccountCode = _record[ "TreasuryAccountCode" ].ToString( );
             _treasuryAccountName = _record[ "TreasuryAccountName" ].ToString( );
             _budgetAccountCode = _record[ "BudgetAccountCode" ].ToString( );
@@ -289,16 +126,16 @@ namespace BudgetExecution
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AnnualCarryoverEstimates" />
+        /// <see cref="T:BudgetExecution.JobsActCarryoverEstimate" />
         /// class.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
-        public AnnualCarryoverEstimate( DataRow dataRow )
+        /// <param name="dataRow"> The data row. </param>
+        public JobsActCarryoverEstimate( DataRow dataRow )
             : this( )
         {
             _record = dataRow;
             _data = dataRow.ToDictionary( );
-            _id = int.Parse( _record[ "AnnualCarryoverEstimatesId" ].ToString( ) ?? "0" );
+            _id = int.Parse( Record[ "JobsActCarryoverEstimatesId" ].ToString( ) ?? "0" );
             _bfy = dataRow[ "BFY" ].ToString( );
             _efy = dataRow[ "EFY" ].ToString( );
             _fundCode = dataRow[ "FundCode" ].ToString( );
@@ -308,8 +145,8 @@ namespace BudgetExecution
             _amount = double.Parse( dataRow[ "Amount" ].ToString( ) ?? "0" );
             _openCommitments = double.Parse( dataRow[ "OpenCommitments" ].ToString( ) ?? "0" );
             _obligations = double.Parse( dataRow[ "Obligations" ].ToString( ) ?? "0" );
-            _available = double.Parse( dataRow[ "Available" ].ToString( ) ?? "0" );
             _estimate = double.Parse( dataRow[ "Estimate" ].ToString( ) ?? "0" );
+            _available = double.Parse( dataRow[ "Available" ].ToString( ) ?? "0" );
             _treasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString( );
             _treasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString( );
             _budgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
@@ -319,12 +156,11 @@ namespace BudgetExecution
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AnnualCarryoverEstimates" />
+        /// <see cref="T:BudgetExecution.JobsActCarryoverEstimate" />
         /// class.
         /// </summary>
-        /// <param name="carryover">The carryover.</param>
-        public AnnualCarryoverEstimate( AnnualCarryoverEstimate carryover )
-            : this( )
+        /// <param name="carryover"> The carryover. </param>
+        public JobsActCarryoverEstimate( JobsActCarryoverEstimate carryover )
         {
             _id = carryover.ID;
             _bfy = carryover.BFY;

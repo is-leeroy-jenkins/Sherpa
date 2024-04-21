@@ -49,78 +49,104 @@ namespace BudgetExecution
     /// <seealso cref="T:BudgetExecution.DataUnit" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class HeadquartersOffices : DataUnit
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    public class HeadquartersOffice : DataUnit
     {
-        /// <summary> Get or sets the RPIO </summary>
-        public string RPIO { get; set; }
+        /// <summary>
+        /// The rpio
+        /// </summary>
+        private string _rpio;
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="HeadquartersOffices"/>
-        /// class.
+        /// Gets the rpio.
         /// </summary>
-        public HeadquartersOffices( )
+        /// <value>
+        /// The rpio.
+        /// </value>
+        public string RPIO
         {
-            Source = Source.HeadquartersOffices;
+            get
+            {
+                return _rpio;
+            }
+            private set
+            {
+                _rpio = value;
+            }
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="HeadquartersOffices"/>
+        /// <see cref="T:BudgetExecution.HeadquartersOffice" />
+        /// class.
+        /// </summary>
+        public HeadquartersOffice( )
+        {
+            _source = Source.HeadquartersOffices;
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.HeadquartersOffice" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
-        public HeadquartersOffices( IQuery query )
+        public HeadquartersOffice( IQuery query )
         {
-            Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "ResourcePlanningOfficesId" ].ToString( ) ?? "0" );
-            Code = Record[ "Code" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
+            _record = new DataBuilder( query ).Record;
+            _data = _record.ToDictionary( );
+            _id = int.Parse( _record[ "ResourcePlanningOfficesId" ].ToString( ) ?? "0" );
+            _code = _record[ "Code" ].ToString( );
+            _name = _record[ "Name" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="HeadquartersOffices"/>
+        /// <see cref="T:BudgetExecution.HeadquartersOffice" />
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
-        public HeadquartersOffices( IDataModel builder )
+        public HeadquartersOffice( IDataModel builder )
         {
-            Record = builder.Record;
-            Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "ResourcePlanningOfficesId" ].ToString( ) ?? "0" );
-            Code = Record[ "Code" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
+            _record = builder.Record;
+            _data = _record.ToDictionary( );
+            _id = int.Parse( _record[ "ResourcePlanningOfficesId" ].ToString( ) ?? "0" );
+            _code = _record[ "Code" ].ToString( );
+            _name = _record[ "Name" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="HeadquartersOffices"/>
+        /// <see cref="T:BudgetExecution.HeadquartersOffice" />
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
-        public HeadquartersOffices( DataRow dataRow )
+        public HeadquartersOffice( DataRow dataRow )
         {
-            Record = dataRow;
-            Data = dataRow.ToDictionary( );
-            ID = int.Parse( Record[ "ResourcePlanningOfficesId" ].ToString( ) ?? "0" );
-            Code = Record[ "Code" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
+            _record = dataRow;
+            _data = dataRow.ToDictionary( );
+            _id = int.Parse( dataRow[ "ResourcePlanningOfficesId" ].ToString( ) ?? "0" );
+            _code = dataRow[ "Code" ].ToString( );
+            _name = dataRow[ "Name" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="HeadquartersOffices"/>
+        /// <see cref="T:BudgetExecution.HeadquartersOffice" />
         /// class.
         /// </summary>
         /// <param name="npm"> The NPM. </param>
-        public HeadquartersOffices( HeadquartersOffices npm )
+        public HeadquartersOffice( HeadquartersOffice npm )
         {
-            ID = npm.ID;
-            RPIO = npm.RPIO;
-            Code = npm.Code;
-            Name = npm.Name;
+            _id = npm.ID;
+            _rpio = npm.RPIO;
+            _code = npm.Code;
+            _name = npm.Name;
         }
     }
 }

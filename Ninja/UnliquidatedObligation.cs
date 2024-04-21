@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="Expenditure.cs" company="Terry D. Eppler">
+// <copyright file="UnliquidatedObligation.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   Expenditure.cs
+//   UnliquidatedObligation.cs
 // </summary>
 // ******************************************************************************************
 
@@ -48,33 +48,35 @@ namespace BudgetExecution
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameterInConstructor" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class Expenditures : Obligations
+    public class UnliquidatedObligation : Obligation
     {
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Expenditures" />
+        /// <see cref="T:BudgetExecution.UnliquidatedObligation" />
         /// class.
         /// </summary>
-        public Expenditures( )
+        public UnliquidatedObligation( )
         {
-            Source = Source.Expenditures;
+            Source = Source.UnliquidatedObligations;
         }
 
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Expenditures" />
+        /// <see cref="T:BudgetExecution.UnliquidatedObligation" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
-        public Expenditures( IQuery query )
+        public UnliquidatedObligation( IQuery query )
             : base( query )
         {
-            Source = Source.Expenditures;
+            Source = Source.UnliquidatedObligations;
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "UnliquidatedObligationsId" ].ToString( ) ?? string.Empty );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
@@ -88,7 +90,7 @@ namespace BudgetExecution
             AccountCode = Record[ "AccountCode" ].ToString( );
             BocCode = Record[ "BocCode" ].ToString( );
             BocName = Record[ "BocName" ].ToString( );
-            Amount = double.Parse( Record[ "Expenditures" ].ToString( ) ?? "0" );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
             ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
             ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
@@ -108,16 +110,17 @@ namespace BudgetExecution
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Expenditures" />
+        /// <see cref="T:BudgetExecution.UnliquidatedObligations" />
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
-        public Expenditures( IDataModel builder )
+        public UnliquidatedObligation( IDataModel builder )
             : base( builder )
         {
-            Source = Source.Expenditures;
+            Source = Source.UnliquidatedObligations;
             Record = builder.Record;
             Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "UnliquidatedObligationsId" ].ToString(  ) ?? string.Empty );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
@@ -131,7 +134,7 @@ namespace BudgetExecution
             AccountCode = Record[ "AccountCode" ].ToString( );
             BocCode = Record[ "BocCode" ].ToString( );
             BocName = Record[ "BocName" ].ToString( );
-            Amount = double.Parse( Record[ "Expenditures" ].ToString( ) ?? "0" );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
             ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
             ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
@@ -148,19 +151,19 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
-        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Expenditures" />
+        /// <see cref="UnliquidatedObligation"/>
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
-        public Expenditures( DataRow dataRow )
+        public UnliquidatedObligation( DataRow dataRow )
             : base( dataRow )
         {
-            Source = Source.Expenditures;
+            Source = Source.UnliquidatedObligations;
             Record = dataRow;
             Data = dataRow.ToDictionary( );
+            ID = int.Parse( Record[ "UnliquidatedObligationsId" ].ToString(  ) );
             BFY = dataRow[ "BFY" ].ToString( );
             EFY = dataRow[ "EFY" ].ToString( );
             FundCode = dataRow[ "FundCode" ].ToString( );
@@ -174,7 +177,7 @@ namespace BudgetExecution
             AccountCode = dataRow[ "AccountCode" ].ToString( );
             BocCode = dataRow[ "BocCode" ].ToString( );
             BocName = dataRow[ "BocName" ].ToString( );
-            Amount = double.Parse( Record[ "Expenditures" ].ToString( ) ?? "0" );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
             ProgramProjectCode = dataRow[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = dataRow[ "ProgramProjectName" ].ToString( );
             ProgramAreaCode = dataRow[ "ProgramAreaCode" ].ToString( );
@@ -191,40 +194,34 @@ namespace BudgetExecution
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
         }
 
-        /// <inheritdoc />
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.Expenditures" /> class.
-        /// </summary>
-        /// <param name="expense">The expense.</param>
-        public Expenditures( Expenditures expense )
+        public UnliquidatedObligation( UnliquidatedObligation ulo )
         {
-            ID = expense.ID;
-            BudgetLevel = expense.BudgetLevel;
-            BFY = expense.BFY;
-            EFY = expense.EFY;
-            FundCode = expense.FundCode;
-            FundName = expense.FundName;
-            RpioCode = expense.RpioCode;
-            RpioName = expense.RpioName;
-            AhCode = expense.AhCode;
-            AhName = expense.AhName;
-            OrgCode = expense.OrgCode;
-            OrgName = expense.OrgName;
-            AccountCode = expense.AccountCode;
-            BocCode = expense.BocCode;
-            BocName = expense.BocName;
-            Amount = expense.Amount;
-            ProgramProjectCode = expense.ProgramProjectCode;
-            ProgramProjectName = expense.ProgramProjectName;
-            ProgramAreaCode = expense.ProgramAreaCode;
-            ProgramAreaName = expense.ProgramAreaName;
-            NpmCode = expense.NpmCode;
-            NpmName = expense.NpmName;
-            TreasuryAccountCode = expense.TreasuryAccountCode;
-            TreasuryAccountName = expense.TreasuryAccountName;
-            BudgetAccountCode = expense.BudgetAccountCode;
-            BudgetAccountName = expense.BudgetAccountName;
+            ID = ulo.ID;
+            BudgetLevel = ulo.BudgetLevel;
+            BFY = ulo.BFY;
+            EFY = ulo.EFY;
+            FundCode = ulo.FundCode;
+            FundName = ulo.FundName;
+            RpioCode = ulo.RpioCode;
+            RpioName = ulo.RpioName;
+            AhCode = ulo.AhCode;
+            AhName = ulo.AhName;
+            OrgCode = ulo.OrgCode;
+            OrgName = ulo.OrgName;
+            AccountCode = ulo.AccountCode;
+            BocCode = ulo.BocCode;
+            BocName = ulo.BocName;
+            Amount = ulo.Amount;
+            ProgramProjectCode = ulo.ProgramProjectCode;
+            ProgramProjectName = ulo.ProgramProjectName;
+            ProgramAreaCode = ulo.ProgramAreaCode;
+            ProgramAreaName = ulo.ProgramAreaName;
+            NpmCode = ulo.NpmCode;
+            NpmName = ulo.NpmName;
+            TreasuryAccountCode = ulo.TreasuryAccountCode;
+            TreasuryAccountName = ulo.TreasuryAccountName;
+            BudgetAccountCode = ulo.BudgetAccountCode;
+            BudgetAccountName = ulo.BudgetAccountName;
         }
     }
 }

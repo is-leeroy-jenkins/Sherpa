@@ -54,7 +54,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameterInConstructor" ) ]
-    public class Obligations : StatusOfFunds
+    public class Obligation : StatusOfFunds
     {
         /// <summary>
         /// Gets or sets the type of the document.
@@ -145,20 +145,20 @@ namespace BudgetExecution
         public virtual string VendorName { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Obligations"/> class.
+        /// Initializes a new instance of the <see cref="Obligation"/> class.
         /// </summary>
         /// <inheritdoc />
-        public Obligations( )
+        public Obligation( )
         {
             Source = Source.Obligations;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Obligations"/> class.
+        /// Initializes a new instance of the <see cref="Obligation"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
         /// <inheritdoc />
-        public Obligations( IQuery query )
+        public Obligation( IQuery query )
             : base( query )
         {
             Source = Source.Obligations;
@@ -195,11 +195,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Obligations"/> class.
+        /// Initializes a new instance of the <see cref="Obligation"/> class.
         /// </summary>
         /// <param name="builder"></param>
         /// <inheritdoc />
-        public Obligations( IDataModel builder )
+        public Obligation( IDataModel builder )
             : base( builder )
         {
             Source = Source.Obligations;
@@ -236,11 +236,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Obligations"/> class.
+        /// Initializes a new instance of the <see cref="Obligation"/> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         /// <inheritdoc />
-        public Obligations( DataRow dataRow )
+        public Obligation( DataRow dataRow )
             : base( dataRow )
         {
             Source = Source.Obligations;
@@ -277,10 +277,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Obligations"/> class.
+        /// Initializes a new instance of the <see cref="Obligation"/> class.
         /// </summary>
         /// <param name="obligation">The obligation.</param>
-        public Obligations( Obligations obligation )
+        public Obligation( Obligation obligation )
         {
             BFY = obligation.BFY;
             EFY = obligation.EFY;

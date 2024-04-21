@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="UnliquidatedObligation.cs" company="Terry D. Eppler">
+// <copyright file="Deobligation.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   UnliquidatedObligation.cs
+//   Deobligation.cs
 // </summary>
 // ******************************************************************************************
 
@@ -48,35 +48,32 @@ namespace BudgetExecution
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameterInConstructor" ) ]
+    [ SuppressMessage( "ReSharper", "InheritdocConsiderUsage" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class UnliquidatedObligations : Obligations
+    public class Deobligation : Obligation
     {
-        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.UnliquidatedObligation" />
+        /// <see cref="Deobligation"/>
         /// class.
         /// </summary>
-        public UnliquidatedObligations( )
+        public Deobligation( )
         {
-            Source = Source.UnliquidatedObligations;
+            Source = Source.Deobligations;
         }
 
-        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.UnliquidatedObligation" />
+        /// <see cref="Deobligation"/>
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
-        public UnliquidatedObligations( IQuery query )
+        public Deobligation( IQuery query )
             : base( query )
         {
-            Source = Source.UnliquidatedObligations;
+            Source = Source.Deobligations;
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "UnliquidatedObligationsId" ].ToString( ) ?? string.Empty );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
@@ -107,20 +104,19 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.UnliquidatedObligations" />
+        /// <see cref="T:BudgetExecution.Deobligation"/>
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
-        public UnliquidatedObligations( IDataModel builder )
+        public Deobligation( IDataModel builder )
             : base( builder )
         {
-            Source = Source.UnliquidatedObligations;
+            Source = Source.Deobligations;
             Record = builder.Record;
             Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "UnliquidatedObligationsId" ].ToString(  ) ?? string.Empty );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
@@ -153,17 +149,16 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="UnliquidatedObligations"/>
+        /// <see cref="Deobligation"/>
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
-        public UnliquidatedObligations( DataRow dataRow )
+        public Deobligation( DataRow dataRow )
             : base( dataRow )
         {
-            Source = Source.UnliquidatedObligations;
+            Source = Source.Deobligations;
             Record = dataRow;
             Data = dataRow.ToDictionary( );
-            ID = int.Parse( Record[ "UnliquidatedObligationsId" ].ToString(  ) );
             BFY = dataRow[ "BFY" ].ToString( );
             EFY = dataRow[ "EFY" ].ToString( );
             FundCode = dataRow[ "FundCode" ].ToString( );
@@ -194,34 +189,42 @@ namespace BudgetExecution
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
         }
 
-        public UnliquidatedObligations( UnliquidatedObligations ulo )
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="Deobligation"/> class.
+        /// </summary>
+        /// <param name="deobligation">The deobligation.</param>
+        public Deobligation( Deobligation deobligation )
         {
-            ID = ulo.ID;
-            BudgetLevel = ulo.BudgetLevel;
-            BFY = ulo.BFY;
-            EFY = ulo.EFY;
-            FundCode = ulo.FundCode;
-            FundName = ulo.FundName;
-            RpioCode = ulo.RpioCode;
-            RpioName = ulo.RpioName;
-            AhCode = ulo.AhCode;
-            AhName = ulo.AhName;
-            OrgCode = ulo.OrgCode;
-            OrgName = ulo.OrgName;
-            AccountCode = ulo.AccountCode;
-            BocCode = ulo.BocCode;
-            BocName = ulo.BocName;
-            Amount = ulo.Amount;
-            ProgramProjectCode = ulo.ProgramProjectCode;
-            ProgramProjectName = ulo.ProgramProjectName;
-            ProgramAreaCode = ulo.ProgramAreaCode;
-            ProgramAreaName = ulo.ProgramAreaName;
-            NpmCode = ulo.NpmCode;
-            NpmName = ulo.NpmName;
-            TreasuryAccountCode = ulo.TreasuryAccountCode;
-            TreasuryAccountName = ulo.TreasuryAccountName;
-            BudgetAccountCode = ulo.BudgetAccountCode;
-            BudgetAccountName = ulo.BudgetAccountName;
+            ID = deobligation.ID;
+            BFY = deobligation.BFY;
+            EFY = deobligation.EFY;
+            FundCode = deobligation.FundCode;
+            FundName = deobligation.FundName;
+            RpioCode = deobligation.RpioCode;
+            RpioName = deobligation.RpioName;
+            AhCode = deobligation.AhCode;
+            AhName = deobligation.AhName;
+            OrgCode = deobligation.OrgCode;
+            OrgName = deobligation.OrgName;
+            AccountCode = deobligation.AccountCode;
+            BocCode = deobligation.BocCode;
+            BocName = deobligation.BocName;
+            Amount = deobligation.Amount;
+            ProgramProjectCode = deobligation.ProgramProjectCode;
+            ProgramProjectName = deobligation.ProgramProjectName;
+            ProgramAreaCode = deobligation.ProgramAreaCode;
+            ProgramAreaName = deobligation.ProgramAreaName;
+            NpmCode = deobligation.NpmCode;
+            NpmName = deobligation.NpmName;
+            GoalCode = deobligation.GoalCode;
+            GoalName = deobligation.GoalName;
+            ObjectiveCode = deobligation.ObjectiveCode;
+            ObjectiveName = deobligation.ObjectiveName;
+            TreasuryAccountCode = deobligation.TreasuryAccountCode;
+            TreasuryAccountName = deobligation.TreasuryAccountName;
+            BudgetAccountCode = deobligation.BudgetAccountCode;
+            BudgetAccountName = deobligation.BudgetAccountName;
         }
     }
 }

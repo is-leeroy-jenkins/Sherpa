@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="FinanceObjectClass.cs" company="Terry D. Eppler">
+// <copyright file="NationalProgram.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   FinanceObjectClass.cs
+//   NationalProgram.cs
 // </summary>
 // ******************************************************************************************
 
@@ -45,117 +45,138 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.DataUnit" />
+    /// <seealso cref="T:BudgetExecution.DataUnit" />
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Local" ) ]
-    [ SuppressMessage( "ReSharper", "UnassignedReadonlyField" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "Performance", "CA1822:Mark members as static" ) ]
+    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class FinanceObjectClasses : DataUnit
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    public class NationalProgram : DataUnit
     {
         /// <summary>
-        /// Gets or sets the boc code.
+        /// Gets or sets the title.
         /// </summary>
         /// <value>
-        /// The boc code.
+        /// The title.
         /// </value>
-        public string BocCode { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
-        /// Gets or sets the name of the boc.
+        /// Gets or sets the rpio code.
         /// </summary>
         /// <value>
-        /// The name of the boc.
+        /// The rpio code.
         /// </value>
-        public string BocName { get; set; }
+        public string RpioCode { get; set; }
 
         /// <summary>
-        /// Gets or sets the category.
+        /// Gets or sets the NPM.
         /// </summary>
         /// <value>
-        /// The category.
+        /// The NPM.
         /// </value>
-        public BOC Category { get; set; }
+        public NPM NPM { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="FinanceObjectClasses"/> class.
+        /// <see cref="T:BudgetExecution.NationalProgram" /> class.
         /// </summary>
-        public FinanceObjectClasses( )
+        public NationalProgram( )
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="FinanceObjectClasses"/> class.
+        /// <see cref="T:BudgetExecution.NationalProgram" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public FinanceObjectClasses( IQuery query )
+        public NationalProgram( IQuery query )
         {
             Record = new DataBuilder( query )?.Record;
-            ID = int.Parse( Record[ "FinanceObjectClassesId" ].ToString( ) ?? string.Empty );
-            Name = Record[ $"{Field.Name}" ].ToString( );
-            Code = Record[ $"{Field.Code}" ].ToString( );
+            ID = int.Parse( Record[ "NationalProgramsId" ].ToString( ) );
+            Name = Record[ "Name" ].ToString( );
+            Code = Record[ "Code" ].ToString( );
+            RpioCode = Record[ "RpioCode" ].ToString( );
+            Title = Record[ "Title" ].ToString( );
             Data = Record?.ToDictionary( );
+            NPM = (NPM)Enum.Parse( typeof( NPM ), Code );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="FinanceObjectClasses"/> class.
+        /// <see cref="T:BudgetExecution.NationalProgram" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public FinanceObjectClasses( IDataModel builder )
+        public NationalProgram( IDataModel builder )
         {
-            Record = builder?.Record;
-            ID = int.Parse( Record["FinanceObjectClassesId"].ToString() ?? string.Empty );
-            Name = Record[ $"{Field.Name}" ].ToString( );
-            Code = Record[ $"{Field.Code}" ].ToString( );
+            Record = builder.Record;
+            ID = int.Parse( Record[ "NationalProgramsId" ].ToString( ) );
+            Name = Record[ "Name" ].ToString( );
+            Code = Record[ "Code" ].ToString( );
+            RpioCode = Record[ "RpioCode" ].ToString( );
+            Title = Record[ "Title" ].ToString( );
             Data = Record?.ToDictionary( );
+            NPM = (NPM)Enum.Parse( typeof( NPM ), Code );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="FinanceObjectClasses"/> class.
+        /// <see cref="T:BudgetExecution.NationalProgram" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public FinanceObjectClasses( DataRow dataRow )
+        public NationalProgram( DataRow dataRow )
         {
             Record = dataRow;
-            ID = int.Parse( Record[ "FinanceObjectClassesId" ].ToString( ) ?? string.Empty );
-            Name = dataRow[ $"{Field.Name}" ].ToString( );
-            Code = dataRow[ $"{Field.Code}" ].ToString( );
-            Data = dataRow?.ToDictionary( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FinanceObjectClasses"/> class.
-        /// </summary>
-        /// <param name="focCode">The foc code.</param>
-        public FinanceObjectClasses( string focCode )
-        {
-            Record = new DataBuilder( Source, GetArgs( focCode ) )?.Record;
-            ID = int.Parse( Record["FinanceObjectClassesId"].ToString() ?? string.Empty );
-            Name = Record[ $"{Field.Name}" ].ToString( );
-            Code = Record[ $"{Field.Code}" ].ToString( );
+            ID = int.Parse( Record[ "NationalProgramsId" ].ToString( ) );
+            Name = Record[ "Name" ].ToString( );
+            Code = Record[ "Code" ].ToString( );
+            RpioCode = Record[ "RpioCode" ].ToString( );
+            Title = Record[ "Title" ].ToString( );
             Data = Record?.ToDictionary( );
+            NPM = (NPM)Enum.Parse( typeof( NPM ), Code );
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="FinanceObjectClasses"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.NationalProgram" /> class.
         /// </summary>
-        /// <param name="foc">The foc.</param>
-        public FinanceObjectClasses( FinanceObjectClasses foc )
+        /// <param name="code">The code.</param>
+        public NationalProgram( string code )
         {
-            ID = foc.ID;
-            Code = foc.Code;
-            Name = foc.Name;
-            Category = foc.Category;
-            BocCode = foc.BocCode;
-            BocName = foc.BocName;
+            Record = new DataBuilder( Source, GetArgs( code ) )?.Record;
+            ID = int.Parse( Record[ "NationalProgramsId" ].ToString( ) );
+            Name = Record[ "Name" ].ToString( );
+            Code = Record[ "Code" ].ToString( );
+            RpioCode = Record[ "RpioCode" ].ToString( );
+            Title = Record[ "Title" ].ToString( );
+            Data = Record?.ToDictionary( );
+            NPM = (NPM)Enum.Parse( typeof( NPM ), Code );
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.NationalProgram" /> class.
+        /// </summary>
+        /// <param name="npm">The NPM.</param>
+        public NationalProgram( NationalProgram npm )
+        {
+            ID = npm.ID;
+            Code = npm.Code;
+            Name = npm.Name;
+            NPM = npm.NPM;
+            Title = npm.Title;
+            RpioCode = npm.RpioCode;
         }
 
         /// <summary>
