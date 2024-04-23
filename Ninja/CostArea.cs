@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="CapitalPlanningInvestmentCode.cs" company="Terry D. Eppler">
+// <copyright file="CostArea.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   CapitalPlanningInvestmentCode.cs
+//   CostArea.cs
 // </summary>
 // ******************************************************************************************
 
@@ -46,96 +46,69 @@ namespace BudgetExecution
 
     /// <inheritdoc />
     /// <summary> </summary>
-    /// <seealso cref="T:BudgetExecution.DataUnit" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class CapitalPlanningInvestmentCodes : DataUnit
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
+    public class CostArea : DataUnit
     {
-        /// <summary>
-        /// Gets or sets the type.
-        /// </summary>
-        /// <value>
-        /// The type.
-        /// </value>
-        public string Type { get; set; }
-
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="CapitalPlanningInvestmentCodes"/>
+        /// <see cref="T:BudgetExecution.CostArea" />
         /// class.
         /// </summary>
-        public CapitalPlanningInvestmentCodes( )
+        public CostArea( ) 
+            : base( )
         {
-            Source = Source.CapitalPlanningInvestmentCodes;
+            _source = Source.CostAreas;
         }
 
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.CapitalPlanningInvestmentCodes" />
+        /// <see cref="T:BudgetExecution.CostArea" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
-        public CapitalPlanningInvestmentCodes( IQuery query )
-            : this( )
+        public CostArea( IQuery query )
+            : base( query )
         {
-            Source = Source.CapitalPlanningInvestmentCodes;
             Record = new DataBuilder( query ).Record;
             Map = Record.ToDictionary( );
-            ID = int.Parse( Record[ "CapitalPlanningInvestmentCodesId" ].ToString( ) ?? "0" );
             Code = Record[ "Code" ].ToString( );
             Name = Record[ "Name" ].ToString( );
-            Type = Record[ "Type" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="CapitalPlanningInvestmentCodes"/>
+        /// <see cref="T:BudgetExecution.CostArea" />
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
-        public CapitalPlanningInvestmentCodes( IDataModel builder )
+        public CostArea( IDataModel builder )
+            : base( builder )
         {
-            Source = Source.CapitalPlanningInvestmentCodes;
             Record = builder.Record;
             Map = Record.ToDictionary( );
-            ID = int.Parse( Record[ "CapitalPlanningInvestmentCodesId" ].ToString( ) ?? "0" );
             Code = Record[ "Code" ].ToString( );
             Name = Record[ "Name" ].ToString( );
-            Type = Record[ "Type" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="CapitalPlanningInvestmentCodes"/>
+        /// <see cref="T:BudgetExecution.CostArea" />
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
-        public CapitalPlanningInvestmentCodes( DataRow dataRow )
+        public CostArea( DataRow dataRow )
+            : base( dataRow )
         {
-            Source = Source.CapitalPlanningInvestmentCodes;
             Record = dataRow;
             Map = dataRow.ToDictionary( );
-            ID = int.Parse( dataRow[ "CapitalPlanningInvestmentCodesId" ].ToString( ) ?? "0" );
             Code = dataRow[ "Code" ].ToString( );
             Name = dataRow[ "Name" ].ToString( );
-            Type = dataRow[ "Type" ].ToString( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="CapitalPlanningInvestmentCodes"/>
-        /// class.
-        /// </summary>
-        /// <param name="code"> The code. </param>
-        public CapitalPlanningInvestmentCodes( CapitalPlanningInvestmentCodes code )
-        {
-            Source = Source.CapitalPlanningInvestmentCodes;
-            ID = code.ID;
-            Code = code.Code;
-            Name = code.Name;
-            Type = code.Type;
         }
     }
 }

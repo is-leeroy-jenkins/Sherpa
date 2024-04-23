@@ -251,7 +251,7 @@ namespace BudgetExecution
             _source = dataBuilder.Source;
             _provider = dataBuilder.Provider;
             _record = dataBuilder.Record;
-            _id = int.Parse( _record[ 0 ].ToString( ) ?? "0" );
+            _id = int.Parse( _record[ 0 ]?.ToString( ) ?? "0" );
             _map = _record.ToDictionary( );
         }
 
@@ -265,7 +265,7 @@ namespace BudgetExecution
             _source = query.Source;
             _provider = query.Provider;
             _record = new DataBuilder( query ).Record;
-            _id = int.Parse( _record[ 0 ].ToString( ) ?? "0" );
+            _id = int.Parse( _record[ 0 ]?.ToString( ) ?? "0" );
             _map = _record.ToDictionary( );
         }
 
@@ -278,9 +278,9 @@ namespace BudgetExecution
         {
             _record = dataRow;
             _map = _record.ToDictionary( );
-            _id = int.Parse( _record[ 0 ].ToString( ) ?? "0" );
-            _code = _record[ "Code" ].ToString( );
-            _name = _record[ "Name" ].ToString( );
+            _id = int.Parse( _record[ 0 ]?.ToString( ) ?? "0" );
+            _code = _record[ "Code" ]?.ToString( );
+            _name = _record[ "Name" ]?.ToString( );
         }
 
         /// <inheritdoc />
@@ -384,7 +384,7 @@ namespace BudgetExecution
             try
             {
                 return _record != null 
-                    ? int.Parse( _record[ 0 ].ToString( ) ?? "0" )
+                    ? int.Parse( _record[ 0 ]?.ToString( ) ?? "0" )
                     : -1;
             }
             catch( Exception _ex )
@@ -405,7 +405,7 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( dataRow, nameof( dataRow ) );
-                return int.Parse( dataRow[ 0 ].ToString( ) ?? "0" );
+                return int.Parse( dataRow[ 0 ]?.ToString( ) ?? "0" );
             }
             catch( Exception _ex )
             {

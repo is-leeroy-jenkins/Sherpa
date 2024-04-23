@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="CostArea.cs" company="Terry D. Eppler">
+// <copyright file="Document.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   CostArea.cs
+//   Document.cs
 // </summary>
 // ******************************************************************************************
 
@@ -44,63 +44,105 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
-    /// <summary> </summary>
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:BudgetExecution.DataUnit" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class CostArea : DataUnit
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    public class Document : DataUnit
     {
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="CostArea"/>
-        /// class.
+        /// Gets or sets the category.
         /// </summary>
-        public CostArea( )
-        {
-            Source = Source.CostAreas;
-        }
+        /// <value>
+        /// The category.
+        /// </value>
+        public string Category { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="CostArea"/>
-        /// class.
+        /// Gets or sets the system.
         /// </summary>
-        /// <param name="query"> The query. </param>
-        public CostArea( IQuery query )
-            : this( )
+        /// <value>
+        /// The system.
+        /// </value>
+        public string System { get; set; }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.Document" /> class.
+        /// </summary>
+        public Document( )
+        {
+            Source = Source.Documents;
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.Document" /> class.
+        /// </summary>
+        /// <param name="query">The query.</param>
+        public Document( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
             Map = Record.ToDictionary( );
+            ID = int.Parse( Record[ "DocumentsId" ].ToString( ) ?? "0" );
             Code = Record[ "Code" ].ToString( );
+            Category = Record[ "Category" ].ToString( );
             Name = Record[ "Name" ].ToString( );
+            System = Record[ "System" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="CostArea"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.Document" /> class.
         /// </summary>
-        /// <param name="builder"> The builder. </param>
-        public CostArea( IDataModel builder )
-            : this( )
+        /// <param name="builder">The builder.</param>
+        public Document( IDataModel builder )
         {
             Record = builder.Record;
             Map = Record.ToDictionary( );
+            ID = int.Parse( Record[ "DocumentsId" ].ToString( ) ?? "0" );
             Code = Record[ "Code" ].ToString( );
+            Category = Record[ "Category" ].ToString( );
             Name = Record[ "Name" ].ToString( );
+            System = Record[ "System" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="CostArea"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.Document" /> class.
         /// </summary>
-        /// <param name="dataRow"> The data row. </param>
-        public CostArea( DataRow dataRow )
-            : this( )
+        /// <param name="dataRow">The data row.</param>
+        public Document( DataRow dataRow )
         {
             Record = dataRow;
             Map = dataRow.ToDictionary( );
-            Code = dataRow[ "Code" ].ToString( );
-            Name = dataRow[ "Name" ].ToString( );
+            ID = int.Parse( Record[ "DocumentsId" ].ToString( ) ?? "0" );
+            Code = Record[ "Code" ].ToString( );
+            Category = Record[ "Category" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            System = Record[ "System" ].ToString( );
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.Document" /> class.
+        /// </summary>
+        /// <param name="doc">The document.</param>
+        public Document( Document doc )
+        {
+            ID = doc.ID;
+            Code = doc.Code;
+            Name = doc.Name;
+            System = doc.System;
+            Category = doc.Category;
         }
     }
 }

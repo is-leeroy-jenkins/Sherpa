@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="Change.cs" company="Terry D. Eppler">
+// <copyright file="CapitalPlanningInvestmentCode.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   Change.cs
+//   CapitalPlanningInvestmentCode.cs
 // </summary>
 // ******************************************************************************************
 
@@ -44,86 +44,98 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
     /// <summary> </summary>
-    /// <seealso cref="BudgetExecution.DataUnit"/>
+    /// <seealso cref="T:BudgetExecution.DataUnit" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class Change : DataUnit
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    public class CapitalPlanningInvestmentCode : DataUnit
     {
-        /// <summary> Gets or sets the name of the table. </summary>
-        /// <value> The name of the table. </value>
-        public string TableName { get; set; }
+        /// <summary>
+        /// Gets or sets the type.
+        /// </summary>
+        /// <value>
+        /// The type.
+        /// </value>
+        public string Type { get; set; }
 
-        /// <summary> Gets or sets the name of the field. </summary>
-        /// <value> The name of the field. </value>
-        public string FieldName { get; set; }
-
-        /// <summary> Gets or sets the type of the action. </summary>
-        /// <value> The type of the action. </value>
-        public string ActionType { get; set; }
-
-        /// <summary> Gets or sets the old value. </summary>
-        /// <value> The old value. </value>
-        public string OldValue { get; set; }
-
-        /// <summary> Creates new value. </summary>
-        /// <value> The new value. </value>
-        public string NewValue { get; set; }
-
-        /// <summary> Gets or sets the change date. </summary>
-        /// <value> The change date. </value>
-        public DateOnly ChangeDate { get; set; }
-
-        /// <summary> Gets or sets the message. </summary>
-        /// <value> The message. </value>
-        public string Message { get; set; }
-
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Change"/>
+        /// <see cref="T:BudgetExecution.CapitalPlanningInvestmentCode" />
         /// class.
         /// </summary>
-        public Change( )
+        public CapitalPlanningInvestmentCode( )
         {
-            Source = Source.Changes;
+            _source = Source.CapitalPlanningInvestmentCodes;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Change"/>
+        /// <see cref="T:BudgetExecution.CapitalPlanningInvestmentCodes" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
-        public Change( IQuery query )
+        public CapitalPlanningInvestmentCode( IQuery query )
             : this( )
         {
             Record = new DataBuilder( query ).Record;
             Map = Record.ToDictionary( );
+            ID = int.Parse( Record[ "CapitalPlanningInvestmentCodesId" ]?.ToString( ) ?? "0" );
+            Code = Record[ "Code" ]?.ToString( );
+            Name = Record[ "Name" ]?.ToString( );
+            Type = Record[ "Type" ]?.ToString( );
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Change"/>
+        /// <see cref="CapitalPlanningInvestmentCode"/>
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
-        public Change( IDataModel builder )
-            : this( )
+        public CapitalPlanningInvestmentCode( IDataModel builder )
         {
+            Source = Source.CapitalPlanningInvestmentCodes;
             Record = builder.Record;
             Map = Record.ToDictionary( );
+            ID = int.Parse( Record[ "CapitalPlanningInvestmentCodesId" ]?.ToString( ) ?? "0" );
+            Code = Record[ "Code" ]?.ToString( );
+            Name = Record[ "Name" ]?.ToString( );
+            Type = Record[ "Type" ]?.ToString( );
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Change"/>
+        /// <see cref="CapitalPlanningInvestmentCode"/>
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
-        public Change( DataRow dataRow )
-            : this( )
+        public CapitalPlanningInvestmentCode( DataRow dataRow )
         {
+            Source = Source.CapitalPlanningInvestmentCodes;
             Record = dataRow;
             Map = dataRow.ToDictionary( );
+            ID = int.Parse( dataRow[ "CapitalPlanningInvestmentCodesId" ]?.ToString( ) ?? "0" );
+            Code = dataRow[ "Code" ]?.ToString( );
+            Name = dataRow[ "Name" ]?.ToString( );
+            Type = dataRow[ "Type" ]?.ToString( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="CapitalPlanningInvestmentCode"/>
+        /// class.
+        /// </summary>
+        /// <param name="code"> The code. </param>
+        public CapitalPlanningInvestmentCode( CapitalPlanningInvestmentCode code )
+        {
+            Source = Source.CapitalPlanningInvestmentCodes;
+            ID = code.ID;
+            Code = code.Code;
+            Name = code.Name;
+            Type = code.Type;
         }
     }
 }
