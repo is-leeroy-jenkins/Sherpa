@@ -1,40 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\ninja\\capitalplanninginvestmentcode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:ninja\\capitalplanninginvestmentcode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\ninja\\costarea.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:ninja\\costarea.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\ninja\\statusoffunds.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:ninja\\statusoffunds.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\ninja\\carryoverapportionment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:ninja\\carryoverapportionment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\ninja\\dataruledescription.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:ninja\\dataruledescription.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\ninja\\document.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:ninja\\document.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\ninja\\documentcontrolnumber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:ninja\\documentcontrolnumber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\ninja\\dataunit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:ninja\\dataunit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -42,21 +9,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": -1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CapitalPlanningInvestmentCode.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Ninja\\CapitalPlanningInvestmentCode.cs",
-              "RelativeDocumentMoniker": "Ninja\\CapitalPlanningInvestmentCode.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Ninja\\CapitalPlanningInvestmentCode.cs",
-              "RelativeToolTip": "Ninja\\CapitalPlanningInvestmentCode.cs",
-              "ViewState": "AQIAAGYAAAAAAAAAAADwv30AAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-23T08:53:51.333Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
@@ -72,97 +26,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{269a02dc-6af8-11d3-bdc4-00c04f688e50}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "StatusOfFunds.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Ninja\\StatusOfFunds.cs",
-              "RelativeDocumentMoniker": "Ninja\\StatusOfFunds.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Ninja\\StatusOfFunds.cs",
-              "RelativeToolTip": "Ninja\\StatusOfFunds.cs",
-              "ViewState": "AQIAAMsBAAAAAAAAAAAgwOMBAAAkAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-23T08:39:24.54Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CarryoverApportionment.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Ninja\\CarryoverApportionment.cs",
-              "RelativeDocumentMoniker": "Ninja\\CarryoverApportionment.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Ninja\\CarryoverApportionment.cs",
-              "RelativeToolTip": "Ninja\\CarryoverApportionment.cs",
-              "ViewState": "AQIAAKsBAAAAAAAAAAAowLUBAAAxAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-23T08:38:06.593Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CostArea.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Ninja\\CostArea.cs",
-              "RelativeDocumentMoniker": "Ninja\\CostArea.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Ninja\\CostArea.cs",
-              "RelativeToolTip": "Ninja\\CostArea.cs",
-              "ViewState": "AQIAADoAAAAAAAAAAAAwwF4AAAAwAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-23T08:11:22.459Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Document.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Ninja\\Document.cs",
-              "RelativeDocumentMoniker": "Ninja\\Document.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Ninja\\Document.cs",
-              "RelativeToolTip": "Ninja\\Document.cs",
-              "ViewState": "AQIAADMAAAAAAAAAAAAuwEEAAAAWAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-23T06:55:56.543Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "DocumentControlNumber.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Ninja\\DocumentControlNumber.cs",
-              "RelativeDocumentMoniker": "Ninja\\DocumentControlNumber.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Ninja\\DocumentControlNumber.cs",
-              "RelativeToolTip": "Ninja\\DocumentControlNumber.cs",
-              "ViewState": "AQIAAC4AAAAAAAAAAAAqwD8AAAArAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-23T06:33:38.19Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "DataRuleDescription.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Ninja\\DataRuleDescription.cs",
-              "RelativeDocumentMoniker": "Ninja\\DataRuleDescription.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Ninja\\DataRuleDescription.cs",
-              "RelativeToolTip": "Ninja\\DataRuleDescription.cs",
-              "ViewState": "AQIAABkAAAAAAAAAAAAvwJUAAAA3AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-23T06:31:35.569Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "DataUnit.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Ninja\\DataUnit.cs",
-              "RelativeDocumentMoniker": "Ninja\\DataUnit.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Ninja\\DataUnit.cs",
-              "RelativeToolTip": "Ninja\\DataUnit.cs",
-              "ViewState": "AQIAAAABAAAAAAAAAAAAwBkBAAAzAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-23T06:47:04.63Z",
-              "EditorCaption": ""
             }
           ]
         }

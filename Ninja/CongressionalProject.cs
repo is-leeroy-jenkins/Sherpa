@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="StatusOfEarmarks.cs" company="Terry D. Eppler">
+// <copyright file="CongressionalProjects.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,25 +34,26 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   StatusOfEarmarks.cs
+//   CongressionalProjects.cs
 // </summary>
 // ******************************************************************************************
 
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
     /// <inheritdoc />
-    /// <summary> </summary>
+    /// <summary>
+    /// </summary>
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
-    public class StatusOfEarmarks : StatusOfFunds
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Local" ) ]
+    public class CongressionalProject : StatusOfEarmarks
     {
         /// <summary>
         /// The state code
@@ -70,84 +71,53 @@ namespace BudgetExecution
         private string _stateName;
 
         /// <summary>
-        /// Gets or sets the state code.
+        /// The project name
         /// </summary>
-        /// <value>
-        /// The state code.
-        /// </value>
-        public string StateCode
-        {
-            get
-            {
-                return _stateCode;
-            }
-            private set
-            {
-                _stateCode = value;
-            }
-        }
+        private string _projectName;
 
         /// <summary>
-        /// Gets the state org code.
+        /// Gets or sets the name of the project.
         /// </summary>
         /// <value>
-        /// The state org code.
+        /// The name of the project.
         /// </value>
-        public string StateOrgCode
+        public string ProjectName
         {
             get
             {
-                return _stateOrgCode;
+                return _projectName;
             }
             private set
             {
-                _stateOrgCode = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the name of the state.
-        /// </summary>
-        /// <value>
-        /// The name of the state.
-        /// </value>
-        public string StateName
-        {
-            get
-            {
-                return _stateName;
-            }
-            private set
-            {
-                _stateName = value;
+                _projectName = value;
             }
         }
 
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.StatusOfEarmarks" />
+        /// <see cref="T:BudgetExecution.CongressionalProjects" />
         /// class.
         /// </summary>
-        public StatusOfEarmarks( ) 
+        public CongressionalProject( ) 
             : base( )
         {
-            _source = Source.StatusOfEarmarks;
+            _source = Source.CongressionalProjects;
         }
 
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.StatusOfEarmarks" />
+        /// <see cref="T:BudgetExecution.CongressionalProjects" />
         /// class.
         /// </summary>
-        /// <param name="query"> The query. </param>
-        public StatusOfEarmarks( IQuery query )
+        /// <param name="query">The query.</param>
+        public CongressionalProject( IQuery query ) 
             : base( query )
         {
             _record = new DataBuilder( query ).Record;
             _map = _record.ToDictionary( );
-            _id = int.Parse( _record[ "StatusOfFundsId" ]?.ToString( ) ?? "0" );
+            _id = int.Parse( _record[ "CongressionalProjectssId" ]?.ToString( ) ?? "0" );
             _budgetLevel = _record[ "BudgetLevel" ]?.ToString( );
             _bfy = _record[ "BFY" ]?.ToString( );
             _efy = _record[ "EFY" ]?.ToString( );
@@ -166,12 +136,6 @@ namespace BudgetExecution
             _stateName = _record[ "StateName" ]?.ToString( );
             _stateOrgCode = _record[ "StateOrgCode" ]?.ToString( );
             _amount = double.Parse( _record[ "Amount" ]?.ToString( ) ?? "0.0" );
-            _budgeted = double.Parse( _record[ "Budgeted" ]?.ToString( ) ?? "0.0" );
-            _posted = double.Parse( _record[ "Posted" ]?.ToString( ) ?? "0" );
-            _openCommitments = double.Parse( _record[ "OpenCommitments" ]?.ToString( ) ?? "0.0" );
-            _obligations = double.Parse( _record[ "Obligations" ]?.ToString( ) ?? "0.0" );
-            _expenditures = double.Parse( _record[ "Expenditures" ]?.ToString( ) ?? "0.0" );
-            _used = double.Parse( _record[ "Used" ]?.ToString( ) ?? "0.0" );
             _available = double.Parse( _record[ "Available" ]?.ToString( ) ?? "0.0" );
             _programProjectCode = _record[ "ProgramProjectCode" ]?.ToString( );
             _programProjectName = _record[ "ProgramProjectName" ]?.ToString( );
@@ -187,23 +151,21 @@ namespace BudgetExecution
             _treasuryAccountName = _record[ "TreasuryAccountName" ]?.ToString( );
             _budgetAccountCode = _record[ "BudgetAccountCode" ]?.ToString( );
             _budgetAccountName = _record[ "BudgetAccountName" ]?.ToString( );
-            _unliquidatedObligations =
-                double.Parse( _record[ "UnliquidatedObligations" ]?.ToString( ) ?? "0.0" );
         }
 
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.StatusOfEarmarks" />
+        /// <see cref="T:BudgetExecution.CongressionalProjects" />
         /// class.
         /// </summary>
-        /// <param name="dataBuilder"> The builder. </param>
-        public StatusOfEarmarks( IDataModel dataBuilder )
-            : base( dataBuilder )
+        /// <param name="builder">The builder.</param>
+        public CongressionalProject( IDataModel builder )
+            : base( builder )
         {
-            _record = dataBuilder.Record;
+            _record = builder.Record;
             _map = _record.ToDictionary( );
-            _id = int.Parse( _record[ "StatusOfFundsId" ]?.ToString( ) ?? "0" );
+            _id = int.Parse( _record[ "CongressionalProjectssId" ]?.ToString( ) ?? "0" );
             _budgetLevel = _record[ "BudgetLevel" ]?.ToString( );
             _bfy = _record[ "BFY" ]?.ToString( );
             _efy = _record[ "EFY" ]?.ToString( );
@@ -222,12 +184,6 @@ namespace BudgetExecution
             _stateName = _record[ "StateName" ]?.ToString( );
             _stateOrgCode = _record[ "StateOrgCode" ]?.ToString( );
             _amount = double.Parse( _record[ "Amount" ]?.ToString( ) ?? "0.0" );
-            _budgeted = double.Parse( _record[ "Budgeted" ]?.ToString( ) ?? "0.0" );
-            _posted = double.Parse( _record[ "Posted" ]?.ToString( ) ?? "0" );
-            _openCommitments = double.Parse( _record[ "OpenCommitments" ]?.ToString( ) ?? "0.0" );
-            _obligations = double.Parse( _record[ "Obligations" ]?.ToString( ) ?? "0.0" );
-            _expenditures = double.Parse( _record[ "Expenditures" ]?.ToString( ) ?? "0.0" );
-            _used = double.Parse( _record[ "Used" ]?.ToString( ) ?? "0.0" );
             _available = double.Parse( _record[ "Available" ]?.ToString( ) ?? "0.0" );
             _programProjectCode = _record[ "ProgramProjectCode" ]?.ToString( );
             _programProjectName = _record[ "ProgramProjectName" ]?.ToString( );
@@ -243,23 +199,21 @@ namespace BudgetExecution
             _treasuryAccountName = _record[ "TreasuryAccountName" ]?.ToString( );
             _budgetAccountCode = _record[ "BudgetAccountCode" ]?.ToString( );
             _budgetAccountName = _record[ "BudgetAccountName" ]?.ToString( );
-            _unliquidatedObligations =
-                double.Parse( _record[ "UnliquidatedObligations" ]?.ToString( ) ?? "0.0" );
         }
 
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.StatusOfEarmarks" />
+        /// <see cref="T:BudgetExecution.CongressionalProjects" />
         /// class.
         /// </summary>
-        /// <param name="dataRow"> The data row. </param>
-        public StatusOfEarmarks( DataRow dataRow )
+        /// <param name="dataRow">The data row.</param>
+        public CongressionalProject( DataRow dataRow )
             : base( dataRow )
         {
             _record = dataRow;
             _map = _record.ToDictionary( );
-            _id = int.Parse( dataRow[ "StatusOfFundsId" ]?.ToString( ) ?? "0" );
+            _id = int.Parse( dataRow[ "CongressionalProjectssId" ]?.ToString( ) ?? "0" );
             _budgetLevel = dataRow[ "BudgetLevel" ]?.ToString( );
             _bfy = dataRow[ "BFY" ]?.ToString( );
             _efy = dataRow[ "EFY" ]?.ToString( );
@@ -278,12 +232,6 @@ namespace BudgetExecution
             _stateName = dataRow[ "StateName" ]?.ToString( );
             _stateOrgCode = dataRow[ "StateOrgCode" ]?.ToString( );
             _amount = double.Parse( dataRow[ "Amount" ]?.ToString( ) ?? "0.0" );
-            _budgeted = double.Parse( dataRow[ "Budgeted" ]?.ToString( ) ?? "0.0" );
-            _posted = double.Parse( dataRow[ "Posted" ]?.ToString( ) ?? "0" );
-            _openCommitments = double.Parse( dataRow[ "OpenCommitments" ]?.ToString( ) ?? "0.0" );
-            _obligations = double.Parse( dataRow[ "Obligations" ]?.ToString( ) ?? "0.0" );
-            _expenditures = double.Parse( dataRow[ "Expenditures" ]?.ToString( ) ?? "0.0" );
-            _used = double.Parse( dataRow[ "Used" ]?.ToString( ) ?? "0.0" );
             _available = double.Parse( dataRow[ "Available" ]?.ToString( ) ?? "0.0" );
             _programProjectCode = dataRow[ "ProgramProjectCode" ]?.ToString( );
             _programProjectName = dataRow[ "ProgramProjectName" ]?.ToString( );
@@ -299,64 +247,14 @@ namespace BudgetExecution
             _treasuryAccountName = dataRow[ "TreasuryAccountName" ]?.ToString( );
             _budgetAccountCode = dataRow[ "BudgetAccountCode" ]?.ToString( );
             _budgetAccountName = dataRow[ "BudgetAccountName" ]?.ToString( );
-            _unliquidatedObligations =
-                double.Parse( dataRow[ "UnliquidatedObligations" ]?.ToString( ) ?? "0.0" );
-        }
-
-        /// <inheritdoc />
-        /// <summary> </summary>
-        /// <param name="map"> </param>
-        public StatusOfEarmarks( IDictionary<string, object> map ) 
-            : base( )
-        {
-            _record = new DataBuilder( _source, map )?.Record;
-            _map = Record.ToDictionary( );
-            _id = int.Parse( _record[ "StatusOfFundsId" ]?.ToString( ) ?? "0" );
-            _budgetLevel = _record[ "BudgetLevel" ]?.ToString( );
-            _bfy = _record[ "BFY" ]?.ToString( );
-            _efy = _record[ "EFY" ]?.ToString( );
-            _fundCode = _record[ "FundCode" ]?.ToString( );
-            _fundName = _record[ "FundName" ]?.ToString( );
-            _rpioCode = _record[ "RpioCode" ]?.ToString( );
-            _rpioName = _record[ "RpioName" ]?.ToString( );
-            _ahCode = _record[ "AhCode" ]?.ToString( );
-            _ahName = _record[ "AhName" ]?.ToString( );
-            _orgCode = _record[ "OrgCode" ]?.ToString( );
-            _orgName = _record[ "OrgName" ]?.ToString( );
-            _accountCode = _record[ "AccountCode" ]?.ToString( );
-            _bocCode = _record[ "BocCode" ]?.ToString( );
-            _bocName = _record[ "BocName" ]?.ToString( );
-            _amount = double.Parse( _record[ "Amount" ]?.ToString( ) ?? "0.0" );
-            _budgeted = double.Parse( _record[ "Budgeted" ]?.ToString( ) ?? "0.0" );
-            _posted = double.Parse( _record[ "Posted" ]?.ToString( ) ?? "0" );
-            _openCommitments = double.Parse( _record[ "OpenCommitments" ]?.ToString( ) ?? "0.0" );
-            _obligations = double.Parse( _record[ "Obligations" ]?.ToString( ) ?? "0.0" );
-            _expenditures = double.Parse( _record[ "Expenditures" ]?.ToString( ) ?? "0.0" );
-            _used = double.Parse( _record[ "Used" ]?.ToString( ) ?? "0.0" );
-            _available = double.Parse( _record[ "Available" ]?.ToString( ) ?? "0.0" );
-            _programProjectCode = _record[ "ProgramProjectCode" ]?.ToString( );
-            _programProjectName = _record[ "ProgramProjectName" ]?.ToString( );
-            _programAreaCode = _record[ "ProgramAreaCode" ]?.ToString( );
-            _programAreaName = _record[ "ProgramAreaName" ]?.ToString( );
-            _npmCode = _record[ "NpmCode" ]?.ToString( );
-            _npmName = _record[ "NpmName" ]?.ToString( );
-            _goalCode = _record[ "GoalCode" ]?.ToString( );
-            _goalName = _record[ "GoalName" ]?.ToString( );
-            _objectiveCode = _record[ "ObjectiveCode" ]?.ToString( );
-            _objectiveName = _record[ "ObjectiveName" ]?.ToString( );
-            _treasuryAccountCode = _record[ "TreasuryAccountCode" ]?.ToString( );
-            _treasuryAccountName = _record[ "TreasuryAccountName" ]?.ToString( );
-            _budgetAccountCode = _record[ "BudgetAccountCode" ]?.ToString( );
-            _budgetAccountName = _record[ "BudgetAccountName" ]?.ToString( );
-            _unliquidatedObligations =
-                double.Parse( _record[ "UnliquidatedObligations" ]?.ToString( ) ?? "0.0" );
         }
 
         /// <inheritdoc />
         /// <summary>
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.CongressionalProjects" /> class.
         /// </summary>
-        /// <param name="status"> </param>
-        public StatusOfEarmarks( StatusOfEarmarks status )
+        /// <param name="status">The project.</param>
+        public CongressionalProject( CongressionalProject status )
             : base( )
         {
             _id = status.ID;
@@ -378,14 +276,6 @@ namespace BudgetExecution
             _stateName = status.StateName;
             _stateOrgCode = status.StateOrgCode;
             _amount = status.Amount;
-            _budgeted = status.Budgeted;
-            _posted = status.Posted;
-            _openCommitments = status.OpenCommitments;
-            _unliquidatedObligations = status.UnliquidatedObligations;
-            _obligations = status.Obligations;
-            _expenditures = status.Expenditures;
-            _used = status.Used;
-            _available = status.Available;
             _programProjectCode = status.ProgramProjectCode;
             _programProjectName = status.ProgramProjectName;
             _programAreaCode = status.ProgramAreaCode;

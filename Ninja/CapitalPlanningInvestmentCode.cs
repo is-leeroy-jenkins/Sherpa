@@ -50,15 +50,32 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     public class CapitalPlanningInvestmentCode : DataUnit
     {
+        /// <summary>
+        /// The type
+        /// </summary>
+        private string _type;
+        
         /// <summary>
         /// Gets or sets the type.
         /// </summary>
         /// <value>
         /// The type.
         /// </value>
-        public string Type { get; set; }
+        public string Type
+        {
+            get
+            {
+                return _type;
+            }
+            private set
+            {
+                _type = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
@@ -66,7 +83,8 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.CapitalPlanningInvestmentCode" />
         /// class.
         /// </summary>
-        public CapitalPlanningInvestmentCode( )
+        public CapitalPlanningInvestmentCode( ) 
+            : base( )
         {
             _source = Source.CapitalPlanningInvestmentCodes;
         }
@@ -79,53 +97,55 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="query"> The query. </param>
         public CapitalPlanningInvestmentCode( IQuery query )
-            : this( )
+            : base( query )
         {
-            Record = new DataBuilder( query ).Record;
-            Map = Record.ToDictionary( );
-            ID = int.Parse( Record[ "CapitalPlanningInvestmentCodesId" ]?.ToString( ) ?? "0" );
-            Code = Record[ "Code" ]?.ToString( );
-            Name = Record[ "Name" ]?.ToString( );
-            Type = Record[ "Type" ]?.ToString( );
+            _record = new DataBuilder( query ).Record;
+            _map = _record.ToDictionary( );
+            _id = int.Parse( _record[ "CapitalPlanningInvestmentCodes" ]?.ToString( ) ?? "0" );
+            _code = _record[ "Code" ]?.ToString( );
+            _name = _record[ "Name" ]?.ToString( );
+            _type = _record[ "Type" ]?.ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="CapitalPlanningInvestmentCode"/>
+        /// <see cref="T:BudgetExecution.CapitalPlanningInvestmentCode" />
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
-        public CapitalPlanningInvestmentCode( IDataModel builder )
+        public CapitalPlanningInvestmentCode( IDataModel builder ) 
+            : base( builder )
         {
-            Source = Source.CapitalPlanningInvestmentCodes;
-            Record = builder.Record;
-            Map = Record.ToDictionary( );
-            ID = int.Parse( Record[ "CapitalPlanningInvestmentCodesId" ]?.ToString( ) ?? "0" );
-            Code = Record[ "Code" ]?.ToString( );
-            Name = Record[ "Name" ]?.ToString( );
-            Type = Record[ "Type" ]?.ToString( );
+            _record = builder.Record;
+            _map = _record.ToDictionary( );
+            _id = int.Parse( _record[ "CapitalPlanningInvestmentCodes" ]?.ToString( ) ?? "0" );
+            _code = _record[ "Code" ]?.ToString( );
+            _name = _record[ "Name" ]?.ToString( );
+            _type = _record[ "Type" ]?.ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="CapitalPlanningInvestmentCode"/>
+        /// <see cref="T:BudgetExecution.CapitalPlanningInvestmentCode" />
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
-        public CapitalPlanningInvestmentCode( DataRow dataRow )
+        public CapitalPlanningInvestmentCode( DataRow dataRow ) 
+            : base( dataRow )
         {
-            Source = Source.CapitalPlanningInvestmentCodes;
-            Record = dataRow;
-            Map = dataRow.ToDictionary( );
-            ID = int.Parse( dataRow[ "CapitalPlanningInvestmentCodesId" ]?.ToString( ) ?? "0" );
-            Code = dataRow[ "Code" ]?.ToString( );
-            Name = dataRow[ "Name" ]?.ToString( );
-            Type = dataRow[ "Type" ]?.ToString( );
+            _record = dataRow;
+            _map = dataRow.ToDictionary( );
+            _id = int.Parse( dataRow[ "CapitalPlanningInvestmentCodes" ]?.ToString( ) ?? "0" );
+            _code = dataRow[ "Code" ]?.ToString( );
+            _name = dataRow[ "Name" ]?.ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="CapitalPlanningInvestmentCode"/>
+        /// <see cref="T:BudgetExecution.CapitalPlanningInvestmentCode" />
         /// class.
         /// </summary>
         /// <param name="code"> The code. </param>

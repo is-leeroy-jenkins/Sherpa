@@ -73,10 +73,11 @@ namespace BudgetExecution
         public CostArea( IQuery query )
             : base( query )
         {
-            Record = new DataBuilder( query ).Record;
-            Map = Record.ToDictionary( );
-            Code = Record[ "Code" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
+            _record = new DataBuilder( query ).Record;
+            _map = _record.ToDictionary( );
+            _id = int.Parse( _record[ "CostAreasId" ]?.ToString( ) ?? "0" );
+            _code = _record[ "Code" ]?.ToString( );
+            _name = _record[ "Name" ]?.ToString( );
         }
 
         /// <inheritdoc />
@@ -89,10 +90,11 @@ namespace BudgetExecution
         public CostArea( IDataModel builder )
             : base( builder )
         {
-            Record = builder.Record;
-            Map = Record.ToDictionary( );
-            Code = Record[ "Code" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
+            _record = builder.Record;
+            _map = _record.ToDictionary( );
+            _id = int.Parse( _record[ "CostAreasId" ]?.ToString( ) ?? "0" );
+            _code = _record[ "Code" ]?.ToString( );
+            _name = _record[ "Name" ]?.ToString( );
         }
 
         /// <inheritdoc />
@@ -105,10 +107,11 @@ namespace BudgetExecution
         public CostArea( DataRow dataRow )
             : base( dataRow )
         {
-            Record = dataRow;
-            Map = dataRow.ToDictionary( );
-            Code = dataRow[ "Code" ].ToString( );
-            Name = dataRow[ "Name" ].ToString( );
+            _record = dataRow;
+            _map = dataRow.ToDictionary( );
+            _id = int.Parse( dataRow[ "CostAreasId" ]?.ToString( ) ?? "0" );
+            _code = dataRow[ "Code" ]?.ToString( );
+            _name = dataRow[ "Name" ]?.ToString( );
         }
     }
 }
