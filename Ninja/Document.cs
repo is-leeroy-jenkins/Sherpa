@@ -51,15 +51,38 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Local" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     public class Document : DataUnit
     {
+        /// <summary>
+        /// The category
+        /// </summary>
+        private string _category;
+
+        /// <summary>
+        /// The system
+        /// </summary>
+        private string _system;
+        
         /// <summary>
         /// Gets or sets the category.
         /// </summary>
         /// <value>
         /// The category.
         /// </value>
-        public string Category { get; set; }
+        public string Category
+        {
+            get
+            {
+                return _category;
+            }
+            private set
+            {
+                _category = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the system.
@@ -67,16 +90,27 @@ namespace BudgetExecution
         /// <value>
         /// The system.
         /// </value>
-        public string System { get; set; }
+        public string System
+        {
+            get
+            {
+                return _system;
+            }
+            private set
+            {
+                _system = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="T:BudgetExecution.Document" /> class.
         /// </summary>
-        public Document( )
+        public Document( ) 
+            : base( )
         {
-            Source = Source.Documents;
+            _source = Source.Documents;
         }
 
         /// <inheritdoc />
@@ -85,15 +119,16 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.Document" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public Document( IQuery query )
+        public Document( IQuery query ) 
+            : base( query )
         {
-            Record = new DataBuilder( query ).Record;
-            Map = Record.ToDictionary( );
-            ID = int.Parse( Record[ "DocumentsId" ].ToString( ) ?? "0" );
-            Code = Record[ "Code" ].ToString( );
-            Category = Record[ "Category" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
-            System = Record[ "System" ].ToString( );
+            _record = new DataBuilder( query ).Record;
+            _map = _record.ToDictionary( );
+            _id = int.Parse( _record[ "DocumentsId" ].ToString( ) ?? "0" );
+            _code = _record[ "Code" ].ToString( );
+            _category = _record[ "Category" ].ToString( );
+            _name = _record[ "Name" ].ToString( );
+            _system = _record[ "System" ].ToString( );
         }
 
         /// <inheritdoc />
@@ -102,15 +137,16 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.Document" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public Document( IDataModel builder )
+        public Document( IDataModel builder ) 
+            : base( builder )
         {
-            Record = builder.Record;
-            Map = Record.ToDictionary( );
-            ID = int.Parse( Record[ "DocumentsId" ].ToString( ) ?? "0" );
-            Code = Record[ "Code" ].ToString( );
-            Category = Record[ "Category" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
-            System = Record[ "System" ].ToString( );
+            _record = builder.Record;
+            _map = _record.ToDictionary( );
+            _id = int.Parse( _record[ "DocumentsId" ].ToString( ) ?? "0" );
+            _code = _record[ "Code" ].ToString( );
+            _category = _record[ "Category" ].ToString( );
+            _name = _record[ "Name" ].ToString( );
+            _system = _record[ "System" ].ToString( );
         }
 
         /// <inheritdoc />
@@ -119,15 +155,16 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.Document" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public Document( DataRow dataRow )
+        public Document( DataRow dataRow ) 
+            : base( dataRow )
         {
-            Record = dataRow;
-            Map = dataRow.ToDictionary( );
-            ID = int.Parse( Record[ "DocumentsId" ].ToString( ) ?? "0" );
-            Code = Record[ "Code" ].ToString( );
-            Category = Record[ "Category" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
-            System = Record[ "System" ].ToString( );
+            _record = dataRow;
+            _map = dataRow.ToDictionary( );
+            _id = int.Parse( dataRow[ "DocumentsId" ].ToString( ) ?? "0" );
+            _code = dataRow[ "Code" ].ToString( );
+            _category = dataRow[ "Category" ].ToString( );
+            _name = dataRow[ "Name" ].ToString( );
+            _system = dataRow[ "System" ].ToString( );
         }
 
         /// <inheritdoc />
@@ -138,11 +175,11 @@ namespace BudgetExecution
         /// <param name="doc">The document.</param>
         public Document( Document doc )
         {
-            ID = doc.ID;
-            Code = doc.Code;
-            Name = doc.Name;
-            System = doc.System;
-            Category = doc.Category;
+            _id = doc.ID;
+            _code = doc.Code;
+            _name = doc.Name;
+            _system = doc.System;
+            _category = doc.Category;
         }
     }
 }

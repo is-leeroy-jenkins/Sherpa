@@ -50,15 +50,53 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     public class DataRuleDescription : DataUnit
     {
+        /// <summary>
+        /// The schedule
+        /// </summary>
+        private string _schedule;
+
+        /// <summary>
+        /// The line number
+        /// </summary>
+        private string _lineNumber;
+
+        /// <summary>
+        /// The rule number
+        /// </summary>
+        private string _ruleNumber;
+
+        /// <summary>
+        /// The rule description
+        /// </summary>
+        private string _ruleDescription;
+
+        /// <summary>
+        /// The schedule order
+        /// </summary>
+        private string _scheduleOrder;
+
         /// <summary>
         /// Gets or sets the schedule.
         /// </summary>
         /// <value>
         /// The schedule.
         /// </value>
-        public string Schedule { get; set; }
+        public string Schedule
+        {
+            get
+            {
+                return _schedule;
+            }
+            private set
+            {
+                _schedule = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the line number.
@@ -66,7 +104,17 @@ namespace BudgetExecution
         /// <value>
         /// The line number.
         /// </value>
-        public string LineNumber { get; set; }
+        public string LineNumber
+        {
+            get
+            {
+                return _lineNumber;
+            }
+            private set
+            {
+                _lineNumber = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the rule number.
@@ -74,7 +122,17 @@ namespace BudgetExecution
         /// <value>
         /// The rule number.
         /// </value>
-        public string RuleNumber { get; set; }
+        public string RuleNumber
+        {
+            get
+            {
+                return _ruleNumber;
+            }
+            private set
+            {
+                _ruleNumber = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the rule description.
@@ -82,7 +140,17 @@ namespace BudgetExecution
         /// <value>
         /// The rule description.
         /// </value>
-        public string RuleDescription { get; set; }
+        public string RuleDescription
+        {
+            get
+            {
+                return _ruleDescription;
+            }
+            private set
+            {
+                _ruleDescription = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the schedule order.
@@ -90,7 +158,17 @@ namespace BudgetExecution
         /// <value>
         /// The schedule order.
         /// </value>
-        public string ScheduleOrder { get; set; }
+        public string ScheduleOrder
+        {
+            get
+            {
+                return _scheduleOrder;
+            }
+            private set
+            {
+                _scheduleOrder = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
@@ -98,9 +176,10 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.DataRuleDescription" />
         /// class.
         /// </summary>
-        public DataRuleDescription( )
+        public DataRuleDescription( ) 
+            : base( )
         {
-            Source = Source.DataRuleDescriptions;
+            _source = Source.DataRuleDescriptions;
         }
 
         /// <inheritdoc />
@@ -111,15 +190,15 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="query">The query.</param>
         public DataRuleDescription( IQuery query )
-            : this( )
+            : base( query )
         {
-            Record = new DataBuilder( query ).Record;
-            Map = Record.ToDictionary( );
-            Schedule = Record[ "Schedule" ]?.ToString( );
-            LineNumber = Record[ "LineNumber" ]?.ToString( );
-            RuleNumber = Record[ "RuleNumber" ]?.ToString( );
-            ScheduleOrder = Record[ "ScheduleOrder" ]?.ToString( );
-            RuleDescription = Record[ "RuleDescription" ]?.ToString( );
+            _record = new DataBuilder( query ).Record;
+            _map = _record.ToDictionary( );
+            _schedule = _record[ "Schedule" ]?.ToString( );
+            _lineNumber = _record[ "LineNumber" ]?.ToString( );
+            _ruleNumber = _record[ "RuleNumber" ]?.ToString( );
+            _scheduleOrder = _record[ "ScheduleOrder" ]?.ToString( );
+            _ruleDescription = _record[ "RuleDescription" ]?.ToString( );
         }
 
         /// <inheritdoc />
@@ -130,15 +209,15 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="builder">The builder.</param>
         public DataRuleDescription( IDataModel builder )
-            : this( )
+            : base( builder )
         {
-            Record = builder.Record;
-            Map = Record.ToDictionary( );
-            Schedule = Record[ "Schedule" ]?.ToString( );
-            LineNumber = Record[ "LineNumber" ]?.ToString( );
-            RuleNumber = Record[ "RuleNumber" ]?.ToString( );
-            ScheduleOrder = Record[ "ScheduleOrder" ]?.ToString( );
-            RuleDescription = Record[ "RuleDescription" ]?.ToString( );
+            _record = builder.Record;
+            _map = _record.ToDictionary( );
+            _schedule = _record[ "Schedule" ]?.ToString( );
+            _lineNumber = _record[ "LineNumber" ]?.ToString( );
+            _ruleNumber = _record[ "RuleNumber" ]?.ToString( );
+            _scheduleOrder = _record[ "ScheduleOrder" ]?.ToString( );
+            _ruleDescription = _record[ "RuleDescription" ]?.ToString( );
         }
 
         /// <inheritdoc />
@@ -149,15 +228,15 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public DataRuleDescription( DataRow dataRow )
-            : this( )
+            : base( dataRow )
         {
-            Record = dataRow;
-            Map = dataRow.ToDictionary( );
-            Schedule = dataRow[ "Schedule" ]?.ToString( );
-            LineNumber = dataRow[ "LineNumber" ]?.ToString( );
-            RuleNumber = dataRow[ "RuleNumber" ]?.ToString( );
-            ScheduleOrder = dataRow[ "ScheduleOrder" ]?.ToString( );
-            RuleDescription = dataRow[ "RuleDescription" ]?.ToString( );
+            _record = dataRow;
+            _map = dataRow.ToDictionary( );
+            _schedule = dataRow[ "Schedule" ]?.ToString( );
+            _lineNumber = dataRow[ "LineNumber" ]?.ToString( );
+            _ruleNumber = dataRow[ "RuleNumber" ]?.ToString( );
+            _scheduleOrder = dataRow[ "ScheduleOrder" ]?.ToString( );
+            _ruleDescription = dataRow[ "RuleDescription" ]?.ToString( );
         }
     }
 }
