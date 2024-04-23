@@ -45,13 +45,14 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
     [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    public abstract class Transfer
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
+    public abstract class Transfer : BudgetUnit
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -59,7 +60,7 @@ namespace BudgetExecution
         /// <value>
         /// The identifier.
         /// </value>
-        public virtual int ID { get; set; }
+        private protected int _id;
 
         /// <summary>
         /// Gets or sets the budget level.
@@ -67,7 +68,7 @@ namespace BudgetExecution
         /// <value>
         /// The budget level.
         /// </value>
-        public virtual string BudgetLevel { get; set; }
+        private protected string _budgetLevel;
 
         /// <summary>
         /// Gets or sets the document prefix.
@@ -75,7 +76,7 @@ namespace BudgetExecution
         /// <value>
         /// The document prefix.
         /// </value>
-        public virtual string DocPrefix { get; set; }
+        private protected string _docPrefix;
 
         /// <summary>
         /// Gets or sets the type of the document.
@@ -83,7 +84,7 @@ namespace BudgetExecution
         /// <value>
         /// The type of the document.
         /// </value>
-        public virtual string DocType { get; set; }
+        private protected string _docType;
 
         /// <summary>
         /// Gets or sets the bfy.
@@ -91,7 +92,7 @@ namespace BudgetExecution
         /// <value>
         /// The bfy.
         /// </value>
-        public virtual string BFY { get; set; }
+        private protected string _bfy;
 
         /// <summary>
         /// Gets or sets the efy.
@@ -99,7 +100,7 @@ namespace BudgetExecution
         /// <value>
         /// The efy.
         /// </value>
-        public virtual string Efy { get; set; }
+        private protected string _efy;
 
         /// <summary>
         /// Gets or sets the rpio code.
@@ -107,7 +108,7 @@ namespace BudgetExecution
         /// <value>
         /// The rpio code.
         /// </value>
-        public virtual string RpioCode { get; set; }
+        private protected string _rpioCode;
 
         /// <summary>
         /// Gets or sets the name of the rpio.
@@ -115,7 +116,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the rpio.
         /// </value>
-        public virtual string RpioName { get; set; }
+        private protected string _rpioName;
 
         /// <summary>
         /// Gets or sets the fund code.
@@ -123,7 +124,7 @@ namespace BudgetExecution
         /// <value>
         /// The fund code.
         /// </value>
-        public virtual string FundCode { get; set; }
+        private protected string _fundCode;
 
         /// <summary>
         /// Gets or sets the name of the fund.
@@ -131,7 +132,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the fund.
         /// </value>
-        public virtual string FundName { get; set; }
+        private protected string _fundName;
 
         /// <summary>
         /// Gets or sets the reprogramming number.
@@ -139,7 +140,7 @@ namespace BudgetExecution
         /// <value>
         /// The reprogramming number.
         /// </value>
-        public virtual string ReprogrammingNumber { get; set; }
+        private protected string _reprogrammingNumber;
 
         /// <summary>
         /// Gets or sets the control number.
@@ -147,7 +148,7 @@ namespace BudgetExecution
         /// <value>
         /// The control number.
         /// </value>
-        public virtual string ControlNumber { get; set; }
+        private protected string _controlNumber;
 
         /// <summary>
         /// Gets or sets the processed date.
@@ -155,7 +156,7 @@ namespace BudgetExecution
         /// <value>
         /// The processed date.
         /// </value>
-        public virtual DateOnly ProcessedDate { get; set; }
+        private protected DateOnly _processedDate;
 
         /// <summary>
         /// Gets or sets the quarter.
@@ -163,7 +164,7 @@ namespace BudgetExecution
         /// <value>
         /// The quarter.
         /// </value>
-        public virtual string Quarter { get; set; }
+        private protected string _quarter;
 
         /// <summary>
         /// Gets or sets the line.
@@ -171,7 +172,7 @@ namespace BudgetExecution
         /// <value>
         /// The line.
         /// </value>
-        public virtual string Line { get; set; }
+        private protected string _line;
 
         /// <summary>
         /// Gets or sets the subline.
@@ -179,7 +180,7 @@ namespace BudgetExecution
         /// <value>
         /// The subline.
         /// </value>
-        public virtual string Subline { get; set; }
+        private protected string _subline;
 
         /// <summary>
         /// Gets or sets the ah code.
@@ -187,7 +188,7 @@ namespace BudgetExecution
         /// <value>
         /// The ah code.
         /// </value>
-        public virtual string AhCode { get; set; }
+        private protected string _ahCode;
 
         /// <summary>
         /// Gets or sets the name of the ah.
@@ -195,7 +196,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the ah.
         /// </value>
-        public virtual string AhName { get; set; }
+        private protected string _ahName;
 
         /// <summary>
         /// Gets or sets the org code.
@@ -203,7 +204,7 @@ namespace BudgetExecution
         /// <value>
         /// The org code.
         /// </value>
-        public virtual string OrgCode { get; set; }
+        private protected string _orgCode;
 
         /// <summary>
         /// Gets or sets the name of the org.
@@ -211,7 +212,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the org.
         /// </value>
-        public virtual string OrgName { get; set; }
+        private protected string _orgName;
 
         /// <summary>
         /// Gets or sets the rc code.
@@ -219,7 +220,7 @@ namespace BudgetExecution
         /// <value>
         /// The rc code.
         /// </value>
-        public virtual string RcCode { get; set; }
+        private protected string _rcCode;
 
         /// <summary>
         /// Gets or sets the name of the rc.
@@ -227,7 +228,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the rc.
         /// </value>
-        public virtual string RcName { get; set; }
+        private protected string _rcName;
 
         /// <summary>
         /// Gets or sets the account code.
@@ -235,7 +236,7 @@ namespace BudgetExecution
         /// <value>
         /// The account code.
         /// </value>
-        public virtual string AccountCode { get; set; }
+        private protected string _accountCode;
 
         /// <summary>
         /// Gets or sets the program area code.
@@ -243,7 +244,7 @@ namespace BudgetExecution
         /// <value>
         /// The program area code.
         /// </value>
-        public virtual string ProgramAreaCode { get; set; }
+        private protected string _programAreaCode;
 
         /// <summary>
         /// Gets or sets the name of the program area.
@@ -251,7 +252,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the program area.
         /// </value>
-        public virtual string ProgramAreaName { get; set; }
+        private protected string _programAreaName;
 
         /// <summary>
         /// Gets or sets the name of the program project.
@@ -259,7 +260,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the program project.
         /// </value>
-        public virtual string ProgramProjectName { get; set; }
+        private protected string _programProjectName;
 
         /// <summary>
         /// Gets or sets the program project code.
@@ -267,7 +268,7 @@ namespace BudgetExecution
         /// <value>
         /// The program project code.
         /// </value>
-        public virtual string ProgramProjectCode { get; set; }
+        private protected string _programProjectCode;
 
         /// <summary>
         /// Gets or sets from to.
@@ -275,7 +276,7 @@ namespace BudgetExecution
         /// <value>
         /// From to.
         /// </value>
-        public virtual string FromTo { get; set; }
+        private protected string _fromTo;
 
         /// <summary>
         /// Gets or sets the boc code.
@@ -283,7 +284,7 @@ namespace BudgetExecution
         /// <value>
         /// The boc code.
         /// </value>
-        public virtual string BocCode { get; set; }
+        private protected string _bocCode;
 
         /// <summary>
         /// Gets or sets the name of the boc.
@@ -291,7 +292,7 @@ namespace BudgetExecution
         /// <value>
         /// The name of the boc.
         /// </value>
-        public virtual string BocName { get; set; }
+        private protected string _bocName;
 
         /// <summary>
         /// Gets or sets the NPM code.
@@ -299,7 +300,7 @@ namespace BudgetExecution
         /// <value>
         /// The NPM code.
         /// </value>
-        public virtual string NpmCode { get; set; }
+        private protected string _npmCode;
 
         /// <summary>
         /// Gets or sets the amount.
@@ -307,7 +308,7 @@ namespace BudgetExecution
         /// <value>
         /// The amount.
         /// </value>
-        public virtual double Amount { get; set; }
+        private protected double _amount;
 
         /// <summary>
         /// Gets or sets the type of the resource.
@@ -315,7 +316,7 @@ namespace BudgetExecution
         /// <value>
         /// The type of the resource.
         /// </value>
-        public virtual string ResourceType { get; set; }
+        private protected string _resourceType;
 
         /// <summary>
         /// Gets or sets the purpose.
@@ -323,83 +324,85 @@ namespace BudgetExecution
         /// <value>
         /// The purpose.
         /// </value>
-        public virtual string Purpose { get; set; }
+        private protected string _purpose;
 
+        /// <inheritdoc />
         /// <summary>
-        /// Gets or sets the extended purpose.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.Transfer" /> class.
         /// </summary>
-        /// <value>
-        /// The extended purpose.
-        /// </value>
-        public virtual string ExtendedPurpose { get; set; }
-
-        /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
-        public virtual Source Source { get; set; }
-
-        /// <summary>
-        /// Gets or sets the provider.
-        /// </summary>
-        /// <value>
-        /// The provider.
-        /// </value>
-        public virtual Provider Provider { get; set; }
-
-        /// <summary>
-        /// Gets or sets the record.
-        /// </summary>
-        /// <value>
-        /// The record.
-        /// </value>
-        public virtual DataRow Record { get; set; }
-
-        /// <summary>
-        /// Gets or sets the data.
-        /// </summary>
-        /// <value>
-        /// The data.
-        /// </value>
-        public virtual IDictionary<string, object> Data { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Transfer"/> class.
-        /// </summary>
-        protected Transfer( )
+        protected Transfer( ) 
+            : base( )
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="Transfer"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.Transfer" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        protected Transfer( IQuery query )
+        protected Transfer( IQuery query ) 
+            : base( query )
         {
-            Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
+            _record = new DataBuilder( query ).Record;
+            _map = _record.ToDictionary( );
+            _fiscalYear = _record[ "FiscalYear" ]?.ToString( );
+            _bfy = _record[ "BFY" ]?.ToString( );
+            _efy = _record[ "EFY" ]?.ToString( );
+            _fundCode = _record[ "FundCode" ]?.ToString( );
+            _fundName = _record[ "FundName" ]?.ToString( );
+            _mainAccount = _record[ "MainAccount" ]?.ToString( );
+            _treasuryAccountCode = _record[ "TreasuryAccountCode" ]?.ToString( );
+            _treasuryAccountName = _record[ "TreasuryAccountName" ]?.ToString( );
+            _budgetAccountCode = _record[ "BudgetAccountCode" ]?.ToString( );
+            _budgetAccountName = _record[ "BudgetAccountName" ]?.ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="Transfer"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.Transfer" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        protected Transfer( IDataModel builder )
+        protected Transfer( IDataModel builder ) 
+            : base( builder )
         {
-            Record = builder.Record;
-            Data = Record.ToDictionary( );
+            _record = builder.Record;
+            _map = _record.ToDictionary( );
+            _fiscalYear = _record[ "FiscalYear" ]?.ToString( );
+            _bfy = _record[ "BFY" ]?.ToString( );
+            _efy = _record[ "EFY" ]?.ToString( );
+            _fundCode = _record[ "FundCode" ]?.ToString( );
+            _fundName = _record[ "FundName" ]?.ToString( );
+            _mainAccount = _record[ "MainAccount" ]?.ToString( );
+            _treasuryAccountCode = _record[ "TreasuryAccountCode" ]?.ToString( );
+            _treasuryAccountName = _record[ "TreasuryAccountName" ]?.ToString( );
+            _budgetAccountCode = _record[ "BudgetAccountCode" ]?.ToString( );
+            _budgetAccountName = _record[ "BudgetAccountName" ]?.ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="Transfer"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.Transfer" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        protected Transfer( DataRow dataRow )
+        protected Transfer( DataRow dataRow ) 
+            : base( dataRow )
         {
-            Record = dataRow;
-            Data = dataRow.ToDictionary( );
+            _record = dataRow;
+            _map = dataRow.ToDictionary( );
+            _fiscalYear = dataRow[ "FiscalYear" ]?.ToString( );
+            _bfy = dataRow[ "BFY" ]?.ToString( );
+            _efy = dataRow[ "EFY" ]?.ToString( );
+            _fundCode = dataRow[ "FundCode" ]?.ToString( );
+            _fundName = dataRow[ "FundName" ]?.ToString( );
+            _mainAccount = dataRow[ "MainAccount" ]?.ToString( );
+            _treasuryAccountCode = dataRow[ "TreasuryAccountCode" ]?.ToString( );
+            _treasuryAccountName = dataRow[ "TreasuryAccountName" ]?.ToString( );
+            _budgetAccountCode = dataRow[ "BudgetAccountCode" ]?.ToString( );
+            _budgetAccountName = dataRow[ "BudgetAccountName" ]?.ToString( );
         }
     }
 }

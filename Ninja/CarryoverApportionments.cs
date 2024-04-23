@@ -181,7 +181,7 @@ namespace BudgetExecution
             : this( )
         {
             Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
+            Map = Record.ToDictionary( );
             ID = int.Parse( Record[ "CarryoverApportionmentsId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
@@ -212,7 +212,7 @@ namespace BudgetExecution
             : this( )
         {
             Record = builder.Record;
-            Data = Record.ToDictionary( );
+            Map = Record.ToDictionary( );
             ID = int.Parse( Record[ "CarryoverApportionmentsId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
@@ -243,7 +243,7 @@ namespace BudgetExecution
             : this( )
         {
             Record = dataRow;
-            Data = dataRow.ToDictionary( );
+            Map = dataRow.ToDictionary( );
             ID = int.Parse( dataRow[ "CarryoverApportionmentsId" ].ToString( ) ?? "0" );
             BFY = dataRow[ "BFY" ].ToString( );
             EFY = dataRow[ "EFY" ].ToString( );

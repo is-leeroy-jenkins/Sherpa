@@ -45,8 +45,9 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
     /// <summary> </summary>
-    /// <seealso cref="BudgetExecution.DescriptionBase"/>
+    /// <seealso cref="T:BudgetExecution.DescriptionBase" />
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -54,128 +55,115 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
-    public class ProgramProjects : DescriptionBase
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
+    public class ProgramProject : DataUnit
     {
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ProgramProjects"/>
+        /// <see cref="T:BudgetExecution.ProgramProjects" />
         /// class.
         /// </summary>
-        public ProgramProjects( )
+        public ProgramProject( ) : base( )
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ProgramProjects"/>
+        /// <see cref="T:BudgetExecution.ProgramProjects" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
-        public ProgramProjects( IQuery query )
+        public ProgramProject( IQuery query ) 
+            : base( query )
         {
-            Record = new DataBuilder( query )?.Record;
-            ID = int.Parse( Record[ "ProgramProjectsId" ].ToString( ) );
-            Code = Record[ "Code" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
-            Title = Record[ "Title" ].ToString( );
-            Definition = Record[ "Definition" ].ToString( );
-            Laws = Record[ "Laws" ].ToString( );
-            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
-            ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
-            Data = Record?.ToDictionary( );
+            _record = new DataBuilder( query )?.Record;
+            _id = int.Parse( _record[ "ProgramProjectsId" ]?.ToString( ) ?? "0" );
+            _code = _record[ "Code" ]?.ToString( );
+            _name = _record[ "Name" ]?.ToString( );
+            _map = _record?.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ProgramProjects"/>
+        /// <see cref="T:BudgetExecution.ProgramProjects" />
         /// class.
         /// </summary>
         /// <param name="dataBuilder"> The dataBuilder. </param>
-        public ProgramProjects( IDataModel dataBuilder )
+        public ProgramProject( IDataModel dataBuilder ) 
+            : base( dataBuilder )
         {
-            Record = dataBuilder?.Record;
-            ID = int.Parse( Record[ "ProgramProjectsId" ].ToString( ) );
-            Code = Record[ "Code" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
-            Title = Record[ "Title" ].ToString( );
-            Definition = Record[ "Definition" ].ToString( );
-            Laws = Record[ "Laws" ].ToString( );
-            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
-            ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
-            Data = Record?.ToDictionary( );
+            _record = dataBuilder?.Record;
+            _id = int.Parse( _record[ "ProgramProjectsId" ]?.ToString( ) ?? "0" );
+            _code = _record[ "Code" ]?.ToString( );
+            _name = _record[ "Name" ]?.ToString( );
+            _map = _record?.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ProgramProjects"/>
+        /// <see cref="T:BudgetExecution.ProgramProjects" />
         /// class.
         /// </summary>
         /// <param name="dataRow"> The dataRow. </param>
-        public ProgramProjects( DataRow dataRow )
+        public ProgramProject( DataRow dataRow ) 
+            : base( dataRow )
         {
-            Record = dataRow;
-            ID = int.Parse( Record[ "ProgramProjectsId" ].ToString( ) );
-            Code = Record[ "Code" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
-            Title = Record[ "Title" ].ToString( );
-            Definition = Record[ "Definition" ].ToString( );
-            Laws = Record[ "Laws" ].ToString( );
-            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
-            ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
-            Data = dataRow?.ToDictionary( );
+            _record = dataRow;
+            _id = int.Parse( dataRow[ "ProgramProjectsId" ]?.ToString( ) ?? "0" );
+            _code = dataRow[ "Code" ]?.ToString( );
+            _name = dataRow[ "Name" ]?.ToString( );
+            _map = dataRow?.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ProgramProjects"/>
+        /// <see cref="T:BudgetExecution.ProgramProjects" />
         /// class.
         /// </summary>
         /// <param name="code"> The code. </param>
-        public ProgramProjects( string code )
+        public ProgramProject( string code ) 
+            : base( )
         {
-            Record = new DataBuilder( Source, GetArgs( code ) )?.Record;
-            ID = int.Parse( Record[ "ProgramProjectsId" ].ToString( ) );
-            Code = Record[ "Code" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
-            Title = Record[ "Title" ].ToString( );
-            Definition = Record[ "Definition" ].ToString( );
-            Laws = Record[ "Laws" ].ToString( );
-            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
-            ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
-            Data = Record?.ToDictionary( );
+            _record = new DataBuilder( _source, GetArgs( code ) )?.Record;
+            _id = int.Parse( _record[ "ProgramProjectsId" ]?.ToString( ) ?? "0" );
+            _code = _record[ "Code" ]?.ToString( );
+            _name = _record[ "Name" ]?.ToString( );
+            _map = _record?.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ProgramProjects"/> class.
+        /// <see cref="T:BudgetExecution.ProgramProjects" /> class.
         /// </summary>
         /// <param name="project">The project.</param>
-        public ProgramProjects( ProgramProjects project )
+        public ProgramProject( ProgramProject project ) 
+            : base( )
         {
-            ID = project.ID;
-            Code = project.Code;
-            Name = project.Name;
-            Title = project.Title;
-            Definition = project.Definition;
-            Laws = project.Laws;
-            ProgramAreaCode = project.ProgramAreaCode;
-            ProgramAreaName = project.ProgramAreaName;
+            _id = project.ID;
+            _code = project.Code;
+            _name = project.Name;
+            _map = project.Map;
         }
 
         /// <inheritdoc />
         /// <summary>
         /// Gets the identifier.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
         /// <returns>
         /// Integer
         /// </returns>
-        public override int GetId( DataRow dataRow )
+        public override int GetId( )
         {
             try
             {
-                return dataRow != null
-                    ? int.Parse( dataRow[ 0 ].ToString( ) ?? string.Empty )
+                return _id > 0
+                    ? _id
                     : -1;
             }
             catch( Exception _ex )

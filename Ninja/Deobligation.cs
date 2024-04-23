@@ -50,6 +50,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     [ SuppressMessage( "ReSharper", "InheritdocConsiderUsage" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     public class Deobligation : Obligation
     {
         /// <summary>
@@ -57,7 +58,8 @@ namespace BudgetExecution
         /// <see cref="Deobligation"/>
         /// class.
         /// </summary>
-        public Deobligation( )
+        public Deobligation( ) 
+            : base( )
         {
             Source = Source.Deobligations;
         }
@@ -73,7 +75,7 @@ namespace BudgetExecution
         {
             Source = Source.Deobligations;
             Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
+            Map = Record.ToDictionary( );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
@@ -116,7 +118,7 @@ namespace BudgetExecution
         {
             Source = Source.Deobligations;
             Record = builder.Record;
-            Data = Record.ToDictionary( );
+            Map = Record.ToDictionary( );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
@@ -158,7 +160,7 @@ namespace BudgetExecution
         {
             Source = Source.Deobligations;
             Record = dataRow;
-            Data = dataRow.ToDictionary( );
+            Map = dataRow.ToDictionary( );
             BFY = dataRow[ "BFY" ].ToString( );
             EFY = dataRow[ "EFY" ].ToString( );
             FundCode = dataRow[ "FundCode" ].ToString( );

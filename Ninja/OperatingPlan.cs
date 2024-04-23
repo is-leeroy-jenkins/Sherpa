@@ -73,7 +73,7 @@ namespace BudgetExecution
         {
             _record = new DataBuilder( query ).Record;
             _id = int.Parse( _record[ "OperatingPlansId" ].ToString( ) ?? "0" );
-            _data = Record.ToDictionary( );
+            _map = Record.ToDictionary( );
             _budgetLevel = _record[ "BudgetLevel" ].ToString( );
             _bfy = _record[ "BFY" ].ToString( );
             _efy = _record[ "EFY" ].ToString( );
@@ -115,7 +115,7 @@ namespace BudgetExecution
         public OperatingPlan( IDataModel builder )
         {
             _record = builder.Record;
-            _data = _record.ToDictionary( );
+            _map = _record.ToDictionary( );
             _id = int.Parse( _record[ "OperatingPlansId" ].ToString( ) ?? "0" );
             _budgetLevel = _record[ "BudgetLevel" ].ToString( );
             _bfy = _record[ "BFY" ].ToString( );
@@ -158,7 +158,7 @@ namespace BudgetExecution
         public OperatingPlan( DataRow dataRow )
         {
             _record = dataRow;
-            _data = dataRow.ToDictionary( );
+            _map = dataRow.ToDictionary( );
             _id = int.Parse( dataRow[ "OperatingPlansId" ].ToString( ) ?? "0" );
             _budgetLevel = dataRow[ "BudgetLevel" ].ToString( );
             _bfy = dataRow[ "BFY" ].ToString( );

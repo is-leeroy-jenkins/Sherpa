@@ -140,7 +140,7 @@ namespace BudgetExecution
             : this( )
         {
             Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
+            Map = Record.ToDictionary( );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
@@ -165,7 +165,7 @@ namespace BudgetExecution
             : this( )
         {
             Record = builder.Record;
-            Data = Record.ToDictionary( );
+            Map = Record.ToDictionary( );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
@@ -190,7 +190,7 @@ namespace BudgetExecution
             : this( )
         {
             Record = dataRow;
-            Data = dataRow.ToDictionary( );
+            Map = dataRow.ToDictionary( );
             BFY = dataRow[ "BFY" ].ToString( );
             EFY = dataRow[ "EFY" ].ToString( );
             BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );

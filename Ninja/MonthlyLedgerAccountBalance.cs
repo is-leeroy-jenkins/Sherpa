@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="AnnualCarryoverEstimate.cs" company="Terry D. Eppler">
+// <copyright file="MonthlyLedgerAccountBalance.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   AnnualCarryoverEstimate.cs
+//   MonthlyLedgerAccountBalance.cs
 // </summary>
 // ******************************************************************************************
 
@@ -45,211 +45,205 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
 
     /// <inheritdoc />
-    /// <summary> </summary>
+    /// <summary>
+    /// </summary>
     /// <seealso cref="T:BudgetExecution.BudgetUnit" />
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Local" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
-    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    public class AnnualCarryoverEstimate : BudgetUnit
+    public class MonthlyLedgerAccountBalance : BudgetUnit
     {
         /// <summary>
-        /// The rpio code
+        /// The ledger account
         /// </summary>
-        private protected string _rpioCode;
+        private string _ledgerAccount;
 
         /// <summary>
-        /// The rpio name
+        /// The ledger name
         /// </summary>
-        private protected string _rpioName;
+        private string _ledgerName;
 
         /// <summary>
-        /// The amount
+        /// The apportionment account code
         /// </summary>
-        private protected double _amount;
+        private string _apportionmentAccountCode;
 
         /// <summary>
-        /// The open commitments
+        /// The fiscal month
         /// </summary>
-        private protected double _openCommitments;
+        private string _fiscalMonth;
 
         /// <summary>
-        /// The obligations
+        /// The credit balance
         /// </summary>
-        private protected double _obligations;
+        private double _creditBalance;
 
         /// <summary>
-        /// The available
+        /// The debit balance
         /// </summary>
-        private protected double _available;
+        private double _debitBalance;
 
         /// <summary>
-        /// The estimate
+        /// The year to date amount
         /// </summary>
-        private protected double _estimate;
+        private double _yearToDateAmount;
         
         /// <summary>
-        /// Gets or sets the rpio code.
+        /// Gets or sets the ledger account.
         /// </summary>
         /// <value>
-        /// The rpio code.
+        /// The ledger account.
         /// </value>
-        public string RpioCode
+        public string LedgerAccount
         {
             get
             {
-                return _rpioCode;
+                return _ledgerAccount;
             }
-            private protected set
+            private set
             {
-                _rpioCode = value;
+                _ledgerAccount = value;
             }
         }
 
         /// <summary>
-        /// Gets or sets the name of the rpio.
+        /// Gets or sets the name of the ledger.
         /// </summary>
         /// <value>
-        /// The name of the rpio.
+        /// The name of the ledger.
         /// </value>
-        public string RpioName
+        public string LedgerName
         {
             get
             {
-                return _rpioName;
+                return _ledgerName;
             }
-            private protected set
+            private set
             {
-                _rpioName = value;
+                _ledgerName = value;
             }
         }
 
         /// <summary>
-        /// Gets or sets the amount.
+        /// Gets or sets the apportionment account code.
         /// </summary>
         /// <value>
-        /// The amount.
+        /// The apportionment account code.
         /// </value>
-        public double Amount
+        public string ApportionmentAccountCode
         {
             get
             {
-                return _amount;
+                return _apportionmentAccountCode;
             }
-            private protected set
+            private set
             {
-                _amount = value;
+                _apportionmentAccountCode = value;
             }
         }
 
         /// <summary>
-        /// Gets or sets the open commitments.
+        /// Gets or sets the fiscal month.
         /// </summary>
         /// <value>
-        /// The open commitments.
+        /// The fiscal month.
         /// </value>
-        public double OpenCommitments
+        public string FiscalMonth
         {
             get
             {
-                return _openCommitments;
+                return _fiscalMonth;
             }
-            private protected set
+            private set
             {
-                _openCommitments = value;
+                _fiscalMonth = value;
             }
         }
 
         /// <summary>
-        /// Gets or sets the obligations.
+        /// Gets or sets the credit balance.
         /// </summary>
         /// <value>
-        /// The obligations.
+        /// The credit balance.
         /// </value>
-        public double Obligations
+        public double CreditBalance
         {
             get
             {
-                return _obligations;
+                return _creditBalance;
             }
-            private protected set
+            private set
             {
-                _obligations = value;
+                _creditBalance = value;
             }
         }
 
         /// <summary>
-        /// Gets or sets the available.
+        /// Gets or sets the debit balance.
         /// </summary>
         /// <value>
-        /// The available.
+        /// The debit balance.
         /// </value>
-        public double Available
+        public double DebitBalance
         {
             get
             {
-                return _available;
+                return _debitBalance;
             }
-            private protected set
+            private set
             {
-                _available = value;
+                _debitBalance = value;
             }
         }
 
         /// <summary>
-        /// Gets or sets the estimate.
+        /// Gets or sets the year to date amount.
         /// </summary>
         /// <value>
-        /// The estimate.
+        /// The year to date amount.
         /// </value>
-        public double Estimate
+        public double YearToDateAmount
         {
             get
             {
-                return _estimate;
+                return _yearToDateAmount;
             }
-            private protected set
+            private set
             {
-                _estimate = value;
+                _yearToDateAmount = value;
             }
         }
 
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AnnualCarryoverEstimate" />
-        /// class.
+        /// <see cref="T:BudgetExecution.MonthlyLedgerAccountBalances" /> class.
         /// </summary>
-        public AnnualCarryoverEstimate( )
+        public MonthlyLedgerAccountBalance( )
         {
-            _source = Source.AnnualCarryoverEstimates;
+            _source = Source.MonthlyLedgerAccountBalances;
         }
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AnnualCarryoverEstimates" />
-        /// class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.MonthlyLedgerAccountBalances" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public AnnualCarryoverEstimate( IQuery query )
-            : this( )
+        public MonthlyLedgerAccountBalance( IQuery query )
         {
             _record = new DataBuilder( query ).Record;
             _map = _record.ToDictionary( );
-            _id = int.Parse( _record[ "AnnualCarryoverEstimatesId" ].ToString( ) ?? "0" );
+            _id = int.Parse( _record[ "MonthlyLedgerAccountBalances" ].ToString( ) ?? "0" );
             _bfy = _record[ "BFY" ].ToString( );
             _efy = _record[ "EFY" ].ToString( );
             _fundCode = _record[ "FundCode" ].ToString( );
             _fundName = _record[ "FundName" ].ToString( );
-            _rpioCode = _record[ "RpioCode" ].ToString( );
-            _rpioName = _record[ "RpioName" ].ToString( );
-            _amount = double.Parse( _record[ "Amount" ].ToString( ) ?? "0" );
-            _openCommitments = double.Parse( _record[ "OpenCommitments" ].ToString( ) ?? "0" );
-            _obligations = double.Parse( _record[ "Obligations" ].ToString( ) ?? "0" );
-            _available = double.Parse( _record[ "Available" ].ToString( ) ?? "0" );
-            _estimate = double.Parse( _record[ "Estimate" ].ToString( ) ?? "0" );
+            _ledgerAccount = _record[ "LedgerAccount" ].ToString( );
+            _ledgerName = _record[ "LedgerName" ].ToString( );
+            _creditBalance = double.Parse( _record[ "CreditBalance" ].ToString( ) ?? "0" );
+            _debitBalance = double.Parse( _record[ "DebitBalance" ].ToString( ) ?? "0" );
             _treasuryAccountCode = _record[ "TreasuryAccountCode" ].ToString( );
             _treasuryAccountName = _record[ "TreasuryAccountName" ].ToString( );
             _budgetAccountCode = _record[ "BudgetAccountCode" ].ToString( );
@@ -259,27 +253,22 @@ namespace BudgetExecution
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AnnualCarryoverEstimates" />
-        /// class.
+        /// <see cref="T:BudgetExecution.MonthlyLedgerAccountBalances" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public AnnualCarryoverEstimate( IDataModel builder )
-            : this( )
+        public MonthlyLedgerAccountBalance( IDataModel builder )
         {
             _record = builder.Record;
             _map = _record.ToDictionary( );
-            _id = int.Parse( _record[ "AnnualCarryoverEstimatesId" ].ToString( ) ?? "0" );
+            _id = int.Parse( _record[ "MonthlyLedgerAccountBalances" ].ToString( ) ?? "0" );
             _bfy = _record[ "BFY" ].ToString( );
             _efy = _record[ "EFY" ].ToString( );
             _fundCode = _record[ "FundCode" ].ToString( );
             _fundName = _record[ "FundName" ].ToString( );
-            _rpioCode = _record[ "RpioCode" ].ToString( );
-            _rpioName = _record[ "RpioName" ].ToString( );
-            _amount = double.Parse( _record[ "Amount" ].ToString( ) ?? "0" );
-            _openCommitments = double.Parse( _record[ "OpenCommitments" ].ToString( ) ?? "0" );
-            _obligations = double.Parse( _record[ "Obligations" ].ToString( ) ?? "0" );
-            _available = double.Parse( _record[ "Available" ].ToString( ) ?? "0" );
-            _estimate = double.Parse( _record[ "Estimate" ].ToString( ) ?? "0" );
+            _ledgerAccount = _record[ "LedgerAccount" ].ToString( );
+            _ledgerName = _record[ "LedgerName" ].ToString( );
+            _creditBalance = double.Parse( _record[ "CreditBalance" ].ToString( ) ?? "0" );
+            _debitBalance = double.Parse( _record[ "DebitBalance" ].ToString( ) ?? "0" );
             _treasuryAccountCode = _record[ "TreasuryAccountCode" ].ToString( );
             _treasuryAccountName = _record[ "TreasuryAccountName" ].ToString( );
             _budgetAccountCode = _record[ "BudgetAccountCode" ].ToString( );
@@ -289,27 +278,22 @@ namespace BudgetExecution
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AnnualCarryoverEstimates" />
-        /// class.
+        /// <see cref="T:BudgetExecution.MonthlyLedgerAccountBalances" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public AnnualCarryoverEstimate( DataRow dataRow )
-            : this( )
+        public MonthlyLedgerAccountBalance( DataRow dataRow )
         {
-            _record = dataRow;
-            _map = dataRow.ToDictionary( );
-            _id = int.Parse( _record[ "AnnualCarryoverEstimatesId" ].ToString( ) ?? "0" );
+            Record = dataRow;
+            _map = _record.ToDictionary( );
+            _id = int.Parse( dataRow[ "MonthlyLedgerAccountBalances" ].ToString( ) ?? "0" );
             _bfy = dataRow[ "BFY" ].ToString( );
             _efy = dataRow[ "EFY" ].ToString( );
             _fundCode = dataRow[ "FundCode" ].ToString( );
             _fundName = dataRow[ "FundName" ].ToString( );
-            _rpioCode = dataRow[ "RpioCode" ].ToString( );
-            _rpioName = dataRow[ "RpioName" ].ToString( );
-            _amount = double.Parse( dataRow[ "Amount" ].ToString( ) ?? "0" );
-            _openCommitments = double.Parse( dataRow[ "OpenCommitments" ].ToString( ) ?? "0" );
-            _obligations = double.Parse( dataRow[ "Obligations" ].ToString( ) ?? "0" );
-            _available = double.Parse( dataRow[ "Available" ].ToString( ) ?? "0" );
-            _estimate = double.Parse( dataRow[ "Estimate" ].ToString( ) ?? "0" );
+            _ledgerAccount = dataRow[ "LedgerAccount" ].ToString( );
+            _ledgerName = dataRow[ "LedgerName" ].ToString( );
+            _creditBalance = double.Parse( dataRow[ "CreditBalance" ].ToString( ) ?? "0" );
+            _debitBalance = double.Parse( dataRow[ "DebitBalance" ].ToString( ) ?? "0" );
             _treasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString( );
             _treasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString( );
             _budgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
@@ -319,29 +303,24 @@ namespace BudgetExecution
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.AnnualCarryoverEstimates" />
-        /// class.
+        /// <see cref="T:BudgetExecution.MonthlyLedgerAccountBalances" /> class.
         /// </summary>
-        /// <param name="carryover">The carryover.</param>
-        public AnnualCarryoverEstimate( AnnualCarryoverEstimate carryover )
-            : this( )
+        /// <param name="account">The account.</param>
+        public MonthlyLedgerAccountBalance( MonthlyLedgerAccountBalance account )
         {
-            _id = carryover.ID;
-            _bfy = carryover.BFY;
-            _efy = carryover.EFY;
-            _fundCode = carryover.FundCode;
-            _fundName = carryover.FundName;
-            _rpioCode = carryover.RpioCode;
-            _rpioName = carryover.RpioName;
-            _amount = carryover.Amount;
-            _openCommitments = carryover.OpenCommitments;
-            _obligations = carryover.Obligations;
-            _available = carryover.Available;
-            _estimate = carryover.Estimate;
-            _treasuryAccountCode = carryover.TreasuryAccountCode;
-            _treasuryAccountName = carryover.TreasuryAccountName;
-            _budgetAccountCode = carryover.BudgetAccountCode;
-            _budgetAccountName = carryover.BudgetAccountName;
+            _id = account.ID;
+            _bfy = account.BFY;
+            _efy = account.EFY;
+            _fundCode = account.FundCode;
+            _fundName = account.FundName;
+            _ledgerAccount = account.LedgerAccount;
+            _ledgerName = account.LedgerName;
+            _creditBalance = account.CreditBalance;
+            _debitBalance = account.DebitBalance;
+            _treasuryAccountCode = account.TreasuryAccountCode;
+            _treasuryAccountName = account.TreasuryAccountName;
+            _budgetAccountCode = account.BudgetAccountCode;
+            _budgetAccountName = account.BudgetAccountName;
         }
     }
 }

@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="SubAppropriation.cs" company="Terry D. Eppler">
+// <copyright file="ProgramDescription.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,90 +34,73 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   SubAppropriation.cs
+//   ProgramDescription.cs
 // </summary>
 // ******************************************************************************************
 
 namespace BudgetExecution
 {
     using System;
+    using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
     /// <inheritdoc />
-    /// <summary> </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    /// <summary>
+    /// </summary>
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class SubAppropriations : DataUnit
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
+    public class ProgramDescription : DescriptionBase
     {
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SubAppropriations"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.ProgramDescriptions" /> class.
         /// </summary>
-        public SubAppropriations( )
+        public ProgramDescription( ) 
+            : base( )
         {
-            Source = Source.SubAppropriations;
         }
 
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SubAppropriations" />
-        /// class.
+        /// <see cref="T:BudgetExecution.ProgramDescriptions" /> class.
         /// </summary>
-        /// <param name="query"> The query. </param>
-        public SubAppropriations( IQuery query )
-            : this( )
+        /// <param name="query">The query.</param>
+        public ProgramDescription( IQuery query )
+            : base( query )
         {
-            Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
-            Code = Record[ "Code" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
+            _record = new DataBuilder( query ).Record;
+            _map = _record.ToDictionary( );
+        }
+        
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.ProgramDescriptions" /> class.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        public ProgramDescription( IDataModel builder ) 
+            : base( builder )
+        {
+            _record = builder.Record;
+            _map = _record.ToDictionary( );
         }
 
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SubAppropriations" />
-        /// class.
+        /// <see cref="T:BudgetExecution.ProgramDescriptions" /> class.
         /// </summary>
-        /// <param name="builder"> The builder. </param>
-        public SubAppropriations( IDataModel builder )
-            : this( )
+        /// <param name="dataRow">The data row.</param>
+        public ProgramDescription( DataRow dataRow ) 
+            : base( dataRow )
         {
-            Record = builder.Record;
-            Data = Record.ToDictionary( );
-            Code = Record[ "Code" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.SubAppropriations" />
-        /// class.
-        /// </summary>
-        /// <param name="dataRow"> The data row. </param>
-        public SubAppropriations( DataRow dataRow )
-            : this( )
-        {
-            Record = dataRow;
-            Data = dataRow.ToDictionary( );
-            Code = dataRow[ "Code" ].ToString( );
-            Name = dataRow[ "Name" ].ToString( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SubAppropriations"/> class.
-        /// </summary>
-        /// <param name="subapprop">The subapprop.</param>
-        public SubAppropriations( SubAppropriations subapprop )
-        {
-            ID = subapprop.ID;
-            Code = subapprop.Code;
-            Name = subapprop.Name;
+            _record = dataRow;
+            _map = dataRow.ToDictionary( );
         }
     }
 }

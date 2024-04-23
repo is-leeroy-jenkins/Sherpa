@@ -108,7 +108,7 @@ namespace BudgetExecution
         public PublicLaws( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
+            Map = Record.ToDictionary( );
         }
 
         /// <summary>
@@ -118,7 +118,7 @@ namespace BudgetExecution
         public PublicLaws( IDataModel builder )
         {
             Record = builder.Record;
-            Data = Record.ToDictionary( );
+            Map = Record.ToDictionary( );
         }
 
         /// <summary>
@@ -128,7 +128,7 @@ namespace BudgetExecution
         public PublicLaws( DataRow dataRow )
         {
             Record = dataRow;
-            Data = dataRow.ToDictionary( );
+            Map = dataRow.ToDictionary( );
         }
     }
 }

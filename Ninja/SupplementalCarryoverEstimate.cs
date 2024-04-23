@@ -73,7 +73,7 @@ namespace BudgetExecution
             : base( query )
         {
             _record = new DataBuilder( query ).Record;
-            _data = _record.ToDictionary( );
+            _map = _record.ToDictionary( );
             _bfy = _record[ "BFY" ].ToString( );
             _efy = _record[ "EFY" ].ToString( );
             _fundCode = _record[ "FundCode" ].ToString( );
@@ -102,7 +102,7 @@ namespace BudgetExecution
             : base( builder )
         {
             _record = builder.Record;
-            _data = _record.ToDictionary( );
+            _map = _record.ToDictionary( );
             _bfy = _record[ "BFY" ].ToString( );
             _efy = _record[ "EFY" ].ToString( );
             _fundCode = _record[ "FundCode" ].ToString( );
@@ -131,7 +131,7 @@ namespace BudgetExecution
             : base( dataRow )
         {
             _record = dataRow;
-            _data = dataRow.ToDictionary( );
+            _map = dataRow.ToDictionary( );
             _bfy = dataRow[ "BFY" ].ToString( );
             _efy = dataRow[ "EFY" ].ToString( );
             _fundCode = dataRow[ "FundCode" ].ToString( );

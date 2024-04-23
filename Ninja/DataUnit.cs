@@ -85,7 +85,7 @@ namespace BudgetExecution
         /// <summary>
         /// The data
         /// </summary>
-        private protected IDictionary<string, object> _data;
+        private protected IDictionary<string, object> _map;
 
         /// <summary>
         /// The source
@@ -221,15 +221,15 @@ namespace BudgetExecution
         /// <value>
         /// The data.
         /// </value>
-        public IDictionary<string, object> Data
+        public IDictionary<string, object> Map
         {
             get
             {
-                return _data;
+                return _map;
             }
             private protected set
             {
-                _data = value;
+                _map = value;
             }
         }
 
@@ -252,7 +252,7 @@ namespace BudgetExecution
             _provider = dataBuilder.Provider;
             _record = dataBuilder.Record;
             _id = int.Parse( _record[ 0 ].ToString( ) ?? "0" );
-            _data = _record.ToDictionary( );
+            _map = _record.ToDictionary( );
         }
 
         /// <summary>
@@ -266,7 +266,7 @@ namespace BudgetExecution
             _provider = query.Provider;
             _record = new DataBuilder( query ).Record;
             _id = int.Parse( _record[ 0 ].ToString( ) ?? "0" );
-            _data = _record.ToDictionary( );
+            _map = _record.ToDictionary( );
         }
 
         /// <summary>
@@ -277,7 +277,7 @@ namespace BudgetExecution
         protected DataUnit( DataRow dataRow ) 
         {
             _record = dataRow;
-            _data = _record.ToDictionary( );
+            _map = _record.ToDictionary( );
             _id = int.Parse( _record[ 0 ].ToString( ) ?? "0" );
             _code = _record[ "Code" ].ToString( );
             _name = _record[ "Name" ].ToString( );

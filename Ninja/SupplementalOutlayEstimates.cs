@@ -69,7 +69,7 @@ namespace BudgetExecution
         {
             Source = Source.SupplementalOutlayEstimates;
             Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
+            Map = Record.ToDictionary( );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
@@ -97,7 +97,7 @@ namespace BudgetExecution
         {
             Source = Source.SupplementalOutlayEstimates;
             Record = builder.Record;
-            Data = Record.ToDictionary( );
+            Map = Record.ToDictionary( );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
@@ -125,7 +125,7 @@ namespace BudgetExecution
         {
             Source = Source.SupplementalOutlayEstimates;
             Record = dataRow;
-            Data = dataRow.ToDictionary( );
+            Map = dataRow.ToDictionary( );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );

@@ -115,7 +115,7 @@ namespace BudgetExecution
             : base( query )
         {
             Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
+            Map = Record.ToDictionary( );
             ID = int.Parse( Record[ "CompassLevelsId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
@@ -149,7 +149,7 @@ namespace BudgetExecution
             : base( builder )
         {
             Record = builder.Record;
-            Data = Record.ToDictionary( );
+            Map = Record.ToDictionary( );
             ID = int.Parse( Record[ "CompassLevelsId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
@@ -183,7 +183,7 @@ namespace BudgetExecution
             : base( dataRow )
         {
             Record = dataRow;
-            Data = dataRow.ToDictionary( );
+            Map = dataRow.ToDictionary( );
             ID = int.Parse( dataRow[ "CompassLevelsId" ].ToString( ) ?? "0" );
             BFY = dataRow[ "BFY" ].ToString( );
             EFY = dataRow[ "EFY" ].ToString( );

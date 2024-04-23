@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="ProgramDescription.cs" company="Terry D. Eppler">
+// <copyright file="SchemaTypes.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,96 +34,125 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   ProgramDescription.cs
+//   SchemaTypes.cs
 // </summary>
 // ******************************************************************************************
 
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class ProgramDescriptions
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
+    public class SchemaType : DataUnit
     {
         /// <summary>
-        /// Gets or sets the identifier.
+        /// The type name
         /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
-        public int ID { get; set; }
+        private protected string _typeName;
 
         /// <summary>
-        /// Gets or sets the source.
+        /// The database
+        /// </summary>
+        private protected string _database;
+        
+        /// <summary>
+        /// Gets or sets the name of the type.
         /// </summary>
         /// <value>
-        /// The source.
+        /// The name of the type.
         /// </value>
-        public Source Source { get; set; }
-
-        /// <summary>
-        /// Gets or sets the record.
-        /// </summary>
-        /// <value>
-        /// The record.
-        /// </value>
-        public DataRow Record { get; set; }
-
-        /// <summary>
-        /// Gets or sets the data.
-        /// </summary>
-        /// <value>
-        /// The data.
-        /// </value>
-        public IDictionary<string, object> Data { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ProgramDescriptions"/> class.
-        /// </summary>
-        public ProgramDescriptions( )
+        public string TypeName
         {
+            get
+            {
+                return _typeName;
+            }
+            private protected set
+            {
+                _database = value;
+            }
         }
 
         /// <summary>
+        /// Gets or sets the database.
+        /// </summary>
+        /// <value>
+        /// The database.
+        /// </value>
+        public string Database
+        {
+            get
+            {
+                return _database;
+            }
+            private protected set
+            {
+                _database = value;
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ProgramDescriptions"/> class.
+        /// <see cref="T:BudgetExecution.SchemaTypes" /> class.
+        /// </summary>
+        public SchemaType( )
+        {
+            _source = Source.SchemaTypes;
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.SchemaTypes" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public ProgramDescriptions( IQuery query )
+        public SchemaType( IQuery query )
         {
-            Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
+            _record = new DataBuilder( query ).Record;
+            _id = int.Parse( _record[ "SchemaTypesId" ]?.ToString( ) ?? "0" );
+            _typeName = _record[ "TypeName" ]?.ToString( );
+            _database = _record[ "Database" ]?.ToString( );
+            _map = _record.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ProgramDescriptions"/> class.
+        /// <see cref="T:BudgetExecution.SchemaTypes" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public ProgramDescriptions( IDataModel builder )
+        public SchemaType( IDataModel builder )
         {
-            Record = builder.Record;
-            Data = Record.ToDictionary( );
+            _record = builder.Record;
+            _id = int.Parse( _record[ "SchemaTypesId" ]?.ToString( ) ?? "0" );
+            _typeName = _record[ "TypeName" ]?.ToString( );
+            _database = _record[ "Database" ]?.ToString( );
+            _map = _record.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ProgramDescriptions"/> class.
+        /// <see cref="T:BudgetExecution.SchemaTypes" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public ProgramDescriptions( DataRow dataRow )
+        public SchemaType( DataRow dataRow )
         {
-            Record = dataRow;
-            Data = dataRow.ToDictionary( );
+            _record = dataRow;
+            _id = int.Parse( dataRow[ "SchemaTypesId" ]?.ToString( ) ?? "0" );
+            _typeName = dataRow[ "TypeName" ]?.ToString( );
+            _database = dataRow[ "Database" ]?.ToString( );
+            _map = dataRow.ToDictionary( );
         }
     }
 }

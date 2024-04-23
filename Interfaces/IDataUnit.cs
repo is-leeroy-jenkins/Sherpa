@@ -86,7 +86,7 @@ namespace BudgetExecution
         /// <value>
         /// The data.
         /// </value>
-        IDictionary<string, object> Data { get; }
+        IDictionary<string, object> Map { get; }
         
         /// <inheritdoc />
         /// <summary>

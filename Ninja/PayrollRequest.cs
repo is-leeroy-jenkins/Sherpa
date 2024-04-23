@@ -115,7 +115,7 @@ namespace BudgetExecution
             : base( dataRow )
         {
             _record = dataRow;
-            _data = dataRow.ToDictionary( );
+            _map = dataRow.ToDictionary( );
             _id = int.Parse( dataRow[ "CarryoverRequestsId" ].ToString( ) ?? "0" );
             _analyst = dataRow[ "Analyst" ].ToString( );
             _documentTitle = dataRow[ "DocumentTitle" ].ToString( );

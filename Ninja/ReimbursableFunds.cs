@@ -122,7 +122,7 @@ namespace BudgetExecution
         public ReimbursableFunds( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
+            Map = Record.ToDictionary( );
         }
 
         /// <summary>
@@ -132,7 +132,7 @@ namespace BudgetExecution
         public ReimbursableFunds( IDataModel builder )
         {
             Record = builder.Record;
-            Data = Record.ToDictionary( );
+            Map = Record.ToDictionary( );
         }
 
         /// <summary>
@@ -142,7 +142,7 @@ namespace BudgetExecution
         public ReimbursableFunds( DataRow dataRow )
         {
             Record = dataRow;
-            Data = dataRow.ToDictionary( );
+            Map = dataRow.ToDictionary( );
         }
     }
 }

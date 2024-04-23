@@ -74,7 +74,7 @@ namespace BudgetExecution
             : this( )
         {
             _record = new DataBuilder( query ).Record;
-            _data = _record.ToDictionary( );
+            _map = _record.ToDictionary( );
             _id = int.Parse( _record[ "InflationReductionActCarryoverEstimatesId" ].ToString( ) );
             _bfy = _record[ "BFY" ].ToString( );
             _efy = _record[ "EFY" ].ToString( );
@@ -104,7 +104,7 @@ namespace BudgetExecution
             : this( )
         {
             _record = builder.Record;
-            _data = _record.ToDictionary( );
+            _map = _record.ToDictionary( );
             _id = int.Parse( _record[ "InflationReductionActCarryoverEstimatesId" ].ToString( ) );
             _bfy = _record[ "BFY" ].ToString( );
             _efy = _record[ "EFY" ].ToString( );
@@ -134,7 +134,7 @@ namespace BudgetExecution
             : this( )
         {
             _record = dataRow;
-            _data = dataRow.ToDictionary( );
+            _map = dataRow.ToDictionary( );
             _id = int.Parse( _record[ "InflationReductionActCarryoverEstimatesId" ].ToString( ) );
             _bfy = dataRow[ "BFY" ].ToString( );
             _efy = dataRow[ "EFY" ].ToString( );

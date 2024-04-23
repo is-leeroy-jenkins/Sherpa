@@ -259,7 +259,7 @@ namespace BudgetExecution
         public AppropriationAvailableBalance( IQuery query )
         {
             _record = new DataBuilder( query ).Record;
-            _data = _record.ToDictionary( );
+            _map = _record.ToDictionary( );
             _id = int.Parse( _record[ "AppropriationAvailableBalancesId" ].ToString( ) ?? "0" );
             _bfy = _record[ "BFY" ].ToString( );
             _efy = _record[ "EFY" ].ToString( );
@@ -288,7 +288,7 @@ namespace BudgetExecution
         public AppropriationAvailableBalance( IDataModel builder )
         {
             _record = builder.Record;
-            _data = _record.ToDictionary( );
+            _map = _record.ToDictionary( );
             _id = int.Parse( _record[ "AppropriationAvailableBalancesId" ].ToString( ) ?? "0" );
             _bfy = _record[ "BFY" ].ToString( );
             _efy = _record[ "EFY" ].ToString( );
@@ -317,7 +317,7 @@ namespace BudgetExecution
         public AppropriationAvailableBalance( DataRow dataRow )
         {
             _record = dataRow;
-            _data = dataRow.ToDictionary( );
+            _map = dataRow.ToDictionary( );
             _id = int.Parse( dataRow[ "AppropriationAvailableBalancesId" ].ToString( ) ?? "0" );
             _bfy = dataRow[ "BFY" ].ToString( );
             _efy = dataRow[ "EFY" ].ToString( );

@@ -74,11 +74,11 @@ namespace BudgetExecution
             : base( query )
         {
             _record = new DataBuilder( query ).Record;
-            _data = _record.ToDictionary( );
+            _map = _record.ToDictionary( );
             _id = int.Parse( _record[ "AppropriationsId" ].ToString( ) ?? "0" );
             _name = _record[ "Name" ].ToString( );
             _code = _record[ "Code" ].ToString( );
-            _data = _record.ToDictionary( );
+            _map = _record.ToDictionary( );
         }
 
         /// <inheritdoc/>
@@ -92,11 +92,11 @@ namespace BudgetExecution
             : base( builder )
         {
             _record = builder.Record;
-            _data = _record.ToDictionary( );
+            _map = _record.ToDictionary( );
             _id = int.Parse( _record[ "AppropriationsId" ].ToString( ) ?? "0" );
             _name = _record[ "Name" ].ToString( );
             _code = _record[ "Code" ].ToString( );
-            _data = _record.ToDictionary( );
+            _map = _record.ToDictionary( );
         }
 
         /// <inheritdoc/>
@@ -110,11 +110,11 @@ namespace BudgetExecution
             : base( dataRow )
         { 
             _record = dataRow;
-            _data = _record.ToDictionary( );
+            _map = _record.ToDictionary( );
             _id = int.Parse( _record[ "AppropriationsId" ].ToString( ) ?? "0" );
             _name = _record[ "Name" ].ToString( );
             _code = _record[ "Code" ].ToString( );
-            _data = _record.ToDictionary( );
+            _map = _record.ToDictionary( );
         }
 
         /// <inheritdoc />

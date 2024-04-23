@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="SchemaTypes.cs" company="Terry D. Eppler">
+// <copyright file="QueryDefinition.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   SchemaTypes.cs
+//   QueryDefinition.cs
 // </summary>
 // ******************************************************************************************
 
@@ -45,109 +45,89 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class SchemaTypes
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
+    public class QueryDefinition : DataUnit
     {
         /// <summary>
-        /// Gets or sets the identifier.
+        /// The type
+        /// </summary>
+        private protected string _type;
+        
+        /// <summary>
+        /// Gets or sets the type.
         /// </summary>
         /// <value>
-        /// The identifier.
+        /// The type.
         /// </value>
-        public int ID { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the type.
-        /// </summary>
-        /// <value>
-        /// The name of the type.
-        /// </value>
-        public string TypeName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the database.
-        /// </summary>
-        /// <value>
-        /// The database.
-        /// </value>
-        public string Database { get; set; }
-
-        /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
-        public Source Source { get; set; }
-
-        /// <summary>
-        /// Gets or sets the record.
-        /// </summary>
-        /// <value>
-        /// The record.
-        /// </value>
-        public DataRow Record { get; set; }
-
-        /// <summary>
-        /// Gets or sets the data.
-        /// </summary>
-        /// <value>
-        /// The data.
-        /// </value>
-        public IDictionary<string, object> Data { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SchemaTypes"/> class.
-        /// </summary>
-        public SchemaTypes( )
+        public string Type
         {
-            Source = Source.SchemaTypes;
+            get
+            {
+                return _type;
+            }
+            private protected set
+            {
+                _type = value;
+            }
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SchemaTypes"/> class.
+        /// <see cref="T:BudgetExecution.QueryDefinition" /> class.
+        /// </summary>
+        public QueryDefinition( ) 
+            : base( )
+        {
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.QueryDefinition" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public SchemaTypes( IQuery query )
+        public QueryDefinition( IQuery query ) 
+            : base( query )
         {
-            Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "SchemaTypesId" ].ToString( ) ?? "0" );
-            TypeName = Record[ "TypeName" ].ToString( );
-            Database = Record[ "Database" ].ToString( );
+            _record = new DataBuilder( query ).Record;
+            _map = _record.ToDictionary( );
+            _type = _record[ "Type" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SchemaTypes"/> class.
+        /// <see cref="T:BudgetExecution.QueryDefinition" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public SchemaTypes( IDataModel builder )
+        public QueryDefinition( IDataModel builder ) 
+            : base( builder )
         {
-            Record = builder.Record;
-            Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "SchemaTypesId" ].ToString( ) ?? "0" );
-            TypeName = Record[ "TypeName" ].ToString( );
-            Database = Record[ "Database" ].ToString( );
+            _record = builder.Record;
+            _map = _record.ToDictionary( );
+            _type = _record[ "Type" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SchemaTypes"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.QueryDefinition" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public SchemaTypes( DataRow dataRow )
+        public QueryDefinition( DataRow dataRow ) 
+            : base( dataRow )
         {
-            Record = dataRow;
-            Data = dataRow.ToDictionary( );
-            ID = int.Parse( dataRow[ "SchemaTypesId" ].ToString( ) ?? "0" );
-            TypeName = dataRow[ "TypeName" ].ToString( );
-            Database = dataRow[ "Database" ].ToString( );
+            _record = dataRow;
+            _map = dataRow.ToDictionary( );
+            _type = dataRow[ "Type" ].ToString( );
         }
     }
 }

@@ -96,7 +96,7 @@ namespace BudgetExecution
         public HeadquartersOffice( IQuery query )
         {
             _record = new DataBuilder( query ).Record;
-            _data = _record.ToDictionary( );
+            _map = _record.ToDictionary( );
             _id = int.Parse( _record[ "ResourcePlanningOfficesId" ].ToString( ) ?? "0" );
             _code = _record[ "Code" ].ToString( );
             _name = _record[ "Name" ].ToString( );
@@ -112,7 +112,7 @@ namespace BudgetExecution
         public HeadquartersOffice( IDataModel builder )
         {
             _record = builder.Record;
-            _data = _record.ToDictionary( );
+            _map = _record.ToDictionary( );
             _id = int.Parse( _record[ "ResourcePlanningOfficesId" ].ToString( ) ?? "0" );
             _code = _record[ "Code" ].ToString( );
             _name = _record[ "Name" ].ToString( );
@@ -128,7 +128,7 @@ namespace BudgetExecution
         public HeadquartersOffice( DataRow dataRow )
         {
             _record = dataRow;
-            _data = dataRow.ToDictionary( );
+            _map = dataRow.ToDictionary( );
             _id = int.Parse( dataRow[ "ResourcePlanningOfficesId" ].ToString( ) ?? "0" );
             _code = dataRow[ "Code" ].ToString( );
             _name = dataRow[ "Name" ].ToString( );

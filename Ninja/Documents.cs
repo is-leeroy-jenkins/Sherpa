@@ -83,7 +83,7 @@ namespace BudgetExecution
         public Document( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
+            Map = Record.ToDictionary( );
             ID = int.Parse( Record[ "DocumentsId" ].ToString( ) ?? "0" );
             Code = Record[ "Code" ].ToString( );
             Category = Record[ "Category" ].ToString( );
@@ -98,7 +98,7 @@ namespace BudgetExecution
         public Document( IDataModel builder )
         {
             Record = builder.Record;
-            Data = Record.ToDictionary( );
+            Map = Record.ToDictionary( );
             ID = int.Parse( Record[ "DocumentsId" ].ToString( ) ?? "0" );
             Code = Record[ "Code" ].ToString( );
             Category = Record[ "Category" ].ToString( );
@@ -113,7 +113,7 @@ namespace BudgetExecution
         public Document( DataRow dataRow )
         {
             Record = dataRow;
-            Data = dataRow.ToDictionary( );
+            Map = dataRow.ToDictionary( );
             ID = int.Parse( Record[ "DocumentsId" ].ToString( ) ?? "0" );
             Code = Record[ "Code" ].ToString( );
             Category = Record[ "Category" ].ToString( );

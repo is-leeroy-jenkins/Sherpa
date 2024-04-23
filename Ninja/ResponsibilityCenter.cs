@@ -55,39 +55,16 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class ResponsibilityCenters : DataUnit
+    public class ResponsibilityCenter : DataUnit
     {
-        /// <summary>
-        /// Gets the source.
-        /// </summary>
         /// <inheritdoc />
-        public Source Source { get; set; }
-
-        /// <summary>
-        /// </summary>
-        /// <inheritdoc />
-        public DataRow Record { get; set; }
-
-        /// <summary>
-        /// Gets or sets the data.
-        /// </summary>
-        /// <value>
-        /// The data.
-        /// </value>
-        public IDictionary<string, object> Data { get; set; }
-
-        /// <summary>
-        /// </summary>
-        /// <inheritdoc />
-        public int ID { get; set; }
-
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ResponsibilityCenters"/> class.
+        /// <see cref="T:BudgetExecution.ResponsibilityCenters" /> class.
         /// </summary>
-        public ResponsibilityCenters( )
+        public ResponsibilityCenter( )
         {
-            Source = Source.ResponsibilityCenters;
+            _source = Source.ResponsibilityCenters;
         }
 
         /// <inheritdoc />
@@ -96,27 +73,29 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.ResponsibilityCenters" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public ResponsibilityCenters( IQuery query )
+        public ResponsibilityCenter( IQuery query )
             : this( )
         {
-            Record = new DataBuilder( query )?.Record;
-            ID = int.Parse( Record[ "ResponsibilityCentersId" ].ToString( ) ?? string.Empty );
-            Name = Record[ "Name" ].ToString( );
-            Code = Record[ "Code" ].ToString( );
-            Data = Record?.ToDictionary( );
+            _record = new DataBuilder( query )?.Record;
+            _id = int.Parse( _record[ "ResponsibilityCentersId" ]?.ToString( ) ?? "0" );
+            _name = _record[ "Name" ]?.ToString( );
+            _code = _record[ "Code" ]?.ToString( );
+            _map = _record?.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="ResponsibilityCenters"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.ResponsibilityCenters" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public ResponsibilityCenters( IDataModel builder )
+        public ResponsibilityCenter( IDataModel builder )
         {
-            Record = builder?.Record;
-            ID = int.Parse( Record[ "ResponsibilityCentersId" ].ToString( ) );
-            Name = Record[ "Name" ].ToString( );
-            Code = Record[ "Code" ].ToString( );
-            Data = Record?.ToDictionary( );
+            _record = builder.Record;
+            _id = int.Parse( _record[ "ResponsibilityCentersId" ]?.ToString( ) ?? "0" );
+            _name = _record[ "Name" ]?.ToString( );
+            _code = _record[ "Code" ]?.ToString( );
+            _map = _record?.ToDictionary( );
         }
 
         /// <inheritdoc />
@@ -124,14 +103,14 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="T:BudgetExecution.ResponsibilityCenters" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public ResponsibilityCenters( DataRow dataRow )
+        public ResponsibilityCenter( DataRow dataRow )
             : this( )
         {
-            Record = dataRow;
-            ID = int.Parse( Record[ "ResponsibilityCentersId" ].ToString( ) );
-            Name = Record[ "Name" ].ToString( );
-            Code = Record[ "Code" ].ToString( );
-            Data = Record?.ToDictionary( );
+            _record = dataRow;
+            _id = int.Parse( dataRow[ "ResponsibilityCentersId" ]?.ToString( ) ?? "0" );
+            _name = dataRow[ "Name" ]?.ToString( );
+            _code = dataRow[ "Code" ]?.ToString( );
+            _map = dataRow?.ToDictionary( );
         }
 
         /// <inheritdoc />
@@ -139,14 +118,14 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="T:BudgetExecution.ResponsibilityCenters" /> class.
         /// </summary>
         /// <param name="rcCode">The rc code.</param>
-        public ResponsibilityCenters( string rcCode )
+        public ResponsibilityCenter( string rcCode )
             : this( )
         {
-            Record = new DataBuilder( Source, SetArgs( rcCode ) )?.Record;
-            ID = int.Parse( Record[ "ResponsibilityCentersId" ].ToString( ) );
-            Name = Record[ "Name" ].ToString( );
-            Code = Record[ "Code" ].ToString( );
-            Data = Record?.ToDictionary( );
+            _record = new DataBuilder( _source, SetArgs( rcCode ) )?.Record;
+            _id = int.Parse( _record[ "ResponsibilityCentersId" ]?.ToString( ) ?? "0" );
+            _name = _record[ "Name" ]?.ToString( );
+            _code = _record[ "Code" ]?.ToString( );
+            _map = _record?.ToDictionary( );
         }
 
         /// <summary>

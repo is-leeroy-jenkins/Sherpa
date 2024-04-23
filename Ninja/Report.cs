@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="SpendingRate.cs" company="Terry D. Eppler">
+// <copyright file="Report.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,96 +34,70 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   SpendingRate.cs
+//   Report.cs
 // </summary>
 // ******************************************************************************************
 
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class SpendingRates
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
+    public class Report : DataUnit
     {
-        /// <summary>
-        /// Gets or sets the identifier.
-        /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
-        public int ID { get; set; }
-
-        /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
-        public Source Source { get; set; }
-
-        /// <summary>
-        /// Gets or sets the record.
-        /// </summary>
-        /// <value>
-        /// The record.
-        /// </value>
-        public DataRow Record { get; set; }
-
-        /// <summary>
-        /// Gets or sets the data.
-        /// </summary>
-        /// <value>
-        /// The data.
-        /// </value>
-        public IDictionary<string, object> Data { get; set; }
-
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SpendingRates"/> class.
+        /// <see cref="T:BudgetExecution.Reports" /> class.
         /// </summary>
-        public SpendingRates( )
+        public Report( ) 
+            : base( )
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SpendingRates"/> class.
+        /// <see cref="T:BudgetExecution.Reports" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public SpendingRates( IQuery query )
+        public Report( IQuery query ) 
+            : base( query )
         {
-            Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
+            _record = new DataBuilder( query ).Record;
+            _map = _record.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SpendingRates"/> class.
+        /// <see cref="T:BudgetExecution.Reports" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public SpendingRates( IDataModel builder )
+        public Report( IDataModel builder )
         {
-            Record = builder.Record;
-            Data = Record.ToDictionary( );
+            _record = builder.Record;
+            _map = _record.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SpendingRates"/> class.
+        /// <see cref="T:BudgetExecution.Reports" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public SpendingRates( DataRow dataRow )
+        public Report( DataRow dataRow )
         {
-            Record = dataRow;
-            Data = dataRow.ToDictionary( );
+            _record = dataRow;
+            _map = dataRow.ToDictionary( );
         }
     }
 }

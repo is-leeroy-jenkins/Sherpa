@@ -298,7 +298,7 @@ namespace BudgetExecution
         {
             _source = query.Source;
             _record = new DataBuilder( query ).Record;
-            _data = _record.ToDictionary( );
+            _map = _record.ToDictionary( );
             _id = int.Parse( _record[ "StatusOfFundsId" ].ToString( ) ?? "0" );
             _budgetLevel = _record[ "BudgetLevel" ].ToString( );
             _bfy = _record[ "BFY" ].ToString( );
@@ -351,7 +351,7 @@ namespace BudgetExecution
         {
             _source = dataBuilder.Source;
             _record = dataBuilder.Record;
-            _data = _record.ToDictionary( );
+            _map = _record.ToDictionary( );
             _id = int.Parse( _record[ "StatusOfFundsId" ].ToString( ) ?? "0" );
             _budgetLevel = _record[ "BudgetLevel" ].ToString( );
             _amount = double.Parse( _record[ "Amount" ].ToString( ) ?? "0.0" );
@@ -391,7 +391,7 @@ namespace BudgetExecution
         {
             _source = Source.StatusOfFunds;
             _record = dataRow;
-            _data = dataRow.ToDictionary( );
+            _map = dataRow.ToDictionary( );
             _id = int.Parse( dataRow[ "StatusOfFundsId" ].ToString( ) ?? "0" );
             _budgetLevel = dataRow[ "BudgetLevel" ].ToString( );
             _amount = double.Parse( dataRow[ "Amount" ].ToString( ) ?? "0.0" );

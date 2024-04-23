@@ -172,7 +172,7 @@ namespace BudgetExecution
         {
             _source = Source.Funds;
             _record = new DataBuilder( _source, GetArgs( fundCode ) )?.Record;
-            _data = _record.ToDictionary( );
+            _map = _record.ToDictionary( );
             _id = int.Parse( _record[ "FundsId" ].ToString( ) ?? "0" );
             _bfy = _record[ "BFY" ].ToString( );
             _efy = _record[ "EFY" ].ToString( );
@@ -209,7 +209,7 @@ namespace BudgetExecution
         {
             _source = Source.Funds;
             _record = new DataBuilder( _source, GetArgs( code ) )?.Record;
-            _data = _record.ToDictionary( );
+            _map = _record.ToDictionary( );
             _id = int.Parse( _record[ "FundsId" ].ToString( ) ?? "0" );
             _bfy = _record[ "BFY" ].ToString( );
             _efy = _record[ "EFY" ].ToString( );

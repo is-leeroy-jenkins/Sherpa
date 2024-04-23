@@ -57,7 +57,7 @@ namespace BudgetExecution
         /// </summary>
         public ObligationActivity( )
         {
-            Source = Source.ObligationActivity;
+            _source = Source.ObligationActivity;
         }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace BudgetExecution
             : this( )
         {
             Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
+            Map = Record.ToDictionary( );
             ID = int.Parse( Record[ "ObligationActivityId" ].ToString( ) );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
@@ -112,7 +112,7 @@ namespace BudgetExecution
             : base( builder )
         {
             Record = builder.Record;
-            Data = Record.ToDictionary( );
+            Map = Record.ToDictionary( );
             ID = int.Parse( Record[ "ObligationActivityId" ].ToString( ) );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
@@ -154,7 +154,7 @@ namespace BudgetExecution
             : this( )
         {
             Record = dataRow;
-            Data = dataRow.ToDictionary( );
+            Map = dataRow.ToDictionary( );
             ID = int.Parse( Record[ "ObligationActivityId" ].ToString( ) );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );

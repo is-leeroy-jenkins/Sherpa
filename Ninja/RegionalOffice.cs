@@ -75,7 +75,7 @@ namespace BudgetExecution
             _record = new DataBuilder( query ).Record;
             _name = _record?[ "Name" ].ToString( );
             _code = _record?[ "Code" ].ToString( );
-            _data = _record?.ToDictionary( );
+            _map = _record?.ToDictionary( );
         }
 
         /// <inheritdoc />
@@ -90,7 +90,7 @@ namespace BudgetExecution
             _record = builder.Record;
             _name = _record?[ "Name" ].ToString( );
             _code = _record?[ "Code" ].ToString( );
-            _data = _record?.ToDictionary( );
+            _map = _record?.ToDictionary( );
         }
 
         /// <summary>
@@ -105,7 +105,7 @@ namespace BudgetExecution
             _record = dataRow;
             _name = dataRow[ "Name" ].ToString( );
             _code = dataRow[ "Code" ].ToString( );
-            _data = dataRow.ToDictionary( );
+            _map = dataRow.ToDictionary( );
         }
     }
 }

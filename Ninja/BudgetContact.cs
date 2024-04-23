@@ -211,7 +211,7 @@ namespace BudgetExecution
             : this( )
         {
             _record = new DataBuilder( query ).Record;
-            _data = _record.ToDictionary( );
+            _map = _record.ToDictionary( );
             _id = int.Parse( _record[ "BudgetContactsId" ].ToString( ) ?? "0" );
             _firstName = _record[ "FirstName" ].ToString( );
             _lastName = _record[ "LastName" ].ToString( );
@@ -230,7 +230,7 @@ namespace BudgetExecution
             : this( )
         {
             _record = builder.Record;
-            _data = Record.ToDictionary( );
+            _map = Record.ToDictionary( );
             _id = int.Parse( Record[ "BudgetContactsId" ].ToString( ) ?? "0" );
             _firstName = _record[ "FirstName" ].ToString( );
             _lastName = _record[ "LastName" ].ToString( );
@@ -249,7 +249,7 @@ namespace BudgetExecution
             : this( )
         {
             _record = dataRow;
-            _data = dataRow.ToDictionary( );
+            _map = dataRow.ToDictionary( );
             _id = int.Parse( dataRow[ "BudgetContactsId" ].ToString( ) ?? "0" );
             _firstName = dataRow[ "FirstName" ].ToString( );
             _lastName = dataRow[ "LastName" ].ToString( );

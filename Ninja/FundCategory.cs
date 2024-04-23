@@ -73,7 +73,7 @@ namespace BudgetExecution
         public FundCategory( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
+            Map = Record.ToDictionary( );
             Code = Record[ "Code" ].ToString( );
             Name = Record[ "Name" ].ToString( );
             ShortName = Record[ "ShortName" ].ToString( );
@@ -88,7 +88,7 @@ namespace BudgetExecution
         public FundCategory( IDataModel builder )
         {
             Record = builder.Record;
-            Data = Record.ToDictionary( );
+            Map = Record.ToDictionary( );
             Code = Record[ "Code" ].ToString( );
             Name = Record[ "Name" ].ToString( );
             ShortName = Record[ "ShortName" ].ToString( );
@@ -103,7 +103,7 @@ namespace BudgetExecution
         public FundCategory( DataRow dataRow )
         {
             Record = dataRow;
-            Data = dataRow.ToDictionary( );
+            Map = dataRow.ToDictionary( );
             Code = Record[ "Code" ].ToString( );
             Name = Record[ "Name" ].ToString( );
             ShortName = Record[ "ShortName" ].ToString( );

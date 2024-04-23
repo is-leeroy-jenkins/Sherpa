@@ -380,7 +380,7 @@ namespace BudgetExecution
             _id = int.Parse( _record[ 0 ].ToString( ) ?? "0" );
             _code = _record[ "TreasuryAccountCode" ].ToString( );
             _name = _record[ "TreasuryAccountName" ].ToString( );
-            _data = _record.ToDictionary( );
+            _map = _record.ToDictionary( );
             _bfy = _record[ "BFY" ].ToString( );
             _efy = _record[ "EFY" ].ToString( );
             _fundCode = _record[ "FundCode" ].ToString( );
@@ -409,7 +409,7 @@ namespace BudgetExecution
             _id = int.Parse( _record[ 0 ].ToString( ) ?? "0" );
             _code = _record[ "TreasuryAccountCode" ].ToString( );
             _name = _record[ "TreasuryAccountName" ].ToString( );
-            _data = _record.ToDictionary( );
+            _map = _record.ToDictionary( );
             _bfy = _record[ "BFY" ].ToString( );
             _efy = _record[ "EFY" ].ToString( );
             _fundCode = _record[ "FundCode" ].ToString( );
@@ -438,7 +438,7 @@ namespace BudgetExecution
             _id = int.Parse( dataRow[ 0 ].ToString( ) ?? "0" );
             _code = dataRow[ "TreasuryAccountCode" ].ToString( );
             _name = dataRow[ "TreasuryAccountName" ].ToString( );
-            _data = dataRow.ToDictionary( );
+            _map = dataRow.ToDictionary( );
             _bfy = dataRow[ "BFY" ].ToString( );
             _efy = dataRow[ "EFY" ].ToString( );
             _fundCode = dataRow[ "FundCode" ].ToString( );

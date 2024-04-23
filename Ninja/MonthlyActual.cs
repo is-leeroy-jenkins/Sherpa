@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="OpenCommitment.cs" company="Terry D. Eppler">
+// <copyright file="MonthlyActual.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   OpenCommitment.cs
+//   MonthlyActual.cs
 // </summary>
 // ******************************************************************************************
 
@@ -45,46 +45,94 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
 
     /// <inheritdoc />
-    /// <summary> </summary>
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="T:BudgetExecution.Actual" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    public class OpenCommitment : Obligation
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    public class MonthlyActual : Actual
     {
-        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.OpenCommitments" />
-        /// class.
+        /// The net outlays
         /// </summary>
-        public OpenCommitment( )
+        private protected double _netOutlays;
+
+        /// <summary>
+        /// The gross outlays
+        /// </summary>
+        private protected double _grossOutlays;
+        
+        /// <summary>
+        /// Gets or sets the net outlays.
+        /// </summary>
+        /// <value>
+        /// The net outlays.
+        /// </value>
+        public double NetOutlays
         {
-            _source = Source.OpenCommitments;
+            get
+            {
+                return _netOutlays;
+            }
+            private protected set
+            {
+                _netOutlays = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the gross outlays.
+        /// </summary>
+        /// <value>
+        /// The gross outlays.
+        /// </value>
+        public double GrossOutlays
+        {
+            get
+            {
+                return _grossOutlays;
+            }
+            private protected set
+            {
+                _grossOutlays = value;
+            }
         }
 
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.OpenCommitments" />
-        /// class.
+        /// <see cref="T:BudgetExecution.MonthlyActuals" /> class.
         /// </summary>
-        /// <param name="query"> The query. </param>
-        public OpenCommitment( IQuery query )
+        public MonthlyActual( )
+        {
+            _source = Source.MonthlyActuals;
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.MonthlyActuals" /> class.
+        /// </summary>
+        /// <param name="query">The query.</param>
+        public MonthlyActual( IQuery query )
             : base( query )
         {
-            _source = Source.OpenCommitments;
             _record = new DataBuilder( query ).Record;
             _map = _record.ToDictionary( );
-            _id = int.Parse( _record[ "OpenCommitmentsId" ]?.ToString( ) ?? "0" );
-            _fiscalYear = _record[ "FiscalYear" ]?.ToString( );
+            _id = int.Parse( _record[ "MonthlyActualsId" ]?.ToString( ) ?? "0" );
             _bfy = _record[ "BFY" ]?.ToString( );
             _efy = _record[ "EFY" ]?.ToString( );
             _fundCode = _record[ "FundCode" ]?.ToString( );
             _fundName = _record[ "FundName" ]?.ToString( );
             _rpioCode = _record[ "RpioCode" ]?.ToString( );
             _rpioName = _record[ "RpioName" ]?.ToString( );
+            _appropriationCode = _record[ "AppropriationCode" ]?.ToString( );
+            _appropriationName = _record[ "AppropriationName" ]?.ToString( );
+            _subAppropriationCode = _record[ "SubAppropriationCode" ]?.ToString( );
+            _subAppropriationName = _record[ "SubAppropriationName" ]?.ToString( );
             _ahCode = _record[ "AhCode" ]?.ToString( );
             _ahName = _record[ "AhName" ]?.ToString( );
             _orgCode = _record[ "OrgCode" ]?.ToString( );
@@ -92,19 +140,11 @@ namespace BudgetExecution
             _accountCode = _record[ "AccountCode" ]?.ToString( );
             _bocCode = _record[ "BocCode" ]?.ToString( );
             _bocName = _record[ "BocName" ]?.ToString( );
-            _rcCode = _record[ "RcCode" ]?.ToString( );
-            _rcName = _record[ "RcName" ]?.ToString( );
-            _focCode = _record[ "FocCode" ]?.ToString( );
-            _focName = _record[ "FocName" ]?.ToString( );
-            _amount = double.Parse( _record[ "OpenCommitments" ]?.ToString( ) ?? "0.0" );
-            _documentType = _record[ "DocumentType" ]?.ToString( );
-            _documentNumber = _record[ "DocumentNumber" ]?.ToString( );
-            _referenceDocumentNumber = _record[ "ReferenceDocumentNumber" ]?.ToString( );
-            _vendorCode = _record[ "VendorCode" ]?.ToString( );
-            _vendorName = _record[ "VendorName" ]?.ToString( );
-            _processedDate = DateOnly.Parse( _record[ "ProcessedDate" ]?.ToString( ) );
-            _lastActivityDate = DateOnly.Parse( _record[ "LastActivityDate" ]?.ToString( ) );
-            _age = int.Parse( _record[ "Age" ]?.ToString( ) ?? "0" );
+            _obligations = double.Parse( _record[ "Obligations" ]?.ToString( ) ?? "0.0" );
+            _grossOutlays = double.Parse( _record[ "GrossOutlays" ]?.ToString( ) ?? "0.0" );
+            _netOutlays = double.Parse( _record[ "NetOutlays" ]?.ToString( ) ?? "0.0" );
+            _programProjectCode = _record[ "ProgramProjectCode" ]?.ToString( );
+            _programProjectName = _record[ "ProgramProjectName" ]?.ToString( );
             _programAreaCode = _record[ "ProgramAreaCode" ]?.ToString( );
             _programAreaName = _record[ "ProgramAreaName" ]?.ToString( );
             _npmCode = _record[ "NpmCode" ]?.ToString( );
@@ -113,7 +153,6 @@ namespace BudgetExecution
             _goalName = _record[ "GoalName" ]?.ToString( );
             _objectiveCode = _record[ "ObjectiveCode" ]?.ToString( );
             _objectiveName = _record[ "ObjectiveName" ]?.ToString( );
-            _mainAccount = _record[ "MainAccount" ]?.ToString( );
             _treasuryAccountCode = _record[ "TreasuryAccountCode" ]?.ToString( );
             _treasuryAccountName = _record[ "TreasuryAccountName" ]?.ToString( );
             _budgetAccountCode = _record[ "BudgetAccountCode" ]?.ToString( );
@@ -123,24 +162,25 @@ namespace BudgetExecution
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.OpenCommitments" />
-        /// class.
+        /// <see cref="T:BudgetExecution.MonthlyActuals" /> class.
         /// </summary>
-        /// <param name="builder"> The builder. </param>
-        public OpenCommitment( IDataModel builder )
+        /// <param name="builder"></param>
+        public MonthlyActual( IDataModel builder )
             : base( builder )
         {
-            _source = Source.OpenCommitments;
             _record = builder.Record;
             _map = _record.ToDictionary( );
-            _id = int.Parse( _record[ "OpenCommitmentsId" ]?.ToString( ) ?? "0" );
-            _fiscalYear = _record[ "FiscalYear" ]?.ToString( );
+            _id = int.Parse( _record[ "MonthlyActualsId" ]?.ToString( ) ?? "0" );
             _bfy = _record[ "BFY" ]?.ToString( );
             _efy = _record[ "EFY" ]?.ToString( );
             _fundCode = _record[ "FundCode" ]?.ToString( );
             _fundName = _record[ "FundName" ]?.ToString( );
             _rpioCode = _record[ "RpioCode" ]?.ToString( );
             _rpioName = _record[ "RpioName" ]?.ToString( );
+            _appropriationCode = _record[ "AppropriationCode" ]?.ToString( );
+            _appropriationName = _record[ "AppropriationName" ]?.ToString( );
+            _subAppropriationCode = _record[ "SubAppropriationCode" ]?.ToString( );
+            _subAppropriationName = _record[ "SubAppropriationName" ]?.ToString( );
             _ahCode = _record[ "AhCode" ]?.ToString( );
             _ahName = _record[ "AhName" ]?.ToString( );
             _orgCode = _record[ "OrgCode" ]?.ToString( );
@@ -148,19 +188,11 @@ namespace BudgetExecution
             _accountCode = _record[ "AccountCode" ]?.ToString( );
             _bocCode = _record[ "BocCode" ]?.ToString( );
             _bocName = _record[ "BocName" ]?.ToString( );
-            _rcCode = _record[ "RcCode" ]?.ToString( );
-            _rcName = _record[ "RcName" ]?.ToString( );
-            _focCode = _record[ "FocCode" ]?.ToString( );
-            _focName = _record[ "FocName" ]?.ToString( );
-            _amount = double.Parse( _record[ "OpenCommitments" ]?.ToString( ) ?? "0.0" );
-            _documentType = _record[ "DocumentType" ]?.ToString( );
-            _documentNumber = _record[ "DocumentNumber" ]?.ToString( );
-            _referenceDocumentNumber = _record[ "ReferenceDocumentNumber" ]?.ToString( );
-            _vendorCode = _record[ "VendorCode" ]?.ToString( );
-            _vendorName = _record[ "VendorName" ]?.ToString( );
-            _processedDate = DateOnly.Parse( _record[ "ProcessedDate" ]?.ToString( ) );
-            _lastActivityDate = DateOnly.Parse( _record[ "LastActivityDate" ]?.ToString( ) );
-            _age = int.Parse( _record[ "Age" ]?.ToString( ) ?? "0" );
+            _obligations = double.Parse( _record[ "Obligations" ]?.ToString( ) ?? "0.0" );
+            _grossOutlays = double.Parse( _record[ "GrossOutlays" ]?.ToString( ) ?? "0.0" );
+            _netOutlays = double.Parse( _record[ "NetOutlays" ]?.ToString( ) ?? "0.0" );
+            _programProjectCode = _record[ "ProgramProjectCode" ]?.ToString( );
+            _programProjectName = _record[ "ProgramProjectName" ]?.ToString( );
             _programAreaCode = _record[ "ProgramAreaCode" ]?.ToString( );
             _programAreaName = _record[ "ProgramAreaName" ]?.ToString( );
             _npmCode = _record[ "NpmCode" ]?.ToString( );
@@ -169,7 +201,6 @@ namespace BudgetExecution
             _goalName = _record[ "GoalName" ]?.ToString( );
             _objectiveCode = _record[ "ObjectiveCode" ]?.ToString( );
             _objectiveName = _record[ "ObjectiveName" ]?.ToString( );
-            _mainAccount = _record[ "MainAccount" ]?.ToString( );
             _treasuryAccountCode = _record[ "TreasuryAccountCode" ]?.ToString( );
             _treasuryAccountName = _record[ "TreasuryAccountName" ]?.ToString( );
             _budgetAccountCode = _record[ "BudgetAccountCode" ]?.ToString( );
@@ -179,24 +210,26 @@ namespace BudgetExecution
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.OpenCommitments" />
-        /// class.
+        /// <see cref="T:BudgetExecution.MonthlyActuals" /> class.
         /// </summary>
-        /// <param name="dataRow"> The data row. </param>
-        public OpenCommitment( DataRow dataRow )
+        /// <param name="dataRow">The data row.</param>
+        public MonthlyActual( DataRow dataRow )
             : base( dataRow )
         {
-            _source = Source.OpenCommitments;
+            _source = Source.MonthlyActuals;
             _record = dataRow;
             _map = _record.ToDictionary( );
-            _id = int.Parse( dataRow[ "OpenCommitmentsId" ]?.ToString( ) ?? "0" );
-            _fiscalYear = dataRow[ "FiscalYear" ]?.ToString( );
+            _id = int.Parse( dataRow[ "MonthlyActualsId" ]?.ToString( ) ?? "0" );
             _bfy = dataRow[ "BFY" ]?.ToString( );
             _efy = dataRow[ "EFY" ]?.ToString( );
             _fundCode = dataRow[ "FundCode" ]?.ToString( );
             _fundName = dataRow[ "FundName" ]?.ToString( );
             _rpioCode = dataRow[ "RpioCode" ]?.ToString( );
             _rpioName = dataRow[ "RpioName" ]?.ToString( );
+            _appropriationCode = dataRow[ "AppropriationCode" ]?.ToString( );
+            _appropriationName = dataRow[ "AppropriationName" ]?.ToString( );
+            _subAppropriationCode = dataRow[ "SubAppropriationCode" ]?.ToString( );
+            _subAppropriationName = dataRow[ "SubAppropriationName" ]?.ToString( );
             _ahCode = dataRow[ "AhCode" ]?.ToString( );
             _ahName = dataRow[ "AhName" ]?.ToString( );
             _orgCode = dataRow[ "OrgCode" ]?.ToString( );
@@ -204,19 +237,11 @@ namespace BudgetExecution
             _accountCode = dataRow[ "AccountCode" ]?.ToString( );
             _bocCode = dataRow[ "BocCode" ]?.ToString( );
             _bocName = dataRow[ "BocName" ]?.ToString( );
-            _rcCode = dataRow[ "RcCode" ]?.ToString( );
-            _rcName = dataRow[ "RcName" ]?.ToString( );
-            _focCode = dataRow[ "FocCode" ]?.ToString( );
-            _focName = dataRow[ "FocName" ]?.ToString( );
-            _amount = double.Parse( dataRow[ "OpenCommitments" ]?.ToString( ) ?? "0.0" );
-            _documentType = dataRow[ "DocumentType" ]?.ToString( );
-            _documentNumber = dataRow[ "DocumentNumber" ]?.ToString( );
-            _referenceDocumentNumber = dataRow[ "ReferenceDocumentNumber" ]?.ToString( );
-            _vendorCode = dataRow[ "VendorCode" ]?.ToString( );
-            _vendorName = dataRow[ "VendorName" ]?.ToString( );
-            _processedDate = DateOnly.Parse( dataRow[ "ProcessedDate" ]?.ToString( ) );
-            _lastActivityDate = DateOnly.Parse( dataRow[ "LastActivityDate" ]?.ToString( ) );
-            _age = int.Parse( dataRow[ "Age" ]?.ToString( ) ?? "0" );
+            _obligations = double.Parse( dataRow[ "Obligations" ]?.ToString( ) ?? "0.0" );
+            _grossOutlays = double.Parse( dataRow[ "GrossOutlays" ]?.ToString( ) ?? "0.0" );
+            _netOutlays = double.Parse( dataRow[ "NetOutlays" ]?.ToString( ) ?? "0.0" );
+            _programProjectCode = dataRow[ "ProgramProjectCode" ]?.ToString( );
+            _programProjectName = dataRow[ "ProgramProjectName" ]?.ToString( );
             _programAreaCode = dataRow[ "ProgramAreaCode" ]?.ToString( );
             _programAreaName = dataRow[ "ProgramAreaName" ]?.ToString( );
             _npmCode = dataRow[ "NpmCode" ]?.ToString( );
@@ -225,7 +250,6 @@ namespace BudgetExecution
             _goalName = dataRow[ "GoalName" ]?.ToString( );
             _objectiveCode = dataRow[ "ObjectiveCode" ]?.ToString( );
             _objectiveName = dataRow[ "ObjectiveName" ]?.ToString( );
-            _mainAccount = dataRow[ "MainAccount" ]?.ToString( );
             _treasuryAccountCode = dataRow[ "TreasuryAccountCode" ]?.ToString( );
             _treasuryAccountName = dataRow[ "TreasuryAccountName" ]?.ToString( );
             _budgetAccountCode = dataRow[ "BudgetAccountCode" ]?.ToString( );
@@ -235,51 +259,47 @@ namespace BudgetExecution
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.OpenCommitments" /> class.
+        /// <see cref="T:BudgetExecution.MonthlyActuals" /> class.
         /// </summary>
-        /// <param name="commitment">The commitment.</param>
-        public OpenCommitment( OpenCommitment commitment )
+        /// <param name="actual">The actual.</param>
+        public MonthlyActual( MonthlyActual actual )
         {
-            _id = commitment.ID;
-            _fiscalYear = commitment.FiscalYear;
-            _bfy = commitment.BFY;
-            _efy = commitment.EFY;
-            _fundCode = commitment.FundCode;
-            _fundName = commitment.FundName;
-            _rpioCode = commitment.RpioCode;
-            _rpioName = commitment.RpioName;
-            _ahCode = commitment.AhCode;
-            _ahName = commitment.AhName;
-            _orgCode = commitment.OrgCode;
-            _orgName = commitment.OrgName;
-            _accountCode = commitment.AccountCode;
-            _bocCode = commitment.BocCode;
-            _bocName = commitment.BocName;
-            _focCode = commitment.FocCode;
-            _focName = commitment.FocName;
-            _amount = commitment.Amount;
-            _documentType = commitment.DocumentType;
-            _documentNumber = commitment.DocumentNumber;
-            _referenceDocumentNumber = commitment.ReferenceDocumentNumber;
-            _vendorCode = commitment.VendorCode;
-            _vendorName = commitment.VendorName;
-            _processedDate = commitment.ProcessedDate;
-            _lastActivityDate = commitment.LastActivityDate;
-            _age = commitment.Age;
-            _programProjectCode = commitment.ProgramProjectCode;
-            _programProjectName = commitment.ProgramProjectName;
-            _programAreaCode = commitment.ProgramAreaCode;
-            _programAreaName = commitment.ProgramAreaName;
-            _npmCode = commitment.NpmCode;
-            _npmName = commitment.NpmName;
-            _goalCode = commitment.GoalCode;
-            _goalName = commitment.GoalName;
-            _objectiveCode = commitment.ObjectiveCode;
-            _objectiveName = commitment.ObjectiveName;
-            _treasuryAccountCode = commitment.TreasuryAccountCode;
-            _treasuryAccountName = commitment.TreasuryAccountName;
-            _budgetAccountCode = commitment.BudgetAccountCode;
-            _budgetAccountName = commitment.BudgetAccountName;
+            _source = Source.MonthlyActuals;
+            _id = actual.ID;
+            _bfy = actual.BFY;
+            _efy = actual.EFY;
+            _fundCode = actual.FundCode;
+            _fundName = actual.FundName;
+            _rpioCode = actual.RpioCode;
+            _rpioName = actual.RpioName;
+            _ahCode = actual.AhCode;
+            _ahName = actual.AhName;
+            _appropriationCode = actual.AppropriationCode;
+            _appropriationName = actual.AppropriationName;
+            _subAppropriationCode = actual.SubAppropriationCode;
+            _subAppropriationName = actual.SubAppropriationName;
+            _orgCode = actual.OrgCode;
+            _orgName = actual.OrgName;
+            _accountCode = actual.AccountCode;
+            _bocCode = actual.BocCode;
+            _bocName = actual.BocName;
+            _activityCode = actual.ActivityCode;
+            _activityName = actual.ActivityName;
+            _programProjectCode = actual.ProgramProjectCode;
+            _programProjectName = actual.ProgramProjectName;
+            _obligations = actual.Obligations;
+            _grossOutlays = actual.GrossOutlays;
+            _netOutlays = actual.NetOutlays;
+            _programAreaCode = actual.ProgramAreaCode;
+            _programAreaName = actual.ProgramAreaName;
+            _goalCode = actual.GoalCode;
+            _goalName = actual.GoalName;
+            _objectiveCode = actual.ObjectiveCode;
+            _objectiveName = actual.ObjectiveName;
+            _treasuryAccountCode = actual.TreasuryAccountCode;
+            _treasuryAccountName = actual.TreasuryAccountName;
+            _budgetAccountCode = actual.BudgetAccountCode;
+            _budgetAccountName = actual.BudgetAccountName;
         }
     }
 }

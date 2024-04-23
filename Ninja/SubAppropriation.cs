@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="ProgramProjectDescription.cs" company="Terry D. Eppler">
+// <copyright file="SubAppropriation.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   ProgramProjectDescription.cs
+//   SubAppropriation.cs
 // </summary>
 // ******************************************************************************************
 
@@ -44,83 +44,84 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
     /// <summary> </summary>
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    public class ProgramProjectDescriptions : DescriptionBase
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
+    public class SubAppropriation : BudgetUnit
     {
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ProgramProjectDescriptions"/>
+        /// <see cref="T:BudgetExecution.SubAppropriations" />
         /// class.
         /// </summary>
-        public ProgramProjectDescriptions( )
+        public SubAppropriation( ) 
+            : base( )
         {
+            _source = Source.SubAppropriations;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ProgramProjectDescriptions"/>
+        /// <see cref="T:BudgetExecution.SubAppropriations" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
-        public ProgramProjectDescriptions( IQuery query )
+        public SubAppropriation( IQuery query )
+            : base( query )
         {
-            Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "ProgramProjectsId" ].ToString( ) );
-            Code = Record[ "Code" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
-            Title = Record[ "Title" ].ToString( );
-            Definition = Record[ "Definition" ].ToString( );
-            Laws = Record[ "Laws" ].ToString( );
-            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
-            ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
-            Data = Record?.ToDictionary( );
+            _record = new DataBuilder( query ).Record;
+            _map = _record.ToDictionary( );
+            _code = _record[ "Code" ].ToString( );
+            _name = _record[ "Name" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ProgramProjectDescriptions"/>
+        /// <see cref="T:BudgetExecution.SubAppropriations" />
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
-        public ProgramProjectDescriptions( IDataModel builder )
+        public SubAppropriation( IDataModel builder )
+            : base( builder )
         {
-            Record = builder.Record;
-            Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "ProgramProjectsId" ].ToString( ) );
-            Code = Record[ "Code" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
-            Title = Record[ "Title" ].ToString( );
-            Definition = Record[ "Definition" ].ToString( );
-            Laws = Record[ "Laws" ].ToString( );
-            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
-            ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
-            Data = Record?.ToDictionary( );
+            _record = builder.Record;
+            _map = _record.ToDictionary( );
+            _code = _record[ "Code" ].ToString( );
+            _name = _record[ "Name" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ProgramProjectDescriptions"/>
+        /// <see cref="T:BudgetExecution.SubAppropriations" />
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
-        public ProgramProjectDescriptions( DataRow dataRow )
+        public SubAppropriation( DataRow dataRow )
+            : base( dataRow ) 
         {
-            Record = dataRow;
-            Data = dataRow.ToDictionary( );
-            ID = int.Parse( dataRow[ "ProgramProjectsId" ].ToString( ) );
-            Code = dataRow[ "Code" ].ToString( );
-            Name = dataRow[ "Name" ].ToString( );
-            Title = dataRow[ "Title" ].ToString( );
-            Definition = dataRow[ "Definition" ].ToString( );
-            Laws = dataRow[ "Laws" ].ToString( );
-            ProgramAreaCode = dataRow[ "ProgramAreaCode" ].ToString( );
-            ProgramAreaName = dataRow[ "ProgramAreaName" ].ToString( );
-            Data = dataRow?.ToDictionary( );
+            _record = dataRow;
+            _map = dataRow.ToDictionary( );
+            _code = dataRow[ "Code" ].ToString( );
+            _name = dataRow[ "Name" ].ToString( );
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.SubAppropriation" /> class.
+        /// </summary>
+        /// <param name="subapprop">The subapprop.</param>
+        public SubAppropriation( SubAppropriation subapprop )
+        {
+            _id = subapprop.ID;
+            _code = subapprop.Code;
+            _name = subapprop.Name;
         }
     }
 }

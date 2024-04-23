@@ -57,6 +57,11 @@ namespace BudgetExecution
     public abstract class BudgetUnit : DataUnit
     {
         /// <summary>
+        /// The fiscal year
+        /// </summary>
+        private protected string _fiscalYear;
+
+        /// <summary>
         /// The bfy
         /// </summary>
         private protected string _bfy;
@@ -100,6 +105,24 @@ namespace BudgetExecution
         /// The budget account name
         /// </summary>
         private protected string _budgetAccountName;
+
+        /// <summary>
+        /// Gets the fiscal year.
+        /// </summary>
+        /// <value>
+        /// The fiscal year.
+        /// </value>
+        public string FiscalYear
+        {
+            get
+            {
+                return _fiscalYear;
+            }
+            private protected set
+            {
+                _fiscalYear = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
@@ -290,17 +313,17 @@ namespace BudgetExecution
         protected BudgetUnit( IQuery query ) 
             : base( query )
         {
-            _source = query.Source;
             _record = new DataBuilder( query ).Record;
-            _bfy = _record[ "BFY" ].ToString( );
-            _efy = _record[ "EFY" ].ToString( );
-            _fundCode = _record[ "FundCode" ].ToString( );
-            _fundName = _record[ "FundName" ].ToString( );
-            _mainAccount = _record[ "MainAccount" ].ToString( );
-            _treasuryAccountCode = _record[ "TreasuryAccountCode" ].ToString( );
-            _treasuryAccountName = _record[ "TreasuryAccountName" ].ToString( );
-            _budgetAccountCode = _record[ "BudgetAccountCode" ].ToString( );
-            _budgetAccountName = _record[ "BudgetAccountName" ].ToString( );
+            _fiscalYear = _record[ "FiscalYear" ]?.ToString( );
+            _bfy = _record[ "BFY" ]?.ToString( );
+            _efy = _record[ "EFY" ]?.ToString( );
+            _fundCode = _record[ "FundCode" ]?.ToString( );
+            _fundName = _record[ "FundName" ]?.ToString( );
+            _mainAccount = _record[ "MainAccount" ]?.ToString( );
+            _treasuryAccountCode = _record[ "TreasuryAccountCode" ]?.ToString( );
+            _treasuryAccountName = _record[ "TreasuryAccountName" ]?.ToString( );
+            _budgetAccountCode = _record[ "BudgetAccountCode" ]?.ToString( );
+            _budgetAccountName = _record[ "BudgetAccountName" ]?.ToString( );
         }
 
         /// <inheritdoc />
@@ -312,17 +335,17 @@ namespace BudgetExecution
         protected BudgetUnit( IDataModel dataBuilder ) 
             : base( dataBuilder )
         {
-            _source = dataBuilder.Source;
             _record = dataBuilder.Record;
-            _bfy = _record[ "BFY" ].ToString( );
-            _efy = _record[ "EFY" ].ToString( );
-            _fundCode = _record[ "FundCode" ].ToString( );
-            _fundName = _record[ "FundName" ].ToString( );
-            _mainAccount = _record[ "MainAccount" ].ToString( );
-            _treasuryAccountCode = _record[ "TreasuryAccountCode" ].ToString( );
-            _treasuryAccountName = _record[ "TreasuryAccountName" ].ToString( );
-            _budgetAccountCode = _record[ "BudgetAccountCode" ].ToString( );
-            _budgetAccountName = _record[ "BudgetAccountName" ].ToString( );
+            _fiscalYear = _record[ "FiscalYear" ]?.ToString( );
+            _bfy = _record[ "BFY" ]?.ToString( );
+            _efy = _record[ "EFY" ]?.ToString( );
+            _fundCode = _record[ "FundCode" ]?.ToString( );
+            _fundName = _record[ "FundName" ]?.ToString( );
+            _mainAccount = _record[ "MainAccount" ]?.ToString( );
+            _treasuryAccountCode = _record[ "TreasuryAccountCode" ]?.ToString( );
+            _treasuryAccountName = _record[ "TreasuryAccountName" ]?.ToString( );
+            _budgetAccountCode = _record[ "BudgetAccountCode" ]?.ToString( );
+            _budgetAccountName = _record[ "BudgetAccountName" ]?.ToString( );
         }
 
         /// <inheritdoc />
@@ -335,15 +358,16 @@ namespace BudgetExecution
             : base( dataRow )
         {
             _record = dataRow;
-            _bfy = dataRow[ "BFY" ].ToString( );
-            _efy = dataRow[ "EFY" ].ToString( );
-            _fundCode = dataRow[ "FundCode" ].ToString( );
-            _fundName = dataRow[ "FundName" ].ToString( );
-            _mainAccount = dataRow[ "MainAccount" ].ToString( );
-            _treasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString( );
-            _treasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString( );
-            _budgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
-            _budgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
+            _bfy = dataRow[ "BFY" ]?.ToString( );
+            _efy = dataRow[ "EFY" ]?.ToString( );
+            _fiscalYear = _record[ "FiscalYear" ]?.ToString( );
+            _fundCode = dataRow[ "FundCode" ]?.ToString( );
+            _fundName = dataRow[ "FundName" ]?.ToString( );
+            _mainAccount = dataRow[ "MainAccount" ]?.ToString( );
+            _treasuryAccountCode = dataRow[ "TreasuryAccountCode" ]?.ToString( );
+            _treasuryAccountName = dataRow[ "TreasuryAccountName" ]?.ToString( );
+            _budgetAccountCode = dataRow[ "BudgetAccountCode" ]?.ToString( );
+            _budgetAccountName = dataRow[ "BudgetAccountName" ]?.ToString( );
         }
     }
 }

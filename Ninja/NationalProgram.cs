@@ -56,15 +56,43 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     public class NationalProgram : DataUnit
     {
+        /// <summary>
+        /// The title
+        /// </summary>
+        private protected string _title;
+
+        /// <summary>
+        /// The rpio code
+        /// </summary>
+        private protected string _rpioCode;
+
+        /// <summary>
+        /// The NPM
+        /// </summary>
+        private protected NPM _npm;
+        
         /// <summary>
         /// Gets or sets the title.
         /// </summary>
         /// <value>
         /// The title.
         /// </value>
-        public string Title { get; set; }
+        public string Title
+        {
+            get
+            {
+                return _title;
+            }
+            private protected set
+            {
+                _title = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the rpio code.
@@ -72,7 +100,17 @@ namespace BudgetExecution
         /// <value>
         /// The rpio code.
         /// </value>
-        public string RpioCode { get; set; }
+        public string RpioCode
+        {
+            get
+            {
+                return _rpioCode;
+            }
+            private protected set
+            {
+                _rpioCode = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the NPM.
@@ -80,14 +118,25 @@ namespace BudgetExecution
         /// <value>
         /// The NPM.
         /// </value>
-        public NPM NPM { get; set; }
+        public NPM NPM
+        {
+            get
+            {
+                return _npm;
+            }
+            private protected set
+            {
+                _npm = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="T:BudgetExecution.NationalProgram" /> class.
         /// </summary>
-        public NationalProgram( )
+        public NationalProgram( ) 
+            : base( )
         {
         }
 
@@ -97,16 +146,17 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.NationalProgram" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public NationalProgram( IQuery query )
+        public NationalProgram( IQuery query ) 
+            : base( query )
         {
-            Record = new DataBuilder( query )?.Record;
-            ID = int.Parse( Record[ "NationalProgramsId" ].ToString( ) );
-            Name = Record[ "Name" ].ToString( );
-            Code = Record[ "Code" ].ToString( );
-            RpioCode = Record[ "RpioCode" ].ToString( );
-            Title = Record[ "Title" ].ToString( );
-            Data = Record?.ToDictionary( );
-            NPM = (NPM)Enum.Parse( typeof( NPM ), Code );
+            _record = new DataBuilder( query )?.Record;
+            _id = int.Parse( _record[ "NationalProgramsId" ]?.ToString( ) );
+            _name = _record[ "Name" ]?.ToString( );
+            _code = _record[ "Code" ]?.ToString( );
+            _rpioCode = _record[ "RpioCode" ]?.ToString( );
+            _title = _record[ "Title" ]?.ToString( );
+            _map = _record?.ToDictionary( );
+            _npm = (NPM)Enum.Parse( typeof( NPM ), _code );
         }
 
         /// <inheritdoc />
@@ -115,16 +165,17 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.NationalProgram" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public NationalProgram( IDataModel builder )
+        public NationalProgram( IDataModel builder ) 
+            : base( builder )
         {
-            Record = builder.Record;
-            ID = int.Parse( Record[ "NationalProgramsId" ].ToString( ) );
-            Name = Record[ "Name" ].ToString( );
-            Code = Record[ "Code" ].ToString( );
-            RpioCode = Record[ "RpioCode" ].ToString( );
-            Title = Record[ "Title" ].ToString( );
-            Data = Record?.ToDictionary( );
-            NPM = (NPM)Enum.Parse( typeof( NPM ), Code );
+            _record = builder.Record;
+            _id = int.Parse( _record[ "NationalProgramsId" ]?.ToString( ) );
+            _name = _record[ "Name" ]?.ToString( );
+            _code = _record[ "Code" ]?.ToString( );
+            _rpioCode = _record[ "RpioCode" ]?.ToString( );
+            _title = _record[ "Title" ]?.ToString( );
+            _map = _record?.ToDictionary( );
+            _npm = (NPM)Enum.Parse( typeof( NPM ), _code );
         }
 
         /// <inheritdoc />
@@ -133,16 +184,17 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.NationalProgram" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public NationalProgram( DataRow dataRow )
+        public NationalProgram( DataRow dataRow ) 
+            : base( dataRow )
         {
-            Record = dataRow;
-            ID = int.Parse( Record[ "NationalProgramsId" ].ToString( ) );
-            Name = Record[ "Name" ].ToString( );
-            Code = Record[ "Code" ].ToString( );
-            RpioCode = Record[ "RpioCode" ].ToString( );
-            Title = Record[ "Title" ].ToString( );
-            Data = Record?.ToDictionary( );
-            NPM = (NPM)Enum.Parse( typeof( NPM ), Code );
+            _record = dataRow;
+            _id = int.Parse( dataRow[ "NationalProgramsId" ]?.ToString( ) );
+            _name = dataRow[ "Name" ]?.ToString( );
+            _code = dataRow[ "Code" ]?.ToString( );
+            _rpioCode = dataRow[ "RpioCode" ]?.ToString( );
+            _title = dataRow[ "Title" ]?.ToString( );
+            _map = dataRow?.ToDictionary( );
+            _npm = (NPM)Enum.Parse( typeof( NPM ), _code );
         }
 
         /// <inheritdoc />
@@ -151,16 +203,17 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.NationalProgram" /> class.
         /// </summary>
         /// <param name="code">The code.</param>
-        public NationalProgram( string code )
+        public NationalProgram( string code ) 
+            : base( )
         {
-            Record = new DataBuilder( Source, GetArgs( code ) )?.Record;
-            ID = int.Parse( Record[ "NationalProgramsId" ].ToString( ) );
-            Name = Record[ "Name" ].ToString( );
-            Code = Record[ "Code" ].ToString( );
-            RpioCode = Record[ "RpioCode" ].ToString( );
-            Title = Record[ "Title" ].ToString( );
-            Data = Record?.ToDictionary( );
-            NPM = (NPM)Enum.Parse( typeof( NPM ), Code );
+            _record = new DataBuilder( _source, GetArgs( code ) )?.Record;
+            _id = int.Parse( _record[ "NationalProgramsId" ]?.ToString( ) );
+            _name = _record[ "Name" ]?.ToString( );
+            _code = _record[ "Code" ]?.ToString( );
+            _rpioCode = _record[ "RpioCode" ]?.ToString( );
+            _title = _record[ "Title" ]?.ToString( );
+            _map = _record?.ToDictionary( );
+            _npm = (NPM)Enum.Parse( typeof( NPM ), _code );
         }
 
         /// <inheritdoc />
@@ -169,7 +222,8 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.NationalProgram" /> class.
         /// </summary>
         /// <param name="npm">The NPM.</param>
-        public NationalProgram( NationalProgram npm )
+        public NationalProgram( NationalProgram npm ) 
+            : base( )
         {
             ID = npm.ID;
             Code = npm.Code;

@@ -64,7 +64,7 @@ namespace BudgetExecution
         /// </summary>
         public Objective( )
         {
-            Source = Source.Objectives;
+            _source = Source.Objectives;
         }
 
         /// <inheritdoc />
@@ -76,11 +76,11 @@ namespace BudgetExecution
         /// <param name="query"> The query. </param>
         public Objective( IQuery query )
         {
-            Record = new DataBuilder( query )?.Record;
-            ID = int.Parse( Record?[ "ObjectivesId" ].ToString( ) ?? string.Empty );
-            Name = Record?[ "Name" ].ToString( );
-            Code = Record?[ "Code" ].ToString( );
-            Data = Record?.ToDictionary( );
+            _record = new DataBuilder( query )?.Record;
+            _id = int.Parse( _record[ "ObjectivesId" ]?.ToString( ) ?? "0" );
+            _name = _record[ "Name" ]?.ToString( );
+            _code = _record[ "Code" ]?.ToString( );
+            _map = _record?.ToDictionary( );
         }
 
         /// <inheritdoc />
@@ -92,11 +92,11 @@ namespace BudgetExecution
         /// <param name="builder"> The builder. </param>
         public Objective( IDataModel builder )
         {
-            Record = builder?.Record;
-            ID = int.Parse( Record?[ "ObjectivesId" ].ToString( ) ?? string.Empty );
-            Name = Record?[ "Name" ].ToString( );
-            Code = Record?[ "Code" ].ToString( );
-            Data = Record?.ToDictionary( );
+            _record = builder.Record;
+            _id = int.Parse( _record[ "ObjectivesId" ]?.ToString( ) ?? "0" );
+            _name = _record[ "Name" ]?.ToString( );
+            _code = _record[ "Code" ]?.ToString( );
+            _map = _record?.ToDictionary( );
         }
 
         /// <inheritdoc />
@@ -109,13 +109,13 @@ namespace BudgetExecution
         public Objective( DataRow dataRow )
             : this( )
         {
-            Record = dataRow;
-            ID = int.Parse( Record?[ "ObjectivesId" ].ToString( ) ?? string.Empty );
-            Name = dataRow[ "Name" ].ToString( );
-            Code = dataRow[ "Code" ].ToString( );
-            Data = dataRow?.ToDictionary( );
+            _record = dataRow;
+            _id = int.Parse( dataRow[ "ObjectivesId" ]?.ToString( ) ?? "0" );
+            _name = dataRow[ "Name" ]?.ToString( );
+            _code = dataRow[ "Code" ]?.ToString( );
+            _map = dataRow?.ToDictionary( );
         }
-
+        
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -125,13 +125,13 @@ namespace BudgetExecution
         /// <param name="code"> The code. </param>
         public Objective( string code )
         {
-            Record = new DataBuilder( Source, SetArgs( code ) )?.Record;
-            ID = int.Parse( Record?[ "ObjectivesId" ].ToString( ) ?? string.Empty );
-            Name = Record?[ "Field.Name" ].ToString( );
-            Code = Record?[ "Code" ].ToString( );
-            Data = Record?.ToDictionary( );
+            _record = new DataBuilder( _source, SetArgs( code ) )?.Record;
+            _id = int.Parse( _record[ "ObjectivesId" ]?.ToString( ) ?? "0" );
+            _name = _record[ "Name" ]?.ToString( );
+            _code = _record[ "Code" ]?.ToString( );
+            _map = _record?.ToDictionary( );
         }
-
+        
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
@@ -141,9 +141,10 @@ namespace BudgetExecution
         /// <param name="objective"> The objective. </param>
         public Objective( Objective objective )
         {
-            ID = objective.ID;
-            Code = objective.Code;
-            Name = objective.Name;
+            _id = objective.ID;
+            _code = objective.Code;
+            _name = objective.Name;
+            _map = objective.Map;
         }
 
         /// <summary> Sets the arguments. </summary>

@@ -94,7 +94,7 @@ namespace BudgetExecution
             _programProjectName = _record[ "ProgramProjectName" ].ToString( );
             _activityCode = _record[ "ActivityCode" ].ToString( );
             _activityName = _record[ "ActivityName" ].ToString( );
-            _data = _record?.ToDictionary( );
+            _map = _record?.ToDictionary( );
         }
 
         /// <inheritdoc/>
@@ -120,7 +120,7 @@ namespace BudgetExecution
             _programProjectName = _record[ "ProgramProjectName" ].ToString( );
             _activityCode = _record[ "ActivityCode" ].ToString( );
             _activityName = _record[ "ActivityName" ].ToString( );
-            _data = _record?.ToDictionary( );
+            _map = _record?.ToDictionary( );
         }
 
         /// <inheritdoc/>
@@ -145,7 +145,7 @@ namespace BudgetExecution
             _programProjectName = dataRow[ "ProgramProjectName" ].ToString( );
             _activityCode = dataRow[ "ActivityCode" ].ToString( );
             _activityName = dataRow[ "ActivityName" ].ToString( );
-            _data = dataRow?.ToDictionary( );
+            _map = dataRow?.ToDictionary( );
         }
 
         /// <inheritdoc/>
@@ -171,7 +171,7 @@ namespace BudgetExecution
             _programProjectName = _record[ "ProgramProjectName" ].ToString( );
             _activityCode = _record[ "ActivityCode" ].ToString( );
             _activityName = _record[ "ActivityName" ].ToString( );
-            _data = _record?.ToDictionary( );
+            _map = _record?.ToDictionary( );
         }
 
         /// <inheritdoc/>

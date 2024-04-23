@@ -248,7 +248,7 @@ namespace BudgetExecution
             : this( )
         {
             Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
+            Map = Record.ToDictionary( );
             FiscalYear = Record[ "FiscalYear" ].ToString( );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
@@ -287,7 +287,7 @@ namespace BudgetExecution
             : this( )
         {
             Record = builder.Record;
-            Data = Record.ToDictionary( );
+            Map = Record.ToDictionary( );
             FiscalYear = Record[ "FiscalYear" ].ToString( );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
@@ -326,7 +326,7 @@ namespace BudgetExecution
             : this( )
         {
             Record = dataRow;
-            Data = dataRow.ToDictionary( );
+            Map = dataRow.ToDictionary( );
             FiscalYear = dataRow[ "FiscalYear" ].ToString( );
             BFY = dataRow[ "BFY" ].ToString( );
             EFY = dataRow[ "EFY" ].ToString( );

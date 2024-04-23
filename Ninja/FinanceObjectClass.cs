@@ -56,15 +56,43 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     public class FinanceObjectClass : DataUnit
     {
+        /// <summary>
+        /// The boc code
+        /// </summary>
+        private protected string _bocCode;
+
+        /// <summary>
+        /// The boc name
+        /// </summary>
+        private protected string _bocName;
+
+        /// <summary>
+        /// The category
+        /// </summary>
+        private protected BOC _category;
+        
         /// <summary>
         /// Gets or sets the boc code.
         /// </summary>
         /// <value>
         /// The boc code.
         /// </value>
-        public string BocCode { get; set; }
+        public string BocCode
+        {
+            get
+            {
+                return _bocCode;
+            }
+            private protected set
+            {
+                _bocCode = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the name of the boc.
@@ -72,7 +100,17 @@ namespace BudgetExecution
         /// <value>
         /// The name of the boc.
         /// </value>
-        public string BocName { get; set; }
+        public string BocName
+        {
+            get
+            {
+                return _bocName;
+            }
+            private protected set
+            {
+                _bocName = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the category.
@@ -80,7 +118,17 @@ namespace BudgetExecution
         /// <value>
         /// The category.
         /// </value>
-        public BOC Category { get; set; }
+        public BOC Category
+        {
+            get
+            {
+                return _category;
+            }
+            private protected set
+            {
+                _category = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
@@ -99,11 +147,14 @@ namespace BudgetExecution
         /// <param name="query">The query.</param>
         public FinanceObjectClass( IQuery query )
         {
-            Record = new DataBuilder( query )?.Record;
-            ID = int.Parse( Record[ "FinanceObjectClassesId" ].ToString( ) ?? string.Empty );
-            Name = Record[ $"{Field.Name}" ].ToString( );
-            Code = Record[ $"{Field.Code}" ].ToString( );
-            Data = Record?.ToDictionary( );
+            _record = new DataBuilder( query )?.Record;
+            _id = int.Parse( _record[ "FinanceObjectClassesId" ].ToString( ) ?? "0" );
+            _name = _record[ "Name" ].ToString( );
+            _code = _record[ "Code" ].ToString( );
+            _bocCode = _record[ "BocCode" ].ToString( );
+            _bocName = _record[ "BocName" ].ToString( );
+            _category = (BOC)Enum.Parse( typeof( BOC ), _record[ "Category" ].ToString( ) );
+            _map = _record?.ToDictionary( );
         }
 
         /// <inheritdoc />
@@ -114,11 +165,14 @@ namespace BudgetExecution
         /// <param name="builder">The builder.</param>
         public FinanceObjectClass( IDataModel builder )
         {
-            Record = builder?.Record;
-            ID = int.Parse( Record[ "FinanceObjectClassesId" ].ToString( ) ?? string.Empty );
-            Name = Record[ $"{Field.Name}" ].ToString( );
-            Code = Record[ $"{Field.Code}" ].ToString( );
-            Data = Record?.ToDictionary( );
+            _record = builder.Record;
+            _id = int.Parse( _record[ "FinanceObjectClassesId" ].ToString( ) ?? "0" );
+            _name = _record[ "Name" ].ToString( );
+            _code = _record[ "Code" ].ToString( );
+            _bocCode = _record[ "BocCode" ].ToString( );
+            _bocName = _record[ "BocName" ].ToString( );
+            _category = (BOC)Enum.Parse( typeof( BOC ), _record[ "Category" ].ToString( ) );
+            _map = _record?.ToDictionary( );
         }
 
         /// <inheritdoc />
@@ -129,11 +183,14 @@ namespace BudgetExecution
         /// <param name="dataRow">The data row.</param>
         public FinanceObjectClass( DataRow dataRow )
         {
-            Record = dataRow;
-            ID = int.Parse( Record[ "FinanceObjectClassesId" ].ToString( ) ?? string.Empty );
-            Name = dataRow[ $"{Field.Name}" ].ToString( );
-            Code = dataRow[ $"{Field.Code}" ].ToString( );
-            Data = dataRow?.ToDictionary( );
+            _record = dataRow;
+            _id = int.Parse( dataRow[ "FinanceObjectClassesId" ].ToString( ) ?? "0" );
+            _name = dataRow[ "Name" ].ToString( );
+            _code = dataRow[ "Code" ].ToString( );
+            _bocCode = dataRow[ "BocCode" ].ToString( );
+            _bocName = dataRow[ "BocName" ].ToString( );
+            _category = (BOC)Enum.Parse( typeof( BOC ), dataRow[ "Category" ].ToString( ) );
+            _map = dataRow?.ToDictionary( );
         }
 
         /// <inheritdoc />
@@ -144,11 +201,14 @@ namespace BudgetExecution
         /// <param name="focCode">The foc code.</param>
         public FinanceObjectClass( string focCode )
         {
-            Record = new DataBuilder( Source, GetArgs( focCode ) )?.Record;
-            ID = int.Parse( Record["FinanceObjectClassesId"].ToString() ?? string.Empty );
-            Name = Record[ $"{Field.Name}" ].ToString( );
-            Code = Record[ $"{Field.Code}" ].ToString( );
-            Data = Record?.ToDictionary( );
+            _record = new DataBuilder( _source, GetArgs( focCode ) )?.Record;
+            _id = int.Parse( _record[ "FinanceObjectClassesId" ].ToString( ) ?? "0" );
+            _name = _record[ "Name" ].ToString( );
+            _code = _record[ "Code" ].ToString( );
+            _bocCode = _record[ "BocCode" ].ToString( );
+            _bocName = _record[ "BocName" ].ToString( );
+            _category = (BOC)Enum.Parse( typeof( BOC ), _record[ "Category" ].ToString( ) );
+            _map = _record?.ToDictionary( );
         }
 
         /// <inheritdoc />
@@ -159,12 +219,12 @@ namespace BudgetExecution
         /// <param name="foc">The foc.</param>
         public FinanceObjectClass( FinanceObjectClass foc )
         {
-            ID = foc.ID;
-            Code = foc.Code;
-            Name = foc.Name;
-            Category = foc.Category;
-            BocCode = foc.BocCode;
-            BocName = foc.BocName;
+            _id = foc.ID;
+            _code = foc.Code;
+            _name = foc.Name;
+            _category = foc.Category;
+            _bocCode = foc.BocCode;
+            _bocName = foc.BocName;
         }
 
         /// <summary>

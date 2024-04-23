@@ -76,7 +76,7 @@ namespace BudgetExecution
             ID = int.Parse( Record[ "AccountingEventsId" ].ToString( ) ?? "0" );
             Code = Record[ "Code" ].ToString( );
             Name = Record[ "Name" ].ToString( );
-            Data = Record.ToDictionary( );
+            Map = Record.ToDictionary( );
         }
 
         /// <inheritdoc/>
@@ -93,7 +93,7 @@ namespace BudgetExecution
             ID = int.Parse( Record[ "AccountingEventsId" ].ToString( ) ?? "0" );
             Code = Record[ "Code" ].ToString( );
             Name = Record[ "Name" ].ToString( );
-            Data = Record.ToDictionary( );
+            Map = Record.ToDictionary( );
         }
 
         /// <inheritdoc/>
@@ -110,7 +110,7 @@ namespace BudgetExecution
             ID = int.Parse( Record[ "AccountingEventsId" ].ToString( ) ?? "0" );
             Code = Record[ "Code" ].ToString( );
             Name = Record[ "Name" ].ToString( );
-            Data = dataRow.ToDictionary( );
+            Map = dataRow.ToDictionary( );
         }
 
         /// <summary>

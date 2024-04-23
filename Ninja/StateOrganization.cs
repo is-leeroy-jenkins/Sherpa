@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="Report.cs" company="Terry D. Eppler">
+// <copyright file="StateOrganization.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,93 +34,139 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   Report.cs
+//   StateOrganization.cs
 // </summary>
 // ******************************************************************************************
 
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class Reports
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    public class StateOrganization : DataUnit
     {
         /// <summary>
-        /// Gets or sets the identifier.
+        /// The org code
         /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
-        public int ID { get; set; }
+        private protected string _orgCode;
 
         /// <summary>
-        /// Gets or sets the source.
+        /// The rpio name
         /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
-        public Source Source { get; set; }
+        private protected string _rpioName;
 
         /// <summary>
-        /// Gets or sets the record.
+        /// The rpio code
         /// </summary>
-        /// <value>
-        /// The record.
-        /// </value>
-        public DataRow Record { get; set; }
+        private protected string _rpioCode;
 
         /// <summary>
-        /// Gets or sets the data.
+        /// Gets or sets the org code.
         /// </summary>
         /// <value>
-        /// The data.
+        /// The org code.
         /// </value>
-        public IDictionary<string, object> Data { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Reports"/> class.
-        /// </summary>
-        public Reports( )
+        public string OrgCode
         {
+            get
+            {
+                return _orgCode;
+            }
+            private protected set
+            {
+                _orgCode = value;
+            }
         }
 
         /// <summary>
+        /// Gets or sets the name of the rpio.
+        /// </summary>
+        /// <value>
+        /// The name of the rpio.
+        /// </value>
+        public string RpioName
+        {
+            get
+            {
+                return _rpioName;
+            }
+            private protected set
+            {
+                _rpioName = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the rpio code.
+        /// </summary>
+        /// <value>
+        /// The rpio code.
+        /// </value>
+        public string RpioCode
+        {
+            get
+            {
+                return _rpioCode;
+            }
+            private protected set
+            {
+                _rpioCode = value;
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Reports"/> class.
+        /// <see cref="T:BudgetExecution.StateOrganizations" /> class.
+        /// </summary>
+        public StateOrganization( ) 
+            : base( )
+        {
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.StateOrganizations" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public Reports( IQuery query )
+        public StateOrganization( IQuery query ) 
+            : base( query )
         {
-            Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
+            _record = new DataBuilder( query ).Record; 
+            _map = _record.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="Reports"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.StateOrganizations" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public Reports( IDataModel builder )
+        public StateOrganization( IDataModel builder )
         {
-            Record = builder.Record;
-            Data = Record.ToDictionary( );
+            _record = builder.Record;
+            _map = _record.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="Reports"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.StateOrganizations" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public Reports( DataRow dataRow )
+        public StateOrganization( DataRow dataRow )
         {
-            Record = dataRow;
-            Data = dataRow.ToDictionary( );
+            _record = dataRow;
+            _map = dataRow.ToDictionary( );
         }
     }
 }

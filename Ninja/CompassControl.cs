@@ -392,7 +392,7 @@
             : base( query )
         {
             _record = new DataBuilder( query ).Record;
-            _data = _record.ToDictionary( );
+            _map = _record.ToDictionary( );
         }
 
         /// <inheritdoc />
@@ -405,7 +405,7 @@
             : base( builder )
         {
             _record = builder.Record;
-            _data = _record.ToDictionary( );
+            _map = _record.ToDictionary( );
         }
 
         /// <inheritdoc />
@@ -418,7 +418,7 @@
             : base( dataRow )
         {
             _record = dataRow;
-            _data = _record.ToDictionary( );
+            _map = _record.ToDictionary( );
         }
     }
 }

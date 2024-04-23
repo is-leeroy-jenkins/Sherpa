@@ -74,7 +74,7 @@ namespace BudgetExecution
         public PayrollAuthority( IQuery query )
         {
             _record = new DataBuilder( query ).Record;
-            _data = Record.ToDictionary( );
+            _map = Record.ToDictionary( );
             _id = int.Parse( Record[ "PayrollAuthorityId" ].ToString( ) ?? "0" );
             _budgetLevel = _record[ "BudgetLevel" ].ToString( );
             _bfy = _record[ "BFY" ].ToString( );
@@ -117,7 +117,7 @@ namespace BudgetExecution
         public PayrollAuthority( IDataModel builder )
         {
             _record = builder.Record;
-            _data = _record.ToDictionary( );
+            _map = _record.ToDictionary( );
             _id = int.Parse( _record[ "PayrollAuthorityId" ].ToString( ) ?? "0" );
             _budgetLevel = _record[ "BudgetLevel" ].ToString( );
             _bfy = _record[ "BFY" ].ToString( );
@@ -160,7 +160,7 @@ namespace BudgetExecution
         public PayrollAuthority( DataRow dataRow )
         {
             _record = dataRow;
-            _data = dataRow.ToDictionary( );
+            _map = dataRow.ToDictionary( );
             _id = int.Parse( dataRow[ "PayrollAuthorityId" ].ToString( ) ?? "0" );
             _budgetLevel = dataRow[ "BudgetLevel" ].ToString( );
             _bfy = dataRow[ "BFY" ].ToString( );

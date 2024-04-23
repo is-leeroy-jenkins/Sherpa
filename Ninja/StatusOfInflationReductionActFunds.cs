@@ -69,7 +69,7 @@ namespace BudgetExecution
         public StatusOfInflationReductionActFunds( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
+            Map = Record.ToDictionary( );
             ID = int.Parse( Record[ "StatusOfInflationReductionActFundsId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
@@ -120,7 +120,7 @@ namespace BudgetExecution
         public StatusOfInflationReductionActFunds( IDataModel builder )
         {
             Record = builder.Record;
-            Data = Record.ToDictionary( );
+            Map = Record.ToDictionary( );
             ID = int.Parse( Record[ "StatusOfInflationReductionActFundsId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
@@ -171,7 +171,7 @@ namespace BudgetExecution
         public StatusOfInflationReductionActFunds( DataRow dataRow )
         {
             Record = dataRow;
-            Data = dataRow.ToDictionary( );
+            Map = dataRow.ToDictionary( );
             ID = int.Parse( dataRow[ "StatusOfInflationReductionActFundsId" ].ToString( ) ?? "0" );
             BFY = dataRow[ "BFY" ].ToString( );
             EFY = dataRow[ "EFY" ].ToString( );

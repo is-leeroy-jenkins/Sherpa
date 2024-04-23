@@ -86,7 +86,7 @@ namespace BudgetExecution
             _id = int.Parse( _record[ "ActivityCodesId" ].ToString( ) ?? "0" );
             _name = _record[ "ActivityName" ].ToString( );
             _code = _record[ "ActivityCode" ].ToString( );
-            _data = _record?.ToDictionary( );
+            _map = _record?.ToDictionary( );
         }
 
         /// <inheritdoc />
@@ -103,7 +103,7 @@ namespace BudgetExecution
             _id = int.Parse( _record[ "ActivityCodesId" ].ToString( ) ?? "0" );
             _name = _record[ "ActivityName" ].ToString( );
             _code = _record[ "ActivityCode" ].ToString( );
-            _data = _record?.ToDictionary( );
+            _map = _record?.ToDictionary( );
         }
 
         /// <inheritdoc />
@@ -120,7 +120,7 @@ namespace BudgetExecution
             _id = int.Parse( Record[ "ActivityCodesId" ].ToString( ) ?? "0" );
             _name = dataRow[ "ActivityName" ].ToString( );
             _code = dataRow[ "ActivityCode" ].ToString( );
-            _data = dataRow?.ToDictionary( );
+            _map = dataRow?.ToDictionary( );
         }
 
         /// <inheritdoc />
@@ -137,7 +137,7 @@ namespace BudgetExecution
             _id = int.Parse( _record[ "ActivityCodesId" ].ToString( ) ?? "0" );
             _name = _record[ "ActivityName" ].ToString( );
             _code = _record[ "ActivityCode" ].ToString( );
-            _data = _record?.ToDictionary( );
+            _map = _record?.ToDictionary( );
         }
 
         /// <inheritdoc />

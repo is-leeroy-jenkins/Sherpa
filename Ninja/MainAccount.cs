@@ -48,37 +48,50 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class MainAccount
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    public class MainAccount : DataUnit
     {
         /// <summary>
-        /// Gets or sets the main accounts identifier.
+        /// The sub function code
         /// </summary>
-        /// <value>
-        /// The main accounts identifier.
-        /// </value>
-        public int MainAccountsId { get; set; }
+        private protected string _subFunctionCode;
 
         /// <summary>
-        /// Gets or sets the code.
+        /// The sub function name
         /// </summary>
-        /// <value>
-        /// The code.
-        /// </value>
-        public string Code { get; set; }
+        private protected string _subFunctionName;
 
         /// <summary>
-        /// Gets or sets the name.
+        /// The treasury account code
         /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
-        public string Name { get; set; }
+        private protected string _treasuryAccountCode;
+
+        /// <summary>
+        /// The treasury account name
+        /// </summary>
+        private protected string _treasuryAccountName;
+
+        /// <summary>
+        /// The budget account code
+        /// </summary>
+        private protected string _budgetAccountCode;
+
+        /// <summary>
+        /// The budget account name
+        /// </summary>
+        private protected string _budgetAccountName;
+
+        /// <summary>
+        /// The budget enforement act category
+        /// </summary>
+        private protected string _budgetEnforcementActCategory;
 
         /// <summary>
         /// Gets or sets the sub function code.
@@ -136,46 +149,16 @@ namespace BudgetExecution
         /// </value>
         public string BudgetEnforcementActCategory { get; set; }
 
-        /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
-        public Source Source { get; set; }
-
-        /// <summary>
-        /// Gets or sets the provider.
-        /// </summary>
-        /// <value>
-        /// The provider.
-        /// </value>
-        public Provider Provider { get; set; }
-
-        /// <summary>
-        /// Gets or sets the record.
-        /// </summary>
-        /// <value>
-        /// The record.
-        /// </value>
-        public DataRow Record { get; set; }
-
-        /// <summary>
-        /// Gets or sets the data.
-        /// </summary>
-        /// <value>
-        /// The data.
-        /// </value>
-        public IDictionary<string, object> Data { get; set; }
-
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="MainAccount" />
+        /// <see cref="T:BudgetExecution.MainAccount" />
         /// class.
         /// </summary>
-        public MainAccount( )
+        public MainAccount( ) 
+            : base( )
         {
-            Source = Source.MainAccounts;
+            _source = Source.MainAccounts;
         }
 
         /// <inheritdoc/>
@@ -186,19 +169,20 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="query"> The query. </param>
         public MainAccount( IQuery query )
-            : this( )
+            : base( query )
         {
-            Provider = query.Provider;
-            Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
-            MainAccountsId = int.Parse( Record[ "MainAccountsId" ].ToString( ) ?? string.Empty );
-            Code = Record[ "Code" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
-            BudgetEnforcementActCategory = Record[ "BudgetEnforcementActCategory" ].ToString( );
+            _record = new DataBuilder( query ).Record;
+            _map = _record.ToDictionary( );
+            _id = int.Parse( _record[ "MainAccountsId" ]?.ToString( ) ?? "0" );
+            _code = _record[ "Code" ]?.ToString( );
+            _name = _record[ "Name" ]?.ToString( );
+            _subFunctionCode = _record[ "SubFunctionCode" ]?.ToString( );
+            _subFunctionName = _record[ "SubFunctionName" ]?.ToString( );
+            _treasuryAccountCode = _record[ "TreasuryAccountCode" ]?.ToString( );
+            _treasuryAccountName = _record[ "TreasuryAccountName" ]?.ToString( );
+            _budgetAccountCode = _record[ "BudgetAccountCode" ]?.ToString( );
+            _budgetAccountName = _record[ "BudgetAccountName" ]?.ToString( );
+            _budgetEnforcementActCategory = _record[ "BudgetEnforcementActCategory" ]?.ToString( );
         }
 
         /// <inheritdoc/>
@@ -209,19 +193,20 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="builder"> The builder. </param>
         public MainAccount( IDataModel builder )
-            : this( )
+            : base( builder )
         {
-            Provider = builder.Provider;
-            Record = builder.Record;
-            Data = Record.ToDictionary( );
-            MainAccountsId = int.Parse( Record[ "MainAccountsId" ].ToString( ) ?? string.Empty );
-            Code = Record[ "Code" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
-            BudgetEnforcementActCategory = Record[ "BudgetEnforcementActCategory" ].ToString( );
+            _record = builder.Record;
+            _map = _record.ToDictionary( );
+            _id = int.Parse( _record[ "MainAccountsId" ]?.ToString( ) ?? "0" );
+            _code = _record[ "Code" ]?.ToString( );
+            _name = _record[ "Name" ]?.ToString( );
+            _subFunctionCode = _record[ "SubFunctionCode" ]?.ToString( );
+            _subFunctionName = _record[ "SubFunctionName" ]?.ToString( );
+            _treasuryAccountCode = _record[ "TreasuryAccountCode" ]?.ToString( );
+            _treasuryAccountName = _record[ "TreasuryAccountName" ]?.ToString( );
+            _budgetAccountCode = _record[ "BudgetAccountCode" ]?.ToString( );
+            _budgetAccountName = _record[ "BudgetAccountName" ]?.ToString( );
+            _budgetEnforcementActCategory = _record[ "BudgetEnforcementActCategory" ]?.ToString( );
         }
 
         /// <inheritdoc/>
@@ -234,16 +219,18 @@ namespace BudgetExecution
         public MainAccount( DataRow dataRow )
             : this( )
         {
-            Record = dataRow;
-            Data = dataRow.ToDictionary( );
-            MainAccountsId = int.Parse( Record[ "MainAccountsId" ].ToString( ) ?? string.Empty );
-            Code = Record[ "Code" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
-            BudgetEnforcementActCategory = Record[ "BudgetEnforcementActCategory" ].ToString( );
+            _record = dataRow;
+            _map = dataRow.ToDictionary( );
+            _id = int.Parse( dataRow[ "MainAccountsId" ]?.ToString( ) ?? "0" );
+            _code = dataRow[ "Code" ]?.ToString( );
+            _name = dataRow[ "Name" ]?.ToString( );
+            _subFunctionCode = dataRow[ "SubFunctionCode" ]?.ToString( );
+            _subFunctionName = dataRow[ "SubFunctionName" ]?.ToString( );
+            _treasuryAccountCode = dataRow[ "TreasuryAccountCode" ]?.ToString( );
+            _treasuryAccountName = dataRow[ "TreasuryAccountName" ]?.ToString( );
+            _budgetAccountCode = dataRow[ "BudgetAccountCode" ]?.ToString( );
+            _budgetAccountName = dataRow[ "BudgetAccountName" ]?.ToString( );
+            _budgetEnforcementActCategory = dataRow[ "BudgetEnforcementActCategory" ]?.ToString( );
         }
     }
 }

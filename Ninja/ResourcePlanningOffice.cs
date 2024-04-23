@@ -80,7 +80,7 @@ namespace BudgetExecution
             _id = int.Parse( _record[ "ResourcePlanningOfficesId" ].ToString( ) ?? "0" );
             _name = _record[ "Name" ].ToString( );
             _code = _record[ "Code" ].ToString( );
-            _data = _record?.ToDictionary( );
+            _map = _record?.ToDictionary( );
         }
 
         /// <inheritdoc />
@@ -96,7 +96,7 @@ namespace BudgetExecution
             _id = int.Parse( _record?[ "ResourcePlanningOfficesId" ].ToString( ) ?? "0" );
             _name = _record?[ "Name" ].ToString( );
             _code = _record?[ "Code" ].ToString( );
-            _data = _record?.ToDictionary( );
+            _map = _record?.ToDictionary( );
         }
 
         /// <inheritdoc />
@@ -112,7 +112,7 @@ namespace BudgetExecution
             _id = int.Parse( dataRow[ "ResourcePlanningOfficesId" ].ToString( ) ?? "0" );
             _name = dataRow[ "Name" ].ToString( );
             _code = dataRow[ "Code" ].ToString( );
-            _data = dataRow.ToDictionary( );
+            _map = dataRow.ToDictionary( );
         }
 
         /// <inheritdoc />
@@ -128,7 +128,7 @@ namespace BudgetExecution
             _id = int.Parse( _record?[ "ResourcePlanningOfficesId" ].ToString( ) ?? "0" );
             _name = _record?[ "Name" ].ToString( );
             _code = _record?[ "Code" ].ToString( );
-            _data = _record?.ToDictionary( );
+            _map = _record?.ToDictionary( );
         }
 
         /// <inheritdoc />

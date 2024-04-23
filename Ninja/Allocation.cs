@@ -55,15 +55,47 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     public class Allocation : StatusOfFunds
     {
+        /// <summary>
+        /// The appropriation code
+        /// </summary>
+        private protected string _appropriationCode;
+
+        /// <summary>
+        /// The appropriation name
+        /// </summary>
+        private protected string _appropriationName;
+
+        /// <summary>
+        /// The sub appropriation code
+        /// </summary>
+        private string _subAppropriationCode;
+
+        /// <summary>
+        /// The sub appropriation name
+        /// </summary>
+        private string _subAppropriationName;
+
         /// <summary>
         /// Gets or sets the appropriation code.
         /// </summary>
         /// <value>
         /// The appropriation code.
         /// </value>
-        public virtual string AppropriationCode { get; set; }
+        public string AppropriationCode
+        {
+            get
+            {
+                return _appropriationCode;
+            }
+            private protected set
+            {
+                _appropriationCode = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the name of the appropriation.
@@ -71,7 +103,53 @@ namespace BudgetExecution
         /// <value>
         /// The name of the appropriation.
         /// </value>
-        public virtual string AppropriationName { get; set; }
+        public string AppropriationName
+        {
+            get
+            {
+                return _appropriationName;
+            }
+            private protected set
+            {
+                _appropriationName = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the sub appropriation code.
+        /// </summary>
+        /// <value>
+        /// The sub appropriation code.
+        /// </value>
+        public string SubAppropriationCode
+        {
+            get
+            {
+                return _subAppropriationCode;
+            }
+            private protected set
+            {
+                _subAppropriationCode = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the name of the sub appropriation.
+        /// </summary>
+        /// <value>
+        /// The name of the sub appropriation.
+        /// </value>
+        public string SubAppropriationName
+        {
+            get
+            {
+                return _subAppropriationName;
+            }
+            private protected set
+            {
+                _subAppropriationName = value;
+            }
+        }
 
         /// <summary>
         /// Initializes a new instance of the
@@ -93,11 +171,13 @@ namespace BudgetExecution
             : base( query )
         {
             _record = new DataBuilder( query ).Record;
-            _data = Record.ToDictionary( );
+            _map = Record.ToDictionary( );
             _id = int.Parse( _record[ "AllocationsId" ].ToString( ) ?? "0" );
             _budgetLevel = _record[ "BudgetLevel" ].ToString( );
             _bfy = _record[ "BFY" ].ToString( );
             _efy = _record[ "EFY" ].ToString( );
+            _appropriationCode = _record[ "AppropriationCode" ].ToString( );
+            _appropriationName = _record[ "AppropriationName" ].ToString( );
             _fundCode = _record[ "FundCode" ].ToString( );
             _fundName = _record[ "FundName" ].ToString( );
             _rpioCode = _record[ "RpioCode" ].ToString( );
@@ -135,7 +215,7 @@ namespace BudgetExecution
         public Allocation( IDataModel builder )
         {
             _record = builder.Record;
-            _data = _record.ToDictionary( );
+            _map = _record.ToDictionary( );
             _id = int.Parse( _record[ "AllocationsId" ].ToString( ) ?? "0" );
             _budgetLevel = _record[ "BudgetLevel" ].ToString( );
             _bfy = _record[ "BFY" ].ToString( );
@@ -178,7 +258,7 @@ namespace BudgetExecution
             : base( dataRow )
         {
             _record = dataRow;
-            _data = _record.ToDictionary( );
+            _map = _record.ToDictionary( );
             _id = int.Parse( dataRow[ "AllocationsId" ].ToString( ) ?? "0" );
             _budgetLevel = dataRow[ "BudgetLevel" ].ToString( );
             _bfy = dataRow[ "BFY" ].ToString( );
@@ -221,7 +301,7 @@ namespace BudgetExecution
             : base( map )
         {
             _record = new DataBuilder( _source, map )?.Record;
-            _data = _record.ToDictionary( );
+            _map = _record.ToDictionary( );
             _id = int.Parse( _record[ "AllocationsId" ].ToString( ) ?? "0" );
             _budgetLevel = _record[ "BudgetLevel" ].ToString( );
             _bfy = _record[ "BFY" ].ToString( );

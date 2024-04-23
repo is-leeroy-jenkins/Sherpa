@@ -402,22 +402,22 @@ namespace BudgetExecution
             : base( query )
         {
             _record = new DataBuilder( query ).Record;
-            _budgetLevel = _record[ "BudgetLevel" ].ToString( );
-            _rpioCode = _record[ "RpioCode" ].ToString( );
-            _rpioName = _record[ "RpioName" ].ToString( );
-            _ahCode = _record[ "AhCode" ].ToString( );
-            _ahName = _record[ "AhName" ].ToString( );
-            _orgCode = _record[ "OrgCode" ].ToString( );
-            _orgName = _record[ "OrgName" ].ToString( );
-            _accountCode = _record[ "AccountCode" ].ToString( );
-            _bocCode = _record[ "BocCode" ].ToString( );
-            _bocName = _record[ "BocName" ].ToString( );
-            _rcCode = _record[ "RcCode" ].ToString( );
-            _rcName = _record[ "RcName" ].ToString( );
-            _bocCode = _record[ "BocCode" ].ToString( );
-            _bocName = _record[ "BocName" ].ToString( );
-            _programAreaCode = _record[ "ProgramAreaCode" ].ToString( );
-            _programAreaName = _record[ "ProgramAreaName" ].ToString( );
+            _budgetLevel = _record[ "BudgetLevel" ]?.ToString( );
+            _rpioCode = _record[ "RpioCode" ]?.ToString( );
+            _rpioName = _record[ "RpioName" ]?.ToString( );
+            _ahCode = _record[ "AhCode" ]?.ToString( );
+            _ahName = _record[ "AhName" ]?.ToString( );
+            _orgCode = _record[ "OrgCode" ]?.ToString( );
+            _orgName = _record[ "OrgName" ]?.ToString( );
+            _accountCode = _record[ "AccountCode" ]?.ToString( );
+            _bocCode = _record[ "BocCode" ]?.ToString( );
+            _bocName = _record[ "BocName" ]?.ToString( );
+            _rcCode = _record[ "RcCode" ]?.ToString( );
+            _rcName = _record[ "RcName" ]?.ToString( );
+            _bocCode = _record[ "BocCode" ]?.ToString( );
+            _bocName = _record[ "BocName" ]?.ToString( );
+            _programAreaCode = _record[ "ProgramAreaCode" ]?.ToString( );
+            _programAreaName = _record[ "ProgramAreaName" ]?.ToString( );
         }
         
         /// <inheritdoc />
@@ -429,18 +429,23 @@ namespace BudgetExecution
         protected PRC( IDataModel dataBuilder )
         {
             _record = dataBuilder.Record;
-            _data = _record.ToDictionary( );
-            _rpioCode = _record[ "RpioCode" ].ToString( );
-            _rpioName = _record[ "RpioName" ].ToString( );
-            _ahCode = _record[ "AhCode" ].ToString( );
-            _ahName = _record[ "AhName" ].ToString( );
-            _orgCode = _record[ "OrgCode" ].ToString( );
-            _orgName = _record[ "OrgName" ].ToString( );
-            _accountCode = _record[ "AccountCode" ].ToString( );
-            _bocCode = _record[ "BocCode" ].ToString( );
-            _bocName = _record[ "BocName" ].ToString( );
-            _programAreaCode = _record[ "ProgramAreaCode" ].ToString( );
-            _programAreaName = _record[ "ProgramAreaName" ].ToString( );
+            _map = _record.ToDictionary( );
+            _budgetLevel = _record[ "BudgetLevel" ]?.ToString( );
+            _rpioCode = _record[ "RpioCode" ]?.ToString( );
+            _rpioName = _record[ "RpioName" ]?.ToString( );
+            _ahCode = _record[ "AhCode" ]?.ToString( );
+            _ahName = _record[ "AhName" ]?.ToString( );
+            _orgCode = _record[ "OrgCode" ]?.ToString( );
+            _orgName = _record[ "OrgName" ]?.ToString( );
+            _accountCode = _record[ "AccountCode" ]?.ToString( );
+            _bocCode = _record[ "BocCode" ]?.ToString( );
+            _bocName = _record[ "BocName" ]?.ToString( );
+            _rcCode = _record[ "RcCode" ]?.ToString( );
+            _rcName = _record[ "RcName" ]?.ToString( );
+            _bocCode = _record[ "BocCode" ]?.ToString( );
+            _bocName = _record[ "BocName" ]?.ToString( );
+            _programAreaCode = _record[ "ProgramAreaCode" ]?.ToString( );
+            _programAreaName = _record[ "ProgramAreaName" ]?.ToString( );
         }
         
         /// <inheritdoc />
@@ -451,18 +456,23 @@ namespace BudgetExecution
         protected PRC( DataRow dataRow )
         {
             _record = dataRow;
-            _data = dataRow.ToDictionary( );
-            _rpioCode = dataRow[ "RpioCode" ].ToString( );
-            _rpioName = dataRow[ "RpioName" ].ToString( );
-            _ahCode = dataRow[ "AhCode" ].ToString( );
-            _ahName = dataRow[ "AhName" ].ToString( );
-            _orgCode = dataRow[ "OrgCode" ].ToString( );
-            _orgName = dataRow[ "OrgName" ].ToString( );
-            _accountCode = dataRow[ "AccountCode" ].ToString( );
-            _bocCode = dataRow[ "BocCode" ].ToString( );
-            _bocName = dataRow[ "BocName" ].ToString( );
-            _programAreaCode = dataRow[ "ProgramAreaCode" ].ToString( );
-            _programAreaName = dataRow[ "ProgramAreaName" ].ToString( );
+            _map = dataRow.ToDictionary( );
+            _budgetLevel = dataRow[ "BudgetLevel" ]?.ToString( );
+            _rpioCode = dataRow[ "RpioCode" ]?.ToString( );
+            _rpioName = dataRow[ "RpioName" ]?.ToString( );
+            _ahCode = dataRow[ "AhCode" ]?.ToString( );
+            _ahName = dataRow[ "AhName" ]?.ToString( );
+            _orgCode = dataRow[ "OrgCode" ]?.ToString( );
+            _orgName = dataRow[ "OrgName" ]?.ToString( );
+            _accountCode = dataRow[ "AccountCode" ]?.ToString( );
+            _bocCode = dataRow[ "BocCode" ]?.ToString( );
+            _bocName = dataRow[ "BocName" ]?.ToString( );
+            _rcCode = dataRow[ "RcCode" ]?.ToString( );
+            _rcName = dataRow[ "RcName" ]?.ToString( );
+            _bocCode = dataRow[ "BocCode" ]?.ToString( );
+            _bocName = dataRow[ "BocName" ]?.ToString( );
+            _programAreaCode = dataRow[ "ProgramAreaCode" ]?.ToString( );
+            _programAreaName = dataRow[ "ProgramAreaName" ]?.ToString( );
         }
         
         /// <inheritdoc />
@@ -474,20 +484,23 @@ namespace BudgetExecution
         protected PRC( IDictionary<string, object> map )
         {
             _record = new DataBuilder( _source, map )?.Record;
-            _data = _record.ToDictionary( );
-            _rpioCode = _record[ "RpioCode" ].ToString( );
-            _rpioName = _record[ "RpioName" ].ToString( );
-            _ahCode = _record[ "AhCode" ].ToString( );
-            _ahName = _record[ "AhName" ].ToString( );
-            _orgCode = _record[ "OrgCode" ].ToString( );
-            _orgName = _record[ "OrgName" ].ToString( );
-            _accountCode = _record[ "AccountCode" ].ToString( );
-            _bocCode = _record[ "BocCode" ].ToString( );
-            _bocName = _record[ "BocName" ].ToString( );
-            _programProjectCode = _record[ "ProgramProjectCode" ].ToString( );
-            _programProjectName = _record[ "ProgramProjectName" ].ToString( );
-            _programAreaCode = _record[ "ProgramAreaCode" ].ToString( );
-            _programAreaName = _record[ "ProgramAreaName" ].ToString( );
+            _map = _record.ToDictionary( );
+            _budgetLevel = _record[ "BudgetLevel" ]?.ToString( );
+            _rpioCode = _record[ "RpioCode" ]?.ToString( );
+            _rpioName = _record[ "RpioName" ]?.ToString( );
+            _ahCode = _record[ "AhCode" ]?.ToString( );
+            _ahName = _record[ "AhName" ]?.ToString( );
+            _orgCode = _record[ "OrgCode" ]?.ToString( );
+            _orgName = _record[ "OrgName" ]?.ToString( );
+            _accountCode = _record[ "AccountCode" ]?.ToString( );
+            _bocCode = _record[ "BocCode" ]?.ToString( );
+            _bocName = _record[ "BocName" ]?.ToString( );
+            _rcCode = _record[ "RcCode" ]?.ToString( );
+            _rcName = _record[ "RcName" ]?.ToString( );
+            _bocCode = _record[ "BocCode" ]?.ToString( );
+            _bocName = _record[ "BocName" ]?.ToString( );
+            _programAreaCode = _record[ "ProgramAreaCode" ]?.ToString( );
+            _programAreaName = _record[ "ProgramAreaName" ]?.ToString( );
         }
     }
 }

@@ -41,7 +41,6 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
@@ -383,7 +382,7 @@ namespace BudgetExecution
             : base( query )
         {
             _record = new DataBuilder( query )?.Record;
-            _data = Record.ToDictionary( );
+            _map = Record.ToDictionary( );
             _id = int.Parse( _record[ "FundsId" ].ToString( ) ?? "0" );
             _mainAccount = _record[ "MainAccount" ].ToString( );
             _treasuryAccountCode = _record[ "TreasuryAccountCode" ].ToString( );
@@ -402,7 +401,7 @@ namespace BudgetExecution
             : base( builder )
         {
             _record = builder.Record;
-            _data = _record.ToDictionary( );
+            _map = _record.ToDictionary( );
             _id = int.Parse( _record[ "FundsId" ].ToString( ) ?? "0" );
             _mainAccount = _record[ "MainAccount" ].ToString( );
             _treasuryAccountCode = _record[ "TreasuryAccountCode" ].ToString( );
@@ -421,7 +420,7 @@ namespace BudgetExecution
             : base( dataRow )
         {
             _record = dataRow;
-            _data = dataRow.ToDictionary( );
+            _map = dataRow.ToDictionary( );
             _id = int.Parse( dataRow[ "FundsId" ].ToString( ) ?? "0" );
             _mainAccount = dataRow[ "MainAccount" ].ToString( );
             _treasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString( );

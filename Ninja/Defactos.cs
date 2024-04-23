@@ -76,7 +76,7 @@ namespace BudgetExecution
         {
             Source = Source.Defactos;
             Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
+            Map = Record.ToDictionary( );
             BudgetLevel = Record[ "BudgetLevel" ].ToString( );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
@@ -130,7 +130,7 @@ namespace BudgetExecution
         {
             Source = Source.Defactos;
             Record = builder.Record;
-            Data = Record.ToDictionary( );
+            Map = Record.ToDictionary( );
             BudgetLevel = Record[ "BudgetLevel" ].ToString( );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
@@ -184,7 +184,7 @@ namespace BudgetExecution
         {
             Source = Source.Defactos;
             Record = dataRow;
-            Data = dataRow.ToDictionary( );
+            Map = dataRow.ToDictionary( );
             BudgetLevel = dataRow[ "BudgetLevel" ].ToString( );
             BFY = dataRow[ "BFY" ].ToString( );
             EFY = dataRow[ "EFY" ].ToString( );

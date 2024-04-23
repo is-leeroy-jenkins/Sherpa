@@ -44,51 +44,50 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
-    /// <summary> </summary>
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class ReconciliationLines
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    public class ReconciliationLine : DataUnit
     {
-        /// <summary> Gets or sets the identifier. </summary>
-        /// <value> The identifier. </value>
-        public int ID { get; set; }
-
-        /// <summary> Gets or sets the name. </summary>
-        /// <value> The name. </value>
-        public string Name { get; set; }
-
-        /// <summary> Gets or sets the number. </summary>
-        /// <value> The number. </value>
-        public string Number { get; set; }
-
-        /// <summary> Gets or sets the source. </summary>
-        /// <value> The source. </value>
-        public Source Source { get; set; }
-
-        /// <summary> Gets or sets the provider. </summary>
-        /// <value> The provider. </value>
-        public Provider Provider { get; set; }
-
-        /// <summary> Gets or sets the record. </summary>
-        /// <value> The record. </value>
-        public DataRow Record { get; set; }
-
-        /// <summary> Gets or sets the data. </summary>
-        /// <value> The data. </value>
-        public IDictionary<string, object> Data { get; set; }
+        /// <summary>
+        /// The number
+        /// </summary>
+        private protected string _number;
 
         /// <summary>
+        /// Gets the number.
+        /// </summary>
+        /// <value>
+        /// The number.
+        /// </value>
+        public string Number
+        {
+            get
+            {
+                return _number;
+            }
+            private protected set
+            {
+                _number = value;
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ReconciliationLines"/>
+        /// <see cref="T:BudgetExecution.ReconciliationLines" />
         /// class.
         /// </summary>
-        public ReconciliationLines( )
+        public ReconciliationLine( )
         {
-            Source = Source.ReconciliationLines;
+            _source = Source.ReconciliationLines;
         }
 
         /// <inheritdoc/>
@@ -98,14 +97,14 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
-        public ReconciliationLines( IQuery query )
-            : this( )
+        public ReconciliationLine( IQuery query )
+            : base( query )
         {
-            Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "ReconciliationLinesId" ].ToString( ) ?? string.Empty );
-            Number = Record[ "Number" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
+            _record = new DataBuilder( query ).Record;
+            _map = _record.ToDictionary( );
+            _id = int.Parse( _record[ "ReconciliationLinesId" ]?.ToString( ) ?? "0" );
+            _number = _record[ "Number" ]?.ToString( );
+            _name = _record[ "Name" ]?.ToString( );
         }
 
         /// <inheritdoc/>
@@ -114,15 +113,15 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.ReconciliationLines"/>
         /// class.
         /// </summary>
-        /// <param name="dataBuilder"> The data builder. </param>
-        public ReconciliationLines( IDataModel dataBuilder )
-            : this( )
+        /// <param name="builder"> The data builder. </param>
+        public ReconciliationLine( IDataModel builder )
+            : base( builder )
         {
-            Record = dataBuilder.Record;
-            Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "ReconciliationLinesId" ].ToString( ) ?? string.Empty );
-            Number = Record[ "Number" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
+            _record = builder.Record;
+            _map = _record.ToDictionary( );
+            _id = int.Parse( _record[ "ReconciliationLinesId" ]?.ToString( ) ?? "0" );
+            _number = _record[ "Number" ]?.ToString( );
+            _name = _record[ "Name" ]?.ToString( );
         }
 
         /// <inheritdoc/>
@@ -132,14 +131,14 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
-        public ReconciliationLines( DataRow dataRow )
-            : this( )
+        public ReconciliationLine( DataRow dataRow )
+            : base( dataRow )
         {
-            Record = dataRow;
-            Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "ReconciliationLinesId" ].ToString( ) ?? string.Empty );
-            Number = Record[ "Number" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
+            _record = dataRow;
+            _map = dataRow.ToDictionary( );
+            _id = int.Parse( dataRow[ "ReconciliationLinesId" ]?.ToString( ) ?? "0" );
+            _number = dataRow[ "Number" ]?.ToString( );
+            _name = dataRow[ "Name" ]?.ToString( );
         }
     }
 }

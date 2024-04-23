@@ -68,7 +68,7 @@ namespace BudgetExecution
             : this( )
         {
             Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
+            Map = Record.ToDictionary( );
             Code = Record[ "Code" ].ToString( );
             Name = Record[ "Name" ].ToString( );
         }
@@ -83,7 +83,7 @@ namespace BudgetExecution
             : this( )
         {
             Record = builder.Record;
-            Data = Record.ToDictionary( );
+            Map = Record.ToDictionary( );
             Code = Record[ "Code" ].ToString( );
             Name = Record[ "Name" ].ToString( );
         }
@@ -98,7 +98,7 @@ namespace BudgetExecution
             : this( )
         {
             Record = dataRow;
-            Data = dataRow.ToDictionary( );
+            Map = dataRow.ToDictionary( );
             Code = dataRow[ "Code" ].ToString( );
             Name = dataRow[ "Name" ].ToString( );
         }

@@ -420,7 +420,7 @@ namespace BudgetExecution
         {
             _source = query.Source;
             _record = new DataBuilder( query ).Record;
-            _data = _record.ToDictionary( );
+            _map = _record.ToDictionary( );
         }
 
         /// <inheritdoc />
@@ -433,7 +433,7 @@ namespace BudgetExecution
         {
             _source = dataBuilder.Source;
             _record = dataBuilder.Record;
-            _data = _record.ToDictionary( );
+            _map = _record.ToDictionary( );
         }
 
         /// <inheritdoc />
@@ -446,7 +446,7 @@ namespace BudgetExecution
         {
             _source = Source.AdministrativeRequests;
             _record = dataRow;
-            _data = _record.ToDictionary( );
+            _map = _record.ToDictionary( );
         }
     }
 }

@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="DescriptionBase.cs" company="Terry D. Eppler">
+// <copyright file="UnobligatedBalance.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   DescriptionBase.cs
+//   UnobligatedBalance.cs
 // </summary>
 // ******************************************************************************************
 
@@ -47,165 +47,189 @@ namespace BudgetExecution
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    /// <seealso cref="T:BudgetExecution.DataUnit" />
-    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    public abstract class DescriptionBase : DataUnit
+    public class UnobligatedBalance : BudgetUnit
     {
         /// <summary>
-        /// The definition
+        /// The budget year
         /// </summary>
-        private protected string _definition;
+        private protected string _budgetYear;
 
         /// <summary>
-        /// The laws
+        /// The budget account
         /// </summary>
-        private protected string _laws;
+        private protected string _budgetAccount;
 
         /// <summary>
-        /// The title
+        /// The account number
         /// </summary>
-        private protected string _title;
+        private protected string _accountNumber;
 
         /// <summary>
-        /// The program area code
+        /// The account name
         /// </summary>
-        private protected string _programAreaCode;
+        private protected string _accountName;
 
         /// <summary>
-        /// The program area name
+        /// The amount
         /// </summary>
-        private protected string _programAreaName;
+        private protected double _amount;
         
         /// <summary>
-        /// Gets or sets the definition.
+        /// Gets or sets the budget year.
         /// </summary>
         /// <value>
-        /// The definition.
+        /// The budget year.
         /// </value>
-        public string Definition
+        public string BudgetYear
         {
             get
             {
-                return _definition;
+                return _budgetYear; 
             }
             private protected set
             {
-                _definition = value;
+                _budgetYear = value;
             }
         }
-        
+
         /// <summary>
-        /// Gets or sets the laws.
+        /// Gets or sets the budget account.
         /// </summary>
         /// <value>
-        /// The laws.
+        /// The budget account.
         /// </value>
-        public string Laws
+        public string BudgetAccount
         {
             get
             {
-                return _laws;
+                return _budgetAccount;
             }
             private protected set
             {
-                _laws = value;
+                _budgetAccount = value;
             }
         }
-        
+
         /// <summary>
-        /// Gets or sets the title.
+        /// Gets or sets the account number.
         /// </summary>
         /// <value>
-        /// The title.
+        /// The account number.
         /// </value>
-        public string Title
+        public string AccountNumber
         {
             get
             {
-                return _title;
+                return _accountNumber;
             }
             private protected set
             {
-                _title = value;
+                _accountNumber = value;
             }
         }
-        
+
         /// <summary>
-        /// Gets or sets the program area code.
+        /// Gets or sets the name of the account.
         /// </summary>
         /// <value>
-        /// The program area code.
+        /// The name of the account.
         /// </value>
-        public string ProgramAreaCode
+        public string AccountName
         {
             get
             {
-                return _programAreaCode;
+                return _accountName;
             }
             private protected set
             {
-                _programAreaCode = value;
+                _accountName = value;
             }
         }
-        
+
         /// <summary>
-        /// Gets or sets the name of the program area.
+        /// Gets or sets the amount.
         /// </summary>
         /// <value>
-        /// The name of the program area.
+        /// The amount.
         /// </value>
-        public string ProgramAreaName
+        public double Amount
         {
             get
             {
-                return _programAreaName;
+                return _amount;
             }
             private protected set
             {
-                _programAreaName = value;
+                _amount = value;
             }
         }
 
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DescriptionBase" /> class.
+        /// <see cref="T:BudgetExecution.UnobligatedBalance" /> class.
         /// </summary>
-        protected DescriptionBase( )
+        public UnobligatedBalance( ) 
+            : base( )
         {
         }
 
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DescriptionBase" /> class.
+        /// <see cref="T:BudgetExecution.UnobligatedBalance" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        protected DescriptionBase( IQuery query )
+        public UnobligatedBalance( IQuery query ) 
+            : base( query )
         {
+            _record = new DataBuilder( query ).Record;
+            _map = _record.ToDictionary( );
+            _budgetYear = _record[ "BudgetYear" ]?.ToString( );
+            _budgetAccount = _record[ "BudgetAccount" ]?.ToString( );
+            _accountNumber = _record[ "AccountNumber" ]?.ToString( );
+            _accountName = _record[ "AccountName" ]?.ToString( );
+            _amount = double.Parse( _record[ "Amount" ]?.ToString( ) ?? "0.0" );
         }
 
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DescriptionBase" /> class.
+        /// <see cref="T:BudgetExecution.UnobligatedBalance" /> class.
         /// </summary>
-        /// <param name="builder"></param>
-        protected DescriptionBase( IDataModel builder )
+        /// <param name="builder">The builder.</param>
+        public UnobligatedBalance( IDataModel builder ) 
+            : base( builder )
         {
+            _record = builder.Record;
+            _map = _record.ToDictionary( );
+            _budgetYear = _record[ "BudgetYear" ]?.ToString( );
+            _budgetAccount = _record[ "BudgetAccount" ]?.ToString( );
+            _accountNumber = _record[ "AccountNumber" ]?.ToString( );
+            _accountName = _record[ "AccountName" ]?.ToString( );
+            _amount = double.Parse( _record[ "Amount" ]?.ToString( ) ?? "0.0" );
         }
 
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.DescriptionBase" /> class.
+        /// <see cref="T:BudgetExecution.UnobligatedBalance" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        protected DescriptionBase( DataRow dataRow )
+        public UnobligatedBalance( DataRow dataRow ) 
+            : base( dataRow )
         {
+            _record = dataRow;
+            _map = dataRow.ToDictionary( );
+            _budgetYear = dataRow[ "BudgetYear" ]?.ToString( );
+            _budgetAccount = dataRow[ "BudgetAccount" ]?.ToString( );
+            _accountNumber = dataRow[ "AccountNumber" ]?.ToString( );
+            _accountName = dataRow[ "AccountName" ]?.ToString( );
+            _amount = double.Parse( dataRow[ "Amount" ]?.ToString( ) ?? "0.0" );
         }
     }
 }

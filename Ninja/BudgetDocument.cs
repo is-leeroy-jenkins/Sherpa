@@ -209,7 +209,7 @@ namespace BudgetExecution
             : base( query )
         {
             _record = new DataBuilder( query ).Record;
-            _data = _record.ToDictionary( );
+            _map = _record.ToDictionary( );
             _id = int.Parse( _record[ "BudgetDocumentsId" ].ToString( ) ?? "0" );
             _budgetLevel = _record[ "BudgetLevel" ].ToString( );
             _bfy = _record[ "BFY" ].ToString( );
@@ -237,7 +237,7 @@ namespace BudgetExecution
             : base( builder )
         {
             _record = builder.Record;
-            _data = _record.ToDictionary( );
+            _map = _record.ToDictionary( );
             _id = int.Parse( _record[ "BudgetDocumentsId" ].ToString( ) ?? "0" );
             _budgetLevel = _record[ "BudgetLevel" ].ToString( );
             _bfy = _record[ "BFY" ].ToString( );
@@ -265,7 +265,7 @@ namespace BudgetExecution
             : base( dataRow )
         {
             _record = dataRow;
-            _data = _record.ToDictionary( );
+            _map = _record.ToDictionary( );
             _id = int.Parse( _record[ "BudgetDocumentsId" ].ToString( ) ?? "0" );
             _budgetLevel = _record[ "BudgetLevel" ].ToString( );
             _bfy = _record[ "BFY" ].ToString( );
@@ -292,7 +292,7 @@ namespace BudgetExecution
         public BudgetDocument( BudgetDocument budgetDocument ) : base( )
         {
             _record = budgetDocument.Record;
-            _data = budgetDocument.Data;
+            _map = budgetDocument.Map;
             _budgetLevel = budgetDocument.BudgetLevel;
             _bfy = budgetDocument.BFY;
             _efy = budgetDocument.EFY;

@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="QueryDefinition.cs" company="Terry D. Eppler">
+// <copyright file="PayPeriod.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   QueryDefinition.cs
+//   PayPeriod.cs
 // </summary>
 // ******************************************************************************************
 
@@ -51,7 +51,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class QueryDefinitions
+    public class PayPeriod
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -60,22 +60,6 @@ namespace BudgetExecution
         /// The identifier.
         /// </value>
         public int ID { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name.
-        /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Gets or sets the type.
-        /// </summary>
-        /// <value>
-        /// The type.
-        /// </value>
-        public string Type { get; set; }
 
         /// <summary>
         /// Gets or sets the source.
@@ -103,18 +87,18 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="QueryDefinitions"/> class.
+        /// <see cref="PayPeriod"/> class.
         /// </summary>
-        public QueryDefinitions( )
+        public PayPeriod( )
         {
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="QueryDefinitions"/> class.
+        /// <see cref="PayPeriod"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public QueryDefinitions( IQuery query )
+        public PayPeriod( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
@@ -122,10 +106,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="QueryDefinitions"/> class.
+        /// <see cref="PayPeriod"/> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public QueryDefinitions( IDataModel builder )
+        public PayPeriod( IDataModel builder )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
@@ -133,10 +117,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="QueryDefinitions"/> class.
+        /// <see cref="PayPeriod"/> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public QueryDefinitions( DataRow dataRow )
+        public PayPeriod( DataRow dataRow )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );

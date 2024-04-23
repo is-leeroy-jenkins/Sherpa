@@ -326,7 +326,7 @@ namespace BudgetExecution
         public GeneralLedgerAccount( IQuery query )
         {
             _record = new DataBuilder( query ).Record;
-            _data = _record.ToDictionary( );
+            _map = _record.ToDictionary( );
             _id = int.Parse( _record[ "GeneralLedgerAccountsId" ].ToString( ) ?? "0" );
             _bfy = _record[ "BFY" ].ToString( ); 
             _number = _record[ "Number" ].ToString( );
@@ -353,7 +353,7 @@ namespace BudgetExecution
         public GeneralLedgerAccount( IDataModel builder )
         {
             _record = builder.Record;
-            _data = _record.ToDictionary( );
+            _map = _record.ToDictionary( );
             _id = int.Parse( Record[ "GeneralLedgerAccountsId" ].ToString( ) ?? "0" );
             _bfy = _record[ "BFY" ].ToString( );
             _number = _record[ "Number" ].ToString( );
@@ -380,7 +380,7 @@ namespace BudgetExecution
         public GeneralLedgerAccount( DataRow dataRow )
         {
             _record = dataRow; 
-            _data = dataRow.ToDictionary( );
+            _map = dataRow.ToDictionary( );
             _id = int.Parse( dataRow[ "GeneralLedgerAccountsId" ].ToString( ) ?? "0" );
             _bfy = dataRow[ "BFY" ].ToString( );
             _number = dataRow[ "Number" ].ToString( );

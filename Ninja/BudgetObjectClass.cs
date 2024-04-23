@@ -58,8 +58,13 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class BudgetObjectClasses : DataUnit
+    public class BudgetObjectClass : DataUnit
     {
+        /// <summary>
+        /// The category
+        /// </summary>
+        private BOC _category;
+
         /// <summary>
         /// The codes
         /// </summary>
@@ -83,13 +88,14 @@ namespace BudgetExecution
         /// </value>
         public BOC Category { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BudgetObjectClasses"/> class.
+        /// <see cref="T:BudgetExecution.BudgetObjectClasses" /> class.
         /// </summary>
-        public BudgetObjectClasses( )
+        public BudgetObjectClass( )
         {
-            Source = Source.BudgetObjectClasses;
+            _source = Source.BudgetObjectClasses;
         }
 
         /// <inheritdoc />
@@ -98,15 +104,15 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.BudgetObjectClasses" /> class.
         /// </summary>
         /// <param name="boc">The boc.</param>
-        public BudgetObjectClasses( BOC boc )
+        public BudgetObjectClass( BOC boc )
             : this( )
         {
-            Record = new DataBuilder( Source, SetArgs( boc ) )?.Record;
-            ID = int.Parse( Record[ "BudgetObjectClassesId" ].ToString( ) ?? string.Empty );
-            Name = Record[ "BocName" ].ToString( );
-            Code = Record[ "BocCode" ].ToString( );
-            Category = boc;
-            Data = Record?.ToDictionary( );
+            _record = new DataBuilder( _source, SetArgs( boc ) )?.Record;
+            _id = int.Parse( _record[ "BudgetObjectClassesId" ]?.ToString( ) ?? "0.0" );
+            _name = _record[ "BocName" ]?.ToString( );
+            _code = _record[ "BocCode" ]?.ToString( );
+            _category = boc;
+            _map = _record?.ToDictionary( );
         }
 
         /// <inheritdoc />
@@ -115,17 +121,17 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.BudgetObjectClasses" /> class.
         /// </summary>
         /// <param name="code">The code.</param>
-        public BudgetObjectClasses( string code )
+        public BudgetObjectClass( string code )
             : this( )
         {
-            Record = new DataBuilder( Source, SetArgs( code ) )?.Record;
-            ID = int.Parse( Record[ "BudgetObjectClassesId" ].ToString( ) ?? string.Empty );
-            Name = Record[ "BocName" ].ToString( );
-            Code = Record[ "BocCode" ].ToString( );
-            Data = Record?.ToDictionary( );
-            if( Name != null )
+            _record = new DataBuilder( _source, SetArgs( code ) )?.Record;
+            _id = int.Parse( _record[ "BudgetObjectClassesId" ]?.ToString( ) ?? "0" );
+            _name = _record[ "BocName" ]?.ToString( );
+            _code = _record[ "BocCode" ]?.ToString( );
+            _map = _record?.ToDictionary( );
+            if( _name != null )
             {
-                Category = (BOC)Enum.Parse( typeof( BOC ), Name );
+                _category = (BOC)Enum.Parse( typeof( BOC ), _name );
             }
         }
 
@@ -135,17 +141,17 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.BudgetObjectClasses" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public BudgetObjectClasses( IQuery query )
+        public BudgetObjectClass( IQuery query )
             : this( )
         {
-            Record = new DataBuilder( query )?.Record;
-            ID = int.Parse( Record[ "BudgetObjectClassesId" ].ToString( ) ?? "0" );
-            Name = Record[ "BocName" ].ToString( );
-            Code = Record[ "BocCode" ].ToString( );
-            Data = Record?.ToDictionary( );
-            if( Name != null )
+            _record = new DataBuilder( query )?.Record;
+            _id = int.Parse( _record[ "BudgetObjectClassesId" ]?.ToString( ) ?? "0" );
+            _name = _record[ "BocName" ]?.ToString( );
+            _code = _record[ "BocCode" ]?.ToString( );
+            _map = _record?.ToDictionary( );
+            if( _name != null )
             {
-                Category = (BOC)Enum.Parse( typeof( BOC ), Name );
+                _category = (BOC)Enum.Parse( typeof( BOC ), _name );
             }
         }
 
@@ -155,17 +161,17 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.BudgetObjectClasses" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public BudgetObjectClasses( IDataModel builder )
+        public BudgetObjectClass( IDataModel builder )
             : this( )
         {
-            Record = builder?.Record;
-            ID = int.Parse( Record?[ "BudgetObjectClassesId" ].ToString( ) ?? "0" );
-            Name = Record?[ "BocName" ].ToString( );
-            Code = Record?[ "BocCode" ].ToString( );
-            Data = Record?.ToDictionary( );
-            if( Name != null )
+            _record = builder.Record;
+            _id = int.Parse( _record[ "BudgetObjectClassesId" ]?.ToString( ) ?? "0" );
+            _name = _record[ "BocName" ]?.ToString( );
+            _code = _record[ "BocCode" ]?.ToString( );
+            _map = _record?.ToDictionary( );
+            if( _name != null )
             {
-                Category = (BOC)Enum.Parse( typeof( BOC ), Name );
+                _category = (BOC)Enum.Parse( typeof( BOC ), _name );
             }
         }
 
@@ -174,31 +180,32 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="T:BudgetExecution.BudgetObjectClasses" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public BudgetObjectClasses( DataRow dataRow )
+        public BudgetObjectClass( DataRow dataRow )
             : this( )
         {
-            Record = dataRow;
-            ID = int.Parse( dataRow[ "BudgetObjectClassesId" ].ToString( ) ?? "0" );
-            Name = Record[ "BocName" ].ToString( );
-            Code = Record[ "BocCode" ].ToString( );
-            Data = Record?.ToDictionary( );
-            if( Name != null )
+            _record = dataRow;
+            _id = int.Parse( dataRow[ "BudgetObjectClassesId" ].ToString( ) ?? "0" );
+            _name = dataRow[ "BocName" ].ToString( );
+            _code = dataRow[ "BocCode" ].ToString( );
+            _map = dataRow?.ToDictionary( );
+            if( _name != null )
             {
-                Category = (BOC)Enum.Parse( typeof( BOC ), Name );
+                _category = (BOC)Enum.Parse( typeof( BOC ), _name );
             }
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BudgetObjectClasses"/> class.
+        /// <see cref="T:BudgetExecution.BudgetObjectClass" /> class.
         /// </summary>
         /// <param name="boc">The boc.</param>
-        public BudgetObjectClasses( BudgetObjectClasses boc )
+        public BudgetObjectClass( BudgetObjectClass boc )
         {
-            ID = boc.ID;
-            Code = boc.Code;
-            Name = boc.Name;
-            Category = boc.Category;
+            _id = boc.ID;
+            _code = boc.Code;
+            _name = boc.Name;
+            _category = boc.Category;
         }
 
         /// <summary>
@@ -209,13 +216,13 @@ namespace BudgetExecution
         {
             try
             {
-                return Data?.Any( ) == true
-                    ? Data
+                return Map?.Any( ) == true
+                    ? Map
                     : default( IDictionary<string, object> );
             }
             catch( Exception _ex )
             {
-                BudgetObjectClasses.Fail( _ex );
+                BudgetObjectClass.Fail( _ex );
                 return default( IDictionary<string, object> );
             }
         }
@@ -236,7 +243,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                BudgetObjectClasses.Fail( _ex );
+                BudgetObjectClass.Fail( _ex );
                 return -1D;
             }
         }
@@ -255,7 +262,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                BudgetObjectClasses.Fail( _ex );
+                BudgetObjectClass.Fail( _ex );
                 return default( double );
             }
         }
@@ -274,7 +281,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                BudgetObjectClasses.Fail( _ex );
+                BudgetObjectClass.Fail( _ex );
                 return default( BOC );
             }
         }
@@ -299,7 +306,7 @@ namespace BudgetExecution
                 }
                 catch( Exception _ex )
                 {
-                    BudgetObjectClasses.Fail( _ex );
+                    BudgetObjectClass.Fail( _ex );
                     return default( IDictionary<string, object> );
                 }
             }
@@ -316,7 +323,7 @@ namespace BudgetExecution
                 }
                 catch( Exception _ex )
                 {
-                    BudgetObjectClasses.Fail( _ex );
+                    BudgetObjectClass.Fail( _ex );
                     return default( IDictionary<string, object> );
                 }
             }
@@ -344,7 +351,7 @@ namespace BudgetExecution
                 }
                 catch( Exception _ex )
                 {
-                    BudgetObjectClasses.Fail( _ex );
+                    BudgetObjectClass.Fail( _ex );
                     return default( IDictionary<string, object> );
                 }
             }

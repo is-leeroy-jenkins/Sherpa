@@ -105,7 +105,7 @@ namespace BudgetExecution
             _id = int.Parse( Record[ "AllowanceHoldersId" ].ToString( ) ?? "0" );
             _name = Record?[ "Name" ].ToString( );
             _code = Record?[ "Code" ].ToString( );
-            _data = Record?.ToDictionary( );
+            _map = Record?.ToDictionary( );
         }
 
         /// <inheritdoc />
@@ -122,7 +122,7 @@ namespace BudgetExecution
             _id = int.Parse( Record[ "AllowanceHoldersId" ].ToString( ) ?? "0" );
             _name = Record?[ "Name" ].ToString( );
             _code = Record?[ "Code" ].ToString( );
-            _data = Record?.ToDictionary( );
+            _map = Record?.ToDictionary( );
         }
 
         /// <inheritdoc />
@@ -139,7 +139,7 @@ namespace BudgetExecution
             _id = int.Parse( Record[ "AllowanceHoldersId" ].ToString( ) ?? "0" );
             _name = Record?[ "Name" ].ToString( );
             _code = Record?[ "Code" ].ToString( );
-            _data = Record?.ToDictionary( );
+            _map = Record?.ToDictionary( );
         }
 
         /// <inheritdoc />
@@ -156,7 +156,7 @@ namespace BudgetExecution
             _id = int.Parse( Record[ "AllowanceHoldersId" ].ToString( ) ?? "0" );
             _name = Record?[ "Name" ].ToString( );
             _code = Record?[ "Code" ].ToString( );
-            _data = Record?.ToDictionary( );
+            _map = Record?.ToDictionary( );
         }
 
         /// <inheritdoc />

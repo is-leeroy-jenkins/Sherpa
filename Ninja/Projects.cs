@@ -70,7 +70,7 @@ namespace BudgetExecution
         public Projects( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
+            Map = Record.ToDictionary( );
         }
 
         /// <summary>
@@ -82,7 +82,7 @@ namespace BudgetExecution
         public Projects( IDataModel builder )
         {
             Record = builder.Record;
-            Data = Record.ToDictionary( );
+            Map = Record.ToDictionary( );
         }
 
         /// <summary>
@@ -94,7 +94,7 @@ namespace BudgetExecution
         public Projects( DataRow dataRow )
         {
             Record = dataRow;
-            Data = dataRow.ToDictionary( );
+            Map = dataRow.ToDictionary( );
         }
     }
 }

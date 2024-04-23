@@ -83,7 +83,7 @@ namespace BudgetExecution
             _source = Source.FullTimeEquivalents;
             _record = new DataBuilder( query ).Record;
             _id = int.Parse( Record[ "FullTimeEquivalentsId" ].ToString( ) );
-            _data = Record.ToDictionary( );
+            _map = Record.ToDictionary( );
             _id = int.Parse( _record[ "AllocationsId" ].ToString( ) ?? "0" );
             _budgetLevel = _record[ "BudgetLevel" ].ToString( );
             _bfy = _record[ "BFY" ].ToString( );
@@ -129,7 +129,7 @@ namespace BudgetExecution
             _source = Source.FullTimeEquivalents;
             _record = builder.Record;
             _id = int.Parse( Record[ "FullTimeEquivalentsId" ].ToString( ) );
-            _data = Record.ToDictionary( );
+            _map = Record.ToDictionary( );
             _id = int.Parse( _record[ "AllocationsId" ].ToString( ) ?? "0" );
             _budgetLevel = _record[ "BudgetLevel" ].ToString( );
             _bfy = _record[ "BFY" ].ToString( );

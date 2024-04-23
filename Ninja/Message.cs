@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="PayPeriod.cs" company="Terry D. Eppler">
+// <copyright file="Messages.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   PayPeriod.cs
+//   Messages.cs
 // </summary>
 // ******************************************************************************************
 
@@ -45,13 +45,13 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class PayPeriods
+    public class Message : DataUnit
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -60,6 +60,14 @@ namespace BudgetExecution
         /// The identifier.
         /// </value>
         public int ID { get; set; }
+
+        /// <summary>
+        /// Gets or sets the content.
+        /// </summary>
+        /// <value>
+        /// The content.
+        /// </value>
+        public string Content { get; set; }
 
         /// <summary>
         /// Gets or sets the source.
@@ -85,45 +93,50 @@ namespace BudgetExecution
         /// </value>
         public IDictionary<string, object> Data { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="PayPeriods"/> class.
+        /// <see cref="T:BudgetExecution.Message" /> class.
         /// </summary>
-        public PayPeriods( )
+        public Message( )
         {
+            _source = Source.Messages;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="PayPeriods"/> class.
+        /// <see cref="T:BudgetExecution.Message" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public PayPeriods( IQuery query )
+        public Message( IQuery query )
         {
-            Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
+            _record = new DataBuilder( query ).Record;
+            _map = _record.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="PayPeriods"/> class.
+        /// <see cref="T:BudgetExecution.Message" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public PayPeriods( IDataModel builder )
+        public Message( IDataModel builder )
         {
-            Record = builder.Record;
-            Data = Record.ToDictionary( );
+            _record = builder.Record;
+            _map = _record.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="PayPeriods"/> class.
+        /// <see cref="T:BudgetExecution.Message" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public PayPeriods( DataRow dataRow )
-        {
-            Record = dataRow;
-            Data = dataRow.ToDictionary( );
+        public Message( DataRow dataRow )
+        { 
+            _record = dataRow;
+            _map = dataRow.ToDictionary( );
         }
     }
 }

@@ -69,7 +69,7 @@ namespace BudgetExecution
             : base( query )
         {
             Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
+            Map = Record.ToDictionary( );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
@@ -115,7 +115,7 @@ namespace BudgetExecution
         public StatusOfEarmarks( IDataModel dataBuilder )
         {
             Record = dataBuilder.Record;
-            Data = Record.ToDictionary( );
+            Map = Record.ToDictionary( );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
@@ -161,7 +161,7 @@ namespace BudgetExecution
         public StatusOfEarmarks( DataRow dataRow )
         {
             Record = dataRow;
-            Data = Record.ToDictionary( );
+            Map = Record.ToDictionary( );
             BFY = dataRow[ "BFY" ].ToString( );
             EFY = dataRow[ "EFY" ].ToString( );
             FundCode = dataRow[ "FundCode" ].ToString( );
@@ -203,7 +203,7 @@ namespace BudgetExecution
         public StatusOfEarmarks( IDictionary<string, object> map )
         {
             Record = new DataBuilder( Source, map )?.Record;
-            Data = Record.ToDictionary( );
+            Map = Record.ToDictionary( );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );

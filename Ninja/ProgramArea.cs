@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="Organization.cs" company="Terry D. Eppler">
+// <copyright file="ProgramArea.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   Organization.cs
+//   ProgramArea.cs
 // </summary>
 // ******************************************************************************************
 
@@ -44,122 +44,129 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using System.Linq;
 
     /// <inheritdoc />
-    /// <summary> </summary>
+    /// <summary>
+    /// </summary>
     /// <seealso cref="T:BudgetExecution.DataUnit" />
-    /// <seealso cref="T:BudgetExecution.ISource" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class Organizations : DataUnit
+    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
+    public class ProgramArea : DataUnit
     {
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Organizations"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.ProgramAreas" /> class.
         /// </summary>
-        public Organizations( )
+        public ProgramArea( ) 
+            : base( )
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Organizations"/>
-        /// class.
+        /// <see cref="T:BudgetExecution.ProgramAreas" /> class.
         /// </summary>
-        /// <param name="query"> The query. </param>
-        public Organizations( IQuery query )
+        /// <param name="query">The query.</param>
+        public ProgramArea( IQuery query ) 
+            : base( query )
         {
-            Record = new DataBuilder( query )?.Record;
-            ID = int.Parse( Record[ "OrganizationsId" ].ToString( ) ?? "0" );
-            Name = Record[ "Name" ].ToString( );
-            Code = Record[ "Code" ].ToString( );
-            Data = Record?.ToDictionary( );
+            _record = new DataBuilder( query )?.Record;
+            _id = int.Parse( _record[ "ProgramAreasId" ]?.ToString( ) ?? "0" );
+            _code = _record[ "Code" ]?.ToString( );
+            _name = _record[ "Name" ]?.ToString( );
+            _map = _record?.ToDictionary( );
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.ProgramAreas" /> class.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        public ProgramArea( IDataModel builder ) 
+            : base( builder )
+        {
+            _record = builder.Record;
+            _id = int.Parse( _record[ "ProgramAreasId" ]?.ToString( ) ?? "0" );
+            _code = _record[ "Code" ]?.ToString( );
+            _name = _record[ "Name" ]?.ToString( );
+            _map = _record?.ToDictionary( );
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.ProgramAreas" /> class.
+        /// </summary>
+        /// <param name="dataRow">The data row.</param>
+        public ProgramArea( DataRow dataRow )
+            : base( dataRow )
+        {
+            _record = dataRow;
+            _id = int.Parse( dataRow[ "ProgramAreasId" ]?.ToString( ) ?? "0" );
+            _code = dataRow[ "Code" ]?.ToString( );
+            _name = dataRow[ "Name" ]?.ToString( );
+            _map = dataRow?.ToDictionary( );
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.ProgramAreas" /> class.
+        /// </summary>
+        /// <param name="code">The code.</param>
+        public ProgramArea( string code )
+        {
+            _record = new DataBuilder( _source, SetArgs( code ) )?.Record;
+            _id = int.Parse( _record[ "ProgramAreasId" ]?.ToString( ) ?? "0" );
+            _code = _record[ "Code" ]?.ToString( );
+            _name = _record[ "Name" ]?.ToString( );
+            _map = _record?.ToDictionary( );
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.ProgramAreas" /> class.
+        /// </summary>
+        /// <param name="area">The areas.</param>
+        public ProgramArea( ProgramArea area )
+        {
+            _id = area.ID;
+            _code = area.Code;
+            _name = area.Name;
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Organizations"/>
-        /// class.
+        /// Gets the program area.
         /// </summary>
-        /// <param name="org"> The org. </param>
-        public Organizations( string org )
-        {
-            Record = new DataBuilder( Source, GetArgs( org ) )?.Record;
-            ID = int.Parse( Record[ "OrganizationsId" ].ToString( ) ?? "0" );
-            Name = Record[ "Name" ].ToString( );
-            Code = Record[ "Code" ].ToString( );
-            Data = Record?.ToDictionary( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Organizations"/>
-        /// class.
-        /// </summary>
-        /// <param name="builder"> The builder. </param>
-        public Organizations( IDataModel builder )
-        {
-            Record = builder.Record;
-            ID = int.Parse( Record[ "OrganizationsId" ].ToString( ) ?? "0" );
-            Name = Record[ "Name" ].ToString( );
-            Code = Record[ "Code" ].ToString( );
-            Data = Record?.ToDictionary( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Organizations"/>
-        /// class.
-        /// </summary>
-        /// <param name="org"> The org. </param>
-        public Organizations( Organizations org )
-        {
-            ID = org.ID;
-            Code = org.Code;
-            Name = org.Name;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Organizations"/>
-        /// class.
-        /// </summary>
-        /// <param name="dataRow"> The dataRow. </param>
-        public Organizations( DataRow dataRow )
-        {
-            Record = dataRow;
-            ID = int.Parse( Record[ "OrganizationsId" ].ToString( ) ?? "0" );
-            Name = Record[ "Name" ].ToString( );
-            Code = Record[ "Code" ].ToString( );
-            Data = dataRow?.ToDictionary( );
-        }
-
-        /// <summary> Converts to dictionary. </summary>
-        /// <returns> </returns>
-        public IDictionary<string, object> ToDictionary( )
+        /// <returns></returns>
+        public ProgramArea GetProgramArea( )
         {
             try
             {
-                return Data?.Any( ) == true
-                    ? Data
-                    : default( IDictionary<string, object> );
+                return MemberwiseClone( ) as ProgramArea;
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return default( IDictionary<string, object> );
+                return default( ProgramArea );
             }
         }
 
-        /// <summary> Sets the arguments. </summary>
-        /// <param name="code"> The code. </param>
-        /// <returns> </returns>
-        private IDictionary<string, object> GetArgs( string code )
+        /// <summary>
+        /// Sets the arguments.
+        /// </summary>
+        /// <param name="code">The code.</param>
+        /// <returns></returns>
+        private IDictionary<string, object> SetArgs( string code )
         {
             if( !string.IsNullOrEmpty( code ) )
             {

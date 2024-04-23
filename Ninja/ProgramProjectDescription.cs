@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="CapitalPlanningInvestmentCode.cs" company="Terry D. Eppler">
+// <copyright file="ProgramProjectDescription.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   CapitalPlanningInvestmentCode.cs
+//   ProgramProjectDescription.cs
 // </summary>
 // ******************************************************************************************
 
@@ -46,96 +46,88 @@ namespace BudgetExecution
 
     /// <inheritdoc />
     /// <summary> </summary>
-    /// <seealso cref="T:BudgetExecution.DataUnit" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class CapitalPlanningInvestmentCodes : DataUnit
+    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
+    public class ProgramProjectDescription : DescriptionBase
     {
-        /// <summary>
-        /// Gets or sets the type.
-        /// </summary>
-        /// <value>
-        /// The type.
-        /// </value>
-        public string Type { get; set; }
-
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="CapitalPlanningInvestmentCodes"/>
+        /// <see cref="T:BudgetExecution.ProgramProjectDescriptions" />
         /// class.
         /// </summary>
-        public CapitalPlanningInvestmentCodes( )
+        public ProgramProjectDescription( ) 
+            : base( )
         {
-            Source = Source.CapitalPlanningInvestmentCodes;
         }
 
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="T:BudgetExecution.CapitalPlanningInvestmentCodes" />
+        /// <see cref="T:BudgetExecution.ProgramProjectDescriptions" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
-        public CapitalPlanningInvestmentCodes( IQuery query )
-            : this( )
+        public ProgramProjectDescription( IQuery query ) 
+            : base( query )
         {
-            Source = Source.CapitalPlanningInvestmentCodes;
-            Record = new DataBuilder( query ).Record;
-            Map = Record.ToDictionary( );
-            ID = int.Parse( Record[ "CapitalPlanningInvestmentCodesId" ].ToString( ) ?? "0" );
-            Code = Record[ "Code" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
-            Type = Record[ "Type" ].ToString( );
+            _record = new DataBuilder( query ).Record;
+            _id = int.Parse( _record[ "ProgramProjectDescriptionsId" ]?.ToString( ) ?? "0" );
+            _code = _record[ "Code" ]?.ToString( );
+            _name = _record[ "Name" ]?.ToString( );
+            _title = _record[ "Title" ]?.ToString( );
+            _definition = _record[ "Definition" ]?.ToString( );
+            _laws = _record[ "Laws" ]?.ToString( );
+            _programAreaCode = _record[ "ProgramAreaCode" ]?.ToString( );
+            _programAreaName = _record[ "ProgramAreaName" ]?.ToString( );
+            _map = _record?.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="CapitalPlanningInvestmentCodes"/>
+        /// <see cref="T:BudgetExecution.ProgramProjectDescriptions" />
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
-        public CapitalPlanningInvestmentCodes( IDataModel builder )
+        public ProgramProjectDescription( IDataModel builder ) 
+            : base( builder )
         {
-            Source = Source.CapitalPlanningInvestmentCodes;
-            Record = builder.Record;
-            Map = Record.ToDictionary( );
-            ID = int.Parse( Record[ "CapitalPlanningInvestmentCodesId" ].ToString( ) ?? "0" );
-            Code = Record[ "Code" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
-            Type = Record[ "Type" ].ToString( );
+            _record = builder.Record;
+            _id = int.Parse( _record[ "ProgramProjectDescriptionsId" ]?.ToString( ) ?? "0" );
+            _code = _record[ "Code" ]?.ToString( );
+            _name = _record[ "Name" ]?.ToString( );
+            _title = _record[ "Title" ]?.ToString( );
+            _definition = _record[ "Definition" ]?.ToString( );
+            _laws = _record[ "Laws" ]?.ToString( );
+            _programAreaCode = _record[ "ProgramAreaCode" ]?.ToString( );
+            _programAreaName = _record[ "ProgramAreaName" ]?.ToString( );
+            _map = _record?.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="CapitalPlanningInvestmentCodes"/>
+        /// <see cref="T:BudgetExecution.ProgramProjectDescriptions" />
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
-        public CapitalPlanningInvestmentCodes( DataRow dataRow )
+        public ProgramProjectDescription( DataRow dataRow ) 
+            : base( dataRow )
         {
-            Source = Source.CapitalPlanningInvestmentCodes;
-            Record = dataRow;
-            Map = dataRow.ToDictionary( );
-            ID = int.Parse( dataRow[ "CapitalPlanningInvestmentCodesId" ].ToString( ) ?? "0" );
-            Code = dataRow[ "Code" ].ToString( );
-            Name = dataRow[ "Name" ].ToString( );
-            Type = dataRow[ "Type" ].ToString( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="CapitalPlanningInvestmentCodes"/>
-        /// class.
-        /// </summary>
-        /// <param name="code"> The code. </param>
-        public CapitalPlanningInvestmentCodes( CapitalPlanningInvestmentCodes code )
-        {
-            Source = Source.CapitalPlanningInvestmentCodes;
-            ID = code.ID;
-            Code = code.Code;
-            Name = code.Name;
-            Type = code.Type;
+            _record = dataRow;
+            _id = int.Parse( dataRow[ "ProgramProjectDescriptionsId" ]?.ToString( ) ?? "0" );
+            _code = dataRow[ "Code" ]?.ToString( );
+            _name = dataRow[ "Name" ]?.ToString( );
+            _title = dataRow[ "Title" ]?.ToString( );
+            _definition = dataRow[ "Definition" ]?.ToString( );
+            _laws = dataRow[ "Laws" ]?.ToString( );
+            _programAreaCode = dataRow[ "ProgramAreaCode" ]?.ToString( );
+            _programAreaName = dataRow[ "ProgramAreaName" ]?.ToString( );
+            _map = dataRow?.ToDictionary( );
         }
     }
 }

@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        05-31-2023
 // ******************************************************************************************
-// <copyright file="StateOrganization.cs" company="Terry D. Eppler">
+// <copyright file="SpendingRate.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   StateOrganization.cs
+//   SpendingRate.cs
 // </summary>
 // ******************************************************************************************
 
@@ -45,124 +45,62 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class StateOrganizations
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
+    public class SpendingRate : BudgetUnit
     {
-        /// <summary>
-        /// Gets or sets the identifier.
-        /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
-        public int ID { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name.
-        /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Gets or sets the code.
-        /// </summary>
-        /// <value>
-        /// The code.
-        /// </value>
-        public string Code { get; set; }
-
-        /// <summary>
-        /// Gets or sets the org code.
-        /// </summary>
-        /// <value>
-        /// The org code.
-        /// </value>
-        public string OrgCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the rpio.
-        /// </summary>
-        /// <value>
-        /// The name of the rpio.
-        /// </value>
-        public string RpioName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the rpio code.
-        /// </summary>
-        /// <value>
-        /// The rpio code.
-        /// </value>
-        public string RpioCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
-        public Source Source { get; set; }
-
-        /// <summary>
-        /// Gets or sets the record.
-        /// </summary>
-        /// <value>
-        /// The record.
-        /// </value>
-        public DataRow Record { get; set; }
-
-        /// <summary>
-        /// Gets or sets the data.
-        /// </summary>
-        /// <value>
-        /// The data.
-        /// </value>
-        public IDictionary<string, object> Data { get; set; }
-
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="StateOrganizations"/> class.
+        /// <see cref="T:BudgetExecution.SpendingRate" /> class.
         /// </summary>
-        public StateOrganizations( )
+        public SpendingRate( ) 
+            : base( )
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="StateOrganizations"/> class.
+        /// <see cref="T:BudgetExecution.SpendingRate" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public StateOrganizations( IQuery query )
+        public SpendingRate( IQuery query ) 
+            : base( query )
         {
-            Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
+            _record = new DataBuilder( query ).Record;
+            _map = _record.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="StateOrganizations"/> class.
+        /// <see cref="T:BudgetExecution.SpendingRate" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public StateOrganizations( IDataModel builder )
+        public SpendingRate( IDataModel builder ) 
+            : base( builder )
         {
-            Record = builder.Record;
-            Data = Record.ToDictionary( );
+            _record = builder.Record;
+            _map = _record.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="StateOrganizations"/> class.
+        /// <see cref="T:BudgetExecution.SpendingRate" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public StateOrganizations( DataRow dataRow )
+        public SpendingRate( DataRow dataRow ) 
+            : base( dataRow )
         {
-            Record = dataRow;
-            Data = dataRow.ToDictionary( );
+            _record = dataRow;
+            _map = dataRow.ToDictionary( );
         }
     }
 }

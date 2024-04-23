@@ -118,7 +118,7 @@ namespace BudgetExecution
             : this( )
         {
             Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
+            Map = Record.ToDictionary( );
             ID = int.Parse( Record[ "CongressionalControlsId" ].ToString( ) ?? "0" );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
@@ -144,7 +144,7 @@ namespace BudgetExecution
             : this( )
         {
             Record = builder.Record;
-            Data = Record.ToDictionary( );
+            Map = Record.ToDictionary( );
             ID = int.Parse( Record[ "CongressionalControlsId" ].ToString( ) ?? "0" );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
@@ -170,7 +170,7 @@ namespace BudgetExecution
             : this( )
         {
             Record = dataRow;
-            Data = dataRow.ToDictionary( );
+            Map = dataRow.ToDictionary( );
             ID = int.Parse( dataRow[ "CongressionalControlsId" ].ToString( ) ?? "0" );
             FundCode = dataRow[ "FundCode" ].ToString( );
             FundName = dataRow[ "FundName" ].ToString( );
