@@ -251,7 +251,6 @@ namespace BudgetExecution
             _source = dataBuilder.Source;
             _provider = dataBuilder.Provider;
             _record = dataBuilder.Record;
-            _id = int.Parse( _record[ 0 ]?.ToString( ) ?? "0" );
             _map = _record.ToDictionary( );
         }
 
@@ -265,7 +264,6 @@ namespace BudgetExecution
             _source = query.Source;
             _provider = query.Provider;
             _record = new DataBuilder( query ).Record;
-            _id = int.Parse( _record[ 0 ]?.ToString( ) ?? "0" );
             _map = _record.ToDictionary( );
         }
 
@@ -278,7 +276,6 @@ namespace BudgetExecution
         {
             _record = dataRow;
             _map = _record.ToDictionary( );
-            _id = int.Parse( _record[ 0 ]?.ToString( ) ?? "0" );
             _code = _record[ "Code" ]?.ToString( );
             _name = _record[ "Name" ]?.ToString( );
         }
