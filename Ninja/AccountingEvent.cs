@@ -49,6 +49,7 @@ namespace BudgetExecution
     /// <seealso cref="T:BudgetExecution.DataUnit"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     public class AccountingEvent : DataUnit
     {
         /// <inheritdoc />
@@ -58,6 +59,7 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         public AccountingEvent( )
+            : base( )
         {
             Source = Source.AccountingEvents;
         }
@@ -70,13 +72,13 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="query"> The query. </param>
         public AccountingEvent( IQuery query )
-            : this( )
+            : base( query )
         {
-            Record = new DataBuilder( query ).Record;
-            ID = int.Parse( Record[ "AccountingEventsId" ].ToString( ) ?? "0" );
-            Code = Record[ "Code" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
-            Map = Record.ToDictionary( );
+            _record = new DataBuilder( query ).Record;
+            _id = int.Parse( _record[ "AccountingEventsId" ].ToString( ) ?? "0" );
+            _code = _record[ "Code" ].ToString( );
+            _name = _record[ "Name" ].ToString( );
+            _map = _record.ToDictionary( );
         }
 
         /// <inheritdoc/>
@@ -87,13 +89,13 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="builder"> The builder. </param>
         public AccountingEvent( IDataModel builder )
-            : this( )
+            : base( builder )
         {
-            Record = builder.Record;
-            ID = int.Parse( Record[ "AccountingEventsId" ].ToString( ) ?? "0" );
-            Code = Record[ "Code" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
-            Map = Record.ToDictionary( );
+            _record = builder.Record;
+            _id = int.Parse( _record[ "AccountingEventsId" ].ToString( ) ?? "0" );
+            _code = _record[ "Code" ].ToString( );
+            _name = _record[ "Name" ].ToString( );
+            _map = _record.ToDictionary( );
         }
 
         /// <inheritdoc/>
@@ -104,13 +106,13 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
         public AccountingEvent( DataRow dataRow )
-            : this( )
+            : base( dataRow )
         {
-            Record = dataRow;
-            ID = int.Parse( Record[ "AccountingEventsId" ].ToString( ) ?? "0" );
-            Code = Record[ "Code" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
-            Map = dataRow.ToDictionary( );
+            _record = dataRow;
+            _id = int.Parse( _record[ "AccountingEventsId" ].ToString( ) ?? "0" );
+            _code = _record[ "Code" ].ToString( );
+            _name = _record[ "Name" ].ToString( );
+            _map = _record.ToDictionary( );
         }
 
         /// <summary>
@@ -120,10 +122,11 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="accountingEvent"> The accounting event. </param>
         public AccountingEvent( AccountingEvent accountingEvent )
+            : base( )
         {
-            ID = accountingEvent.ID;
-            Code = accountingEvent.Code;
-            Name = accountingEvent.Name;
+            _id = accountingEvent.ID;
+            _code = accountingEvent.Code;
+            _name = accountingEvent.Name;
         }
     }
 }
