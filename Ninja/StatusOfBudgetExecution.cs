@@ -41,82 +41,169 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
-    /// <summary> </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class StatusOfBudgetExecution
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
+    public class StatusOfBudgetExecution : BudgetUnit
     {
-        /// <summary> Gets or sets the identifier. </summary>
-        /// <value> The identifier. </value>
-        public int ID { get; set; }
-
-        /// <summary> Gets or sets the treasury account code. </summary>
-        /// <value> The treasury account code. </value>
-        public string TreasuryAccountCode { get; set; }
-
-        /// <summary> Gets or sets the name of the treasury account. </summary>
-        /// <value> The name of the treasury account. </value>
-        public string TreasuryAccountName { get; set; }
-
-        /// <summary> Gets or sets the source. </summary>
-        /// <value> The source. </value>
-        public Source Source { get; set; }
-
-        /// <summary> Gets or sets the provider. </summary>
-        /// <value> The provider. </value>
-        public Provider Provider { get; set; }
-
-        /// <summary> Gets or sets the record. </summary>
-        /// <value> The record. </value>
-        public DataRow Record { get; set; }
-
-        /// <summary> Gets or sets the data. </summary>
-        /// <value> The data. </value>
-        public IDictionary<string, object> Data { get; set; }
+        /// <summary>
+        /// The line number
+        /// </summary>
+        private string _lineNumber;
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="StatusOfBudgetExecution"/>
-        /// class.
+        /// The line name
         /// </summary>
-        public StatusOfBudgetExecution( )
+        private string _lineName;
+
+        /// <summary>
+        /// The line caption
+        /// </summary>
+        private string _lineCaption;
+
+        /// <summary>
+        /// The amount
+        /// </summary>
+        private double _amount;
+
+        /// <summary>
+        /// Gets or sets the line number.
+        /// </summary>
+        /// <value>
+        /// The line number.
+        /// </value>
+        public string LineNumber
         {
-            Source = Source.StatusOfBudgetExecution;
+            get
+            {
+                return _lineNumber;
+            }
+            private protected set
+            {
+                _lineNumber = value;
+            }
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="StatusOfBudgetExecution"/>
-        /// class.
+        /// Gets the name of the line.
         /// </summary>
-        /// <param name="query"> The query. </param>
-        public StatusOfBudgetExecution( IQuery query )
+        /// <value>
+        /// The name of the line.
+        /// </value>
+        public string LineName
         {
+            get
+            {
+                return _lineName;
+            }
+            private protected set
+            {
+                _lineName = value;
+            }
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="StatusOfBudgetExecution"/>
-        /// class.
+        /// Gets or sets the line description.
         /// </summary>
-        /// <param name="dataBuilder"> The data builder. </param>
-        public StatusOfBudgetExecution( IDataModel dataBuilder )
+        /// <value>
+        /// The line description.
+        /// </value>
+        public string LineCaption
         {
+            get
+            {
+                return _lineCaption;
+            }
+            private protected set
+            {
+                _lineCaption = value;
+            }
         }
 
         /// <summary>
+        /// Gets the amount.
+        /// </summary>
+        /// <value>
+        /// The amount.
+        /// </value>
+        public double Amount
+        {
+            get
+            {
+                return _amount;
+            }
+            private protected set
+            {
+                _amount = value;
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="StatusOfBudgetExecution"/>
+        /// <see cref="T:BudgetExecution.StatusOfBudgetExecution" />
         /// class.
         /// </summary>
-        /// <param name="dataRow"> The data row. </param>
-        public StatusOfBudgetExecution( DataRow dataRow )
+        public StatusOfBudgetExecution( ) 
+            : base( )
         {
+            _source = Source.StatusOfBudgetExecution;
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.StatusOfBudgetExecution" />
+        /// class.
+        /// </summary>
+        /// <param name="query">The query.</param>
+        public StatusOfBudgetExecution( IQuery query ) 
+            : base( query )
+        {
+            _record = new DataBuilder( query ).Record;
+            _lineNumber = _record[ "LineNumber" ]?.ToString( );
+            _lineName = _record[ "LineName" ]?.ToString( );
+            _lineCaption = _record[ "LineCaption" ]?.ToString( );
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.StatusOfBudgetExecution" />
+        /// class.
+        /// </summary>
+        /// <param name="builder">The data builder.</param>
+        public StatusOfBudgetExecution( IDataModel builder ) 
+            : base( builder )
+        {
+            _record = builder.Record;
+            _lineNumber = _record[ "LineNumber" ]?.ToString( );
+            _lineName = _record[ "LineName" ]?.ToString( );
+            _lineCaption = _record[ "LineCaption" ]?.ToString( );
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.StatusOfBudgetExecution" />
+        /// class.
+        /// </summary>
+        /// <param name="dataRow">The data row.</param>
+        public StatusOfBudgetExecution( DataRow dataRow ) 
+            : base( dataRow )
+        {
+            _record = dataRow;
+            _lineNumber = dataRow[ "LineNumber" ]?.ToString( );
+            _lineName = dataRow[ "LineName" ]?.ToString( );
+            _lineCaption = dataRow[ "LineCaption" ]?.ToString( );
         }
     }
 }

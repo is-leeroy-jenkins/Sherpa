@@ -255,7 +255,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="status">The project.</param>
         public CongressionalProject( CongressionalProject status )
-            : base( )
+            : this( )
         {
             _id = status.ID;
             _budgetLevel = status.BudgetLevel;
