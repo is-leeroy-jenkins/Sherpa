@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\resourcestatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:resourcestatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\ninja\\statusofbudgetexecution.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:ninja\\statusofbudgetexecution.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\ninja\\statusofbudgetaryresources.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -13,10 +13,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\ninja\\budgetunit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:ninja\\budgetunit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\ninja\\congressionalproject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:ninja\\congressionalproject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\ninja\\dataunit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -55,14 +51,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ResourceStatus.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\ResourceStatus.cs",
-              "RelativeDocumentMoniker": "ResourceStatus.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\ResourceStatus.cs",
-              "RelativeToolTip": "ResourceStatus.cs",
-              "ViewState": "AQIAAFkAAAAAAAAAAADwv3kAAAAAAAAA",
+              "Title": "StatusOfBudgetExecution.cs",
+              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Ninja\\StatusOfBudgetExecution.cs",
+              "RelativeDocumentMoniker": "Ninja\\StatusOfBudgetExecution.cs",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Ninja\\StatusOfBudgetExecution.cs",
+              "RelativeToolTip": "Ninja\\StatusOfBudgetExecution.cs",
+              "ViewState": "AQIAAKMAAAAAAAAAAAAmwLoAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-25T11:48:10.398Z",
+              "WhenOpened": "2024-04-25T12:27:08.021Z",
               "EditorCaption": ""
             },
             {
@@ -73,27 +69,14 @@
               "RelativeDocumentMoniker": "Ninja\\StatusOfBudgetaryResources.cs",
               "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Ninja\\StatusOfBudgetaryResources.cs",
               "RelativeToolTip": "Ninja\\StatusOfBudgetaryResources.cs",
-              "ViewState": "AQIAAC0AAAAAAAAAAAAAAEUAAAAPAAAA",
+              "ViewState": "AQIAAJoBAAAAAAAAAAAgwLUBAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-25T11:42:14.666Z",
+              "WhenOpened": "2024-04-25T12:26:03.398Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CongressionalProject.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Ninja\\CongressionalProject.cs",
-              "RelativeDocumentMoniker": "Ninja\\CongressionalProject.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Ninja\\CongressionalProject.cs",
-              "RelativeToolTip": "Ninja\\CongressionalProject.cs",
-              "ViewState": "AQIAACYAAAAAAAAAAAAAABcAAAA1AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-25T11:41:51.602Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "PRC.cs",
               "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Ninja\\PRC.cs",
               "RelativeDocumentMoniker": "Ninja\\PRC.cs",
@@ -106,7 +89,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "DataUnit.cs",
               "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Ninja\\DataUnit.cs",
               "RelativeDocumentMoniker": "Ninja\\DataUnit.cs",
@@ -125,7 +108,7 @@
               "RelativeDocumentMoniker": "Ninja\\BudgetUnit.cs",
               "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Ninja\\BudgetUnit.cs",
               "RelativeToolTip": "Ninja\\BudgetUnit.cs",
-              "ViewState": "AQIAAD4BAAAAAAAAAAAAAEIBAAA8AAAA",
+              "ViewState": "AQIAAB0BAAAAAAAAAAAAACkBAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-25T10:20:55.157Z",
               "EditorCaption": ""
