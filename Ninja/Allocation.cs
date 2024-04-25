@@ -157,6 +157,7 @@ namespace BudgetExecution
         /// </summary>
         /// <inheritdoc />
         public Allocation( )
+            : base( )
         {
             _source = Source.Allocations;
         }
@@ -213,6 +214,7 @@ namespace BudgetExecution
         /// <param name="builder"></param>
         /// <inheritdoc />
         public Allocation( IDataModel builder )
+            : base( builder )
         {
             _record = builder.Record;
             _map = _record.ToDictionary( );

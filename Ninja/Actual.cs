@@ -156,7 +156,8 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <inheritdoc />
-        public Actual( )
+        public Actual( ) 
+            : base( )
         {
             _source = Source.Actuals;
         }
@@ -169,7 +170,7 @@ namespace BudgetExecution
         /// <param name="query">The query.</param>
         /// <inheritdoc />
         public Actual( IQuery query )
-            : base( )
+            : base( query )
         {
             _record = new DataBuilder( query ).Record;
             _map = _record.ToDictionary( );
@@ -218,7 +219,7 @@ namespace BudgetExecution
         /// <param name="builder"></param>
         /// <inheritdoc />
         public Actual( IDataModel builder )
-            : this( )
+            : base( builder )
         {
             _record = builder.Record;
             _map = _record.ToDictionary( );

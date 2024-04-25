@@ -43,7 +43,6 @@ namespace BudgetExecution
     using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using Microsoft.Office.Interop.Outlook;
     
     /// <inheritdoc/>
     /// <summary> </summary>
@@ -54,6 +53,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     public abstract class AdministrativeRequest : DataUnit
     {
         /// <summary>
@@ -407,6 +407,7 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.AdministrativeRequest" /> class.
         /// </summary>
         protected AdministrativeRequest( )
+            : base( )
         {
         }
 
@@ -417,6 +418,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="query">The query.</param>
         protected AdministrativeRequest( IQuery query )
+            : base( query )
         {
             _source = query.Source;
             _record = new DataBuilder( query ).Record;
@@ -430,6 +432,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataBuilder">The query.</param>
         protected AdministrativeRequest( IDataModel dataBuilder )
+            : base( dataBuilder )
         {
             _source = dataBuilder.Source;
             _record = dataBuilder.Record;
@@ -443,6 +446,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         protected AdministrativeRequest( DataRow dataRow )
+            : base( dataRow )
         {
             _source = Source.AdministrativeRequests;
             _record = dataRow;

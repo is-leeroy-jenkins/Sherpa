@@ -61,7 +61,7 @@ namespace BudgetExecution
         public AccountingEvent( )
             : base( )
         {
-            Source = Source.AccountingEvents;
+            _source = Source.AccountingEvents;
         }
 
         /// <inheritdoc/>
@@ -76,8 +76,8 @@ namespace BudgetExecution
         {
             _record = new DataBuilder( query ).Record;
             _id = int.Parse( _record[ "AccountingEventsId" ].ToString( ) ?? "0" );
-            _code = _record[ "Code" ].ToString( );
-            _name = _record[ "Name" ].ToString( );
+            _code = _record[ "Code" ]?.ToString( );
+            _name = _record[ "Name" ]?.ToString( );
             _map = _record.ToDictionary( );
         }
 
@@ -93,8 +93,8 @@ namespace BudgetExecution
         {
             _record = builder.Record;
             _id = int.Parse( _record[ "AccountingEventsId" ].ToString( ) ?? "0" );
-            _code = _record[ "Code" ].ToString( );
-            _name = _record[ "Name" ].ToString( );
+            _code = _record[ "Code" ]?.ToString( );
+            _name = _record[ "Name" ]?.ToString( );
             _map = _record.ToDictionary( );
         }
 
@@ -110,23 +110,23 @@ namespace BudgetExecution
         {
             _record = dataRow;
             _id = int.Parse( _record[ "AccountingEventsId" ].ToString( ) ?? "0" );
-            _code = _record[ "Code" ].ToString( );
-            _name = _record[ "Name" ].ToString( );
+            _code = _record[ "Code" ]?.ToString( );
+            _name = _record[ "Name" ]?.ToString( );
             _map = _record.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AccountingEvent"/>
+        /// <see cref="T:BudgetExecution.AccountingEvent" />
         /// class.
         /// </summary>
         /// <param name="accountingEvent"> The accounting event. </param>
         public AccountingEvent( AccountingEvent accountingEvent )
-            : base( )
         {
-            _id = accountingEvent.ID;
-            _code = accountingEvent.Code;
-            _name = accountingEvent.Name;
+            ID = accountingEvent.ID;
+            Code = accountingEvent.Code;
+            Name = accountingEvent.Name;
         }
     }
 }

@@ -234,7 +234,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="query">The query.</param>
         public AnnualCarryoverEstimate( IQuery query )
-            : this( )
+            : base( query )
         {
             _record = new DataBuilder( query ).Record;
             _map = _record.ToDictionary( );
@@ -264,7 +264,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="builder">The builder.</param>
         public AnnualCarryoverEstimate( IDataModel builder )
-            : this( )
+            : base( builder )
         {
             _record = builder.Record;
             _map = _record.ToDictionary( );
@@ -294,7 +294,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public AnnualCarryoverEstimate( DataRow dataRow )
-            : this( )
+            : base( dataRow )
         {
             _record = dataRow;
             _map = dataRow.ToDictionary( );
@@ -324,7 +324,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="carryover">The carryover.</param>
         public AnnualCarryoverEstimate( AnnualCarryoverEstimate carryover )
-            : this( )
+            : base( )
         {
             _id = carryover.ID;
             _bfy = carryover.BFY;

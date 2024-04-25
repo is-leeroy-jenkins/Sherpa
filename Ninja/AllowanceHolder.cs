@@ -79,16 +79,19 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameterInConstructor" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Local" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     public class AllowanceHolder : DataUnit
     {
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="AllowanceHolder"/>
+        /// <see cref="T:BudgetExecution.AllowanceHolder" />
         /// class.
         /// </summary>
         public AllowanceHolder( )
+            : base( )
         {
-            Source = Source.AllowanceHolders;
+            _source = Source.AllowanceHolders;
         }
 
         /// <inheritdoc />
@@ -99,13 +102,13 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataBuilder"> The dataBuilder. </param>
         public AllowanceHolder( DataBuilder dataBuilder )
-            : this( )
+            : base( dataBuilder )
         {
             _record = dataBuilder.Record;
-            _id = int.Parse( Record[ "AllowanceHoldersId" ].ToString( ) ?? "0" );
-            _name = Record?[ "Name" ].ToString( );
-            _code = Record?[ "Code" ].ToString( );
-            _map = Record?.ToDictionary( );
+            _id = int.Parse( _record[ "AllowanceHoldersId" ].ToString( ) ?? "0" );
+            _name = _record[ "Name" ].ToString( );
+            _code = _record[ "Code" ].ToString( );
+            _map = _record.ToDictionary( );
         }
 
         /// <inheritdoc />
@@ -116,13 +119,13 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="query"> The query. </param>
         public AllowanceHolder( IQuery query )
-            : this( )
+            : base( query )
         {
             _record = new DataBuilder( query )?.Record;
-            _id = int.Parse( Record[ "AllowanceHoldersId" ].ToString( ) ?? "0" );
-            _name = Record?[ "Name" ].ToString( );
-            _code = Record?[ "Code" ].ToString( );
-            _map = Record?.ToDictionary( );
+            _id = int.Parse( _record[ "AllowanceHoldersId" ].ToString( ) ?? "0" );
+            _name = _record[ "Name" ].ToString( );
+            _code = _record[ "Code" ].ToString( );
+            _map = _record.ToDictionary( );
         }
 
         /// <inheritdoc />
@@ -133,13 +136,13 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="data"> The Data. </param>
         public AllowanceHolder( DataRow data )
-            : this( )
+            : base( data )
         {
             _record = data;
-            _id = int.Parse( Record[ "AllowanceHoldersId" ].ToString( ) ?? "0" );
-            _name = Record?[ "Name" ].ToString( );
-            _code = Record?[ "Code" ].ToString( );
-            _map = Record?.ToDictionary( );
+            _id = int.Parse( data[ "AllowanceHoldersId" ].ToString( ) ?? "0" );
+            _name = data[ "Name" ].ToString( );
+            _code = data[ "Code" ].ToString( );
+            _map = data.ToDictionary( );
         }
 
         /// <inheritdoc />
@@ -150,13 +153,13 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="ahCode"> The ahcode. </param>
         public AllowanceHolder( string ahCode )
-            : this( )
+            : base( )
         {
             _record = new DataBuilder( Source, SetArgs( ahCode ) )?.Record;
-            _id = int.Parse( Record[ "AllowanceHoldersId" ].ToString( ) ?? "0" );
-            _name = Record?[ "Name" ].ToString( );
-            _code = Record?[ "Code" ].ToString( );
-            _map = Record?.ToDictionary( );
+            _id = int.Parse( _record[ "AllowanceHoldersId" ].ToString( ) ?? "0" );
+            _name = _record[ "Name" ].ToString( );
+            _code = _record[ "Code" ].ToString( );
+            _map = _record.ToDictionary( );
         }
 
         /// <inheritdoc />
@@ -167,6 +170,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="allowanceHolder"> The allowance holder. </param>
         public AllowanceHolder( AllowanceHolder allowanceHolder )
+            : base( )
         {
             _id = allowanceHolder.ID;
             _name = allowanceHolder.Name;

@@ -141,7 +141,8 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="request"> The request. </param>
-        public CarryoverRequest( AdministrativeRequest request )
+        public CarryoverRequest( AdministrativeRequest request ) 
+            : this( )
         {
             _id = request.ID;
             _analyst = request.Analyst;

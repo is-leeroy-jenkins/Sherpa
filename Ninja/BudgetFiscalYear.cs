@@ -61,22 +61,13 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     public class BudgetFiscalYear : FiscalYear
     {
-        /// <summary>
-        /// The source
-        /// </summary>
-        private protected Source _source;
-
         /// <summary>
         /// The availability
         /// </summary>
         private protected string _availability;
-
-        /// <summary>
-        /// The record
-        /// </summary>
-        private protected DataRow _record;
 
         /// <summary>
         /// The holidays
@@ -103,42 +94,6 @@ namespace BudgetExecution
             private protected set
             {
                 _availability = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
-        public Source Source
-        {
-            get
-            {
-                return _source;
-            }
-            private protected set
-            {
-                _source = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the record.
-        /// </summary>
-        /// <value>
-        /// The record.
-        /// </value>
-        public DataRow Record
-        {
-            get
-            {
-                return _record;
-            }
-            private protected set
-            {
-                _record = value;
             }
         }
 
@@ -185,6 +140,7 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         public BudgetFiscalYear( )
+            : base( )
         {
             _source = Source.FiscalYears;
             _currentDate = DateOnly.FromDateTime( DateTime.Today );
@@ -227,6 +183,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="query"> The query. </param>
         public BudgetFiscalYear( IQuery query )
+            : base( query )
         {
             _source = query.Source;
             _currentDate = DateOnly.FromDateTime( DateTime.Today );
@@ -256,6 +213,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataBuilder"> The data builder. </param>
         public BudgetFiscalYear( IDataModel dataBuilder )
+            : base( dataBuilder )
         {
             _source = dataBuilder.Source;
             _currentDate = DateOnly.FromDateTime( DateTime.Today );
@@ -289,7 +247,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
         public BudgetFiscalYear( DataRow dataRow )
-            : this( )
+            : base( dataRow )
         {
             _record = dataRow;
             _inputYear = dataRow[ "BFY" ].ToString( );
@@ -335,27 +293,29 @@ namespace BudgetExecution
             _holidays = fiscalYear.Holidays;
         }
 
-        /// <summary> Gets the federal holidays. </summary>
+        /// <summary>
+        /// Gets the federal holidays.
+        /// </summary>
         /// <returns> </returns>
         public IDictionary<Holiday, DateOnly> GetFederalHolidays( )
         {
             try
             {
-                var _map = new Dictionary<Holiday, DateOnly>( );
+                var _data = new Dictionary<Holiday, DateOnly>( );
                 var _day = new HolidayFactory( _record );
-                _map.Add( Holiday.NewYears, _day.ChristmasDay );
-                _map.Add( Holiday.MartinLutherKing, _day.MartinLutherKingDay );
-                _map.Add( Holiday.Memorial, _day.MemorialDay );
-                _map.Add( Holiday.Washington, _day.PresidentsDay );
-                _map.Add( Holiday.Veterans, _day.VeteransDay );
-                _map.Add( Holiday.Labor, _day.LaborDay );
-                _map.Add( Holiday.Juneteenth, _day.JuneteenthDay );
-                _map.Add( Holiday.Independence, _day.IndependenceDay );
-                _map.Add( Holiday.Columbus, _day.ColumbusDay );
-                _map.Add( Holiday.Thanksgiving, _day.ThanksgivingDay );
-                _map.Add( Holiday.Christmas, _day.ChristmasDay );
-                return ( _map?.Any( ) == true )
-                    ? _map
+                _data.Add( Holiday.NewYears, _day.ChristmasDay );
+                _data.Add( Holiday.MartinLutherKing, _day.MartinLutherKingDay );
+                _data.Add( Holiday.Memorial, _day.MemorialDay );
+                _data.Add( Holiday.Washington, _day.PresidentsDay );
+                _data.Add( Holiday.Veterans, _day.VeteransDay );
+                _data.Add( Holiday.Labor, _day.LaborDay );
+                _data.Add( Holiday.Juneteenth, _day.JuneteenthDay );
+                _data.Add( Holiday.Independence, _day.IndependenceDay );
+                _data.Add( Holiday.Columbus, _day.ColumbusDay );
+                _data.Add( Holiday.Thanksgiving, _day.ThanksgivingDay );
+                _data.Add( Holiday.Christmas, _day.ChristmasDay );
+                return ( _data?.Any( ) == true )
+                    ? _data
                     : default( IDictionary<Holiday, DateOnly> );
             }
             catch( Exception _ex )
@@ -365,23 +325,6 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the identifier. </summary>
-        /// <returns> </returns>
-        public int GetId( )
-        {
-            try
-            {
-                return _record != null
-                    ? int.Parse( _record[ 0 ].ToString( ) )
-                    : -1;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-                return default( int );
-            }
-        }
-        
         /// <summary>
         /// Converts to dictionary.
         /// </summary>

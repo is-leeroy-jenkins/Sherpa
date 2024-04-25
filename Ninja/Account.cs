@@ -58,6 +58,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameterInConstructor" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     public class Account : PRC
     {
         /// <inheritdoc/>
@@ -66,7 +67,8 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.Account"/>
         /// class.
         /// </summary>
-        public Account( )
+        public Account( ) 
+            : base( )
         {
             _source = Source.Accounts;
         }
@@ -130,7 +132,8 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
-        public Account( DataRow dataRow )
+        public Account( DataRow dataRow ) 
+            : base( dataRow )
         {
             _source = Source.Accounts;
             _record = dataRow;
@@ -158,6 +161,7 @@ namespace BudgetExecution
         /// The code.
         /// </param>
         public Account( string code )
+            : base( )
         {
             _record = new DataBuilder( Source, GetArgs( code ) )?.Record;
             _id = int.Parse( _record[ "AccountsId" ]?.ToString( ) );
@@ -182,20 +186,20 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="account"> The account. </param>
         public Account( Account account )
+            : base( )
         {
-            ID = account.ID;
-            GoalCode = account.GoalCode;
-            GoalName = account.GoalName;
-            ObjectiveCode = account.ObjectiveCode;
-            ObjectiveName = account.ObjectiveName;
-            NpmCode = account.NpmCode;
-            NpmName = account.NpmName;
-            ProgramProjectCode = account.ProgramProjectCode;
-            ProgramProjectName = account.ProgramProjectName;
-            ActivityCode = account.ActivityCode;
-            ActivityName = account.ActivityName;
-            ProgramAreaCode = account.ProgramProjectCode;
-            ProgramAreaName = account.ProgramAreaName;
+            _id = account.ID;
+            _goalCode = account.GoalCode;
+            _goalName = account.GoalName;
+            _objectiveCode = account.ObjectiveCode;
+            _objectiveName = account.ObjectiveName;
+            _npmCode = account.NpmCode;
+            _npmName = account.NpmName;
+            _programProjectCode = account.ProgramProjectCode;
+            _programProjectName = account.ProgramProjectName;
+            _activityCode = account.ActivityCode;
+            _activityName = account.ActivityName;
+            _map = account.Map;
         }
 
         /// <summary>

@@ -245,14 +245,13 @@ namespace BudgetExecution
         /// Initializes a new instance of the
         /// <see cref="DataUnit"/> class.
         /// </summary>
-        /// <param name="dataBuilder">The query.</param>
-        protected DataUnit( IDataModel dataBuilder )
+        /// <param name="builder">The query.</param>
+        protected DataUnit( IDataModel builder )
         {
-            _source = dataBuilder.Source;
-            _provider = dataBuilder.Provider;
-            _record = dataBuilder.Record;
-            _id = int.Parse( _record[ 0 ]?.ToString( ) ?? "0" );
+            _record = builder.Record;
             _map = _record.ToDictionary( );
+            _code = _record[ "Code" ]?.ToString( );
+            _name = _record[ "Name" ]?.ToString( );
         }
 
         /// <summary>
@@ -262,10 +261,9 @@ namespace BudgetExecution
         /// <param name="query">The query.</param>
         protected DataUnit( IQuery query ) 
         {
-            _source = query.Source;
-            _provider = query.Provider;
             _record = new DataBuilder( query ).Record;
-            _id = int.Parse( _record[ 0 ]?.ToString( ) ?? "0" );
+            _code = _record[ "Code" ]?.ToString( );
+            _name = _record[ "Name" ]?.ToString( );
             _map = _record.ToDictionary( );
         }
 
@@ -277,10 +275,9 @@ namespace BudgetExecution
         protected DataUnit( DataRow dataRow ) 
         {
             _record = dataRow;
-            _map = _record.ToDictionary( );
-            _id = int.Parse( _record[ 0 ]?.ToString( ) ?? "0" );
-            _code = _record[ "Code" ]?.ToString( );
-            _name = _record[ "Name" ]?.ToString( );
+            _map = dataRow.ToDictionary( );
+            _code = dataRow[ "Code" ]?.ToString( );
+            _name = dataRow[ "Name" ]?.ToString( );
         }
 
         /// <inheritdoc />

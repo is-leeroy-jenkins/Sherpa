@@ -55,6 +55,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     public class AppropriationDocument : ControlDocument
     {
         /// <summary>
@@ -368,9 +369,10 @@ namespace BudgetExecution
         /// Initializes a new instance of the
         /// <see cref="T:BudgetExecution.AppropriationDocument" /> class.
         /// </summary>
-        public AppropriationDocument( )
+        public AppropriationDocument( ) 
+            : base( )
         {
-            Source = Source.AppropriationDocuments;
+            _source = Source.AppropriationDocuments;
         }
 
         /// <inheritdoc />
@@ -380,7 +382,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="query">The query.</param>
         public AppropriationDocument( IQuery query )
-            : this( )
+            : base( query )
         {
             _id = int.Parse( _record[ "AppropriationDocumentsId" ].ToString( ) ?? "0" );
             _bfy = _record[ "BFY" ].ToString( );
@@ -445,7 +447,8 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.AppropriationDocument" /> class.
         /// </summary>
         /// <param name="document">The document.</param>
-        public AppropriationDocument( AppropriationDocument document )
+        public AppropriationDocument( AppropriationDocument document ) 
+            : base( )
         {
             _id = document.ID;
             _bfy = document.BFY;

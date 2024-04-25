@@ -44,46 +44,37 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.PRC" />
+    /// <seealso cref="T:BudgetExecution.PRC" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Local" ) ]
     public class AppropriationLevelAuthority : PRC
     {
         /// <summary>
-        /// Gets or sets the budgeted.
+        /// The authority
         /// </summary>
-        /// <value>
-        /// The budgeted.
-        /// </value>
-        public double Budgeted { get; set; }
+        private double _authority;
 
         /// <summary>
-        /// Gets or sets the carryover.
+        /// The budgeted
         /// </summary>
-        /// <value>
-        /// The carryover.
-        /// </value>
-        public double Carryover { get; set; }
+        private double _budgeted;
 
         /// <summary>
-        /// Gets or sets the reimbursements.
+        /// The carryover in
         /// </summary>
-        /// <value>
-        /// The reimbursements.
-        /// </value>
-        public double Reimbursements { get; set; }
+        private double _carryover;
 
         /// <summary>
-        /// Gets or sets the recoveries.
+        /// The reimbursements
         /// </summary>
-        /// <value>
-        /// The recoveries.
-        /// </value>
-        public double Recoveries { get; set; }
+        private double _reimbursements;
 
         /// <summary>
         /// Gets or sets the authority.
@@ -91,16 +82,81 @@ namespace BudgetExecution
         /// <value>
         /// The authority.
         /// </value>
-        public double Authority { get; set; }
+        public double Authority
+        {
+            get
+            {
+                return _authority;
+            }
+            private set
+            {
+                _authority = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the budgeted.
+        /// </summary>
+        /// <value>
+        /// The budgeted.
+        /// </value>
+        public double Budgeted
+        {
+            get
+            {
+                return _budgeted;
+            }
+            private set
+            {
+                _budgeted = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the carryover.
+        /// </summary>
+        /// <value>
+        /// The carryover.
+        /// </value>
+        public double Carryover
+        {
+            get
+            {
+                return _carryover;
+            }
+            private set
+            {
+                _carryover = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the reimbursements.
+        /// </summary>
+        /// <value>
+        /// The reimbursements.
+        /// </value>
+        public double Reimbursements
+        {
+            get
+            {
+                return _reimbursements;
+            }
+            private set
+            {
+                _reimbursements = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="T:BudgetExecution.AppropriationLevelAuthority" /> class.
         /// </summary>
-        public AppropriationLevelAuthority( )
+        public AppropriationLevelAuthority( ) 
+            : base( )
         {
-            Source = Source.AppropriationLevelAuthority;
+            _source = Source.AppropriationLevelAuthority;
         }
 
         /// <inheritdoc />
@@ -109,24 +165,25 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.AppropriationLevelAuthority" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public AppropriationLevelAuthority( IQuery query )
+        public AppropriationLevelAuthority( IQuery query ) 
+            : base( query )
         {
-            Source = Source.AppropriationLevelAuthority;
-            Record = new DataBuilder( query ).Record;
-            Map = Record.ToDictionary( );
-            BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
-            FundCode = Record[ "FundCode" ].ToString( );
-            FundName = Record[ "FundName" ].ToString( );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
-            Authority = double.Parse( Record[ "Authority" ].ToString( ) ?? "0" );
-            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? "0" );
-            Carryover = double.Parse( Record[ "Carryover" ].ToString( ) ?? "0" );
-            Reimbursements = double.Parse( Record[ "Reimbursements" ].ToString( ) ?? "0" );
-            Recoveries = double.Parse( Record[ "Recoveries" ].ToString( ) ?? "0" );
+            _record = new DataBuilder( query ).Record;
+            _map = _record.ToDictionary( );
+            _id = int.Parse( _record[ "AppropriationLevelAuthorityId" ]?.ToString( ) ?? "0" );
+            _bfy = _record[ "BFY" ]?.ToString( );
+            _efy = _record[ "EFY" ]?.ToString( );
+            _fundCode = _record[ "FundCode" ]?.ToString( );
+            _fundName = _record[ "FundName" ]?.ToString( );
+            _authority = double.Parse( _record[ "Authority" ]?.ToString( ) ?? "0" );
+            _budgeted = double.Parse( _record[ "Budgeted" ]?.ToString( ) ?? "0" );
+            _carryover = double.Parse( _record[ "Carryover" ]?.ToString( ) ?? "0" );
+            _reimbursements = double.Parse( _record[ "Reimbursements" ]?.ToString( ) ?? "0" );
+            _mainAccount = _record[ "MainAccount" ]?.ToString( );
+            _treasuryAccountCode = _record[ "TreasuryAccountCode" ]?.ToString( );
+            _treasuryAccountName = _record[ "TreasuryAccountName" ]?.ToString( );
+            _budgetAccountCode = _record[ "BudgetAccountCode" ]?.ToString( );
+            _budgetAccountName = _record[ "BudgetAccountName" ]?.ToString( );
         }
 
         /// <inheritdoc />
@@ -135,24 +192,25 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.AppropriationLevelAuthority" /> class.
         /// </summary>
         /// <param name="builder"></param>
-        public AppropriationLevelAuthority( IDataModel builder )
+        public AppropriationLevelAuthority( IDataModel builder ) 
+            : base( builder )
         {
-            Source = Source.AppropriationLevelAuthority;
-            Record = builder.Record;
-            Map = Record.ToDictionary( );
-            BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
-            FundCode = Record[ "FundCode" ].ToString( );
-            FundName = Record[ "FundName" ].ToString( );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
-            Authority = double.Parse( Record[ "Authority" ].ToString( ) ?? "0" );
-            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? "0" );
-            Carryover = double.Parse( Record[ "Carryover" ].ToString( ) ?? "0" );
-            Reimbursements = double.Parse( Record[ "Reimbursements" ].ToString( ) ?? "0" );
-            Recoveries = double.Parse( Record[ "Recoveries" ].ToString( ) ?? "0" );
+            _record = builder.Record;
+            _map = _record.ToDictionary( );
+            _id = int.Parse( _record[ "AppropriationLevelAuthorityId" ]?.ToString( ) ?? "0" );
+            _bfy = _record[ "BFY" ]?.ToString( );
+            _efy = _record[ "EFY" ]?.ToString( );
+            _fundCode = _record[ "FundCode" ]?.ToString( );
+            _fundName = _record[ "FundName" ]?.ToString( );
+            _authority = double.Parse( _record[ "Authority" ]?.ToString( ) ?? "0" );
+            _budgeted = double.Parse( _record[ "Budgeted" ]?.ToString( ) ?? "0" );
+            _carryover = double.Parse( _record[ "Carryover" ]?.ToString( ) ?? "0" );
+            _reimbursements = double.Parse( _record[ "Reimbursements" ]?.ToString( ) ?? "0" );
+            _mainAccount = _record[ "MainAccount" ]?.ToString( );
+            _treasuryAccountCode = _record[ "TreasuryAccountCode" ]?.ToString( );
+            _treasuryAccountName = _record[ "TreasuryAccountName" ]?.ToString( );
+            _budgetAccountCode = _record[ "BudgetAccountCode" ]?.ToString( );
+            _budgetAccountName = _record[ "BudgetAccountName" ]?.ToString( );
         }
 
         /// <inheritdoc />
@@ -161,24 +219,25 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.AppropriationLevelAuthority" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public AppropriationLevelAuthority( DataRow dataRow )
+        public AppropriationLevelAuthority( DataRow dataRow ) 
+            : base( dataRow )
         {
-            Source = Source.AppropriationLevelAuthority;
-            Record = dataRow;
-            Map = dataRow.ToDictionary( );
-            BFY = dataRow[ "BFY" ].ToString( );
-            EFY = dataRow[ "EFY" ].ToString( );
-            FundCode = dataRow[ "FundCode" ].ToString( );
-            FundName = dataRow[ "FundName" ].ToString( );
-            BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
-            BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
-            TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString( );
-            TreasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString( );
-            Authority = double.Parse( dataRow[ "Authority" ].ToString( ) ?? "0" );
-            Budgeted = double.Parse( dataRow[ "Budgeted" ].ToString( ) ?? "0" );
-            Carryover = double.Parse( dataRow[ "Carryover" ].ToString( ) ?? "0" );
-            Reimbursements = double.Parse( dataRow[ "Reimbursements" ].ToString( ) ?? "0" );
-            Recoveries = double.Parse( dataRow[ "Recoveries" ].ToString( ) ?? "0" );
+            _record = dataRow;
+            _map = dataRow.ToDictionary( );
+            _id = int.Parse( dataRow[ "AppropriationLevelAuthorityId" ]?.ToString( ) ?? "0" );
+            _bfy = dataRow[ "BFY" ]?.ToString( );
+            _efy = dataRow[ "EFY" ]?.ToString( );
+            _fundCode = dataRow[ "FundCode" ]?.ToString( );
+            _fundName = dataRow[ "FundName" ]?.ToString( );
+            _authority = double.Parse( dataRow[ "Authority" ]?.ToString( ) ?? "0" );
+            _budgeted = double.Parse( dataRow[ "Budgeted" ]?.ToString( ) ?? "0" );
+            _carryover = double.Parse( dataRow[ "Carryover" ]?.ToString( ) ?? "0" );
+            _reimbursements = double.Parse( dataRow[ "Reimbursements" ]?.ToString( ) ?? "0" );
+            _mainAccount = _record[ "MainAccount" ]?.ToString( );
+            _treasuryAccountCode = dataRow[ "TreasuryAccountCode" ]?.ToString( );
+            _treasuryAccountName = dataRow[ "TreasuryAccountName" ]?.ToString( );
+            _budgetAccountCode = dataRow[ "BudgetAccountCode" ]?.ToString( );
+            _budgetAccountName = dataRow[ "BudgetAccountName" ]?.ToString( );
         }
 
         /// <inheritdoc />
@@ -187,22 +246,23 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.AppropriationLevelAuthority" /> class.
         /// </summary>
         /// <param name="authority">The authority.</param>
-        public AppropriationLevelAuthority( AppropriationLevelAuthority authority )
+        public AppropriationLevelAuthority( AppropriationLevelAuthority authority ) 
+            : base( )
         {
-            ID = authority.ID;
-            BFY = authority.BFY;
-            EFY = authority.EFY;
-            FundCode = authority.FundCode;
-            FundName = authority.FundName;
-            TreasuryAccountCode = authority.TreasuryAccountCode;
-            TreasuryAccountName = authority.TreasuryAccountName;
-            BudgetAccountCode = authority.BudgetAccountCode;
-            BudgetAccountName = authority.BudgetAccountName;
-            Authority = authority.Authority;
-            Budgeted = authority.Budgeted;
-            Carryover = authority.Carryover;
-            Reimbursements = authority.Reimbursements;
-            Recoveries = authority.Recoveries;
+            _id = authority.ID;
+            _bfy = authority.BFY;
+            _efy = authority.EFY;
+            _fundCode = authority.FundCode;
+            _fundName = authority.FundName;
+            _authority = authority.Authority;
+            _budgeted = authority.Budgeted;
+            _carryover = authority.Carryover;
+            _reimbursements = authority.Reimbursements;
+            _mainAccount = authority.MainAccount;
+            _budgetAccountCode = authority.BudgetAccountCode;
+            _budgetAccountName = authority.BudgetAccountName;
+            _treasuryAccountCode = authority.TreasuryAccountCode;
+            _treasuryAccountName = authority.TreasuryAccountName;
         }
     }
 }

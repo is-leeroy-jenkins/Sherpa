@@ -49,7 +49,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
-    public class Appropriation : BudgetUnit
+    public class Appropriation : DataUnit
     {
         /// <inheritdoc />
         /// <summary>

@@ -53,6 +53,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "InheritdocConsiderUsage" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     public class BudgetContact : DataUnit
     {
         /// <summary>
@@ -197,9 +198,10 @@ namespace BudgetExecution
         /// Initializes a new instance of the
         /// <see cref="BudgetContact"/> class.
         /// </summary>
-        public BudgetContact( )
+        public BudgetContact( ) 
+            : base( )
         {
-            Source = Source.BudgetContacts;
+            _source = Source.BudgetContacts;
         }
 
         /// <summary>
@@ -208,7 +210,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="query">The query.</param>
         public BudgetContact( IQuery query )
-            : this( )
+            : base( query )
         {
             _record = new DataBuilder( query ).Record;
             _map = _record.ToDictionary( );
@@ -227,11 +229,11 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="builder">The builder.</param>
         public BudgetContact( IDataModel builder )
-            : this( )
+            : base( builder )
         {
             _record = builder.Record;
-            _map = Record.ToDictionary( );
-            _id = int.Parse( Record[ "BudgetContactsId" ].ToString( ) ?? "0" );
+            _map = _record.ToDictionary( );
+            _id = int.Parse( _record[ "BudgetContactsId" ].ToString( ) ?? "0" );
             _firstName = _record[ "FirstName" ].ToString( );
             _lastName = _record[ "LastName" ].ToString( );
             _fullName = _record[ "FullName" ].ToString( );
