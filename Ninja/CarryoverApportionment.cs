@@ -58,30 +58,69 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     public class CarryoverApportionment : BudgetUnit
     {
+        /// <summary>
+        /// The budget account
+        /// </summary>
         private string _budgetAccount;
-        
+
+        /// <summary>
+        /// The treasury account
+        /// </summary>
         private string _treasuryAccount;
-        
+
+        /// <summary>
+        /// The group
+        /// </summary>
         private string _group;
-        
+
+        /// <summary>
+        /// The description
+        /// </summary>
         private string _description;
-        
+
+        /// <summary>
+        /// The line name
+        /// </summary>
         private string _lineName;
-        
+
+        /// <summary>
+        /// The authority type
+        /// </summary>
         private string _authorityType;
-        
+
+        /// <summary>
+        /// The request
+        /// </summary>
         private double _request;
-        
+
+        /// <summary>
+        /// The balance
+        /// </summary>
         private double _balance;
-        
+
+        /// <summary>
+        /// The deobligations
+        /// </summary>
         private double _deobligations;
-        
+
+        /// <summary>
+        /// The amount
+        /// </summary>
         private double _amount;
-        
+
+        /// <summary>
+        /// The line number
+        /// </summary>
         private string _lineNumber;
-        
+
+        /// <summary>
+        /// The line split
+        /// </summary>
         private string _lineSplit;
-        
+
+        /// <summary>
+        /// The apportionment account code
+        /// </summary>
         private string _apportionmentAccountCode;
 
         /// <summary>
@@ -429,7 +468,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="carryover">The carryover.</param>
         public CarryoverApportionment( CarryoverApportionment carryover )
-            : base( )
+            : this( )
         {
             _id = carryover.ID;
             _bfy = carryover.BFY;

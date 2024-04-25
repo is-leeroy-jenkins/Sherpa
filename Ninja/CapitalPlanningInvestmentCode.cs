@@ -149,13 +149,13 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="code"> The code. </param>
-        public CapitalPlanningInvestmentCode( CapitalPlanningInvestmentCode code )
+        public CapitalPlanningInvestmentCode( CapitalPlanningInvestmentCode code ) 
+            : this( )
         {
-            Source = Source.CapitalPlanningInvestmentCodes;
-            ID = code.ID;
-            Code = code.Code;
-            Name = code.Name;
-            Type = code.Type;
+            _id = code.ID;
+            _code = code.Code;
+            _name = code.Name;
+            _type = code.Type;
         }
     }
 }

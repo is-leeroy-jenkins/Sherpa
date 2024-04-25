@@ -433,7 +433,8 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="level">The compass level.</param>
-        public CompassLevel( CompassLevel level )
+        public CompassLevel( CompassLevel level ) 
+            : this( )
         {
             _id = level.ID;
             _bfy = level.BFY;

@@ -289,7 +289,8 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.BudgetDocuments" /> class.
         /// </summary>
         /// <param name="budgetDocument">The budget document.</param>
-        public BudgetDocument( BudgetDocument budgetDocument ) : base( )
+        public BudgetDocument( BudgetDocument budgetDocument ) 
+            : this( )
         {
             _record = budgetDocument.Record;
             _map = budgetDocument.Map;

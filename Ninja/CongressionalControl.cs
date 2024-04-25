@@ -54,26 +54,57 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Local" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     public class CongressionalControl : BudgetUnit
     {
+        /// <summary>
+        /// The program area code
+        /// </summary>
         private string _programAreaCode;
-        
+
+        /// <summary>
+        /// The program area name
+        /// </summary>
         private string _programAreaName;
-        
+
+        /// <summary>
+        /// The program project code
+        /// </summary>
         private string _programProjectCode;
 
+        /// <summary>
+        /// The program project name
+        /// </summary>
         private string _programProjectName;
-        
+
+        /// <summary>
+        /// The sub project code
+        /// </summary>
         private string _subProjectCode;
-        
+
+        /// <summary>
+        /// The sub project name
+        /// </summary>
         private string _subProjectName;
-        
+
+        /// <summary>
+        /// The reprogramming restriction
+        /// </summary>
         private bool _reprogrammingRestriction;
-        
+
+        /// <summary>
+        /// The increase restriction
+        /// </summary>
         private bool _increaseRestriction;
 
+        /// <summary>
+        /// The decrease restriction
+        /// </summary>
         private bool _decreaseRestriction;
-        
+
+        /// <summary>
+        /// The memo requirement
+        /// </summary>
         private bool _memoRequirement;
 
         /// <summary>
@@ -86,11 +117,11 @@ namespace BudgetExecution
         {
             get
             {
-                return _subProjectName;
+                return _programAreaCode;
             }
             private set
             {
-                _subProjectName = value;
+                _programAreaCode = value;
             }
         }
 
@@ -104,11 +135,11 @@ namespace BudgetExecution
         {
             get
             {
-                return _subProjectName;
+                return _programAreaName;
             }
             private set
             {
-                _subProjectName = value;
+                _programAreaName = value;
             }
         }
 
@@ -122,11 +153,11 @@ namespace BudgetExecution
         {
             get
             {
-                return _subProjectName;
+                return _programProjectCode;
             }
             private set
             {
-                _subProjectName = value;
+                _programAreaCode = value;
             }
         }
 
@@ -140,11 +171,11 @@ namespace BudgetExecution
         {
             get
             {
-                return _subProjectName;
+                return _programProjectName;
             }
             private set
             {
-                _subProjectName = value;
+                _programProjectName = value;
             }
         }
 
@@ -158,11 +189,11 @@ namespace BudgetExecution
         {
             get
             {
-                return _subProjectName;
+                return _subProjectCode;
             }
             private set
             {
-                _subProjectName = value;
+                _subProjectCode = value;
             }
         }
 
@@ -194,11 +225,11 @@ namespace BudgetExecution
         {
             get
             {
-                return _memoRequirement;
+                return _reprogrammingRestriction;
             }
             private set
             {
-                _memoRequirement = value;
+                _reprogrammingRestriction = value;
             }
         }
 
@@ -212,11 +243,11 @@ namespace BudgetExecution
         {
             get
             {
-                return _memoRequirement;
+                return _increaseRestriction;
             }
             private set
             {
-                _memoRequirement = value;
+                _increaseRestriction = value;
             }
         }
 
@@ -230,11 +261,11 @@ namespace BudgetExecution
         {
             get
             {
-                return _memoRequirement;
+                return _decreaseRestriction;
             }
             private set
             {
-                _memoRequirement = value;
+                _decreaseRestriction = value;
             }
         }
 
@@ -360,7 +391,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="control">The control.</param>
         public CongressionalControl( CongressionalControl control ) 
-            : base( )
+            : this( )
         {
             _id = control.ID;
             _fundCode = control.FundCode;

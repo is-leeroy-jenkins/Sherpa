@@ -58,6 +58,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     public class BudgetObjectClass : DataUnit
     {
         /// <summary>
@@ -94,6 +95,7 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.BudgetObjectClasses" /> class.
         /// </summary>
         public BudgetObjectClass( )
+            : base( )
         {
             _source = Source.BudgetObjectClasses;
         }
@@ -142,7 +144,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="query">The query.</param>
         public BudgetObjectClass( IQuery query )
-            : this( )
+            : base( query )
         {
             _record = new DataBuilder( query )?.Record;
             _id = int.Parse( _record[ "BudgetObjectClassesId" ]?.ToString( ) ?? "0" );
@@ -162,7 +164,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="builder">The builder.</param>
         public BudgetObjectClass( IDataModel builder )
-            : this( )
+            : base( builder )
         {
             _record = builder.Record;
             _id = int.Parse( _record[ "BudgetObjectClassesId" ]?.ToString( ) ?? "0" );
@@ -177,11 +179,12 @@ namespace BudgetExecution
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.BudgetObjectClasses" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.BudgetObjectClasses" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public BudgetObjectClass( DataRow dataRow )
-            : this( )
+            : base( dataRow )
         {
             _record = dataRow;
             _id = int.Parse( dataRow[ "BudgetObjectClassesId" ].ToString( ) ?? "0" );
@@ -201,6 +204,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="boc">The boc.</param>
         public BudgetObjectClass( BudgetObjectClass boc )
+            : this( )
         {
             _id = boc.ID;
             _code = boc.Code;

@@ -41,10 +41,11 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
@@ -52,13 +53,9 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-    public abstract class FederalHoliday
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
+    public abstract class FederalHoliday : DataUnit
     {
-        /// <summary>
-        /// The source
-        /// </summary>
-        private Source _source;
-
         /// <summary>
         /// The columbus day
         /// </summary>
@@ -312,42 +309,54 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
-        public Source Source
-        {
-            get
-            {
-                return _source;
-            }
-            private protected set
-            {
-                _source = value;
-            }
-        }
-
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="FederalHoliday"/> class.
+        /// <see cref="T:BudgetExecution.FederalHoliday" /> class.
         /// </summary>
         protected FederalHoliday( )
+            : base( )
         {
             _source = Source.FederalHolidays;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Fails the specified ex.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.FederalHoliday" /> class.
         /// </summary>
-        /// <param name="ex">The ex.</param>
-        private protected static void Fail( Exception ex )
+        /// <param name="query">The query.</param>
+        protected FederalHoliday( IQuery query )
+            : base( query )
         {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
+            _record = new DataBuilder( query ).Record;
+            _map = _record.ToDictionary( );
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.FederalHoliday" /> class.
+        /// </summary>
+        /// <param name="builder"></param>
+        protected FederalHoliday( IDataModel builder )
+            : base( builder )
+        {
+            _record = builder.Record;
+            _map = _record.ToDictionary( );
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.FederalHoliday" /> class.
+        /// </summary>
+        /// <param name="dataRow">The data row.</param>
+        protected FederalHoliday( DataRow dataRow )
+            : base( dataRow )
+        {
+            _record = dataRow;
+            _map = dataRow.ToDictionary( );
         }
     }
 }

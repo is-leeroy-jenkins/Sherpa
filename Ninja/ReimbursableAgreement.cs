@@ -41,19 +41,19 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-
+    
     /// <inheritdoc />
     /// <summary>
     /// </summary>
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
+    [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     public class ReimbursableAgreement : BudgetUnit
     {
         /// <summary>
@@ -117,6 +117,11 @@ namespace BudgetExecution
         private double _amount;
 
         /// <summary>
+        /// The unliquidated obligations
+        /// </summary>
+        private double _openCommitments;
+
+        /// <summary>
         /// The obligations
         /// </summary>
         private double _obligations;
@@ -141,11 +146,11 @@ namespace BudgetExecution
         {
             get
             {
-                return _vendorName;
+                return _rpio;
             }
             private set
             {
-                _vendorName = value;
+                _rpio = value;
             }
         }
 
@@ -159,11 +164,11 @@ namespace BudgetExecution
         {
             get
             {
-                return _vendorName;
+                return _agreementNumber;
             }
             private set
             {
-                _vendorName = value;
+                _agreementNumber = value;
             }
         }
 
@@ -213,11 +218,11 @@ namespace BudgetExecution
         {
             get
             {
-                return _vendorName;
+                return _rcCode;
             }
             private set
             {
-                _vendorName = value;
+                _rcCode = value;
             }
         }
 
@@ -231,11 +236,11 @@ namespace BudgetExecution
         {
             get
             {
-                return _vendorName;
+                return _orgCode;
             }
             private set
             {
-                _vendorName = value;
+                _orgCode = value;
             }
         }
 
@@ -249,11 +254,11 @@ namespace BudgetExecution
         {
             get
             {
-                return _divisionNamee;
+                return _divisionName;
             }
             private set
             {
-                _vendorName = value;
+                _divisionName = value;
             }
         }
 
@@ -357,11 +362,11 @@ namespace BudgetExecution
         {
             get
             {
-                return _amount;
+                return _openCommitments;
             }
             private set
             {
-                _amount = value;
+                _openCommitments = value;
             }
         }
 
@@ -375,11 +380,11 @@ namespace BudgetExecution
         {
             get
             {
-                return _amount;
+                return _obligations;
             }
             private set
             {
-                _amount = value;
+                _obligations = value;
             }
         }
 
@@ -389,15 +394,15 @@ namespace BudgetExecution
         /// <value>
         /// The ulo.
         /// </value>
-        public double ULO
+        public double UnliquidatedObligations
         {
             get
             {
-                return _amount;
+                return _unliquidatedObligations;
             }
             private set
             {
-                _amount = value;
+                _unliquidatedObligations = value;
             }
         }
 
@@ -445,31 +450,102 @@ namespace BudgetExecution
             _efy = _record[ "EFY" ]?.ToString( );
             _fundCode = _record[ "FundCode" ]?.ToString( );
             _fundName = _record[ "FundName" ]?.ToString( );
+            _rpio = _record[ "RPIO" ].ToString( );
+            _agreementNumber = _record[ "AgreementNumber" ].ToString( );
+            _startDate = DateOnly.Parse( _record[ "StartDate" ].ToString( ) );
+            _endDate = DateOnly.Parse( _record[ "EndDate" ].ToString( ) );
+            _rcCode = _record[ "RcCode" ].ToString( );
+            _orgCode = _record[ "OrgCode" ].ToString( );
+            _divisionName = _record[ "DivisionName" ].ToString( );
+            _siteProjectCode = _record[ "SiteProjectCode" ].ToString( );
+            _accountCode = _record[ "AccountCode" ].ToString( );
+            _vendorCode = _record[ "VendorCode" ].ToString( );
+            _vendorName = _record[ "VendorName" ].ToString( );
+            _amount = double.Parse( _record[ "Amount" ].ToString( ) );
+            _openCommitments = double.Parse( _record[ "OpenCommitments" ].ToString( ) );
+            _obligations = double.Parse( _record[ "Obligations" ].ToString( ) );
+            _unliquidatedObligations = double.Parse( _record[ "UnliquidatedObligatios" ].ToString( ) );
+            _available = double.Parse( _record[ "Available" ].ToString( ) );
             _mainAccount = _record[ "MainAccount" ]?.ToString( );
             _treasuryAccountCode = _record[ "TreasuryAccountCode" ]?.ToString( );
             _treasuryAccountName = _record[ "TreasuryAccountName" ]?.ToString( );
             _budgetAccountCode = _record[ "BudgetAccountCode" ]?.ToString( );
             _budgetAccountName = _record[ "BudgetAccountName" ]?.ToString( );
+            _map = _record.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="ReimbursableAgreement"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.ReimbursableAgreement" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
         public ReimbursableAgreement( IDataModel builder )
         {
-            Record = builder.Record;
-            Data = Record.ToDictionary( );
+            _record = builder.Record;
+            _fiscalYear = _record[ "FiscalYear" ]?.ToString( );
+            _bfy = _record[ "BFY" ]?.ToString( );
+            _efy = _record[ "EFY" ]?.ToString( );
+            _fundCode = _record[ "FundCode" ]?.ToString( );
+            _fundName = _record[ "FundName" ]?.ToString( );
+            _rpio = _record[ "RPIO" ].ToString( );
+            _agreementNumber = _record[ "AgreementNumber" ].ToString( );
+            _startDate = DateOnly.Parse( _record[ "StartDate" ].ToString( ) );
+            _endDate = DateOnly.Parse( _record[ "EndDate" ].ToString( ) );
+            _rcCode = _record[ "RcCode" ].ToString( );
+            _orgCode = _record[ "OrgCode" ].ToString( );
+            _divisionName = _record[ "DivisionName" ].ToString( );
+            _siteProjectCode = _record[ "SiteProjectCode" ].ToString( );
+            _accountCode = _record[ "AccountCode" ].ToString( );
+            _vendorCode = _record[ "VendorCode" ].ToString( );
+            _vendorName = _record[ "VendorName" ].ToString( );
+            _amount = double.Parse( _record[ "Amount" ].ToString( ) );
+            _openCommitments = double.Parse( _record[ "OpenCommitments" ].ToString( ) );
+            _obligations = double.Parse( _record[ "Obligations" ].ToString( ) );
+            _unliquidatedObligations = double.Parse( _record[ "UnliquidatedObligatios" ].ToString( ) );
+            _available = double.Parse( _record[ "Available" ].ToString( ) );
+            _mainAccount = _record[ "MainAccount" ]?.ToString( );
+            _treasuryAccountCode = _record[ "TreasuryAccountCode" ]?.ToString( );
+            _treasuryAccountName = _record[ "TreasuryAccountName" ]?.ToString( );
+            _budgetAccountCode = _record[ "BudgetAccountCode" ]?.ToString( );
+            _budgetAccountName = _record[ "BudgetAccountName" ]?.ToString( );
+            _map = _record.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="ReimbursableAgreement"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.ReimbursableAgreement" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public ReimbursableAgreement( DataRow dataRow )
         {
-            Record = dataRow;
-            Data = dataRow.ToDictionary( );
+            _record = dataRow;
+            _fiscalYear = dataRow[ "FiscalYear" ]?.ToString( );
+            _bfy = dataRow[ "BFY" ]?.ToString( );
+            _efy = dataRow[ "EFY" ]?.ToString( );
+            _fundCode = dataRow[ "FundCode" ]?.ToString( );
+            _fundName = dataRow[ "FundName" ]?.ToString( );
+            _rpio = dataRow[ "RPIO" ].ToString( );
+            _agreementNumber = dataRow[ "AgreementNumber" ].ToString( );
+            _startDate = DateOnly.Parse( dataRow[ "StartDate" ].ToString( ) );
+            _endDate = DateOnly.Parse( dataRow[ "EndDate" ].ToString( ) );
+            _rcCode = dataRow[ "RcCode" ].ToString( );
+            _orgCode = dataRow[ "OrgCode" ].ToString( );
+            _divisionName = dataRow[ "DivisionName" ].ToString( );
+            _siteProjectCode = dataRow[ "SiteProjectCode" ].ToString( );
+            _accountCode = dataRow[ "AccountCode" ].ToString( );
+            _vendorCode = dataRow[ "VendorCode" ].ToString( );
+            _vendorName = dataRow[ "VendorName" ].ToString( );
+            _amount = double.Parse( dataRow[ "Amount" ].ToString( ) );
+            _openCommitments = double.Parse( dataRow[ "OpenCommitments" ].ToString( ) );
+            _obligations = double.Parse( dataRow[ "Obligations" ].ToString( ) );
+            _unliquidatedObligations = double.Parse( dataRow[ "UnliquidatedObligatios" ].ToString( ) );
+            _available = double.Parse( dataRow[ "Available" ].ToString( ) );
+            _mainAccount = dataRow[ "MainAccount" ]?.ToString( );
+            _treasuryAccountCode = dataRow[ "TreasuryAccountCode" ]?.ToString( );
+            _treasuryAccountName = dataRow[ "TreasuryAccountName" ]?.ToString( );
+            _budgetAccountCode = dataRow[ "BudgetAccountCode" ]?.ToString( );
+            _budgetAccountName = dataRow[ "BudgetAccountName" ]?.ToString( );
+            _map = dataRow.ToDictionary( );
         }
     }
 }

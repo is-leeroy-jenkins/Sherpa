@@ -42,6 +42,7 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
+    using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
     /// <inheritdoc />
@@ -59,12 +60,6 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     public abstract class FiscalYear : CalendarYear
     {
-        /// <summary>
-        /// The identifier
-        /// 
-        /// </summary>
-        private protected int _id;
-
         /// <summary>
         /// The bfy
         /// </summary>
@@ -115,24 +110,6 @@ namespace BudgetExecution
         /// </summary>
         private protected DateOnly _expirationDate;
 
-        /// <summary>
-        /// Gets or sets the identifier.
-        /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
-        public int ID
-        {
-            get
-            {
-                return _id;
-            }
-            private protected set
-            {
-                _id = value;
-            }
-        }
-        
         /// <summary>
         /// Gets or sets the bfy.
         /// </summary>
@@ -369,6 +346,39 @@ namespace BudgetExecution
         /// <inheritdoc />
         protected FiscalYear( ) 
             : base( )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="FiscalYear"/> class.
+        /// </summary>
+        /// <param name="query">The query.</param>
+        /// <inheritdoc />
+        protected FiscalYear( IQuery query )
+            : base( query )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="FiscalYear"/> class.
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <inheritdoc />
+        protected FiscalYear( IDataModel builder )
+            : base( builder )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="FiscalYear"/> class.
+        /// </summary>
+        /// <param name="dataRow">The data row.</param>
+        /// <inheritdoc />
+        protected FiscalYear( DataRow dataRow )
+            : base( dataRow )
         {
         }
     }

@@ -43,7 +43,8 @@ namespace BudgetExecution
     using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-
+    using Syncfusion.WinForms.DataGrid.Events;
+    
     /// <inheritdoc />
     /// <summary>
     /// </summary>
@@ -256,27 +257,28 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.AppropriationAvailableBalances" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public AppropriationAvailableBalance( IQuery query )
+        public AppropriationAvailableBalance( IQuery query ) 
+            : base( query )
         {
             _record = new DataBuilder( query ).Record;
             _map = _record.ToDictionary( );
-            _id = int.Parse( _record[ "AppropriationAvailableBalancesId" ].ToString( ) ?? "0" );
-            _bfy = _record[ "BFY" ].ToString( );
-            _efy = _record[ "EFY" ].ToString( );
-            _fundCode = _record[ "FundCode" ].ToString( );
-            _fundName = _record[ "FundName" ].ToString( );
-            _treasuryAccountCode = _record[ "TreasuryAccountCode" ].ToString( );
-            _treasuryAccountName = _record[ "TreasuryAccountName" ].ToString( );
-            _budgetAccountCode = _record[ "BudgetAccountCode" ].ToString( );
-            _budgetAccountName = _record[ "BudgetAccountName" ].ToString( );
-            _authority = double.Parse( _record[ "Authority" ].ToString( ) ?? "0" );
-            _budgeted = double.Parse( _record[ "Budgeted" ].ToString( ) ?? "0" );
-            _carryoverIn = double.Parse( _record[ "CarryoverIn" ].ToString( ) ?? "0" );
-            _carryoverOut = double.Parse( _record[ "CarryoverOut" ].ToString( ) ?? "0" );
-            _reimbursements = double.Parse( _record[ "Reimbursements" ].ToString( ) ?? "0" );
-            _recoveries = double.Parse( _record[ "Recoveries" ].ToString( ) ?? "0" );
-            _used = double.Parse( _record[ "Used" ].ToString( ) ?? "0" );
-            _available = double.Parse( _record[ "Available" ].ToString( ) ?? "0" );
+            _id = int.Parse( _record[ "AppropriationAvailableBalancesId" ]?.ToString( ) ?? "0" );
+            _bfy = _record[ "BFY" ]?.ToString( );
+            _efy = _record[ "EFY" ]?.ToString( );
+            _fundCode = _record[ "FundCode" ]?.ToString( );
+            _fundName = _record[ "FundName" ]?.ToString( );
+            _authority = double.Parse( _record[ "Authority" ]?.ToString( ) ?? "0" );
+            _budgeted = double.Parse( _record[ "Budgeted" ]?.ToString( ) ?? "0" );
+            _carryoverIn = double.Parse( _record[ "CarryoverIn" ]?.ToString( ) ?? "0" );
+            _carryoverOut = double.Parse( _record[ "CarryoverOut" ]?.ToString( ) ?? "0" );
+            _reimbursements = double.Parse( _record[ "Reimbursements" ]?.ToString( ) ?? "0" );
+            _recoveries = double.Parse( _record[ "Recoveries" ]?.ToString( ) ?? "0" );
+            _used = double.Parse( _record[ "Used" ]?.ToString( ) ?? "0" );
+            _available = double.Parse( _record[ "Available" ]?.ToString( ) ?? "0" );
+            _treasuryAccountCode = _record[ "TreasuryAccountCode" ]?.ToString( );
+            _treasuryAccountName = _record[ "TreasuryAccountName" ]?.ToString( );
+            _budgetAccountCode = _record[ "BudgetAccountCode" ]?.ToString( );
+            _budgetAccountName = _record[ "BudgetAccountName" ]?.ToString( );
         }
 
         /// <inheritdoc />
@@ -285,27 +287,29 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.AppropriationAvailableBalances" /> class.
         /// </summary>
         /// <param name="builder"></param>
-        public AppropriationAvailableBalance( IDataModel builder )
+        public AppropriationAvailableBalance( IDataModel builder ) 
+            : base( builder )
         {
             _record = builder.Record;
             _map = _record.ToDictionary( );
-            _id = int.Parse( _record[ "AppropriationAvailableBalancesId" ].ToString( ) ?? "0" );
-            _bfy = _record[ "BFY" ].ToString( );
-            _efy = _record[ "EFY" ].ToString( );
-            _fundCode = _record[ "FundCode" ].ToString( );
-            _fundName = _record[ "FundName" ].ToString( );
-            _treasuryAccountCode = _record[ "TreasuryAccountCode" ].ToString( );
-            _treasuryAccountName = _record[ "TreasuryAccountName" ].ToString( );
-            _budgetAccountCode = _record[ "BudgetAccountCode" ].ToString( );
-            _budgetAccountName = _record[ "BudgetAccountName" ].ToString( );
-            _authority = double.Parse( _record[ "Authority" ].ToString( ) ?? "0" );
-            _budgeted = double.Parse( _record[ "Budgeted" ].ToString( ) ?? "0" );
-            _carryoverIn = double.Parse( _record[ "CarryoverIn" ].ToString( ) ?? "0" );
-            _carryoverOut = double.Parse( _record[ "CarryoverOut" ].ToString( ) ?? "0" );
-            _reimbursements = double.Parse( _record[ "Reimbursements" ].ToString( ) ?? "0" );
-            _recoveries = double.Parse( _record[ "Recoveries" ].ToString( ) ?? "0" );
-            _used = double.Parse( _record[ "Used" ].ToString( ) ?? "0" );
-            _available = double.Parse( _record[ "Available" ].ToString( ) ?? "0" );
+            _id = int.Parse( _record[ "AppropriationAvailableBalancesId" ]?.ToString( ) ?? "0" );
+            _bfy = _record[ "BFY" ]?.ToString( );
+            _efy = _record[ "EFY" ]?.ToString( );
+            _fundCode = _record[ "FundCode" ]?.ToString( );
+            _fundName = _record[ "FundName" ]?.ToString( );
+            _authority = double.Parse( _record[ "Authority" ]?.ToString( ) ?? "0" );
+            _budgeted = double.Parse( _record[ "Budgeted" ]?.ToString( ) ?? "0" );
+            _carryoverIn = double.Parse( _record[ "CarryoverIn" ]?.ToString( ) ?? "0" );
+            _carryoverOut = double.Parse( _record[ "CarryoverOut" ]?.ToString( ) ?? "0" );
+            _reimbursements = double.Parse( _record[ "Reimbursements" ]?.ToString( ) ?? "0" );
+            _recoveries = double.Parse( _record[ "Recoveries" ]?.ToString( ) ?? "0" );
+            _used = double.Parse( _record[ "Used" ]?.ToString( ) ?? "0" );
+            _available = double.Parse( _record[ "Available" ]?.ToString( ) ?? "0" );
+            _mainAccount = _record[ "MainAccount" ]?.ToString( );
+            _treasuryAccountCode = _record[ "TreasuryAccountCode" ]?.ToString( );
+            _treasuryAccountName = _record[ "TreasuryAccountName" ]?.ToString( );
+            _budgetAccountCode = _record[ "BudgetAccountCode" ]?.ToString( );
+            _budgetAccountName = _record[ "BudgetAccountName" ]?.ToString( );
         }
 
         /// <inheritdoc />
@@ -314,27 +318,29 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.AppropriationAvailableBalances" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public AppropriationAvailableBalance( DataRow dataRow )
+        public AppropriationAvailableBalance( DataRow dataRow ) 
+            : base( dataRow )
         {
             _record = dataRow;
             _map = dataRow.ToDictionary( );
-            _id = int.Parse( dataRow[ "AppropriationAvailableBalancesId" ].ToString( ) ?? "0" );
-            _bfy = dataRow[ "BFY" ].ToString( );
-            _efy = dataRow[ "EFY" ].ToString( );
-            _fundCode = dataRow[ "FundCode" ].ToString( );
-            _fundName = dataRow[ "FundName" ].ToString( );
-            _treasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString( );
-            _treasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString( );
-            _budgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
-            _budgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
-            _authority = double.Parse( dataRow[ "Authority" ].ToString( ) ?? "0" );
-            _budgeted = double.Parse( dataRow[ "Budgeted" ].ToString( ) ?? "0" );
-            _carryoverIn = double.Parse( dataRow[ "CarryoverIn" ].ToString( ) ?? "0" );
-            _carryoverOut = double.Parse( dataRow[ "CarryoverOut" ].ToString( ) ?? "0" );
-            _reimbursements = double.Parse( dataRow[ "Reimbursements" ].ToString( ) ?? "0" );
-            _recoveries = double.Parse( dataRow[ "Recoveries" ].ToString( ) ?? "0" );
-            _used = double.Parse( dataRow[ "Used" ].ToString( ) ?? "0" );
-            _available = double.Parse( dataRow[ "Available" ].ToString( ) ?? "0" );
+            _id = int.Parse( dataRow[ "AppropriationAvailableBalancesId" ]?.ToString( ) ?? "0" );
+            _bfy = dataRow[ "BFY" ]?.ToString( );
+            _efy = dataRow[ "EFY" ]?.ToString( );
+            _fundCode = dataRow[ "FundCode" ]?.ToString( );
+            _fundName = dataRow[ "FundName" ]?.ToString( );
+            _authority = double.Parse( dataRow[ "Authority" ]?.ToString( ) ?? "0" );
+            _budgeted = double.Parse( dataRow[ "Budgeted" ]?.ToString( ) ?? "0" );
+            _carryoverIn = double.Parse( dataRow[ "CarryoverIn" ]?.ToString( ) ?? "0" );
+            _carryoverOut = double.Parse( dataRow[ "CarryoverOut" ]?.ToString( ) ?? "0" );
+            _reimbursements = double.Parse( dataRow[ "Reimbursements" ]?.ToString( ) ?? "0" );
+            _recoveries = double.Parse( dataRow[ "Recoveries" ]?.ToString( ) ?? "0" );
+            _used = double.Parse( dataRow[ "Used" ]?.ToString( ) ?? "0" );
+            _available = double.Parse( dataRow[ "Available" ]?.ToString( ) ?? "0" );
+            _mainAccount = _record[ "MainAccount" ]?.ToString( );
+            _treasuryAccountCode = dataRow[ "TreasuryAccountCode" ]?.ToString( );
+            _treasuryAccountName = dataRow[ "TreasuryAccountName" ]?.ToString( );
+            _budgetAccountCode = dataRow[ "BudgetAccountCode" ]?.ToString( );
+            _budgetAccountName = dataRow[ "BudgetAccountName" ]?.ToString( );
         }
 
         /// <inheritdoc />
@@ -343,17 +349,14 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.AppropriationAvailableBalances" /> class.
         /// </summary>
         /// <param name="balance">The balance.</param>
-        public AppropriationAvailableBalance( AppropriationAvailableBalance balance )
+        public AppropriationAvailableBalance( AppropriationAvailableBalance balance ) 
+            : base( )
         {
             _id = balance.ID;
             _bfy = balance.BFY;
             _efy = balance.EFY;
             _fundCode = balance.FundCode;
             _fundName = balance.FundName;
-            _budgetAccountCode = balance.BudgetAccountCode;
-            _budgetAccountName = balance.BudgetAccountName;
-            _treasuryAccountCode = balance.TreasuryAccountCode;
-            _treasuryAccountName = balance.TreasuryAccountName;
             _authority = balance.Authority;
             _budgeted = balance.Budgeted;
             _carryoverIn = balance.CarryoverIn;
@@ -362,6 +365,11 @@ namespace BudgetExecution
             _recoveries = balance.Recoveries;
             _used = balance.Used;
             _available = balance.Available;
+            _mainAccount = balance.MainAccount;
+            _budgetAccountCode = balance.BudgetAccountCode;
+            _budgetAccountName = balance.BudgetAccountName;
+            _treasuryAccountCode = balance.TreasuryAccountCode;
+            _treasuryAccountName = balance.TreasuryAccountName;
         }
     }
 }

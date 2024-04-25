@@ -41,13 +41,14 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
     /// <inheritdoc />
     /// <summary>
     /// </summary>
     /// <seealso cref="T:BudgetExecution.FederalHoliday" />
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
@@ -224,6 +225,39 @@ namespace BudgetExecution
         /// </summary>
         protected CalendarYear( ) 
             : base( )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="CalendarYear"/> class.
+        /// </summary>
+        /// <param name="query">The query.</param>
+        /// <inheritdoc />
+        protected CalendarYear( IQuery query )
+            : base( query )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="CalendarYear"/> class.
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <inheritdoc />
+        protected CalendarYear( IDataModel builder )
+            : base( builder )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="CalendarYear"/> class.
+        /// </summary>
+        /// <param name="dataRow">The data row.</param>
+        /// <inheritdoc />
+        protected CalendarYear( DataRow dataRow )
+            : base( dataRow )
         {
         }
     }

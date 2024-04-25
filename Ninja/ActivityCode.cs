@@ -51,15 +51,32 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     public class ActivityCode : DataUnit
     {
+        /// <summary>
+        /// The description
+        /// </summary>
+        private string _description;
+        
         /// <summary>
         /// Gets or sets the description.
         /// </summary>
         /// <value>
         /// The description.
         /// </value>
-        public string Description { get; set; }
+        public string Description
+        {
+            get
+            {
+                return _description;
+            }
+            private set
+            {
+                _description = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
@@ -68,8 +85,9 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         public ActivityCode( )
+            : base( )
         {
-            Source = Source.ActivityCodes;
+            _source = Source.ActivityCodes;
         }
 
         /// <inheritdoc />
@@ -80,7 +98,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="query">The query.</param>
         public ActivityCode( IQuery query )
-            : this( )
+            : base( query )
         {
             _record = new DataBuilder( query )?.Record;
             _id = int.Parse( _record[ "ActivityCodesId" ].ToString( ) ?? "0" );
@@ -97,7 +115,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="builder">The builder.</param>
         public ActivityCode( IDataModel builder )
-            : this( )
+            : base( builder )
         {
             _record = builder.Record;
             _id = int.Parse( _record[ "ActivityCodesId" ].ToString( ) ?? "0" );
@@ -114,10 +132,10 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public ActivityCode( DataRow dataRow )
-            : this( )
+            : base( dataRow )
         {
             _record = dataRow;
-            _id = int.Parse( Record[ "ActivityCodesId" ].ToString( ) ?? "0" );
+            _id = int.Parse( _record[ "ActivityCodesId" ].ToString( ) ?? "0" );
             _name = dataRow[ "ActivityName" ].ToString( );
             _code = dataRow[ "ActivityCode" ].ToString( );
             _map = dataRow?.ToDictionary( );
@@ -131,9 +149,9 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="code">The code.</param>
         public ActivityCode( string code )
-            : this( )
+            : base( )
         {
-            _record = new DataBuilder( Source, GetArgs( code ) )?.Record;
+            _record = new DataBuilder( _source, GetArgs( code ) )?.Record;
             _id = int.Parse( _record[ "ActivityCodesId" ].ToString( ) ?? "0" );
             _name = _record[ "ActivityName" ].ToString( );
             _code = _record[ "ActivityCode" ].ToString( );
@@ -148,7 +166,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="activityCode">The activity code.</param>
         public ActivityCode( ActivityCode activityCode )
-            : this( )
+            : base( )
         {
             _id = activityCode.ID;
             _code = activityCode.Code;
