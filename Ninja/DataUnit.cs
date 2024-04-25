@@ -296,8 +296,8 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( unit, nameof( unit ) );
-                if( ( unit.Code?.Equals( Code ) == true )
-                   && unit.Name.Equals( Name ) )
+                if( ( unit.Code?.Equals( _code ) == true )
+                   && unit.Name.Equals( _name ) )
                 {
                     return true;
                 }

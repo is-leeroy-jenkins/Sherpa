@@ -53,6 +53,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     public class Defacto : StatusOfFunds
     {
         /// <inheritdoc/>
@@ -62,8 +63,9 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         public Defacto( )
+            : base( )
         {
-            Source = Source.Defactos;
+            _source = Source.Defactos;
         }
 
         /// <inheritdoc/>
