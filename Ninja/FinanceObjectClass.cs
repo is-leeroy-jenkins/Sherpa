@@ -60,6 +60,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MissingSpace" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     public class FinanceObjectClass : DataUnit
     {
         /// <summary>
@@ -167,6 +168,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="builder">The builder.</param>
         public FinanceObjectClass( IDataModel builder )
+            : base( builder )
         {
             _record = builder.Record;
             _id = int.Parse( _record[ "FinanceObjectClassesId" ].ToString( ) ?? "0" );
@@ -185,6 +187,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public FinanceObjectClass( DataRow dataRow )
+            : base( dataRow )
         {
             _record = dataRow;
             _id = int.Parse( dataRow[ "FinanceObjectClassesId" ].ToString( ) ?? "0" );
@@ -203,6 +206,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="focCode">The foc code.</param>
         public FinanceObjectClass( string focCode )
+            : this( )
         {
             _record = new DataBuilder( _source, GetArgs( focCode ) )?.Record;
             _id = int.Parse( _record[ "FinanceObjectClassesId" ].ToString( ) ?? "0" );
@@ -221,6 +225,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="foc">The foc.</param>
         public FinanceObjectClass( FinanceObjectClass foc )
+            : this( )
         {
             _id = foc.ID;
             _code = foc.Code;
