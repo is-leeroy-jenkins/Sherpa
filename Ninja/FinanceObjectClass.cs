@@ -59,6 +59,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "MissingSpace" ) ]
     public class FinanceObjectClass : DataUnit
     {
         /// <summary>
@@ -136,6 +137,7 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.FinanceObjectClass" /> class.
         /// </summary>
         public FinanceObjectClass( )
+            : base( )
         {
         }
 
@@ -146,6 +148,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="query">The query.</param>
         public FinanceObjectClass( IQuery query )
+            : base( query )
         {
             _record = new DataBuilder( query )?.Record;
             _id = int.Parse( _record[ "FinanceObjectClassesId" ].ToString( ) ?? "0" );
@@ -238,7 +241,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return new Dictionary<string, object> { [ $"{Field.Code}" ] = code };
+                    return new Dictionary<string, object> { [ "Code" ] = code };
                 }
                 catch( Exception _ex )
                 {

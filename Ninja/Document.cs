@@ -89,6 +89,7 @@ namespace BudgetExecution
         /// </summary>
         /// <value>
         /// The system.
+        /// <inheritdoc />
         /// </value>
         public string System
         {
