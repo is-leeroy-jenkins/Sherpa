@@ -44,7 +44,6 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
@@ -56,6 +55,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
     public class MainAccount : DataUnit
     {
         /// <summary>
@@ -99,7 +99,17 @@ namespace BudgetExecution
         /// <value>
         /// The sub function code.
         /// </value>
-        public string SubFunctionCode { get; set; }
+        public string SubFunctionCode
+        {
+            get
+            {
+                return _subFunctionCode;
+            }
+            set
+            {
+                _subFunctionCode = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the name of the sub function.
@@ -107,7 +117,17 @@ namespace BudgetExecution
         /// <value>
         /// The name of the sub function.
         /// </value>
-        public string SubFunctionName { get; set; }
+        public string SubFunctionName
+        {
+            get
+            {
+                return _subFunctionName;
+            }
+            set
+            {
+                _subFunctionName = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the budget account code.
@@ -115,7 +135,17 @@ namespace BudgetExecution
         /// <value>
         /// The budget account code.
         /// </value>
-        public string BudgetAccountCode { get; set; }
+        public string BudgetAccountCode
+        {
+            get
+            {
+                return _budgetAccountCode;
+            }
+            set
+            {
+                _budgetAccountCode = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the name of the budget account.
@@ -123,7 +153,17 @@ namespace BudgetExecution
         /// <value>
         /// The name of the budget account.
         /// </value>
-        public string BudgetAccountName { get; set; }
+        public string BudgetAccountName
+        {
+            get
+            {
+                return _budgetAccountName;
+            }
+            set
+            {
+                _budgetAccountName = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the treasury account code.
@@ -131,7 +171,17 @@ namespace BudgetExecution
         /// <value>
         /// The treasury account code.
         /// </value>
-        public string TreasuryAccountCode { get; set; }
+        public string TreasuryAccountCode
+        {
+            get
+            {
+                return _treasuryAccountCode;
+            }
+            set
+            {
+                _treasuryAccountCode = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the name of the treasury account.
@@ -139,7 +189,17 @@ namespace BudgetExecution
         /// <value>
         /// The name of the treasury account.
         /// </value>
-        public string TreasuryAccountName { get; set; }
+        public string TreasuryAccountName
+        {
+            get
+            {
+                return _treasuryAccountName;
+            }
+            set
+            {
+                _treasuryAccountName = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the budget enforcement act category.
@@ -147,7 +207,17 @@ namespace BudgetExecution
         /// <value>
         /// The budget enforcement act category.
         /// </value>
-        public string BudgetEnforcementActCategory { get; set; }
+        public string BudgetEnforcementActCategory
+        {
+            get
+            {
+                return _budgetEnforcementActCategory;
+            }
+            set
+            {
+                _budgetAccountName = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>

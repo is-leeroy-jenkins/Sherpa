@@ -49,6 +49,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     public class RegionalAuthority : StatusOfFunds
     {
         /// <inheritdoc />
@@ -58,6 +59,7 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         public RegionalAuthority( )
+            : base( )
         {
             _source = Source.RegionalAuthority;
         }
@@ -70,6 +72,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="query"> The query. </param>
         public RegionalAuthority( IQuery query )
+            : base( query )
         {
             _record = new DataBuilder( query ).Record;
             _map = _record.ToDictionary( );
@@ -120,6 +123,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="builder"> The builder. </param>
         public RegionalAuthority( IDataModel builder )
+            : base( builder )
         {
             _record = builder.Record;
             _map = Record.ToDictionary( );
@@ -172,6 +176,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
         public RegionalAuthority( DataRow dataRow )
+            : base( dataRow )
         {
             _record = dataRow;
             _map = dataRow.ToDictionary( );

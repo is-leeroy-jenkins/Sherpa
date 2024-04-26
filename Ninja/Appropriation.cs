@@ -125,6 +125,8 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="appropriation"> The appropriation. </param>
         public Appropriation( Appropriation appropriation )
+            : this( )
+
         {
             _id = appropriation.ID;
             _code = appropriation.Code;

@@ -296,7 +296,6 @@ namespace BudgetExecution
         public StatusOfFunds( IQuery query )
             : base( query )
         {
-            _source = query.Source;
             _record = new DataBuilder( query ).Record;
             _map = _record.ToDictionary( );
             _id = int.Parse( _record[ "StatusOfFundsId" ].ToString( ) ?? "0" );
@@ -465,6 +464,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="status">The status.</param>
         public StatusOfFunds( StatusOfFunds status )
+            : this( )
         {
             _id = status.ID;
             _budgetLevel = status.BudgetLevel;
