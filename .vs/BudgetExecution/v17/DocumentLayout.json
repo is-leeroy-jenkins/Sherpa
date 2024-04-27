@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\ninja\\dataunit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:ninja\\dataunit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\io\\network\\babygirl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:io\\network\\babygirl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\ninja\\prc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:ninja\\prc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\io\\network\\babyboy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:io\\network\\babyboy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|c:\\users\\terry\\source\\repos\\budgetexecution\\io\\network\\baby.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6009DE6-18A5-4292-B68B-7E969C652E0A}|BudgetExecution.csproj|solutionrelative:io\\network\\baby.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -39,27 +43,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "PRC.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Ninja\\PRC.cs",
-              "RelativeDocumentMoniker": "Ninja\\PRC.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Ninja\\PRC.cs",
-              "RelativeToolTip": "Ninja\\PRC.cs",
-              "ViewState": "AQIAAH8BAAAAAAAAAAAowJYBAAA7AAAA",
+              "Title": "BabyBoy.cs",
+              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\IO\\Network\\BabyBoy.cs",
+              "RelativeDocumentMoniker": "IO\\Network\\BabyBoy.cs",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\IO\\Network\\BabyBoy.cs",
+              "RelativeToolTip": "IO\\Network\\BabyBoy.cs",
+              "ViewState": "AQIAACkAAAAAAAAAAAAowEYAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-25T10:53:22.616Z",
+              "WhenOpened": "2024-04-27T12:09:40.719Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Baby.cs",
+              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\IO\\Network\\Baby.cs",
+              "RelativeDocumentMoniker": "IO\\Network\\Baby.cs",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\IO\\Network\\Baby.cs",
+              "RelativeToolTip": "IO\\Network\\Baby.cs",
+              "ViewState": "AQIAACcAAAAAAAAAAAAQwCQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-27T00:12:36.237Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "DataUnit.cs",
-              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Ninja\\DataUnit.cs",
-              "RelativeDocumentMoniker": "Ninja\\DataUnit.cs",
-              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\Ninja\\DataUnit.cs",
-              "RelativeToolTip": "Ninja\\DataUnit.cs",
-              "ViewState": "AQIAAPEAAAAAAAAAAAAgwP4AAAAJAAAA",
+              "Title": "BabyGirl.cs",
+              "DocumentMoniker": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\IO\\Network\\BabyGirl.cs",
+              "RelativeDocumentMoniker": "IO\\Network\\BabyGirl.cs",
+              "ToolTip": "C:\\Users\\terry\\source\\repos\\BudgetExecution\\IO\\Network\\BabyGirl.cs",
+              "RelativeToolTip": "IO\\Network\\BabyGirl.cs",
+              "ViewState": "AQIAADIAAAAAAAAAAAAwwEQAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-25T10:20:57.151Z",
+              "WhenOpened": "2024-04-27T00:10:37.291Z",
               "EditorCaption": ""
             }
           ]

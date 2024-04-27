@@ -42,6 +42,7 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
+    using System.Collections.Specialized;
     using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
@@ -60,8 +61,14 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     public class GoogleSearch : WebSearch
     {
+        /// <summary>
+        /// The configuration
+        /// </summary>
+        private protected NameValueCollection _config;
+
         /// <summary>
         /// The key
         /// </summary>
@@ -95,7 +102,8 @@ namespace BudgetExecution
         /// Initializes a new instance of the
         /// <see cref="T:BudgetExecution.GoogleSearch" /> class.
         /// </summary>
-        public GoogleSearch( )
+        public GoogleSearch( ) 
+            : base( )
         {
             _key = ConfigurationManager.AppSettings[ "ApiKey" ];
             _engine = ConfigurationManager.AppSettings[ "SearchEngineId" ];

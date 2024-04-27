@@ -61,15 +61,15 @@ namespace BudgetExecution
         /// <value>
         /// The bytes.
         /// </value>
-        public int Bytes
+        public int Count
         {
             get
             {
-                return _bytes;
+                return _count;
             }
             private set
             {
-                _bytes = value;
+                _count = value;
             }
         }
 
@@ -187,9 +187,9 @@ namespace BudgetExecution
         /// </summary>
         public BabyBoy( )
         {
-            _bytes = 1024;
+            _count = 1024;
             _port = 5000;
-            _data = new byte[ Bytes ];
+            _data = new byte[ Count ];
             _ipAddress = IPAddress.Any;
             _ipEndPoint = new IPEndPoint( Address, Port );
             _socket = new Socket( AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp );
@@ -205,9 +205,9 @@ namespace BudgetExecution
         /// <param name="size">Size of the buffer.</param>
         public BabyBoy( string address, int port = 5000, int size = 1024 )
         {
-            _bytes = size;
+            _count = size;
             _port = port;
-            _data = new byte[ Bytes ];
+            _data = new byte[ Count ];
             _ipAddress = IPAddress.Parse( address );
             _ipEndPoint = new IPEndPoint( Address, port );
             _socket = new Socket( AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp );
@@ -223,7 +223,7 @@ namespace BudgetExecution
         /// <param name="size"> </param>
         public BabyBoy( IPAddress address, int port = 5000, int size = 1024 )
         {
-            _bytes = size;
+            _count = size;
             _port = port;
             _data = new byte[ size ];
             _ipAddress = address;
@@ -240,7 +240,7 @@ namespace BudgetExecution
         /// <param name="size">Size of the buffer.</param>
         public BabyBoy( IPEndPoint endPoint, int size = 1024 )
         {
-            _bytes = size;
+            _count = size;
             _port = endPoint.Port;
             _data = new byte[ size ];
             _ipAddress = endPoint.Address;
@@ -257,7 +257,7 @@ namespace BudgetExecution
         /// <param name="client">The client.</param>
         public BabyBoy( BabyBoy client )
         {
-            _bytes = client.Bytes;
+            _count = client.Count;
             _port = client.Port;
             _data = client.Data;
             _ipAddress = client.Address;
@@ -377,7 +377,7 @@ namespace BudgetExecution
             out IPAddress ipAddress, out IPEndPoint endPoint, out Socket socket,
             out string message )
         {
-            bytes = Bytes;
+            bytes = Count;
             port = Port;
             data = Data;
             ipAddress = Address;

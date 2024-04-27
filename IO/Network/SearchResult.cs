@@ -191,7 +191,17 @@ namespace BudgetExecution
         /// </returns>
         public override string ToString( )
         {
-            return _link;
+            try
+            {
+                return !string.IsNullOrEmpty( _link )
+                    ? _link
+                    : string.Empty;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return string.Empty;
+            }
         }
     }
 }
