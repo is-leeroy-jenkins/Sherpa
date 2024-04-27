@@ -50,6 +50,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     public class HeadquartersOffice : DataUnit
     {
         /// <summary>
@@ -82,6 +83,7 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         public HeadquartersOffice( )
+            : base( )
         {
             _source = Source.HeadquartersOffices;
         }
@@ -94,6 +96,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="query"> The query. </param>
         public HeadquartersOffice( IQuery query )
+            : base( query )
         {
             _record = new DataBuilder( query ).Record;
             _map = _record.ToDictionary( );
@@ -110,6 +113,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="builder"> The builder. </param>
         public HeadquartersOffice( IDataModel builder )
+            : base( builder )
         {
             _record = builder.Record;
             _map = _record.ToDictionary( );
@@ -126,6 +130,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
         public HeadquartersOffice( DataRow dataRow )
+            : base( dataRow )
         {
             _record = dataRow;
             _map = dataRow.ToDictionary( );
@@ -142,6 +147,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="npm"> The NPM. </param>
         public HeadquartersOffice( HeadquartersOffice npm )
+            : this( )
         {
             _id = npm.ID;
             _rpio = npm.RPIO;

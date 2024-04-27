@@ -412,6 +412,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="outlay">The outlays.</param>
         public MonthlyOutlay( MonthlyOutlay outlay )
+            : this( )
         {
             _id = outlay.ID;
             _bfy = outlay.BFY;

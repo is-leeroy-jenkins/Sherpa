@@ -53,6 +53,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Local" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     public class MonthlyLedgerAccountBalance : BudgetUnit
     {
         /// <summary>
@@ -222,16 +223,19 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.MonthlyLedgerAccountBalances" /> class.
         /// </summary>
         public MonthlyLedgerAccountBalance( )
+            : base( )
         {
             _source = Source.MonthlyLedgerAccountBalances;
         }
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:BudgetExecution.MonthlyLedgerAccountBalances" /> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.MonthlyLedgerAccountBalances" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         public MonthlyLedgerAccountBalance( IQuery query )
+            : base( query )
         {
             _record = new DataBuilder( query ).Record;
             _map = _record.ToDictionary( );
@@ -257,6 +261,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="builder">The builder.</param>
         public MonthlyLedgerAccountBalance( IDataModel builder )
+            : base( builder )
         {
             _record = builder.Record;
             _map = _record.ToDictionary( );
@@ -282,6 +287,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public MonthlyLedgerAccountBalance( DataRow dataRow )
+            : base( dataRow )
         {
             Record = dataRow;
             _map = _record.ToDictionary( );
@@ -307,6 +313,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="account">The account.</param>
         public MonthlyLedgerAccountBalance( MonthlyLedgerAccountBalance account )
+            : this( )
         {
             _id = account.ID;
             _bfy = account.BFY;

@@ -53,6 +53,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     public class MonthlyActual : Actual
     {
         /// <summary>
@@ -107,6 +108,7 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.MonthlyActuals" /> class.
         /// </summary>
         public MonthlyActual( )
+            : base( )
         {
             _source = Source.MonthlyActuals;
         }

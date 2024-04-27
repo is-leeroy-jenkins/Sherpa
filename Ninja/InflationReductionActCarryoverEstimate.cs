@@ -50,6 +50,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameterInConstructor" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     public class InflationReductionActCarryoverEstimate : AnnualCarryoverEstimate
     {
         /// <inheritdoc />
@@ -59,6 +60,7 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         public InflationReductionActCarryoverEstimate( )
+            : base( )
         {
             _source = Source.InflationReductionActCarryoverEstimates;
         }
@@ -71,7 +73,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="query"> The query. </param>
         public InflationReductionActCarryoverEstimate( IQuery query )
-            : this( )
+            : base( query )
         {
             _record = new DataBuilder( query ).Record;
             _map = _record.ToDictionary( );
@@ -101,7 +103,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="builder"> The builder. </param>
         public InflationReductionActCarryoverEstimate( IDataModel builder )
-            : this( )
+            : base( builder )
         {
             _record = builder.Record;
             _map = _record.ToDictionary( );
@@ -131,7 +133,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
         public InflationReductionActCarryoverEstimate( DataRow dataRow )
-            : this( )
+            : base( dataRow )
         {
             _record = dataRow;
             _map = dataRow.ToDictionary( );

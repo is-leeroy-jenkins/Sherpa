@@ -41,7 +41,6 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
@@ -51,15 +50,14 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     public class Message : DataUnit
     {
         /// <summary>
-        /// Gets or sets the identifier.
+        ///
         /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
-        public int ID { get; set; }
+        private string _content;
 
         /// <summary>
         /// Gets or sets the content.
@@ -67,31 +65,17 @@ namespace BudgetExecution
         /// <value>
         /// The content.
         /// </value>
-        public string Content { get; set; }
-
-        /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
-        public Source Source { get; set; }
-
-        /// <summary>
-        /// Gets or sets the record.
-        /// </summary>
-        /// <value>
-        /// The record.
-        /// </value>
-        public DataRow Record { get; set; }
-
-        /// <summary>
-        /// Gets or sets the data.
-        /// </summary>
-        /// <value>
-        /// The data.
-        /// </value>
-        public IDictionary<string, object> Data { get; set; }
+        public string Content
+        {
+            get
+            {
+                return _content;
+            }
+            private set
+            {
+                _content = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
@@ -99,6 +83,7 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.Message" /> class.
         /// </summary>
         public Message( )
+            : base( )
         {
             _source = Source.Messages;
         }
@@ -110,9 +95,12 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="query">The query.</param>
         public Message( IQuery query )
+            : base( query )
         {
             _record = new DataBuilder( query ).Record;
             _map = _record.ToDictionary( );
+            _id = int.Parse( _record[ "MessagesId" ].ToString( ) ?? "0" );
+            _content = _record[ "Content" ].ToString( );
         }
 
         /// <inheritdoc />
@@ -122,9 +110,12 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="builder">The builder.</param>
         public Message( IDataModel builder )
+            : base( builder )
         {
             _record = builder.Record;
             _map = _record.ToDictionary( );
+            _id = int.Parse( _record[ "MessagesId" ].ToString( ) ?? "0" );
+            _content = _record[ "Content" ].ToString( );
         }
 
         /// <inheritdoc />
@@ -134,9 +125,12 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public Message( DataRow dataRow )
+            : base( dataRow )
         { 
             _record = dataRow;
             _map = dataRow.ToDictionary( );
+            _id = int.Parse( _record[ "MessagesId" ].ToString( ) ?? "0" );
+            _content = _record[ "Content" ].ToString( );
         }
     }
 }
