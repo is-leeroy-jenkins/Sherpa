@@ -45,216 +45,382 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
-    /// <summary> </summary>
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class StatusOfSuperfundSites
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    public class StatusOfSuperfundSites : StatusOfFunds
     {
-        /// <summary> Gets or sets the identifier. </summary>
-        /// <value> The identifier. </value>
-        public int ID { get; set; }
-
-        /// <summary> </summary>
-        public string FiscalYear { get; set; }
-
-        /// <summary> Gets or sets the bfy. </summary>
-        /// <value> The bfy. </value>
-        public string BFY { get; set; }
-
-        /// <summary> Gets or sets the efy. </summary>
-        /// <value> The efy. </value>
-        public string EFY { get; set; }
-
-        /// <summary> Gets or sets the rpio code. </summary>
-        /// <value> The rpio code. </value>
-        public string RpioCode { get; set; }
-
-        /// <summary> Gets or sets the name of the rpio. </summary>
-        /// <value> The name of the rpio. </value>
-        public string RpioName { get; set; }
-
-        /// <summary> Gets or sets the fund code. </summary>
-        /// <value> The fund code. </value>
-        public string FundCode { get; set; }
-
-        /// <summary> Gets or sets the name of the fund. </summary>
-        /// <value> The name of the fund. </value>
-        public string FundName { get; set; }
-
-        /// <summary> Gets or sets the program project code. </summary>
-        /// <value> The program project code. </value>
-        public string ProgramProjectCode { get; set; }
-
-        /// <summary> Gets or sets the name of the program project. </summary>
-        /// <value> The name of the program project. </value>
-        public string ProgramProjectName { get; set; }
-
-        /// <summary> Gets or sets the state. </summary>
-        /// <value> The state. </value>
-        public string StateCode { get; set; }
-
-        /// <summary> </summary>
-        public string StateName { get; set; }
-
-        /// <summary> Gets or sets the city. </summary>
-        /// <value> The city. </value>
-        public string City { get; set; }
-
-        /// <summary> Gets or sets the congressional district. </summary>
-        /// <value> The congressional district. </value>
-        public string StreetAddress { get; set; }
-
-        /// <summary> Gets or sets the type of the project. </summary>
-        /// <value> The type of the project. </value>
-        public string ZipCode { get; set; }
-
-        /// <summary> Gets or sets the Obligations. </summary>
-        /// <value> The Obligations. </value>
-        public double Obligations { get; set; }
-
-        /// <summary> Gets or sets the Deobligations. </summary>
-        /// <value> The Deobligations. </value>
-        public double Deobligations { get; set; }
-
-        /// <summary> Gets or sets the Expenditures. </summary>
-        /// <value> The Expenditures. </value>
-        public double Expenditures { get; set; }
-
-        /// <summary> Gets or sets the source. </summary>
-        /// <value> The source. </value>
-        public Source Source { get; set; }
-
-        /// <summary> Gets or sets the Record property. </summary>
-        /// <value> The data row. </value>
-        public DataRow Record { get; set; }
-
-        /// <summary> Gets the arguments. </summary>
-        /// <value> The arguments. </value>
-        public IDictionary<string, object> Data { get; set; }
+        /// <summary>
+        /// Gets or sets the
+        /// </summary>
+        /// <value>
+        /// </value>
+        private double _deobligations;
 
         /// <summary>
+        /// Gets or sets the
+        /// </summary>
+        /// <value>
+        /// </value>
+        private string _stateCode;
+
+        /// <summary>
+        /// Gets or sets the
+        /// </summary>
+        /// <value>
+        /// </value>
+        private string _stateName;
+
+        /// <summary>
+        /// Gets or sets the
+        /// </summary>
+        /// <value>
+        /// </value>
+        private string _city;
+
+        /// <summary>
+        /// Gets or sets the
+        /// </summary>
+        /// <value>
+        /// </value>
+        private string _streetAddress;
+
+        /// <summary>
+        /// Gets or sets the
+        /// </summary>
+        /// <value>
+        /// </value>
+        private string _zipCode;
+
+        /// <summary>
+        /// Gets or sets the
+        /// </summary>
+        /// <value>
+        /// </value>
+        public string StateCode
+        {
+            get
+            {
+                return _stateCode;
+            }
+            private set
+            {
+                _stateCode = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the state name.
+        /// </summary>
+        /// <value> The state. </value>
+        public string StateName
+        {
+            get
+            {
+                return _stateCode;
+            }
+            private set
+            {
+                _stateCode = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the city.
+        /// </summary>
+        /// <value> The city. </value>
+        public string City
+        {
+            get
+            {
+                return _stateCode;
+            }
+            private set
+            {
+                _stateCode = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the congressional district.
+        /// </summary>
+        /// <value> The congressional district. </value>
+        public string StreetAddress
+        {
+            get
+            {
+                return _stateCode;
+            }
+            private set
+            {
+                _stateCode = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the type of the project.
+        /// </summary>
+        /// <value> The type of the project. </value>
+        public string ZipCode
+        {
+            get
+            {
+                return _stateCode;
+            }
+            private set
+            {
+                _stateCode = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the Deobligations.
+        /// </summary>
+        /// <value> The Deobligations. </value>
+        public double Deobligations
+        {
+            get
+            {
+                return _deobligations;
+            }
+            private set
+            {
+                _deobligations = value;
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="StatusOfSuperfundSites"/>
+        /// <see cref="T:BudgetExecution.StatusOfSuperfundSites" />
         /// class.
         /// </summary>
         public StatusOfSuperfundSites( )
         {
-            Source = Source.StatusOfSuperfundSites;
+            _source = Source.StatusOfSuperfundSites;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="StatusOfSuperfundSites"/>
+        /// <see cref="T:BudgetExecution.StatusOfSuperfundSites" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
-        public StatusOfSuperfundSites( IQuery query )
+        public StatusOfSuperfundSites( IQuery query ) : base( query )
         {
-            Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "StatusOfSuperfundSitesId" ].ToString(  ) );
-            FiscalYear = Record[ "FiscalYear" ].ToString(  );
-            BFY = Record[ "BFY" ].ToString(  );
-            EFY = Record[ "EFY" ].ToString(  );
-            RpioCode = Record[ "RpioCode" ].ToString(  );
-            RpioName = Record[ "RpioName" ].ToString(  );
-            FundCode = Record[ "FundCode" ].ToString(  );
-            FundName = Record[ "FundName" ].ToString(  );
-            ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString(  );
-            ProgramProjectName = Record[ "ProgramProjectName" ].ToString(  );
-            StateCode = Record[ "StateCode" ].ToString(  );
-            StateName = Record[ "StateName" ].ToString(  );
-            City = Record[ "City" ].ToString(  );
-            StreetAddress = Record[ "StreetAddress" ].ToString(  );
-            ZipCode = Record[ "ZipCode" ].ToString(  );
-            Obligations = double.Parse( Record[ "Obligations" ].ToString(  ) );
-            Deobligations = double.Parse( Record[ "Deobligations" ].ToString(  ) );
-            Expenditures = double.Parse( Record[ "Expenditures" ].ToString(  ) );
+            _record = new DataBuilder( query ).Record;
+            _map = _record.ToDictionary( );
+            _id = int.Parse( _record[ "StatusOfSuperfundSitesId" ].ToString( ) ?? "0" );
+            _budgetLevel = _record[ "BudgetLevel" ].ToString( );
+            _fiscalYear = _record[ "FiscalYear" ]?.ToString( );
+            _bfy = _record[ "BFY" ]?.ToString( );
+            _efy = _record[ "EFY" ]?.ToString( );
+            _fundCode = _record[ "FundCode" ]?.ToString( );
+            _fundName = _record[ "FundName" ]?.ToString( );
+            _rpioCode = _record[ "RpioCode" ].ToString( );
+            _rpioName = _record[ "RpioName" ].ToString( );
+            _ahCode = _record[ "AhCode" ].ToString( );
+            _ahName = _record[ "AhName" ].ToString( );
+            _orgCode = _record[ "OrgCode" ].ToString( );
+            _orgName = _record[ "OrgName" ].ToString( );
+            _accountCode = _record[ "AccountCode" ].ToString( );
+            _bocCode = _record[ "BocCode" ].ToString( );
+            _bocName = _record[ "BocName" ].ToString( );
+            _stateCode = _record[ "StateCode" ]?.ToString( );
+            _stateName = _record[ "StateName" ]?.ToString( );
+            _streetAddress = _record[ "StreetAddress" ]?.ToString( );
+            _zipCode = _record[ "ZipCode" ]?.ToString( );
+            _amount = double.Parse( _record[ "Amount" ].ToString( ) ?? "0.0" );
+            _budgeted = double.Parse( _record[ "Budgeted" ].ToString( ) ?? "0.0" );
+            _posted = double.Parse( _record[ "Posted" ].ToString( ) ?? "0" );
+            _openCommitments = double.Parse( _record[ "OpenCommitments" ].ToString( ) ?? "0.0" );
+            _obligations = double.Parse( _record[ "Obligations" ].ToString( ) ?? "0.0" );
+            _expenditures = double.Parse( _record[ "Expenditures" ].ToString( ) ?? "0.0" );
+            _used = double.Parse( _record[ "Used" ].ToString( ) ?? "0.0" );
+            _available = double.Parse( _record[ "Available" ].ToString( ) ?? "0.0" );
+            _programProjectCode = _record[ "ProgramProjectCode" ].ToString( );
+            _programProjectName = _record[ "ProgramProjectName" ].ToString( );
+            _programAreaCode = _record[ "ProgramAreaCode" ].ToString( );
+            _programAreaName = _record[ "ProgramAreaName" ].ToString( );
+            _npmCode = _record[ "NpmCode" ].ToString( );
+            _npmName = _record[ "NpmName" ].ToString( );
+            _goalCode = _record[ "GoalCode" ].ToString( );
+            _goalName = _record[ "GoalName" ].ToString( );
+            _objectiveCode = _record[ "ObjectiveCode" ].ToString( );
+            _objectiveName = _record[ "ObjectiveName" ].ToString( );
+            _treasuryAccountCode = _record[ "TreasuryAccountCode" ].ToString( );
+            _treasuryAccountName = _record[ "TreasuryAccountName" ].ToString( );
+            _budgetAccountCode = _record[ "BudgetAccountCode" ].ToString( );
+            _budgetAccountName = _record[ "BudgetAccountName" ].ToString( );
+            _unliquidatedObligations =
+                double.Parse( _record[ "UnliquidatedObligations" ].ToString( ) ?? "0.0" );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="StatusOfSuperfundSites"/>
+        /// <see cref="T:BudgetExecution.StatusOfSuperfundSites" />
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
         public StatusOfSuperfundSites( IDataModel builder )
         {
-            Record = builder.Record;
-            Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "StatusOfSuperfundSitesId" ].ToString(  ) );
-            FiscalYear = Record[ "FiscalYear" ].ToString(  );
-            BFY = Record[ "BFY" ].ToString(  );
-            EFY = Record[ "EFY" ].ToString(  );
-            RpioCode = Record[ "RpioCode" ].ToString(  );
-            RpioName = Record[ "RpioName" ].ToString(  );
-            FundCode = Record[ "FundCode" ].ToString(  );
-            FundName = Record[ "FundName" ].ToString(  );
-            ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString(  );
-            ProgramProjectName = Record[ "ProgramProjectName" ].ToString(  );
-            StateCode = Record[ "StateCode" ].ToString(  );
-            StateName = Record[ "StateName" ].ToString(  );
-            City = Record[ "City" ].ToString(  );
-            StreetAddress = Record[ "StreetAddress" ].ToString(  );
-            ZipCode = Record[ "ZipCode" ].ToString(  );
-            Obligations = double.Parse( Record[ "Obligations" ].ToString(  ) );
-            Deobligations = double.Parse( Record[ "Deobligations" ].ToString(  ) );
-            Expenditures = double.Parse( Record[ "Expenditures" ].ToString(  ) );
+            _record = builder.Record;
+            _map = _record.ToDictionary( );
+            _id = int.Parse( _record[ "StatusOfSuperfundSitesId" ].ToString( ) ?? "0" );
+            _budgetLevel = _record[ "BudgetLevel" ].ToString( );
+            _fiscalYear = _record[ "FiscalYear" ]?.ToString( );
+            _bfy = _record[ "BFY" ]?.ToString( );
+            _efy = _record[ "EFY" ]?.ToString( );
+            _fundCode = _record[ "FundCode" ]?.ToString( );
+            _fundName = _record[ "FundName" ]?.ToString( );
+            _rpioCode = _record[ "RpioCode" ].ToString( );
+            _rpioName = _record[ "RpioName" ].ToString( );
+            _ahCode = _record[ "AhCode" ].ToString( );
+            _ahName = _record[ "AhName" ].ToString( );
+            _orgCode = _record[ "OrgCode" ].ToString( );
+            _orgName = _record[ "OrgName" ].ToString( );
+            _accountCode = _record[ "AccountCode" ].ToString( );
+            _bocCode = _record[ "BocCode" ].ToString( );
+            _bocName = _record[ "BocName" ].ToString( );
+            _stateCode = _record[ "StateCode" ]?.ToString( );
+            _stateName = _record[ "StateName" ]?.ToString( );
+            _streetAddress = _record[ "StreetAddress" ]?.ToString( );
+            _zipCode = _record[ "ZipCode" ]?.ToString( );
+            _amount = double.Parse( _record[ "Amount" ].ToString( ) ?? "0.0" );
+            _budgeted = double.Parse( _record[ "Budgeted" ].ToString( ) ?? "0.0" );
+            _posted = double.Parse( _record[ "Posted" ].ToString( ) ?? "0" );
+            _openCommitments = double.Parse( _record[ "OpenCommitments" ].ToString( ) ?? "0.0" );
+            _obligations = double.Parse( _record[ "Obligations" ].ToString( ) ?? "0.0" );
+            _expenditures = double.Parse( _record[ "Expenditures" ].ToString( ) ?? "0.0" );
+            _used = double.Parse( _record[ "Used" ].ToString( ) ?? "0.0" );
+            _available = double.Parse( _record[ "Available" ].ToString( ) ?? "0.0" );
+            _programProjectCode = _record[ "ProgramProjectCode" ].ToString( );
+            _programProjectName = _record[ "ProgramProjectName" ].ToString( );
+            _programAreaCode = _record[ "ProgramAreaCode" ].ToString( );
+            _programAreaName = _record[ "ProgramAreaName" ].ToString( );
+            _npmCode = _record[ "NpmCode" ].ToString( );
+            _npmName = _record[ "NpmName" ].ToString( );
+            _goalCode = _record[ "GoalCode" ].ToString( );
+            _goalName = _record[ "GoalName" ].ToString( );
+            _objectiveCode = _record[ "ObjectiveCode" ].ToString( );
+            _objectiveName = _record[ "ObjectiveName" ].ToString( );
+            _treasuryAccountCode = _record[ "TreasuryAccountCode" ].ToString( );
+            _treasuryAccountName = _record[ "TreasuryAccountName" ].ToString( );
+            _budgetAccountCode = _record[ "BudgetAccountCode" ].ToString( );
+            _budgetAccountName = _record[ "BudgetAccountName" ].ToString( );
+            _unliquidatedObligations =
+                double.Parse( _record[ "UnliquidatedObligations" ].ToString( ) ?? "0.0" );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="StatusOfSuperfundSites"/>
+        /// <see cref="T:BudgetExecution.StatusOfSuperfundSites" />
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
         public StatusOfSuperfundSites( DataRow dataRow )
         {
-            Record = dataRow;
-            Data = dataRow.ToDictionary( );
-            ID = int.Parse( Record[ "StatusOfSuperfundSitesId" ].ToString(  ) );
-            FiscalYear = Record[ "FiscalYear" ].ToString(  );
-            BFY = Record[ "BFY" ].ToString(  );
-            EFY = Record[ "EFY" ].ToString(  );
-            RpioCode = Record[ "RpioCode" ].ToString(  );
-            RpioName = Record[ "RpioName" ].ToString(  );
-            FundCode = Record[ "FundCode" ].ToString(  );
-            FundName = Record[ "FundName" ].ToString(  );
-            ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString(  );
-            ProgramProjectName = Record[ "ProgramProjectName" ].ToString(  );
-            StateCode = Record[ "StateCode" ].ToString(  );
-            StateName = Record[ "StateName" ].ToString(  );
-            City = Record[ "City" ].ToString(  );
-            StreetAddress = Record[ "StreetAddress" ].ToString(  );
-            ZipCode = Record[ "ZipCode" ].ToString(  );
-            Obligations = double.Parse( Record[ "Obligations" ].ToString(  ) );
-            Deobligations = double.Parse( Record[ "Deobligations" ].ToString(  ) );
-            Expenditures = double.Parse( Record[ "Expenditures" ].ToString(  ) );
+            _record = dataRow;
+            _map = dataRow.ToDictionary( );
+            _id = int.Parse( _record[ "StatusOfSuperfundSitesId" ].ToString( ) ?? "0" );
+            _budgetLevel = _record[ "BudgetLevel" ].ToString( );
+            _fiscalYear = _record[ "FiscalYear" ]?.ToString( );
+            _bfy = _record[ "BFY" ]?.ToString( );
+            _efy = _record[ "EFY" ]?.ToString( );
+            _fundCode = _record[ "FundCode" ]?.ToString( );
+            _fundName = _record[ "FundName" ]?.ToString( );
+            _rpioCode = _record[ "RpioCode" ].ToString( );
+            _rpioName = _record[ "RpioName" ].ToString( );
+            _ahCode = _record[ "AhCode" ].ToString( );
+            _ahName = _record[ "AhName" ].ToString( );
+            _orgCode = _record[ "OrgCode" ].ToString( );
+            _orgName = _record[ "OrgName" ].ToString( );
+            _accountCode = _record[ "AccountCode" ].ToString( );
+            _bocCode = _record[ "BocCode" ].ToString( );
+            _bocName = _record[ "BocName" ].ToString( );
+            _stateCode = _record[ "StateCode" ]?.ToString( );
+            _stateName = _record[ "StateName" ]?.ToString( );
+            _streetAddress = _record[ "StreetAddress" ]?.ToString( );
+            _zipCode = _record[ "ZipCode" ]?.ToString( );
+            _amount = double.Parse( _record[ "Amount" ].ToString( ) ?? "0.0" );
+            _budgeted = double.Parse( _record[ "Budgeted" ].ToString( ) ?? "0.0" );
+            _posted = double.Parse( _record[ "Posted" ].ToString( ) ?? "0" );
+            _openCommitments = double.Parse( _record[ "OpenCommitments" ].ToString( ) ?? "0.0" );
+            _obligations = double.Parse( _record[ "Obligations" ].ToString( ) ?? "0.0" );
+            _expenditures = double.Parse( _record[ "Expenditures" ].ToString( ) ?? "0.0" );
+            _used = double.Parse( _record[ "Used" ].ToString( ) ?? "0.0" );
+            _available = double.Parse( _record[ "Available" ].ToString( ) ?? "0.0" );
+            _programProjectCode = _record[ "ProgramProjectCode" ].ToString( );
+            _programProjectName = _record[ "ProgramProjectName" ].ToString( );
+            _programAreaCode = _record[ "ProgramAreaCode" ].ToString( );
+            _programAreaName = _record[ "ProgramAreaName" ].ToString( );
+            _npmCode = _record[ "NpmCode" ].ToString( );
+            _npmName = _record[ "NpmName" ].ToString( );
+            _goalCode = _record[ "GoalCode" ].ToString( );
+            _goalName = _record[ "GoalName" ].ToString( );
+            _objectiveCode = _record[ "ObjectiveCode" ].ToString( );
+            _objectiveName = _record[ "ObjectiveName" ].ToString( );
+            _treasuryAccountCode = _record[ "TreasuryAccountCode" ].ToString( );
+            _treasuryAccountName = _record[ "TreasuryAccountName" ].ToString( );
+            _budgetAccountCode = _record[ "BudgetAccountCode" ].ToString( );
+            _budgetAccountName = _record[ "BudgetAccountName" ].ToString( );
+            _unliquidatedObligations =
+                double.Parse( _record[ "UnliquidatedObligations" ].ToString( ) ?? "0.0" );
         }
 
-        /// <summary> </summary>
-        /// <param name="site"> </param>
-        public StatusOfSuperfundSites( StatusOfSuperfundSites site )
+        /// <inheritdoc />
+        /// <summary>
+        /// </summary>
+        /// <param name="status"> </param>
+        public StatusOfSuperfundSites( StatusOfSuperfundSites status )
+            : this( )
         {
-            ID = site.ID;
-            FiscalYear = site.FiscalYear;
-            BFY = site.BFY;
-            EFY = site.EFY;
-            RpioCode = site.RpioCode;
-            RpioName = site.RpioName;
-            FundCode = site.FundCode;
-            FundName = site.FundName;
-            ProgramProjectCode = site.ProgramProjectCode;
-            ProgramProjectName = site.ProgramProjectName;
-            StateCode = site.StateCode;
-            StateName = site.StateName;
-            City = site.City;
-            StreetAddress = site.StreetAddress;
-            ZipCode = site.ZipCode;
-            Obligations = site.Obligations;
-            Deobligations = site.Deobligations;
-            Expenditures = site.Expenditures;
+            _id = status.ID;
+            _budgetLevel = status.BudgetLevel;
+            _fiscalYear = status.FiscalYear;
+            _bfy = status.BFY;
+            _efy = status.EFY;
+            _fundCode = status.FundCode;
+            _fundName = status.FundName;
+            _rpioCode = status.RpioCode;
+            _rpioName = status.RpioName;
+            _ahCode = status.AhCode;
+            _ahName = status.AhName;
+            _orgCode = status.OrgCode;
+            _orgName = status.OrgName;
+            _accountCode = status.AccountCode;
+            _bocCode = status.BocCode;
+            _bocName = status.BocName;
+            _stateCode = status.StateCode;
+            _stateName = status.StateName;
+            _streetAddress = status.StreetAddress;
+            _zipCode = status.ZipCode;
+            _amount = status.Amount;
+            _budgeted = status.Budgeted;
+            _posted = status.Posted;
+            _openCommitments = status.OpenCommitments;
+            _unliquidatedObligations = status.UnliquidatedObligations;
+            _obligations = status.Obligations;
+            _expenditures = status.Expenditures;
+            _used = status.Used;
+            _available = status.Available;
+            _programProjectCode = status.ProgramProjectCode;
+            _programProjectName = status.ProgramProjectName;
+            _programAreaCode = status.ProgramAreaCode;
+            _programAreaName = status.ProgramAreaName;
+            _npmCode = status.NpmCode;
+            _npmName = status.NpmName;
+            _treasuryAccountCode = status.TreasuryAccountCode;
+            _treasuryAccountName = status.TreasuryAccountName;
+            _budgetAccountCode = status.BudgetAccountCode;
+            _budgetAccountName = status.BudgetAccountName;
         }
     }
 }

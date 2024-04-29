@@ -425,10 +425,10 @@ namespace BudgetExecution
         /// Initializes a new instance of the
         /// <see cref="T:BudgetExecution.PRC" /> class.
         /// </summary>
-        /// <param name="dataBuilder">The data builder.</param>
-        protected PRC( IDataModel dataBuilder )
+        /// <param name="builder">The data builder.</param>
+        protected PRC( IDataModel builder )
         {
-            _record = dataBuilder.Record;
+            _record = builder.Record;
             _map = _record.ToDictionary( );
             _budgetLevel = _record[ "BudgetLevel" ]?.ToString( );
             _rpioCode = _record[ "RpioCode" ]?.ToString( );

@@ -107,9 +107,6 @@ namespace BudgetExecution
             _budgeted = double.Parse( _record[ "Budgeted" ].ToString( ) ?? "0.0" );
             _posted = double.Parse( _record[ "Posted" ].ToString( ) ?? "0" );
             _openCommitments = double.Parse( _record[ "OpenCommitments" ].ToString( ) ?? "0.0" );
-            _unliquidatedObligations =
-                double.Parse( _record[ "UnliquidatedObligations" ].ToString( ) ?? "0.0" );
-
             _obligations = double.Parse( _record[ "Obligations" ].ToString( ) ?? "0.0" );
             _expenditures = double.Parse( _record[ "Expenditures" ].ToString( ) ?? "0.0" );
             _used = double.Parse( _record[ "Used" ].ToString( ) ?? "0.0" );
@@ -128,6 +125,8 @@ namespace BudgetExecution
             _treasuryAccountName = _record[ "TreasuryAccountName" ].ToString( );
             _budgetAccountCode = _record[ "BudgetAccountCode" ].ToString( );
             _budgetAccountName = _record[ "BudgetAccountName" ].ToString( );
+            _unliquidatedObligations =
+                double.Parse( _record[ "UnliquidatedObligations" ].ToString( ) ?? "0.0" );
         }
 
         /// <inheritdoc/>
@@ -136,11 +135,11 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.ProgramResultsCode"/>
         /// class.
         /// </summary>
-        /// <param name="dataBuilder"> The builder. </param>
-        public ProgramResultsCode( IDataModel dataBuilder )
-            : base( dataBuilder )
+        /// <param name="builder"> The builder. </param>
+        public ProgramResultsCode( IDataModel builder )
+            : base( builder )
         {
-            _record = dataBuilder.Record;
+            _record = builder.Record;
             _id = int.Parse( _record[ "StatusOfFundsId" ].ToString( ) ?? "0" );
             _budgetLevel = _record[ "BudgetLevel" ].ToString( );
             _bfy = _record[ "BFY" ].ToString( );
@@ -160,9 +159,6 @@ namespace BudgetExecution
             _budgeted = double.Parse( _record[ "Budgeted" ].ToString( ) ?? "0.0" );
             _posted = double.Parse( _record[ "Posted" ].ToString( ) ?? "0" );
             _openCommitments = double.Parse( _record[ "OpenCommitments" ].ToString( ) ?? "0.0" );
-            _unliquidatedObligations =
-                double.Parse( _record[ "UnliquidatedObligations" ].ToString( ) ?? "0.0" );
-
             _obligations = double.Parse( _record[ "Obligations" ].ToString( ) ?? "0.0" );
             _expenditures = double.Parse( _record[ "Expenditures" ].ToString( ) ?? "0.0" );
             _used = double.Parse( _record[ "Used" ].ToString( ) ?? "0.0" );
@@ -181,6 +177,8 @@ namespace BudgetExecution
             _treasuryAccountName = _record[ "TreasuryAccountName" ].ToString( );
             _budgetAccountCode = _record[ "BudgetAccountCode" ].ToString( );
             _budgetAccountName = _record[ "BudgetAccountName" ].ToString( );
+            _unliquidatedObligations =
+                double.Parse( _record[ "UnliquidatedObligations" ].ToString( ) ?? "0.0" );
         }
 
         /// <inheritdoc />
@@ -212,9 +210,6 @@ namespace BudgetExecution
             _budgeted = double.Parse( dataRow[ "Budgeted" ].ToString( ) ?? "0.0" );
             _posted = double.Parse( dataRow[ "Posted" ].ToString( ) ?? "0" );
             _openCommitments = double.Parse( dataRow[ "OpenCommitments" ].ToString( ) ?? "0.0" );
-            _unliquidatedObligations =
-                double.Parse( dataRow[ "UnliquidatedObligations" ].ToString( ) ?? "0.0" );
-
             _obligations = double.Parse( dataRow[ "Obligations" ].ToString( ) ?? "0.0" );
             _expenditures = double.Parse( dataRow[ "Expenditures" ].ToString( ) ?? "0.0" );
             _used = double.Parse( dataRow[ "Used" ].ToString( ) ?? "0.0" );
@@ -233,6 +228,8 @@ namespace BudgetExecution
             _treasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString( );
             _budgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
             _budgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
+            _unliquidatedObligations =
+                double.Parse( dataRow[ "UnliquidatedObligations" ].ToString( ) ?? "0.0" );
         }
 
         /// <inheritdoc />
@@ -265,9 +262,6 @@ namespace BudgetExecution
             _budgeted = double.Parse( _record[ "Budgeted" ].ToString( ) ?? "0.0" );
             _posted = double.Parse( _record[ "Posted" ].ToString( ) ?? "0" );
             _openCommitments = double.Parse( _record[ "OpenCommitments" ].ToString( ) ?? "0.0" );
-            _unliquidatedObligations =
-                double.Parse( _record[ "UnliquidatedObligations" ].ToString( ) ?? "0.0" );
-
             _obligations = double.Parse( _record[ "Obligations" ].ToString( ) ?? "0.0" );
             _expenditures = double.Parse( _record[ "Expenditures" ].ToString( ) ?? "0.0" );
             _used = double.Parse( _record[ "Used" ].ToString( ) ?? "0.0" );
@@ -286,6 +280,8 @@ namespace BudgetExecution
             _treasuryAccountName = _record[ "TreasuryAccountName" ].ToString( );
             _budgetAccountCode = _record[ "BudgetAccountCode" ].ToString( );
             _budgetAccountName = _record[ "BudgetAccountName" ].ToString( );
+            _unliquidatedObligations =
+                double.Parse( _record[ "UnliquidatedObligations" ].ToString( ) ?? "0.0" );
         }
 
         /// <inheritdoc />
@@ -295,32 +291,42 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="prc">The PRC.</param>
         public ProgramResultsCode( ProgramResultsCode prc )
+            : this( )
         {
-            ID = prc.ID;
-            BFY = prc.BFY;
-            EFY = prc.EFY;
-            FundCode = prc.FundCode;
-            FundName = prc.FundName;
-            RpioCode = prc.RpioCode;
-            RpioName = prc.RpioName;
-            AhCode = prc.AhCode;
-            AhName = prc.AhName;
-            OrgCode = prc.OrgCode;
-            OrgName = prc.OrgName;
-            AccountCode = prc.AccountCode;
-            BocCode = prc.BocCode;
-            BocName = prc.BocName;
-            ProgramProjectCode = prc.ProgramProjectCode;
-            ProgramProjectName = prc.ProgramProjectName;
-            ProgramAreaCode = prc.ProgramAreaCode;
-            ProgramAreaName = prc.ProgramAreaName;
-            Amount = prc.Amount;
-            NpmCode = prc.NpmCode;
-            NpmName = prc.NpmName;
-            GoalCode = prc.GoalCode;
-            GoalName = prc.GoalName;
-            ObjectiveCode = prc.ObjectiveCode;
-            ObjectiveName = prc.ObjectiveName;
+            _id = prc.ID;
+            _budgetLevel = prc.BudgetLevel;
+            _bfy = prc.BFY;
+            _efy = prc.EFY;
+            _fundCode = prc.FundCode;
+            _fundName = prc.FundName;
+            _rpioCode = prc.RpioCode;
+            _rpioName = prc.RpioName;
+            _ahCode = prc.AhCode;
+            _ahName = prc.AhName;
+            _orgCode = prc.OrgCode;
+            _orgName = prc.OrgName;
+            _accountCode = prc.AccountCode;
+            _bocCode = prc.BocCode;
+            _bocName = prc.BocName;
+            _amount = prc.Amount;
+            _budgeted = prc.Budgeted;
+            _posted = prc.Posted;
+            _openCommitments = prc.OpenCommitments;
+            _unliquidatedObligations = prc.UnliquidatedObligations;
+            _obligations = prc.Obligations;
+            _expenditures = prc.Expenditures;
+            _used = prc.Used;
+            _available = prc.Available;
+            _programProjectCode = prc.ProgramProjectCode;
+            _programProjectName = prc.ProgramProjectName;
+            _programAreaCode = prc.ProgramAreaCode;
+            _programAreaName = prc.ProgramAreaName;
+            _npmCode = prc.NpmCode;
+            _npmName = prc.NpmName;
+            _treasuryAccountCode = prc.TreasuryAccountCode;
+            _treasuryAccountName = prc.TreasuryAccountName;
+            _budgetAccountCode = prc.BudgetAccountCode;
+            _budgetAccountName = prc.BudgetAccountName;
         }
         
         /// <summary>

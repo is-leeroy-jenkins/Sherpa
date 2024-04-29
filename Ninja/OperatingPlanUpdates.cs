@@ -51,75 +51,51 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
-    public class OperatingPlanUpdates
+    public class OperatingPlanUpdates : OperatingPlan
     {
+        /// <inheritdoc />
         /// <summary>
-        /// Gets or sets the identifier.
-        /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
-        public int ID { get; set; }
-
-        /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
-        public Source Source { get; set; }
-
-        /// <summary>
-        /// Gets or sets the record.
-        /// </summary>
-        /// <value>
-        /// The record.
-        /// </value>
-        public DataRow Record { get; set; }
-
-        /// <summary>
-        /// Gets or sets the data.
-        /// </summary>
-        /// <value>
-        /// The data.
-        /// </value>
-        public IDictionary<string, object> Data { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="OperatingPlanUpdates"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.OperatingPlanUpdates" /> class.
         /// </summary>
         public OperatingPlanUpdates( )
+            : base( )
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="OperatingPlanUpdates"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.OperatingPlanUpdates" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         public OperatingPlanUpdates( IQuery query )
+            : base( query )
         {
-            Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
+            _record = new DataBuilder( query ).Record;
+            _map = Record.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="OperatingPlanUpdates"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.OperatingPlanUpdates" /> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
         public OperatingPlanUpdates( IDataModel builder )
+            : base( builder )
         {
-            Record = builder.Record;
-            Data = Record.ToDictionary( );
+            _record = builder.Record;
+            _map = Record.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="OperatingPlanUpdates"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.OperatingPlanUpdates" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public OperatingPlanUpdates( DataRow dataRow )
+            : base( dataRow )
         {
-            Record = dataRow;
-            Data = dataRow.ToDictionary( );
+            _record = dataRow;
+            _map = dataRow.ToDictionary( );
         }
     }
 }

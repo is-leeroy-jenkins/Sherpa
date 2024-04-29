@@ -105,12 +105,12 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.Account"/>
         /// class.
         /// </summary>
-        /// <param name="dataBuilder"> The data builder. </param>
-        public Account( IDataModel dataBuilder )
-            : base( dataBuilder )
+        /// <param name="builder"> The data builder. </param>
+        public Account( IDataModel builder )
+            : base( builder )
         {
             _source = Source.Accounts;
-            _record = dataBuilder.Record;
+            _record = builder.Record;
             _id = int.Parse( _record[ "AccountsId" ]?.ToString( ) );
             _goalCode = _record[ "GoalCode" ].ToString( );
             _goalName = _record[ "GoalName" ].ToString( );

@@ -64,7 +64,8 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.ProgramProjects" />
         /// class.
         /// </summary>
-        public ProgramProject( ) : base( )
+        public ProgramProject( )
+            : base( )
         {
         }
 

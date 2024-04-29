@@ -41,142 +41,17 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-
+    
     /// <inheritdoc/>
     /// <summary> </summary>
     /// <seealso cref="T:BudgetExecution.PRC"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class StatusOfSpecialAccountFunds : PRC
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    public class StatusOfSpecialAccountFunds : SpecialAccount
     {
-        /// <summary> </summary>
-        public string SpecialAccountNumber { get; set; }
-
-        /// <summary> Gets or sets the name of the special account. </summary>
-        /// <value> The name of the special account. </value>
-        public string SpecialAccountName { get; set; }
-
-        /// <summary> Gets or sets the account status. </summary>
-        /// <value> The account status. </value>
-        public string AccountStatus { get; set; }
-
-        /// <summary> Gets or sets the NPL status code. </summary>
-        /// <value> The NPL status code. </value>
-        public string NplStatusCode { get; set; }
-
-        /// <summary> Gets or sets the name of the NPL status. </summary>
-        /// <value> The name of the NPL status. </value>
-        public string NplStatusName { get; set; }
-
-        /// <summary> Gets or sets the site identifier. </summary>
-        /// <value> The site identifier. </value>
-        public string SiteId { get; set; }
-
-        /// <summary> Gets or sets the cerclis identifier. </summary>
-        /// <value> The cerclis identifier. </value>
-        public string CerclisSiteId { get; set; }
-
-        /// <summary> Gets or sets the site code. </summary>
-        /// <value> The site code. </value>
-        public string SiteCode { get; set; }
-
-        /// <summary> Gets or sets the name of the site. </summary>
-        /// <value> The name of the site. </value>
-        public string SiteName { get; set; }
-
-        /// <summary> Gets or sets the operable unit. </summary>
-        /// <value> The operable unit. </value>
-        public string OperableUnit { get; set; }
-
-        /// <summary> Gets or sets the pipeline code. </summary>
-        /// <value> The pipeline code. </value>
-        public string PipelineCode { get; set; }
-
-        /// <summary> Gets or sets the pipeline description. </summary>
-        /// <value> The pipeline description. </value>
-        public string PipelineDescription { get; set; }
-
-        /// <summary> </summary>
-        public string ProgramCode { get; set; }
-
-        /// <summary> Gets or sets the type of the transaction. </summary>
-        /// <value> The type of the transaction. </value>
-        public string TransactionType { get; set; }
-
-        /// <summary> Gets or sets the name of the transaction type. </summary>
-        /// <value> The name of the transaction type. </value>
-        public string TransactionDescription { get; set; }
-
-        /// <summary> Gets or sets the name of the foc. </summary>
-        /// <value> The name of the foc. </value>
-        public string SpecialAccountStatus { get; set; }
-
-        /// <summary> </summary>
-        public string StatusDescription { get; set; }
-
-        /// <summary> </summary>
-        public string EpaSiteId { get; set; }
-
-        /// <summary> Gets or sets the transaction date. </summary>
-        /// <value> The transaction date. </value>
-        public DateOnly InterestDate { get; set; }
-
-        /// <summary> Gets or sets the available balance. </summary>
-        /// <value> The available balance. </value>
-        public double AvailableBalance { get; set; }
-
-        /// <summary> Gets or sets the open commitments. </summary>
-        /// <value> The open commitments. </value>
-        public double OpenCommitments { get; set; }
-
-        /// <summary> Gets or sets the obligations. </summary>
-        /// <value> The obligations. </value>
-        public double Obligations { get; set; }
-
-        /// <summary> Gets or sets the ulo. </summary>
-        /// <value> The ulo. </value>
-        public double UnliquidatedObligations { get; set; }
-
-        /// <summary> Gets or sets the disbursements. </summary>
-        /// <value> The disbursements. </value>
-        public double Disbursements { get; set; }
-
-        /// <summary> Gets or sets the unpaid balances. </summary>
-        /// <value> The unpaid balances. </value>
-        public double UnpaidBalances { get; set; }
-
-        /// <summary> Gets or sets the collections. </summary>
-        /// <value> The collections. </value>
-        public double TrustfundTransfers { get; set; }
-
-        /// <summary> </summary>
-        public double Interest { get; set; }
-
-        /// <summary> Gets or sets the cumulative receipts. </summary>
-        /// <value> The cumulative receipts. </value>
-        public double CumulativeReceipts { get; set; }
-
-        /// <summary> </summary>
-        public double NetReceipts { get; set; }
-
-        /// <summary> </summary>
-        public double CollectionsAndInterest { get; set; }
-
-        /// <inheritdoc/>
-        /// <summary> Gets the source. </summary>
-        public Source Source { get; set; }
-
-        /// <inheritdoc/>
-        /// <summary> </summary>
-        public DataRow Record { get; set; }
-
-        /// <summary> Gets or sets the data. </summary>
-        /// <value> The data. </value>
-        public IDictionary<string, object> Data { get; set; }
-
         /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the
@@ -184,168 +59,285 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         public StatusOfSpecialAccountFunds( )
+            : base( )
         {
-            Source = Source.StatusOfSpecialAccountFunds;
+            _source = Source.StatusOfSpecialAccountFunds;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="StatusOfSpecialAccountFunds"/>
+        /// <see cref="T:BudgetExecution.StatusOfSpecialAccountFunds" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
         public StatusOfSpecialAccountFunds( IQuery query )
+            : base( query )
         {
-            Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
-            BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
-            FundCode = Record[ "FundCode" ].ToString( );
-            FundName = Record[ "FundName" ].ToString( );
-            RpioCode = Record[ "RpioCode" ].ToString( );
-            RpioName = Record[ "RpioName" ].ToString( );
-            CerclisSiteId = Record[ "CerclisSiteId" ].ToString( );
-            SiteId = Record[ "SiteId" ].ToString( );
-            ProgramCode = Record[ "ProgramCode" ].ToString( );
-            SpecialAccountNumber = Record[ "SpecialAccountNumber" ].ToString( );
-            SpecialAccountName = Record[ "SpecialAccountName" ].ToString( );
-            SpecialAccountStatus = Record[ "SpecialAccountStatus" ].ToString( );
-            NplStatusCode = Record[ "NplStatusCode" ].ToString( );
-            InterestDate = DateOnly.Parse( Record[ "InterestDate" ].ToString( ) );
-            TrustfundTransfers = double.Parse( Record[ "TrustfundTransfers" ].ToString( ) ?? "0" );
-            Interest = double.Parse( Record[ "Interest" ].ToString( ) ?? "0" );
-            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
-            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
-            UnliquidatedObligations =
-                double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) );
-
-            Disbursements = double.Parse( Record[ "Disbursements" ].ToString( ) ?? "0" );
-            CumulativeReceipts = double.Parse( Record[ "CumulativeReceipts" ].ToString( ) ?? "0" );
-            NetReceipts = double.Parse( Record[ "NetReceipts" ].ToString( ) ?? "0" );
-            CollectionsAndInterest = double.Parse( Record[ "CollectionsAndInterest" ].ToString( ) );
-            AvailableBalance = double.Parse( Record[ "Expenditures" ].ToString( ) ?? "0" );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
+            _record = new DataBuilder( query ).Record;
+            _map = _record.ToDictionary( );
+            _id = int.Parse( _record[ "StatusOfSpecialAccountFundsId" ]?.ToString( ) ?? "0" );
+            _budgetLevel = _record[ "BudgetLevel" ]?.ToString( );
+            _fiscalYear = _record[ "FiscalYear" ]?.ToString( );
+            _bfy = _record[ "BFY" ]?.ToString( );
+            _efy = _record[ "EFY" ]?.ToString( );
+            _fundCode = _record[ "FundCode" ]?.ToString( );
+            _fundName = _record[ "FundName" ]?.ToString( );
+            _rpioCode = _record[ "RpioCode" ]?.ToString( );
+            _rpioName = _record[ "RpioName" ]?.ToString( );
+            _ahCode = _record[ "AhCode" ]?.ToString( );
+            _ahName = _record[ "AhName" ]?.ToString( );
+            _orgCode = _record[ "OrgCode" ]?.ToString( );
+            _orgName = _record[ "OrgName" ]?.ToString( );
+            _programCode = _record[ "ProgramCode" ]?.ToString( );
+            _bocCode = _record[ "BocCode" ]?.ToString( );
+            _bocName = _record[ "BocName" ]?.ToString( );
+            _rcCode = _record[ "RcCode" ]?.ToString( );
+            _rcName = _record[ "RcName" ]?.ToString( );
+            _bocCode = _record[ "BocCode" ]?.ToString( );
+            _bocName = _record[ "BocName" ]?.ToString( );
+            _siteCode = _record[ "SiteCode" ]?.ToString( );
+            _siteName = _record[ "SiteName" ]?.ToString( );
+            _epaSiteId = _record[ "EpaSiteId" ]?.ToString( );
+            _specialAccountNumber = _record[ "SpecialAccountNumber" ]?.ToString( );
+            _specialAccountName = _record[ "SpecialAccountName" ]?.ToString( );
+            _operableUnit = _record[ "OperableUnit" ]?.ToString( );
+            _pipelineCode = _record[ "PipelineCode" ]?.ToString( );
+            _pipelineDescription = _record[ "PipelineDescription" ]?.ToString( );
+            _accountStatus = _record[ "AccountStatus" ]?.ToString( );
+            _nplStatusCode = _record[ "NplStatusCode" ]?.ToString( );
+            _nplStatusName = _record[ "NplStatusName" ]?.ToString( );
+            _transactionType = _record[ "TransactionType" ]?.ToString( );
+            _transactionDescription = _record[ "TrasnactionDescription" ]?.ToString( );
+            _interestDate = DateOnly.Parse( _record[ "InterestDate" ]?.ToString( ) );
+            _interest = double.Parse( _record[ "Interest" ]?.ToString( ) ?? "0" );
+            _unpaidBalances = double.Parse( _record[ "UnpaidBalances" ]?.ToString( ) );
+            _disbursements = double.Parse( _record[ "Disbursements" ]?.ToString( ) );
+            _netReceipts = double.Parse( _record[ "NetReceipts" ]?.ToString( ) );
+            _trustfundTransfers = double.Parse( _record[ "TrustFundTransfers" ]?.ToString( ) );
+            _cumulativeReceipts = double.Parse( _record[ "CumulativeReciepts" ]?.ToString( ) );
+            _available = double.Parse( _record[ "Available" ]?.ToString( ) ?? "0" );
+            _programProjectCode = _record[ "ProgramProjectCode" ]?.ToString( );
+            _programProjectName = _record[ "ProgramProjectName" ]?.ToString( );
+            _programAreaCode = _record[ "ProgramAreaCode" ]?.ToString( );
+            _programAreaName = _record[ "ProgramAreaName" ]?.ToString( );
+            _npmCode = _record[ "NpmCode" ]?.ToString( );
+            _npmName = _record[ "NpmName" ]?.ToString( );
+            _goalCode = _record[ "GoalCode" ]?.ToString( );
+            _goalName = _record[ "GoalName" ]?.ToString( );
+            _objectiveCode = _record[ "ObjectiveCode" ]?.ToString( );
+            _objectiveName = _record[ "ObjectiveName" ]?.ToString( );
+            _treasuryAccountCode = _record[ "TreasuryAccountCode" ]?.ToString( );
+            _treasuryAccountName = _record[ "TreasuryAccountName" ]?.ToString( );
+            _budgetAccountCode = _record[ "BudgetAccountCode" ]?.ToString( );
+            _budgetAccountName = _record[ "BudgetAccountName" ]?.ToString( );
+            _collectionsAndInterest =
+                double.Parse( _record[ "CollectionsAndInterest" ]?.ToString( ) ?? "0" );
+            
+            _unliquidatedObligations =
+                double.Parse( _record[ "UnliquidatedObligations" ]?.ToString( ) ?? "0" );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="StatusOfSpecialAccountFunds"/>
+        /// <see cref="T:BudgetExecution.StatusOfSpecialAccountFunds" />
         /// class.
         /// </summary>
         /// <param name="builder"> </param>
         public StatusOfSpecialAccountFunds( IDataModel builder )
+            : base( builder )
         {
-            Record = builder.Record;
-            Data = Record.ToDictionary( );
-            BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
-            FundCode = Record[ "FundCode" ].ToString( );
-            FundName = Record[ "FundName" ].ToString( );
-            RpioCode = Record[ "RpioCode" ].ToString( );
-            RpioName = Record[ "RpioName" ].ToString( );
-            CerclisSiteId = Record[ "CerclisSiteId" ].ToString( );
-            SiteId = Record[ "SiteId" ].ToString( );
-            ProgramCode = Record[ "ProgramCode" ].ToString( );
-            SpecialAccountNumber = Record[ "SpecialAccountNumber" ].ToString( );
-            SpecialAccountName = Record[ "SpecialAccountName" ].ToString( );
-            SpecialAccountStatus = Record[ "SpecialAccountStatus" ].ToString( );
-            NplStatusCode = Record[ "NplStatusCode" ].ToString( );
-            InterestDate = DateOnly.Parse( Record[ "InterestDate" ].ToString( ) );
-            TrustfundTransfers = double.Parse( Record[ "TrustfundTransfers" ].ToString( ) ?? "0" );
-            Interest = double.Parse( Record[ "Interest" ].ToString( ) ?? "0" );
-            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
-            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
-            UnliquidatedObligations =
-                double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) );
-
-            Disbursements = double.Parse( Record[ "Disbursements" ].ToString( ) ?? "0" );
-            CumulativeReceipts = double.Parse( Record[ "CumulativeReceipts" ].ToString( ) ?? "0" );
-            NetReceipts = double.Parse( Record[ "NetReceipts" ].ToString( ) ?? "0" );
-            CollectionsAndInterest = double.Parse( Record[ "CollectionsAndInterest" ].ToString( ) );
-            AvailableBalance = double.Parse( Record[ "Expenditures" ].ToString( ) ?? "0" );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
+            _record = builder.Record;
+            _map = _record.ToDictionary( );
+            _id = int.Parse( _record[ "StatusOfSpecialAccountFundsId" ]?.ToString( ) ?? "0" );
+            _budgetLevel = _record[ "BudgetLevel" ]?.ToString( );
+            _fiscalYear = _record[ "FiscalYear" ]?.ToString( );
+            _bfy = _record[ "BFY" ]?.ToString( );
+            _efy = _record[ "EFY" ]?.ToString( );
+            _fundCode = _record[ "FundCode" ]?.ToString( );
+            _fundName = _record[ "FundName" ]?.ToString( );
+            _rpioCode = _record[ "RpioCode" ]?.ToString( );
+            _rpioName = _record[ "RpioName" ]?.ToString( );
+            _ahCode = _record[ "AhCode" ]?.ToString( );
+            _ahName = _record[ "AhName" ]?.ToString( );
+            _orgCode = _record[ "OrgCode" ]?.ToString( );
+            _orgName = _record[ "OrgName" ]?.ToString( );
+            _programCode = _record[ "ProgramCode" ]?.ToString( );
+            _bocCode = _record[ "BocCode" ]?.ToString( );
+            _bocName = _record[ "BocName" ]?.ToString( );
+            _rcCode = _record[ "RcCode" ]?.ToString( );
+            _rcName = _record[ "RcName" ]?.ToString( );
+            _bocCode = _record[ "BocCode" ]?.ToString( );
+            _bocName = _record[ "BocName" ]?.ToString( );
+            _siteCode = _record[ "SiteCode" ]?.ToString( );
+            _siteName = _record[ "SiteName" ]?.ToString( );
+            _epaSiteId = _record[ "EpaSiteId" ]?.ToString( );
+            _specialAccountNumber = _record[ "SpecialAccountNumber" ]?.ToString( );
+            _specialAccountName = _record[ "SpecialAccountName" ]?.ToString( );
+            _operableUnit = _record[ "OperableUnit" ]?.ToString( );
+            _pipelineCode = _record[ "PipelineCode" ]?.ToString( );
+            _pipelineDescription = _record[ "PipelineDescription" ]?.ToString( );
+            _accountStatus = _record[ "AccountStatus" ]?.ToString( );
+            _nplStatusCode = _record[ "NplStatusCode" ]?.ToString( );
+            _nplStatusName = _record[ "NplStatusName" ]?.ToString( );
+            _transactionType = _record[ "TransactionType" ]?.ToString( );
+            _transactionDescription = _record[ "TrasnactionDescription" ]?.ToString( );
+            _interestDate = DateOnly.Parse( _record[ "InterestDate" ]?.ToString( ) );
+            _interest = double.Parse( _record[ "Interest" ]?.ToString( ) ?? "0" );
+            _unpaidBalances = double.Parse( _record[ "UnpaidBalances" ]?.ToString( ) );
+            _disbursements = double.Parse( _record[ "Disbursements" ]?.ToString( ) );
+            _netReceipts = double.Parse( _record[ "NetReceipts" ]?.ToString( ) );
+            _trustfundTransfers = double.Parse( _record[ "TrustFundTransfers" ]?.ToString( ) );
+            _cumulativeReceipts = double.Parse( _record[ "CumulativeReciepts" ]?.ToString( ) );
+            _available = double.Parse( _record[ "Available" ]?.ToString( ) ?? "0" );
+            _programProjectCode = _record[ "ProgramProjectCode" ]?.ToString( );
+            _programProjectName = _record[ "ProgramProjectName" ]?.ToString( );
+            _programAreaCode = _record[ "ProgramAreaCode" ]?.ToString( );
+            _programAreaName = _record[ "ProgramAreaName" ]?.ToString( );
+            _npmCode = _record[ "NpmCode" ]?.ToString( );
+            _npmName = _record[ "NpmName" ]?.ToString( );
+            _goalCode = _record[ "GoalCode" ]?.ToString( );
+            _goalName = _record[ "GoalName" ]?.ToString( );
+            _objectiveCode = _record[ "ObjectiveCode" ]?.ToString( );
+            _objectiveName = _record[ "ObjectiveName" ]?.ToString( );
+            _treasuryAccountCode = _record[ "TreasuryAccountCode" ]?.ToString( );
+            _treasuryAccountName = _record[ "TreasuryAccountName" ]?.ToString( );
+            _budgetAccountCode = _record[ "BudgetAccountCode" ]?.ToString( );
+            _budgetAccountName = _record[ "BudgetAccountName" ]?.ToString( );
+            _collectionsAndInterest =
+                double.Parse( _record[ "CollectionsAndInterest" ]?.ToString( ) ?? "0" );
+            
+            _unliquidatedObligations =
+                double.Parse( _record[ "UnliquidatedObligations" ]?.ToString( ) ?? "0" );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="StatusOfSpecialAccountFunds"/>
+        /// <see cref="T:BudgetExecution.StatusOfSpecialAccountFunds" />
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
         public StatusOfSpecialAccountFunds( DataRow dataRow )
+            : base( dataRow )
         {
-            Record = dataRow;
-            Data = dataRow.ToDictionary( );
-            BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
-            FundCode = Record[ "FundCode" ].ToString( );
-            FundName = Record[ "FundName" ].ToString( );
-            RpioCode = Record[ "RpioCode" ].ToString( );
-            RpioName = Record[ "RpioName" ].ToString( );
-            CerclisSiteId = Record[ "CerclisSiteId" ].ToString( );
-            SiteId = Record[ "SiteId" ].ToString( );
-            ProgramCode = Record[ "ProgramCode" ].ToString( );
-            SpecialAccountNumber = Record[ "SpecialAccountNumber" ].ToString( );
-            SpecialAccountName = Record[ "SpecialAccountName" ].ToString( );
-            SpecialAccountStatus = Record[ "SpecialAccountStatus" ].ToString( );
-            NplStatusCode = Record[ "NplStatusCode" ].ToString( );
-            InterestDate = DateOnly.Parse( Record[ "InterestDate" ].ToString( ) );
-            TrustfundTransfers = double.Parse( Record[ "TrustfundTransfers" ].ToString( ) ?? "0" );
-            Interest = double.Parse( Record[ "Interest" ].ToString( ) ?? "0" );
-            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
-            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
-            UnliquidatedObligations =
-                double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) );
-
-            Disbursements = double.Parse( Record[ "Disbursements" ].ToString( ) ?? "0" );
-            CumulativeReceipts = double.Parse( Record[ "CumulativeReceipts" ].ToString( ) ?? "0" );
-            NetReceipts = double.Parse( Record[ "NetReceipts" ].ToString( ) ?? "0" );
-            CollectionsAndInterest = double.Parse( Record[ "CollectionsAndInterest" ].ToString( ) );
-            AvailableBalance = double.Parse( Record[ "Expenditures" ].ToString( ) ?? "0" );
-            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
-            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
-            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
-            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
+            _record = dataRow;
+            _map = dataRow.ToDictionary( );
+            _id = int.Parse( dataRow[ "StatusOfSpecialAccountFundsId" ]?.ToString( ) ?? "0" );
+            _budgetLevel = dataRow[ "BudgetLevel" ]?.ToString( );
+            _fiscalYear = dataRow[ "FiscalYear" ]?.ToString( );
+            _bfy = dataRow[ "BFY" ]?.ToString( );
+            _efy = dataRow[ "EFY" ]?.ToString( );
+            _fundCode = dataRow[ "FundCode" ]?.ToString( );
+            _fundName = dataRow[ "FundName" ]?.ToString( );
+            _rpioCode = dataRow[ "RpioCode" ]?.ToString( );
+            _rpioName = dataRow[ "RpioName" ]?.ToString( );
+            _ahCode = dataRow[ "AhCode" ]?.ToString( );
+            _ahName = dataRow[ "AhName" ]?.ToString( );
+            _orgCode = dataRow[ "OrgCode" ]?.ToString( );
+            _orgName = dataRow[ "OrgName" ]?.ToString( );
+            _programCode = dataRow[ "ProgramCode" ]?.ToString( );
+            _bocCode = dataRow[ "BocCode" ]?.ToString( );
+            _bocName = dataRow[ "BocName" ]?.ToString( );
+            _rcCode = dataRow[ "RcCode" ]?.ToString( );
+            _rcName = dataRow[ "RcName" ]?.ToString( );
+            _bocCode = dataRow[ "BocCode" ]?.ToString( );
+            _bocName = dataRow[ "BocName" ]?.ToString( );
+            _siteCode = dataRow[ "SiteCode" ]?.ToString( );
+            _siteName = dataRow[ "SiteName" ]?.ToString( );
+            _epaSiteId = dataRow[ "EpaSiteId" ]?.ToString( );
+            _specialAccountNumber = dataRow[ "SpecialAccountNumber" ]?.ToString( );
+            _specialAccountName = dataRow[ "SpecialAccountName" ]?.ToString( );
+            _operableUnit = dataRow[ "OperableUnit" ]?.ToString( );
+            _pipelineCode = dataRow[ "PipelineCode" ]?.ToString( );
+            _pipelineDescription = dataRow[ "PipelineDescription" ]?.ToString( );
+            _accountStatus = dataRow[ "AccountStatus" ]?.ToString( );
+            _nplStatusCode = dataRow[ "NplStatusCode" ]?.ToString( );
+            _nplStatusName = dataRow[ "NplStatusName" ]?.ToString( );
+            _transactionType = dataRow[ "TransactionType" ]?.ToString( );
+            _transactionDescription = dataRow[ "TrasnactionDescription" ]?.ToString( );
+            _interestDate = DateOnly.Parse( dataRow[ "InterestDate" ]?.ToString( ) );
+            _interest = double.Parse( dataRow[ "Interest" ]?.ToString( ) ?? "0" );
+            _unpaidBalances = double.Parse( dataRow[ "UnpaidBalances" ]?.ToString( ) );
+            _disbursements = double.Parse( dataRow[ "Disbursements" ]?.ToString( ) );
+            _netReceipts = double.Parse( dataRow[ "NetReceipts" ]?.ToString( ) );
+            _trustfundTransfers = double.Parse( dataRow[ "TrustFundTransfers" ]?.ToString( ) );
+            _cumulativeReceipts = double.Parse( dataRow[ "CumulativeReciepts" ]?.ToString( ) );
+            _available = double.Parse( dataRow[ "Available" ]?.ToString( ) ?? "0" );
+            _programProjectCode = dataRow[ "ProgramProjectCode" ]?.ToString( );
+            _programProjectName = dataRow[ "ProgramProjectName" ]?.ToString( );
+            _programAreaCode = dataRow[ "ProgramAreaCode" ]?.ToString( );
+            _programAreaName = dataRow[ "ProgramAreaName" ]?.ToString( );
+            _npmCode = dataRow[ "NpmCode" ]?.ToString( );
+            _npmName = dataRow[ "NpmName" ]?.ToString( );
+            _goalCode = dataRow[ "GoalCode" ]?.ToString( );
+            _goalName = dataRow[ "GoalName" ]?.ToString( );
+            _objectiveCode = dataRow[ "ObjectiveCode" ]?.ToString( );
+            _objectiveName = dataRow[ "ObjectiveName" ]?.ToString( );
+            _treasuryAccountCode = dataRow[ "TreasuryAccountCode" ]?.ToString( );
+            _treasuryAccountName = dataRow[ "TreasuryAccountName" ]?.ToString( );
+            _budgetAccountCode = dataRow[ "BudgetAccountCode" ]?.ToString( );
+            _budgetAccountName = dataRow[ "BudgetAccountName" ]?.ToString( );
+            _collectionsAndInterest =
+                double.Parse( dataRow[ "CollectionsAndInterest" ]?.ToString( ) ?? "0" );
+            
+            _unliquidatedObligations =
+                double.Parse( dataRow[ "UnliquidatedObligations" ]?.ToString( ) ?? "0" );
         }
 
-        /// <summary> </summary>
-        /// <param name="special"> </param>
-        public StatusOfSpecialAccountFunds( StatusOfSpecialAccountFunds special )
+        /// <inheritdoc />
+        /// <summary>
+        /// </summary>
+        /// <param name="status">
+        /// </param>
+        public StatusOfSpecialAccountFunds( StatusOfSpecialAccountFunds status )
+            : this( )
         {
-            BFY = special.BFY;
-            EFY = special.EFY;
-            FundCode = special.FundCode;
-            FundName = special.FundName;
-            RpioCode = special.RpioCode;
-            RpioName = special.RpioName;
-            CerclisSiteId = special.CerclisSiteId;
-            SiteId = special.SiteId;
-            ProgramCode = special.ProgramCode;
-            SpecialAccountNumber = special.SpecialAccountNumber;
-            SpecialAccountName = special.SpecialAccountName;
-            SpecialAccountStatus = special.SpecialAccountStatus;
-            NplStatusCode = special.NplStatusCode;
-            InterestDate = special.InterestDate;
-            TrustfundTransfers = special.TrustfundTransfers;
-            Interest = special.Interest;
-            OpenCommitments = special.OpenCommitments;
-            Obligations = special.Obligations;
-            UnliquidatedObligations = special.UnliquidatedObligations;
-            Disbursements = special.Disbursements;
-            CumulativeReceipts = special.CumulativeReceipts;
-            NetReceipts = special.NetReceipts;
-            CollectionsAndInterest = special.CollectionsAndInterest;
-            AvailableBalance = special.AvailableBalance;
-            TreasuryAccountCode = special.TreasuryAccountCode;
-            TreasuryAccountName = special.TreasuryAccountName;
-            BudgetAccountCode = special.BudgetAccountCode;
-            BudgetAccountName = special.BudgetAccountName;
+            _id = status.ID;
+            _budgetLevel = status.BudgetLevel;
+            _fiscalYear = status.FiscalYear;
+            _bfy = status.BFY;
+            _efy = status.EFY;
+            _fundCode = status.FundCode;
+            _fundName = status.FundName;
+            _rpioCode = status.RpioCode;
+            _rpioName = status.RpioName;
+            _ahCode = status.AhCode;
+            _ahName = status.AhName;
+            _orgCode = status.OrgCode;
+            _orgName = status.OrgName;
+            _accountCode = status.AccountCode;
+            _bocCode = status.BocCode;
+            _bocName = status.BocName;
+            _interestDate = status.InterestDate;
+            _siteCode = status.SiteCode;
+            _siteId = status.SiteId;
+            _siteName = status.SiteName;
+            _cerclisSiteId = status.CerclisSiteId;
+            _pipelineCode = status.PipelineCode;
+            _pipelineDescription = status.PipelineDescription;
+            _nplStatusCode = status.NplStatusCode;
+            _nplStatusName = status.NplStatusName;
+            _unpaidBalances = status.UnpaidBalances;
+            _disbursements = status.Disbursements;
+            _interest = status.Interest;
+            _trustfundTransfers = status.TrustfundTransfers;
+            _cumulativeReceipts = status.CumulativeReceipts;
+            _collectionsAndInterest = status.CollectionsAndInterest;
+            _expenditures = status.Expenditures;
+            _netReceipts = status.NetReceipts;
+            _available = status.Available;
+            _programProjectCode = status.ProgramProjectCode;
+            _programProjectName = status.ProgramProjectName;
+            _programAreaCode = status.ProgramAreaCode;
+            _programAreaName = status.ProgramAreaName;
+            _npmCode = status.NpmCode;
+            _npmName = status.NpmName;
+            _treasuryAccountCode = status.TreasuryAccountCode;
+            _treasuryAccountName = status.TreasuryAccountName;
+            _budgetAccountCode = status.BudgetAccountCode;
+            _budgetAccountName = status.BudgetAccountName;
         }
     }
 }

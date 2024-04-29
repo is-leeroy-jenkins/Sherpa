@@ -197,11 +197,11 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.StatusOfEarmarks" />
         /// class.
         /// </summary>
-        /// <param name="dataBuilder"> The builder. </param>
-        public StatusOfEarmarks( IDataModel dataBuilder )
-            : base( dataBuilder )
+        /// <param name="builder"> The builder. </param>
+        public StatusOfEarmarks( IDataModel builder )
+            : base( builder )
         {
-            _record = dataBuilder.Record;
+            _record = builder.Record;
             _map = _record.ToDictionary( );
             _id = int.Parse( _record[ "StatusOfFundsId" ]?.ToString( ) ?? "0" );
             _budgetLevel = _record[ "BudgetLevel" ]?.ToString( );

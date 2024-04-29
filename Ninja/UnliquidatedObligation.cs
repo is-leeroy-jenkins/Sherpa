@@ -242,6 +242,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="obligation">The ulo.</param>
         public UnliquidatedObligation( UnliquidatedObligation obligation )
+            : this( )
         {
             _id = obligation.ID;
             _fiscalYear = obligation.FiscalYear;

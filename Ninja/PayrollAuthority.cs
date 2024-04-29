@@ -60,6 +60,7 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         public PayrollAuthority( )
+            : base( )
         {
             _source = Source.PayrollAuthority;
         }
@@ -72,6 +73,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="query"> The query. </param>
         public PayrollAuthority( IQuery query )
+            : base( query )
         {
             _record = new DataBuilder( query ).Record;
             _map = Record.ToDictionary( );
@@ -115,6 +117,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="builder"> The builder. </param>
         public PayrollAuthority( IDataModel builder )
+            : base( builder )
         {
             _record = builder.Record;
             _map = _record.ToDictionary( );
@@ -158,6 +161,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
         public PayrollAuthority( DataRow dataRow )
+            : base( dataRow )
         {
             _record = dataRow;
             _map = dataRow.ToDictionary( );
@@ -201,6 +205,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="pay"> The pay. </param>
         public PayrollAuthority( PayrollAuthority pay )
+            : this( )
         {
             _id = pay.ID;
             _budgetLevel = pay.BudgetLevel;
