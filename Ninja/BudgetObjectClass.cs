@@ -59,6 +59,9 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    [ SuppressMessage( "ReSharper", "MissingBlankLines" ) ]
+    [ SuppressMessage( "ReSharper", "MissingSpace" ) ]
     public class BudgetObjectClass : DataUnit
     {
         /// <summary>
@@ -87,7 +90,17 @@ namespace BudgetExecution
         /// <value>
         /// The category.
         /// </value>
-        public BOC Category { get; set; }
+        public BOC Category
+        {
+            get
+            {
+                return _category;
+            }
+            private set
+            {
+                _category = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
@@ -131,7 +144,7 @@ namespace BudgetExecution
             _name = _record[ "BocName" ]?.ToString( );
             _code = _record[ "BocCode" ]?.ToString( );
             _map = _record?.ToDictionary( );
-            if( _name != null )
+            if( !string.IsNullOrEmpty( _name ) )
             {
                 _category = (BOC)Enum.Parse( typeof( BOC ), _name );
             }
@@ -151,9 +164,9 @@ namespace BudgetExecution
             _name = _record[ "BocName" ]?.ToString( );
             _code = _record[ "BocCode" ]?.ToString( );
             _map = _record?.ToDictionary( );
-            if( _name != null )
+            if( !string.IsNullOrEmpty( _name ) )
             {
-                _category = (BOC)Enum.Parse( typeof( BOC ), _name );
+                _category = (BOC) Enum.Parse( typeof( BOC ), _name );
             }
         }
 
@@ -171,9 +184,9 @@ namespace BudgetExecution
             _name = _record[ "BocName" ]?.ToString( );
             _code = _record[ "BocCode" ]?.ToString( );
             _map = _record?.ToDictionary( );
-            if( _name != null )
+            if( !string.IsNullOrEmpty( _name ) )
             {
-                _category = (BOC)Enum.Parse( typeof( BOC ), _name );
+                _category = (BOC) Enum.Parse( typeof( BOC ), _name );
             }
         }
 
@@ -191,9 +204,9 @@ namespace BudgetExecution
             _name = dataRow[ "BocName" ].ToString( );
             _code = dataRow[ "BocCode" ].ToString( );
             _map = dataRow?.ToDictionary( );
-            if( _name != null )
+            if( !string.IsNullOrEmpty( _name ) )
             {
-                _category = (BOC)Enum.Parse( typeof( BOC ), _name );
+                _category = (BOC) Enum.Parse( typeof( BOC ), _name );
             }
         }
 

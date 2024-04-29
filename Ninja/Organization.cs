@@ -55,6 +55,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     public class Organization : DataUnit
     {
         /// <inheritdoc />
@@ -64,6 +65,7 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         public Organization( )
+            : base( )
         {
         }
 
@@ -75,6 +77,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="query"> The query. </param>
         public Organization( IQuery query )
+            : base( query )
         {
             _record = new DataBuilder( query )?.Record;
             _id = int.Parse( _record[ "OrganizationsId" ]?.ToString( ) ?? "0" );
@@ -91,6 +94,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="org"> The org. </param>
         public Organization( string org )
+            : this( )
         {
             _record = new DataBuilder( _source, GetArgs( org ) )?.Record;
             _id = int.Parse( _record[ "OrganizationsId" ]?.ToString( ) ?? "0" );
@@ -107,6 +111,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="builder"> The builder. </param>
         public Organization( IDataModel builder )
+            : base( builder )
         {
             _record = builder.Record;
             _id = int.Parse( _record[ "OrganizationsId" ]?.ToString( ) ?? "0" );
@@ -123,6 +128,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="org"> The org. </param>
         public Organization( Organization org )
+            : this( )
         {
             _id = org.ID;
             _code = org.Code;
@@ -137,6 +143,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow"> The dataRow. </param>
         public Organization( DataRow dataRow )
+            : base( dataRow )
         {
             _record = dataRow;
             _id = int.Parse( dataRow[ "OrganizationsId" ].ToString( ) ?? "0" );
@@ -167,20 +174,16 @@ namespace BudgetExecution
         /// <returns> </returns>
         private IDictionary<string, object> GetArgs( string code )
         {
-            if( !string.IsNullOrEmpty( code ) )
+            try
             {
-                try
-                {
-                    return new Dictionary<string, object> { [ "Code" ] = code };
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( IDictionary<string, object> );
-                }
+                ThrowIf.Null( code, nameof( code ) );
+                return new Dictionary<string, object> { [ "Code" ] = code };
             }
-
-            return default( IDictionary<string, object> );
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IDictionary<string, object> );
+            }
         }
     }
 }

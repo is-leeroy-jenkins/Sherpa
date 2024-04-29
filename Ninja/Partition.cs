@@ -41,7 +41,6 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
@@ -51,6 +50,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     public class Partition : BudgetUnit
     {
         /// <summary>
@@ -111,6 +111,7 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.Partition" /> class.
         /// </summary>
         public Partition( )
+            : base( )
         {
             _source = Source.Partitions;
         }
@@ -122,7 +123,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="query">The query.</param>
         public Partition( IQuery query )
-            : this( )
+            : base( query )
         {
             _record = new DataBuilder( query ).Record;
             _map = _record.ToDictionary( );
@@ -147,7 +148,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataBuilder">The data builder.</param>
         public Partition( IDataModel dataBuilder )
-            : this( )
+            : base( dataBuilder )
         {
             _record = dataBuilder.Record;
             _map = _record.ToDictionary( );
@@ -172,7 +173,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public Partition( DataRow dataRow )
-            : this( )
+            : base( dataRow )
         {
             _record = dataRow;
             _map = dataRow.ToDictionary( );

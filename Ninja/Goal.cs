@@ -55,6 +55,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     public class Goal : DataUnit
     {
         /// <inheritdoc />
@@ -64,6 +65,7 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         public Goal( )
+            : base( )
         {
         }
 
@@ -75,6 +77,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="query"> The query. </param>
         public Goal( IQuery query )
+            : base( query )
         {
             _record = new DataBuilder( query )?.Record;
             _id = int.Parse( Record[ "GoalsId" ].ToString( ) );
@@ -91,6 +94,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="builder"> The builder. </param>
         public Goal( IDataModel builder )
+            : base( builder )
         {
             _record = builder.Record;
             _id = int.Parse( _record[ "GoalsId" ].ToString( ) );
@@ -107,6 +111,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow"> The dataRow. </param>
         public Goal( DataRow dataRow )
+            : base( dataRow )
         {
             Record = dataRow;
             _id = int.Parse( dataRow[ "GoalsId" ].ToString( ) );
@@ -123,6 +128,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="code"> The code. </param>
         public Goal( string code )
+            : this( )
         {
             _record = new DataBuilder( _source, GetArgs( code ) )?.Record;
             _id = int.Parse( _record[ "GoalsId" ].ToString( ) );
@@ -139,6 +145,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="goal"> The goal. </param>
         public Goal( Goal goal )
+            : this( )
         {
             _id = goal.ID;
             _code = goal.Code;
@@ -195,20 +202,16 @@ namespace BudgetExecution
         /// <returns></returns>
         private IDictionary<string, object> GetArgs( string code )
         {
-            if( !string.IsNullOrEmpty( code ) )
+            try
             {
-                try
-                {
-                    return new Dictionary<string, object> { [ "Code" ] = code };
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                    return default( IDictionary<string, object> );
-                }
+                ThrowIf.Null( code, nameof( code ) );
+                return new Dictionary<string, object> { [ "Code" ] = code };
             }
-
-            return default( IDictionary<string, object> );
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+                return default( IDictionary<string, object> );
+            }
         }
     }
 }

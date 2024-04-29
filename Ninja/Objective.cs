@@ -170,7 +170,7 @@ namespace BudgetExecution
                 }
                 catch( Exception _ex )
                 {
-                    Objective.Fail( _ex );
+                    Fail( _ex );
                     return default( IDictionary<string, object> );
                 }
             }
