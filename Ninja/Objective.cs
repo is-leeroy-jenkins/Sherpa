@@ -55,6 +55,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameterInConstructor" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     public class Objective : DataUnit
     {
         /// <inheritdoc />
@@ -64,6 +65,7 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         public Objective( )
+            : base( )
         {
             _source = Source.Objectives;
         }
@@ -76,6 +78,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="query"> The query. </param>
         public Objective( IQuery query )
+            : base( query )
         {
             _record = new DataBuilder( query )?.Record;
             _id = int.Parse( _record[ "ObjectivesId" ]?.ToString( ) ?? "0" );
@@ -92,6 +95,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="builder"> The builder. </param>
         public Objective( IDataModel builder )
+            : base( builder )
         {
             _record = builder.Record;
             _id = int.Parse( _record[ "ObjectivesId" ]?.ToString( ) ?? "0" );
@@ -108,7 +112,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow"> The dataRow. </param>
         public Objective( DataRow dataRow )
-            : this( )
+            : base( dataRow )
         {
             _record = dataRow;
             _id = int.Parse( dataRow[ "ObjectivesId" ]?.ToString( ) ?? "0" );
@@ -125,6 +129,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="code"> The code. </param>
         public Objective( string code )
+            : this( )
         {
             _record = new DataBuilder( _source, SetArgs( code ) )?.Record;
             _id = int.Parse( _record[ "ObjectivesId" ]?.ToString( ) ?? "0" );
@@ -141,6 +146,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="objective"> The objective. </param>
         public Objective( Objective objective )
+            : this( )
         {
             _id = objective.ID;
             _code = objective.Code;
