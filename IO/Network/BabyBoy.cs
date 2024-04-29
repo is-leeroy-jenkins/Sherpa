@@ -53,7 +53,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "ReplaceAutoPropertyWithComputedProperty" ) ]
-    public class BabyBoy : Baby
+    public class BabyBoy : BabyClient
     {
         /// <summary>
         /// Gets or sets the bytes.

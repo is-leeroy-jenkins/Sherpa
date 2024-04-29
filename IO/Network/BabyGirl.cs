@@ -58,7 +58,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Local" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
-    public class BabyGirl : Baby
+    public class BabyGirl : BabyServer
     {
         /// <summary>
         /// Gets or sets the bytes.
@@ -253,7 +253,6 @@ namespace BudgetExecution
             _ipAddress = girl.Address;
             _ipEndPoint = girl.EndPoint;
             _socket = girl.Socket;
-            _connected = girl.IsConnected;
             _busy = girl.IsBusy;
         }
 

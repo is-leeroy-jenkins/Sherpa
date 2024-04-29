@@ -13,7 +13,7 @@
     [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
-    public abstract class Baby
+    public abstract class BabyClient
     {
         /// <summary>
         /// The locked object
