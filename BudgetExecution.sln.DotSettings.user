@@ -2,4 +2,5 @@
 	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=C6009DE6_002D18A5_002D4292_002DB68B_002D7E969C652E0A_002Fd_003ANinja_002Ff_003AAccountingEvent_002Ecs/@EntryIndexedValue">ExplicitlyExcluded</s:String>
 	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=C6009DE6_002D18A5_002D4292_002DB68B_002D7E969C652E0A_002Fd_003ANinja_002Ff_003AActivityCode_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
 	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=C6009DE6_002D18A5_002D4292_002DB68B_002D7E969C652E0A_002Fd_003ANinja_002Ff_003AObligation_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
+	<s:String x:Key="/Default/CustomTools/CustomToolsData/@EntryValue"></s:String>
 	</wpf:ResourceDictionary>

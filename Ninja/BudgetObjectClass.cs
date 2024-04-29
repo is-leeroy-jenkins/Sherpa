@@ -166,7 +166,7 @@ namespace BudgetExecution
             _map = _record?.ToDictionary( );
             if( !string.IsNullOrEmpty( _name ) )
             {
-                _category = (BOC) Enum.Parse( typeof( BOC ), _name );
+                _category = (BOC)Enum.Parse( typeof( BOC ), _name );
             }
         }
 
@@ -186,7 +186,7 @@ namespace BudgetExecution
             _map = _record?.ToDictionary( );
             if( !string.IsNullOrEmpty( _name ) )
             {
-                _category = (BOC) Enum.Parse( typeof( BOC ), _name );
+                _category = (BOC)Enum.Parse( typeof( BOC ), _name );
             }
         }
 
@@ -206,7 +206,7 @@ namespace BudgetExecution
             _map = dataRow?.ToDictionary( );
             if( !string.IsNullOrEmpty( _name ) )
             {
-                _category = (BOC) Enum.Parse( typeof( BOC ), _name );
+                _category = (BOC)Enum.Parse( typeof( BOC ), _name );
             }
         }
 

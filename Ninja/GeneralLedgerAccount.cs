@@ -313,6 +313,7 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.GeneralLedgerAccount" /> class.
         /// </summary>
         public GeneralLedgerAccount( )
+            : base( )
         {
             _source = Source.GeneralLedgerAccounts;
         }
@@ -324,6 +325,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="query">The query.</param>
         public GeneralLedgerAccount( IQuery query )
+            : base( query )
         {
             _record = new DataBuilder( query ).Record;
             _map = _record.ToDictionary( );
@@ -351,6 +353,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="builder">The builder.</param>
         public GeneralLedgerAccount( IDataModel builder )
+            : base( builder )
         {
             _record = builder.Record;
             _map = _record.ToDictionary( );
@@ -378,6 +381,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public GeneralLedgerAccount( DataRow dataRow )
+            : base( dataRow )
         {
             _record = dataRow; 
             _map = dataRow.ToDictionary( );
@@ -405,6 +409,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="account">The account.</param>
         public GeneralLedgerAccount( GeneralLedgerAccount account )
+            : this( )
         {
             _id = account.ID;
             _bfy = account.BFY;

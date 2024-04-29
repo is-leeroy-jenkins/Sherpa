@@ -51,6 +51,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     public class Partition : BudgetUnit
     {
         /// <summary>
@@ -79,7 +80,17 @@ namespace BudgetExecution
         /// <value>
         /// The type.
         /// </value>
-        public string Type { get; set; }
+        public string Type
+        {
+            get
+            {
+                return _type;
+            }
+            private set
+            {
+                _type = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the name of the program.
@@ -87,7 +98,17 @@ namespace BudgetExecution
         /// <value>
         /// The name of the program.
         /// </value>
-        public string ProgramName { get; set; }
+        public string ProgramName
+        {
+            get
+            {
+                return _programName;
+            }
+            private set
+            {
+                _programName = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the name of the program area.
@@ -95,7 +116,17 @@ namespace BudgetExecution
         /// <value>
         /// The name of the program area.
         /// </value>
-        public string ProgramAreaName { get; set; }
+        public string ProgramAreaName
+        {
+            get
+            {
+                return _programAreaName;
+            }
+            private set
+            {
+                _programAreaName = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the amount.
@@ -103,7 +134,17 @@ namespace BudgetExecution
         /// <value>
         /// The amount.
         /// </value>
-        public double Amount { get; set; }
+        public double Amount
+        {
+            get
+            {
+                return _amount;
+            }
+            private set
+            {
+                _amount = value;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>

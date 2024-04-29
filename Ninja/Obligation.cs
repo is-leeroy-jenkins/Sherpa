@@ -72,7 +72,7 @@ namespace BudgetExecution
         /// <summary>
         /// The dcoument control number
         /// </summary>
-        private protected string _dcoumentControlNumber;
+        private protected string _documentControlNumber;
 
         /// <summary>
         /// The reference document number
@@ -120,7 +120,17 @@ namespace BudgetExecution
         /// <value>
         /// The type of the document.
         /// </value>
-        public string DocumentType { get; set; }
+        public string DocumentType
+        {
+            get
+            {
+                return _documentType;
+            }
+            private set
+            {
+                _documentType = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the document number.
@@ -128,7 +138,17 @@ namespace BudgetExecution
         /// <value>
         /// The document number.
         /// </value>
-        public string DocumentNumber { get; set; }
+        public string DocumentNumber
+        {
+            get
+            {
+                return _documentNumber;
+            }
+            private set
+            {
+                _documentNumber = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the document control number.
@@ -136,7 +156,17 @@ namespace BudgetExecution
         /// <value>
         /// The document control number.
         /// </value>
-        public string DocumentControlNumber { get; set; }
+        public string DocumentControlNumber
+        {
+            get
+            {
+                return _documentControlNumber;
+            }
+            private set
+            {
+                _documentControlNumber = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the reference document number.
@@ -144,7 +174,17 @@ namespace BudgetExecution
         /// <value>
         /// The reference document number.
         /// </value>
-        public string ReferenceDocumentNumber { get; set; }
+        public string ReferenceDocumentNumber
+        {
+            get
+            {
+                return _referenceDocumentNumber;
+            }
+            private set
+            {
+                _referenceDocumentNumber = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the processed date.
@@ -152,7 +192,17 @@ namespace BudgetExecution
         /// <value>
         /// The processed date.
         /// </value>
-        public DateOnly ProcessedDate { get; set; }
+        public DateOnly ProcessedDate
+        {
+            get
+            {
+                return _processedDate;
+            }
+            private set
+            {
+                _processedDate = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the last activity date.
@@ -160,7 +210,17 @@ namespace BudgetExecution
         /// <value>
         /// The last activity date.
         /// </value>
-        public DateOnly LastActivityDate { get; set; }
+        public DateOnly LastActivityDate
+        {
+            get
+            {
+                return _lastActivityDate;
+            }
+            private set
+            {
+                _lastActivityDate = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the age.
@@ -168,7 +228,17 @@ namespace BudgetExecution
         /// <value>
         /// The age.
         /// </value>
-        public virtual int Age { get; set; }
+        public virtual int Age
+        {
+            get
+            {
+                return _age;
+            }
+            private set
+            {
+                _age = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the foc code.
@@ -176,7 +246,17 @@ namespace BudgetExecution
         /// <value>
         /// The foc code.
         /// </value>
-        public string FocCode { get; set; }
+        public string FocCode
+        {
+            get
+            {
+                return _focCode;
+            }
+            private set
+            {
+                _focCode = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the name of the foc.
@@ -184,7 +264,17 @@ namespace BudgetExecution
         /// <value>
         /// The name of the foc.
         /// </value>
-        public string FocName { get; set; }
+        public string FocName
+        {
+            get
+            {
+                return _focName;
+            }
+            private set
+            {
+                _focName = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the vendor code.
@@ -192,7 +282,17 @@ namespace BudgetExecution
         /// <value>
         /// The vendor code.
         /// </value>
-        public string VendorCode { get; set; }
+        public string VendorCode
+        {
+            get
+            {
+                return _vendorCode;
+            }
+            private set
+            {
+                _vendorCode = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the name of the vendor.
@@ -200,7 +300,17 @@ namespace BudgetExecution
         /// <value>
         /// The name of the vendor.
         /// </value>
-        public string VendorName { get; set; }
+        public string VendorName
+        {
+            get
+            {
+                return _vendorName;
+            }
+            private set
+            {
+                _vendorName = value;
+            }
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Obligation"/> class.
@@ -223,6 +333,7 @@ namespace BudgetExecution
             _source = Source.Obligations;
             _record = new DataBuilder( query ).Record;
             _map = Record.ToDictionary( );
+            _id = int.Parse( _record[ "ObligationsId" ]?.ToString( ) ?? "0" );
             _fiscalYear = _record[ "FiscalYear" ]?.ToString( );
             _bfy = _record[ "BFY" ]?.ToString( );
             _efy = _record[ "EFY" ]?.ToString( );
@@ -276,6 +387,7 @@ namespace BudgetExecution
             _source = Source.Obligations;
             _record = builder.Record;
             _map = _record.ToDictionary( );
+            _id = int.Parse( _record[ "ObligationsId" ]?.ToString( ) ?? "0" );
             _fiscalYear = _record[ "FiscalYear" ]?.ToString( );
             _bfy = _record[ "BFY" ]?.ToString( );
             _efy = _record[ "EFY" ]?.ToString( );
@@ -329,6 +441,7 @@ namespace BudgetExecution
             _source = Source.Obligations;
             _record = dataRow;
             _map = dataRow.ToDictionary( );
+            _id = int.Parse( dataRow[ "ObligationsId" ]?.ToString( ) ?? "0" );
             _fiscalYear = dataRow[ "FiscalYear" ]?.ToString( );
             _bfy = dataRow[ "BFY" ]?.ToString( );
             _efy = dataRow[ "EFY" ]?.ToString( );

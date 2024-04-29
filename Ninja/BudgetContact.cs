@@ -248,7 +248,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public BudgetContact( DataRow dataRow )
-            : this( )
+            : base( dataRow )
         {
             _record = dataRow;
             _map = dataRow.ToDictionary( );

@@ -59,6 +59,7 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         public OperatingPlan( )
+            : base( )
         {
         }
 
@@ -70,6 +71,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="query"> The query. </param>
         public OperatingPlan( IQuery query )
+            : base( query )
         {
             _record = new DataBuilder( query ).Record;
             _id = int.Parse( _record[ "OperatingPlansId" ].ToString( ) ?? "0" );
@@ -113,6 +115,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="builder"> The builder. </param>
         public OperatingPlan( IDataModel builder )
+            : base( builder )
         {
             _record = builder.Record;
             _map = _record.ToDictionary( );
@@ -156,6 +159,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
         public OperatingPlan( DataRow dataRow )
+            : base( dataRow )
         {
             _record = dataRow;
             _map = dataRow.ToDictionary( );
@@ -196,6 +200,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="allocations"></param>
         public OperatingPlan( Allocation allocations )
+            : this( )
         {
             _id = allocations.ID;
             _budgetLevel = allocations.BudgetLevel;

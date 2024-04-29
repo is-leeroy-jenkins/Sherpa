@@ -265,6 +265,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="actual">The actual.</param>
         public MonthlyActual( MonthlyActual actual )
+            : this( )
         {
             _source = Source.MonthlyActuals;
             _id = actual.ID;

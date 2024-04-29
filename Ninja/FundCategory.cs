@@ -49,78 +49,107 @@ namespace BudgetExecution
     /// <seealso cref="T:BudgetExecution.DataUnit" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     public class FundCategory : DataUnit
     {
-        /// <summary> Gets or sets the short name. </summary>
-        /// <value> The short name. </value>
-        public string ShortName { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        private string _shortName;
 
         /// <summary>
+        /// Gets or sets the short name.
+        /// </summary>
+        /// <value> The short name. </value>
+        public string ShortName
+        {
+            get
+            {
+                return _shortName;
+            }
+            private set
+            {
+                _shortName = value;
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="FundCategory"/>
+        /// <see cref="T:BudgetExecution.FundCategory" />
         /// class.
         /// </summary>
         public FundCategory( )
+            : base( )
         {
+            _source = Source.FundCategories;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="FundCategory"/>
+        /// <see cref="T:BudgetExecution.FundCategory" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
         public FundCategory( IQuery query )
+            : base( query )
         {
-            Record = new DataBuilder( query ).Record;
-            Map = Record.ToDictionary( );
-            Code = Record[ "Code" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
-            ShortName = Record[ "ShortName" ].ToString( );
+            _record = new DataBuilder( query ).Record;
+            _map = _record.ToDictionary( );
+            _code = _record[ "Code" ].ToString( );
+            _name = _record[ "Name" ].ToString( );
+            _shortName = _record[ "ShortName" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="FundCategory"/>
+        /// <see cref="T:BudgetExecution.FundCategory" />
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
         public FundCategory( IDataModel builder )
+            : base( builder )
         {
-            Record = builder.Record;
-            Map = Record.ToDictionary( );
-            Code = Record[ "Code" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
-            ShortName = Record[ "ShortName" ].ToString( );
+            _record = builder.Record;
+            _map = _record.ToDictionary( );
+            _code = _record[ "Code" ].ToString( );
+            _name = _record[ "Name" ].ToString( );
+            _shortName = _record[ "ShortName" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="FundCategory"/>
+        /// <see cref="T:BudgetExecution.FundCategory" />
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
         public FundCategory( DataRow dataRow )
+            : base( dataRow )
         {
-            Record = dataRow;
-            Map = dataRow.ToDictionary( );
-            Code = Record[ "Code" ].ToString( );
-            Name = Record[ "Name" ].ToString( );
-            ShortName = Record[ "ShortName" ].ToString( );
+            _record = dataRow;
+            _map = _record.ToDictionary( );
+            _code = _record[ "Code" ].ToString( );
+            _name = _record[ "Name" ].ToString( );
+            _shortName = _record[ "ShortName" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="FundCategory"/>
+        /// <see cref="T:BudgetExecution.FundCategory" />
         /// class.
         /// </summary>
         /// <param name="fundCategory"> The fund category. </param>
         public FundCategory( FundCategory fundCategory )
+            : this( )
         {
-            ID = fundCategory.ID;
-            Code = fundCategory.Code;
-            Name = fundCategory.Name;
-            ShortName = fundCategory.ShortName;
+            _id = fundCategory.ID;
+            _code = fundCategory.Code;
+            _name = fundCategory.Name;
+            _shortName = fundCategory.ShortName;
         }
     }
 }

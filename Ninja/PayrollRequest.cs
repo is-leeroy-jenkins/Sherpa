@@ -60,6 +60,7 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.PayrollRequests" /> class.
         /// </summary>
         public PayrollRequest( )
+            : base( )
         {
             _source = Source.PayrollRequests;
         }
@@ -106,9 +107,10 @@ namespace BudgetExecution
             _lastActivityDate = DateOnly.Parse( Record[ "LastActivityDate" ].ToString( ) );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="PayrollRequest"/> class.
+        /// <see cref="T:BudgetExecution.PayrollRequest" /> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public PayrollRequest( DataRow dataRow ) 
@@ -135,6 +137,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="request">The request.</param>
         public PayrollRequest( PayrollRequest request )
+            : this( )
         {
             _id = request.ID;
             _analyst = request.Analyst;

@@ -41,24 +41,19 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
-    public class ApplicationTable
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
+    public class ApplicationTable : DataUnit
     {
-        /// <summary>
-        /// The identifier
-        /// </summary>
-        private int _id;
-
         /// <summary>
         /// The table name
         /// </summary>
@@ -68,39 +63,6 @@ namespace BudgetExecution
         /// The model
         /// </summary>
         private string _model;
-
-        /// <summary>
-        /// The source
-        /// </summary>
-        private Source _source;
-
-        /// <summary>
-        /// The record
-        /// </summary>
-        private DataRow _record;
-
-        /// <summary>
-        /// The data
-        /// </summary>
-        private IDictionary<string, object> _data;
-
-        /// <summary>
-        /// Gets or sets the identifier.
-        /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
-        public int ID
-        {
-            get
-            {
-                return _id;
-            }
-            private set
-            {
-                _id = value;
-            }
-        }
 
         /// <summary>
         /// Gets or sets the name of the table.
@@ -138,110 +100,64 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
-        public Source Source
-        {
-            get
-            {
-                return _source;
-            }
-            private set
-            {
-                _source = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the record.
-        /// </summary>
-        /// <value>
-        /// The record.
-        /// </value>
-        public DataRow Record
-        {
-            get
-            {
-                return _record;
-            }
-            private set
-            {
-                _record = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the data.
-        /// </summary>
-        /// <value>
-        /// The data.
-        /// </value>
-        public IDictionary<string, object> Data
-        {
-            get
-            {
-                return _data;
-            }
-            private set
-            {
-                _data = value;
-            }
-        }
-
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ApplicationTable" />
+        /// <see cref="T:BudgetExecution.ApplicationTable" />
         /// class.
         /// </summary>
         public ApplicationTable( )
+            : base( )
         {
             _source = Source.ApplicationTables;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ApplicationTable" />
+        /// <see cref="T:BudgetExecution.ApplicationTable" />
         /// class.
         /// </summary>
         /// <param name="query">The query.</param>
         public ApplicationTable( IQuery query )
+            : base( query )
         {
             _record = new DataBuilder( query ).Record;
-            _data = _record.ToDictionary( );
+            _map = _record.ToDictionary( );
             _id = int.Parse( _record[ "ApplicationTablesId" ].ToString( ) ?? "0" );
             _tableName = _record[ "TableName" ].ToString( );
             _model = _record[ "Model" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ApplicationTable" />
+        /// <see cref="T:BudgetExecution.ApplicationTable" />
         /// class.
         /// </summary>
         /// <param name="builder">The builder.</param>
         public ApplicationTable( IDataModel builder )
+            : base( builder )
         {
             _record = builder.Record;
-            _data = _record.ToDictionary( );
+            _map = _record.ToDictionary( );
             _id = int.Parse( _record[ "ApplicationTablesId" ].ToString( ) ?? "0" );
             _tableName = _record[ "TableName" ].ToString( );
             _model = _record[ "Model" ].ToString( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ApplicationTable" />
+        /// <see cref="T:BudgetExecution.ApplicationTable" />
         /// class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
         public ApplicationTable( DataRow dataRow )
+            : base( dataRow )
         {
             _record = dataRow;
-            _data = dataRow.ToDictionary( );
+            _map = dataRow.ToDictionary( );
             _id = int.Parse( dataRow[ "ApplicationTablesId" ].ToString( ) ?? "0" );
             _tableName = dataRow[ "TableName" ].ToString( );
             _model = dataRow[ "Model" ].ToString( );
