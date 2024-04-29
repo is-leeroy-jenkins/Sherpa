@@ -66,15 +66,15 @@ namespace BudgetExecution
         /// <value>
         /// The bytes.
         /// </value>
-        public int Bytes
+        public int Count
         {
             get
             {
-                return _bytes;
+                return _count;
             }
             private set
             {
-                _bytes = value;
+                _count = value;
             }
         }
 
@@ -192,9 +192,9 @@ namespace BudgetExecution
         /// </summary>
         public BabyGirl( )
         {
-            _bytes = 1024;
+            _count = 1024;
             _port = 5000;
-            _data = new byte[ Bytes ];
+            _data = new byte[ Count ];
             _ipAddress = IPAddress.Any;
             _ipEndPoint = new IPEndPoint( _ipAddress, Port );
             _socket = new Socket( AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp );
@@ -211,7 +211,7 @@ namespace BudgetExecution
         /// <param name="size"> </param>
         public BabyGirl( IPAddress address, int port = 5000, int size = 1024 )
         {
-            _bytes = size;
+            _count = size;
             _port = port;
             _data = new byte[ size ];
             _ipAddress = address;
@@ -230,7 +230,7 @@ namespace BudgetExecution
         /// <param name="size">Size of the buffer.</param>
         public BabyGirl( string address, int port = 5000, int size = 1024 )
         {
-            _bytes = size;
+            _count = size;
             _port = port;
             _data = new byte[ size ];
             _ipAddress = IPAddress.Parse( address );
@@ -247,7 +247,7 @@ namespace BudgetExecution
         /// <param name="girl">The client.</param>
         public BabyGirl( BabyGirl girl )
         {
-            _bytes = girl.Bytes;
+            _count = girl.Count;
             _port = girl.Port;
             _data = girl.Data;
             _ipAddress = girl.Address;
@@ -274,8 +274,8 @@ namespace BudgetExecution
                 while( true )
                 {
                     var _client = _socket.Accept( );
-                    _data = new byte[ _bytes ];
-                    _client.Receive( _data, _bytes, SocketFlags.None );
+                    _data = new byte[ _count ];
+                    _client.Receive( _data, _count, SocketFlags.None );
                     if( _data.Length == 0 )
                     {
                         break;
@@ -306,7 +306,7 @@ namespace BudgetExecution
             out IPAddress ipAddress, out IPEndPoint endPoint, out Socket socket,
             out string message )
         {
-            bytes = _bytes;
+            bytes = _count;
             port = _port;
             data = _data;
             ipAddress = _ipAddress;

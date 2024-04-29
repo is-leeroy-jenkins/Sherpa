@@ -42,6 +42,7 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Specialized;
+    using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using System.Net.NetworkInformation;
     using System.Text;
@@ -62,11 +63,6 @@ namespace BudgetExecution
         /// The busy
         /// </summary>
         private protected bool _busy;
-
-        /// <summary>
-        /// The configuration
-        /// </summary>
-        private protected NameValueCollection _config;
 
         /// <summary>
         /// The query

@@ -28,7 +28,7 @@
         /// <summary>
         /// The bytes
         /// </summary>
-        private protected int _bytes;
+        private protected int _count;
 
         /// <summary>
         /// The port
@@ -132,7 +132,7 @@
                 ThrowIf.Null( ipAddress, nameof( ipAddress ) );
                 using var _ping = new Ping( );
                 var _buffer = Encoding.ASCII.GetBytes( "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" );
-                var _timeout = 5000; // 5sg
+                var _timeout = 5000; // 5 sec
                 var _reply = _ping.Send( ipAddress, _timeout, _buffer );
                 if( _reply != null )
                 {
