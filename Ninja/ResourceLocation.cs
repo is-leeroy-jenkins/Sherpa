@@ -41,73 +41,88 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
 
-    /// <summary> </summary>
+    /// <inheritdoc />
+    /// <summary>
+    /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class Url
+    [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
+    public class ResourceLocation : DataUnit
     {
-        /// <summary> Gets or sets the identifier. </summary>
-        /// <value> The identifier. </value>
-        public int ID { get; set; }
-
-        /// <summary> Gets or sets the source. </summary>
-        /// <value> The source. </value>
-        public Source Source { get; set; }
-
-        /// <summary> Gets or sets the Record property. </summary>
-        /// <value> The data row. </value>
-        public DataRow Record { get; set; }
-
-        /// <summary> Gets the arguments. </summary>
-        /// <value> The arguments. </value>
-        public IDictionary<string, object> Data { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        private string _address;
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Url"/>
-        /// class.
+        ///
         /// </summary>
-        public Url( )
+        public string Address
         {
+            get
+            {
+                return _address;
+            }
+            private protected set
+            {
+                _address = value;
+            }
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Url"/>
+        /// <see cref="!:Url" />
+        /// class.
+        /// </summary>
+        public ResourceLocation( )
+            : base( )
+        {
+            _source = Source.ResourceLocations;
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="!:Url" />
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
-        public Url( IQuery query )
+        public ResourceLocation( IQuery query )
+            : base( query )
         {
-            Record = new DataBuilder( query ).Record;
-            Data = Record.ToDictionary( );
+            _record = new DataBuilder( query ).Record;
+            _map = _record.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Url"/>
+        /// <see cref="!:Url" />
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
-        public Url( IDataModel builder )
+        public ResourceLocation( IDataModel builder )
+            : base( builder )
         {
-            Record = builder.Record;
-            Data = Record.ToDictionary( );
+            _record = builder.Record;
+            _map = _record.ToDictionary( );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="Url"/>
+        /// <see cref="!:Url" />
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
-        public Url( DataRow dataRow )
+        public ResourceLocation( DataRow dataRow )
+            : base( dataRow )
         {
-            Record = dataRow;
-            Data = dataRow.ToDictionary( );
+            _record = dataRow;
+            _map = dataRow.ToDictionary( );
         }
     }
 }

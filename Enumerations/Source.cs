@@ -514,6 +514,11 @@ namespace BudgetExecution
         Resources,
 
         /// <summary>
+        /// The URLs
+        /// </summary>
+        ResourceLocations,
+
+        /// <summary>
         /// The responsibility centers
         /// </summary>
         ResponsibilityCenters,
@@ -641,12 +646,6 @@ namespace BudgetExecution
         /// <summary>
         /// The unobligated balances
         /// </summary>
-        UnobligatedBalances,
-
-        /// <summary>
-        /// The URL
-        /// </summary>
-        [SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
-        URL
+        UnobligatedBalances
     }
 }

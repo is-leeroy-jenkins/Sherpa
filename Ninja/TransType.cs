@@ -54,38 +54,8 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ConvertToAutoProperty" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToAutoPropertyWhenPossible" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class TransType : DataUnit
+    public class TransType : BudgetUnit
     {
-        /// <summary>
-        /// The bfy
-        /// </summary>
-        private string _bfy;
-
-        /// <summary>
-        /// The efy
-        /// </summary>
-        private string _efy;
-
-        /// <summary>
-        /// The fund code
-        /// </summary>
-        private string _fundCode;
-
-        /// <summary>
-        /// The fund name
-        /// </summary>
-        private string _fundName;
-
-        /// <summary>
-        /// The treasury account code
-        /// </summary>
-        private string _treasuryAccountCode;
-
-        /// <summary>
-        /// The treasury account name
-        /// </summary>
-        private string _treasuryAccountName;
-
         /// <summary>
         /// The document type
         /// </summary>
@@ -120,114 +90,6 @@ namespace BudgetExecution
         /// The sequester return
         /// </summary>
         private string _sequesterReturn;
-        
-        /// <summary>
-        /// Gets or sets the bfy.
-        /// </summary>
-        /// <value>
-        /// The bfy.
-        /// </value>
-        public string BFY
-        {
-            get
-            {
-                return _bfy;
-            }
-            private set
-            {
-                _bfy = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the efy.
-        /// </summary>
-        /// <value>
-        /// The efy.
-        /// </value>
-        public string EFY
-        {
-            get
-            {
-                return _efy;
-            }
-            private set
-            {
-                _efy = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the fund code.
-        /// </summary>
-        /// <value>
-        /// The fund code.
-        /// </value>
-        public string FundCode
-        {
-            get
-            {
-                return _fundCode;
-            }
-            private set
-            {
-                _fundCode = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the name of the fund.
-        /// </summary>
-        /// <value>
-        /// The name of the fund.
-        /// </value>
-        public string FundName
-        {
-            get
-            {
-                return _fundName;
-            }
-            private set
-            {
-                _fundName = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the treasury account code.
-        /// </summary>
-        /// <value>
-        /// The treasury account code.
-        /// </value>
-        public string TreasuryAccountCode
-        {
-            get
-            {
-                return _treasuryAccountCode;
-            }
-            private set
-            {
-                _treasuryAccountCode = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the name of the treasury account.
-        /// </summary>
-        /// <value>
-        /// The name of the treasury account.
-        /// </value>
-        public string TreasuryAccountName
-        {
-            get
-            {
-                return _treasuryAccountName;
-            }
-            private set
-            {
-                _treasuryAccountName = value;
-            }
-        }
 
         /// <summary>
         /// Gets or sets the type of the document.
