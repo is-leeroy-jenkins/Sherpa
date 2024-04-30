@@ -51,6 +51,7 @@ namespace BudgetExecution
     /// <seealso cref="T:BudgetExecution.ICommand"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertSwitchStatementToSwitchExpression" ) ]
     public class BudgetCommand : CommandBase, IBudgetCommand
     {
         /// <inheritdoc/>
@@ -70,7 +71,8 @@ namespace BudgetExecution
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
         /// <param name="commandType">Type of the command.</param>
-        public BudgetCommand( Source source, Provider provider, Command commandType = BudgetExecution.Command.SELECTALL )
+        public BudgetCommand( Source source, Provider provider,
+            Command commandType = BudgetExecution.Command.SELECTALL )
         {
             _source = _sqlStatement.Source;
             _provider = provider;
@@ -89,7 +91,8 @@ namespace BudgetExecution
         /// <param name="provider"> The provider. </param>
         /// <param name="sqlText"> The SQL text. </param>
         /// <param name="commandType"> Type of the command. </param>
-        public BudgetCommand( Source source, Provider provider, string sqlText, Command commandType )
+        public BudgetCommand( Source source, Provider provider,
+            string sqlText, Command commandType )
         {
             _source = source;
             _provider = provider;
@@ -193,7 +196,8 @@ namespace BudgetExecution
             _source = sqlStatement.Source;
             _provider = sqlStatement.Provider;
             _commandType = sqlStatement.CommandType;
-            _connection = new BudgetConnection( sqlStatement.Source, sqlStatement.Provider ).Create( );
+            _connection =
+                new BudgetConnection( sqlStatement.Source, sqlStatement.Provider ).Create( );
         }
 
         /// <inheritdoc/>
@@ -290,6 +294,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
+                _async.SetException( _ex );
                 Fail( _ex );
                 return default( Task<DbCommand> );
             }
