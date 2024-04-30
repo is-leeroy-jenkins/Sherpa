@@ -177,15 +177,15 @@ namespace BudgetExecution
         /// </summary>
         /// <value> The command factory.
         /// </value>
-        public IBudgetCommand CommandFactory
+        public IBudgetCommand BudgetCommand
         {
             get
             {
-                return _command;
+                return _budgetCommand;
             }
             private protected set
             {
-                _command = value;
+                _budgetCommand = value;
             }
         }
 
@@ -232,7 +232,8 @@ namespace BudgetExecution
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
         /// <param name="commandType">Type of the command.</param>
-        public BudgetAdapter( Source source, Provider provider, Command commandType = Command.SELECTALL )
+        public BudgetAdapter( Source source, Provider provider,
+            Command commandType = Command.SELECTALL )
             : this( )
         {
             _source = source;
@@ -251,7 +252,8 @@ namespace BudgetExecution
         /// <param name="provider">The provider.</param>
         /// <param name="sqlText">The SQL text.</param>
         /// <param name="commandType">Type of the command.</param>
-        public BudgetAdapter( Source source, Provider provider, string sqlText, Command commandType )
+        public BudgetAdapter( Source source, Provider provider,
+            string sqlText, Command commandType )
             : this( )
         {
             _source = source;

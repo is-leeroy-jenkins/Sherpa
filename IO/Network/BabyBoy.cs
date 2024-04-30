@@ -103,7 +103,7 @@ namespace BudgetExecution
             {
                 return _data;
             }
-            private set
+            private protected set
             {
                 _data = value;
             }

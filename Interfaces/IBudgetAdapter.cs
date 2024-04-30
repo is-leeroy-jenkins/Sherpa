@@ -50,7 +50,7 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="T:BudgetExecution.ISource" />
     /// <seealso cref="T:BudgetExecution.IProvider" />
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public interface IBudgetAdapter : ISource, IProvider
     {
         /// <inheritdoc />
@@ -91,7 +91,7 @@ namespace BudgetExecution
         /// </summary>
         /// <value> The command factory.
         /// </value>
-        IBudgetCommand CommandFactory { get; }
+        IBudgetCommand BudgetCommand { get; }
 
         /// <inheritdoc />
         /// <summary>

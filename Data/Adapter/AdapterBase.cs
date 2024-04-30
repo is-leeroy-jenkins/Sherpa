@@ -103,7 +103,7 @@ namespace BudgetExecution
         /// <summary>
         /// The command factory
         /// </summary>
-        private protected IBudgetCommand _command;
+        private protected IBudgetCommand _budgetCommand;
 
         /// <summary>
         /// The command text
