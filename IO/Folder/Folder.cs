@@ -139,6 +139,7 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.Folder" /> class.
         /// </summary>
         public Folder( )
+            : base( )
         {
         }
 
@@ -170,6 +171,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="folder">The folder.</param>
         public Folder( Folder folder )
+            : this( )
         {
             _input = folder.Input;
             _fullPath = folder.FullPath;

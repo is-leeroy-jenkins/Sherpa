@@ -126,6 +126,7 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.DataFile" /> class.
         /// </summary>
         public DataFile( )
+            : base( )
         {
         }
 
@@ -136,6 +137,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="input">The input.</param>
         public DataFile( string input )
+            : base( input )
         {
             _input = input;
             _fileName = Path.GetFileNameWithoutExtension( input );
@@ -159,6 +161,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="file">The file.</param>
         public DataFile( DataFile file )
+            : this( )
         {
             _input = file.Input;
             _fileName = file.FileName;
