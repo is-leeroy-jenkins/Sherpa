@@ -3113,13 +3113,13 @@
             </summary>
         </member>
         <member name="P:Microsoft.CodeAnalysis.Collections.Internal.SR.ArgumentOutOfRange_Index">
-            <summary>Index was out of range. Must be non-negative and less than the size of the
+            <summary>StartRow was out of range. Must be non-negative and less than the size of the
                 collection.
             </summary>
         </member>
         <member
             name="P:Microsoft.CodeAnalysis.Collections.Internal.SR.ArgumentOutOfRange_ListInsert">
-            <summary>Index must be within the bounds of the List.</summary>
+            <summary>StartRow must be within the bounds of the List.</summary>
         </member>
         <member
             name="P:Microsoft.CodeAnalysis.Collections.Internal.SR.ArgumentOutOfRange_NeedNonNegNum">
@@ -14067,11 +14067,11 @@
         </member>
         <member name="T:Microsoft.CodeAnalysis.Operations.IImplicitIndexerReferenceOperation">
             <summary>
-                Represents a reference to an implicit System.Index or System.Range indexer over a
+                Represents a reference to an implicit System.StartRow or System.Range indexer over a
                 non-array type.
                 <para>
                     Current usage:
-                    (1) C# implicit System.Index or System.Range indexer reference expression.
+                    (1) C# implicit System.StartRow or System.Range indexer reference expression.
                 </para>
             </summary>
             <remarks>
@@ -14099,7 +14099,7 @@
         <member
             name="P:Microsoft.CodeAnalysis.Operations.IImplicitIndexerReferenceOperation.Argument">
             <summary>
-                System.Index or System.Range value.
+                System.StartRow or System.Range value.
             </summary>
         </member>
         <member
@@ -31947,7 +31947,7 @@
         <member
             name="P:Microsoft.CodeAnalysis.CommonReferenceManager`2.AssemblyReferenceBinding.DefinitionIndex">
             <summary>
-                Index into assembly definition list.
+                StartRow into assembly definition list.
                 Undefined unless
                 <see
                     cref="P:Microsoft.CodeAnalysis.CommonReferenceManager`2.AssemblyReferenceBinding.IsBound"/>
@@ -32253,9 +32253,9 @@
                 considered skipped.
             </summary>
         </member>
-        <member name="P:Microsoft.CodeAnalysis.CommonReferenceManager`2.ResolvedReference.Index">
+        <member name="P:Microsoft.CodeAnalysis.CommonReferenceManager`2.ResolvedReference.StartRow">
             <summary>
-                Index into an array of assemblies (not including the assembly being built) or an
+                StartRow into an array of assemblies (not including the assembly being built) or an
                 array of modules, depending on<see
                 cref="P:Microsoft.CodeAnalysis.CommonReferenceManager`2.ResolvedReference.Kind"/>.
             </summary>
@@ -32263,7 +32263,7 @@
         <member
             name="F:Microsoft.CodeAnalysis.CommonReferenceManager`2.ReferencedAssemblyIdentity.RelativeAssemblyIndex">
             <summary>
-                non-negative: Index into the array of all (explicitly and implicitly) referenced
+                non-negative: StartRow into the array of all (explicitly and implicitly) referenced
                 assemblies.
                 negative: ExplicitlyReferencedAssemblies.Count + RelativeAssemblyIndex is an index
                 into the array of assemblies.
@@ -36990,7 +36990,7 @@
                 Bound attribute to decode.
             </summary>
         </member>
-        <member name="P:Microsoft.CodeAnalysis.DecodeWellKnownAttributeArguments`3.Index">
+        <member name="P:Microsoft.CodeAnalysis.DecodeWellKnownAttributeArguments`3.StartRow">
             <summary>
                 The index of the attribute in the list of attributes to decode.
             </summary>
@@ -40563,13 +40563,13 @@
         </member>
         <member name="F:Microsoft.CodeAnalysis.WellKnownMemberNames.CountPropertyName">
             <summary>
-                The required name for the <c>Count</c> property used in a pattern-based Index or
+                The required name for the <c>Count</c> property used in a pattern-based StartRow or
                 Range indexer.
             </summary>
         </member>
         <member name="F:Microsoft.CodeAnalysis.WellKnownMemberNames.LengthPropertyName">
             <summary>
-                The required name for the <c>Length</c> property used in a pattern-based Index or
+                The required name for the <c>Length</c> property used in a pattern-based StartRow or
                 Range indexer.
             </summary>
         </member>
@@ -49399,7 +49399,7 @@
                 list.
             </summary>
         </member>
-        <member name="P:Microsoft.Cci.IParameterListEntry.Index">
+        <member name="P:Microsoft.Cci.IParameterListEntry.StartRow">
             <summary>
                 The position in the parameter list where this instance can be found.
             </summary>
@@ -52406,85 +52406,85 @@
         <member name="T:System.Linq.ImmutableSegmentedListExtensions">
             <seealso cref="T:System.Linq.ImmutableArrayExtensions"/>
         </member>
-        <member name="T:System.Index">
+        <member name="T:System.StartRow">
             <summary>Represent a type can be used to index a collection either from the start or the
                 end.
             </summary>
             <remarks>
-                Index is used by the C# compiler to support the new index syntax
+                StartRow is used by the C# compiler to support the new index syntax
                 <code>
                     int[] someArray = new int[5] { 1, 2, 3, 4, 5 } ;
                     int lastElement = someArray[^1]; // lastElement = 5
                 </code>
             </remarks>
         </member>
-        <member name="M:System.Index.#ctor(System.Int32,System.Boolean)">
-            <summary>Construct an Index using a value and indicating if the index is from the start
+        <member name="M:System.StartRow.#ctor(System.Int32,System.Boolean)">
+            <summary>Construct an StartRow using a value and indicating if the index is from the start
                 or from the end.
             </summary>
             <param name="value">The index value. it has to be zero or positive number.</param>
             <param name="fromEnd">Indicating if the index is from the start or from the end.</param>
             <remarks>
-                If the Index constructed from the end, index value 1 means pointing at the last
+                If the StartRow constructed from the end, index value 1 means pointing at the last
                 element and index value 0 means pointing at beyond last element.
             </remarks>
         </member>
-        <member name="P:System.Index.Start">
-            <summary>Create an Index pointing at first element.</summary>
+        <member name="P:System.StartRow.Start">
+            <summary>Create an StartRow pointing at first element.</summary>
         </member>
-        <member name="P:System.Index.End">
-            <summary>Create an Index pointing at beyond last element.</summary>
+        <member name="P:System.StartRow.End">
+            <summary>Create an StartRow pointing at beyond last element.</summary>
         </member>
-        <member name="M:System.Index.FromStart(System.Int32)">
-            <summary>Create an Index from the start at the position indicated by the value.
+        <member name="M:System.StartRow.FromStart(System.Int32)">
+            <summary>Create an StartRow from the start at the position indicated by the value.
             </summary>
             <param name="value">The index value from the start.</param>
         </member>
-        <member name="M:System.Index.FromEnd(System.Int32)">
-            <summary>Create an Index from the end at the position indicated by the value.</summary>
+        <member name="M:System.StartRow.FromEnd(System.Int32)">
+            <summary>Create an StartRow from the end at the position indicated by the value.</summary>
             <param name="value">The index value from the end.</param>
         </member>
-        <member name="P:System.Index.Value">
+        <member name="P:System.StartRow.Value">
             <summary>Returns the index value.</summary>
         </member>
-        <member name="P:System.Index.IsFromEnd">
+        <member name="P:System.StartRow.IsFromEnd">
             <summary>Indicates whether the index is from the start or the end.</summary>
         </member>
-        <member name="M:System.Index.GetOffset(System.Int32)">
+        <member name="M:System.StartRow.GetOffset(System.Int32)">
             <summary>Calculate the offset from the start using the giving collection length.
             </summary>
-            <param name="length">The length of the collection that the Index will be used with.
+            <param name="length">The length of the collection that the StartRow will be used with.
                 length has to be a positive value
             </param>
             <remarks>
                 For performance reason, we don't validate the input length parameter and the
                 returned offset value against negative values.
                 we don't validate either the returned offset is greater than the input length.
-                It is expected Index will be used with collections which always have non negative
+                It is expected StartRow will be used with collections which always have non negative
                 length/count. If the returned offset is negative and
                 then used to index a collection will get out of range exception which will be same
                 affect as the validation.
             </remarks>
         </member>
-        <member name="M:System.Index.Equals(System.Object)">
-            <summary>Indicates whether the current Index object is equal to another object of the
+        <member name="M:System.StartRow.Equals(System.Object)">
+            <summary>Indicates whether the current StartRow object is equal to another object of the
                 same type.
             </summary>
             <param name="value">An object to compare with this object</param>
         </member>
-        <member name="M:System.Index.Equals(System.Index)">
-            <summary>Indicates whether the current Index object is equal to another Index object.
+        <member name="M:System.StartRow.Equals(System.StartRow)">
+            <summary>Indicates whether the current StartRow object is equal to another StartRow object.
             </summary>
             <param name="other">An object to compare with this object</param>
         </member>
-        <member name="M:System.Index.GetHashCode">
+        <member name="M:System.StartRow.GetHashCode">
             <summary>Returns the hash code for this instance.</summary>
         </member>
-        <member name="M:System.Index.op_Implicit(System.Int32)~System.Index">
-            <summary>Converts integer number to an Index.</summary>
+        <member name="M:System.StartRow.op_Implicit(System.Int32)~System.StartRow">
+            <summary>Converts integer number to an StartRow.</summary>
         </member>
-        <member name="M:System.Index.ToString">
-            <summary>Converts the value of the current Index object to its equivalent string
+        <member name="M:System.StartRow.ToString">
+            <summary>Converts the value of the current StartRow object to its equivalent string
                 representation.
             </summary>
         </member>
@@ -52655,7 +52655,7 @@
         <member name="P:System.Range.End">
             <summary>Represent the exclusive end index of the Range.</summary>
         </member>
-        <member name="M:System.Range.#ctor(System.Index,System.Index)">
+        <member name="M:System.Range.#ctor(System.StartRow,System.StartRow)">
             <summary>Construct a Range object using the start and end indexes.</summary>
             <param name="start">Represent the inclusive start index of the range.</param>
             <param name="end">Represent the exclusive end index of the range.</param>
@@ -52679,13 +52679,13 @@
                 representation.
             </summary>
         </member>
-        <member name="M:System.Range.StartAt(System.Index)">
+        <member name="M:System.Range.StartAt(System.StartRow)">
             <summary>Create a Range object starting from start index to the end of the collection.
             </summary>
         </member>
-        <member name="M:System.Range.EndAt(System.Index)">
+        <member name="M:System.Range.EndAt(System.StartRow)">
             <summary>Create a Range object starting from first element in the collection to the end
-                Index.
+                StartRow.
             </summary>
         </member>
         <member name="P:System.Range.All">

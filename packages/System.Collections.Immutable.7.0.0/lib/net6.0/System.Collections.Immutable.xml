@@ -1488,7 +1488,7 @@
 				<see cref="T:System.NotSupportedException"/>
 				in all cases.
 			</summary>
-			<param name="index">Index that indicates where to insert the item.</param>
+			<param name="index">StartRow that indicates where to insert the item.</param>
 			<param name="value">The value to insert.</param>
 			<exception cref="T:System.NotSupportedException">Thrown in all cases.</exception>
 		</member>

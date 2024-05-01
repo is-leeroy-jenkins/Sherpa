@@ -9083,7 +9083,7 @@
             </summary>
             <param name="i">The i.</param>
             <returns>System.Int32.</returns>
-            <exception cref="T:System.ArgumentException">Index must be less than Count.</exception>
+            <exception cref="T:System.ArgumentException">StartRow must be less than Count.</exception>
         </member>
         <member name="T:BudgetExecution.Winforms.Charts.Properties.Resources">
             <summary>

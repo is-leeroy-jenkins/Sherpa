@@ -8591,7 +8591,7 @@
 		</member>
 		<member name="F:System.Data.SQLite.SQLiteDataReader._activeStatementIndex">
 			<summary>
-				Index of the current statement in the command being processed
+				StartRow of the current statement in the command being processed
 			</summary>
 		</member>
 		<member name="F:System.Data.SQLite.SQLiteDataReader._activeStatement">
@@ -15565,7 +15565,7 @@
 				The name of the virtual table.
 			</summary>
 		</member>
-		<member name="P:System.Data.SQLite.SQLiteVirtualTable.Index">
+		<member name="P:System.Data.SQLite.SQLiteVirtualTable.StartRow">
 			<summary>
 				The
 				<see cref="T:System.Data.SQLite.SQLiteIndex"/>

@@ -7152,7 +7152,7 @@
 				.
 			</summary>
 			<param name="index">
-				Index of the image to get or set.
+				StartRow of the image to get or set.
 			</param>
 			<returns>
 				The
@@ -8408,7 +8408,7 @@
 		<member name="P:C1.Util.GlyphMetrics.CharCode">
 			<summary>Gets or sets character for metrics.</summary>
 		</member>
-		<member name="P:C1.Util.GlyphMetrics.Index">
+		<member name="P:C1.Util.GlyphMetrics.StartRow">
 			<summary>Gets or sets glyph index.</summary>
 		</member>
 		<member name="P:C1.Util.GlyphMetrics.Width">
@@ -8534,10 +8534,10 @@
 			<summary>References the previous glyph in a sequence.</summary>
 		</member>
 		<member name="P:C1.Util.GlyphInfo.CodePointIndex">
-			<summary>Index of the first code point in the glyph cluster.</summary>
+			<summary>StartRow of the first code point in the glyph cluster.</summary>
 		</member>
 		<member name="P:C1.Util.GlyphInfo.LastCodePointIndex">
-			<summary>Index of the last code point in the glyph cluster.</summary>
+			<summary>StartRow of the last code point in the glyph cluster.</summary>
 		</member>
 		<member name="P:C1.Util.GlyphInfo.ExtraCodePointCount">
 			<summary>Number of additional code points.</summary>
@@ -8552,10 +8552,10 @@
 			<summary>Ligature glyph ID for the attached mark glyph.</summary>
 		</member>
 		<member name="P:C1.Util.GlyphInfo.LigatureComponentIndex">
-			<summary>Index of the ligature component for a mark glyph.</summary>
+			<summary>StartRow of the ligature component for a mark glyph.</summary>
 		</member>
 		<member name="P:C1.Util.GlyphInfo.GlyphIndex">
-			<summary>Index of the font glyph (glyphID), maybe 0.</summary>
+			<summary>StartRow of the font glyph (glyphID), maybe 0.</summary>
 		</member>
 		<member name="P:C1.Util.GlyphInfo.GlyphAdvance">
 			<summary>Glyph advance width (for horizontal direction) or height (for vertical
@@ -9123,7 +9123,7 @@
 			<summary>Identifies the language system.</summary>
 		</member>
 		<member name="P:C1.Util.FontSubSet.LangSysTable.ReqFeatureIndex">
-			<summary>Index of a feature required for this language system, -1 if no required
+			<summary>StartRow of a feature required for this language system, -1 if no required
 				features.
 			</summary>
 		</member>
@@ -14338,7 +14338,7 @@
 		</member>
 		<member name="P:C1.Util.FontSubSet.Lookup.MarkFilteringSet">
 			<summary>
-				Index (base 0) into GDEF mark glyph sets structure. This field is only present if
+				StartRow (base 0) into GDEF mark glyph sets structure. This field is only present if
 				bit UseMarkFilteringSet of lookup flags is set.
 			</summary>
 		</member>
@@ -14512,7 +14512,7 @@
 			<summary>Vertical value, in design units.</summary>
 		</member>
 		<member name="P:C1.Util.FontSubSet.AnchorTable.AnchorPoint">
-			<summary>Index to glyph contour point.</summary>
+			<summary>StartRow to glyph contour point.</summary>
 		</member>
 		<member name="T:C1.Util.FontSubSet.AnchorTableAP">
 			<inheritdoc/>
@@ -22539,7 +22539,7 @@
 				Vertical offset in pixels.
 			</param>
 			<param name="first">
-				Index of the first
+				StartRow of the first
 				<see cref="T:C1.Framework.Element"/>
 				to be offset.
 			</param>
@@ -22557,7 +22557,7 @@
 				at a specified index in the list.
 			</summary>
 			<param name="index">
-				Index of the element to get or set.
+				StartRow of the element to get or set.
 			</param>
 			.
 			<returns>
@@ -22585,7 +22585,7 @@
 				at a specified index.
 			</summary>
 			<param name="index">
-				Index where the
+				StartRow where the
 				<see cref="T:C1.Framework.Element"/>
 				will be inserted.
 			</param>
@@ -22598,7 +22598,7 @@
 			<summary>Inserts the elements of a collection into the list at the specified index.
 			</summary>
 			<param name="index">
-				Index where the elements will be inserted.
+				StartRow where the elements will be inserted.
 			</param>
 			<param name="c">
 				<see cref="T:System.Collections.ICollection"/>
@@ -22620,7 +22620,7 @@
 		<member name="M:C1.Framework.ElementList.RemoveRange(System.Int32,System.Int32)">
 			<summary>Removes a range of elements from the list.</summary>
 			<param name="index">
-				Index of the first element to remove from the list.
+				StartRow of the first element to remove from the list.
 			</param>
 			<param name="count">
 				Number of elements to remove.
@@ -22629,7 +22629,7 @@
 		<member name="M:C1.Framework.ElementList.Reverse(System.Int32,System.Int32)">
 			<summary>Reverses the order of the elements in the list or a portion of it.</summary>
 			<param name="index">
-				Index where the reversal should start.
+				StartRow where the reversal should start.
 			</param>
 			<param name="count">
 				Number of elements to reverse.
@@ -23054,7 +23054,7 @@
 				at a specified index in the list.
 			</summary>
 			<param name="index">
-				Index of the grid column to get or set.
+				StartRow of the grid column to get or set.
 			</param>
 			.
 			<returns>
@@ -23222,7 +23222,7 @@
 			</param>
 			<returns></returns>
 		</member>
-		<member name="P:C1.Framework.GridRow.Index">
+		<member name="P:C1.Framework.GridRow.StartRow">
 			<summary>
 				Returns the
 				<see cref="T:System.Int32"/>
@@ -23259,7 +23259,7 @@
 				at a specified index in the list.
 			</summary>
 			<param name="index">
-				Index of the row to get or set.
+				StartRow of the row to get or set.
 			</param>
 			.
 			<returns>

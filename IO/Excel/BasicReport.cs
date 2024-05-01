@@ -279,7 +279,7 @@ namespace BudgetExecution
         /// <summary>
         /// The row index
         /// </summary>
-        private protected int _rowIndex;
+        private protected int _startRow;
 
         /// <summary>
         /// The row count
@@ -287,9 +287,61 @@ namespace BudgetExecution
         private protected int _rowCount;
 
         /// <summary>
+        /// The row index
+        /// </summary>
+        private protected int _startColumn;
+
+        /// <summary>
         /// The column count
         /// </summary>
         private protected int _columnCount;
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the index.
+        /// </summary>
+        /// <value>
+        /// The index.
+        /// </value>
+        public int StartRow
+        {
+            get
+            {
+                return _startRow;
+            }
+
+            private protected set
+            {
+                _startRow = value;
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the index.
+        /// </summary>
+        /// <value>
+        /// The index.
+        /// </value>
+        public int StartColumn
+        {
+            get
+            {
+                return _startColumn;
+            }
+
+            private protected set
+            {
+                _startColumn = value;
+            }
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        protected BasicReport( )
+        {
+        }
 
         /// <summary>
         /// Sets the color of the range background.
@@ -301,8 +353,7 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( excelRange, nameof( excelRange ) );
-                var _startRow = excelRange.Start.Row;
-                var _startColumn = excelRange.Start.Column;
+                _startColumn = excelRange.Start.Column;
                 var _endRow = excelRange.End.Row;
                 var _endColumn = excelRange.End.Column;
                 _dataRange = _dataWorksheet.Cells[ _startRow, _startColumn, _endRow, _endColumn ];
@@ -324,7 +375,7 @@ namespace BudgetExecution
         /// <summary>
         /// Gets the name of the excel column.
         /// </summary>
-        /// <param name="columnIndex">Index of the column.</param>
+        /// <param name="columnIndex">StartRow of the column.</param>
         /// <returns></returns>
         private protected string GetExcelColumnName( int columnIndex )
         {

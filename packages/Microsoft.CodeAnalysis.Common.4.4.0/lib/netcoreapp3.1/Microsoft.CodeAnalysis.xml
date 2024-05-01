@@ -3104,13 +3104,13 @@
             </summary>
         </member>
         <member name="P:Microsoft.CodeAnalysis.Collections.Internal.SR.ArgumentOutOfRange_Index">
-            <summary>Index was out of range. Must be non-negative and less than the size of the
+            <summary>StartRow was out of range. Must be non-negative and less than the size of the
                 collection.
             </summary>
         </member>
         <member
             name="P:Microsoft.CodeAnalysis.Collections.Internal.SR.ArgumentOutOfRange_ListInsert">
-            <summary>Index must be within the bounds of the List.</summary>
+            <summary>StartRow must be within the bounds of the List.</summary>
         </member>
         <member
             name="P:Microsoft.CodeAnalysis.Collections.Internal.SR.ArgumentOutOfRange_NeedNonNegNum">
@@ -14038,11 +14038,11 @@
         </member>
         <member name="T:Microsoft.CodeAnalysis.Operations.IImplicitIndexerReferenceOperation">
             <summary>
-                Represents a reference to an implicit System.Index or System.Range indexer over a
+                Represents a reference to an implicit System.StartRow or System.Range indexer over a
                 non-array type.
                 <para>
                     Current usage:
-                    (1) C# implicit System.Index or System.Range indexer reference expression.
+                    (1) C# implicit System.StartRow or System.Range indexer reference expression.
                 </para>
             </summary>
             <remarks>
@@ -14070,7 +14070,7 @@
         <member
             name="P:Microsoft.CodeAnalysis.Operations.IImplicitIndexerReferenceOperation.Argument">
             <summary>
-                System.Index or System.Range value.
+                System.StartRow or System.Range value.
             </summary>
         </member>
         <member
@@ -31925,7 +31925,7 @@
         <member
             name="P:Microsoft.CodeAnalysis.CommonReferenceManager`2.AssemblyReferenceBinding.DefinitionIndex">
             <summary>
-                Index into assembly definition list.
+                StartRow into assembly definition list.
                 Undefined unless
                 <see
                     cref="P:Microsoft.CodeAnalysis.CommonReferenceManager`2.AssemblyReferenceBinding.IsBound"/>
@@ -32231,9 +32231,9 @@
                 considered skipped.
             </summary>
         </member>
-        <member name="P:Microsoft.CodeAnalysis.CommonReferenceManager`2.ResolvedReference.Index">
+        <member name="P:Microsoft.CodeAnalysis.CommonReferenceManager`2.ResolvedReference.StartRow">
             <summary>
-                Index into an array of assemblies (not including the assembly being built) or an
+                StartRow into an array of assemblies (not including the assembly being built) or an
                 array of modules, depending on<see
                 cref="P:Microsoft.CodeAnalysis.CommonReferenceManager`2.ResolvedReference.Kind"/>.
             </summary>
@@ -32241,7 +32241,7 @@
         <member
             name="F:Microsoft.CodeAnalysis.CommonReferenceManager`2.ReferencedAssemblyIdentity.RelativeAssemblyIndex">
             <summary>
-                non-negative: Index into the array of all (explicitly and implicitly) referenced
+                non-negative: StartRow into the array of all (explicitly and implicitly) referenced
                 assemblies.
                 negative: ExplicitlyReferencedAssemblies.Count + RelativeAssemblyIndex is an index
                 into the array of assemblies.
@@ -36968,7 +36968,7 @@
                 Bound attribute to decode.
             </summary>
         </member>
-        <member name="P:Microsoft.CodeAnalysis.DecodeWellKnownAttributeArguments`3.Index">
+        <member name="P:Microsoft.CodeAnalysis.DecodeWellKnownAttributeArguments`3.StartRow">
             <summary>
                 The index of the attribute in the list of attributes to decode.
             </summary>
@@ -40541,13 +40541,13 @@
         </member>
         <member name="F:Microsoft.CodeAnalysis.WellKnownMemberNames.CountPropertyName">
             <summary>
-                The required name for the <c>Count</c> property used in a pattern-based Index or
+                The required name for the <c>Count</c> property used in a pattern-based StartRow or
                 Range indexer.
             </summary>
         </member>
         <member name="F:Microsoft.CodeAnalysis.WellKnownMemberNames.LengthPropertyName">
             <summary>
-                The required name for the <c>Length</c> property used in a pattern-based Index or
+                The required name for the <c>Length</c> property used in a pattern-based StartRow or
                 Range indexer.
             </summary>
         </member>
@@ -49377,7 +49377,7 @@
                 list.
             </summary>
         </member>
-        <member name="P:Microsoft.Cci.IParameterListEntry.Index">
+        <member name="P:Microsoft.Cci.IParameterListEntry.StartRow">
             <summary>
                 The position in the parameter list where this instance can be found.
             </summary>

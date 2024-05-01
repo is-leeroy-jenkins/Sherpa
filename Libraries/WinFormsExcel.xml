@@ -1183,9 +1183,9 @@
 				Represents data sheet in Excel Workbook
 			</summary>
 		</member>
-		<member name="P:ExtraControls.XlSheet.Index">
+		<member name="P:ExtraControls.XlSheet.StartRow">
 			<summary>
-				Index of the sheet in the workbook (starts from 1)
+				StartRow of the sheet in the workbook (starts from 1)
 			</summary>
 		</member>
 		<member name="P:ExtraControls.XlSheet.Name">

@@ -7967,7 +7967,7 @@
 		</member>
 		<member name="F:PdfSharp.Fonts.OpenType.TableTagNames.Loca">
 			<summary>
-				Index to location.
+				StartRow to location.
 			</summary>
 		</member>
 		<member name="F:PdfSharp.Fonts.OpenType.TableTagNames.Prep">
@@ -8314,7 +8314,7 @@
 		<member name="M:PdfSharp.Fonts.OpenType.OpenTypeDescriptor.CharCodeToGlyphIndex(System.Char)">
 			<summary>
 				Maps a unicode to the index of the corresponding glyph. See OpenType spec "cmap -
-				Character To Glyph Index Mapping Table / Format 4: Segment mapping to delta values"
+				Character To Glyph StartRow Mapping Table / Format 4: Segment mapping to delta values"
 				for details about this a little bit strange looking algorithm.
 			</summary>
 		</member>
@@ -8822,7 +8822,7 @@
 			</param>
 			<param name="mustSimulateItalic">Set to <c>true</c> to simulate italic when rendered.
 			</param>
-			<param name="collectionNumber">Index of the font in a true type font collection. Not yet
+			<param name="collectionNumber">StartRow of the font in a true type font collection. Not yet
 				implemented and must be zero.
 			</param>
 		</member>
@@ -10509,7 +10509,7 @@
 				entry in a trailer dictionary.
 			</summary>
 		</member>
-		<member name="F:PdfSharp.Pdf.Advanced.PdfCrossReferenceStream.Keys.Index">
+		<member name="F:PdfSharp.Pdf.Advanced.PdfCrossReferenceStream.Keys.StartRow">
 			<summary>
 				(Optional) An array containing a pair of integers for each subsection in this
 				section. The first integer is the first object number in the subsection; the second
@@ -11695,8 +11695,8 @@
 			<param name="writer">The writer.</param>
 			<param name="bytesFileOffset">Offset of image data in bitmap file.</param>
 			<param name="imageBits">The bitmap file.</param>
-			<param name="currentRow">Index of the current row.</param>
-			<param name="referenceRow">Index of the reference row (0xffffffff if there is none).
+			<param name="currentRow">StartRow of the current row.</param>
+			<param name="referenceRow">StartRow of the reference row (0xffffffff if there is none).
 			</param>
 			<param name="width">The width of the image.</param>
 			<param name="height">The height of the image.</param>
@@ -22126,7 +22126,7 @@
 				Flush block to output with no compression
 			</summary>
 			<param name="stored">Data to write</param>
-			<param name="storedOffset">Index of first byte to write</param>
+			<param name="storedOffset">StartRow of first byte to write</param>
 			<param name="storedLength">Count of bytes to write</param>
 			<param name="lastBlock">True if this is the last block</param>
 		</member>
@@ -22135,7 +22135,7 @@
 				Flush block to output with compression
 			</summary>
 			<param name="stored">Data to flush</param>
-			<param name="storedOffset">Index of first byte to flush</param>
+			<param name="storedOffset">StartRow of first byte to flush</param>
 			<param name="storedLength">Count of bytes to flush</param>
 			<param name="lastBlock">True if this is the last block</param>
 		</member>

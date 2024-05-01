@@ -235,7 +235,7 @@
 			</summary>
 		</member>
 		<member name="F:Microsoft.CSharp.RuntimeBinder.CSharpBinderFlags.ValueFromCompoundAssignment">
-			<summary>Der Wert in diesem festgelegten Index oder festgelegten Member ist ein
+			<summary>Der Wert in diesem festgelegten StartRow oder festgelegten Member ist ein
 				Verbundzuweisungsoperator.
 			</summary>
 		</member>

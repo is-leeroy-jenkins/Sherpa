@@ -27778,7 +27778,7 @@
             <summary>
             Creates a new annotation for the given collection of indexes.
             </summary>
-            <param name="indexAttributes">Index attributes representing one or more indexes.</param>
+            <param name="indexAttributes">StartRow attributes representing one or more indexes.</param>
         </member>
         <member name="P:System.Data.Entity.Infrastructure.Annotations.IndexAnnotation.Indexes">
             <summary>
@@ -41287,7 +41287,7 @@
              <param name="anonymousArguments"> Additional arguments that may be processed by providers. Use anonymous type syntax to specify arguments e.g. 'new { SampleArgument = "MyValue" }'. </param>
              <returns> Itself, so that multiple calls can be chained. </returns>
         </member>
-        <member name="M:System.Data.Entity.Migrations.Builders.TableBuilder`1.Index(System.Linq.Expressions.Expression{System.Func{`0,System.Object}},System.String,System.Boolean,System.Boolean,System.Object)">
+        <member name="M:System.Data.Entity.Migrations.Builders.TableBuilder`1.StartRow(System.Linq.Expressions.Expression{System.Func{`0,System.Object}},System.String,System.Boolean,System.Boolean,System.Object)">
              <summary>
              Specifies an index to be created on the table.
             

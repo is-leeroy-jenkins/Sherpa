@@ -63,6 +63,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "RedundantCheckBeforeAssignment" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     public class ExcelReport : PartFactory
     {
         /// <summary>
@@ -125,8 +126,10 @@ namespace BudgetExecution
         /// <see cref="T:BudgetExecution.ExcelReport" /> class.
         /// </summary>
         public ExcelReport( )
+            : base( )
         {
-            _rowIndex = 2;
+            _startRow = 2;
+            _startColumn = 1;
             _fontColor = Color.Black;
             _font = new Font( "Roboto", 8, FontStyle.Regular );
             _titleFont = new Font( "Roboto", 9 );
@@ -171,7 +174,8 @@ namespace BudgetExecution
         public ExcelReport( string filePath )
             : this( )
         {
-            _rowIndex = 2;
+            _startRow = 2;
+            _startColumn = 1;
             _fontColor = Color.Black;
             _font = new Font( "Roboto", 8, FontStyle.Regular );
             _titleFont = new Font( "Roboto", 9 );
@@ -215,8 +219,10 @@ namespace BudgetExecution
         /// The data table.
         /// </param>
         public ExcelReport( DataTable dataTable )
+            : this( )
         {
-            _rowIndex = 2;
+            _startRow = 2;
+            _startColumn = 1;
             _fontColor = Color.Black;
             _font = new Font( "Roboto", 8, FontStyle.Regular );
             _titleFont = new Font( "Roboto", 9, FontStyle.Regular );

@@ -1102,7 +1102,7 @@
             <param name="dimension">Current array dimension being processed.</param>
             <param name="boundInitExpr">Array of bound initializer expressions.</param>
             <param name="boundInitExprIndex">
-            Index into the array of bound initializer expressions to fetch the next bound expression.
+            StartRow into the array of bound initializer expressions to fetch the next bound expression.
             </param>
             <returns></returns>
         </member>
@@ -1970,7 +1970,7 @@
             </summary>
             <returns>Null if the symbol is missing.</returns>
         </member>
-        <member name="P:Microsoft.CodeAnalysis.CSharp.Binder.BestSymbolInfo.Index">
+        <member name="P:Microsoft.CodeAnalysis.CSharp.Binder.BestSymbolInfo.StartRow">
             <summary>
             Returns -1 if NoData.
             </summary>
@@ -2521,7 +2521,7 @@
             remain to be done for each case.
             </summary>
         </member>
-        <member name="F:Microsoft.CodeAnalysis.CSharp.DecisionDagBuilder.StateForCase.Index">
+        <member name="F:Microsoft.CodeAnalysis.CSharp.DecisionDagBuilder.StateForCase.StartRow">
             <summary>
             A number that is distinct for each case and monotonically increasing from earlier to later cases.
             Since we always keep the cases in order, this is only used to assist with debugging (e.g.
@@ -22346,7 +22346,7 @@
             <param name="thisType">The type of the top-most frame</param>
             <param name="thisParameter">The "this" parameter in the top-most frame, or null if static method</param>
             <param name="method">The containing method of the node to be rewritten</param>
-            <param name="methodOrdinal">Index of the method symbol in its containing type member list.</param>
+            <param name="methodOrdinal">StartRow of the method symbol in its containing type member list.</param>
             <param name="substitutedSourceMethod">If this is non-null, then <paramref name="method"/> will be treated as this for uses of parent symbols. For use in EE.</param>
             <param name="lambdaDebugInfoBuilder">Information on lambdas defined in <paramref name="method"/> needed for debugging.</param>
             <param name="closureDebugInfoBuilder">Information on closures defined in <paramref name="method"/> needed for debugging.</param>
@@ -23508,7 +23508,7 @@
         </member>
         <member name="M:Microsoft.CodeAnalysis.CSharp.LocalRewriter.DetermineMakePatternIndexOffsetExpressionStrategy(Microsoft.CodeAnalysis.CSharp.BoundExpression,Microsoft.CodeAnalysis.CSharp.LocalRewriter.PatternIndexOffsetLoweringStrategy@)">
             <summary>
-            Determine the lowering strategy for translating a System.Index value to an integer offset value
+            Determine the lowering strategy for translating a System.StartRow value to an integer offset value
             and prepare the lowered input for the translation process handled by <see cref="M:Microsoft.CodeAnalysis.CSharp.LocalRewriter.MakePatternIndexOffsetExpression(Microsoft.CodeAnalysis.CSharp.BoundExpression,Microsoft.CodeAnalysis.CSharp.BoundExpression,Microsoft.CodeAnalysis.CSharp.LocalRewriter.PatternIndexOffsetLoweringStrategy)"/>.
             The implementation should be in sync with <see cref="M:Microsoft.CodeAnalysis.CSharp.LocalRewriter.MakePatternIndexOffsetExpression(Microsoft.CodeAnalysis.CSharp.BoundExpression,Microsoft.CodeAnalysis.CSharp.BoundExpression,Microsoft.CodeAnalysis.CSharp.LocalRewriter.PatternIndexOffsetLoweringStrategy)"/>.
             </summary>
@@ -43160,7 +43160,7 @@
             <summary>'{0}': extern event cannot have initializer</summary>
         </member>
         <member name="P:Microsoft.CodeAnalysis.CSharp.CSharpResources.ERR_ImplicitIndexIndexerWithName">
-            <summary>Invocation of implicit Index Indexer cannot name the argument.</summary>
+            <summary>Invocation of implicit StartRow Indexer cannot name the argument.</summary>
         </member>
         <member name="P:Microsoft.CodeAnalysis.CSharp.CSharpResources.ERR_ImplicitRangeIndexerWithName">
             <summary>Invocation of implicit Range Indexer cannot name the argument.</summary>
@@ -43178,7 +43178,7 @@
             <summary>target-typed object creation</summary>
         </member>
         <member name="P:Microsoft.CodeAnalysis.CSharp.CSharpResources.ERR_ExpressionTreeContainsPatternImplicitIndexer">
-            <summary>An expression tree may not contain a pattern System.Index or System.Range indexer access</summary>
+            <summary>An expression tree may not contain a pattern System.StartRow or System.Range indexer access</summary>
         </member>
         <member name="P:Microsoft.CodeAnalysis.CSharp.CSharpResources.ERR_ExpressionTreeContainsFromEndIndexExpression">
             <summary>An expression tree may not contain a from-end index ('^') expression.</summary>

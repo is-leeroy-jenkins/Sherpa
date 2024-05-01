@@ -2909,7 +2909,7 @@
 		</member>
 		<member name="M:System.Reflection.Metadata.Ecma335.InstructionEncoder.LoadArgument(System.Int32)">
 			<summary>Encodes argument load instruction.</summary>
-			<param name="argumentIndex">Index of the argument.</param>
+			<param name="argumentIndex">StartRow of the argument.</param>
 			<exception cref="T:System.ArgumentOutOfRangeException">
 				<paramref name="argumentIndex"/>
 				is negative.
@@ -2917,7 +2917,7 @@
 		</member>
 		<member name="M:System.Reflection.Metadata.Ecma335.InstructionEncoder.LoadArgumentAddress(System.Int32)">
 			<summary>Encodes argument address load instruction.</summary>
-			<param name="argumentIndex">Index of the argument.</param>
+			<param name="argumentIndex">StartRow of the argument.</param>
 			<exception cref="T:System.ArgumentOutOfRangeException">
 				<paramref name="argumentIndex"/>
 				is negative.
@@ -2953,7 +2953,7 @@
 		</member>
 		<member name="M:System.Reflection.Metadata.Ecma335.InstructionEncoder.LoadLocal(System.Int32)">
 			<summary>Encodes local variable load instruction.</summary>
-			<param name="slotIndex">Index of the local variable slot.</param>
+			<param name="slotIndex">StartRow of the local variable slot.</param>
 			<exception cref="T:System.ArgumentOutOfRangeException">
 				<paramref name="slotIndex"/>
 				is negative.
@@ -2961,7 +2961,7 @@
 		</member>
 		<member name="M:System.Reflection.Metadata.Ecma335.InstructionEncoder.LoadLocalAddress(System.Int32)">
 			<summary>Encodes local variable address load instruction.</summary>
-			<param name="slotIndex">Index of the local variable slot.</param>
+			<param name="slotIndex">StartRow of the local variable slot.</param>
 			<exception cref="T:System.ArgumentOutOfRangeException">
 				<paramref name="slotIndex"/>
 				is negative.
@@ -2994,7 +2994,7 @@
 		</member>
 		<member name="M:System.Reflection.Metadata.Ecma335.InstructionEncoder.StoreArgument(System.Int32)">
 			<summary>Encodes argument store instruction.</summary>
-			<param name="argumentIndex">Index of the argument.</param>
+			<param name="argumentIndex">StartRow of the argument.</param>
 			<exception cref="T:System.ArgumentOutOfRangeException">
 				<paramref name="argumentIndex"/>
 				is negative.
@@ -3002,7 +3002,7 @@
 		</member>
 		<member name="M:System.Reflection.Metadata.Ecma335.InstructionEncoder.StoreLocal(System.Int32)">
 			<summary>Encodes local variable store instruction.</summary>
-			<param name="slotIndex">Index of the local variable slot.</param>
+			<param name="slotIndex">StartRow of the local variable slot.</param>
 			<exception cref="T:System.ArgumentOutOfRangeException">
 				<paramref name="slotIndex"/>
 				is negative.
@@ -5597,7 +5597,7 @@
 		<member name="P:System.Reflection.Metadata.GenericParameter.Attributes">
 			<summary>Gets the attributes specifying variance and constraints.</summary>
 		</member>
-		<member name="P:System.Reflection.Metadata.GenericParameter.Index">
+		<member name="P:System.Reflection.Metadata.GenericParameter.StartRow">
 			<summary>Gets the zero-based index of the parameter within the declaring generic type or
 				method declaration.
 			</summary>
@@ -6958,7 +6958,7 @@
 			</summary>
 		</member>
 		<member name="P:System.Reflection.Metadata.LocalVariable.Attributes"/>
-		<member name="P:System.Reflection.Metadata.LocalVariable.Index"/>
+		<member name="P:System.Reflection.Metadata.LocalVariable.StartRow"/>
 		<member name="P:System.Reflection.Metadata.LocalVariable.Name"/>
 		<member name="T:System.Reflection.Metadata.LocalVariableAttributes"/>
 		<member name="F:System.Reflection.Metadata.LocalVariableAttributes.DebuggerHidden"/>

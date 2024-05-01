@@ -4124,7 +4124,7 @@
             The index
             </summary>
         </member>
-        <member name="P:BudgetExecution.Winforms.Metro.MetroControlBox.MetroControlBoxEventArgs.Index">
+        <member name="P:BudgetExecution.Winforms.Metro.MetroControlBox.MetroControlBoxEventArgs.StartRow">
             <summary>
             Gets the index.
             </summary>

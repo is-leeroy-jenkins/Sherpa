@@ -136,7 +136,7 @@
             try
             {
                 ThrowIf.Null( message, nameof( message ) );
-                var _notify = new SplashMessage( message );
+                var _notify = new Notification( message );
                 _notify.Show( );
             }
             catch( Exception _ex )

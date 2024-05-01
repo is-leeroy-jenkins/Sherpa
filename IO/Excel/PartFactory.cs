@@ -66,8 +66,57 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "RedundantAssignment" ) ]
     [ SuppressMessage( "ReSharper", "ConvertSwitchStatementToSwitchExpression" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     public abstract class PartFactory : Workbook
     {
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the file path.
+        /// </summary>
+        /// <value>
+        /// The file path.
+        /// </value>
+        public string FilePath
+        {
+            get
+            {
+                return _filePath;
+            }
+
+            private protected set
+            {
+                _filePath = value;
+            }
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets or sets the name of the file.
+        /// </summary>
+        /// <value>
+        /// The name of the file.
+        /// </value>
+        public string FileName
+        {
+            get
+            {
+                return _fileName;
+            }
+
+            private protected set
+            {
+                _fileName = value;
+            }
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        protected PartFactory( )
+            : base( )
+        {
+        }
+
         /// <summary>
         /// Creates the excel table.
         /// </summary>
@@ -98,11 +147,8 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                if( _dataRange != null )
-                {
-                    _dataRange = null;
-                }
-
+                _dataRange?.Dispose( );
+                _dataWorksheet?.Dispose( );
                 Fail( _ex );
                 return default( ExcelTable );
             }
@@ -124,6 +170,8 @@ namespace BudgetExecution
             try
             {
                 var _table = new DataTable( );
+                _startRow = startRow;
+                _startColumn = startColumn;
                 _dataRange = _dataWorksheet.Cells[ startRow, startColumn, endRow, endColumn ];
                 var _options = ToDataTableOptions.Create( );
                 _options.DataTableName = _fileName ?? string.Empty;
@@ -139,11 +187,8 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                if( _dataRange != null )
-                {
-                    _dataRange = null;
-                }
-
+                _dataRange?.Dispose( );
+                _dataWorksheet?.Dispose( );
                 Fail( _ex );
                 return default( DataTable );
             }
@@ -168,8 +213,8 @@ namespace BudgetExecution
                 ThrowIf.Null( tableName, nameof( tableName ) );
                 ThrowIf.Empty( rows, nameof( rows ) );
                 ThrowIf.Empty( data, nameof( data ) );
-                var _startRow = excelRange.Start.Row;
-                var _startColumn = excelRange.Start.Column;
+                _startRow = excelRange.Start.Row;
+                _startColumn = excelRange.Start.Column;
                 var _endRow = excelRange.End.Row;
                 var _endColumn = excelRange.End.Column;
                 _pivotWorksheet = _excelWorkbook.Worksheets.Add( "Pivot" );
@@ -222,21 +267,13 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                if( _pivotWorksheet != null )
-                {
-                    _pivotWorksheet = null;
-                }
-
                 if( _pivotTable != null )
                 {
                     _pivotTable = null;
                 }
 
-                if( _pivotRange != null )
-                {
-                    _pivotRange = null;
-                }
-
+                _pivotWorksheet?.Dispose( );
+                _pivotRange?.Dispose( );
                 Fail( _ex );
                 return default( ExcelPivotTable );
             }
@@ -261,8 +298,8 @@ namespace BudgetExecution
                 ThrowIf.Null( chartName, nameof( chartName ) );
                 ThrowIf.Null( row, nameof( row ) );
                 ThrowIf.Null( column, nameof( column ) );
-                var _startRow = excelRange.Start.Row;
-                var _startColumn = excelRange.Start.Column;
+                _startRow = excelRange.Start.Row;
+                _startColumn = excelRange.Start.Column;
                 var _endRow = excelRange.End.Row;
                 var _endColumn = excelRange.End.Column;
                 var _anchor = _pivotWorksheet.Cells[ _startRow, _startColumn ];
@@ -286,21 +323,13 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                if( _chartWorksheet != null )
-                {
-                    _chartWorksheet = null;
-                }
-
                 if( _pivotTable != null )
                 {
                     _pivotTable = null;
                 }
 
-                if( _chartRange != null )
-                {
-                    _chartRange = null;
-                }
-
+                _chartRange?.Dispose( );
+                _chartWorksheet?.Dispose( );
                 Fail( _ex );
                 return default( ExcelPieChart );
             }
@@ -323,8 +352,8 @@ namespace BudgetExecution
                 ThrowIf.Null( chartName, nameof( chartName ) );
                 ThrowIf.Null( row, nameof( row ) );
                 ThrowIf.Null( column, nameof( column ) );
-                var _startRow = excelRange.Start.Row;
-                var _startColumn = excelRange.Start.Column;
+                _startRow = excelRange.Start.Row;
+                _startColumn = excelRange.Start.Column;
                 var _endRow = excelRange.End.Row;
                 var _endColumn = excelRange.End.Column;
                 var _anchor = _pivotWorksheet.Cells[ _startRow, _startColumn ];
@@ -348,21 +377,13 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                if( _chartWorksheet != null )
-                {
-                    _chartWorksheet = null;
-                }
-
                 if( _pivotTable != null )
                 {
                     _pivotTable = null;
                 }
 
-                if( _chartRange != null )
-                {
-                    _chartRange = null;
-                }
-
+                _chartRange?.Dispose( );
+                _chartWorksheet?.Dispose( );
                 Fail( _ex );
                 return default( ExcelBarChart );
             }
@@ -385,8 +406,8 @@ namespace BudgetExecution
                 ThrowIf.Null( chartName, nameof( chartName ) );
                 ThrowIf.Null( row, nameof( row ) );
                 ThrowIf.Null( column, nameof( column ) );
-                var _startRow = excelRange.Start.Row;
-                var _startColumn = excelRange.Start.Column;
+                _startRow = excelRange.Start.Row;
+                _startColumn = excelRange.Start.Column;
                 var _endRow = excelRange.End.Row;
                 var _endColumn = excelRange.End.Column;
                 var _anchor = _pivotWorksheet.Cells[ _startRow, _startColumn ];
@@ -410,21 +431,13 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                if( _chartWorksheet != null )
-                {
-                    _chartWorksheet = null;
-                }
-
                 if( _pivotTable != null )
                 {
                     _pivotTable = null;
                 }
 
-                if( _chartRange != null )
-                {
-                    _chartRange = null;
-                }
-
+                _chartRange?.Dispose( );
+                _chartWorksheet?.Dispose( );
                 Fail( _ex );
                 return default( ExcelAreaChart );
             }
@@ -442,8 +455,8 @@ namespace BudgetExecution
             {
                 ThrowIf.Null( text, nameof( text ) );
                 ThrowIf.Null( excelRange, nameof( excelRange ) );
-                var _startRow = excelRange.Start.Row;
-                var _startColumn = excelRange.Start.Column;
+                _startRow = excelRange.Start.Row;
+                _startColumn = excelRange.Start.Column;
                 var _endRow = excelRange.Start.Row;
                 var _endColumn = excelRange.End.Column;
                 _commentRange =
@@ -462,11 +475,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                if( _commentRange != null )
-                {
-                    _commentRange = null;
-                }
-
+                _commentRange?.Dispose( );
                 Fail( _ex );
             }
         }

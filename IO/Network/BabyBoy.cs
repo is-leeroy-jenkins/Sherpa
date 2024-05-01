@@ -189,16 +189,17 @@ namespace BudgetExecution
         {
             _count = 1024;
             _port = 5000;
-            _data = new byte[ Count ];
+            _data = new byte[ _count ];
             _ipAddress = IPAddress.Any;
-            _ipEndPoint = new IPEndPoint( Address, Port );
+            _ipEndPoint = new IPEndPoint( _ipAddress, _port );
             _socket = new Socket( AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp );
             _connected = false;
             _busy = false;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BabyBoy"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="BabyBoy"/> class.
         /// </summary>
         /// <param name="address">The ip address.</param>
         /// <param name="port">The port number.</param>
@@ -207,9 +208,9 @@ namespace BudgetExecution
         {
             _count = size;
             _port = port;
-            _data = new byte[ Count ];
+            _data = new byte[ size ];
             _ipAddress = IPAddress.Parse( address );
-            _ipEndPoint = new IPEndPoint( Address, port );
+            _ipEndPoint = new IPEndPoint( _ipAddress, port );
             _socket = new Socket( AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp );
             _connected = false;
             _busy = false;
@@ -218,16 +219,16 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref="BabyBoy"/> class.
         /// </summary>
-        /// <param name="address">The ip address.</param>
+        /// <param name="ipAddress">The ip ipAddress.</param>
         /// <param name="port">The port.</param>
         /// <param name="size"> </param>
-        public BabyBoy( IPAddress address, int port = 5000, int size = 1024 )
+        public BabyBoy( IPAddress ipAddress, int port = 5000, int size = 1024 )
         {
             _count = size;
             _port = port;
             _data = new byte[ size ];
-            _ipAddress = address;
-            _ipEndPoint = new IPEndPoint( address, port );
+            _ipAddress = ipAddress;
+            _ipEndPoint = new IPEndPoint( ipAddress, port );
             _socket = new Socket( AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp );
             _connected = false;
             _busy = false;
@@ -236,15 +237,15 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref="BabyBoy"/> class.
         /// </summary>
-        /// <param name="endPoint">The ip address.</param>
+        /// <param name="ipEndPoint">The ip address.</param>
         /// <param name="size">Size of the buffer.</param>
-        public BabyBoy( IPEndPoint endPoint, int size = 1024 )
+        public BabyBoy( IPEndPoint ipEndPoint, int size = 1024 )
         {
             _count = size;
-            _port = endPoint.Port;
+            _port = ipEndPoint.Port;
             _data = new byte[ size ];
-            _ipAddress = endPoint.Address;
-            _ipEndPoint = endPoint;
+            _ipAddress = ipEndPoint.Address;
+            _ipEndPoint = ipEndPoint;
             _socket = new Socket( AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp );
             _connected = false;
             _busy = false;

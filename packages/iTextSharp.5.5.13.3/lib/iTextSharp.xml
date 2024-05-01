@@ -4986,11 +4986,11 @@
 			the first n is at offset, the first l is at offset + iIgnoreAtBeginning; word =
 			".llllll.'\0'***", where all l in w are copied into word. In the first part of the
 			routine len = w.length, in the second part of the routine len = word.length. Three
-			indices are used: Index(w), the index in w, Index(word), the index in word,
+			indices are used: StartRow(w), the index in w, StartRow(word), the index in word,
 			Letterindex(word), the index in the letter part of word. The following relations exist:
-			Index(w) = offset + i - 1 Index(word) = i - iIgnoreAtBeginning Letterindex(word) =
-			Index(word) - 1 (see first loop). It follows that: Index(w) - Index(word) = offset - 1 +
-			iIgnoreAtBeginning Index(w) = Letterindex(word) + offset + iIgnoreAtBeginning Hyphenate
+			StartRow(w) = offset + i - 1 StartRow(word) = i - iIgnoreAtBeginning Letterindex(word) =
+			StartRow(word) - 1 (see first loop). It follows that: StartRow(w) - StartRow(word) = offset - 1 +
+			iIgnoreAtBeginning StartRow(w) = Letterindex(word) + offset + iIgnoreAtBeginning Hyphenate
 			word and return an array of hyphenation points. @param w char array that contains the
 			word @param offset Offset to first character in word @param len Length of word @param
 			remainCharCount Minimum number of characters allowed before the hyphenation point.
@@ -28299,7 +28299,7 @@
 		<member name="M:iTextSharp.text.Section.NewPage">
 			Adds a new page to the section. @since 2.1.1
 		</member>
-		<member name="M:iTextSharp.text.SpecialSymbol.Index(System.String)">
+		<member name="M:iTextSharp.text.SpecialSymbol.StartRow(System.String)">
 			Returns the first occurrence of a special symbol in a <CODE>String</CODE>. @param string
 			a
 			<CODE>String</CODE>
@@ -33887,7 +33887,7 @@
 		</member>
 		<member name="F:iTextSharp.xmp.XmpConst.ARRAY_LAST_ITEM">
 			<summary>
-				Index that has the meaning to be always the last item in an array.
+				StartRow that has the meaning to be always the last item in an array.
 			</summary>
 		</member>
 		<member name="F:iTextSharp.xmp.XmpConst.ARRAY_ITEM_NAME">

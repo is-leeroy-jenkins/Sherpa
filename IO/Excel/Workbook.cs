@@ -57,6 +57,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UnusedType.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "RedundantCheckBeforeAssignment" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     public abstract class Workbook : SheetConfig
     {
         /// <summary>
@@ -114,6 +115,14 @@ namespace BudgetExecution
             {
                 _titleFont = value;
             }
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        protected Workbook( )
+            : base( )
+        {
         }
 
         /// <inheritdoc />

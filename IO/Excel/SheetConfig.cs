@@ -63,6 +63,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "RedundantCheckBeforeAssignment" ) ]
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     [ SuppressMessage( "ReSharper", "ParameterTypeCanBeEnumerable.Global" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBaseConstructorCall" ) ]
     public abstract class SheetConfig : BasicReport
     {
         /// <summary>
@@ -348,64 +349,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <inheritdoc />
         /// <summary>
-        /// Gets or sets the index.
+        ///
         /// </summary>
-        /// <value>
-        /// The index.
-        /// </value>
-        public int Index
+        protected SheetConfig( )
+            : base( )
         {
-            get
-            {
-                return _rowIndex;
-            }
-            
-            private protected set
-            {
-                _rowIndex = value;
-            }
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets or sets the file path.
-        /// </summary>
-        /// <value>
-        /// The file path.
-        /// </value>
-        public string FilePath
-        {
-            get
-            {
-                return _filePath;
-            }
-            
-            private protected set
-            {
-                _filePath = value;
-            }
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets or sets the name of the file.
-        /// </summary>
-        /// <value>
-        /// The name of the file.
-        /// </value>
-        public string FileName
-        {
-            get
-            {
-                return _fileName;
-            }
-            
-            private protected set
-            {
-                _fileName = value;
-            }
         }
 
         /// <inheritdoc />
@@ -459,8 +408,8 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( excelRange, nameof( excelRange ) );
-                var _header = excelRange.Start.Row - 1;
-                var _startColumn = excelRange.Start.Column;
+                var _header = _startRow - 1;
+                _startColumn = excelRange.Start.Column;
                 var _endColumn = excelRange.End.Column;
                 _headerRange = _dataWorksheet.Cells[ _header, _startColumn, _header, _endColumn ];
                 _headerRange.Style.Font.Name = "Roboto";
@@ -497,8 +446,8 @@ namespace BudgetExecution
             {
                 ThrowIf.Null( excelRange, nameof( excelRange ) );
                 ThrowIf.Null( names, nameof( names ) );
-                var _header = excelRange.Start.Row - 1;
-                var _startColumn = excelRange.Start.Column;
+                var _header = _startRow - 1;
+                _startColumn = excelRange.Start.Column;
                 var _endColumn = excelRange.End.Column;
                 _dataRange = _dataWorksheet.Cells[ _header, _startColumn, _header, _endColumn ];
                 _dataRange.Style.Font.Name = "Roboto";

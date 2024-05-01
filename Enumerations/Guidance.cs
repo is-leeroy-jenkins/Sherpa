@@ -51,6 +51,61 @@ namespace BudgetExecution
     public enum Guidance
     {
         /// <summary>
+        /// The advice of allowance fiscal year2021
+        /// </summary>
+        AdviceOfAllowanceFiscalYear2021,
+
+        /// <summary>
+        /// The advice of allowance fiscal year2022
+        /// </summary>
+        AdviceOfAllowanceFiscalYear2022,
+
+        /// <summary>
+        /// The advice of allowance fiscal year2023
+        /// </summary>
+        AdviceOfAllowanceFiscalYear2023,
+
+        /// <summary>
+        /// The anti deficiency act
+        /// </summary>
+        AntiDeficiencyAct,
+
+        /// <summary>
+        /// The budget control act
+        /// </summary>
+        BudgetControlAct,
+
+        /// <summary>
+        /// The clean air act
+        /// </summary>
+        CleanAirAct,
+
+        /// <summary>
+        /// The clean water act
+        /// </summary>
+        CleanWaterAct,
+
+        /// <summary>
+        /// The comprehensive environmental response compensation and liability act
+        /// </summary>
+        ComprehensiveEnvironmentalResponseCompensationAndLiabilityAct,
+
+        /// <summary>
+        /// The data act
+        /// </summary>
+        DataAct,
+
+        /// <summary>
+        /// The deobligation recertification guidance
+        /// </summary>
+        DeobligationRecertificationGuidance,
+
+        /// <summary>
+        /// The emergency response mission assignment guidance
+        /// </summary>
+        EmergencyResponseMissionAssignmentGuidance,
+
+        /// <summary>
         /// The funds control manual
         /// </summary>
         FundsControlManual,
@@ -126,21 +181,6 @@ namespace BudgetExecution
         SuperfundStateCostShareProvisions,
 
         /// <summary>
-        /// The advice of allowance fiscal year2021
-        /// </summary>
-        AdviceOfAllowanceFiscalYear2021,
-
-        /// <summary>
-        /// The advice of allowance fiscal year2022
-        /// </summary>
-        AdviceOfAllowanceFiscalYear2022,
-
-        /// <summary>
-        /// The advice of allowance fiscal year2023
-        /// </summary>
-        AdviceOfAllowanceFiscalYear2023,
-
-        /// <summary>
         /// The jobs act advice of allowance fiscal year2022
         /// </summary>
         JobsActAdviceOfAllowanceFiscalYear2022,
@@ -161,29 +201,9 @@ namespace BudgetExecution
         InflationReductionActAdviceOfAllowanceFiscalYear2023,
 
         /// <summary>
-        /// The comprehensive environmental response compensation and liability act
-        /// </summary>
-        ComprehensiveEnvironmentalResponseCompensationAndLiabilityAct,
-
-        /// <summary>
-        /// The clean air act
-        /// </summary>
-        CleanAirAct,
-
-        /// <summary>
-        /// The budget control act
-        /// </summary>
-        BudgetControlAct,
-
-        /// <summary>
         /// The federal account symbols and titles book
         /// </summary>
         FederalAccountSymbolsAndTitlesBook,
-
-        /// <summary>
-        /// The emergency response mission assignment guidance
-        /// </summary>
-        EmergencyResponseMissionAssignmentGuidance,
 
         /// <summary>
         /// The federal trust fund accounting guide
@@ -246,19 +266,9 @@ namespace BudgetExecution
         SolidWasteDisposalAct,
 
         /// <summary>
-        /// The data act
-        /// </summary>
-        DataAct,
-
-        /// <summary>
         /// The superfund amendments and reauthorization act
         /// </summary>
         SuperfundAmendmentsAndReauthorizationAct,
-
-        /// <summary>
-        /// The clean water act
-        /// </summary>
-        CleanWaterAct,
 
         /// <summary>
         /// The preparation submission and execution of the budget
@@ -279,16 +289,6 @@ namespace BudgetExecution
         /// The statutory authorities for inter-agency agreements
         /// </summary>
         StatutoryAuthoritiesForInterAgencyAgreements,
-
-        /// <summary>
-        /// The anti deficiency act
-        /// </summary>
-        AntiDeficiencyAct,
-
-        /// <summary>
-        /// The deobligation recertification guidance
-        /// </summary>
-        DeobligationRecertificationGuidance,
 
         /// <summary>
         /// The superfund annual allocation guidance

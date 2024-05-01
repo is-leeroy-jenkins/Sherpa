@@ -358,7 +358,7 @@
 		<member name="P:Microsoft.CodeAnalysis.Scripting.Hosting.CommonObjectFormatter.Visitor.FormattedMember.MinimalLength">
 			<remarks>
 				Doesn't (and doesn't need to) reflect the number of digits in
-				<see cref="F:Microsoft.CodeAnalysis.Scripting.Hosting.CommonObjectFormatter.Visitor.FormattedMember.Index"/>
+				<see cref="F:Microsoft.CodeAnalysis.Scripting.Hosting.CommonObjectFormatter.Visitor.FormattedMember.StartRow"/>
 				since it's only used for a conservative approximation (shorter is more conservative
 				when trying to determine the minimum number of members that will fill the output).
 			</remarks>

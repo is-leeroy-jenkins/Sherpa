@@ -1190,7 +1190,7 @@
             </summary>
             <value>The color that raised the event.</value>
         </member>
-        <member name="P:Cyotek.Windows.Forms.ColorCollectionEventArgs.Index">
+        <member name="P:Cyotek.Windows.Forms.ColorCollectionEventArgs.StartRow">
             <summary>
                 Gets the color index that raised the event.
             </summary>

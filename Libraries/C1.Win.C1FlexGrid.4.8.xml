@@ -3368,7 +3368,7 @@
 				that contains the column to be filtered.
 			</param>
 			<param name="columnIndex">
-				Index of the column that contains the values to be filtered.
+				StartRow of the column that contains the values to be filtered.
 			</param>
 			<param name="filter">
 				<see cref="T:C1.Win.C1FlexGrid.IC1ColumnFilter"/>
@@ -4127,7 +4127,7 @@
 				item may contain multiple columns, delimited by tabs (vbTab or '\t').
 			</param>
 			<param name="displayColumn">
-				Index of the column that is displayed in the grid.
+				StartRow of the column that is displayed in the grid.
 			</param>
 			<param name="autoKeys">
 				True if keys are to be automatically generated, false if the items themselves are to
@@ -5520,7 +5520,7 @@
 				object where the row will be drawn.
 			</param>
 			<param name="row">
-				Index of the row to draw.
+				StartRow of the row to draw.
 			</param>
 			<remarks>This method is for internal use. It allows inherited classes to customize the
 				grid appearance.
@@ -5536,10 +5536,10 @@
 				object where the cell will be drawn.
 			</param>
 			<param name="row">
-				Index of the cell's row.
+				StartRow of the cell's row.
 			</param>
 			<param name="col">
-				Index of the cell's column.
+				StartRow of the cell's column.
 			</param>
 			<returns>
 				The index of the last column painted (may be greater than
@@ -5557,10 +5557,10 @@
 				object where the cell will be drawn.
 			</param>
 			<param name="row">
-				Index of the cell's row.
+				StartRow of the cell's row.
 			</param>
 			<param name="col">
-				Index of the cell's column.
+				StartRow of the cell's column.
 			</param>
 			<param name="rcBounds">
 				<see cref="T:System.Drawing.Rectangle"/>
@@ -5590,16 +5590,16 @@
 				object used to measure the cell contents.
 			</param>
 			<param name="row1">
-				Index of the first row to be measured.
+				StartRow of the first row to be measured.
 			</param>
 			<param name="col1">
-				Index of the first column to be measured.
+				StartRow of the first column to be measured.
 			</param>
 			<param name="row2">
-				Index of the last row to be measured.
+				StartRow of the last row to be measured.
 			</param>
 			<param name="col2">
-				Index of the first column to be measured.
+				StartRow of the first column to be measured.
 			</param>
 			<param name="extra">
 				Extra space, in twips, to add to the largest entry.
@@ -5619,16 +5619,16 @@
 				object used to measure the cell contents.
 			</param>
 			<param name="row1">
-				Index of the first row to be measured.
+				StartRow of the first row to be measured.
 			</param>
 			<param name="col1">
-				Index of the first column to be measured.
+				StartRow of the first column to be measured.
 			</param>
 			<param name="row2">
-				Index of the last row to be measured.
+				StartRow of the last row to be measured.
 			</param>
 			<param name="col2">
-				Index of the first column to be measured.
+				StartRow of the first column to be measured.
 			</param>
 			<param name="extra">
 				Extra space, in twips, to add to the largest entry.
@@ -8594,7 +8594,7 @@
 				<code>
 					// create a column, assign it a name and get the new index Column myCol =
 					flex.Cols.Add(); myCol.Name = "address"; myCol.DataType = typeof(string); int
-					colIndex = myCol.Index; // assign a value to a cell using cell coordinates:
+					colIndex = myCol.StartRow; // assign a value to a cell using cell coordinates:
 					flex[1, colIndex] = "555, Broadway"; // get the value using the column name
 					string address = (string)flex[1, "address"]; MessageBox.Show("The address is " +
 					address);
@@ -10768,7 +10768,7 @@
 				String to look for.
 			</param>
 			<param name="rowStart">
-				Index of the row where the search should start.
+				StartRow of the row where the search should start.
 			</param>
 			<param name="col">
 				Column that contains the data to be searched.
@@ -10802,7 +10802,7 @@
 				String to look for.
 			</param>
 			<param name="rowStart">
-				Index of the row where the search should start.
+				StartRow of the row where the search should start.
 			</param>
 			<param name="col">
 				Column that contains the data to be searched.
@@ -10833,7 +10833,7 @@
 				Object to look for.
 			</param>
 			<param name="rowStart">
-				Index of the row where the search should start.
+				StartRow of the row where the search should start.
 			</param>
 			<param name="col">
 				Column to be searched.
@@ -10858,7 +10858,7 @@
 				The regular expression pattern to match.
 			</param>
 			<param name="rowStart">
-				Index of the row where the search should start.
+				StartRow of the row where the search should start.
 			</param>
 			<param name="col">
 				Column that contains the data to be searched.
@@ -11263,10 +11263,10 @@
 				object where the cell will be drawn.
 			</param>
 			<param name="row">
-				Index of the cell's row.
+				StartRow of the cell's row.
 			</param>
 			<param name="col">
-				Index of the cell's column.
+				StartRow of the cell's column.
 			</param>
 			<param name="rcBounds">
 				<see cref="T:System.Drawing.Rectangle"/>
@@ -12450,7 +12450,7 @@
 		<member name="M:C1.Win.C1FlexGrid.C1FlexGridBase.RemoveItem(System.Int32)">
 			<summary>Removes a row at a specified position from the grid.</summary>
 			<param name="index">
-				Index of the row to be removed.
+				StartRow of the row to be removed.
 			</param>
 		</member>
 		<member name="M:C1.Win.C1FlexGrid.C1FlexGridBase.PrintGrid(System.String,C1.Win.C1FlexGrid.PrintGridFlags)">
@@ -13591,7 +13591,7 @@
 				object where the row will be drawn.
 			</param>
 			<param name="row">
-				Index of the row to draw.
+				StartRow of the row to draw.
 			</param>
 			<remarks>This method is for internal use. It allows inherited classes to customize the
 				grid appearance.
@@ -13607,10 +13607,10 @@
 				object where the cell will be drawn.
 			</param>
 			<param name="row">
-				Index of the cell's row.
+				StartRow of the cell's row.
 			</param>
 			<param name="col">
-				Index of the cell's column.
+				StartRow of the cell's column.
 			</param>
 			<returns>
 				The index of the last column painted (may be greater than
@@ -13925,16 +13925,16 @@
 				object used to measure the cell contents.
 			</param>
 			<param name="row1">
-				Index of the first row to be measured.
+				StartRow of the first row to be measured.
 			</param>
 			<param name="col1">
-				Index of the first column to be measured.
+				StartRow of the first column to be measured.
 			</param>
 			<param name="row2">
-				Index of the last row to be measured.
+				StartRow of the last row to be measured.
 			</param>
 			<param name="col2">
-				Index of the first column to be measured.
+				StartRow of the first column to be measured.
 			</param>
 			<param name="extra">
 				Extra space, in twips, to add to the largest entry.
@@ -13954,16 +13954,16 @@
 				object used to measure the cell contents.
 			</param>
 			<param name="row1">
-				Index of the first row to be measured.
+				StartRow of the first row to be measured.
 			</param>
 			<param name="col1">
-				Index of the first column to be measured.
+				StartRow of the first column to be measured.
 			</param>
 			<param name="row2">
-				Index of the last row to be measured.
+				StartRow of the last row to be measured.
 			</param>
 			<param name="col2">
-				Index of the first column to be measured.
+				StartRow of the first column to be measured.
 			</param>
 			<param name="extra">
 				Extra space, in twips, to add to the largest entry.
@@ -14438,7 +14438,7 @@
 		<member name="M:C1.Win.C1FlexGrid.C1FlexGridBase.EditFilter(System.Int32)">
 			<summary>Edits the filter associated with a given column.</summary>
 			<param name="col">
-				Index of the column whose filter should be edited.
+				StartRow of the column whose filter should be edited.
 			</param>
 		</member>
 		<member name="M:C1.Win.C1FlexGrid.C1FlexGridBase.EditFilter(C1.Win.C1FlexGrid.Column)">
@@ -14451,7 +14451,7 @@
 		<member name="M:C1.Win.C1FlexGrid.C1FlexGridBase.ClearFilter(System.Int32)">
 			<summary>Clears the filter associated with a given column.</summary>
 			<param name="col">
-				Index of the column whose filter should be cleared.
+				StartRow of the column whose filter should be cleared.
 			</param>
 		</member>
 		<member name="M:C1.Win.C1FlexGrid.C1FlexGridBase.ClearFilter(C1.Win.C1FlexGrid.Column)">
@@ -15117,24 +15117,24 @@
 		<member name="M:C1.Win.C1FlexGrid.CellRange.ContainsRow(System.Int32)">
 			<summary>Determines whether the range contains a given row.</summary>
 			<param name="row">
-				Index of the row to check.
+				StartRow of the row to check.
 			</param>
 			<returns>True if the range contains the row, False otherwise.</returns>
 		</member>
 		<member name="M:C1.Win.C1FlexGrid.CellRange.ContainsCol(System.Int32)">
 			<summary>Determines whether the range contains a given column.</summary>
 			<param name="col">
-				Index of the column to check.
+				StartRow of the column to check.
 			</param>
 			<returns>True if the range contains the column, False otherwise.</returns>
 		</member>
 		<member name="M:C1.Win.C1FlexGrid.CellRange.Contains(System.Int32,System.Int32)">
 			<summary>Determines whether the range contains a given cell.</summary>
 			<param name="row">
-				Index of the row to check.
+				StartRow of the row to check.
 			</param>
 			<param name="col">
-				Index of the column to check.
+				StartRow of the column to check.
 			</param>
 			<returns>True if the range contains the cell, False otherwise.</returns>
 		</member>
@@ -15443,10 +15443,10 @@
 				object in the collection that contains the specified row and column.
 			</summary>
 			<param name="row">
-				Index of the row contained in the range.
+				StartRow of the row contained in the range.
 			</param>
 			<param name="col">
-				Index of the column contained in the range.
+				StartRow of the column contained in the range.
 			</param>
 			<returns>
 				The index of the object in the collection, or -1 if no range could be found
@@ -15475,7 +15475,7 @@
 		<member name="M:C1.Win.C1FlexGrid.CellRangeCollection.RemoveAt(System.Int32)">
 			<summary>Removed the object at a specified index from the collection.</summary>
 			<param name="index">
-				Index of the object to remove from the collection.
+				StartRow of the object to remove from the collection.
 			</param>
 		</member>
 		<member name="T:C1.Win.C1FlexGrid.GridDataSource">
@@ -15780,10 +15780,10 @@
 		<member name="M:C1.Win.C1FlexGrid.RowColEventArgs.#ctor(System.Int32,System.Int32)">
 			<summary>Initializes a new instance of the RowColEventArgs class.</summary>
 			<param name="row">
-				Index of the row that caused the event.
+				StartRow of the row that caused the event.
 			</param>
 			<param name="col">
-				Index of the column that caused the event.
+				StartRow of the column that caused the event.
 			</param>
 		</member>
 		<member name="P:C1.Win.C1FlexGrid.RowColEventArgs.Row">
@@ -15882,10 +15882,10 @@
 		<member name="M:C1.Win.C1FlexGrid.ToolTipEventArgs.#ctor(System.Int32,System.Int32,System.String)">
 			<summary>Initializes a new instance of the ToolTipEventArgs class.</summary>
 			<param name="row">
-				Index of the row that caused the event.
+				StartRow of the row that caused the event.
 			</param>
 			<param name="col">
-				Index of the column that caused the event.
+				StartRow of the column that caused the event.
 			</param>
 			<param name="toolTipText">
 				Text to display in the ToolTip
@@ -16508,17 +16508,17 @@
 				Text to insert in the new subtotal row.
 			</param>
 			<param name="newRowIndex">
-				Index of the new subtotal row.
+				StartRow of the new subtotal row.
 			</param>
 			<param name="isNewRow">
 				Whether the subtotal row is a new row or the subtotal is being added to an existing
 				subtotal row.
 			</param>
 			<param name="top">
-				Index of the top row in the group.
+				StartRow of the top row in the group.
 			</param>
 			<param name="bottom">
-				Index of the bottom row in the group.
+				StartRow of the bottom row in the group.
 			</param>
 			<param name="aggregateValue">
 				Calculated aggregate value for the group.
@@ -17125,7 +17125,7 @@
 		<member name="P:C1.Win.C1FlexGrid.Node.LastSibling">
 			<summary>Gets the last sibling node.</summary>
 		</member>
-		<member name="P:C1.Win.C1FlexGrid.Node.Index">
+		<member name="P:C1.Win.C1FlexGrid.Node.StartRow">
 			<summary>Gets the index of this node in the collection.</summary>
 		</member>
 		<member name="P:C1.Win.C1FlexGrid.Node.Nodes">
@@ -17612,7 +17612,7 @@
 				that provides parameters for rendering the page.
 			</param>
 			<param name="pageIndex">
-				Index of the page to print.
+				StartRow of the page to print.
 			</param>
 			<remarks>This method is used to render specific ranges of pages within the document.
 			</remarks>
@@ -17860,7 +17860,7 @@
 				property.
 			</remarks>
 		</member>
-		<member name="P:C1.Win.C1FlexGrid.RowCol.Index">
+		<member name="P:C1.Win.C1FlexGrid.RowCol.StartRow">
 			<summary>Gets the index of this row or column in its parent collection.</summary>
 			<remarks>
 				<para>This property returns -1 if the row or column is not a member of the
@@ -18216,7 +18216,7 @@
 			</param>
 		</member>
 		<member name="M:C1.Win.C1FlexGrid.Row.NodeSortChildRows">
-			<summary>Sorts node child rows by Row.Index</summary>
+			<summary>Sorts node child rows by Row.StartRow</summary>
 		</member>
 		<member name="P:C1.Win.C1FlexGrid.Row.Item(System.Int32)">
 			<summary>Gets or sets the cell value specified by the column index in this row.
@@ -18283,7 +18283,7 @@
 				property is set to -1 (which stands for default row height).
 			</remarks>
 		</member>
-		<member name="P:C1.Win.C1FlexGrid.Row.Index">
+		<member name="P:C1.Win.C1FlexGrid.Row.StartRow">
 			<summary>
 				Gets the index of this row in the
 				<see cref="T:C1.Win.C1FlexGrid.RowCollection"/>
@@ -18312,7 +18312,7 @@
 			</summary>
 			<remarks>
 				This property is similar to the
-				<see cref="P:C1.Win.C1FlexGrid.Row.Index"/>
+				<see cref="P:C1.Win.C1FlexGrid.Row.StartRow"/>
 				property, except it throws an exception if the
 				<see cref="T:C1.Win.C1FlexGrid.Row"/>
 				is not a member of the collection.
@@ -18557,7 +18557,7 @@
 			</summary>
 			<remarks>
 				This property is similar to the
-				<see cref="P:C1.Win.C1FlexGrid.Column.Index"/>
+				<see cref="P:C1.Win.C1FlexGrid.Column.StartRow"/>
 				property, except it throws an exception if the
 				<see cref="T:C1.Win.C1FlexGrid.Column"/>
 				is not a member of the collection.
@@ -18691,7 +18691,7 @@
 				to perform the sort using the order specified for each column.
 			</remarks>
 		</member>
-		<member name="P:C1.Win.C1FlexGrid.Column.Index">
+		<member name="P:C1.Win.C1FlexGrid.Column.StartRow">
 			<summary>
 				Gets the index of this column in the
 				<see cref="T:C1.Win.C1FlexGrid.Column"/>
@@ -18835,7 +18835,7 @@
 		<member name="M:C1.Win.C1FlexGrid.RowColCollection.Move(System.Int32,System.Int32)">
 			<summary>Moves a row or column to a new position in the collection.</summary>
 			<param name="indexOld">
-				Index of row or column to be moved.
+				StartRow of row or column to be moved.
 			</param>
 			<param name="indexNew">
 				New position.
@@ -18926,16 +18926,16 @@
 		<member name="M:C1.Win.C1FlexGrid.RowColCollection.GetPrevious(System.Int32)">
 			<summary>Gets the index of the previous visible row or column.</summary>
 			<param name="item">
-				Index of the original row or column.
+				StartRow of the original row or column.
 			</param>
-			<returns>Index of the previous visible row or column.</returns>
+			<returns>StartRow of the previous visible row or column.</returns>
 		</member>
 		<member name="M:C1.Win.C1FlexGrid.RowColCollection.GetNext(System.Int32)">
 			<summary>Gets the index of the next visible row or column.</summary>
 			<param name="item">
-				Index of the original row or column.
+				StartRow of the original row or column.
 			</param>
-			<returns>Index of the next visible row or column.</returns>
+			<returns>StartRow of the next visible row or column.</returns>
 		</member>
 		<member name="M:C1.Win.C1FlexGrid.RowColCollection.Update">
 			<summary>Updates the position of rows or columns.</summary>
@@ -19188,7 +19188,7 @@
 				object to a new position in the collection.
 			</summary>
 			<param name="indexOld">
-				Index of row to be moved.
+				StartRow of row to be moved.
 			</param>
 			<param name="indexNew">
 				New position for the row.
@@ -19303,7 +19303,7 @@
 				Column name to look for (case-insensitive).
 			</param>
 			<returns>
-				Index of the column that has the given name in this collection, or -1 if the
+				StartRow of the column that has the given name in this collection, or -1 if the
 				collection does not contain a column with the given name.
 			</returns>
 		</member>
@@ -19320,7 +19320,7 @@
 				The search starting index.
 			</param>
 			<returns>
-				Index of the column that has the given name in this collection, or -1 if the
+				StartRow of the column that has the given name in this collection, or -1 if the
 				collection does not contain a column with the given name.
 			</returns>
 		</member>
@@ -19338,7 +19338,7 @@
 				Whether to throw and exception if the column cannot be found.
 			</param>
 			<returns>
-				Index of the column that has the given name in this collection, or -1 if the
+				StartRow of the column that has the given name in this collection, or -1 if the
 				collection does not contain a column with the given name.
 			</returns>
 			<remarks>
@@ -19379,7 +19379,7 @@
 				The search starting index.
 			</param>
 			<returns>
-				Index of the column that has the given name in this collection, or -1 if the
+				StartRow of the column that has the given name in this collection, or -1 if the
 				collection does not contain a column with the given name.
 			</returns>
 			<remarks>
@@ -19548,7 +19548,7 @@
 				object to a new position in the collection.
 			</summary>
 			<param name="indexOld">
-				Index of the column to be moved.
+				StartRow of the column to be moved.
 			</param>
 			<param name="indexNew">
 				New position for the column.
@@ -20422,7 +20422,7 @@
 		<member name="M:C1.Win.C1FlexGrid.CellStyleCollection.Remove(System.Int32)">
 			<summary>Removes a custom style from the collection.</summary>
 			<param name="index">
-				Index of the style to be removed.
+				StartRow of the style to be removed.
 			</param>
 			<remarks>Built-in styles can't be removed.</remarks>
 		</member>
@@ -20471,7 +20471,7 @@
 			<param name="style">
 				Style object to look for.
 			</param>
-			<returns>Index of the style in the collection, or -1 if the style is not a member of the
+			<returns>StartRow of the style in the collection, or -1 if the style is not a member of the
 				collection.
 			</returns>
 		</member>
@@ -21532,7 +21532,7 @@
 				FlexGrid which displays detail control.
 			</param>
 			<param name="rowIndex">
-				Index of parent detail row.
+				StartRow of parent detail row.
 			</param>
 			<remarks>
 				<para>This method can be used to setup data binding or other properties of the
@@ -21564,7 +21564,7 @@
 				FlexGrid which displays detail control.
 			</param>
 			<param name="rowIndex">
-				Index of parent detail row.
+				StartRow of parent detail row.
 			</param>
 			<param name="proposedSize">
 				The proposed size for the detail control.
@@ -21609,7 +21609,7 @@
 				FlexGrid which displays detail control.
 			</param>
 			<param name="rowIndex">
-				Index of parent detail row.
+				StartRow of parent detail row.
 			</param>
 			<remarks>
 				If Setup method did not initialize any resources, the body of
