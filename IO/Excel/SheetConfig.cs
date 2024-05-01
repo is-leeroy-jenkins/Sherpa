@@ -409,6 +409,7 @@ namespace BudgetExecution
             {
                 ThrowIf.Null( excelRange, nameof( excelRange ) );
                 var _header = _startRow - 1;
+                _startRow = excelRange.Start.Row;
                 _startColumn = excelRange.Start.Column;
                 var _endColumn = excelRange.End.Column;
                 _headerRange = _dataWorksheet.Cells[ _header, _startColumn, _header, _endColumn ];
@@ -426,12 +427,8 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                if( _headerRange != null )
-                {
-                    _headerRange = null;
-                }
-
                 Fail( _ex );
+                Dispose( );
             }
         }
 
@@ -447,6 +444,7 @@ namespace BudgetExecution
                 ThrowIf.Null( excelRange, nameof( excelRange ) );
                 ThrowIf.Null( names, nameof( names ) );
                 var _header = _startRow - 1;
+                _startRow = excelRange.Start.Row;
                 _startColumn = excelRange.Start.Column;
                 var _endColumn = excelRange.End.Column;
                 _dataRange = _dataWorksheet.Cells[ _header, _startColumn, _header, _endColumn ];
@@ -461,12 +459,8 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                if( _dataRange != null )
-                {
-                    _dataRange = null;
-                }
-
                 Fail( _ex );
+                Dispose( );
             }
         }
 
@@ -480,7 +474,8 @@ namespace BudgetExecution
             {
                 ThrowIf.Null( excelRange, nameof( excelRange ) );
                 var _footer = excelRange.End.Row + 1;
-                var _startColumn = excelRange.Start.Column;
+                _startRow = excelRange.Start.Row;
+                _startColumn = excelRange.Start.Column;
                 var _endColumn = excelRange.End.Column;
                 _footerRange = _dataWorksheet.Cells[ _footer, _startColumn, _footer, _endColumn ];
                 _footerRange.Style.Font.Name = "Roboto";
@@ -497,12 +492,8 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                if( _footerRange != null )
-                {
-                    _footerRange = null;
-                }
-
                 Fail( _ex );
+                Dispose( );
             }
         }
     }

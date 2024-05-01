@@ -180,6 +180,7 @@ namespace BudgetExecution
             catch( Exception _ex )
             {
                 Fail( _ex );
+                Dispose( );
             }
         }
 
@@ -198,7 +199,8 @@ namespace BudgetExecution
                 ThrowIf.Null( excelRange, nameof( excelRange ) );
                 ThrowIf.Null( labels, nameof( labels ) );
                 var _header = excelRange.Start.Row - 1;
-                var _startColumn = excelRange.Start.Column;
+                _startRow = excelRange.Start.Row;
+                _startColumn = excelRange.Start.Column;
                 var _endRow = excelRange.Start.Row - 1;
                 var _endColumn = excelRange.End.Column;
                 _headerRange = _dataWorksheet.Cells[ _header, _startColumn, _endRow, _endColumn ];
@@ -214,12 +216,8 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                if( _headerRange != null )
-                {
-                    _headerRange = null;
-                }
-
                 Fail( _ex );
+                Dispose( );
             }
         }
 
@@ -234,8 +232,9 @@ namespace BudgetExecution
             {
                 ThrowIf.Null( excelRange, nameof( excelRange ) );
                 ThrowIf.Null( labels, nameof( labels ) );
+                _startRow = excelRange.Start.Row;
                 var _footer = excelRange.Start.Row + 1;
-                var _startColumn = excelRange.Start.Column;
+                _startColumn = excelRange.Start.Column;
                 var _endRow = excelRange.End.Row + 1;
                 var _endColumn = excelRange.End.Column;
                 _footerRange = _dataWorksheet.Cells[ _footer, _startColumn, 
@@ -253,12 +252,8 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                if( _footerRange != null )
-                {
-                    _footerRange = null;
-                }
-
                 Fail( _ex );
+                Dispose( );
             }
         }
 
@@ -298,11 +293,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                if( _dataRange != null )
-                {
-                    _dataRange = null;
-                }
-
+                Dispose( );
                 Fail( _ex );
             }
         }
@@ -328,11 +319,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                if( _dataRange != null )
-                {
-                    _dataRange = null;
-                }
-
+                Dispose( );
                 Fail( _ex );
             }
         }
@@ -359,11 +346,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                if( _dataRange != null )
-                {
-                    _dataRange = null;
-                }
-
+                Dispose( );
                 Fail( _ex );
             }
         }

@@ -147,8 +147,6 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                _dataRange?.Dispose( );
-                _dataWorksheet?.Dispose( );
                 Fail( _ex );
                 return default( ExcelTable );
             }
@@ -187,8 +185,6 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                _dataRange?.Dispose( );
-                _dataWorksheet?.Dispose( );
                 Fail( _ex );
                 return default( DataTable );
             }
@@ -267,13 +263,6 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                if( _pivotTable != null )
-                {
-                    _pivotTable = null;
-                }
-
-                _pivotWorksheet?.Dispose( );
-                _pivotRange?.Dispose( );
                 Fail( _ex );
                 return default( ExcelPivotTable );
             }
@@ -323,13 +312,6 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                if( _pivotTable != null )
-                {
-                    _pivotTable = null;
-                }
-
-                _chartRange?.Dispose( );
-                _chartWorksheet?.Dispose( );
                 Fail( _ex );
                 return default( ExcelPieChart );
             }
@@ -377,13 +359,6 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                if( _pivotTable != null )
-                {
-                    _pivotTable = null;
-                }
-
-                _chartRange?.Dispose( );
-                _chartWorksheet?.Dispose( );
                 Fail( _ex );
                 return default( ExcelBarChart );
             }
@@ -431,13 +406,6 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                if( _pivotTable != null )
-                {
-                    _pivotTable = null;
-                }
-
-                _chartRange?.Dispose( );
-                _chartWorksheet?.Dispose( );
                 Fail( _ex );
                 return default( ExcelAreaChart );
             }
@@ -475,7 +443,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                _commentRange?.Dispose( );
+                Dispose( );
                 Fail( _ex );
             }
         }

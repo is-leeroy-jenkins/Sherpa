@@ -353,6 +353,7 @@ namespace BudgetExecution
             try
             {
                 ThrowIf.Null( excelRange, nameof( excelRange ) );
+                _startRow = excelRange.Start.Row;
                 _startColumn = excelRange.Start.Column;
                 var _endRow = excelRange.End.Row;
                 var _endColumn = excelRange.End.Column;
@@ -363,11 +364,7 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                if( _dataRange != null )
-                {
-                    _dataRange = null;
-                }
-
+                _dataRange?.Dispose( );
                 Fail( _ex );
             }
         }
@@ -439,6 +436,8 @@ namespace BudgetExecution
                 _dataCommand?.Dispose( );
                 _dataAdapter?.Dispose( );
                 _excelTable = null;
+                _dataRange?.Dispose( );
+                _pivotRange?.Dispose( );
                 _dataWorksheet?.Dispose( );
                 _chartWorksheet?.Dispose( );
                 _pivotWorksheet?.Dispose( );

@@ -277,6 +277,7 @@ namespace BudgetExecution
             catch( Exception _ex )
             {
                 Fail( _ex );
+                Dispose( );
             }
         }
 
@@ -302,6 +303,7 @@ namespace BudgetExecution
             catch( Exception _ex )
             {
                 Fail( _ex );
+                Dispose( );
             }
         }
 
@@ -337,6 +339,7 @@ namespace BudgetExecution
             catch( Exception _ex )
             {
                 Fail( _ex );
+                Dispose( );
             }
         }
 
@@ -372,12 +375,8 @@ namespace BudgetExecution
             }
             catch( Exception _ex )
             {
-                if( _dataRange != null )
-                {
-                    _dataRange = null;
-                }
-
                 Fail( _ex );
+                Dispose( );
             }
         }
 
@@ -396,6 +395,7 @@ namespace BudgetExecution
             catch( Exception _ex )
             {
                 Fail( _ex );
+                Dispose( );
             }
         }
 
@@ -411,6 +411,7 @@ namespace BudgetExecution
             catch( Exception _ex )
             {
                 Fail( _ex );
+                Dispose( );
             }
         }
     }
