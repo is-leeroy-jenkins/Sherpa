@@ -302,6 +302,9 @@
     <None Remove="WebBrowser\**" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Remove="Clients\Baby\net6.0-windows\Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
     <None Update="LICENSE">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
@@ -486,8 +489,5 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Assets\FormImages\Application.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\Assets\BabyImages\" />
   </ItemGroup>
 </Project>

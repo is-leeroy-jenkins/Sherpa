@@ -4576,3 +4576,27 @@ C:\fakepath(138,3-70): warning X3557: loop only executes for 1 iteration(s), for
 [0507/062832.401:INFO:CONSOLE(0)] "Third-party cookie will be blocked. Learn more in the Issues tab.", source: file:///C:/Users/terry/source/repos/Baby/WebPages/index.html (0)
 [0507/062832.588:INFO:CONSOLE(267)] "Search endpoint requested!", source: https://maps.gstatic.com/maps-api-v3/embed/js/56/11/init_embed.js (267)
 [0507/062836.279:WARNING:frame_impl.cc(432)] SendProcessMessage sent to detached frame 6-A9FEE8792D3723495BB6F3D3A1855DD5 will be ignored
+[0507/064814.026:WARNING:alloy_browser_main.cc(168)] Unhandled app relaunch; implement CefBrowserProcessHandler::OnAlreadyRunningAppRelaunch.
+[0507/064815.605:WARNING:runtime_features.cc(728)] AttributionReportingCrossAppWeb cannot be enabled in this configuration. Use --enable-features=ConversionMeasurement,AttributionReportingCrossAppWeb in addition.
+[0507/064816.222:INFO:CONSOLE(0)] "Access to XMLHttpRequest at 'file:///C:/Users/terry/source/repos/Baby/WebPages/menu.html' from origin 'null' has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: http, baby, data, chrome-extension, chrome, https, chrome-untrusted.", source: file:///C:/Users/terry/source/repos/Baby/WebPages/index.html (0)
+[0507/064816.222:INFO:CONSOLE(0)] "Access to XMLHttpRequest at 'file:///C:/Users/terry/source/repos/Baby/WebPages/footer.html' from origin 'null' has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: http, baby, data, chrome-extension, chrome, https, chrome-untrusted.", source: file:///C:/Users/terry/source/repos/Baby/WebPages/index.html (0)
+[0507/064816.359:WARNING:browser_info.cc(328)] Returning a speculative frame for [6,5]
+[0507/064816.359:WARNING:browser_info.cc(328)] Returning a speculative frame for [6,5]
+[0507/064816.359:WARNING:browser_info.cc(328)] Returning a speculative frame for [6,5]
+[0507/064816.359:WARNING:browser_info.cc(328)] Returning a speculative frame for [6,5]
+[0507/064816.374:INFO:CONSOLE(0)] "Third-party cookie will be blocked. Learn more in the Issues tab.", source: file:///C:/Users/terry/source/repos/Baby/WebPages/index.html (0)
+[0507/064816.374:INFO:CONSOLE(0)] "Third-party cookie will be blocked. Learn more in the Issues tab.", source: file:///C:/Users/terry/source/repos/Baby/WebPages/index.html (0)
+[0507/064816.374:INFO:CONSOLE(0)] "Third-party cookie will be blocked. Learn more in the Issues tab.", source: file:///C:/Users/terry/source/repos/Baby/WebPages/index.html (0)
+[0507/064816.374:INFO:CONSOLE(0)] "Third-party cookie will be blocked. Learn more in the Issues tab.", source: file:///C:/Users/terry/source/repos/Baby/WebPages/index.html (0)
+[0507/064816.374:INFO:CONSOLE(0)] "Third-party cookie will be blocked. Learn more in the Issues tab.", source: file:///C:/Users/terry/source/repos/Baby/WebPages/index.html (0)
+[0507/064816.374:INFO:CONSOLE(0)] "Third-party cookie will be blocked. Learn more in the Issues tab.", source: file:///C:/Users/terry/source/repos/Baby/WebPages/index.html (0)
+[0507/064817.182:WARNING:runtime_features.cc(728)] AttributionReportingCrossAppWeb cannot be enabled in this configuration. Use --enable-features=ConversionMeasurement,AttributionReportingCrossAppWeb in addition.
+[0507/064817.213:WARNING:browser_info.cc(328)] Returning a speculative frame for [6,5]
+[0507/064817.383:INFO:CONSOLE(267)] "Search endpoint requested!", source: https://maps.gstatic.com/maps-api-v3/embed/js/56/11/init_embed.js (267)
+[0507/064817.569:WARNING:runtime_features.cc(728)] AttributionReportingCrossAppWeb cannot be enabled in this configuration. Use --enable-features=ConversionMeasurement,AttributionReportingCrossAppWeb in addition.
+[0507/064818.648:INFO:CONSOLE(0)] "Third-party cookie will be blocked. Learn more in the Issues tab.", source: file:///C:/Users/terry/source/repos/Baby/WebPages/index.html (0)
+[0507/064818.648:INFO:CONSOLE(0)] "Third-party cookie will be blocked. Learn more in the Issues tab.", source: file:///C:/Users/terry/source/repos/Baby/WebPages/index.html (0)
+[0507/064818.648:INFO:CONSOLE(0)] "Third-party cookie will be blocked. Learn more in the Issues tab.", source: file:///C:/Users/terry/source/repos/Baby/WebPages/index.html (0)
+[0507/064818.648:INFO:CONSOLE(0)] "Third-party cookie will be blocked. Learn more in the Issues tab.", source: file:///C:/Users/terry/source/repos/Baby/WebPages/index.html (0)
+[0507/064818.648:INFO:CONSOLE(0)] "Third-party cookie will be blocked. Learn more in the Issues tab.", source: file:///C:/Users/terry/source/repos/Baby/WebPages/index.html (0)
+[0507/064818.648:INFO:CONSOLE(0)] "Third-party cookie will be blocked. Learn more in the Issues tab.", source: file:///C:/Users/terry/source/repos/Baby/WebPages/index.html (0)
