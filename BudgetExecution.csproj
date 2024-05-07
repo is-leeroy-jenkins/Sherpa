@@ -487,4 +487,7 @@
   <ItemGroup>
     <Content Include="Resources\Assets\FormImages\Application.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\Assets\BabyImages\" />
+  </ItemGroup>
 </Project>
